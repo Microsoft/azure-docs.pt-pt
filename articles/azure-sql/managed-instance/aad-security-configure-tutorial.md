@@ -2,7 +2,7 @@
 title: SqL Managed Instance security with Azure AD server principals (logins)
 description: Saiba mais técnicas e funcionalidades para garantir a Azure SQL Managed Instance e use os principais servidores AD do Azure (logins)
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219800"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706448"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Azure SQL Caso gerido usando os principais servidores AD do Azure (logins)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ A Azure SQL Managed Instance fornece quase todas as funcionalidades de seguranç
 - Utilizar a autorização com membros e permissões baseados em funções
 - Ativar funcionalidades de segurança
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -222,7 +222,7 @@ A autorização para bases de dados individuais funciona da mesma forma em SQL M
 
 Agora que criámos uma base de dados chamada **MyMITestDB**, e um login que só tem permissões padrão, o próximo passo é criar um utilizador a partir desse login. De momento, o login pode ligar-se à instância gerida, e ver todas as bases de dados, mas não pode interagir com as bases de dados. Se iniciar sedições com a conta AD Azure que tem as permissões por defeito e tentar expandir a base de dados recém-criada, verá o seguinte erro:
 
-![ssms-db-não-acessível.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Para obter mais informações sobre a concessão de permissões de base de dados, consulte ["Começar com permissões do motor de base de dados".](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)
 
@@ -337,7 +337,7 @@ Para que o utilizador veja os dados na base de dados, podemos fornecer [funçõe
 
     Consegue ver os dados da mesa? Devia ver as colunas a serem devolvidas.
 
-    ![ssms-test-table-consulta.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Personificar os principais do nível do servidor AD do Azure (logins)
 
@@ -445,7 +445,7 @@ Consulte o artigo [de segurança SQL Managed Instance](sql-managed-instance-paas
 - [Auditoria de casos geridos sql](auditing-configure.md)
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](threat-detection-configure.md)
-- [Mascaramento dinâmico de dados](/sql/relational-databases/security/dynamic-data-masking)
+- [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security)
 - [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 

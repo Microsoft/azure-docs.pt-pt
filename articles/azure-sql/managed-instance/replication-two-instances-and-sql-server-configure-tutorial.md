@@ -2,7 +2,7 @@
 title: Configure a replicação transacional entre Azure SQL Managed Instance e SQL Server
 description: Um tutorial que configura a replicação entre uma instância gerida por um editor, um exemplo gerido por distribuidores e um subscritor do SQL Server num VM Azure, juntamente com os componentes de rede necessários, como a zona privada de DNS e o VPN.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,17 +10,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: a34ac27459a84048ac5fc9ef10f6f55def6cec78
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221331"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708523"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Azure SQL Managed Instance e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -404,7 +404,7 @@ Consulte o artigo [O que é Azure SQL Managed Instance?](sql-managed-instance-pa
 - [Auditoria de casos geridos sql](auditing-configure.md)
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](threat-detection-configure.md)
-- [Mascaramento dinâmico de dados](/sql/relational-databases/security/dynamic-data-masking)
+- [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security)
 - [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 

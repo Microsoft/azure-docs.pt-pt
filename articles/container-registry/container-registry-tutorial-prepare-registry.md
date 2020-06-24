@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238525"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693233"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -39,7 +39,7 @@ O Azure Cloud Shell não inclui os componentes do Docker necessários para concl
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-Selecione **Criar um** > registo de**contentores** > de recursos**Azure**.
+Selecione **Criar um**registo de  >  **contentores de**recursos  >  **Azure Container**.
 
 ![Criar um registo de contentor no portal do Azure][tut-portal-01]
 
@@ -47,15 +47,15 @@ Configure o seu novo registo com as seguintes definições:
 
 * **Nome do registo**: crie um nome de registo que seja globalmente exclusivo no Azure e contenha apenas 5-50 carateres alfanuméricos
 * **Grupo de Recursos**: **Criar novos** > `myResourceGroup`
-* **Localização:**`West US`
-* **Utilizador administrativo** `Enable` : (necessário para a Aplicação Web para contentores puxar imagens)
-* **SKU** `Premium` : (necessário para a geo-replicação)
+* **Localização**:`West US`
+* **Utilizador administrativo:** `Enable` (obrigatório para web app para contentores para puxar imagens)
+* **SKU**: `Premium` (necessário para a geo-replicação)
 
 Selecione **Criar** para implementar a instância ACR.
 
 ![Criar um registo de contentor no portal do Azure][tut-portal-02]
 
-Ao longo do resto deste `<acrName>` tutorial, utilizamos como espaço reservado para o nome do **registo** de contentores que escolheu.
+Durante todo o resto deste tutorial, utilizamos `<acrName>` como espaço reservado para o nome de registo **de** contentores que escolheu.
 
 > [!TIP]
 > Por os registos de contentor do Azure serem normalmente recursos de longo prazo utilizados em vários anfitriões de contentores, recomendamos que crie o seu registo no seu próprio grupo de recursos. À medida que configura registos e webhooks georreplicados, esses recursos adicionais são colocados no mesmo grupo de recursos.

@@ -1,6 +1,6 @@
 ---
 title: Criar um laboratório com o Azure DevTest Labs | Microsoft Docs
-description: Neste tutorial, você cria um laboratório em Azure DevTest Labs usando o portal Azure. Um administrador de laboratório cria um laboratório, cria VMs no laboratório, e confunde políticas.
+description: Neste tutorial, você cria um laboratório em Azure DevTest Labs usando o portal Azure. Um administrador de laboratório cria um laboratório, cria VMs no laboratório, e configura políticas.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239911"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686193"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
@@ -31,7 +31,7 @@ Neste tutorial, irá realizar as seguintes ações:
 > * Adicionar máquinas virtuais (VM) ao laboratório
 > * Adicionar um utilizador à função de Utilizador do Laboratório
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-lab"></a>Criar um laboratório
 Os passos seguintes mostram como utilizar o portal do Azure para criar um laboratório no Azure DevTest Labs. 
@@ -49,7 +49,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
     6. Selecione **Afixar ao dashboard**. Depois de criar o laboratório, poderá vê-lo no dashboard. 
 
         ![Criar uma secção de laboratório do DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
-2. Confirme que o laboratório é criado com sucesso olhando para as notificações. Selecione **Ir para o recurso**.  
+2. Confirme que o laboratório foi criado com sucesso, analisando as notificações. Selecione **Ir para o recurso**.  
 
     ![Notificação](./media/tutorial-create-custom-lab/creation-notification.png)
 3. Confirme que vê a página do **Laboratório DevTest** para o seu laboratório. 
@@ -68,7 +68,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
     3. Em **Palavra-passe**,introduza a palavra-passe do utilizador. 
 
         ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
-1. Selecione separador de **definições avançadas.**
+1. Selecione O separador **definições avançadas.**
     1. Para **Tornar esta máquina reclamável**, selecione **Sim**.
     2. Confirme que a **contagem de instâncias** está definida como **1**. Se for definida como **2**, serão criadas duas VMs com os nomes: `<base image name>00' and <base image name>01`. Por exemplo: `win10vm00` e `win10vm01`.     
     3. Selecione **Submeter**. 
@@ -80,16 +80,16 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 1. Uma vez criada a VM, será apresentada na lista de **Máquinas de virtuais reclamáveis**. 
 
     > [!NOTE] 
-    > Na página **Definições Avançadas,** pode configurar um endereço IP público, privado ou partilhado para o VM. Quando o **IP partilhado** está ativado, o Azure DevTest Labs ativa automaticamente o RDP para VMs windows e SSH para VMs Linux. Se criar VMs com endereços **IP públicos,** RDP e SSH estão ativados sem alterações dos Laboratórios DevTest.  
+    > Na página **Definições Avançadas,** pode configurar um endereço IP público, privado ou partilhado para o VM. Quando o **IP partilhado** está ativado, a Azure DevTest Labs ativa automaticamente RDP para VMs windows e SSH para VMs Linux. Se criar VMs com endereços **IP públicos,** RDP e SSH estão ativados sem alterações a partir de DevTest Labs.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adicionar um utilizador à função de Utilizador do Laboratório
 
 1. Selecione **Configuração e políticas** no menu esquerdo. 
 
     ![Configuração e políticas](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Selecione o controlo de **acesso (IAM)** do menu e selecione + Adicione a atribuição de **funções** na barra de ferramentas. 
+1. Selecione o controlo de **acesso (IAM)** do menu e selecione + Adicione a **atribuição de funções** na barra de ferramentas. 
 
-    ![Adicionar atribuição de papéis - botão](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
+    ![Adicionar atribuição de função - botão](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
 1. Na página **Adicionar permissões**, realize as seguintes ações:
     1. Em **função**, selecione **Utilizador do DevTest Labs**. 
     2. Selecione o **utilizador** que pretende adicionar. 
@@ -104,7 +104,7 @@ O próximo tutorial mostra como um utilizador do laboratório pode reivindicar e
 
     ![Grupos de recursos](./media/tutorial-create-custom-lab/resource-groups.png)
 1. Selecione o grupo de recursos no qual criou o laboratório. 
-1. Selecione **Eliminar grupo de recursos** na barra de ferramentas. A eliminação de um grupo de recursos elimina todos os recursos no grupo, incluindo o laboratório. 
+1. Selecione **Eliminar grupo de recursos**, na barra de ferramentas. A eliminação de um grupo de recursos elimina todos os recursos no grupo, incluindo o laboratório. 
 
     ![Grupo de recursos de laboratório](./media/tutorial-create-custom-lab/lab-resource-group.png)
 1. Repita estes passos para eliminar o grupo de recursos adicional criado por si com o nome `<your resource group name><random numbers>`. Por exemplo: `splab3988722144001`. As VMs são criadas neste grupo de recursos em vez de serem criadas no grupo de recursos no qual existe o laboratório. 

@@ -1,21 +1,25 @@
 ---
 title: Lista de definições políticas incorporadas
 description: Listar definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Conformidade Regulamentar, Cofre-Chave, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b95029a5422a427e071cb2d3e4481b846ff9a295
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233742"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709629"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas incorporadas da Política Azure
 
 Esta página é um índice de definições políticas incorporadas da Azure Policy.
 
 O nome de cada ligação incorporada à definição de política no portal Azure. Utilize o link na coluna **Source** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria**específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
+
+## <a name="api-management"></a>Gestão de API
+
+[!INCLUDE [azure-policy-samples-policies-api-management](../../../../includes/policy/samples/bycat/policies-api-management.md)]
 
 ## <a name="app-configuration"></a>App Configuration
 
@@ -33,7 +37,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-samples-policies-automation](../../../../includes/policy/samples/bycat/policies-automation.md)]
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 [!INCLUDE [azure-policy-samples-policies-backup](../../../../includes/policy/samples/bycat/policies-backup.md)]
 
@@ -44,6 +48,10 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="cache"></a>Cache
 
 [!INCLUDE [azure-policy-samples-policies-cache](../../../../includes/policy/samples/bycat/policies-cache.md)]
+
+## <a name="cognitive-services"></a>Serviços Cognitivos
+
+[!INCLUDE [azure-policy-samples-policies-cognitive-services](../../../../includes/policy/samples/bycat/policies-cognitive-services.md)]
 
 ## <a name="compute"></a>Computação
 
@@ -85,7 +93,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-samples-policies-internet-of-things](../../../../includes/policy/samples/bycat/policies-internet-of-things.md)]
 
-## <a name="key-vault"></a>Cofre de Chaves
+## <a name="key-vault"></a>Key Vault
 
 [!INCLUDE [azure-policy-samples-policies-key-vault](../../../../includes/policy/samples/bycat/policies-key-vault.md)]
 
@@ -97,7 +105,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-samples-policies-lighthouse](../../../../includes/policy/samples/bycat/policies-lighthouse.md)]
 
-## <a name="logic-apps"></a>Aplicações Lógicas
+## <a name="logic-apps"></a>Logic Apps
 
 [!INCLUDE [azure-policy-samples-policies-logic-apps](../../../../includes/policy/samples/bycat/policies-logic-apps.md)]
 
@@ -117,7 +125,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-samples-policies-network](../../../../includes/policy/samples/bycat/policies-network.md)]
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Pesquisar
 
 [!INCLUDE [azure-policy-samples-policies-search](../../../../includes/policy/samples/bycat/policies-search.md)]
 
@@ -132,6 +140,10 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="service-fabric"></a>Service Fabric
 
 [!INCLUDE [azure-policy-samples-policies-service-fabric](../../../../includes/policy/samples/bycat/policies-service-fabric.md)]
+
+## <a name="signalr"></a>SignalR
+
+[!INCLUDE [azure-policy-samples-policies-signalr](../../../../includes/policy/samples/bycat/policies-signalr.md)]
 
 ## <a name="sql"></a>SQL
 

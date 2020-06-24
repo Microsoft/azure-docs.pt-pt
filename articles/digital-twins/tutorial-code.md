@@ -1,5 +1,5 @@
 ---
-title: Código de uma aplicação de cliente
+title: Codificar uma aplicação cliente
 titleSuffix: Azure Digital Twins
 description: Tutorial para escrever o código mínimo para uma aplicação do cliente, utilizando o .NET (C#) SDK.
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613369"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298400"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs de Gémeos Digitais Azure
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 É comum que os desenvolvedores que trabalham com a Azure Digital Twins escrevam uma aplicação de cliente para interagir com a sua instância do serviço Azure Digital Twins. Este tutorial focado no programador proporciona uma introdução à programação contra o serviço Azure Digital Twins, utilizando a [biblioteca de clientes Azure IoT Digital Twin para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Acompanha-o através da escrita de uma aplicação de cliente de consola C# passo a passo, começando do zero.
 
@@ -99,8 +102,8 @@ A primeira coisa que a sua aplicação terá de fazer é autenticar contra o ser
 
 Para autenticar, necessita de três peças de informação:
 * O *ID do Diretório (inquilino)* para a sua subscrição
-* O *ID de Aplicação (cliente)* criado quando configura a instância de serviço mais cedo
-* O *nome anfitrião* da sua instância de serviço
+* O *ID da Aplicação (cliente)* criado quando configura a instância Azure Digital Twins mais cedo
+* O *nome anfitrião* da sua instância Azure Digital Twins
 
 >[!TIP]
 > Se não conhece o seu *ID do Diretório (inquilino),* pode obtê-lo executando este comando em [Azure Cloud Shell:](https://shell.azure.com)
@@ -148,7 +151,7 @@ A Azure Digital Twins não tem vocabulário de domínio intrínseco. Os tipos de
 
 O primeiro passo para criar uma solução Azure Digital Twins é definir pelo menos um modelo num ficheiro DTDL.
 
-No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *SampleModel.json*. Pasta no seguinte corpo de ficheiro: 
+No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *SampleModel.js.* Pasta no seguinte corpo de ficheiro: 
 
 ```json
 {
@@ -174,7 +177,7 @@ No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *S
 > Se estiver a utilizar o Visual Studio para este tutorial, poderá querer selecionar o ficheiro JSON recém-criado e definir a propriedade *Copy to Output Directory* no inspetor de propriedade para *copiar se Newer* ou *Copy Always*. Isto permitirá ao Visual Studio encontrar o ficheiro JSON com o caminho predefinido quando executar o programa com **F5** durante o resto do tutorial.
 
 > [!TIP] 
-> Existe uma [amostra de DTDL Validador](https://github.com/Azure-Samples/DTDL-Validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [Como-a: Parse e validar modelos.](how-to-use-parser.md)
+> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [Como-a: Parse e validar modelos.](how-to-use-parser.md)
 
 Em seguida, adicione mais um código para *Program.cs* para carregar o modelo que acabou de criar na sua instância Azure Digital Twins.
 
@@ -216,8 +219,7 @@ Na sua janela de comando, execute o programa com este comando:
 ```cmd/sh
 dotnet run
 ```
-
-Vai notar que, neste momento, não há saída que indique que a chamada foi bem sucedida. 
+"Upload a model" será impresso na saída, mas ainda não há saída para indicar se os modelos foram ou não carregados com sucesso.
 
 Para adicionar uma declaração de impressão indicando se os modelos são realmente carregados com sucesso, adicione o seguinte código logo após a secção anterior:
 
@@ -291,24 +293,19 @@ using System.Text.Json;
 Em seguida, adicione o seguinte código ao fim do `Main` método para criar e inicializar três gémeos digitais com base neste modelo.
 
 ```csharp
-// Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+// Initialize twin data
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", $"Hello World!");
+
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+        twinData.Id = $"{prefix}{i}";
+        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin: {rex.Status}:{rex.Message}");  
+        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
     }
 }
 ```
@@ -449,6 +446,7 @@ namespace minimal
             var typeList = new List<string>();
             string dtdl = File.ReadAllText("SampleModel.json");
             typeList.Add(dtdl);
+
             // Upload the model to the service
             try {
                 await client.CreateModelsAsync(typeList);
@@ -462,21 +460,16 @@ namespace minimal
                 Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
             }
 
-            // Initialize twin metadata
-            var meta = new Dictionary<string, object>
-            {
-                { "$model", "dtmi:com:contoso:SampleModel;1" },
-            };
-            // Initialize the twin properties
-            var initData = new Dictionary<string, object>
-            {
-                { "$metadata", meta },
-                { "data", "Hello World!" }
-            };
+            // Initialize twin data
+            BasicDigitalTwin twinData = new BasicDigitalTwin();
+            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+            twinData.CustomProperties.Add("data", $"Hello World!");
+    
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+                    twinData.Id = $"{prefix}{i}";
+                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -563,7 +556,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de projeto que criou na sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma aplicação de cliente de consola .NET de raiz. Escreveu código para esta aplicação de clientes para realizar as ações básicas numa instância Azure Digital Twins.
 

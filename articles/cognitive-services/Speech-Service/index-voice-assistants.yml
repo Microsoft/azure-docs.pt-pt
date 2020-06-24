@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentação dos assistentes de voz
-summary: Assistentes de voz que usam o serviço Speech capacitam os desenvolvedores a criar interfaces de conversação naturais e humanas para as suas aplicações e experiências.
+summary: Os assistentes de voz que usam o serviço Speech capacitam os desenvolvedores a criar interfaces de conversação naturais e humanas para as suas aplicações e experiências.
 metadata:
-  title: Documentação de assistentes de voz - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
+  title: Documentação de assistentes de voz - Tutoriais, Referência API - Azure Cognitive Services Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 4fae88de9ad6c48e8079fc7d9ff2d7527d9e7208
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82106207"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85299386"
 landingContent:
 - title: Sobre assistentes de voz
   linkLists:
@@ -36,30 +36,26 @@ landingContent:
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
   - linkListType: get-started
     links:
-    - text: Construa e implante uma amostra de Assistente de Voz para a sua subscrição Azure (GitHub)
+    - text: Construa e implemente uma amostra de Voice Assistant para a sua subscrição Azure (GitHub)
       url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
-- title: Desenvolver com Comandos Personalizados
+- title: Desenvolver com comandos personalizados
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar uma aplicação de Comandos Personalizados
-      url: quickstart-custom-speech-commands-create-new.md
-    - text: Criar um comando personalizado com parâmetros
-      url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Utilizar Comandos Personalizados com Voz Personalizada
-      url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Utilizar Comandos Personalizados com o SDK de Voz
-      url: quickstart-custom-speech-commands-speech-sdk.md
+    - text: Criar um assistente de voz com os Comandos Personalizados
+      url: quickstart-custom-commands-application.md
   - linkListType: how-to-guide
     links:
-    - text: Satisfazer comandos de um cliente
-      url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Adicionar validação de parâmetros
-      url: how-to-custom-speech-commands-validations.md
-    - text: Adicionar uma confirmação
-      url: how-to-custom-speech-commands-confirmations.md
-    - text: Adicionar uma correção de um passo
-      url: how-to-custom-speech-commands-one-step-correction.md
+    - text: Criar aplicação com comandos simples
+      url: how-to-custom-commands-create-application-with-simple-commands.md
+    - text: Adicione parâmetros aos seus comandos
+      url: how-to-custom-commands-add-parameters-to-commands.md
+    - text: Adicione validações a parâmetros e solicitações para correção
+      url: how-to-custom-commands-add-parameter-configuration.md
+    - text: Integre usando o Discurso SDK
+      url: how-to-custom-commands-setup-speech-sdk.md
+    - text: Configurar implementação contínua para a sua aplicação de comandos personalizados usando Azure DevOps
+      url: how-to-custom-commands-deploy-cicd.md
 - title: Desenvolver com discurso de linha direta
   linkLists:
   - linkListType: quickstart

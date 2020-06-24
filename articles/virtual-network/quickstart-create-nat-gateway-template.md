@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma porta de entrada NAT - Modelo de gestor de recursos'
+title: 'Tutorial: Criar uma porta de entrada NAT - Modelo de gestor de recursos'
 titleSuffix: Azure Virtual Network NAT
 description: Este quickstart mostra como criar uma porta de entrada NAT utilizando o modelo Azure Resource Manager.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 5e0d62885598aea6f1656d0cdcef5f0c3406e7dd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341036"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703575"
 ---
-# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Quickstart: Criar uma porta de entrada NAT - modelo de gestor de recursos
+# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Tutorial: Criar uma porta de entrada NAT - Modelo de Gestor de Recursos
 
 Inicie-se com o VIRTUAL Network NAT utilizando um modelo de gestor de recursos Azure.  Este modelo implementa uma rede virtual, um recurso de gateway NAT e uma máquina virtual Ubuntu. A máquina virtual Ubuntu é implantada numa sub-rede que está associada ao recurso de gateway NAT.
 
@@ -140,7 +140,7 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 
 Quando já não for necessário, elimine o grupo de recursos, o gateway NAT e todos os recursos relacionados. Selecione o grupo de recursos **myResourceGroupNAT** que contém o gateway NAT e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um:
 

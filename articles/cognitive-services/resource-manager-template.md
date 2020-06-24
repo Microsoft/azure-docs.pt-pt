@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 9b2091c7acd42d4c967ec5baef82d970344f9231
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 30e3f901d9feca07902e20c87f4fbf5b6979a11b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081581"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299488"
 ---
-# <a name="create-a-cognitive-services-resource-using-an-azure-resource-manager-template"></a>Crie um recurso de Serviços Cognitivos usando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Quickstart: Criar um recurso de Serviços Cognitivos usando um modelo ARM
 
 Utilize este artigo para criar e implantar um recurso de Serviços Cognitivos, utilizando um modelo Azure Resource Manager (ARM). Este recurso multi-serviço permite-lhe:
 * Aceda a vários Serviços Cognitivos Azure com uma única chave e ponto final.
@@ -24,23 +24,24 @@ Utilize este artigo para criar e implantar um recurso de Serviços Cognitivos, u
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+* Se não tiver uma subscrição do Azure, [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services).
 
-### <a name="review-the-template"></a>Rever o modelo
+## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é a partir dos [modelos Azure quickstart ARM](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
 No modelo, está definido um recurso do Azure:
 * [Microsoft.CognitiveServices/contas:](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts)cria um recurso de Serviços Cognitivos.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -63,7 +64,6 @@ No modelo, está definido um recurso do Azure:
 
 3. Selecione **Rever + Criar** e, em seguida, clique em **Criar**. Depois de o recurso ter terminado a implementação com sucesso, o botão **Go para o recurso** será realçado.
 
-    
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/CLI)
 
@@ -97,7 +97,7 @@ Quando a sua implementação terminar, poderá clicar no botão **'Ir ao botão'
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/CLI)
 
-Utilizando o CLI Azure, execute o seguinte script e insira o nome do grupo de recursos que criou anteriormente. 
+Utilizando o CLI Azure, execute o seguinte script e insira o nome do grupo de recursos que criou anteriormente.
 
 ```azurecli-interactive
 echo "Enter the resource group where the Cognitive Services resource exists:" &&

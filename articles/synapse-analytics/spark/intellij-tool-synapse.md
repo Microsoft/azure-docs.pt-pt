@@ -2,18 +2,19 @@
 title: Tutorial - Azure Toolkit para IntelliJ (aplicação Spark)
 description: Tutorial - Utilize o Kit de Ferramentas Azure para IntelliJ para desenvolver aplicações Spark, que são escritas em Scala, e submetê-las a uma piscina Apache Spark (pré-visualização).
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
+ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 3971d49befd228c111b1a8da5fce44e25abfaa65
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657829"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194953"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar aplicações Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
@@ -146,7 +147,7 @@ Depois de criar uma aplicação Scala, pode executá-la remotamente.
     |Argumentos da linha de comandos|Pode introduzir argumentos separados por espaço para a classe principal, se necessário.|
     |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtuais Azure, que atualmente apenas suporta o cluster ADLS Gen2. Para mais informações: [Configuração de faíscas Apache](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [Como carregar recursos para cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Armazenamento de upload de trabalho|Expandir para revelar opções adicionais.|
-    |Tipo de armazenamento|**Selecione Use Azure Blob para fazer** o upload da lista de drop-down.|
+    |Tipo de armazenamento|**Selecione Use Azure Blob para carregar** ou Use a conta de armazenamento **predefinida** do cluster para fazer o upload da lista de drop-down.|
     |Conta de Armazenamento|Insira a sua conta de armazenamento.|
     |Chave de armazenamento|Insira a sua chave de armazenamento.|
     |Recipiente de armazenamento|Selecione o seu recipiente de armazenamento da lista de drop-down assim que **a conta de armazenamento** e a chave de **armazenamento** erram.|
@@ -250,6 +251,7 @@ Só é suportado no IntelliJ 2018.2 e 2018.3.
 
     |Propriedade |Valor |
     |----|----|
+    |Nome da classe principal| Selecione o nome da classe principal.| 
     |Piscinas de faíscas|Selecione as piscinas Spark nas quais pretende executar a sua aplicação.|
     ||
 
@@ -268,7 +270,7 @@ Só é suportado no IntelliJ 2018.2 e 2018.3.
 
    ![Enviar Seleção para consola Spark](./media/intellij-tool-synapse/send-selection-to-console.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Crie uma nova piscina Apache Spark para um espaço de trabalho Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

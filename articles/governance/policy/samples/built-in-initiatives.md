@@ -1,21 +1,25 @@
 ---
 title: Lista de iniciativas políticas integradas
 description: Enumerar iniciativas políticas integradas para a Política Azure. As categorias incluem Conformidade Regulamentar, Configuração de Hóspedes e muito mais.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b3b0826e2121e7d609bd4091a162fa1820c1be53
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 41e19426daeaee799f9ad008c820a689fe552ec4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234000"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709167"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa integradas da Política Azure
 
 Esta página é um índice de definições de iniciativa incorporadas da Azure Policy.
 
 O nome em cada ligação incorporada à fonte de definição de iniciativa no [repo da política Azure GitHub](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria**específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
+
+## <a name="cosmos-db"></a>Cosmos DB
+
+[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
 
 ## <a name="guest-configuration"></a>Configuração de Convidado
 

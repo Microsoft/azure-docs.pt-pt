@@ -3,7 +3,7 @@ title: Criar uma instância gerida (modelo ARM & PowerShell)
 titleSuffix: Azure SQL Managed Instance
 description: Utilize este script exemplo Azure PowerShell para criar uma instância gerida.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-dt-2019
 ms.devlang: PowerShell
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 9024759f87d30cddfa2f3b7ea6b965ce03632f59
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f4c4c63e6461dd3aa3cabe86b871434814fb400e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220877"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708540"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Use o PowerShell com um modelo de Gestor de Recursos Azure para criar uma instância gerida
 

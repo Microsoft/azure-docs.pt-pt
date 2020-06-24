@@ -1,23 +1,25 @@
 ---
 title: Detalhes da conformidade regulamentar para cis Microsoft Azure Foundations Benchmark
 description: Detalhes da iniciativa integrada cis Microsoft Azure Foundations Benchmark Regulatory Compliance. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 05/29/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 734e528bf2bc3284593fcd356daad37ac4c02abd
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 214d50c790f9976b96bf29906d4db64a111e859f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221200"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299029"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa integrada cis Microsoft Azure Foundations Benchmark Regulatory Compliance
 
-O artigo seguinte detalha como a definição de iniciativa incorporada da Azure Policy Regulatory Compliance mapeia para **domínios** de conformidade e **controlos** para o CIS Microsoft Azure Foundations Benchmark.
+O artigo que se segue detalha como a definição de iniciativa incorporada da Azure Policy Regulatory Compliance mapeia para **domínios** de conformidade e **controlos** no CIS Microsoft Azure Foundations Benchmark.
 Para obter mais informações sobre esta norma de conformidade, consulte [o CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Para compreender _a Propriedade_, consulte [a definição de política de Azure](../concepts/definition-structure.md#type) e [a responsabilidade partilhada na nuvem.](../../../security/fundamentals/shared-responsibility.md)
 
 Os seguintes mapeamentos são para os controlos de benchmark da **CIS Microsoft Azure Foundations.** Utilize a navegação no direito de saltar diretamente para um domínio de **conformidade**específico . Muitos dos controlos são implementados com uma definição de iniciativa [política Azure.](../overview.md) Para rever a definição completa de iniciativa, abra **a Política** no portal Azure e selecione a página **Definições.**
-Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fundações CiS Microsoft Azure Foundations e implemente** a definição de iniciativa de conformidade integrada de conformidade integrada de apoio de suporte específico.
+Em seguida, encontre e selecione a definição de iniciativa de referência de conformidade integrada **cis Microsoft Azure Foundations 1.1.0.**
+
+Esta iniciativa incorporada é implementada como parte da amostra de projeto benchmark da [CIS Microsoft Azure Foundations.](../../blueprints/samples/cis-azure-1-1-0.md)
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../overview.md)
@@ -29,8 +31,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A autenticação deve ser ativada na sua aplicação API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4ebc54a-46e1-481a-bee2-d4411e95d828) |A Azure App Service Authentication é uma funcionalidade que pode impedir que pedidos anónimos de HTTP cheguem à aplicação API, ou autenticar aqueles que têm fichas antes de chegarem à app API |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Authentication_ApiApp_Audit.json) |
 |[A autenticação deve ser ativada na sua aplicação Função](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc75248c1-ea1d-4a9c-8fc9-29a6aabd5da8) |A Azure App Service Authentication é uma funcionalidade que pode impedir que pedidos anónimos de HTTP cheguem à aplicação Function, ou autenticar aqueles que têm fichas antes de chegarem à aplicação Função |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Authentication_functionapp_Audit.json) |
 |[A autenticação deve ser ativada na sua aplicação web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95bccee9-a7f8-4bec-9ee9-62c3473701fc) |A Azure App Service Authentication é uma funcionalidade que pode impedir que pedidos anónimos de HTTP cheguem à aplicação web, ou autenticar aqueles que têm fichas antes de chegarem à aplicação web |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Authentication_WebApp_Audit.json) |
@@ -39,8 +41,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.6 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Certifique-se de que a versão ".NET Framework" é a mais recente, se usada como parte da aplicação API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc2e7ca55-f62c-49b2-89a4-d41eb661d2f0) |Periodicamente, as versões mais recentes são lançadas para software .NET Framework, quer devido a falhas de segurança, quer para incluir funcionalidades adicionais. Recomenda-se a utilização da versão quadro .NET mais recente para aplicações web, de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_NETFrameWork_Latest.json) |
 |[Certifique-se de que a versão '.NET Framework' é a mais recente, se usada como parte da App de Função](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10c1859c-e1a7-4df3-ab97-a487fa8059f6) |Periodicamente, as versões mais recentes são lançadas para software .NET Framework, quer devido a falhas de segurança, quer para incluir funcionalidades adicionais. Recomenda-se a utilização da versão quadro .NET mais recente para aplicações web, de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_NETFrameWork_Latest.json) |
 |[Certifique-se de que a versão '.NET Framework' é a mais recente, se usada como parte da aplicação Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F843664e0-7563-41ee-a9cb-7522c382d2c4) |Periodicamente, as versões mais recentes são lançadas para software .NET Framework, quer devido a falhas de segurança, quer para incluir funcionalidades adicionais. Recomenda-se a utilização da versão quadro .NET mais recente para aplicações web, de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_NETFrameWork_Latest.json) |
@@ -49,8 +51,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.10 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação Api](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F991310cd-e9f3-47bc-b7b6-f57b557d07db) |Periodicamente, as versões mais recentes são lançadas para HTTP, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. Utilizando a versão HTTP mais recente para aplicações web para tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_HTTP_Latest.json) |
 |[Certifique-se de que 'versão HTTP' é a mais recente, se usada para executar a aplicação 'Função'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2c1c086-2d84-4019-bff3-c44ccd95113c) |Periodicamente, as versões mais recentes são lançadas para HTTP, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. Utilizando a versão HTTP mais recente para aplicações web para tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_HTTP_Latest.json) |
 |[Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |A identidade gerida do serviço no Serviço de Aplicações torna a app mais segura eliminando segredos da aplicação, como credenciais nas cordas de ligação. Ao registar-se com o Azure Ative Directory no serviço de aplicações, a aplicação irá ligar-se a outros serviços Azure de forma segura, sem a necessidade de nome de utilizador e palavras-passe. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_HTTP_Latest.json) |
@@ -59,8 +61,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.9 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da app Api](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Periodicamente, as versões mais recentes são lançadas para a Java, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. A utilização da versão python mais recente para aplicações Api é recomendada de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
 |[Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Function](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Periodicamente, as versões mais recentes são lançadas para o software Java, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. A utilização da versão java mais recente para aplicações function é recomendada de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
 |[Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Periodicamente, as versões mais recentes são lançadas para o software Java, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. A utilização da versão java mais recente para aplicações web é recomendada de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
@@ -69,8 +71,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.7 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação Api](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodicamente, as versões mais recentes são lançadas para software PHP, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomenda-se a utilização da versão PHP mais recente para aplicações API, de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
 |[Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação Function](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fab965db2-d2bf-4b64-8b39-c38ec8179461) |Periodicamente, as versões mais recentes são lançadas para software PHP, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomenda-se a utilização da versão PHP mais recente para aplicações function, de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_PHP_Latest.json) |
 |[Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação WEB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodicamente, as versões mais recentes são lançadas para software PHP, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomenda-se a utilização da versão PHP mais recente para aplicações web, de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
@@ -79,8 +81,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.8 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Certifique-se de que 'Python version' é a mais recente, se usada como parte da app Api](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, as versões mais recentes são lançadas para o software Python, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. A utilização da versão python mais recente para aplicações Api é recomendada de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
 |[Certifique-se de que 'Versão Python' é a mais recente, se usada como parte da aplicação Function](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, as versões mais recentes são lançadas para o software Python, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. A utilização da versão python mais recente para aplicações function é recomendada de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
 |[Certifique-se de que 'Python version' é a mais recente, se usada como parte da aplicação Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, as versões mais recentes são lançadas para o software Python, seja devido a falhas de segurança ou para incluir funcionalidades adicionais. A utilização da versão python mais recente para aplicações web é recomendada de forma a tirar partido das correções de segurança, caso existam, e/ou novas funcionalidades da versão mais recente. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
@@ -89,8 +91,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Certifique-se de que o Registo com o Diretório Ativo Azure está ativado na aplicação API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86d97760-d216-4d81-a3ad-163087b2b6c3) |A identidade gerida do serviço no Serviço de Aplicações torna a app mais segura eliminando segredos da aplicação, como credenciais nas cordas de ligação. Ao registar-se com o Azure Ative Directory no serviço de aplicações, a aplicação irá ligar-se a outros serviços Azure de forma segura, sem a necessidade de nome de utilizador e palavras-passe. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_AD_Enabled.json) |
 |[Certifique-se de que o Registo com o Diretório Ativo Azure está ativado na App de Função](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0473e7a-a1ba-4e86-afb2-e829e11b01d8) |A identidade gerida do serviço no Serviço de Aplicações torna a app mais segura eliminando segredos da aplicação, como credenciais nas cordas de ligação. Ao registar-se com o Azure Ative Directory no serviço de aplicações, a aplicação irá ligar-se a outros serviços Azure de forma segura, sem a necessidade de nome de utilizador e palavras-passe. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_AD_Enabled.json) |
 |[Certifique-se de que o Registo com o Azure Ative Directory está ativado na Web App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa81768c-cb87-4ce2-bfaa-00baa10d760c) |A identidade gerida do serviço no Serviço de Aplicações torna a app mais segura eliminando segredos da aplicação, como credenciais nas cordas de ligação. Ao registar-se com o Azure Ative Directory no serviço de aplicações, a aplicação irá ligar-se a outros serviços Azure de forma segura, sem a necessidade de nome de utilizador e palavras-passe. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_AD_Enabled.json) |
@@ -99,8 +101,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Garantir que a aplicação da API tem "Certificados de Cliente (Certificados de cliente incoming)" definidos para 'On'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0c192fe8-9cbb-4516-85b3-0ade8bd03886) |Os certificados de cliente permitem que a app solicite um certificado para pedidos de entrada. Apenas os clientes que tenham um certificado válido poderão chegar à aplicação. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_ClientCert.json) |
 |[Garantir que a aplicação 'Certificados de Cliente ' (certificados de cliente incoming)' definidos para 'On'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaebaea7-8013-4ceb-9d14-7eb32271373c) |Os certificados de cliente permitem que a app solicite um certificado para pedidos de entrada. Apenas os clientes que tenham um certificado válido poderão chegar à aplicação. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_ClientCert.json) |
 |[Garantir que a aplicação WEB tem "Certificados de Cliente (Certificados de cliente incoming)" definidos para 'On'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5bb220d9-2698-4ee4-8404-b9c30c9df609) |Os certificados de cliente permitem que a app solicite um certificado para pedidos de entrada. Apenas os clientes que tenham um certificado válido poderão chegar à aplicação. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_ClientCert.json) |
@@ -109,8 +111,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A versão TLS mais recente deve ser usada na sua App API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e) |Upgrade para a versão mais recente do TLS |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RequireLatestTls_ApiApp_Audit.json) |
 |[A versão TLS mais recente deve ser usada na sua App de Função](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff9d614c5-c173-4d56-95a7-b4437057d193) |Upgrade para a versão mais recente do TLS |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RequireLatestTls_FunctionApp_Audit.json) |
 |[A versão mais recente do TLS deve ser usada na sua Web App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) |Upgrade para a versão mais recente do TLS |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RequireLatestTls_WebApp_Audit.json) |
@@ -119,8 +121,8 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 9.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A Aplicação Web só deve ser acessível em HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |A utilização do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito contra ataques de escutas de camadas de rede. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
 
 ## <a name="database-services"></a>Serviços de Base de Dados
@@ -129,141 +131,141 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 4.11 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A ligação SSL da Aplicação deve ser ativada para servidores de base de dados MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |Esta política audita qualquer servidor MySQL que não esteja a impor a ligação SSL. A Azure Database for MySQL suporta ligar a sua Base de Dados Azure para o servidor MySQL a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A aplicação de ligações SSL entre o servidor da base de dados e as aplicações do seu cliente ajuda a proteger contra ataques de "homem no meio", encriptando o fluxo de dados entre o servidor e a sua aplicação. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Certifique-se de que a 'ligação SSL' está definida para 'ENABLED' para o Servidor de Base de Dados Pós-SQL
 
 **ID**: CIS Azure 4.13 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A ligação SSL da Aplicação deve ser ativada para servidores de base de dados PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd158790f-bfb0-486c-8631-2dc6b4e8e6af) |Esta política audita qualquer servidor PostgreSQL que não esteja a impor a ligação SSL. A Azure Database for PostgreSQL prefere ligar as aplicações do seu cliente ao serviço PostgreSQL utilizando a Camada de Tomadas Seguras (SSL). A aplicação de ligações SSL entre o servidor da base de dados e as aplicações do seu cliente ajuda a proteger contra ataques "man-in-the-middle", encriptando o fluxo de dados entre o servidor e a sua aplicação |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableSSL_Audit.json) |
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Certifique-se de que o parâmetro do servidor 'connection_throttling' está definido para 'ON' para o Servidor de Base de Dados pós-SQL
 
 **ID**: CIS Azure 4.17 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O estrangulamento de ligação deve ser ativado para servidores de base de dados PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5345bb39-67dc-4960-a1bf-427e16b9a0bd) |Esta política ajuda a auditar quaisquer bases de dados PostgreSQL no seu ambiente sem o estrangulamento de Ligação ativado. Esta definição permite o estrangulamento temporário da ligação por IP para demasiadas falhas de início de senha inválidas. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_ConnectionThrottling_Enabled_Audit.json) |
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Certifique-se de que o parâmetro do servidor 'log_checkpoints' está definido para 'ON' para o Servidor de Base de Dados pós-SQL
 
 **ID**: CIS Azure 4.12 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Os pontos de verificação de registo devem ser ativados para servidores de base de dados PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e43d) |Esta política ajuda a auditar quaisquer bases de dados PostgreSQL no seu ambiente sem log_checkpoints definição ativada. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogCheckpoint_Audit.json) |
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Certifique-se de que o parâmetro do servidor 'log_connections' está definido para 'ON' para o Servidor de Base de Dados pós-SQL
 
 **ID**: CIS Azure 4.14 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As ligações de registo devem ser ativadas para servidores de base de dados PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e442) |Esta política ajuda a auditar quaisquer bases de dados PostgreSQL no seu ambiente sem log_connections definição ativada. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogConnections_Audit.json) |
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Certifique-se de que o parâmetro do servidor 'log_disconnections' está definido para 'ON' para o Servidor de Base de Dados pós-SQL
 
 **ID**: CIS Azure 4.15 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As desconexões devem ser registadas para servidores de base de dados PostgreSQL.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e446) |Esta política ajuda a auditar quaisquer bases de dados PostgreSQL no seu ambiente sem log_disconnections ativadas. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogDisconnections_Audit.json) |
 
 ### <a name="ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>Certifique-se de que o parâmetro do servidor 'log_duration' está definido para 'ON' para o Servidor de Base de Dados pós-SQL
 
 **ID**: CIS Azure 4.16 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A duração do registo deve ser ativada para servidores de base de dados PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e8f3) |Esta política ajuda a auditar quaisquer bases de dados PostgreSQL no seu ambiente sem log_duration definição ativada. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogDuration_Audit.json) |
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>Certifique-se de que o protetor TDE do servidor SQL está encriptado com BYOK (Use a sua própria chave)
 
 **ID**: CIS Azure 4.10 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[O protetor TDE de caso gerido pela SQL deve ser encriptado com a sua própria chave](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F048248b0-55cd-46da-b1ff-39efd52db260) |A Encriptação de Dados Transparente (TDE) com o seu próprio suporte chave proporciona maior transparência e controlo sobre o Protetor TDE, maior segurança com um serviço externo apoiado pelo HSM e promoção da separação de direitos. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[O protetor TDE de instância gerida SQL deve ser encriptado com a sua própria chave](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F048248b0-55cd-46da-b1ff-39efd52db260) |A Encriptação de Dados Transparente (TDE) com o seu próprio suporte chave proporciona maior transparência e controlo sobre o Protetor TDE, maior segurança com um serviço externo apoiado pelo HSM e promoção da separação de direitos. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
 |[O protetor TDE do servidor SQL deve ser encriptado com a sua própria chave](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0d134df8-db83-46fb-ad72-fe0c9428c8dd) |A Encriptação de Dados Transparente (TDE) com o seu próprio suporte chave proporciona maior transparência e controlo sobre o Protetor TDE, maior segurança com um serviço externo apoiado pelo HSM e promoção da separação de direitos. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Certifique-se de que a 'Segurança Avançada de Dados' num servidor SQL está definida para 'On'
 
 **ID**: CIS Azure 4.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[A segurança avançada dos dados deve ser ativada nas suas instâncias geridas pelo SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Auditoria SQL geriu instâncias sem Segurança Avançada de Dados |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[A segurança avançada dos dados deve ser ativada em SqL Managed Instance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Audite cada SQL Managed Instance sem segurança avançada de dados. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 |[A segurança avançada dos dados deve ser ativada nos seus servidores SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Auditar servidores SQL sem Segurança Avançada de Dados |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>Certifique-se de que os "AuditActionGroups" na política de "auditoria" para um servidor SQL são definidos corretamente
 
 **ID**: CIS Azure 4.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As definições de auditoria sql devem ter grupos de ação configurados para capturar atividades críticas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ff426e2-515f-405a-91c8-4f2333442eb5) |A propriedade AuditActionsAndGroups deve conter pelo menos SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP, BATCH_COMPLETED_GROUP para garantir uma auditoria completa |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_ActionsAndGroups_Audit.json) |
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Certifique-se de que a 'Auditoria' está definida para 'On'
 
 **ID**: CIS Azure 4.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A auditoria no servidor SQL deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |A auditoria no seu SQL Server deve ser ativada para rastrear as atividades de base de dados em todas as bases de dados do servidor e guardá-las num registo de auditoria. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Garantir que a retenção de "auditoria" seja "superior a 90 dias"
 
 **ID**: CIS Azure 4.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Os servidores SQL devem ser configurados com dias de retenção de auditoria superiores a 90 dias.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Auditar servidores SQL configurados com um período de retenção de auditoria inferior a 90 dias. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Certifique-se de que o Azure Ative Directory Admin está configurado
 
 **ID**: CIS Azure 4.8 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Fornecimento de auditoria de um administrador do Azure Ative Directory para o seu servidor SQL para permitir a autenticação Azure AD. A autenticação AZURE AD permite a gestão simplificada de permissões e a gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Certifique-se de que a 'encriptação de dados' está definida para 'On' numa Base de Dados SQL
 
 **ID**: CIS Azure 4.9 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A encriptação transparente de dados nas bases de dados SQL deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |A encriptação transparente de dados deve ser ativada para proteger os dados em repouso e cumprir os requisitos de conformidade |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 
 ### <a name="ensure-that-email-service-and-co-administrators-is-enabled"></a>Certifique-se de que o serviço de e-mail e os coadministradores estão 'Habilitados'
 
 **ID**: CIS Azure 4.7 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[As notificações por e-mail aos administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados de casos DE SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faeb23562-188d-47cb-80b8-551f16ef9fff) |Auditoria que "notificação por e-mail para administradores e proprietários de subscrições" está ativada nas definições de proteção avançada de ameaças geridas pelo SQL. Isto garante que quaisquer deteções de atividades anómalas em casos geridos pelo SQL sejam reportadas o mais rapidamente possível aos administradores. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmailAdmins_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados da SQL Managed Instance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faeb23562-188d-47cb-80b8-551f16ef9fff) |A auditoria de que a "notificação por e-mail aos administradores e proprietários de subscrições" está ativada nas definições avançadas de proteção de ameaças da SQL Managed Instance. Esta definição garante que quaisquer deteções de atividades anómalas em SQL Managed Instance são reportadas o mais rapidamente possível aos administradores. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmailAdmins_Audit.json) |
 |[As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados do servidor SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc8343d2f-fdc9-4a97-b76f-fc71d1163bfc) |A auditoria de que a "notificação por e-mail aos administradores e proprietários de subscrições" está ativada nas definições avançadas de proteção de ameaças do servidor SQL. Isto garante que quaisquer deteções de atividades anómalas no servidor SQL sejam reportadas o mais rapidamente possível aos administradores. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurityEmailAdmins_Audit.json) |
 
 ### <a name="ensure-that-send-alerts-to-is-set"></a>Certifique-se de que 'Enviar alertas para' está definido
 
 **ID**: CIS Azure 4.6 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[As definições avançadas de segurança de dados para a ocorrência gerida pelo SQL devem conter um endereço de e-mail para receber alertas de segurança](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3965c43d-b5f4-482e-b74a-d89ee0e0b3a8) |Certifique-se de que é fornecido um endereço de e-mail para o campo 'Enviar alertas para' nas definições do servidor Advanced Data Security. Este endereço de e-mail recebe notificações de alerta quando são detetadas atividades anómalas em casos geridos pela SQL. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmails_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[As definições avançadas de segurança de dados para a SQL Managed Instance devem conter um endereço de e-mail para receber alertas de segurança](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3965c43d-b5f4-482e-b74a-d89ee0e0b3a8) |Certifique-se de que é fornecido um endereço de e-mail para o campo 'Enviar alertas para' nas definições avançadas de segurança de dados. Este endereço de e-mail recebe notificações de alerta quando são detetadas atividades anómalas em SQL Managed Instance. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmails_Audit.json) |
 |[As definições avançadas de segurança de dados para o servidor SQL devem conter um endereço de e-mail para receber alertas de segurança](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9677b740-f641-4f3c-b9c5-466005c85278) |Certifique-se de que é fornecido um endereço de e-mail para o campo 'Enviar alertas para' nas definições do servidor Advanced Data Security. Este endereço de e-mail recebe notificações de alerta quando são detetadas atividades anómalas nos servidores SQL. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurityEmails_Audit.json) |
 
 ### <a name="ensure-that-threat-detection-types-is-set-to-all"></a>Certifique-se de que os "tipos de deteção de ameaças" estão definidos para 'All'
 
 **ID**: CIS Azure 4.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[Os tipos avançados de proteção de ameaças devem ser definidos para 'All' em definições de segurança de dados avançadas de casos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbda18df3-5e41-4709-add9-2554ce68c966) |É aconselhável ativar todos os tipos de Proteção de Ameaças Avançadas nos seus servidores SQL. Permitir que todos os tipos proteja contra a injeção de SQL, vulnerabilidades de base de dados e quaisquer outras atividades anómalas. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureThreatDetectionTypes_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' em definições avançadas de segurança de dados de instâncias geridas SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbda18df3-5e41-4709-add9-2554ce68c966) |É recomendado para ativar todos os tipos de Proteção de Ameaças Avançadas na sua SQL Managed Instance. Permitir que todos os tipos proteja contra a injeção de SQL, vulnerabilidades de base de dados e quaisquer outras atividades anómalas. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureThreatDetectionTypes_Audit.json) |
 |[Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe756b945-1b1b-480b-8de8-9a0859d5f7ad) |É aconselhável ativar todos os tipos de Proteção de Ameaças Avançadas nos seus servidores SQL. Permitir que todos os tipos proteja contra a injeção de SQL, vulnerabilidades de base de dados e quaisquer outras atividades anómalas. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureThreatDetectionTypes_Audit.json) |
 
 ## <a name="identity-and-access-management"></a>Gestão de Acesso e Identidades
@@ -272,16 +274,16 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 1.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[MFA deve ser ativado em contas com permissões de leitura na sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |A Autenticação Multi-Factor (MFA) deve ser ativada para todas as contas de subscrição com privilégios de leitura para evitar uma quebra de contas ou recursos. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>Certifique-se de que a autenticação de vários fatores está ativada para todos os utilizadores privilegiados
 
 **ID**: CIS Azure 1.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[MFA deve ser ativado contas com permissões de escrita na sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9297c21d-2ed6-4474-b48f-163f75654ce3) |A Autenticação Multi-Factor (MFA) deve ser ativada para todas as contas de subscrição com privilégios de escrita para evitar uma quebra de contas ou recursos. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForWritePermissions_Audit.json) |
 |[O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa633080-8b72-40c4-a2d7-d00c03e80bed) |A Autenticação Multi-Factor (MFA) deve ser ativada para todas as contas de subscrição com permissões do proprietário para evitar uma violação de contas ou recursos. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForOwnerPermissions_Audit.json) |
 
@@ -289,16 +291,16 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 1.23 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[As funções de proprietário de subscrição personalizada não devem existir](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |Esta política garante que não existem funções de proprietário de subscrição personalizadas. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[As funções de proprietário de subscrição personalizada não devem existir](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |Esta política garante que não existem funções de proprietário de subscrição personalizadas. |Auditoria, Deficientes |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>Certifique-se de que não há utilizadores convidados
 
 **ID**: CIS Azure 1.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As contas externas com permissões do proprietário devem ser removidas da sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8456c1c-aa66-4dfb-861a-25d127b775c9) |As contas externas com permissões do proprietário devem ser removidas da sua subscrição de forma a evitar o acesso não monitorizado. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveExternalAccountsWithOwnerPermissions_Audit.json) |
 |[As contas externas com permissões de leitura devem ser removidas da sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f76cf89-fbf2-47fd-a3f4-b891fa780b60) |As contas externas com privilégios de leitura devem ser removidas da sua subscrição de forma a evitar o acesso não monitorizado. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveExternalAccountsReadPermissions_Audit.json) |
 |[As contas externas com permissões de escrita devem ser removidas da sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5c607a2e-c700-4744-8254-d77e7c9eb5e4) |As contas externas com privilégios de escrita devem ser removidas da sua subscrição de forma a evitar o acesso não monitorizado. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveExternalAccountsWritePermissions_Audit.json) |
@@ -309,120 +311,120 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 5.1.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O perfil de registo do Azure Monitor deve recolher registos para categorias de 'escrever', 'excluir' e 'acção'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a4e592a-6a6e-44a5-9814-e36264ca96e7) |Esta política garante que um perfil de registo recolhe registos para categorias de "escrever", "excluir" e "ação" |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllCategories.json) |
 
 ### <a name="ensure-that-a-log-profile-exists"></a>Certifique-se de que existe um perfil de registo
 
 **ID**: CIS Azure 5.1.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As subscrições do Azure devem ter um perfil de registo de registo de atividades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7796937f-307b-4598-941c-67d3a05ebfe7) |Esta política garante se for ativado um perfil de registo para a exportação de registos de atividades. Audita se não houver um perfil de registo criado para exportar os registos para uma conta de armazenamento ou para um centro de eventos. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Logprofile_activityLogs_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Certifique-se de que existe um alerta de registo de atividade para criar ou atualizar grupo de segurança de rede
 
 **ID**: CIS Azure 5.2.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações administrativas específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |Esta política audita operações administrativas específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Certifique-se de que existe um alerta de registo de atividade para criar ou atualizar a regra do grupo de segurança da rede
 
 **ID**: CIS Azure 5.2.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações administrativas específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |Esta política audita operações administrativas específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Certifique-se de que existe um alerta de registo de atividade para criar ou atualizar ou eliminar a regra de firewall do servidor SQL
 
 **ID**: CIS Azure 5.2.8 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações administrativas específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |Esta política audita operações administrativas específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Certifique-se de que existe um alerta de registo de atividade para criar ou atualizar a solução de segurança
 
 **ID**: CIS Azure 5.2.6 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações de segurança específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |Esta política audita operações de segurança específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Certifique-se de que existe um alerta de registo de atividade para criar a atribuição de políticas
 
 **ID**: CIS Azure 5.2.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações políticas específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Esta política audita operações políticas específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Certifique-se de que existe um alerta de registo de atividade para eliminar o Grupo de Segurança da Rede
 
 **ID**: CIS Azure 5.2.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações administrativas específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |Esta política audita operações administrativas específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Certifique-se de que existe um alerta de registo de atividade para eliminar a solução de segurança
 
 **ID**: CIS Azure 5.2.7 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações de segurança específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |Esta política audita operações de segurança específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Certifique-se de que existe um alerta de registo de atividade para a Regra do Grupo de Segurança da Rede de Eliminação
 
 **ID**: CIS Azure 5.2.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações administrativas específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |Esta política audita operações administrativas específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Certifique-se de que existe um alerta de registo de atividade para a política de segurança de atualização
 
 **ID**: CIS Azure 5.2.9 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Deve existir um alerta de registo de atividade para operações de segurança específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |Esta política audita operações de segurança específicas sem alertas de registo de atividade configurados. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Certifique-se de que a retenção de registo de atividade está definida em 365 dias ou mais
 
 **ID**: CIS Azure 5.1.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O registo de atividade deve ser mantido por pelo menos um ano](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |Esta política audita o registo de atividade se a retenção não for definida durante 365 dias ou para sempre (dias de retenção definidos para 0). |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Certifique-se de que a sessão de registo para Azure KeyVault está 'Activada'
 
 **ID**: CIS Azure 5.1.7 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Os registos de diagnóstico no Cofre de Chaves devem ser ativados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Auditoria habilitando registos de diagnóstico. Isto permite-lhe recriar pistas de atividade para uso para fins de investigação quando ocorre um incidente de segurança ou quando a sua rede está comprometida |AuditIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>Certifique-se de que o perfil de registo captura registos de atividade para todas as regiões, incluindo global
 
 **ID**: CIS Azure 5.1.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O Azure Monitor deve recolher registos de atividade de todas as regiões](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Esta política audita o perfil de registo do Azure Monitor que não exporta atividades de todas as regiões apoiadas pelo Azure, incluindo a nível global. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Certifique-se de que a conta de armazenamento que contém o recipiente com registos de atividade é encriptada com BYOK (Use a sua própria chave)
 
 **ID**: CIS Azure 5.1.6 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A conta de armazenamento que contenha o contentor com registos de atividade deve ser encriptada com a BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Esta política audita se a conta de Armazenamento que contém o contentor com registos de atividade for encriptada com a BYOK. A apólice só funciona se a conta de armazenamento estiver na mesma subscrição que os registos de atividade por design. Mais informações sobre a encriptação do Armazenamento Azure em repouso podem ser encontradas [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok) aqui.  |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 
 ## <a name="networking"></a>Redes
@@ -431,24 +433,24 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 6.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O Observador de Rede deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |O Network Watcher é um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário de rede dentro, e a partir de Azure. A monitorização do nível do cenário permite diagnosticar problemas no final da vista do nível da rede. As ferramentas de diagnóstico e visualização da rede disponíveis com o Network Watcher ajudam-no a compreender, diagnosticar e a obter informações sobre a sua rede em Azure. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Certifique-se de que o acesso rdp é restrito a partir da internet
 
 **ID**: CIS Azure 6.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O acesso do PDR da Internet deve ser bloqueado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe372f825-a257-4fb8-9175-797a8a8627d6) |Esta política audita qualquer regra de segurança de rede que permita o acesso rdp a partir da Internet |Auditoria, Deficientes |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroup_RDPAccess_Audit.json) |
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>Certifique-se de que o acesso ao SSH é restrito a partir da internet
 
 **ID**: CIS Azure 6.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O acesso ao SSH a partir da Internet deve ser bloqueado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fab) |Esta política audita qualquer regra de segurança de rede que permita o acesso ao SSH a partir da Internet |Auditoria, Deficientes |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroup_SSHAccess_Audit.json) |
 
 ## <a name="other-security-considerations"></a>Outras Considerações de Segurança
@@ -457,16 +459,16 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 8.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O Controlo de Acesso Baseado em Função (RBAC) deve ser utilizado nos serviços kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |Para fornecer filtragem granular sobre as ações que os utilizadores podem executar, utilize o Controlo de Acesso Baseado em Fun (RBAC) para gerir permissões em Clusters de Serviços Kubernetes e configurar políticas de autorização relevantes. |Auditoria, Deficientes |[1.0.1 pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Certifique-se de que o cofre da chave é recuperável
 
 **ID**: CIS Azure 8.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Os objetos do Cofre chave devem ser recuperáveis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Esta política audita se os objetos chave do cofre não forem recuperáveis. A funcionalidade Soft Delete ajuda a reter eficazmente os recursos durante um determinado período de retenção (90 dias) mesmo após uma operação DELETE, ao mesmo tempo que dá a aparência de que o objeto é eliminado. Quando a "proteção da purga" estiver acesa, um cofre ou um objeto em estado apagado não podem ser purgados até que o período de retenção de 90 dias tenha passado. Estes cofres e objetos ainda podem ser recuperados, garantindo aos clientes que a política de retenção será seguida. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ## <a name="security-center"></a>Centro de Segurança
@@ -475,138 +477,137 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 2.9 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[Máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança de rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |Proteja o seu VM de potenciais ameaças, restringindo-lhe o acesso a um Grupo de Segurança de Rede (NSG). Para saber mais sobre o controlo do tráfego com os NSGs, visite[https://aka.ms/nsg-doc](https://aka.ms/nsg-doc) |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnVirtualMachines_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança de rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |Proteja as suas máquinas virtuais de potenciais ameaças, restringindo-lhes o acesso a grupos de segurança de rede (NSG). Saiba mais sobre o controlo do tráfego com os NSGs em[https://aka.ms/nsg-doc](https://aka.ms/nsg-doc) |AuditIfNotExists, Desativado |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnInternetFacingVirtualMachines_Audit.json) |
 |[As subnetas devem ser associadas a um Grupo de Segurança de Rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Proteja a sua sub-rede de ameaças potenciais restringindo-lhe o acesso a um Grupo de Segurança de Rede (NSG). Os NSGs contêm uma lista de regras da Lista de Controlo de Acesso (ACL) que permitem ou negam o tráfego de rede à sua sub-rede. |AuditIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>Certifique-se de que a definição de política por defeito da ASC "Monitor Adaptive Application Whitelisting" não é "Desativada"
 
 **ID**: CIS Azure 2.13 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Possível configuração whitelist de aplicação será monitorizada pelo Azure Security Center |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AppWhitelistMonitoring_Audit.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Os controlos de aplicação adaptativos para aplicações seguras whitelisting devem ser ativados nas suas máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Ative os controlos de aplicação para definir a lista de aplicações seguras conhecidas em execução nas suas máquinas e alerte-o quando outras aplicações são executadas. Isto ajuda a endurecer as suas máquinas contra malware. Para simplificar o processo de configuração e manutenção das suas regras, o Security Center utiliza machine learning para analisar as aplicações em funcionamento em cada máquina e sugerir a lista de aplicações conhecidas e seguras. |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AppWhitelistMonitoring_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>Certifique-se de que a definição de política padrão da ASC "Monitor Disk Encryption" não é "Desativada"
 
 **ID**: CIS Azure 2.6 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A encriptação do disco deve ser aplicada em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |VMs sem encriptação de disco ativada será monitorizado pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>Certifique-se de que a definição de política por defeito da ASC "Monitor Endpoint Protection" não é "Desativada"
 
 **ID**: CIS Azure 2.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Monitor que falta proteção de ponto final no Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Os servidores sem um agente instalado de Proteção de Pontos Finais serão monitorizados pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Certifique-se de que a definição de política padrão asc "Monitor JIT Network Access" não é "Desativada"
 
 **ID**: CIS Azure 2.12 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Possível rede Just In Time (JIT) o acesso será monitorizado pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Certifique-se de que a definição de política por defeito da ASC "Monitor Network Security Groups" não é "Desativada"
 
 **ID**: CIS Azure 2.7 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Recomendações de endurecimento de rede adaptativa devem ser aplicadas na internet face a máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |O Azure Security Center analisa os padrões de tráfego da Internet face às máquinas virtuais e fornece recomendações de regras do Grupo de Segurança da Rede que reduzem a potencial superfície de ataque |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Certifique-se de que a definição de política de predefinição da ASC "Monitorizar as vulnerabilidades dos OS" não é "Desativada"
 
 **ID**: CIS Azure 2.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Os servidores que não satisfaçam a linha de base configurada serão monitorizados pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Certifique-se de que a definição de política por defeito da ASC "Monitor SQL Auditing" não é "Desativada"
 
 **ID**: CIS Azure 2.14 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A auditoria no servidor SQL deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |A auditoria no seu SQL Server deve ser ativada para rastrear as atividades de base de dados em todas as bases de dados do servidor e guardá-las num registo de auditoria. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>Certifique-se de que a definição de política padrão ASC "Monitor SQL Encryption" não é "Desativada"
 
 **ID**: CIS Azure 2.15 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A encriptação transparente de dados nas bases de dados SQL deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |A encriptação transparente de dados deve ser ativada para proteger os dados em repouso e cumprir os requisitos de conformidade |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Certifique-se de que a definição de política por defeito da ASC "Monitor System Updates" não é "desativada"
 
 **ID**: CIS Azure 2.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As atualizações de sistema devem ser instaladas nos seus computadores](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |As atualizações do sistema de segurança em falta nos seus servidores serão monitorizadas pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Garantir que a definição de política de predefinição da ASC "Monitor Vulnerability Assessment" não é "Desativada"
 
 **ID**: CIS Azure 2.10 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Monitoriza as vulnerabilidades detetadas pela solução de Avaliação de Vulnerabilidades e VMs sem uma solução de Avaliação de Vulnerabilidades no Centro de Segurança Azure como recomendações. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Certifique-se de que o "provisionamento automático do agente de monitorização" está definido para "On"
 
 **ID**: CIS Azure 2.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[O provisionamento automático do agente de monitorização Log Analytics deve ser ativado na sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |Permitir o provisionamento automático do agente de monitorização Log Analytics para recolher dados de segurança |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>Certifique-se de que 'Emails de contacto de segurança' está definido
 
 **ID**: CIS Azure 2.16 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Um endereço de e-mail de contacto de segurança deve ser fornecido para a sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) |Introduza um endereço de e-mail para receber notificações quando o Azure Security Center detetar recursos comprometidos |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_email.json) |
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>Certifique-se de que o contacto de segurança 'Número de telefone' está definido
 
 **ID**: CIS Azure 2.17 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Um número de telefone de contacto de segurança deve ser fornecido para a sua subscrição](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4d66858-c922-44e3-9566-5cdb7a7be744) |Introduza um número de telefone para receber notificações quando o Azure Security Center detetar recursos comprometidos |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_phone_number.json) |
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>Certifique-se de que 'Enviar e-mail também para os proprietários de subscrição' está definido para 'On'
 
 **ID**: CIS Azure 2.19 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A notificação por e-mail ao proprietário da subscrição para alertas de alta gravidade deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |Ative os alertas de segurança por e-mail para o proprietário da subscrição, de modo a que recebam e-mails de alerta de segurança da Microsoft. Isto garante que estão cientes de quaisquer potenciais problemas de segurança e podem mitigar o risco em tempo útil |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Certifique-se de que 'Enviar notificação por e-mail para alertas de alta gravidade' está definido para 'On'
 
 **ID**: CIS Azure 2.18 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A notificação por e-mail para alertas de alta gravidade deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6e2593d9-add6-4083-9c9b-4b7d2188c899) |Ative os alertas de segurança por e-mail para o contacto de segurança, de modo a que recebam e-mails de alerta de segurança da Microsoft. Isto garante que as pessoas certas estão cientes de quaisquer potenciais problemas de segurança e são capazes de mitigar os riscos |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification.json) |
 
 ### <a name="ensure-that-standard-pricing-tier-is-selected"></a>Certifique-se de que o nível de preços padrão é selecionado
 
 **ID**: CIS Azure 2.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
-|[O nível de preços padrão do Centro de Segurança deve ser selecionado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |O nível de preços padrão permite a deteção de ameaças para redes e máquinas virtuais, fornecendo inteligência de ameaças, deteção de anomalias e análise de comportamento no Azure Security Center |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 
 ## <a name="storage-accounts"></a>Contas de Armazenamento
 
@@ -614,74 +615,74 @@ Em seguida, encontre e selecione as **recomendações de benchmark 1.1.0 das Fun
 
 **ID**: CIS Azure 3.7 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As contas de armazenamento devem restringir o acesso à rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |O acesso à rede às contas de armazenamento deve ser restringido. Configure as regras de rede para que apenas aplicações de redes permitidas possam aceder à conta de armazenamento. Para permitir ligações de clientes específicos da Internet ou no local, o acesso pode ser concedido ao tráfego a partir de redes virtuais específicas do Azure ou de intervalos de endereços IP da Internet pública |Auditoria, Negar, Deficientes |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Certifique-se de que a 'transferência segura necessária' está definida para 'Activado'
 
 **ID**: CIS Azure 3.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A transferência segura para contas de armazenamento deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Requisito de auditoria de transferência Segura na sua conta de armazenamento. A transferência segura é uma opção que obriga a sua conta de armazenamento a aceitar pedidos apenas a partir de ligações seguras (HTTPS). A utilização do HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camadas de rede, tais como o homem no meio, a escuta e o sequestro de sessão |Auditoria, Negar, Deficientes |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>Certifique-se de que 'Serviços Microsoft Fidedignos' está ativado para acesso à conta de armazenamento
 
 **ID**: CIS Azure 3.8 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As contas de armazenamento devem permitir o acesso a partir de serviços confiáveis da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |Alguns serviços da Microsoft que interagem com contas de armazenamento operam a partir de redes que não podem ser autorizadas a ter acesso através das regras de rede. Para ajudar este tipo de serviço a funcionar conforme pretendido, permita que o conjunto de serviços confiáveis da Microsoft ignore as regras da rede. Estes serviços utilizarão então uma autenticação forte para aceder à conta de armazenamento. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas Virtuais
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Certifique-se de que os "discos de dados" estão encriptados
 
 **ID**: CIS Azure 7.2 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A encriptação do disco deve ser aplicada em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |VMs sem encriptação de disco ativada será monitorizado pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>Certifique-se de que apenas as extensões aprovadas são instaladas
 
 **ID**: CIS Azure 7.4 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Só devem ser instaladas extensões VM aprovadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc0e996f8-39cf-4af9-9f45-83fbde810432) |Esta política rege as extensões de máquinas virtuais que não são aprovadas. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_ApprovedExtensions_Audit.json) |
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Certifique-se de que o 'disco DE' está encriptado
 
 **ID**: CIS Azure 7.1 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[A encriptação do disco deve ser aplicada em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |VMs sem encriptação de disco ativada será monitorizado pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Certifique-se de que a proteção do ponto final para todas as Máquinas Virtuais está instalada
 
 **ID**: CIS Azure 7.6 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Monitor que falta proteção de ponto final no Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Os servidores sem um agente instalado de Proteção de Pontos Finais serão monitorizados pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>Certifique-se de que os mais recentes patches de OS para todas as Máquinas Virtuais são aplicados
 
 **ID**: CIS Azure 7.5 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[As atualizações de sistema devem ser instaladas nos seus computadores](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |As atualizações do sistema de segurança em falta nos seus servidores serão monitorizadas pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Certifique-se de que os "discos não ligados" são encriptados
 
 **ID**: CIS Azure 7.3 **Propriedade**: Cliente
 
-|Name<br /><sub>(Portal Azure)</sup> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|---|
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
 |[Os discos não ligados devem ser encriptados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fb2) |Esta política audita qualquer disco não ligado sem encriptação ativada. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/UnattachedDisk_Encryption_Audit.json) |
 
 > [!NOTE]

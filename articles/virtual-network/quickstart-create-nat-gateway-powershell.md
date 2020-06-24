@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma porta de entrada NAT - Azure PowerShell'
+title: 'Tutorial: Criar uma porta DE NAT - Azure PowerShell'
 titlesuffix: Azure Virtual Network NAT
 description: Este quickstart mostra como criar um gateway NAT usando Azure PowerShell
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 4878707524c7c7083035163ae2709334cc83e039
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 1c6a9fff7b3bafc927b0d032dc7345c262f6037c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342220"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707485"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-azure-powershell"></a>Quickstart: Criar um gateway NAT usando Azure PowerShell
+# <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>Tutorial: Criar um gateway NAT usando Azure PowerShell
 
-Este quickstart mostra-lhe como usar o serviço Azure Virtual Network NAT. Você vai criar uma porta de entrada NAT para fornecer conectividade de saída para uma máquina virtual em Azure. 
+Este tutorial mostra-lhe como utilizar o serviço Azure Virtual Network NAT. Você vai criar uma porta de entrada NAT para fornecer conectividade de saída para uma máquina virtual em Azure. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -279,7 +279,7 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma porta DE NAT e um VM para usá-lo. 
 

@@ -2,17 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0c6fa6bacda2d0dd4c3b3fc35adc7b53a1f7d77a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: f264e5d2699f77f6deddf06acdbc9966bec8dbb8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233759"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709604"
 ---
-|Name |Descrição |Efeito(s) |Versão |GitHub |
-|---|---|---|---|---|
-|[Azure Cosmos DB permitiu localizações](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0473574d-2d43-4217-aefe-941fcdf7e684) |Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos DB da Azure Cosmos. Utilize para impor os requisitos de conformidade geográfica. |[parâmetros('policyEffect')] |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_Locations_Deny.json) |
-|[Implementar proteção avançada de ameaças para contas DB cosmos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5f04e03-92a3-4b09-9410-2cc5e5047656) |Esta política permite a Proteção Avançada de Ameaças através das contas de DB da Cosmos. |ImplementarIfNotExists, Desativado |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Azure Cosmos DB permitiu localizações](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0473574d-2d43-4217-aefe-941fcdf7e684) |Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos DB da Azure Cosmos. Utilize para impor os requisitos de conformidade geográfica. |[parâmetros('policyEffect')] |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_Locations_Deny.json) |
+|[O acesso à escrita de metadados baseado em metadados Azure Cosmos deve ser desativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4750c32b-89c0-46af-bfcb-2e4541a818d5) |Esta política permite-lhe garantir que todas as contas DB da Azure Cosmos desativem o acesso de metadados baseados em metadados baseados em chaves. |apêndice |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_DisableMetadata_Append.json) |
+|[A produção DB de Azure Cosmos deve ser limitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b7ef78e-a035-4f23-b9bd-aff122a1b1cf) |Esta política permite-lhe restringir o máximo de produção que a sua organização pode especificar ao criar bases de dados e contentores DB da Azure Cosmos através do fornecedor de recursos. Bloqueia a criação de recursos de autoescala. |auditoria, negação, desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_MaxThroughput_Deny.json) |
+|[Implementar proteção avançada de ameaças para contas DB cosmos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5f04e03-92a3-4b09-9410-2cc5e5047656) |Esta política permite a Proteção Avançada de Ameaças através das contas de DB da Cosmos. |ImplementarIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |
