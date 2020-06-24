@@ -1,39 +1,39 @@
 ---
-title: Utilize o endereço IP privado para encaminhamento interno para um ponto final de entrada
-description: Este artigo fornece informações sobre como usar iPs privados para encaminhamento interno e, assim, expondo o ponto final de Ingress dentro de um cluster para o resto da VNet.
+title: Utilize o endereço IP privado para encaminhamento interno para um ponto final ingresss
+description: Este artigo fornece informações sobre como usar iPs privados para encaminhamento interno e, assim, expondo o ponto final ingress dentro de um cluster para o resto do VNet.
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795495"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806785"
 ---
-# <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Utilize IP privado para encaminhamento interno para um ponto final de Ingress 
+# <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Use IP privado para encaminhamento interno para um ponto final ingress 
 
-Esta funcionalidade permite expor o ponto `Virtual Network` final de entrada dentro do IP privado.
+Esta funcionalidade permite expor o ponto final de entrada dentro do `Virtual Network` uso de um IP privado.
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
 Gateway de aplicação com [configuração IP privada](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
 
-Existem duas formas de configurar o controlador para usar IP privado para ingresso,
+Existem duas formas de configurar o controlador para usar o IP privado para a entrada,
 
 ## <a name="assign-to-a-particular-ingress"></a>Atribuir a uma entrada particular
-Para expor uma entrada particular sobre ip [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) privado, use anotação em Ingress.
+Para expor uma entrada particular sobre o IP privado, use anotação [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) em Ingress.
 
 ### <a name="usage"></a>Utilização
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-Para Gateways de Aplicação sem UM IP `appgw.ingress.kubernetes.io/use-private-ip: "true"` privado, ingressos anotados com serão ignorados. Isto será indicado no evento de ingresso e no registo de cápsulas AGIC.
+Para gateways de aplicação sem um IP privado, Ingresses anotado com `appgw.ingress.kubernetes.io/use-private-ip: "true"` será ignorado. Isto será indicado no evento de entrada e no registo de pods AGIC.
 
-* Erro indicado no Evento Ingress
+* Erro como indicado no Evento de Entrada
 
     ```bash
     Events:
@@ -43,15 +43,15 @@ Para Gateways de Aplicação sem UM IP `appgw.ingress.kubernetes.io/use-private-
     applicationgateway3026 has a private IP address
     ```
 
-* Erro indicado nos Registos AGIC
+* Erro tal como indicado nos registos AGIC
 
     ```bash
     E0730 18:57:37.914749       1 prune.go:65] Ingress default/hello-world-ingress requires Application Gateway applicationgateway3026 has a private IP address
     ```
 
 
-## <a name="assign-globally"></a>Atribuição Global
-No caso de, a obrigação é restringir todas `appgw.usePrivateIP: true` as `helm` Ingresses a serem expostas durante o IP privado, uso em config.
+## <a name="assign-globally"></a>Atribuir Globalmente
+No caso de restringir todas as Ingresses a serem expostas durante o IP privado, utilização `appgw.usePrivateIP: true` em `helm` config.
 
 ### <a name="usage"></a>Utilização
 ```yaml
@@ -62,8 +62,8 @@ appgw:
     usePrivateIP: true
 ```
 
-Isto fará com que o controlador de entrada filtrar as configurações do endereço IP para um IP privado ao configurar os ouvintes frontend no Gateway da Aplicação.
-A AGIC entrará `usePrivateIP: true` em pânico e entrará em pânico se não for atribuído nenhum IP privado.
+Isto fará com que o controlador de entrada filtra as configurações do endereço IP para um IP privado ao configurar os ouvintes frontend no Gateway de aplicação.
+A AGIC entrará em pânico e colidirá se `usePrivateIP: true` e nenhum IP privado for atribuído.
 
 > [!NOTE]
-> Application Gateway v2 SKU requer um IP público. Caso exija que o Gateway de [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) Aplicação seja privado, fixe um à subnet do Gateway de Aplicação para restringir o tráfego.
+> Application Gateway v2 SKU requer um IP público. Se necessitar que o Gateway de Aplicação seja privado, anexe [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) a a sub-rede do Gateway de aplicação para restringir o tráfego.

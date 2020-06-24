@@ -7,13 +7,13 @@ ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
-ms.openlocfilehash: 72185cf8bc5701e67c6126c9b1b5cc76bb80f362
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.reviewer: dineshm
+ms.openlocfilehash: 518a1b01f52edcf5fa365e2275d4b995ffd719c6
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84463421"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805178"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

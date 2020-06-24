@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 697fe423d6f112dcd3a03ec739f7e11db3043c53
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207826"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297946"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
 
@@ -144,42 +144,6 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 1. Clique no botão **'Rever + Criar'** para verificar se todos os detalhes estão corretos.
 
 1. Clique em **Criar** para iniciar a criação das Aplicações Web Estáticas Azure e providenciar uma Ação GitHub para implementação.
-
-1. Assim que a implementação estiver concluída, navegue para o seu terminal e puxe o compromisso com a Ação GitHub para a sua máquina.
-
-   ```bash
-   git pull
-   ```
-
-1. Abra a aplicação Hugo num editor de texto e abra o ficheiro _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml._
-
-1. Substitua a linha `- uses: actions/checkout@v2` (linha 18) pela seguinte, para construir a aplicação Hugo. Se necessitar de Hugo Extended, descomprometimento. `extended: true`
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   Para mais detalhes sobre a instalação de Hugo no GitHub Actions runner, consulte [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
-
-1. Comprometa o fluxo de trabalho atualizado e empurre para o GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Espere que a Ação GitHub esteja completa.
 

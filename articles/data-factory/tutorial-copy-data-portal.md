@@ -1,6 +1,6 @@
 ---
 title: Utilize o portal Azure para criar um oleoduto de fábrica de dados
-description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade de cópia para copiar dados do armazenamento Azure Blob para uma base de dados Azure SQL.
+description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade de cópia para copiar dados do armazenamento Azure Blob para a Base de Dados Azure SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248622"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253972"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copie os dados do armazenamento do Azure Blob para uma base de dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O oleoduto desta fábrica de dados copia dados do armazenamento da Azure Blob para uma base de dados Azure SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O oleoduto desta fábrica de dados copia dados do armazenamento da Azure Blob para uma base de dados na Base de Dados Azure SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Se não estiver familiarizado com o Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -41,7 +41,7 @@ Neste tutorial, vai executar os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento Azure**. Utilize o Armazenamento de blobs como um arquivo dos dados de *origem*. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
-* **Base de Dados Azure SQL**. Pode utilizar a base de dados como um arquivo de dados *sink*. Se não tiver uma base de dados Azure SQL, consulte [criar uma base de dados SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
+* **Base de Dados Azure SQL**. Pode utilizar a base de dados como um arquivo de dados *sink*. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte a [base de dados Criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -61,7 +61,7 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela SQL sink
 
-1. Utilize o seguinte script SQL para criar a tabela **dbo.emp** na sua base de dados SQL:
+1. Utilize o seguinte script SQL para criar a tabela **dbo.emp** na sua base de dados:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -154,7 +154,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Na caixa de diálogo **New Dataset,** insira "SQL" na caixa de pesquisa para filtrar os conectores, selecione **Azure SQL Database**e, em seguida, selecione **Continue**. Neste tutorial, vai copiar dados para uma base de dados SQL.
 
-1. Na caixa de diálogo **set Properties,** **introduza o Número de Dados de Resultados** para nome. A partir da lista de dropdown **de serviço Linked,** selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados.
+1. Na caixa de diálogo **set Properties,** **introduza o Número de Dados de Resultados** para nome. A partir da lista de dropdown **de serviço Linked,** selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que a Data Factory utiliza para ligar à Base de Dados SQL em tempo de execução. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados.
 
 1. Na caixa de diálogo **New Linked Service (Azure SQL Database),** tome os seguintes passos:
 
@@ -162,7 +162,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
     b. Em **Nome do servidor**, selecione a sua instância do SQL Server.
 
-    c. Em **Nome da base de dados**, selecione a sua base de dados SQL.
+    c. No **nome da base de dados,** selecione a sua base de dados.
 
     d. Em **Nome de utilizador**, introduza o nome do utilizador.
 
@@ -170,7 +170,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
     f. Selecione **Testar ligação** para testar a ligação.
 
-    g. Selecione **Criar** para implementar o serviço ligado.
+    exemplo, Selecione **Criar** para implementar o serviço ligado.
 
     ![Guardar novo serviço ligado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
@@ -209,7 +209,7 @@ Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 
     [![Monitorização da atividade](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Verifique se são adicionadas mais duas linhas à tabela **emp** na base de dados SQL.
+1. Verifique se mais duas linhas são adicionadas à tabela **emp** na base de dados.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Acionar o pipeline com base numa agenda
 Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador executa o pipeline na agenda especificada, como hora a hora ou diariamente. Aqui define o gatilho para funcionar a cada minuto até à data de fim especificada.
@@ -234,7 +234,7 @@ Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador exec
 
     f. Selecione **OK**.
 
-    g. Para opção **Ativada,** selecione **Sim**.
+    exemplo, Para opção **Ativada,** selecione **Sim**.
 
     h. Selecione **OK**.
 

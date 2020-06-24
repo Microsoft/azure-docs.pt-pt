@@ -2,16 +2,16 @@
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.date: 05/14/2019
+ms.date: 06/22/2020
 ms.topic: include
 ms.author: crtreasu
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 76d42361a65dd6a92704cd1189e5dddab50331f4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: baf9abae9ce2f823df304f2dcee983439a3ac8a7
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429660"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297975"
 ---
 ## <a name="putting-everything-together"></a>Juntando tudo
 
@@ -42,6 +42,11 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// Set this string to the Spatial Anchors account key provided in the Spatial Anchors resource.
     /// </summary>
     protected string SpatialAnchorsAccountKey = "Set me";
+
+    /// <summary>
+    /// Set this string to the Spatial Anchors account domain provided in the Spatial Anchors resource.
+    /// </summary>
+    protected string SpatialAnchorsAccountDomain = "Set me";
 
     /// <summary>
     /// Our queue of actions that will be executed on the main thread.
@@ -197,6 +202,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
         cloudSpatialAnchorSession.Configuration.AccountId = SpatialAnchorsAccountId.Trim();
         cloudSpatialAnchorSession.Configuration.AccountKey = SpatialAnchorsAccountKey.Trim();
+        cloudSpatialAnchorSession.Configuration.AccountDomain = SpatialAnchorsAccountDomain.Trim();
 
         cloudSpatialAnchorSession.LogLevel = SessionLogLevel.All;
 

@@ -1,46 +1,31 @@
 ---
-title: Exemplos de políticas de Gestão de API do Azure | Microsoft Docs
-description: Saiba mais sobre as políticas disponíveis para utilização na Gestão de API do Azure.
-services: api-management
-documentationcenter: ''
-author: vladvino
-manager: cflower
-editor: ''
+title: Definições políticas incorporadas para a Azure API Management
+description: Lista definições políticas incorporadas da Azure Policy para a Azure API Management. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 06/11/2020
+author: georgewallace
+ms.author: gwallace
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 10/31/2017
-ms.author: apimpm
-ms.custom: mvc
-ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: subject-policy-samples
+ms.openlocfilehash: b7e273b4ae7d213eb45775540d1e83b5a4d8b971
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75940948"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124018"
 ---
-# <a name="api-management-policy-samples"></a>Exemplos de políticas de Gestão de API
+# <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Definições políticas incorporadas da Azure Policy para a Azure API Management
 
-As [políticas](api-management-howto-policies.md) são uma funcionalidade poderosa do sistema que permite ao publicador alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. A tabela seguinte inclui ligações para exemplos e fornece uma breve descrição de cada exemplo.
+Esta página é um índice de definições políticas incorporadas da [Azure Policy](../governance/policy/overview.md) para a Azure API Management. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md). Para amostras de política de gestão da API, consulte [a API Management - Índice de Política.](./policies/index.md)
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Políticas de entrada**                                                                                                                                                 |                                                                                                                                                                                                                             |
-| [Adicionar um cabeçalho Reencaminhado para permitir à API de back-end construir URLs corretos](./policies/set-header-to-enable-backend-to-construct-urls.md?toc=api-management/toc.json) | Demonstra como adicionar um cabeçalho Reencaminhado no pedido de entrada para permitir à API de back-end construir URLs corretos.                                                                                                        |
-| [Adicionar um cabeçalho com um ID de correlação](./policies/add-correlation-id.md?toc=api-management/toc.json)                                                             | Demonstra como adicionar um cabeçalho com um ID de correlação ao pedido de entrada.                                                                                                                                        |
-| [Adicionar capacidades para um serviço de back-end e colocar a resposta em cache](./policies/cache-response.md?toc=api-management/toc.json)                                             | Mostra como adicionar capacidades a um serviço de back-end. Por exemplo, aceitar o nome de um local em vez de latitude e longitude numa API de previsão meteorológica.                                                                    |
-| [Autorizar o acesso com base em afirmações JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | Mostra como autorizar o acesso a métodos HTTP específicos numa API baseada em afirmações JWT.                                                                                                                                       |
-| [Autorizar pedidos com um autorizador externo](./policies/authorize-request-using-external-authorizer.md)                                                   | Mostra como utilizar um autorizador externo para proteger o acesso à API.                                                                                                                                                               |
-| [Autorizar o acesso com o token de OAuth do Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | Mostra como autorizar o acesso aos pontos finais ao utilizar o Google como um fornecedor de tokens de OAuth.                                                                                                                                    |
-| [Filtrar endereços IP ao utilizar um Gateway de aplicação](./policies/filter-ip-addresses-when-using-appgw.md) | Mostra como filtrar IP em políticas quando a instância de Gestão API é acedida através de um Gateway de Aplicação
-| [Gerar a Assinatura de Acesso Partilhado e reencaminhar o pedido para o armazenamento do Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | Mostra como gerar a [Assinatura de Acesso Partilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) através de expressões e reencaminhar o pedido para o armazenamento do Azure com a política rewrite-uri. |
-| [Obter o token de acesso de OAuth2 do AAD e reencaminhá-lo para o back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Fornece um exemplo de como utilizar o OAuth2 para autorização entre o gateway e um back-end. Mostra como obter um token de acesso do AAD e reencaminhá-lo para o back-end.                                                    |
-| [Obter o token X-CSRF do gateway SAP através da política de envio de pedidos](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Mostra como implementar o padrão X-CSRF utilizado por muitas APIs. Este exemplo é específico do Gateway SAP.                                                                                                                           |
-| [Encaminhar o pedido com base no tamanho do respetivo corpo](./policies/route-requests-based-on-size.md?toc=api-management/toc.json)                                            | Demonstra como encaminhar pedidos com base no tamanho dos respetivos corpos.                                                                                                                                                       |
-| [Enviar informações de contexto do pedido para o serviço de back-end](./policies/send-request-context-info-to-backend-service.md?toc=api-management/toc.json)                    | Mostra como enviar algumas informações de contexto para o serviço de back-end para registo ou processamento.                                                                                                                                |
-| [Definir a duração da cache de resposta](./policies/set-cache-duration.md?toc=api-management/toc.json)                                                                          | Demonstra como definir a duração da cache de resposta através do valor maxAge no cabeçalho Cache-Control enviado pelo back-end.                                                                                                             |
-| **Políticas de saída**                                                                                                                                                |                                                                                                                                                                                                                             |
-| [Filtrar conteúdo de resposta](./policies/filter-response-content.md?toc=api-management/toc.json)                                                                         | Demonstra como filtrar elementos de dados do payload de resposta com base no produto associado ao pedido.                                                                                                        |
-| **Políticas de erro**                                                                                                                                                |                                                                                                                                                                                                                             |
-| [Registar erros no Stackify](./policies/log-errors-to-stackify.md?toc=api-management/toc.json)                                                                           | Mostra como adicionar uma política de registo de erros para enviar erros para o Stackify para registo.                                                                                                                                            |
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
+
+## <a name="azure-api-management"></a>API Management do Azure
+
+[!INCLUDE [azure-policy-samples-rp-apimanagement](../../includes/policy/samples/byrp/microsoft.apimanagement.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+- Reveja a [estrutura de definição do Azure Policy](../governance/policy/concepts/definition-structure.md).
+- Veja [Compreender os efeitos do Policy](../governance/policy/concepts/effects.md).

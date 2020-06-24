@@ -5,20 +5,20 @@ description: Saiba como criar um gateway de aplicação que aloja vários sites 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74047347"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806273"
 ---
-# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um portal de aplicações que acolhe vários web sites usando o Azure CLI
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicações que acolhe vários web sites usando o Azure CLI
 
-Pode utilizar a CLI do Azure para [configurar o alojamento de vários sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, define piscinas de endereços de backend utilizando conjuntos de escala de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo assume que possui vários domínios e utiliza exemplos de *\.www contoso.com* e www *\.fabrikam.com.*
+Pode utilizar a CLI do Azure para [configurar o alojamento de vários sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, você define piscinas de endereços de backend usando conjuntos de escala de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo pressupõe que possui vários domínios e utiliza exemplos de *www \. contoso.com* e *www \. fabrikam.com*.
 
 Neste artigo, vai aprender a:
 
@@ -32,13 +32,13 @@ Neste artigo, vai aprender a:
 
 ![Exemplo de encaminhamento multilocal](./media/tutorial-multiple-sites-cli/scenario.png)
 
-Se preferir, pode concluir este procedimento utilizando [o Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Se preferir, pode concluir este procedimento utilizando [a Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.0.4 do Azure CLI ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.0.4 ou posterior do Azure CLI. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -106,7 +106,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-backend-pools"></a>Adicionar os conjuntos de back-end
 
-Adicione os pools de backend que são necessários para conter os servidores backend usando a [z rede aplica-gateway address-pool criar](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
+Adicione os pools de backend que são necessários para conter os servidores backend usando [a az rede aplicação-gateway endereço-pool criar](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -145,7 +145,7 @@ az network application-gateway http-listener create \
 
 As regras são processadas na ordem em que estão listadas. O tráfego é direcionado usando a primeira regra que corresponde independentemente da especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 
-Neste exemplo, cria duas novas regras e elimina a regra predefinida criada quando implementou o gateway da aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Neste exemplo, cria-se duas novas regras e elimina a regra padrão criada quando implementou o gateway de aplicações. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -232,11 +232,11 @@ az network public-ip show \
   --output tsv
 ```
 
-A utilização de registos A não é recomendada porque o VIP pode mudar quando o gateway da aplicação recomeçar.
+A utilização de registos A não é recomendada porque o VIP pode mudar quando o gateway de aplicação recomeçar.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Tais como,\/http: /www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Como, http: \/ /www.contoso.com.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

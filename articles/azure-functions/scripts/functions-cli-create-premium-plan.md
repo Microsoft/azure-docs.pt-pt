@@ -1,19 +1,19 @@
 ---
 title: Criar uma aplicação de função num plano Premium - Azure CLI
-description: Crie uma aplicação de função num plano Premium escalável em Azure usando o Azure CLI
+description: Criar uma aplicação de função num plano Premium escalável em Azure utilizando o Azure CLI
 ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3587e5b5e46867ff3abe97b3593c9732be3afa22
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74536268"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117255"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Criar uma aplicação de função num plano Premium - Azure CLI
 
-Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. A aplicação de funções que é criada usa um [plano Premium escalável.](../functions-premium-plan.md)
+Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. A aplicação de função criada utiliza um [plano Premium escalável.](../functions-premium-plan.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,7 +23,7 @@ Se optar por instalar e usar a CLI localmente, este artigo requer a execução d
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este script cria uma aplicação de função usando um [plano Premium](../functions-premium-plan.md).
+Este script cria uma aplicação de função utilizando um [plano Premium.](../functions-premium-plan.md)
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-premium-plan/create-function-app-premium-plan.sh "Create an Azure Function on an App Service plan")]
 
@@ -37,7 +37,7 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma Conta de armazenamento do Azure. |
-| [az plano de app de funções criar](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Cria um plano Premium. |
+| [plano az functionapp criar](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Cria um plano Premium num [SKU específico.](../functions-premium-plan.md#available-instance-skus) |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de funções no plano do Serviço de Aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes

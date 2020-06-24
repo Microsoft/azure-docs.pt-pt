@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325997"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249496"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregue gradualmente os dados do Azure SQL Managed Instance para O Azure Storage utilizando a captura de dados de alteração (CDC)
 
@@ -55,7 +55,8 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 * **Exemplo gerido pela base de dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma Instância Gerida pela Base de Dados Azure SQL, consulte o artigo Criar um artigo de Exemplo gerido por [uma base de dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para obter passos para criar um.
 * **Conta de Armazenamento Azure**. O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um recipiente chamado **cru.** 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL do Azure
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Criar uma tabela de fontes de dados na Base de Dados Azure SQL
+
 1. Lance **o SQL Server Management Studio**e ligue-se ao seu servidor Azure SQL Managed Instances.
 2. No **Explorador de Servidores**, clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
 3. Executar o seguinte comando SQL contra a sua base de dados Azure SQL Managed Instances para criar uma tabela chamada `customers` loja de fontes de dados.  
@@ -123,7 +124,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Des-select **Enable GIT**.     
-7. Clique **em Criar**.
+7. Clique em **Criar**.
 8. Uma vez concluída a implementação, clique em **Ir ao recurso**
 
    ![Home page da fábrica de dados](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
@@ -408,7 +409,7 @@ Vai ver um segundo ficheiro na pasta `customers/incremental/YYYY/MM/DD` do conte
 ![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png)
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

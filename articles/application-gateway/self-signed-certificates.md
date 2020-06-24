@@ -1,51 +1,51 @@
 ---
-title: Gerar certificado auto-assinado com uma raiz personalizada CA
+title: Gere um certificado auto-assinado com uma ca de raiz personalizada
 titleSuffix: Azure Application Gateway
 description: Saiba como gerar um certificado auto-assinado do Azure Application Gateway com uma raiz personalizada CA
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: a0e930116447ded51616651751bba7482b638ca1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de580d8f94292ae65769c696aa232f5b660bf414
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745487"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806763"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gere um certificado auto-assinado do Azure Application Gateway com uma raiz personalizada CA
 
-O Gateway de aplicação v2 SKU introduz a utilização de Certificados de Raiz Fidedignos para permitir servidores de backend. Isto remove os certificados de autenticação que foram exigidos no V1 SKU. O *certificado de raiz* é um Base-64 codificado X.509(. Cer) certificado raiz de formato do servidor de certificado backend. Identifica a autoridade do certificado de raiz (CA) que emitiu o certificado de servidor e o certificado de servidor é então utilizado para a comunicação TLS/SSL.
+O Gateway de Aplicação v2 SKU introduz a utilização de Certificados de Raiz Fidedigna para permitir servidores de backend. Isto remove os certificados de autenticação que eram necessários no V1 SKU. O *certificado de raiz* é um X.509 codificado base-64(. CER) certificado de raiz de formato do servidor de certificado de backend. Identifica a autoridade de certificados de raiz (CA) que emitiu o certificado do servidor e o certificado do servidor é então utilizado para a comunicação TLS/SSL.
 
-Application Gateway confia no certificado do seu website por padrão se for assinado por um conhecido CA (por exemplo, GoDaddy ou DigiCert). Não precisas de carregar explicitamente o certificado de raiz nesse caso. Para mais informações, consulte a [visão geral da rescisão do TLS e termine com o TLS com o Gateway](ssl-overview.md)de Aplicação . No entanto, se tiver um ambiente de dev/teste e não quiser adquirir um certificado assinado pela AC, pode criar o seu próprio CA personalizado e criar um certificado auto-assinado com ele. 
+A Application Gateway confia o certificado do seu website por padrão se for assinado por um ca conhecido (por exemplo, GoDaddy ou DigiCert). Não precisa de carregar explicitamente o certificado de raiz nesse caso. Para obter mais informações, consulte [a visão geral da rescisão do TLS e o fim do TLS com o Gateway de aplicação.](ssl-overview.md) No entanto, se tiver um ambiente dev/teste e não quiser adquirir um certificado assinado pela AC, pode criar o seu próprio CA personalizado e criar um certificado auto-assinado com ele. 
 
 > [!NOTE]
-> Os certificados auto-assinados não são confiáveis por defeito e podem ser difíceis de manter. Além disso, podem usar suítes de haxixe e cifra desatualizadas que podem não ser fortes. Para uma melhor segurança, compre um certificado assinado por uma conhecida autoridade de certificados.
+> Os certificados auto-assinados não são de confiança por defeito e podem ser difíceis de manter. Além disso, podem usar suítes de haxixe e cifra desatualizadas que podem não ser fortes. Para melhor segurança, compre um certificado assinado por uma conhecida autoridade de certificados.
 
 Neste artigo, aprenderá a:
 
-- Crie a sua própria Autoridade de Certificados Personalizados
-- Crie um certificado auto-assinado assinado pelo seu CA personalizado
-- Faça upload de um certificado de raiz auto-assinado para um Gateway de aplicação para autenticar o servidor backend
+- Crie a sua própria Autoridade de Certificados personalizada
+- Crie um certificado auto-assinado assinado pela sua AC personalizada
+- Faça o upload de um certificado de raiz auto-assinado para um Gateway de aplicação para autenticar o servidor backend
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **[Abre o SSL](https://www.openssl.org/) num computador que executa windows ou Linux** 
+- **[OpenSSL](https://www.openssl.org/) em um computador que executa Windows ou Linux** 
 
-   Embora possa haver outras ferramentas disponíveis para a gestão de certificados, este tutorial utiliza o OpenSSL. Você pode encontrar OpenSSL agregado com muitas distribuições Linux, como Ubuntu.
+   Embora possam existir outras ferramentas disponíveis para a gestão de certificados, este tutorial utiliza o OpenSSL. Pode encontrar o OpenSSL agregado com muitas distribuições Linux, como o Ubuntu.
 - **Um servidor web**
 
    Por exemplo, Apache, IIS ou NGINX para testar os certificados.
 
 - **Um Gateway de Aplicação v2 SKU**
    
-  Se não tiver um portal de aplicações existente, consulte [Quickstart: Tráfego web direto com portal Azure Application Gateway - Portal Azure](quick-create-portal.md).
+  Se não tiver uma porta de aplicação existente, consulte [Quickstart: Tráfego web direto com Azure Application Gateway - Portal Azure](quick-create-portal.md).
 
-## <a name="create-a-root-ca-certificate"></a>Criar um certificado ca raiz
+## <a name="create-a-root-ca-certificate"></a>Criar um certificado de CA raiz
 
-Crie o seu certificado CA raiz utilizando o OpenSSL.
+Crie o seu certificado de CA raiz utilizando o OpenSSL.
 
 ### <a name="create-the-root-key"></a>Criar a chave raiz
 
@@ -54,7 +54,7 @@ Crie o seu certificado CA raiz utilizando o OpenSSL.
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. No momento, escreva uma senha forte. Por exemplo, pelo menos nove caracteres, utilizando maiúsculas, minúsculas, números e símbolos.
+1. Ao solicitar, escreva uma senha forte. Por exemplo, pelo menos nove caracteres, utilizando maiússão, minúscula, números e símbolos.
 
 ### <a name="create-a-root-certificate-and-self-sign-it"></a>Crie um Certificado de Raiz e auto-assine-o
 
@@ -65,17 +65,17 @@ Crie o seu certificado CA raiz utilizando o OpenSSL.
 
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
-   Os comandos anteriores criam o certificado de raiz. Vai usar isto para assinar o seu certificado de servidor.
+   Os comandos anteriores criam o certificado raiz. Usará isto para assinar o certificado do servidor.
 
-1. Quando solicitado, digite a palavra-passe para a chave raiz, e as informações organizacionais para o CA personalizado, tais como País/Região, Estado, Org, U, e o nome de domínio totalmente qualificado (este é o domínio do emitente).
+1. Quando solicitado, digite a palavra-passe para a chave raiz, e as informações organizacionais para a CA personalizada, tais como País/Região, Estado, Org, OU, e o nome de domínio totalmente qualificado (este é o domínio do emitente).
 
    ![criar certificado de raiz](media/self-signed-certificates/root-cert.png)
 
 ## <a name="create-a-server-certificate"></a>Criar um certificado de servidor
 
-Em seguida, criará um certificado de servidor utilizando o OpenSSL.
+Em seguida, irá criar um certificado de servidor utilizando o OpenSSL.
 
-### <a name="create-the-certificates-key"></a>Criar a chave do certificado
+### <a name="create-the-certificates-key"></a>Crie a chave do certificado
 
 Utilize o seguinte comando para gerar a chave para o certificado do servidor.
 
@@ -85,10 +85,10 @@ Utilize o seguinte comando para gerar a chave para o certificado do servidor.
 
 ### <a name="create-the-csr-certificate-signing-request"></a>Criar o CSR (Pedido de Assinatura de Certificado)
 
-A RSE é uma chave pública que é dada a uma AC ao solicitar um certificado. A AC emite o certificado para este pedido específico.
+A RSE é uma chave pública que é dada a uma AC quando solicita um certificado. A AC emite o certificado para este pedido específico.
 
 > [!NOTE]
-> O NC (Nome Comum) para o certificado do servidor deve ser diferente do domínio do emitente. Por exemplo, neste caso, o NC para o emitente é `www.contoso.com` e o NC do certificado de servidor é `www.fabrikam.com` .
+> O CN (Nome Comum) para o certificado do servidor deve ser diferente do domínio do emitente. Por exemplo, neste caso, o CN para o emitente é `www.contoso.com` e o certificado de servidor CN é `www.fabrikam.com` .
 
 
 1. Utilize o seguinte comando para gerar a RSE:
@@ -116,28 +116,28 @@ A RSE é uma chave pública que é dada a uma AC ao solicitar um certificado. A 
    openssl x509 -in fabrikam.crt -text -noout
    ```
 
-   ![Verificação de certificados](media/self-signed-certificates/verify-cert.png)
+   ![Verificação do certificado](media/self-signed-certificates/verify-cert.png)
 
-1. Verifique os ficheiros no seu diretório e certifique-se de que tem os seguintes ficheiros:
+1. Verifique os ficheiros do seu diretório e certifique-se de que tem os seguintes ficheiros:
 
    - contoso.crt
-   - contoso.chave
+   - contoso.key
    - fabrikam.crt
    - fabrikam.key
 
-## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Configure o certificado nas definições de TLS do seu servidor web
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Configurar o certificado nas definições de TLS do seu servidor web
 
-No seu servidor web, configure os ficheiros tLS utilizando os ficheiros fabrikam.crt e fabrikam.key. Se o seu servidor web não conseguir utilizar dois ficheiros, pode combiná-los com um único ficheiro .pem ou .pfx utilizando comandos OpenSSL.
+No seu servidor web, configurar OTS utilizando os ficheiros fabrikam.crt e fabrikam.key. Se o seu servidor web não puder levar dois ficheiros, pode combiná-los com um único ficheiro .pem ou .pfx utilizando comandos OpenSSL.
 
 ### <a name="iis"></a>IIS
 
-Para obter instruções sobre como importar certificado e carregá-los como certificado de servidor no IIS, consulte [COMO Instalar Certificados Importados num Servidor Web no Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
+Para obter instruções sobre como importar certificado e carregá-los como certificado de servidor no IIS, consulte [COMO: Instalar certificados importados num Servidor Web no Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Para instruções de ligação TLS, consulte [Como configurar o SSL no IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Para instruções de ligação TLS, consulte [como configurar o SSL no IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
-A seguinte configuração é um [exemplo de hospedeiro virtual configurado para SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) em Apache:
+A seguinte configuração é um anfitrião virtual de exemplo [configurado para SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) em Apache:
 
 ```
 <VirtualHost www.fabrikam:443>
@@ -151,13 +151,13 @@ A seguinte configuração é um [exemplo de hospedeiro virtual configurado para 
 
 ### <a name="nginx"></a>NGINX
 
-A seguinte configuração é um bloco de [servidor NGINX](https://nginx.org/docs/http/configuring_https_servers.html) de exemplo com configuração TLS:
+A seguinte configuração é um [bloco de servidor NGINX](https://nginx.org/docs/http/configuring_https_servers.html) exemplo com configuração TLS:
 
 ![NGINX com TLS](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>Aceda ao servidor para verificar a configuração
 
-1. Adicione o certificado de raiz ao armazém de raiz fidedigno da sua máquina. Ao aceder ao site, certifique-se de que toda a cadeia de certificados é vista no navegador.
+1. Adicione o certificado de raiz à loja de raiz fidedigna da sua máquina. Ao aceder ao site, certifique-se de que toda a cadeia de certificados é vista no navegador.
 
    ![Certificados de raiz fidedignos](media/self-signed-certificates/trusted-root-cert.png)
 
@@ -167,30 +167,30 @@ A seguinte configuração é um bloco de [servidor NGINX](https://nginx.org/docs
 
 ## <a name="verify-the-configuration-with-openssl"></a>Verifique a configuração com OpenSSL
 
-Ou pode usar o OpenSSL para verificar o certificado.
+Ou, pode usar o OpenSSL para verificar o certificado.
 
 ```
 openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 ```
 
-![Verificação de certificado openssl](media/self-signed-certificates/openssl-verify.png)
+![Verificação de certificados OpenSSL](media/self-signed-certificates/openssl-verify.png)
 
-## <a name="upload-the-root-certificate-to-application-gateways-http-settings"></a>Faça upload do certificado de raiz para as definições http do Gateway de aplicação
+## <a name="upload-the-root-certificate-to-application-gateways-http-settings"></a>Faça o upload do certificado de raiz para as definições HTTP do Gateway de Aplicação
 
-Para fazer o upload do certificado no Gateway de Aplicação, deve exportar o certificado .crt para um formato .cer Base-64 codificado. Uma vez que .crt já contém a chave pública no formato codificado base-64, basta renomear a extensão do ficheiro de .crt para .cer. 
+Para fazer o upload do certificado em Application Gateway, deve exportar o certificado .crt para um formato .cer Base-64 codificado. Uma vez que .crt já contém a chave pública no formato codificado base-64, basta mudar o nome da extensão do ficheiro de .crt para .cer. 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para fazer o upload do certificado raiz fidedigno do portal, selecione as **Definições HTTP** e escolha o protocolo **HTTPS.**
+Para fazer o upload do certificado de raiz fidedigno a partir do portal, selecione as **Definições HTTP** e escolha o protocolo **HTTPS.**
 
-![Adicione um certificado usando o portal](media/self-signed-certificates/portal-cert.png)
+![Adicionar um certificado usando o portal](media/self-signed-certificates/portal-cert.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Ou pode utilizar o Azure CLI ou o Azure PowerShell para fazer o upload do certificado de raiz. O código seguinte é uma amostra Azure PowerShell.
+Ou, pode utilizar o Azure CLI ou o Azure PowerShell para carregar o certificado raiz. O seguinte código é uma amostra Azure PowerShell.
 
 > [!NOTE]
-> A amostra seguinte adiciona um certificado de raiz fidedigno ao gateway da aplicação, cria uma nova definição HTTP e adiciona uma nova regra, assumindo que o pool backend e o ouvinte já existem.
+> A amostra seguinte adiciona um certificado de raiz fidedigno ao gateway de aplicação, cria uma nova definição HTTP e adiciona uma nova regra, assumindo que o pool de backend e o ouvinte já existem.
 
 ```azurepowershell
 ## Add the trusted root certificate to the Application Gateway
@@ -263,14 +263,14 @@ Add-AzApplicationGatewayRequestRoutingRule `
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
 
-### <a name="verify-the-application-gateway-backend-health"></a>Verifique a porta de aplicação backend health
+### <a name="verify-the-application-gateway-backend-health"></a>Verifique a saúde do backend do gateway de aplicação
 
-1. Clique na visão **backend Health** da sua porta de entrada de aplicação para verificar se a sonda está saudável.
-1. Deve ver que o Estado é **saudável** para a sonda HTTPS.
+1. Clique na vista **Backend Health** da sua porta de aplicação para verificar se a sonda está saudável.
+1. Deve ver se o Estado é **saudável** para a sonda HTTPS.
 
 ![Sonda HTTPS](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o SSL\TLS no Gateway de Aplicação, consulte a [visão geral da rescisão de TLS e termine com tLS com Application Gateway](ssl-overview.md).
+Para saber mais sobre sSL\TLS em Gateway de aplicação, consulte [a visão geral da rescisão de TLS e o fim do TLS com o Gateway de aplicações](ssl-overview.md).
 

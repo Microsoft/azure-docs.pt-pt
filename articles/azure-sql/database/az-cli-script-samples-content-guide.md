@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658177"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251527"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Amostras de Azure CLI para Azure SQL Database e SQL Managed Instance 
  
@@ -39,15 +39,15 @@ A tabela seguinte inclui links para exemplos de scripts Azure CLI para gerir bas
 |---|---|
 |**Criar bases de dados na Base de Dados Azure SQL**||
 | [Criar uma base de dados e configurar uma regra de firewall](scripts/create-and-configure-database-cli.md) | Cria uma Base de Dados SQL e configura uma regra de firewall ao nível do servidor. |
-| [Criar conjuntos elásticos e mover bases de dados de conjunto](scripts/move-database-between-elastic-pools-cli.md) | Cria piscinas elásticas, move bases de dados SQL agramadas e altera tamanhos de cálculo. |
+| [Criar conjuntos elásticos e mover bases de dados de conjunto](scripts/move-database-between-elastic-pools-cli.md) | Cria piscinas elásticas, move bases de dados agrizadas e altera tamanhos de cálculo. |
 |**Bases de dados de escala na Base de Dados Azure SQL**||
 | [Dimensionar uma base de dados](scripts/monitor-and-scale-database-cli.md) | Escala uma base de dados na Base de Dados SQL para um tamanho de cálculo diferente depois de consultar as informações de tamanho para a base de dados. |
 | [Dimensionar um conjunto elástico](scripts/scale-pool-cli.md) | Dimensiona uma piscina elástica SQL para um tamanho computacional diferente. |
 |**Configurar georreplicação e ativação pós-falha**||
 | [Adicione uma única base de dados a um grupo de failover](scripts/add-database-to-failover-group-cli.md)| Cria uma base de dados e um grupo de failover, adiciona a base de dados ao grupo de failover e, em seguida, os testes falham no servidor secundário. |
 | [Configure um grupo de failover para uma piscina elástica](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Cria uma base de dados, adiciona-a a uma piscina elástica, adiciona a piscina elástica ao grupo de failover e, em seguida, testa falha no servidor secundário. |
-| [Configurar e falhar sobre uma única base de dados utilizando a geo-replicação ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura a geo-replicação ativa para uma base de dados Azure SQL e falha-a na réplica secundária. |
-| [Configurar e falhar sobre uma base de dados agimiutada utilizando a geo-replicação ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura a geo-replicação ativa para uma base de dados Azure SQL numa piscina elástica SQL e, em seguida, falha-a na réplica secundária. |
+| [Configurar e falhar sobre uma única base de dados utilizando a geo-replicação ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura a geo-replicação ativa para uma base de dados na Base de Dados Azure SQL e falha-a na réplica secundária. |
+| [Configurar e falhar sobre uma base de dados agimiutada utilizando a geo-replicação ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura a geo-replicação ativa para uma base de dados numa piscina elástica, e depois falha-a na réplica secundária. |
 | **Auditoria e deteção de ameaças** |
 | [Configurar a auditoria e a deteção de ameaças](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Configura políticas de auditoria e deteção de ameaças para uma base de dados na Base de Dados Azure SQL. |
 | **Fazer back-up, restaurar, copiar e importar uma base de dados**||

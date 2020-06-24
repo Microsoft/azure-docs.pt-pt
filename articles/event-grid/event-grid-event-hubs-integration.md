@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610822"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212212"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
 A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados desde o armazenamento de blobs até um Armazém de Dados SQL.
@@ -45,7 +45,7 @@ Neste artigo, tome os seguintes passos:
 Para concluir este tutorial, tem de ter:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Estúdio visual 2019](https://www.visualstudio.com/vs/) com cargas de trabalho para: desenvolvimento de desktop .NET, desenvolvimento de Azure, ASP.NET e desenvolvimento web, desenvolvimento de Node.js e desenvolvimento python.
+* [Estúdio visual 2019](https://www.visualstudio.com/vs/) com cargas de trabalho para: desenvolvimento de desktop .NET, desenvolvimento de Azure, ASP.NET e desenvolvimento web, desenvolvimento Node.js e desenvolvimento python.
 * Descarregue o projeto de [amostra EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) para o seu computador.
 
 ## <a name="deploy-the-infrastructure"></a>Implementar a infraestrutura
@@ -173,7 +173,7 @@ Crie uma tabela no seu armazém de dados executando o script [CreateDataWarehous
 2. Na página de armazém de dados SQL, selecione **o editor de consulta (pré-visualização)** no menu esquerdo. 
 
     ![Página de armazém de dados SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Introduza o nome do **utilizador** e **da palavra-passe** para o servidor SQL e selecione **OK**. Vocês precisam do endereço IP do seu cliente para a firewall para iniciar sessão com sucesso no servidor SQL. 
+2. Introduza o nome do **utilizador** e **da palavra-passe** para o servidor SQL e selecione **OK**. Poderá ser necessário adicionar o endereço IP do seu cliente à firewall para iniciar sessão com sucesso no servidor SQL. 
 
     ![Autenticação do SQL Server](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. Na janela de consulta, copie e execute o seguinte script SQL: 
@@ -312,7 +312,7 @@ O Event Grid distribui dados de eventos para os subscritores. O exemplo a seguir
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre as diferenças dos serviços de mensagens do Azure, veja [Escolher entre os serviços do Azure que entregam mensagens](compare-messaging-services.md).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

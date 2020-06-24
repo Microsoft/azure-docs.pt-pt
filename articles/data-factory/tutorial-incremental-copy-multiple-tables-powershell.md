@@ -1,6 +1,6 @@
 ---
 title: Copie incrementalmente várias tabelas usando PowerShell
-description: Neste tutorial, você cria um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para uma Base de Dados Azure SQL.
+description: Neste tutorial, cria-se um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para uma base de dados na Base de Dados Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/30/2020
-ms.openlocfilehash: ef756f1b9b96f0e8fe9b77e6ae8f00f077fd1b88
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559613"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250966"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para uma Base de Dados Azure SQL usando PowerShell
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para Azure SQL Database usando PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para uma Base de Dados Azure SQL.    
+Neste tutorial, cria-se uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.    
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -70,7 +70,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Sql Server**. Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
-* **Base de Dados Azure SQL**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma. 
+* **Base de Dados Azure SQL**. Utiliza uma base de dados na Base de Dados Azure SQL como loja de dados da pia. Se não tiver uma base de dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
@@ -117,7 +117,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
 
-3. Execute o comando SQL seguinte na base de dados SQL para criar tabelas com o nome `customer_table` e `project_table`:  
+3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:  
 
     ```sql
     create table customer_table
@@ -134,9 +134,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na Base de Dados Azure SQL para armazenar o elevado valor da marca de água
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na Base de Dados Azure SQL para armazenar o elevado valor da marca de água
 
-1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água: 
+1. Executar o seguinte comando SQL contra a sua base de dados para criar uma tabela com o nome `watermarktable` para armazenar o valor da marca de água: 
     
     ```sql
     create table watermarktable
@@ -159,7 +159,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Criar um procedimento armazenado na Base de Dados Azure SQL 
 
-Execute o comando seguinte para criar um procedimento armazenado na base de dados SQL. Este procedimento armazenado atualiza o valor de limite de tamanho após cada execução de pipeline. 
+Execute o seguinte comando para criar um procedimento armazenado na sua base de dados. Este procedimento armazenado atualiza o valor de limite de tamanho após cada execução de pipeline. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Criar tipos de dados e procedimentos adicionais armazenados na Base de Dados Azure SQL
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Criar tipos de dados e procedimentos adicionais armazenados na Base de Dados Azure SQL
 
-Execute a consulta seguinte para criar dois procedimentos armazenados e dois tipos de dados de dois na sua base de dados SQL. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino. 
+Execute a seguinte consulta para criar dois procedimentos armazenados e dois tipos de dados na sua base de dados. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino. 
 
 Para facilitar a viagem, utilizamos diretamente estes Procedimentos Armazenados passando os dados delta através de uma variável de tabela e, em seguida, fundimo-los em loja de destino. Tenha cuidado, não espera que um número "grande" de linhas delta (mais de 100) seja armazenado na variável da tabela.  
 
@@ -283,19 +283,19 @@ Tenha em atenção os seguintes pontos:
 
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções contribuidor ou proprietário ou administrador da subscrição do Azure.
 
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, SQL Database, SQL Managed Instance, e assim por diante) e computas (Azure HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, cria serviços ligados à base de dados do SQL Server e à Base de Dados Azure SQL. 
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, crie serviços ligados à base de dados do SQL Server e à sua base de dados na Base de Dados Azure SQL. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Criar o serviço ligado do SQL Server
 
 Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
 
-1. Crie um ficheiro JSON chamado **SqlServerLinkedService.json** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial (crie as pastas locais se já não existirem) com o seguinte conteúdo. Selecione a secção certa com base na autenticação que utiliza para se ligar ao SQL Server.  
+1. Crie um ficheiro JSON nomeado **SqlServerLinkedService.jsna** pasta C:\ADFTutorials\IncCopyMultiTableTutorial (crie as pastas locais se já não existirem) com o seguinte conteúdo. Selecione a secção certa com base na autenticação que utiliza para se ligar ao SQL Server.  
 
     > [!IMPORTANT]
     > Selecione a secção certa com base na autenticação que utiliza para se ligar ao SQL Server.
@@ -372,9 +372,9 @@ Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-the-sql-database-linked-service"></a>Criar o serviço ligado da base de dados SQL
+### <a name="create-the-sql-database-linked-service"></a>Criar o serviço de base de dados SQL ligado
 
-1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em C:\ADFTutorials\IncCopyMultiTableTutorial com o seguinte conteúdo. (Criar a pasta ADF se já não existir.) Substitua &lt; o nome de &gt; servidor, nome de base de &lt; &gt; &lt; dados, nome de utilizador &gt; e &lt; palavra-passe &gt; pelo nome da base de dados do SEU SQL Server, nome da sua base de dados, nome de utilizador e palavra-passe antes de guardar o ficheiro. 
+1. Crie um ficheiro JSON nomeado **AzureSQLDatabaseLinkedService.jsem** C:\ADFTutorials\IncCopyMultiTableTutorial com o seguinte conteúdo. (Criar a pasta ADF se já não existir.) Substitua &lt; o nome de &gt; servidor, nome de base de &lt; &gt; &lt; dados, nome de utilizador &gt; e &lt; palavra-passe &gt; pelo nome da base de dados do SEU SQL Server, nome da sua base de dados, nome de utilizador e palavra-passe antes de guardar o ficheiro. 
 
     ```json
     {  
@@ -453,7 +453,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
 ### <a name="create-a-sink-dataset"></a>Criar um conjunto de dados de sink
 
-1. Crie um ficheiro JSON chamado **SinkDataset.json** na mesma pasta com o seguinte conteúdo. O elemento tableName é definido pelo pipeline dinamicamente durante a execução. A atividade ForEach no pipeline itera através de uma lista de nomes de tabelas e transmite o nome da tabela para este conjunto de dados em cada iteração. 
+1. Crie um ficheiro JSON nomeado **SinkDataset.jsna** mesma pasta com o seguinte conteúdo. O elemento tableName é definido pelo pipeline dinamicamente durante a execução. A atividade ForEach no pipeline itera através de uma lista de nomes de tabelas e transmite o nome da tabela para este conjunto de dados em cada iteração. 
 
     ```json
     {  
@@ -502,7 +502,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
 Neste passo, vai criar um conjunto de dados para armazenar um valor de limite superior de tamanho. 
 
-1. Criar um ficheiro JSON chamado **WatermarkDataset.json** na mesma pasta com o seguinte conteúdo: 
+1. Criar um ficheiro JSON nomeado **WatermarkDataset.jsna** mesma pasta com o seguinte conteúdo: 
 
     ```json
     {
@@ -549,7 +549,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
-1. Criar um ficheiro JSON chamado **IncrementalCopyPipeline.json** na mesma pasta com o seguinte conteúdo: 
+1. Criar um ficheiro JSON nomeado **IncrementalCopyPipeline.jsna** mesma pasta com o seguinte conteúdo: 
 
     ```json
     {  
@@ -783,7 +783,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
  
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-1. Criar um ficheiro de parâmetros chamado **Parâmetros.json** na mesma pasta com o seguinte conteúdo:
+1. Criar um ficheiro de parâmetros denominado **Parameters.jsna** mesma pasta com o seguinte conteúdo:
 
     ```json
     {

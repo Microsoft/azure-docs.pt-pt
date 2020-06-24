@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324237"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250728"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicione um pacote R aos Serviços de Aprendizagem de Máquinas de Base de Dados Azure SQL (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Este artigo explica como adicionar um pacote R ao Azure SQL Database Machine Lea
 
 ## <a name="list-r-packages"></a>Listar pacotes de R
 
-A Microsoft fornece uma série de pacotes R pré-instalados com Serviços de Machine Learning na sua base de dados Azure SQL.
+A Microsoft fornece uma série de pacotes R pré-instalados com serviços de machine learning na Base de Dados Azure SQL.
 Pode ver uma lista de pacotes R instalados executando o seguinte comando no Azure Data Studio ou SSMS.
 
 1. Abra o Azure Data Studio ou SSMS e ligue-se à sua Base de Dados Azure SQL.
@@ -166,9 +166,9 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Outra forma de instalar um pacote R na sua base de dados Azure SQL é fazer o upload do pacote R a partir de um fluxo byte utilizando a declaração **CREATE EXTERNAL LIBRARY** T-SQL. Consulte [Criar uma biblioteca a partir de um fluxo de byte](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência [DA BIBLIOTECA EXTERNA CREATE.](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql)
+> Outra forma de instalar um pacote R para a Base de Dados Azure SQL é fazer o upload do pacote R a partir de um fluxo byte utilizando a declaração **CREATE EXTERNAL LIBRARY** T-SQL. Consulte [Criar uma biblioteca a partir de um fluxo de byte](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência [DA BIBLIOTECA EXTERNA CREATE.](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Serviços de Aprendizagem automática de máquinas de base de dados Azure SQL com R (pré-visualização), consulte os seguintes artigos.
 

@@ -7,14 +7,14 @@ ms.date: 09/17/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, tracking-python
-ms.openlocfilehash: 00eb7c1488c90add48e3b6755ca1835d2ce1ff2d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 46d144a95708ac834478871ca27763f0ebd3b201
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657704"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805247"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como usar o armazenamento da fila Azure v2.1 da Python
 
@@ -149,7 +149,7 @@ Para eliminar uma fila e todas as mensagens contidas na sua parte, ligue para o 
 queue_service.delete_queue('taskqueue')
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para saber mais.
 

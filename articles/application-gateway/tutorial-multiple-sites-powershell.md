@@ -1,24 +1,24 @@
 ---
-title: Hospedar vários web sites usando powerShell
+title: Hospedar vários web sites usando PowerShell
 titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicação que aloja vários sites através do Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e05d84e8e06dbe63a1bc8e8ae1d401f186baac77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b351a828c47058025247a3edd95f31dc6cc84295
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133065"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806184"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
 
-Pode utilizar o Azure PowerShell para [configurar o alojamento de vários sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, define piscinas de endereços de backend utilizando conjuntos de escala de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo assume que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com.*
+Pode utilizar o Azure PowerShell para [configurar o alojamento de vários sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, você define piscinas de endereços de backend usando conjuntos de escala de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo assume que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
 
 Neste artigo, vai aprender a:
 
@@ -32,17 +32,17 @@ Neste artigo, vai aprender a:
 
 ![Exemplo de encaminhamento multilocal](./media/tutorial-multiple-sites-powershell/scenario.png)
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr `Login-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 1.0.0 ou mais tarde do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Login-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos Azure utilizando o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Criar um grupo de recursos Azure utilizando [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
-Crie as configurações da sub-rede utilizando [o New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual utilizando a [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações da sub-rede. E, finalmente, crie o endereço IP público usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados.
+Crie as configurações da sub-rede utilizando [a new-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual utilizando a [Rede New-AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) com as configurações da sub-rede. E, finalmente, criar o endereço IP público usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -79,7 +79,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
-Associe a subnet que criou anteriormente ao gateway da aplicação utilizando a [Configuração New-AzApplicationGatewayIP](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Atribuir o endereço IP público ao gateway da aplicação utilizando [new-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Cosite a sub-rede que criou anteriormente ao gateway de aplicações utilizando [a New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Atribua o endereço IP público ao gateway de aplicações utilizando [o New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -103,7 +103,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>Criar os conjuntos de back-end e as definições
 
-Crie o primeiro conjunto de endereços de backend para o gateway da aplicação utilizando [new-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure as definições para a piscina utilizando [new-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Crie o primeiro conjunto de endereços backend para o gateway de aplicações utilizando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure as definições para a piscina utilizando [new-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -122,9 +122,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>Criar os serviços de escuta e as regras
 
-São necessários serviços de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para os conjuntos de endereços de back-end. Neste artigo, crias dois ouvintes para os teus dois domínios. Os ouvintes são criados para os domínios *contoso.com* e *fabrikam.com.*
+São necessários serviços de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para os conjuntos de endereços de back-end. Neste artigo, cria-se dois ouvintes para os seus dois domínios. Os ouvintes são criados para os domínios *contoso.com* e *fabrikam.com.*
 
-Crie o primeiro ouvinte utilizando [o New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração frontal e a porta frontend que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoRule* usando [New-AzApplicationGatewayRequestRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Crie o primeiro ouvinte utilizando [o New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração frontal e a porta frontal que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -158,7 +158,7 @@ $fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Agora que criou os recursos de apoio necessários, especifique parâmetros para o gateway da aplicação utilizando [new-AzApplicationGatewaySku,](/powershell/module/az.network/new-azapplicationgatewaysku)e, em seguida, crie-o usando [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Agora que criou os recursos de apoio necessários, especifique os parâmetros para o gateway da aplicação utilizando [o New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku), e, em seguida, crie-o usando [o New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -276,7 +276,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar registo CNAME no seu domínio
 
-Depois de criar o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-lo para criar um registo CNAME no seu domínio. Pode utilizar o [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway da aplicação. Copie o valor *fqdn* de DNSSettings e utilize-o como o valor do registo CNAME que criar. A utilização de registos A não é recomendada porque o VIP pode mudar quando o gateway da aplicação é reiniciado no V1 SKU.
+Depois de criar o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-lo para criar um registo CNAME no seu domínio. Pode utilizar [o Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway de aplicações. Copie o valor *fqdn* de DNSSettings e utilize-o como o valor do registo CNAME que criar. A utilização de registos A não é recomendada porque o VIP pode mudar quando o gateway de aplicação é reiniciado no V1 SKU.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -284,7 +284,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Tais como,\/http: /www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Como, http: \/ /www.contoso.com.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 
@@ -294,7 +294,7 @@ Altere o endereço para o outro domínio, e deverá ver algo semelhante ao segui
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, remova o grupo de recursos, o portal de aplicação e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando já não for necessário, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG

@@ -4,15 +4,15 @@ description: Utilize este tutorial para ativar o Add-On do Controlador de Entrad
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 8595b7fc37a46dbb27dec4d1388e4b0251606411
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: bb7ba071b1c0b49a818857e417ef6bf676a9a0df
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670937"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806471"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do Controlador de Entradas de Gateway de Aplicação para um novo cluster AKS com um novo Gateway de aplicações através do Azure CLI (Pré-visualização)
 
@@ -115,7 +115,7 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Saiba mais sobre a desativação do addon AGIC](./ingress-controller-disable-addon.md)
 * [Saiba mais sobre quais anotações são apoiadas com a AGIC](./ingress-controller-annotations.md)
 * [Problemas de resolução de problemas com a AGIC](./ingress-controller-troubleshoot.md)

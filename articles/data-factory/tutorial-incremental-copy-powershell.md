@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194512"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254463"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregue gradualmente os dados de uma base de dados Azure SQL para o armazenamento de Azure Blob usando o PowerShell
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure.
+Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -63,7 +63,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte [Criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
 * **Armazenamento Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
 * **Azure PowerShell**. Siga as instruções em [Install and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
@@ -192,11 +192,11 @@ Tenha em atenção os seguintes pontos:
     ```
 
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções contribuidor ou proprietário ou administrador da subscrição do Azure.
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento, Base de Dados SQL, etc.) e as computações (HDInsight do Azure, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Armazenamento, SqL Database, Azure SQL Managed Instance, e assim por diante) e computas (Azure HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, vai criar serviços ligados à sua conta de Armazenamento e à base de dados SQL.
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, crie serviços ligados à sua conta de armazenamento e à Base de Dados SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço ligado ao Armazenamento
 1. Crie um ficheiro JSON com o nome AzureStorageLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Criar a pasta ADF se já não existir.) Substitua `<accountName>` e pelo nome e chave da sua conta de armazenamento antes de guardar o `<accountKey>` ficheiro.
@@ -732,7 +732,7 @@ Neste tutorial, executou os passos seguintes:
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline.
 
-Neste tutorial, o pipeline copiou dados a partir de uma única tabela numa base de dados SQL para um armazenamento de Blobs. Avance para o seguinte tutorial para aprender a copiar dados de várias tabelas numa base de dados do SQL Server para a Base de Dados SQL.
+Neste tutorial, o pipeline copiou dados de uma única tabela na Base de Dados Azure SQL para o armazenamento blob. Avance para o seguinte tutorial para aprender a copiar dados de várias tabelas numa base de dados do SQL Server para a Base de Dados SQL.
 
 > [!div class="nextstepaction"]
 >[Carregar dados de forma incremental a partir de várias tabelas no SQL Server para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)

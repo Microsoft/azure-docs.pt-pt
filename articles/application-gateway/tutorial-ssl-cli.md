@@ -1,23 +1,23 @@
 ---
-title: TLS terminação usando CLI - Gateway de aplicação Azure
-description: Aprenda a criar um gateway de aplicação e adicione um certificado para a rescisão de TLS utilizando o Azure CLI.
+title: Rescisão de TLS usando CLI - Azure Application Gateway
+description: Saiba como criar um gateway de aplicação e adicione um certificado de rescisão de TLS utilizando o Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16ad8d7fd0f46381f2e2e7076015af65bd4bddcd
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311981"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806151"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um portal de aplicação com terminação TLS utilizando o Azure CLI
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicações com rescisão de TLS usando o Azure CLI
 
-Pode utilizar o Azure CLI para criar um gateway de [aplicação](overview.md) com um certificado para a rescisão de [TLS](ssl-overview.md). Para servidores de backend, pode utilizar um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
+Pode utilizar o CLI Azure para criar um [gateway de aplicação](overview.md) com um certificado de [rescisão de TLS](ssl-overview.md). Para servidores backend, pode utilizar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
@@ -27,17 +27,17 @@ Neste artigo, vai aprender a:
 > * Criar um gateway de aplicação com o certificado
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Se preferir, pode concluir este procedimento utilizando [o Azure PowerShell](tutorial-ssl-powershell.md).
+Se preferir, pode concluir este procedimento utilizando [a Azure PowerShell](tutorial-ssl-powershell.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que execute a versão Azure CLI 2.0.4 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que execute a versão 2.0.4 ou posterior do Azure CLI. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Para este artigo, cria um certificado auto-assinado e um ficheiro pfx utilizando o comando openssl.
+Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Para este artigo, você cria um certificado auto-assinado e ficheiro pfx usando o comando openssl.
 
 ```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -165,11 +165,11 @@ az network public-ip show \
   --output tsv
 ```
 
-Copie o endereço IP público e cole-o na barra de endereço do browser. Para este exemplo, o **https://52.170.203.149**URL é: .
+Copie o endereço IP público e cole-o na barra de endereço do browser. Para este exemplo, o URL é: **https://52.170.203.149** .
 
 ![Aviso de segurança](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecione **Detalhes** **e,** em seguida, vá para a página web . O site NGINX protegido é apresentado como no exemplo seguinte:
+Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecione **Detalhes** e, em seguida, **vá para a página web**. O site NGINX protegido é apresentado como no exemplo seguinte:
 
 ![Testar o URL base no gateway de aplicação](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
