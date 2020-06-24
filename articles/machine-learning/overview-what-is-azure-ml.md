@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556826"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738299"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -103,7 +103,7 @@ Se pretender utilizar scripts para automatizar o fluxo de trabalho de aprendizag
 
 Para começar a utilizar o Azure Machine Learning, consulte [os próximos passos](#next-steps).
 
-## <a name="integration-with-other-services"></a>Integração com outros serviços
+## <a name="integration-with-other-services"></a>Integração noutros serviços
 
 A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e também integra com ferramentas de código aberto como Git e MLFlow.
 
@@ -124,16 +124,11 @@ A sua conta de Armazenamento Azure, metas de computação e outros recursos pode
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edições básicas & Enterprise
 
 A Azure Machine Learning oferece duas edições adaptadas às suas necessidades de aprendizagem automática:
-+ Básico (geralmente disponível)
-+ Empresa (pré-visualização)
++ **Básico**: Ótimo para o desenvolvimento de código aberto à escala de nuvem com uma experiência de código-primeiro.
 
-Estas edições determinam quais as ferramentas de machine learning disponíveis para desenvolvedores e cientistas de dados a partir do seu espaço de trabalho.   
++ **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
 
-Os espaços básicos de trabalho permitem-lhe continuar a utilizar a Azure Machine Learning e pagar apenas os recursos Azure consumidos durante o processo de aprendizagem automática. Os espaços de trabalho da edição empresarial serão cobrados apenas pelo seu consumo Azure enquanto a edição estiver em pré-visualização. Saiba mais sobre o que está disponível na [edição](https://azure.microsoft.com/pricing/details/machine-learning/)do Azure Machine Learning & página de preços . 
-
-Atribui-se a edição sempre que cria um espaço de trabalho. E, os espaços de trabalho pré-existentes foram convertidos para a edição Básica para si. A edição básica inclui todas as funcionalidades que já estavam geralmente disponíveis a partir de outubro de 2019. Quaisquer experiências nesses espaços de trabalho que foram construídos usando funcionalidades de edição enterprise continuarão disponíveis para você apenas em leitura até atualizar para Enterprise. Saiba como [atualizar um espaço de trabalho básico para a edição Enterprise.](how-to-manage-workspace.md#upgrade) 
-
-Os clientes são responsáveis pelos custos incorridos no cálculo e outros recursos da Azure durante este período.
+Para saber mais sobre estas edições e quais as capacidades que desbloqueiam, leia o [artigo "Azure Machine Learning Editions".](concept-editions.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

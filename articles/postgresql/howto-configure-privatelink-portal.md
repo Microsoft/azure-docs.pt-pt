@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 188b8949d6cda12617433783a9d81eec6d8fce97
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 40e30d4011a52342c6fb610b19f70c8523a0331f
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488380"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736718"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
 
@@ -171,7 +171,7 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     |||
 
     > [!Note] 
-    > Utilize a zona de DNS privada predefinida para o seu serviço ou crie uma nova. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
+    > Utilize a zona de DNS privada predefinida para o seu serviço ou forneça o nome da zona DE DNS preferida. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
 
 1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
 2. Quando vir a mensagem **de validação passada,** selecione **Criar**. 

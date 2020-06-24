@@ -1,18 +1,18 @@
 ---
 title: Fornecedores de recursos e tipos de recursos
-description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos, os seus schemas e versões API disponíveis, e as regiões que podem acolher os recursos.
+description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos, os seus esquemas e versões API disponíveis, e as regiões que podem acolher os recursos.
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273985"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702776"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
-Ao implementar recursos, precisa frequentemente de obter informações sobre os fornecedores e tipos de recursos. Por exemplo, se pretende armazenar chaves e segredos, trabalha com o fornecedor de recursos Microsoft.KeyVault. Este fornecedor de recursos oferece um tipo de recurso denominado cofres para a criação do cofre de chaves.
+Ao utilizar recursos, é frequente que recupere informações sobre os fornecedores e tipos de recursos. Por exemplo, se pretende armazenar chaves e segredos, trabalha com o fornecedor de recursos Microsoft.KeyVault. Este fornecedor de recursos oferece um tipo de recurso denominado cofres para a criação do cofre de chaves.
 
 O nome de um tipo de recurso está no formato: **{resource-provider}/{resource-type}**. O tipo de recurso para um cofre chave é **Microsoft.KeyVault/vaults**.
 
@@ -23,11 +23,11 @@ Neste artigo, vai aprender a:
 * Registar um fornecedor de recursos
 * Ver tipos de recursos para um fornecedor de recursos
 * Ver locais válidos para um tipo de recurso
-* Ver versões API válidas para um tipo de recurso
+* Ver ver versões API válidas para um tipo de recurso
 
-Pode fazer estes passos através do portal Azure, Azure PowerShell ou Azure CLI.
+Pode fazer estes passos através do portal Azure PowerShell ou Azure CLI.
 
-Para uma lista que mapeie os fornecedores de recursos para os serviços Azure, consulte os fornecedores de [recursos para os serviços Azure.](azure-services-resource-providers.md)
+Para obter uma lista que mapeia os fornecedores de recursos para os serviços Azure, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -38,21 +38,21 @@ Para ver todos os fornecedores de recursos e o estado de registo da sua subscri�
 
     ![selecionar subscrições](./media/resource-providers-and-types/select-all-services.png)
 
-3. Na caixa **de todos os serviços,** introduza **a subscrição**, e, em seguida, selecione **Assinaturas**.
+3. Na caixa **de todos os serviços,** **introduza a subscrição**e, em seguida, selecione **Subscrições**.
 4. Selecione a subscrição da lista de subscrição para visualizar.
-5. Selecione **fornecedores** de Recursos e veja a lista de fornecedores de recursos disponíveis.
+5. Selecione **fornecedores de recursos** e veja a lista de fornecedores de recursos disponíveis.
 
     ![mostrar fornecedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, `/register/action` deve ter permissão para fazer a operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registar um fornecedor de recursos, selecione **Register**. Na imagem anterior, o link **Register** é destacado para **Microsoft.Blueprint**.
+6. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para fazer a `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registar um fornecedor de recursos, **selecione Registar-se.** Na imagem anterior, o link **Register** é destacado para **microsoft.Blueprint**.
 
-    Não pode desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
+    Não é possível desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
 
 Para ver informações para um determinado fornecedor de recursos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu do portal do Azure, selecione **Todos os serviços**.
-3. Na caixa **de todos os serviços,** introduza o explorador de **recursos,** e, em seguida, selecione **Resource Explorer**.
+3. Na caixa **de todos os serviços,** insira **o explorador de recursos**e, em seguida, selecione **Resource Explorer**.
 
     ![selecionar Todos os serviços](./media/resource-providers-and-types/select-resource-explorer.png)
 
@@ -60,15 +60,15 @@ Para ver informações para um determinado fornecedor de recursos:
 
     ![Selecione fornecedores](./media/resource-providers-and-types/select-providers.png)
 
-5. Expanda um fornecedor de recursos e um tipo de recurso que pretende ver.
+5. Expanda um fornecedor de recursos e um tipo de recurso que pretende visualizar.
 
     ![Selecione o tipo de recurso](./media/resource-providers-and-types/select-resource-type.png)
 
-6. O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você implanta podem não ser apoiados em todas as regiões. Além disso, pode haver limitações na sua subscrição que o impedem de usar algumas regiões que suportam o recurso. O explorador de recursos exibe locais válidos para o tipo de recurso.
+6. O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você implanta podem não ser suportados em todas as regiões. Além disso, pode haver limitações na sua subscrição que o impedem de usar algumas regiões que suportam o recurso. O explorador de recursos apresenta locais válidos para o tipo de recurso.
 
     ![Mostrar locais](./media/resource-providers-and-types/show-locations.png)
 
-7. A versão API corresponde a uma versão das operações REST API que são lançadas pelo fornecedor de recursos. Como um fornecedor de recursos permite novas funcionalidades, lança uma nova versão da API REST. O explorador de recursos apresenta versões API válidas para o tipo de recurso.
+7. A versão API corresponde a uma versão das operações rest API que são lançadas pelo fornecedor de recursos. Como fornecedor de recursos permite novas funcionalidades, lança uma nova versão da API REST. O explorador de recursos apresenta versões API válidas para o tipo de recurso.
 
     ![Mostrar versões API](./media/resource-providers-and-types/show-api-versions.png)
 
@@ -94,7 +94,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, `/register/action` deve ter permissão para fazer a operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
+O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para fazer a `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,9 +109,9 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-Não pode desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
+Não é possível desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
 
-Para ver informações para um determinado fornecedor de recursos, utilize:
+Para obter informações para um determinado fornecedor de recursos, utilize:
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -128,13 +128,13 @@ Locations         : {West Europe, East US, East US 2, West US...}
 ...
 ```
 
-Para ver os tipos de recursos para um fornecedor de recursos, utilize:
+Para ver os tipos de recursos de um fornecedor de recursos, utilize:
 
 ```azurepowershell-interactive
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-Que retorna:
+Que devolve:
 
 ```output
 batchAccounts
@@ -143,15 +143,15 @@ locations
 locations/quotas
 ```
 
-A versão API corresponde a uma versão das operações REST API que são lançadas pelo fornecedor de recursos. Como um fornecedor de recursos permite novas funcionalidades, lança uma nova versão da API REST.
+A versão API corresponde a uma versão das operações rest API que são lançadas pelo fornecedor de recursos. Como fornecedor de recursos permite novas funcionalidades, lança uma nova versão da API REST.
 
-Para obter as versões API disponíveis para um tipo de recurso, use:
+Para obter as versões API disponíveis para um tipo de recurso, utilize:
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-Que retorna:
+Que devolve:
 
 ```output
 2017-05-01
@@ -161,7 +161,7 @@ Que retorna:
 2015-07-01
 ```
 
-O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você implanta podem não ser apoiados em todas as regiões. Além disso, pode haver limitações na sua subscrição que o impedem de usar algumas regiões que suportam o recurso.
+O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você implanta podem não ser suportados em todas as regiões. Além disso, pode haver limitações na sua subscrição que o impedem de usar algumas regiões que suportam o recurso.
 
 Para obter os locais suportados para um tipo de recurso, use.
 
@@ -169,7 +169,7 @@ Para obter os locais suportados para um tipo de recurso, use.
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-Que retorna:
+Que devolve:
 
 ```output
 West Europe
@@ -199,17 +199,17 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, `/register/action` deve ter permissão para fazer a operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
+O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para fazer a `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
-O que devolve uma mensagem de que o registo está em curso.
+Que devolve uma mensagem de que o registo está em andamento.
 
-Não pode desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
+Não é possível desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
 
-Para ver informações para um determinado fornecedor de recursos, utilize:
+Para obter informações para um determinado fornecedor de recursos, utilize:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch
@@ -228,13 +228,13 @@ Que devolve resultados semelhantes a:
 }
 ```
 
-Para ver os tipos de recursos para um fornecedor de recursos, utilize:
+Para ver os tipos de recursos de um fornecedor de recursos, utilize:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-Que retorna:
+Que devolve:
 
 ```output
 Result
@@ -245,15 +245,15 @@ locations
 locations/quotas
 ```
 
-A versão API corresponde a uma versão das operações REST API que são lançadas pelo fornecedor de recursos. Como um fornecedor de recursos permite novas funcionalidades, lança uma nova versão da API REST.
+A versão API corresponde a uma versão das operações rest API que são lançadas pelo fornecedor de recursos. Como fornecedor de recursos permite novas funcionalidades, lança uma nova versão da API REST.
 
-Para obter as versões API disponíveis para um tipo de recurso, use:
+Para obter as versões API disponíveis para um tipo de recurso, utilize:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-Que retorna:
+Que devolve:
 
 ```output
 Result
@@ -265,7 +265,7 @@ Result
 2015-07-01
 ```
 
-O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você implanta podem não ser apoiados em todas as regiões. Além disso, pode haver limitações na sua subscrição que o impedem de usar algumas regiões que suportam o recurso.
+O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você implanta podem não ser suportados em todas as regiões. Além disso, pode haver limitações na sua subscrição que o impedem de usar algumas regiões que suportam o recurso.
 
 Para obter os locais suportados para um tipo de recurso, use.
 
@@ -273,7 +273,7 @@ Para obter os locais suportados para um tipo de recurso, use.
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-Que retorna:
+Que devolve:
 
 ```output
 Result
@@ -287,7 +287,7 @@ West US
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para aprender sobre a criação de modelos de Gestor de Recursos, consulte [os modelos de Gestor de Recursos Do Azure.](../templates/template-syntax.md) 
-* Para ver os esquemas do modelo do fornecedor de recursos, consulte a referência do [modelo](/azure/templates/).
-* Para uma lista que mapeie os fornecedores de recursos para os serviços Azure, consulte os fornecedores de [recursos para os serviços Azure.](azure-services-resource-providers.md)
-* Para visualizar as operações para um fornecedor de recursos, consulte [a API Do REST Azure](/rest/api/).
+* Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](../templates/template-syntax.md) 
+* Para ver os esquemas de modelo do fornecedor de recursos, consulte [a referência do modelo](/azure/templates/).
+* Para obter uma lista que mapeia os fornecedores de recursos para os serviços Azure, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
+* Para visualizar as operações de um fornecedor de recursos, consulte [a AZure REST API](/rest/api/).

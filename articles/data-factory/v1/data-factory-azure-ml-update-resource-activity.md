@@ -1,6 +1,6 @@
 ---
-title: Atualizar modelos de aprendizagem automática usando a Fábrica de Dados Azure
-description: Descreve como criar oleodutos preditivos usando a Azure Data Factory e o Azure Machine Learning
+title: Atualizar modelos de machine learning usando Azure Data Factory
+description: Descreve como criar oleodutos preditivos usando Azure Data Factory e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,20 +11,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930459"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254927"
 ---
-# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizar os modelos de Aprendizagem automática Azure utilizando a Atividade de Recursos Atualizados
+# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizar modelos de aprendizagem automática Azure usando a atividade de recurso de atualização
 
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
 > * [Atividade da Colmeia](data-factory-hive-activity.md) 
 > * [Atividade do Porco](data-factory-pig-activity.md)
-> * [MapReduce Atividade](data-factory-map-reduce.md)
-> * [Atividade de streaming de hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade mapReduce](data-factory-map-reduce.md)
+> * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
 > * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
@@ -34,38 +34,38 @@ ms.locfileid: "82930459"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte modelos de [aprendizagem automática atualizados na Data Factory](../update-machine-learning-models.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [os modelos de aprendizagem automática de atualização na Data Factory.](../update-machine-learning-models.md)
 
-Este artigo complementa o principal artigo de integração da Azure Data Factory - Azure Machine Learning: [Create predive pipelines utilizando a Azure Machine Learning e a Azure Data Factory.](data-factory-azure-ml-batch-execution-activity.md) Se ainda não o fez, reveja o artigo principal antes de ler este artigo. 
+Este artigo complementa o principal artigo de integração da Azure Machine Data Factory - Azure Machine Learning: [Criar oleodutos preditivos utilizando a Azure Machine Learning e a Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ainda não o fez, reveja o artigo principal antes de ler este artigo. 
 
 ## <a name="overview"></a>Descrição geral
-Com o tempo, os modelos preditivos nas experiências de pontuação do Azure ML precisam de ser retreinados utilizando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo ML retreinado. Os passos típicos para permitir a reconversão e atualização dos modelos Azure ML através de serviços web são:
+Com o tempo, os modelos preditivos nas experiências de pontuação Azure ML precisam de ser retreinados utilizando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo ML retreinado. Os passos típicos para permitir a reconversão e a atualização dos modelos Azure ML através de serviços web são:
 
 1. Crie uma experiência no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
-2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a experiência de **treino** como para a experiência de pontuação/**preditiva**.
+2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva .**predictive experiment**
 
-A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte os [modelos Retrain Machine Learning Studio (clássicos) programaticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para mais detalhes.
+A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte [os modelos retrain Machine Learning Studio (clássico) programáticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para obter detalhes.
 
-- Serviço web de **formação** - Recebe dados de formação e produz modelos treinados. A saída da reconversão é um ficheiro .ilearner num armazenamento Azure Blob. O **ponto final padrão** é automaticamente criado para si quando publica a experiência de treino como um serviço web. Pode criar mais pontos finais, mas o exemplo utiliza apenas o ponto final predefinido.
-- **Pontuação do serviço web** - Recebe exemplos de dados não rotulados e faz previsões. A saída de previsão pode ter vários formulários, tais como um ficheiro .csv ou linhas numa base de dados Azure SQL, dependendo da configuração da experiência. O ponto final padrão é automaticamente criado para si quando publica a experiência preditiva como um serviço web. 
+- **Serviço web de formação** - Recebe dados de formação e produz modelos treinados. A saída da reconversão é um ficheiro .ilearner num armazém da Azure Blob. O **ponto final predefinido** é criado automaticamente para si quando publica a experiência de treino como um serviço web. Pode criar mais pontos finais, mas o exemplo utiliza apenas o ponto final predefinido.
+- **Serviço web de pontuação** - Recebe exemplos de dados não rotulados e faz previsões. A saída da previsão pode ter várias formas, como um ficheiro .csv ou linhas na Base de Dados Azure SQL, dependendo da configuração da experiência. O ponto final predefinido é automaticamente criado para si quando publica a experiência preditiva como um serviço web. 
 
-A imagem que se segue retrata a relação entre o treino e a pontuação final no Azure ML.
+A imagem que se segue retrata a relação entre o treino e os pontos finais de pontuação em Azure ML.
 
 ![Serviços web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Pode invocar o **serviço web** de treino utilizando a Atividade de Execução de **Lotes Azure ML.** Invocar um serviço web de formação é o mesmo que invocar um serviço web Azure ML (pontuação do serviço web) para a pontuação de dados. As secções anteriores cobrem como invocar um serviço web Azure ML a partir de um oleoduto Azure Data Factory em detalhe. 
+Pode invocar o **serviço web de formação** utilizando a Atividade de **Execução do Lote Azure ML**. Invocar um serviço web de formação é o mesmo que invocar um serviço web Azure ML (serviço web de pontuação) para a pontuação de dados. As secções anteriores cobrem como invocar um serviço web Azure ML a partir de um oleoduto Azure Data Factory em detalhe. 
 
-Pode invocar o serviço web de **pontuação** utilizando a Atividade de Recursos de **Atualização Do Azure ML** para atualizar o serviço web com o modelo recém-treinado. Os seguintes exemplos fornecem definições de serviço sem ligação: 
+Pode invocar o **serviço web de pontuação** utilizando a **Azure ML Update Resource Activity** para atualizar o serviço web com o modelo recém-treinado. Os seguintes exemplos fornecem definições de serviço ligadas: 
 
-## <a name="scoring-web-service-is-a-classic-web-service"></a>Pontuar o serviço web é um serviço web clássico
-Se o serviço web de pontuação for um **serviço web clássico,** crie o segundo **ponto final não predefinido e atualizável** utilizando o portal Azure. Consulte o artigo Create Endpoints para [passos.](../../machine-learning/machine-learning-create-endpoint.md) Depois de criar o ponto final não indevido, faça os seguintes passos:
+## <a name="scoring-web-service-is-a-classic-web-service"></a>O serviço web de pontuação é um serviço web clássico
+Se o serviço web de pontuação for um **serviço web clássico,** crie o segundo **ponto final não padrão e updatable** utilizando o portal Azure. Consulte o artigo ['Criar pontos finais'.](../../machine-learning/studio/create-endpoint.md) Depois de criar o ponto final não padrão, faça os seguintes passos:
 
-* Clique em **EXECUÇÃO DE LOTE** para obter o valor URI para a propriedade **mlEndpoint** JSON.
-* Clique na ligação **DE RECURSOS DE ATUALIZAÇÃO** para obter o valor URI para a propriedade JSON de **atualizaçãoResourceEndpoint.** A tecla API está na própria página do ponto final (no canto inferior direito).
+* Clique **em EXECUÇÃO DE LOTE** para obter o valor URI para a propriedade **mlEndpoint** JSON.
+* Clique no link **RECURSO UPDATE** para obter o valor URI para a propriedade JSON de **atualização.** A tecla API está na própria página do ponto final (no canto inferior direito).
 
 ![ponto final updatable](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
-O exemplo seguinte fornece uma definição JSON de amostra para o serviço ligado ao AzureML. O serviço ligado utiliza o apiKey para autenticação.  
+O exemplo a seguir fornece uma definição JSON de amostra para o serviço ligado AzureML. O serviço ligado utiliza o apiKey para autenticação.  
 
 ```json
 {
@@ -82,13 +82,13 @@ O exemplo seguinte fornece uma definição JSON de amostra para o serviço ligad
 ```
 
 ## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>O serviço web de pontuação é o serviço web Azure Resource Manager 
-Se o serviço web for o novo tipo de serviço web que expõe um ponto final do Gestor de Recursos Azure, não precisa de adicionar o segundo ponto final **não predefinido.** A **actualizaçãoResourceEndpoint** no serviço ligado é do formato: 
+Se o serviço web for o novo tipo de serviço web que expõe um ponto final do Azure Resource Manager, não precisa de adicionar o segundo ponto final **não padrão.** A **actualizaçãoResourceEndpoint** no serviço ligado é do formato: 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Pode obter valores para os suportes de lugares no URL ao consultar o serviço web no Portal de Serviços Web de [Aprendizagem automática Azure](https://services.azureml.net/). O novo tipo de ponto final de recurso de atualização requer um símbolo aAD (Azure Ative Directory). Especifique o **serviçoPrincipalId** e **o serviçoPrincipalKey** no serviço ligado à Aprendizagem automática Azure. Veja [como criar o diretor de serviço e atribuir permissões para gerir o recurso Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Aqui está uma amostra de definição de serviço ligada azureML: 
+Pode obter valores para os detentores de lugares no URL ao consultar o serviço web no Portal de [Serviços Web de Aprendizagem de Máquinas Azure](https://services.azureml.net/). O novo tipo de ponto final de recurso de atualização requer um token AAD (Azure Ative Directory). Especifique **o serviçoPrincipalId** e **o serviçoPrincipalKey** no serviço Azure Machine Learning ligado. Veja [como criar o principal de serviço e atribuir permissões para gerir o recurso Azure.](../../active-directory/develop/howto-create-service-principal-portal.md) Aqui está uma definição de serviço ligada AzureML: 
 
 ```json
 {
@@ -108,22 +108,22 @@ Pode obter valores para os suportes de lugares no URL ao consultar o serviço we
 }
 ```
 
-O seguinte cenário fornece mais detalhes. Tem um exemplo para retreinar e atualizar os modelos Azure ML a partir de um oleoduto Azure Data Factory.
+O cenário seguinte fornece mais detalhes. Tem um exemplo para a reconversão e atualização dos modelos Azure ML a partir de um oleoduto Azure Data Factory.
 
 ## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Cenário: reconversão e atualização de um modelo Azure ML
-Esta secção fornece um gasoduto de amostra que utiliza a atividade de execução de **lote De Lote Azure ML** para retreinar um modelo. O pipeline também utiliza a atividade de Recursos de **Atualização Azure ML** para atualizar o modelo no serviço web de pontuação. A secção também fornece snippets JSON para todos os serviços, conjuntos de dados e pipeline ligados no exemplo.
+Esta secção fornece um gasoduto de amostra que utiliza a atividade de execução do **lote Azure ML** para reforçá-lo. O pipeline também utiliza a **atividade de Azure ML Update Resource** para atualizar o modelo no serviço web de pontuação. A secção também fornece snippets JSON para todos os serviços ligados, conjuntos de dados e pipeline no exemplo.
 
-Aqui está a visão do diagrama do gasoduto de amostra. Como pode ver, a Atividade de Execução de Lotes Azure ML recebe a entrada de formação e produz uma saída de formação (ficheiro iLearner). A Atividade de Recursos de Atualização Azure ML leva esta saída de formação e atualiza o modelo no ponto final do serviço web de pontuação. A Atividade de Recursos atualizados não produz qualquer saída. O placeholderBlob é apenas um conjunto de dados de saída de bonecos que é exigido pelo serviço Azure Data Factory para executar o pipeline.
+Aqui está a vista do diagrama do gasoduto de amostra. Como pode ver, a Atividade de Execução do Lote Azure ML leva a entrada de formação e produz uma saída de formação (ficheiro iLearner). A Azure ML Update Resource Activity toma esta saída de formação e atualiza o modelo no ponto final do serviço web de pontuação. A Atualização da Atividade de Recursos não produz qualquer saída. O espaço-reservadoBlob é apenas um conjunto de dados de saída falso que é exigido pelo serviço Azure Data Factory para executar o pipeline.
 
-![diagrama de gasoduto](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![diagrama de pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### <a name="azure-blob-storage-linked-service"></a>Serviço ligado ao armazenamento Azure Blob:
-O Armazenamento Azure detém os seguintes dados:
+O Azure Storage contém os seguintes dados:
 
 * dados de formação. Os dados de entrada para o serviço web de formação Azure ML.  
-* ficheiro iLearner. A saída do serviço web de treino Azure ML. Este ficheiro é também a entrada na atividade do Recurso de Atualização.  
+* ficheiro iLearner. A saída do serviço web de formação Azure ML. Este ficheiro é também a entrada para a atividade de Recurso de atualização.  
 
-Aqui está a definição jSON da amostra do serviço ligado:
+Aqui está a definição JSON da amostra do serviço ligado:
 
 ```JSON
 {
@@ -138,7 +138,7 @@ Aqui está a definição jSON da amostra do serviço ligado:
 ```
 
 ### <a name="training-input-dataset"></a>Conjunto de dados de entrada de formação:
-O conjunto de dados que se segue representa os dados de formação de entrada para o serviço web de formação de Machine Learning Azure. A atividade de execução de lotes de aprendizagem automática Azure toma este conjunto de dados como uma entrada.
+O conjunto de dados a seguir representa os dados de formação de entrada para o serviço web de formação de machine learning Azure. A atividade de execução do lote de aprendizagem de máquinas Azure toma este conjunto de dados como uma entrada.
 
 ```JSON
 {
@@ -169,7 +169,7 @@ O conjunto de dados que se segue representa os dados de formação de entrada pa
 ```
 
 ### <a name="training-output-dataset"></a>Conjunto de dados de saída de formação:
-O conjunto de dados seguinte representa o ficheiro iLearner de saída do serviço web de treino Azure ML. A Atividade de Execução de Lotes Azure ML produz este conjunto de dados. Este conjunto de dados é também a entrada na atividade de Recursos de Atualização Do Azure ML.
+O conjunto de dados que se segue representa o ficheiro iLearner de saída do serviço web de formação Azure ML. A Atividade de Execução do Lote Azure ML produz este conjunto de dados. Este conjunto de dados é também a entrada para a atividade de Recurso Azure ML Update.
 
 ```JSON
 {
@@ -192,8 +192,8 @@ O conjunto de dados seguinte representa o ficheiro iLearner de saída do serviç
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Serviço ligado para o endpoint de formação de machine learning Azure
-O seguinte snippet JSON define um serviço ligado à Aprendizagem automática Azure que aponta para o ponto final padrão do serviço web de treino.
+### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Serviço ligado para o ponto final de formação de aprendizagem de máquinas Azure
+O seguinte snippet JSON define um serviço ligado a Azure Machine Learning que aponta para o ponto final padrão do serviço web de formação.
 
 ```JSON
 {    
@@ -208,16 +208,16 @@ O seguinte snippet JSON define um serviço ligado à Aprendizagem automática Az
 }
 ```
 
-No **Azure Machine Learning Studio (clássico)** faça o seguinte para obter valores para **mlEndpoint** e **apiKey:**
+No **Azure Machine Learning Studio (clássico)**, faça o seguinte para obter valores para **mlEndpoint** e **apiKey**:
 
-1. Clique em **WEB SERVICES** no menu esquerdo.
-2. Clique no serviço web de **formação** na lista de serviços web.
-3. Clique na cópia ao lado da caixa de texto **chave API.** Colhe a chave na pasta no editor jSON da Fábrica de Dados.
-4. No Estúdio de **Aprendizagem automática Azure (clássico)** clique no link **BATCH EXECUTION.**
-5. Copie o **Pedido URI** da secção **Solicitar** e cole-o no editor da Fábrica de Dados JSON.   
+1. Clique nos **SERVIÇOS WEB** no menu esquerdo.
+2. Clique no **serviço web de formação** na lista de serviços web.
+3. Clique na cópia ao lado da caixa de texto **chave API.** Cole a chave na pasta para o editor JSON da Data Factory.
+4. No **Azure Machine Learning Studio (clássico)**, clique no link **DE EXECUÇÃO BATCH.**
+5. Copie o **URI pedido** da secção **Request** e cole-o no editor JSON da Data Factory.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Serviço ligado para ponto final de pontuação updatable Azure ML:
-O seguinte snippet JSON define um serviço ligado à Aprendizagem automática Azure que aponta para o ponto final não padrão do serviço web de pontuação.  
+### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Serviço ligado para Azure ML ponto final de pontuação updatable:
+O seguinte snippet JSON define um serviço ligado a Azure Machine Learning que aponta para o ponto final não padrão updatable do serviço web de pontuação.  
 
 ```JSON
 {
@@ -236,8 +236,8 @@ O seguinte snippet JSON define um serviço ligado à Aprendizagem automática Az
 }
 ```
 
-### <a name="placeholder-output-dataset"></a>Conjunto de dados de saída de espaço reservado:
-A atividade de atualização azure ML não gera qualquer saída. No entanto, a Azure Data Factory requer um conjunto de dados de saída para impulsionar o calendário de um oleoduto. Portanto, usamos um conjunto de dados de manequim/espaço reservado neste exemplo.  
+### <a name="placeholder-output-dataset"></a>Conjunto de dados de saída do espaço reservado:
+A atividade do Recurso Azure ML Update não gera qualquer saída. No entanto, a Azure Data Factory requer um conjunto de dados de saída para impulsionar o calendário de um oleoduto. Portanto, usamos um conjunto de dados falso/espaço reservado neste exemplo.  
 
 ```JSON
 {
@@ -260,9 +260,9 @@ A atividade de atualização azure ML não gera qualquer saída. No entanto, a A
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O gasoduto tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de execução de lote de MiO Azure toma os dados de formação como entrada e produz um ficheiro iLearner como uma saída. A atividade invoca o serviço web de formação (experiência de formação exposta como um serviço web) com os dados de formação de entrada e recebe o ficheiro ilearner do serviço web. O placeholderBlob é apenas um conjunto de dados de saída de bonecos que é exigido pelo serviço Azure Data Factory para executar o pipeline.
+O gasoduto tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de execução do lote Azure ML toma os dados de formação como entrada e produz um ficheiro iLearner como uma saída. A atividade invoca o serviço web de formação (experiência de formação exposta como um serviço web) com os dados de formação de entrada e recebe o ficheiro ilearner do serviço web. O espaço-reservadoBlob é apenas um conjunto de dados de saída falso que é exigido pelo serviço Azure Data Factory para executar o pipeline.
 
-![diagrama de gasoduto](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![diagrama de pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ```JSON
 {

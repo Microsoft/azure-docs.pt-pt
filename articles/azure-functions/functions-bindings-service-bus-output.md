@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 198cbb9f66ec5c6b84ed3cc4f20898495d8c126f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d3441847fc47146418265804457c37c693bd60b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560834"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297023"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus Azure Service para funções Azure
 
@@ -38,9 +38,9 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação de saída do Service Bus num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função utiliza um gatilho temporizador para enviar uma mensagem de fila a cada 15 segundos.
+O exemplo a seguir mostra uma ligação de saída do Service Bus numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função utiliza um gatilho temporizador para enviar uma mensagem de fila a cada 15 segundos.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -89,9 +89,9 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação de saída do Service Bus num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza um gatilho temporizador para enviar uma mensagem de fila a cada 15 segundos.
+O exemplo a seguir mostra uma ligação de saída de ônibus de serviço numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza um gatilho temporizador para enviar uma mensagem de fila a cada 15 segundos.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -143,7 +143,7 @@ module.exports = function (context, myTimer) {
 
 O exemplo a seguir demonstra como escrever para uma fila de autocarros de serviço em Python.
 
-Uma definição de ligação de serviço bus é definida em *função.json* onde *o tipo* é definido para `serviceBus` .
+Uma definição de ligação de serviço bus é definida em *function.jsno* local onde *o tipo* está definido para `serviceBus` .
 
 ```json
 {
@@ -278,9 +278,9 @@ As `ServiceBusQueueOutput` `ServiceBusTopicOutput` anotações e anotações est
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `ServiceBus` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `ServiceBus` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para "serviceBus". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "fora". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -305,7 +305,7 @@ Utilize os seguintes tipos de parâmetros para a ligação de saída:
 * `out byte[]`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
 * `out BrokeredMessage`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 1.x)
 * `out Message`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 2.x e superior)
-* `ICollector<T>`ou `IAsyncCollector<T>` - Para criar várias mensagens. Uma mensagem é criada quando se chama o `Add` método.
+* `ICollector<T>`ou `IAsyncCollector<T>` (para métodos async) - Para criar várias mensagens. Uma mensagem é criada quando se chama o `Add` método.
 
 Ao trabalhar com funções C#:
 
@@ -353,12 +353,12 @@ Utilize o [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-m
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>configurações host.json
+## <a name="hostjson-settings"></a>host.jsnas definições
 
-Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x ou superiores. O ficheiro host.json abaixo contém apenas as definições para esta ligação. Para obter mais informações sobre as configurações globais, consulte [a referência host.json para a versão Azure Functions](functions-host-json.md).
+Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x ou superiores. O exemplo host.jsno ficheiro abaixo contém apenas as definições para esta ligação. Para obter mais informações sobre as configurações globais, consulte [host.jsna referência para a versão Azure Functions](functions-host-json.md).
 
 > [!NOTE]
-> Para obter uma referência de host.json em Funções 1.x, consulte [a referência host.json para funções Azure 1.x](functions-host-json-v1.md).
+> Para obter uma referência de host.jsem Funções 1.x, consulte [host.jsem referência para as Funções Azure 1.x](functions-host-json-v1.md).
 
 ```json
 {

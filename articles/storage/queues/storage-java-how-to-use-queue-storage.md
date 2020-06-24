@@ -7,13 +7,13 @@ ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
-ms.openlocfilehash: 8360d78c8c33f99fa34cfe78e8b9882ee55a5c48
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.reviewer: dineshm
+ms.openlocfilehash: a0c94f3c9af9220bb3cf6476c50799d1f3313ffc
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655615"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809233"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
 
@@ -394,7 +394,7 @@ catch (Exception e)
 > [!NOTE]
 > Está disponível um SDK para os programadores que utilizem o Armazenamento do Azure em dispositivos Android. Para obter mais informações, veja o [SDK do Armazenamento do Azure para Android][Azure Storage SDK for Android].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para aprender sobre tarefas de armazenamento mais complexas.
 
 * [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)

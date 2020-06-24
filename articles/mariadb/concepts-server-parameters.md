@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 3141bb3652cfa44c42125fe95f038582108a963f
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5ea5a94c73adda1328b97c3e985c4b6ac614d1b9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637138"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255029"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parâmetros do servidor na Base de Dados Azure para MariaDB
 
@@ -124,6 +124,9 @@ Quando as ligações excederem o limite, poderá receber o seguinte erro:
 
 Criar novas ligações de clientes com a MariaDB leva tempo e uma vez estabelecidos, estas ligações ocupam recursos de base de dados, mesmo quando inativos. A maioria das aplicações solicita muitas ligações de curta duração, o que agrava esta situação. O resultado é menos recursos disponíveis para a sua carga de trabalho real, levando à diminuição do desempenho. Um pooler de ligação que diminui as ligações ociosas e reutiliza as ligações existentes ajudará a evitar isso. Para saber sobre a criação do ProxySQL, visite o nosso [blog post.](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)
 
+>[!Note]
+>ProxySQL é uma ferramenta comunitária de código aberto. É suportado pela Microsoft numa base de melhor esforço. Para obter apoio de produção com orientação autoritária, você pode avaliar e contactar o suporte do [produto ProxySQL](https://proxysql.com/services/support/).
+
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre este parâmetro.
@@ -224,7 +227,7 @@ Os parâmetros do servidor abaixo não são configuráveis no serviço:
 
 Outros parâmetros do servidor que não estão listados aqui são definidos para os seus valores padrão MariaDB fora da caixa para [MariaDB](https://mariadb.com/kb/en/server-system-variables/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [configurar parâmetros de corte utilizando o portal Azure](./howto-server-parameters.md)
 - Saiba como [configurar parâmetros de corte utilizando o Azure CLI](./howto-configure-server-parameters-cli.md)

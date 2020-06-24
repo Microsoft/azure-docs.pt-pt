@@ -7,13 +7,13 @@ ms.date: 01/11/2018
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
-ms.openlocfilehash: 3cdaeffe15dc637d2b988ce7a51030398ee53d9d
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.reviewer: dineshm
+ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465376"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809209"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como utilizar o Armazenamento de filas do PHP
 
@@ -37,7 +37,7 @@ Neste guia, utiliza as funcionalidades de serviço de armazenamento de fila que 
 
 ### <a name="install-via-composer"></a>Instalar via Compositor
 
-1. Crie um ficheiro chamado **compositor.json** na raiz do seu projeto e adicione-lhe o seguinte código:
+1. Crie um ficheiro nomeado **composer.jsna** raiz do seu projeto e adicione-lhe o seguinte código:
    
     ```json
     {
@@ -421,7 +421,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu o básico do armazenamento da Fila Azure, siga estes links para aprender sobre tarefas de armazenamento mais complexas:
 

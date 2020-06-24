@@ -10,39 +10,75 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/2/2020
+ms.date: 6/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: 89344c38c719a06d8241ec34136a75c96de9f901
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322877"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737466"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
+
+## <a name="june-2020-guest-os"></a>Junho 2020 Guest OS
+">[!NOTE]
+>O June Guest OS está atualmente a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no April Guest OS. Esta lista está sujeita a alterações."
+
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Última atualização cumulativa (LCU)  |  5.44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Última atualização cumulativa (LCU)  |  6.20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Atualização de Stack de Manutenção  |  2.99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Rollup mensal  |  2.99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Atualização de Stack de Manutenção  |  3.86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Rollup mensal  |  3.86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  3.86, 4.79, 5.44, 6.20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Atualização de Stack de Manutenção  |  4.79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Rollup mensal  |  4.79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Atualização de Stack de Manutenção  |  5.44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Atualização de Stack de Manutenção  |  6.20  |  Jun 9, 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+
 
 ## <a name="may-2020-guest-os"></a>Maio 2020 Guest OS
 
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4556813]  |  Última atualização cumulativa (LCU)   |  [5.43]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4551853]  |  Última atualização cumulativa (LCU)   |  [6.19]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4552940]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4556836]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4555449]  |  Atualização de Stack de Manutenção   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4552920]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4552979]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4556840]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4552947]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4552982]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4552946]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4556846]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4550994]  |  Atualização de Stack de Manutenção   |  [5.43]  |  Abr 14, 2020  |
-|  Rel 20-05   |  [4552924]  |  Rollup mensal   |  [6.19]  |  12 de maio de 2020  |
-|  Rel 20-05   |  [4549947]  |  Atualização de Stack de Manutenção   |  [6.19]  |  Abr 14, 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556813]  |  Última atualização cumulativa (LCU)   |  [5.43]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4551853]  |  Última atualização cumulativa (LCU)   |  [6.19]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552940]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556836]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4555449]  |  Atualização de Stack de Manutenção   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552920]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552979]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556840]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552947]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552982]  |  Rollup mensal   |  [3.85]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4552946]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556846]  |  Rollup mensal   |  [4.78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4550994]  |  Atualização de Stack de Manutenção   |  [5.43]  |  Abr 14, 2020  |
+|  Rel 20-05  |  [4552924]  |  Rollup mensal   |  [6.19]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4549947]  |  Atualização de Stack de Manutenção   |  [6.19]  |  Abr 14, 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -66,6 +102,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
 [5.43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
 [6.19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+
 
 ## <a name="april-2020-guest-os"></a>Os convidados de abril de 2020
 
@@ -1544,7 +1581,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="april-2015-guest-os"></a>Abril 2015 Guest OS
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| [MS15-034] |[3042553] |Vulnerabilidade em HTTP.sys pode permitir a execução remota de código |4.19, 3.26, 2.38 |Abr 17, 2015 |
+| [MS15-034] |[3042553] |Vulnerabilidade em HTTP.sys poderia permitir a execução remota de código |4.19, 3.26, 2.38 |Abr 17, 2015 |
 
 ## <a name="march-2015-guest-os"></a>Março 2015 Guest OS
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |

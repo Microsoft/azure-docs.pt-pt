@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e626f6e5b65e369c3c77900cd46f2b86cd6f9d52
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324046"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118003"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Quickstart: Criar um Azure Cosmos DB e um recipiente utilizando o modelo do Gestor de Recursos Azure
 
@@ -43,9 +43,9 @@ Três recursos Azure são definidos no modelo:
 
 * [Microsoft.DocumentDB/databaseSAcounts](/azure/templates/microsoft.documentdb/databaseaccounts): Criar uma conta Azure Cosmos.
 
-* [Microsoft.DocumentDB/databaseScons/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Criar uma base de dados Azure Cosmos.
+* [Microsoft.DocumentDB/base de dadosAcons/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Criar uma base de dados Azure Cosmos.
 
-* [Microsoft.DocumentDB/databaseSacons/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Criar um recipiente Azure Cosmos.
+* [Microsoft.DocumentDB/base de dadosAcons/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Criar um recipiente Azure Cosmos.
 
 Mais amostras de modelo de Azure Cosmos DB podem ser encontradas na [galeria de modelos quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
@@ -53,11 +53,11 @@ Mais amostras de modelo de Azure Cosmos DB podem ser encontradas na [galeria de 
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma conta Azure Cosmos, uma base de dados e um contentor.
 
-   [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+   [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Selecione ou introduza os seguintes valores.
 
-   ![Modelo de gestor de recursos, integração DB Azure Cosmos, implementar portal](./media/quick-create-template/create-cosmosdb-using-template-portal.png)
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Modelo de gestor de recursos, integração DB Azure Cosmos, implementar portal":::
 
     A menos que seja especificado, use os valores padrão para criar os recursos Azure Cosmos.
 
@@ -78,7 +78,7 @@ Mais amostras de modelo de Azure Cosmos DB podem ser encontradas na [galeria de 
 
 3. Selecione **Comprar**. Depois de a conta Azure Cosmos ter sido implantada com sucesso, recebe uma notificação:
 
-   ![Modelo de gestor de recursos, integração de Coss e implementar notificação do portal](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Modelo de gestor de recursos, integração de Coss e implementar notificação do portal":::
 
 O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -108,7 +108,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se pretender continuar a trabalhar com tutoriais e tutoriais subsequentes, poderá querer deixar estes recursos no lugar.
+Se planeia continuar a trabalhar com os rápidos e tutoriais subsequentes, talvez queira deixar estes recursos no lugar.
 Quando já não for necessário, elimine o grupo de recursos, que elimina a conta Azure Cosmos e os recursos conexos. Para eliminar o grupo de recursos utilizando a Azure CLI ou a Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300450"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945465"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorizar o seu serviço de cofre de chaves com o Azure Monitor para o Cofre de Chaves (pré-visualização)
 O Azure Monitor for Key Vault (pré-visualização) proporciona uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -158,55 +158,51 @@ Pode configurar os livros de visão geral de multi-subscrição e cofre de chave
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
+Para obter orientações gerais sobre a resolução de problemas, consulte o artigo dedicado de resolução de [problemas](troubleshoot-workbooks.md)baseado em livros de trabalho .
+
 Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Azure Monitor para Key Vault (pré-visualização). Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas de desempenho ou falhas
 
 Para ajudar a resolver problemas relacionados com o cofre que identificar com o Azure Monitor para o Key Vault (pré-visualização), consulte a documentação do [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/).
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver 200 cofres chave?
+### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver 200 cofres chave
 
 Há um limite de 200 cofres chave que podem ser selecionados e vistos. Independentemente do número de subscrições selecionadas, o número de cofres-chave selecionados tem um limite de 200.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>O que acontecerá quando um item preso for clicado?
-
-Quando um item fixado no painel de instrumentos é clicado, abre uma de duas coisas:
-* Se os Insights foram salvos – abrirá a instância de insights de que o pino foi salvo.
-* Se os insights não foram salvos – abrirá uma nova instância de insights padrão.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Por que não vejo todas as minhas assinaturas no selecionador de assinaturas?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Por que não vejo todas as minhas assinaturas no selecionador de assinaturas
 
 Só mostramos subscrições que contenham cofres-chave, escolhidos a partir do filtro de subscrição selecionado, que são selecionados no "Diretório + Subscrição" no cabeçalho do portal Azure.
 
 ![Screenshot do filtro de subscrição](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou a receber uma mensagem de erro de que a "consulta excede o número máximo de espaços de trabalho/regiões permitidas", o que fazer agora?
+### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou a receber uma mensagem de erro de que a "consulta excede o número máximo de espaços de trabalho/regiões permitidas", o que fazer agora
 
 Atualmente, existe um limite para 25 regiões e 200 espaços de trabalho, para visualizar os seus dados, você precisará reduzir o número de subscrições e/ou grupos de recursos.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais a Key Vault Insights, como faço?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais a Key Vault Insights, como faço isso
 
 Para escoar alterações, selecione o "Modo de Edição" para modificar o livro, então pode guardar o seu trabalho como um novo livro que está ligado a um grupo de subscrição e recursos designado.
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual é o grão-tempo quando colocamos qualquer parte dos livros de trabalho?
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual é o grão-tempo uma vez que pinemos qualquer parte dos livros de trabalho
 
 Utilizamos o grão de tempo "Auto", pelo que depende do intervalo de tempo selecionado.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte do livro está presa?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte do livro está presa
 
 O intervalo de tempo dependerá das definições do painel de instrumentos.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não vejo nenhum dado para o meu Cofre-Chave sob as secções de operações & de Latência?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não vejo nenhum dado para o meu Cofre-Chave sob as secções de & de Latência de Operações
 
 Para visualizar os dados baseados em registos, terá de ativar registos para cada um dos cofres-chave que pretende monitorizar. Isto pode ser feito sob as definições de diagnóstico para cada cofre de teclas. Terá de enviar os seus dados para um espaço de trabalho designado log analytics.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já tenho registos para o meu Cofre-Chave, porque é que ainda não consigo ver os meus dados no âmbito das Operações & a Latência?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já ativei registos para o meu Cofre-Chave, porque é que ainda não consigo ver os meus dados no âmbito das Operações & Latência.
 
 Atualmente, os registos de diagnóstico não funcionam retroativamente, pelo que os dados só começarão a aparecer depois de terem sido tomadas ações para os seus cofres-chave. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do quão ativo é o seu cofre chave.
 
 Além disso, se tiver um elevado número de cofres-chave e subscrições selecionadas, poderá não conseguir visualizar os seus dados devido a limitações de consulta. Para visualizar os seus dados, poderá ser necessário reduzir o número de subscrições selecionadas ou cofres-chave. 
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer as minhas próprias visualizações? Como posso fazer alterações no Key Vault Insights?
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer as minhas próprias visualizações? Como posso fazer alterações no Key Vault Insights
 
 Pode editar o livro existente, através da utilização do modo de edição, e depois guardar o seu trabalho como um novo livro que terá todas as suas novas alterações.
 

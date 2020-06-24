@@ -4,15 +4,15 @@ description: Resoluções para problemas comuns com conectividade de saída atra
 services: load-balancer
 author: erichrt
 ms.service: load-balancer
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: 52f20f449d1de9624dd115c8923f48f186a54922
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6e37e43619ee7c239dacf543d8a61afb1f65651f
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172327"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809400"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Falhas nas ligações de saída de resolução de problemas
 

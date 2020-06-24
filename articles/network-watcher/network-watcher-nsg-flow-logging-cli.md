@@ -1,45 +1,45 @@
 ---
-title: Gerir os registos de fluxo NSG - Azure CLI
+title: Gerir registos de fluxo NSG - Azure CLI
 titleSuffix: Azure Network Watcher
-description: Esta página explica como gerir os registos de Fluxo do Grupo de Segurança da Rede no Observador da Rede Azure com o Azure CLI
+description: Esta página explica como gerir os registos do Network Security Group Flow no Azure Network Watcher com o Azure CLI
 services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 285d19dbd0e7b8a94eada66f837d33b787006f09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ecdcf6f44409f3b72d4a8040be348d4a6f9a863
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840966"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738197"
 ---
-# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar registos de fluxo de grupo de segurança de rede com O CLI Azure
+# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar registos de fluxo do grupo de segurança da rede com O Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Os registos de fluxo do Grupo de Segurança da Rede são uma característica do Observador de Rede que lhe permite visualizar informações sobre o tráfego IP de entrada e fuga através de um Grupo de Segurança de Rede. Estes registos de fluxo são escritos em formato JSOn e mostram fluxos de saída e de entrada por regra, o NIC a que o fluxo se aplica a, 5-tuple informações sobre o fluxo (Fonte/Destino IP, Fonte/Porto de Destino, Protocolo), e se o tráfego foi permitido ou negado.
+Os registos de fluxo do Grupo de Segurança de Rede são uma funcionalidade do Network Watcher que lhe permite visualizar informações sobre o tráfego IP de entrada e saída através de um Grupo de Segurança de Rede. Estes registos de fluxo são escritos em formato json e mostram fluxos de saída e entrada por regra, o NIC o fluxo aplica-se a, 5-tuple informações sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
 
-Para executar os passos deste artigo, é necessário [instalar a interface de linha de comando Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
+Para executar os passos neste artigo, é necessário [instalar a interface de linha de comando Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 
-Para que o registo de fluxos funcione com sucesso, o fornecedor **Microsoft.Insights** deve ser registado. Se não tiver a certeza se o fornecedor **Microsoft.Insights** está registado, execute o seguinte script.
+Para que a exploração de fluxo funcione com sucesso, o fornecedor **Microsoft.Insights** tem de estar registado. Se não tiver a certeza se o fornecedor **Microsoft.Insights** está registado, execute o seguinte script.
 
 ```azurecli
 az provider register --namespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Ativar os registos de fluxo do grupo de segurança da rede
+## <a name="enable-network-security-group-flow-logs"></a>Ativar registos de fluxo de grupo de segurança de rede
 
 O comando para ativar os registos de fluxo é mostrado no seguinte exemplo:
 
@@ -49,11 +49,11 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
-A conta de armazenamento que especifica não pode ter regras de rede configuradas para a sua configuração que restringem o acesso à rede apenas a serviços da Microsoft ou redes virtuais específicas. A conta de armazenamento pode estar na mesma, ou numa subscrição Azure diferente, do que o NSG para o que permite o registo de fluxo. Se utilizar assinaturas diferentes, ambas devem estar associadas ao mesmo inquilino do Azure Ative Directory. A conta que utiliza para cada subscrição deve ter as [permissões necessárias](required-rbac-permissions.md). 
+A conta de armazenamento que especifica não pode ter regras de rede configuradas para a rede que restringem o acesso à rede apenas a serviços da Microsoft ou a redes virtuais específicas. A conta de armazenamento pode estar na mesma, ou numa subscrição Azure diferente, do que a NSG para a que ativar o registo de fluxo. Se utilizar subscrições diferentes, ambas devem estar associadas ao mesmo inquilino do Azure Ative Directory. A conta que utiliza para cada subscrição deve ter as [permissões necessárias.](required-rbac-permissions.md) 
 
-Se a conta de armazenamento estiver num grupo de recursos diferente, ou subscrição, do que o grupo de segurança da rede, especifique a identificação completa da conta de armazenamento, em vez do seu nome. Por exemplo, se a conta de armazenamento estiver num grupo de recursos chamado *RG-Storage,* em vez de especificar *o storageAccountName* no comando anterior, especificará */subscrições/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
+Se a conta de armazenamento estiver num grupo de recursos diferente, ou subscrição, do que o grupo de segurança da rede, especifique o ID completo da conta de armazenamento, em vez do seu nome. Por exemplo, se a conta de armazenamento estiver num grupo de recursos chamado *RG-Storage*, em vez de especificar *o armazenamentoAconseme* no comando anterior, especificaria */subscrições/{SubscriçãoID}/grupos de recursos/RG-Storage/providers/Microsoft.Storage/storageAcounts/storageAccountName*.
 
-## <a name="disable-network-security-group-flow-logs"></a>Desativar os registos de fluxo do grupo de segurança da rede
+## <a name="disable-network-security-group-flow-logs"></a>Desativar registos de fluxo de grupo de segurança de rede
 
 Utilize o seguinte exemplo para desativar os registos de fluxo:
 
@@ -61,11 +61,11 @@ Utilize o seguinte exemplo para desativar os registos de fluxo:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled false --nsg nsgName
 ```
 
-## <a name="download-a-flow-log"></a>Descarregue um registo de Fluxo
+## <a name="download-a-flow-log"></a>Faça o download de um registo flow
 
 A localização de armazenamento de um registo de fluxo é definida na criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados numa conta de armazenamento é o Microsoft Azure Storage Explorer, que pode ser descarregado aqui:https://storageexplorer.com/
 
-Se for especificada uma conta de armazenamento, os ficheiros de registo de fluxo são guardados numa conta de armazenamento no seguinte local:
+Se uma conta de armazenamento for especificada, os ficheiros de registo de fluxo são guardados numa conta de armazenamento no seguinte local:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

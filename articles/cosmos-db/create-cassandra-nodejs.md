@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 39bdd2d34260b9adb12b25adff9d661083d51fe4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: fbb24ac1974c23bf5292a987fc64a84dff69bf7d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310058"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118360"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Node.js SDK e Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Neste quickstart, você cria uma conta Azure Cosmos DB Cassandra API, e usa uma 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [experimentar gratuitamente a Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
 
 Além disso, necessita:
-* [Versão nó.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) v0.10.29 ou superior
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) versão v0.10.29 ou superior
 * [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
@@ -170,31 +170,31 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
-    Utilize o ![botão Copiar](./media/create-cassandra-nodejs/copy.png) botão à direita do ecrã, para copiar o valor superior, o PONTO DE CONTACTO.
+1. Utilize o ![botão Copiar](./media/create-cassandra-nodejs/copy.png) botão à direita do ecrã, para copiar o valor superior, o PONTO DE CONTACTO.
 
-    ![Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação](./media/create-cassandra-nodejs/keys.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
 
-2. Abra o ficheiro `config.js`. 
+1. Abra o ficheiro `config.js`. 
 
-3. Cole o valor do PONTO DE CONTACTO do portal em `<FillMEIN>` na linha 4.
+1. Cole o valor do PONTO DE CONTACTO do portal em `<FillMEIN>` na linha 4.
 
     A linha 4 deve ter agora um aspeto semelhante a 
 
     `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
-4. Copie o valor do NOME DE UTILIZADOR no portal e cole-o em `<FillMEIN>` na linha 2.
+1. Copie o valor do NOME DE UTILIZADOR no portal e cole-o em `<FillMEIN>` na linha 2.
 
     A linha 2 deve ter agora um aspeto semelhante a 
 
     `config.username = 'cosmos-db-quickstart';`
     
-5. Copie o valor da PALAVRA-PASSE no portal e cole-o em `<FillMEIN>` na linha 3.
+1. Copie o valor da PALAVRA-PASSE no portal e cole-o em `<FillMEIN>` na linha 3.
 
     A linha 3 deve ter agora um aspeto semelhante a
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. Guarde o ficheiro `config.js`.
+1. Guarde o ficheiro `config.js`.
     
 ## <a name="use-the-x509-certificate"></a>Utilizar o certificado X509
 
@@ -211,11 +211,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 > 
 > Clique duas vezes no ficheiro .crt para o abrir no visor do certificado. 
 >
-> ![Ver e verificar a saída](./media/create-cassandra-nodejs/crtcer1.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Ver e verificar a saída":::
 >
 > Prima em seguida no assistente de certificado. Selecione Base-64 codificado X.509 (. CER), em seguida, Seguinte.
 >
-> ![Ver e verificar a saída](./media/create-cassandra-nodejs/crtcer2.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Ver e verificar a saída":::
 >
 > Selecione Procurar (para localizar um destino) e digite um nome de arquivo.
 > Selecione Seguinte então Terminado.
@@ -236,13 +236,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 4. Verifique os resultados como esperado na linha de comandos.
 
-    ![Ver e verificar a saída](./media/create-cassandra-nodejs/output.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Ver e verificar a saída":::
 
     Prima CTRL+C para parar a execução do programa e feche a janela da consola. 
 
 5. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    ![Ver os dados no Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Ver os dados no Data Explorer"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
@@ -254,7 +254,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos com a Cassandra API, e executou uma aplicação Cassandra Node.js que cria uma base de dados e um recipiente Cassandra. Pode agora importar dados adicionais na sua conta DB Azure Cosmos. 
+Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos com a Cassandra API, e executou uma app Cassandra Node.js que cria uma base de dados e um recipiente Cassandra. Pode agora importar dados adicionais na sua conta DB Azure Cosmos. 
 
 > [!div class="nextstepaction"]
 > [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

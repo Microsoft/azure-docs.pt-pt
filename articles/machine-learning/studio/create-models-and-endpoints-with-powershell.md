@@ -5,17 +5,17 @@ description: Use o PowerShell para criar vários modelos de Machine Learning e p
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 145ee5b458927fc4e3cda5277de614383181eed5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 43f797981c6e3d32cdd5083f4ee1e16359667bdd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465699"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696495"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Crie vários pontos finais de serviço web a partir de uma experiência com ML Studio (clássico) e PowerShell
 
@@ -42,7 +42,7 @@ Use o [exemplo de experiência de treino](https://gallery.azure.ai/Experiment/Bi
 > 
 > 
 
-A experiência utiliza um módulo **de Dados de Importação** para importar o conjunto de dados de formação *cliente001.csv* de uma conta de armazenamento Azure. Vamos supor que recolheu conjuntos de dados de formação de todos os locais de aluguer de bicicletas e os armazenou no mesmo local de armazenamento de blob com nomes de ficheiros que vão de *rentalloc001.csv* a *rentalloc10.csv*.
+A experiência utiliza um módulo **de Dados de Importação** para importar o conjunto de dados de formação *customer001.csv* de uma conta de armazenamento Azure. Vamos supor que recolheu conjuntos de dados de treino de todos os locais de aluguer de bicicletas e os armazenou no mesmo local de armazenamento de bolhas com nomes de ficheiros que vão de *rentalloc001.csv* a *rentalloc10.csv. *
 
 ![Módulo de leitor importa dados de uma bolha de Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
@@ -54,7 +54,7 @@ Há outras formas de ter feito isto. Pode utilizar uma consulta SQL com um parâ
 
 ![Um módulo de modelo treinado produz saídas para um módulo de saída de serviço Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Agora, vamos executar esta experiência de treino usando o valor padrão *aluguer001.csv* como o conjunto de dados de treino. Se visualizar a saída do módulo **Avaliar** (clique na saída e selecione **Visualize),** pode ver que obtém um desempenho decente de *AUC* = 0,91. Neste momento, estás pronto para implantar um serviço web a partir desta experiência de treino.
+Agora, vamos executar esta experiência de treino usando o valor padrão *rental001.csv* como o conjunto de dados de treino. Se visualizar a saída do módulo **Avaliar** (clique na saída e selecione **Visualize),** pode ver que obtém um desempenho decente de *AUC* = 0,91. Neste momento, estás pronto para implantar um serviço web a partir desta experiência de treino.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Implementar os serviços web de formação e pontuação
 Para implementar o serviço web de formação, clique no botão **De Serviço Web Configurar** abaixo da tela de experiência e selecione **Implementar o Serviço Web**. Ligue para este serviço web "Bike Rental Training".
@@ -87,7 +87,7 @@ Em seguida, executar o seguinte comando PowerShell:
         Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
     }
 
-Agora criou 10 pontos finais e todos eles contêm o mesmo modelo treinado treinado em *customer001.csv*. Pode vê-los no portal Azure.
+Agora criaste 10 pontos finais e todos eles contêm o mesmo modelo treinado treinado em *customer001.csv*. Pode vê-los no portal Azure.
 
 ![Veja a lista de modelos treinados no portal](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 

@@ -4,15 +4,15 @@ description: Lista de métricas disponíveis para cada tipo de recurso com monit
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 09aa3a5febe9ea25d8614a99ec3f832cc2d0309f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456951"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906790"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
@@ -43,7 +43,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servidores
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Contagem|Média|QPU. Intervalo 0-100 para S1, 0-200 para S2 e 0-400 para S4|ServerResourceType|
 |memory_metric|Memória|Bytes|Média|Memória. Gama 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|ServerResourceType|
@@ -96,7 +96,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TotalRequests|Total de pedidos de gateway (precotado)|Contagem|Total|Número de pedidos de gateway - Use métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
 |Requess de sucesso|Pedidos de Gateway bem sucedidos (Deprecados)|Contagem|Total|Número de pedidos de gateway bem sucedidos - Use a métrica de pedido de várias dimensões com a dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
@@ -120,7 +120,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |HttpIncomingRequestCount|HttpIncomingRequestCount|Contagem|Contagem|Número total de pedidos de http recebidas.|Código de Estado|
 |HttpIncomingRequestDuration|HttpIncomingRequestDuration|Contagem|Média|Latência num pedido http.|Código de Estado|
@@ -128,7 +128,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/primavera
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |SystemCpuUsagePercentage|Percentagem de Utilização cpu do sistema|Percentagem|Média|O recente uso do CPU para todo o sistema|AppName,Pod|
 |AppCpuUsagePercentage|Percentagem de Utilização cpu de aplicação|Percentagem|Média|App JVM CPU Percentagem de Utilização|AppName,Pod|
@@ -158,16 +158,16 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automation
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TotalJob|Total de empregos|Contagem|Total|O número total de empregos|Runbook,Status|
 |TotalUpdateDeploymentRuns|Execuções de implementação de atualização total|Contagem|Total|Total de execuções de atualização de software executa|SoftwareUpdateConfigurationName,Status|
 |TotalUpdateDeploymentMachineRuns|Funciona a máquina de implementação total de atualizações|Contagem|Total|A máquina de implementação total de atualização de software é executada numa implementação de atualização de software|SoftwareUpdateConfigurationName,Status,TargetComputer,SoftwareUpdateConfigurationRunId|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAcounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batcontas ch/batch
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |CoreCount|Contagem de núcleos dedicada|Contagem|Total|Número total de núcleos dedicados na conta do lote|Nenhum|
 |TotalNodeCount|Conde de Nó dedicado|Contagem|Total|Número total de nós dedicados na conta do lote|Nenhum|
@@ -204,7 +204,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/espaços de trabalho
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Trabalho submetido|Trabalho submetido|Contagem|Total|Número de postos de trabalho submetidos|Cenário,ClusterName|
 |Trabalho Concluído|Trabalho Concluído|Contagem|Total|Número de postos de trabalho concluídos|Cenário,ClusterName,ResultadoType|
@@ -224,7 +224,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |CpuUsagePercentageInDouble|Percentagem de Utilização cpu|Percentagem|Máximo|Percentagem de Utilização cpu|Nó|
 |MemóriaSage|Utilização de Memória|Bytes|Média|Utilização de Memória|Nó|
@@ -246,7 +246,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |connectedclients|Clientes Ligados|Contagem|Máximo||ShardId|
 |totalcommands processado|Total de Operações|Contagem|Total||ShardId|
@@ -434,14 +434,14 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |WebApplicationFirewallRequestCount|Contagem de pedidos de firewall de aplicação web|Contagem|Total|O número de pedidos de cliente processados pela Firewall de Aplicação Web|Nome de Política,Nome de Regras,Ação|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual( s).|Nenhum|
 |Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Entrada).|Nenhum|
@@ -454,7 +454,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual( s).|RoleInstanceId|
 |Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Entrada).|RoleInstanceId|
@@ -468,7 +468,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAcontas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade Usada|Capacidade utilizada|Bytes|Média|Capacidade da conta utilizada|Nenhum|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
@@ -480,7 +480,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftclassicstoragestorageaccountsblobservices"></a>Microsoft.ClassicStorage/storageAccounts/blobServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade blob|Capacidade blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType,Tier|
 |BlobCount|Contagem de blobs|Contagem|Média|O número de Blob no serviço Blob da conta de armazenamento.|BlobType,Tier|
@@ -495,7 +495,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftclassicstoragestorageaccountstableservices"></a>Microsoft.ClassicStorage/storageAccounts/tableServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de Mesa|Capacidade de mesa|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de mesa da conta de armazenamento em bytes.|Nenhum|
 |MesaCount|Contagem de tabelas|Contagem|Média|O número de mesa no serviço de mesa da conta de armazenamento.|Nenhum|
@@ -509,7 +509,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftclassicstoragestorageaccountsfileservices"></a>Microsoft.ClassicStorage/storageAcons/fileServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de Ficheiros|Capacidade de Arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de ficheiros da conta de armazenamento em bytes.|Partilha de Ficheiros|
 |Contagem de ficheiros|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiros da conta de armazenamento.|Partilha de Ficheiros|
@@ -526,7 +526,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftclassicstoragestorageaccountsqueueservices"></a>Microsoft.ClassicStorage/storageAccounts/queueServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de Fila|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhum|
 |Contagem de filas|Contagem de filas|Contagem|Média|O número de filas no serviço de fila da conta de armazenamento.|Nenhum|
@@ -541,7 +541,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/contas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Total de Chamadas|Total de chamadas|Contagem|Total|Número total de chamadas.|ApiName,OperaçãoName,Região|
 |Chamadas de sucesso|Chamadas bem sucedidas|Contagem|Total|Número de chamadas bem sucedidas.|ApiName,OperaçãoName,Região|
@@ -561,7 +561,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual(s)|Nenhum|
 |Entrada na Rede|Rede em Faturação (Depreciada)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De entrada) (Depreifed)|Nenhum|
@@ -606,7 +606,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual(s)|VMName|
 |Entrada na Rede|Rede em Faturação (Depreciada)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De entrada) (Depreifed)|VMName|
@@ -651,7 +651,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual(s)|Nenhum|
 |Entrada na Rede|Rede em Faturação (Depreciada)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De entrada) (Depreifed)|Nenhum|
@@ -695,7 +695,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |CpuUsage|Utilização da CPU|Contagem|Média|Utilização do CPU em todos os núcleos em millicores.|nome de contentor|
 |MemóriaSage|Utilização de Memória|Bytes|Média|Uso total da memória em byte.|nome de contentor|
@@ -704,7 +704,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TotalPullCount|Contagem total de pull|Contagem|Média|Número de tiras de imagem no total|Nenhum|
 |SucessoPullCount|Contagem de pull com sucesso|Contagem|Média|Número de puxas de imagem bem-sucedidas|Nenhum|
@@ -715,7 +715,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |kube_node_status_allocatable_cpu_cores|Número total de núcleos cpu disponíveis num cluster gerido|Contagem|Média|Número total de núcleos cpu disponíveis num cluster gerido|Nenhum|
 |kube_node_status_allocatable_memory_bytes|Quantidade total de memória disponível num cluster gerido|Bytes|Média|Quantidade total de memória disponível num cluster gerido|Nenhum|
@@ -727,14 +727,14 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/resourceproviders
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Requestres com sucesso|Pedidos de Sucesso|Contagem|Total|Pedidos bem sucedidos feitos pelo fornecedor personalizado|HttpMethod,CallPath,StatusCode|
 |Requessos Falhados|Pedidos com Falhas|Contagem|Total|Obtém os registos disponíveis para Fornecedores de Recursos Personalizados|HttpMethod,CallPath,StatusCode|
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft.DataBoxEdge/dataBoxEdgeDevices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |NICReadThroughput|Ler produção (rede)|BytesPerSecond|Média|A produção de leitura da interface de rede no dispositivo no período de reporte para todos os volumes no gateway.|Nome de exemplo|
 |NICWriteThroughput|Escrever Produção (Rede)|BytesPerSecond|Média|A produção de produção da interface de rede no dispositivo no período de reporte para todos os volumes no gateway.|Nome de exemplo|
@@ -752,7 +752,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.DataCatalog/datacatalogs
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |AssetDistributionByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte|
 |AssetDistributionByStorageType|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|Dispositivo de armazenamento|
@@ -767,7 +767,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Corridas Falhadas|Corridas falhadas|Contagem|Total||pipelineName,atividadeName|
 |Sucesso DeRuns|Corridas de sucesso|Contagem|Total||pipelineName,atividadeName|
@@ -775,7 +775,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/fábricas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PipelineFailedRuns|Gasoduto falhado executa métricas|Contagem|Total||FalhaType,Nome|
 |PipelineSucceededRuns|Pipeline bem sucedido executa métricas|Contagem|Total||FalhaType,Nome|
@@ -798,7 +798,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/contas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |JobEndedSuccess|Empregos bem sucedidos|Contagem|Total|Contagem de trabalhos bem sucedidos.|Nenhum|
 |JobEndedFailure|Empregos Falhados|Contagem|Total|Contagem de trabalhos falhados.|Nenhum|
@@ -811,7 +811,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/contas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TotalStorage|Armazenamento Total|Bytes|Máximo|Quantidade total de dados armazenados na conta.|Nenhum|
 |DataWritten|Dados Escritos|Bytes|Total|Quantidade total de dados escritos na conta.|Nenhum|
@@ -822,7 +822,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/contas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ShareCount|Ações enviadas|Contagem|Máximo|Número de ações enviadas na conta|Nome de partilha|
 |ShareSubscriptionCount|Ações Recebidas|Contagem|Máximo|Número de ações recebidas na conta|Nome de Subscrição de Partilha|
@@ -834,7 +834,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servidores
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
@@ -855,7 +855,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servidores
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
@@ -876,7 +876,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servidores
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
@@ -898,7 +898,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
@@ -912,7 +912,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft.DBforPostgreSQL/singleservers
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
@@ -932,7 +932,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |d2c.telemetria.ingress.allProtocol|Mensagem de telemetria envia tentativas|Contagem|Total|Número de mensagens de telemetria dispositivo-nuvem tentadas de ser enviadas para o seu hub IoT|Nenhum|
 |d2c.telemetria.ingress.success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria dispositivo-nuvem enviadas com sucesso para o seu hub IoT|Nenhum|
@@ -1005,7 +1005,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |InscriçõesAptas|Tentativas de registo|Contagem|Total|Número de registos de dispositivos tentados|ProvisioningServiceName,IotHubName,Status|
 |Configurações de Dispositivos|Dispositivos atribuídos|Contagem|Total|Número de dispositivos atribuídos a um hub IoT|ProvisioningServiceName,IotHubName|
@@ -1014,9 +1014,9 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseSacons
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/base de dadosAcontas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |AddRegion|Região Adicionada|Contagem|Contagem|Região Adicionada|Região|
 |DisponíveisToragem|Armazenamento Disponível|Bytes|Total|Armazenamento total disponível reportado a 5 minutos de granularidade|Nome de coleção,Nome de Base de Dados,Região|
@@ -1082,7 +1082,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftenterpriseknowledgegraphservices"></a>Microsoft.EnterpriseKnowledgeGraph/services
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TransaçãoCount|Contagem de transações|Contagem|Contagem|Contagem total de transações|TransaçãoCount|
 |SucessoCount|Contagem de Êxitos|Contagem|Contagem|Contagem de Transações Bem Sucedidas|SucessoCount|
@@ -1091,7 +1091,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domínios
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Tópico|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|Tópico,ErrorType,Error|
@@ -1105,7 +1105,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/tópicos
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
@@ -1120,7 +1120,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft.EventGrid/systemTopics
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
@@ -1135,7 +1135,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição de evento|Nenhum|
 |EntregaAttemptFailCount|Eventos falhados de entrega|Contagem|Total|Total de eventos não entregaram a esta subscrição do evento|Erro,ErrorType|
@@ -1146,7 +1146,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
@@ -1158,7 +1158,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/espaços de nome
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Requess de sucesso|Pedidos de Sucesso|Contagem|Total|Pedidos de sucesso para Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
 |ServerErrors|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
@@ -1197,7 +1197,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Requess de sucesso|Pedidos de Sucesso|Contagem|Total|Pedidos de sucesso para Microsoft.EventHub.|OperaçãoResult|
 |ServerErrors|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.EventHub.|OperaçãoResult|
@@ -1222,7 +1222,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |GatewayRequests|Pedidos de Gateway|Contagem|Total|Número de pedidos de gateway|HttpStatus|
 |CategorizadosGatewayRequests|Pedidos de Gateway categorizados|Contagem|Total|Número de pedidos de gateway por categorias (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
@@ -1231,7 +1231,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ValorMétrico Observado|Valor métrico observado|Contagem|Média|O valor calculado por autoescala quando executado|MetricTriggerSource|
 |MétricaThreshold|Limiar métrico|Contagem|Média|O limiar de autoescala configurado quando a autoescalada foi executada.|MétricaTriggerrule|
@@ -1240,7 +1240,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Componentes
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |disponibilidadeResults/disponibilidadePercentage|Disponibilidade|Percentagem|Média|Percentagem de testes de disponibilidade concluídos com sucesso|disponibilidadeResult/name,disponibilidadeResult/location|
 |disponibilidadeResults/contagem|Testes de disponibilidade|Contagem|Contagem|Contagem de testes de disponibilidade|disponibilidadeResult/name,disponibilidadeResult/location,disponibilidadeResult/sucesso|
@@ -1276,7 +1276,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |connectedDeviceCount|Total de dispositivos conectados|Contagem|Média|Número de dispositivos ligados à IoT Central|Nenhum|
 |c2d.property.read.success|Propriedade de dispositivo de sucesso lê da IoT Central|Contagem|Total|A contagem de todas as leituras bem sucedidas iniciadas da IoT Central|Nenhum|
@@ -1291,7 +1291,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/cofres
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ServiceApiHit|Acessos Api de serviço total|Contagem|Contagem|Número de acessos totais de serviço api|ActivityType,ActivityName|
 |ServiçoApilatency|Latência geral do serviço Api|Milissegundos|Média|Latência geral dos pedidos de serviço api|ActivityType,ActivityName,StatusCode,StatusCodeClass|
@@ -1301,7 +1301,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |CacheUtilização|Utilização de cache|Percentagem|Média|Nível de utilização no âmbito do cluster|Nenhum|
 |Queriaduração|Duração da consulta|Milissegundos|Média|Duração das consultas em segundos|QueriaStatus|
@@ -1313,7 +1313,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |IngestionResult|Resultado da ingestão|Contagem|Contagem|Número de operações de ingestão|IngestionResultDetails|
 |CPU|CPU|Percentagem|Média|Nível de utilização do CPU|Nenhum|
 |ContinuousExportNumOfRecordsExported|Exportação contínua - num de registos exportados|Contagem|Total|Número de registos exportados, disparados para cada artefacto de armazenamento escrito durante a operação de exportação|Nome ContínuoExportName,Base de Dados|
-|ExportaçãoUtilização|Utilização das Exportações|Percentagem|Máximo|Utilização das exportações|Nenhum|
+|ExportaçãoUtilização|Utilização da Exportação|Percentagem|Máximo|Utilização das exportações|Nenhum|
 |ContínuaExportPendingCount|Contagem pendente de exportação contínua|Contagem|Máximo|O número de postos de trabalho de exportação permanentes pendentes prontos para a execução|Nenhum|
 |ContinuaExportMaxLatenessMinutes|Exportação Contínua Max Lateness|Contagem|Máximo|O atraso (em minutos) reportado pelos postos de trabalho contínuos de exportação no cluster|Nenhum|
 |ContínuaExportResult|Resultado contínuo da exportação|Contagem|Contagem|Indica se a Exportação Contínua foi bem sucedida ou falhou|Nome deExport Continuous,Resultado,Base de Dados|
@@ -1330,7 +1330,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |RunsStarted|Execuções iniciadas|Contagem|Total|O número de fluxos de trabalho iniciados.|Nenhum|
 |RunsCompleted|Execuções Concluídas|Contagem|Total|Número de fluxos de trabalho concluídos.|Nenhum|
@@ -1369,7 +1369,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |RunsStarted|Execuções iniciadas|Contagem|Total|O número de fluxos de trabalho iniciados.|Nenhum|
 |RunsCompleted|Execuções Concluídas|Contagem|Total|Número de fluxos de trabalho concluídos.|Nenhum|
@@ -1406,7 +1406,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Corridas Canceladas|Corridas Canceladas|Contagem|Total|Número de corridas canceladas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Cancelar execuções solicitadas|Cancelar execuções solicitadas|Contagem|Total|Número de corridas onde foi pedido cancelamento para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
@@ -1446,14 +1446,14 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftmapsaccounts"></a>Microsoft.Maps/contas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Utilização|Utilização|Contagem|Contagem|Contagem de chamadas da API|ApiCategory,ApiName,ResultadoType,ResponseCode|
 |Disponibilidade|Disponibilidade|Percentagem|Média|Disponibilidade das APIs|ApiCategory,ApiName|
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft.Media/mediaservices/streamingEndpoints
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Saída|Saída|Bytes|Total|A quantidade de dados da Egress, em bytes.|OutputFormat|
 |SucessoE2ELatency|Fim do sucesso para acabar com a latência|Milissegundos|Média|A latência média para pedidos bem sucedidos em milissegundos.|OutputFormat|
@@ -1462,7 +1462,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |AssetQuota|Quota de ativos|Contagem|Média|Quantos ativos são permitidos para a conta de serviço de mídia atual|Nenhum|
 |Conta de Ativos|Contagem de ativos|Contagem|Média|Quantos ativos já são criados na conta de serviço de mídia corrente|Nenhum|
@@ -1477,14 +1477,14 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderIngS
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ActivosConvertidos|Ativos Convertidos|Contagem|Total|Número total de ativos convertidos|AppId,ResourceId,SDKVersion|
 |Ativaressessões de Esessão|Sessões de renderização ativa|Contagem|Total|Número total de sessões de renderização ativas|AppId,ResourceId,SessionType,SDKVersion|
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/volumes
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Média DeOncência|Latência média de leitura|MilliSeconds|Média|Latência média de leitura em milissegundos por operação|Nenhum|
 |Média Desaquimia|Latência média de escrita|MilliSeconds|Média|Latência escrita média em milissegundos por operação|Nenhum|
@@ -1495,14 +1495,14 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |VolumePoolAllocatedUsed|Piscina atribuída ao tamanho do volume|Bytes|Média|Tamanho utilizado atribuído da piscina|Nenhum|
 |VolumePoolTotalLogicalsize|Tamanho consumido da piscina|Bytes|Média|Soma do tamanho lógico de todos os volumes pertencentes à piscina|Nenhum|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |BytesSentRate|Bytes Enviados|Bytes|Total|Número de bytes enviados pela Interface de Rede|Nenhum|
 |BytesReceivedRate|Bytes Recebidos|Bytes|Total|Número de bytes que a Interface de Rede recebeu|Nenhum|
@@ -1511,7 +1511,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |VipSAdability|Disponibilidade do caminho dos dados|Contagem|Média|Disponibilidade média de trajetória do balanceador de carga por duração do tempo|FrontendIPAddress,FrontendPort|
 |DipDUilability|Estado da sonda de saúde|Contagem|Média|Estado médio da sonda de saúde do balanceador de carga por duração do tempo|ProtocolType,BackendPort,FrontendIPAddress,FrontendPort,BackendIPAddress|
@@ -1524,7 +1524,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |QueryVolume|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona de DNS|Nenhum|
 |RecordSetCount|Contagem de recordes|Contagem|Máximo|Número de conjuntos de recordes numa zona de DNS|Nenhum|
@@ -1533,7 +1533,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PacotesInDDoS|Pacotes de entrada DDoS|CondePerSecond|Máximo|Pacotes de entrada DDoS|Nenhum|
 |PacotesDroppedDDoS|Pacotes de entrada deixaram cair DDoS|CondePerSecond|Máximo|Pacotes de entrada deixaram cair DDoS|Nenhum|
@@ -1566,7 +1566,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PingMeshAverageRoundtripMs|Hora de ida e volta para Pings a um VM|MilliSeconds|Média|Tempo de ida e volta para Pings enviado para um VM de destino|SourceCustomerAddress,DestinationCustomerAddress|
 |PingMeshProbesFailedPercent|Pings falhados para um VM|Percentagem|Média|Por cento do número de pings falhados para o total enviado Pings de um VM destino|SourceCustomerAddress,DestinationCustomerAddress|
@@ -1574,7 +1574,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |AplicaçãoRuleHit|As regras de aplicação atingem a contagem|Contagem|Total|Número de vezes que as regras de aplicação foram atingidas|Estado,Razão,Protocolo|
 |NetworkRuleHit|Regras de rede atingem a contagem|Contagem|Total|Número de vezes que as regras da rede foram atingidas|Estado,Razão,Protocolo|
@@ -1585,7 +1585,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Débito|Débito|BytesPerSecond|Média|Número de bytes por segundo que o Gateway de Aplicação serviu|Nenhum|
 |Não-saudávelHostCount|Contagem de anfitriões pouco saudável|Contagem|Média|Número de anfitriões insalubres|BackendSettingsPool|
@@ -1617,7 +1617,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Largura média da largura|Largura de banda Gateway S2S|BytesPerSecond|Média|Largura de banda média local-local de um gateway in bytes por segundo|Nenhum|
 |P2SBandwidth|Largura de banda Gateway P2S|BytesPerSecond|Média|Largura de banda média ponto-a-local de uma porta de entrada em bytes por segundo|Nenhum|
@@ -1633,7 +1633,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |RxLightLevel|RxLightLevel|Contagem|Média|Nível de luz Rx em dBm|Link,Lane|
 |TxLightLevel|TxLightLevel|Contagem|Média|Nível de luz Tx em dBm|Link,Lane|
@@ -1646,7 +1646,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Type de peering|
 |BitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Type de peering|
@@ -1659,28 +1659,28 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Nenhum|
 |BitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Nenhum|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/conexões
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Nenhum|
 |BitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Nenhum|
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft.Network/expressRouteGateways
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|ConnectionName|
 |ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|ConnectionName|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |QpsByEndpoint|Consultas por Endpoint Devolvido|Contagem|Total|Número de vezes que um ponto final do Gestor de Tráfego foi devolvido no prazo dado|Nome de ponto final|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Estado do ponto final por Endpoint|Contagem|Máximo|1 se o estado da sonda de um ponto final for "Ativado", 0 caso contrário.|Nome de ponto final|
@@ -1689,7 +1689,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ProbesFailedPercent|% Sondas Falhadas|Percentagem|Média|% das sondas de monitorização da conectividade falharam|Nenhum|
 |Médias Desvelundos|Avg. Tempo de ida e volta (ms)|MilliSeconds|Média|Tempo médio de ida e volta (ms) para sondas de monitorização da conectividade enviadas entre a fonte e o destino|Nenhum|
@@ -1699,7 +1699,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PedidoCount|Número de Pedidos|Contagem|Total|O número de pedidos de clientes servidos pelo representante http/s|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
 |Solicitação|Tamanho do pedido|Bytes|Total|O número de bytes enviados como pedidos de clientes para o proxy HTTP/S|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
@@ -1714,7 +1714,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnetworkprivatednszones"></a>Microsoft.Network/privateDnsZones
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |QueryVolume|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona privada de DNS|Nenhum|
 |RecordSetCount|Contagem de recordes|Contagem|Máximo|Número de conjuntos de recordes numa zona privada de DNS|Nenhum|
@@ -1726,7 +1726,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |registro.todos|Operações de Registo|Contagem|Total|A contagem de todas as operações de registo bem sucedidas (criações atualiza consultas e supressões). |Nenhum|
 |registration.create|Criar Operações de Criação de Registos|Contagem|Total|A contagem de todas as criações de registo bem sucedidas.|Nenhum|
@@ -1793,7 +1793,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Inodes Average_% Grátis|% Inodes grátis|Contagem|Média|Inodes Average_% Grátis|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
 |Average_% Espaço Livre|% Espaço Livre|Contagem|Média|Average_% Espaço Livre|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
@@ -1861,13 +1861,13 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft.Peering/peeringServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Prefixlatency|Latência prefixo|Milissegundos|Média|Latência prefixo mediano|PrefixName|
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft.Peering/peerings
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |SessãoSAlabilidadeV4|Disponibilidade de sessão V4|Percentagem|Média|Disponibilidade da sessão V4|ConnectionId|
 |SessãoSSAlabilidadeV6|Disponibilidade de Sessão V6|Percentagem|Média|Disponibilidade da sessão V6|ConnectionId|
@@ -1877,7 +1877,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Queriaduração|Duração da Consulta|Milissegundos|Média|Duração da consulta DAX no último intervalo|Sem Dimensões|
 |QueryPoolJobQueueLength|Threads: Comprimento da fila do trabalho da piscina de consulta|Contagem|Média|Número de empregos na fila da piscina de fios de consulta.|Sem Dimensões|
@@ -1888,7 +1888,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/contas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |AssetDistributionByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte,Recursos|
 |AssetDistributionByStorageType|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|StorageType,ResourceId|
@@ -1905,7 +1905,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |OuvinteConnections-Sucesso|OuvinteConnections-Sucesso|Contagem|Total|Falhas de escuta bem sucedidas para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
 |OuvinteConnections-ClientError|OuvinteConnections-ClientError|Contagem|Total|ClientError em ListenerConnections para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
@@ -1924,7 +1924,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |PesquisaLatency|Procurar Latência|Segundos|Média|Latência média de pesquisa para o serviço de pesquisa|Nenhum|
 |SearchQueriesPerSecond|Consultas de pesquisa por segundo|CondePerSecond|Média|Consultas de pesquisa por segundo para o serviço de pesquisa|Nenhum|
@@ -1933,7 +1933,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Requess de sucesso|Pedidos de Sucesso|Contagem|Total|Total de pedidos bem sucedidos para um espaço de nome|Nome da Entidade,OperaçãoResult|
 |ServerErrors|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.ServiceBus.|Nome da Entidade,OperaçãoResult|
@@ -1958,7 +1958,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/aplicações
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Cpu atribuído|Cpu atribuído|Contagem|Média|CPU alocado a este contentor em núcleos milli|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
 |Roteiro Atribuído|Roteiro Atribuído|Bytes|Média|Memória alocada a este recipiente em MB|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
@@ -1974,7 +1974,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalrService/Signalr
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Contagem de Ligações|Contagem de Ligação|Contagem|Máximo|A quantidade de ligação do utilizador.|Ponto Final|
 |Contagem de mensagens|Contagem de mensagens|Contagem|Total|A quantidade total de mensagens.|Nenhum|
@@ -1987,7 +1987,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servidores/bases de dados
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhum|
 |physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Nenhum|
@@ -2046,7 +2046,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servidores/elásticos
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhum|
 |database_cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Base de dadosResourceId|
@@ -2085,20 +2085,9 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 <sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de Hiperescala.
 
-
-## <a name="microsoftsqlservers"></a>Microsoft.Sql/servidores
-
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Base de dadosResourceId,ElasticPoolResourceId|
-|storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|ElasticPoolResourceId|
-|database_storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|Base de dadosResourceId,ElasticPoolResourceId|
-|dtu_used|DTU usado|Contagem|Média|DTU usado|Base de dadosResourceId|
-
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |virtual_core_count|Contagem de núcleos virtuais|Contagem|Média|Contagem de núcleos virtuais|Nenhum|
 |avg_cpu_percent|Percentagem média de CPU|Percentagem|Média|Percentagem média de CPU|Nenhum|
@@ -2112,7 +2101,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAcontas
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade Usada|Capacidade utilizada|Bytes|Média|Capacidade da conta utilizada|Nenhum|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
@@ -2124,7 +2113,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAcontas/blobServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade blob|Capacidade blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType,Tier|
 |BlobCount|Contagem de blobs|Contagem|Média|O número de Blob no serviço Blob da conta de armazenamento.|BlobType,Tier|
@@ -2139,7 +2128,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAcontas/tableServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de Mesa|Capacidade de mesa|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de mesa da conta de armazenamento em bytes.|Nenhum|
 |MesaCount|Contagem de tabelas|Contagem|Média|O número de mesa no serviço de mesa da conta de armazenamento.|Nenhum|
@@ -2153,7 +2142,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAcontas/fileServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de Ficheiros|Capacidade de Arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de ficheiros da conta de armazenamento em bytes.|Partilha de Ficheiros|
 |Contagem de ficheiros|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiros da conta de armazenamento.|Partilha de Ficheiros|
@@ -2170,7 +2159,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAcontas/filas Serviços
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Capacidade de Fila|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhum|
 |Contagem de filas|Contagem de filas|Contagem|Média|O número de filas no serviço de fila da conta de armazenamento.|Nenhum|
@@ -2188,7 +2177,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragecachecaches"></a>Microsoft.StorageCache/caches
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ClientIOPS|IOPS totais do cliente|Contagem|Média|A taxa de operações de ficheiros de clientes processadas pela Cache.|Nenhum|
 |ClientLatency|Latência média do cliente|Milissegundos|Média|Latência média das operações de ficheiro de clientes para a Cache de Armazenamento.|Nenhum|
@@ -2216,7 +2205,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ServidorSyncSessionResult|Resultado da sessão de sincronização|Contagem|Média|Métrica que regista um valor de 1 cada vez que o Ponto Final do Servidor completa com sucesso uma Sessão de Sincronização com o Ponto final da Cloud|SyncGroupName,ServerEndpointName,SyncDirection|
 |ArmazenamentoSyncSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
@@ -2230,7 +2219,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroups"></a>microsoft.storagesync/storageSyncServices/syncGroups
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |SyncGroupSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
 |SyncGroupSyncSessionPerItemErrorsCount|Ficheiros não sincronizados|Contagem|Total|Contagem de ficheiros não sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
@@ -2238,7 +2227,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroupsserverendpoints"></a>microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ServerEndpointSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizado|Nome de ServerEndpoint,SyncDirection|
 |ServerEndpointSyncSessionPerItemErrorsCount|Ficheiros não sincronizados|Contagem|Total|Contagem de ficheiros não sincronizado|Nome de ServerEndpoint,SyncDirection|
@@ -2246,7 +2235,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstoragesyncstoragesyncservicesregisteredservers"></a>microsoft.storagesync/storageSyncServices/registradosServers
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |ServerHeartbeat|Estado online do servidor|Contagem|Máximo|Métrica que regista um valor de 1 cada vez que o servidor resigtered regista com sucesso um batimento cardíaco com o Cloud Endpoint|ServerResourceId,ServerName|
 |ServerRecallIOTotalSizeBytes|Recuperação de camadas de nuvem|Bytes|Total|Tamanho total dos dados recolhidos pelo servidor|ServerResourceId,ServerName|
@@ -2255,7 +2244,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Utilização de Recursos|SU % Utilização|Percentagem|Máximo|SU % Utilização|Nome Lógico,PartitionId|
 |InputEvents|Eventos de Entrada|Contagem|Total|Eventos de Entrada|Nome Lógico,PartitionId|
@@ -2276,7 +2265,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |OrquestrationPipelineRunsEnded|As corridas de gasodutos terminaram|Contagem|Total|Contagem de corridas de oleoduto de orquestração que conseguiu, falhou, ou foram cancelados|Resultado,FalhaType,Pipeline|
 |OrquestraçãoActivityRunsEnded|A atividade corre terminada|Contagem|Total|Contagem de atividades de orquestração que sucederam, falharam ou foram canceladas|Resultado,FalhaType,Atividade,ActivityType,Pipeline|
@@ -2287,7 +2276,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft.Synapse/workspaces/bigDataPools
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |SparkJobsEnded|Candidaturas terminadas|Contagem|Total|Contagem de candidaturas terminadas|JobType,JobResult|
 |Capacidade de Cores|Capacidade de núcleos|Contagem|Máximo|Capacidade de núcleos|Nenhum|
@@ -2295,7 +2284,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |DWULimit|Limite dwu|Contagem|Máximo|Objetivo de nível de serviço da piscina SQL|Nenhum|
 |DWUUSED|DWU usado|Contagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido por limite DE DWU * percentagem de DWU|Nenhum|
@@ -2316,7 +2305,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/ambientes
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Mensagens Recebidas Ingress|Contagem|Total|Contagem de mensagens lidas de todas as fontes de eventos do centro de eventos do Evento ou IoT|Nenhum|
 |IngressReceivedInvalidMesages|Ingress recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas lidas de todas as fontes de eventos do centro de eventos do Evento ou IoT|Nenhum|
@@ -2332,7 +2321,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/ambientes/eventsources
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Mensagens Recebidas Ingress|Contagem|Total|Contagem de mensagens lidas a partir da fonte do evento|Nenhum|
 |IngressReceivedInvalidMesages|Ingress recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas lidas a partir da fonte do evento|Nenhum|
@@ -2346,7 +2335,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft.VMwareCloudSimple/virtualMachines
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |DiskReadBytesPerSecond|Discos de leitura bytes/sec|BytesPerSecond|Média|Produção média de disco devido a operações de leitura durante o período de amostragem.|Nenhum|
 |DiskWriteBytesPerSecond|Discos De Escrita Bytes/Sec|BytesPerSecond|Média|Produção média de disco devido a operações de escrita durante o período de amostragem.|Nenhum|
@@ -2370,7 +2359,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
 |MemóriaPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
@@ -2396,7 +2385,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 > [!IMPORTANT]
 > **O tempo médio de resposta** será depreciado para evitar confusões com agregações métricas. Utilize o **Tempo de Resposta** como substituto.
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Horário do Cpu|Hora do CPU|Segundos|Total|Hora do CPU|Instância|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
@@ -2440,7 +2429,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 > [!NOTE]
 > **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que tenha sido whitelisted para pré-visualização privada.
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
 |BytesSent|Data out|Bytes|Total|Data out|Instância|
@@ -2468,7 +2457,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Horário do Cpu|Hora do CPU|Segundos|Total|Hora do CPU|Instância|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
@@ -2511,7 +2500,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
@@ -2538,14 +2527,14 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TrabalhadoresTotal|Total de Trabalhadores|Contagem|Média|Total de Trabalhadores|Nenhum|
 |Trabalhadores disponíveis|Trabalhadores disponíveis|Contagem|Média|Trabalhadores disponíveis|Nenhum|
 |TrabalhadoresUsed|Trabalhadores Usados|Contagem|Média|Trabalhadores Usados|Nenhum|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
 |MemóriaPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Leia sobre métricas no Azure Monitor](data-platform.md)
 * [Criar alertas para as métricas](alerts-overview.md)
 * [Métricas de exportação para armazenamento, Centro de Eventos ou Log Analytics](platform-logs-overview.md)

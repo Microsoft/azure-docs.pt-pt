@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1f7d0d411ffbff6aad7d134711a0190251f68aa8
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 3a359e4b3523615623c76d48c1aafd7aa95a5277
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324441"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255046"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,10 +91,11 @@ Série Fsv2 apenas suportada no nível de Finalidade Geral.  Para as regiões on
 - A série M é uma opção de hardware otimizada pela memória para cargas de trabalho que exigem mais memória e limites de computação mais elevados do que os fornecidos pela Gen5.
 - A série M fornece 29 GB por vCore e 128 vCores, o que aumenta o limite de memória em relação à Gen5 em 8x para quase 4 TB.
 
-A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.
+A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA).  Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
 
-Para permitir o hardware da série M para uma subscrição e região, deve ser aberto um pedido de apoio. A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA).  Se o pedido de suporte for aprovado, então a experiência de seleção e provisão da série M segue o mesmo padrão que para outras gerações de hardware. Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
-
+<!--
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+-->
 
 ### <a name="compute-and-memory-specifications"></a>Especificações de cálculo e memória
 
@@ -112,7 +113,7 @@ Para obter mais informações sobre os limites de recursos, consulte [os limites
 
 ### <a name="selecting-a-hardware-generation"></a>Selecionando uma geração de hardware
 
-No portal Azure, pode selecionar a geração de hardware para uma base de dados ou piscina na Base de Dados SQL no momento da criação, ou pode alterar a geração de hardware de uma base de dados ou piscina sql existente.
+No portal Azure, pode selecionar a geração de hardware para uma base de dados ou piscina na Base de Dados SQL no momento da criação, ou pode alterar a geração de hardware de uma base de dados ou piscina existente.
 
 **Para selecionar uma geração de hardware ao criar uma Base de Dados SQL ou piscina**
 
@@ -193,34 +194,35 @@ A série Fsv2 está disponível nas seguintes regiões: Austrália Central, Aust
 #### <a name="m-series"></a>Série M
 
 A série M está disponível nas seguintes regiões: Leste dos EUA, Norte da Europa, Europa Ocidental, EUA Ocidental 2.
-A série M também pode ter uma disponibilidade limitada em regiões adicionais. Pode solicitar uma região diferente da listada aqui, mas o cumprimento numa região diferente pode não ser possível.
+<!--
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-Para permitir a disponibilidade da série M numa subscrição, o acesso deve ser solicitado [através da apresentação de um novo pedido de apoio](#create-a-support-request-to-enable-m-series).
-
-
-##### <a name="create-a-support-request-to-enable-m-series"></a>Crie um pedido de suporte para ativar a série M: 
-
-1. Selecione **Ajuda + suporte** no portal.
-2. Selecione **Novo pedido de suporte**.
-
-Na página **Basics,** forneça o seguinte:
-
-1. Para **o tipo de emissão**, selecione **limites de serviço e de subscrição (quotas)**.
-2. Para **Subscrição** = selecione a subscrição para ativar a série M.
-3. Para **o tipo quota,** selecione **base de dados SQL.**
-4. Selecione **Seguinte** para ir à página **Detalhes.**
-
-Na página **Detalhes,** forneça o seguinte:
-
-1. Na secção **DETALHES DE PROBLEMAs** selecione o link **Fornecer detalhes.** 
-2. Para **o tipo de quota de base de dados SQL** selecione série **M**.
-3. Para **a Região**, selecione a região para ativar a série M.
-    Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
-
-Os pedidos de apoio aprovados são normalmente preenchidos no prazo de 5 dias úteis.
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-## <a name="next-steps"></a>Próximos passos
+##### Create a support request to enable M-series: 
+
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
+
+On the **Basics** page, provide the following:
+
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
+
+On the **Details** page, provide the following:
+
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
+
+Approved support requests are typically fulfilled within 5 business days.
+-->
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte: 
 - [Criação de uma Base de Dados SQL utilizando o portal Azure](single-database-create-quickstart.md)
