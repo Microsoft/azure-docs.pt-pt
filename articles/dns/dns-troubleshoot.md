@@ -1,34 +1,34 @@
 ---
 title: Guia de resolução de problemas - Azure DNS
-description: Neste caminho de aprendizagem, começar a resolver problemas comuns com o Azure DNS
+description: Neste caminho de aprendizagem, começa a resolver problemas comuns com o Azure DNS
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: 27d192a50a13437b755e7cc0db8a7dbcc4fee2f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833403"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711192"
 ---
-# <a name="azure-dns-troubleshooting-guide"></a>Guia de resolução de problemas azure DNS
+# <a name="azure-dns-troubleshooting-guide"></a>Guia de resolução de problemas do Azure DNS
 
-Este artigo fornece informações de resolução de problemas para questões comuns do DNS do Azure.
+Este artigo fornece informações de resolução de problemas para perguntas comuns do Azure DNS.
 
-Se estes passos não resolverem o seu problema, também pode pesquisar ou publicar o seu problema no nosso [Microsoft Q&Uma página](https://docs.microsoft.com/answers/topics/azure-virtual-network.html)de perguntas para apoio à comunidade . Ou pode abrir um pedido de apoio azure.
+Se estes passos não resolverem o seu problema, também pode pesquisar ou publicar o seu problema no nosso [Microsoft Q&Página de perguntas para suporte à comunidade.](https://docs.microsoft.com/answers/topics/azure-virtual-network.html) Ou pode abrir um pedido de apoio ao Azure.
 
 
-## <a name="i-cant-create-a-dns-zone"></a>Não posso criar uma zona DNS.
+## <a name="i-cant-create-a-dns-zone"></a>Não posso criar uma zona de DNS
 
 Para resolver problemas comuns, experimente um ou mais dos métodos seguintes:
 
 1.  Reveja os registos de auditoria do Azure DNS para determinar o motivo da falha.
 2.  Cada nome da zona DNS tem de ser exclusivo dentro do respetivo grupo de recursos. Ou seja, duas zonas de DNS com o mesmo nome não podem partilhar um grupo de recursos. Tente utilizar um nome de zona diferente ou um grupo de recursos diferente.
 3.  Pode ver um erro "Atingiu ou excedeu o número máximo de zonas na subscrição {id da subscrição}." Utilize uma subscrição do Azure diferente, elimine algumas zonas ou contacte o suporte do Azure para aumentar o limite de sua subscrição.
-4.  Pode ver um erro "A zona "{nome da zona}" não está disponível." Este erro significa que DNS do Azure não conseguiu alocar servidores de nomes para esta zona de DNS. Tente utilizar um nome de zona diferente. Ou, se for o proprietário do nome de domínio, pode contactar o suporte do Azure para atribuir servidores de nomes para si.
+4.  Pode ver um erro "A zona "{nome da zona}" não está disponível." Este erro significa que DNS do Azure não conseguiu alocar servidores de nomes para esta zona de DNS. Tente utilizar um nome de zona diferente. Ou, se for o proprietário do nome de domínio, pode contactar o suporte do Azure para alocar servidores de nome para si.
 
 
 ### <a name="recommended-articles"></a>Artigos recomendados
@@ -43,8 +43,8 @@ Para resolver problemas comuns, experimente um ou mais dos métodos seguintes:
 1.  Reveja os registos de auditoria do Azure DNS para determinar o motivo da falha.
 2.  O conjunto de registos já existe?  O DNS do Azure gere registos com *conjuntos* de registos, que são a recolha de registos do mesmo nome e do mesmo tipo. Se já existir um registo com o mesmo nome e tipo, para adicionar outro registo deve editar o conjunto de registos existente.
 3.  Está a tentar criar um registo no apex de zona DNS (a “raiz” da zona)? Se for o caso, a convenção DNS consiste em utilizar o caráter “@” como o nome do registo. Note também que as normas DNS não permitem registos CNAME no ápice da zona.
-4.  Tem um conflito com o CNAME?  Os padrões DNS não permitem um registo CNAME com o mesmo nome que um registo de qualquer outro tipo. Se tiver um CNAME existente, a criação de um registo com o mesmo nome de um tipo diferente falha.  Da mesma forma, a criação de um CNAME falha se o nome corresponder a um registo existente de um tipo diferente. Remova o conflito ao remover o outro registo ou ao escolher um nome de registo diferente.
-5.  Atingiu o limite do número de conjuntos de registos permitido numa zona DNS? O número atual de conjuntos de registos e o número máximo de conjuntos de registos são apresentados no portal do Azure, em “Propriedades” para a zona. Se atingiu este limite, ou apague alguns conjuntos de discos ou contacte o Suporte Azure para elevar o limite de recorde para esta zona, tente novamente. 
+4.  Tem um conflito com o CNAME?  As normas DNS não permitem um registo CNAME com o mesmo nome que um registo de qualquer outro tipo. Se tiver um CNAME existente, a criação de um registo com o mesmo nome de um tipo diferente falha.  Da mesma forma, a criação de um CNAME falha se o nome corresponder a um registo existente de um tipo diferente. Remova o conflito ao remover o outro registo ou ao escolher um nome de registo diferente.
+5.  Atingiu o limite do número de conjuntos de registos permitido numa zona DNS? O número atual de conjuntos de registos e o número máximo de conjuntos de registos são apresentados no portal do Azure, em “Propriedades” para a zona. Se atingiu este limite, então ou apaga alguns conjuntos de registos ou contacta o Azure Support para aumentar o seu limite de recorde para esta zona, então tente novamente. 
 
 
 ### <a name="recommended-articles"></a>Artigos recomendados
@@ -91,7 +91,7 @@ Exemplos de nomes de registos SRV (“sip” do nome do serviço, “tcp” do p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Conheça [zonas e registos De DNS Azure](dns-zones-records.md)
-* Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [crie registos DNS](dns-getstarted-create-recordset-portal.md).
-* Para migrar uma zona DNS existente, aprenda a importar e exportar um ficheiro de [zona DNS](dns-import-export.md).
+* Saiba mais sobre [as zonas e registos do Azure DNS](dns-zones-records.md)
+* Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DE DNS](dns-getstarted-create-dnszone-portal.md) e crie [registos DNS](dns-getstarted-create-recordset-portal.md).
+* Para migrar uma zona de DNS existente, aprenda a [importar e exportar um ficheiro de zona DNS](dns-import-export.md).
 

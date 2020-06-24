@@ -1,19 +1,19 @@
 ---
-title: Recue o estado do sistema Windows para o Azure
-description: Aprenda a fazer o backup do estado do sistema dos computadores Windows Server e/ou Windows para o Azure.
+title: Apoiar o estado do sistema Windows para o Azure
+description: Aprenda a fazer o back up do estado do sistema dos computadores Windows Server e/ou Windows para o Azure.
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128173"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712314"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back up Estado do sistema Windows na implementação do Gestor de Recursos
+# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Apoiar o estado do sistema Windows na implementação do Gestor de Recursos
 
-Este artigo explica como fazer o seu estado de sistema Do Windows Server para o Azure. Pretende-se que te acompanhe pelo básico.
+Este artigo explica como fazer o back up do seu sistema Windows Server para OZure. Pretende-se que te faça passar pelo básico.
 
 Se pretender saber mais sobre o Backup do Azure, leia esta [descrição geral](backup-overview.md).
 
@@ -21,7 +21,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
-Para fazer o seu estado de sistema de servidor estivado pelo Windows, precisa de criar um cofre de Serviços de Recuperação na região onde pretende armazenar os dados. Também precisa de determinar como pretende que o seu armazenamento seja replicado.
+Para fazer uma reserva do seu Estado do Sistema do Servidor do Windows, precisa de criar um cofre de Serviços de Recuperação na região onde pretende armazenar os dados. Também precisa de determinar como pretende que o seu armazenamento seja replicado.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre dos Serviços de Recuperação
 
@@ -83,7 +83,7 @@ Ao criar um cofre dos Serviços de Recuperação, certifique-se de que a redund�
 
     Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
-Agora que criou um cofre, configure-o para apoiar o Estado do Sistema Windows.
+Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 
 ## <a name="configure-the-vault"></a>Configurar o cofre
 
@@ -99,7 +99,7 @@ Agora que criou um cofre, configure-o para apoiar o Estado do Sistema Windows.
 
     Seleciona **No local** porque o seu Windows Server ou computador Windows é um computador físico que não está no Azure.
 
-3. A partir do menu What you want **System State**to back **OK** **up?**
+3. A partir do menu O que pretende **System State** **fazer?** **OK**
 
     ![Configurar ficheiros e pastas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
@@ -131,7 +131,7 @@ Agora que criou um cofre, configure-o para apoiar o Estado do Sistema Windows.
 
     ![as credenciais do cofre terminaram de ser transferidas](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
-   > As credenciais do cofre devem ser guardadas apenas para um local local local para o Windows Server no qual pretende utilizar o agente.
+   > As credenciais do cofre devem ser guardadas apenas para um local que seja local para o Servidor do Windows no qual pretende utilizar o agente.
    >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -139,7 +139,7 @@ Agora que criou um cofre, configure-o para apoiar o Estado do Sistema Windows.
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
 > [!NOTE]
-> A permissão da cópia de segurança através do portal do Azure ainda não está disponível. Utilize o Agente de Serviços de Recuperação do Microsoft Azure para fazer o back-up do Windows Server System State.
+> A permissão da cópia de segurança através do portal do Azure ainda não está disponível. Utilize o Agente de Serviços de Recuperação do Microsoft Azure para fazer o sistema do Windows Server State.
 >
 
 1. Localize e faça duplo clique em **MARSagentinstaller.exe** na pasta Transferências (ou noutra localização guardada).
@@ -165,7 +165,7 @@ O agente está agora instalado e a máquina está registada no cofre. Está pron
 
 ## <a name="back-up-windows-server-system-state"></a>Fazer cópia de segurança do Estado do Sistema Windows Server
 
-O backup inicial inclui duas tarefas:
+A cópia de segurança inicial inclui duas tarefas:
 
 * Agendar a cópia de segurança
 * Back up System State pela primeira vez
@@ -173,7 +173,7 @@ O backup inicial inclui duas tarefas:
 Para concluir a cópia de segurança inicial, utilize o agente dos Serviços de Recuperação do Microsoft Azure.
 
 > [!NOTE]
-> Pode fazer o back-up System State no Windows Server 2008 R2 através do Windows Server 2016. O back up system state não é suportado nas SKUs do cliente. O System State não é apresentado como uma opção para clientes Windows, ou máquinas SP2 do Windows Server 2008.
+> Pode fazer o back up System State no Windows Server 2008 R2 através do Windows Server 2016. O back up do Estado do Sistema não é suportado em SKUs clientes. O Estado do Sistema não é apresentado como uma opção para clientes Windows ou máquinas SP2 do Windows Server 2008.
 >
 >
 
@@ -191,7 +191,7 @@ Para concluir a cópia de segurança inicial, utilize o agente dos Serviços de 
 
 4. Na página Selecionar Itens para Cópia de Segurança, clique em **Adicionar Itens**.
 
-5. Selecione **System State** e, em seguida, clique em **OK**.
+5. Selecione **o Estado do Sistema** e, em seguida, clique em **OK**.
 
 6. Clique em **Seguinte**.
 
@@ -201,33 +201,33 @@ Para concluir a cópia de segurança inicial, utilize o agente dos Serviços de 
 
 9. Depois de o assistente ter criado a agenda da cópia de segurança, clique em **Fechar**.
 
-### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Para fazer o back up Windows Server System State pela primeira vez
+### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Para fazer o back up do Sistema do Servidor do Windows pela primeira vez
 
-1. Certifique-se de que não existem atualizações pendentes para o Windows Server que necessitem de um reboot.
+1. Certifique-se de que não existem atualizações pendentes para o Windows Server que exijam um reboot.
 
 2. No agente dos Serviços de Recuperação, clique em **Efetuar Cópia de Segurança Agora** para concluir a propagação inicial através da rede.
 
     ![Back-up do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Selecione **System State** no ecrã **'''Cópia de backup' Select** que aparece e clique em **Next**.
+3. Selecione **o Estado do Sistema** no ecrã de artigo de **reserva** selecionado que aparece e clique em **Seguinte**.
 
 4. Na página de Confirmação, reveja as definições que o Assistente Efetuar Cópia de Segurança Agora irá utilizar para efetuar uma cópia de segurança da máquina. Em seguida, clique em **Efetuar Cópia de Segurança**.
 
 5. Clique em **Fechar** para fechar o assistente. Se fechar este assistente antes de o processo de cópia de segurança estar concluído, o assistente continua a ser executado em segundo plano.
     > [!NOTE]
-    > O agente MARS aciona o SFC /verificar apenas como parte dos pré-controlos antes de cada cópia de segurança do estado do sistema. Isto é para garantir que os ficheiros apoiados como parte do System State possuem as versões corretas correspondentes à versão Windows. Saiba mais sobre o Verificador de Ficheiros do Sistema (SFC) [neste artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > O Agente MARS ativa o SFC /check-inonly como parte dos pré-verificações antes de cada cópia de segurança do estado do sistema. Isto é para garantir que os ficheiros com sistemas com a versão como parte do Sistema têm as versões corretas correspondentes à versão do Windows. Saiba mais sobre o System File Checker (SFC) [neste artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
     >
 
 Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluída** é apresentado na consola de Cópia de Segurança.
 
   ![IV concluídos](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>Tem dúvidas?
+## <a name="questions"></a>Perguntas?
 
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha mais detalhes sobre como [efetuar a cópia de segurança das máquinas Windows](backup-windows-with-mars-agent.md).
-* Agora que reforçou o seu Estado do Sistema de Servidores do Windows, pode [gerir os seus cofres e servidores.](backup-azure-manage-windows-server.md)
+* Agora que fez o back up do seu Estado do Sistema do Servidor do Windows, pode [gerir os seus cofres e servidores](backup-azure-manage-windows-server.md).
 * Se precisar de restaurar uma cópia de segurança, utilize este artigo para [restaurar ficheiros para uma máquina Windows](backup-azure-restore-windows-server.md).

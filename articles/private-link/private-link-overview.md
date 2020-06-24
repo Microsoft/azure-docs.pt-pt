@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/02/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5e46f9dabe2b6f38a08b8e14bae845e0fee22457
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673416"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081020"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -43,6 +43,7 @@ A Azure Private Link proporciona os seguintes benefícios:
 |Serviços suportados  |Regiões disponíveis | Estado  |
 |:-------------------|:-----------------|:--------|
 |Serviços de ligação privada por trás do balanceador de carga padrão Azure | Todas as regiões públicas  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Automatização do Azure  | Todas as regiões públicas | Pré-visualizar | |
 | Storage do Azure        |  Todas as regiões públicas       | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
 | Armazenamento do Azure Data Lake Ger2        |  Todas as regiões públicas      | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
 |  Base de Dados SQL do Azure         | Todas as regiões públicas      |   GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
@@ -98,7 +99,7 @@ Para limites, consulte [os limites da Ligação Privada Azure](../azure-resource
 ## <a name="service-level-agreement"></a>Acordo de Nível de Serviço
 Para sLA, consulte [sLA para Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Criar um ponto final privado utilizando o portal Azure](create-private-endpoint-portal.md)
 - [Quickstart: Criar um serviço de ligação privada utilizando o portal Azure](create-private-link-service-portal.md)

@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 671404b952156ff6ad20eaf082d7af33058923a3
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559886"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100020"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -124,7 +124,7 @@ cd LocalFunctionProj
 cd fabrikam-functions
 ```
 ::: zone-end  
-Esta pasta contém vários ficheiros para o projeto, incluindo ficheiros de configurações [nomeados local.settings.json](functions-run-local.md#local-settings-file) e [host.json](functions-host-json.md). Uma vez *que as definições locais.json* podem conter segredos descarregados do Azure, o ficheiro é excluído do controlo de origem por padrão no ficheiro *.gitignore.*
+Esta pasta contém vários ficheiros para o projeto, incluindo ficheiros de configurações nomeados [local.settings.jse](functions-run-local.md#local-settings-file) [host.jsligados .](functions-host-json.md) Como *local.settings.jspode* conter segredos descarregados do Azure, o ficheiro é excluído do controlo de origem por padrão no ficheiro *.gitignore.*
 
 [!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 
@@ -152,7 +152,7 @@ A mensagem de resposta é gerada pela [HttpResponseMessage.Builder](/java/api/co
 
 #### <a name="pomxml"></a>pom.xml
 
-As definições para os recursos Azure criados para hospedar a sua aplicação são definidas no elemento de **configuração** do plugin com um **groupId** do `com.microsoft.azure` ficheiro pom.xml gerado. Por exemplo, o elemento de configuração abaixo instrui uma implementação baseada em Maven para criar uma aplicação de função no `java-functions-group` grupo de recursos na `westus` região. A própria aplicação de função funciona no Windows hospedado no `java-functions-app-service-plan` plano, que por padrão é um plano de consumo sem servidor.    
+As definições para os recursos Azure criados para hospedar a sua aplicação são definidas no elemento de **configuração** do plugin com um **grupoId** do `com.microsoft.azure` ficheiro pom.xml gerado. Por exemplo, o elemento de configuração abaixo instrui uma implementação baseada em Maven para criar uma aplicação de função no `java-functions-group` grupo de recursos na `westus` região. A própria aplicação de função funciona no Windows hospedado no `java-functions-app-service-plan` plano, que por padrão é um plano de consumo sem servidor.    
 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
@@ -165,47 +165,47 @@ O arquétipo também gera um teste de unidade para a sua função. Quando altera
 ::: zone pivot="programming-language-python"
 #### <a name="__init__py"></a>\_\_init \_ \_ .py
 
-* \_ \_ init \_ \_ .py* contém uma `main()` função Python que é desencadeada de acordo com a configuração em *função.json*.
+* \_ \_ init \_ \_ .py* contém uma `main()` função Python que é desencadeada de acordo com a configuração em *function.jsem*.
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definido na *função.json*. `req`é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *função.json,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. `req`é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 #### <a name="indexjs"></a>index.js
 
-*index.js* exporta uma função que é desencadeada de acordo com a configuração em *função.json*.
+*index.js* exporta uma função que é desencadeada de acordo com a configuração em *function.jsem*.
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definido na *função.json*. O objeto de retorno, definido como `$return` em *função.json,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
 #### <a name="indexts"></a>index.ts
 
-*index.ts* exporta uma função que é desencadeada de acordo com a configuração em *função.json*.
+*index.ts* exporta uma função que é desencadeada de acordo com a configuração em *function.jsem*.
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` do tipo **HttpRequest,** tal como definido em *função.json*. O objeto de retorno, definido como `$return` em *função.json,* é a resposta. 
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` do tipo **HttpRequest,** tal como definido em *function.jsem*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 #### <a name="runps1"></a>run.ps1
 
-*run.ps1* define um script de função que é desencadeado de acordo com a configuração em *função.json*.
+*run.ps1* define um script de função que é desencadeado de acordo com a configuração em *function.jsem*.
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-Para um gatilho HTTP, a função recebe dados de pedido passados para o `$Request` param definido em *função.json*. O objeto de retorno, definido como `Response` em *função.json,* é passado para o `Push-OutputBinding` cmdlet como resposta. 
+Para um gatilho HTTP, a função recebe dados de pedido passados para o `$Request` param definido em *function.jsem*. O objeto de retorno, definido como `Response` em *function.js,* é passado para o `Push-OutputBinding` cmdlet como resposta. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 #### <a name="functionjson"></a>function.json
 
-*function.json* é um ficheiro de configuração que define a entrada e saída `bindings` para a função, incluindo o tipo de gatilho. 
+*function.jsligado* é um ficheiro de configuração que define a entrada e saída `bindings` para a função, incluindo o tipo de gatilho. 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -277,7 +277,7 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Lin
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Se estiver a utilizar o Node.js 8, também `--runtime-version` mude para `8` .
+Se estiver a utilizar Node.js 8, também `--runtime-version` mude para `8` .
 
 
 ```azurecli
@@ -345,7 +345,7 @@ Functions in msdocs-azurefunctions-qs:
 ::: zone pivot="programming-language-java"  
 ## <a name="deploy-the-function-project-to-azure"></a>Implementar o projeto de função para Azure
 
-Uma aplicação de função e recursos relacionados são criados em Azure quando implementa o seu projeto de funções pela primeira vez. As definições para os recursos Azure criados para hospedar a sua aplicação são definidas no [ficheiro pom.xml](#pomxml). Neste artigo, você aceitará os incumprimentos.
+Uma aplicação de função e recursos relacionados são criados em Azure quando implementa o seu projeto de funções pela primeira vez. As definições para os recursos Azure criados para hospedar a sua aplicação são definidas no [ficheiropom.xml.](#pomxml) Neste artigo, você aceitará os incumprimentos.
 
 > [!TIP]
 > Para criar uma aplicação de função em execução no Linux em vez do Windows, altere `runtime.os` o elemento no ficheiro pom.xml de `windows` `linux` . A execução do Linux num plano de consumo é apoiada [nestas regiões.](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions) Não é possível ter aplicações que são executadas no Linux e aplicações que funcionam no Windows no mesmo grupo de recursos.
@@ -393,6 +393,11 @@ Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** anexando o parâme
 
 > [!TIP]
 > Para visualizar registos em tempo real para uma aplicação de função publicada, utilize o [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
+>
+> Executar o seguinte comando para abrir o fluxo de métricas ao vivo em um navegador.
+>   ```
+>   func azure functionapp logstream <APP_NAME> --browser
+>   ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

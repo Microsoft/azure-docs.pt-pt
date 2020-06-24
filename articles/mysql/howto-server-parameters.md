@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: c6e4ff494ee79428f7d9e6a55d184b877c0d58e4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 6/11/2020
+ms.openlocfilehash: ba473942eea35ebcd5991b9b0dee4138d4963e16
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554943"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099147"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurar parâmetros de servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
 
 A Azure Database for MySQL suporta a configuração de alguns parâmetros do servidor. Este artigo descreve como configurar estes parâmetros utilizando o portal Azure. Nem todos os parâmetros do servidor podem ser ajustados.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue para parâmetros do servidor no portal Azure
+## <a name="configure-server-parameters"></a>Configurar parâmetros do servidor
 
 1. Inscreva-se no portal Azure e, em seguida, localize a sua Base de Dados Azure para o servidor MySQL.
 2. Na secção **DEFINIÇÕES,** clique nos **parâmetros do Servidor** para abrir a página de parâmetros do servidor para o servidor Azure Database for MySQL.
@@ -28,6 +28,17 @@ A Azure Database for MySQL suporta a configuração de alguns parâmetros do ser
 ![Guardar ou descartar alterações](./media/howto-server-parameters/4-save_parameters.png)
 5. Se tiver guardado novos valores para os parâmetros, pode sempre reverter tudo de volta para os valores predefinidos selecionando **Reset all to predefinido**.
 ![Redefinir tudo para o padrão](./media/howto-server-parameters/5-reset_parameters.png)
+
+## <a name="setting-parameters-not-listed"></a>Definição de parâmetros não listados
+
+Se o parâmetro do servidor que pretende atualizar não estiver listado no portal Azure, pode configurar opcionalmente o parâmetro ao nível de ligação utilizando `init_connect` . Isto define os parâmetros do servidor para cada cliente que se conecta ao servidor. 
+
+1. Na secção **DEFINIÇÕES,** clique nos **parâmetros do Servidor** para abrir a página de parâmetros do servidor para o servidor Azure Database for MariaDB.
+2. Pesquisar`init_connect`
+3. Adicione os parâmetros do servidor no formato: `SET parameter_name=YOUR_DESIRED_VALUE` em valor a coluna de valor.
+
+    Por exemplo, pode alterar o conjunto de caracteres do seu servidor definindo `init_connect` para`SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+4. Clique em **Guardar** para guardar as alterações.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro do fuso horário
 

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 53a80a25f4694734c931acffe686813456ea92f9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: aa11f7e964f66d0a345e25f307127d75838f872f
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556692"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718721"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar metas de computação para a formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,13 +156,6 @@ Utilize a Máquina Virtual Azure Data Science (DSVM) como O VM Azure de eleiçã
                                                    username='<username>',
                                                    password="<password>")
 
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
-
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
@@ -193,7 +186,7 @@ Azure HDInsight é uma plataforma popular para análise de big data. A plataform
 
 1. **Anexar:** Para anexar um cluster HDInsight como alvo de computação, tem de fornecer o ID, o nome de utilizador e a palavra-passe do cluster HDInsight. O ID de recursos do cluster HDInsight pode ser construído usando o ID de subscrição, nome de grupo de recursos e nome de cluster HDInsight usando o seguinte formato de cadeia:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 

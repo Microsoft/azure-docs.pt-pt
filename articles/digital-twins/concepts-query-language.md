@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 64aa85cf0a749cb335fa68f968536881b591ab45
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e4952bc3df2b5b164038654f5d77f4c352827463
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613146"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726811"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Recorde-se que o centro das Gémeas Digitais Azure é o [**gráfico gémeo,**](concepts-twins-graph.md)construído a partir de **gémeos digitais** e **relacionamentos.** Este gráfico pode ser questionado para obter informações sobre os gémeos digitais e as relações que contém. Estas consultas são escritas numa linguagem de consulta personalizada semelhante ao SQL chamada **Azure Digital Twins Query Store.**
 
@@ -35,6 +38,6 @@ Aqui estão as operações disponíveis no Idioma Azure Digital Twins Query Stor
 * Utilize operadores de comparação de consultas: `AND` / `OR` / `NOT` `IN` / `NOT IN` , `STARTSWITH` / `ENDSWITH` , `=` , , , , , , , , `!=` `<` `>` `<=` `>=` .
 * Continuação da utilização: O objeto de consulta é instantâneo com um tamanho de página (até 100). Pode recuperar os gémeos digitais uma página de cada vez, repetindo chamadas para o `nextAsTwin` método.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como escrever consultas e ver exemplos de código do cliente em [Como-a-fazer: Consultar o gráfico gémeo](how-to-query-graph.md).

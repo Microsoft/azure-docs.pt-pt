@@ -1,5 +1,5 @@
 ---
-title: Autenticar uma aplicação ao cliente
+title: Autenticar uma aplicação cliente
 titleSuffix: Azure Digital Twins
 description: Veja como autenticar uma aplicação do cliente contra o serviço Azure Digital Twins.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8390ed8777c2c15940bef5838890e49396404052
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 89de2e86e425e2c585f9a1243f6666a0ae077c10
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613272"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726094"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autenticar uma aplicação de cliente com Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Depois de [criar uma instância Azure Digital Twins,](how-to-set-up-instance.md)pode criar uma aplicação de cliente que irá utilizar para interagir com o caso. Depois de configurar um projeto de cliente inicial, este artigo mostra-lhe como autenticar adequadamente essa aplicação do cliente com a instância Azure Digital Twins.
 
@@ -44,7 +47,7 @@ Para criar um registo de aplicações, você precisa fornecer os IDs de recursos
 }]
 ``` 
 
-Guarde este ficheiro como *manifesto.json*.
+Guarde este ficheiro à medida *quemanifest.jsligado*.
 
 > [!NOTE] 
 > Existem alguns locais onde uma corda "amigável", legível pelo homem `https://digitaltwins.azure.net` pode ser usada para o ID de recurso Azure Digital Twins em vez do GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Por exemplo, muitos exemplos ao longo desta documentação definem a autenticação com a biblioteca MSAL, e a corda amigável pode ser usada para isso. No entanto, durante este passo de criação do registo da aplicação, é necessário o formulário GUID do ID tal como é mostrado acima. 
@@ -52,7 +55,7 @@ Guarde este ficheiro como *manifesto.json*.
 Na sua janela Cloud Shell, clique no ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
 
 :::image type="content" source="media/how-to-authenticate-client/upload-extension.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
-Navegue para o *manifesto.json* que acabou de criar e bater "Open".
+Navegue até ao *manifest.jsem* que acabou de criar e bater "Open".
 
 Em seguida, executar o seguinte comando para criar um registo de aplicações (substituindo os espaços reservados, se necessário):
 
@@ -250,7 +253,7 @@ Note mais uma vez que quando o código acima coloca o ID do cliente, iD do inqui
 
 A MSAL tem muitas mais opções que pode usar, para implementar coisas como caching e outros fluxos de autenticação. Para obter mais informações sobre este documento, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](../active-directory/develop/msal-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [Conceitos: Segurança para soluções Azure Digital Twins](concepts-security.md)

@@ -3,14 +3,14 @@ title: Implantação do modelo e se (Pré-visualização)
 description: Determine quais as alterações que irão acontecer aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/16/2020
 ms.author: tomfitz
-ms.openlocfilehash: abe834670c5df461b523bd48717f20093bdef0a3
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457291"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888740"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM e se operação (Pré-visualização)
 
@@ -100,6 +100,9 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
 Resource changes: 1 to modify.
 ```
+
+> [!NOTE]
+> O funcionamento do "e se" não pode resolver a [função de referência](template-functions-resource.md#reference). Cada vez que define uma propriedade para uma expressão de modelo que inclui a função de referência, e se reportar que a propriedade mudará. Este comportamento acontece porque o que-se compara o valor atual da propriedade (como `true` ou por um valor `false` booleano) com a expressão do modelo não resolvido. Obviamente, estes valores não vão corresponder. Quando implementar o modelo, a propriedade só mudará quando a expressão do modelo se resolver para um valor diferente.
 
 ## <a name="what-if-commands"></a>E se comandos
 
@@ -413,7 +416,7 @@ Pode utilizar a operação "e se" através dos Azure SDKs.
 
 * Para .NET, utilize [a classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se notar resultados incorretos a partir da pré-visualização do "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para implementar modelos com Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

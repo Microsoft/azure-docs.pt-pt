@@ -1,45 +1,45 @@
 ---
-title: Endereços IP utilizados por Application Insights e Log Analytics [ Microsoft Docs
-description: Exceções à firewall do servidor exigidas por Insights de Aplicação
+title: Endereços IP utilizados por Application Insights e Log Analytics Microsoft Docs
+description: Exceções de firewall do servidor exigidas por Insights de Aplicação
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
-ms.date: 05/01/2020
-ms.openlocfilehash: f6b35551af61c50a3db2d15b47d8f3910024b527
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 06/18/2020
+ms.openlocfilehash: ae3179f388fa6aa2cc8f98899f525a3b3e7251ff
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773728"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079162"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e pela Análise de Registos
-O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utiliza vários endereços IP. Poderá precisar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
+O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utiliza vários endereços IP. Poderá necessitar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
 
 > [!NOTE]
-> Embora estes endereços sejam estáticos, é possível que tenhamos que mudá-los de vez em quando. Todo o tráfego de Insights de Aplicação representa tráfego de saída, com exceção da monitorização da disponibilidade e dos webhooks que requerem regras de firewall de entrada.
+> Embora estes endereços sejam estáticos, é possível que tenhamos que mudá-los de vez em quando. Todo o tráfego de Informações de Aplicação representa tráfego de saída, com exceção da monitorização da disponibilidade e webhooks que requerem regras de firewall de entrada.
 
 > [!TIP]
-> Pode utilizar [etiquetas](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-) de serviço de rede Azure para gerir o acesso se estiver a utilizar grupos de segurança de rede Azure. Se estiver a gerir o acesso a recursos híbridos/nas instalações, pode descarregar as listas de endereços IP equivalentes como [ficheiros JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) que são atualizados todas as semanas: . Para cobrir todas as exceções neste artigo, teria de utilizar as etiquetas de serviço: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
+> Pode utilizar [tags de serviço de rede](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+) Azure para gerir o acesso se estiver a utilizar grupos de segurança da rede Azure. Se estiver a gerir o acesso a recursos híbridos/em instalações, pode descarregar as listas de endereços IP equivalentes como [ficheiros JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) que são atualizados todas as semanas: . Para cobrir todas as exceções neste artigo, você precisaria de usar as tags de serviço: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
 
-Em alternativa, pode subscrever esta página como um feed RSS adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom ao seu leitor rSS/ATOM favorito para ser notificado das últimas alterações.
+Em alternativa, pode subscrever esta página como um feed RSS adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom ao seu leitor RSS/ATOM favorito para ser notificado das últimas alterações.
 
 
 ## <a name="outgoing-ports"></a>Portos de saída
-É necessário abrir algumas portas de saída na firewall do seu servidor para permitir que o SDK de Insights de Aplicação e/ou monitor de estado envie dados para o portal:
+É necessário abrir algumas portas de saída na firewall do seu servidor para permitir que o SDK e/ou o Status Monitor enviem dados para o portal:
 
 | Objetivo | URL | IP | Portas |
 | --- | --- | --- | --- |
-| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23 | 443 |
+| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64  | 443 |
 | Live Metrics Stream (Leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
-| Live Metrics Stream (Centro Sul dos EUA) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
+| Live Metrics Stream (South Central US) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
 | Live Metrics Stream (Norte da Europa) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
 | Live Metrics Stream (Europa Ocidental) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| Live Metrics Stream (Ásia Oriental) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
+| Live Metrics Stream (Leste da Ásia) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
 | Live Metrics Stream (Sudeste Asiático) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>Monitor de Estado
-Configuração do Monitor de Estado - necessária apenas para fazer alterações.
+Configuração do Monitor de Estado - necessária apenas para escamar alterações.
 
 | Objetivo | URL | IP | Portas |
 | --- | --- | --- | --- |
@@ -53,24 +53,24 @@ Configuração do Monitor de Estado - necessária apenas para fazer alterações
 | Instalação | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
-Esta é a lista de endereços a partir dos quais são executados os testes web de [disponibilidade.](../../azure-monitor/app/monitor-web-app-availability.md) Se quiser realizar testes web na sua aplicação, mas o seu servidor web está restrito a servir clientes específicos, então terá de permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
+Esta é a lista de endereços a partir dos quais são [realizados testes web de disponibilidade.](../../azure-monitor/app/monitor-web-app-availability.md) Se quiser realizar testes web na sua aplicação, mas o seu servidor web está restrito a servir clientes específicos, então terá de permitir a entrada de tráfego a partir dos nossos servidores de teste de disponibilidade.
 
 ### <a name="service-tag"></a>Etiqueta de serviço
 
-Se estiver a utilizar os Grupos de Segurança da Rede Azure, basta adicionar uma **regra de porta de entrada** para permitir o tráfego a partir de testes de disponibilidade de Insights de Aplicação, selecionando a Etiqueta de **Serviço** como **Fonte** e **AplicaçãoInsightsDisponibilidade como** etiqueta de **serviço Fonte**.
+Se estiver a utilizar os Grupos de Segurança da Rede Azure, basta adicionar uma **regra de entrada** portuária para permitir o tráfego dos testes de disponibilidade de Insights de Aplicação, selecionando a Tag de **Serviço** como **a Fonte** e **aplicaçãoInsightsAilability** como **a etiqueta de serviço Source**.
 
 >[!div class="mx-imgBorder"]
->![Em definições, selecione as regras de segurança de entrada e, em seguida, selecione adicionar na parte superior do separador](./media/ip-addresses/add-inbound-security-rule.png)
+>![Em definições selecione regras de segurança de entrada e, em seguida, selecione adicionar na parte superior do separador](./media/ip-addresses/add-inbound-security-rule.png)
 
 >[!div class="mx-imgBorder"]
->![Adicione o separador de regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
+>![Adicionar separador de regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
-Abrir portas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por localização):
+Portas abertas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por localização):
 
 ### <a name="addresses-grouped-by-location"></a>Endereços agrupados por localização
 
 > [!NOTE]
-> Estes endereços estão listados utilizando a notação de encaminhamento inter-domínio sem classe (CIDR). Isto significa que uma entrada similar `51.144.56.112/28` é equivalente a 16 IPs a partir `51.144.56.112` e terminando em `51.144.56.127` .
+> Estes endereços estão listados através da notação de encaminhamento inter-domínio sem classe (CIDR). Isto significa que uma entrada como `51.144.56.112/28` esta equivale a 16 IPs a partir `51.144.56.112` e a terminar em `51.144.56.127` .
 
 ```
 Australia East
@@ -187,45 +187,45 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 52.127.49.96/27
 ```  
 
-## <a name="application-insights--log-analytics-apis"></a>Insights de aplicação & APIs de análise de log
+## <a name="application-insights--log-analytics-apis"></a>Insights de Aplicação & ApIs de Analíticos de Log
 
 | Objetivo | URI |  IP | Portas |
 | --- | --- | --- | --- |
 | API |`api.applicationinsights.io`<br/>`api1.applicationinsights.io`<br/>`api2.applicationinsights.io`<br/>`api3.applicationinsights.io`<br/>`api4.applicationinsights.io`<br/>`api5.applicationinsights.io`<br/>`dev.applicationinsights.io`<br/>`dev.applicationinsights.microsoft.com`<br/>`dev.aisvc.visualstudio.com`<br/>`www.applicationinsights.io`<br/>`www.applicationinsights.microsoft.com`<br/>`www.aisvc.visualstudio.com`<br/>`api.loganalytics.io`<br/>`*.api.loganalytics.io`<br/>`dev.loganalytics.io`<br>`docs.loganalytics.io`<br/>`www.loganalytics.io` |20.37.52.188 <br/> 20.37.53.231 <br/> 20.36.47.130 <br/> 20.40.124.0 <br/> 20.43.99.158 <br/> 20.43.98.234 <br/> 13.70.127.61 <br/> 40.81.58.225 <br/> 20.40.160.120 <br/> 23.101.225.155 <br/> 52.139.8.32 <br/> 13.88.230.43 <br/> 52.230.224.237 <br/> 52.242.230.209 <br/> 52.173.249.138 <br/> 52.229.218.221 <br/> 52.229.225.6 <br/> 23.100.94.221 <br/> 52.188.179.229 <br/> 52.226.151.250 <br/> 52.150.36.187 <br/> 40.121.135.131 <br/> 20.44.73.196 <br/> 20.41.49.208 <br/> 40.70.23.205 <br/> 20.40.137.91 <br/> 20.40.140.212 <br/> 40.89.189.61 <br/> 52.155.118.97 <br/> 52.156.40.142 <br/> 23.102.66.132 <br/> 52.231.111.52 <br/> 52.231.108.46 <br/> 52.231.64.72 <br/> 52.162.87.50 <br/> 23.100.228.32 <br/> 40.127.144.141 <br/> 52.155.162.238 <br/> 137.116.226.81 <br/> 52.185.215.171 <br/> 40.119.4.128 <br/> 52.171.56.178 <br/> 20.43.152.45 <br/> 20.44.192.217 <br/> 13.67.77.233 <br/> 51.104.255.249 <br/> 51.104.252.13 <br/> 51.143.165.22 <br/> 13.78.151.158 <br/> 51.105.248.23 <br/> 40.74.36.208 <br/> 40.74.59.40 <br/> 13.93.233.49 <br/> 52.247.202.90 |80,443 |
 | Extensão de anotações do Gasoduto Azure |aigs1.aisvc.visualstudio.com |dynamic|443 | 
 
-## <a name="application-insights-analytics"></a>Insights de Aplicação Analytics
+## <a name="application-insights-analytics"></a>Aplicações Insights Analytics
 
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |
 | Portal de Análise | analytics.applicationinsights.io | dynamic | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
-| Media CDN | applicationanalyticsmedia.azureedge.net | dynamic | 80,443 |
+| Mídia CDN | applicationanalyticsmedia.azureedge.net | dynamic | 80,443 |
 
-Nota: O domínio de *.applicationinsights.io é propriedade da equipa Application Insights.
+Nota: *.applicationinsights.io domínio é propriedade da equipa application insights.
 
-## <a name="log-analytics-portal"></a>Portal de Análise de Log
+## <a name="log-analytics-portal"></a>Portal de Analítica de Registo
 
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |
 | Portal | portal.loganalytics.io | dynamic | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
 
-Nota: *.loganalytics.io domínio é propriedade da equipa Log Analytics.
+Nota: *.loganalytics.io domínio é propriedade da equipa log Analytics.
 
-## <a name="application-insights-azure-portal-extension"></a>Extensão do portal Insights Azure
+## <a name="application-insights-azure-portal-extension"></a>Extensão do portal Application Insights Azure
 
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Extensão de insights de aplicação | stamp2.app.insightsportal.visualstudio.com | dynamic | 80,443 |
+| Extensão de Insights de Aplicação | stamp2.app.insightsportal.visualstudio.com | dynamic | 80,443 |
 | Extensão de insights de aplicação CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamic | 80,443 |
 
-## <a name="application-insights-sdks"></a>SDKs insights de aplicação
+## <a name="application-insights-sdks"></a>Insights de Aplicação SDKs
 
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Insights de aplicação JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
-| Insights de aplicação Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
+| Insights de Aplicação JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
+| Insights de Aplicação Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
 ## <a name="action-group-webhooks"></a>Webhooks do Grupo de Ação
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38ac6400a882d98c68ea39ae359e20ed237cd5f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25c477d0d293e896bc92cd3bd6047135a56cb4ad
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340271"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105974"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -173,7 +173,7 @@ Gere os [pedidos de Lockbox do Cliente](https://docs.microsoft.com/office365/adm
 
 Os utilizadores desta função podem gerir os serviços de Política de & de Personalização do Desktop Analytics e Office. Para desktop Analytics, isto inclui a capacidade de visualizar o inventário de ativos, criar planos de implementação, ver implementação e estado de saúde. Para o serviço de personalização do Office & Policy, esta função permite aos utilizadores gerir as políticas do Office.
 
-### <a name="device-administrator"></a>[Administrador de dispositivos](#device-administrators-permissions)
+### <a name="device-administrators"></a>[Administradores de Dispositivos](#device-administrators-permissions)
 
 Esta função está disponível para atribuição apenas como administrador local adicional nas [definições do Dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os utilizadores com esta função tornam-se administradores de máquinas locais em todos os dispositivos windows 10 que se juntam ao Azure Ative Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Ative Directory.
 
@@ -209,7 +209,7 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft E
 
 ### <a name="external-id-user-flow-administrator"></a>[Administrador de fluxo de id de id externo](#external-id-user-flow-administrator-permissions)
 
-Os utilizadores com esta função podem criar e gerir os Fluxos de Utilizador B2C (também chamados políticas "incorporadas") no portal Azure.Ao criar ou editar fluxos de utilizadores, estes utilizadores podem alterar o conteúdo html/CSS/javascript da experiência do utilizador, alterar os requisitos de MFA por fluxo de utilizador, alterar reclamações no token e ajustar as definições de sessão para todas as políticas da organização AZure AD. Por outro lado, esta função não inclui a capacidade de rever os dados dos utilizadores, nem fazer alterações nos atributos que estão incluídos no esquema da organização.As alterações às políticas do Quadro de Experiência de Identidade (também conhecidas como Personalizadas) também estão fora do âmbito desta função.
+Os utilizadores com esta função podem criar e gerir fluxos de utilizadores (também chamados políticas "incorporadas") no portal Azure. Estes utilizadores podem personalizar o conteúdo HTML/CSS/JavaScript, alterar os requisitos de MFA, selecionar reclamações no token, gerir conectores API e configurar as definições de sessão para todos os fluxos de utilizador na organização Azure AD. Por outro lado, esta função não inclui a capacidade de rever os dados dos utilizadores ou de fazer alterações nos atributos que estão incluídos no esquema da organização. As alterações às políticas do Quadro de Experiência de Identidade (também conhecidas como políticas personalizadas) também estão fora do âmbito desta função.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[Administrador de atributo de fluxo de id de id externo](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -316,7 +316,7 @@ A função de Administrador de Comércio Moderno dá a certos utilizadores permi
 Os utilizadores com a função de Administrador de Comércio Moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de administrador global ou administrador de faturação usadas para aceder ao centro de administração. 
 
 **Quando é atribuída a função de Administrador de Comércio Moderno?**
-* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Administrador de Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para mais informações, consulte [as FAQ de compra self-service.](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide)  
+* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Administrador de Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, veja [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide) (FAQ da compra personalizada).  
 * **Compras no mercado comercial da Microsoft** – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Administrador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração de Billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)   
 * **Propostas da Microsoft** – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, eles são atribuídos tanto um papel específico do comércio para completar a proposta e o papel de Administrador de Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio. 
 * **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for administrador global ou de billing, obtém o papel de Administrador de Comércio Moderno para que possa aceder ao centro de administração.  
@@ -1939,7 +1939,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

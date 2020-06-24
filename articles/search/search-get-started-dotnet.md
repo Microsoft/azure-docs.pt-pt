@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634938"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079389"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Quickstart: Criar um índice de pesquisa em .NET
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "84634938"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Crie uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure utilizando o Visual Studio e o [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). 
+Crie uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure utilizando o Visual Studio e o [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). 
 
 Este artigo explica como criar a aplicação passo a passo. Também pode [descarregar e executar a aplicação completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) se quiser avançar para o código.
 
@@ -64,7 +64,7 @@ Comece por abrir o Visual Studio e criar um novo projeto de App de Consola que p
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-O [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) é composto por algumas bibliotecas de clientes que são distribuídas como pacotes NuGet.
+O [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) é composto por algumas bibliotecas de clientes que são distribuídas como pacotes NuGet.
 
 Para este projeto, utilize a versão 9 do `Microsoft.Azure.Search` pacote NuGet e o mais recente `Microsoft.Extensions.Configuration.Json` pacote NuGet.
 
@@ -85,9 +85,9 @@ Para este projeto, utilize a versão 9 do `Microsoft.Azure.Search` pacote NuGet 
 
 1. Em Add New Item, procure por "JSON" para devolver uma lista de tipos de artigos relacionados com JSON.
 
-1. Escolha **o Ficheiro JSON,** nomeie o ficheiro "appsettings.json", e clique em **Adicionar**. 
+1. Escolha **o Ficheiro JSON,** nomeie o ficheiro "appsettings.jsligado", e clique em **Adicionar**. 
 
-1. Adicione o ficheiro ao seu diretório de saída. Clique à direita em appsettings.json e selecione **Propriedades.** No **Copy to Output Directory**, selecione Copy if **newer**.
+1. Adicione o ficheiro ao seu diretório de saída. Clique appsettings.jsà direita e selecione **Propriedades.** No **Copy to Output Directory**, selecione Copy if **newer**.
 
 1. Copie o seguinte JSON no seu novo ficheiro JSON. 
 
@@ -204,7 +204,7 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
 
     Neste índice, os campos de descrição utilizam a [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) propriedade opcional, especificada quando pretende anular o analisador padrão padrão Lucene. O `description_fr` campo está a usar o analisador francês Lucene[(FrLucene)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)porque armazena texto francês. Está `description` a utilizar o analisador de idiomas opcional da Microsoft[(EnMicrosoft).](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)
 
-1. Em Program.cs, crie uma instância da [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) classe para ligar ao serviço, utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.json). 
+1. Em Program.cs, crie uma instância da [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) classe para ligar ao serviço, utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.jsligado). 
 
    `SearchServiceClient`tem uma [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) propriedade, fornecendo todos os métodos necessários para criar, listar, atualizar ou eliminar índices de Pesquisa Cognitiva Azure. 
 
@@ -559,7 +559,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido C#, trabalhou através de uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Em diferentes fases, tomamos atalhos para simplificar o código de legibilidade e compreensão. Se se sentir confortável com os conceitos básicos, recomendamos o próximo artigo para uma exploração de abordagens e conceitos alternativos que irão aprofundar o seu conhecimento. 
 

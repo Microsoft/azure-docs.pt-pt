@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c2e18919b287713f59ba8785006c952134994be0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: bfea79fe232fbb6f1b39c03a5cc8e9fe06bee867
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258373"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204944"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
 
@@ -90,7 +90,7 @@ Estes parâmetros adicionais são introduzidos para trabalhar com ficheiros CSV 
 ```
 
 - ESCAPE_CHAR = 'char' Especifica o carácter do ficheiro que é usado para escapar a si próprio e todos os valores delimiter no ficheiro. Se o caracter de fuga for seguido por um valor diferente de si mesmo ou de qualquer um dos valores delimiter, o personagem de fuga é deixado cair ao ler o valor.
-O parâmetro ESCAPE_CHAR será aplicado quer o FIELDQUOTE esteja ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando é escapado com citações duplas em alinhamento com o comportamento do Excel CSV.
+O parâmetro ESCAPE_CHAR será aplicado quer o FIELDQUOTE esteja ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando deve ser escapado com outro personagem citando. Citar o carácter só pode aparecer dentro do valor da coluna se o valor for encapsulado com caracteres citantes.
 - FIELDTERMINATOR ='field_terminator' Especifica o exterminador de campo a utilizar. O exterminador de campo padrão é uma vírgula ("**,**")
 - ROWTERMINATOR ='row_terminator' Especifica o exterminador da linha a utilizar. O exterminador de linha predefinido é um personagem newline: **\r\n**.
 

@@ -1,64 +1,64 @@
 ---
 title: Habilidade cognitiva de tradução de texto
 titleSuffix: Azure Cognitive Search
-description: Avalia o texto e, para cada registo, devolve texto traduzido para a linguagem-alvo especificada num pipeline de enriquecimento de IA em Pesquisa Cognitiva Azure.
+description: Avalia o texto e, para cada registo, devolve o texto traduzido para a linguagem-alvo especificada num oleoduto de enriquecimento de IA na Azure Cognitive Search.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5089174fcfd5a97128c1f789b818243243a5282f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b35af58141dc46e0cc36efe009023c1bf52850e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460768"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080059"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
 
-A habilidade de **Tradução de Texto** avalia texto e, para cada registo, devolve o texto traduzido para a linguagem-alvo especificada. Esta habilidade utiliza o [Tradutor Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponível em Serviços Cognitivos.
+A habilidade **de tradução** de texto avalia o texto e, para cada registo, devolve o texto traduzido para a linguagem-alvo especificada. Esta habilidade utiliza o [Texto Tradutor API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponível nos Serviços Cognitivos.
 
-Esta capacidade é útil se esperar que os seus documentos não estejam todos numa só língua, caso em que pode normalizar o texto para uma única língua antes de indexar para pesquisa traduzindo-o.  Também é útil para casos de uso de localização, onde você pode querer ter cópias do mesmo texto disponíveis em várias línguas.
+Esta capacidade é útil se espera que os seus documentos não estejam todos numa língua, caso em que pode normalizar o texto para um único idioma antes de indexar a pesquisa, traduzindo-o.  Também é útil para localização de casos de uso, onde você pode querer ter cópias do mesmo texto disponível em vários idiomas.
 
-O [Tradutor Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) é um Serviço Cognitivo não regional, o que significa que os seus dados não estão garantidos para permanecer na mesma região que o seu recurso Azure Cognitive Search ou serviços cognitivos anexados.
+O [Tradutor Texto API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) é um Serviço Cognitivo não regional, o que significa que os seus dados não estão garantidos para permanecer na mesma região que o seu recurso Azure Cognitive Search ou serviços cognitivos anexados.
 
 > [!NOTE]
-> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito, aumentando a frequência do processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As taxas acumulam-se ao chamar APIs em Serviços Cognitivos, e para a extração de imagem como parte da fase de cracking de documentos em Azure Cognitive Search. Não há encargos para a extração de texto a partir de documentos.
 >
-> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na [página de preços de Pesquisa Cognitiva Azure](https://azure.microsoft.com/pricing/details/search/).
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.TranslationSkill
+Microsoft.Skills.text.translationskill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um disco deve ser de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caracteres medido por . Se precisar de separar os seus dados antes de enviá-los para a habilidade de tradução de texto, considere utilizar a [habilidade text split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para a habilidade de tradução de texto, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas                | Descrição |
+| Entradas                | Description |
 |---------------------|-------------|
-| padrãoCódigo De Linguagem | (Obrigatório) O código linguístico para traduzir documentos para documentos que não especificam explicitamente a linguagem. <br/> Consulte [a lista completa de línguas suportadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| padrãoFromLanguageCode | (Opcional) O código linguístico para traduzir documentos de documentos que não especificam explicitamente o idioma.  Se o código de idioma não for especificado, a deteção automática de idiomas fornecida pela API de Texto tradutor será utilizada para determinar o idioma a partir do idioma. <br/> Consulte [a lista completa de línguas suportadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| sugeridoFrom | (Opcional) O código de idioma para traduzir documentos a partir de quando nem a entrada do LanguageCode nem o parâmetro padrãoFromLanguageCode são fornecidos, e a deteção automática de idiomas não é bem sucedida.  Se a língua sugerida não for especificada, o inglês (en) será utilizado como a língua sugerida. <br/> Consulte [a lista completa de línguas suportadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| códigoToLanguageCode | (Obrigatório) O código linguístico para traduzir documentos em documentos que não especificam explicitamente a linguagem. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) |
+| defaultFromLanguageCode | (Opcional) O código linguístico para traduzir documentos de documentos que não especificam explicitamente o da língua.  Se o Código de Identificação Padrão não for especificado, a deteção automática da linguagem fornecida pela API de Texto do Tradutor será utilizada para determinar a partir da idioma. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) |
+| sugeriuFrom | (Opcional) O código linguístico para traduzir documentos a partir do momento em que nem a entrada doLanguageCode nem o parâmetro padrão DoLanguageCode são fornecidos, e a deteção automática de idiomas não é bem sucedida.  Se a língua sugeridaFrom não for especificada, o inglês (en) será usado como a língua sugerida. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) |
 
-## <a name="skill-inputs"></a>Inputs de habilidade
+## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada     | Descrição |
+| Nome de entrada     | Description |
 |--------------------|-------------|
 | texto | O texto a ser traduzido.|
-| paraLanguageCode    | Uma cadeia indicando a língua para a a que o texto deve ser traduzido. Se esta entrada não for especificada, o código de idioma padrão será utilizado para traduzir o texto. <br/>Ver [lista completa de línguas suportadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
-| fromLanguageCode  | Uma corda indicando a linguagem atual do texto. Se este parâmetro não for especificado, o Código de Idiomas (ou deteção automática de idiomas se o Código de Idioma não for fornecido) será utilizado para traduzir o texto. <br/>Ver [lista completa de línguas suportadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
+| toLanguageCode    | Uma cadeia que indique a língua para a que o texto deve ser traduzido. Se esta entrada não for especificada, o Código de Liga Padrão será utilizado para traduzir o texto. <br/>Ver [lista completa de línguas apoiadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
+| deLanguageCode  | Uma corda que indica a linguagem atual do texto. Se este parâmetro não for especificado, o Código de Idioma padrão (ou deteção automática da linguagem se o Código de Língua Padrão não for fornecido) será utilizado para traduzir o texto. <br/>Ver [lista completa de línguas apoiadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
 
-## <a name="skill-outputs"></a>Saídas de habilidades
+## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída    | Descrição |
+| Nome de saída    | Description |
 |--------------------|-------------|
-| texto traduzido | O resultado da tradução de texto do código de idioma traduzido para o código de linguagem traduzido para o código de linguagem traduzido.|
-| traduzidoPara LanguageCode  | Uma cadeia indicando o código linguístico para o que o texto foi traduzido. Útil se estiver a traduzir para várias línguas e quiser ser capaz de acompanhar qual o texto que é a língua.|
-| traduzidoFromLanguageCode    | Uma cadeia indicando o código linguístico do texto foi traduzido. Útil se optou pela opção automática de deteção de idiomas, uma vez que esta saída lhe dará o resultado dessa deteção.|
+| traduzidoText | O resultado da sequência da tradução de texto do Código de Liga traduzido para o Código de Honra traduzido.|
+| traduzidoToLanguageCode  | Uma cadeia indicando o código de linguagem para o que o texto foi traduzido. Útil se estiver a traduzir para várias línguas e quiser ser capaz de acompanhar qual o texto que é a língua.|
+| traduzidoFromLanguageCode    | Uma cadeia indicando o código de linguagem de que o texto foi traduzido. Útil se optar pela opção automática de deteção de idiomas, uma vez que esta saída lhe dará o resultado dessa deteção.|
 
 ##  <a name="sample-definition"></a>Definição de amostra
 
@@ -91,7 +91,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
   }
 ```
 
-##  <a name="sample-input"></a>Entrada da amostra
+##  <a name="sample-input"></a>Entrada de amostra
 
 ```json
 {
@@ -143,12 +143,12 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ```
 
 
-## <a name="errors-and-warnings"></a>Erros e advertências
-Se fornecer um código de idioma não suportado para o de ou para o idioma, um erro é gerado e o texto não é traduzido.
-Se o seu texto estiver vazio, será emitido um aviso.
+## <a name="errors-and-warnings"></a>Erros e avisos
+Se fornecer um código linguístico não suportado para o idioma ou para a língua, um erro é gerado e o texto não é traduzido.
+Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão traduzidos e um aviso será emitido.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)

@@ -1,5 +1,5 @@
 ---
-title: Gémeos digitais e o gráfico gémeo
+title: Digital Twins e o grafo duplo
 titleSuffix: Azure Digital Twins
 description: Entenda o conceito de gémeo digital, e como as suas relações fazem um gráfico.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05c0c66e7b6d301a749b301178c1f666a48d434b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 4e2b223337bbe5d46f314a8d2126ab562b937445
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613006"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726086"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Numa solução Azure Digital Twins, as entidades do seu ambiente são representadas por **gémeos digitais**Azure. Um gémeo digital é um exemplo de um dos seus [modelos personalizados.](concepts-models.md) Pode ser conectado a outros gémeos digitais através de **relações** para formar um **gráfico gémeo**: este gráfico gémeo é a representação de todo o seu ambiente.
 
@@ -95,7 +98,7 @@ Os dados digitais de gémeos e de relacionamento são armazenados no formato JSO
 
 Quando representado como um objeto JSON, um gémeo digital apresentará os seguintes campos:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
 | `$conformance` | Um enum que contém o estado de conformidade deste gémeo digital *(conformante,* *não-conformante,* *desconhecido)* |
@@ -161,7 +164,7 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 
 Quando representado como um objeto JSON, uma relação de um gémeo digital mostrará os seguintes campos:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$edgeId` | Uma cadeia fornecida pelo utilizador que representa o ID desta borda de relacionamento. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `edgeId` é única no contexto da instância Azure Digital Twins. |
 | `$sourceId` | O ID da fonte digital twin |
@@ -181,7 +184,7 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir elementos gráficos com APIs Azure Digital Twin:
 * [Como fazer: Gerir um gémeo digital](how-to-manage-twin.md)

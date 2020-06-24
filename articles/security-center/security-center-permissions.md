@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/12/2020
 ms.author: memildin
-ms.openlocfilehash: 16c2669dbb0a483a00d093871dfeeed65c5f9f20
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: e0988c60629cab2c6d7312e5067c31153b24e2dc
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669788"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688726"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -44,7 +44,7 @@ A tabela que se segue exibe funções e permitiu ações no Centro de Segurança
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Editar a política de segurança|-|✔|-|-|✔|
 |Alterar o nível de preços de subscrição|-|✔|-|-|✔|
-|Ativar /desativar o fornecimento automático|-|✔|-|-|✔|
+|Ativar /desativar o fornecimento automático|-|✔|✔|-|✔|
 |Aplicar recomendações de segurança para um recurso</br> (e use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Alertas de dispensa|-|✔|-|✔|✔|
 |Ver alertas e recomendações|✔|✔|✔|✔|✔|
@@ -54,7 +54,7 @@ A tabela que se segue exibe funções e permitiu ações no Centro de Segurança
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo explicou como o Security Center usa o RBAC para atribuir permissões aos utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de papel necessárias para monitorizar o estado de segurança da sua subscrição, editar políticas de segurança e aplicar recomendações, aprender a:
 
 - [Definir políticas de segurança no Centro de Segurança](tutorial-security-policy.md)

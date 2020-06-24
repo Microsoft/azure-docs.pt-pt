@@ -1,65 +1,65 @@
 ---
-title: Sincronizar a Apache Spark para definições externas de tabela synapse Azure em SQL a pedido (pré-visualização)
-description: Visão geral de como consultar tabelas Spark usando SQL on-demand (pré-visualização)
+title: Sincronizar a Faísca Apache para as definições de tabela externa Azure Synapse em SQL on-demand (pré-visualização)
+description: Visão geral de como consultar tabelas spark usando SQL on demand (pré-visualização)
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 47737489256d349ebc02c107cf8bbb2e8ec1cb7a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e36f98a20d1fc6392aef1aebf5fc86e18085cc10
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701960"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204903"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizar a Apache Spark para definições externas de tabela synapse Azure em SQL a pedido (pré-visualização)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizar a Faísca Apache para as definições de tabela externa Azure Synapse em SQL on-demand (pré-visualização)
 
-O SQL on-demand (pré-visualização) pode sincronizar automaticamente os metadados da Apache Spark para piscinas Azure Synapse. Será criada uma base de dados on-demand SQL para cada base de dados existente em piscinas Spark (pré-visualização). 
+O SQL on demand (pré-visualização) pode sincronizar automaticamente metadados da Apache Spark para piscinas Azure Synapse. Será criada uma base de dados SQL a pedido para cada base de dados existente em piscinas Spark (pré-visualização). 
 
-Para cada tabela externa Spark baseada em Parquet e localizada no Armazenamento Azure, é criada uma tabela externa na base de dados on-demand da SQL. Como tal, pode desligar as suas piscinas Spark e ainda consultar mesas externas Spark a pedido da SQL.
+Para cada tabela externa Spark baseada no Parquet e localizada no Azure Storage, é criada uma tabela externa na base de dados sql on-demand. Como tal, pode fechar as suas piscinas Spark e ainda consultar mesas externas Spark a partir de SQL a pedido.
 
-Quando uma mesa é dividida em Spark, os ficheiros em armazenamento são organizados por pastas. A SQL on-demand utilizará metadados de partição e apenas direciona as pastas e ficheiros relevantes para a sua consulta.
+Quando uma mesa é dividida em Spark, os ficheiros no armazenamento são organizados por pastas. O SQL on-demand utilizará metadados de partição e apenas direcionará as pastas e ficheiros relevantes para a sua consulta.
 
-A sincronização dos metadados é configurada automaticamente para cada piscina Spark aprovisionada no espaço de trabalho Azure Synapse. Pode começar a consultar as tabelas externas spark instantaneamente.
+A sincronização de metadados é configurada automaticamente para cada pool spark alojado no espaço de trabalho Azure Synapse. Pode começar a consultar as tabelas externas da Spark instantaneamente.
 
-Cada tabela externa Spark parquet localizada no Armazenamento Azure está representada com uma tabela externa num esquema dbo que corresponde a uma base de dados on-demand SQL. 
+Cada mesa externa de parquet spark localizada no Azure Storage é representada com uma tabela externa num esquema dbo que corresponde a uma base de dados a pedido do SQL. 
 
-Para consultas de mesa externas spark, execute uma consulta que visa um [spark_table] externo. Antes de executar o exemplo abaixo, certifique-se de que tem acesso correto [à conta](develop-storage-files-storage-access-control.md) de armazenamento onde os ficheiros estão localizados.
+Para consultas de tabela externa Spark, executar uma consulta que visa um [spark_table externo]. Antes de executar o exemplo abaixo, certifique-se de que tem acesso correto [à conta de armazenamento](develop-storage-files-storage-access-control.md) onde os ficheiros estão localizados.
 
 ```sql
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## <a name="spark-data-types-to-sql-data-types-mapping"></a>Tipos de dados de faíscas para mapeamento de tipos de dados SQL
+## <a name="spark-data-types-to-sql-data-types-mapping"></a>Tipos de dados de faísca para mapeamento de tipos de dados SQL
 
 | Tipo de dados de faísca | Tipo de dados SQL               |
 | --------------- | --------------------------- |
 | ByteType        | smallint                    |
-| Tipo Curto       | smallint                    |
-| ItegerType     | int                         |
+| CurtoTip       | smallint                    |
+| InteiroType     | int                         |
 | LongType        | bigint                      |
-| Tipo flutuante       | real                        |
-| Tipo duplo      | float                       |
+| Boia DeTiputype       | real                        |
+| DuploTipo      | float                       |
 | DecimalType     | decimal                     |
-| Carimbo de tempoTipo   | datetime2                   |
-| Tipo de data        | data                        |
-| Tipo de corda      | varchar (max)*               |
-| BinaryType      | varbinary                   |
+| TimetampType   | datetime2                   |
+| DataType        | date                        |
+| Tipo de Corda      | varchar (máx)*               |
+| BinárioTip      | varbinário                   |
 | BooleanType     | bit                         |
-| Tipo de matriz       | varchar (max)* (em JSON)** |
-| MapType         | varchar (max)* (em JSON)** |
-| StructType      | varchar (max)* (em JSON)** |
+| ArrayType       | varchar(máx)* (em JSON)** |
+| MapType         | varchar(máx)* (em JSON)** |
+| StructType      | varchar(máx)* (em JSON)** |
 
 \*A colagem usada é Latin1_General_100_BIN2_UTF8.
 
-** ArrayType, MapType e StructType estão representados como JSONs.
+** ArrayType, MapType e StructType são representados como JSONs.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Avançar para o artigo controlo de acesso ao [armazenamento](develop-storage-files-storage-access-control.md) para saber mais sobre o controlo de acesso ao armazenamento.
+Avance para o artigo [do Controlo de Acesso](develop-storage-files-storage-access-control.md) ao Armazenamento para saber mais sobre o controlo de acesso ao armazenamento.

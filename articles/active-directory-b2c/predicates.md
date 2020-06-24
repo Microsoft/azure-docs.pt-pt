@@ -1,5 +1,5 @@
 ---
-title: Predicados e PredicadosValidações
+title: Predicados e PredicateValidations
 titleSuffix: Azure AD B2C
 description: Evite que os dados mal formados sejam adicionados ao seu inquilino Azure AD B2C utilizando políticas personalizadas no Azure Ative Directory B2C.
 services: active-directory-b2c
@@ -11,59 +11,59 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396897"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203814"
 ---
-# <a name="predicates-and-predicatevalidations"></a>Predicados e PredicadosValidações
+# <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Os **elementos Predicados** e **Predicados Validações** permitem-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos no seu inquilino Azure Ative Directory B2C (Azure AD B2C).
+Os elementos **Predicates** e **PredicateValidations** permitem-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos no seu inquilino Azure Ative Directory B2C (Azure AD B2C).
 
-O diagrama seguinte mostra a relação entre os elementos:
+O diagrama a seguir mostra a relação entre os elementos:
 
-![Diagrama mostrando predicados e predicados relacionamento de validações](./media/predicates/predicates.png)
+![Diagrama mostrando predicados e relacionamento de validações predicate](./media/predicates/predicates.png)
 
 ## <a name="predicates"></a>Predicados
 
-O elemento **Predicado** define uma validação básica para verificar `true` `false`o valor de um tipo de reclamação e devoluções ou . A validação é feita utilizando um elemento **método** especificado e um conjunto de elementos **parâmetros** relevantes para o método. Por exemplo, um predicado pode verificar se o comprimento de um valor de reclamação de cadeia está dentro do intervalo dos parâmetros mínimos e máximos especificados, ou se um valor de reclamação de cadeia contém um conjunto de caracteres. O elemento **UserHelpText** fornece uma mensagem de erro para os utilizadores se a verificação falhar. O valor do elemento **UserHelpText** pode ser localizado através da [personalização do idioma.](localization.md)
+O elemento **Predicado** define uma validação básica para verificar o valor de um tipo de reclamação e devoluções `true` ou `false` . A validação é feita utilizando um elemento **método** especificado e um conjunto de elementos **parâmetros** relevantes para o método. Por exemplo, um predicado pode verificar se o comprimento de um valor de reclamação de cadeia está dentro do intervalo de parâmetros mínimos e máximos especificados, ou se um valor de reclamação de cadeia contém um conjunto de caracteres. O elemento **UserHelpText** fornece uma mensagem de erro para os utilizadores se a verificação falhar. O valor do elemento **UserHelpText** pode ser localizado através da [personalização da linguagem.](localization.md)
 
-O elemento **Predicado** deve aparecer diretamente seguindo o elemento **ClaimsSchema** dentro do elemento [BuildingBlocks.](buildingblocks.md)
+O elemento **Predicates** deve aparecer diretamente seguindo o elemento **ClaimsSchema** dentro do elemento [Blocos de Construção.](buildingblocks.md)
 
-O elemento **Predicado** contém o seguinte elemento:
+O elemento **Predicates** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Predicado | 1:n | Uma lista de predicados. |
 
 O elemento **Predicado** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o predicado. Outros elementos podem utilizar este identificador na política. |
-| Método | Sim | O tipo de método a utilizar para validação. Valores possíveis: [IsLengthRange,](#islengthrange) [MatchesRegex,](#matchesregex) [IncluiCharacters](#includescharacters), ou [IsDateRange](#isdaterange).  |
-| Texto de Ajuda | Não | Uma mensagem de erro para os utilizadores se o cheque falhar. Esta cadeia pode ser localizada usando a [personalização](localization.md) da linguagem |
+| Id | Yes | Um identificador que é usado para o predicado. Outros elementos podem usar este identificador na apólice. |
+| Método | Yes | O tipo de método a utilizar para validação. Valores possíveis: [IsLengthRange](#islengthrange), [MatchRegex,](#matchesregex) [IncludesCharacters,](#includescharacters)ou [IsDateRange](#isdaterange).  |
+| HelpText | No | Uma mensagem de erro para os utilizadores se a verificação falhar. Esta cadeia pode ser localizada usando a personalização do [idioma](localization.md) |
 
 O elemento **Predicado** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 | (Depreciado) Uma mensagem de erro para os utilizadores se o cheque falhar. |
+| UserHelpText | 0:1 | (Precatado) Uma mensagem de erro para os utilizadores se a verificação falhar. |
 | Parâmetros | 1:1 | Os parâmetros para o tipo de método da validação da corda. |
 
 O elemento **Parâmetros** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Parâmetro | 1:n | Os parâmetros para o tipo de método da validação da corda. |
 
-O elemento **Parâmetro** contém os seguintes atributos:
+O elemento **parâmetro** contém os seguintes atributos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | O identificador do parâmetro. |
 
@@ -71,17 +71,17 @@ O elemento **Parâmetro** contém os seguintes atributos:
 
 #### <a name="islengthrange"></a>IsLengthRange
 
-O método IsLengthRange verifica se o comprimento de um valor de reclamação de cadeia está dentro do intervalo dos parâmetros mínimos e máximos especificados. O elemento predicado suporta os seguintes parâmetros:
+O método IsLengthRange verifica se o comprimento de um valor de pedido de cadeia está dentro do intervalo de parâmetros mínimos e máximos especificados. O elemento predicado suporta os seguintes parâmetros:
 
-| Parâmetro | Necessário | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Máximo | Sim | O número máximo de caracteres que podem ser introduzidos. |
-| Mínimo | Sim | O número mínimo de caracteres que devem ser inscritos. |
+| Máximo | Yes | O número máximo de caracteres que podem ser introduzidos. |
+| Mínimo | Yes | O número mínimo de caracteres que devem ser introduzidos. |
 
 
-O exemplo seguinte mostra um método IsLengthRange com os parâmetros `Minimum` e `Maximum` que especifica a faixa de comprimento da cadeia:
+O exemplo a seguir mostra um método IsLengthRange com os parâmetros `Minimum` e `Maximum` que especificam a gama de comprimentos da cadeia:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -92,15 +92,15 @@ O exemplo seguinte mostra um método IsLengthRange com os parâmetros `Minimum` 
 
 #### <a name="matchesregex"></a>MatchRegex
 
-O método MatchRegex verifica se um valor de reclamação de cordas corresponde a uma expressão regular. O elemento predicado suporta os seguintes parâmetros:
+O método MatchRegex verifica se um valor de reclamação de corda corresponde a uma expressão regular. O elemento predicado suporta os seguintes parâmetros:
 
-| Parâmetro | Necessário | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Expressão regular | Sim | O padrão de expressão regular para combinar. |
+| Expressão Regular | Yes | O padrão de expressão regular para combinar. |
 
-O exemplo que `MatchesRegex` se segue `RegularExpression` mostra um método com o parâmetro que especifica uma expressão regular:
+O exemplo a seguir mostra um `MatchesRegex` método com o parâmetro que especifica uma expressão `RegularExpression` regular:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -108,17 +108,17 @@ O exemplo que `MatchesRegex` se segue `RegularExpression` mostra um método com 
 </Predicate>
 ```
 
-#### <a name="includescharacters"></a>Inclui personagens
+#### <a name="includescharacters"></a>IncluiCharacters
 
-O método IncludesCharacters verifica se um valor de reclamação de cordas contém um conjunto de caracteres. O elemento predicado suporta os seguintes parâmetros:
+O método IncludesCharacters verifica se um valor de reclamação de cadeia contém um conjunto de caracteres. O elemento predicado suporta os seguintes parâmetros:
 
-| Parâmetro | Necessário | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Conjunto de caracteres | Sim | O conjunto de caracteres que podem ser inseridos. Por exemplo, caracteres `a-z`minúsculos, `A-Z`caracteres `0-9`maiúsculos, dígitos, `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`ou uma lista de símbolos, tais como . |
+| Conjunto de Caracteres | Yes | O conjunto de caracteres que podem ser introduzidos. Por exemplo, caracteres `a-z` minúsculos, caracteres `A-Z` maiúsculas, `0-9` dígitos, ou uma lista de símbolos, tais como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
-O exemplo seguinte `IncludesCharacters` mostra um `CharacterSet` método com o parâmetro que especifica o conjunto de caracteres:
+O exemplo a seguir mostra um `IncludesCharacters` método com o parâmetro que especifica o conjunto de `CharacterSet` caracteres:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -128,16 +128,16 @@ O exemplo seguinte `IncludesCharacters` mostra um `CharacterSet` método com o p
 
 #### <a name="isdaterange"></a>IsDateRange
 
-O método IsDateRange verifica se o valor da reclamação de data é entre um intervalo de parâmetros mínimos e máximos especificados. O elemento predicado suporta os seguintes parâmetros:
+O método IsDateRange verifica se um valor de reclamação de data está entre um intervalo de parâmetros mínimos e máximos especificados. O elemento predicado suporta os seguintes parâmetros:
 
-| Parâmetro | Necessário | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Máximo | Sim | A maior data possível que pode ser inserida. O formato da `yyyy-mm-dd` data `Today`segue a convenção, ou . |
-| Mínimo | Sim | A menor data possível que pode ser inserida. O formato da `yyyy-mm-dd` data `Today`segue a convenção, ou .|
+| Máximo | Yes | A maior data possível que pode ser inscrita. O formato da data segue a `yyyy-mm-dd` convenção, ou `Today` . |
+| Mínimo | Yes | A menor data possível que pode ser inscrita. O formato da data segue a `yyyy-mm-dd` convenção, ou `Today` .|
 
-O exemplo seguinte `IsDateRange` mostra um `Minimum` método `Maximum` com os parâmetros e `yyyy-mm-dd` `Today`que especifica a gama de datas com um formato de e .
+O exemplo a seguir mostra um `IsDateRange` método com os parâmetros e que `Minimum` `Maximum` especificam a gama de datas com um formato de `yyyy-mm-dd` e `Today` .
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -146,13 +146,13 @@ O exemplo seguinte `IsDateRange` mostra um `Minimum` método `Maximum` com os pa
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicadasValidações
+## <a name="predicatevalidations"></a>PredicateValidations
 
-Enquanto os predicados definem a validação para verificar contra um tipo de reclamação, o grupo **PredicadoValidações** um conjunto de predicados para formar uma validação de entrada do utilizador que pode ser aplicada a um tipo de reclamação. Cada elemento **PredicadoValidação** contém um conjunto de elementos **PredicadosGroup** que contêm um conjunto de elementos **PredicadosReferência** que aponta para um **Predicado**. Para passar a validação, o valor da reclamação deve passar todos os testes de qualquer predicado sob todo o **PredicadoGroup** com o seu conjunto de elementos **PredicadosReference.**
+Enquanto os predicados definem a validação para verificar contra um tipo de reclamação, o **grupo PredicateValidations** agrupa um conjunto de predicados para formar uma validação de entrada de utilizador que pode ser aplicada a um tipo de reclamação. Cada elemento **PredicateValidation** contém um conjunto de elementos **do Grupo Predicate** que contêm um conjunto de elementos **PredicateReference** que apontam para um **Predicate**. Para passar a validação, o valor da reclamação deve passar todos os testes de qualquer predicado em todo o **Grupo Predicate** com o seu conjunto de elementos **PredicateReference.**
 
-O elemento **PredicadoValidações** deve aparecer diretamente seguindo o elemento **Predicado** dentro do elemento [BuildingBlocks.](buildingblocks.md)
+O elemento **PredicateValidations** deve aparecer diretamente seguindo o elemento **Predicates** dentro do elemento [Blocos de Construção.](buildingblocks.md)
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -170,76 +170,76 @@ O elemento **PredicadoValidações** deve aparecer diretamente seguindo o elemen
 </PredicateValidations>
 ```
 
-O elemento **PredicadoValidações** contém o seguinte elemento:
+O elemento **PredicateValidations** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| PredicadoValidação | 1:n | Uma lista de validação predicada. |
+| Pré-validade | 1:n | Uma lista de validação predicado. |
 
-O elemento **PredicadoValidação** contém o seguinte atributo:
+O elemento **PredicateValidation** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para a validação predicada. O elemento **ClaimType** pode utilizar este identificador na política. |
+| Id | Yes | Um identificador que é usado para validação predicado. O elemento **ClaimType** pode utilizar este identificador na apólice. |
 
-O elemento **PredicadoValidação** contém o seguinte elemento:
+O elemento **PredicateValidation** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Grupos Predicados | 1:n | Uma lista de grupos predicados. |
 
-O elemento **PredicadosGrupos** contém o seguinte elemento:
+O elemento **PredicateGroups** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| Grupo Predicado | 1:n | Uma lista de predicados. |
+| Grupo Predicate | 1:n | Uma lista de predicados. |
 
 O elemento **PredicateGroup** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o grupo predicado.  |
+| Id | Yes | Um identificador que é usado para o grupo predicado.  |
 
-O elemento **PredicadoGroup** contém os seguintes elementos:
+O elemento **PredicateGroup** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 |  Uma descrição do predicado que pode ser útil para os utilizadores saberem qual o valor que devem escrever. |
-| Referências Predicadas | 1:n | Uma lista de referências predicadas. |
+| UserHelpText | 0:1 |  Uma descrição do predicado que pode ser útil para os utilizadores saberem que valor devem escrever. |
+| PredicateReferências | 1:n | Uma lista de referências predicados. |
 
-O elemento **PredicadoReferências** contém os seguintes atributos:
+O elemento **PredicateReferences** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Matchatleast | Não | Especifica que o valor deve corresponder, pelo menos, a muitas definições predicadas para a entrada a aceitar. Se não especificado, o valor deve corresponder a todas as definições predicadas. |
+| MatchAtLeast | No | Especifica que o valor deve corresponder pelo menos às muitas definições predicados para a entrada ser aceite. Se não for especificado, o valor deve corresponder a todas as definições predicados. |
 
-O elemento **PredicadoReferências** contém os seguintes elementos:
+O elemento **PredicateReferences** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| Referência predicada | 1:n | Uma referência a um predicado. |
+| Pré-referência | 1:n | Uma referência a um predicado. |
 
-O elemento **PredicadoReference** contém os seguintes atributos:
+O elemento **PredicateReference** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para a validação predicada.  |
+| Id | Yes | Um identificador que é usado para validação predicado.  |
 
 
-## <a name="configure-password-complexity"></a>Configurar a complexidade da palavra-passe
+## <a name="configure-password-complexity"></a>Configure a complexidade da palavra-passe
 
-Com **Predicados** e **PredicadosValidaçõesInputputpode** controlar os requisitos de complexidade das palavras-passe fornecidas por um utilizador ao criar uma conta. Por predefinição, o Azure AD B2C utiliza senhas fortes. O Azure AD B2C também suporta opções de configuração para controlar a complexidade das palavras-passe que os clientes podem usar. Pode definir a complexidade da palavra-passe utilizando estes elementos predicados:
+Com **Predicates** e **PredicateValidationsInte** pode controlar os requisitos de complexidade das palavras-passe fornecidas por um utilizador ao criar uma conta. Por padrão, o Azure AD B2C utiliza senhas fortes. O Azure AD B2C também suporta opções de configuração para controlar a complexidade das palavras-passe que os clientes podem usar. Pode definir a complexidade da palavra-passe utilizando estes elementos predicados:
 
-- **IsLengthBetween8And64** utilizando `IsLengthRange` o método, valida que a palavra-passe deve estar entre 8 e 64 caracteres.
-- **Minúscula** utilizando `IncludesCharacters` o método, valida que a palavra-passe contém uma letra minúscula.
-- **Maiúscula** utilizando o `IncludesCharacters` método, valida que a palavra-passe contém uma letra maiúscula.
-- **Número** utilizando `IncludesCharacters` o método, valida que a palavra-passe contém um dígito.
-- **Símbolo** utilizando `IncludesCharacters` o método, valida que a palavra-passe contém um dos vários caracteres de símbolo.
-- **PIN** utilizando `MatchesRegex` o método, valida que a palavra-passe contém apenas números.
-- **AllowedAADCharacters** usando `MatchesRegex` o método, valida que a palavra-passe apenas caracteres inválidos foi fornecido.
-- **O Espaço White** não `MatchesRegex` autorizado utilizando o método, valida que a palavra-passe não começa ou termina com um personagem de whitespace.
+- **IsLengthBetween8And64** usando o `IsLengthRange` método, valida que a palavra-passe deve estar entre 8 e 64 caracteres.
+- **Minúscula** utilizando o `IncludesCharacters` método, valida que a palavra-passe contém uma letra minúscula.
+- **A maiúscula** utilizando o `IncludesCharacters` método, valida que a palavra-passe contém uma letra maiúscula.
+- **Número** utilizando o `IncludesCharacters` método, valida que a palavra-passe contém um dígito.
+- **O símbolo** utilizando o `IncludesCharacters` método, valida que a palavra-passe contém um dos vários caracteres de símbolos.
+- **PIN** utilizando o `MatchesRegex` método, valida que a palavra-passe contém apenas números.
+- **Permitido AADCharacters** usando o `MatchesRegex` método, valida que a palavra-passe apenas foi fornecida de caráter inválido.
+- **O Whitespace não permitido** usando o `MatchesRegex` método, valida que a palavra-passe não começa ou termina com um personagem de espaço branco.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -293,11 +293,11 @@ Com **Predicados** e **PredicadosValidaçõesInputputpode** controlar os requisi
 
 Depois de definir as validações básicas, pode combiná-las e criar um conjunto de políticas de senha que pode utilizar na sua política:
 
-- **SimplePassword** valida o Espaço Branco Não Permitido, AllowedAADCharacters e IsLengthBetween8And64
-- **StrongPassword** valida o Espaço Branco Autorizado, AllowedAADCharacters, IsLengthBetween8And64. O último `CharacterClasses` grupo executa um conjunto `MatchAtLeast` adicional de predicados com conjunto de 3. A palavra-passe do utilizador deve estar entre 8 e 16 caracteres, e três dos seguintes caracteres: Minúscula, Maiúscula, Número ou Símbolo.
-- **CustomPassword** valida apenas Espaços Brancos Não Autorizados, AllowedAADCharacters. Assim, o utilizador pode fornecer qualquer palavra-passe com qualquer comprimento, desde que os caracteres sejam válidos.
+- **SimplePassword** valida o EspaçoWhite, AllowedAADCharacters e IsLengthBetween8And64
+- **O StrongPassword** valida o EspaçoWhite, AllowedAADCharacters, IsLengthBetween8And64. O último grupo `CharacterClasses` executa um conjunto adicional de predicados com definido para `MatchAtLeast` 3. A palavra-passe do utilizador deve ter entre 8 e 16 caracteres e três dos seguintes caracteres: Minúscula, Maiúscula, Número ou Símbolo.
+- **O CustomPassword** valida apenas o EspaçoWhite, PermitidoS AADCharacters. Assim, o utilizador pode fornecer qualquer palavra-passe com qualquer comprimento, desde que os caracteres sejam válidos.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -365,9 +365,9 @@ Depois de definir as validações básicas, pode combiná-las e criar um conjunt
 </PredicateValidations>
 ```
 
-No seu tipo de reclamação, adicione o elemento **PredicadoValidaçãoReference** e especifique o identificador como uma das validações predicadas, tais como SimplePassword, StrongPassword ou CustomPassword.
+No seu tipo de reclamação, adicione o elemento **PredicateValidationReference** e especifique o identificador como uma das validações predicados, tais como SimplePassword, StrongPassword ou CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -378,15 +378,15 @@ No seu tipo de reclamação, adicione o elemento **PredicadoValidaçãoReference
 </ClaimType>
 ```
 
-O seguinte mostra como os elementos são organizados quando o Azure AD B2C exibe a mensagem de erro:
+O seguinte mostra como os elementos são organizados quando a Azure AD B2C exibe a mensagem de erro:
 
-![Diagrama de Predicado e PredicadoExemplo de complexidade da palavra-passe](./media/predicates/predicates-pass.png)
+![Diagrama de Exemplo de complexidade da palavra-passe Predicado e PredicateGroup](./media/predicates/predicates-pass.png)
 
-## <a name="configure-a-date-range"></a>Configurar uma gama de datas
+## <a name="configure-a-date-range"></a>Configurar um intervalo de datas
 
-Com os **elementos Predicados** e **PredicadosValidações** pode controlar os valores mínimos e `DateTimeDropdown`máximos de data do **UserInputType** utilizando a . Para tal, crie um **Predicado** com o `IsDateRange` método e forneça os parâmetros mínimos e máximos.
+Com os **elementos Predicates** e **PredicateValidations** pode controlar os valores mínimos e máximos de data do **UserInputType** utilizando um `DateTimeDropdown` . Para isso, crie um **Predicado** com o `IsDateRange` método e forneça os parâmetros mínimos e máximos.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -397,9 +397,9 @@ Com os **elementos Predicados** e **PredicadosValidações** pode controlar os v
 </Predicates>
 ```
 
-Adicione uma **Validação Predicada** `DateRange` com uma referência ao predicado.
+Adicione uma **PrécateValidação** com uma referência ao `DateRange` predicado.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -413,9 +413,9 @@ Adicione uma **Validação Predicada** `DateRange` com uma referência ao predic
 </PredicateValidations>
 ```
 
-No seu tipo de reclamação, adicione o elemento `CustomDateRange` **PredicadoValidaçãoReference e** especifique o identificador como .
+No seu tipo de reclamação, adicione o elemento **PredicateValidationReference** e especifique o identificador como `CustomDateRange` .
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>
@@ -428,4 +428,4 @@ No seu tipo de reclamação, adicione o elemento `CustomDateRange` **PredicadoVa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como configurar a complexidade da [palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-password-complexity.md) utilizando validações predicadas.
+- Aprenda a configurar a [complexidade da palavra-passe utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-password-complexity.md) utilizando validações predicados.
