@@ -1,6 +1,6 @@
 ---
-title: Analise o relatório do Planejador de Implantação Hyper-V na Recuperação do Site Azure
-description: Este artigo descreve como analisar um relatório gerado pelo Planejador de Implantação de Recuperação de Sítios Azure para a recuperação de desastres de VMs Hiper-V para Azure.
+title: Analise o relatório do Planificador de Implantação de Hiper-V na Recuperação do Local de Azure
+description: Este artigo descreve como analisar um relatório gerado pelo Azure Site Recovery Deployment Planner para a recuperação de desastres de Hiper-V VMs para Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257904"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710274"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantação de Desenvolvimento de Sítios Azure
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Recuperação do Local de Azure
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
 
 ## <a name="on-premises-summary"></a>Resumo no local
@@ -23,7 +23,7 @@ A folha de cálculo de resumo no local proporciona uma descrição geral do ambi
 
 ![Resumo no local](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Data de início** e data de **fim**: As datas de início e fim dos dados de perfis considerados para a geração de relatórios. Por predefinição, a data de início é a data em que a criação dos perfis é iniciada e a de fim é a data em que a criação para. Estas informações podem ser os valores de "StartDate" e "EndDate", caso o relatório seja gerado com estes parâmetros.
+**Data de início** e **data de fim**: As datas de início e de fim dos dados de perfis considerados para a geração do relatório. Por predefinição, a data de início é a data em que a criação dos perfis é iniciada e a de fim é a data em que a criação para. Estas informações podem ser os valores de "StartDate" e "EndDate", caso o relatório seja gerado com estes parâmetros.
 
 **Total number of profiling days (Número total de dias de criação de perfis)**: o número total de dias de criação de perfis entre as datas de início e de fim para as quais o relatório é gerado.
 
@@ -35,7 +35,7 @@ A folha de cálculo de resumo no local proporciona uma descrição geral do ambi
 
 **Average disk size (GB) (Tamanho médio de discos [GB])**: o tamanho de disco médio calculado em todas as VNs compatíveis.
 
-**RPO desejado (minutos)**: Quer o objetivo do ponto de recuperação por defeito quer o valor passado para o parâmetro "DesiredRPO" no momento da geração do relatório para estimar a largura de banda necessária.
+**RPO desejado (minutos)**: Ou o objetivo do ponto de recuperação padrão ou o valor passado para o parâmetro "DesiredRPO" no momento da geração do relatório para estimar a largura de banda necessária.
 
 **Desired bandwidth (Mbps)** (Largura de Banda Pretendida [Mbps]): o valor que transmitiu para o parâmetro "Bandwidth" no momento da geração do relatório, para calcular o objetivo de ponto de recuperação (RPO) alcançável.
 
@@ -179,7 +179,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **VM Name (Nome da VM)**: o nome da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VHDs) que estão ligados às VMs. Os nomes incluem os nomes do anfitrião Hyper-V onde as VMs foram colocadas quando a ferramenta os detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VMs)**: os valores são **Yes (Sim)** e **Yes (Não)**\*. **Sim** \* é, por exemplo, em que o VM é adequado para [SSDs premium.](../virtual-machines/windows/disks-types.md) Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
+**VM Compatibility (Compatibilidade de VMs)**: os valores são **Yes (Sim)** e **Yes (Não)**\*. **Sim, é o seu** \* é por exemplos em que o VM é adequado para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15.
 * 256 GB a 512 GB é P20.
@@ -187,7 +187,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 * 1025 GB a 2048 GB é P40.
 * 2049 GB a 4095 GB é P50.
 
-Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou P30, mas o tamanho o mapeia para um tipo de disco de armazenamento premium mais baixo, a ferramenta marca que VM como **Sim**\*. Também lhe recomenda que altere o tamanho do disco de origem, para se enquadrar no tipo de disco de armazenamento premium aconselhado, ou que altere o tipo de disco de destino a seguir à ativação pós-falha.
+Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou P30, mas o tamanho o mapear para um tipo de disco de armazenamento premium mais baixo, a ferramenta marca que VM como **Sim** \* . Também lhe recomenda que altere o tamanho do disco de origem, para se enquadrar no tipo de disco de armazenamento premium aconselhado, ou que altere o tipo de disco de destino a seguir à ativação pós-falha.
 
 **Storage Type (Tipo de Armazenamento)**: standard ou premium.
 
@@ -246,7 +246,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 * O IOPS de origem excede o limite de IOPS de armazenamento suportado de 80 000 por disco.
 
-* O ressuposição médio de dados vm de origem excede o limite de recolha de dados suportados de recuperação do site de 20 MB/s para o tamanho médio de I/S.
+* O churn médio de dados de VM de origem excede o limite de dados de recuperação de sítio suportados de 20 MB/s para o tamanho médio de E/S.
 
 * A média do IOPS de escrita efetiva da VM de origem excede o limite de IOPS suportado pelo Site Recovery de 840.
 
@@ -271,7 +271,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 ## <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
 A tabela seguinte mostra os limites do Site Recovery. Estes limites baseiam-se em testes, mas não abrangem todas as combinações de E/S de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. Para obter os melhores resultados, mesmo após o planeamento da implementação, faça testes exaustivos às aplicações através da emissão de uma ativação pós-falha de teste, para ter a perspetiva verdadeira quanto ao desempenho da aplicação.
  
-**Alvo de armazenamento de replicação** | **Tamanho médio de I/O de Origem VM** |**Fonte VM média de dados churn** | **Total de alterações a dados da VM de origem por dia**
+**Alvo de armazenamento de replicação** | **Tamanho médio de E/S de origem** |**Fonte VM dados médios churn** | **Total de alterações a dados da VM de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s por VM | 168 GB por VM
 Armazenamento Premium | 8 KB  | 5 MB/s por VM | 421 GB por VM
@@ -302,7 +302,7 @@ A folha de cálculo fornece o requisito de espaço livre de armazenamento total 
 
 **Free space available (GB) [Espaço livre disponível (GB)]**: o espaço livre disponível no volume.
 
-Espaço total de **armazenamento necessário no volume (GB)**: O espaço total de armazenamento livre necessário no volume para a replicação inicial bem sucedida e replicação delta. 
+**Total espaço de armazenamento necessário no volume (GB)**: O espaço total de armazenamento livre necessário no volume para replicação inicial bem sucedida e replicação delta. 
 
 **Total additional storage to be provisioned on the volume for successful replication (GB)** (Total de armazenamento adicional a ser aprovisionado no volume para a replicação com êxito [GB]): recomenda o total de espaço adicional que tem de ser aprovisionado no volume para a replicação inicial e a replicação delta com êxito.
 
@@ -329,13 +329,13 @@ Depois de seguir a recomendação de requisito de armazenamento no local para ca
 
 **Volume (VHD path)** (Volume [caminho do VHD]): o nome do volume onde residem os VHDs da VM. 
 
-**Espaço livre disponível no volume (GB)**: O espaço de disco gratuito disponível no volume para o VM. Ao calcular o espaço livre disponível nos volumes, considera o espaço em disco utilizado para a replicação de diferenças pelas VMs dos batches anteriores cujos VHDs estão no mesmo volume. 
+**Espaço livre disponível no volume (GB)**: O espaço livre do disco disponível no volume do VM. Ao calcular o espaço livre disponível nos volumes, considera o espaço em disco utilizado para a replicação de diferenças pelas VMs dos batches anteriores cujos VHDs estão no mesmo volume. 
 
 Por exemplo, VM1, VM2 e VM3 residem num volume, digamos E:\VHDpath. Antes da replicação, o espaço livre no volume é 500 GB. A VM1 faz parte do Batch 1, a VM2 do Batch 2 e a VM3 do Batch 3. Para a VM1, o espaço livre disponível é 500 GB. Para a VM2, o espaço livre disponível é 500 – o espaço em disco necessário para a replicação delta da VM1. Se a VM1 precisar de 300 GB de espaço para a replicação delta, o espaço livre disponível para a VM2 será 500 GB – 300 GB = 200 GB. Da mesma forma, a VM2 precisa de 300 GB para a replicação de diferenças. O espaço livre disponível para a VM3 será 200 GB - 300 GB = -100 GB.
 
 **Storage required on the volume for initial replication (GB) [Armazenamento necessário no volume para a replicação inicial (GB)]**: o espaço de armazenamento livre necessário no volume para a VM para a replicação inicial.
 
-**Armazenamento necessário no volume de replicação delta (GB)**: O espaço de armazenamento gratuito necessário no volume para a replicação delta do VM.
+**Armazenamento necessário no volume para a replicação delta (GB)**: O espaço de armazenamento gratuito necessário no volume do VM para a replicação delta.
 
 **Additional storage required based on deficit to avoid replication failure (GB) [Armazenamento adicional necessário com base no défice para evitar a falha da replicação (GB)]**: o espaço de armazenamento adicional necessário no volume para a VM. É o requisito máximo de espaço de armazenamento para a replicação inicial e a replicação delta menos o espaço livre disponível no volume.
 
@@ -352,7 +352,7 @@ Cada tabela de batch fornece um resumo da utilização de rede do batch.
 
 **Approximate bandwidth consumed for delta replication of batch (Largura de banda aproximada consumida para a replicação de diferenças do batch)**: a largura de banda necessária para a replicação de diferenças das VMs do batch. 
 
-Tempo estimado de **replicação inicial para o lote (HH:MM)**: O tempo estimado de replicação inicial em Horas:Minutos.
+**Tempo estimado de replicação inicial para o lote (HH:MM)**: O tempo estimado de replicação inicial em Horas:Minutos.
 
 
 

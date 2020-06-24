@@ -4,15 +4,15 @@ description: Utilize um modelo para mover a configuração IP pública do Azure 
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: a4fd5da3c910b10c81caccde307df0fd36e2fa78
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 23fe515ddfdecb9ef168dd662e3fa2d91ece688f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235404"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711481"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Mover a configuração IP pública do Azure para outra região usando o portal Azure
 
@@ -45,7 +45,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
 2. Localize o Grupo de Recursos que contém o IP público de origem e clique nele.
 3. Selecione > **Definições**  >  **Modelo de exportação**.
 4. Escolha **Implementar** na lâmina do **modelo de exportação.**
-5. Clique **em modelo**  >  **Editar parâmetros** para abrir o ficheiro **parâmetros.json** no editor online.
+5. Clique **em modelo**  >  **Editar parâmetros** para abrir oparameters.js**no** ficheiro no editor online.
 8. Para editar o parâmetro do nome IP público, altere o valor da propriedade sob **parâmetros**  >  **value** do nome IP público de origem para o nome do seu IP público alvo, certifique-se de que o nome está em aspas:
 
     ```json
@@ -62,7 +62,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
     ```
 8.  Clique em **Guardar** no editor.
 
-9.  Clique **no**modelo  >  **de edição do modelo** para abrir o ficheiro **modelo.json** no editor online.
+9.  Clique no modelo de edição **do modelo**para abrir otemplate.js >  **Edit template** **no** ficheiro no editor online.
 
 10. Para editar a região-alvo onde o IP público será movido, altere o imóvel de **localização** em **recursos**:
 
@@ -94,7 +94,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
 
 12. Também pode alterar outros parâmetros no modelo se escolher, e é opcional dependendo dos seus requisitos:
 
-    * **Sku** - Pode alterar o sku do IP público na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >  **name** no ficheiro **modelo.json:**
+    * **Sku** - Pode alterar o sku do IP público na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >  **name** no **template.jsno** ficheiro:
 
         ```json
           "resources": [

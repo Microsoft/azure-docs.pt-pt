@@ -1,34 +1,34 @@
 ---
-title: Definir variáveis ambientais em instância de recipiente
-description: Saiba como definir variáveis ambientais nos recipientes que executa em Instâncias de Contentores Azure
+title: Definir variáveis ambientais em instância de contentor
+description: Saiba como definir variáveis ambientais nos recipientes que corre em Instâncias de Contentores Azure
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247231"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686739"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis ambientais em instâncias de contentores
 
-Definir variáveis de ambiente nas suas instâncias de contentor permite-lhe oferecer configuração dinâmica da aplicação ou do script executado pelo contentor. Isto é semelhante `--env` ao argumento `docker run`da linha de comando para . 
+Definir variáveis de ambiente nas suas instâncias de contentor permite-lhe oferecer configuração dinâmica da aplicação ou do script executado pelo contentor. Isto é semelhante ao `--env` argumento da linha de comando para `docker run` . 
 
-Para definir variáveis ambientais num recipiente, especifique-as quando criar uma instância de contentores. Este artigo mostra exemplos de definição de variáveis ambientais quando se inicia um contentor com o [Azure CLI,](#azure-cli-example) [Azure PowerShell](#azure-powershell-example)e o [portal Azure](#azure-portal-example). 
+Para definir variáveis ambientais num recipiente, especifique-as quando criar uma instância de recipiente. Este artigo mostra exemplos de definição de variáveis ambientais quando inicia um contentor com o [Azure CLI,](#azure-cli-example) [Azure PowerShell](#azure-powershell-example)e o [portal Azure](#azure-portal-example). 
 
-Por exemplo, se executar a imagem do recipiente [aci-wordcount][aci-wordcount] da Microsoft, pode modificar o seu comportamento especificando as seguintes variáveis ambientais:
+Por exemplo, se executar a imagem do recipiente do [aci-wordcount][aci-wordcount] da Microsoft, pode modificar o seu comportamento especificando as seguintes variáveis ambientais:
 
-*NumWords*: O número de palavras enviadas para O DSTOUT.
+*NumWords*: O número de palavras enviadas para STDOUT.
 
-*MinLength*: O número mínimo de caracteres numa palavra para ser contado. Um número maior ignora palavras comuns como "de" e "o".
+*MinLength*: O número mínimo de caracteres numa palavra para que seja contado. Um número mais alto ignora palavras comuns como "de" e "o".
 
-Se precisa de passar segredos como variáveis ambientais, o Azure Container Instances suporta [valores seguros](#secure-values) tanto para os recipientes Windows como para os linux.
+Se precisar de passar segredos como variáveis ambientais, a Azure Container Instances suporta [valores seguros](#secure-values) tanto para os recipientes Windows como para o Linux.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-cli-example"></a>Exemplo azure CLI
+## <a name="azure-cli-example"></a>Exemplo de Azure CLI
 
-Para ver a saída padrão do recipiente [aci-wordcount, execute-o][aci-wordcount] primeiro com este [recipiente az criar][az-container-create] comando (sem variáveis ambientais especificadas):
+Para ver a saída padrão do recipiente [aci-wordcount, execute-o][aci-wordcount] primeiro com este [contentor az criar][az-container-create] comando (sem variáveis ambientais especificadas):
 
 ```azurecli-interactive
 az container create \
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Para modificar a saída, inicie `--environment-variables` um segundo recipiente com o argumento adicionado, especificando valores para as variáveis *NumWords* e *MinLength.* (Este exemplo assume que está a executar o CLI numa concha bash ou azure Cloud Shell. Se utilizar o Pedido de Comando do Windows, especifique as variáveis com duas cotações, tais como `--environment-variables "NumWords"="5" "MinLength"="8"`.)
+Para modificar a saída, inicie um segundo recipiente com o `--environment-variables` argumento adicionado, especificando valores para as variáveis *NumWords* e *MinLength.* (Este exemplo pressupõe que você está executando o CLI em uma concha bash ou Azure Cloud Shell. Se utilizar o Pedido de Comando do Windows, especifique as variáveis com cotações duplas, tais como `--environment-variables "NumWords"="5" "MinLength"="8"` .)
 
 ```azurecli-interactive
 az container create \
@@ -49,14 +49,14 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Uma vez que o estado de ambos os recipientes mostre como *Terminado (use* [az container show][az-container-show] to check state), exiba os seus troncos com troncos de recipiente [az][az-container-logs] para ver a saída.
+Uma vez que o estado de ambos os recipientes apareça como *Terminado* (use [az container show][az-container-show] para verificar o estado), exiba seus troncos com [registos de contentores az][az-container-logs] para ver a saída.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-A saída dos recipientes mostra como modificou o comportamento do segundo contentor, definindo variáveis ambientais.
+A saída dos recipientes mostra como modificou o comportamento do segundo recipiente definindo variáveis ambientais.
 
 **mycontainer1**
 ```output
@@ -81,11 +81,11 @@ A saída dos recipientes mostra como modificou o comportamento do segundo conten
  ('GUILDENSTERN', 54)]
 ```
 
-## <a name="azure-powershell-example"></a>Exemplo azure PowerShell
+## <a name="azure-powershell-example"></a>Exemplo Azure PowerShell
 
-Definir variáveis ambientais no PowerShell é semelhante `-EnvironmentVariable` ao CLI, mas utiliza o argumento da linha de comando.
+Definir variáveis ambientais em PowerShell é semelhante ao CLI, mas usa o `-EnvironmentVariable` argumento da linha de comando.
 
-Em primeiro lugar, lance o recipiente [aci-wordcount][aci-wordcount] na sua configuração padrão com este comando [New-AzContainerGroup:][new-Azcontainergroup]
+Primeiro, lance o recipiente [aci-wordcount][aci-wordcount] na sua configuração padrão com este comando [New-AzContainerGroup:][new-Azcontainergroup]
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Agora execute o seguinte comando [do New-AzContainerGroup.][new-Azcontainergroup] Este especifica as variáveis ambientais *NumWords* e *MinLength* `envVars`após a população de uma variável matriz, :
+Agora executar o seguinte comando [New-AzContainerGroup.][new-Azcontainergroup] Este especifica as *variáveis numwords* e *ambiente MinLength* após a povoação de uma variável de matriz, `envVars` :
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -106,14 +106,14 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Uma vez *terminada* a emissão do estado de ambos os recipientes (utilize [o Get-AzContainerInstanceLog][azure-instance-log] para verificar o estado), puxe os seus registos com o comando [Get-AzContainerInstanceLog.][azure-instance-log]
+Uma vez terminado o estado de ambos os contentores *(utilize* [o Get-AzContainerInstanceLog][azure-instance-log] para verificar o estado), puxe os seus registos com o comando [Get-AzContainerInstanceLog.][azure-instance-log]
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 ```
 
-A saída para cada recipiente mostra como modificou o script executado pelo recipiente, definindo variáveis ambientais.
+A saída de cada recipiente mostra como modificou o script executado pelo recipiente definindo variáveis ambientais.
 
 ```console
 PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -141,29 +141,29 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exemplo do portal Azure
 
-Para definir variáveis ambientais quando iniciar um recipiente no portal Azure, especifique-as na página **Avançada** quando criar o recipiente.
+Para definir variáveis ambientais quando iniciar um recipiente no portal Azure, especifique-as na página **Advanced** quando criar o recipiente.
 
-1. Na página **Avançada,** delineie a **política de Reiniciar** para O *Fracasso*
-2. Em **variáveis ambientais,** `NumWords` entre `5` com um valor `MinLength` para a `8` primeira variável, e entre com um valor para a segunda variável. 
-1. Selecione **Review + crie** para verificar e, em seguida, implante o recipiente.
+1. Na página **Avançada,** desaceia a **política de Reinício** para *o insucesso*
+2. Em **Ambiente variáveis,** insira `NumWords` com um valor de primeira `5` variável, e introduza `MinLength` com um valor de segunda `8` variável. 
+1. Selecione **Rever + criar** para verificar e, em seguida, implantar o recipiente.
 
-![Página do portal mostrando variável ambiente Ativar botões e caixas de texto][portal-env-vars-01]
+![Página do portal mostrando variável ambiente Ative botão e caixas de texto][portal-env-vars-01]
 
-Para ver os registos do recipiente, em **Definições** selecione **Recipientes,** em seguida, **regista**. Semelhante à saída mostrada nas secções cli e PowerShell anteriores, pode ver como o comportamento do script foi modificado pelas variáveis ambientais. Apenas são apresentadas cinco palavras, cada uma com um comprimento mínimo de oito caracteres.
+Para visualizar os registos do contentor, em **Definições** selecione **Recipientes,** em seguida, **Regista .** Semelhante à saída mostrada nas secções anteriores do CLI e da PowerShell, pode ver como o comportamento do script foi modificado pelas variáveis ambientais. Apenas são exibidas cinco palavras, cada uma com um comprimento mínimo de oito caracteres.
 
 ![Portal mostrando saída de registo de contentores][portal-env-vars-02]
 
 ## <a name="secure-values"></a>Valores seguros
 
-Os objetos com valores seguros destinam-se a guardar informações sensíveis, como senhas ou chaves para a sua aplicação. A utilização de valores seguros para variáveis ambientais é simultaneamente mais segura e flexível do que incluê-la à imagem do seu recipiente. Outra opção é utilizar volumes secretos, descritos no [Monte um volume secreto em Instâncias de Contentores Azure.](container-instances-volume-secret.md)
+Os objetos com valores seguros destinam-se a conter informações sensíveis, como palavras-passe ou chaves para a sua aplicação. A utilização de valores seguros para variáveis ambientais é mais segura e flexível do que incluí-la à imagem do seu recipiente. Outra opção é utilizar volumes secretos, descritos no [Monte um volume secreto em Instâncias de Contentores Azure](container-instances-volume-secret.md).
 
-Variáveis ambientais com valores seguros não são visíveis nas propriedades do seu recipiente - os seus valores só podem ser acedidos a partir do interior do recipiente. Por exemplo, as propriedades do contentor vistas no portal Azure ou no Azure CLI exibem apenas o nome de uma variável segura, e não o seu valor.
+Variáveis ambientais com valores seguros não são visíveis nas propriedades do seu contentor -- os seus valores só podem ser acedidos a partir de dentro do recipiente. Por exemplo, as propriedades do contentor visualizadas no portal Azure ou no CLI Azure exibem apenas o nome de uma variável segura, e não o seu valor.
 
-Desestabeleça uma variável `secureValue` ambiente segura especificando a propriedade em vez do regular `value` para o tipo da variável. As duas variáveis definidas no Seguinte YAML demonstram os dois tipos variáveis.
+Desaprovar uma variável de ambiente segura especificando a `secureValue` propriedade em vez do regular para o tipo da `value` variável. As duas variáveis definidas no YAML seguinte demonstram os dois tipos variáveis.
 
-### <a name="yaml-deployment"></a>Implantação yAML
+### <a name="yaml-deployment"></a>Implantação YAML
 
-Crie `secure-env.yaml` um ficheiro com o seguinte corte.
+Crie um `secure-env.yaml` ficheiro com o seguinte corte.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -190,7 +190,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Executar o seguinte comando para implantar o grupo de contentores com o YAML (ajuste o nome do grupo de recursos conforme necessário):
+Executar o seguinte comando para implantar o grupo de contentores com YAML (ajustar o nome do grupo de recursos, se necessário):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file secure-env.yaml
@@ -198,13 +198,13 @@ az container create --resource-group myResourceGroup --file secure-env.yaml
 
 ### <a name="verify-environment-variables"></a>Verificar variáveis ambientais
 
-Executar o [recipiente az mostrar][az-container-show] comando para consultar as variáveis ambientais do seu recipiente:
+Executar o comando [do contentor az][az-container-show] para consultar as variáveis ambientais do seu contentor:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-A resposta json mostra tanto a chave e o valor da variável ambiental insegura, mas apenas o nome da variável ambiente segura:
+A resposta JSON mostra a chave e o valor da variável do ambiente inseguro, mas apenas o nome da variável ambiente seguro:
 
 ```json
 [
@@ -223,13 +223,13 @@ A resposta json mostra tanto a chave e o valor da variável ambiental insegura, 
 ]
 ```
 
-Com o comando executivo do [contentor az,][az-container-exec] que permite executar um comando num recipiente de corrida, pode verificar se a variável ambiente segura foi definida. Executar o seguinte comando para iniciar uma sessão de bash interativa no recipiente:
+Com o comando executivo do [contentor az,][az-container-exec] que permite executar um comando num recipiente em funcionamento, pode verificar se a variável ambiente segura foi definida. Executar o seguinte comando para iniciar uma sessão de festa interativa no recipiente:
 
 ```azurecli-interactive
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-Uma vez aberta uma concha interativa dentro do `SECRET` recipiente, pode aceder ao valor da variável:
+Uma vez aberta uma concha interativa dentro do recipiente, pode aceder ao `SECRET` valor da variável:
 
 ```console
 root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
@@ -238,7 +238,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Cenários baseados em tarefas, como o processamento de lotes um grande conjunto de dados com vários contentores, podem beneficiar de variáveis ambientais personalizadas no tempo de execução. Para obter mais informações sobre a execução de contentores baseados em [tarefas, consulte executar tarefas contentorizadas com políticas](container-instances-restart-policy.md)de reinício .
+Cenários baseados em tarefas, como o processamento de um grande conjunto de dados com vários contentores, podem beneficiar de variáveis de ambiente personalizados em tempo de execução. Para obter mais informações sobre a execução de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas com políticas de reinício](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

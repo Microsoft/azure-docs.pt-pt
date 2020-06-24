@@ -10,17 +10,17 @@ ms.service: virtual-network
 ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 640a1795c5f2223563f6615c97a3f450a8c6fc7d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341138"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710070"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
 
@@ -330,7 +330,7 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 
 Queremos saber como podemos melhorar o serviço. Falta-lhe uma capacidade? Faça o seu caso para o que devemos construir a seguir no [UserVoice para NAT](https://aka.ms/natuservoice).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a rede virtual NAT.](nat-overview.md)
 * Saiba mais [sobre métricas e alertas para os recursos de gateway DA NAT.](nat-metrics.md)

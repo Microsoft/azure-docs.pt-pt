@@ -1,30 +1,30 @@
 ---
-title: Quickstart - Construir & imagem de recipiente executar
-description: Execute rapidamente tarefas com o Registo de Contentores Azure para construir e executar uma imagem de contentor Docker a pedido, na nuvem.
+title: Quickstart - Construa & executar imagem de recipiente
+description: Executar rapidamente tarefas com o Registo de Contentores Azure para construir e executar uma imagem de contentor Docker a pedido, na nuvem.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680649"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753695"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Quickstart: Construa e execute uma imagem de contentor usando tarefas de registo de contentores Azure
 
-Neste arranque rápido, utiliza-se tarefas de registo de contentores Azure para construir, empurrar e executar rapidamente uma imagem de contentor Docker nativamente dentro do Azure, mostrando como descarregar o seu ciclo de desenvolvimento "inner-loop" para a nuvem. [A ACR Tasks][container-registry-tasks-overview] é um conjunto de funcionalidades dentro do Registo de Contentores Azure para ajudá-lo a gerir e modificar imagens de contentores ao longo do ciclo de vida do contentor. 
+Neste arranque rápido, utiliza-se comandos de Registo de Contentores Azure para construir, empurrar e executar rapidamente uma imagem de contentor Docker nativamente dentro de Azure, mostrando como descarregar o seu ciclo de desenvolvimento "inner-loop" para a nuvem. [ACR Tasks][container-registry-tasks-overview] é um conjunto de funcionalidades dentro do Registo do Contentor de Azure para ajudá-lo a gerir e modificar imagens de contentores através do ciclo de vida do contentor. 
 
-Depois deste arranque rápido, explore características mais avançadas das Tarefas ACR. As Tarefas ACR podem automatizar as construções de imagem com base em códigos ou atualizações de imagem base, ou testar vários recipientes, em paralelo, entre outros cenários. 
+Depois deste arranque rápido, explore funcionalidades mais avançadas de Tarefas ACR. As tarefas ACR podem automatizar as construções de imagem com base em códigos comprometedores ou atualizações de imagem base, ou testar vários contentores, em paralelo, entre outros cenários. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se quiser usá-lo localmente, recomenda-se a versão 2.0.58 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se quiser usá-lo localmente, recomenda-se a versão 2.0.58 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Se ainda não tem um registo de contentores, crie primeiro um grupo de recursos com o [grupo AZ criar][az-group-create] comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Se ainda não tiver um registo de contentores, primeiro crie um grupo de recursos com o [grupo az criar][az-group-create] comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
@@ -34,23 +34,24 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Crie um registo de contentores utilizando o [az acr criar][az-acr-create] comando. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *o myContainerRegistry008.* Atualize para um valor exclusivo.
+Crie um registo de contentores utilizando o comando [az acr create.][az-acr-create] O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *o myContainerRegistry008.* Atualize para um valor exclusivo.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
-Este exemplo cria um registo *básico,* uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte os níveis de serviço de registo de [contentores][container-registry-skus].
+Este exemplo cria um registo *básico,* uma opção otimizada para os custos para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para obter mais informações sobre os níveis de serviço disponíveis, consulte [os níveis de serviço de registo de contentores][container-registry-skus].
 
-## <a name="build-an-image-from-a-dockerfile"></a>Construa uma imagem de um Dockerfile
+## <a name="build-and-push-image-from-a-dockerfile"></a>Construa e empurre a imagem de um Dockerfile
 
-Agora use o Registo de Contentores Azure para construir uma imagem. Primeiro, crie um diretório de trabalho e, em seguida, crie um Dockerfile chamado *Dockerfile* com o seguinte conteúdo. Este é um exemplo simples para construir uma imagem de recipiente Linux, mas você pode criar o seu próprio Dockerfile padrão e construir imagens para outras plataformas. Exemplos de comando neste artigo são formatados para a concha da batida.
+Agora use o registo do contentor Azure para construir e empurrar uma imagem. Primeiro, crie um diretório de trabalho e depois crie um Dockerfile chamado *Dockerfile* com uma única linha: `FROM hello-world` . Este é um exemplo simples para construir uma imagem de contentor Linux a partir da `hello-world` imagem em Docker Hub. Pode criar o seu próprio Dockerfile padrão e construir imagens para outras plataformas. Se estiver a trabalhar numa concha de pancada, crie o Dockerfile com o seguinte comando:
 
 ```bash
 echo FROM hello-world > Dockerfile
 ```
 
-Executar o comando de [construção az acr][az-acr-build] para construir a imagem. Quando construída com sucesso, a imagem é empurrada para o seu registo. O exemplo que se segue empurra a `sample/hello-world:v1` imagem. O `.` final do comando define a localização do Dockerfile, neste caso o atual diretório.
+Executar o comando [de construção az acr,][az-acr-build] que constrói a imagem e, depois de a imagem ser construída com sucesso, empurra-a para o seu registo. O exemplo a seguir constrói e empurra a `sample/hello-world:v1` imagem. O `.` fim do comando define a localização do Dockerfile, neste caso o atual diretório.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
@@ -58,7 +59,7 @@ az acr build --image sample/hello-world:v1 \
   --file Dockerfile . 
 ```
 
-A saída de uma construção e impulso bem sucedidos é semelhante à seguinte:
+A saída de uma construção e impulso bem sucedidos é semelhante ao seguinte:
 
 ```console
 Packing source code into tar to upload...
@@ -112,16 +113,16 @@ Run ID: ca8 was successful after 10s
 
 ## <a name="run-the-image"></a>Executar a imagem
 
-Agora, rapidamente, execute a imagem que construiu e empurrou para o seu registo. Aqui você usa [az acr run][az-acr-run] para executar o comando do contentor. No fluxo de trabalho de desenvolvimento do seu contentor, este pode ser um passo de validação antes de implementar a imagem, ou pode incluir o comando num [ficheiro YAML em várias etapas][container-registry-tasks-multi-step]. 
+Agora, rapidamente, execute a imagem que construiu e empurrou para o seu registo. Aqui você usa [a az acr run][az-acr-run] para executar o comando do contentor. No seu fluxo de trabalho de desenvolvimento de contentores, este pode ser um passo de validação antes de implementar a imagem, ou pode incluir o comando num ficheiro YAML em [várias etapas][container-registry-tasks-multi-step]. 
 
-O exemplo que se segue utiliza `$Registry` para especificar o registo onde executa o comando:
+O exemplo a seguir `$Registry` utiliza-se para especificar o registo onde executou o comando:
 
 ```azurecli-interactive
 az acr run --registry myContainerRegistry008 \
   --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
 
-O `cmd` parâmetro neste exemplo executa o recipiente na sua configuração padrão, mas suporta `cmd` parâmetros adicionais `docker run` ou mesmo outros `docker` comandos.
+O `cmd` parâmetro neste exemplo executa o recipiente na sua configuração predefinição, mas suporta `cmd` parâmetros adicionais `docker run` ou mesmo `docker` outros comandos.
 
 O resultado é semelhante ao seguinte:
 
@@ -170,18 +171,18 @@ Run ID: cab was successful after 6s
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando de eliminação do [grupo AZ][az-group-delete] para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
+Quando já não for necessário, pode utilizar o comando de exclusão do [grupo az][az-group-delete] para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, utilizou funcionalidades de Tarefas ACR para construir, empurrar e executar rapidamente uma imagem de contentor Docker nativamente dentro do Azure, sem uma instalação local do Docker. Continue aos tutoriais de tarefas de registo de contentores azure para aprender sobre a utilização de Tarefas ACR para automatizar construções e atualizações de imagem.
+Neste arranque rápido, usou funcionalidades de Tarefas ACR para construir, empurrar e executar rapidamente uma imagem de contentor Docker nativamente dentro de Azure, sem uma instalação local do Docker. Continue para os tutoriais de Tarefas de Registo de Contentores Azure para aprender sobre a utilização de tarefas ACR para automatizar construções e atualizações de imagem.
 
 > [!div class="nextstepaction"]
-> [Tutoriais de tarefas de registo de contentores azure][container-registry-tutorial-quick-task]
+> [Tutoriais de tarefas de registo de contentores Azure][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

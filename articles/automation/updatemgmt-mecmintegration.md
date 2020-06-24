@@ -1,51 +1,54 @@
 ---
-title: Integrar a Gestão de Atualização de Automação Azure com o Gestor de Configuração do Ponto Final do Windows
-description: Este artigo diz como configurar o Microsoft Endpoint Configuration Manager com a Update Management para implementar atualizações de software para clientes gestores.
+title: Integre a gestão de atualização de automação do Azure com o Gestor de Configuração de Pontos Finais do Windows
+description: Este artigo diz como configurar o Gestor de Configuração de Pontos Finais do Microsoft com a Gestão de Atualização para implementar atualizações de software para clientes gestores.
 services: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/11/2019
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2bcf2518ab7f4e5a3648b508e42868fd5bb1a863
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013202"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817213"
 ---
-# <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrar a Gestão de Atualizações com o Gestor de Configuração do Ponto Final do Windows
+# <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrar gestão de atualização com o gestor de configuração de ponto final do Windows
 
-Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerir Computadores, servidores e dispositivos móveis também dependem da sua força e maturidade na gestão de atualizações de software como parte do seu ciclo de gestão de atualizações de software (SUM).
+Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerir PCs, servidores e dispositivos móveis também dependem da sua força e maturidade na gestão de atualizações de software como parte do seu ciclo de gestão de atualização de software (SUM).
 
-Pode reportar e atualizar servidores do Windows geridos através da criação e pré-realização de implementações de atualizações de software no Windows Endpoint Configuration Manager e obter o estado detalhado das implementações de atualizações concluídas utilizando a Atualização de [Gestão](automation-update-management.md). Se utilizar o Gestor de Configuração do Windows Endpoint para o relatório de conformidade da atualização, mas não para gerir as implementações de atualizações com os seus servidores Windows, pode continuar a reportar ao gestor de configuração enquanto as atualizações de segurança são geridas com a Azure Automation Update Management.
+Pode reportar e atualizar servidores geridos do Windows criando e pré-encenar as atualizações de software no Windows Endpoint Configuration Manager e obter o estado detalhado das implementações de atualizações concluídas utilizando [a Gestão de Atualização](automation-update-management.md). Se utilizar o Gestor de Configuração do Windows Endpoint para atualizar relatórios de conformidade, mas não para gerir as implementações da atualização com os seus servidores Windows, pode continuar a reportar ao gestor de configuração enquanto as atualizações de segurança são geridas com a Azure Automation Update Management.
+
+>[!NOTE]
+>Embora a Update Management suporte a avaliação e correção de atualização do Windows Server 2008 R2, não suporta clientes geridos pelo Gestor de Configuração endpoint que executa este sistema operativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Tem de adicionar a [Azure Automation Update Management](automation-update-management.md) à sua conta Automation.
-* Os servidores Windows atualmente geridos pelo ambiente do Gestor de Configuração do Windows Endpoint também precisam de reportar ao espaço de trabalho do Log Analytics que também tem a Atualização ativada.
-* Esta funcionalidade está ativada na versão atual do Windows Endpoint Configuration Manager 1606 e superior. Para integrar o site central da administração do Windows Endpoint, ou um site primário autónomo com registos do Monitor Azure e coleções de importação, reveja o [Connect Configuration Manager para os registos do Monitor Azure.](../azure-monitor/platform/collect-sccm.md)  
-* Os agentes do Windows devem ser configurados para comunicar com um servidor do Windows Server Update Services (WSUS) ou ter acesso ao Microsoft Update se não receberem atualizações de segurança do Windows Endpoint Configuration Manager.
+* Tem de ter [a Azure Automation Update Management](automation-update-management.md) adicionada à sua conta de Automação.
+* Os servidores do Windows atualmente geridos pelo ambiente do Gestor de Configuração do Windows Endpoint também precisam de reportar ao espaço de trabalho do Log Analytics que também tem a Gestão de Atualização ativada.
+* Esta funcionalidade está ativada na versão atual do Windows Endpoint Configuration Manager 1606 e superior. Para integrar o site da administração central do Gestor de Configuração do Windows Endpoint ou um site primário autónomo com registos e coleções de importação do Monitor Azure, [reveja os registos do Connect Configuration Manager para os registos do Monitor Azure](../azure-monitor/platform/collect-sccm.md).  
+* Os agentes do Windows devem estar configurados para comunicar com um servidor de Serviços de Atualização do Windows Server (WSUS) ou ter acesso ao Microsoft Update se não receberem atualizações de segurança do Gestor de Configuração do Windows Endpoint.
 
-A forma como gere os clientes hospedados no Azure IaaS com o seu ambiente de Gestor de Configuração do Windows Endpoint existente depende principalmente da ligação que tem entre os datacenters do Azure e a sua infraestrutura. Esta ligação afeta quaisquer alterações de design que possa ter de fazer à sua infraestrutura de Configuração de Ponto final do Windows e custos relacionados para suportar as alterações necessárias. Para compreender quais as considerações de planeamento que precisa de avaliar antes de continuar, reveja [Configuration Manager no Azure - Perguntas mais frequentes](https://docs.microsoft.com/configmgr/core/understand/configuration-manager-on-azure#networking).
+A forma como gere os clientes hospedados no Azure IaaS com o ambiente existente do Gestor de Configuração do Windows Endpoint depende principalmente da ligação que tem entre os datacenters Azure e a sua infraestrutura. Esta ligação afeta quaisquer alterações de design que possa ter de fazer à infraestrutura do Gestor de Configuração do Windows Endpoint e custos relacionados para suportar as alterações necessárias. Para compreender quais as considerações de planeamento que precisa de avaliar antes de continuar, reveja [Configuration Manager no Azure - Perguntas mais frequentes](https://docs.microsoft.com/configmgr/core/understand/configuration-manager-on-azure#networking).
 
-## <a name="manage-software-updates-from-windows-endpoint-configuration-manager"></a>Gerir atualizações de software do Windows Endpoint Configuration Manager
+## <a name="manage-software-updates-from-windows-endpoint-configuration-manager"></a>Gerir atualizações de software a partir do Gestor de Configuração de Pontos Finais do Windows
 
-Execute os seguintes passos se continuar a gerir as implementações de atualizações do Windows Endpoint Configuration Manager. O Azure Automation liga-se ao Windows Endpoint Configuration Manager para aplicar atualizações aos computadores clientes ligados ao seu espaço de trabalho log Analytics. O conteúdo da atualização está disponível a partir do cache do computador do cliente como se a implementação fosse gerida pelo Windows Endpoint Configuration Manager.
+Execute os seguintes passos se continuar a gerir as implementações de atualização a partir do Gestor de Configuração de Pontos finais do Windows. O Azure Automation conecta-se ao Gestor de Configuração de Pontos Finais do Windows para aplicar atualizações aos computadores clientes ligados ao seu espaço de trabalho Log Analytics. O conteúdo da atualização está disponível a partir da cache do computador do cliente como se a implementação fosse gerida pelo Gestor de Configuração do Windows Endpoint.
 
-1. Crie uma implementação de atualização de software a partir do site de alto nível na hierarquia do Gestor de Configuração do Windows Endpoint utilizando o processo descrito nas atualizações de [software de implementação](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). A única definição que tem de ser configurada de forma diferente de uma implementação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de transferência do pacote de implementação. Este comportamento é gerido na Gestão de Atualização, criando uma implementação de atualização programada no próximo passo.
+1. Crie uma implementação de atualização de software a partir do site de nível superior na sua hierarquia de Gestor de Configuração de Pontos finais do Windows utilizando o processo descrito nas [atualizações de software implementar](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). A única definição que tem de ser configurada de forma diferente de uma implementação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de transferência do pacote de implementação. Este comportamento é gerido na Gestão de Atualização, criando uma implementação de atualização programada no passo seguinte.
 
-1. Na Automatização Azure, selecione Gestão de **Atualizações.** Crie uma nova implementação seguindo os passos descritos na Criação de [uma Implementação](automation-tutorial-update-management.md#schedule-an-update-deployment) de Atualizações e selecione **grupos importados** no dropdown **do Tipo** para selecionar a coleção apropriada do Gestor de Configuração do Ponto Final do Windows. Tenha em mente os seguintes pontos importantes: a. Se for definida uma janela de manutenção na coleção de dispositivos selecionado do Windows Endpoint Configuration Manager, os membros da coleção honram-na em vez da definição de **Duração** definida na implementação programada.
-    b. Os membros da recolha do alvo devem ter uma ligação à Internet (diretamente, através de um servidor proxy ou através do gateway Log Analytics).
+1. Na Azure Automation, selecione **Update Management**. Crie uma nova implementação seguindo os passos descritos na [Criação de uma Implementação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment) e selecione **grupos importados** no **dropdown tipo** para selecionar a recolha adequada do Gestor de Configuração de Pontos finais do Windows. Tenha em mente os seguintes pontos importantes: a. Se uma janela de manutenção for definida na coleção selecionada do Windows Endpoint Configuration Manager, os membros da coleção honram-na em vez da definição **de Duração** definida na implementação programada.
+    b. Os membros da coleção de alvos devem ter uma ligação à Internet (diretamente, através de um servidor proxy ou através do gateway Log Analytics).
 
-Após completar a implementação da atualização através do Azure Automation, os computadores-alvo que são membros do grupo de computador selecionado sairá atualizações no momento programado a partir da sua cache de cliente local. Pode [ver o estado de implementação da atualização](automation-tutorial-update-management.md#check-deployment-status) para monitorizar os resultados da implementação.
+Depois de completar a implementação da atualização através da Azure Automation, os computadores-alvo que são membros do grupo informático selecionado irão instalar atualizações na hora programada a partir da cache do cliente local. Pode [ver o estado de implementação da atualização](automation-tutorial-update-management.md#check-deployment-status) para monitorizar os resultados da implementação.
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Gerir atualizações de software da Azure Automation
 
-Para gerir as atualizações para VMs do Windows Server que são clientes do Windows Endpoint Configuration Manager, é necessário configurar a política do cliente para desativar a funcionalidade de Gestão de Atualizações de Software para todos os clientes geridos pela Update Management. Por predefinição, as definições de cliente visam todos os dispositivos na hierarquia. Para obter mais informações sobre esta definição de política e como configurá-la, reveja [como configurar as definições](https://docs.microsoft.com/configmgr/core/clients/deploy/configure-client-settings)do cliente no Gestor de Configuração .
+Para gerir atualizações para VMs do Windows Server que são clientes do Gestor de Configuração de Pontos finais do Windows, é necessário configurar a política do cliente para desativar a funcionalidade de Gestão de Atualização de Software para todos os clientes geridos pela Update Management. Por predefinição, as definições de cliente visam todos os dispositivos na hierarquia. Para obter mais informações sobre esta definição de política e como configurá-la, [reveja como configurar as definições](https://docs.microsoft.com/configmgr/core/clients/deploy/configure-client-settings)do cliente no Gestor de Configuração .
 
-Depois de realizar esta alteração de configuração, cria uma nova implementação seguindo os passos descritos na Criação de [uma Implementação](automation-tutorial-update-management.md#schedule-an-update-deployment) de Atualização e selecione **grupos importados** no **drop-down do Tipo** para selecionar a coleção de Configuração de Ponto final do Windows apropriada.
+Depois de executar esta alteração de configuração, cria uma nova implementação seguindo os passos descritos na [Criação de uma Implementação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment) e seleciona **grupos importados** no **tipo** drop-down para selecionar a coleção adequada do Gestor de Configuração de Pontos de Final do Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para configurar um calendário de integração, consulte [Agendar uma implementação de atualização.](automation-tutorial-update-management.md#schedule-an-update-deployment)
+Para configurar um calendário de integração, consulte [Agendar uma implementação de atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).

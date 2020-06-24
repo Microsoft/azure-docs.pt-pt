@@ -4,12 +4,12 @@ description: Saiba como rodar os seus certificados num cluster Azure Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: ae85b544409cbf4532c221a2a7ca27940ae6f369
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465614"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817452"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotate certificados no Serviço Azure Kubernetes (AKS)
 
@@ -39,8 +39,7 @@ A AKS gera e utiliza os seguintes certificados, Autoridades certificados e Conta
 > 
 > Além disso, pode verificar a data de validade do certificado do seu cluster. Por exemplo, o seguinte comando apresenta os dados do certificado para o cluster *myAKSCluster.*
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
-> openssl x509 -in my-cert.crt -text
+> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
 
 ## <a name="rotate-your-cluster-certificates"></a>Rode os certificados de cluster
@@ -85,7 +84,7 @@ kubectl get no
 > [!NOTE]
 > Se tiver algum serviço que esteja em cima da AKS, como [a Azure Dev Spaces,][dev-spaces]poderá também necessitar de [atualizar certificados relacionados com esses serviços.][dev-spaces-rotate]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como rodar automaticamente os certificados do seu cluster, CAs e SAs. Você pode ver [as melhores práticas para segurança de cluster e upgrades no Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] para mais informações sobre as melhores práticas de segurança da AKS.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 62c7a3ecec3f941971cad552af2e36f63ab67c60
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 1fee761c8377824773fa56ba25edd2a779c33547
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485116"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710223"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -32,14 +32,13 @@ Hiper-V sem Gestor de Máquinas Virtuais | Você pode realizar a recuperação d
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hiper-V (funcionando sem gestor de máquinas virtuais) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as mais recentes atualizações (incluindo a instalação principal do servidor destes sistemas operativos) | Se já configurar o Windows Server 2012 R2 com/ou SCVMM 2012 R2 com a Recuperação do Site Azure e planeia atualizar o SISTEMA, siga a [documentação](upgrade-2012R2-to-2016.md) de orientação.
-Hiper-V (em execução com Gestor de Máquinas Virtuais) | Gestor de Máquinas Virtuais 2019, Gestor de Máquinas Virtuais 2016, Gestor de Máquinas Virtuais 2012 R2 (incluindo instalação central de servidor destes sistemas operativos) | Se o Gestor de Máquinas Virtuais for utilizado, os anfitriões do Windows Server 2019 deverão ser geridos no Virtual Machine Manager 2019. Da mesma forma, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.
+Hiper-V (funcionando sem gestor de máquinas virtuais) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as mais recentes atualizações (incluindo a instalação principal do servidor destes sistemas operativos, com exceção do Windows Server 2019) | Se já configurar o Windows Server 2012 R2 com/ou SCVMM 2012 R2 com a Recuperação do Site Azure e planeia atualizar o SISTEMA, siga a [documentação](upgrade-2012R2-to-2016.md) de orientação.
+Hiper-V (em execução com Gestor de Máquinas Virtuais) | Gestor de Máquinas Virtuais 2019, Gestor de Máquinas Virtuais 2016, Gestor de Máquinas Virtuais 2012 R2 (incluindo a instalação central do servidor destes sistemas operativos, com exceção do Virtual Machine Manager 2019) | Se o Gestor de Máquinas Virtuais for utilizado, os anfitriões do Windows Server 2019 deverão ser geridos no Virtual Machine Manager 2019. Da mesma forma, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.
 
 > [!NOTE]
 >
 > - Certifique-se de que o quadro .NET 4.6.2 ou superior está presente no servidor no local.
-> - O Failback não é suportado para a versão core do servidor do Windows Server 2019.
-> - O failback para a localização alternativa não é suportado para os anfitriões do Windows Server 2019.
+> - O Failover e o failback para alternar a localização ou localização original, que é executada com ou sem Gestor de Máquinas Virtuais, não é suportado para a versão core do servidor do Windows Server 2019.
 
 ## <a name="replicated-vms"></a>VMs replicados
 
@@ -69,7 +68,7 @@ Rede de anfitriões: IPv4 | Sim | Sim
 Rede de anfitriões: IPv6 | Não | Não
 Rede VM convidada: NIC Teaming | Não | Não
 Rede VM convidada: IPv4 | Sim | Sim
-Rede VM convidada: IPv6 | Não | Sim
+Rede VM convidada: IPv6 | No | Yes
 Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | Não | Não
 Rede VM convidada: Multi-NIC | Sim | Sim
@@ -139,8 +138,8 @@ Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas para falhas a gerir discos)| Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Contas de Armazenamento Azure com firewall ativadas | Yes. Para armazenamento de alvo e cache. | Yes. Para armazenamento de alvo e cache.
-Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
+Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
+Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | No
 
 
 ## <a name="azure-compute-features"></a>Características do cálculo Azure
@@ -196,5 +195,5 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres dos Hiper-V VMs no local.

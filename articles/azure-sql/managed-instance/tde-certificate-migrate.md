@@ -2,7 +2,7 @@
 title: Certificado de TDE migrado - instância gerida
 description: Migrar um certificado que proteja a chave de encriptação da base de dados de uma base de dados com encriptação de dados transparente para Azure SQL Gestd Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: d2f5439874590db0f2775667d91586c51d6c43b3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: c9a9b42d6f6d8c89847b03f5eda858c75d198c58
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660312"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711396"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrar um certificado de uma base de dados protegida pelo TDE para a Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -186,7 +186,7 @@ Primeiro, tens de [configurar um cofre de chaves Azure](/azure/key-vault/key-vau
 
 O certificado está agora disponível para a instância gerida especificada, e a cópia de segurança da base de dados protegida pelo TDE correspondente pode ser restaurada com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a migrar um certificado protegendo a chave de encriptação de uma base de dados com Encriptação de Dados Transparente, desde o local ou a instância do Servidor IAAS SQL até ao Azure SQL Managed Instance.
 

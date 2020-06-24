@@ -1,27 +1,27 @@
 ---
-title: Implemente uma aplicação de dupla pilha IPv6 na rede virtual Azure - Modelo de Manjedoura de Recursos
+title: Implementar uma aplicação de pilha dupla IPv6 na rede virtual Azure - Modelo de Manger de recursos
 titlesuffix: Azure Virtual Network
-description: Este artigo mostra como implementar uma aplicação de dupla pilha IPv6 com O Equilíbrio de Carga Padrão na rede virtual Azure utilizando modelos VM do Gestor de Recursos Azure.
+description: Este artigo mostra como implementar uma aplicação de pilha dupla IPv6 com o Balancer de Carga Padrão na rede virtual Azure utilizando modelos VM do Gestor de Recursos Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b1a91dd8779b8e79e221c620881d4848bae9e1f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420651"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711532"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Implementar uma aplicação de dupla pilha IPv6 na rede virtual Azure - Modelo
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Implementar uma aplicação de pilha dupla IPv6 na rede virtual Azure - Modelo
 
-Este artigo fornece uma lista de tarefas de configuração IPv6 com a parte do modelo VM do Gestor de Recursos Azure que se aplica. Utilize o modelo descrito neste artigo para implementar uma aplicação dual stack (IPv4 + IPv6) utilizando o Standard Load Balancer em Azure que inclui uma rede virtual de dupla pilha com subnets IPv4 e IPv6, um Balancer de Carga Padrão com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos. 
+Este artigo fornece uma lista de tarefas de configuração IPv6 com a parte do modelo VM do Gestor de Recursos Azure que se aplica. Utilize o modelo descrito neste artigo para implementar uma aplicação dual stack (IPv4 + IPv6) utilizando o Standard Load Balancer em Azure que inclui uma rede virtual de dupla pilha com sub-redes IPv4 e IPv6, um Balanceador de Carga Padrão com configurações frontais dual (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos. 
 
 ## <a name="required-configurations"></a>Configurações necessárias
 
@@ -68,7 +68,7 @@ Secção do modelo para adicionar:
                 }
 ```
 
-### <a name="ipv6-network-security-group-nsg-rules"></a>Regras do grupo de segurança de rede IPv6 (NSG)
+### <a name="ipv6-network-security-group-nsg-rules"></a>Regras do grupo de segurança da rede IPv6 (NSG)
 
 ```JSON
           {
@@ -88,7 +88,7 @@ Secção do modelo para adicionar:
 
 ## <a name="conditional-configuration"></a>Configuração condicional
 
-Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tabela de Rotas. Caso contrário, esta configuração é opcional.
+Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tabela de Rota. Caso contrário, esta configuração é opcional.
 
 ```JSON
     {
@@ -120,7 +120,7 @@ Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tab
               }
 ```
 
-### <a name="ipv6-public-ip-addresses"></a>Endereços IP públicos do IPv6
+### <a name="ipv6-public-ip-addresses"></a>Endereços IP públicos IPv6
 
 ```JSON
     {
@@ -137,7 +137,7 @@ Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tab
       }
 ```
 
-### <a name="ipv6-front-end-for-load-balancer"></a>IPv6 Extremidade frontal para balanceor de carga
+### <a name="ipv6-front-end-for-load-balancer"></a>IPv6 Front end para balanceador de carga
 
 ```JSON
           {
@@ -148,7 +148,7 @@ Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tab
               }
 ```
 
-### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>IPv6 Back-end address pool para Balancer de Carga
+### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>Piscina de endereços de fundo IPv6 para balanceador de carga
 
 ```JSON
               "backendAddressPool": {
@@ -161,7 +161,7 @@ Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tab
             "name": "lbrule-v6"
 ```
 
-### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>Regras do equilíbrio de carga IPv6 para associar portas de entrada e saída
+### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>Regras do balançador de carga IPv6 para associar portas de entrada e saída
 
 ```JSON
           {
@@ -178,9 +178,9 @@ Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tab
                 }
 ```
 
-## <a name="sample-vm-template-json"></a>Modelo VM da amostra JSON
-Para implementar uma aplicação de dupla pilha IPv6 na rede virtual Azure utilizando o modelo do Gestor de Recursos Azure, veja o modelo de amostra [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
+## <a name="sample-vm-template-json"></a>Modelo de VM da amostra JSON
+Para implementar uma aplicação de pilha dupla IPv6 na rede virtual Azure usando o modelo do Gestor de Recursos Azure, consulte o modelo da amostra [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode encontrar detalhes sobre preços para [endereços IP públicos,](https://azure.microsoft.com/pricing/details/ip-addresses/) [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/)da rede ou [Balancer de Carga](https://azure.microsoft.com/pricing/details/load-balancer/).
+Pode encontrar detalhes sobre preços para [endereços IP públicos,](https://azure.microsoft.com/pricing/details/ip-addresses/) [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Balancer de Carga.](https://azure.microsoft.com/pricing/details/load-balancer/)

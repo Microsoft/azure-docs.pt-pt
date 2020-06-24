@@ -1,43 +1,43 @@
 ---
-title: Gerir livros de corridas na Automação Azure
-description: Este artigo diz como gerir livros de corridas na Azure Automation.
+title: Gerir livros de execução na Azure Automation
+description: Este artigo diz como gerir os livros de execução na Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834701"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718313"
 ---
-# <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
+# <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
-Pode adicionar um livro de execução à Azure Automation, criando um novo ou importando um existente a partir de um ficheiro ou da [Galeria Runbook.](automation-runbook-gallery.md) Este artigo fornece informações para a gestão de um livro de execução importado de um ficheiro. Você pode encontrar todos os detalhes de acesso a livros e módulos comunitários em [Runbook e galerias de módulos para Automação Azure](automation-runbook-gallery.md).
+Pode adicionar um livro de execução à Azure Automation, criando um novo ou importando um existente a partir de um ficheiro ou da [Galeria Runbook](automation-runbook-gallery.md). Este artigo fornece informações para a gestão de um livro de recortes importado de um ficheiro. Pode encontrar todos os detalhes de aceder a runbooks e módulos comunitários em [Runbook e galerias de módulos para a Azure Automation.](automation-runbook-gallery.md)
 
 ## <a name="create-a-runbook"></a>Criar um runbook
 
-Crie um novo livro de execução na Azure Automation utilizando o portal Azure ou windows PowerShell. Uma vez criado o livro de execução, pode editá-lo usando informações em:
+Crie um novo runbook na Azure Automation utilizando o portal Azure ou Windows PowerShell. Uma vez criado o livro de bordo, pode editá-lo utilizando informações em:
 
-* [Editar livro de texto na Automação Azure](automation-edit-textual-runbook.md) 
-* [Conheça os conceitos chave Windows PowerShell Workflow para livros de execução automation](automation-powershell-workflow.md)
-* [Autoria gráfica em Automação Azure](automation-graphical-authoring-intro.md)
-* [Gerir pacotes Python 2 na Automação Azure](python-packages.md)
+* [Editar o livro de texto na Azure Automation](automation-edit-textual-runbook.md) 
+* [Aprenda os principais conceitos de fluxo de trabalho do Windows PowerShell para os runbooks de automação](automation-powershell-workflow.md)
+* [Autoria gráfica na Azure Automation](automation-graphical-authoring-intro.md)
+* [Gerir pacotes Python 2 em Azure Automation](python-packages.md)
 
-### <a name="create-a-runbook-in-the-azure-portal"></a>Crie um livro de corridas no portal Azure
+### <a name="create-a-runbook-in-the-azure-portal"></a>Criar um livro de corridas no portal Azure
 
 1. No portal do Azure, abra a sua conta da Automatização.
-2. A partir do centro, selecione **Runbooks** sob Automatização de **Processos** para abrir a lista de livros de execução.
-3. Clique **em Criar um livro de execução**.
-4. Introduza um nome para o livro de execução e selecione o seu [tipo](automation-runbook-types.md). O nome do livro de corridas deve começar com uma letra e pode conter letras, números, sublinhados e traços.
-5. Clique em **Criar** o livro de execução e abrir o editor.
+2. A partir do hub, selecione **Runbooks** em **Process Automation** para abrir a lista de runbooks.
+3. Clique **em Criar um livro de execução.**
+4. Introduza um nome para o livro de bordo e selecione o seu [tipo](automation-runbook-types.md). O nome do livro deve começar com uma letra e pode conter letras, números, sublinhados e traços.
+5. Clique em **Criar** para criar o livro de execução e abrir o editor.
 
-### <a name="create-a-runbook-with-powershell"></a>Crie um livro de corridas com a PowerShell
+### <a name="create-a-runbook-with-powershell"></a>Criar um livro de bordo com PowerShell
 
-Utilize o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de execução vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidopara `New-AzAutomationRunbook` .
+Utilize o [cmdlet New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de bordo vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidos para `New-AzAutomationRunbook` .
 
-O exemplo que se segue mostra como criar um novo livro vazio.
+O exemplo a seguir mostra como criar um novo livro de bordo vazio.
 
 ```azurepowershell-interactive
 New-AzAutomationRunbook -AutomationAccountName MyAccount `
@@ -46,40 +46,40 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importar um livro de corridas
 
-Pode importar um script PowerShell ou PowerShell Workflow **(.ps1),** um livro de execução gráfico **(.graphrunbook)** ou um script Python 2 **(.py**) para fazer o seu próprio livro de execução.  Deve especificar o tipo de livro de [execução](automation-runbook-types.md) que é criado durante a importação, tendo em conta as seguintes considerações.
+Pode importar um powerShell ou powerShell Workflow **(.ps1),** um livro de execução gráfico **(.graphrunbook)** ou um script Python 2 **(.py)** para fazer o seu próprio livro de bordo. Deve especificar o tipo de livro de [execução](automation-runbook-types.md) que é criado durante a importação, tendo em conta as seguintes considerações.
 
-* Pode importar um ficheiro **.ps1** que não contenha um fluxo de trabalho num livro de [execução da PowerShell](automation-runbook-types.md#powershell-runbooks) ou num livro de [execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Se o importar num livro de fluxos de trabalho powerShell, é convertido num fluxo de trabalho. Neste caso, os comentários estão incluídos no livro de execução para descrever as alterações feitas.
+* Pode importar um ficheiro **.ps1** que não contenha um fluxo de trabalho num [livro de execução PowerShell](automation-runbook-types.md#powershell-runbooks) ou num [manual de fluxo de trabalho PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se o importar num livro de trabalho powerShell, é convertido para um fluxo de trabalho. Neste caso, os comentários estão incluídos no livro de bordo para descrever as alterações feitas.
 
-* Só pode importar um ficheiro **.ps1** contendo um PowerShell Workflow num [livro de execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Se o ficheiro contiver múltiplos fluxos de trabalho powerShell, a importação falha. Deve guardar cada fluxo de trabalho para o seu próprio ficheiro e importar cada um separadamente.
+* Pode importar apenas um ficheiro **.ps1** contendo um fluxo de trabalho PowerShell num [manual de fluxo de trabalho PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se o ficheiro contiver vários fluxos de trabalho powerShell, a importação falha. Deve guardar cada fluxo de trabalho para o seu próprio ficheiro e importar cada um separadamente.
 
-* Não importe um ficheiro **.ps1** contendo um PowerShell Workflow num livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks), uma vez que o motor de script PowerShell não o reconhece.
+* Não importe um ficheiro **.ps1** contendo um fluxo de trabalho PowerShell num [manual powerShell](automation-runbook-types.md#powershell-runbooks), uma vez que o motor de script PowerShell não o reconhece.
 
-* Apenas importe um ficheiro **.graphrunbook** num novo [livro de execução gráfico](automation-runbook-types.md#graphical-runbooks). 
+* Apenas importe um ficheiro **.graphrunbook** num novo [runbook gráfico](automation-runbook-types.md#graphical-runbooks).
 
-### <a name="import-a-runbook-from-the-azure-portal"></a>Importar um livro de escoamentos do portal Azure
+### <a name="import-a-runbook-from-the-azure-portal"></a>Importe um runbook do portal Azure
 
-Pode utilizar o seguinte procedimento para importar um ficheiro de script para a Automação Azure.
+Pode utilizar o seguinte procedimento para importar um ficheiro de script para a Azure Automation.
 
 > [!NOTE]
-> Só é possível importar um ficheiro **.ps1** num livro de fluxo sinuoso powerShell utilizando o portal.
+> Só é possível importar um ficheiro **.ps1** num manual de fluxo de trabalho PowerShell utilizando o portal.
 
 1. No portal do Azure, abra a sua conta da Automatização.
-2. Selecione **Runbooks** em **Process Automation** para abrir a lista de livros de execução.
-3. Clique **em importar um livro de execução**.
-4. Clique no **ficheiro Runbook** e selecione o ficheiro para importar.
-5. Se o campo **Nome** estiver ativado, tem a opção de alterar o nome do livro de execução. O nome deve começar com uma letra e pode conter letras, números, sublinhados e traços.
-6. O tipo de livro de [execução](automation-runbook-types.md) é automaticamente selecionado, mas pode alterar o tipo depois de ter em conta as restrições aplicáveis.
-7. Clique em **Criar**. O novo livro de execução aparece na lista de livros de execução para a conta Automation.
-8. Tem de publicar o livro de [execução](#publish-a-runbook) antes de o poder executar.
+2. Selecione **Runbooks** em **Automação de Processos** para abrir a lista de runbooks.
+3. Clique **em Importar um livro de recortes.**
+4. Clique **no ficheiro Runbook** e selecione o ficheiro para importar.
+5. Se o campo **Nome** estiver ativado, tem a opção de alterar o nome do livro de verificação. O nome deve começar com uma letra e pode conter letras, números, sublinhados e traços.
+6. O [tipo de runbook](automation-runbook-types.md) é selecionado automaticamente, mas pode alterar o tipo depois de ter em conta as restrições aplicáveis.
+7. Clique em **Criar**. O novo runbook aparece na lista de runbooks para a conta Automation.
+8. Tem de [publicar o livro de recortes](#publish-a-runbook) antes de o poder executar.
 
 > [!NOTE]
-> Depois de importar um livro gráfico, pode convertê-lo em outro tipo. No entanto, não é possível converter um livro de execução gráfico num livro textual.
+> Depois de importar um livro gráfico, pode convertê-lo para outro tipo. No entanto, não é possível converter um livro gráfico num livro de texto.
 
-### <a name="import-a-runbook-with-windows-powershell"></a>Importar um livro de corridas com o Windows PowerShell
+### <a name="import-a-runbook-with-windows-powershell"></a>Importar um livro com Windows PowerShell
 
-Utilize o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro script como um rascunho de livro de execução. Se o livro de execução já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
+Utilize o [cmdlet Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro de script como um rascunho de livro de recortes. Se o livro já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
 
-O exemplo que se segue mostra como importar um ficheiro de script num livro de corridas.
+O exemplo a seguir mostra como importar um ficheiro de script num livro de aplicação.
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 -Type PowerShellWorkflow
 ```
 
-## <a name="handle-resources"></a>Lidar com recursos
+## <a name="handle-resources"></a>Gerir recursos
 
 Se o seu livro de execução criar um [recurso,](automation-runbook-execution.md#resources)o script deve verificar se o recurso já existe antes de tentar criá-lo. Aqui está um exemplo básico.
 
@@ -115,7 +115,7 @@ else
 
 ## <a name="retrieve-details-from-activity-log"></a>Recuperar detalhes do registo de atividades
 
-Pode recuperar detalhes do livro de execução, como a pessoa ou conta que iniciou um livro de execução, a partir do [registo de Atividade](automation-runbook-execution.md#activity-logging) sonorizador a conta Automation. O exemplo powerShell seguinte fornece o último utilizador a executar o livro de execução especificado.
+Pode recuperar detalhes do runbook, como a pessoa ou conta que iniciou um livro de contas, a partir do [registo de Atividade](automation-runbook-execution.md#activity-logging) para a conta Automation. O exemplo powerShell a seguir fornece o último utilizador a executar o runbook especificado.
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
@@ -147,13 +147,13 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="track-progress"></a>Controlar o progresso
 
-É uma boa prática autorizar os seus livros de corridas para serem modulares na natureza, com lógica que pode ser reutilizada e reiniciada facilmente. O acompanhamento do progresso num livro de execução garante que a lógica do livro de recortes executa corretamente se houver problemas. 
+É uma boa prática autoriar os seus livros de corridas para serem modulares na natureza, com lógica que pode ser reutilizada e reiniciada facilmente. O acompanhamento do progresso num livro de bordo garante que a lógica do livro executa corretamente se houver problemas. 
 
-Pode acompanhar o progresso de um livro de execução utilizando uma fonte externa, como uma conta de armazenamento, uma base de dados ou ficheiros partilhados. Crie lógica no seu livro de execução para primeiro verificar o estado da última ação tomada. Em seguida, com base nos resultados da verificação, a lógica pode saltar ou continuar tarefas específicas no livro de execução.
+Pode acompanhar o progresso de um livro de execução utilizando uma fonte externa, como uma conta de armazenamento, uma base de dados ou ficheiros partilhados. Crie lógica no seu livro de bordo para verificar primeiro o estado das últimas medidas tomadas. Em seguida, com base nos resultados da verificação, a lógica pode saltar ou continuar tarefas específicas no livro de aplicação.
 
 ## <a name="prevent-concurrent-jobs"></a>Prevenir empregos simultâneos
 
-Alguns livros comportam-se de forma estranha se encontrarem vários empregos ao mesmo tempo. Neste caso, é importante que um livro implemente a lógica para determinar se já existe um trabalho em execução. Aqui está um exemplo básico.
+Alguns livros comportam-se de forma estranha se encontrarem vários empregos ao mesmo tempo. Neste caso, é importante que um livro de aplicação da lógica implemente a lógica para determinar se já existe um trabalho em execução. Aqui está um exemplo básico.
 
 ```powershell
 # Authenticate to Azure
@@ -161,7 +161,7 @@ $connection = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
 
 # Check for already running or new runbooks
 $runbookName = "<RunbookName>"
@@ -183,16 +183,16 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ## <a name="handle-transient-errors-in-a-time-dependent-script"></a>Lidar com erros transitórios num script dependente do tempo
 
-Os seus livros de execução devem ser robustos e capazes de lidar com [erros](automation-runbook-execution.md#errors), incluindo erros transitórios que podem fazê-los reiniciar ou falhar. Se um livro de execução falhar, a Azure Automation tenta-o novamente.
+Os seus livros de execução devem ser robustos e capazes de lidar com [erros,](automation-runbook-execution.md#errors)incluindo erros transitórios que podem fazê-los reiniciar ou falhar. Se um livro falhar, a Azure Automation retira-o.
 
-Se o seu livro de execução normalmente estiver dentro de uma restrição de tempo, faça com que o script implemente a lógica para verificar o tempo de execução. Este controlo garante o funcionamento de operações como arranque, paragem ou escala apenas em tempos específicos.
+Se o seu livro de execução normalmente funcionar dentro de uma restrição de tempo, tenha a lógica de implementação do script para verificar o tempo de execução. Esta verificação garante o funcionamento de operações como arranque, paragem ou escala apenas em horários específicos.
 
 > [!NOTE]
-> A hora local no processo de caixa de areia Azure está definida para UTC. Os cálculos relativos à data e hora nos seus livros de execução devem ter em conta este facto.
+> A hora local no processo de caixa de areia Azure está definida para UTC. Os cálculos para a data e hora nos seus livros devem ter este facto em consideração.
 
 ## <a name="work-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
 
-O seu livro de execução deve poder trabalhar com [subscrições](automation-runbook-execution.md#subscriptions). Por exemplo, para lidar com várias subscrições, o livro de execução utiliza o cmdlet [Desactivação-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro livro de corridas que funciona na mesma caixa de areia. O livro de execução também utiliza o `AzContext` parâmetro no módulo Az cmdlets e passa-lhe o contexto adequado.
+O seu livro de execução deve poder trabalhar com [subscrições.](automation-runbook-execution.md#subscriptions) Por exemplo, para lidar com várias subscrições, o runbook utiliza o cmdlet [Disable-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro runbook que funciona na mesma caixa de areia. O livro também utiliza o `Get-AzContext` cmdlet para recuperar o contexto da sessão atual, e atribuí-lo à variável `$AzureContext` .
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -204,7 +204,7 @@ Connect-AzAccount -ServicePrincipal `
 -ApplicationId $Conn.ApplicationID `
 -CertificateThumbprint $Conn.CertificateThumbprint
 
-$context = Get-AzContext
+$AzureContext = Get-AzContext
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
@@ -214,50 +214,50 @@ Start-AzAutomationRunbook `
     -ResourceGroupName $ResourceGroupName `
     -AutomationAccountName $AutomationAccountName `
     -Name $ChildRunbookName `
-    -DefaultProfile $context
+    -DefaultProfile $AzureContext
 ```
 
-## <a name="work-with-a-custom-script"></a>Trabalhe com um roteiro personalizado
+## <a name="work-with-a-custom-script"></a>Trabalhe com um script personalizado
 
 > [!NOTE]
 > Normalmente não é possível executar scripts e livros personalizados no anfitrião com um agente Log Analytics instalado. 
 
 Para usar um script personalizado:
 
-1. Criar uma conta de Automação e obter uma [função de Contribuinte.](automation-role-based-access-control.md)
-2. Ligue a conta ao espaço de [trabalho Azure.](../security-center/security-center-enable-data-collection.md)
-3. Ativar [o Trabalhador do Livro híbrido,](automation-hybrid-runbook-worker.md) [gestão de atualizações,](automation-update-management.md)ou outra funcionalidade de Automação. 
-4. Se numa máquina linux, precisas de altas permissões. Faça login para [desativar as verificações de assinatura](automation-linux-hrw-install.md#turn-off-signature-validation).
+1. Criar uma conta De Automação e obter uma [função contribuinte.](automation-role-based-access-control.md)
+2. [Ligue a conta ao espaço de trabalho Azure.](../security-center/security-center-enable-data-collection.md)
+3. Ativar [o Trabalhador de Runbook Híbrido,](automation-hybrid-runbook-worker.md) [a Gestão de Atualização](automation-update-management.md)ou outra funcionalidade de Automação. 
+4. Se numa máquina Linux, precisa de permissões elevadas. Faça login para [desativar as verificações de assinaturas.](automation-linux-hrw-install.md#turn-off-signature-validation)
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos de [saída](automation-runbook-output-and-messages.md#use-the-output-stream) e [de aviso e erro](automation-runbook-output-and-messages.md#monitor-message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo verbose](automation-runbook-output-and-messages.md#monitor-message-streams) só são apresentadas no painel de saída se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) estiver definida para `Continue` .
+Quando se testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e todas as ações que executa são concluídas. Não foi criado nenhum histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#use-the-output-stream) e de aviso [e erro](automation-runbook-output-and-messages.md#monitor-message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo verboso](automation-runbook-output-and-messages.md#monitor-message-streams) só são apresentadas no painel de saída se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) estiver definida para `Continue` .
 
-Mesmo que o projeto de versão esteja a ser executado, o livro de execução ainda executa normalmente e executa quaisquer ações contra recursos no ambiente. Por esta razão, só deve testar livros de execução sobre recursos não produtivos.
+Mesmo que a versão do projeto esteja a ser executada, o livro de corridas ainda executa normalmente e executa quaisquer ações contra recursos no ambiente. Por esta razão, só deve testar livros de recortes em recursos não produtivos.
 
-O procedimento para testar cada tipo de livro de [execução](automation-runbook-types.md) é o mesmo. Não há diferença nos testes entre o editor textual e o editor gráfico no portal Azure.
+O procedimento para testar cada [tipo de livro é](automation-runbook-types.md) o mesmo. Não há diferença nos testes entre o editor textual e o editor gráfico no portal Azure.
 
-1. Abra a versão Draft do livro de execução no [editor textual](automation-edit-textual-runbook.md) ou no [editor gráfico.](automation-graphical-authoring-intro.md)
-1. Clique em **Testar** para abrir a página de Teste.
-1. Se o livro tiver parâmetros, estão listados no painel esquerdo, onde pode fornecer valores a utilizar para o teste.
-1. Se quiser eexecutar o teste num Trabalhador híbrido do livro de [corridas,](automation-hybrid-runbook-worker.md)altere as **Definições** de Execução para **O Trabalhador Híbrido** e selecione o nome do grupo alvo.  Caso contrário, mantenha o **Azure** padrão para executar o teste na nuvem.
-1. Clique **em Começar** para iniciar o teste.
-1. Pode utilizar os botões sob o painel de saída para parar ou suspender um [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) ou um livro [gráfico](automation-runbook-types.md#graphical-runbooks) enquanto está a ser testado. Quando suspende o runbook, este conclui a atividade que estava em curso antes de ser suspenso. Depois de o runbook ter sido suspenso, pode pará-lo ou reiniciá-lo.
-1. Inspecione a saída do livro de execução no painel de saída.
+1. Abra a versão Draft do livro de recortes quer no [editor textual](automation-edit-textual-runbook.md) quer no [editor gráfico](automation-graphical-authoring-intro.md).
+1. Clique em **Teste** para abrir a página de Teste.
+1. Se o livro de bordo tiver parâmetros, estão listados no painel esquerdo, onde pode fornecer valores a serem utilizados para o teste.
+1. Se pretender executar o teste num [Trabalhador de Runbook Híbrido,](automation-hybrid-runbook-worker.md)altere **as Definições de Execução** para **Trabalhador Híbrido** e selecione o nome do grupo alvo.  Caso contrário, mantenha o **Azure** predefinido para executar o teste na nuvem.
+1. Clique **em Iniciar** o teste.
+1. Pode utilizar os botões debaixo do painel de saída para parar ou suspender um [fluxo de trabalho powerShell](automation-runbook-types.md#powershell-workflow-runbooks) ou um livro [de recortes gráficos](automation-runbook-types.md#graphical-runbooks) enquanto está a ser testado. Quando suspende o runbook, este conclui a atividade que estava em curso antes de ser suspenso. Depois de o runbook ter sido suspenso, pode pará-lo ou reiniciá-lo.
+1. Inspecione a saída do livro de recortes no painel de saída.
 
 ## <a name="publish-a-runbook"></a>Publicar um livro de corridas
 
-Quando criar ou importar um novo livro de execução, deve publicá-lo antes de o poder executar. Cada livro de execução em Azure Automation tem uma versão Draft e uma versão Publicada. Apenas a versão Publicada está disponível para ser executada e só a versão de Rascunho pode ser editada. A versão Publicada não é afetada por quaisquer alterações feitas à versão de Rascunho. Quando a versão Do Projeto deve ser disponibilizada, publica-a, sobressando a versão atual publicada com a versão Draft.
+Quando cria ou importa um novo livro de bordo, deve publicá-lo antes de o poder executar. Cada runbook na Azure Automation tem uma versão Draft e uma versão publicada. Apenas a versão Publicada está disponível para ser executada e só a versão de Rascunho pode ser editada. A versão Publicada não é afetada por quaisquer alterações feitas à versão de Rascunho. Quando a versão Draft deve ser disponibilizada, publica-a, sobreescrevendo a versão atual publicada com a versão Draft.
 
-### <a name="publish-a-runbook-in-the-azure-portal"></a>Publique um livro de corridas no portal Azure
+### <a name="publish-a-runbook-in-the-azure-portal"></a>Publique um livro de bordo no portal Azure
 
-1. Abra o livro de corridas no portal Azure.
+1. Abra o livro de correr no portal Azure.
 2. Clique em **Editar**.
-3. Clique em **Publicar** e, em **seguida, sim** em resposta à mensagem de verificação.
+3. Clique em **Publicar** e, em seguida, **Sim** em resposta à mensagem de verificação.
 
-### <a name="publish-a-runbook-using-powershell"></a>Publique um livro de corridas usando powerShell
+### <a name="publish-a-runbook-using-powershell"></a>Publique um livro de execução usando o PowerShell
 
-Utilize o cmdlet [Publish-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) para publicar o seu livro de execução. 
+Utilize o [cmdlet Publish-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) para publicar o seu runbook. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -270,44 +270,44 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 
 ## <a name="schedule-a-runbook-in-the-azure-portal"></a>Agende um livro de corridas no portal Azure
 
-Quando o seu livro de execução tiver sido publicado, pode programar para o funcionamento:
+Quando o seu livro de bordo tiver sido publicado, pode agendar para operação:
 
-1. Abra o livro de corridas no portal Azure.
+1. Abra o livro de correr no portal Azure.
 2. Selecione **Horários** em **Recursos**.
-3. Selecione **Adicionar um horário**.
-4. No painel 'AgendaR Runbook', selecione Link um horário para o seu livro de **execução**.
-5. Escolha **Criar um novo horário** no painel de horários.
+3. **Selecione Adicione um horário**.
+4. No painel 'Schedule Runbook', **selecione Link um horário para o seu runbook**.
+5. Escolha **Criar um novo horário** no painel agendamento.
 6. Introduza um nome, descrição e outros parâmetros no painel de horários novo. 
-7. Assim que a programação for criada, realce-a e clique em **OK**. Deve agora estar ligado ao seu livro de corridas.
-8. Procure um e-mail na sua caixa de correio para notificá-lo do estado do livro de recortes.
+7. Uma vez criado o horário, realce-o e clique **em OK**. Deve agora estar ligado ao seu livro de bordo.
+8. Procure um e-mail na sua caixa de correio para notificá-lo do estado do livro de aplicação.
 
-## <a name="obtain-job-statuses"></a>Obter estatuto de emprego
+## <a name="obtain-job-statuses"></a>Obter estatutos de emprego
 
-### <a name="view-statuses-in-the-azure-portal"></a>Ver estados no portal Azure
+### <a name="view-statuses-in-the-azure-portal"></a>Ver statuses no portal Azure
 
-Os detalhes do manuseamento de postos de trabalho na Automação Azure são fornecidos em [Jobs](automation-runbook-execution.md#jobs). Quando estiver pronto para ver os seus trabalhos de livro, use o portal Azure e aceda à sua conta De automação. À direita, pode ver-se um resumo de todos os trabalhos de livro em **Estatísticas do Emprego.** 
+Os detalhes do tratamento de emprego na Azure Automation são fornecidos em [Jobs](automation-runbook-execution.md#jobs). Quando estiver pronto para ver os seus trabalhos de runbook, use o portal Azure e aceda à sua conta Automation. À direita, pode ver-se um resumo de todos os trabalhos de runbook em **Estatísticas de Emprego.** 
 
-![Azulejo sintetizar estatísticas de emprego](./media/manage-runbooks/automation-account-job-status-summary.png)
+![Azulejo de Estatísticas de Emprego](./media/manage-runbooks/automation-account-job-status-summary.png)
 
-O resumo apresenta uma contagem e representação gráfica do estatuto de emprego para cada trabalho executado.
+O resumo apresenta uma contagem e representação gráfica do estado de trabalho de cada trabalho executado.
 
-Clicar no azulejo apresenta a página Jobs, que inclui uma lista resumida de todos os empregos executados. Esta página mostra o estado, o nome do livro de execução, o tempo de início e o tempo de conclusão para cada trabalho.
+Clicar no azulejo apresenta a página Jobs, que inclui uma lista resumida de todos os trabalhos executados. Esta página mostra o estado, nome do livro, hora de início e tempo de conclusão para cada trabalho.
 
-![Página de trabalhos da conta de automação](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+![Página de empregos de conta de automação](./media/manage-runbooks/automation-account-jobs-status-blade.png)
 
-Pode filtrar a lista de trabalhos selecionando **trabalhos**de filtro . Filtre num livro específico, no estado do trabalho ou numa escolha da lista de abandono escolar e forneça o intervalo de tempo para a pesquisa.
+Pode filtrar a lista de empregos selecionando **trabalhos de filtragem**. Filtrar num livro de bordo específico, estado de trabalho ou uma escolha da lista de abandono e fornecer o intervalo de tempo para a pesquisa.
 
-![Estatuto de trabalho de filtragem](./media/manage-runbooks/automation-account-jobs-filter.png)
+![Estado do trabalho do filtro](./media/manage-runbooks/automation-account-jobs-filter.png)
 
-Em alternativa, pode ver detalhes de resumo de trabalho para um livro de execução específico, selecionando esse livro de execução a partir da página Runbooks na sua conta Automation e, em seguida, selecionando **Jobs**. Esta ação apresenta a página Jobs. A partir daqui, pode clicar num registo de trabalho para ver os seus detalhes e saídas.
+Em alternativa, pode visualizar os dados do resumo do trabalho para um livro de contas específico selecionando o livro de recortes da página Runbooks na sua conta Demômes automática e, em seguida, selecionando **Jobs**. Esta ação apresenta a página Jobs. A partir daqui, pode clicar num registo de trabalho para ver os seus detalhes e saída.
 
-![Página de trabalhos da conta de automação](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+![Página de empregos de conta de automação](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
 
-### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar os estatutos de trabalho usando o PowerShell
+### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar o estatuto de trabalho usando o PowerShell
 
-Utilize o cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de corridas `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
+Utilize o [cmdlet Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de bordo e os detalhes de um determinado trabalho. Se iniciar um livro de bordo `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída do trabalho.
 
-O exemplo seguinte obtém o último trabalho para um livro de amostras e mostra o seu estado, os valores previstos para os parâmetros do livro de execução e a saída de trabalho.
+O exemplo a seguir obtém o último trabalho para um livro de amostras e apresenta o seu estado, os valores fornecidos para os parâmetros do livro de bordo e a saída do trabalho.
 
 ```azurepowershell-interactive
 $job = (Get-AzAutomationJob –AutomationAccountName "MyAutomationAccount" `
@@ -318,7 +318,7 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 ```
 
-O exemplo seguinte recupera a saída para um trabalho específico e devolve cada registo. Se houver uma [exceção](automation-runbook-execution.md#exceptions) para um dos registos, o guião escreve a exceção em vez do valor. Este comportamento é útil, uma vez que as exceções podem fornecer informações adicionais que podem não ser registadas normalmente durante a saída.
+O exemplo a seguir recupera a saída para um trabalho específico e devolve cada registo. Se houver uma [exceção](automation-runbook-execution.md#exceptions) para um dos registos, o guião escreve a exceção em vez do valor. Este comportamento é útil uma vez que as exceções podem fornecer informações adicionais que podem não ser registadas normalmente durante a saída.
 
 ```azurepowershell-interactive
 $output = Get-AzAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
@@ -338,8 +338,8 @@ foreach($item in $output)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para conhecer detalhes da gestão do livro de corridas, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
-* Para preparar um livro de execução PowerShell, consulte [editar livros de texto em Automação Azure](automation-edit-textual-runbook.md).
-* Para ajudar a escrever um livro de execução powerShell Workflow, consulte [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md).
-* Para mais detalhes sobre a escrita de livros gráficos, consulte [os livros de execução gráficos autor em Automação Azure.](automation-graphical-authoring-intro.md)
-* Para resolver problemas com a execução do livro de corridas, consulte problemas de runbook da [Troubleshoot.](troubleshoot/runbooks.md)
+* Para obter detalhes sobre a gestão de [runbook, consulte a execução do Runbook na Azure Automation](automation-runbook-execution.md).
+* Para preparar um livro de bordo PowerShell, consulte [editar livros de texto em Azure Automation](automation-edit-textual-runbook.md).
+* Para ajudar a escrever um manual de fluxo de trabalho PowerShell, consulte [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md).
+* Para obter detalhes sobre a escrita de livros gráficos, consulte [os livros gráficos do Autor na Azure Automation](automation-graphical-authoring-intro.md).
+* Para resolver problemas com a execução do livro de [recortes, consulte os problemas do livro de resolução de problemas](troubleshoot/runbooks.md).

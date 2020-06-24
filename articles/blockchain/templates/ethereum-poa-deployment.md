@@ -2,14 +2,14 @@
 title: Implementar o modelo de solução de consórcio Ethereum Proof-of-Authority no Azure
 description: Utilize a solução do consórcio Ethereum Proof-of-Authority para implantar e configurar uma rede de consórcio multi-membroS Ethereum na Azure
 ms.date: 06/04/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 2be87dec252aa927c6b1acfc6cb1aa23bf7d2620
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434357"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210121"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementar o modelo de solução de consórcio de prova de autoridade do Ethereum no Azure
 
@@ -558,7 +558,7 @@ No exemplo seguinte, cria-se um contrato inteligente simples. Usas a Truffle par
 #### <a name="prerequisites"></a>Pré-requisitos
 
 * Instale [python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python é necessário para Trufas e Web3. Selecione a opção de instalação para incluir Python no seu caminho.
-* Instalar trufas v5.0.5 `npm install -g truffle@v5.0.5` . A trufa requer várias ferramentas para ser instalada, incluindo [Node.js,](https://nodejs.org) [Git.](https://git-scm.com/) Para mais informações, consulte [a documentação da Truffle.](https://github.com/trufflesuite/truffle)
+* Instalar trufas v5.0.5 `npm install -g truffle@v5.0.5` . A trufa requer várias ferramentas para ser instalada, incluindo [Node.js, ](https://nodejs.org) [Git.](https://git-scm.com/) Para mais informações, consulte [a documentação da Truffle.](https://github.com/trufflesuite/truffle)
 
 ### <a name="create-truffle-project"></a>Criar projeto Truffle
 
@@ -648,7 +648,7 @@ Truffle usa scripts de migração para implementar contratos inteligentes para u
 Agora que o seu contrato inteligente está implementado, pode enviar uma transação para convocar uma função.
 
 1. No diretório do projeto Truffle, crie um novo ficheiro chamado `sendtransaction.js` .
-1. Adicione o seguinte conteúdo ao **sendtransaction.js**.
+1. Adicione o seguinte conteúdo a **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");

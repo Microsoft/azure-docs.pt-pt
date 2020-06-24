@@ -1,22 +1,22 @@
 ---
-title: Conectores API para fluxos de trabalho de aprovação personalizada em identidades externas autosserviço inscrição - Azure AD
+title: Adicionar aprovações personalizadas aos fluxos de inscrição de self-service - Azure AD
 description: Adicione conectores API para fluxos de trabalho de homologação personalizados em identidades externas self-service - Azure Ative Directy (Azure AD)
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172f2041e7339a69648bfb84c0955eec15a0bc6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 45a08ff8d1f796cec2d4562ae64392253a539416
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680064"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886498"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
 
@@ -34,7 +34,7 @@ Tem de registar o seu sistema de aprovação como uma aplicação no seu inquili
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
-4. Introduza um **Nome** para a aplicação, por exemplo, *Aprovações de inscrição*.
+4. Introduza um **Nome** para a aplicação, por exemplo, _Aprovações de inscrição_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
@@ -46,11 +46,11 @@ Tem de registar o seu sistema de aprovação como uma aplicação no seu inquili
 7. Na página de **permissões da API do Pedido,** selecione **o Gráfico do Microsoft**e, em seguida, selecione **permissões de aplicação**.
 8. Sob **permissões Selecione,** expanda o **Utilizador**e, em seguida, selecione a caixa de verificação **User.ReadWrite.All.** Esta permissão permite que o sistema de aprovação crie o utilizador mediante aprovação. Em seguida, **selecione Adicionar permissões**.
 
-    ![Registar uma página de inscrição](media/self-service-sign-up-add-approvals/request-api-permissions.png)
+   ![Registar uma página de inscrição](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
 9. Na página de permissões da **API,** selecione **o consentimento de administração grant para (o nome do seu inquilino)** e, em seguida, selecione **Sim**.
 10. Em **Gerir** no menu esquerdo, selecione **Certificados & segredos,** e, em seguida, selecione **Novo segredo do cliente**.
-11. Insira uma **Descrição** para o segredo, por *exemplo, aprova*o segredo do cliente, e selecione a duração para quando o segredo do cliente **expirar.** Em seguida, **selecione Adicionar**.
+11. Insira uma **Descrição** para o segredo, por _exemplo, aprova_o segredo do cliente, e selecione a duração para quando o segredo do cliente **expirar.** Em seguida, **selecione Adicionar**.
 12. Copie o valor do segredo do cliente.
 
     ![Copie o segredo do cliente para uso no sistema de aprovação](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -63,11 +63,11 @@ Em seguida, [irá criar os conectores API](self-service-sign-up-add-api-connecto
 
 - **Verifique o estado de aprovação**. Envie uma chamada para o sistema de aprovação imediatamente após um utilizador entrar em sing-in com um fornecedor de identidade para verificar se o utilizador tem um pedido de aprovação existente ou já foi negado. Se o seu sistema de aprovação apenas fizer decisões de aprovação automáticas, este conector API pode não ser necessário. Segue-se um exemplo de um conector API "Verificar o estado de aprovação".
 
-   ![Verifique a configuração do conector API do estado de aprovação](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
+  ![Verifique a configuração do conector API do estado de aprovação](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
 - **Solicitar aprovação** - Enviar uma chamada para o sistema de aprovação depois de um utilizador completar a página de recolha de atributos, mas antes da conta de utilizador ser criada, para solicitar a aprovação. O pedido de aprovação pode ser concedido automaticamente ou revisto manualmente. Segue-se um exemplo de um conector API de "Pedido de aprovação". Selecione quaisquer **Reclamações para enviar** que o sistema de aprovação precisa de tomar uma decisão de aprovação.
 
-   ![Solicitação de configuração do conector API de aprovação](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
+  ![Solicitação de configuração do conector API de aprovação](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
 Para criar estes conectores, siga os passos para [criar um conector API](self-service-sign-up-add-api-connector.md#create-an-api-connector).
 
@@ -80,8 +80,9 @@ Agora irá adicionar os conectores API a um fluxo de utilizador de inscrição d
 3. No menu esquerdo, selecione **Identidades Externas.**
 4. Selecione **os fluxos do Utilizador (Pré-visualização)** e, em seguida, selecione o fluxo do utilizador que pretende ativar o conector API.
 5. Selecione **conectores API**e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
-   - **Depois de iniciar sessão com um fornecedor de identidade**: Selecione o seu conector API de estado de aprovação, por *exemplo, Verifique o estado de aprovação*.
-   - **Antes de criar o utilizador**: Selecione o seu conector API de pedido de aprovação, por exemplo, *Solicite a aprovação.*
+
+   - **Depois de iniciar sessão com um fornecedor de identidade**: Selecione o seu conector API de estado de aprovação, por _exemplo, Verifique o estado de aprovação_.
+   - **Antes de criar o utilizador**: Selecione o seu conector API de pedido de aprovação, por exemplo, _Solicite a aprovação._
 
    ![Adicionar APIs ao fluxo de utilizador](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -182,7 +183,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -191,7 +192,7 @@ Content-type: application/json
 
 O ponto final da **API de aprovação** do Pedido deve devolver uma resposta de continuação se:
 
-- O utilizador pode ser ***automaticamente aprovado***.
+- O utilizador pode ser **_automaticamente aprovado_**.
 
 Segue-se um exemplo da resposta de continuação:
 
@@ -273,7 +274,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -298,19 +299,19 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value"
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value"
 }
 ```
 
-| Parâmetro  | Obrigatório | Descrição |
-|---|---|---|
-| userPrincipalName | Sim | Pode ser gerado tomando a `email_address` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled  | Sim  | Deve ser definido para `true` .  |
-| correio  | Sim | Equivalente à `email_address` reclamação enviada à API. |
-| userType | Sim | Deve `Guest` ser. Designa este utilizador como utilizador convidado. |
-| identidades  | Sim  | A informação de identidade federada. |
-| \<otherBuiltInAttribute>  | Não  | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.|
-| \<extension_\<aad-extensions-app-id>\_> CustomAttribute | Não | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API. |
+| Parâmetro                                           | Obrigatório | Descrição                                                                                                                                                            |
+| --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userPrincipalName                                   | Yes      | Pode ser gerado tomando a `email_address` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Yes      | Deve ser definido para `true` .                                                                                                                                                 |
+| correio                                                | Yes      | Equivalente à `email_address` reclamação enviada à API.                                                                                                               |
+| userType                                            | Yes      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
+| identidades                                          | Yes      | A informação de identidade federada.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | No       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Para um utilizador federado do Azure Ative Directory
 
@@ -326,7 +327,7 @@ Content-type: application/json
  "email_address": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -334,11 +335,11 @@ Content-type: application/json
 2. O sistema de aprovação cria o convite utilizando o `email_address` conector API fornecido.
 
 ```http
-POST https://graph.microsoft.com/v1.0/invitations 
+POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com", 
+    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
     "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
@@ -366,11 +367,11 @@ Content-type: application/json
 {
     "displayName": "John Smith",
     "city": "Redmond",
-    "extension_<aad-extensions-app-id>_AttributeName": "custom attribute value"
+    "extension_<extensions-app-id>_AttributeName": "custom attribute value"
 }
 ```
 
-<!-- ## Next steps -->
-<!-- - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-system).  -->
-<!--TODO: link to sample-->
+## <a name="next-steps"></a>Passos seguintes
 
+- Começa com as [nossas amostras de quickstart da Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
+- Check-out o [autosserviço de inscrição para utilizadores convidados com amostra de aprovação manual](code-samples-self-service-sign-up.md#custom-approval-workflows). 

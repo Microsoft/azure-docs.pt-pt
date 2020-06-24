@@ -3,8 +3,8 @@ title: Criar uma rede virtual
 titleSuffix: Azure SQL Managed Instance
 description: Este artigo descreve como criar uma rede virtual configurada para suportar a implementação de Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 4cbcad991da6a7517ca2914cfd99b8517853c0e4
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: d6458794b8d3c5ba68109dbc90a075d6a2a577b9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657919"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711328"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Criar uma rede virtual para Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -60,7 +60,7 @@ A forma mais fácil de criar e configurar uma rede virtual é utilizar um modelo
 
    Pode alterar os nomes da rede virtual e sub-redes e ajustar as gamas IP associadas aos seus recursos de rede. Depois de selecionar o botão **Comprar,** este formulário criará e configurará o seu ambiente. Se não precisar de duas sub-redes, pode eliminar a padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é a SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Conheça a [arquitetura de conectividade em SQL Managed Instance](connectivity-architecture-overview.md).

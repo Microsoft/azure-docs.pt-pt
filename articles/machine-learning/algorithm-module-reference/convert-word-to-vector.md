@@ -1,7 +1,7 @@
 ---
-title: Converter palavra em vetor
+title: 'Converter palavra para vetor: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar três modelos Word2Vec fornecidos para extrair um vocabulário e a sua palavra correspondente incorpora-se a partir de um corpus de texto.
+description: Aprenda a usar três modelos Word2Vec fornecidos para extrair um vocabulário e as suas correspondentes incorporações de palavras a partir de um corpus de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,104 +9,109 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e796b75690bcacc6be8ef29b8b490c7faa40af
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853772"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753896"
 ---
-# <a name="convert-word-to-vector"></a>Converter palavra em vetor
+# <a name="convert-word-to-vector-module"></a>Converter palavra para módulo vetorial
 
-Este artigo descreve como usar a **palavra Convert para** o módulo Vetor em Azure Machine Learning designer (Preview), para aplicar vários modelos Word2Vec (Word2Vec, FastText, Glove modelo pré-treinado) no corpus do texto que especificou como entrada, e gerar um vocabulário com incorporações de palavras.
+Este artigo descreve como usar o módulo Converte palavra a vetor em Azure Machine Learning designer (pré-visualização) para fazer estas tarefas:
 
-Este módulo utiliza a biblioteca Gensim. Para mais informações sobre gensim, consulte o seu [site oficial](https://radimrehurek.com/gensim/apiref.html) que inclui tutoriais e explicação de algoritmos.
+- Aplicar vários modelos Word2Vec (Modelo Word2Vec, FastText, GloVe) no corpus de texto que especificou como entrada.
+- Gere um vocabulário com incorporações de palavras.
 
-### <a name="more-about-convert-word-to-vector"></a>Mais sobre converter palavra para vetor
+Este módulo usa a biblioteca Gensim. Para mais informações sobre o Gensim, consulte o seu [site oficial,](https://radimrehurek.com/gensim/apiref.html)que inclui tutoriais e uma explicação de algoritmos.
 
-Em termos gerais, converter palavra em vetor, ou vetorização de palavras, é um processo de processamento de linguagem natural, que usa modelos ou técnicas de linguagem para mapear palavras em espaço vetorial, isto é, para representar cada palavra por um vetor de números reais, e entretanto, permite que palavras com significados semelhantes tenham representações semelhantes.
+### <a name="more-about-converting-words-to-vectors"></a>Mais sobre converter palavras em vetores
 
-As incorporações de palavras podem ser usadas como entrada inicial para tarefas a jusante do NLP, tais como classificação de texto, análise de sentimentos, etc.
+De um modo geral, converter palavras em vetores, ou vectorização de palavras, é um processo de processamento de linguagem natural (NLP). O processo usa modelos ou técnicas linguísticas para mapear palavras no espaço vetorial, isto é, para representar cada palavra por um vetor de números reais. Entretanto, permite que palavras com significados semelhantes tenham representações semelhantes.
 
-Entre várias tecnologias de incorporação de palavras, neste módulo, implementamos três métodos amplamente utilizados, incluindo dois modelos de formação online, Word2Vec e FastText, e um modelo pré-treinado, luva-wiki-gigaword-100. Os modelos de treino online são treinados nos seus dados de entrada, enquanto os modelos pré-treinados são treinados off-line em um corpus de texto maior, (por exemplo, Wikipedia, Google News) geralmente contém cerca de 100 mil milhões de palavras, então, a incorporação de palavras permanece constante durante a vetorização de palavras. Os modelos de palavrapré-treinados pré-treinados proporcionam benefícios como tempo de treino reduzido, melhores vetores de palavras codificados e melhor desempenho geral.
+As incorporações de palavras podem ser usadas como entrada inicial para tarefas a jusante de NLP, tais como classificação de texto e análise de sentimento.
 
-+ O Word2Vec é uma das técnicas mais populares para aprender incorporações de palavras usando rede neural rasa, a teoria é discutida neste artigo, disponível como um download pdf: [Estimativa eficiente de representações de palavras no espaço vetorial, Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). A implementação neste módulo [baseia-se na biblioteca gensim para o Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
+Entre várias tecnologias de incorporação de palavras, neste módulo, implementámos três métodos amplamente utilizados. Dois, Word2Vec e FastText, são modelos de treino online. O outro é um modelo pré-treinado, luva-wiki-gigaword-100. 
 
-+ A teoria fastText é explicada neste artigo, disponível como um download pdf: [Enriquecendo vetores de palavras com informação de sub-palavra, Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). A implementação neste módulo [baseia-se na biblioteca gensim para fastText](https://radimrehurek.com/gensim/models/fasttext.html).
+Os modelos de treino online são treinados nos seus dados de entrada. Os modelos pré-treinados são treinados offline num corpus de texto maior (por exemplo, Wikipedia, Google News) que normalmente contém cerca de 100 mil milhões de palavras. A incorporação de palavras permanece constante durante a vectorização de palavras. Os modelos de palavras pré-treinados proporcionam benefícios como tempo de treino reduzido, melhores vetores de palavras codificados e melhor desempenho geral.
 
-+ Modelo pré-treinado de luva: glove-wiki-gigaword-100, é uma coleção de vetores pré-treinados baseados no corpo de texto da Wikipédia, que contém fichas de 5.6B e vocabulário sem caso de 400K, pdf está disponível: [GloVe: Vetores globais para representação](https://nlp.stanford.edu/pubs/glove.pdf)de palavras.
+Aqui está uma informação sobre os métodos:
 
-## <a name="how-to-configure-convert-word-to-vector"></a>Como configurar a conversão da palavra para o vetor
++ O Word2Vec é uma das técnicas mais populares para aprender incorporações de palavras usando uma rede neural rasa. A teoria é discutida neste artigo, disponível como um download PDF: [Estimativa eficiente de representações de palavras no espaço vetorial, por Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). A implementação neste módulo baseia-se na [biblioteca Gensim para o Word2Vec.](https://radimrehurek.com/gensim/models/word2vec.html)
 
-Este módulo requer um conjunto de dados que contenha uma coluna de texto, texto pré-processado é melhor.
++ A teoria FastText é explicada neste artigo, disponível como um download PDF: [Vetores de palavras enriquecedores com Informação de Subword, por Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). A implementação neste módulo baseia-se na [biblioteca Gensim para FastText.](https://radimrehurek.com/gensim/models/fasttext.html)
 
-1. Adicione a **Palavra Convertida ao** módulo vetor ao seu pipeline.
++ O modelo pré-treinado gloVe é luva-wiki-gigaword-100. É uma coleção de vetores pré-treinados baseados num corpus de texto da Wikipédia, que contém 5,6 mil milhões de fichas e 400.000 palavras de vocabulário não cobertas. Um download PDF está disponível: [GloVe: Vetores Globais para Representação de Palavras.](https://nlp.stanford.edu/pubs/glove.pdf)
 
-2. Como entrada para o módulo, forneça um conjunto de dados contendo uma ou mais colunas de texto.
+## <a name="how-to-configure-convert-word-to-vector"></a>Como configurar converter palavra em vetor
 
-3. Para a **coluna Target,** escolha apenas uma coluna contendo texto para processar.
+Este módulo requer um conjunto de dados que contenha uma coluna de texto. Texto pré-processado é melhor.
 
-    Em geral, como este módulo cria um vocabulário a partir de texto, o conteúdo de diferentes colunas difere, o que leva a diferentes conteúdos de vocabulário, portanto, o módulo só aceita uma coluna-alvo.
+1. Adicione o **módulo Convertendo palavra ao vetor** ao seu oleoduto.
 
-4. Para **a estratégia Word2Vec,** escolha `GloVe pretrained English Model` entre, e `Gensim Word2Vec` `Gensim FastText` .
+2. Como entrada para o módulo, forneça um conjunto de dados que contenha uma ou mais colunas de texto.
 
-5. se a **estratégia Word2Vec** for `Gensim Word2Vec` `Gensim FastText` ou:
+3. Para **a coluna Target,** escolha apenas uma coluna que contenha texto para processar.
 
-    + Algoritmo de **treino Word2Vec.** Escolha de `Skip_gram` e `CBOW` . A diferença é introduzida no [papel](https://arxiv.org/pdf/1301.3781.pdf)original.
+    Como este módulo cria um vocabulário a partir do texto, o conteúdo das colunas difere, o que leva a diferentes conteúdos vocatórios. É por isso que o módulo aceita apenas uma coluna-alvo.
 
-        O método predefinido é `Skip_gram` .
+4. Para **a estratégia Word2Vec**, escolha entre **o modelo inglês pré-treinado GloVe,** **o Gensim Word2Vec**e **o Gensim FastText**.
 
-    + **Comprimento da palavra incorporação**. Especifique a dimensionalidade dos vetores da palavra. Corresponde ao `size` parâmetro em gensim.
+5. Se **a estratégia word2Vec** for **Gensim Word2Vec** ou **Gensim FastText:**
 
-        O embedding_size padrão é de 100.
+    + Para **algoritmo de treino Word2Vec,** escolha entre **Skip_gram** e **CBOW**. A diferença é introduzida no [papel original (PDF)](https://arxiv.org/pdf/1301.3781.pdf).
 
-    + **Tamanho da janela de contexto.** Especifique a distância máxima entre a palavra que está a ser prevista e a palavra atual. Corresponde ao `window` parâmetro em gensim.
+        O método padrão é **Skip_gram**.
+
+    + Para **o comprimento da incorporação de palavras,** especifique a dimensionalidade dos vetores de palavra. Esta definição corresponde ao `size` parâmetro em Gensim.
+
+        O tamanho de incorporação padrão é de 100.
+
+    + Para **o tamanho da janela de contexto,** especifique a distância máxima entre a palavra prevista e a palavra atual. Esta definição corresponde ao `window` parâmetro em Gensim.
 
         O tamanho da janela padrão é 5.
 
-    + **Número de épocas.** Especifique o número de épocas (iterações) sobre o corpus. Corresponde ao `iter` parâmetro em gensim.
+    + Para **o número de épocas, especifique**o número de épocas (iterações) sobre o corpus. Esta definição corresponde ao `iter` parâmetro em Gensim.
 
-        O número de épocas padrão é 5.
+        O número de época padrão é 5.
 
-6. Para o tamanho máximo do **vocabulário,** especifique o número máximo das palavras no vocabulário gerado.
+6. Para **o tamanho máximo do vocabulário,** especifique o número máximo de palavras no vocabulário gerado.
 
-    Se há palavras mais únicas do que esta, então ameixa as raras.
+    Se há palavras mais únicas do que esta, poda as mais raras.
 
-    O tamanho do vocabulário padrão é 10000.
+    O tamanho do vocabulário padrão é de 10.000.
 
-7. Para a contagem mínima de **palavras,** forneça uma contagem mínima de palavras, o que faz com que o módulo ignore todas as palavras, que têm uma frequência inferior a este valor.
+7. Para **a contagem mínima de palavras,** forneça uma contagem mínima de palavras. O módulo ignorará todas as palavras que tenham uma frequência inferior a este valor.
 
-    O valor padrão é 5.
+    O valor predefinido é 5.
 
-8. Submeta o oleoduto.
+8. Envie o oleoduto.
 
 ## <a name="examples"></a>Exemplos
 
 O módulo tem uma saída:
 
-+ **Vocabulário com incorporações**: Contém o vocabulário gerado, juntamente com a incorporação de cada palavra, uma dimensão ocupa uma coluna.
++ **Vocabulário com incorporações**: Contém o vocabulário gerado, juntamente com a incorporação de cada palavra. Uma dimensão ocupa uma coluna.
 
-### <a name="result-examples"></a>Exemplos de resultados
+O exemplo a seguir ilustra como funciona o módulo Converte palavra para vetor. Aplica este módulo com as definições predefinidas ao conjunto de dados pré-processado Wikipedia SP 500 fornecido em Azure Machine Learning (Preview).
 
-Para ilustrar como funciona o módulo **Convert Word para vetor,** o exemplo seguinte aplica este módulo com as definições predefinidas para o conjunto de dados Wikipédia SP 500 pré-processado fornecido em Azure Machine Learning (pré-visualização).
+### <a name="source-dataset"></a>Conjunto de dados de origem
 
-#### <a name="source-dataset"></a>Conjunto de dados de origem
+O conjunto de dados contém uma coluna de categoria, juntamente com o texto completo recolhido da Wikipédia. Esta tabela apresenta apenas alguns exemplos representativos.
 
-O conjunto de dados contém uma coluna de categoria, bem como o texto completo recolhido da Wikipédia. Esta tabela apresenta apenas alguns exemplos representativos.
-
-|texto|
+|Texto|
 |----------|
-|Nasdaq 100 componente s p 500 componente fundação fundador localização city apple campus 1 infinite loop loop street infinite loop cupertino california cupertino california local país Estados Unidos...|
-|br nasdaq 100 nasdaq 100 componente br s p 500 s p 500 component industry computer software foundation br founder Charles geschke br john warnock location adobe systems...|
-|s p 500 s p 500 indústria automóvel indústria automóvel antecessor general motors corporation 1908 2009 sucessor...|
-|s p 500 s p 500 componente indústria conglomerado empresa conglomerado fundação fundador localização cidade fairfield connecticut connecticut connecticut localização país eua área...|
-|br s p 500 s p 500 component foundation 1903 fundador William s harley br arthur Davidson harley Davidson fundador Arthur Davidson br walter davidson br william a davidson localização...|
+|nasdaq 100 componente s p 500 component foundation founder location city apple campus 1 infinite loop loop loop cupertino california cupertino california cupertino california location country Estados Unidos...|
+|br nasdaq 100 nasdaq 100 componente br s p 500 s p 500 s p 500 component industry computer software foundation br fundador Charles Geschke br john warnock location adobe systems...|
+|s p 500 s p 500 indústria automóvel indústria automóvel antecessora da general motors corporation 1908 2009 sucessor...|
+|s p 500 s p 500 componente indústria conglomerado empresa conglomerado fundação fundação fundador localização cidade fairfield connecticut connecticut connecticut local país eua área...|
+|BR s p 500 s p 500 component foundation 1903 fundador William s Harley br Arthur Davidson fundador Arthur Davidson br Walter Davidson br William william a davidson localização...|
 
-#### <a name="output-vocabulary-with-embeddings"></a>Vocabulário de saída com incorporações
+### <a name="output-vocabulary-with-embeddings"></a>Vocabulário de saída com incorporações
 
-A tabela seguinte contém a saída deste módulo tomando o conjunto de dados Wikipedia SP 500 como entrada. A coluna mais à esquerda indica o vocabulário, o seu vetor de incorporação é representado por valores de colunas restantes na mesma linha.
+A tabela seguinte contém a saída deste módulo, tomando como entrada o conjunto de dados Wikipedia SP 500. A coluna mais à esquerda indica o vocabulário. O seu vetor incorporado é representado por valores das colunas restantes na mesma linha.
 
-|Vocabulário|Incorporar dim 0|Incorporar dim 1|Incorporar dim 2|Incorporar dim 3|Incorporar dim 4|Incorporar dim 5|...|Incorporar dim 99|
+|Vocabulário|Incorporação dim 0|Incorporação dim 1|Incorporação dim 2|Incorporação dim 3|Incorporação dim 4|Incorporação dim 5|...|Incorporação dim 99|
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
 |nasdaq|-0.375865|0.609234|0.812797|-0.002236|0.319071|-0.591986|...|0.364276
 |componente|0.081302|0.40001|0.121803|0.108181|0.043651|-0.091452|...|0.636587
@@ -121,27 +126,27 @@ campus|-0.281835|0.29312|0.106966|-0.031385|0.100777|-0.061452|...|0.05978
 infinito|-0.263074|0.245753|0.07058|-0.164666|0.162857|-0.027345|...|-0.0525
 loop|-0.391421|0.52366|0.141503|-0.105423|0.084503|-0.018424|...|-0.0521
 
-Neste exemplo, usamos o padrão `Gensim Word2Vec` como a **estratégia Word2Vec**, Algoritmo de **Treino** é , Comprimento da `Skip-gram` palavra **Incorporação** é 100, portanto, temos 100 colunas de incorporação.
+Neste exemplo, usamos o **Gensim Word2Vec** padrão para **a estratégia Word2Vec**, e **o algoritmo de treino** é **Skip-gram**. **O comprimento da palavra Incorporação** é de 100, por isso temos 100 colunas incorporadas.
 
 ## <a name="technical-notes"></a>Notas técnicas
 
-Esta secção contém dicas e respostas a perguntas frequentes.
+Esta secção contém dicas e respostas para perguntas frequentes.
 
-+ Diferença entre o comboio online e o modelo pré-treinado
++ Diferença entre o modelo de formação online e pré-treinado:
 
-    Nesta **palavra Converte para módulo Vetor,** fornecemos três estratégias diferentes, dois modelos de formação online e um modelo pré-treinado. O modelo de treino online usa o seu conjunto de dados de entrada como dados de treino, gera vocabulário e vetores de palavras durante o treino, enquanto o modelo pré-treinado já é treinado por um corpus de texto muito maior, como o texto wikipédia ou o twitter, pelo que o modelo pré-treinado é na verdade uma coleção de pares (palavra, incorporação).  
+    Neste módulo Converte word to Vetor, fornecemos três estratégias diferentes: dois modelos de formação online e um modelo pré-treinado. Os modelos de formação on-line usam o seu conjunto de dados de entrada como dados de treino, e geram vetores de vocabulário e palavra durante o treino. O modelo pré-treinado já é treinado por um corpus de texto muito maior, como wikipédia ou texto do Twitter. O modelo pré-treinado é na verdade uma coleção de pares de palavras/incorporação.  
 
-    Se o modelo pré-treinado de Glove for escolhido como estratégia de vectorização de palavras, resume um vocabulário a partir do conjunto de dados de entrada e gera um vetor de incorporação para cada palavra do modelo pré-treinado, sem treino online, o uso de modelo pré-treinado poderia economizar tempo de treino, e tem um melhor desempenho especialmente quando o tamanho do conjunto de dados de entrada é relativamente pequeno.
+    Se o modelo pré-treinado gloVe for escolhido como a estratégia de vectorização da palavra, resume um vocabulário a partir do conjunto de dados de entrada e gera um vetor incorporado para cada palavra a partir do modelo pré-treinado. Sem formação online, o uso de um modelo pré-treinado pode poupar tempo de treino. Tem um melhor desempenho, especialmente quando o tamanho do conjunto de dados de entrada é relativamente pequeno.
 
-+ Tamanho de incorporação
++ Tamanho de incorporação:
 
-    Em geral, o comprimento da incorporação de palavras é definido para algumas centenas (por exemplo, 100, 200, 300) para alcançar um bom desempenho, porque pequeno tamanho de incorporação significa pequeno espaço vetorial, o que pode causar colisões de incorporação de palavras.  
+    Em geral, o comprimento da incorporação de palavras está definido para algumas centenas (por exemplo, 100, 200, 300) para alcançar um bom desempenho. A razão é que um pequeno tamanho incorporado significa um pequeno espaço vetorial, que pode causar colisões de incorporação de palavras.  
 
-    Para modelos pré-treinados, o comprimento das incorporações de palavras são fixos, nesta implementação, incorporar o tamanho da luva-wiki-gigaword-100 é 100.
+    Para os modelos pré-treinados, o comprimento das incorporações de palavras é fixado. Nesta implementação, o tamanho incorporado de luva-wiki-gigaword-100 é de 100.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 
-Para obter uma lista de erros específicos dos módulos de design (pré-visualização), consulte os códigos de erro de [aprendizagem automática](designer-error-codes.md).
+Para obter uma lista de erros específicos dos módulos de design (pré-visualização), consulte [códigos de erro de Machine Learning](designer-error-codes.md).

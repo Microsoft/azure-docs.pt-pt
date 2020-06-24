@@ -1,5 +1,5 @@
 ---
-title: Introdução ao enriquecimento de IA
+title: Conceitos de enriquecimento de IA
 titleSuffix: Azure Cognitive Search
 description: A extração de conteúdos, o processamento de linguagem natural (NLP) e o processamento de imagem são usados para criar conteúdo pes pescável em índices de Pesquisa Cognitiva Azure com competências cognitivas pré-definidas e algoritmos de IA personalizados.
 manager: nitinme
@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/18/2020
+ms.openlocfilehash: 196562d376b8268ecf47f8133a5b1c8a122c38c5
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265204"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052270"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Começar com enriquecimento de IA
+# <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
-O enriquecimento de IA é uma capacidade de indexação de Pesquisa Cognitiva Azure usada para extrair texto de imagens, bolhas e outras fontes de dados não estruturadas. O enriquecimento e extração tornam o seu conteúdo mais pescêvel numa [loja de índices](search-what-is-an-index.md) ou [conhecimentos.](knowledge-store-concept-intro.md) A extração e o enriquecimento são implementados utilizando *competências cognitivas ligadas* ao gasoduto de indexação. As competências cognitivas incorporadas no serviço enquadram-se nestas categorias: 
+O enriquecimento de IA é uma extensão de [indexadores](search-indexer-overview.md) que podem ser usados para extrair texto de imagens, bolhas e outras fontes de dados não estruturadas. O enriquecimento e extração tornam o seu conteúdo mais pescêvel em objetos de saída indexante, seja num [índice de pesquisa](search-what-is-an-index.md) ou numa loja de [conhecimento.](knowledge-store-concept-intro.md) 
+
+A extração e o enriquecimento são implementados utilizando *competências cognitivas ligadas* ao gasoduto orientado pelo indexante. Pode utilizar habilidades incorporadas da Microsoft ou incorporar o processamento externo numa [*habilidade personalizada*](cognitive-search-create-custom-skill-example.md) que cria. Exemplos de uma habilidade personalizada podem ser um módulo de entidade personalizada ou classificador de documentos direcionado para um domínio específico, como finanças, publicações científicas ou medicina.
+
+As competências incorporadas enquadram-se nestas categorias: 
 
 + **As** competências de processamento de linguagem natural incluem reconhecimento de [entidades,](cognitive-search-skill-entity-recognition.md) [deteção de linguagens,](cognitive-search-skill-language-detection.md) [extração de frases-chave,](cognitive-search-skill-keyphrases.md)manipulação de texto, [deteção de sentimentos](cognitive-search-skill-sentiment.md)e [deteção de PII.](cognitive-search-skill-pii-detection.md) Com estas habilidades, o texto não estruturado é mapeado como campos pescandáveis e filtrados num índice.
 
@@ -25,9 +29,9 @@ O enriquecimento de IA é uma capacidade de indexação de Pesquisa Cognitiva Az
 
 ![Diagrama do gasoduto de enriquecimento](./media/cognitive-search-intro/cogsearch-architecture.png "Visão geral do gasoduto de enriquecimento")
 
-As competências cognitivas na Azure Cognitive Search baseiam-se em modelos pré-treinados de aprendizagem automática em APIs de Serviços Cognitivos: [Visão computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [Análise de Texto.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) 
+As competências incorporadas na Pesquisa Cognitiva Azure baseiam-se em modelos pré-treinados de aprendizagem automática em APIs de Serviços Cognitivos: [Visão computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [Análise de Texto.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) Pode anexar um recurso de Serviços Cognitivos se quiser aproveitar estes recursos durante o processamento de conteúdos.
 
-O processamento de linguagem natural e de imagem é aplicado durante a fase de ingestão de dados, com os resultados a tornarem-se parte da composição de um documento num índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são obtidos como um conjunto de dados Azure e, em seguida, empurrados através de um pipeline de indexação usando [as habilidades incorporadas](cognitive-search-predefined-skills.md) que você precisa. A arquitetura é extensível, por isso, se as habilidades incorporadas não forem suficientes, pode criar e anexar [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Exemplos podem ser um módulo de entidade personalizada ou classificador de documentos direcionado para um domínio específico, como finanças, publicações científicas ou medicina.
+O processamento de linguagem natural e de imagem é aplicado durante a fase de ingestão de dados, com os resultados a tornarem-se parte da composição de um documento num índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são obtidos como um conjunto de dados Azure e, em seguida, empurrados através de um pipeline de indexação usando [as habilidades incorporadas](cognitive-search-predefined-skills.md) que você precisa.  
 
 ## <a name="when-to-use-ai-enrichment"></a>Quando usar o enriquecimento de IA
 
@@ -55,8 +59,7 @@ Um [skillset](cognitive-search-defining-skillset.md) que é montado usando habil
 
 As habilidades personalizadas podem suportar cenários mais complexos, tais como reconhecer formulários ou deteção de entidades personalizadas usando um modelo que fornece e embrulha na [interface web de habilidades personalizadas.](cognitive-search-custom-skill-interface.md) Vários exemplos de competências personalizadas incluem [Formas Recogniser,](/azure/cognitive-services/form-recognizer/overview)integração da [API de Pesquisa de Entidade Bing,](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)e [reconhecimento de entidades personalizadas.](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 
-
-## <a name="steps-in-an-enrichment-pipeline"></a>Passos num oleoduto de enriquecimento
+<a name="enrichment-steps">## Passos num oleoduto de enriquecimento</a>
 
 Um gasoduto de enriquecimento baseia-se em [*indexadores.*](search-indexer-overview.md) Os indexantes preenchem um índice baseado em mapeamentos campo-a-campo entre o índice e a sua fonte de dados para a quebra de documentos. Competências, agora ligadas a indexantes, intercetam e enriquecem documentos de acordo com as competências que define. Uma vez indexado, pode aceder ao conteúdo através de pedidos de pesquisa através de todos os [tipos de consulta suportados pela Azure Cognitive Search](search-query-overview.md).  Se você é novo em indexadores, esta secção leva você através dos degraus.
 

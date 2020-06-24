@@ -3,8 +3,8 @@ title: Determinar o tamanho da sub-rede necessária & gama
 titleSuffix: Azure SQL Managed Instance
 description: Este tópico descreve como calcular o tamanho da sub-rede onde a Azure SQL Managed Instance será implantada.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 2ad140e7f0040552cbdc2490d25a07f3d1184720
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8d1073dbcced9532390776a23dd17c1f572cce40
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657876"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686686"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho da sub-rede necessária & gama para Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ Se planeia implementar várias instâncias geridas dentro da sub-rede e precisar
 > [!IMPORTANT]
 > O cálculo acima apresentado tornar-se-á obsoleto com novas melhorias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Saiba mais sobre [arquitetura de conectividade para SQL Managed Instance](connectivity-architecture-overview.md).
