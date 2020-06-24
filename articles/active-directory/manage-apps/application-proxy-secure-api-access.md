@@ -2,22 +2,21 @@
 title: Acesso às APIs no local com Proxy de Aplicação AD Azure
 description: O Azure Ative Directory's Application Proxy permite que as aplicações nativas acedam de forma segura às APIs e à lógica de negócio que hospeda no local ou em VMs na nuvem.
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: has-adal-ref
-ms.openlocfilehash: c3efd94e741124d5e662ac17e9c1daaf66d4c1c5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168814"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206449"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro às APIs no local com Proxy de Aplicação AD Azure
 
@@ -35,7 +34,7 @@ O seguinte diagrama mostra como pode usar o Azure AD Application Proxy para publ
 
 ![Acesso Azure AD Application Proxy API](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-O Azure AD Application Proxy forma a espinha dorsal da solução, funcionando como um ponto final público para acesso a API, e fornecendo autenticação e autorização. Pode aceder às suas APIs a partir de uma vasta gama de plataformas utilizando as bibliotecas [ADAL.](/azure/active-directory/develop/active-directory-authentication-libraries)
+O Azure AD Application Proxy forma a espinha dorsal da solução, funcionando como um ponto final público para acesso a API, e fornecendo autenticação e autorização. Pode aceder às suas APIs a partir de uma vasta gama de plataformas utilizando as bibliotecas da [Microsoft Authentication Library (MSAL).](/azure/active-directory/develop/active-directory-authentication-libraries)
 
 Uma vez que a autenticação e autorização de procuração de aplicações Azure AD são construídas em cima do Azure AD, pode utilizar o Acesso Condicionado AD Azure para garantir que apenas dispositivos fidedignos podem aceder a APIs publicados através do Application Proxy. Utilize a Azure AD Join ou Azure AD Hybrid Unidos para desktops e Intune Managed para dispositivos. Também pode usufruir de funcionalidades do Azure Ative Directory Premium, como a Autenticação Multi-Factor Azure e a segurança apoiada pela aprendizagem automática da [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
@@ -137,7 +136,7 @@ Já registou a aplicação AppProxyNativeAppSample no Azure Ative Directory. Par
 
 ## <a name="configure-the-native-app-code"></a>Configure o código de aplicação nativo
 
-O último passo é configurar a aplicação nativa. O seguinte corte do ficheiro *Form1.cs* na aplicação de amostras NativeClient faz com que a biblioteca ADAL adquira o símbolo para solicitar a chamada da API e anexá-lo como portador ao cabeçalho da aplicação.
+O último passo é configurar a aplicação nativa. O seguinte corte do ficheiro *Form1.cs* na aplicação de amostras NativeClient faz com que a biblioteca MSAL adquira o símbolo para solicitar a chamada da API e anexá-lo como portador ao cabeçalho da aplicação.
 
    ```
    // Acquire Access Token from AAD for Proxy Application
@@ -172,7 +171,7 @@ if (authResult != null)
  }
 ```
 
-Para configurar a app nativa para ligar ao Azure Ative Directory e ligar para o API App Proxy, atualize os valores de espaços reservados no ficheiro *App.config* da app nativeClient sample app com valores da Azure AD:
+Para configurar a app nativa para ligar ao Azure Ative Directory e ligar para o API App Proxy, atualize os valores de espaço reservado no ficheiro *App.config* da aplicação de amostras NativeClient com valores da Azure AD:
 
 - Cole a identificação do **Diretório (inquilino)** no `<add key="ida:Tenant" value="" />` campo. Pode encontrar e copiar este valor (a GUID) a partir da página **de visão geral** de qualquer uma das suas aplicações.
 
@@ -188,7 +187,7 @@ Depois de configurar os parâmetros, construa e execute a aplicação nativa. Qu
 
 ![Êxito](./media/application-proxy-secure-api-access/success.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Quickstart: Configurar uma aplicação do cliente para aceder a APIs web](../develop/quickstart-configure-app-access-web-apis.md)

@@ -3,16 +3,16 @@ title: Como configurar multi-mestre em Azure Cosmos DB
 description: Aprenda a configurar multi-mestre para as suas aplicações utilizando diferentes SDKs em Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.custom: tracking-python
-ms.openlocfilehash: 792b0ef3f31bfb9dd26c153d5bb0eeab6ba8baf9
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: a07ab3f65fcdeacf37626ad05d0b95ac3f4e7e64
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677989"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263673"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configure multi-mestre nas suas aplicações que usam Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Uma vez criada uma conta com múltiplas regiões de escrita ativadas, deve escoa
 > [!Note]
 > As contas cosmos inicialmente configuradas com uma única região de escrita podem ser configuradas para várias regiões de escrita (ou seja, multi-master) com tempo de insuporte zero. Para saber mais ver, [configuure regiões de escrita múltipla](how-to-manage-database-account.md#configure-multiple-write-regions)
 
-## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
+## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK v2 de .NET
 
 Para ativar o multi-mestre na sua aplicação, desatado `UseMultipleWriteLocations` para `true` . Além disso, definido `SetCurrentLocation` para a região em que a aplicação está sendo implementada e onde Azure Cosmos DB é replicado:
 
@@ -121,7 +121,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
                                     'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia os seguintes artigos:
 

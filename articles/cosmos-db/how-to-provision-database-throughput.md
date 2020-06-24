@@ -1,21 +1,21 @@
 ---
 title: Aprovisionar débito da base de dados no Azure Cosmos DB
-description: Saiba como fornecer a produção ao nível da base de dados em Azure Cosmos DB utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
+description: Saiba como obter a produção a nível de base de dados em Azure Cosmos DB utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655319"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263644"
 ---
-# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Entrada padrão de provisão (manual) numa base de dados em Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Produção padrão de provisão (manual) numa base de dados em Azure Cosmos DB
 
-Este artigo explica como fornecer um passe padrão (manual) numa base de dados em Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Para saber quando utilizar o nível de contentore e a entrada de nível de base de dados, consulte os [casos de utilização para o fornecimento](set-throughput.md) de entrada em contentores e bases de dados. Pode fornecer a entrada de nível de base de dados utilizando o portal Azure ou o Azure Cosmos DB SDKs.
+Este artigo explica como providenciar a produção padrão (manual) numa base de dados em Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Para saber quando utilizar o nível de contentor e o nível de base de dados, consulte os [casos de utilização para o fornecimento de produção em contentores e artigos de bases de dados.](set-throughput.md) Pode prever a produção de nível de base de dados utilizando o portal Azure ou O Azure Cosmos DB SDKs.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
 
@@ -25,26 +25,26 @@ Este artigo explica como fornecer um passe padrão (manual) numa base de dados e
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
-1. Abra o painel **do Data Explorer** e selecione New **Database**. Forneça os seguintes detalhes:
+1. Abra o painel **do Data Explorer** e selecione New **Database**. Fornecer os seguintes detalhes:
 
-   * Introduza uma identificação da base de dados.
-   * Selecione **a entrada de provisionamento**.
-   * Introduza uma entrada (por exemplo, 1000 RUs).
+   * Introduza uma identificação de base de dados.
+   * Selecione **a produção de provisão**.
+   * Introduza uma produção (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-    ![Screenshot da nova caixa de diálogo da base de dados](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Screenshot da caixa de diálogo new database":::
 
-## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Produção de provisão utilizando o Azure CLI ou o PowerShell
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Produção de provisão utilizando O Azure CLI ou PowerShell
 
-Para criar uma base de dados com a ver de entrada partilhada,
+Para criar uma base de dados com produção partilhada ver,
 
-* [Criar uma base de dados usando o Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
-* [Criar uma base de dados usando o PowerShell](manage-with-powershell.md#create-db-ru)
+* [Criar uma base de dados utilizando o Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [Criar uma base de dados utilizando o PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>Aprovisionar débito com o SDK do .NET
 
 > [!Note]
-> Você pode usar SDKs Cosmos para SQL API para fornecer entrada para todas as APIs. Também pode utilizar opcionalmente o seguinte exemplo para a Cassandra API.
+> Você pode usar Cosmos SDKs para API SQL para provisão para todos os APIs. Pode utilizar opcionalmente o seguinte exemplo para a API cassandra também.
 
 ### <a name="all-apis"></a><a id="dotnet-all"></a>Todas as APIs
 
@@ -71,7 +71,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API de Cassandra
 
-Um comando semelhante pode ser executado através de qualquer controlador compatível com cql.
+O comando semelhante pode ser executado através de qualquer controlador compatível com CQL.
 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
@@ -80,10 +80,10 @@ session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisio
  
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte os seguintes artigos para conhecer sobre a provisão disponibilizada em Azure Cosmos DB:
+Consulte os seguintes artigos para saber sobre a produção prevista na Azure Cosmos DB:
 
 * [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
 * [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
-* [Como fornecer a entrada padrão (manual) para um recipiente](how-to-provision-container-throughput.md)
-* [Como fornecer a produção de escala automática para um recipiente](how-to-provision-autoscale-throughput.md)
+* [Como prever a produção padrão (manual) para um recipiente](how-to-provision-container-throughput.md)
+* [Como providenciar a produção de autoescala para um contentor](how-to-provision-autoscale-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

@@ -2,8 +2,8 @@
 title: 'Quickstart: Criar uma instância gerida de SQL Gestd Instance (portal)'
 description: Crie um exemplo gerido, ambiente de rede e VM cliente para acesso usando o portal Azure neste arranque rápido.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e00736c734b3e6f6ba6b188061ec2ffb59a5b169
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659762"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708897"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Quickstart: Criar uma instância gerida de SQL Gestão De Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -173,7 +173,7 @@ Para ligar à SQL Managed Instance, siga estes passos para recuperar o nome de a
 
    O valor copiado representa um nome de domínio totalmente qualificado (FQDN) que pode ser usado para ligar a SQL Managed Instance. É semelhante ao seguinte exemplo de endereço: *your_host_name.a1b2c3d4e5f6.database.windows.net*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como ligar-se à SQL Managed Instance:
 - Para obter uma visão geral das opções de ligação para aplicações, consulte [Conecte as suas aplicações à SQL Managed Instance](connect-application-instance.md).

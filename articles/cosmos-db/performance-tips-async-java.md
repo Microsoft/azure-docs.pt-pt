@@ -4,24 +4,24 @@ description: Aprenda opções de configuração do cliente para melhorar o desem
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 92b7b1f72cde355f87761807708348b988bcc0a4
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7efff852c510465f31af4b89ec50da2e597643f4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676878"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260717"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Async Java SDK v2
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](performance-tips-async-java.md)
 > * [SDK v2 Java síncrono](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [.NET SDK v2](performance-tips.md)
+> * [SDK v2 de .NET](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -66,7 +66,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     Quando possível, coloque quaisquer aplicações que chamem Azure Cosmos DB na mesma região que a base de dados Azure Cosmos. Para uma comparação aproximada, as chamadas para Azure Cosmos DB dentro da mesma região completam dentro de 1-2 ms, mas a latência entre a costa oeste e leste dos EUA é >50 ms. Esta latência pode provavelmente variar de pedido a pedido dependendo da rota tomada pelo pedido, uma vez que passa do cliente para o limite do datacenter Azure. A latência mais baixa possível é conseguida garantindo que o pedido de chamada está localizado na mesma região de Azure que o ponto final Azure Cosmos DB. Para obter uma lista das regiões disponíveis, consulte [as Regiões Azure.](https://azure.microsoft.com/regions/#services)
 
-    ![Ilustração da política de conexão DB Azure Cosmos](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
 
 ## <a name="sdk-usage"></a>Utilização SDK
 * **Instale o SDK mais recente**
@@ -87,7 +87,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     * ***Visão geral do modo Direto***
 
-        ![Ilustração da arquitetura do modo direto](./media/performance-tips-async-java/rntbdtransportclient.png)
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
 
         A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço**da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
 
@@ -328,6 +328,6 @@ Para outras plataformas (Chapéu Vermelho, Janelas, Mac, etc.) consulte estas in
 
     A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

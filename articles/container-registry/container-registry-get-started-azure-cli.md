@@ -2,20 +2,20 @@
 title: Quickstart - Criar registo - Azure CLI
 description: Aprenda rapidamente a criar um registo do contentor do Docker com a CLI do Azure.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31e917fa306330ca579266e21560d7d42c7f2bc7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682750"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752454"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Criar um registo de contentores privados utilizando o Azure CLI
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Criar um registo privado de contentores utilizando o CLI Azure
 
-O Azure Container Registry é um serviço de registo do contentor Docker gerido, utilizado para armazenar imagens de contentor do Docker privadas. Este guia detalha a criação de uma instância do Azure Container Registry com a CLI do Azure. Em seguida, use os comandos do Docker para empurrar uma imagem de recipiente para o registo, e finalmente puxe e execute a imagem do seu registo.
+O Azure Container Registry é um serviço de registo do contentor Docker gerido, utilizado para armazenar imagens de contentor do Docker privadas. Este guia detalha a criação de uma instância do Azure Container Registry com a CLI do Azure. Em seguida, use os comandos do Docker para empurrar uma imagem do contentor para o registo, e finalmente puxe e execute a imagem do seu registo.
 
-Este quickstart requer que esteja a executar o Azure CLI (versão 2.0.55 ou posteriormente recomendado). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
+Este arranque rápido requer que esteja a executar o Azure CLI (versão 2.0.55 ou posteriormente recomendado). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
 
 Também tem de ter o Docker instalado localmente. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -33,12 +33,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte os níveis de serviço de registo de [contentores][container-registry-skus].
+Neste quickstart você cria um registo *Básico,* que é uma opção otimizada para custos para desenvolvedores aprendendo sobre o Registo de Contentores Azure. Para obter mais informações sobre os níveis de serviço disponíveis, consulte [os níveis de serviço de registo de contentores][container-registry-skus].
 
 Crie uma instância do ACR com o comando [az acr create][az-acr-create]. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *myContainerRegistry007*. Atualize para um valor exclusivo.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 Quando o registo é criado, o resultado é semelhante ao seguinte:
@@ -64,14 +65,14 @@ Quando o registo é criado, o resultado é semelhante ao seguinte:
 }
 ```
 
-Tome nota `loginServer` na saída, que é o nome de registo totalmente qualificado (todas as minúsculas). Em todo o resto deste início rápido, `<acrName>` é um marcador de posição para o nome do registo de contentor.
+Tome nota `loginServer` da saída, que é o nome de registo totalmente qualificado (todos os minúsculos). Ao longo do resto deste quickstart `<registry-name>` é um espaço reservado para o nome do registo do contentor, e `<login-server>` é um espaço reservado para o nome do servidor de login do registo.
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de empurrar e puxar as imagens do recipiente, deve fazer login no registo. Para tal, utilize o comando [az acr login][az-acr-login].
+Antes de empurrar e puxar imagens do contentor, tem de iniciar sessão no registo. Para tal, utilize o comando [az acr login][az-acr-login].
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 O comando devolve uma mensagem de `Login Succeeded` depois de estar concluído.
@@ -80,10 +81,10 @@ O comando devolve uma mensagem de `Login Succeeded` depois de estar concluído.
 
 ## <a name="list-container-images"></a>Listar imagens de contentor
 
-O exemplo seguinte lista os repositórios no seu registo:
+O exemplo a seguir enumera os repositórios no seu registo:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Saída:
@@ -94,10 +95,10 @@ Result
 hello-world
 ```
 
-O exemplo seguinte lista as etiquetas no repositório **do mundo olá.**
+O exemplo a seguir enumera as etiquetas no repositório **hello-world.**
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Saída:
@@ -112,18 +113,21 @@ v1
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando de eliminação do [grupo AZ][az-group-delete] para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
+Quando já não for necessário, pode utilizar o comando de exclusão do [grupo az][az-group-delete] para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um Registo de Contentores Azure com o Azure CLI, empurrou uma imagem de contentor para o registo, e puxou e executou a imagem do registo. Continue aos tutoriais do Registo de Contentores Azure para uma olhada mais profunda na ACR.
+Neste arranque rápido, criou um Registo de Contentores Azure com o CLI Azure, empurrou uma imagem de contentor para o registo, puxou e executou a imagem a partir do registo. Continue os tutoriais do Registo do Contentor de Azure para uma olhada mais profunda no ACR.
 
 > [!div class="nextstepaction"]
-> [Tutoriais do Registo de Contentores de Azure][container-registry-tutorial-quick-task]
+> [Tutoriais do Registo de Contentores de Azure][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Tutoriais de tarefas de registo de contentores Azure][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -143,3 +147,4 @@ Neste arranque rápido, criou um Registo de Contentores Azure com o Azure CLI, e
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

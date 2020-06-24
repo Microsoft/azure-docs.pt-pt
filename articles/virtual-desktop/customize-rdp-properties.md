@@ -1,72 +1,72 @@
 ---
 title: Personalize propriedades RDP com PowerShell - Azure
-description: Como personalizar propriedades RDP para Windows Virtual Desktop com cmdlets PowerShell.
+description: Como personalizar propriedades RDP para windows Virtual Desktop com cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 66b76fcdd9729b2a92ea2d561c740dbe148e0bbe
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611556"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207214"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Personalizar as propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) de um pool anfitrião, como experiência de multimonitor e reorientação de áudio, permite-lhe oferecer uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o portal Azure ou utilizando o parâmetro *-CustomRdpProperty* no cmdlet **Update-AzWvdHostPool.**
+A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho (RDP) de uma piscina anfitriã, como experiência multi-monitor e reorientação de áudio, permite-lhe proporcionar uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o portal Azure ou utilizando o parâmetro *-CustomRdpProperty* no cmdlet **Update-AzWvdHostPool.**
 
-Consulte as definições de [ficheiroRD Suportadas](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa de propriedades suportadas e os seus valores predefinidos.
+Consulte [as definições de ficheiros RDP suportados](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa de propriedades suportadas e os seus valores predefinidos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, siga as instruções no [Conjunto do módulo PowerShell virtual do Windows](powershell-module.md) para configurar o módulo PowerShell e iniciar o seu início no Azure.
+Antes de começar, siga as instruções em [Configurar o módulo Virtual Desktop PowerShell](powershell-module.md) para configurar o módulo PowerShell e iniciar o súm na Azure.
 
-## <a name="default-rdp-properties"></a>Propriedades de RDP padrão
+## <a name="default-rdp-properties"></a>Propriedades RDP predefinidos
 
 Por predefinição, os ficheiros RDP publicados contêm as seguintes propriedades:
 
-|Propriedades de RDP | Computadores de Secretária | Aplicações Remotas |
+|Propriedades de RDP | Computadores de Secretária | RemotasApps |
 |---|---| --- |
 | Modo multi-monitor | Ativado | N/D |
-| Redirecionamentos de acionamento ativados | Unidades, clipboard, impressoras, portas COM, dispositivos USB e smartcards| Unidades, clipboard e impressoras |
-| Modo de áudio remoto | Jogar localmente | Jogar localmente |
+| Redirecionamentos de unidade ativados | Unidades, pranchetas, impressoras, portas COM, dispositivos USB e smartcards| Unidades, pranchetas e impressoras |
+| Modo áudio remoto | Jogue localmente | Jogue localmente |
 
-Quaisquer propriedades personalizadas que defina para a piscina anfitriã anularão estes incumprimentos.
+Quaisquer propriedades personalizadas que você definir para a piscina anfitriã irá anular estes padrão.
 
-## <a name="configure-rdp-properties-in-the-azure-portal"></a>Configure propriedades de RDP no portal Azure
+## <a name="configure-rdp-properties-in-the-azure-portal"></a>Configure propriedades RDP no portal Azure
 
-Para configurar propriedades de PDR no portal Azure:
+Para configurar propriedades RDP no portal Azure:
 
-1. Inscreva-se no <https://portal.azure.com>Azure em .
-2. Introduza **o ambiente de trabalho virtual das janelas** na barra de pesquisa.
+1. Inscreva-se no Azure at <https://portal.azure.com> .
+2. Introduza **o ambiente de trabalho virtual do windows** na barra de pesquisa.
 3. Em Serviços, selecione **Windows Virtual Desktop**.
-4. Na página do Windows Virtual Desktop, selecione **as piscinas** de anfitriões no menu do lado esquerdo do ecrã.
-5. Selecione **o nome da piscina** anfitriã que pretende atualizar.
+4. Na página de Ambiente de Trabalho Virtual do Windows, selecione **as piscinas de anfitriões** no menu do lado esquerdo do ecrã.
+5. Selecione **o nome da piscina de anfitrião** que pretende atualizar.
 6. Selecione **Propriedades** no menu no lado esquerdo do ecrã.
-7. Selecione **definições de RDP** para começar a editar as propriedades RDP.
-8. Quando terminar, selecione **Guardar** para guardar as suas alterações.
+7. No separador **Propriedades,** aceda às **definições de RDP** para começar a editar as propriedades RDP. As propriedades devem estar num formato separado por vírgulas como os exemplos powerShell.
+8. Quando terminar, **selecione Guardar** para guardar as suas alterações.
 
-Se houver uma definição que pretende editar que não vê no menu de definições de RDP, terá de editá-la manualmente executando cmdlets no PowerShell. As próximas secções dirão como editar propriedades de RDP personalizadas manualmente no PowerShell.
+As próximas secções dir-lhe-ão como editar as propriedades RDP personalizadas manualmente no PowerShell.
 
-## <a name="add-or-edit-a-single-custom-rdp-property"></a>Adicione ou edite uma única propriedade personalizada rdp
+## <a name="add-or-edit-a-single-custom-rdp-property"></a>Adicione ou edite uma única propriedade RDP personalizada
 
-Para adicionar ou editar uma única propriedade personalizada de RDP, executar o seguinte cmdlet PowerShell:
+Para adicionar ou editar uma única propriedade RDP personalizada, executar o seguinte cmdlet PowerShell:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty <property>
 ```
 
-Para verificar se o cmdlet acabou de executar atualizou a propriedade, execute este cmdlet:
+Para verificar se o cmdlet acabou de executar a propriedade, execute este cmdlet:
 
 ```powershell
 Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
@@ -84,36 +84,36 @@ Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;
 ```
 
-## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Adicionar ou editar várias propriedades personalizadas de RDP
+## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Adicione ou edite várias propriedades RDP personalizadas
 
-Para adicionar ou editar várias propriedades personalizadas de RDP, execute os seguintes cmdlets PowerShell, fornecendo as propriedades de RDP personalizadas como uma cadeia separada pelo ponto-ponto:
+Para adicionar ou editar várias propriedades RDP personalizadas, executar os seguintes cmdlets PowerShell, fornecendo as propriedades RDP personalizadas como uma cadeia separada de semicolon:
 
 ```powershell
-$properties="<property1>;<property2>;<property3>" 
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties 
+$properties="<property1>;<property2>;<property3>"
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
 Pode verificar se a propriedade RDP foi adicionada executando o seguinte cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
 
 Name              : <hostpoolname>
 CustomRdpProperty : <customRDPpropertystring>
 ```
 
-Com base no nosso exemplo anterior da CMDLET, se configurar várias propriedades RDP na piscina anfitriã de 0301HP, o seu cmdlet seria assim:
+Com base no nosso exemplo anterior do cmdlet, se configurar várias propriedades RDP na piscina de anfitriões 0301HP, o seu cmdlet seria assim:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty
 
-Name              : 0301HP 
+Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
 ```
 
-## <a name="reset-all-custom-rdp-properties"></a>Redefinir todas as propriedades personalizadas de RDP
+## <a name="reset-all-custom-rdp-properties"></a>Redefinir todas as propriedades RDP personalizadas
 
-Pode redefinir propriedades de RDP personalizadas individuais para os seus valores padrão seguindo as instruções em [Adicionar ou editar uma única propriedade RDP personalizada,](#add-or-edit-a-single-custom-rdp-property)ou pode redefinir todas as propriedades de RDP personalizadas para uma piscina hospedeira executando o seguinte cmdlet PowerShell:
+Pode redefinir as propriedades RDP personalizadas individuais para os seus valores predefinidos seguindo as instruções em [Adicionar ou editar uma única propriedade DDP personalizada,](#add-or-edit-a-single-custom-rdp-property)ou pode redefinir todas as propriedades RDP personalizadas para uma piscina de anfitrião executando o seguinte cmdlet PowerShell:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty ""
@@ -122,15 +122,15 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 Para se certificar de que removeu com sucesso a definição, introduza este cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
 
-Name              : <hostpoolname> 
+Name              : <hostpoolname>
 CustomRdpProperty : <CustomRDPpropertystring>
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que personalizou as propriedades rdp para uma determinada piscina de anfitriões, pode iniciar sessão com um cliente do Windows Virtual Desktop para testá-las como parte de uma sessão de utilizador. Estes próximos guias de como-a-adirão como se conectar a uma sessão usando o cliente da sua escolha:
+Agora que personalizou as propriedades RDP para uma determinada piscina de anfitriões, pode iniciar sessão num cliente virtual do Windows desktop para testá-las como parte de uma sessão de utilizador. Estes próximos guias de como ligar-se a uma sessão utilizando o cliente à sua escolha:
 
 - [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-and-10.md)
 - [Ligar com o cliente web](connect-web.md)

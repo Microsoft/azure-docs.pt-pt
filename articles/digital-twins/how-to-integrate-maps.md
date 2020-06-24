@@ -7,15 +7,18 @@ ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 ms.reviewer: baanders
-ms.openlocfilehash: cedd91ed0a6bcce01aea8fd56f06f6523c590016
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 4051b5c098b0ce299185a483abf2bdd39bb6c11f
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680176"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725822"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este artigo percorre os passos necessários para utilizar os dados da Azure Digital Twins para atualizar as informações exibidas num *mapa interior* utilizando [o Azure Maps](../azure-maps/about-azure-maps.md). A Azure Digital Twins armazena um gráfico das suas relações com dispositivos IoT e encaminha a telemetria para diferentes pontos finais, tornando-se o serviço perfeito para atualizar sobreposições informativas nos mapas.
 
@@ -156,7 +159,7 @@ Uma solução para este exemplo específico implicaria atualizar cada espaço de
 
 Dependendo da configuração da sua topologia, poderá armazenar estes três atributos em diferentes níveis correlacionados com a granularidade do seu mapa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ler mais sobre gestão, atualização e recolha de informações do gráfico de gémeos, consulte as seguintes referências:
 

@@ -1,5 +1,5 @@
 ---
-title: Criar uma função Azure para o processamento de dados
+title: Configurar uma função Azure para o processamento de dados
 titleSuffix: Azure Digital Twins
 description: Veja como criar uma função Azure que possa aceder e ser desencadeada por gémeos digitais.
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 51e2560a7ad8d62965474082633d4cb66c1d6592
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613195"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725907"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Durante a pré-visualização, a atualização de gémeos digitais com base em dados é tratada utilizando rotas de [**eventos**](concepts-route-events.md) através de recursos computacional, tais como [Funções Azure](../azure-functions/functions-overview.md). Uma função Azure pode ser usada para atualizar um gémeo digital em resposta a:
 * dados de telemetria do dispositivo provenientes do IoT Hub
@@ -224,7 +227,7 @@ Utilize o ID do recurso juntamente com o ID do objeto da função Azure anterior
 az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <object-ID> --scope <resource-ID>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, seguiu os passos para configurar uma função Azure para uso com a Azure Digital Twins. Em seguida, pode subscrever a sua função Azure para Event Grid, para ouvir num ponto final. Este ponto final pode ser:
 * Um ponto final da Grade de Eventos anexado às Gémeas Digitais Azure para processar mensagens provenientes da própria Azure Digital Twins (tais como mensagens de mudança de propriedade, mensagens de telemetria geradas por [gémeos digitais](concepts-twins-graph.md) no gráfico gémeo ou mensagens de ciclo de vida)

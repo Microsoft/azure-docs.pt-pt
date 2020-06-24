@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 0aa09ffe5b5dd9dd0f49204495ecdd7179a0f36f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 2cf997cbe16f7ff4bfe75f90d3797ec97e7d5069
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660025"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808762"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -105,7 +105,7 @@ Se estes dois passos não ajudaram, é necessário descobrir se os quadros de v�
 
 **O modelo excede os limites do VM selecionado, especificamente o número máximo de polígonos:**
 
-Consulte [as limitações específicas do tamanho do VM](../reference/limits.md#overall-number-of-polygons).
+Consulte [os limites específicos do tamanho dos VM](../reference/limits.md#overall-number-of-polygons).
 
 **O modelo não está dentro da câmara frustum:**
 
@@ -146,6 +146,10 @@ Azure Remote Rendering ganchos no pipeline De unidade para fazer a composição 
 
 ![Depurador de quadro de unidade](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão de tabuleiro de xadrez é renderizado após o carregamento do modelo
+
+Se a imagem renderizada se parece com esta: ![ Tabuleiro de ](../reference/media/checkerboard.png) xadrez, o renderizador atinge os limites do [polígono para o tamanho padrão de VM](../reference/vm-sizes.md). Para atenuar, mude para o tamanho **VM premium** ou reduza o número de polígonos visíveis.
+
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada na Unidade está de cabeça para baixo
 
 Certifique-se de seguir o [guia de configuração](../tutorials/unity/project-setup.md) do projeto exatamente. Uma imagem de cabeça para baixo indica que a Unidade é necessária para criar um alvo de renderização fora do ecrã. Este comportamento não é atualmente suportado e cria um enorme impacto de desempenho no HoloLens 2.
@@ -168,6 +172,10 @@ Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart,
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Arm64 constrói projetos de unidade falham porque falta AudioPluginMsHRTF.dll
+
+O `AudioPluginMsHRTF.dll` para Arm64 foi adicionado ao pacote *de Realidade Mista* do Windows *(com.unity.xr.windowsmr.metro)* na versão 3.0.1. Certifique-se de que tem a versão 3.0.1 ou posteriormente instalada através do Gestor de Pacotes de Unidade. A partir da barra de menus Unidade, navegue até *window > Package Manager* e procure o pacote de realidade mista do *Windows.*
+
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 
 No caso de os objetos renderizados parecerem estar a mover-se juntamente com os movimentos da cabeça, pode estar a deparar-se com problemas com *a Reprojecção do Estágio Tardio* (LSR). Consulte a secção de [Reprojecção do Estágio Tardio](../overview/features/late-stage-reprojection.md) para obter orientações sobre como abordar tal situação.
@@ -228,7 +236,7 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)
 * [Requisitos de rede](../reference/network-requirements.md)

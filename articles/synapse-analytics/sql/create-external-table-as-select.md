@@ -5,16 +5,16 @@ services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 97e0b53aeac5a0adc939c87304ea35bb967eac52
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 610391cefe88f6d066f4af12f6fb88f55b1fe56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345075"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206552"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Armazenar resultados de consulta para armazenamento usando SQL on demand (pré-visualização) usando Azure Synapse Analytics
 

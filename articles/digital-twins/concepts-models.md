@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 30bf5d3eaa034c033cf32e26c3229a028f036313
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cacf4c21e92b434aeb73cd76e6dda26508f41d77
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613139"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261363"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Uma característica chave da Azure Digital Twins é a capacidade de definir o seu próprio vocabulário e construir o seu gráfico gémeo nos termos auto-definidos do seu negócio. Esta capacidade é fornecida através de **modelos definidos**pelo utilizador. Podes pensar nas modelos como os substantivos numa descrição do teu mundo. 
 
@@ -109,7 +112,7 @@ Aqui está um exemplo de um modelo típico, escrito como uma interface DTDL. O m
 
 Os campos do modelo são:
 
-| Campo | Descrição |
+| Campo | Description |
 | --- | --- |
 | `@id` | Um identificador para o modelo. Deve estar no `dtmi:<domain>:<unique model identifier>;<model version number>` formato. |
 | `@type` | Identifica o tipo de informação que está a ser descrita. Para uma interface, o tipo é *Interface.* |
@@ -197,11 +200,11 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 ## <a name="validating-models"></a>Modelos de validação
 
-Existe uma amostra disponível para validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca de parser DTDL e é agnóstico linguístico. Encontre-o aqui: [Amostra de Validador DTDL](https://github.com/Azure-Samples/DTDL-Validator).
+Existe uma amostra disponível para validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca de parser DTDL e é agnóstico linguístico. Encontre-o aqui: [Amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 Ou, para obter mais informações sobre a biblioteca de parser, incluindo um exemplo de como usá-la diretamente, consulte [Como-a-fazer: Parse e valide modelos](how-to-use-parser.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir os modelos com as APIs digitalTwinsModels:
 * [Como fazer: Gerir um modelo gémeo](how-to-manage-model.md)

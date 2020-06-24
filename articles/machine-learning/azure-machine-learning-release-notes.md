@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 81832e3ccfb3529f94b41b903a8b73fbbe7bbd40
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0b7d7b9e3b373c8a994538bc3d5f31b78df3cd6a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553058"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210427"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -22,6 +22,75 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
 
+## <a name="2020-06-22"></a>2020-06-22
+
+### <a name="azure-machine-learning-sdk-for-python-v180"></a>Azure Machine Learning SDK para Python v1.8.0
+  
+  + **Funcionalidades de pré-visualização**
+    + **azureml-contrib-fairness** O `azureml-contrib-fairness` pacote proporciona integração entre a avaliação da equidade de código aberto e o pacote de mitigação da injustiça [Fairlearn](https://fairlearn.github.io) e a azure machine learning studio. Em particular, o pacote permite que os dashboards de avaliação de justiça do modelo sejam carregados como parte de uma AzureML Run e apareçam no estúdio Azure Machine Learning
+
++ **Correções e melhorias de bugs**
+  + **azure-cli-ml**
+    + Suporte a obter registos de recipiente init.
+    + Adicionou novos comandos CLI para gerir o ComputeInstance
+  + **azureml-automl-core**
+    + Os utilizadores são agora capazes de ativar a iteração do conjunto de pilhas para tarefas Timeseries com um aviso de que poderia potencialmente sobreajustar..
+    + Adicionou um novo tipo de exceção ao utilizador `azureml.automl.core.shared.exceptions.CacheStoreCorruptedException` que é levantado se o conteúdo da loja cache tiver sido adulterado
+  + **azureml-automl-runtime**
+    + A varredura de equilíbrio de classes deixará de ser ativada se o utilizador desativar a caracterização.  
+  + **azureml-contrib-itp**
+    + O tipo de computação CmAks é suportado. Você pode anexar o seu próprio cluster AKS ao espaço de trabalho para trabalho de treino.
+  + **azureml-contrib-notebook**
+    + Doc melhora o pacote de cadernos azureml-contrib.
+  + **azureml-contrib-pipeline-steps**
+    + Doc melhora a azureml-contrib-- pipeline-steps package.
+  + **azureml-core**
+    + Adicione set_connection, get_connection, list_connections, delete_connection funções para o cliente operar em recursos de conexão do espaço de trabalho
+    + Atualizações de documentação para pacote azureml-coore/azureml.exceptions.
+    + Atualizações de documentação para o pacote azureml-core.
+    + Doc atualiza para a classe ComputeInstance.
+    + Doc melhorias no pacote azureml-core/azureml.core.compute.
+    + Melhorias do doc para classes relacionadas com webservice em azureml-core.
+    + Suporte a loja de dados selecionada pelo utilizador para armazenar dados de perfis
+    + Propriedade de expansão e page_count adicionada para lista de modelos API
+    + Erro fixo onde a remoção da propriedade sobredebrulhada fará com que a execução submetida falhe com erro de deserialização.
+    + Estrutura de pasta inconsistente fixa ao descarregar ou montar um FicheiroDataset referenciando-o a um único ficheiro.
+    + Carregar um conjunto de dados de ficheiros parquet to_spark_dataframe é agora mais rápido e suporta todos os tipos de dados parquet e Spark SQL.
+    + Suporte a obter registos de recipiente init.
+    + As corridas autoML estão agora marcadas como a execução infantil do Passo de Execução Paralela.
+  + **azureml-datadrift**
+    + Doc melhora o pacote de cadernos azureml-contrib.
+  + **azureml-dataprep**
+    + Carregar um conjunto de dados de ficheiros parquet to_spark_dataframe é agora mais rápido e suporta todos os tipos de dados parquet e Spark SQL.
+    + Melhor tratamento da memória em caso de problema de outOfMemory para to_pandas_dataframe.
+  + **azureml-interpret**
+    + Azureml-interpretado atualizado para usar a versão interpreta-comunidade 0.12.*
+  + **azureml-mlflow**
+    + Doc melhorias no azureml-mlflow.
+    + Adiciona suporte para o registo do modelo AML com MLFlow.
+  + **azureml-opendatasets**
+    + Apoio adicional para Python 3.8
+  + **azureml-pipeline-core**
+    + A documentação atualizada `PipelineDataset` para deixar claro que é uma classe interna.
+    + ParallelRunStep atualiza para aceitar vários valores para um argumento, por exemplo: "-group_column_names", "Col1", "Col2", "Col3"
+    + Removido o requisito de passthru_automl_config para a utilização intermédia de dados com AutoMLStep em Pipelines.
+  + **azureml-pipeline-steps**
+    + Doc melhora o pacote de passos de gasoduto azureml.
+    + Removido o requisito de passthru_automl_config para a utilização intermédia de dados com AutoMLStep em Pipelines.
+  + **azureml-telemetry**
+    + Doc melhora a azureml-telemetria.
+  + **azureml-train-automl-client**
+    + Consertado um bug onde `experiment.submit()` chamado duas vezes num `AutoMLConfig` objeto resultou em comportamento diferente.
+    + Os utilizadores são agora capazes de ativar a iteração do conjunto de pilhas para tarefas Timeseries com um aviso de que poderia potencialmente sobreajustar..
+    + Alterado Comportamento de execução autoML para aumentar o UserErrorExcepção se o serviço lançar erro do utilizador
+    + Corrige um bug que fez com que azureml_automl.log não fosse gerado ou faltasse registos ao realizar uma experiência AutoML num alvo de computação remota.
+    + Para conjuntos de dados de classificação com classes desequilibradas, aplicaremos o equilíbrio de peso, se o varredor de recurso o considerar melhor do que a linha de base
+    + As corridas autoML estão agora marcadas como a execução infantil do Passo de Execução Paralela.
+  + **azureml-train-automl-runtime**
+    + Alterado Comportamento de execução autoML para aumentar o UserErrorExcepção se o serviço lançar erro do utilizador
+    + As corridas autoML estão agora marcadas como a execução infantil do Passo de Execução Paralela.
+
+  
 ## <a name="2020-06-08"></a>2020-06-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v170"></a>Azure Machine Learning SDK para Python v1.7.0
@@ -106,7 +175,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
       + O valor predefinido para process_count_per_node é alterado para 1. O utilizador deve sintonizar este valor para um melhor desempenho. As melhores práticas são definir como o número de gPU ou nó CPU tem.
       + ParallelRunStep não injeta nenhum pacote, o utilizador precisa incluir pacotes **azureml-core** e **azureml-dataprep [pandas, fusíveis]** na definição ambiental. Se a imagem de estivador personalizada for utilizada com user_managed_dependencies, o utilizador terá de instalar conda na imagem.
       
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + **azureml-pipeline-steps**
     + Depreifed o uso de azureml.dprep.Dataflow como um tipo válido de entrada para AutoMLConfig
   + **azureml-train-automl-client**
@@ -310,7 +379,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + Os clusters AmlCompute suportam agora a criação de uma identidade gerida no cluster no momento do provisionamento. Basta especificar se gostaria de usar uma identidade atribuída ao sistema ou uma identidade atribuída ao utilizador, e passar um ID no caso deste último. Em seguida, pode configurar permissões para aceder a vários recursos, como Armazenamento ou ACR, de forma a que a identidade do computação seja usada para aceder de forma segura aos dados, em vez de uma abordagem baseada em fichas que a AmlCompute emprega hoje em dia. Consulte a nossa referência SDK para obter mais informações sobre os parâmetros.
   
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Os clusters AmlCompute apoiaram uma funcionalidade de Pré-visualização em torno da criação baseada em execução, que estamos planejando depreciar em duas semanas. Pode continuar a criar metas de computação persistentes, como sempre, utilizando a classe Amlcompute, mas a abordagem específica de especificar o identificador "amlcompute" como o alvo de computação em run config não será suportada num futuro próximo. 
 
 + **Correções e melhorias de bugs**
@@ -350,8 +419,8 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     + Aceite nomes de cálculo de cordas a serem passados para ParallelRunConfig
   + **azureml-core**
     +  API (new_name) do Ambiente Adicionado (new_name) para criar uma cópia do objeto ambiente
-    +  Environment.docker.base_dockerfile aceita filepath. Se for possível resolver um ficheiro, o conteúdo será lido em base_dockerfile propriedade ambiental
-    + Repor automaticamente valores mutuamente exclusivos para base_image e base_dockerfile quando o utilizador define manualmente um valor em Ambiente.docker
+    +  Environment.docker.base_dockerfile aceita o filepath. Se for possível resolver um ficheiro, o conteúdo será lido em base_dockerfile propriedade ambiental
+    + Repor automaticamente valores mutuamente exclusivos para base_image e base_dockerfile quando o utilizador define manualmente um valor em Environment.docker
     + Adicionado user_managed bandeira em RSection que indica se o ambiente é gerido pelo utilizador ou pela AzureML.
     + Conjunto de dados: Falha de descarregamento de conjunto de dados fixo se a trajetória de dados conter caracteres unicódigo.
     + Conjunto de dados: Mecanismo de cache de conjunto de dados melhorado para respeitar o requisito mínimo de espaço do disco no Azure Machine Learning Compute, o que evita tornar o nó inutilizável e fazer com que o trabalho seja cancelado.
@@ -381,7 +450,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK para Python v1.2.0
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Suporte de queda para python 2.7
 
 + **Correções e melhorias de bugs**
@@ -416,7 +485,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + **Python 2.7**
     + Última versão para apoiar python 2.7
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + **Versão semântica 2.0.0**
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
 
@@ -579,7 +648,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK para Python v1.1.0rc0 (Pré-lançamento)
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + **Versão semântica 2.0.0**
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
   
@@ -709,7 +778,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK para Python v1.0.76
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Problemas de upgrade Azureml-Train-AutoML
     + A atualização para>azureml-train-automl =1.0.76 de azureml-train-automl<1.0.76 pode causar instalações parciais, fazendo com que algumas importações automl falhem. Para resolver isto, pode executar o script de configuração encontrado em https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Ou se estiver a usar o pip diretamente, pode:
       + "pip install --upgrade azureml-train-automl"
@@ -1231,14 +1300,14 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     mydata = all_datasets['my-data']
     ```
 
-    + Introduzir `parition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yyyy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' cria coluna de cordas 'País' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
+    + Introduzir `parition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yyyy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
         ```py
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']
         ```
 
-    + Introduzir `partition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yyyy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' cria coluna de cordas 'País' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
+    + Introduzir `partition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yyyy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
     + `to_csv_files`e `to_parquet_files` métodos foram adicionados a `TabularDataset` . Estes métodos permitem a conversão entre a `TabularDataset` e a `FileDataset` convertendo os dados em ficheiros do formato especificado.
     + Inicie automaticamente o registo de imagem base ao guardar um Dockerfile gerado pelo Modelo.pacote().
     + "gpu_support" já não é necessário; A AML deteta e utiliza automaticamente a extensão do estivador nvidia quando está disponível. Será removido numa futura libertação.
@@ -1321,7 +1390,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1487,7 +1556,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
@@ -1648,7 +1717,7 @@ Revertemos uma mudança que melhorou o desempenho, uma vez que estava a causar p
     + Submeta o caderno jupyter como uma corrida. [Documentação de Referência da API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
     + Visualização pública do Detetor de Deriva de [Dados](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) através de pacote azureml-contrib-datadrift[(por exemplo, cadernos).](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift) Data Drift é uma das principais razões em que a precisão do modelo se degrada ao longo do tempo. Acontece quando os dados servidos para modelar na produção são diferentes dos dados em que o modelo foi treinado. O detetor de deriva de dados AML ajuda o cliente a monitorizar a deriva de dados e envia alerta sempre que a deriva é detetada.
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
 
 + **Correções e melhorias de bugs**
   + Executar a carga de configuração e guardar suportes especificando um caminho de arquivo completo com full back-compat para o comportamento anterior.
@@ -1685,7 +1754,7 @@ Revertemos uma mudança que melhorou o desempenho, uma vez que estava a causar p
   + Agora pode utilizar ** globbing ao ler no Azure Blob Storage.
     + por exemplo.`dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
 
-+ **Correções de erros**
++ **Correções de bugs**
   + Corrigiu um bug relacionado com a leitura de um ficheiro Parquet a partir de uma fonte remota (Azure Blob).
 
 ## <a name="2019-05-14"></a>2019-05-14
@@ -1726,7 +1795,7 @@ No portal Azure, pode agora:
 + Gráfico ao vivo e atualização métrica em relatórios de execução e executar páginas de detalhes
 + Visualizador de ficheiros atualizado para registos, saídas e instantâneos nas páginas de detalhes do Run.
 + Nova e melhorada experiência de criação de relatórios no separador Experimentos.
-+ Capacidade adicional de descarregar o ficheiro config.json a partir da página de visão geral do espaço de trabalho Azure Machine Learning.
++ Capacidade adicional de descarregar o config.jsem ficheiro a partir da página geral do espaço de trabalho Azure Machine Learning.
 + Suporte Azure Machine Learning criação de espaço de trabalho a partir do espaço de trabalho Azure Databricks.
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -1876,7 +1945,7 @@ Nota: Data Prep Python SDK deixará de instalar `numpy` e `pandas` pacotes. Cons
 
 ### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning Data Prep SDK v1.1.0
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + O conceito do Pacote de Preparação de Dados foi depreciado e já não é suportado. Em vez de persistir vários fluxos de dados num único Pacote, pode persistir fluxos de dados individualmente.
     + Guia: Bloco de notas [de abertura e poupança de fluxos de dados](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
 
@@ -1983,7 +2052,7 @@ Nota: Data Prep Python SDK deixará de instalar `numpy` e `pandas` pacotes. Cons
 
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Prep SDK v1.0.8
 
-+ **Correções de erros**
++ **Correções de bugs**
   + Melhorou o desempenho da obtenção de perfis de dados.
   + Erros menores fixos relacionados com relatórios de erros.
 
@@ -2017,7 +2086,7 @@ Nota: Data Prep Python SDK deixará de instalar `numpy` e `pandas` pacotes. Cons
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Prep SDK v1.0.6
 
-+ **Correções de erros**
++ **Correções de bugs**
   + Bug fixo com leitura de recipientes públicos legíveis Azure Blob em Faísca
 
 ## <a name="2018-12-20"></a>2018-12-20
@@ -2033,7 +2102,7 @@ Nota: Data Prep Python SDK deixará de instalar `numpy` e `pandas` pacotes. Cons
   + Capacidade adicional de verificar o tipo de retorno de algumas expressões para garantir a consistência do tipo e falhar precocemente.
   + Agora pode chamar `parse_json` para analisar valores numa coluna como objetos JSON e expandi-los em várias colunas.
 
-+ **Correções de erros**
++ **Correções de bugs**
   + Consertou um inseto que se despenhou `set_column_types` em Python 3.5.2.
   + Corrigiu um bug que se despenhou ao ligar-se à Datastore utilizando uma imagem AML.
 
@@ -2061,7 +2130,7 @@ O Azure Machine Learning Compute pode ser criado em Python, utilizando o portal 
 > Recomendamos a criação de um novo espaço de trabalho para utilizar o Azure Machine Learning Compute. Existe uma possibilidade remota de os utilizadores tentarem criar o Azure Machine Learning Compute a partir de um espaço de trabalho existente poderem ver um erro. O computação existente no seu espaço de trabalho deve continuar a funcionar sem ser afetado.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning SDK para Python v1.0.2
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Com esta versão, estamos a remover o suporte para criar um VM da Azure Machine Learning. Ainda pode anexar um VM de nuvem existente ou um servidor remoto no local.
   + Estamos também a remover o suporte ao BatchAI, que deve ser suportado através do Azure Machine Learning Compute agora.
 
@@ -2081,10 +2150,10 @@ O Azure Machine Learning Compute pode ser criado em Python, utilizando o portal 
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Prep SDK v0.5.2
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   * `SummaryFunction.N`foi renomeado para `SummaryFunction.Count` .
 
-+ **Correções de Bugs**
++ **Correções de Erros**
   * Utilize o mais recente Token de execução AML ao ler e escrever para datastores em execuções remotas. Anteriormente, se o Token de execução AML for atualizado em Python, o tempo de funcionação da Preparação de Dados não será atualizado com o Token de execução AML atualizado.
   * Mensagens de erro mais claras adicionais
   * to_spark_dataframe() não vai mais colidir quando Spark usar `Kryo` a serialização
@@ -2119,9 +2188,9 @@ O Azure Machine Learning Compute pode ser criado em Python, utilizando o portal 
 
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning SDK para Python v0.1.80
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   * *azureml.train.widgets* namespace mudou-se para *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* deprecisa as seguintes classes - *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. Esta última classe será removida em lançamentos subsequentes. A classe AmlCompute tem uma definição mais fácil agora, e simplesmente precisa de um vm_size e o max_nodes, e irá automaticamente escalar o seu cluster de 0 para o max_nodes quando um trabalho é submetido. Os [nossos cadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training) de amostras foram atualizados com esta informação e devem dar-lhe exemplos de utilização. Esperamos que goste desta simplificação e de muitas características mais emocionantes para vir em um lançamento posterior!
+  * *azureml.core.compute.AmlCompute* deprecia as seguintes classes - *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. Esta última classe será removida em lançamentos subsequentes. A classe AmlCompute tem uma definição mais fácil agora, e simplesmente precisa de um vm_size e o max_nodes, e irá automaticamente escalar o seu cluster de 0 para o max_nodes quando um trabalho é submetido. Os [nossos cadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training) de amostras foram atualizados com esta informação e devem dar-lhe exemplos de utilização. Esperamos que goste desta simplificação e de muitas características mais emocionantes para vir em um lançamento posterior!
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Prep SDK v0.5.1
 
@@ -2137,7 +2206,7 @@ Saiba mais sobre o Data Prep SDK lendo [documentos de referência](https://aka.m
    * Pode obter todos os tipos de dados de coluna de um fluxo de dados ou um perfil de dados chamando`.dtypes`
    * Pode obter a contagem de linha a partir de um fluxo de dados ou de um perfil de dados chamando`.row_count`
 
-+ **Correções de Bugs**
++ **Correções de Erros**
    * Conversão fixa de longo a duplo
    * Afirmação fixa após qualquer coluna de adição
    * Corrigiu um problema com o FuzzyGrouping, onde não detetaria grupos em alguns casos
@@ -2160,7 +2229,7 @@ O portal Azure para Azure Machine Learning tem as seguintes atualizações:
 
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning SDK para Python v0.1.74
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   * *Workspace.compute_targets, datastores, experiências, imagens, modelos e *webservices* são propriedades em vez de métodos. Por exemplo, substitua *workspace.compute_targets()* por *Workspace.compute_targets*.
   * *Run.get_context* deprecia *Run.get_submitted_run*. Este último método será removido em libertações posteriores.
   * A classe *PipelineData* espera agora um objeto de datastore como parâmetro e não datastore_name. Da mesma forma, *pipeline* aceita default_datastore em vez de default_datastore_name.
@@ -2210,7 +2279,7 @@ O portal Azure para Azure Machine Learning tem as seguintes atualizações:
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, lista previamente devolvida. Consulte a documentação [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API.
 
   * Machine Learning automatizado removeu erro quadrado médio normalizado das métricas primárias.

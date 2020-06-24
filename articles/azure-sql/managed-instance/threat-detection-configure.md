@@ -3,7 +3,7 @@ title: Configurar o Advanced Threat Protection
 titleSuffix: Azure SQL Managed Instance
 description: A Advanced Threat Protection deteta atividades de base de dados anómalas que indiquem potenciais ameaças de segurança à base de dados em Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 5cc5adf54b522f9209b386fa1fbb457ef6a3e8ff
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322350"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686330"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configure proteção avançada de ameaças em Azure SQL Caso gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,10 +39,10 @@ Pode receber notificações sobre as ameaças detetadas através de [notificaç�
    - Selecione os **tipos de Proteção de Ameaças Avançadas** que gostaria de configurar. Saiba mais sobre [alertas avançados de proteção contra ameaças.](../database/threat-detection-overview.md)
 4. Clique em **Guardar** para guardar a nova ou atualizada política de Segurança avançada de dados.
 
-   ![Advanced Threat Protection](./media/threat-detection-configure/threat-detection.png)
+   ![Proteção Avançada Contra Ameaças](./media/threat-detection-configure/threat-detection.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Proteção Avançada de Ameaças.](../database/threat-detection-overview.md)
 - Conheça as instâncias geridas, veja [O que é um Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).

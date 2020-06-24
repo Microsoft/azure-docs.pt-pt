@@ -4,16 +4,16 @@ description: Este artigo descreve como criar um recipiente de perfil FSLogix com
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7159eac0e71819fd75abef07cae979d5425fc07c
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 3348920260b6c256b25d0ff2419cdfd2a00dea35
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484620"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207316"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
 
@@ -41,7 +41,7 @@ Para adicionar um administrador:
 
 ## <a name="set-up-an-azure-storage-account"></a>Criar uma conta de armazenamento Azure
 
-Agora é hora de ativar a autenticação Azure AD DS sobre o Bloco de Mensagens do Servidor (SMB). 
+Agora é hora de ativar a autenticação Azure AD DS sobre o Bloco de Mensagens do Servidor (SMB).
 
 Para ativar a autenticação:
 
@@ -108,8 +108,8 @@ Para obter a chave de acesso à Conta de Armazenamento:
     - `<share-name>`Substitua-o pelo nome da parte que criou anteriormente.
     - `<storage-account-key>`Substitua-a pela chave da conta de armazenamento do Azure.
 
-    Por exemplo:  
-  
+    Por exemplo:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -124,7 +124,7 @@ Para obter a chave de acesso à Conta de Armazenamento:
     - `<user-email>`Substitua-a pela UPN do utilizador que utilizará este perfil para aceder aos VMs do anfitrião da sessão.
 
     Por exemplo:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -203,13 +203,13 @@ Para atribuir utilizadores:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
@@ -233,7 +233,7 @@ Para verificar o seu perfil:
 
     Se tudo estiver bem montado, deve ver um **Diretório** com um nome formatado assim: `<user SID>-<username>` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se procura formas alternativas de criar recipientes de perfil FSLogix, confira os seguintes artigos:
 

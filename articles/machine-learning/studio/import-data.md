@@ -5,17 +5,17 @@ description: Como importar os seus dados para o Azure Machine Learning Studio (c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 10ff7b4f031934f2f7432e53efc3031272574d0e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bf8d869582031d5bfa627edabac6a231e9cf8a74
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195324"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711141"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe os seus dados de formação em Azure Machine Learning Studio (clássico) de várias fontes de dados
 
@@ -64,7 +64,7 @@ Pode especificar ou alterar explicitamente os títulos e tipos de dados para col
 
 Os seguintes tipos de dados são reconhecidos pelo Studio (clássico):
 
-* Cadeia
+* String
 * Número inteiro
 * Double
 * Booleano
@@ -156,7 +156,7 @@ As fontes de dados online que são suportadas estão itemadas na tabela abaixo. 
 ### <a name="supported-online-data-sources"></a>Fontes de dados online suportadas
 O módulo Azure Machine Learning Studio (clássico) **Import Data** suporta as seguintes fontes de dados:
 
-| Origem de Dados | Descrição | Parâmetros |
+| Origem de Dados | Description | Parâmetros |
 | --- | --- | --- |
 | Web URL via HTTP |Lê dados em valores separados por vírgula (CSV), valores separados por separados por separados de separados por separados (TSV), formato de ficheiro de relação de atributos (ARFF) e Máquinas de Vetores de Suporte (luz SVM), a partir de qualquer URL web que utilize HTTP |<b>URL</b>: Especifica o nome completo do ficheiro, incluindo o URL do site e o nome do ficheiro, com qualquer extensão. <br/><br/><b>Formato de dados</b>: Especifica um dos formatos de dados suportados: CSV, TSV, ARFF ou SVM-light. Se os dados ímis ímis agem, é utilizado para atribuir nomes de colunas. |
 | Hadoop/HDFS |Lê dados de armazenamento distribuído em Hadoop. Especifica os dados que pretende utilizando o HiveQL, uma linguagem de consulta semelhante ao SQL. O HiveQL também pode ser usado para agregar dados e realizar a filtragem de dados antes de adicionar os dados ao Studio (clássico). |<b>Consulta da base de dados da colmeia</b>: Especifica a consulta de Colmeia utilizada para gerar os dados.<br/><br/><b>HCatalog servidor URI</b> : Especificou o nome do seu cluster utilizando o formato do * &lt; seu nome de cluster &gt; .azurehdinsight.net.*<br/><br/><b>Nome da conta do utilizador Hadoop</b>: Especifica o nome da conta de utilizador Hadoop utilizado para a provisionação do cluster.<br/><br/><b>Palavra-passe da conta de utilizador Hadoop</b> : Especifica as credenciais utilizadas no fornecimento do cluster. Para obter mais informações, consulte [os clusters Create Hadoop em HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Localização dos dados de saída</b>: Especifica se os dados são armazenados num sistema de ficheiros distribuídos por Hadoop (HDFS) ou em Azure. <br/><ul>Se armazenar dados de saída em HDFS, especifique o servidor HDFS URI. (Certifique-se de que utiliza o nome do cluster HDInsight sem o prefixo HTTPS://). <br/><br/>Se armazenar os seus dados de saída no Azure, tem de especificar o nome da conta de armazenamento Azure, a chave de acesso ao armazenamento e o nome do contentor de armazenamento.</ul> |

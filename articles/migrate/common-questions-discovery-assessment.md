@@ -2,13 +2,13 @@
 title: Perguntas sobre a descoberta, avaliação e análise de dependência em Azure Migrate
 description: Obtenha respostas a perguntas comuns sobre a descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: cec0f655a5b3c71b58e5d0622e020568bf9aee68
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.date: 06/09/2020
+ms.openlocfilehash: abcc84ae376e165eb0d677694acbd7d42a2efd8c
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447871"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079418"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -27,7 +27,7 @@ Reveja as regiões suportadas em [clouds públicas](migrate-support-matrix.md#su
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantos VMs posso descobrir com um aparelho?
 
-Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 250 servidores físicos utilizando um único aparelho. Se tiver mais máquinas, leia sobre [o escalonamento de uma avaliação de Hiper-V,](scale-hyper-v-assessment.md) [escalonando uma avaliação de VMware,](scale-vmware-assessment.md)ou [escalando uma avaliação do servidor físico](scale-physical-assessment.md).
+Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 1000 servidores físicos utilizando um único aparelho. Se tiver mais máquinas, leia sobre [o escalonamento de uma avaliação de Hiper-V,](scale-hyper-v-assessment.md) [escalonando uma avaliação de VMware,](scale-vmware-assessment.md)ou [escalando uma avaliação do servidor físico](scale-physical-assessment.md).
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Governo de Azure.
 
@@ -99,7 +99,7 @@ As diferenças entre visualização sem agente e visualização baseada em agent
 
 **Requisito** | **Sem agente** | **Baseada em agente**
 --- | --- | ---
-Suporte | Esta opção está atualmente em pré-visualização, e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) os sistemas operativos suportados. | Em disponibilidade geral (GA).
+Suporte | Esta opção está atualmente em pré-visualização, e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operativos suportados. | Em disponibilidade geral (GA).
 Agente | Não é necessário instalar agentes em máquinas que pretende verificar. | Agentes a instalar em cada máquina no local que pretende analisar: O agente de monitorização da [Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e o [agente Desadependido](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Pré-requisitos | [Reveja](concepts-dependency-visualization.md#agentless-analysis) os requisitos pré-requisitos e requisitos de implantação. | [Reveja](concepts-dependency-visualization.md#agent-based-analysis) os requisitos pré-requisitos e requisitos de implantação.
 Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [de Mapa de Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nos [registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
@@ -158,6 +158,6 @@ Para visualização sem agente, pode ver o mapa de dependência de um único ser
 
 Pode [visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) para grupos que tenham até 10 VMs. Se tiver um grupo com mais de 10 VMs, recomendamos que divida o grupo em grupos mais pequenos e, em seguida, visualize as dependências.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [Azure Migrate](migrate-services-overview.md).

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 0eabb3c226a444d872e6f3e5c85ae1a9fa377de3
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465767"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263549"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 
@@ -45,7 +45,7 @@ A ferramenta personalizada utiliza a biblioteca de executor a granel e suporta a
 A imagem a seguir descreve o processo de migração utilizando esta ferramenta personalizada. A ferramenta está a funcionar num conjunto de máquinas virtuais, e cada máquina virtual consulta a recolha de rastreio em Azure Cosmos DB para adquirir um arrendamento numa das divisórias de dados de origem. Uma vez feito isto, a partição de dados de origem é lida pela ferramenta e ingerida no Azure Cosmos DB utilizando a biblioteca do executor a granel. Em seguida, a recolha de rastreio é atualizada para registar o progresso da ingestão de dados e quaisquer erros encontrados. Depois de uma partição de dados ser processada, a ferramenta tenta consultar a próxima partição de origem disponível. Continua a processar a próxima partição de origem até que todos os dados são migrados. O código fonte da ferramenta está disponível [aqui.](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)  
 
  
-![Configuração da ferramenta de migração](./media/migrate-cosmosdb-data/migrationsetup.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Configuração da ferramenta de migração" border="false":::
  
 
  
@@ -145,10 +145,10 @@ Uma vez concluída a migração, pode validar que a contagem de documentos em Az
 ## <a name="contact-the-azure-cosmos-db-team"></a>Contacte a equipa DB da Azure Cosmos
 Embora possa seguir este guia para migrar com sucesso grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, recomenda-se que contacte a equipa de produtos DB da Azure Cosmos para validar a modelação de dados e uma revisão geral da arquitetura. Com base no seu conjunto de dados e carga de trabalho, a equipa do produto também pode sugerir outras otimizações de desempenho e custos que possam ser aplicáveis a si. Para contactar a equipa DB da Azure Cosmos para obter assistência com migrações em larga escala, pode abrir um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de "Grandes migrações (TB+)" como mostrado abaixo.
 
-![Tópico de apoio à migração](./media/migrate-cosmosdb-data/supporttopic.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Tópico de apoio à migração":::
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executor a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * A biblioteca de executor a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo [do conector Azure Cosmos DB Spark.](spark-connector.md)  

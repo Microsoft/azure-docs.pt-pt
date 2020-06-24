@@ -2,13 +2,13 @@
 title: Funções do modelo - data
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com datas.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 22bb3c80acb504649e4f5485c4d78dcd04277ec0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/22/2020
+ms.openlocfilehash: e1d9c354c53404bddc31d565b45e608567b218d6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678006"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205174"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
@@ -25,11 +25,11 @@ Adiciona uma duração de tempo a um valor base. Espera-se o formato ISO 8601.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| base | Sim | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
-| duration | Sim | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| formato | Não | string | O formato de saída para o resultado da hora da data. Se não for fornecido, o formato do valor base é utilizado. Utilize [cordas de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Yes | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
+| duration | Yes | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| formato | No | string | O formato de saída para o resultado da hora da data. Se não for fornecido, o formato do valor base é utilizado. Utilize [cordas de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -142,15 +142,15 @@ Devolve o valor atual (UTC) da data no formato especificado. Se não for forneci
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| formato |Não |string |O valor codificado uri para converter-se a uma corda. Utilize [cordas de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| formato |No |string |O valor codificado uri para converter-se a uma corda. Utilize [cordas de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 
 Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. A utilização desta função em qualquer outro lugar de um modelo retorna um erro. A função não é permitida noutras partes do modelo porque devolve um valor diferente cada vez que é chamado. A implantação do mesmo modelo com os mesmos parâmetros não produziria de forma fiável os mesmos resultados.
 
-Se utilizar a [opção de recolocar uma implementação com sucesso anterior](rollback-on-error.md), e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
+Se utilizar a [opção de reversão do erro](rollback-on-error.md) para uma implementação com sucesso anterior, e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
 
 Tenha cuidado ao recolocar um modelo que dependa da função utcNow para um valor predefinido. Quando se recoloca e não fornece um valor para o parâmetro, a função é reavaliada. Se pretender atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
 
@@ -243,6 +243,6 @@ O exemplo seguinte mostra como utilizar um valor da função ao definir um valor
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

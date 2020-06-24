@@ -1,22 +1,22 @@
 ---
-title: Pastas de consulta e vários ficheiros CSV utilizando SQL on demand (pré-visualização)
+title: Pastas de consulta e vários ficheiros utilizando SQL on demand (pré-visualização)
 description: SQL on-demand (pré-visualização) suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cb136fa9a3dc63144d26820b7170250b3598ba77
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235417"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207636"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Pastas de consulta e vários ficheiros CSV  
+# <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários ficheiros  
 
 Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (preview) em Azure Synapse Analytics.
 
