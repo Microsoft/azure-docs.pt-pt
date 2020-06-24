@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -16,6 +16,6 @@ ms.lasthandoff: 04/27/2020
 ms.locfileid: "68589992"
 ---
 > [!IMPORTANT]
-> StorSimple Virtual Array (série 1200) chegará ao seu [fim de vida](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%201200%20Series) em dezembro de 2020. Se está a considerar novas implementações do StorSimple Virtual Array, recomendamos que explore outras alternativas, como o [Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) ou [o Azure Data Box Online](https://docs.microsoft.com/azure/databox-online/) para as suas cargas de trabalho.
+> A StorSimple Virtual Array (série 1200) chegará ao seu [fim de vida](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%201200%20Series) em dezembro de 2020. Se estiver a considerar novas implementações do StorSimple Virtual Array, recomendamos que explore outras alternativas, como [o Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) ou os [dispositivos Azure Data Box Online](https://docs.microsoft.com/azure/databox-online/) para as suas cargas de trabalho.
 
 

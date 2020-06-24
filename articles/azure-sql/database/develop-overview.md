@@ -10,21 +10,22 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: 1d384bf4919589675dd6947fcb083585ebaf7e18
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344599"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254060"
 ---
-# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Visão geral do desenvolvimento de aplicações - SQL Database & SQL Managed Instance 
+# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Visão geral do desenvolvimento de aplicações - SQL Database & SQL Managed Instance
+
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Este artigo percorre as considerações básicas que um desenvolvedor deve ter em conta ao escrever código para ligar à sua base de dados em Azure. Este artigo aplica-se à Base de Dados Azure SQL e à Azure SQL Managed Instance.
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
 
-Pode utilizar [várias linguagens e plataformas de programação](connect-query-content-reference-guide.md) para conectar e consultar a Base de Dados Azure SQL. Pode encontrar [aplicações de amostra que](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) pode utilizar para ligar à base de dados Azure SQL.
+Pode utilizar [várias linguagens e plataformas de programação](connect-query-content-reference-guide.md) para conectar e consultar a Base de Dados Azure SQL. Pode encontrar aplicações de amostra que pode utilizar para ligar à base de [dados.](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0)
 
 Pode aproveitar ferramentas de código aberto como [chita,](https://github.com/wunderlist/cheetah) [sql-cli,](https://www.npmjs.com/package/sql-cli) [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Também pode utilizar o portal Azure, PowerShell e REST APIs ajudam-no a ganhar produtividade adicional.
 
@@ -44,7 +45,7 @@ Evite transações de longa duração porque qualquer falha de infraestrutura ou
 
 ## <a name="resiliency"></a>Resiliência
 
-A Azure SQL Database é um serviço de nuvem onde se podem esperar erros transitórios que ocorram na infraestrutura subjacente ou na comunicação entre entidades em nuvem. Embora o Azure SQL Database seja resistente às falhas de infraestrutura transitivas, estas falhas podem afetar a sua conectividade. Quando ocorrer um erro transitório durante a ligação à Base de Dados SQL, o seu código deve [voltar a tentar a chamada](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL database with multiple clients retrying simultaneously. A lógica de recandidúsão depende das mensagens de erro dos programas de [clientes da SQL Database](troubleshoot-common-errors-issues.md).
+A Azure SQL Database é um serviço de nuvem onde se podem esperar erros transitórios que ocorram na infraestrutura subjacente ou na comunicação entre entidades em nuvem. Embora o Azure SQL Database seja resistente às falhas de infraestrutura transitivas, estas falhas podem afetar a sua conectividade. Quando ocorrer um erro transitório durante a ligação à Base de Dados SQL, o seu código deve [voltar a tentar a chamada](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the service with multiple clients retrying simultaneously. A lógica de recandidúsão depende das mensagens de erro dos programas de [clientes da SQL Database](troubleshoot-common-errors-issues.md).
 
 Para obter mais informações sobre como preparar eventos de manutenção planeados na sua Base de Dados Azure SQL, consulte [o planeamento de eventos de manutenção do Azure na Base de Dados Azure SQL](planned-maintenance.md).
 
@@ -55,7 +56,7 @@ Para obter mais informações sobre como preparar eventos de manutenção planea
 - As ligações do cliente à Base de Dados Azure SQL por vezes contornam o proxy e interagem diretamente com a base de dados. As portas que não sejam 1433 tornam-se importantes. Para mais informações, [a Azure SQL Database arquitetura de conectividade](connectivity-architecture.md) e [portos além de 1433 para ADO.NET 4.5 e SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Para a configuração de rede para um exemplo de SQL Managed Instance, consulte [a configuração da rede para SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore todas as capacidades da [SqL Database](sql-database-paas-overview.md) e [sql Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 

@@ -12,4 +12,4 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "67122556"
 ---
 >[!NOTE]
->Como parte da transição em curso da Microsoft Operations Management Suite para o Azure Monitor, o Agente suite de Gestão de Operações para Windows ou Linux será referido como o agente Log Analytics para Windows e Log Analytics para o Linux.
+>Como parte da transição em curso do Microsoft Operations Management Suite para o Azure Monitor, o Agente da Suite de Gestão de Operações para Windows ou Linux será referido como o agente Log Analytics para Windows e Log Analytics para o Linux.

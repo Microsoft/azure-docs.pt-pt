@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -16,6 +16,6 @@ ms.lasthandoff: 04/27/2020
 ms.locfileid: "72935538"
 ---
 > [!IMPORTANT]
-> Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) à sub-rede do gateway. Associar um grupo de segurança de rede a esta subrede pode fazer com que o gateway da Rede Virtual (VPN, Gateway Da Rota Expressa) deixe de funcionar como esperado. Para obter mais informações sobre os grupos de segurança de rede, veja artigo [O que é um grupo de segurança de rede?](../articles/virtual-network/security-overview.md)
+> Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) à sub-rede do gateway. Associar um grupo de segurança de rede a esta sub-rede pode fazer com que o seu gateway de rede virtual (VPN, Gateway Da Rota Expresso) deixe de funcionar como esperado. Para obter mais informações sobre os grupos de segurança de rede, veja artigo [O que é um grupo de segurança de rede?](../articles/virtual-network/security-overview.md)
 > 
 > 

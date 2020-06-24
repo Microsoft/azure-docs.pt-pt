@@ -4,15 +4,15 @@ description: Este artigo é uma visão geral do fim do Gateway de Aplicação pa
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: 3f8dcf4858d69f33ea50d473f6261cf45a6b7fa5
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f9d55c3294cc28b6193371cdc6ede7ba1bc8167b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629218"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254808"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral da rescisão de TLS e fim do fim do TLS com Gateway de aplicação
 
@@ -151,7 +151,7 @@ Cenário | v1 | v2 |
 | Cabeçalho SNI (server_name) durante o aperto de mão TLS como FQDN | Definido como FQDN a partir da piscina de backend. De acordo com [rfc 6066,](https://tools.ietf.org/html/rfc6066)os endereços IPv4 e IPv6 literais não são permitidos no nome de anfitrião SNI. <br> **Nota:** FQDN no pool de backend caso o DNS resolva reesar o endereço IP do servidor (público ou privado) | O cabeçalho SNI (server_name) é definido como o nome de anfitrião a partir das definições HTTP, caso contrário, se a opção *PickHostnameFromBackendAddress* for escolhida ou se não for mencionado nenhum nome de anfitrião, então será definido como O FQDN na configuração do pool backend
 | Se o endereço de pool backend for um endereço IP ou o nome de anfitrião não estiver definido nas definições HTTP | SNI não será definido de acordo com [RFC 6066](https://tools.ietf.org/html/rfc6066) se a entrada na piscina de backend não for um FQDN | O SNI será definido como o nome de anfitrião a partir da entrada FQDN do cliente e o certificado de backend CN tem que corresponder com este nome de anfitrião.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de aprender sobre o fim do TLS, vá ao [Configure end to end TLS usando o Application Gateway com PowerShell](application-gateway-end-to-end-ssl-powershell.md) para criar um gateway de aplicação utilizando o fim do TLS.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 4c0ae83a0ed3a7f9fc550af2d64d5fcd1f42c998
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 609b5903d02e9265e211cf25606ae3852e03e913
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324682"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254026"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,18 +36,18 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
 
 1. Vá ao [portal Azure](https://portal.azure.com) para encontrar a sua base de dados na Base de Dados SQL. Procure e selecione **bases de dados SQL.**
 
-    ![Pesquisa de bases de dados SQL, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
+    ![Pesquisa de bases de dados, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
 1. Selecione a base de dados que pretende utilizar como base de dados do hub para Data Sync.
 
-    ![Selecione a partir da lista de bases de dados SQL, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+    ![Selecione a partir da lista de bases de dados, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
 
     > [!NOTE]
     > A base de dados do hub é o ponto final central de uma topologia de sincronização, na qual um grupo de sincronização tem vários pontos finais de base de dados. Todas as bases de dados dos outros membros com pontos finais no grupo de sincronização, sincronizam-se com a base de dados do hub.
 
 1. No menu de **base de dados SQL** para a base de dados selecionada, selecione **Sync para outras bases de dados.**
 
-    ![Sincronização com outras bases de dados, base de dados SQL, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    ![Sincronizar com outras bases de dados, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
 
 1. Na página **Sync para outras bases de dados,** selecione **New Sync Group**. A nova página **do grupo sync** abre com o grupo de **sincronização Create (passo 1)** em destaque.
 
@@ -171,7 +171,7 @@ Após a criação e implantação dos novos membros do grupo sincronizado, o **g
 
     ![Sincronização manual](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 
-## <a name="faq"></a>PERGUNTAS FREQUENTES
+## <a name="faq"></a>FAQ
 
 **Com que frequência o Data Sync pode sincronizar os meus dados?**
 
@@ -231,7 +231,7 @@ Depois de exportar uma base de dados como ficheiro *.bacpac* e importar o fichei
 
 Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-data-sync-agent-overview.md#agent-faq)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns! Criou um grupo de sincronização que inclui uma instância sql database e uma base de dados SQL Server.
 

@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: incluir arquivo com pré-requisitos
 services: active-directory-ds
 documentationcenter: ''
@@ -24,8 +24,8 @@ ms.lasthandoff: 04/26/2020
 ms.locfileid: "68426939"
 ---
 > [!IMPORTANT]
-> **Ative a sincronização de hash de palavra-passe para os Serviços de Domínio AD Azure, antes de completar as tarefas neste artigo.**
+> **Ative a sincronização de hash de palavra-passe nos Serviços de Domínio Azure AD, antes de completar as tarefas neste artigo.**
 >
-> Siga as instruções abaixo, dependendo do tipo de utilizadores no seu diretório Azure AD. Complete ambos os conjuntos de instruções se tiver uma mistura de contas de utilizador apenas em nuvem e sincronizadas no seu diretório Azure AD. Pode não ser capaz de realizar as seguintes operações no caso de estar a tentar utilizar uma conta De hóspedes B2B (exemplo, o seu gmail ou MSA de um fornecedor de identidade diferente que permitimos) porque não temos a palavra-passe para estes utilizadores sincronizada com o domínio gerido, uma vez que estas são contas de hóspedes no diretório. A informação completa sobre estas contas, incluindo as suas palavras-passe, estaria fora da AD Azure e como esta informação não está em Azure AD, por isso nem sequer é sincronizada com o domínio gerido. 
+> Siga as instruções abaixo, dependendo do tipo de utilizadores no seu diretório AD Azure. Preencha ambos os conjuntos de instruções se tiver uma mistura de contas de utilizador sincronizadas e sincronizadas no seu diretório AD Azure. Poderá não conseguir realizar as seguintes operações caso esteja a tentar utilizar uma conta B2B Guest (por exemplo, o seu gmail ou MSA de um fornecedor de identidade diferente que permitimos) porque não temos a palavra-passe para estes utilizadores sincronizados para o domínio gerido, uma vez que estas são contas de hóspedes no diretório. As informações completas sobre estas contas, incluindo as suas palavras-passe, estariam fora do Azure AD e como esta informação não está no AD Azure, pelo que nem sequer se sincroniza com o domínio gerido. 
 > - [Instruções para contas de utilizadores apenas na nuvem](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Instruções para contas de utilizador sincronizadas a partir de um diretório no local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

@@ -9,23 +9,24 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 15b27990842da8837e6cd8fc8d29f361961ee044
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: e7df5f2ed484a2425e97423fbbdd396fc4eb1eb0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669550"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253482"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database and Managed Instance Import/Export service leva muito tempo para importar ou exportar uma base de dados
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Quando utilizar o serviço de Importação/Exportação, o processo pode demorar mais do que o esperado. Este artigo descreve as causas potenciais para este atraso e métodos alternativos de solução.
 
 ## <a name="azure-sql-database-importexport-service"></a>Serviço de importação/exportação de base de dados Azure SQL
 
-O serviço Azure SQL Database Import/Export é um serviço web baseado em REST que funciona em todos os centros de dados Azure. Este serviço é chamado quando utiliza a [base de dados Import](database-import.md#using-azure-portal) ou a opção [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) para mover a sua base de dados SQL no portal Azure. O serviço fornece serviços de fila gratuita e de computação para realizar importações e exportações entre a Base de Dados Azure SQL e o armazenamento Azure Blob.
+O serviço Azure SQL Database Import/Export é um serviço web baseado em REST que funciona em todos os centros de dados Azure. Este serviço é chamado quando utiliza a [base de dados De Importação](database-import.md#using-azure-portal) ou a opção [Exportação](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) para mover a sua base de dados no portal Azure. O serviço fornece serviços de fila gratuita e de computação para realizar importações e exportações entre a Base de Dados Azure SQL e o armazenamento Azure Blob.
 
-As operações de importação e exportação não representam uma cópia de segurança física tradicional, mas sim uma cópia de segurança lógica da base de dados que utiliza um formato BACPAC especial. O formato BACPAC permite evitar ter de utilizar um formato físico que pode variar entre as versões do Microsoft SQL Server e da Azure SQL Database. Portanto, pode usá-lo para restaurar com segurança a base de dados para uma base de dados SQL Server e para uma base de dados SQL.
+As operações de importação e exportação não representam uma cópia de segurança física tradicional, mas sim uma cópia de segurança lógica da base de dados que utiliza um formato BACPAC especial. O formato BACPAC permite evitar ter de utilizar um formato físico que pode variar entre as versões do Microsoft SQL Server, Azure SQL Database e Azure SQL Managed Instance.
 
 ## <a name="what-causes-delays-in-the-process"></a>O que causa atrasos no processo?
 
@@ -45,13 +46,13 @@ Se as exportações da sua base de dados forem utilizadas apenas para a recupera
   * [Microsoft.SqlServer.Dac Namespace](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [Baixar o DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
-## <a name="things-to-consider-when-you-export-or-import-an-azure-sql-database"></a>Coisas a ter em conta quando exporta ou importa uma base de dados Azure SQL
+## <a name="things-to-consider-when-you-export-or-import-a-database"></a>Coisas a ter em conta quando exporta ou importa uma base de dados
 
 * Todos os métodos discutidos neste artigo utilizam a quota da Unidade de Transações de Base de Dados (DTU), o que provoca estrangulamento pelo serviço de base de dados Azure SQL. Pode [ver as estatísticas do DTU para a base de dados no portal Azure](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). Se a base de dados tiver atingido os seus limites de recursos, [atualize o nível de serviço](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) para adicionar mais recursos.
-* Idealmente, deve executar aplicações de clientes (como o utilitário sqlpackage ou a sua aplicação DAC personalizada) a partir de um VM na mesma região que a sua base de dados SQL. Caso contrário, poderá experimentar problemas de desempenho relacionados com a latência da rede.
+* Idealmente, deve executar aplicações de clientes (como o utilitário sqlpackage ou a sua aplicação DE CAD personalizada) a partir de um VM na mesma região que a sua base de dados. Caso contrário, poderá experimentar problemas de desempenho relacionados com a latência da rede.
 * Exportar grandes tabelas sem índices agrupados pode ser muito lento ou mesmo causar falhas. Este comportamento ocorre porque a mesa não pode ser dividida e exportada paralelamente. Em vez disso, deve ser exportada numa única transação, o que provoca um desempenho lento e uma potencial falha durante a exportação, especialmente para os grandes quadros.
 
 
 ## <a name="related-documents"></a>Documentos relacionados
 
-[Considerações na exportação de uma base de dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)
+[Considerações na exportação de uma base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)

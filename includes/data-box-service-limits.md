@@ -12,5 +12,5 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "66244619"
 ---
- - Se utilizar várias contas de armazenamento com o serviço Data Box, todas as contas de armazenamento devem pertencer à mesma região do Azure.
+ - Se utilizar várias contas de armazenamento com o serviço Data Box, todas as contas de armazenamento devem pertencer à mesma região Azure.
  - Recomendamos que não utilize mais do que três contas de armazenamento. A utilização de mais contas de armazenamento pode potencialmente afetar o desempenho.

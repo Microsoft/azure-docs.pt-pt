@@ -4,16 +4,16 @@ description: Como utilizar as equipas do Microsoft no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b065a79abe4a4f5c23e28be111b09e51e5e6484
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 0b2ef8a944af9f80dd65ce75869bcf4e3156c63f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667051"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254910"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -42,7 +42,7 @@ Esta secção irá mostrar-lhe como instalar a aplicação de desktop Teams na s
 
 ### <a name="prepare-your-image-for-teams"></a>Prepare a sua imagem para equipas
 
-Para ativar a instalação de Equipas por máquina, desa estale a seguinte chave de registo no anfitrião:
+Para permitir a otimização dos meios de comunicação para as equipas, desa estale a seguinte chave de registo no anfitrião:
 
 1. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Criar o seguinte valor para a tecla Equipas:
@@ -57,29 +57,39 @@ Instale o [Serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/a
 
 ### <a name="install-microsoft-teams"></a>Instalar equipas da Microsoft
 
-Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma instalação por máquina. Para instalar as Equipas Microsoft no ambiente de ambiente de trabalho virtual do Windows:
+Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma instalação por máquina ou por utilizador. Para instalar as Equipas Microsoft no ambiente de ambiente de trabalho virtual do Windows:
 
 1. Descarregue o [pacote DE MSI das equipas](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) que corresponde ao seu ambiente. Recomendamos a utilização do instalador de 64 bits num sistema operativo de 64 bits.
 
       > [!NOTE]
       > A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
 
-2. Executar este comando para instalar o MSI no VM anfitrião.
+2. Executar um dos seguintes comandos para instalar o MSI no VM anfitrião:
 
-      ```console
-      msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
-      ```
+    - Instalação por utilizador
 
-      Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 64 bits e para a pasta Ficheiros de Programa num sistema operativo de 32 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
 
-      Da próxima vez que abrires equipas numa sessão, serão-te pedidos as tuas credenciais.
+        Este processo é a instalação predefinida, que instala equipas na pasta de utilizador **%AppData%.** As equipas não funcionarão corretamente com a instalação por utilizador numa configuração não persistente.
 
-      > [!NOTE]
-      > Os utilizadores e administradores não podem desativar o lançamento automático das Equipas durante a entrada neste momento.
+    - Instalação por máquina
 
-      Para desinstalar o MSI do VM anfitrião, execute este comando:
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        ```
 
-      ```console
+        Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 64 bits e para a pasta Ficheiros de Programa num sistema operativo de 32 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
+
+        Da próxima vez que abrires equipas numa sessão, serão-te pedidos as tuas credenciais.
+
+        > [!NOTE]
+        > Os utilizadores e administradores não podem desativar o lançamento automático das Equipas durante a entrada neste momento.
+
+3. Para desinstalar o MSI do VM anfitrião, execute este comando:
+
+      ```powershell
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
@@ -137,7 +147,7 @@ Se encontrar problemas com chamadas e reuniões, colete registos de clientes web
 
 ## <a name="contact-microsoft-teams-support"></a>Contacte o suporte da Microsoft Teams
 
-Para contactar o suporte da Microsoft Teams, aceda ao [centro de administração Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
+Para contactar o suporte da Microsoft Teams, aceda ao [centro de administração Microsoft 365](/microsoft-365/admin/contact-support-for-business-products).
 
 ## <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
 
@@ -145,7 +155,7 @@ A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho 
 
 Não é necessário ativar as reorientações do dispositivo quando se utilizam equipas com otimização de meios. Se estiver a utilizar equipas sem otimização de meios, desaverta as seguintes propriedades RDP para permitir a reorientação do microfone e da câmara:
 
-- `audiocapturemode:i:1`permite a captura de áudio a partir do dispositivo local e redirets aplicações de áudio na sessão remota.
+- `audiocapturemode:i:1`permite a captura de áudio a partir do dispositivo local e redireciona aplicações de áudio na sessão remota.
 - `audiomode:i:0`reproduz áudio no computador local.
 - `camerastoredirect:s:*`redireciona todas as câmaras.
 

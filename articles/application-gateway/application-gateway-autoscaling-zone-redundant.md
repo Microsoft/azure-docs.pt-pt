@@ -4,16 +4,16 @@ description: Este artigo introduz a aplicação Azure Standard_v2 e WAF_v2 SKU, 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: df68bec859a3c2456dd1cf5f69387e8affb4b3e2
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484535"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254349"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -193,7 +193,7 @@ Esta secção descreve características e limitações do V2 SKU que difere do V
 
 Um script Azure PowerShell está disponível na galeria PowerShell para ajudá-lo a migrar do seu V1 Application Gateway/WAF para o V2 Autoscaling SKU. Este script ajuda-o a copiar a configuração do seu gateway V1. A migração do tráfego continua a ser da sua responsabilidade. Para mais informações, consulte [o Portal de Aplicações Migrate Azure de v1 a v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Crie um porta de aplicação redundante de zona de auto-estação com um endereço IP virtual reservado usando a Azure PowerShell](tutorial-autoscale-ps.md)

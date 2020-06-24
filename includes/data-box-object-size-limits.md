@@ -16,7 +16,7 @@ Aqui estão os tamanhos dos objetos Azure que podem ser escritos. Certifique-se 
 
 | Tipo de objeto azul | Limite predefinido                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de blocos        | ~ 4.75 Tib                                                 |
-| Blob de páginas         | 8 TiB <br> Cada ficheiro carregado no formato blob da página deve ser 512 bytes alinhados (um múltiplo integral), caso contrário o upload falha. <br> VHD e VHDX são 512 bytes alinhados. |
+| Blob de blocos        | ~ 4.75 TiB                                                 |
+| Blob de páginas         | 8 TiB <br> Cada ficheiro carregado no formato blob de página deve estar alinhado 512 bytes (um múltiplo integral), caso contrário o upload falha. <br> VHD e VHDX estão alinhados 512 bytes. |
 | Ficheiros do Azure        | 1 TiB                                                      |
-| Managed disks     | 4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade dos SSDs padrão](../articles/virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Metas de escalabilidade dos SSDs Premium](../articles/virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Metas de escalabilidade dos HDDs padrão](../articles/virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Preços e faturação de discos geridos](../articles/virtual-machines/windows/disks-types.md#billing)</li>  
+| Managed disks     | 4 TiB <br> Para obter mais informações sobre o tamanho e os limites, consulte: <li>[Metas de escalabilidade dos SSDs standard](../articles/virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Metas de escalabilidade dos SSDs Premium](../articles/virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Metas de escalabilidade dos HDDs standard](../articles/virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Preços e faturação de discos geridos](../articles/virtual-machines/windows/disks-types.md#billing)</li>  

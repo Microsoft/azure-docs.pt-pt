@@ -3,7 +3,7 @@ title: Conectividade Configure Azure VM
 titleSuffix: Azure SQL Managed Instance
 description: Ligue-se ao Azure SQL Managed Instance utilizando o SQL Server Management Studio a partir de uma máquina virtual Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 9cfb8d2f9c7a04c519674856ca0e5603e0f9f782
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219762"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706363"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Quickstart: Configurar um Azure VM para ligar à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

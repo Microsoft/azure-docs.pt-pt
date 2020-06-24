@@ -1,46 +1,46 @@
 ---
-title: Monitorizar a carga de trabalho - Portal Azure
+title: Monitor de carga de trabalho - Portal Azure
 description: Monitor Synapse SQL utilizando o portal Azure
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133456"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211566"
 ---
-# <a name="monitor-workload---azure-portal"></a>Monitorizar a carga de trabalho - Portal Azure
+# <a name="monitor-workload---azure-portal"></a>Monitor de carga de trabalho - Portal Azure
 
-Este artigo descreve como usar o portal Azure para monitorizar a sua carga de trabalho. Isto inclui a criação de registos do Monitor Azure para investigar as tendências de execução de consultas e de carga de trabalho utilizando análises de registo para [Synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
+Este artigo descreve como utilizar o portal Azure para monitorizar a sua carga de trabalho. Isto inclui a criação de Registos do Monitor Azure para investigar as tendências de execução de consultas e carga de trabalho utilizando a análise de registos para [Synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure: Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Piscina SQL: Vamos recolher registos para uma piscina SQL. Se não tiver uma piscina SQL aprovisionada, consulte as instruções em [Create a SQL pool](load-data-from-azure-blob-storage-using-polybase.md).
+- Subscrição Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Piscina SQL: Vamos recolher registos para uma piscina SQL. Se não tiver uma piscina SQL fornecida, consulte as instruções na [Criação de uma piscina SQL](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
-Navegue para a lâmina de navegação para espaços de trabalho log Analytics e crie um espaço de trabalho
+Navegue até à lâmina de navegação para espaços de trabalho log analytics e crie um espaço de trabalho
 
 ![Áreas de trabalho do Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Adicionar espaço de trabalho analytics](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Adicione espaço de trabalho analítico](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Adicionar espaço de trabalho analytics](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Adicione espaço de trabalho analítico](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 Para mais detalhes sobre espaços de trabalho, visite a seguinte [documentação.](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)
 
-## <a name="turn-on-resource-logs"></a>Ligue os registos de recursos
+## <a name="turn-on-resource-logs"></a>Ligue registos de recursos
 
-Configure as definições de diagnóstico para emitir registos da sua piscina SQL. Os registos consistem em vistas de telemetria equivalentes às DMVs de resolução de problemas de desempenho mais comumente usadas. Atualmente, são apoiadas as seguintes opiniões:
+Configure as definições de diagnóstico para emitir registos da sua piscina SQL. Os registos consistem em vistas de telemetria equivalentes às DMVs de resolução de problemas de desempenho mais utilizadas. Atualmente são apoiados os seguintes pontos de vista:
 
 - [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -50,24 +50,24 @@ Configure as definições de diagnóstico para emitir registos da sua piscina SQ
 
 ![Ativar registos de recursos](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
-Os registos podem ser emitidos para o Armazenamento Azure, Stream Analytics ou Log Analytics. Para este tutorial, selecione Log Analytics.
+Os registos podem ser emitidos para Azure Storage, Stream Analytics ou Log Analytics. Para este tutorial, selecione Log Analytics.
 
 ![Especificar registos](./media/sql-data-warehouse-monitor-workload-portal/specify_logs.png)
 
-## <a name="run-queries-against-log-analytics"></a>Executar consultas contra log analytics
+## <a name="run-queries-against-log-analytics"></a>Executar consultas contra o Log Analytics
 
 Navegue para o seu espaço de trabalho Log Analytics onde pode fazer o seguinte:
 
 - Analise os registos usando consultas de registo e guarde consultas para reutilização
-- Guarde as consultas para reutilizar
+- Guardar consultas para reutilização
 - Criar alertas de registos
-- Resultados da consulta de pin para um dashboard
+- Pin consulta resultados para um dashboard
 
-Para mais informações sobre as capacidades das consultas de registo, visite a seguinte [documentação](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Para mais informações sobre as capacidades das consultas de registo, visite a seguinte [documentação.](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-![Editor de espaço de trabalho Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
+![Log Analytics editor de espaço de trabalho](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 
-![Consultas de espaço de trabalho de Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
+![Consultas de espaço de trabalho Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
 ## <a name="sample-log-queries"></a>Consultas de registo de amostras
 
@@ -97,4 +97,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que criou e configurou os registos de monitores Azure, [personalize os dashboards Azure](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para partilhar em toda a sua equipa.
+Agora que configuraram e configuraram registos de monitores Azure, [personalize os dashboards Azure](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para partilhar em toda a sua equipa.

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -15,13 +15,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183992"
 ---
- Se estiver a utilizar a Casca de Nuvem Azure, insere-se automaticamente na sua conta Azure depois de clicar em 'Experimente'. Para iniciar sessão local, abra a consola PowerShell com privilégios elevados e execute o cmdlet para ligar.
+ Se estiver a utilizar o Azure Cloud Shell, inscreva-se automaticamente na sua conta Azure depois de clicar em 'Experimente'. Para iniciar seduca localmente, abra a sua consola PowerShell com privilégios elevados e coloque o cmdlet para ligar.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Se tiver mais de uma subscrição, obtenha uma lista das suas subscrições Do Azure.
+Se tiver mais de uma subscrição, obtenha uma lista das suas subscrições Azure.
 
 ```azurepowershell-interactive
 Get-AzSubscription

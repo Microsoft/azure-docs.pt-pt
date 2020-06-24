@@ -3,19 +3,19 @@ title: Tipos de ligação
 titleSuffix: Azure SQL Managed Instance
 description: Saiba mais sobre os tipos de conexão Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 347f9522bacc768265027f1a2070ac4605ade158
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 153f338a49a24d1cb9eb71c068effcfd20bd2ffe
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655679"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706312"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Tipos de conexão Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restaurar uma base de dados para SQL Gestditundo Instância](restore-sample-database-quickstart.md)
 - Saiba como [configurar um ponto final público em SQL Managed Instance](public-endpoint-configure.md)

@@ -1,68 +1,68 @@
 ---
-title: Boas práticas para escolher um ID da Série Tempo - Azure Time Series Insights [ Microsoft Docs
-description: Aprenda sobre as melhores práticas ao escolher um ID da Série De Tempo em Visualização de Insights da Série De Tempo Azure.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+title: Melhores práticas para escolher um ID da Série De Tempo - Azure Time Series Insights Microsoft Docs
+description: Saiba mais sobre as melhores práticas ao escolher um ID da Série De Tempo em Azure Time Series Insights Preview.
+author: shipramishra
+ms.author: shmishr
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 48d8c9a0f32c94f64601d27b9785213b776439af
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838727"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706786"
 ---
-# <a name="best-practices-for-choosing-a-time-series-id"></a>Boas práticas para escolher um ID da Série De Tempo
+# <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para escolher um ID da Série De Tempo
 
-Este artigo resume a importância do ID da Série De Tempo para o seu ambiente de pré-visualização da Série De Tempo Azure Insights, e as melhores práticas para escolher um.
+Este artigo resume a importância do ID da Série De Tempo para o seu ambiente de pré-visualização de séries de tempo Azure e as melhores práticas para escolher um.
 
 ## <a name="choose-a-time-series-id"></a>Escolher um ID de Série de Tempo
 
-A seleção de um ID de Série de Tempo apropriado é fundamental. Escolher um ID da Série De Tempo é como escolher uma chave de partição para uma base de dados. É necessário quando cria um ambiente de pré-visualização de Insights da Série De Tempo. 
+A seleção de um ID de série de tempo apropriado é fundamental. Escolher um ID da Série De Tempo é como escolher uma chave de partição para uma base de dados. É necessário quando cria um ambiente de visualização de insights de séries temporizadas. 
 
 > [!IMPORTANT]
-> Os IDs da Série Tempora são:
+> Os IDs da Série De Tempo são:
 >
-> * Uma propriedade *sensível a casos:* os invólucros de letras e caracteres são usados em pesquisas, comparações, atualizações e quando se partificam.
-> * Uma propriedade *imutável:* uma vez criada, não pode ser alterada.
+> * Uma propriedade *sensível a casos:* as cápsulas de letra e de caracteres são usadas em pesquisas, comparações, atualizações e quando partições.
+> * Uma propriedade *imutável:* uma vez criada não pode ser alterada.
 
 > [!TIP]
-> Se a sua fonte de evento for um hub IoT, o id da Série Time será provavelmente ***iothub-connection-device-id***.
+> Se a sua fonte de evento for um hub IoT, o seu ID da Série De Tempo será provavelmente ***iothub-connection-device-id***.
 
-As principais práticas a seguir incluem:
+As melhores práticas a seguir incluem:
 
-* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, identificação do sensor ou identificação de etiqueta seleções no seu JSON.
-* O ID da Série De Tempo deve ser único ao nível do nó da folha do seu [Modelo de Série de Tempo](./time-series-insights-update-tsm.md).
-* O limite de caracteres para a cadeia de nomes de propriedade da Time Series ID é 128. Para o valor de propriedade da Série Time ID, o limite de caracteres é 1.024.
-* Se falta um valor único de propriedade para o ID da Série De Tempo, é tratado como um valor nulo e segue a mesma regra da restrição de singularidade.
-* Também pode selecionar até *três* propriedades chave como id da Série Time. A sua combinação será uma chave composta que representa o ID da Série Tempo.  
+* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, iD do sensor ou identificação de etiqueta no seu JSON.
+* O ID da Série De Tempo deve ser único ao nível do nó de folha do seu [modelo de séries de tempo.](./time-series-insights-update-tsm.md)
+* O limite de caracteres para a cadeia de nomes de propriedade da Série DeTemporal é 128. Para o valor da propriedade do Time Series ID, o limite de caracteres é de 1.024.
+* Se faltar um valor único de propriedade para o ID da Série De Tempo, é tratado como um valor nulo e segue a mesma regra da restrição de singularidade.
+* Também pode selecionar até *três* propriedades chave como o seu ID série de tempo. A sua combinação será uma chave composta que representa o ID da Série De Tempo.  
   > [!NOTE]
-  > As suas três propriedades-chave devem ser cordas.
-  > Teria que fazer uma consulta contra esta chave composta em vez de uma propriedade de cada vez.
+  > Suas três propriedades chave devem ser cordas.
+  > Teria que consultar esta chave composta em vez de uma propriedade de cada vez.
 
-## <a name="select-more-than-one-key-property"></a>Selecione mais do que uma propriedade chave
+## <a name="select-more-than-one-key-property"></a>Selecione mais de uma propriedade chave
 
-Os seguintes cenários descrevem a seleção de mais de uma propriedade chave como id da Série De Tempo.  
+Os seguintes cenários descrevem a seleção de mais de uma propriedade chave como o seu ID da Série De Tempo.  
 
-### <a name="example-1-time-series-id-with-a-unique-key"></a>Exemplo 1: ID da série de tempo com uma chave única
+### <a name="example-1-time-series-id-with-a-unique-key"></a>Exemplo 1: ID da Série De Tempo com uma chave única
 
-* Tem frotas de bens legados. Cada um tem uma chave única.
-* Uma frota é identificada exclusivamente pelo dispositivo de **propriedadeId**. Para outra frota, a propriedade única é **objectId**. Nenhuma frota contém a propriedade única da outra frota. Neste exemplo, selecionaria duas teclas, **dispositivoId** e **objectId,** como teclas únicas.
-* Aceitamos valores nulos, e a falta de presença de um imóvel no evento a carga útil conta como um valor nulo. Esta é também a forma apropriada de lidar com o envio de dados para duas fontes de eventos onde os dados em cada fonte de evento saem de um ID exclusivo da Série de Tempo.
+* Tem frotas de bens antigas. Cada um tem uma chave única.
+* Uma frota é identificada exclusivamente pelo dispositivo de **propriedadeId.** Para outra frota, a propriedade única é **objectId.** Nenhuma frota contém a propriedade única da outra frota. Neste exemplo, você selecionaria duas teclas, **deviceId** e **objectId,** como teclas únicas.
+* Aceitamos valores nulos, e a falta de presença de um imóvel no evento a carga conta como um valor nulo. Esta é também a forma apropriada de lidar com o envio de dados para duas fontes de eventos onde os dados em cada fonte de evento tem um ID de Série Sonora único.
 
-### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID da série de tempo com uma chave composta
+### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID da Série de Tempo com uma chave composta
 
 * Você precisa que várias propriedades sejam únicas dentro da mesma frota de ativos.
-* És um fabricante de edifícios inteligentes e implantas sensores em todas as salas. Em cada quarto, você normalmente tem os mesmos valores para **sensorId**. Exemplos são **sensor1,** **sensor2**, e **sensor3**.
-* O seu edifício tem números sobrepostos de piso e quartos em locais da **propriedade flrRm**. Estes números têm valores como **1a,** **2b**e **3a**.
-* Você tem uma propriedade, **localização,** que contém valores como **Redmond,** **Barcelona,** e **Tóquio.** Para criar uma singularidade, designa as seguintes três propriedades como chaves ID da Série Time: **sensorId,** **flrRm,** e **localização**.
+* És um fabricante de edifícios inteligentes e sensores em todas as salas. Em cada quarto, normalmente tem os mesmos valores para **sensorId**. Exemplos são **sensores1,** **sensor2**e **sensores3**.
+* O seu edifício tem números de piso e quarto sobrepostos em locais da propriedade **flrRm**. Estes números têm valores como **1a,** **2b,** e **3a.**
+* Você tem uma propriedade, **localização,** que contém valores como **Redmond,** **Barcelona,** e **Tóquio.** Para criar a singularidade, designa as seguintes três propriedades como as suas teclas de ID da Série De Tempo: **sensorId,** **flrRm**e **localização**.
 
-Exemplo de evento bruto:
+Exemplo de evento cru:
 
 ```JSON
 {
@@ -73,14 +73,12 @@ Exemplo de evento bruto:
 }
 ```
 
-No portal Azure, pode então introduzir a chave composta da seguinte forma:
+No portal Azure, pode então introduzir a tecla composta da seguinte forma:
 
-```JSON
-[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
-```
+[![Configurar o ID da Série De Tempo para o ambiente.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia mais sobre [modelação](./time-series-insights-update-tsm.md)de dados .
+* Leia mais sobre [modelação de dados.](./time-series-insights-update-tsm.md)
 
-* Planeie o ambiente de [pré-visualização](./time-series-insights-update-plan.md)da série de tempo Azure Insights .
+* Planeie o seu [ambiente de visualização de insights da série de tempo Azure](./time-series-insights-update-plan.md).

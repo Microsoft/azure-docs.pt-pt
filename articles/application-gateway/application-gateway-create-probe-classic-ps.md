@@ -1,30 +1,30 @@
 ---
-title: Crie uma sonda personalizada usando powerShell - Gateway de aplicação Azure
-description: Aprenda a criar uma sonda personalizada para Application Gateway usando powerShell no modelo clássico de implementação
+title: Crie uma sonda personalizada utilizando PowerShell - Azure Application Gateway
+description: Saiba como criar uma sonda personalizada para o Application Gateway utilizando o PowerShell no modelo clássico de implementação
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312559"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807293"
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Crie uma sonda personalizada para O Gateway de Aplicação Azure (clássico) usando powerShell
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Crie uma sonda personalizada para Azure Application Gateway (clássico) utilizando o PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-Neste artigo, você adiciona uma sonda personalizada a uma porta de aplicação existente com powerShell. As sondas personalizadas são úteis para aplicações que tenham uma página específica de verificação de saúde ou para aplicações que não fornecem uma resposta bem sucedida na aplicação web predefinida.
+Neste artigo, adicione uma sonda personalizada a uma porta de entrada de aplicação existente com o PowerShell. As sondas personalizadas são úteis para aplicações que têm uma página específica de verificação de saúde ou para aplicações que não fornecem uma resposta bem sucedida na aplicação web padrão.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Gestor de Recursos e Clássico.](../azure-resource-manager/management/deployment-models.md) Este artigo cobre a utilização do modelo de implantação Classic. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.  Saiba como [executar estes passos com o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> A Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Gestor de Recursos e Classic.](../azure-resource-manager/management/deployment-models.md) Este artigo abrange utilizando o modelo de implantação Classic. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.  Saiba como [executar estes passos com o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -36,7 +36,7 @@ Para criar um gateway de aplicação:
 2. Crie um ficheiro XML de configuração ou um objeto de configuração.
 3. Confirme a configuração para o recurso de gateway de aplicação criado recentemente.
 
-### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Criar um recurso de gateway de aplicação com uma sonda personalizada
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Crie um recurso de gateway de aplicação com uma sonda personalizada
 
 Para criar o gateway, utilize o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios valores. Neste ponto, ainda não é contabilizada a faturação do gateway. A faturação passará a ser contabilizada num passo posterior, quando o gateway tiver sido iniciado com êxito.
 
@@ -53,13 +53,13 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> O valor predefinido para *InstanceCount* é 2, com um valor máximo de 10. O valor predefinido para *GatewaySize* é Médio. Pode escolher entre pequeno, médio e grande.
+> O valor predefinido para *InstanceCount* é 2, com um valor máximo de 10. O valor predefinido para *GatewaySize* é Médio. Pode escolher entre Pequeno, Médio e Grande.
 > 
 > 
 
-*VirtualIPs* e *DnsName* são apresentados em branco, porque o gateway ainda não foi iniciado. Estes valores são criados uma vez que o portal está no estado de funcionamento.
+*VirtualIPs* e *DnsName* são apresentados em branco, porque o gateway ainda não foi iniciado. Estes valores são criados uma vez que o portal está no estado de execução.
 
-### <a name="configure-an-application-gateway-by-using-xml"></a>Configure um portal de aplicação utilizando o XML
+### <a name="configure-an-application-gateway-by-using-xml"></a>Configure um gateway de aplicações utilizando xML
 
 No exemplo que se segue, vai utilizar um ficheiro XML para configurar todas as definições do gateway de aplicação e consolidá-las no recurso do gateway de aplicação.  
 
@@ -131,12 +131,12 @@ Copie o seguinte texto para o Bloco de Notas.
 
 Edite os valores entre parêntesis dos itens de configuração. Guarde o ficheiro com a extensão .xml.
 
-O exemplo seguinte mostra como usar um ficheiro de configuração para configurar o portal de aplicação para carregar o tráfego HTTP na porta pública 80 e enviar tráfego de rede para a porta traseira 80 entre dois endereços IP utilizando uma sonda personalizada.
+O exemplo a seguir mostra como utilizar um ficheiro de configuração para configurar o gateway de aplicações para carregar o tráfego HTTP na porta pública 80 e enviar tráfego de rede para porta de back-end 80 entre dois endereços IP utilizando uma sonda personalizada.
 
 > [!IMPORTANT]
 > O item do protocolo Http ou Https é sensível às maiúsculas e minúsculas.
 
-Um novo \<item\> de configuração A Sonda é adicionada para configurar sondas personalizadas.
+Um novo item de configuração \<Probe\> é adicionado para configurar sondas personalizadas.
 
 Os parâmetros de configuração são:
 
@@ -144,24 +144,24 @@ Os parâmetros de configuração são:
 |---|---|
 |**Nome** |Nome de referência para sonda personalizada. |
 | **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
-| **Anfitrião** e **Caminho** | Complete o caminho do URL que é invocado pela porta de aplicação para determinar a saúde da ocorrência. Por exemplo, se tiver um\/website http: /contoso.com/, então a\/sonda personalizada pode ser configurada para "http: /contoso.com/path/custompath.htm" para que as verificações da sonda tenham uma resposta http bem sucedida.|
-| **Intervalo** | Configura o intervalo da sonda em segundos.|
-| **Intervalo** | Define o tempo de saída da sonda para uma verificação de resposta HTTP.|
-| **Limiar insalubre** | O número de respostas em HTTP falhadas necessárias para sinalizar a instância de fundo como *pouco saudável*.|
+| **Anfitrião** e **Caminho** | Percurso URL completo que é invocado pela porta de aplicação para determinar a saúde do caso. Por exemplo, se tiver um website http: \/ /contoso.com/, então a sonda personalizada pode ser configurada para "http: \/ /contoso.com/path/custompath.htm" para que as verificações da sonda tenham uma resposta HTTP bem sucedida.|
+| **Intervalo** | Configura o intervalo da sonda verifica em segundos.|
+| **Tempo Limite** | Define o tempo de tempo da sonda para uma verificação de resposta HTTP.|
+| **InsalubreThreshold** | O número de respostas HTTP falhadas necessárias para sinalizar o caso de back-end como *pouco saudável*.|
 
-O nome da sonda \<é referenciado\> na configuração BackendHttpSettings para atribuir qual piscina de back-end usa configurações de sonda personalizadas.
+O nome da sonda é referenciado na \<BackendHttpSettings\> configuração para atribuir qual o pool back-end que utiliza configurações de sonda personalizadas.
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicione uma sonda personalizada a um gateway de aplicação existente
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicione uma sonda personalizada a um gateway de aplicações existente
 
-Alterar a configuração atual de um gateway de aplicação requer três passos: Obtenha o ficheiro de configuração XML atual, modifique para ter uma sonda personalizada e configure o gateway de aplicação com as novas definições do XML.
+Alterar a configuração atual de um gateway de aplicações requer três passos: Obtenha o ficheiro de configuração XML atual, modifique para ter uma sonda personalizada e configufique o gateway de aplicação com as novas definições de XML.
 
-1. Obtenha o ficheiro XML utilizando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta a configuração XML a modificar para adicionar uma configuração de sonda.
+1. Obtenha o ficheiro XML utilizando `Get-AzureApplicationGatewayConfig` . Este cmdlet exporta a configuração XML a ser modificada para adicionar uma definição de sonda.
 
    ```powershell
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-1. Abra o ficheiro XML num editor de texto. Adicione `<probe>` uma `<frontendport>`secção depois de .
+1. Abra o ficheiro XML num editor de texto. Adicione uma `<probe>` secção depois `<frontendport>` .
 
    ```xml
    <Probes>
@@ -177,7 +177,7 @@ Alterar a configuração atual de um gateway de aplicação requer três passos:
    </Probes>
    ```
 
-   Na secção BackendHttpSettings do XML, adicione o nome da sonda como mostrado no seguinte exemplo:
+   Na secção backendHttpSettings do XML, adicione o nome da sonda como mostrado no seguinte exemplo:
 
    ```xml
     <BackendHttpSettings>
@@ -192,7 +192,7 @@ Alterar a configuração atual de um gateway de aplicação requer três passos:
 
    Guarde o ficheiro XML.
 
-1. Atualize a configuração do gateway da `Set-AzureApplicationGatewayConfig`aplicação com o novo ficheiro XML utilizando . Este cmdlet atualiza o portal da aplicação com a nova configuração.
+1. Atualize a configuração do gateway de aplicação com o novo ficheiro XML utilizando `Set-AzureApplicationGatewayConfig` . Este cmdlet atualiza o gateway da aplicação com a nova configuração.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se pretender configurar a Segurança da Camada de Transporte (TLS), anteriormente conhecida como descarregamento da Camada de Tomadas Seguras (SSL), consulte configurar um gateway de [aplicação para a descarga de TLS](application-gateway-ssl.md).
+Se pretender configurar a Segurança da Camada de Transporte (TLS), anteriormente conhecida como descarga Secure Sockets Layer (SSL), consulte [configurar um gateway de aplicações para descarregamento de TLS](application-gateway-ssl.md).
 
 Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, veja [Create an application gateway with an internal load balancer (ILB) (Criar um gateway de aplicação com um balanceador de carga interno (ILB))](application-gateway-ilb.md).
 

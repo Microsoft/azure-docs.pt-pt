@@ -1,33 +1,33 @@
 ---
-title: Implemente uma aplicação de dupla pilha IPv6 utilizando o Balancer de Carga Interna Padrão em Azure - PowerShell
+title: Implementar uma aplicação de pilha dupla IPv6 utilizando o Balanceador de Carga Interna Padrão em Azure - PowerShell
 titlesuffix: Azure Virtual Network
-description: Este artigo mostra como implementar uma aplicação de dupla pilha IPv6 com o Standard Internal Load Balancer na rede virtual Azure utilizando o Azure Powershell.
+description: Este artigo mostra como implementar uma aplicação de pilha dupla IPv6 com balanceador de carga interna padrão na rede virtual Azure usando Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: fdf726fd31e8b92a04a1c136eb5cd7110e0c6d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72333368"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707519"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Implemente uma aplicação de dupla pilha IPv6 utilizando o Balancer de Carga Interna Padrão em Azure - PowerShell (Pré-visualização)
+# <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Implementar uma aplicação de pilha dupla IPv6 utilizando o Balancer de Carga Interna Padrão em Azure - PowerShell (Pré-visualização)
 
-Este artigo mostra-lhe como implementar uma aplicação dual stack (IPv4 + IPv6) no Azure que inclui uma rede virtual de dupla pilha e subnet, um Balancer de Carga Interna Standard com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos.
+Este artigo mostra-lhe como implementar uma aplicação dual stack (IPv4 + IPv6) em Azure que inclui uma rede virtual de dupla pilha e sub-rede, um Balanceador de Carga Interna Padrão com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos.
 
 > [!Important]
-> O suporte iPv6 para a Rede Virtual Azure está atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+> O suporte do IPv6 para a Rede Virtual Azure encontra-se atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
-O procedimento para criar um Balancer de Carga Interna com capacidade para iPv6 é quase idêntico ao processo de criação de um Equilíbrio de Carga IPv6 virado para a Internet descrito [aqui](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). As únicas diferenças para a criação de um equilibrador de carga interno estão na configuração frontal, como ilustrado no exemplo PowerShell abaixo:
+O procedimento para criar um Balanceador de Carga Interno com capacidade IPv6 é quase idêntico ao processo de criação de um Balançador de Carga IPv6 virado para a Internet descrito [aqui](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). As únicas diferenças para a criação de um equilibrador de carga interno estão na configuração frontal, conforme ilustrado no exemplo PowerShell abaixo:
 
 ```azurepowershell
  $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
@@ -37,29 +37,29 @@ O procedimento para criar um Balancer de Carga Interna com capacidade para iPv6 
  -Subnet $DsSubnet
 ```
 
-As alterações que fazem do acima de uma configuração frontal do equilíbrio dor de carga interna:
+As alterações que fazem do acima uma configuração frontal do balançador de carga interna são:
 - O `PrivateIpAddressVersion` é especificado como "IPv6"
-- O `-PublicIpAddress` argumento foi omitido `-PrivateIpAddress`ou substituído por . Note que o endereço privado deve estar na gama do espaço IP subnet no qual o equilibrador de carga interno será implantado. Se uma `-PrivateIpAddress` estática for omitida, o próximo endereço IPv6 gratuito será selecionado a partir da subnet na qual o Balancer de carga interna é implantado.
-- A sub-rede de dupla pilha em que o equilibrador de `-Subnet` `-SubnetId` carga interna será implantado é especificada com um ou um argumento.
+- O `-PublicIpAddress` argumento foi omitido ou substituído por `-PrivateIpAddress` . Note que o endereço privado deve estar na gama do espaço IP da sub-rede em que o balançador interno de carga será implantado. Se for omitida uma `-PrivateIpAddress` estática, o próximo endereço IPv6 gratuito será selecionado a partir da sub-rede em que o Balancer de carga interna é implantado.
+- A sub-rede de pilha dupla na qual o balançador de carga interno será implantado é especificada com um `-Subnet` ou `-SubnetId` argumento.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 6.9.0 do módulo PowerShell Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 6.9.0 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implementar uma aplicação de dupla pilha no Azure, tem de configurar a sua subscrição para esta função de pré-visualização utilizando o seguinte Azure PowerShell:
+Antes de implementar uma aplicação de pilha dupla no Azure, tem de configurar a sua subscrição para esta funcionalidade de pré-visualização utilizando o seguinte Azure PowerShell:
 
 Registe-se da seguinte forma:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Leva até 30 minutos para que a inscrição da funcionalidade seja concluída. Pode verificar o seu estado de registo executando o seguinte comando Azure PowerShell: Verifique o registo da seguinte forma:
+Leva até 30 minutos para que a inscrição do recurso esteja concluída. Pode verificar o seu estado de registo executando o seguinte comando Azure PowerShell: Verifique o registo da seguinte forma:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Depois de concluída a inscrição, execute o seguinte comando:
+Após a inscrição estar concluída, execute o seguinte comando:
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
@@ -67,7 +67,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de poder criar a sua rede virtual de dupla stack, tem de criar um grupo de recursos com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos chamado *dsStd_ILB_RG* na localização *leste dos EUA:*
+Antes de criar a sua rede virtual de dupla pilha, tem de criar um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *dsStd_ILB_RG* na localização *leste dos EUA:*
 
 ```azurepowershell
 $rg = New-AzResourceGroup `
@@ -75,8 +75,8 @@ $rg = New-AzResourceGroup `
   -Location "east us"
 ```
 
-## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Crie endereços IP públicos IPv4 e IPv6
-Para aceder às suas máquinas virtuais a partir da Internet, necessita de endereços IP públicos IPv4 e IPv6 para os VMs. Crie endereços IP públicos com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo seguinte cria endereço IP público IPv4 e IPv6 chamado *RdpPublicIP_1* e *RdpPublicIP_2* no grupo de recursos *dsStd_ILB_RG:*
+## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Criar endereços IP públicos IPv4 e IPv6
+Para aceder às suas máquinas virtuais a partir da Internet, necessita de endereços IP públicos IPv4 e IPv6 para os VMs. Crie endereços IP públicos com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo a seguir cria endereço IP público IPv4 e IPv6 nomeado *RdpPublicIP_1* e *RdpPublicIP_2* no grupo de recursos *dsStd_ILB_RG:*
 
 ```azurepowershell
 $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -95,9 +95,9 @@ $RdpPublicIP_2 = New-AzPublicIpAddress `
   -IpAddressVersion IPv4  `
   -sku Standard
 ```
-## <a name="create-the-virtual-network-and-the-subnet"></a>Criar a rede virtual e a subnet
+## <a name="create-the-virtual-network-and-the-subnet"></a>Criar a rede virtual e a sub-rede
 
-Crie uma rede virtual utilizando [a New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com uma configuração de sub-rede utilizando [new-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo seguinte cria uma rede virtual chamada *dsVnet* com *dsSubnet*.
+Crie uma rede virtual utilizando [a Rede New-AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) com dupla pilha uma configuração de sub-rede utilizando [a New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma rede virtual chamada *dsVnet* com *dsSubnet*.
 
 ```azurepowershell
 # Create dual stack subnet config
@@ -118,11 +118,11 @@ $DsSubnet = get-AzVirtualNetworkSubnetconfig -name dsSubnet -VirtualNetwork $vne
 ```
 ## <a name="create-standard-load-balancer"></a>Criar o Balanceador de Carga Standard
 
-Nesta secção, configura-se o IP frontal duplo (IPv4 e IPv6) e o conjunto de endereços traseiros para o equilibrador de carga e, em seguida, cria um Balancer de Carga Padrão.
+Nesta secção, configura o DUPLO FRONTEND IP (IPv4 e IPv6) e o conjunto de endereços de back-end para o balançador de carga e, em seguida, criar um Balanceador de Carga Standard.
 
 ### <a name="create-front-end-ip"></a>Criar IP frontal
 
-Crie um IP frontal com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo seguinte cria configurações IP frontend IPv4 e IPv6 chamadas *dsLbFrontEnd_v4* e *dsLbFrontEnd_v6:*
+Crie um IP frontal com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo a seguir cria configurações IP de frontend IPv4 e IPv6 denominada *dsLbFrontEnd_v4* e *dsLbFrontEnd_v6:*
 
 ```azurepowershell
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
@@ -139,9 +139,9 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ```
 
-### <a name="configure-back-end-address-pool"></a>Configure piscina de endereço sinuoso
+### <a name="configure-back-end-address-pool"></a>Configure piscina de endereço de fundo
 
-Crie um conjunto de endereços de back-end com [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). Os VMs anexam-se a esta piscina traseira nos degraus restantes. O exemplo seguinte cria piscinas de endereços de back-end chamadas *dsLbBackEndPool_v4* e *dsLbBackEndPool_v6* para incluir VMs com configurações de IPV4 e IPv6 NIC:
+Crie uma piscina de endereços back-end com [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). Os VMs ligam-se a esta piscina traseira nos degraus restantes. O exemplo a seguir cria piscinas de endereços back-end denominada *dsLbBackEndPool_v4* e *dsLbBackEndPool_v6* para incluir VMs com configurações IPV4 e IPv6 NIC:
 
 ```azurepowershell
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPool_v4"
@@ -151,9 +151,9 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPo
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas VMs saudáveis recebem tráfego, você pode definir opcionalmente uma sonda de saúde. O equilíbrio de carga básico usa uma sonda IPv4 para avaliar a saúde tanto para os pontos finais IPv4 como IPv6 nos VMs. O equilíbrio de carga padrão inclui suporte para sondas de saúde iPv6 explicitamente.
+É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas VMs saudáveis recebem tráfego, você pode opcionalmente definir uma sonda de saúde. O balanceador de carga básico utiliza uma sonda IPv4 para avaliar a saúde tanto para os pontos finais IPv4 como IPv6 nos VMs. O balanceador de carga padrão inclui suporte para sondas de saúde IPv6 explicitamente.
 
-Crie uma regra de equilíbrio de carga com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo seguinte cria regras de equilíbrio de carga chamadas *dsLBrule_v4* e *dsLBrule_v6* e equilibra o tráfego na porta *80* *do TCP* para as configurações IP frontend IPv4 e IPv6:
+Crie uma regra do balançador de carga com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo a seguir cria regras de compensação de carga denominada *dsLBrule_v4* e *dsLBrule_v6* e equilibra o tráfego na porta *TCP* *80* para as configurações IP de frontend IPv4 e IPv6:
 
 ```azurepowershell
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -175,7 +175,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-Crie um Balancer de carga padrão com [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um Balancer de Carga Padrão público chamado *myInternalLoadBalancer* utilizando as configurações IP iPv4 e IPv6 frontend, piscinas de backend e regras de equilíbrio de carga que criou nos passos anteriores:
+Criar um Balanceador de Carga Padrão com [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo a seguir cria um Balanceador de Carga Padrão público chamado *myInternalLoadBalancer* utilizando as configurações IP de frontend IPv4 e IPv6, piscinas de backend e regras de equilíbrio de carga que criou nos passos anteriores:
 
 ```azurepowershell
 $lb = New-AzLoadBalancer  `
@@ -190,12 +190,12 @@ $lb = New-AzLoadBalancer  `
 ```
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
-Antes de implementar alguns VMs e testar o seu balancer, deve criar recursos de rede de suporte - conjunto de disponibilidade, grupo de segurança de rede e NICs virtuais. 
+Antes de implementar alguns VMs e poder testar o seu balanceador, tem de criar recursos de rede de suporte - conjunto de disponibilidade, grupo de segurança de rede e NICs virtuais. 
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 Para melhorar a elevada disponibilidade da sua aplicação, coloque os seus VMs num conjunto de disponibilidade.
 
-Crie um conjunto de disponibilidade com [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). O exemplo seguinte cria um conjunto de disponibilidade denominado *dsAVset:*
+Crie um conjunto de disponibilidade com [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). O exemplo a seguir cria um conjunto de disponibilidade denominado *dsAVset:*
 
 ```azurepowershell
 $avset = New-AzAvailabilitySet `
@@ -247,7 +247,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig `
 ```
 #### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Criar um grupo de segurança de rede com o [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+Criar um grupo de segurança de rede com [o New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
 ```azurepowershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -258,7 +258,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-nics"></a>Criar NICs
 
-Crie NICs virtuais com [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). O exemplo seguinte cria dois NICs virtuais, tanto com configurações IPv4 e IPv6. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes).
+Crie NICs virtuais com [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). O exemplo a seguir cria dois NICs virtuais, ambos com configurações IPv4 e IPv6. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes).
 
 ```azurepowershell
 
@@ -311,7 +311,7 @@ Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](ht
 $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VM's"
 ```
 
-Agora pode criar os VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria dois VMs e os componentes de rede virtual necessários se ainda não existirem.
+Agora pode criar os VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria dois VMs e os componentes de rede virtuais necessários se ainda não existirem.
 
 ```azurepowershell
 $vmsize = "Standard_A2"
@@ -328,20 +328,20 @@ $vmName= "dsVM2"
 $VMconfig2 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $avset.Id 3> $null | Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent 3> $null | Set-AzVMSourceImage -PublisherName $ImagePublisher -Offer $imageOffer -Skus $imageSKU -Version "latest" 3> $null | Set-AzVMOSDisk -Name "$vmName.vhd" -CreateOption fromImage  3> $null | Add-AzVMNetworkInterface -Id $NIC_2.Id  3> $null
 $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location  -VM $VMconfig2
 ```
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Ver rede virtual de dupla pilha IPv6 no portal Azure
-Pode ver a rede virtual iPv6 dual stack no portal Azure da seguinte forma:
-1. Na barra de pesquisa do portal, introduza *dsVnet*.
-2. Quando a **dsVnet** aparecer nos resultados da pesquisa, selecione-a. Isto lança a página **de visão geral** da rede virtual dual stack chamada *dsVnet*. A rede virtual dual stack mostra os dois NICs com configurações IPv4 e IPv6 localizadas na subnet dual stack chamada *dsSubnet*.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Ver rede virtual de pilha dupla IPv6 no portal Azure
+Pode ver a rede virtual de pilha dupla IPv6 no portal Azure da seguinte forma:
+1. Na barra de pesquisa do portal, *insira o DSVnet*.
+2. Quando **o dsVnet** aparecer nos resultados da pesquisa, selecione-o. Isto lança a página **geral** da rede virtual dual stack chamada *dsVnet*. A rede virtual dual stack mostra os dois NICs com configurações IPv4 e IPv6 localizadas na sub-rede de pilha dupla chamada *dsSubnet*.
 
-![Rede virtual iPv6 Dual Stack com Balancer de Carga Interna Padrão](./media/ipv6-dual-stack-standard-internal-load-balancer-powershell/ipv6-dual-stack-virtual-network.png)
+![Rede virtual IPv6 Dual Stack com balanceador de carga interna padrão](./media/ipv6-dual-stack-standard-internal-load-balancer-powershell/ipv6-dual-stack-virtual-network.png)
 
 
 > [!NOTE]
-> O IPv6 para a rede virtual Azure está disponível no portal Azure apenas para este lançamento de pré-visualização.
+> A rede virtual IPv6 para Azure está disponível no portal Azure apenas para este lançamento de pré-visualização.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
+Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name dsStd_ILB_RG
@@ -349,4 +349,4 @@ Remove-AzResourceGroup -Name dsStd_ILB_RG
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um Balancer de Carga Padrão com uma configuração IP frontal dupla (IPv4 e IPv6). Também criou duas máquinas virtuais que incluíam NICs com configurações IP duplas (IPV4 + IPv6) que foram adicionadas ao pool de back-end do equilibrante de carga. Para saber mais sobre o suporte iPv6 em redes virtuais Azure, veja [o que é o IPv6 para a Rede Virtual Azure?](ipv6-overview.md)
+Neste artigo, criou um Balanceador de Carga Standard com uma configuração IP de dois frontend (IPv4 e IPv6). Também criou duas máquinas virtuais que incluíam NICs com configurações IP duplas (IPV4 + IPv6) que foram adicionadas ao pool back-end do equilibrista de carga. Para saber mais sobre o suporte do IPv6 nas redes virtuais Azure, veja [o que é o IPv6 para a Rede Virtual Azure?](ipv6-overview.md)

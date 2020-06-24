@@ -15,57 +15,57 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253913"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704000"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Grupos de recursos exportadores que contêm extensões VM
 
-Os Grupos de Recursos Azure podem ser exportados para um novo modelo de Gestor de Recursos que pode ser redistribuído. O processo de exportação interpreta os recursos existentes, e cria um modelo de Gestor de Recursos que, quando implementado resulta num Grupo de Recursos semelhante. Ao utilizar a opção de exportação do Grupo de Recursos contra um Grupo de Recursos que contém extensões de máquinavirtual, vários itens devem ser considerados como compatibilidade de extensão e configurações protegidas.
+Os Grupos de Recursos Azure podem ser exportados para um novo modelo de Gestor de Recursos que pode ser redistribuído. O processo de exportação interpreta os recursos existentes e cria um modelo de Gestor de Recursos que, quando implementado, resulta num Grupo de Recursos semelhante. Ao utilizar a opção de exportação do Grupo de Recursos contra um Grupo de Recursos que contenha extensões de Máquina Virtual, vários itens devem ser considerados como compatibilidade de extensão e definições protegidas.
 
-Este documento detalha como funciona o processo de exportação do Grupo de Recursos relativamente às extensões de máquinas virtuais, incluindo uma lista de extensões suportadas e detalhes sobre o manuseamento de dados seguros.
+Este documento detalha como funciona o processo de exportação do Grupo de Recursos no que diz respeito a extensões de máquinas virtuais, incluindo uma lista de extensões apoiadas e detalhes sobre o tratamento de dados seguros.
 
-## <a name="supported-virtual-machine-extensions"></a>Extensões de máquinavirtual suportadas
+## <a name="supported-virtual-machine-extensions"></a>Extensões de máquinas virtuais suportadas
 
-Muitas extensões de Máquina Virtual estão disponíveis. Nem todas as extensões podem ser exportadas para um modelo de Gestor de Recursos utilizando a funcionalidade "Automation Script". Se uma extensão virtual da máquina não for suportada, deve ser colocada manualmente de volta no modelo exportado.
+Muitas extensões da Máquina Virtual estão disponíveis. Nem todas as extensões podem ser exportadas para um modelo de Gestor de Recursos utilizando a função "Script de Automação". Se uma extensão de máquina virtual não for suportada, ela precisa de ser colocada manualmente de volta no modelo exportado.
 
-As seguintes extensões podem ser exportadas com a funcionalidade de script de automação.
+As seguintes extensões podem ser exportadas com a função de script de automatização.
 
 | Extensão ||||
 |---|---|---|---|
-| Apoio acronis | Agente datadog Windows | Os Patching Para Linux | VM Snapshot Linux
-| Acronis Backup Linux | Extensão do Estivador | Agente de Marionetas |
-| Informação Bg | Extensão DSC | Site 24x7 Apm Insight |
-| BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
-| Janelas do agente BMC CTM | Janelas Dynatrace | Servidor windows do site 24x7 |
-| Chef Cliente | HPE Security Application Defender | Tendência Micro DSA |
+| Acronis Backup | Datadog Windows Agent | Patching de SO para Linux | VM Snapshot Linux
+| Acronis Backup Linux | Extensão do Docker | Agente de marionetas |
+| Bg Informação | Extensão DSC | Site 24x7 Apm Insight |
+| BMC CTM Agente Linux | Dynatrace Linux | Servidor Linux do site 24x7 |
+| Janelas do agente CTM BMC | Janelas Dynatrace | Servidor do Windows do site 24x7 |
+| Chef Cliente | Defensor de aplicações de segurança HPE | Tendência Micro DSA |
 | Script Personalizado | IaaS Antimalware | Tendência Micro DSA Linux |
-| Extensão de Script Personalizado | Diagnósticos IaaS | Acesso VM para Linux |
-| Script personalizado para Linux | Cliente do Chef Linux | Acesso VM para Linux |
-| Agente Linux Datadog | Diagnóstico linux | Instantâneo de VM |
+| Extensão de Script Personalizado | Diagnósticos IaaS | VM Acesso para Linux |
+| Script personalizado para Linux | Linux Chef Cliente | VM Acesso para Linux |
+| Agente Datadog Linux | Diagnóstico Linux | Instantâneo de VM |
 
 ## <a name="export-the-resource-group"></a>Exportar o Grupo de Recursos
 
 Para exportar um Grupo de Recursos para um modelo reutilizável, complete os seguintes passos:
 
 1. Iniciar sessão no portal do Azure
-2. No menu Hub, clique em Grupos de Recursos
+2. No Menu Hub, clique em Grupos de Recursos
 3. Selecione o grupo de recursos-alvo da lista
-4. Na lâmina do Grupo de Recursos, clique no Script de Automação
+4. Na lâmina do Grupo de Recursos, clique em Script Automation
 
-![Exportação de Modelos](./media/export-templates/template-export.png)
+![Exportação de modelo](./media/export-templates/template-export.png)
 
-O script de automações do Gestor de Recursos Azure produz um modelo de Gestor de Recursos, um ficheiro de parâmetros e vários scripts de implementação de amostras, tais como PowerShell e Azure CLI. Neste ponto, o modelo exportado pode ser descarregado usando o botão de descarregamento, adicionado como um novo modelo para a biblioteca do modelo, ou reimplantado usando o botão de implantação.
+O script de automatização do Gestor de Recursos Azure produz um modelo de Gestor de Recursos, um ficheiro de parâmetros e vários scripts de implementação de amostras como PowerShell e Azure CLI. Neste ponto, o modelo exportado pode ser descarregado usando o botão de descarregamento, adicionado como um novo modelo à biblioteca do modelo, ou reenviado usando o botão de implementação.
 
-## <a name="configure-protected-settings"></a>Configurar definições protegidas
+## <a name="configure-protected-settings"></a>Configurar configurações protegidas
 
-Muitas extensões de máquinas virtuais Azure incluem uma configuração de configurações protegida, que encripta dados sensíveis, como credenciais e cadeias de configuração. As definições protegidas não são exportadas com o script de automação. Se necessário, as definições protegidas devem ser reinseridas no modelo exportado.
+Muitas extensões de máquinas virtuais Azure incluem uma configuração de configurações protegidas, que encripta dados sensíveis como credenciais e cadeias de configuração. As definições protegidas não são exportadas com o script de automatização. Se necessário, as definições protegidas devem ser reinseridas no modelo exportado.
 
-### <a name="step-1---remove-template-parameter"></a>Passo 1 - Remover parâmetro de modelo
+### <a name="step-1---remove-template-parameter"></a>Passo 1 - Remover o parâmetro do modelo
 
-Quando o Grupo de Recursos é exportado, é criado um único parâmetro de modelo para fornecer um valor às configurações protegidas exportadas. Este parâmetro pode ser removido. Para remover o parâmetro, olhe através da lista de parâmetros e elimine o parâmetro que se parece com este exemplo JSON.
+Quando o Grupo de Recursos é exportado, é criado um único parâmetro de modelo para fornecer um valor às definições protegidas exportadas. Este parâmetro pode ser removido. Para remover o parâmetro, procure através da lista de parâmetros e elimine o parâmetro que se parece com este exemplo JSON.
 
 ```json
 "extensions_extensionname_protectedSettings": {
@@ -76,9 +76,9 @@ Quando o Grupo de Recursos é exportado, é criado um único parâmetro de model
 
 ### <a name="step-2---get-protected-settings-properties"></a>Passo 2 - Obtenha propriedades de configurações protegidas
 
-Como cada configuração protegida tem um conjunto de propriedades necessárias, uma lista destas propriedades precisa de ser recolhida. Cada parâmetro da configuração de configurações protegidas pode ser encontrado no esquema do Gestor de [Recursos Azure no GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Este esquema inclui apenas os conjuntos de parâmetros para as extensões enumeradas na secção geral deste documento. 
+Como cada definição protegida tem um conjunto de propriedades necessárias, uma lista destas propriedades precisa de ser recolhida. Cada parâmetro da configuração de definições protegidas pode ser encontrado no esquema do [Gestor de Recursos Azure no GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Este esquema inclui apenas os parâmetros para as extensões listadas na secção geral deste documento. 
 
-De dentro do repositório de esquemas, procure a `IaaSDiagnostics`extensão desejada, por exemplo. Uma vez `protectedSettings` que o objeto de extensões tenha sido localizado, tome nota de cada parâmetro. No exemplo da `IaasDiagnostic` extensão, os `storageAccountName`parâmetros `storageAccountKey` `storageAccountEndPoint`requerem, e .
+De dentro do repositório de esquemas, procure a extensão desejada, para este `IaaSDiagnostics` exemplo. Uma vez localizado o `protectedSettings` objeto das extensões, tome nota de cada parâmetro. No exemplo da `IaasDiagnostic` extensão, os parâmetros requeridos são `storageAccountName` , e `storageAccountKey` `storageAccountEndPoint` .
 
 ```json
 "protectedSettings": {
@@ -104,7 +104,7 @@ De dentro do repositório de esquemas, procure a `IaaSDiagnostics`extensão dese
 
 ### <a name="step-3---re-create-the-protected-configuration"></a>Passo 3 - Recriar a configuração protegida
 
-No modelo exportado, `protectedSettings` procure e substitua o objeto de definição protegido exportado por um novo que inclua os parâmetros de extensão necessários e um valor para cada um.
+No modelo exportado, procure `protectedSettings` e substitua o objeto de definição protegido exportado por um novo que inclua os parâmetros de extensão necessários e um valor para cada um.
 
 No exemplo da `IaasDiagnostic` extensão, a nova configuração de definição protegida seria o seguinte exemplo:
 
@@ -148,7 +148,7 @@ O recurso de extensão final é semelhante ao seguinte exemplo JSON:
 }
 ```
 
-Se utilizar parâmetros de modelo para fornecer valores de propriedade, estes precisam de ser criados. Ao criar parâmetros de modelo para valores `SecureString` de regulação protegidos, certifique-se de que utiliza o tipo de parâmetro para que os valores sensíveis sejam fixados. Para obter mais informações sobre a utilização de parâmetros, consulte [os modelos de Gestor de Recursos Do Azure.](../../resource-group-authoring-templates.md)
+Se utilizar parâmetros de modelo para fornecer valores de propriedade, estes precisam de ser criados. Ao criar parâmetros de modelo para valores de regulação protegidos, certifique-se de que utiliza o `SecureString` tipo de parâmetro para que os valores sensíveis sejam fixados. Para obter mais informações sobre a utilização de parâmetros, consulte [os modelos do Gestor de Recursos Azure.](../../resource-group-authoring-templates.md)
 
 No exemplo da `IaasDiagnostic` extensão, os seguintes parâmetros seriam criados na secção de parâmetros do modelo de Gestor de Recursos.
 
@@ -163,4 +163,4 @@ No exemplo da `IaasDiagnostic` extensão, os seguintes parâmetros seriam criado
 }
 ```
 
-Neste ponto, o modelo pode ser implantado usando qualquer método de implementação do modelo.
+Neste ponto, o modelo pode ser implementado usando qualquer método de implementação do modelo.

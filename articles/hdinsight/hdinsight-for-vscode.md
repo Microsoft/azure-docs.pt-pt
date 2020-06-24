@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 5c429da761c39ae6828eb5d79809b687e8a76bd3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a20cbf14ea2aa2475f25236615b85d6697ce252b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609102"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704867"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -140,7 +140,7 @@ Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache
 
 4. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
-5. Selecione um cluster como o cluster predefinido para o ficheiro de script atual. As ferramentas atualizam automaticamente o **. Ficheiro de configuração VSCode\sets.json:**
+5. Selecione um cluster como o cluster predefinido para o ficheiro de script atual. As ferramentas atualizam automaticamente o **.VSCode\settings.jsno** ficheiro de configuração:
 
    ![Definir configuração de cluster padrão](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -249,6 +249,10 @@ A ferramenta também suporta a consulta **Spark SQL:**
    ![executar resultados ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
+> [!NOTE]
+>
+>A versão >da Senhora Deputada =2020.5.78807 não é apoiada nesta extensão é uma [questão conhecida.](#known-issues)
+
 ## <a name="submit-pyspark-batch-job"></a>Submeter trabalho de lote PySpark
 
 1. Reabra a pasta **HDexample** que discutiu [anteriormente,](#open-a-work-folder)se estiver fechada.  
@@ -290,16 +294,16 @@ Depois de submeter um trabalho python, os registos de submissão aparecem na jan
 
 ## <a name="apache-livy-configuration"></a>Configuração Apache Livy
 
-A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada. Pode configurá-lo no **. VSCode\settings.json** ficheiro na pasta do espaço de trabalho. Atualmente, a configuração livy apenas suporta o script Python. Para mais informações, consulte [Livy README.](https://github.com/cloudera/livy/blob/master/README.rst )
+A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada. Pode configurá-lo no **.VSCode\settings.jsarquivado na** pasta do espaço de trabalho. Atualmente, a configuração livy apenas suporta o script Python. Para mais informações, consulte [Livy README.](https://github.com/cloudera/livy/blob/master/README.rst )
 
 <a id="triggerlivyconf"></a>**Como desencadear a configuração da Livy**
 
 Método 1  
 1. A partir da barra de menu, navegue para **definições**  >  **de preferências**  >  **de ficheiros**.
 2. Na caixa **de definições de pesquisa,** insira **HDInsight Job Submission: Livy Conf**.  
-3. **Selecione Editar em definições.json** para obter o resultado de pesquisa relevante.
+3. Selecione **Editar em settings.js** para obter o resultado de pesquisa relevante.
 
-Método 2 Enviar um ficheiro e notar que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.json**.
+Método 2 Enviar um ficheiro e notar que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.jsem**.
 
 + As definições do projeto:
 
@@ -448,12 +452,12 @@ Submeta um trabalho a um cluster HDInsight usando data lake storage gen2. É-lhe
 A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
 ## <a name="known-issues"></a>Problemas Conhecidos
-### <a name="python-on-2020580290-version-is-not-supported-on-this-extention"></a>Python na versão 2020.5.80290 não é suportado nesta extensão 
+### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>ms-python >=versão 2020.5.78807 não é suportado nesta extensão 
 
-"Falhou em ligar-me ao caderno do Jupyter." é uma edição conhecida para a versão python 2020.5.80290. Recomenda-se que os utilizadores utilizem a versão **2020.4.76186** da ms-python para evitar este problema.
+"Falhou em ligar-me ao caderno do Jupyter." é uma edição conhecida para a versão python >=2020.5.78807. Recomenda-se que os utilizadores utilizem a versão **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** da ms-python para evitar este problema.
 
 ![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

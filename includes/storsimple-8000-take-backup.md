@@ -29,7 +29,7 @@ ms.locfileid: "67184311"
 
 5. No painel **Adicionar primeira agenda**:
 
-    1. Selecione o tipo de cópia de segurança. Para restauros mais rápidos, selecione instantâneo **local.** Para obter resiliência de dados, selecione **Cloud** snapshot.
+    1. Selecione o tipo de cópia de segurança. Para obter restauros mais rápidos, selecione **Local** snapshot. Para obter resiliência de dados, selecione **Cloud** snapshot.
     2. Especifique a frequência da cópia de segurança em minutos, horas, dias ou semanas.
     3. Selecione um tempo de retenção. As opções de período de retenção dependem da frequência da cópia de segurança. Por exemplo, para uma política diária, o período de retenção pode ser especificado em semanas, ao passo que o período de retenção para uma política mensal é em meses.
     4. Selecione a hora e data de início para a política de cópia de segurança.

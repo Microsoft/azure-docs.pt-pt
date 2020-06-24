@@ -4,19 +4,19 @@ description: Saiba como configurar as políticas de Acesso Condicional do Azure 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec6e0f7405d29cb89fd8ba701b52678ca939596
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 690582638451f1691b2ed7a4d0d4d6a7880fd80a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558702"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253210"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos geridos para acesso a aplicações em nuvem com acesso condicional
 

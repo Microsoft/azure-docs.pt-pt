@@ -3,8 +3,8 @@ title: DNS Personalizado
 titleSuffix: Azure SQL Managed Instance
 description: Este tópico descreve opções de configuração para um DNS personalizado com Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
-ms.openlocfilehash: 6a6cca1228c9891c023ce96532dc89b2f527e9a3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 2ba5794ba647c28cde3b54a1afdfbd0201b23e8e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655523"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706159"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configure um DNS personalizado para Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Como a SQL Managed Instance utiliza o mesmo DNS para o seu funcionamento interno
 > [!IMPORTANT]
 > A atualização dos servidores DNS de rede virtual não afetará imediatamente a SqL Managed Instance. A configuração DE DNS de Instância Gerida SQL é atualizada após o termo do contrato de arrendamento DHCP ou após a atualização da plataforma, o que ocorrer primeiro. **Os utilizadores são aconselhados a definir a sua configuração de DNS de rede virtual antes de criarem a sua primeira instância gerida.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Para um tutorial que lhe mostre como criar um novo exemplo gerido, consulte [Criar um caso gerido](instance-create-quickstart.md).

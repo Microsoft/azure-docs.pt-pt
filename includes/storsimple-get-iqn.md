@@ -12,7 +12,7 @@ ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184309"
 ---
 #### <a name="to-get-the-iqn-of-a-windows-host"></a>Para obter o IQN de um anfitrião do Windows
-1. Inicie o iniciador do Microsoft iSCSI no anfitrião do Windows. **Clique em Iniciar** > **Ferramentas Administrativas** > **iSCSI iniciador**.
+1. Inicie o iniciador do Microsoft iSCSI no anfitrião do Windows. Clique **em Iniciar**  >  **Ferramentas Administrativas**  >  **iSCSI iniciador**.
 2. Na janela **Propriedades do Iniciador iSCSI**, no separador **Configuração**, selecione e copie a cadeia do campo **Nome do Iniciador**.
    
     ![Propriedades do iniciador iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
