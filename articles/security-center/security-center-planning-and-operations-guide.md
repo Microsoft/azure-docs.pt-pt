@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e33cd64da32dcb918d30cd44f413748f719023b8
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810463"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771296"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
 
 
-## <a name="planning-guide"></a>Guia de planeamento
-Este guia cobre tarefas que pode seguir para otimizar a sua utilização do Security Center com base nos requisitos de segurança da sua organização e no modelo de gestão de nuvens. Para tirar o máximo partido do Centro de Segurança, é importante compreender de que forma diferentes pessoas ou equipas na sua organização utilizam o serviço para dar resposta às necessidades de desenvolvimento e operações seguras, monitorização, governação e resposta a incidentes. As principais áreas a considerar quando planear utilizar o Centro de Segurança são:
+## <a name="planning-guide"></a>Planning guide (Guia de planeamento)
+Este guia cobre tarefas que pode seguir para otimizar a sua utilização do Security Center com base nos requisitos de segurança da sua organização e no modelo de gestão da nuvem. Para tirar o máximo partido do Centro de Segurança, é importante compreender de que forma diferentes pessoas ou equipas na sua organização utilizam o serviço para dar resposta às necessidades de desenvolvimento e operações seguras, monitorização, governação e resposta a incidentes. As principais áreas a considerar quando planear utilizar o Centro de Segurança são:
 
 * Funções de Segurança e Controlos de Acesso
 * Recomendações e Políticas de Segurança
@@ -84,21 +84,21 @@ Utilizando as pessoas fidedignas explicadas no diagrama anterior, é necessário
 
 **Helena (CISO/CIO)**
 
-* Proprietário/Colaborador ou Administrador de Segurança
+* Proprietário/Colaborador de Assinatura ou Administrador de Segurança
 
 **Diogo (Segurança de TI)**
 
-* Proprietário/Colaborador ou Administrador de Segurança
+* Proprietário/Colaborador de Assinatura ou Administrador de Segurança
 
 **Júlia (Operações de Segurança)**
 
 * Leitor de Subscrição ou Leitor de Segurança para visualizar Alertas
-* Proprietário/Colaborador ou Administrador de Segurança obrigado a dispensar alertas
+* Proprietário/Colaborador de Assinatura ou Administrador de Segurança obrigado a dispensar alertas
 
 **Samuel (Analista de Segurança)**
 
 * Leitor de Subscrição para visualizar Alertas
-* Proprietário/Colaborador de Assinatura obrigado a rejeitar alertas
+* Proprietário/Colaborador de Assinatura obrigado a dispensar alertas
 * O acesso à área de trabalho poderá ser necessário
 
 Mais algumas informações importantes a considerar:
@@ -118,7 +118,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 
 As políticas do Centro de Segurança contêm os componentes seguintes:
 - [Recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): aprovisionamento de agente e definições de recolha de dados.
-- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): uma [Política Azure](../governance/policy/overview.md) que determina quais os controlos que são monitorizados e recomendados pelo Centro de Segurança, ou usar a Política Azure para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gestão.
+- [Política de](https://docs.microsoft.com/azure/security-center/security-center-policies)segurança : uma [Política Azure](../governance/policy/overview.md) que determina quais os controlos monitorizados e recomendados pelo Security Center, ou usar a Política Azure para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gestão.
 - [Notificações por e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contactos de segurança e definições de notificação.
 - [Escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preço gratuito ou standard, que determina quais as funcionalidades do Centro de Segurança que estão disponíveis para os recursos no âmbito (pode ser especificado para subscrições, grupos de recursos e áreas de trabalho).
 
@@ -135,11 +135,11 @@ O Azure Security Center utiliza o agente Log Analytics – este é o mesmo agent
 
 ### <a name="agent"></a>Agente
 
-Quando o fornecimento automático está ativado na política de segurança, o agente Log Analytics (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)está instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center irá alavancar o agente instalado atualmente. O processo do agente foi concebido para não ser invasivo e ter um impacto muito mínimo no desempenho da VM.
+Quando o fornecimento automático é ativado na política de segurança, o agente Log Analytics (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)é instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center alavancará o agente instalado atual. O processo do agente foi concebido para não ser invasivo e ter um impacto muito mínimo no desempenho do VM.
 
 O agente Log Analytics para Windows requer a utilização da porta TCP 443. Veja o [artigo Resolução de Problemas](security-center-troubleshooting-guide.md) para mais detalhes.
 
-Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-la na política de segurança. No entanto, uma vez que o agente Log Analytics pode ser utilizado por outros serviços de gestão e monitorização do Azure, o agente não será desinstalado automaticamente quando desativar a recolha de dados no Security Center. Pode desinstalar o agente manualmente, se necessário.
+Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-la na política de segurança. No entanto, uma vez que o agente Log Analytics pode ser utilizado por outros serviços de gestão e monitorização da Azure, o agente não será desinstalado automaticamente quando desativar a recolha de dados no Centro de Segurança. Pode desinstalar o agente manualmente, se necessário.
 
 > [!NOTE]
 > Para encontrar uma lista de VMs suportadas, leia as [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure ](faq-vms.md).
@@ -148,7 +148,7 @@ Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-l
 
 Uma área de trabalho é um recurso do Azure que funciona como um contentor para os dados. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
 
-Os dados recolhidos do agente Log Analytics (em nome do Azure Security Center) serão armazenados num espaço de trabalho de Log Analytics existente associado à sua subscrição Azure ou a um novo espaço de trabalho, tendo em conta o Geo do VM.
+Os dados recolhidos do agente Log Analytics (em nome do Azure Security Center) serão armazenados num espaço de trabalho existente do Log Analytics associado à sua subscrição Azure ou num novo espaço de trabalho, tendo em conta o Geo do VM.
 
 No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Um grupo de recursos relacionado será criado para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
 
@@ -175,43 +175,27 @@ A Descrição Geral do Centro de Segurança proporciona uma vista unificada da s
 > [!NOTE]
 > O Centro de Segurança não irá interferir com os seus procedimentos operacionais normais, irá monitorizar passivamente as implementações e facultar recomendações com base nas políticas de segurança que ativou.
 
-Quando optar pela primeira vez por utilizar o Centro de Segurança no atual ambiente do Azure, certifique-se de que revê todas as recomendações, o que pode ser feito no mosaico **Recomendações** ou por recurso (**Computação**, **Rede**, **Armazenamento e dados**, **Aplicação**).
-
-Assim que abordar todas as recomendações, a secção **Prevenção** deve estar verde em todos os recursos que foram abordados. A monitorização contínua neste momento torna-se mais fácil, uma vez que apenas realizará ações com base em alterações nos mosaicos de estado de funcionamento de segurança de recursos e de recomendações.
-
-A secção **Deteção** é mais reativa, pois trata-se de alertas relativos a problemas que estão a ocorrer ou que ocorreram anteriormente e foram detetados pelos controlos do Centro de Segurança e por sistemas de terceiros. O azulejo Security Alerts mostrará gráficos de barras que representam o número de alertas que foram encontrados em cada dia, e a sua distribuição entre as diferentes categorias de gravidade (baixa, média, alta). Para obter mais informações acerca dos Alertas de Segurança, leia [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+Quando optar pela primeira vez a utilizar o Security Center para o seu ambiente Azure atual, certifique-se de que revê todas as recomendações, que podem ser feitas na página **recomendações.**
 
 Considere visitar a opção informações sobre ameaças como parte das suas operações de segurança diárias. Aí, pode identificar ameaças de segurança relativas a cada ambiente, como, por exemplo, identificar se um determinado computador faz parte de um botnet.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitorização de recursos novos ou alterados
+
 A maioria dos ambientes Azure são dinâmicos, com recursos regularmente criados, girados para cima ou para baixo, reconfigurados e alterados. O Centro de Segurança ajuda-o a garantir que tem visibilidade em relação ao estado de segurança destes novos recursos.
 
 Quando adicionar novos recursos (VMs, BDs SQL) ao seu Ambiente do Azure, o Centro de Segurança irá detetar automaticamente estes recursos e começar a monitorizar a segurança dos mesmos. Isto também inclui funções da Web e funções de trabalho PaaS. Se a Recolha de Dados estiver ativada na [Política de Segurança](tutorial-security-policy.md), serão ativadas automaticamente capacidades de monitorização adicionais para as suas máquinas virtuais.
 
-![Áreas principais](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
-
-1. Para máquinas virtuais, clique em **Compute & aplicações,** no âmbito da secção higiene de segurança de **recursos.** Quaisquer problemas com a ativação de dados ou recomendações relacionadas aparecerão no separador **Descrição Geral** e na secção **Recomendações de Monitorização**.
-2. Visualize as **Recomendações** para ver que riscos de segurança foram identificados para o novo recurso, se for o caso.
-3. É muito comum que, quando novas VMs são adicionadas ao seu ambiente, apenas o sistema operativo é inicialmente instalado. O proprietário do recurso pode necessitar de algum tempo para implementar outras aplicações que serão utilizadas por estas VMs.  Idealmente, deve ter conhecimento da intenção final desta carga de trabalho. Vai ser um Servidor de Aplicações? Com base no que esta nova carga de trabalho vai ser, pode ativar a **Política de Segurança** adequada, que é o terceiro passo deste fluxo de trabalho.
-4. À medida que novos recursos são adicionados ao seu ambiente Azure, novos alertas podem aparecer no azulejo Alertas de **Segurança.** Procure novos alertas neste azulejo e siga as recomendações.
-
-Também deve monitorizar regularmente os recursos existentes para alterações de configuração que possam ter criado riscos de segurança, derivar das linhas de base recomendadas e alertas de segurança. Comece no dashboard do Centro de Segurança. A partir daí, tem três grandes áreas para rever de forma consistente.
-
-![Operações](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
-
-1. O painel da secção **Prevenção** fornece-lhe acesso rápido aos seus recursos principais. Utilize esta opção para monitorizar a Computação, a Rede, o Armazenamento e dados e as Aplicações.
-2. O painel **Recomendações** permite-lhe rever as recomendações do Centro de Segurança. Durante a sua monitorização contínua, pode descobrir que não tem recomendações diariamente, o que é normal, uma vez que abordou todas as recomendações sobre a configuração inicial do Centro de Segurança. Por este motivo, é possível que não tenha novas informações nesta secção todos os dias e que apenas tenha de aceder à mesma conforme seja necessário.
-3. A secção **Deteção** pode ser alterada de forma bastante frequente ou pouco frequente. Reveja sempre os alertas de segurança e tome medidas com base nas recomendações do Centro de Segurança.
+Também deve monitorizar regularmente os recursos existentes para alterações de configuração que possam ter criado riscos de segurança, deriva das linhas de base recomendadas e alertas de segurança. 
 
 ### <a name="hardening-access-and-applications"></a>Proteger o acesso e as aplicações
 
-Como parte das suas operações de segurança, deve também adotar medidas preventivas para limitar o acesso às VMs e controlar as aplicações que estão a ser executadas nas mesmas. Ao restringir o tráfego de entrada às VMs do Azure, reduz a exposição a ataques e, paralelamente, proporciona acesso fácil para ligar a VMs sempre que necessário. Utilize a funcionalidade de acesso [VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para reforçar o acesso aos seus VMs.
+Como parte das suas operações de segurança, deve também adotar medidas preventivas para limitar o acesso às VMs e controlar as aplicações que estão a ser executadas nas mesmas. Ao restringir o tráfego de entrada às VMs do Azure, reduz a exposição a ataques e, paralelamente, proporciona acesso fácil para ligar a VMs sempre que necessário. Utilize a funcionalidade de acesso [VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para endurecer o acesso aos seus VMs.
 
-Pode utilizar controlos de [aplicações adaptáveis](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para limitar quais as aplicações que podem ser executadas nos seus VMs localizados em Azure. Entre outros benefícios, isto ajuda a endurecer os seus VMs contra malware. Utilizando machine learning, o Security Center analisa processos em execução no VM para ajudá-lo a criar regras de whitelisting.
+Pode utilizar [controlos de aplicações adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para limitar quais aplicações podem ser executadas nos seus VMs localizados em Azure. Entre outros benefícios, isto ajuda a endurecer os seus VMs contra malware. Utilizando machine learning, o Security Center analisa os processos em execução no VM para ajudá-lo a criar regras de whitelisting.
 
 
 ## <a name="incident-response"></a>Resposta a incidentes
-O Centro de Segurança deteta e alerta-o relativamente a ameaças à medida que ocorrem. As organizações devem monitorizar a existência de novos alertas de segurança e tomar medidas conforme seja necessário para uma investigação mais aprofundada ou para remediar o ataque. Para obter mais informações sobre como funciona a proteção contra ameaças do Security Center, leia como o [Azure Security Center deteta e responde a ameaças](security-center-alerts-overview.md#detect-threats).
+O Centro de Segurança deteta e alerta-o relativamente a ameaças à medida que ocorrem. As organizações devem monitorizar a existência de novos alertas de segurança e tomar medidas conforme seja necessário para uma investigação mais aprofundada ou para remediar o ataque. Para obter mais informações sobre o funcionamento da proteção contra ameaças do Centro de Segurança, leia [como o Azure Security Center deteta e responde a ameaças](security-center-alerts-overview.md#detect-threats).
 
 Embora este artigo não tenha a intenção de ajudá-lo a criar o seu próprio plano de resposta a incidentes, vamos usar a Resposta de Segurança do Microsoft Azure no ciclo de vida da Cloud como base para fases de resposta a incidentes. As fases são apresentadas no diagrama seguinte:
 
@@ -237,12 +221,12 @@ Esta página mostra informações detalhadas acerca da hora em que ocorreu o ata
 
 Nesta página, também pode iniciar uma investigação para compreender melhor a linha cronológica do ataque, como este ocorreu, que sistemas estão potencialmente comprometidos, quais as credenciais que foram utilizadas e ver uma representação gráfica da cadeia de ataque completa.
 
-Assim que identificar o sistema comprometido, pode executar uma [Automatização](workflow-automation.md) de Fluxo de Trabalho que foi previamente criada. Estes são uma coleção de procedimentos que podem ser executados a partir do Centro de Segurança uma vez desencadeados por um alerta.
+Uma vez identificado o sistema comprometido, pode executar uma [Automatização de Fluxo de Trabalho](workflow-automation.md) que foi previamente criada. Trata-se de uma coleção de procedimentos que podem ser executados a partir do Centro de Segurança uma vez desencadeados por um alerta.
 
-No ["How to Leverage the Azure Security Center" & Microsoft Operations Management Suite para um](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) vídeo de Resposta a Incidentes, pode ver algumas demonstrações que podem ajudá-lo a entender como o Security Center pode ser usado em cada uma dessas fases.
+No [Como Alavancar o Azure Security Center & Microsoft Operations Management Suite para um](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) vídeo de Resposta a Incidentes, pode ver algumas demonstrações que podem ajudá-lo a entender como o Security Center pode ser usado em cada uma dessas fases.
 
 > [!NOTE]
-> Leia [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md) de segurança no Centro de Segurança Azure para obter mais informações sobre como usar as capacidades do Security Center para o ajudar durante o seu processo de Resposta a Incidentes.
+> Leia [Gerir e responder aos alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) para obter mais informações sobre como utilizar as capacidades do Centro de Segurança para o ajudar durante o seu processo de Resposta a Incidentes.
 >
 >
 
@@ -251,6 +235,6 @@ Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para sab
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-* [Monitorizar soluções parceiras com](security-center-partner-solutions.md) o Azure Security Center — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
+* [Monitorizar soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
 * [Azure Security Center FAQ](faq-general.md) — Encontre perguntas frequentes sobre a utilização do serviço.
-* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade do Azure.
+* [Blog da Azure Security](https://blogs.msdn.com/b/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade da Azure.

@@ -4,15 +4,15 @@ description: Vie rotas eficazes para um hub virtual em Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7f0785f8ce2528d0c17a8aca520212df931bf394
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c7d436f2aecb021a7848ef0455a3f1c834cc38c1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343375"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750554"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Ver rotas eficazes de um centro virtual
 
@@ -67,6 +67,6 @@ Um hub virtual tem a capacidade de propagar uma rota padrão aprendida para uma 
 
 A rota padrão não se origina no hub WAN virtual. A rota padrão é propagada se já for aprendida pelo hub virtual WAN como resultado da implantação de uma firewall no centro, ou se outro site conectado tiver feito um túnel forçado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a WAN Virtual, veja a [Descrição Geral da WAN Virtual](virtual-wan-about.md).

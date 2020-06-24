@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
-ms.openlocfilehash: 7335eee191d87ba34e32a5f7842c088d8ea4cb3e
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 44da1d67155efe3feb41e3648c820a8ada0b8fc3
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431569"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119346"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -124,7 +124,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     Explicar o melhor modelo | Selecione para permitir ou desativar para mostrar a explicabilidade do melhor modelo recomendado
     Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino.
     Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)*: Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica*: Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
-    Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. [Saiba mais sobre validação cruzada.](how-to-configure-auto-train.md)
+    Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. [Saiba mais sobre validação cruzada.](how-to-configure-cross-validation-data-splits.md#prerequisites)
     Simultaneidade| *Iterações máximas simultâneas*: Número máximo de condutas (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
 
 1. (Opcional) Ver definições de visualização: se optar por ativar a **caracterização automática** no formulário **configurações de configuração adicionais,** aplicam-se as técnicas de apri metragem de atenção predefinidos. Nas **definições** de visualização do View pode alterar estas padrão e personalizar em conformidade. Saiba como [personalizar as ações.](#customize-featurization) 
@@ -165,7 +165,7 @@ A tabela seguinte resume as personalizações atualmente disponíveis através d
 
 Coluna| Personalização
 ---|---
-Incluído | Especifica quais as colunas a incluir para o treino.
+Incluídos | Especifica quais as colunas a incluir para o treino.
 Tipo de recurso| Altere o tipo de valor para a coluna selecionada.
 Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 
