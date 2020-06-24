@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195743"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124992"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -237,7 +237,7 @@ Se executar o script num computador com acesso restrito, certifique-se de que h�
 
 > [!NOTE]
 >
-> - O nome do ficheiro do script descarregado terá o **nome geo-nome** a ser preenchido no URL. Para apple de exame: O nome do script descarregado começa com \' VMname \' \_ \' geoname \' _ GUID , como \' \' *ContosoVM_wcus_12345678*
+> - O nome do ficheiro do script descarregado terá o **nome geo-nome** a ser preenchido no URL. Por exemplo: O nome do script descarregado começa com \' VMname \' \_ \' geoname \' _ GUID , como \' \' *ContosoVM_wcus_12345678*
 > - A URL seria <https://pod01-rec2.wcus.backup.windowsazure.com> "
 >
 

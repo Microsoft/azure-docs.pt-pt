@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c6dbd628b4c271815c0210f93d776338cb01275
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669686"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252649"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Ligar e consultar a borda Azure SQL (pré-visualização)
 
-No Azure SQL Edge, depois de colocar um recipiente, pode ligar-se ao motor de base de dados SQL a partir de qualquer um dos seguintes locais:
+No Azure SQL Edge, depois de colocar um contentor, pode ligar-se ao motor da base de dados a partir de qualquer um dos seguintes locais:
 
 - Dentro do recipiente
 - De outro recipiente Docker correndo no mesmo anfitrião
@@ -114,7 +114,7 @@ Para ligar a um exemplo de Azure SQL Edge utilizando o Código de Estúdio Visua
 
 Para ligar a um exemplo de Azure SQL Edge utilizando o Azure Data Studio numa máquina Windows, Mac ou Linux, consulte [o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Ligar e consultar](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 

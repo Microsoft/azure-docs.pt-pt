@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c1e14fe6764a9f5e850d3b975ef3bcc6cb28bf78
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309157"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782590"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
@@ -34,9 +34,9 @@ Existem três passos gerais para estabelecer uma ligação transparente de gatew
 2. Crie uma identidade do dispositivo para o dispositivo a jusante para que possa autenticar com o IoT Hub. Configure o dispositivo a jusante para enviar mensagens através do dispositivo gateway. Para obter mais informações, consulte [Autenticar um dispositivo a jusante para o Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. Ligue o dispositivo a jusante ao dispositivo gateway e comece a enviar mensagens. Para obter mais informações, consulte [ligar um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).
 
-Para que um dispositivo funcione como um gateway, tem de ser capaz de se ligar de forma segura aos seus dispositivos a jusante. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para estabelecer ligações seguras entre dispositivos. Neste caso, estamos a permitir que um dispositivo a jusante se conecte a um dispositivo IoT Edge agindo como um gateway transparente. Para manter uma segurança razoável, o dispositivo a jusante deve confirmar a identidade do dispositivo gateway. Esta verificação de identidade impede que os seus dispositivos se conectem a gateways potencialmente maliciosos.
+Para que um dispositivo atue como um portal, tem de se ligar de forma segura aos seus dispositivos a jusante. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para estabelecer ligações seguras entre dispositivos. Neste caso, estamos a permitir que um dispositivo a jusante se conecte a um dispositivo IoT Edge agindo como um gateway transparente. Para manter uma segurança razoável, o dispositivo a jusante deve confirmar a identidade do dispositivo gateway. Esta verificação de identidade impede que os seus dispositivos se conectem a gateways potencialmente maliciosos.
 
-Um dispositivo a jusante num cenário transparente de gateway pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub) Em muitos casos, estas aplicações utilizam o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Para todos os efeitos práticos, um dispositivo a jusante pode mesmo ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, um dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
+Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub) Estas aplicações utilizam frequentemente o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, um dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
 
 Pode criar qualquer infraestrutura de certificado que permita a confiança necessária para a sua topologia de porta de dispositivos. Neste artigo, assumimos a mesma configuração de certificado que você usaria para permitir a [segurança X.509 CA](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado DE CA X.509 associado a um hub IoT específico (o hub IoT raiz CA), uma série de certificados assinados com este CA, e um CA para o dispositivo IoT Edge.
 
@@ -72,7 +72,7 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
    1. [Crie o certificado de CA raiz](how-to-create-test-certificates.md#create-root-ca-certificate). No final destas instruções, terá um ficheiro de certificado de CA raiz:
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
 
-   2. [Criar certificado CA do dispositivo IoT Edge](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). No final destas instruções terá dois ficheiros, um certificado de AC do dispositivo e a sua chave privada:
+   2. [Criar certificado CA do dispositivo IoT Edge](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). No final destas instruções, terá dois ficheiros, um certificado de AC do dispositivo e a sua chave privada:
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem`e
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
@@ -95,7 +95,7 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Implementar edgeHub para o gateway
 
-Quando instala pela primeira vez o IoT Edge num dispositivo, apenas um módulo de sistema começa automaticamente: o agente IoT Edge. Uma vez que crie a primeira implementação mais um dispositivo, o segundo módulo do sistema, o hub IoT Edge, também é iniciado.
+Quando instala pela primeira vez o IoT Edge num dispositivo, apenas um módulo de sistema começa automaticamente: o agente IoT Edge. Uma vez que você cria a primeira implementação para um dispositivo, o segundo módulo do sistema, o hub IoT Edge, também é iniciado.
 
 O hub IoT Edge é responsável por receber mensagens recebidas de dispositivos a jusante e encaminhá-las para o próximo destino. Se o módulo **EdgeHub** não estiver a funcionar no seu dispositivo, crie uma implementação inicial para o seu dispositivo. A implementação vai parecer vazia porque não adiciona nenhum módulo, mas irá certificar-se de que ambos os módulos do sistema estão em funcionamento.
 

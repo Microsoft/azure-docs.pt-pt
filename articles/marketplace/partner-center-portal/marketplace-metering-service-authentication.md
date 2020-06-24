@@ -1,46 +1,46 @@
 ---
-title: Estratégias de autenticação do serviço de medição do mercado Mercado Azure
-description: Estratégias de autenticação de serviços de medição suportadas no Mercado Azure.
+title: Estratégias de autenticação de serviços de medição de mercado / Mercado Azure
+description: Estratégias de autenticação de serviços de medição apoiadas no Mercado Azure.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: dd1c4e724e70507816aa4b6ba652adfb998a8cc0
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642319"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783406"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
 
-O serviço de medição do mercado suporta duas estratégias de autenticação:
+O serviço de medição de mercado suporta duas estratégias de autenticação:
 
-* [Ficha de segurança da AD Azure](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Ficha de segurança da AD AZure](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
+* [Identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
 
-Explicaremos quando e como usar as diferentes estratégias de autenticação para submeter seguramente contadores personalizados usando o serviço de medição do Marketplace.
+Explicaremos quando e como usar as diferentes estratégias de autenticação para submeter com segurança contadores personalizados usando o serviço de medição do Marketplace.
 
-## <a name="using-the-azure-ad-security-token"></a>Usando o símbolo de segurança da AD Azure
+## <a name="using-the-azure-ad-security-token"></a>Usando o sinal de segurança Azure AD
 
-Os tipos de oferta aplicáveis são aplicações SaaS e Azure com tipo de plano de aplicação gerido.  
+Os tipos de oferta aplicáveis são aplicações transacionáveis saaS e Azure com tipo de plano de aplicação gerido.  
 
-Submeta contadores personalizados utilizando um ID de aplicação fixa predefinido para autenticar.
+Envie contadores personalizados utilizando um ID de aplicação AD fixo predefinido para autenticar.
 
-Para ofertas SaaS, o Azure AD é a única opção disponível.
+Para ofertas saas, esta é a única opção disponível. É um passo obrigatório para a publicação de qualquer oferta SaaS, conforme descrito no [registo de uma aplicação SaaS.](./pc-saas-registration.md)
 
 Para aplicações Azure com plano de aplicação gerido, deve considerar a utilização desta estratégia nos seguintes casos:
 
-* Já tem um mecanismo de comunicação com os seus serviços de backend, e pretende alargar este mecanismo para emitir contadores personalizados a partir de um serviço central.
-* Tem uma lógica complexa de metros personalizados.  Execute esta lógica num local central, em vez dos recursos de aplicação geridos.
+* Você já tem um mecanismo para comunicar com os seus serviços de backend, e você quer estender este mecanismo para emitir medidores personalizados de um serviço central.
+* Tem uma lógica complexa de medidores personalizados.  Executar esta lógica numa localização central, em vez dos recursos de aplicação geridos.
 
-Uma vez registado o seu pedido, pode solicitar programáticamente um sinal de segurança da AD Azure. Espera-se que a editora use este símbolo e faça um pedido para resolvê-lo.
+Uma vez registado o seu pedido, pode solicitar programáticamente um sinal de segurança Azure. Espera-se que a editora use este símbolo e faça um pedido para resolvê-lo.
 
-Para obter mais informações sobre estas fichas, consulte os tokens de acesso ao [Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Para obter mais informações sobre estes tokens, consulte [os tokens de acesso do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtenha um símbolo com base na aplicação Azure AD
+### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtenha um token com base na app AD AZure
 
 #### <a name="http-method"></a>Método HTTP
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre estas fichas, consulte os tokens de acesso a
 
 |  **Parameter name** (Nome do parâmetro) |  **Necessário**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `tenantId`         |   Verdadeiro         | Identificação do inquilino do pedido de Anúncio Azure registado.   |
+|  `tenantId`         |   Verdadeiro         | Identificação do inquilino do pedido registado de Azure AD.   |
 | | | |
 
 #### <a name="request-header"></a>*Cabeçalho de pedido*
@@ -64,24 +64,24 @@ Para obter mais informações sobre estas fichas, consulte os tokens de acesso a
 |  `Content-Type`     |   Verdadeiro         | Tipo de conteúdo associado ao pedido. O valor predefinido é `application/x-www-form-urlencoded`.  |
 | | | |
 
-#### <a name="request-body"></a>*Solicitar corpo*
+#### <a name="request-body"></a>*Corpo de pedido*
 
-|  **Nome de propriedade**  |  **Necessário**  |  **Descrição**          |
+|  **Nome da propriedade**  |  **Necessário**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   Verdadeiro         | Tipo de concessão. O valor predefinido é `client_credentials`. |
-|  `Client_id`        |   Verdadeiro         | Identificador cliente/app associado à aplicação Azure AD.|
-|  `client_secret`    |   Verdadeiro         | A palavra-passe associada à aplicação Azure AD.  |
-|  `Resource`         |   Verdadeiro         | Recurso-alvo para o qual o símbolo é solicitado. O valor predefinido é `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `Grant_type`       |   Verdadeiro         | Tipo grant. Utilize`client_credentials`. |
+|  `Client_id`        |   Verdadeiro         | Identificador de cliente/aplicação associado à aplicação Azure AD.|
+|  `client_secret`    |   Verdadeiro         | Segredo associado à aplicação AZure AD.  |
+|  `Resource`         |   Verdadeiro         | Recurso-alvo para o qual o símbolo é solicitado. Utilize`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Resposta*
 
 |  **Nome**    |  **Tipo**  |  **Descrição**          |
 |  ------------------ |--------------- | ----------------------  |
-|  `200 OK`     |   `TokenResponse`    | O pedido foi bem sucedido.  |
+|  `200 OK`     |   `TokenResponse`    | Pedido bem sucedido.  |
 | | | |
 
-#### <a name="tokenresponse"></a>*Resposta token*
+#### <a name="tokenresponse"></a>*TokenResponse*
 
 Ficha de resposta da amostra:
 
@@ -101,12 +101,12 @@ Ficha de resposta da amostra:
 
 O tipo de oferta aplicável é aplicações Azure com tipo de plano de aplicação gerido.
 
-A utilização desta abordagem permitirá que a identidade dos recursos implantados se atentuque para enviar eventos de utilização de contadores personalizados.  Pode incorporar o código que emite o uso dentro dos limites da sua implantação.
+A utilização desta abordagem permitirá que a identidade dos recursos implantados autentica para enviar eventos de utilização de contadores personalizados.  Pode incorporar o código que emite o uso dentro dos limites da sua implantação.
 
 >[!Note]
->A editora deve assegurar que os recursos que emitem utilização estão bloqueados, para que não seja adulterado.
+>O editor deve garantir que os recursos que emitem o uso estão bloqueados, para que não seja adulterado.
 
-A sua aplicação gerida pode conter diferentes tipos de recursos, desde Máquinas Virtuais até Funções Azure.  Para obter mais informações sobre como autenticar usando identidades geridas para diferentes serviços, consulte [como utilizar identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources)
+A sua aplicação gerida pode conter diferentes tipos de recursos, desde Máquinas Virtuais a Funções Azure.  Para obter mais informações sobre como autenticar usando identidades geridas para diferentes serviços, consulte [como utilizar identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
 
 Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
@@ -114,11 +114,11 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
     * [Azure portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
     * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
     * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Modelo de gestor de recursos azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+    * [Modelo de gestor de recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
     * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
     * [SDKs do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
-1. Obtenha um sinal de acesso para id de aplicação de serviço de medição do Marketplace ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) utilizando a identidade do sistema, RDP para o VM, abra a consola PowerShell e execute o comando abaixo
+1. Obtenha um token de acesso para o ID da aplicação de medição do Marketplace ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) usando a identidade do sistema, RDP para o VM, abra a consola PowerShell e execute o comando abaixo
 
     ```powershell
     # curl is an alias to Web-Invoke PowerShell command
@@ -129,7 +129,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
     $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
     ```
 
-1. Obtenha o ID da aplicação gerida da propriedade 'ManagedBy' dos atuais grupos de recursos
+1. Obtenha o ID da aplicação gerida a partir da propriedade 'ManagedBy' dos grupos de recursos atuais
 
     ```powershell
     # Get subscription and resource group
@@ -141,18 +141,19 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
     $managedappId = $resourceGroupInfo.managedBy 
     ```
 
-1. O serviço de medição do mercado requer reportar a utilização numa `resourceID` , e se uma `resourceUsageId` aplicação gerida.
+1. O serviço de medição do mercado requer que se reporte o uso de uma `resourceID` aplicação gerida `resourceUsageId` e se for gerida.
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Utilize o serviço de [medição marketplace API](./marketplace-metering-service-apis.md) para emitir o uso.
+1. Utilize o [serviço de medição marketplace API](./marketplace-metering-service-apis.md) para emitir o uso.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma oferta de aplicações do Azure](./create-new-azure-apps-offer.md)
+* [Criar uma oferta de SaaS transacionável](./offer-creation-checklist.md)

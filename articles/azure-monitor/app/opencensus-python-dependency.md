@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 4d9f4475edb9d2f44fe51549dd0dc701b638bf8e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553971"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782573"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pistas com OpenCensus Python
 
@@ -84,6 +84,9 @@ conn.close()
 ## <a name="dependencies-with-django-integration"></a>Dependências com integração "django"
 
 Acompanhe os seus pedidos de Django com a integração OpenCensus. `django`
+
+> [!NOTE]
+> Os únicos pedidos de Django que são rastreados são as chamadas feitas para uma base de dados. Para pedidos feitos ao pedido de Django, consulte [os pedidos de entrada.](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications)
 
 Faça o download e instale `opencensus-ext-django` a partir de [PyPI](https://pypi.org/project/opencensus-ext-django/) e adicione a seguinte linha à `MIDDLEWARE` secção no ficheiro `settings.py` Django.
 
