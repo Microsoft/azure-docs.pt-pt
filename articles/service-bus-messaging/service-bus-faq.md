@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 38187bef1d9c73b20c3b1930f97e7dae2468c889
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 125132aec8e822bf6694076e9ff6029744608c1a
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673450"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975304"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
@@ -63,7 +63,7 @@ Para encontrar os endereços IP certos para lista branca para as suas ligações
 1. Executar o seguinte comando a partir de um pedido de comando: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Note o endereço IP devolvido em `Non-authoritative answer` . Este endereço IP é estático. O único ponto no tempo que mudaria é se restaurar o espaço de nome para um cluster diferente.
 
@@ -72,14 +72,14 @@ Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer algu
 1. Primeiro, corres nslookup no espaço de nomes.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Note o nome na secção **de resposta não autorizada,** que se encontra num dos seguintes formatos: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Executar nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP dos três casos em execução em três zonas de disponibilidade, 
 
@@ -160,7 +160,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a Service Bus, consulte os seguintes artigos:
 
 * [Apresentando Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/09/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 7e03f8436d432ffb4e20a442261ccf18c57a3934
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628173"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944769"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento por trás do VNet e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,19 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
 - [Criar ou atualizar a política de auditoria da base de dados (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Criar ou atualizar a política de auditoria do servidor (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="using-azure-resource-manager-template"></a>Com o modelo do Azure Resource Manager
+
+Pode configurar a auditoria para escrever eventos de base de dados numa conta de armazenamento por trás da rede virtual e firewall utilizando o modelo [do Gestor de Recursos Azure,](../../azure-resource-manager/management/overview.md) como mostra o exemplo seguinte:
+
+> [!IMPORTANT]
+> Para utilizar a conta de armazenamento por trás da rede virtual e firewall, você precisa definir o parâmetro **StorageBehindVnet** para ser verdadeiro
+
+- [Implementar um servidor Azure SQL com Auditoria habilitada a escrever registos de auditoria para um armazenamento de bolhas](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> A amostra ligada encontra-se num repositório público externo e é fornecida "como está", sem garantia, e não é suportada sob qualquer programa/serviço de suporte da Microsoft.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.](scripts/vnet-service-endpoint-rule-powershell-create.md)
 * [Regras de Rede Virtual: Operações com APIs REST](/rest/api/sql/virtualnetworkrules)

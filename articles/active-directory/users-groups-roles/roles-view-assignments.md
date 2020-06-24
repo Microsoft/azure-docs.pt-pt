@@ -1,51 +1,51 @@
 ---
-title: Ver atribuições de papéis personalizados no portal Azure AD [ Microsoft Docs
-description: Agora pode ver e gerir membros de um papel de administrador da AD Azure no centro de administração da Azure AD.
+title: Ver atribuições de funções personalizadas no portal AD AZure ! Microsoft Docs
+description: Agora pode ver e gerir membros de um papel de administrador AZure AD no centro de administração Azure AD.
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20e566a450768fca81e29692f7c8d2da3ccf5201
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259711"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731567"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de papéis personalizados no Diretório Ativo Azure
+# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de funções personalizadas no Azure Ative Directory
 
-Este artigo descreve como visualizar papéis personalizados que atribuiu no Azure Ative Directory (Azure AD). No Azure Ative Directory (Azure AD), as funções podem ser atribuídas num âmbito de aplicação única ou com um âmbito de aplicação única.
+Este artigo descreve como visualizar funções personalizadas que atribuiu no Azure Ative Directory (Azure AD). No Azure Ative Directory (Azure AD), as funções podem ser atribuídas num âmbito de organização ou com um âmbito de aplicação único.
 
-- As atribuições de funções no âmbito da organização são adicionadas e podem ser vistas na lista de atribuições de papéis de aplicação única.
-- As atribuições de funções no âmbito de aplicação única não são adicionadas e não podem ser vistas na lista de atribuições de âmbito de aplicação em toda a organização.
+- As atribuições de funções no âmbito da organização são adicionadas e podem ser vistas na lista de atribuições de funções de candidatura única.
+- As atribuições de funções no âmbito de aplicação única não são adicionadas e não podem ser vistas na lista de atribuições de âmbito de organização.
 
-## <a name="view-role-assignments-in-the-azure-portal"></a>Ver atribuições de papéis no portal Azure
+## <a name="view-role-assignments-in-the-azure-portal"></a>Ver atribuições de funções no portal Azure
 
-Este procedimento descreve as atribuições de visualização de um papel com âmbito de organização.
+Este procedimento descreve atribuições de visualização de um papel com âmbito de organização.
 
-1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory**, selecione **Funções e administradores,** e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
+1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com)   com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
+1. Selecione **Azure Ative Directory**, selecione **Roles e administradores**, e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
 1. Selecione **Atribuições** para visualizar as atribuições para o papel.
 
-    ![Ver atribuições e permissões de papéis quando abrir um papel a partir da lista](./media/roles-view-assignments/role-assignments.png)
+    ![Ver atribuições de funções e permissões quando abrir um papel da lista](./media/roles-view-assignments/role-assignments.png)
 
-## <a name="view-role-assignments-using-azure-ad-powershell"></a>Ver atribuições de papéis usando a Azure AD PowerShell
+## <a name="view-role-assignments-using-azure-ad-powershell"></a>Ver atribuições de funções usando Azure AD PowerShell
 
-Esta secção descreve tarefas de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo PowerShell Version 2 do [Diretório Ativo Azure.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [atribuir funções personalizadas com powerShell](roles-assign-powershell.md).
+Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](roles-assign-powershell.md).
 
-### <a name="prepare-powershell"></a>Preparar powerShell
+### <a name="prepare-powershell"></a>Preparar PowerShell
 
-Primeiro, tem de descarregar o módulo powerShell de [pré-visualização da AD Azure](https://www.powershellgallery.com/packages/AzureAD/).
+Em primeiro lugar, tem de [descarregar o módulo PowerShell de pré-visualização Azure AD](https://www.powershellgallery.com/packages/AzureAD/).
 
-Para instalar o módulo PowerShell Azure AD, utilize os seguintes comandos:
+Para instalar o módulo Azure AD PowerShell, utilize os seguintes comandos:
 
 ``` PowerShell
 install-module azureadpreview
@@ -76,11 +76,11 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="view-role-assignments-using-microsoft-graph-api"></a>Ver atribuições de papéis usando a Microsoft Graph API
+## <a name="view-role-assignments-using-microsoft-graph-api"></a>Ver atribuições de funções utilizando a Microsoft Graph API
 
-Esta secção descreve tarefas de visualização de um papel com âmbito de organização.  Para visualizar as atribuições de âmbito de aplicação única utilizando a API do Gráfico, pode utilizar as operações em [atribuir funções personalizadas com a API do Gráfico](roles-assign-graph.md).
+Esta secção descreve atribuições de visualização de um papel com âmbito de organização.  Para visualizar as atribuições de âmbito de aplicação única utilizando a API do gráfico, pode utilizar as operações em [Atribuir funções personalizadas com API de gráficos.](roles-assign-graph.md)
 
-HTTP solicita obter uma atribuição de funções para uma determinada definição de papel.
+HTTP solicita para obter uma atribuição de papel para uma determinada definição de função.
 
 GET
 
@@ -102,23 +102,23 @@ HTTP/1.1 200 OK
 
 ## <a name="view-assignments-of-single-application-scope"></a>Ver atribuições de âmbito de aplicação única
 
-Esta secção descreve atribuições de visualização de um papel com âmbito de aplicação única. Esta funcionalidade encontra-se atualmente em pré-visualização pública.
+Esta secção descreve atribuições de visualização de uma função com âmbito de aplicação única. Esta funcionalidade encontra-se atualmente em visualização pública.
 
-1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **registos**de Apps e, em seguida, selecione o registo da aplicação para ver as suas propriedades. Poderá ter de selecionar **Todas as aplicações** para ver a lista completa de registos de aplicações na sua organização Azure AD.
+1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com)   com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
+1. Selecione **registos de Aplicações**e, em seguida, selecione o registo da aplicação para ver as suas propriedades. Poderá ter de selecionar **todas as aplicações** para ver a lista completa de registos de aplicações na sua organização AZure AD.
 
     ![Criar ou editar registos de aplicações a partir da página de registos da App](./media/roles-create-custom/appreg-all-apps.png)
 
-1. No registo da aplicação, selecione **Funções e administradores,** e, em seguida, selecione uma função para visualizar as suas propriedades.
+1. No registo da aplicação, selecione **Roles e administradores**, e, em seguida, selecione uma função para ver as suas propriedades.
 
-    ![Ver atribuições de funções de inscrição de aplicativos a partir da página de registos da App](./media/roles-view-assignments/appreg-assignments.png)
+    ![Ver atribuições de funções de registo de aplicativos a partir da página de registos da App](./media/roles-view-assignments/appreg-assignments.png)
 
-1. Selecione **Atribuições** para visualizar as atribuições para o papel. A abertura da vista de atribuição a partir do registo da aplicação mostra-lhe as atribuições que são vias para este recurso Azure AD.
+1. Selecione **Atribuições** para visualizar as atribuições para o papel. A abertura da vista de atribuições a partir do registo da aplicação mostra-lhe as atribuições que são procuradas neste recurso AD AZure.
 
-    ![Ver atribuições de funções de inscrição de aplicativos a partir das propriedades de um registo de aplicações](./media/roles-view-assignments/appreg-assignments-2.png)
+    ![Ver atribuições de funções de registo de aplicativos a partir das propriedades de um registo de aplicações](./media/roles-view-assignments/appreg-assignments-2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Sinta-se livre para partilhar connosco no fórum de [funções administrativas da Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-* Para mais informações sobre funções e atribuição de funções de administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
-* Para obter permissões de utilizador predefinidas, consulte uma [comparação das permissões padrão dos hóspedes e dos utilizadores dos membros](../fundamentals/users-default-permissions.md).
+* Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+* Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+* Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](../fundamentals/users-default-permissions.md).

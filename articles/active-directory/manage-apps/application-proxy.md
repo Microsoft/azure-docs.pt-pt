@@ -2,23 +2,23 @@
 title: Acesso remoto a aplicações no local - Azure AD Application Proxy
 description: O Proxy de Aplicação do Azure Ative Directory fornece acesso remoto seguro a aplicações web no local. Após um único s-on para Azure AD, os utilizadores podem aceder a aplicações tanto em nuvem como no local através de um URL externo ou de um portal de aplicações internas. Por exemplo, o Application Proxy pode fornecer acesso remoto e um único acesso às aplicações Remote Desktop, SharePoint, Teams, Tableau, Qlik e linha de negócios (LOB).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5ba82b34da8e4c3156d6854934ad873428bf121a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 20b186c75358344e6e995b24b8e54e308c8653d2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168731"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975423"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicações no local através do Proxy de Aplicação do Azure Ative Directory
 
@@ -60,7 +60,7 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 5. O conector envia o pedido para o pedido no local.
 6. A resposta é enviada através do serviço de conector e procuração de aplicação para o utilizador.
 
-| Componente | Descrição |
+| Componente | Description |
 | --------- | ----------- |
 | Ponto Final  | O ponto final é um URL ou um [portal de utilizador final](end-user-experiences.md). Os utilizadores podem chegar a aplicações fora da sua rede acedendo a um URL externo. Os utilizadores dentro da sua rede podem aceder à aplicação através de um URL ou de um portal de utilizador final. Quando os utilizadores vão a um destes pontos finais, autenticam-se em Azure AD e depois são encaminhados através do conector para a aplicação no local.|
 | Azure AD | A Azure AD realiza a autenticação utilizando o diretório de inquilinos armazenado na nuvem. |
@@ -69,7 +69,5 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 | Diretório Ativo (AD) | O Ative Directory funciona no local para efetuar a autenticação para contas de domínio. Quando o único sinal de sação é configurado, o conector comunica com AD para efetuar qualquer autenticação adicional necessária.
 | Aplicação no local | Por fim, o utilizador pode aceder a uma aplicação no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).
-
-Para obter as últimas notícias e atualizações, consulte o [blog Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0e46905ad280cd76d66befb1156e428b23f35664
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0d16823f920695f84db74122c9a2ac07de0abdb2
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235635"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907079"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
-O Azure Load Balancer fornece conectividade de saída para implementações de clientes através de vários mecanismos diferentes. Este artigo descreve quais são os cenários, quando se aplicam, como funcionam e como geri-los. Se estiver a ter problemas com a conectividade de saída através de um Balançador de Carga Azure, consulte o guia de resolução de problemas para ligações de saída (.. /load-balancer/troubleshoot-out-connection.md).
+O Azure Load Balancer fornece conectividade de saída para implementações de clientes através de vários mecanismos diferentes. Este artigo descreve quais são os cenários, quando se aplicam, como funcionam e como geri-los. Se estiver a ter problemas com a conectividade de saída através de um Balançador de Carga Azure, consulte o [guia de resolução de problemas para ligações de saída](../load-balancer/troubleshoot-outbound-connection.md).
 
 >[!NOTE] 
 >Este artigo abrange apenas as implementações do Gestor de Recursos. Reveja [as ligações de saída (Classic)](load-balancer-outbound-connections-classic.md) para todos os cenários clássicos de implantação em Azure.
@@ -40,7 +40,7 @@ Existem vários [cenários de saída.](#scenarios) Pode combinar estes cenários
 
 O Azure Load Balancer e os recursos relacionados são explicitamente definidos quando se está a utilizar [o Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  A Azure fornece atualmente três métodos diferentes para alcançar a conectividade de saída para os recursos do Azure Resource Manager. 
 
-| SKUs | Cenário | Método | Protocolos IP | Descrição |
+| SKUs | Cenário | Método | Protocolos IP | Description |
 | --- | --- | --- | --- | --- |
 | Padrão, Básico | [1. VM com um endereço IP público de nível de instância (com ou sem balanceador de carga)](#ilpip) | SNAT, porta disfarçada não utilizada | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração IP do NIC da instância. O caso tem todas as portas efémeras disponíveis. Ao utilizar o Balancer de Carga Padrão, [as regras de saída](load-balancer-outbound-rules-overview.md) não são suportadas se um IP público for atribuído à Máquina Virtual. |
 | Padrão, Básico | [2. Balanceador de Carga Pública associado a um VM (sem endereço IP público no caso)](#lb) | SNAT com máscara de porta (PAT) usando os frontends do balanceador de carga | TCP, UDP |A Azure partilha o endereço IP público dos frontends do Balancer de Carga público com vários endereços IP privados. Azure usa portas efémeras dos frontends para PAT. Ao utilizar o Balancer de Carga Padrão, deve utilizar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída. |

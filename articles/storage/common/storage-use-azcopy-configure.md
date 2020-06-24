@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 30244a426b6f934ef66261c6dccbb46e72f28488
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 9f6b2b9b0ec2fa497d2de4d69cae58d834654e7c
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485199"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944837"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
@@ -69,11 +69,11 @@ Utilize o seguinte comando para executar um teste de referência de desempenho.
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Syntax** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exemplo** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
-> Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell do Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando do Windows (cmd.exe), encobre os argumentos do caminho com citações duplas ("") em vez de cotações individuais (').
+> Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
 Este comando executa uma referência de desempenho enviando dados de teste para um destino especificado. Os dados do teste são gerados na memória, enviados para o destino e depois eliminados do destino após a conclusão do teste. Pode especificar quantos ficheiros gerar e qual o tamanho que pretende que sejam utilizando parâmetros de comando opcionais.
 
@@ -83,7 +83,7 @@ Para visualizar orientações detalhadas de ajuda para este comando, `azcopy ben
 
 ### <a name="optimize-throughput"></a>Otimizar a produção
 
-Pode utilizar a `cap-mbps` bandeira nos seus comandos para colocar um teto na taxa de dados de produção. Por exemplo, o seguinte comando retoma um trabalho e caps de produção para `10` megabytes (MB) por segundo. 
+Pode utilizar a `cap-mbps` bandeira nos seus comandos para colocar um teto na taxa de dados de produção. Por exemplo, o seguinte comando retoma um trabalho e caps de produção para `10` megabits (Mb) por segundo. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
@@ -179,7 +179,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 > [!TIP]
-> Incluir argumentos de caminho, como o símbolo SAS com cotações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell do Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando do Windows (cmd.exe), encobre os argumentos do caminho com citações duplas ("") em vez de cotações individuais (').
+> Incluir argumentos de caminho, como o símbolo SAS com cotações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
 Quando retomas um trabalho, a AzCopy olha para o ficheiro do plano de trabalho. O ficheiro do plano lista todos os ficheiros que foram identificados para processamento quando o trabalho foi criado pela primeira vez. Quando retomar um trabalho, a AzCopy tentará transferir todos os ficheiros que estão listados no ficheiro do plano que ainda não foram transferidos.
 

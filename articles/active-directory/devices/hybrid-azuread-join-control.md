@@ -1,105 +1,105 @@
 ---
-title: Validação controlada da ad ida híbrida Azure - Azure AD
-description: Aprenda a fazer uma validação controlada do Híbrido Azure AD aderir antes de permitir que em toda a organização seja de uma só vez
+title: Validação controlada da ad híbrida Azure - Azure AD
+description: Aprenda a fazer uma validação controlada do Ad híbrido Azure antes de permitir que em toda a organização tudo de uma vez
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "80049984"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252717"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
 
-Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows registar-se-ão automaticamente como dispositivos no seu inquilino Azure AD. O estado destas identidades de dispositivo em Azure AD é referido como a adesão híbrida azure AD. Mais informações sobre os conceitos abrangidos por este artigo podem ser encontradas nos artigos Introdução à gestão de [dispositivos no Diretório Ativo do Azure](overview.md) e planear a implementação do [seu Diretório Ativo Azure híbrido.](hybrid-azuread-join-plan.md)
+Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows registar-se-ão automaticamente como dispositivos no seu inquilino AZure AD. O estado destas identidades do dispositivo em Azure AD é referido como a ad Azure híbrido. Mais informações sobre os conceitos abrangidos por este artigo podem ser encontradas nos artigos [Introdução à gestão de dispositivos no Azure Ative Directory](overview.md) e [Planeie a sua azure ative directy híbrida aderir à implementação.](hybrid-azuread-join-plan.md)
 
-As organizações podem querer fazer uma validação controlada do AD Híbrido Azure antes de permitir em toda a sua organização tudo de uma vez. Este artigo irá explicar como realizar uma validação controlada da adesão híbrida azure AD.
+As organizações podem querer fazer uma validação controlada da ad híbrida Azure antes de permitir em toda a sua organização de uma só vez. Este artigo explicará como realizar uma validação controlada da ad AD híbrida.
 
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Validação controlada de AD híbrido Azure juntam-se aos dispositivos atuais do Windows
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Validação controlada do Ad híbrido Azure junta-se a dispositivos atuais do Windows
 
-Para dispositivos que executam o sistema operativo Windows desktop, a versão suportada é a Atualização de Aniversário do Windows 10 (versão 1607) ou posterior. Como uma melhor prática, atualize para a versão mais recente do Windows 10.
+Para os dispositivos que executam o sistema operativo windows desktop, a versão suportada é a Atualização de Aniversário do Windows 10 (versão 1607) ou posterior. Como as melhores práticas, o upgrade para a versão mais recente do Windows 10.
 
-Para fazer uma validação controlada do AD Híbrido Azure, junte-se aos dispositivos atuais do Windows, é necessário:
+Para fazer uma validação controlada da ad AZure híbrida nos dispositivos atuais do Windows, você precisa:
 
-1. Limpar a entrada do Ponto de Ligação de Serviço (SCP) do Diretório Ativo (AD) se existir
-1. Configure a definição de registo do lado do cliente para sCP nos seus computadores unidos pelo domínio usando um Objeto de Política de Grupo (GPO)
-1. Se estiver a utilizar AD FS, também deve configurar a definição de registo do lado do cliente para SCP no seu servidor AD FS utilizando um GPO  
-1. Também pode ser necessário [personalizar opções](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) de sincronização no Azure AD Connect para permitir a sincronização do dispositivo. 
+1. Limpar a entrada do Ponto de Ligação de Serviço (SCP) do Ative Directory (AD) se existir
+1. Configure a definição de registo do lado do cliente para SCP nos seus computadores ligados ao domínio utilizando um Objeto de Política de Grupo (GPO)
+1. Se estiver a utilizar O FS AD, também deve configurar a definição de registo do lado do cliente para SCP no seu servidor AD FS utilizando um GPO  
+1. Também pode ser necessário [personalizar opções de sincronização](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) no Azure AD Connect para permitir a sincronização do dispositivo. 
 
 
-### <a name="clear-the-scp-from-ad"></a>Limpar o SCP da AD
+### <a name="clear-the-scp-from-ad"></a>Limpe o SCP da AD
 
-Utilize o Editor de Interfaces de Diretório Ativo (ADSI Edit) para modificar os objetos SCP em AD.
+Utilize o Editor de Interfaces de Serviços de Diretório Ativo (ADSI Edit) para modificar os objetos SCP em AD.
 
-1. Lance a aplicação de desktop **ADSI Edit** a partir de uma estação de trabalho administrativa ou um controlador de domínio como Administrador da Empresa.
-1. Ligue-se ao contexto de nomeação de **configuração** do seu domínio.
-1. Navegue para **CN=Configuração,DC=contoso,DC=com** > **CN=Services** > **CN=Device Registration Configuration**
-1. Clique à direita no objeto de folha **CN=62a0ff2e-97b9-4513-943f-0d221bd30080** e selecione **Properties**
-   1. Selecione **palavras-chave** da janela **Do Atributo Editor** e clique em **Editar**
+1. Lance a aplicação de desktop **ADSI Edit** a partir de uma estação de trabalho administrativa ou um controlador de domínio como Administrador Empresarial.
+1. Conecte-se ao Contexto de Nomeação de **Configuração** do seu domínio.
+1. Navegue para **CN=Configuração,DC=contoso,DC=com**  >  **CN=Services**  >  **CN=Configuração de Registo de Dispositivos**
+1. Clique direito no objeto de folha **CN=62a0ff2e-97b9-4513-943f-0d221bd30080** e selecione **Propriedades**
+   1. Selecione **palavras-chave** da janela **Do Editor de Atributos** e clique em **Editar**
    1. Selecione os valores de **azureADId** e **azureADName** (um de cada vez) e clique em **Remover**
-1. Edição de **ADSI**
+1. Fechar **a Edição ADSI**
 
 
 ### <a name="configure-client-side-registry-setting-for-scp"></a>Configurar a definição de registo do lado do cliente para o SCP
 
 Utilize o exemplo seguinte para criar um Objeto de Política de Grupo (GPO) para implementar uma definição de registo configurando uma entrada SCP no registo dos seus dispositivos.
 
-1. Abra uma consola de Gestão de Políticas de Grupo e crie um novo Objeto político de grupo no seu domínio.
-   1. Forneça um nome ao seu GPO recém-criado (por exemplo, ClientSideSCP).
-1. Editar o GPO e localizar o seguinte caminho: **Configuração** > de computador**Preferências** > Registo**de** **Definições** > do Windows
-1. Clique à direita no Registo e selecione **Novo** > **Item** de Registo
-   1. No separador **Geral,** configure o seguinte
+1. Abra uma consola de Gestão de Políticas de Grupo e crie um novo Objeto de Política de Grupo no seu domínio.
+   1. Forneça ao seu gpo recém-criado um nome (por exemplo, ClientSideSCP).
+1. Editar o GPO e localizar o seguinte caminho: **Registo**  >  **de configurações de configuração**  >  **Windows Settings**  >  **do** computador
+1. Clique com o botão direito no Registo e selecione **Novo**  >  **Item de Registo**
+   1. No separador **Geral,** configuure o seguinte
       1. Ação: **Atualização**
       1. Colmeia: **HKEY_LOCAL_MACHINE**
-      1. Caminho-chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Caminho chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome de valor: **TenantId**
       1. Tipo de valor: **REG_SZ**
-      1. Dados de valor: O ID GUID ou **Diretório** da sua instância AD Azure (este valor pode ser encontrado no id > de**diretório**de**propriedades** > ativas do > portal **Azure****Azure)**
-   1. Clique **OK**
-1. Clique à direita no Registo e selecione **Novo** > **Item** de Registo
-   1. No separador **Geral,** configure o seguinte
+      1. Dados de valor: O ID DO GUID ou **do Diretório** da sua instância AD Azure (Este valor pode ser encontrado no **portal Azure**  >  **Ative Directory**  >  **Properties**  >  **ID**)
+   1. Clique **em OK**
+1. Clique com o botão direito no Registo e selecione **Novo**  >  **Item de Registo**
+   1. No separador **Geral,** configuure o seguinte
       1. Ação: **Atualização**
       1. Colmeia: **HKEY_LOCAL_MACHINE**
-      1. Caminho-chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. Nome de valor: **Nome do inquilino**
+      1. Caminho chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Nome de valor: **Nome do Inquilino**
       1. Tipo de valor: **REG_SZ**
-      1. Dados de valor: O **seu nome** de domínio verificado se estiver a utilizar ambientefederado, como AD FS. O seu nome de **domínio** verificado ou `contoso.onmicrosoft.com` o seu nome de domínio onmicrosoft.com, por exemplo, se estiver a utilizar um ambiente gerido
-   1. Clique **OK**
-1. Feche o editor para o gpo recém-criado
-1. Ligue o GPO recém-criado ao om desejado contendo computadores unidos pelo domínio que pertencem à sua população de lançamento controlada
+      1. Dados de valor: O seu **nome de domínio** verificado se estiver a utilizar ambientes federados, como AD FS. O **seu nome de domínio** verificado ou o nome de domínio onmicrosoft.com, por exemplo, se estiver a utilizar um ambiente `contoso.onmicrosoft.com` gerido
+   1. Clique **em OK**
+1. Feche o editor para o recém-criado GPO
+1. Ligue o GPO recém-criado ao or desejado contendo computadores ligados ao domínio que pertencem à sua população de implantação controlada
 
-### <a name="configure-ad-fs-settings"></a>Configurar as definições de FS AD
+### <a name="configure-ad-fs-settings"></a>Configurar configurações AD FS
 
-Se estiver a utilizar AD FS, primeiro precisa de configurar o SCP do lado do cliente utilizando as instruções acima mencionadas, ligando o GPO aos seus servidores AD FS. O objeto SCP define a fonte de autoridade para objetos de dispositivo. Pode ser no local ou azure d.D. Quando o SCP do lado do cliente é configurado para AD FS, a fonte para objetos do dispositivo é estabelecida como Azure AD.
-
-> [!NOTE]
-> Se não configurar o SCP do lado do cliente nos seus servidores AD FS, a fonte de identidades do dispositivo seria considerada como no local. A ADFS iniciará então a desposição de objetos do dispositivo a partir do diretório no local após o período estipulado definido no atributo "MaximumInactiveDays" do Registo de Dispositivos ADFS. Dispositivo ADFS Os objetos de registo podem ser encontrados utilizando o [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
-
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validação controlada de AD híbrido Azure juntam-se a dispositivos de nível inferior windows
-
-Para registar dispositivos de nível inferior do Windows, as organizações devem instalar o [Microsoft Workplace Join para computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) disponíveis no Microsoft Download Center.
-
-Pode implementar o pacote utilizando um sistema de distribuição de software como o [Microsoft Endpoint Configuration Manager](/configmgr/). O pacote suporta as opções de instalação silenciosa padrão com o parâmetro silencioso. O atual ramo do Gestor de Configuração oferece benefícios em versões anteriores, como a capacidade de rastrear registos concluídos.
-
-O instalador cria uma tarefa programada no sistema que funciona no contexto do utilizador. A tarefa é desencadeada quando o utilizador faz o sinal de si no Windows. A tarefa junta-se silenciosamente ao dispositivo com a Azure AD com as credenciais do utilizador após a autenticação com a Azure AD.
-
-Para controlar o registo do dispositivo, deverá utilizar o pacote do Instalador do Windows para o seu grupo selecionado de dispositivos de nível inferior windows.
+Se estiver a utilizar o AD FS, primeiro tem de configurar o SCP do lado do cliente utilizando as instruções acima mencionadas, ligando o GPO aos seus servidores AD FS. O objeto SCP define a fonte de autoridade para objetos do dispositivo. Pode ser no local ou Azure AD. Quando o SCP do lado do cliente está configurado para AD FS, a fonte de objetos do dispositivo é estabelecida como Azure AD.
 
 > [!NOTE]
-> Se um SCP não estiver configurado em AD, então deve seguir a mesma abordagem descrita para configurar a definição de registo do [lado do cliente para SCP](#configure-client-side-registry-setting-for-scp)nos seus computadores unidos pelo domínio utilizando um Objeto de Política de Grupo (GPO).
+> Se não conseguir configurar o SCP do lado do cliente nos seus servidores AD FS, a fonte para identidades do dispositivo seria considerada como no local. A ADFS começará então a eliminar objetos do dispositivo do diretório no local após o período estipulado definido no atributo "MaximumInactiveDays" do dispositivo ADFS. Os objetos de registo do dispositivo ADFS podem ser encontrados utilizando o [cmdlet get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validação controlada do AD híbrido Azure junta-se a dispositivos de nível inferior do Windows
+
+Para registar dispositivos de nível inferior do Windows, as organizações devem instalar [o Microsoft Workplace Join para computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) disponíveis no Microsoft Download Center.
+
+Pode implementar o pacote utilizando um sistema de distribuição de software como [o Microsoft Endpoint Configuration Manager](/configmgr/). O pacote suporta as opções de instalação silenciosa padrão com o parâmetro silencioso. O atual ramo do Gestor de Configuração oferece benefícios em versões anteriores, como a capacidade de rastrear as inscrições concluídas.
+
+O instalador cria uma tarefa programada no sistema que funciona no contexto do utilizador. A tarefa é ativada quando o utilizador entra no Windows. A tarefa junta-se silenciosamente ao dispositivo com a Azure AD com as credenciais do utilizador depois de autenticar com a Azure AD.
+
+Para controlar o registo do dispositivo, deverá implantar o pacote do Instalador do Windows para o seu grupo selecionado de dispositivos de nível inferior do Windows.
+
+> [!NOTE]
+> Se um SCP não estiver configurado em AD, então deve seguir a mesma abordagem descrita para configurar a [definição de registo do lado do cliente para SCP](#configure-client-side-registry-setting-for-scp)) nos seus computadores ligados ao domínio utilizando um Objeto de Política de Grupo (GPO).
 
 
-Depois de verificar se tudo funciona como esperado, pode registar automaticamente os restantes dispositivos atuais e de nível inferior do Windows com a AD Azure configurando o [SCP utilizando o Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+Depois de verificar se tudo funciona como esperado, pode registar automaticamente o resto dos dispositivos atuais e de nível inferior do Windows com AZure AD [configurando o SCP utilizando o Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Planeie o seu Diretório Ativo Azure híbrido aderir à implementação](hybrid-azuread-join-plan.md)
+[Planeie o seu Azure Ative Directory híbrido junte-se à implementação](hybrid-azuread-join-plan.md)

@@ -1,18 +1,18 @@
 ---
-title: 'ExpressRoute: Mover circuitos do clássico para o Gestor de Recursos Azure'
-description: Visão geral da ponte entre os modelos clássicos e de implementação do Gestor de Recursos.
+title: 'ExpressRoute: Mover circuitos do clássico para o Azure Resource Manager'
+description: Visão geral da ponte entre os modelos clássicos e os modelos de implementação do Gestor de Recursos.
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6fb087e0faecc51b44b5b796fed29756356e669
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645910"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738824"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
 Este artigo fornece uma descrição geral sobre o que significa mover um circuito Azure ExpressRoute do modelo de implementação clássica Azure Resource Manager.
@@ -57,7 +57,7 @@ As seguintes operações clássicas são suportadas num circuito ExpressRoute qu
 * Criar/atualizar/obter/eliminar ligações de rede virtual em redes virtuais clássicas
 * Criar/atualizar/obter/eliminar autorizações de ligações de rede virtual para conectividade entre subscrições
 
-No entanto, quando **o permitirOClassicOperations** está definido para TRUE, não é possível realizar as seguintes operações clássicas:
+No entanto, quando **permitir que as Operações Desafetadas** estão definidas para TRUE, não é possível realizar as seguintes operações clássicas:
 
 * Criar/atualizar/obter/eliminar peerings do protocolo BGP (Border Gateway Protocol) para peerings do Azure privado, Azure público e da Microsoft
 * Eliminar um circuito do ExpressRoute

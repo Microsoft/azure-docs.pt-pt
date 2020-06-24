@@ -1,65 +1,65 @@
 ---
-title: Visualizar os registos de fluxo azure NSG - Power BI
+title: Visualização dos registos de fluxo Azure NSG - Power BI
 titleSuffix: Azure Network Watcher
-description: Esta página descreve como visualizar os registos de fluxo nsg com Power BI.
+description: Esta página descreve como visualizar os registos de fluxo NSG com Power BI.
 services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ef2e32614b5a57208f91ac0fe5a4c17affa38e4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840609"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738554"
 ---
-# <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de registos de fluxo do Grupo de Segurança da Rede com Power BI
+# <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizar registos de fluxo do Grupo de Segurança da Rede com Power BI
 
-Os registos de fluxo do Grupo de Segurança da Rede permitem-lhe visualizar informações sobre o tráfego IP de entrada e fuga em Grupos de Segurança da Rede. Estes registos de fluxo mostram fluxos de saída e de entrada por regra, o NIC que o fluxo se aplica a informações de 5-tuple sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
+Os registos de fluxo do Grupo de Segurança de Rede permitem-lhe visualizar informações sobre o tráfego IP de entrada e saída em Grupos de Segurança de Rede. Estes registos de fluxo mostram fluxos de saída e de entrada numa base de regra, o NIC o fluxo aplica-se a, 5-tuple informações sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
 
-Pode ser difícil obter informações sobre os dados de registo de fluxo, pesquisando manualmente os ficheiros de registo. Neste artigo, fornecemos uma solução para visualizar os seus registos de fluxo mais recentes e aprender sobre o tráfego na sua rede.
+Pode ser difícil obter informações sobre dados de registo de fluxos, pesquisando manualmente os ficheiros de registo. Neste artigo, fornecemos uma solução para visualizar os seus registos de fluxo mais recentes e aprender sobre o tráfego na sua rede.
 
 > [!Warning]  
-> Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais detalhes, consulte [Introdução à exploração de fluxos de registo para grupos de segurança](network-watcher-nsg-flow-logging-overview.md)da rede . As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
+> Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais informações, consulte [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
 ## <a name="scenario"></a>Cenário
 
-No cenário seguinte, ligamos o ambiente de trabalho Power BI à conta de armazenamento que configuramos como o lavatório dos nossos dados de Registo de Fluxo nsg. Depois de ligarmos à nossa conta de armazenamento, o Power BI descarrega e analisa os registos para fornecer uma representação visual do tráfego que é registado por grupos de Segurança de Rede.
+No cenário seguinte, conectamos o desktop Power BI à conta de armazenamento que configuramos como o lavatório para os nossos dados de Registo de Fluxo NSG. Depois de ligarmos à nossa conta de armazenamento, o Power BI descarrega e analisa os registos para fornecer uma representação visual do tráfego que é registado pelos grupos de Segurança da Rede.
 
-Utilizando os visuais fornecidos no modelo que pode examinar:
+Utilizando os visuais fornecidos no modelo, pode examinar:
 
 * Top Talkers
-* Dados de fluxo de séries de tempo por direção e decisão de regra
+* Datas de fluxo de séries de tempo por direção e decisão de regra
 * Fluxos por endereço MAC interface de rede
 * Fluxos por NSG e Regra
 * Fluxos por Porto de Destino
 
-O modelo fornecido é editável para que possa modificá-lo para adicionar novos dados, visuais ou consultas de edição de acordo com as suas necessidades.
+O modelo fornecido é editável para que possa modificá-lo para adicionar novos dados, visuais ou editar consultas de acordo com as suas necessidades.
 
 ## <a name="setup"></a>Configuração
 
-Antes de começar, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado num ou muitos Grupos de Segurança de Rede na sua conta. Para obter instruções sobre a ativação dos registos de fluxo de segurança da rede, consulte o seguinte artigo: [Introdução à exploração de fluxos de registo para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
+Antes de começar, tem de ter o Fluxo de Fluxo de Rede ativado em um ou em muitos Grupos de Segurança da Rede na sua conta. Para obter instruções sobre a ativação dos registos de fluxo de segurança da rede, consulte o seguinte artigo: [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md).
 
-Também deve ter o cliente power BI Desktop instalado na sua máquina, e espaço livre suficiente na sua máquina para descarregar e carregar os dados de registo que existem na sua conta de armazenamento.
+Também tem de ter o cliente Power BI Desktop instalado na sua máquina e espaço livre suficiente na sua máquina para descarregar e carregar os dados de registo que existem na sua conta de armazenamento.
 
-![Diagrama de Visio][1]
+![Diagrama visio][1]
 
 ### <a name="steps"></a>Passos
 
-1. Descarregue e abra o seguinte modelo power BI no modelo de registos de fluxo power bi desktop [powerBI](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
+1. Descarregue e abra o modelo de POWER BI seguinte no modelo de [registos de fluxo powerbi do powerbi](https://aka.ms/networkwatcherpowerbiflowlogstemplate) de aplicação de ambiente de trabalho powerbi
 1. Introduza os parâmetros de consulta necessários
-   1. **StorageAccountName** – Especifica o nome da conta de armazenamento que contém os registos de fluxo nsg que gostaria de carregar e visualizar.
-   1. **NumberOfLogFiles** – Especifica o número de ficheiros de registo que gostaria de descarregar e visualizar no Power BI. Por exemplo, se 50 forem especificados, os 50 ficheiros de registo mais recentes. Se tivermos 2 NSGs ativados e configurados para enviar registos de fluxo nsg para esta conta, então as últimas 25 horas de registos podem ser visualizadas.
+   1. **ArmazenamentoCocountName** – Especifica o nome da conta de armazenamento que contém os registos de fluxo NSG que gostaria de carregar e visualizar.
+   1. **NúmeroOfLogFiles** – Especifica o número de ficheiros de registo que gostaria de descarregar e visualizar no Power BI. Por exemplo, se 50 forem especificados, os 50 ficheiros de registo mais recentes. Se tivermos 2 NSGs habilitados e configurados para enviar registos de fluxo NSG para esta conta, então as últimas 25 horas de registos podem ser visualizadas.
 
-      ![power BI principal][2]
+      ![poder BI principal][2]
 
-1. Introduza a Chave de Acesso para a sua conta de armazenamento. Pode encontrar chaves de acesso válidas navegando para a sua conta de armazenamento no portal Azure e selecionando **As Teclas** de Acesso do menu Definições. Clique em **Ligar** e, em seguida, aplique alterações.
+1. Introduza a Chave de Acesso para a sua conta de armazenamento. Pode encontrar teclas de acesso válidas navegando na sua conta de armazenamento no portal Azure e selecionando **As Chaves** de Acesso a partir do menu Definições. Clique **em Ligar** e aplicar alterações.
 
     ![chaves de acesso][3]
 
@@ -69,59 +69,59 @@ Também deve ter o cliente power BI Desktop instalado na sua máquina, e espaço
 
 ## <a name="understanding-the-visuals"></a>Compreender os visuais
 
-Fornecidos no modelo são um conjunto de visuais que ajudam a dar sentido aos dados do NSG Flow Log. As imagens que se seguem mostram uma amostra do que o painel de instrumentos parece quando povoado com dados. Abaixo examinamos cada visual com mais detalhes 
+Fornecidos no modelo são um conjunto de visuais que ajudam a dar sentido aos dados do NSG Flow Log. As imagens que se seguem mostram uma amostra de como é o painel quando preenchido com dados. Abaixo examinamos cada visual com maior detalhe 
 
 ![powerbi][5]
  
-O visual top Talkers mostra os IPs que iniciaram mais ligações durante o período especificado. O tamanho das caixas corresponde ao número relativo de ligações. 
+O visual top talkers mostra os IPs que iniciaram mais conexões durante o período especificado. O tamanho das caixas corresponde ao número relativo de ligações. 
 
 ![toptalkers][6]
 
-Os gráficos da série de tempo seguintemostram o número de fluxos durante o período. O gráfico superior é segmentado pela direção do fluxo, e o inferior é segmentado pela decisão tomada (permitir ou negar). Com este visual, pode examinar as suas tendências de tráfego ao longo do tempo, e detetar quaisquer picos anormais ou declínio na segmentação de tráfego ou tráfego.
+Os gráficos das séries de tempo seguintes mostram o número de fluxos durante o período. O gráfico superior é segmentado pela direção do fluxo, e o inferior é segmentado pela decisão tomada (permitir ou negar). Com este visual, você pode examinar as suas tendências de tráfego ao longo do tempo, e detetar quaisquer picos anormais ou declínio na segmentação de tráfego ou tráfego.
 
-![flowsoverperiod][7]
+![fluxos sobreoperídio][7]
 
-Os gráficos seguintes mostram os fluxos por interface da Rede, com a parte superior segmentada pela direção do fluxo e a parte inferior segmentada por decisão tomada. Com esta informação, pode obter informações sobre quais dos seus VMs comunicaram mais em relação a outros, e se o tráfego para um VM específico está sendo permitido ou negado.
+Os gráficos seguintes mostram os fluxos por interface de Rede, com a parte superior segmentada pela direção de fluxo e a menor segmentada por decisão tomada. Com esta informação, pode obter informações sobre qual dos seus VMs comunicou mais relativamente a outros, e se o tráfego para um VM específico está a ser permitido ou negado.
 
-![fluxos pernic][8]
+![flowspernic][8]
 
-O gráfico da roda de donut seguinte mostra uma avaria de Fluxos por Porta de Destino. Com esta informação, pode ver as portas de destino mais utilizadas no período especificado.
+O gráfico das rodas de donut que se segue mostra uma desagregação de Flows by Destination Port. Com estas informações, pode ver as portas de destino mais utilizadas no período especificado.
 
 ![rosca][9]
 
-O gráfico de barras seguinte mostra o Fluxo por NSG e Regra. Com esta informação, pode ver os NSGs responsáveis pela maior parte do tráfego, e a avaria do tráfego num NSG por regra.
+O gráfico de barras que se segue mostra o Fluxo por NSG e Regra. Com esta informação, você pode ver os NSGs responsáveis pela maior parte do tráfego, e a quebra de tráfego em um NSG por regra.
 
 ![barchart][10]
  
-Os gráficos informativos seguintes exibem informações sobre os NSGs presentes nos registos, o número de Fluxos capturados durante o período e a data do primeiro registo capturado. Esta informação dá-lhe uma ideia do que os NSGs estão a ser registados e da gama de fluxos de data.
+Os gráficos informativos a seguir exibem informações sobre os NSGs presentes nos registos, o número de Fluxos capturados durante o período e a data do registo mais antigo capturado. Esta informação dá-lhe uma ideia do que os NSGs estão a ser registados e a gama de datas de fluxos.
 
 ![infochart1][11]
 
 ![infochart2][12]
 
-Este modelo inclui os seguintes cortadores para permitir que você veja apenas os dados que mais lhe interessam. Pode filtrar os seus grupos de recursos, NSGs e regras. Também pode filtrar informações de 5-tuple, decisão e o momento em que o registo foi escrito.
+Este modelo inclui os seguintes cortadores para permitir que você veja apenas os dados que mais lhe interessam. Pode filtrar os seus grupos de recursos, NSGs e regras. Também pode filtrar informações de 5 tuple, decisão e a hora da escrita do registo.
 
 ![cortadores][13]
 
 ## <a name="conclusion"></a>Conclusão
 
-Mostrámos neste cenário que, utilizando os registos de Fluxo do Grupo de Segurança da Rede fornecidos pelo Network Watcher e power BI, somos capazes de visualizar e compreender o tráfego. Utilizando o modelo fornecido, o Power BI descarrega os registos diretamente do armazenamento e processa-os localmente. O tempo despendido para carregar o modelo varia consoante o número de ficheiros solicitados e o tamanho total dos ficheiros descarregados.
+Neste cenário mostrámos que ao utilizar os registos de Fluxo do Grupo de Segurança de Rede fornecidos pelo Network Watcher e pelo Power BI, somos capazes de visualizar e compreender o tráfego. Utilizando o modelo fornecido, o Power BI descarrega os registos diretamente do armazenamento e processa-os localmente. O tempo de carregamento do modelo varia consoante o número de ficheiros solicitados e o tamanho total dos ficheiros descarregados.
 
-Sinta-se à vontade para personalizar este modelo para as suas necessidades. Existem muitas formas de usar o Power BI com registos de fluxo do grupo de segurança da rede. 
+Sinta-se livre para personalizar este modelo para as suas necessidades. Existem muitas formas de utilizar o Power BI com registos de fluxo do grupo de segurança da rede. 
 
 ## <a name="notes"></a>Notas
 
-* Os registos por padrão são armazenados em`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
+* Os registos por predefinição são armazenados em`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
-    * Se existirem outros dados noutro diretório, as consultas para puxar e processar os dados devem ser modificadas.
+    * Se existirem outros dados noutro diretório, as consultas para retirar e processar os dados devem ser modificadas.
 
-* O modelo fornecido não é recomendado para utilização com mais de 1 GB de registos.
+* O modelo fornecido não é recomendado para utilização com mais de 1 GB de troncos.
 
-* Se tiver uma grande quantidade de registos, recomendamos que investigue uma solução utilizando outra loja de dados como data Lake ou servidor SQL.
+* Se tiver uma grande quantidade de registos, recomendamos que investigue uma solução utilizando outra loja de dados como o Data Lake ou o servidor SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como visualizar os seus registos de fluxo NSG com a Stack Elástica visitando registos de fluxo NSG do Observador de [Rede Azure utilizando ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Saiba como visualizar os seus registos de fluxo NSG com a Pilha Elástica visitando [registos de fluxo NSG do Observador de Rede Azure usando ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

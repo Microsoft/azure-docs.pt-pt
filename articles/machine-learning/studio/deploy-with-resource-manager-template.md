@@ -1,35 +1,35 @@
 ---
-title: Deploy Studio (clássico) espaço de trabalho com O Gestor de Recursos Azure
+title: Implementar espaço de trabalho (clássico) com Azure Resource Manager
 titleSuffix: ML Studio (classic) - Azure
-description: Como implementar um espaço de trabalho para o Azure Machine Learning Studio (clássico) utilizando o modelo de Gestor de Recursos Azure
+description: Como implementar um espaço de trabalho para o Azure Machine Learning Studio (clássico) usando o modelo de Gestor de Recursos Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 1ce147ac6c9b21176c738c21114c331b56bf667f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8a6ec4c8f5e59546c0ec5ee3cdd128e70d89802b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118471"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696274"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementar o Estúdio de Aprendizagem automática Azure (clássico) Workspace utilizando o Gestor de Recursos Azure
+# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementar O Azure Machine Learning Studio (clássico) Workspace Usando O Gestor de Recursos Azure
 
-A utilização de um modelo de implementação do Gestor de Recursos Azure poupa-lhe tempo, dando-lhe uma forma escalável de implantar componentes interligados com um mecanismo de validação e retry. Para configurar o Azure Machine Learning Studio (clássico) Workspaces, por exemplo, é necessário configurar primeiro uma conta de armazenamento Azure e depois implementar o seu espaço de trabalho. Imagine fazer isto manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo de Gestor de Recursos Azure para implantar um Espaço de Trabalho studio (clássico) e todas as suas dependências. Este artigo leva-o a este processo passo a passo. Para uma excelente visão geral do Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](../../azure-resource-manager/management/overview.md)
+A utilização de um modelo de implementação do Gestor de Recursos Azure poupa-lhe tempo, dando-lhe uma forma escalável de implantar componentes interligados com um mecanismo de validação e retagem. Para configurar o Azure Machine Learning Studio (clássico) Workspaces, por exemplo, é necessário configurar primeiro uma conta de armazenamento Azure e depois implantar o seu espaço de trabalho. Imagine fazer isto manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo de Gestor de Recursos Azure para implementar um Espaço de Trabalho (clássico) do Estúdio e todas as suas dependências. Este artigo leva-o a este processo passo a passo. Para obter uma excelente visão geral do Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um espaço de trabalho de aprendizagem automática
-Criaremos um grupo de recursos Azure, em seguida, implementaremos uma nova conta de armazenamento Azure e um novo Azure Machine Learning Studio (clássico) Workspace usando um modelo de Gestor de Recursos. Assim que a implementação estiver concluída, imprimiremos informações importantes sobre os espaços de trabalho que foram criados (a chave primária, o espaço de trabalho ID e o URL para o espaço de trabalho).
+Criaremos um grupo de recursos Azure, depois implantaremos uma nova conta de armazenamento Azure e um novo Azure Machine Learning Studio (clássico) Workspace usando um modelo de Gestor de Recursos. Assim que a implementação estiver concluída, iremos imprimir informações importantes sobre os espaços de trabalho que foram criados (a chave primária, o espaço de trabalhoID e o URL para o espaço de trabalho).
 
-### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Gestor de Recursos Azure
+### <a name="create-an-azure-resource-manager-template"></a>Crie um modelo de gestor de recursos Azure
 
-Um espaço de trabalho de aprendizagem automática requer uma conta de armazenamento Azure para armazenar o conjunto de dados ligado ao mesmo.
-O seguinte modelo usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho.  Também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
+Um espaço de trabalho de machine learning requer uma conta de armazenamento Azure para armazenar o conjunto de dados ligado a ele.
+O modelo a seguir utiliza o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho.  Também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
 
 ```json
 {
@@ -76,12 +76,12 @@ O seguinte modelo usa o nome do grupo de recursos para gerar o nome da conta de 
 }
 
 ```
-Guarde este modelo como ficheiro mlworkspace.json sob c:\temp\.
+Guarde este modelo como mlworkspace.jsno ficheiro em c:\temp\.
 
-### <a name="deploy-the-resource-group-based-on-the-template"></a>Implementar o grupo de recursos, com base no modelo
+### <a name="deploy-the-resource-group-based-on-the-template"></a>Implemente o grupo de recursos, com base no modelo
 
 * Abrir o PowerShell
-* Instale módulos para O Gestor de Recursos Azure e Gestão de Serviços Azure
+* Instalar módulos para O Gestor de Recursos Azure e Gestão de Serviços Azure
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press "A")
@@ -93,13 +93,13 @@ Install-Module Azure -Scope CurrentUser
 
    Estes passos descarregam e instalam os módulos necessários para completar os passos restantes. Isto só precisa de ser feito uma vez no ambiente onde está a executar os comandos PowerShell.
 
-* Autenticar a Azure
+* Autenticar para Azure
 
 ```powershell
 # Authenticate (enter your credentials in the pop-up window)
 Connect-AzAccount
 ```
-Este passo tem de ser repetido para cada sessão. Uma vez autenticados, as informações de subscrição devem ser apresentadas.
+Este passo tem de ser repetido para cada sessão. Uma vez autenticado, as informações da sua subscrição devem ser apresentadas.
 
 ![Conta do Azure](./media/deploy-with-resource-manager-template/azuresubscription.png)
 
@@ -112,19 +112,19 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-Verifique se o grupo de recursos está corretamente aprovisionado. **O Estado deve** ser "Bem sucedido".
-O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e utilizar números e letras minúsculas apenas.
+Verifique se o grupo de recursos está corretamente aprovisionado. **O Estado de Provisioning** deve ser "Bem sucedido".
+O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas.
 
 ![Grupo de Recursos](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
-* Utilizando a implantação do grupo de recursos, implemente um novo espaço de trabalho de aprendizagem automática.
+* Utilizando a implementação do grupo de recursos, implemente um novo espaço de trabalho de aprendizagem automática.
 
 ```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Uma vez concluída a implementação, é simples aceder às propriedades do espaço de trabalho que implementou. Por exemplo, pode aceder ao Token chave primária.
+Uma vez concluída a implementação, é simples aceder às propriedades do espaço de trabalho que implementou. Por exemplo, pode aceder ao Token da Chave Primária.
 
 ```powershell
 # Access Azure Machine Learning Studio Workspace Token after its deployment.
@@ -137,13 +137,13 @@ Outra forma de recuperar fichas do espaço de trabalho existente é usar o coman
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-Depois do espaço de trabalho ser aprovisionado, também pode automatizar muitas tarefas do Azure Machine Learning Studio (clássico) utilizando o [Módulo PowerShell para o Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
+Depois de o espaço de trabalho ser a provisionado, também pode automatizar muitas tarefas do Azure Machine Learning Studio (clássico) utilizando o [Módulo PowerShell para o Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a autoria de Modelos de [Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md).
-* Veja o [Repositório de Modelos De Arranque Rápido Azure](https://github.com/Azure/azure-quickstart-templates).
-* Veja este vídeo sobre [o Gestor de Recursos Azure.](https://channel9.msdn.com/Events/Ignite/2015/C9-39)
-* Consulte a ajuda de referência do [modelo do Gestor](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) de Recursos
+* Saiba mais sobre [a autoria de Modelos de Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md)
+* Veja o [Repositório de Modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates).
+* Veja este vídeo sobre [o Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
+* Consulte a ajuda de referência do [modelo do Gestor de Recursos](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 
 <!--Link references-->

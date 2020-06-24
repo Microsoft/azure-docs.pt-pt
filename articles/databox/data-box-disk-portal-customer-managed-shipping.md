@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 04165398b65bcaa6751c83c77c21266ee1b64be8
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 81fc8de7e5a70ebb95e06a8e362cda41f8bfe1aa
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610632"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945023"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilize o envio auto-gerido para o disco Azure Data Box no portal Azure
 
@@ -28,6 +28,7 @@ O envio auto-gerido está disponível como opção quando [encomenda o disco de 
 * Japão
 * Singapura
 * Coreia do Sul
+* Índia (Pré-visualização)
 
 ## <a name="use-self-managed-shipping"></a>Utilizar o envio gerido automaticamente
 
@@ -84,6 +85,6 @@ Quando escamoteia uma encomenda de disco de caixa de dados, pode escolher a opç
 
 11. Uma vez que o dispositivo é recebido, a cópia de dados continuará. Quando a cópia terminar, a encomenda está completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Implementar disco de caixa de dados Azure utilizando o portal Azure](data-box-disk-quickstart-portal.md)

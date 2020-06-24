@@ -1,18 +1,18 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 06/15/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 64433f3233e249059c1c2d180a03e0a221924f15
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317754"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84793698"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
@@ -43,9 +43,22 @@ Os seguintes tamanhos VM não são suportados para VMs spot:
  - Série B
  - Versões promocionais de qualquer tamanho (como tamanhos promocionais Dv2, NV, NC, H)
 
-Os VMs spot não podem atualmente usar discos de SO efémeros.
-
 Os VM spot podem ser implantados em qualquer região, exceto microsoft Azure China 21Vianet.
+
+Alguns canais de subscrição não são suportados:
+
+<a name="channel"></a>
+
+| Canais Azure               | Disponibilidade de VMs Azure Spot       |
+|------------------------------|-----------------------------------|
+| Contrato Enterprise         | Yes                               |
+| Pay As You Go                | Yes                               |
+| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Benefícios                     | Não disponível                     |
+| Patrocinado                    | Não disponível                     |
+| Avaliação Gratuita                   | Não disponível                     |
+
+
 
 ## <a name="pricing"></a>Preços
 
@@ -75,23 +88,6 @@ Com preços variáveis, você tem a opção de definir um preço máximo, em dó
 **Q:** Posso pedir uma quota adicional para o Spot?
 
 **A:** Sim, poderá submeter o pedido de aumento da sua quota de VMs spot através do [processo padrão de pedido de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
-
-
-**Q:** Que canais suportam Spot VMs?
-
-**A:** Consulte a tabela abaixo para obter disponibilidade do Spot VM.
-
-<a name="channel"></a>
-
-| Canais Azure               | Disponibilidade de VMs Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Yes                               |
-| Pay As You Go                | Yes                               |
-| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Contrato de Cliente da Microsoft | Yes                               |
-| Benefícios                     | Não disponível                     |
-| Patrocinado                    | Yes                               |
-| Avaliação Gratuita                   | Não disponível                     |
 
 
 **Q:** Onde posso fazer perguntas?

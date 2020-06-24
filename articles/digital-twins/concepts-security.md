@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1464d1b8da4b9f0389b192f0876ed52ad5e4ad44
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 1a54ec54823d8d002344e26f97db7043433f6da0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613013"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736854"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Secure Azure Digital Twins com controlo de acesso baseado em funções
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Para a segurança, a Azure Digital Twins permite um controlo preciso de acesso sobre dados, recursos e ações específicas na sua implementação. Fá-lo através de uma estratégia de gestão de funções granular e de permissão chamada **controlo de acesso baseado em funções (RBAC)**. Pode ler-se [aqui](../role-based-access-control/overview.md)sobre os princípios gerais da RBAC para o Azure.
 
@@ -68,7 +71,7 @@ A lista que se segue descreve os níveis em que pode aceder aos recursos da Azur
 * Relação Digital Twin: As ações para este recurso definem o controlo sobre as operações crud nas [relações](concepts-twins-graph.md) entre gémeos digitais no gráfico gémeo.
 * Rota do evento: As ações deste recurso determinam permissões para [encaminhar eventos](concepts-route-events.md) da Azure Digital Twins para um serviço de ponto final como [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus.](../service-bus-messaging/service-bus-messaging-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja como caminhar por estes passos com uma aplicação de cliente de amostra em [Como-a-: Autenticar uma aplicação ao cliente.](how-to-authenticate-client.md)
 

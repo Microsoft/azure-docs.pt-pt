@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 11166d5578b90fe6ec936389bcd173c4c26b4852
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171247"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975270"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
@@ -55,9 +55,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 O Storage Explorer também está disponível como download *.tar.gz.* Tem que instalar dependências manualmente. As seguintes distribuições de suporte Linux *.tar.gz* instalação:
 
+* Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
-* Ubuntu 14.04 x64
 
 A instalação *.tar.gz* pode funcionar em outras distribuições, mas apenas estas listadas são oficialmente suportadas.
 
@@ -266,7 +266,7 @@ Ao introduzir texto na caixa de pesquisa, o Storage Explorer exibe todos os recu
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir os recursos de armazenamento Azure Blob com o Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Trabalhar com dados com o Explorador de Armazenamento do Azure](./cosmos-db/storage-explorer.md)

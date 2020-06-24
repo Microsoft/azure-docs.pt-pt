@@ -1,19 +1,19 @@
 ---
 title: Configuração do controlador GPU da série Azure N para windows
 description: Como configurar controladores GPU AMD para VMs da série N que executam o Windows Server ou Windows em Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: c53396b26d649ba3b6f9adf2409c7c3695bb1822
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4ab6f8dd1c2484ca560fd570f88476f31897b28
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606144"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975197"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU da AMD em VMs da série N que executam o Windows
 
@@ -52,7 +52,7 @@ Pode verificar a instalação do controlador no Gestor de Dispositivos. O exempl
 
 Pode utilizar o dxdiag para verificar as propriedades do visor da GPU, incluindo a RAM de vídeo. O exemplo a seguir mostra uma partição de 1/2 do cartão Radeon Instinct MI25 num VM Azure NVv4.
 <br />
-![Propriedades do condutor da GPU](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![Propriedades do condutor da GPU](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Se estiver a executar o Windows 10 construir 1903 ou mais, então o dxdiag não apresentará nenhuma informação no separador 'Display'. Por favor, utilize a opção "Save All Information" na parte inferior e o ficheiro de saída mostrará as informações relacionadas com a GPU AMD MI25.
 

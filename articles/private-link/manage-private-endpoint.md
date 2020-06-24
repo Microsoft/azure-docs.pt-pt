@@ -1,85 +1,85 @@
 ---
 title: Gerir uma ligação private endpoint em Azure
-description: Saiba como gerir ligações de ponto sinuoso privado em Azure
+description: Saiba como gerir ligações privadas de ponto final em Azure
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75452971"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737500"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Manage a Private Endpoint connection (Gerir uma ligação de Ponto Final Privado)
-A Azure Private Link trabalha num modelo de fluxo de chamadas de aprovação, segundo o qual o consumidor do serviço Private Link pode solicitar uma ligação ao prestador de serviços para o consumo do serviço. O prestador de serviços pode então decidir se permite que o consumidor se coneca ou não. A Azure Private Link permite aos prestadores de serviços gerir a ligação de ponto final privado nos seus recursos. Este artigo fornece instruções sobre como gerir as ligações Private Endpoint.
+A Azure Private Link trabalha num modelo de fluxo de chamada de aprovação em que o consumidor do serviço Private Link pode solicitar uma ligação ao prestador de serviços para o consumo do serviço. O prestador de serviços pode então decidir se permite ou não a ligação do consumidor. O Azure Private Link permite aos prestadores de serviços gerir a ligação privada de ponto final nos seus recursos. Este artigo fornece instruções sobre como gerir as ligações Private Endpoint.
 
 ![Gerir pontos finais privados](media/manage-private-endpoint/manage-private-endpoint.png)
 
-Existem dois métodos de aprovação de ligação que um consumidor de serviço private link pode escolher:
-- **Automática**: Se o consumidor de serviço tiver permissões RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação automática. Neste caso, quando o pedido chega ao recurso do prestador de serviços, não é necessária qualquer ação por parte do prestador de serviços e a ligação é automaticamente aprovada. 
-- **Manual**: Pelo contrário, se o consumidor de serviço não tiver permissões RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de homologação manual. Neste caso, o pedido de ligação aparece nos recursos de serviço como **Pendente**. O prestador de serviços tem de aprovar manualmente o pedido antes de se estabelecer em conexões. Em casos manuais, o consumidor de serviços também pode especificar uma mensagem com o pedido de fornecer mais contexto ao prestador de serviços. O prestador de serviços tem as seguintes opções para escolher para todas as ligações Private Endpoint: **Aprovado,** **Rejeitar**, **Remover**.
+Existem dois métodos de aprovação de ligação que um consumidor de serviço de Ligação Privada pode escolher:
+- **Automático**: Se o consumidor de serviço tiver permissões de RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação automática. Neste caso, quando o pedido chega ao recurso do prestador de serviços, não é necessária qualquer ação do prestador de serviços e a ligação é automaticamente aprovada. 
+- **Manual**: Pelo contrário, se o consumidor de serviço não tiver permissões DE RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação manual. Neste caso, o pedido de ligação aparece nos recursos de serviço como **Pendente**. O prestador de serviços tem de aprovar manualmente o pedido antes de serem estabelecidas ligações. Em casos manuais, o consumidor de serviços também pode especificar uma mensagem com o pedido de fornecer mais contexto ao prestador de serviços. O prestador de serviços tem as seguintes opções a escolher para todas as ligações Private Endpoint: **Aprovado,** **Rejeitar,** **Remover**.
 
-O quadro abaixo mostra as várias ações do prestador de serviços e os estados de conexão resultantes para pontos finais privados.  O prestador de serviços também pode alterar o estado de ligação de ligação de ponto final privado mais tarde sem a intervenção do consumidor. A ação atualizará o estado do ponto final do lado do consumidor. 
+A tabela abaixo mostra as várias ações do prestador de serviços e os estados de conexão resultantes para private endpoints.  O prestador de serviços também pode alterar o estado de ligação da ligação privada de ponto final mais tarde sem a intervenção do consumidor. A ação atualizará o estado do ponto final do lado do consumidor. 
 
 
-|Ação do Prestador de Serviços   |Serviço Consumidor Privado Endpoint Estado   |Descrição   |
+|Ação do Prestador de Serviços   |Estado de Endpoint Privado de Consumidor de Serviço   |Description   |
 |---------|---------|---------|
-|Nenhuma    |    Pendente     |    A ligação é criada manualmente e está pendente para aprovação pelo proprietário do recurso Private Link.       |
+|Nenhum    |    Pendente     |    A ligação é criada manualmente e está pendente para aprovação pelo proprietário do recurso Private Link.       |
 |Aprovar    |  Aprovado       |  A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.     |
-|Rejeitar     | Rejected        | A ligação foi rejeitada pelo proprietário de recursos de ligação privada.        |
+|Rejeitar     | Rejeitado        | A ligação foi rejeitada pelo proprietário de recursos de ligação privada.        |
 |Remover    |  Desligado       | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza.        |
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Manage Private Endpoint Connections on Azure PaaS resources (Gerir Ligações de Ponto Final Privado nos recursos PaaS do Azure)
-Portal é o método preferido para gerir ligações de pontos finais privados nos recursos Do Azure PaaS. Atualmente, não temos suporte PowerShell/CLI para gerir ligações nos recursos Azure PaaS.
+Portal é o método preferido para gerir ligações privadas de ponto final nos recursos Azure PaaS. Atualmente, não temos suporte PowerShell/CLI para gerir ligações em recursos Azure PaaS.
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
 2. Navegue para o Private Link Center.
-3. No âmbito **dos Recursos**, selecione o tipo de recurso que pretende gerir as ligações de ponto final privado.
-4. Para cada um dos seus recursos, pode ver o número de Ligações De Ponto Final Privado associadas ao mesmo. Pode filtrar os recursos conforme necessário.
-5. Selecione as ligações de ponto final privados.  Sob as ligações listadas, selecione a ligação que pretende gerir. 
-6. Pode alterar o estado da ligação selecionando as opções no topo.
+3. Em **Recursos**, selecione o tipo de recurso que pretende gerir as ligações de ponto final privado.
+4. Para cada um do seu tipo de recurso, pode visualizar o número de Ligações de Ponto Final Privadas associadas a ele. Pode filtrar os recursos conforme necessário.
+5. Selecione as ligações de ponto final privado.  Sob as ligações listadas, selecione a ligação que pretende gerir. 
+6. Pode alterar o estado da ligação selecionando a partir das opções no topo.
 
-## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Gerir ligações private endpoint em um serviço de Private Link propriedade de cliente/parceiro
+## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Gerir ligações Private Endpoint num serviço de Private Link propriedade do cliente/parceiro
 
-A Azure PowerShell e a Azure CLI são os métodos preferidos para gerir as ligações private endpoint nos Serviços de Parceiros da Microsoft ou nos serviços de propriedade do cliente. Atualmente, não temos nenhum suporte de portal para gerir ligações num serviço de Link Privado.  
+A Azure PowerShell e Azure CLI são os métodos preferidos para gerir ligações Private Endpoint nos Serviços de Parceiros da Microsoft ou serviços de propriedade do cliente. Atualmente, não temos qualquer suporte ao portal para gerir ligações num serviço private Link.  
  
 ### <a name="powershell"></a>PowerShell 
   
-Utilize os seguintes comandos PowerShell para gerir ligações de ponto final privados.  
-#### <a name="get-private-link-connection-states"></a>Obtenha estados de ligação de ligação de ligação privada 
-Utilize `Get-AzPrivateLinkService` o cmdlet para obter as ligações Private Endpoint e os seus estados.  
+Utilize os seguintes comandos PowerShell para gerir ligações privadas de ponto final.  
+#### <a name="get-private-link-connection-states"></a>Obtenha estados de ligação de ligação privada 
+Utilize o `Get-AzPrivateLinkService` cmdlet para obter as ligações Private Endpoint e os seus estados.  
 ```azurepowershell
 Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourceGroup 
  ```
  
 #### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma ligação private endpoint 
  
-Utilize `Approve-AzPrivateEndpointConnection` o cmdlet para aprovar uma ligação Private Endpoint. 
+Utilize o `Approve-AzPrivateEndpointConnection` cmdlet para aprovar uma ligação Private Endpoint. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 ```
  
-#### <a name="deny-private-endpoint-connection"></a>Negar a ligação de Endpoint Privado 
+#### <a name="deny-private-endpoint-connection"></a>Negar ligação private endpoint 
  
-Utilize `Deny-AzPrivateEndpointConnection` o cmdlet para rejeitar uma ligação Private Endpoint. 
+Utilize o `Deny-AzPrivateEndpointConnection` cmdlet para rejeitar uma ligação Private Endpoint. 
 ```azurepowershell
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
-#### <a name="remove-private-endpoint-connection"></a>Remover a ligação de ponto final privado 
+#### <a name="remove-private-endpoint-connection"></a>Remover ligação de ponto final privado 
  
-Utilize `Remove-AzPrivateEndpointConnection` o cmdlet para remover uma ligação private endpoint. 
+Utilize o `Remove-AzPrivateEndpointConnection` cmdlet para remover uma ligação private endpoint. 
 ```azurepowershell
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
 ### <a name="azure-cli"></a>CLI do Azure 
  
-Utilize `az network private-link-service update` para gerir as suas ligações Private Endpoint. O estado de ligação ```azurecli connection-status``` é especificado no parâmetro. 
+Utilize `az network private-link-service update` para gerir as suas ligações Private Endpoint. O estado de ligação é especificado no ```azurecli connection-status``` parâmetro. 
 ```azurecli
 az network private-link-service connection update -g myResourceGroup -n myPrivateEndpointConnection1 --service-name myPLS --connection-status Approved 
 ```
@@ -87,5 +87,5 @@ az network private-link-service connection update -g myResourceGroup -n myPrivat
    
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Saiba mais sobre pontos finais privados](private-endpoint-overview.md)
+- [Saiba mais sobre os pontos finais privados](private-endpoint-overview.md)
  

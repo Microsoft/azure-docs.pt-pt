@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cosmos-db
 author: LuisBosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 0f471c5aefdb39396ea189984d32a9e8f5419182
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200487"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85121301"
 ---
 Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar um API da Azure Cosmos DB para a base de dados e contentor do MongoDB. 
 
@@ -21,7 +21,7 @@ Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar um API
     
     A área **do Recipiente Adicionar** é apresentada na extrema direita, pode ser necessário deslocar-se para a frente para o ver.
 
-    ![O Data Explorer no portal do Azure, painel Adicionar Contentor](./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png" alt-text="O Data Explorer no portal do Azure, painel Adicionar Contentor":::
 
 2. Na página **do recipiente Adicionar,** introduza as definições para o novo recipiente.
 

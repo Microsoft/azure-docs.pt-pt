@@ -4,12 +4,12 @@ description: Saiba quais portas e endereços são necessários para controlar o 
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 724d270b5ea18dbbd30ff2587e8bea5ee126a9ec
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 88be26bb22cf539309ce67716101d7386d9d0513
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264414"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945567"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -173,7 +173,7 @@ São necessárias as seguintes regras de FQDN / aplicação para a utilização 
 | FQDN                                    | Porta      | Utilizar      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io go.microsoft.com | HTTPS:443 | Para instalar binários relacionados com janelas |
-| mp.microsoft.com, <span></span> www.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Para instalar binários relacionados com janelas |
+| *.mp.microsoft.com, <span></span> www.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Para instalar binários relacionados com janelas |
 | kms.core.windows.net | TCP:1688 | Para instalar binários relacionados com janelas |
 
 ## <a name="next-steps"></a>Passos seguintes

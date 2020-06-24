@@ -1,5 +1,5 @@
 ---
-title: Criar um Balancer de Carga Interna - Modelo Azure
+title: Criar um balanceador de carga interna - modelo azul
 titleSuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga interno com um modelo no Resource Manager
 services: load-balancer
@@ -7,23 +7,23 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 0d7cc4d571ddeb0b57fd4f025b8cbf7b204f61e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb92e4b7eaacb5b2d18b3c33f6fdf714592bdefc
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456969"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803920"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno com um modelo
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -42,10 +42,10 @@ O modelo de exemplo disponível no repositório público utiliza um ficheiro de 
 
 Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo.
 
-1. Se nunca utilizou o Azure PowerShell, consulte [como instalar e configurar](/powershell/azure/overview) o PowerShell e siga as instruções até ao fim para iniciar sessão no Azure e selecione a sua subscrição.
+1. Se nunca utilizou a Azure PowerShell, consulte [Como Instalar e Configurar a Azure PowerShell](/powershell/azure/overview) e siga as instruções até ao fim para iniciar súmula e selecionar a sua subscrição.
 2. Transfira o ficheiro de parâmetros para o disco local.
 3. Edite o ficheiro e guarde-o.
-4. Executar o cmdlet **new-AzResourceGroupDeployment** cmdlet para criar um grupo de recursos usando o modelo.
+4. Executar o **cmdlet New-AzResourceGroupDeployment** para criar um grupo de recursos utilizando o modelo.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,8 +57,8 @@ Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo
 
 Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 
-1. Se nunca utilizou o Azure CLI, consulte [Instalar e Configurar o Azure CLI](../cli-install-nodejs.md) e siga as instruções até ao ponto em que seleciona a sua conta Azure e a sua subscrição.
-2. Vá [https://shell.azure.com](https://shell.azure.com) abrir cloud shell no seu navegador. Execute o comando **azure config mode** para mudar para o modo Resource Manager, como mostrado abaixo.
+1. Se nunca tiver utilizado o Azure CLI, consulte [instalar e configurar o Azure CLI](../cli-install-nodejs.md) e siga as instruções até ao ponto em que selecione a sua conta Estruição e subscrição.
+2. Vá [https://shell.azure.com](https://shell.azure.com) para abrir a Cloud Shell no seu navegador. Execute o comando **azure config mode** para mudar para o modo Resource Manager, como mostrado abaixo.
 
     ```console
     azure config mode arm

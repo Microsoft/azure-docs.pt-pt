@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/30/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 380e65d3f3d659d8fa6f339a9dfd45263f711541
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325902"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296870"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -100,7 +100,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Você vai oferecer uma ferramenta para converter os meus modelos JSON para a nova linguagem de modelo?**
 
-  Yes.
+  Sim.
 
 ## <a name="template-specs"></a>Especificações de modelo
 
@@ -128,7 +128,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Posso ainda utilizar extensões de script personalizadas e configuração de estado desejada (DSC)?**
 
-  Essas opções ainda estão disponíveis e não mudaram. Os scripts de implementação são projetados para executar ações que não estão relacionadas com o hóspede VM. Se precisar de executar um script num sistema operativo anfitrião num VM, então a extensão do script do cliente e/ou DSC seria uma escolha melhor. No entanto, os scripts de implementação têm vantagens, tais como definir a duração do tempo limite.
+  Essas opções ainda estão disponíveis e não mudaram. Os scripts de implementação são projetados para executar ações que não estão relacionadas com o hóspede VM. Se precisar de executar um script num sistema operativo anfitrião num VM, então a extensão de script personalizado e/ou DSC seria uma escolha melhor. No entanto, os scripts de implementação têm vantagens, tais como definir a duração do tempo limite.
 
 * **Os scripts de implantação são apoiados no Governo de Azure?**
 
@@ -182,12 +182,12 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Posso integrar modelos ARM em Pipelines Azure?**
 
-  Yes. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
+  Sim. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
 
 * **Posso usar as ações do GitHub para implementar um modelo?**
 
   Sim, consulte [os modelos do Gestor de Recursos Azure utilizando as ações do GitHub](deploy-github-actions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma introdução aos modelos ARM, veja [quais são os modelos ARM?](overview.md)

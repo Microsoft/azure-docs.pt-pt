@@ -11,24 +11,27 @@ ms.reviewer: nibaccam
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 5d6e4bfb3c99d2fb570fea7aaebc7150088f1036
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559365"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738843"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Rastrear métricas de modelos e implementar modelos ML com MLflow e Azure Machine Learning (pré-visualização)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo demonstra como permitir que o URI de rastreio da MLflow e a API, coletivamente conhecida como [MLflow Tracking,](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)liguem as suas experiências de MLflow e a Azure Machine Learning. Fazê-lo permite-lhe,
+Este artigo demonstra como permitir que o URI de rastreio da MLflow e a API, coletivamente conhecida como [MLflow Tracking,](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)liguem as suas experiências de MLflow e a Azure Machine Learning.  Fazê-lo permite-lhe,
 
 + Acompanhe e regista métricas e artefactos no seu [espaço de trabalho de aprendizagem de máquinas Azure.](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces) Se já utiliza o MLflow Tracking para as suas experiências, o espaço de trabalho proporciona uma localização centralizada, segura e escalável para armazenar métricas e modelos de treino.
 
 + Implemente as suas experiências MLflow como um serviço web Azure Machine Learning. Ao implementar como um serviço web, pode aplicar as funcionalidades de monitorização e deteção de deriva de dados do Azure Machine Learning nos seus modelos de produção. 
 
 [MLflow](https://www.mlflow.org) é uma biblioteca de código aberto para gerir o ciclo de vida das suas experiências de aprendizagem automática. MLFlow Tracking é um componente do MLflow que regista e rastreia as suas métricas de treino e artefactos de modelo, independentemente do ambiente da sua experiência-- localmente no seu computador, num alvo de computação remota, numa máquina virtual ou num cluster Azure Databricks. 
+
+>[!NOTE]
+> Como biblioteca de código aberto, o MLflow muda frequentemente. Como tal, a funcionalidade disponibilizada através da integração Azure Machine Learning e MLflow deve ser considerada como uma pré-visualização, e não totalmente suportada pela Microsoft.
 
 O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de execução de uma experiência e armazena artefactos de modelo no seu espaço de trabalho Azure Machine Learning.
 
@@ -44,7 +47,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
  O MLflow Tracking oferece funcionalidades de registo métrico e de armazenamento de artefactos que só estão disponíveis de outra forma através do [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | Rastreio de &nbsp; fluxos mlflow <!--& Deployment--> | Azure Máquina aprendendo Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
+| | &nbsp;Implementação de & de rastreio de fluxo mlflow | Azure Máquina aprendendo Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Gerir espaço de trabalho |   | ✓ | ✓ | ✓ |
 | Utilizar lojas de dados  |   | ✓ | ✓ | |
@@ -52,11 +55,10 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
 | Carregar artefactos | ✓ | ✓ |   | |
 | Ver métricas     | ✓ | ✓ | ✓ | ✓ |
 | Gerir a computação   |   | ✓ | ✓ | ✓ |
+| Implementar modelos    | ✓ | ✓ | ✓ | ✓ |
+|Monitorar desempenho do modelo||✓|  |   |
+| Detetar desvios de dados |   | ✓ |   | ✓ |
 
-<!--| Deploy models    | ✓ | ✓ | ✓ | ✓ |
-|Monitor model performance||✓|  |   |
-| Detect data drift |   | ✓ |   | ✓ |
--->
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Instale o MLflow.](https://mlflow.org/docs/latest/quickstart.html)
@@ -72,9 +74,6 @@ Instale o `azureml-mlflow` pacote para utilizar o MLflow Tracking com Azure Mach
 ```shell
 pip install azureml-mlflow
 ```
-
->[!NOTE]
->O espaço de nome azureml.contrib muda frequentemente, pois trabalhamos para melhorar o serviço. Como tal, qualquer coisa neste espaço de nome deve ser considerada como uma pré-visualização, e não totalmente suportada pela Microsoft.
 
 Importe as `mlflow` e as classes para aceder ao [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) URI de rastreio da MLflow e configure o seu espaço de trabalho.
 

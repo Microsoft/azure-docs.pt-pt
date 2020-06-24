@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 5549f9eaf2bc44dfa7e99df04fd7864dd4b655ce
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 6/11/2020
+ms.openlocfilehash: 0b23b01faf1b6ba09f1c55db2ddabd1696e452be
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610904"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738112"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 
-Este artigo descreve como configurar a replicação de dados na Base de Dados Azure para MariaDB configurando os servidores mestre e réplica. Este artigo pressupõe que você tem alguma experiência anterior com servidores e bases de dados MariaDB.
+Este artigo descreve como configurar a [replicação de dados na](concepts-data-in-replication.md) Base de Dados Azure para MariaDB configurando os servidores mestre e réplica. Este artigo pressupõe que você tem alguma experiência anterior com servidores e bases de dados MariaDB.
 
-Para criar uma réplica na Base de Dados Azure para o serviço MariaDB, a replicação de dados sincroniza os dados de um servidor MariaDB no local, em máquinas virtuais (VMs) ou em serviços de base de dados em nuvem.
+Para criar uma réplica na Base de Dados Azure para o serviço MariaDB, [a replicação de dados](concepts-data-in-replication.md) sincroniza os dados de um servidor MariaDB no local, em máquinas virtuais (VMs) ou em serviços de base de dados em nuvem. A Replicação de Dados de Entrada é baseada na replicação baseada na posição dos ficheiros de registo binário (binlog) nativo para o MariaDB. Para saber mais sobre a replicação do binlog, consulte a [visão geral](https://mariadb.com/kb/en/library/replication-overview/)da replicação do binlog .
 
 Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação de data-in antes de executar os passos neste artigo.
 
@@ -281,5 +281,5 @@ Para ignorar um erro de replicação e permitir a replicação, utilize o seguin
 CALL mysql.az_replication_skip_counter;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a replicação de dados](concepts-data-in-replication.md) para a base de dados Azure para MariaDB.

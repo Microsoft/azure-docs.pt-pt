@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216434"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945397"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
 Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de monitorização de máquinas virtuais Azure para manter a sua saúde. As máquinas virtuais podem ser monitorizadas para disponibilidade e desempenho com o Azure Monitor como qualquer [outro recurso Azure](monitor-azure-resource.md), mas são únicas a partir de outros recursos, uma vez que também é necessário monitorizar o funcionamento e o sistema de hóspedes e as cargas de trabalho que o operam. 
@@ -105,9 +105,9 @@ Instale a extensão de diagnóstico para uma única máquina virtual Do Windows 
 Consulte [a Instalação e configurar a Telegraf](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) para obter mais detalhes sobre a configuração dos agentes Telegraf em máquinas virtuais Linux. A opção **de definição de diagnóstico** está disponível para o Linux, mas só lhe permitirá enviar dados para o armazenamento do Azure.
 
 ### <a name="collect-platform-metrics-and-activity-log"></a>Recolher métricas da plataforma e log de atividade
-Pode ver as métricas da plataforma e o registo de atividade recolhido para cada anfitrião de máquinas virtuais no portal Azure. Recolha estes dados no mesmo espaço de trabalho do Log Analytics que o Azure Monitor para VMs para analisá-los com os outros dados de monitorização recolhidos para a máquina virtual. Esta coleção está configurada com uma [definição de diagnóstico](../platform/diagnostic-settings.md). Recolher o registo de Atividade com uma [definição de diagnóstico para a subscrição](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal).
+Pode ver as métricas da plataforma e o registo de atividade recolhido para cada anfitrião de máquinas virtuais no portal Azure. Recolha estes dados no mesmo espaço de trabalho do Log Analytics que o Azure Monitor para VMs para analisá-los com os outros dados de monitorização recolhidos para a máquina virtual. Esta coleção está configurada com uma [definição de diagnóstico](../platform/diagnostic-settings.md). Recolher o registo de Atividade com uma [definição de diagnóstico para a subscrição](../platform/diagnostic-settings.md#create-in-azure-portal).
 
-Colete as métricas da plataforma com uma definição de diagnóstico para a máquina virtual. Ao contrário de outros recursos Azure, não é possível criar uma definição de diagnóstico para uma máquina virtual no portal Azure, mas deve utilizar [outro método](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). Os exemplos a seguir mostram como recolher métricas para uma máquina virtual usando tanto o PowerShell como o CLI.
+Colete as métricas da plataforma com uma definição de diagnóstico para a máquina virtual. Ao contrário de outros recursos Azure, não é possível criar uma definição de diagnóstico para uma máquina virtual no portal Azure, mas deve utilizar [outro método](../platform/diagnostic-settings.md#create-using-powershell). Os exemplos a seguir mostram como recolher métricas para uma máquina virtual usando tanto o PowerShell como o CLI.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
@@ -130,7 +130,7 @@ Uma vez configurada a recolha de dados de monitorização para uma máquina virt
 
 ![Monitorização no portal Azure](media/monitor-vm-azure/monitor-menu.png)
 
-| Opção menu | Descrição |
+| Opção menu | Description |
 |:---|:---|
 | Descrição geral | Exibe [métricas](../platform/data-platform-metrics.md) da plataforma para o hospedeiro de máquina virtual. Clique num gráfico para trabalhar com estes dados no [explorador de métricas.](../platform/metrics-getting-started.md) |
 | Registo de atividades | [Entradas de registo](../platform/activity-log-view.md) de atividade filtradas para a máquina virtual atual. |
@@ -148,7 +148,7 @@ Pode analisar métricas para máquinas virtuais usando métricas exploradores ab
 
 Existem três espaços de nome usados por máquinas virtuais para métricas:
 
-| Espaço de Nomes | Descrição | Requisito |
+| Espaço de Nomes | Description | Requisito |
 |:---|:---|:---|
 | Anfitrião de Máquinas Virtuais | Métricas de anfitrião recolhidas automaticamente para todas as máquinas virtuais Azure. Lista detalhada de métricas em [Microsoft.Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Recolhido automaticamente sem necessidade de configuração. |
 | Convidado (clássico) | Conjunto limitado de dados de desempenho do sistema operativo dos hóspedes e da aplicação. Disponível em métricas explorador, mas não em outras funcionalidades do Azure Monitor, como alertas métricos.  | [Extensão de diagnóstico](../platform/diagnostics-extension-overview.md) instalada. Os dados são lidos a partir do armazenamento da Azure.  |
