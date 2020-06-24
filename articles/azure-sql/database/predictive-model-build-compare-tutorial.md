@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Treine e compare modelos preditivos em R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Na segunda parte desta série tutorial em três partes, você vai criar dois modelos preditivos em R com Azure SQL Database Machine Learning Services (pré-visualização), e, em seguida, selecionar o modelo mais preciso.
+description: Na segunda parte desta série tutorial em três partes, irá criar dois modelos preditivos em R com Azure SQL Database Machine Learning Services (pré-visualização) e, em seguida, selecione o modelo mais preciso.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a5936501f45694febe284d9747bdefdfeae6aeb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca0af9a34587f8d3a3c0502c77556975b1d8df4e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053334"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253839"
 ---
-# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo preditivo em R com Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
+# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo preditivo em R com Azure SQL Database Machine Learning Services (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na segunda parte desta série tutorial em três partes, você vai criar dois modelos preditivos em R e selecionar o modelo mais preciso. Na próxima parte desta série, irá supor este modelo numa base de dados SQL com serviços de machine learning de base de dados Azure SQL (pré-visualização).
+Na segunda parte desta série tutorial em três partes, você vai criar dois modelos preditivos em R e selecionar o modelo mais preciso. Na próxima parte desta série, irá implementar este modelo numa base de dados na Base de Dados Azure SQL com Azure SQL Database Machine Learning Services (pré-visualização).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -33,20 +33,20 @@ Neste artigo, aprenderá a:
 > [!div class="checklist"]
 >
 > * Treine dois modelos de aprendizagem automática
-> * Faça previsões de ambos os modelos
+> * Fazer previsões de ambos os modelos
 > * Compare os resultados para escolher o modelo mais preciso
 
-Na [primeira parte,](predictive-model-prepare-data-tutorial.md)aprendeu a importar uma base de dados de amostras e, em seguida, preparar os dados para serem utilizados para treinar um modelo preditivo em R.
+Na [primeira parte,](predictive-model-prepare-data-tutorial.md)aprendeu a importar uma base de dados de amostras e, em seguida, a preparar os dados para serem utilizados para a formação de um modelo preditivo em R.
 
-Na [terceira parte,](predictive-model-deploy-tutorial.md)aprenderá a armazenar o modelo numa base de dados e, em seguida, criará procedimentos armazenados a partir dos scripts R que desenvolveu nas partes um e dois. Os procedimentos armazenados serão executados numa base de dados SQL para fazer previsões com base em novos dados.
+Na [terceira parte,](predictive-model-deploy-tutorial.md)aprenderá a armazenar o modelo numa base de dados e, em seguida, criará procedimentos armazenados a partir dos scripts R que desenvolveu nas partes um e dois. Os procedimentos armazenados serão executados numa base de dados para fazer previsões com base em novos dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A segunda parte deste tutorial assume que completou a [**primeira parte**](predictive-model-prepare-data-tutorial.md) e os seus pré-requisitos.
+* A segunda parte deste tutorial pressupõe que completou [**a primeira parte**](predictive-model-prepare-data-tutorial.md) e os seus pré-requisitos.
 
-## <a name="train-two-models"></a>Treinar dois modelos
+## <a name="train-two-models"></a>Treine dois modelos
 
-Para encontrar o melhor modelo para os dados de aluguer de esqui, crie dois modelos diferentes (regressão linear e árvore de decisão) e veja qual deles está a prever com mais precisão. Vais usar a moldura de dados `rentaldata` que criaste na primeira parte desta série.
+Para encontrar o melhor modelo para os dados de aluguer de esqui, crie dois modelos diferentes (regressão linear e árvore de decisão) e veja qual está a prever com mais precisão. Usará o quadro de dados `rentaldata` que criou na primeira parte desta série.
 
 ```r
 #First, split the dataset into two different sets:
@@ -64,9 +64,9 @@ model_linmod <- rxLinMod(RentalCount ~  Month + Day + WeekDay + Snow + Holiday, 
 model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = train_data);
 ```
 
-## <a name="make-predictions-from-both-models"></a>Faça previsões de ambos os modelos
+## <a name="make-predictions-from-both-models"></a>Fazer previsões de ambos os modelos
 
-Use uma função de previsão para prever as contagens de aluguer usando cada modelo treinado.
+Utilize uma função de previsão para prever as contagens de aluguer usando cada modelo treinado.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -96,9 +96,9 @@ head(predict_dtree);
 6          40.0000          38       1     12     2      1       0
 ```
 
-## <a name="compare-the-results"></a>Compare os resultados
+## <a name="compare-the-results"></a>Comparar os resultados
 
-Agora quer ver qual dos modelos dá as melhores previsões. Uma forma rápida e fácil de o fazer é usar uma função de conspiração básica para ver a diferença entre os valores reais nos seus dados de treino e os valores previstos.
+Agora quer ver qual dos modelos dá as melhores previsões. Uma forma rápida e fácil de o fazer é usar uma função básica de conspiração para ver a diferença entre os valores reais nos seus dados de treino e os valores previstos.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
@@ -113,24 +113,24 @@ Parece que o modelo da árvore de decisão é o mais preciso dos dois modelos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não vai continuar com este tutorial, elimine a base de dados tutorialDB do seu servidor.
+Se não continuar com este tutorial, elimine a base de dados TutorialDB do seu servidor.
 
 A partir do portal Azure, siga estes passos:
 
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** ou bases de dados **SQL**.
-1. No **campo Filter por nome...** introduza **tutorialDB,** e selecione a sua subscrição.
+1. A partir do menu à esquerda no portal Azure, selecione Todas as **bases de dados**de **recursos** ou SQL .
+1. No **filtro pelo nome...** campo, insira **TutorialDB**e selecione a sua subscrição.
 1. Selecione a sua base de dados TutorialDB.
 1. Na página **Descrição geral**, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na segunda parte desta série tutorial, completou estes passos:
 
 * Treine dois modelos de aprendizagem automática
-* Faça previsões de ambos os modelos
+* Fazer previsões de ambos os modelos
 * Compare os resultados para escolher o modelo mais preciso
 
 Para implementar o modelo de aprendizagem automática que criou, siga a terceira parte desta série tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implemente um modelo preditivo em R com Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)](predictive-model-deploy-tutorial.md)
+> [Tutorial: Implementar um modelo preditivo em R com Azure SQL Database Machine Learning Services (pré-visualização)](predictive-model-deploy-tutorial.md)

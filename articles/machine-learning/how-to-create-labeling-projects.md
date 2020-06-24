@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629614"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212017"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -176,7 +176,10 @@ Uma vez treinado um modelo de machine learning nos seus dados etiquetados manual
 
 ## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
 
-Após a inicial do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Rotulagem de Dados,** que mostrará o projeto como **Initializing**. Esta página não se atualiza automaticamente. Assim, após uma pausa, refresque manualmente a página para ver o estado do projeto como **Criado**.
+Após a inicial do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Rotulagem de Dados,** que mostrará o projeto como **Initializing**.
+
+> [!NOTE]
+> Esta página pode não ser automaticamente atualizada. Assim, após uma pausa, refresque manualmente a página para ver o estado do projeto como **Criado**.
 
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorizar o projeto
 
@@ -214,7 +217,7 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

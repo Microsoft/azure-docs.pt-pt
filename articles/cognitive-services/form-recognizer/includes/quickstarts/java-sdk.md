@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 2cc8908b1ecd3225b5226b933eb570cffc180e67
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 6ff56ca61304bdacb3512156babd637afd337c7e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112043"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242109"
 ---
-[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -130,7 +130,7 @@ Também terá de adicionar referências aos URLs para os seus dados de treino e 
 * Utilize o método acima para obter o URL de uma imagem de recibo também.
 
 > [!NOTE]
-> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação de referência](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview).
+> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação de referência](https://docs.microsoft.com/java/api/overview/azure/formrecognizer).
 
 ```java
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";

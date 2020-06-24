@@ -1,69 +1,69 @@
 ---
-title: Tutorial - Criptografar e desencriptar bolhas usando o Cofre de Chaves Azure
+title: Tutorial - Criptografe e desencriptar bolhas usando cofre de chave Azure
 titleSuffix: Azure Storage
-description: Aprenda a encriptar e desencriptar uma bolha usando encriptação do lado do cliente com o Cofre de Chaves Azure.
+description: Aprenda a encriptar e desencriptar uma bolha usando encriptação do lado do cliente com a Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 21771fb1bb041dd2f09f5d82d9def4cfe91794f6
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81456894"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808384"
 ---
-# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial - Criptografar e desencriptar bolhas usando o Cofre de Chaves Azure
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial - Criptografe e desencriptar bolhas usando cofre de chave Azure
 
-Este tutorial cobre como fazer uso da encriptação de armazenamento do lado do cliente com o Cofre chave Azure. Ele te explica como encriptar e desencriptar uma bolha numa aplicação de consola usando estas tecnologias.
+Este tutorial cobre como fazer uso da encriptação de armazenamento do lado do cliente com a Azure Key Vault. Ele explica-lhe como encriptar e desencriptar uma bolha numa aplicação de consola usando estas tecnologias.
 
 **Tempo estimado para concluir:** 20 minutos
 
-Para obter informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](../../key-vault/general/overview.md)
+Para obter informações gerais sobre o Cofre da Chave Azure, veja [o que é o Cofre da Chave Azure?](../../key-vault/general/overview.md)
 
-Para obter informações sobre encriptação do lado do cliente para o Armazenamento Azure, consulte a encriptação do lado do cliente e o [Cofre de Chaves Azure para o Armazenamento Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para obter informações gerais sobre encriptação do lado do cliente para o Armazenamento Azure, consulte [a Encriptação do Lado do Cliente e o Cofre da Chave Azure para o Armazenamento microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, deve ter o seguinte:
 
-* Uma conta de armazenamento azure
+* Uma conta de armazenamento Azure
 * Estúdio Visual 2013 ou mais tarde
 * Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>Visão geral da encriptação do lado do cliente
 
-Para uma visão geral da encriptação do lado do cliente para o Armazenamento Azure, consulte [encriptação do lado do cliente e cofre de chaves Azure para armazenamento Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Para obter uma visão geral da encriptação do lado do cliente para o armazenamento do Azure, consulte [a encriptação do lado do cliente e o cofre da chave Azure para o Armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 Aqui está uma breve descrição de como a encriptação do lado do cliente funciona:
 
-1. O SDK, cliente de armazenamento azure, gera uma chave de encriptação de conteúdo (CEK), que é uma chave simétrica de uso único.
-2. Os dados do cliente são encriptados utilizando este CEK.
-3. O CEK é então embrulhado (encriptado) utilizando a chave de encriptação da chave (KEK). O KEK é identificado por um identificador chave e pode ser um par de chaves assimétrica ou uma chave simétrica e pode ser gerido localmente ou armazenado no Cofre chave Azure. O próprio cliente de Armazenamento nunca tem acesso ao KEK. Apenas invoca o algoritmo de embrulho chave que é fornecido pela Key Vault. Os clientes podem optar por utilizar fornecedores personalizados para embrulhar/desembrulhar chaves, se assim o desejarem.
-4. Os dados encriptados são depois enviados para o serviço de armazenamento Azure.
+1. O cliente Azure Storage SDK gera uma chave de encriptação de conteúdo (CEK), que é uma chave simétrica de uso único.
+2. Os dados do cliente são encriptados usando este CEK.
+3. O CEK é então embrulhado (encriptado) utilizando a chave de encriptação (KEK). O KEK é identificado por um identificador chave e pode ser um par de chaves assimétrica ou uma chave simétrica e pode ser gerido localmente ou armazenado em Azure Key Vault. O próprio cliente de armazenamento nunca tem acesso ao KEK. Apenas invoca o algoritmo de embrulho chave que é fornecido pela Key Vault. Os clientes podem optar por utilizar fornecedores personalizados para embrulhar/desembrulhar se quiserem.
+4. Os dados encriptados são então enviados para o serviço de Armazenamento Azure.
 
-## <a name="set-up-your-azure-key-vault"></a>Instale o seu Cofre de Chave Azure
+## <a name="set-up-your-azure-key-vault"></a>Configurar o seu Cofre de Chaves Azure
 
-Para prosseguir com este tutorial, é necessário fazer os seguintes passos, que estão delineados no tutorial [Quickstart: Definir e recuperar um segredo do Azure Key Vault utilizando uma aplicação web .NET:](../../key-vault/secrets/quick-create-net.md)
+Para prosseguir com este tutorial, você precisa fazer os seguintes passos, que são delineados no tutorial [Quickstart: set and retrieve a secret from Azure Key Vault usando uma aplicação web .NET](../../key-vault/secrets/quick-create-net.md):
 
 * Criar um cofre de chaves.
 * Adicione uma chave ou segredo ao cofre da chave.
-* Registe uma candidatura com o Azure Ative Directory.
-* Autorize o pedido a utilizar a chave ou o segredo.
+* Registe um requerimento no Azure Ative Directory.
+* Autorizar a aplicação a utilizar a chave ou o segredo.
 
-Tome nota do ClientID e ClientSecret que foram gerados ao registar uma aplicação com o Diretório Ativo Azure.
+Tome nota do ClientID e do ClientSecret que foram gerados ao registar uma aplicação com o Azure Ative Directory.
 
-Crie ambas as chaves no cofre da chave. Assumimos para o resto do tutorial que usou os seguintes nomes: ContosoKeyVault e TestRSAKey1.
+Crie as duas chaves no cofre das chaves. Assumimos para o resto do tutorial que usou os seguintes nomes: ContosoKeyVault e TestRSAKey1.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>Criar uma aplicação de consola com pacotes e AppSettings
 
-No Estúdio Visual, crie uma nova aplicação de consola.
+No Visual Studio, crie uma nova aplicação para consolas.
 
-Adicione os pacotes de nuget necessários na consola do Gestor de Pacotes.
+Adicione pacotes nuget necessários na consola package manager.
 
 ```powershell
 Install-Package Microsoft.Azure.ConfigurationManager
@@ -75,7 +75,7 @@ Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions
 ```
 
-Adicione As Definições de Aplicações à App.Config.
+Adicione AppSettings ao App.Config.
 
 ```xml
 <appSettings>
@@ -87,7 +87,7 @@ Adicione As Definições de Aplicações à App.Config.
 </appSettings>
 ```
 
-Adicione as `using` seguintes diretivas e certifique-se de adicionar uma referência ao System.Configuration ao projeto.
+Adicione as `using` seguintes diretivas e certifique-se de adicionar uma referência à System.Configuration ao projeto.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -103,7 +103,7 @@ using System.IO;
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Adicione um método para obter um símbolo na sua aplicação de consola
 
-O método seguinte é usado pelas classes Key Vault que precisam autenticar para acesso ao seu cofre chave.
+O seguinte método é utilizado pelas classes Key Vault que precisam de autenticar para acesso ao cofre das chaves.
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -121,9 +121,9 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Aceda ao Armazenamento Azure e cofre de chaves no seu programa
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Aceda a Azure Storage e Key Vault no seu programa
 
-No método Principal, adicione o seguinte código.
+No método Principal,, adicione o seguinte código.
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -142,19 +142,19 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
-> Modelos de objeto de cofre chave
+> Modelos de objetos de abóbada de chave
 > 
-> É importante entender que existem na verdade dois modelos de objetos Key Vault para estar atento: um é baseado no REST API (KeyVault namespace) e o outro é uma extensão para encriptação do lado do cliente.
+> É importante entender que existem na verdade dois modelos de objetos Key Vault para estar ciente: um é baseado no REST API (KeyVault namespace) e o outro é uma extensão para encriptação do lado do cliente.
 > 
-> O Cliente Key Vault interage com a API REST e compreende as Chaves Web da JSON e os segredos para os dois tipos de coisas que estão contidas no Cofre chave.
+> O Cliente Key Vault interage com a API REST e compreende as chaves e segredos da JSON Web Keys para os dois tipos de coisas que estão contidas no Cofre de Chaves.
 > 
-> As extensões do cofre chave são classes que parecem especificamente criadas para encriptação do lado do cliente no Armazenamento Azure. Contêm uma interface para teclas (IKey) e aulas baseadas no conceito de um Key Resolver. Há duas implementações do IKey que precisa de saber: RSAKey e SymmetricKey. Agora coincidem com as coisas que estão contidas num Cofre chave, mas neste momento são classes independentes (por isso a Chave e o Segredo recuperados pelo Cliente Key Vault não implementam o IKey).
+> As extensões do cofre chave são classes que parecem especificamente criadas para encriptação do lado do cliente no Azure Storage. Eles contêm uma interface para chaves (IKey) e aulas baseadas no conceito de um Key Resolver. Existem duas implementações do IKey que precisa de saber: RSAKey e SymmetricKey. Agora coincidem com as coisas que estão contidas num Cofre-Chave, mas neste momento são classes independentes (por isso a Chave e o Segredo recuperados pelo Cliente-Chave do Cofre não implementam o IKey).
 > 
 > 
 
-## <a name="encrypt-blob-and-upload"></a>Criptografe blob e upload
+## <a name="encrypt-blob-and-upload"></a>Encriptar blob e carregar
 
-Adicione o seguinte código para encriptar uma bolha e carregá-lo na sua conta de armazenamento Azure. O método **ResolveKeyAsync** que é utilizado devolve um IKey.
+Adicione o seguinte código para encriptar uma bolha e carregá-la para a sua conta de armazenamento Azure. O método **ResolveKeyAsync** que é usado devolve um IKey.
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -176,13 +176,13 @@ using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
 ```
 
 > [!NOTE]
-> Se olhar para o construtor BlobEncryptionPolicy, verá que pode aceitar uma chave e/ou um resolver. Esteja ciente de que, neste momento, não pode utilizar um resolver para encriptação porque não suporta atualmente uma chave predefinida.
+> Se olhar para o construtor BlobEncrypationPolicy, verá que pode aceitar uma chave e/ou um resolver. Esteja ciente de que neste momento não pode utilizar um resolver para encriptação porque não suporta atualmente uma chave padrão.
 
 ## <a name="decrypt-blob-and-download"></a>Desencriptar blob e baixar
 
-A desencriptação é realmente quando se usam as aulas resolver fazem sentido. A identificação da chave utilizada para encriptação está associada à bolha nos seus metadados, pelo que não há razão para recuperar a chave e lembrar-se da associação entre a chave e a bolha. Só tens de ter a certeza que a chave permanece no Cofre chave.   
+Desencriptação é realmente quando se usa as aulas de Resolver faz sentido. O ID da chave utilizada para encriptação está associado à bolha nos seus metadados, pelo que não há razão para recuperar a chave e lembrar a associação entre a chave e a bolha. Só tens de ter a certeza que a chave permanece no Cofre das Chaves.   
 
-A chave privada de uma chave RSA permanece no Cofre chave, por isso, para que a desencriptação ocorra, a Chave Encriptada dos metadados blob que contém o CEK é enviada para Key Vault para desencriptação.
+A chave privada de uma chave RSA permanece no Cofre de Chaves, por isso, para desencriptação, a chave encriptada dos metadados blob que contém o CEK é enviada para o Cofre de Chaves para desencriptação.
 
 Adicione o seguinte para desencriptar a bolha que acabou de carregar.
 
@@ -197,17 +197,17 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 ```
 
 > [!NOTE]
-> Existem alguns outros tipos de resolver para facilitar a gestão das chaves, incluindo: AggregateKeyResolver e CachingKeyResolver.
+> Existem outros tipos de resolver para facilitar a gestão das chaves, incluindo: AggregateKeyResolver e CachingKeyResolver.
 
-## <a name="use-key-vault-secrets"></a>Use segredos do cofre chave
+## <a name="use-key-vault-secrets"></a>Use segredos do Cofre chave
 
-A forma de usar um segredo com encriptação do lado do cliente é através da classe SymmetricKey porque um segredo é essencialmente uma chave simétrica. Mas, como referido acima, um segredo em Key Vault não mapeia exatamente para uma Chave Simétrica. Há algumas coisas para entender:
+A forma de usar um segredo com encriptação do lado do cliente é através da classe SymmetricKey porque um segredo é essencialmente uma chave simétrica. Mas, como referido acima, um segredo em Key Vault não mapeia exatamente para um SymmetricKey. Há algumas coisas a entender:
 
 * A chave de uma Chave Simétrica tem de ser um comprimento fixo: 128, 192, 256, 384 ou 512 bits.
-* A chave de uma Chave Simétrica deve ser codificada pela Base64.
-* Um segredo do Cofre chave que será usado como uma Chave Simétrica precisa de ter um tipo de conteúdo de "aplicação/fluxo de octeto" no Cofre chave.
+* A chave de uma Chave Simétrica deve ser codificada base64.
+* Um segredo do Cofre chave que será usado como Um SymmetricKey precisa de ter um tipo de conteúdo de "application/octet-stream" no Key Vault.
 
-Aqui está um exemplo na PowerShell de criar um segredo no Cofre chave que pode ser usado como simétricoChave.
+Aqui está um exemplo no PowerShell de criar um segredo em Key Vault que pode ser usado como uma Chave Simétrica.
 Por favor, note que o valor codificado, $key, é apenas para fins de demonstração. No seu próprio código, vai querer gerar esta chave.
 
 ```csharp
@@ -223,7 +223,7 @@ $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
-Na aplicação da consola, pode utilizar a mesma chamada que antes para recuperar este segredo como um SymmetricKey.
+Na sua aplicação de consola, pode utilizar a mesma chamada de antes para recuperar este segredo como uma SymmetricKey.
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
@@ -231,12 +231,12 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     CancellationToken.None).GetAwaiter().GetResult();
 ```
 
-Já está. Divirta-se!
+Já está! Divirta-se!
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a utilização do Armazenamento Microsoft Azure com C#, consulte a [Microsoft Azure Storage Client Library para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Para obter mais informações sobre a utilização do Microsoft Azure Storage com C#, consulte [a Microsoft Azure Storage Client Library para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Para mais informações sobre a API blob REST, consulte [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+Para obter mais informações sobre a API Blob REST, consulte [a API do Blob Service REST](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Para obter as mais recentes informações sobre o Armazenamento Microsoft Azure, vá ao [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).
+Para obter as informações mais recentes sobre o Microsoft Azure Storage, aceda ao [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).

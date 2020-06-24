@@ -1,22 +1,22 @@
 ---
 title: Associe um novo dispositivo do Windows 10 ao Azure AD durante a primeira execução | Microsoft Docs
-description: Como os utilizadores podem configurar o Azure AD Join durante a experiência fora da caixa.
+description: Como os utilizadores podem configurar Azure AD Join durante a experiência fora da caixa.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da37316724bf6ef166f08faa7208ad196000bb00
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67482102"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253108"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Adicione um novo dispositivo do Windows 10 ao Azure AD durante a primeira execução
 
@@ -39,7 +39,7 @@ Neste tutorial, vai aprender a associar um dispositivo ao Azure AD durante FRX:
 
 Para associar um dispositivo do Windows 10, o serviço de registo do dispositivo tem de ser configurado para que possa registar dispositivos. Além de ter permissão para associar dispositivos no seu inquilino do Azure AD, tem de ter menos dispositivos registados do que o máximo configurado. Para obter mais informações, veja [configurar definições do dispositivo](device-management-azure-portal.md#configure-device-settings).
 
-Além disso, se o seu inquilino é federado, o Fornecedor de identidade tem de suportar o ponto final de nome de utilizador/palavra-passe do WS-Fed e WS-Trust. Isto pode ser a versão 1.3 ou 2005. Este suporte protocolar é necessário tanto para aderir ao dispositivo à AD Azure e iniciar sessão no dispositivo com uma palavra-passe.
+Além disso, se o seu inquilino é federado, o Fornecedor de identidade tem de suportar o ponto final de nome de utilizador/palavra-passe do WS-Fed e WS-Trust. Isto pode ser a versão 1.3 ou 2005. Este suporte de protocolo é necessário para unir o dispositivo ao Azure AD e iniciar súpido no dispositivo com uma senha.
 
 ## <a name="joining-a-device"></a>Associar um dispositivo
 

@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial: app ASP.NET com Base de Dados Azure SQL'
-description: Saiba como implementar uma app C# ASP.NET para azure e para a Base de Dados SQL Azure
+title: 'Tutorial: ASP.NET app com Base de Dados Azure SQL'
+description: Saiba como implementar uma aplicação C# ASP.NET para Azure e para a Azure SQL Database
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013793"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906127"
 ---
-# <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implemente uma app ASP.NET para O Azure com base de dados Azure SQL
+# <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementar uma app ASP.NET para a Azure com base de dados Azure SQL
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como implementar uma aplicação de ASP.NET baseada em dados no Serviço de Aplicações e conectá-la à Base de [Dados Azure SQL](../azure-sql/database/sql-database-paas-overview.md). Quando terminar, tem uma aplicação ASP.NET em funcionamento em Azure e ligada à Base de Dados SQL.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como implementar uma aplicação de ASP.NET orientada a dados no Serviço de Aplicações e conectá-la à [Base de Dados Azure SQL](../azure-sql/database/sql-database-paas-overview.md). Quando terminar, tem uma aplicação ASP.NET em execução em Azure e ligada à Base de Dados SQL.
 
-![Publicado ASP.NET aplicação no Serviço de Aplicações Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Publicado ASP.NET aplicação no Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -36,14 +36,14 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-Instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> com a **carga de trabalho de ASP.NET e desenvolvimento web.**
+Instale <a href="https://www.visualstudio.com/downloads/" target="_blank">o Visual Studio 2019</a> com a ASP.NET e a carga de trabalho **de desenvolvimento web.**
 
-Se já instalou o Estúdio Visual, adicione as cargas **Tools**de trabalho no Estúdio Visual clicando em  >  **Ferramentas Get Tools e Recursos**.
+Se já instalou o Visual Studio, adicione as cargas de trabalho no Estúdio Visual clicando em **Ferramentas**  >  **Obter Ferramentas e Funcionalidades**.
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
 * [Transfira o projeto de exemplo](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-* Extrato (unzip) o ficheiro *dotnet-sqldb-tutorial-master.zip.*
+* Extrair (desapertar) o ficheiro *dotnet-sqldb-tutorial-master.zip.*
 
 O projeto de exemplo contém uma aplicação básica [ASP.NET MVC](https://www.asp.net/mvc) create-read-update-delete - criar-ler-atualizar-eliminar (CRUD) que utiliza o [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -57,9 +57,9 @@ Escreva `Ctrl+F5` para executar a aplicação sem a depurar. A aplicação é ap
 
 Teste as ligações **Editar**, **Detalhes** e **Eliminar**.
 
-A aplicação utiliza um contexto de base de dados para se ligar à base de dados. Neste exemplo, o contexto de base de dados utiliza uma cadeia de ligação com o nome `MyDbConnection`. A cadeia de ligação é definida no ficheiro *Web.config* e é referenciado no ficheiro *Models/MyDatabaseContext.cs*. O nome da corda de ligação é usado mais tarde no tutorial para ligar a aplicação Azure a uma Base de Dados Azure SQL.
+A aplicação utiliza um contexto de base de dados para se ligar à base de dados. Neste exemplo, o contexto de base de dados utiliza uma cadeia de ligação com o nome `MyDbConnection`. A cadeia de ligação é definida no ficheiro *Web.config* e é referenciado no ficheiro *Models/MyDatabaseContext.cs*. O nome da cadeia de ligação é usado mais tarde no tutorial para ligar a aplicação Azure a uma Base de Dados Azure SQL.
 
-## <a name="publish-aspnet-application-to-azure"></a>Publicar ASP.NET aplicação ao Azure
+## <a name="publish-aspnet-application-to-azure"></a>Publicar ASP.NET aplicação à Azure
 
 No **Explorador de Soluções**, clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar**.
 
@@ -69,7 +69,7 @@ Certifique-se de que o **Serviço de Aplicações do Microsoft Azure** está sel
 
 ![Publicar a partir da página de descrição geral do projeto](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-A publicação abre o diálogo **Create App Service,** que o ajuda a criar todos os recursos Azure que precisa para executar a sua app ASP.NET em Azure.
+A publicação abre o diálogo **Create App Service,** que o ajuda a criar todos os recursos Azure de que necessita para executar a sua aplicação ASP.NET em Azure.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -109,12 +109,12 @@ Pode manter o nome da aplicação Web gerado ou alterá-lo para outro nome exclu
    | Definição  | Valor sugerido | Para obter mais informações: |
    | ----------------- | ------------ | ----|
    |**Plano de Serviço de Aplicações**| myAppServicePlan | [Planos do Serviço de Aplicações](../app-service/overview-hosting-plans.md) |
-   |**Localização**| Europa ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+   |**Localização**| Europa Ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Tamanho**| Gratuito | [Escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-server"></a>Criar um servidor
 
-Antes de criar uma base de dados, precisa de um [servidor SQL lógico](../azure-sql/database/logical-servers.md). Um servidor lógico SQL é uma construção lógica que contém um grupo de bases de dados geridas como um grupo.
+Antes de criar uma base de dados, precisa de um [servidor SQL lógico.](../azure-sql/database/logical-servers.md) Um servidor lógico sql é uma construção lógica que contém um grupo de bases de dados geridos como um grupo.
 
 1. Clique em **Criar uma Base de Dados SQL**.
 
@@ -122,11 +122,11 @@ Antes de criar uma base de dados, precisa de um [servidor SQL lógico](../azure-
 
 2. Na caixa de diálogo **Configurar Base de Dados SQL**, clique em **Nova** junto a **SQL Server**.
 
-   É gerado um nome de servidor exclusivo. Este nome é usado como parte do URL predefinido para o seu servidor, `<server_name>.database.windows.net` . Deve ser único em todos os servidores do Azure SQL. Pode alterar o nome do servidor, mas, para este tutorial, mantenha o valor gerado.
+   É gerado um nome de servidor exclusivo. Este nome é usado como parte do URL padrão para o seu servidor, `<server_name>.database.windows.net` . Deve ser único em todos os servidores do Azure SQL. Pode alterar o nome do servidor, mas, para este tutorial, mantenha o valor gerado.
 
 3. Adicione um nome de utilizador e uma palavra-passe de administrador. Para saber os requisitos de complexidade das palavras-passe, veja [Password Policy](/sql/relational-databases/security/password-policy) (Política de Palavras-passe).
 
-   Memorize o nome de utilizador e a palavra-passe. Precisas deles para gerir o servidor mais tarde.
+   Memorize o nome de utilizador e a palavra-passe. Precisa deles para gerir o servidor mais tarde.
 
    > [!IMPORTANT]
    > Embora a palavra-passe nas cadeias de ligação esteja ocultada (no Visual Studio e também no Serviço de Aplicações), o facto de ser mantida algures aumenta a superfície de ataque da sua aplicação. O Serviço de Aplicações pode utilizar [identidades de serviço geridas](overview-managed-identity.md) para eliminar este risco ao remover a necessidade de manter segredos na configuração do código ou da aplicação. Para obter mais informações, veja [Passos seguintes](#next-steps).
@@ -143,7 +143,7 @@ Antes de criar uma base de dados, precisa de um [servidor SQL lógico](../azure-
    * Em **Nome da Cadeia de Ligação**, escreva *MyDbConnection*. Este nome tem de corresponder à cadeia de ligação que é referenciada em *Models/MyDatabaseContext.cs*.
    * Selecione **OK**.
 
-    ![Configure base de dados](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
+    ![Base de dados configure](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
 2. A caixa de diálogo **Criar Serviço de Aplicações** mostra os recursos que configurou. Clique em **Criar**.
 
@@ -179,7 +179,7 @@ Escreva a palavra-passe de administrador da base de dados que criou acima e cliq
 
 ### <a name="allow-client-connection-from-your-computer"></a>Permitir a ligação de cliente a partir do computador
 
-É aberta a caixa de diálogo **Criar uma regra de firewall nova**. Por padrão, um servidor apenas permite ligações às suas bases de dados a partir de serviços Azure, como a sua aplicação Azure. Para ligar à sua base de dados de fora do Azure, crie uma regra de firewall ao nível do servidor. A regra de firewall permite o endereço IP público do seu computador local.
+É aberta a caixa de diálogo **Criar uma regra de firewall nova**. Por padrão, um servidor apenas permite ligações às suas bases de dados a partir dos serviços Azure, como a sua aplicação Azure. Para ligar à sua base de dados a partir de fora do Azure, crie uma regra de firewall ao nível do servidor. A regra de firewall permite o endereço IP público do seu computador local.
 
 A caixa de diálogo já está preenchida com o endereço IP público do seu computador.
 
@@ -191,13 +191,13 @@ Quando o Visual Studio concluir a criação da definição de firewall para a su
 
 Aqui, pode realizar as operações mais comuns de bases de dados, como executar consultas, criar vistas e procedimentos armazenados, entre outras.
 
-Expandir a sua ligação > **Bases de dados**a sua base de dados  >  ** &lt;>**  >  **Tabelas**. Clique com o botão direito do rato na tabela `Todoes` e selecione **Ver Dados**.
+Expanda a sua ligação > **bases de dados a**sua base de  >  ** &lt; dados>**  >  **tabelas**. Clique com o botão direito do rato na tabela `Todoes` e selecione **Ver Dados**.
 
 ![Explorar os objetos da Base de Dados SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
 ## <a name="update-app-with-code-first-migrations"></a>Atualizar a aplicação com Migrações Code First
 
-Pode utilizar as ferramentas familiares no Estúdio Visual para atualizar a sua base de dados e aplicação no Azure. Neste passo, vai utilizar Migrações First Code em Entity Framework para fazer uma alteração ao esquema da base de dados e publicá-la no Azure.
+Pode utilizar as ferramentas familiares no Estúdio Visual para atualizar a sua base de dados e aplicação em Azure. Neste passo, vai utilizar Migrações First Code em Entity Framework para fazer uma alteração ao esquema da base de dados e publicá-la no Azure.
 
 Para obter mais informações sobre como utilizar o Entity Framework Code First Migrations, veja [Getting Started with Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (Introdução a Entity Framework 6 Code First com MVC 5).
 
@@ -291,7 +291,7 @@ Agora, pode adicionar um item a fazer e marcar **Concluído**. Em seguida, deve 
 
 ### <a name="enable-code-first-migrations-in-azure"></a>Ativar Migrações First Code no Azure
 
-Agora que a mudança de código funciona, incluindo a migração da base de dados, publica-a na sua aplicação Azure e atualiza também a sua Base de Dados SQL com código first migrations.
+Agora que a sua alteração de código funciona, incluindo a migração de bases de dados, publica-a na sua aplicação Azure e atualiza a sua Base de Dados SQL com o Código Primeira Migrações também.
 
 Tal como anteriormente, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
@@ -305,27 +305,27 @@ Confirme que a cadeia de ligação da Base de Dados SQL está preenchida em **My
 
 Selecione **Executar Migrações Code First (executadas quando a aplicação é iniciada)** e clique em **Guardar**.
 
-![Ativar código primeiras migrações na aplicação Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Ativar o Código Primeira Migração na app Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>Publicar as alterações
 
-Agora que ativou o Code First Migrations na sua aplicação Azure, publique as alterações de código.
+Agora que ativou o Code First Migrations na sua app Azure, publique as alterações de código.
 
 Na página de publicação, clique em **Publicar**.
 
 Experimente voltar a adicionar itens de tarefas a fazer e selecione **Concluído**. As tarefas devem agora aparecer na sua home page como itens concluídos.
 
-![Aplicação Azure após código primeira migração](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![App Azure após Código Primeira Migração](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a publicar a aplicação ASP.NET, os dados existentes na Base de Dados SQL não são perdidos. Além disso, as Migrações Code First apenas alteram o esquema de dados e mantêm os dados existentes intactos.
 
 ## <a name="stream-application-logs"></a>Transmitir em fluxo registos de aplicações
 
-Pode transmitir mensagens de rastreio diretamente da sua aplicação Azure para o Visual Studio.
+Pode transmitir mensagens de rastreio diretamente da sua aplicação Azure para Visual Studio.
 
 Abra _Controllers\TodosController.cs_.
 
-Cada ação começa com um método `Trace.WriteLine()`. Este código é adicionado para lhe mostrar como adicionar mensagens de rastreio à sua aplicação Azure.
+Cada ação começa com um método `Trace.WriteLine()`. Este código é adicionado para mostrar como adicionar mensagens de rastreador à sua aplicação Azure.
 
 ### <a name="open-server-explorer"></a>Abrir o Explorador de Servidores
 
@@ -337,7 +337,7 @@ No **Explorador de Servidores**, expanda **Azure** > **Serviço de Aplicações*
 
 Expanda o grupo de recursos **myResourceGroup,** que criou quando criou a aplicação Azure pela primeira vez.
 
-Clique na sua aplicação Azure e selecione **Ver Registos de Streaming**.
+Clique com o botão direito na sua aplicação Azure e selecione **Ver Registos de Streaming**.
 
 ![Ativar a transmissão em fluxo de registos](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -345,22 +345,22 @@ Os registos são agora transmitidos em fluxo para a janela **Saída**.
 
 ![Registo de transmissões em fluxo na janela Saída](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-No entanto, ainda não vai ver nenhuma das mensagens de rastreio. Isto porque, quando seleciona pela primeira vez os Registos de Streaming de **Visualização,** a sua aplicação Azure define o nível de rastreio `Error` para , que apenas regista eventos de erro (com o `Trace.TraceError()` método).
+No entanto, ainda não vai ver nenhuma das mensagens de rastreio. Isto porque, quando seleciona pela primeira vez **'Ver's Streaming Logs,** a sua aplicação Azure define o nível de rastreio para `Error` , que apenas regista eventos de erro (com o `Trace.TraceError()` método).
 
 ### <a name="change-trace-levels"></a>Alterar os níveis de rastreio
 
 Para alterar os níveis de rastreio para produzir outras mensagens de rastreio, regresse ao **Explorador de Servidores**.
 
-Clique novamente na sua aplicação Azure e selecione **'Ver Definições'**.
+Clique com o botão direito na sua aplicação Azure novamente e selecione **Ver Definições**.
 
 No menu pendente **Registo da Aplicação (Sistema de Ficheiros)**, selecione **Verboso**. Clique em **Guardar**.
 
 ![Alterar o nível de rastreio para Verboso](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> Pode experimentar diferentes níveis de rastreio para ver os tipos de mensagens que são apresentadas para cada nível. Por exemplo, o nível de **Informação** inclui todos os registos criados por `Trace.TraceInformation()` , e , mas não `Trace.TraceWarning()` `Trace.TraceError()` registos criados por `Trace.WriteLine()` .
+> Pode experimentar diferentes níveis de rastreio para ver os tipos de mensagens que são apresentadas para cada nível. Por exemplo, o nível **de Informação** inclui todos os registos criados por `Trace.TraceInformation()` , `Trace.TraceWarning()` `Trace.TraceError()` e, mas não registos criados por `Trace.WriteLine()` .
 
-No seu navegador, volte a navegar para a sua aplicação em http:// o seu nome de * &lt; aplicação>.azurewebsites.net,* tente clicar em torno da aplicação de lista a fazer em Azure. As mensagens de rastreio são agora transmitidas em fluxo para a janela **Saída** no Visual Studio.
+No seu navegador, navegue novamente para a sua aplicação *http:// o nome da sua &lt; aplicação>.azurewebsites.net,* e tente clicar em torno da aplicação da lista de afas no Azure. As mensagens de rastreio são agora transmitidas em fluxo para a janela **Saída** no Visual Studio.
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -377,7 +377,7 @@ Para parar o serviço de transmissão em fluxo de registos, clique no botão **P
 
 ## <a name="manage-your-azure-app"></a>Gerencie a sua app Azure
 
-Aceda ao [portal do Azure](https://portal.azure.com) para gerir a aplicação Web. Procure e selecione Serviços de **Aplicações**.
+Aceda ao [portal do Azure](https://portal.azure.com) para gerir a aplicação Web. Procure e selecione **Serviços de Aplicações.**
 
 ![Pesquisa de Serviços de Aplicações Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
@@ -410,3 +410,8 @@ Avance para o tutorial seguinte para saber como melhorar facilmente a segurança
 
 > [!div class="nextstepaction"]
 > [Aceder à Base de Dados SQL em segurança com identidades geridas dos recursos do Azure](app-service-web-tutorial-connect-msi.md)
+
+Mais recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar ASP.NET app](configure-language-dotnet-framework.md)

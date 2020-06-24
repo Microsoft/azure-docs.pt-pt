@@ -7,20 +7,18 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 02/27/2020
-ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/18/2020
+ms.openlocfilehash: 56af098050315e1b2cb0bdde531cc38452db4738
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343800"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079369"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
-> O tutorial apresentado está em **pré-visualização pública.** 
->
 > Utilizamos o SQL Server 2017 com RHEL 7.6 neste tutorial, mas é possível utilizar o SQL Server 2019 em RHEL 7 ou RHEL 8 para configurar alta disponibilidade. Os comandos para configurar recursos do grupo de disponibilidade mudaram em RHEL 8, e você vai querer olhar para o artigo [Criar recursos de grupo de disponibilidade](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) e recursos RHEL 8 para mais informações sobre os comandos corretos.
 
 Neste tutorial, vai aprender a:
@@ -757,7 +755,7 @@ Em todas as instâncias do SQL Server, guarde as credenciais utilizadas para o l
 
 1. Uma vez que as réplicas secundárias são unidas, você pode vê-las no SSMS Object Explorer expandindo o nó **Always On High Availability:**
 
-    ![disponibilidade-grupo-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Adicione uma base de dados ao grupo de disponibilidade
 
@@ -983,7 +981,7 @@ Node: <VM3> fenced
 ```
 Para obter mais informações sobre o teste de um dispositivo de cerca, consulte o seguinte artigo [do Red Hat.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/s1-stonithtest-haar)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para utilizar um ouvinte de grupo de disponibilidade para as suas instâncias DO SQL Server, terá de criar e configurar um equilibrador de carga.
 

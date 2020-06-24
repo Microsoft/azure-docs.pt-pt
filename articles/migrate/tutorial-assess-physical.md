@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para Azure com avaliação do
 description: Descreve como avaliar servidores físicos no local para migração para Azure usando a Avaliação do Servidor Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331802"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080761"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com Azure Migrate:Avaliação do servidor
 
@@ -80,7 +80,7 @@ Azure Migrate: A avaliação do servidor executa um aparelho leve.
     - Extrair o conteúdo do ficheiro com fecho. Lançar a consola PowerShell com privilégios administrativos.
     - Execute o script PowerShell para lançar a aplicação web do aparelho.
     - Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate.
-- Pode configurar vários aparelhos para um único projeto Azure Migrate. Em todos os aparelhos, pode descobrir qualquer número de servidores físicos. Um máximo de 250 servidores pode ser descoberto por aparelho.
+- Pode configurar vários aparelhos para um único projeto Azure Migrate. Em todos os aparelhos, pode descobrir qualquer número de servidores físicos. Um máximo de 1000 servidores pode ser descoberto por aparelho.
 
 ### <a name="download-the-installer-script"></a>Descarregue o script do instalador
 
@@ -101,7 +101,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Uso de exemplo para nuvem pública:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Uso de exemplo para nuvem governamental:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Uso de exemplo para nuvem governamental:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Verifique as versões mais recentes do aparelho e os valores do haxixe:
     - Para a nuvem pública:
 
@@ -132,7 +132,7 @@ Execute o guião da seguinte forma:
 1. Extraia o ficheiro com fecho para uma pasta no servidor que irá hospedar o aparelho.  Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
 2. Lançar PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Mude o diretório PowerShell para a pasta onde o conteúdo foi extraído do ficheiro fechado descarregado.
-4. Executa o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
+4. Executar o script nomeado **AzureMigrateInstaller.ps1** executando o seguinte comando:
 
     - Para a nuvem pública:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
     - Para o Governo de Azure:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
@@ -180,7 +180,7 @@ Agora, ligue-se do aparelho aos servidores físicos a descobrir e inicie a desco
 
 1. Clique **em Adicionar Credenciais** para especificar as credenciais de conta que o aparelho utilizará para descobrir servidores.  
 2. Especifique o **Sistema Operativo,** um nome amigável para as credenciais, e o nome de utilizador e senha. Em seguida, clique em **Adicionar**.
-Pode adicionar um conjunto de credenciais cada um para servidores Windows e Linux.
+Pode adicionar várias credenciais para servidores Windows e Linux.
 4. Clique **em Adicionar servidor**e especifique detalhes do servidor- Endereço FQDN/IP e nome amigável de credenciais (uma entrada por linha) para ligar ao servidor.
 3. Clique em **Validar**. Após a validação, é mostrada a lista de servidores que podem ser descobertos.
     - Se a validação falhar para um servidor, reveja o erro pairando sobre o ícone na coluna **Status.** Corrija problemas e valide novamente.
@@ -296,7 +296,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 [Saiba mais](best-practices-assessment.md#best-practices-for-confidence-ratings) sobre as melhores práticas para as classificações de confiança.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

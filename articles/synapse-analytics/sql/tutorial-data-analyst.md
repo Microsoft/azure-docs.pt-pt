@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299541"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213147"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Use SQL on-demand (pré-visualização) para analisar conjuntos de dados Azure Open e visualizar os resultados no Azure Synapse Studio (pré-visualização)
 
@@ -32,7 +32,7 @@ Em particular, você analisa o [conjunto de dados de táxi de Nova Iorque (NYC)]
 
 ## <a name="automatic-schema-inference"></a>Inferência automática do esquema
 
-Uma vez que os dados são armazenados no formato de ficheiro Parquet, a inferência automática de esquemas está disponível. Pode consultar facilmente os dados sem necessidade de listar os tipos de dados de todas as colunas nos ficheiros. Também pode utilizar o mecanismo de coluna virtual e a função de filepas para filtrar um determinado subconjunto de ficheiros.
+Uma vez que os dados são armazenados no formato de ficheiro Parquet, a inferência automática de esquemas está disponível. Pode consultar facilmente os dados sem listar os tipos de dados de todas as colunas nos ficheiros. Também pode utilizar o mecanismo de coluna virtual e a função de filepas para filtrar um determinado subconjunto de ficheiros.
 
 Vamos primeiro familiarizar-nos com os dados do Táxi de NYC, executando a seguinte consulta:
 

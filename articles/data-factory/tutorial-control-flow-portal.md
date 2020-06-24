@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560493"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253669"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
 
@@ -44,7 +44,7 @@ Este tutorial utiliza o portal do Azure. Pode utilizar outros mecanismos para in
 
 * **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
-* **Base de Dados Azure SQL**. Pode utilizar a base de dados como arquivo de dados **sink**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. Pode utilizar a base de dados como arquivo de dados **sink**. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte a [base de dados Criar uma base de dados no artigo base de dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
 
 ### <a name="create-blob-table"></a>Criar a tabela de blobs
 
@@ -150,7 +150,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique **em Criar**.      
+7. Clique em **Criar**.      
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -206,6 +206,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 13. Mude para o separador **Pipeline** (ou) clique no pipeline na vista de árvore. Confirme que **SourceBlobDataset** está selecionado em **Conjunto de Dados de Origem**.
 
     ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+
 13. Na janela de propriedades, mude para o separador **Sink** e clique em **+ Novo** em **Conjunto de Dados de Sink**. Vai criar um conjunto de dados de sink para a atividade Copy neste passo de forma semelhante à forma como criou o conjunto de dados de origem.
 
     ![Botão conjunto de dados de novo](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)

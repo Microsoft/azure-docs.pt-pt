@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783100"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210733"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -332,7 +332,6 @@ Consulte a tabela seguinte para as línguas suportadas para as várias APIs de r
 |es-MX  |Espanhol (México)   |n/a|   sim|    sim|
 |ja-JP| Japonês    |n/a    |sim    |sim|
 |pt-BR| Português (Brasil)|    n/a|    sim|    sim|
-|ko-KR| Coreano  |n/a    |sim|   sim|
 
 ## <a name="next-steps"></a>Próximos passos
 

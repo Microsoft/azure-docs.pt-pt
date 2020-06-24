@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.date: 06/10/2020
+ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249098"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249181"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados de uma base de dados Azure SQL para o armazenamento Azure Blob utilizando o portal Azure
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o portal Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure.
+Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -65,7 +65,7 @@ Eis os passos importantes para criar esta solução:
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte [criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
 * **Armazenamento Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL
@@ -103,6 +103,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL para armazenar o valor de limite superior de tamanho
+
 1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água:  
 
     ```sql
@@ -169,8 +170,8 @@ END
          
         Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
-7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
-8. Clique **em Criar**.      
+7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (Azure Storage, Azure SQL Database, Azure SQL Managed Instance, e assim por diante) e computas (HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
+8. Clique em **Criar**.      
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
 
    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
@@ -199,7 +200,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     2. Selecione o seu servidor para **o nome do Servidor**.
     3. Selecione o **nome da base de dados** na lista de dropdown.
     4. Introduza **User name**a sua  &  **palavra-passe**com o nome de utilizador .
-    5. Para testar a ligação à base de dados SQL do Azure, clique em **Testar ligação**.
+    5. Para testar a ligação à base de dados SQL, clique na **ligação de teste**.
     6. Clique em **Concluir**.
     7. Confirme que **o AzureSqlDatabaseLinkedService** está selecionado para **o serviço Linked**.
 
@@ -275,9 +276,9 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
         | Name | Tipo | Valor |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Cadeia | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline**, clique em >>.   
 
 28. Selecione o botão **Publicar Tudo** para publicar entidades (serviços ligados, conjuntos de dados e pipelines) no serviço Azure Data Factory. Aguarde até ver uma mensagem a indicar que a publicação foi bem-sucedida.
@@ -290,9 +291,9 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o separador **Monitorizar**, no lado esquerdo. Pode ver o estado da execução do pipeline acionada pelo acionador manual. Clique em **Atualizar** para atualizar a lista.
+1. Mude para o separador **Monitorizar**, no lado esquerdo. Vê-se o estado do gasoduto acionado por um gatilho manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes de execução e para refazer o pipeline.
 
-2. Para ver as execuções de atividades associadas a esta execução do pipeline, clique na primeira ligação (**Ver Execuções de Atividades**), na coluna **Ações**. Pode clicar em **Pipelines**, na parte superior, para regressar à vista anterior. Clique em **Atualizar** para atualizar a lista.
+2. Para ver as atividades ligadas à execução do gasoduto, selecione a ligação sob a coluna **PIPELINE NAME.** Para mais detalhes sobre a atividade, selecione o link **Details** (ícone de óculos) sob a coluna **ACTIVITY NAME.** Selecione **Todos os gasodutos correm** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
 
 
 ## <a name="review-the-results"></a>Rever os resultados
@@ -322,7 +323,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
 ## <a name="add-more-data-to-source"></a>Adicionar mais dados à origem
 
-Insira novos dados na base de dados SQL (arquivo de dados de origem).
+Insira novos dados na sua base de dados (data source store).
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-Os dados atualizados na base de dados SQL são:
+Os dados atualizados na sua base de dados são:
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>Acionar outra execução de pipeline
+
 1. Mude para o separador **Editar.** Clique no gasoduto na vista da árvore se não estiver aberto no designer.
 
 2. Clique em **Adicionar Gatilho** na barra de ferramentas e clique em **Trigger Now**.
@@ -355,9 +356,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Monitorizar a segunda execução do pipeline
 
-1. Mude para o separador **Monitorizar**, no lado esquerdo. Pode ver o estado da execução do pipeline acionada pelo acionador manual. Clique em **Atualizar** para atualizar a lista.
+1. Mude para o separador **Monitorizar**, no lado esquerdo. Vê-se o estado do gasoduto acionado por um gatilho manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes da atividade e para refazer o pipeline.
 
-2. Para ver as execuções de atividades associadas a esta execução do pipeline, clique na primeira ligação (**Ver Execuções de Atividades**), na coluna **Ações**. Pode clicar em **Pipelines**, na parte superior, para regressar à vista anterior. Clique em **Atualizar** para atualizar a lista.
+2. Para ver as atividades ligadas à execução do gasoduto, selecione a ligação sob a coluna **PIPELINE NAME.** Para mais detalhes sobre a atividade, selecione o link **Details** (ícone de óculos) sob a coluna **ACTIVITY NAME.** Selecione **Todos os gasodutos correm** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
 
 
 ## <a name="verify-the-second-output"></a>Verificar a segunda saída
@@ -398,7 +399,7 @@ Neste tutorial, executou os passos seguintes:
 > * Monitorizar a segunda execução do pipeline
 > * Rever os resultados da segunda execução
 
-Neste tutorial, o pipeline copiou dados a partir de uma única tabela numa base de dados SQL para um armazenamento de Blobs. Avance para o seguinte tutorial para aprender a copiar dados de várias tabelas numa base de dados do SQL Server para a Base de Dados SQL.
+Neste tutorial, o pipeline copiou dados de uma única tabela na Base de Dados SQL para o armazenamento blob. Avance para o seguinte tutorial para aprender a copiar dados de várias tabelas numa base de dados do SQL Server para a Base de Dados SQL.
 
 > [!div class="nextstepaction"]
 >[Carregar dados de forma incremental a partir de várias tabelas no SQL Server para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-portal.md)

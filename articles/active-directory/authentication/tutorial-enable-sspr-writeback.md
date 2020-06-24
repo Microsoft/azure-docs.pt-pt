@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e56040f5e17ee33da6b21ab42d2deddf5dd7064
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 030d5b5ad596b0d9e5eb2d636770c985b1cff5ed
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447803"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099131"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
@@ -23,7 +23,7 @@ Com o Azure Ative Directory (Azure AD) a redefinir a palavra-passe de autosservi
 
 A writeback de palavra-passe pode ser usada para sincronizar alterações de palavra-passe no AZure AD de volta ao ambiente AD DS no local. O Azure AD Connect fornece um mecanismo seguro para enviar estas alterações de senha de volta para um diretório existente no local a partir de Azure AD.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure as permissões necessárias para a writeback de palavra-passe
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P2 habilitado.
+* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P1 ou P2 habilitado.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
     * Para obter mais informações, consulte [os requisitos de licenciamento para Azure AD SSPR](concept-sspr-licensing.md).
 * Uma conta com privilégios *de administrador global.*
@@ -143,7 +143,7 @@ Se já não pretender utilizar qualquer funcionalidade de palavra-passe, complet
 1. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 1. Quando vir a configuração a concluir, selecione **Sair**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, permitiu que o Azure AD SSPR fosse retratado para um ambiente AD DS no local. Aprendeu a:
 

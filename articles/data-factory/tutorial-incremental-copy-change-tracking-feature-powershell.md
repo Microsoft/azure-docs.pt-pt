@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 2eb52ae24fe17a3e1a161ab132eee862efae9af1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 41841fd51433a18389aa9f5beee063fb30696755
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559667"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251204"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento de Blob Azure usando informações de rastreio de alterações utilizando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
+Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta com base em informações de rastreamento de **alterações** na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.  
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -47,13 +47,13 @@ Eis os passos de fluxo de trabalho ponto-a-ponto normais para carregar dados inc
 > Ambos a Base de Dados SQL do Azure e o SQL Server suportam a tecnologia de Controlo de Alterações. Este tutorial utiliza a Base de Dados SQL do Azure como o arquivo de dados de origem. Também pode utilizar uma instância SQL Server.
 
 1. **Carregamento de dados históricos inicial** (executar uma vez):
-    1. Ative a tecnologia de Controlo de Alterações na base de dados SQL do Azure de origem.
-    2. Obtenha o valor inicial da SYS_CHANGE_VERSION na base de dados SQL do Azure como a linha de base para capturar os dados alterados.
-    3. Carregar os dados completos da base de dados SQL do Azure para um armazenamento de blobs do Azure.
+    1. Ativar a tecnologia change tracking na base de dados de origem na Base de Dados Azure SQL.
+    2. Obtenha o valor inicial de SYS_CHANGE_VERSION na base de dados como base de base para capturar dados alterados.
+    3. Carregue os dados completos da base de dados de origem num armazenamento de bolhas Azure.
 2. **Carregamento incremental de dados delta com base numa agenda** (executar periodicamente após o carregamento de dados inicial):
     1. Obter os valores SYS_CHANGE_VERSION novos e antigos.
-    3. Carregar os dados delta ao associar as chaves primárias das linhas alteradas (entre dois valores SYS_CHANGE_VERSION) de **change_tracking_tables** com dados da **tabela de origem**, e em seguida, mover os dados delta para o destino.
-    4. Atualize o SYS_CHANGE_VERSION para o carregamento delta da próxima vez.
+    2. Carregar os dados delta ao associar as chaves primárias das linhas alteradas (entre dois valores SYS_CHANGE_VERSION) de **change_tracking_tables** com dados da **tabela de origem**, e em seguida, mover os dados delta para o destino.
+    3. Atualize o SYS_CHANGE_VERSION para o carregamento delta da próxima vez.
 
 ## <a name="high-level-solution"></a>Solução de alto nível
 Neste tutorial, vai criar dois pipelines que realizam as seguintes duas operações:  
@@ -74,13 +74,14 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure PowerShell. Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
-* **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte a [base de dados Criar uma base de dados no artigo base de dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
 * **Conta de Armazenamento Azure**. O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um contentor com o nome **adftutorial**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL do Azure
+### <a name="create-a-data-source-table-in-your-database"></a>Crie uma tabela de fontes de dados na sua base de dados
+
 1. Lançar **SQL Server Management Studio,** e ligar-se à Base de Dados SQL.
 2. No **Explorador de Servidores**, clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
-3. Execute o seguinte comando SQL na base de dados SQL do Azure para criar uma tabela com o nome `data_source_table` como arquivo da origem de dados.  
+3. Executar o seguinte comando SQL contra a sua base de dados para criar uma tabela chamada `data_source_table` data source store.  
 
     ```sql
     create table data_source_table
@@ -104,7 +105,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 4. Ative o mecanismo de **Controlo de Alterações** na sua base de dados e na tabela de origem (data_source_table) ao executar a seguinte consulta SQL:
 
     > [!NOTE]
-    > - Substitua &lt;o nome da sua base de dados&gt; com o nome da base de dados SQL do Azure que tenha o data_source_table.
+    > - Substitua &lt; o nome da sua base de dados pelo nome da sua base de &gt; dados que tenha a data_source_table.
     > - Os dados alterados são mantidos por dois dias no exemplo atual. Se carregar os dados alterados a cada três ou mais dias, alguns dados alterados não são incluídos.  Precisa ou de alterar o valor de CHANGE_RETENTION para um número maior. Em alternativa, certifique-se de que o período para carregar os dados alterados se encontra dentro dos dois dias. Para obter mais informações, consulte [Ativar o registo de alterações para uma base de dados](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
     ```sql
@@ -134,7 +135,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
     > [!NOTE]
     > Se os dados não estiverem alterados após ativar o controlo de alterações da Base de Dados SQL, o valor da versão do controlo de alterações é 0.
-6. Execute a seguinte consulta para criar um procedimento armazenado na base de dados SQL do Azure. O pipeline invoca este procedimento armazenado para atualizar a versão de controlo de alterações na tabela que criou no passo anterior.
+6. Execute a seguinte consulta para criar um procedimento armazenado na sua base de dados. O pipeline invoca este procedimento armazenado para atualizar a versão de controlo de alterações na tabela que criou no passo anterior.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -197,7 +198,7 @@ Tenha em atenção os seguintes pontos:
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, vai criar serviços ligados para a sua conta de Armazenamento do Azure e a base de dados SQL do Azure.
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, crie serviços ligados à sua conta de Armazenamento Azure e à sua base de dados na Base de Dados Azure SQL.
 
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Armazenamento do Azure.
 Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dados.
@@ -232,9 +233,9 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
-Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
+Neste passo, ligue a sua base de dados à fábrica de dados.
 
-1. Crie um ficheiro JSON denominado **AzureSQLDatabaseLinkedService.json** em **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo: Substitua o nome da base de dados do ** &lt; &gt; &lt; &gt; servidor, &lt; o id do utilizador &gt; e a &lt; palavra-passe &gt; ** com o nome do seu servidor, nome da sua base de dados, ID do utilizador e senha antes de guardar o ficheiro.
+1. Crie um ficheiro JSON nomeado **AzureSQLDatabaseLinkedService.jsem** **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo: Substitua o nome da base de dados do ** &lt; &gt; &lt; &gt; servidor, o &lt; id do utilizador e a &gt; &lt; palavra-passe &gt; ** com o nome do seu servidor, o nome da sua base de dados, o ID do utilizador e a palavra-passe antes de guardar o ficheiro.
 
     ```json
     {
@@ -464,7 +465,7 @@ Vai ver um ficheiro chamado `incremental-<GUID>.txt` na pasta `incchgtracking` d
 
 ![Ficheiro de saída a partir da cópia completa](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
-O ficheiro deve ter os dados da base de dados SQL do Azure:
+O ficheiro deve ter os dados da sua base de dados:
 
 ```
 1,aaaa,21
@@ -476,7 +477,7 @@ O ficheiro deve ter os dados da base de dados SQL do Azure:
 
 ## <a name="add-more-data-to-the-source-table"></a>Adicione mais dados à tabela de origem
 
-Execute a seguinte consulta na base de dados SQL do Azure para adicionar uma linha e atualizar uma linha.
+Execute a seguinte consulta na base de dados para adicionar uma linha e atualizar uma linha.
 
 ```sql
 INSERT INTO data_source_table
@@ -642,7 +643,7 @@ Vai ver um segundo ficheiro na pasta `incchgtracking` do contentor `adftutorial`
 
 ![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O registo com `U` é a linha atualizada na base de dados e `I` é a linha adicionada.
+O ficheiro deve ter apenas os dados delta da sua base de dados. O registo com `U` é a linha atualizada na base de dados e `I` é a linha adicionada.
 
 ```
 1,update,10,2,U

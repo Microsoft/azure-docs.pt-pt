@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: fafb16d1f8c37eab7ebaaeacb3a3e9b218347a04
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c150d60b05ccd306f055c60d180ee9421b356feb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112017"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242104"
 ---
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Pacote (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Pacote (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,7 +90,7 @@ form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self
 ## <a name="define-variables"></a>Definir variáveis
 
 > [!NOTE]
-> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview) de referência e [nas amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) de referência e [nas amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 Também terá de adicionar referências aos URLs para os seus dados de treino e teste.
 * Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .

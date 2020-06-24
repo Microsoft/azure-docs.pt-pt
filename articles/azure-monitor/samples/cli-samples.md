@@ -1,79 +1,79 @@
 ---
-title: Amostras do Monitor Azure CLI
-description: Comandos CLI de amostra para as características do Monitor Azure. O Azure Monitor é um serviço Microsoft Azure, que permite enviar notificações de alerta, ligar para URLs web com base em valores de dados de telemetria configurados e serviços de cloud de escala automática, máquinas virtuais e aplicações web.
+title: Amostras de CLI monitor Azure
+description: Amostra de comandos CLI para funcionalidades do Monitor Azure. O Azure Monitor é um serviço Microsoft Azure, que permite enviar notificações de alerta, chamar URLs web com base em valores de dados de telemetria configurados e serviços de cloud de escala automática, máquinas virtuais e Web Apps.
 ms.subservice: ''
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837491"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945295"
 ---
-# <a name="azure-monitor-cli-samples"></a>Amostras do Monitor Azure CLI
-Este artigo mostra que experimenta comandos de interface de linha de comando (CLI) para ajudá-lo a aceder às funcionalidades do Monitor Azure. O Azure Monitor permite-lhe serviços de cloud, máquinas virtuais e aplicações web e enviar notificações de alerta ou call web URLs com base em valores de dados de telemetria configurados.
+# <a name="azure-monitor-cli-samples"></a>Amostras de CLI monitor Azure
+Este artigo mostra que você experimenta comandos de interface de linha de comando (CLI) para ajudá-lo a aceder às funcionalidades do Azure Monitor. O Azure Monitor permite-lhe serviços de nuvem de escala automática, máquinas virtuais e aplicações web e enviar notificações de alerta ou chamar URLs web com base em valores de dados de telemetria configurados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não instalou o Azure CLI, siga as instruções para [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode usar o [Azure Cloud Shell](/azure/cloud-shell) para executar o CLI como uma experiência interativa no seu navegador. Consulte uma referência completa de todos os comandos disponíveis na referência CLI do [Monitor Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Se ainda não instalou o Azure CLI, siga as instruções para [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode usar [a Azure Cloud Shell](/azure/cloud-shell) para executar o CLI como uma experiência interativa no seu navegador. Consulte uma referência completa de todos os comandos disponíveis na referência CLI do [Monitor Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-O primeiro passo é fazer login na sua conta Azure.
+O primeiro passo é iniciar sessão na sua conta Azure.
 
 ```azurecli
 az login
 ```
 
-Depois de executar este comando, tem de iniciar sessão através das instruções no ecrã. Todos os comandos funcionam no contexto da sua subscrição predefinida.
+Depois de executar este comando, tem de iniciar sômposições através das instruções no ecrã. Todos os comandos funcionam no contexto da sua subscrição padrão.
 
-Para listar os detalhes da sua subscrição atual, utilize o seguinte comando.
+Enuncie os detalhes da sua subscrição atual.
 
 ```azurecli
 az account show
 ```
 
-Para alterar o contexto de trabalho para uma subscrição diferente, utilize o seguinte comando.
+Mude o contexto de trabalho para uma subscrição diferente.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Para visualizar uma lista de todos os comandos suportados do Monitor Azure, execute o seguinte comando.
+Veja uma lista de todos os comandos do Azure Monitor suportados.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Ver registo de atividade para uma subscrição
+## <a name="view-activity-log"></a>Ver registo de atividade
 
-Para visualizar uma lista de eventos de registo de atividade, execute o seguinte comando.
+Veja uma lista de eventos de registo de atividades.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Experimente o seguinte para ver todas as opções disponíveis.
+Veja todas as opções disponíveis.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Aqui está um exemplo para listar registos por um grupo de recursos
+Listar registos por um Grupo de Recursos.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Exemplo para listar registos por chamada
+Listar registos por chamada.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Exemplo para listar registos por chamada num tipo de recurso, dentro de um intervalo de data
+Listar registos por chamada num tipo de recurso, dentro de um intervalo de data.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -84,9 +84,9 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 
 ## <a name="work-with-alerts"></a>Trabalhar com alertas 
 > [!NOTE]
-> Apenas os alertas (clássicos) são suportados no CLI neste momento. 
+> Apenas alertas (clássicos) são suportados em CLI neste momento. 
 
-### <a name="get-alert-classic-rules-in-a-resource-group"></a>Receba regras de alerta (clássica) num grupo de recursos
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Receba as regras (clássicas) de um grupo de recursos
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
@@ -176,7 +176,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-### <a name="delete-a-diagnostic-setting"></a>Eliminar uma definição de diagnóstico
+### <a name="delete-a-diagnostic-setting"></a>Excluir uma definição de diagnóstico
 
 ```azurecli
 az monitor diagnostic-settings delete --name <diagnostic name> \
@@ -185,21 +185,21 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
 
 ## <a name="autoscale"></a>Dimensionamento Automático
 
-Utilize as informações nesta secção para trabalhar com definições de escala automática. Tens de modificar estes exemplos.
+Utilize as informações nesta secção para trabalhar com configurações de autoescala. É preciso modificar estes exemplos.
 
-### <a name="get-autoscale-settings-for-a-resource-group"></a>Obtenha configurações de escala automática para um grupo de recursos
+### <a name="get-autoscale-settings-for-a-resource-group"></a>Obtenha definições de autoescalação para um grupo de recursos
 
 ```azurecli
 az monitor autoscale list --resource-group <group name>
 ```
 
-### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Obtenha configurações de escala automática por nome num grupo de recursos
+### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Obtenha definições de autoescalação pelo nome num grupo de recursos
 
 ```azurecli
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-autoscale-settings"></a>Definir definições de escala automática
+### <a name="set-autoscale-settings"></a>Definir definições de autoescala
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

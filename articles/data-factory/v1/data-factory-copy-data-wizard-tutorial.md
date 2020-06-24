@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75438907"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248552"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com Atividade de Cópia com o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "75438907"
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo de Gestor de Recursos Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -33,11 +33,11 @@ ms.locfileid: "75438907"
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
 
-Este tutorial mostra como utilizar o **Assistente de Cópia** para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. 
+Este tutorial mostra-lhe como utilizar o **Copy Wizard** para copiar dados de um armazenamento de bolhas Azure para Azure SQL Database. 
 
 O Assistente de Cópia do Azure Data Factorypermite criar rapidamente um pipeline de dados que copia dados de um arquivo de dados de origem suportado para um arquivo de dados de destino suportado. Consequentemente, recomendamos que o utilize como primeiro passo para criar um pipeline de exemplo para o cenário de movimento de dados. Para obter uma lista dos arquivos de dados suportados como origens e destinos, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados).  
 
-Este tutorial mostra-lhe como criar uma fábrica de dados do Azure, iniciar o Assistente de Cópia e passar por uma série de passos para fornecer os detalhes sobre o seu cenário de ingestão/movimento de dados. Após concluir os passos do assistente, este cria automaticamente um pipeline com uma Atividade de Cópia para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. Para obter mais informações sobre a Atividade de Cópia, veja [Data movement activities](data-factory-data-movement-activities.md) (Atividades de movimento de dados).
+Este tutorial mostra-lhe como criar uma fábrica de dados do Azure, iniciar o Assistente de Cópia e passar por uma série de passos para fornecer os detalhes sobre o seu cenário de ingestão/movimento de dados. Quando termina os passos no assistente, o assistente cria automaticamente um oleoduto com uma Atividade de Cópia para copiar dados de um armazenamento de bolhas Azure para Azure SQL Database. Para obter mais informações sobre a Atividade de Cópia, veja [Data movement activities](data-factory-data-movement-activities.md) (Atividades de movimento de dados).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de seguir este tutorial, conclua os pré-requisitos listados na [Descrição Geral do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -67,7 +67,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
    6. Clique em **Criar**.
       
        ![Painel Nova fábrica de dados](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
-3. Após a criação estar concluída, vê a lâmina **data Factory** como mostrado na seguinte imagem:
+3. Após a criação estar concluída, vê a lâmina da **Fábrica de Dados** como mostrado na seguinte imagem:
    
    ![Home page da fábrica de dados](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -119,7 +119,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
    5. Introduza o **Nome de utilizador** e a **Palavra-passe**.
    6. Clique em **Seguinte**.  
       
-      ![Ferramenta Copiar - especificar a base de dados SQL do Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
+      ![Ferramenta de Cópia - especifique a base de dados Azure SQL](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. Na página **Mapeamento de tabelas**, selecione **emp** para o campo **Destino** na lista pendente, clique na **seta para baixo** (opcional) para ver o esquema e pré-visualizar os dados.
     
      ![Ferramenta Copiar – Mapeamento da tabelas](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
@@ -150,7 +150,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
     Para obter mais informações sobre como utilizar esta aplicação, veja o artigo [Monitorizar e gerir o pipeline com a Aplicação de Monitorização](data-factory-monitor-manage-app.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
+Neste tutorial, utilizou o armazenamento de blob Azure como uma loja de dados de origem e a Base de Dados Azure SQL como uma loja de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

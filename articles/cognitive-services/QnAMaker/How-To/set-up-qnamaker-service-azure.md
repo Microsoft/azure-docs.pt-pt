@@ -3,12 +3,12 @@ title: Crie um serviço QnA Maker - QnA Maker
 description: Antes de criar quaisquer bases de conhecimento do QnA Maker, tem primeiro de configurar um serviço QnA Maker em Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode criar um serviço QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235527"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214133"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -60,9 +60,9 @@ Este procedimento cria os recursos Azure necessários para gerir o conteúdo da 
     O recurso com o tipo _serviços cognitivos_ tem as suas chaves _de subscrição._
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Encontre chaves de subscrição no portal Azure
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Encontre chaves de autoria no portal Azure
 
-Pode visualizar e redefinir as suas teclas de subscrição a partir do portal Azure, onde criou o recurso QnA Maker.
+Pode visualizar e redefinir as suas teclas de autoria a partir do portal Azure, onde criou o recurso QnA Maker. Estas teclas podem ser referidas como chaves de subscrição. 
 
 1. Vá ao recurso QnA Maker no portal Azure e selecione o recurso que tem o tipo _de Serviços Cognitivos:_
 
@@ -72,7 +72,7 @@ Pode visualizar e redefinir as suas teclas de subscrição a partir do portal Az
 
     ![Chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Encontre chaves de ponto final no portal QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Encontre chaves de ponto final de consulta no portal QnA Maker
 
 O ponto final está na mesma região que o recurso porque as teclas de ponto final são usadas para fazer uma chamada para a base de conhecimento.
 

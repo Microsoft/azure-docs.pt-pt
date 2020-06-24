@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: c150972c2804b12ac436a0dd10cdf13f92f43478
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: b1601bf095b5898de965d42a16e63f278499a9bf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560998"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251518"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copie várias tabelas a granel utilizando a Azure Data Factory utilizando a PowerShell
 
@@ -59,7 +59,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 **Preparar a Base de Dados SQL do Azure de origem**:
 
-Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works LT, seguindo o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md). Este tutorial copia todas as tabelas desta base de dados de exemplo para um SQL Data Warehouse.
+Crie uma base de dados com os dados da amostra Adventure Works LT na Base de Dados SQL, seguindo [a Criação de uma base de dados em artigo de Base de Dados Azure SQL.](../azure-sql/database/single-database-create-quickstart.md) Este tutorial copia todas as tabelas desta base de dados de exemplo para um SQL Data Warehouse.
 
 **Preparar o Azure SQL Data Warehouse de sink**:
 
@@ -334,7 +334,7 @@ Este pipeline aceita uma lista de tabelas como parâmetro. Para cada tabela na l
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to SQL DW",
                                 "type": "Copy",
                                 "inputs": [
                                     {

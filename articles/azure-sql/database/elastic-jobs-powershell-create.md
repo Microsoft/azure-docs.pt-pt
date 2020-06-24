@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 4b6b29b4fbaa9813e22b7c612a615a30e863c56e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 093214241757bdc3973d88d5a0e6f3157c6178c7
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053760"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251136"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,13 +37,13 @@ Neste tutorial, você aprende os passos necessários para executar uma consulta 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A versão atualizada dos trabalhos de Base de Dados Elásticas tem um novo conjunto de cmdlets PowerShell para uso durante a migração. Estes novos cmdlets transferem todas as suas credenciais de trabalho existentes, alvos (incluindo bases de dados, servidores, coleções personalizadas), gatilhos de trabalho, horários de trabalho, conteúdos de emprego e empregos para um novo agente Elástico.
+A versão atualizada dos trabalhos da Elastic Database tem um novo conjunto de cmdlets PowerShell para utilização durante a migração. Estes novos cmdlets transferem todas as suas credenciais de emprego existentes, alvos (incluindo bases de dados, servidores, coleções personalizadas), gatilhos de emprego, horários de trabalho, conteúdos de emprego e empregos para um novo agente Elastic Job.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instale os mais recentes cmdlets de Trabalhos Elásticos
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instale os mais recentes cmdlets Elastic Jobs
 
 Se ainda não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instale o módulo **Az.Sql** para obter os mais recentes cmdlets de Trabalho Elástico. Executar os seguintes comandos no PowerShell com acesso administrativo.
+Instale o módulo **Az.Sql** para obter os mais recentes cmdlets Elásticos. Executar os seguintes comandos em PowerShell com acesso administrativo.
 
 ```powershell
 # installs the latest PackageManagement and PowerShellGet packages
@@ -59,7 +59,7 @@ Import-Module Az.Sql
 Get-Module Az.Sql
 ```
 
-Além do módulo **Az.Sql,** este tutorial também requer o módulo *SqlServer* PowerShell. Para mais detalhes, consulte [Instalar o módulo PowerShell do Servidor SQL](/sql/powershell/download-sql-server-ps-module).
+Além do módulo **Az.Sql,** este tutorial também requer o módulo *SqlServer* PowerShell. Para mais detalhes, consulte [instalar o módulo PowerShell do servidor SQL](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Criar os recursos necessários
 
@@ -97,7 +97,7 @@ $agentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
 $agentServer
 
 # create the job database
-Write-Output "Creating a blank SQL database to be used as the Job Database..."
+Write-Output "Creating a blank database to be used as the Job Database..."
 $jobDatabaseName = "JobDatabase"
 $jobDatabase = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $agentServerName -DatabaseName $jobDatabaseName -RequestedServiceObjectiveName "S0"
 $jobDatabase
@@ -125,7 +125,7 @@ $db2
 
 ## <a name="use-elastic-jobs"></a>Use trabalhos elásticos
 
-Para utilizar o Elastic Jobs, registe a funcionalidade na subscrição do Azure executando o seguinte comando. Execute este comando uma vez para a subscrição em que pretende fornecer o agente Elástico. As subscrições que contêm apenas bases de dados que são alvos de emprego não precisam de ser registadas.
+Para utilizar o Elastic Jobs, registe a funcionalidade na sua subscrição Azure executando o seguinte comando. Executar este comando uma vez para a subscrição na qual pretende provisionar o agente Desemelhado. As subscrições que contenham apenas bases de dados que sejam alvos de emprego não precisam de ser registadas.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -135,7 +135,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 Um agente de Tarefa Elástica é um recurso do Azure para criar, executar e gerir tarefas. O agente executa tarefas com base num agendamento ou como uma tarefa única.
 
-O **cmdlet New-AzSqlElasticJobAgent** necessita de uma base de dados na Base de Dados Azure SQL, pelo que os parâmetros *resourceGroupName,* *serverName*e *databaseName* devem apontar todos para os recursos existentes.
+O **cmdlet New-AzSqlElasticJobAgent** requer que já exista uma base de dados na Base de Dados Azure SQL, pelo que os *recursosGroupName,* *serverName*e *base de dados* Os parâmetros do Nome de Base de Dados devem apontar todos para os recursos existentes.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -144,15 +144,15 @@ $jobAgent = $jobDatabase | New-AzSqlElasticJobAgent -Name $agentName
 $jobAgent
 ```
 
-### <a name="create-the-job-credentials"></a>Criar as credenciais de emprego
+### <a name="create-the-job-credentials"></a>Criar as credenciais de trabalho
 
-Os trabalhos utilizam credenciais de base de dados para se ligarem às bases de dados-alvo especificadas pelo grupo-alvo após a execução e execução de scripts. Estas credenciais com âmbito de base de dados também são utilizadas para ligar à base de dados mestra para enumerar todas as bases de dados num servidor ou conjunto elástico, quando qualquer um destes for utilizado como tipo de membro do grupo de destino.
+Os empregos utilizam credenciais de âmbito de base de dados para ligar às bases de dados-alvo especificadas pelo grupo-alvo após a execução e execução de scripts. Estas credenciais com âmbito de base de dados também são utilizadas para ligar à base de dados mestra para enumerar todas as bases de dados num servidor ou conjunto elástico, quando qualquer um destes for utilizado como tipo de membro do grupo de destino.
 
 As credenciais com âmbito de base de dados têm de ser criadas na base de dados de tarefa. Todas as bases de dados de destino precisam de um início de sessão com permissões suficientes para a tarefa ser concluída com êxito.
 
 ![Credenciais de Tarefas Elásticas](./media/elastic-jobs-powershell-create/job-credentials.png)
 
-Além das credenciais na imagem, tenha em atenção a adição dos comandos **GRANT** no script seguinte. Estas permissões são necessárias para o script que escolhemos para esta tarefa de exemplo. Como o exemplo cria uma nova tabela nas bases de dados direcionadas, cada db alvo precisa das permissões adequadas para funcionar com sucesso.
+Além das credenciais na imagem, tenha em atenção a adição dos comandos **GRANT** no script seguinte. Estas permissões são necessárias para o script que escolhemos para esta tarefa de exemplo. Como o exemplo cria uma nova tabela nas bases de dados direcionadas, cada db alvo precisa das permissões adequadas para executar com sucesso.
 
 Para criar as credenciais de tarefa necessárias (na base de dados de tarefa), execute o seguinte script:
 
@@ -201,11 +201,11 @@ $jobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -Arg
 $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $jobCred
 ```
 
-### <a name="define-the-target-databases-to-run-the-job-against"></a>Defina as bases de dados-alvo para executar o trabalho contra
+### <a name="define-the-target-databases-to-run-the-job-against"></a>Definir as bases de dados-alvo para executar o trabalho contra
 
 Um [grupo de destino](job-automation-overview.md#target-group) define o conjunto de um ou mais bases de dados onde será executado um passo de tarefa.
 
-O seguinte snippet cria dois grupos-alvo: *serverGroup*, e *serverGroupExcluiingDb2*. *servidorGroup* direciona todas as bases de dados existentes no servidor no momento da execução, e *o servidorExcluindo db2* direciona todas as bases de dados do servidor, exceto o *targetDb2:*
+O seguinte snippet cria dois grupos-alvo: *serverGroup*e *serverGroupExcludingDb2*. *o serverGroup* visa todas as bases de dados existentes no servidor no momento da execução, e o *servidorGroupExcludingDb2* visa todas as bases de dados no servidor, exceto o *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -273,33 +273,33 @@ $jobExecution | Get-AzSqlElasticJobStepExecution
 $jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-A tabela que se segue enumera os possíveis estados de execução de emprego:
+A tabela que se segue enumera os possíveis estados de execução de empregos:
 
 |Estado|Descrição|
 |:---|:---|
 |**Criado** | A execução do emprego acabou de ser criada e ainda não está em curso.|
-|**Inprogress** | A execução do emprego está em andamento.|
-|**Esperando ForRetry** | A execução do emprego não foi capaz de completar a sua ação e está à espera de voltar a tentar.|
-|**Bem-sucedido** | A execução do trabalho terminou com sucesso.|
-|**SucedeuComSkipped** | A execução do trabalho completou com sucesso, mas alguns dos seus filhos foram ignorados.|
-|**Falhou** | A execução do emprego falhou e esgotou as suas tentativas.|
-|**TimedOut** | A execução do emprego tem esgotado.|
-|**Cancelado** | A execução do trabalho foi cancelada.|
+|**InProgress** | A execução do emprego está em andamento.|
+|**WaitingForRetry** | A execução do trabalho não foi capaz de completar a sua ação e está à espera de voltar a tentar.|
+|**Bem-sucedido** | A execução do trabalho foi concluída com sucesso.|
+|**SucedeuWithSkipped** | A execução do emprego foi concluída com sucesso, mas alguns dos seus filhos foram ignorados.|
+|**Falhou** | A execução do emprego falhou e esgotou as suas recaídas.|
+|**TimedOut** | A execução do trabalho está no intervalo.|
+|**Cancelado** | A execução do emprego foi cancelada.|
 |**Ignorado** | A execução do emprego foi ignorada porque outra execução do mesmo passo de trabalho já estava a decorrer no mesmo alvo.|
-|**WaitingForChildJobExecutions** | A execução do emprego está à espera que as suas execuções infantis se completem.|
+|**WaitingForChildJobExecutions** | A execução do trabalho está à espera que as suas execuções infantis terminem.|
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Elimine os recursos do Azure criados neste tutorial ao eliminar o grupo de recursos.
 
 > [!TIP]
-> Se pretende continuar a trabalhar com estes postos de trabalho, não limpa os recursos criados neste artigo.
+> Se pretende continuar a trabalhar com estes trabalhos, não limpa os recursos criados neste artigo.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, executou um script Transact-SQL num conjunto de bases de dados. Aprendeu a efetuar as seguintes tarefas:
 

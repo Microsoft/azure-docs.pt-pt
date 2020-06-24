@@ -10,12 +10,12 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: 4a2f80ea30fc68ae1dfea72983fd2b229d40c711
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 29aeae7683c46b1e10acdf1b2c4a7183c22eb408
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559290"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807322"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Python (Django) com PostgreSQL no Azure App Service
 
@@ -23,7 +23,7 @@ Este tutorial mostra como implementar uma aplicação web Python (Django) orient
 
 ![Implementar app web Python Django para o Azure App Service](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma base de dados Azure para base de dados PostgreSQL
@@ -62,8 +62,8 @@ Veja o *azuresite/production.py,* que faz a configuração necessária para o Se
 
 - Herdar todas as definições de *azuresite/configurações.py*.
 - Adicione o nome de domínio totalmente qualificado da aplicação App Service aos anfitriões autorizados. 
-- Use [o WhiteNoise](https://whitenoise.evans.io/en/stable/) para permitir o serviço de ficheiros estáticos na produção, porque o Django por defeito não serve ficheiros estáticos na produção. O pacote WhiteNoise já está incluído nos *requisitos.txt*.
-- Adicione a configuração para a base de dados PostgreSQL. Por padrão, Django usa o Sqlite3 como base de dados, mas não é adequado para aplicações de produção. O pacote [psycopg2-binário](https://pypi.org/project/psycopg2-binary/) já está incluído nos *requisitos.txt*.
+- Use [o WhiteNoise](https://whitenoise.evans.io/en/stable/) para permitir o serviço de ficheiros estáticos na produção, porque o Django por defeito não serve ficheiros estáticos na produção. O pacote WhiteNoise já está incluído em *requirements.txt*.
+- Adicione a configuração para a base de dados PostgreSQL. Por padrão, Django usa o Sqlite3 como base de dados, mas não é adequado para aplicações de produção. O pacote [psycopg2-binário](https://pypi.org/project/psycopg2-binary/) já está incluído em *requirements.txt*.
 - A configuração postgres usa variáveis ambientais. Mais tarde, você vai descobrir como definir variáveis ambientais no Serviço de Aplicações.
 
 *azuresite/production.py* está incluído no repositório por conveniência, mas ainda não é usado pela app. Para se certificar de que as suas definições são utilizadas no Serviço de Aplicações, é necessário configurar dois ficheiros, *manage.py* e *azuresite/wsgi.py,* para aceder ao mesmo.
@@ -220,6 +220,8 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
+# Install packages
+pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)

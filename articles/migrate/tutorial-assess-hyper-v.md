@@ -4,12 +4,12 @@ description: Descreve como avaliar em locais Hiper-V VMs para migração para Az
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331768"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106491"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs hiper-V com avaliação do servidor Azure Migrate
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - [Complete](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Se não o fizeres, as instruções deste tutorial não funcionam.
 - Eis o que devias ter feito no primeiro tutorial:
     - [Prepare o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para trabalhar com a Azure Migrate.
-    - Prepare anfitriões [Hiper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) e avaliação de VMs.
+    - Prepare anfitriões [Hiper-V](tutorial-prepare-hyper-v.md#prepare-for-assessment) e avaliação de VMs.
     - [Verifique](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) o que precisa para colocar o aparelho Azure Migrate para avaliação de Hiper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Criar um projeto Azure Migrate
@@ -96,13 +96,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Verifique as versões mais recentes do aparelho e tem valores:
+3.  Verifique as versões mais recentes do aparelho e os valores do haxixe:
 
     - Para a nuvem pública de Azure:
 
         **Cenário** | **Transferir** | **SHA256**
         --- | --- | ---
-        Hiper-V (8.93 MB) | [Versão mais recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
+        Hiper-V (8,93 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
 
     - Para o Governo de Azure:
 
@@ -174,10 +174,7 @@ Coloque o aparelho pela primeira vez.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Credenciais de delegado para VHDs SMB
 
-Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do aparelho para os anfitriões Hiper-V. Isto requer o seguinte:
-
-- Pode ativar que cada hospedeiro atue como delegado do aparelho. Se seguiu os tutoriais por ordem, fê-lo no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deveria ter configurado CredSSP para os anfitriões [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), ou [executando um script](tutorial-prepare-hyper-v.md#prepare-with-a-script) que faz isso.
-- Ativar a delegação credSSP para que o aparelho Azure Migrate possa funcionar como cliente, delegando credenciais a um hospedeiro.
+Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do aparelho para os anfitriões Hiper-V. Para tal, permite que cada hospedeiro atue como delegado do aparelho. Se seguiu os tutoriais por ordem, fê-lo no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deveria ter configurado CredSSP para os anfitriões [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials), ou [executando um script](tutorial-prepare-hyper-v.md#run-the-script) que faz isso.
 
 Ativar o aparelho da seguinte forma:
 
@@ -186,7 +183,7 @@ Ativar o aparelho da seguinte forma:
 No aparelho VM, este comando. HyperVHost1/HyperVHost2 são nomes de anfitriões exemplo.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Exemplo: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

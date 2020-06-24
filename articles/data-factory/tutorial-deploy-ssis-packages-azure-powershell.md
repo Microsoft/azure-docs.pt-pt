@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6ffc1aa6e28bf17d0de3783e5e03b6a2df541e4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2c3f2ccd80f2f329a7495beda1a002d84d769802
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194652"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253924"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Criar um Azure-SSIS IR na Azure Data Factory utilizando o PowerShell
 
@@ -55,7 +55,7 @@ Neste tutorial, irá:
     - Com base no servidor de base de dados selecionado, o SSISDB pode ser criado em seu nome como uma única base de dados ou parte de uma piscina elástica na Base de Dados SQL, ou em SQL Managed Instance, e acessível numa rede pública ou juntando uma rede virtual. Para obter orientações na escolha do tipo de servidor de base de dados para hospedar o SSISDB, consulte [compare uma base de dados SQL e uma instância gerida sql](create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
     
       Se utilizar a Base de Dados SQL com uma firewall IP ou pontos finais de serviço de rede virtual, ou uma Instância Gerida SQL com um ponto final privado para hospedar o SSISDB, ou se necessitar de acesso a dados no local sem configurar um IR auto-hospedado, junte-se ao seu IR Azure-SSIS a uma rede virtual. Para obter mais informações, consulte [Criar um Azure-SSIS IR numa rede virtual.](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
-    - Confirme que o **acesso a serviços Azure** está ativado para a Base de Dados SQL. Esta definição não é aplicável quando utiliza base de dados SQL com regras de firewall IP ou pontos finais de serviço de rede virtual, ou uma SqL Managed Instance com um ponto final privado para hospedar o SSISDB. Para obter mais informações, veja [Proteger a base de dados SQL do Azure](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Para ativar esta definição utilizando o PowerShell, consulte [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
+    - Confirme que o **acesso a serviços Azure** está ativado para a Base de Dados SQL. Esta definição não é aplicável quando utiliza base de dados SQL com regras de firewall IP ou pontos finais de serviço de rede virtual, ou uma SqL Managed Instance com um ponto final privado para hospedar o SSISDB. Para mais informações, consulte [a Base de Dados SECURE Azure SQL](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Para ativar esta definição utilizando o PowerShell, consulte [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
     - Adicione o endereço IP da máquina cliente, ou uma série de endereços IP, incluindo o endereço IP da máquina cliente, à lista de endereços IP do cliente nas definições de firewall para a Base de Dados SQL. Para obter mais informações, consulte [as regras de firewall ao nível do servidor e do nível da base de dados.](../azure-sql/database/firewall-configure.md)
     - Pode ligar-se à SqL Database ou à SQL Managed Instance utilizando a autenticação SQL com as credenciais de administração do seu servidor ou a autenticação do Azure Ative Directory (Azure AD) com a identidade gerida para a sua fábrica de dados. Para a autenticação Azure AD, para adicionar a identidade gerida da sua fábrica de dados a um grupo AD Azure com permissões de acesso ao servidor de base de dados, consulte [Criar um Azure-SSIS IR com autenticação Azure AD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
     - Confirme que a Base de Dados SQL ou a SQL Managed Instance ainda não têm um SSISDB. A criação de um Azure-SSIS IR não suporta a utilização de um SSISDB existente.

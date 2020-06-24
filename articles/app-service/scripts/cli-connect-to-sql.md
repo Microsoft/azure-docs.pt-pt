@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Ligar uma aplicação a uma base de dados SQL'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como ligar uma aplicação a uma base de dados SQL.
+title: 'CLI: Conecte uma aplicação à Base de Dados SQL'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como ligar uma aplicação à BASE de Dados SQL.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015493"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250745"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Ligue uma aplicação do Serviço de Aplicações a uma base de dados SQL utilizando o CLI
+# <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações à Base de Dados SQL utilizando o CLI
 
-Este script de amostra cria uma base de dados Azure SQL e uma aplicação de Serviço de Aplicações. Em seguida, liga a base de dados SQL à aplicação utilizando as definições da aplicação.
+Este script de amostra cria uma base de dados na Base de Dados Azure SQL e numa aplicação de Serviço de Aplicações. Em seguida, liga a base de dados à aplicação utilizando as definições de aplicações.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, app de serviço de aplicação, Base de Dados SQL e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, app App Service, SQL Database e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
@@ -44,9 +44,9 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, app d
 | [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | Cria um servidor.  |
 | [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | Cria uma nova base de dados. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | Gera uma cadeia de ligação para uma base de dados. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação do App Service. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma configuração de aplicação para uma aplicação do Serviço de Aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

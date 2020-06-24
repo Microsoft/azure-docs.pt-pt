@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 10a637400c513f05d59af74942df49ac6626c70f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d77b54d5dc20725ba93df82b0a475359c4dfa2b0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170380"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906382"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Construa uma aplicação web Java Spring Boot com serviço de aplicações Azure em Linux e Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Este tutorial acompanha-o através do processo de construção, configuração, 
 
 ![Aplicação Boot de mola armazenando dados em Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma base de dados cosmos DB.
@@ -284,7 +284,7 @@ Deve ver a aplicação a funcionar com o URL remoto na barra de endereços:
 
 ## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 
 ## <a name="scale-out-the-todo-app"></a>Escale a App TODO
@@ -307,7 +307,7 @@ az group delete --name <your-azure-group-name>
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Azure para Desenvolvedores](/java/azure/) 
  de Java [Boot de primavera](https://spring.io/projects/spring-boot), [dados de primavera para Cosmos DB,](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable) [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) e [App Service Linux](app-service-linux-intro.md).

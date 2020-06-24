@@ -5,14 +5,14 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/13/2019
+ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239596"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783151"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -29,14 +29,14 @@ O Azure Application Insights recolhe telemetria da sua aplicação para ajudar a
 
 Para concluir este tutorial:
 
-- Instale o [Estúdio Visual 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instalar [o Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 - Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../../azure-monitor/app/asp-net.md).
 - [Ativar o gerador de perfis do Application Insights](../../azure-monitor/app/profiler.md#installation) para a sua aplicação.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="identify-slow-server-operations"></a>Identificar as operações de servidor lentas
 O Application Insights recolhe detalhes de desempenho das várias operações da sua aplicação. Ao identificar as operações com a duração mais longa, pode diagnosticar potenciais problemas ou direcionar melhor o desenvolvimento contínuo para melhorar o desempenho global da aplicação.
@@ -61,9 +61,9 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
     ![Operação detalhes de ponta a ponta](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  O **Gerador de Perfis** ajuda-o a obter mais com os diagnósticos a nível do código, mostrando o código atual que foi executado para a operação e o tempo necessário para cada passo. Algumas operações podem não ter um rastreio, dado que o gerador de perfis é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreios.  Para iniciar o gerador de perfis para a operação, clique em **Rastreios do gerador de perfis**.
+6.  O [**Profiler**](../../azure-monitor/app/profiler-overview.md) ajuda a ir mais longe com os diagnósticos de nível de código, mostrando o código real que correu para a operação e o tempo necessário para cada passo. Algumas operações podem não ter um rastreio, dado que o gerador de perfis é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreios.  Para iniciar o gerador de perfis para a operação, clique em **Rastreios do gerador de perfis**.
 5.  O rastreio mostra os eventos individuais de cada operação, para que possa diagnosticar a causa raiz da duração da operação global.  Clique num dos exemplos superiores, que têm a duração mais longa.
-6.  Clique em **Hot Path** para destacar o caminho específico dos eventos que mais contribuem para a duração total da operação.  Neste exemplo, pode ver que a chamada mais lenta é a do método *FabrikamFiberAzureStorage.GetStorageTableData*. A parte que demora mais tempo é o método *CloudTable.CreateIfNotExist*. Se esta linha de código for executada sempre que a função é chamada, serão consumidas chamadas de rede e recursos de CPU desnecessários. A melhor forma de corrigir o seu código é colocar esta linha em algum método de arranque que seja executado apenas uma vez.
+6.  Clique **em Hot Path** para destacar o percurso específico dos eventos que mais contribuem para a duração total da operação.  Neste exemplo, pode ver que a chamada mais lenta é a do método *FabrikamFiberAzureStorage.GetStorageTableData*. A parte que demora mais tempo é o método *CloudTable.CreateIfNotExist*. Se esta linha de código for executada sempre que a função é chamada, serão consumidas chamadas de rede e recursos de CPU desnecessários. A melhor forma de corrigir o seu código é colocar esta linha em algum método de arranque que seja executado apenas uma vez.
 
     ![Detalhes do gerador de perfis](media/tutorial-performance/5-hot-path.png)
 
@@ -71,41 +71,41 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 
     ![Sugestão de desempenho](media/tutorial-performance/6-perf-tip.png)
 
-8.   Para mais análises, pode clicar em **Download Trace** para descarregar o vestígio. Pode ver estes dados usando o [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
+8.   Para mais análises, clique em **Download Trace** para descarregar o rasto. Pode ver estes dados usando [o PerfView.](https://github.com/Microsoft/perfview#perfview-overview)
 
-## <a name="use-logs-data-for-server"></a>Utilizar dados de registos para servidor
- Os registos fornecem uma linguagem de consulta rica que lhe permite analisar todos os dados recolhidos pela Application Insights. Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
+## <a name="use-logs-data-for-server"></a>Utilize dados de registos para servidor
+ Os registos fornecem uma linguagem de consulta rica que permite analisar todos os dados recolhidos pela Application Insights. Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
 
-1. Volte ao painel de ![detalhes de operação e clique em ícone de registos](media/tutorial-performance/app-viewinlogs-icon.png)**Ver em Registos (Analytics)**
+1. Volte ao painel de detalhes da operação e clique ![ em 'Logs](media/tutorial-performance/app-viewinlogs-icon.png)**icon' Ver em Registos (Analytics)**
 
-2. Os registos abrem com uma consulta para cada uma das vistas do painel.  Pode executar estas consultas como estão ou modificá-las de acordo com os seus requisitos.  A primeira consulta mostra a duração desta operação ao longo do tempo.
+2. Os registos abrem-se com uma consulta para cada uma das vistas do painel.  Pode executar estas consultas como estão ou modificá-las de acordo com os seus requisitos.  A primeira consulta mostra a duração desta operação ao longo do tempo.
 
-    ![consulta de logs](media/tutorial-performance/7-request-time-logs.png)
+    ![consulta de troncos](media/tutorial-performance/7-request-time-logs.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Identificar as operações do cliente lentas
 Além de identificar os processos de servidor a otimizar, o Application Insights pode analisar a perspetiva dos browsers cliente.  Isto pode ajudar a identificar possíveis melhorias nos componentes de cliente e até mesmo a identificar problemas em browsers diferentes ou em localizações diferentes.
 
-1. Selecione **Browser** under **Investigate,** em seguida, clique no Desempenho do **Navegador** ou selecione **Performance** sob **investigação** e mude para o separador **Browser** clicando no botão de alternância do servidor/navegador no direito superior para abrir o resumo do desempenho do navegador. Esta opção fornece um resumo visual de várias telemetrias da sua aplicação da perspetiva do browser.
+1. Selecione **O Navegador** em **Investigação** em seguida, clique em **Desempenho do Navegador** ou selecione **Performance** sob **Investigação** e mude para o separador **Browser** clicando no botão de alternância servidor/navegador no canto superior direito para abrir o resumo do desempenho do navegador. Esta opção fornece um resumo visual de várias telemetrias da sua aplicação da perspetiva do browser.
 
     ![Resumo do browser](media/tutorial-performance/8-browser.png)
 
-2. Selecione num dos nomes de funcionamento, clique no botão de amostras azuis no canto inferior direito e selecione uma operação. Isto irá trazer os detalhes da transação de ponta a ponta e no lado direito você pode ver as Propriedades de **Visualização**de Página . Isto permite-lhe visualizar detalhes do cliente que solicita a página, incluindo o tipo de navegador e a sua localização. Estas informações podem ajudá-lo a determinar se existem problemas de desempenho relacionados com tipos de clientes específicos.
+2. Selecione num dos nomes de funcionamento e, em seguida, clique no botão de amostras azuis no canto inferior direito e selecione uma operação. Isto irá trazer os detalhes de transação de ponta a ponta e no lado direito pode ver as **Propriedades de Visualização**de Página. Isto permite-lhe visualizar detalhes do cliente que solicita a página, incluindo o tipo de navegador e a sua localização. Estas informações podem ajudá-lo a determinar se existem problemas de desempenho relacionados com tipos de clientes específicos.
 
     ![Vista de página](media/tutorial-performance/9-page-view-properties.png)
 
-## <a name="use-logs-data-for-client"></a>Utilizar dados de registos para cliente
-Tal como os dados recolhidos para o desempenho do servidor, o Application Insights disponibiliza todos os dados do cliente para análise profunda utilizando Registos.
+## <a name="use-logs-data-for-client"></a>Utilize dados de registos para o cliente
+Tal como os dados recolhidos para o desempenho do servidor, o Application Insights disponibiliza todos os dados do cliente para análise profunda utilizando Logs.
 
-1. Volte ao resumo do navegador ![e](media/tutorial-performance/app-viewinlogs-icon.png) clique em Registars **ícone Ver em Registos (Analytics)**
+1. Volte ao resumo do navegador e clique ![ em 'Registares' ícone ](media/tutorial-performance/app-viewinlogs-icon.png) **Ver em Registos (Analytics)**
 
-2. Os registos abrem com uma consulta para cada uma das vistas do painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
+2. Os registos abrem-se com uma consulta para cada uma das vistas do painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
     ![Consulta de registos](media/tutorial-performance/10-page-view-logs.png)
 
-3.  Smart Diagnostics é uma característica dos Registos que identifica padrões únicos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
+3.  Smart Diagnostics é uma característica de Logs identifica padrões únicos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
 
-    ![Logs com Diagnósticos Inteligentes](media/tutorial-performance/11-page-view-logs-dsmart.png)
+    ![Registos com Diagnósticos Inteligentes](media/tutorial-performance/11-page-view-logs-dsmart.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

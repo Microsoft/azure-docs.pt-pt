@@ -1,6 +1,6 @@
 ---
-title: Migrar dados existentes para a conta API de Mesa em Azure Cosmos DB
-description: Saiba como migrar ou importar no local ou importar dados em nuvem para a conta API da Tabela Azure em Azure Cosmos DB.
+title: Migrar os dados existentes para a conta API de tabela em Azure Cosmos DB
+description: Saiba como migrar ou importar dados no local ou em nuvem para a conta AZure Table API em Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66242576"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119482"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
-Este tutorial fornece instruções sobre a importação de dados para utilização com a [API](table-introduction.md)de Tabela Db Azure Cosmos . Se tiver dados armazenados no Armazenamento de Tabelas do Azure, poderá utilizar a Ferramenta de Migração de Dados ou AzCopy para importar os seus dados para a API de Tabela do Azure Cosmos DB. Se tiver dados armazenados numa conta API de Tabelas do Azure Cosmos DB (pré-visualização), terá de utilizar a ferramenta de Migração de Dados para migrar os dados. 
+Este tutorial fornece instruções sobre a importação de dados para uso com a API da Tabela DB [AZure](table-introduction.md)Cosmos . Se tiver dados armazenados no Armazenamento de Tabelas do Azure, poderá utilizar a Ferramenta de Migração de Dados ou AzCopy para importar os seus dados para a API de Tabela do Azure Cosmos DB. Se tiver dados armazenados numa conta API de Tabelas do Azure Cosmos DB (pré-visualização), terá de utilizar a ferramenta de Migração de Dados para migrar os dados. 
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -28,7 +28,7 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Aumentar a entrada:** A duração da sua migração de dados depende da quantidade de entrada que configura para um recipiente individual ou um conjunto de recipientes. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, veja os níveis de Desempenho e escalões de preço do Azure Cosmos DB.
+* **Aumento da produção:** A duração da migração dos seus dados depende da quantidade de produção que criou para um recipiente individual ou um conjunto de contentores. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, veja os níveis de Desempenho e escalões de preço do Azure Cosmos DB.
 
 * **Criar recursos do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as suas tabelas no portal do Azure. Se estiver a migrar para uma conta do Azure Cosmos DB com débito ao nível da base de dados, confirme que proporciona uma chave de partição quando criar as tabelas do Azure Cosmos DB.
 
@@ -66,13 +66,13 @@ Utilize as seguintes opções de origem ao definir o Armazenamento de Tabelas do
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Para recuperar a cadeia de ligação fonte quando importar do armazenamento da Tabela Azure, abra o portal Azure e clique em contas de armazenamento As **teclas** > de**acesso**à**conta,** > e depois utilize o botão de cópia para copiar a **cadeia de ligação**.
+Para recuperar a cadeia de ligação de origem ao importar do armazenamento da tabela Azure, abra o portal Azure e clique nas **teclas de**Acesso à conta de armazenamento  >  **Account**  >  **Access keys**e, em seguida, utilize o botão de cópia para copiar a **cadeia De ligação**.
 
-![Captura de ecrã das opções de origem do HBase](./media/table-import/storage-table-access-key.png)
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Captura de ecrã das opções de origem do HBase":::
 
-Para recuperar a cadeia de ligação de origem ao importar de uma conta API (pré-visualização) do Azure Cosmos DB Table, abra o portal Azure, clique em **Azure Cosmos DB** > **Account** > **Connection String** e use o botão de cópia para copiar a Linha de **Ligação**.
+Para recuperar a cadeia de ligação de origem ao importar de uma conta API de tabela API (pré-visualização) da Tabela Azure Cosmos, abra o portal Azure, clique na Cadeia de Ligação da Conta **Azure Cosmos**  >  **Account**  >  **Connection String** DB e utilize o botão de cópia para copiar a **Cadeia de Ligação**.
 
-![Captura de ecrã das opções de origem do HBase](./media/table-import/cosmos-connection-string.png)
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de ecrã das opções de origem do HBase":::
 
 [Comando de Armazenamento de Tabelas do Azure](#azure-table-storage)
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323931"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252921"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -301,7 +301,7 @@ Para permitir a auditoria:
     ![Registos de auditoria](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Consulte [a auditoria da base de dados SQL](../../azure-sql/database/auditing-overview.md) sobre como personalizar ainda mais eventos de auditoria utilizando a PowerShell ou a REST API.
+> Consulte [a auditoria da SQL Database](../../azure-sql/database/auditing-overview.md) sobre como personalizar ainda mais eventos de auditoria utilizando a PowerShell ou a REST API.
 
 ### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
 
@@ -338,7 +338,7 @@ Para ativar ou verificar encriptação:
 > [!NOTE]
 > Para visualizar o estado de encriptação, ligue-se à base de dados utilizando [SSMS](connect-query-ssms.md) e consulte a `encryption_state` coluna da vista [sys.dm_database_encryption_keys.](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) Um estado indica `3` que a base de dados está encriptada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a melhorar a segurança da sua base de dados com apenas alguns passos simples. Aprendeu a:
 
