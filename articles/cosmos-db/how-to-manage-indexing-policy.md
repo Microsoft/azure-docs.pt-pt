@@ -3,16 +3,16 @@ title: Gerir políticas de indexação no Azure Cosmos DB
 description: Saiba como gerir políticas de indexação, incluir ou excluir uma propriedade da indexação, como definir a indexação usando diferentes SDKs Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
 ms.custom: tracking-python
-ms.openlocfilehash: 341c315bfdcb99a2cacb32d8aed892c684c44601
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558894"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261516"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 
@@ -362,7 +362,7 @@ Os contentores Azure Cosmos armazenam a sua política de indexação como um doc
 
 1. Clique em **Guardar** quando terminar.
 
-![Gerir Indexação utilizando o portal Azure](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Gerir Indexação utilizando o portal Azure":::
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -546,7 +546,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>Use o Node.js SDK
 
-A `ContainerDefinition` interface do [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (ver [este Quickstart](create-sql-api-nodejs.md) no que diz respeito à sua utilização) expõe uma `indexingPolicy` propriedade que permite alterar e adicionar ou remover e `indexingMode` `includedPaths` `excludedPaths` .
+A `ContainerDefinition` interface deNode.js [SDK](https://www.npmjs.com/package/@azure/cosmos) (ver [este Quickstart](create-sql-api-nodejs.md) sobre a sua utilização) expõe uma `indexingPolicy` propriedade que permite alterar e adicionar ou remover e `indexingMode` `includedPaths` `excludedPaths` .
 
 Recupere os detalhes do contentor
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: c8c33797fa35a64a2572026d5cb52d42c57b9b83
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 6e3ce99211da35105fd9e118a850110dfd48ece1
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466260"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986277"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags blob index (Preview) para gerir e encontrar dados sobre o armazenamento do Azure Blob
 
@@ -22,7 +22,7 @@ As tags Blob Index categorizam dados na sua conta de armazenamento utilizando at
 Para saber mais sobre o Índice Blob, consulte [Gerir e encontrar dados sobre o armazenamento de blob azure com índice blob (pré-visualização)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> O Blob Index está em pré-visualização pública, e está disponível nas regiões **centro** e francesa da **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
+> O Blob Index está em pré-visualização pública, e está disponível nas regiões central do **Canadá,** **Canadá Oriental,** **França Central** e **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -296,7 +296,7 @@ As políticas [de gestão do ciclo de vida](storage-lifecycle-management-concept
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o Blob Index. Consulte [Gerir e encontrar dados sobre o armazenamento de blob Azure com índice blob (pré-visualização)](storage-manage-find-blobs.md )
 

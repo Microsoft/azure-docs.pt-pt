@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 8a69e0bfe172d2cc7a291ee51ffa73ae7b484731
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 30a4e375bc05d939358b54b279228e1696b17e66
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613639"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729341"
 ---
 # <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>Como é que os novos Azure Digital Twins são diferentes da versão anterior (2018)?
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 A primeira pré-estreia pública da Azure Digital Twins foi lançada em outubro de 2018. Embora os conceitos fundamentais dessa versão anterior tenham passado para o novo serviço na pré-visualização pública, muitas das interfaces e detalhes de implementação mudaram para tornar o serviço mais flexível e acessível. Estas alterações foram motivadas pelo feedback do cliente.
 
@@ -40,7 +43,7 @@ O gráfico abaixo fornece uma visão lado a lado de conceitos que mudaram entre 
 
 Para obter uma lista dos limites das Gémeas Digitais Azure durante esta pré-visualização pública, consulte [Referência: Limites de serviço de pré-visualização do público](reference-service-limits.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, mergulhe em trabalhar com a Azure Digital Twins com o primeiro tutorial:
 

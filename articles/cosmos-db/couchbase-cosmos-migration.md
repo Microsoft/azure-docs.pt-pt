@@ -1,42 +1,42 @@
 ---
-title: Migrar da CouchBase para a Azure Cosmos DB SQL API
-description: Orientação passo a passo para migrar da CouchBase para a Azure Cosmos DB SQL API
+title: Migrar de CouchBase para Azure Cosmos DB SQL API
+description: Orientação passo a passo para migrar da CouchBase para Azure Cosmos DB SQL API
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.openlocfilehash: 248860ad6963fcd04526f0d94e52d6a6181463c5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f7c0cb893f65688145811cbd2a0280c2d232d7a9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657353"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261924"
 ---
-# <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar da CouchBase para a Azure Cosmos DB SQL API
+# <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar de CouchBase para Azure Cosmos DB SQL API
 
-Azure Cosmos DB é uma base de dados escalável, distribuída globalmente, totalmente gerida. Proporciona acesso garantido de baixa latência aos seus dados. Para saber mais sobre o Azure Cosmos DB, consulte o artigo sobre [visão geral.](introduction.md) Este artigo fornece instruções para migrar aplicações java que estão ligadas à Couchbase a uma conta SQL API em Azure Cosmos DB.
+Azure Cosmos DB é uma base de dados escalável, globalmente distribuída e totalmente gerida. Proporciona acesso garantido de baixa latência aos seus dados. Para saber mais sobre a Azure Cosmos DB, veja o artigo [Visão Geral.](introduction.md) Este artigo fornece instruções para migrar aplicações Java que estão ligadas à Couchbase a uma conta API SQL em Azure Cosmos DB.
 
 ## <a name="differences-in-nomenclature"></a>Diferenças na nomenclatura
 
-Seguem-se as principais características que funcionam de forma diferente em Azure Cosmos DB quando comparadas com a Couchbase:
+Seguem-se as principais características que funcionam de forma diferente no Azure Cosmos DB quando comparadas com a Couchbase:
 
 |   Couchbase     |   Azure Cosmos DB   |
 | ---------------|-------------------|
-|Servidor couchbase| Conta       |
+|Servidor de base de sofás| Conta       |
 |Balde           | Base de Dados      |
-|Balde           | Contentor/Recolha |
+|Balde           | Contentor/Coleção |
 |Documento JSON    | Item / Documento |
 
 ## <a name="key-differences"></a>Diferenças principais
 
-* A Azure Cosmos DB tem um campo de identificação dentro do documento, enquanto a Couchbase tem o ID como parte do balde. O campo "ID" é único em toda a divisória.
+* AZure Cosmos DB tem um campo de "ID" dentro do documento, enquanto couchbase tem o ID como parte do balde. O campo "ID" é único em toda a partição.
 
-* Azure Cosmos DB escala utilizando a técnica de partição ou sharding. O que significa que divide os dados em vários fragmentos/divisórias. Estas divisórias/fragmentos são criados com base na propriedade chave de partição que você fornece. Pode selecionar a chave de partição para otimizar a leitura, bem como escrever operações ou ler/escrever otimizado também. Para saber mais, consulte o artigo [de partilha.](./partition-data.md)
+* Azure Cosmos DB escala utilizando a técnica de partição ou de fragmentos. O que significa que divide os dados em múltiplos fragmentos/divisórias. Estas divisórias/fragmentos são criados com base na propriedade chave de partição que você fornece. Pode selecionar a chave de partição para otimizar a leitura, bem como escrever operações ou ler/escrever também otimizado. Para saber mais, veja o artigo [de partição.](./partition-data.md)
 
-* Em Azure Cosmos DB, não é necessário que a hierarquia de alto nível denote a coleção porque o nome da coleção já existe. Esta funcionalidade torna a estrutura JSON muito mais simples. Segue-se um exemplo que mostra diferenças no modelo de dados entre a Couchbase e a Azure Cosmos DB:
+* Na Azure Cosmos DB, não é necessário que a hierarquia de alto nível denote a coleção porque o nome da coleção já existe. Esta funcionalidade torna a estrutura JSON muito mais simples. Segue-se um exemplo que mostra diferenças no modelo de dados entre Couchbase e Azure Cosmos DB:
 
-   **Couchbase**: Id de documento = "99FF4444"
+   **Base do**sofá : Documento ID = "99FF4444"
 
     ```json
     {
@@ -66,7 +66,7 @@ Seguem-se as principais características que funcionam de forma diferente em Azu
     }
    ```
 
-   **Azure Cosmos DB**: Consulte "ID" dentro do documento como mostrado abaixo
+   **Azure Cosmos DB**: Consulte "ID" dentro do documento, como mostrado abaixo
 
     ```json
     {
@@ -98,18 +98,18 @@ Seguem-se as principais características que funcionam de forma diferente em Azu
          
 ## <a name="java-sdk-support"></a>Suporte Java SDK
 
-A Azure Cosmos DB tem seguindo os SDKs para apoiar diferentes estruturas java:
+A Azure Cosmos DB tem sDKs seguintes para suportar diferentes quadros java:
 
 * Async SDK
-* SDK de botas de primavera
+* SDK de bota de primavera
 
-As seguintes secções descrevem quando usar cada um destes SDKs. Considere um exemplo onde temos três tipos de cargas de trabalho:
+As seguintes secções descrevem quando utilizar cada um destes SDKs. Considere um exemplo onde temos três tipos de cargas de trabalho:
 
-## <a name="couchbase-as-document-repository--spring-data-based-custom-queries"></a>Base de sofá como repositório de documentos & consultas personalizadas baseadas em dados de mola
+## <a name="couchbase-as-document-repository--spring-data-based-custom-queries"></a>Base de sofá como repositório de documentos & consultas personalizadas baseadas em dados de primavera
 
-Se a carga de trabalho que está a migrar for baseada no SDK baseado em Botas de primavera, então pode utilizar os seguintes passos:
+Se a carga de trabalho que está a migrar for baseada em SDK baseado em botas de mola, então pode utilizar os seguintes passos:
 
-1. Adicione o progenitor ao ficheiro POM.xml:
+1. Adicione o pai ao ficheiro POM.xml:
 
    ```java
    <parent>
@@ -136,7 +136,7 @@ Se a carga de trabalho que está a migrar for baseada no SDK baseado em Botas de
    </dependency>
    ```
 
-1. Adicione propriedades de aplicação sob recursos e especifique o seguinte. Certifique-se de substituir os parâmetros de nome URL, chave e base de dados:
+1. Adicione propriedades de aplicação em recursos e especifique o seguinte. Certifique-se de substituir os parâmetros de nome URL, chave e base de dados:
 
    ```java
       azure.cosmosdb.uri=<your-cosmosDB-URL>
@@ -144,7 +144,7 @@ Se a carga de trabalho que está a migrar for baseada no SDK baseado em Botas de
       azure.cosmosdb.database=<your-cosmosDB-dbName>
    ```
 
-1. Defina o nome da coleção no modelo. Também pode especificar mais anotações. Por exemplo, ID, chave de partição para denotá-los explicitamente:
+1. Defina o nome da coleção no modelo. Também pode especificar outras anotações. Por exemplo, ID, chave de partição para denotar explicitamente:
 
    ```java
    @Document(collection = "mycollection")
@@ -157,48 +157,48 @@ Se a carga de trabalho que está a migrar for baseada no SDK baseado em Botas de
        }
    ```
 
-Seguem-se os códigos de snippets para operações crud:
+Seguem-se os códigos de corte para as operações crud:
 
-### <a name="insert-and-update-operations"></a>Insira e atualize as operações
+### <a name="insert-and-update-operations"></a>Inserir e atualizar operações
 
-Onde *_repo* é objeto de repositório e *doc* é objeto da classe POJO. Pode utilizar `.save` para inserir ou sermantes (se o documento tiver sido encontrado com identificação especificada). O seguinte código de corte mostra como inserir ou atualizar um objeto doc:
+Onde *_repo* é objeto de repositório e *doc* é o objeto da classe POJO. Pode utilizar `.save` para inserir ou aumentar (se encontrar documento com ID especificado). O seguinte corte de código mostra como inserir ou atualizar um objeto doc:
 
 ```_repo.save(doc);```
 
 ### <a name="delete-operation"></a>Eliminar operação
 
-Considere o seguinte código snippet, onde o objeto do doc terá identificação e chave de partição obrigatória para localizar e eliminar o objeto:
+Considere o seguinte corte de código, onde o objeto doc terá iD e chave de partição obrigatória para localizar e eliminar o objeto:
 
 ```_repo.delete(doc);```
 
 ### <a name="read-operation"></a>Ler Operação
 
-Pode ler o documento com ou sem especificar a chave de partição. Se não especificar a chave de partição, então é tratada como uma consulta de partição cruzada. Considere as seguintes amostras de código, a primeira executará o funcionamento utilizando o id e o campo chave da partição. O segundo exemplo utiliza um campo regular & sem especificar o campo chave da divisória.
+Pode ler o documento com ou sem especificar a chave de partição. Se não especificar a chave de partição, é tratada como uma consulta de partição cruzada. Considere as seguintes amostras de código, a primeira irá executar a operação utilizando o campo de identificação e partição. O segundo exemplo utiliza um campo regular & sem especificar o campo de chaves de partição.
 
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-É isso, agora podes usar a tua aplicação com o Azure Cosmos DB. A amostra completa de código para o exemplo descrito neste doc está disponível no [repo CouchbaseToCosmosDB-SpringCosmos GitHubs.](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos)
+É isso, agora podes usar a tua aplicação com a Azure Cosmos DB. A amostra de código completa para o exemplo descrito neste doc está disponível no [repo CouchbaseToCosMosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub.
 
-## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Couchbase como um repositório de documentos & usando consultas N1QL
+## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Base de sofá como um repositório de documentos & usando consultas N1QL
 
-Consultas N1QL é a maneira de definir consultas na Base de Sofá.
+Consultas N1QL é a forma de definir consultas na Base de Sofás.
 
 |Consulta N1QL | Consulta Azure CosmosDB|
 |-------------------|-------------------|
-|SELECT `TravelDocument` META(.id AS id, `TravelDocument` .* FROM `TravelDocument` WHERE = `_type` "com.xx.xx.xx.xx.xxx.xxx.xxxx" e país = 'Índia' e ANY m em Vistos SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDEM BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER BY c.Validade DESC OFFSET 0 LIMIT 25 |
+|SELECT META( `TravelDocument` .id AS id, `TravelDocument` .* FROM `TravelDocument` WHERE = `_type` "com.xx.xx.xxx.xxx.xxx.xxxx " e país = 'Índia' e ANY m in Visas SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER POR c.Validity DESC 0 LIMIT 25 |
 
 Pode notar as seguintes alterações nas suas consultas N1QL:
 
-* Não precisa de usar a palavra-chave META nem consultar o documento de primeiro nível. Em vez disso, pode criar a sua própria referência ao recipiente. Neste exemplo, consideramos-o "c" (pode ser qualquer coisa). Esta referência é usada como prefixo para todos os campos de primeiro nível. Exemplo fr, c.id, c.country etc.
+* Não é necessário utilizar a palavra-chave META ou consultar o documento de primeiro nível. Em vez disso, pode criar a sua própria referência ao recipiente. Neste exemplo, consideramos que é "c" (pode ser qualquer coisa). Esta referência é utilizada como prefixo para todos os campos de primeiro nível. Fr exemplo, c.id, c.country etc.
 
-* Em vez de "ANY" agora pode fazer uma adesão ao subdocumento e encaminhá-lo com um pseudónimo dedicado como "m". Depois de ter criado pseudónimo para um subdocumento, precisa de usar pseudónimo. Por exemplo, m.Country.
+* Em vez de "ANY" agora pode fazer uma junção ao subdocumento e remexá-lo com um pseudónimo dedicado como "m". Uma vez criado um pseudónimo para um subdocument, precisa de usar o pseudónimo. Por exemplo, m.Country.
 
-* A sequência de OFFSET é diferente na consulta do Azure Cosmos DB, primeiro tens de especificar OFFSET e DEPOIS LIMIT. Recomenda-se que não utilize o Spring Data SDK se estiver a utilizar consultas personalizadas máximas, uma vez que pode ter despesas desnecessárias ao lado do cliente ao passar a consulta para o Azure Cosmos DB. Em vez disso, temos um SDK Async Java, que pode ser utilizado de forma muito eficiente neste caso.
+* A sequência de OFFSET é diferente na consulta DB do Azure Cosmos, primeiro tens de especificar OFFSET e depois LIMIT. Recomenda-se que não utilize o Spring Data SDK se estiver a utilizar as consultas máximas definidas sob medida, uma vez que pode ter sobrecargas desnecessárias do lado do cliente enquanto passa a consulta para a Azure Cosmos DB. Em vez disso, temos um Async Java SDK direto, que pode ser utilizado de forma muito eficiente neste caso.
 
-### <a name="read-operation"></a>Continuar a funcionar
+### <a name="read-operation"></a>Ler operação
 
-Utilize o SDK Async Java com os seguintes passos:
+Utilize o Async Java SDK com os seguintes passos:
 
 1. Configure a seguinte dependência no ficheiro POM.xml:
 
@@ -211,7 +211,7 @@ Utilize o SDK Async Java com os seguintes passos:
    </dependency>
    ```
 
-1. Crie um objeto de ligação para o Azure Cosmos DB utilizando o `ConnectionBuilder` método como mostrado no exemplo seguinte. Certifique-se de que coloca esta declaração no feijão de modo a que o seguinte código seja executado apenas uma vez:
+1. Crie um objeto de ligação para Azure Cosmos DB utilizando o `ConnectionBuilder` método como mostrado no exemplo seguinte. Certifique-se de que coloca esta declaração no feijão de modo a que o seguinte código seja executado apenas uma vez:
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();
@@ -228,13 +228,13 @@ Utilize o SDK Async Java com os seguintes passos:
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
 
-1. Para executar a consulta, tem de executar o seguinte código:
+1. Para executar a consulta, é necessário executar o seguinte corte de código:
 
    ```java
    Flux<FeedResponse<CosmosItemProperties>> objFlux= container.queryItems(query, fo);
    ```
 
-Agora, com a ajuda do método acima, pode passar várias consultas e executar sem qualquer aborrecimento. No caso de ter a obrigação de executar uma grande consulta, que pode ser dividida em múltiplas consultas, experimente o seguinte código em vez do anterior:
+Agora, com a ajuda de método acima você pode passar várias consultas e executar sem qualquer ausos. Caso tenha a obrigação de executar uma grande consulta, que pode ser dividida em múltiplas consultas, tente o seguinte corte de código em vez do anterior:
 
 ```java
 for(SqlQuerySpec query:queries)
@@ -258,9 +258,9 @@ for(SqlQuerySpec query:queries)
 }
 ```
 
-Com o código anterior, pode executar consultas paralelas e aumentar as execuções distribuídas para otimizar. Mais à frente, também pode executar as operações de inserção e atualização:
+Com o código anterior, pode executar consultas em paralelo e aumentar as execuções distribuídas para otimizar. Além disso, pode executar as operações de inserção e atualização também:
 
-### <a name="insert-operation"></a>Inserção de operação
+### <a name="insert-operation"></a>Inserir operação
 
 Para inserir o documento, execute o seguinte código:
 
@@ -268,7 +268,7 @@ Para inserir o documento, execute o seguinte código:
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
-Em seguida, subscreva mono como:
+Em seguida, subscreva a Mono como:
 
 ```java
 CountDownLatch latch=new CountDownLatch(1);
@@ -286,31 +286,31 @@ latch.await();
 
 ### <a name="upsert-operation"></a>Operação Upsert
 
-A operação upsert requer que especifique o documento que precisa de ser atualizado. Para obter o documento completo, pode utilizar o corte mencionado na operação de leitura de posição e, em seguida, modificar os campos necessários. O seguinte código snippet upserts o documento:
+A operação upsert requer que especifique o documento que precisa de ser atualizado. Para obter o documento completo, pode utilizar o corte mencionado na operação de leitura de títulos e, em seguida, modificar o campo ou campo necessários. O seguinte código corta o documento:
 
 ```java
 Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 ```
-Em seguida, subscreva o mono. Consulte o corte de subscrição mono na operação de inserção.
+Em seguida, subscreva o mono. Consulte o corte de assinatura mono em funcionamento de inserção.
 
 ### <a name="delete-operation"></a>Eliminar operação
 
-O seguinte corte eliminará o funcionamento:
+Após o corte irá eliminar a operação:
 
 ```java     
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Em seguida, subscreva o mono, consulte o corte de subscrição mono na operação de inserção. A amostra completa de código está disponível no [repo CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub.
+Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção. A amostra de código completa está disponível no [repo Dossb-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub.
 
-## <a name="couchbase-as-a-keyvalue-pair"></a>Couchbase como um par chave/valor
+## <a name="couchbase-as-a-keyvalue-pair"></a>Base de sofá como um par chave/valor
 
-Este é um tipo simples de carga de trabalho em que você pode realizar procuras em vez de consultas. Utilize os seguintes passos para pares chave/valor:
+Este é um tipo simples de carga de trabalho em que você pode realizar lookups em vez de consultas. Utilize os seguintes passos para pares de chaves/valor:
 
-1. Considere ter "/ID" como chave principal, o que fará com que possa realizar a operação de procuração diretamente na partição específica. Crie uma coleção e especifique "/ID" como chave de partição.
+1. Considere ter "/ID" como chave primária, o que garante que pode realizar uma operação de procura diretamente na partição específica. Crie uma coleção e especifique "/ID" como chave de partição.
 
-1. Desligue completamente o índice. Como vai executar operações de procuração, não faz sentido carregar as despesas de indexação. Para desligar a indexação, assine no portal Azure, goto Azure Cosmos DB Account. Abra o **Data Explorer,** selecione a sua **Base de Dados** e o **Recipiente**. Abra o separador **Definições de escala &** e selecione a **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
+1. Desligue completamente a indexação. Como vai executar operações de procura, não vale a pena carregar a indexação. Para desativar a indexação, inscreva-se no portal Azure, conta DB goto Azure Cosmos. Abra o **Data Explorer,** selecione a **base de dados** e o **Contentor.** Abra o **separador Escala & Definições** e selecione a **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
     
    ```json
    {
@@ -340,7 +340,7 @@ Este é um tipo simples de carga de trabalho em que você pode realizar procuras
     }
    ```
 
-1. Utilize o seguinte fragmento de código para criar o objeto de ligação. Objeto de ligação (a ser colocado @Bean ou estática):
+1. Utilize o seguinte corte de código para criar o objeto de ligação. Objeto de ligação (a ser colocado @Bean ou torná-lo estático):
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();
@@ -357,9 +357,9 @@ Este é um tipo simples de carga de trabalho em que você pode realizar procuras
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
 
-Agora pode executar as operações crud da seguinte forma:
+Agora pode executar as operações da CRUD da seguinte forma:
 
-### <a name="read-operation"></a>Continuar a funcionar
+### <a name="read-operation"></a>Ler operação
 
 Para ler o artigo, utilize o seguinte corte:
 
@@ -382,7 +382,7 @@ objMono .subscribeOn(Schedulers.elastic())
 latch.await();
 ```
 
-### <a name="insert-operation"></a>Inserção de operação
+### <a name="insert-operation"></a>Inserir operação
 
 Para inserir um item, pode executar o seguinte código:
 
@@ -408,34 +408,34 @@ latch.await();
 
 ### <a name="upsert-operation"></a>Operação Upsert
 
-Para atualizar o valor de um item, consulte o código abaixo:
+Para atualizar o valor de um item, consulte o corte de código abaixo:
 
 ```java
 Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 ```
-Em seguida, subscreva o mono, consulte o corte de subscrição mono na operação de inserção.
+Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção.
 
 ### <a name="delete-operation"></a>Eliminar operação
 
-Utilize o seguinte corte para executar a operação de exclusão:
+Utilize o seguinte corte para executar a operação de eliminação:
 
 ```java     
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Em seguida, subscreva o mono, consulte o corte de subscrição mono na operação de inserção. A amostra completa de código está disponível no [repo CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub.
+Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção. A amostra de código completa está disponível no [repo DoCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub.
 
 ## <a name="data-migration"></a>Migração de Dados
 
-Há duas formas de migrar dados.
+Há duas maneiras de migrar dados.
 
-* Utilize a Fábrica de **Dados Azure:** Este é o método mais recomendado para migrar os dados. Configure a fonte como Couchbase e afunde como Azure Cosmos DB SQL API, consulte o artigo de [conector](../data-factory/connector-azure-cosmos-db.md) Azure Cosmos DB Data Factory para passos detalhados.
+* **Utilize a Fábrica de Dados Azure:** Este é o método mais recomendado para migrar os dados. Configure a fonte como Couchbase e afundar como Azure Cosmos DB SQL API, consulte o artigo de conector Azure [Cosmos DB Data Factory](../data-factory/connector-azure-cosmos-db.md) para etapas detalhadas.
 
-* Utilize a ferramenta de importação de **dados Azure Cosmos DB:** Esta opção é recomendada para migrar usando VMs com menos quantidade de dados. Para obter passos detalhados, consulte o artigo do importador de [dados.](./import-data.md)
+* **Utilize a ferramenta de importação de dados Azure Cosmos DB:** Esta opção é recomendada para migrar usando VMs com menos quantidade de dados. Para obter etapas detalhadas, consulte o artigo [do importador de dados.](./import-data.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para fazer testes de desempenho, consulte o desempenho e os testes de escala com o artigo da [Azure Cosmos DB.](./performance-testing.md)
-* Para otimizar o código, consulte dicas de desempenho para o artigo [da Azure Cosmos DB.](./performance-tips-async-java.md)
-* Explore java Async V3 SDK, [sdk referência](https://github.com/Azure/azure-cosmosdb-java/tree/v3) GitHub repo.
+* Para fazer testes de desempenho, consulte testes de desempenho e escala com o artigo [DB da Azure Cosmos.](./performance-testing.md)
+* Para otimizar o código, consulte as dicas de desempenho para o artigo [DB da Azure Cosmos.](./performance-tips-async-java.md)
+* Explore Java Async V3 SDK, [referência SDK](https://github.com/Azure/azure-cosmosdb-java/tree/v3) GitHub repo.

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: dfe35eecfec5a12395ac3d9973a651e033aeea73
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672540"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85200160"
 ---
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/) 
 
@@ -24,8 +24,7 @@ ms.locfileid: "84672540"
     * **Política**  >  **Policy.ReadWrite.TrustFramework**: Para cenários de integração contínua/entrega contínua (CI/CD). Por exemplo, a implementação de políticas personalizadas com a Azure Pipelines.
 1. **Selecione Permissões de adicionar**. Como dirigido, aguarde alguns minutos antes de seguir para o próximo passo.
 1. Selecione **o consentimento administrativo do Grant para (o nome do seu inquilino)**.
-1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que foi atribuída pelo menos a função de administrador de *aplicação cloud.*
-1. Selecione **Aceitar**.
+1. Se não tiver sido inscrito na conta global do Administrador, inscreva-se com uma conta no seu inquilino Azure AD B2C que foi atribuída pelo menos a função de administrador de *aplicação cloud* e, em seguida, selecione **Grant a cargo de administrador para (o nome do seu inquilino)**.
 1. Selecione **Refresh**, e, em seguida, verifique que "Concedido para..." aparece em **Estado**. Pode levar alguns minutos para as permissões se propagarem.
 
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)

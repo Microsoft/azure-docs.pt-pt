@@ -1,36 +1,34 @@
 ---
-title: Gerir zonas DNS em Azure DNS - PowerShell / Microsoft Docs
-description: Pode gerir zonas DNS utilizando o Azure Powershell. Este artigo descreve como atualizar, excluir e criar zonas de DNS em DNS Azure
+title: Gerir zonas de DNS em Azure DNS - PowerShell Microsoft Docs
+description: Pode gerir zonas DNS utilizando a Azure Powershell. Este artigo descreve como atualizar, excluir e criar zonas DNS no Azure DNS
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
-ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d46e2d31c8d6c5a175239c76795359ad64b1abd3
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936806"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686210"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerir as Zonas DNS usando o PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [ClI clássico azure](dns-operations-dnszones-cli-nodejs.md)
+> * [CLI clássico de Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [CLI do Azure](dns-operations-dnszones-cli.md)
 
-Este artigo mostra-lhe como gerir as suas zonas DNS utilizando o Azure PowerShell. Também pode gerir as suas zonas DNS utilizando o [azure CLI](dns-operations-dnszones-cli.md) de plataforma cruzada ou o portal Azure.
+Este artigo mostra-lhe como gerir as suas zonas DNS utilizando o Azure PowerShell. Também pode gerir as suas zonas DNS utilizando a plataforma transversal [Azure CLI](dns-operations-dnszones-cli.md) ou o portal Azure.
 
-Este guia trata especificamente das zonas públicas de DNS. Para obter informações sobre a utilização da Azure PowerShell para gerir zonas privadas em DNS Azure, consulte [Start start with Azure DNS Private Zones utilizando o Azure PowerShell](private-dns-getstarted-powershell.md).
+Este guia trata especificamente das zonas públicas de DNS. Para obter informações sobre a utilização do Azure PowerShell para gerir zonas privadas em Azure DNS, consulte [Começar com as Zonas Privadas Azure DNS utilizando a Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -41,13 +39,13 @@ Este guia trata especificamente das zonas públicas de DNS. Para obter informaç
 
 Uma zona DNS é criada ao utilizar o cmdlet `New-AzureRmDnsZone`.
 
-O exemplo seguinte cria uma zona DeNs chamada *contoso.com* no grupo de recursos chamado *MyResourceGroup*:
+O exemplo a seguir cria uma zona DENS chamada *contoso.com* no grupo de recursos chamado *MyResourceGroup*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-O exemplo seguinte mostra como criar uma zona DNS com duas [tags Azure Resource Manager,](dns-zones-records.md#tags) *projeto = demonstração* e *env = teste:*
+O exemplo a seguir mostra como criar uma zona de DNS com [duas tags Azure Resource Manager](dns-zones-records.md#tags), *project = demo* e *env = teste*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -55,9 +53,9 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Ta
 
 O Azure DNS também suporta zonas privadas de DNS.  Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com o PowerShell](./private-dns-getstarted-powershell.md).
 
-## <a name="get-a-dns-zone"></a>Obtenha uma zona DNS
+## <a name="get-a-dns-zone"></a>Obtenha uma zona DE DNS
 
-Para recuperar uma zona DNS, utilize o `Get-AzureRmDnsZone` cmdlet. Esta operação devolve um objeto de zona DNS correspondente a uma zona existente em DNS Azure. O objeto contém dados sobre a zona (como o número de conjuntos de `Get-AzureRmDnsRecordSet`recordes), mas não contém os próprios conjuntos de registo (ver).
+Para recuperar uma zona DE DNS, utilize o `Get-AzureRmDnsZone` cmdlet. Esta operação devolve um objeto de zona DNS correspondente a uma zona existente no Azure DNS. O objeto contém dados sobre a zona (como o número de conjuntos de recordes), mas não contém os próprios conjuntos de registos `Get-AzureRmDnsRecordSet` (ver).
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
@@ -88,13 +86,13 @@ $zoneList = Get-AzureRmDnsZone
 
 ## <a name="update-a-dns-zone"></a>Atualizar uma zona DNS
 
-É possível efetuar alterações a um recurso de zona DNS com `Set-AzureRmDnsZone`. Este cmdlet não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Com gerir recursos DNS](dns-operations-recordsets.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. As propriedades da zona de mandato estão atualmente limitadas às ['tags' do Gestor](dns-zones-records.md#tags)de Recursos Azure para o recurso da zona .
+É possível efetuar alterações a um recurso de zona DNS com `Set-AzureRmDnsZone`. Este cmdlet não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Com gerir recursos DNS](dns-operations-recordsets.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. As propriedades da zonaificável estão atualmente limitadas às ['tags' do Gestor de Recursos Azure para o recurso de zona.](dns-zones-records.md#tags)
 
-Utilize uma das duas formas seguintes de atualizar uma zona DNS:
+Utilize uma das duas seguintes formas de atualizar uma zona DE DNS:
 
-### <a name="specify-the-zone-using-the-zone-name-and-resource-group"></a>Especifique a zona utilizando o nome da zona e o grupo de recursos
+### <a name="specify-the-zone-using-the-zone-name-and-resource-group"></a>Especificar a zona usando o nome da zona e o grupo de recursos
 
-Esta abordagem substitui as etiquetas de zona existentes com os valores especificados.
+Esta abordagem substitui as etiquetas de zona existentes pelos valores especificados.
 
 ```powershell
 Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -118,11 +116,11 @@ $zone.Tags.Add("status","approved")
 Set-AzureRmDnsZone -Zone $zone
 ```
 
-Quando `Set-AzureRmDnsZone` se utiliza com um $zone objeto, as [verificações do Etag](dns-zones-records.md#etags) são utilizadas para garantir que as alterações simultâneas não sejam substituídas. Pode utilizar o `-Overwrite` interruptor opcional para suprimir estes controlos.
+Ao utilizar `Set-AzureRmDnsZone` com um objeto $zone, os [controlos Etag](dns-zones-records.md#etags) são utilizados para garantir que as alterações simultâneas não são substituídas. Pode utilizar o interruptor opcional `-Overwrite` para suprimir estas verificações.
 
-## <a name="delete-a-dns-zone"></a>Eliminar uma Zona DNS
+## <a name="delete-a-dns-zone"></a>Excluir uma Zona DNS
 
-As zonas DNS podem `Remove-AzureRmDnsZone` ser eliminadas utilizando o cmdlet.
+As zonas DE DNS podem ser eliminadas utilizando o `Remove-AzureRmDnsZone` cmdlet.
 
 > [!NOTE]
 > A eliminação de uma zona DNS também elimina todos os registos DNS na zona. Esta operação não pode ser anulada. Se a zona DNS estiver em utilização, os serviços que utilizam a zona irão falhar quando a zona for eliminada.
@@ -154,7 +152,7 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 ```
 
-Tal `Set-AzureRmDnsZone`como acontece, especificar `$zone` a zona utilizando um objeto permite que as verificações do Etag garantam que as alterações simultâneas não são eliminadas. Utilize `-Overwrite` o interruptor para suprimir estes controlos.
+Tal como `Set-AzureRmDnsZone` com , especificar a zona utilizando um `$zone` objeto permite que as verificações Etag garantam que as alterações simultâneas não sejam eliminadas. Use o `-Overwrite` interruptor para suprimir estas verificações.
 
 ## <a name="confirmation-prompts"></a>Pedidos de confirmação
 
@@ -170,9 +168,9 @@ Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, veja [Sob
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a [gerir recordes e recordes](dns-operations-recordsets.md) na sua zona de DNS.
+Saiba como [gerir recordes e registos](dns-operations-recordsets.md) na sua zona de DNS.
 <br>
-Aprenda a [delegar o seu domínio no Azure DNS.](dns-domain-delegation.md)
+Saiba como [delegar o seu domínio no Azure DNS](dns-domain-delegation.md).
 <br>
 Reveja a documentação de referência do [Azure DNS PowerShell](/powershell/module/azurerm.dns).
 

@@ -7,13 +7,13 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
-ms.openlocfilehash: 90a7f37fb82cfea2f3ee44c31f6d3ef0a61c64c0
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.reviewer: dineshm
+ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465410"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808840"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 
@@ -74,7 +74,7 @@ Pode utilizar o NuGet para obter estes pacotes. Siga estes passos.
 1. Clique com o botão direito no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
 1. **Selecione Procurar**
 1. Pes faça pesquisa online por "Azure.Storage.Queues", e selecione **Instalar** para instalar a biblioteca do cliente de Armazenamento e as suas dependências. Isto também instalará as bibliotecas Azure.Storage.Common e Azure.Core, que são dependências da biblioteca de fila.
-1. Procure online por "System.Configuration.ConfigurationManager" e selecione **Instalar** para instalar o Gestor de Configuração.
+1. Procure online por "System.Configuration.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações.
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -89,7 +89,7 @@ Pode utilizar o NuGet para obter estes pacotes. Siga estes passos.
 1. Clique com o botão direito no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
 1. **Selecione Procurar**
 1. Procure online por "Microsoft.Azure.Storage.Queue", e selecione **Instalar** para instalar a biblioteca do cliente de Armazenamento e as suas dependências. Isto também instalará a biblioteca Microsoft.Azure.Storage.Common, que é uma dependência da biblioteca de filas.
-1. Procure online por "Microsoft.Azure.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações Azure.
+1. Pesse online por "Microsoft.Azure.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações Azure.
 
 ---
 
@@ -489,13 +489,13 @@ queue.Delete();
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas.
 
 - Ver a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
   - [Referência da Biblioteca de Clientes do Storage para o .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Referência API REST](https://msdn.microsoft.com/library/azure/dd179355)
 - Aprenda a simplificar o código que escreve para trabalhar com o Azure Storage utilizando o [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
   - [Introdução ao Table Storage do Azure utilizando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para armazenar dados estruturados.

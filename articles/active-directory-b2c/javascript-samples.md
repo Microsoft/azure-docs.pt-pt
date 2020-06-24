@@ -1,7 +1,7 @@
 ---
 title: Exemplos de JavaScript
 titleSuffix: Azure AD B2C
-description: Saiba mais sobre a utilização do JavaScript no Diretório Ativo Azure B2C.
+description: Saiba como utilizar o JavaScript no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c66ccb8ae9db46ca8e94d9c73e9c61b64119dd0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187666"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201791"
 ---
-# <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Amostras JavaScript para utilização no Diretório Ativo Azure B2C
+# <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Amostras javaScript para utilização no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Pode adicionar o seu próprio código do lado do cliente JavaScript às aplicações do Diretório Ativo Azure B2C (Azure AD B2C).
+Pode adicionar o seu próprio código javaScript ao seu Azure Ative Directory B2C (Azure AD B2C) com aplicações.
 
 Para ativar o JavaScript para as suas aplicações:
 
 * Adicione um elemento à sua [política personalizada](custom-policy-overview.md)
-* Selecione um layout de [página](page-layout.md)
-* Use [b2clogin.com](b2clogin.md) nos seus pedidos
+* Selecione um [layout de página](page-layout.md)
+* Utilize [b2clogin.com](b2clogin.md) nos seus pedidos
 
-Este artigo descreve como pode alterar a sua política personalizada para permitir a execução do script.
+Este artigo descreve como pode alterar a sua política personalizada para ativar a execução do script.
 
 > [!NOTE]
-> Se pretender ativar o JavaScript para fluxos de utilizadores, consulte [as versões JavaScript e page layout no Azure Ative Directory B2C](user-flow-javascript-overview.md).
+> Se pretender ativar o JavaScript para fluxos de utilizador, consulte [as versões javaScript e de layout da página no Azure Ative Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="select-a-page-layout"></a>Selecione um layout de página
 
-* Selecione um layout de [página](contentdefinitions.md#select-a-page-layout) para os elementos de interface do utilizador da sua aplicação.
+* Selecione um [layout de página](contentdefinitions.md#select-a-page-layout) para os elementos de interface do utilizador da sua aplicação.
 
-    Se pretender utilizar o JavaScript, precisa de definir `contract` uma versão de layout de [página](contentdefinitions.md#migrating-to-page-layout) com versão de página para todas *as* definições de conteúdo na sua política personalizada.
+    Se pretender utilizar o JavaScript, tem de [definir uma versão de layout](contentdefinitions.md#migrating-to-page-layout) de página com a versão de página para todas `contract` *as* definições de conteúdo na sua política personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adicione o elemento ScriptExecution
 
 Ativa a execução do script adicionando o elemento **ScriptExecution** ao elemento [RelyingParty.](relyingparty.md)
 
-1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml*.
-2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** of **RelyingParty:**
+1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml. *
+2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** da **RelyingParty:**
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>
@@ -59,7 +59,7 @@ Ativa a execução do script adicionando o elemento **ScriptExecution** ao eleme
       ...
     </RelyingParty>
     ```
-3. Guarde e carregue o ficheiro.
+3. Guarde e carre fique no upload do ficheiro.
 
 [!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
@@ -67,7 +67,7 @@ Ativa a execução do script adicionando o elemento **ScriptExecution** ao eleme
 
 ### <a name="show-or-hide-a-password"></a>Mostrar ou esconder uma senha
 
-Uma forma comum de ajudar os seus clientes com o seu sucesso de inscrição é permitir-lhes ver o que eles entraram como a sua palavra-passe. Esta opção ajuda os utilizadores a inscreverem-se, permitindo-lhes ver facilmente e fazer correções na sua palavra-passe, se necessário. Qualquer tipo de senha tem uma caixa de verificação com uma etiqueta de **palavra-passe Show.**  Isto permite ao utilizador ver a palavra-passe em texto simples. Inclua este corte de código no seu modelo de inscrição ou inscrição para uma página autoafirmada:
+Uma forma comum de ajudar os seus clientes com o seu sucesso de inscrição é permitir-lhes ver o que introduziram como palavra-passe. Esta opção ajuda os utilizadores a inscreverem-se, permitindo-lhes ver e fazer correções facilmente na sua palavra-passe, se necessário. Qualquer campo de palavra-passe do tipo tem uma caixa de verificação com uma etiqueta **de senha Show.**  Isto permite ao utilizador ver a palavra-passe em texto simples. Inclua este corte de código no seu modelo de inscrição ou de inscrição para uma página autoafirmada:
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -113,7 +113,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>Adicionar termos de utilização
 
-Inclua o seguinte código na sua página onde pretende incluir uma caixa de verificação **De Utilização.** Esta caixa de verificação é normalmente necessária nas suas páginas de inscrição na sua conta local e nas páginas de inscrição da conta social.
+Inclua o seguinte código na sua página onde pretende incluir uma caixa de verificação **Termos de Utilização.** Esta caixa de verificação é normalmente necessária nas páginas de inscrição de conta local e de inscrição de conta social.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -138,8 +138,8 @@ function addTermsOfUseLink() {
 }
 ```
 
-No código, `termsOfUseUrl` substitua-o pelo link para os termos do seu acordo de utilização. Para o seu diretório, crie um novo atributo de utilizador chamado **termsOfUse** e, em seguida, inclua **termosOfUse** como atributo de utilizador.
+No código, `termsOfUseUrl` substitua-o pelo link para os seus termos de utilização. Para o seu diretório, crie um novo atributo de utilizador chamado **termosOfUse** e, em seguida, inclua **os termosOfUse** como atributo do utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Encontre mais informações sobre como personalizar a interface de utilizador das suas aplicações em [Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C](custom-policy-ui-customization.md).
+Encontre mais informações sobre como pode personalizar a interface do utilizador das suas aplicações em [Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Ative Directory B2C](custom-policy-ui-customization.md).

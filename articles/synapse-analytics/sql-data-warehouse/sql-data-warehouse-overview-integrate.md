@@ -1,65 +1,65 @@
 ---
 title: Construir soluções integradas
-description: Soluções e parceiros que se integram com uma piscina SYnapse SQL.
+description: Ferramentas de solução e parceiros que se integram com uma piscina Sinapse SQL.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 469fdf19f8c5fa511070f2d809d06829578c2131
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 16cfdfb475ce21ed4b51dc9140e59df701363f27
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653724"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201009"
 ---
-# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Integrar outros serviços com uma piscina SYnapse SQL (armazém de dados)
+# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Integrar outros serviços com um pool Sinaapse SQL (armazém de dados)
 
-A capacidade de piscina SQL dentro do Azure Synapse Analytics permite aos utilizadores integrarem-se com muitos dos outros serviços em Azure. Utilizando o Synapse SQL, pode criar um armazém de dados através do seu recurso de piscina SQL, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
+A capacidade de piscina SQL dentro do Azure Synapse Analytics permite que os utilizadores se integrem com muitos dos outros serviços em Azure. Utilizando o Synapse SQL, pode criar um armazém de dados através do seu recurso de pool SQL, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
 
 * Power BI
 * Azure Data Factory
 * Azure Machine Learning
 * Azure Stream Analytics
 
-Para obter mais informações sobre serviços de integração em todo o Azure, reveja o artigo parceiros de [integração.](sql-data-warehouse-partner-data-integration.md)
+Para mais informações sobre serviços de integração em todo o Azure, reveja o artigo [parceiros de Integração.](sql-data-warehouse-partner-data-integration.md)
 
 ## <a name="power-bi"></a>Power BI
 
-A integração do Power BI permite combinar o poder computacional de um armazém de dados com o relatório dinâmico e visualização do Power BI. Atualmente, a integração do Power BI inclui:
+A integração do Power BI permite combinar o poder de computação de um armazém de dados com o relatório dinâmico e visualização do Power BI. Atualmente, a integração do Power BI inclui:
 
-* **Ligação Direta**: Uma ligação mais avançada com pushdown lógico contra um armazém de dados aprovisionado com piscina SQL. A propagação fornece uma análise mais rápida numa escala maior.
-* **Aberto em Power BI**: O botão 'Open in Power BI' passa informações de instância para Power BI para uma forma simplificada de se ligar.
+* **Ligação Direta**: Uma ligação mais avançada com o empurrão lógico contra um armazém de dados previsto com piscina SQL. A propagação fornece uma análise mais rápida numa escala maior.
+* **Abrir em Power BI**: O botão 'Open in Power BI' transmite informações de exemplo ao Power BI para uma forma simplificada de ligar.
 
-Para mais informações, consulte [Integrar com power bi](sql-data-warehouse-get-started-visualize-with-power-bi.md), ou a [documentação Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
+Para obter mais informações, consulte [Integrar-se com o Power BI,](sql-data-warehouse-get-started-visualize-with-power-bi.md)ou a [documentação Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-A Azure Data Factory oferece aos utilizadores uma plataforma gerida para criar oleodutos complexos de extração e carga. A integração do pool SQL com a Azure Data Factory inclui:
+A Azure Data Factory oferece aos utilizadores uma plataforma gerida para criar gasodutos complexos de extração e carga. A integração da piscina SQL com a Azure Data Factory inclui:
 
-* **Procedimentos Armazenados**: Orquestrar a execução dos procedimentos armazenados.
-* **Cópia:** Utilize a ADF para mover dados para o pool SQL. Esta operação pode utilizar o mecanismo padrão de movimento de dados da ADF ou a PolyBase sob as coberturas.
+* **Procedimentos armazenados**: Orquestrar a execução dos procedimentos armazenados.
+* **Cópia:** Utilize a ADF para mover dados para o pool SQL. Esta operação pode utilizar o mecanismo padrão de movimento de dados da ADF ou a PolyBase sob as capas.
 
-Para mais informações, consulte [Integrar com a Azure Data Factory.](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Para mais informações, consulte [Integrar-se com a Azure Data Factory.](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-O Azure Machine Learning é um serviço de análise totalmente gerido, que permite criar modelos intrincados utilizando um grande conjunto de ferramentas preditivas. A piscina SQL é suportada como fonte e destino para estes modelos, e tem a seguinte funcionalidade:
+O Azure Machine Learning é um serviço de análise totalmente gerido, que permite criar modelos intrincados usando um grande conjunto de ferramentas preditivas. A piscina SQL é suportada como uma fonte e destino para estes modelos, e tem a seguinte funcionalidade:
 
-* **Leia os dados:** Conduza os modelos em escala utilizando t-SQL contra piscina SQL.
+* **Leia Os Dados:** Conduza os modelos à escala utilizando o T-SQL contra a piscina SQL.
 * **Escrever Dados:** Comprometa alterações de qualquer modelo de volta para piscina SQL.
 
-Para mais informações, consulte [Integrar com Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
+Para obter mais informações, consulte [Integrar-se com a Azure Machine Learning.](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-O Azure Stream Analytics é uma infraestrutura complexa e totalmente gerida para o processamento e consumo de dados de eventos gerados pelo Azure Event Hub.  A integração com o pool SQL permite que os dados de streaming sejam eficazmente processados e armazenados juntamente com dados relacionais permitindo uma análise mais profunda e avançada.  
+O Azure Stream Analytics é uma infraestrutura complexa e totalmente gerida para o processamento e consumo de dados de eventos gerados a partir do Azure Event Hub.  A integração com o pool SQL permite que os dados de streaming sejam efetivamente processados e armazenados ao lado de dados relacionais que permitam uma análise mais profunda e mais avançada.  
 
-* **Saída de emprego:** Envie a saída dos trabalhos da Stream Analytics diretamente para a piscina SQL.
+* **Saída de Emprego:** Envie a produção dos trabalhos stream Analytics diretamente para a piscina SQL.
 
-Para mais informações, consulte [Integrar com o Azure Stream Analytics.](sql-data-warehouse-integrate-azure-stream-analytics.md)
+Para obter mais informações, consulte [Integrar-se com a Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md).

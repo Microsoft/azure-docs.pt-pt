@@ -1,6 +1,6 @@
 ---
-title: Ocultar ou excluir pacote de acesso na gestão de direitos - Azure AD
-description: Aprenda a ocultar ou a eliminar um pacote de acesso na gestão de direitos do Diretório Ativo Azure.
+title: Ocultar ou apagar pacote de acesso na gestão de direitos - Azure AD
+description: Saiba como ocultar ou apagar um pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -10,56 +10,56 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf410db5a483fc4f5d9efc1a6bd5c6202694ef4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da450a2dfc4351f5bd2c3c759b483cea0c110d9e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261999"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078794"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultar ou eliminar um pacote de acesso na gestão de direitos da AD Azure
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultar ou apagar um pacote de acesso na gestão de direitos Azure AD
 
-Os pacotes de acesso são detetáveis por defeito. Isto significa que, se uma apólice permitir que um utilizador solicite o pacote de acesso, verá automaticamente o pacote de acesso listado no seu portal My Access. No entanto, pode alterar a definição **Oculta** para que o pacote de acesso não esteja listado no portal My Access do utilizador.
+Os pacotes de acesso são detetáveis por padrão. Isto significa que, se uma política permitir que um utilizador solicite o pacote de acesso, verá automaticamente o pacote de acesso listado no seu portal My Access. No entanto, pode alterar a definição **Oculta** para que o pacote de acesso não esteja listado no portal My Access do utilizador.
 
-Este artigo descreve como esconder ou apagar um pacote de acesso.
+Este artigo descreve como ocultar ou apagar um pacote de acesso.
 
 ## <a name="change-the-hidden-setting"></a>Alterar a definição oculta
 
-Siga estes passos para alterar a definição **oculta** para um pacote de acesso.
+Siga estes passos para alterar a definição **Oculta** para um pacote de acesso.
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
 
-1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
+1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de Acesso** e, em seguida, abra o pacote de acesso.
 
-1. Na página 'Overview', clique em **Editar**.
+1. Na página 'Vista Geral', clique **em Editar**.
 
-1. Defina a definição **escondida.**
+1. Defina a definição **Oculta.**
 
-    Se definido para **Não,** o pacote de acesso será listado no portal My Access do utilizador.
+    Se definido para **Nº,** o pacote de acesso será listado no portal My Access do utilizador.
 
-    Se definido para **Sim,** o pacote de acesso não será listado no portal My Access do utilizador. A única forma de um utilizador ver o pacote de acesso é se tiver o link do **portal My Access** direto para o pacote de acesso. Para mais informações, consulte o [link Share para solicitar um pacote](entitlement-management-access-package-settings.md)de acesso .
+    Se for definido para **Sim,** o pacote de acesso não será listado no portal My Access do utilizador. A única forma de um utilizador visualizar o pacote de acesso é se tiver o link direto do **portal My Access** para o pacote de acesso. Para mais informações, consulte [o Link Share para solicitar um pacote de acesso.](entitlement-management-access-package-settings.md)
 
-## <a name="delete-an-access-package"></a>Eliminar um pacote de acesso
+## <a name="delete-an-access-package"></a>Excluir um pacote de acesso
 
-Um pacote de acesso só pode ser eliminado se não tiver atribuições de utilizador ativos. Siga estes passos para eliminar um pacote de acesso.
+Um pacote de acesso só pode ser eliminado se não tiver atribuições ativas do utilizador. Siga estes passos para eliminar um pacote de acesso.
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
 
-1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
+1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de Acesso** e, em seguida, abra o pacote de acesso.
 
 1. No menu esquerdo, clique em **Atribuições** e remova o acesso a todos os utilizadores.
 
-1. No menu esquerdo, clique em **Visualização geral** e, em seguida, clique em **Apagar**.
+1. No menu esquerdo, clique em **'Overview'** e clique em **Apagar**.
 
 1. Na mensagem de exclusão que aparece, clique em **Sim**.
 

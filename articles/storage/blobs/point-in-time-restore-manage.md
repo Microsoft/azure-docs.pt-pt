@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d55c6b514f6401e60891f0713cb1b4135bb62ab6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 747acc27a5eaf8551e44a3bf52f55b5a380b73ce
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676001"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752638"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)
 
@@ -83,7 +83,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Realizar uma operação de restauro
 
-Para iniciar uma operação de restauro, ligue para o comando **Restore-AzStorageBlobRange,** especificando o ponto de restauro como um valor UTC **DateTime.** Pode especificar gamas lexicográficas de bolhas para restaurar, ou omitir um intervalo para restaurar todas as bolhas em todos os recipientes na conta de armazenamento. Até 10 gamas lexicográficas são suportadas por operação de restauro. A operação de restauro pode demorar vários minutos a ser concluída.
+Para iniciar uma operação de restauro, ligue para o comando **Restore-AzStorageBlobRange,** especificando o ponto de restauro como um valor UTC **DateTime.** Pode especificar gamas lexicográficas de bolhas para restaurar, ou omitir um intervalo para restaurar todas as bolhas em todos os recipientes na conta de armazenamento. Até 10 gamas lexicográficas são suportadas por operação de restauro. As bolhas de página e as bolhas de apêndice não estão incluídas no restauro. A operação de restauro pode demorar vários minutos a ser concluída.
 
 Tenha em mente as seguintes regras ao especificar uma gama de bolhas para restaurar:
 
@@ -166,7 +166,16 @@ $job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 $job.State
 ```
 
-## <a name="next-steps"></a>Próximos passos
+Para aguardar a conclusão da operação de restauro após o seu funcionamento, ligue para o comando [Wait-Job,](/powershell/module/microsoft.powershell.core/wait-job) como mostra o seguinte exemplo:
+
+```powershell
+$job | Wait-Job
+```
+
+## <a name="known-issues"></a>Problemas conhecidos
+- Para um subconjunto de restauros onde estão presentes bolhas de apêndice, a restauração falhará. Por enquanto, por favor, não efetue restauros se os blobs do apêndice estiverem presentes na conta.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restauro pontual para bolhas de bloco (pré-visualização)](point-in-time-restore-overview.md)
 - [Eliminação recuperável](soft-delete-overview.md)

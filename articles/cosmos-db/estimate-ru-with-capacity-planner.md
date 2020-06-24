@@ -1,81 +1,81 @@
 ---
-title: Estimar os custos utilizando o planejador de capacidade saca-do-bD da Azure Cosmos
-description: O planificador de capacidade síbdo Azure Cosmos permite-lhe estimar o custo necessário e o custo para a sua carga de trabalho. Este artigo descreve como usar a nova versão do planificador de capacidade para estimar a entrada e o custo necessários.
+title: Estimativa de custos usando o planejador de capacidades DB da Azure Cosmos
+description: O planejador de capacidades DB da Azure Cosmos permite-lhe estimar a produção (RU/s) necessária e o custo para a sua carga de trabalho. Este artigo descreve como usar a nova versão do planejador de capacidade para estimar a produção e o custo necessários.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68707633"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261856"
 ---
-# <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimar RU/s usando o planejador de capacidade sbS Do Cosmos Azure
+# <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimativa RU/s usando o planejador de capacidades DB Azure Cosmos
 
-Configurar as suas bases de dados e contentores Azure Cosmos com a quantidade certa de entrada aprovisionada, ou Unidades de [Pedido (RU/s),](request-units.md)para a sua carga de trabalho é essencial para otimizar o custo e o desempenho. Este artigo descreve como usar o [planejador](https://cosmos.azure.com/capacitycalculator/) de capacidade saqueador de capacidade sbs Do Azure Cosmos para obter uma estimativa do RU/s necessário e do custo da sua carga de trabalho. 
+Configurar as suas bases de dados e contentores Azure Cosmos com a quantidade certa de produção prevista, ou [Unidades de Pedido (RU/s)](request-units.md), pois a sua carga de trabalho é essencial para otimizar o custo e o desempenho. Este artigo descreve como usar o planejador de [capacidades](https://cosmos.azure.com/capacitycalculator/) DB da Azure Cosmos para obter uma estimativa do RU/s necessário e do custo da sua carga de trabalho. 
 
-## <a name="how-to-estimate-throughput-and-cost-with-azure-cosmos-db-capacity-planner"></a>Como estimar a entrada e o custo com o planejador de capacidade seleções da Azure Cosmos DB
+## <a name="how-to-estimate-throughput-and-cost-with-azure-cosmos-db-capacity-planner"></a>Como estimar a produção e o custo com o planejador de capacidades da Azure Cosmos DB
 
-O planificador de capacidade pode ser usado em dois modos.
+O planificador de capacidade pode ser utilizado em dois modos.
 
 |**Modo**  |**Descrição**  |
 |---------|---------|
-|Básico|Fornece uma estimativa rápida e de custos e ru's de alto nível. Este modo pressupõe as definições padrão de Azure Cosmos DB para indexação da política, consistência e outros parâmetros. <br/><br/>Utilize o modo básico para uma estimativa rápida e de alto nível quando estiver a avaliar uma potencial carga de trabalho para funcionar no Azure Cosmos DB.|
-|Avançado|Fornece uma estimativa de custos e RU/s mais detalhada, com a capacidade de afinar configurações adicionais — política de indexação, nível de consistência e outros parâmetros que afetam o custo e a potência. <br/><br/>Utilize o modo avançado quando estiver a estimar ru/s para um novo projeto ou queira uma estimativa mais detalhada. |
+|Básica|Fornece uma estimativa rápida e de custos de alto nível. Este modo pressupõe as definições padrão de Azure Cosmos DB para a política de indexação, consistência e outros parâmetros. <br/><br/>Utilize o modo básico para uma estimativa rápida e de alto nível quando estiver a avaliar uma carga de trabalho potencial para funcionar no Azure Cosmos DB.|
+|Avançado|Fornece uma estimativa de custos e RU mais detalhado, com a capacidade de afinar definições adicionais — política de indexação, nível de consistência e outros parâmetros que afetam o custo e a produção. <br/><br/>Utilize o modo avançado quando estimar RU/s para um novo projeto ou quer uma estimativa mais detalhada. |
 
 
-## <a name="estimate-provisioned-throughput-and-cost-using-basic-mode"></a>Estimativa de rendimento e custos previstos utilizando o modo básico
-Para obter uma estimativa rápida da sua carga de trabalho utilizando o modo básico, navegue até ao [planificador](https://cosmos.azure.com/capacitycalculator/)de capacidade . Introduza nos seguintes parâmetros com base na sua carga de trabalho: 
+## <a name="estimate-provisioned-throughput-and-cost-using-basic-mode"></a>Estimativa de produção e custos previstos através do modo básico
+Para obter uma estimativa rápida da sua carga de trabalho utilizando o modo básico, navegue até ao [planejador de capacidades](https://cosmos.azure.com/capacitycalculator/). Introduza os seguintes parâmetros com base na sua carga de trabalho: 
 
-|**Input**  |**Descrição**  |
+|**Entrada**  |**Descrição**  |
 |---------|---------|
-|Número de regiões|Azure Cosmos DB está disponível em todas as regiões de Azure. Selecione o número de regiões necessárias para a sua carga de trabalho. Pode associar várias regiões à sua conta Cosmos. Consulte a [distribuição global](distribute-data-globally.md) no Azure Cosmos DB para mais detalhes.|
-|Escreve várias regiões|Se permitir [a escrita em várias regiões,](distribute-data-globally.md#key-benefits-of-global-distribution)a sua aplicação pode ler e escrever para qualquer região do Azure. Se desativar as escritas multi-regiões, a sua aplicação pode escrever dados para uma única região. <br/><br/> Enable multi-region escreve se você espera ter uma carga de trabalho ativa ativa que requer baixa latência escrita em diferentes regiões. Por exemplo, uma carga de trabalho da IOT que escreve dados para a base de dados em volumes elevados em diferentes regiões. <br/><br/> A multi-região escreve que garante 99,999% de leitura e de disponibilidade de escrita. Os escritos multi-regiões requerem mais entrada quando comparados com as regiões de escrita única. Para saber mais, veja como as RUs são diferentes para o artigo de [regiões únicas e múltiplas.](optimize-cost-regions.md)|
+|Número de regiões|AZure Cosmos DB está disponível em todas as regiões do Azure. Selecione o número de regiões necessárias para a sua carga de trabalho. Pode associar várias regiões à sua conta Cosmos. Consulte [a distribuição global](distribute-data-globally.md) em Azure Cosmos DB para mais detalhes.|
+|Várias regiões escrevem|Se ativar [as gravações multi-regiões,](distribute-data-globally.md#key-benefits-of-global-distribution)a sua aplicação pode ler e escrever para qualquer região do Azure. Se desativar as gravações multi-regiões, a sua aplicação pode escrever dados para uma única região. <br/><br/> Ativar as gravações multi-regiões se espera ter uma carga de trabalho ativa que requer baixas escritas de latência em diferentes regiões. Por exemplo, uma carga de trabalho IOT que escreve dados para a base de dados em volumes elevados em diferentes regiões. <br/><br/> A multi-região escreve que garante 99,999% de leitura e disponibilidade de escrita. As escritas multi-regiões requerem mais produção quando comparadas com as regiões de escrita única. Para saber mais, veja [como as RUs são diferentes para o artigo de regiões de escrita única e múltipla.](optimize-cost-regions.md)|
 |Total de dados armazenados (por região)|Total de dados estimados armazenados em GB numa única região.|
-|Tamanho do item|A dimensão estimada do item de dados (por exemplo, documento), que varia entre 1 KB e 2 MB. |
-|Leituras/sec por região|Número de leituras esperadas por segundo. |
-|Escritos/seg por região|Número de escritos esperados por segundo. |
+|Tamanho do item|O tamanho estimado do item de dados (por exemplo, documento), que varia de 1 KB a 2 MB. |
+|Leituras/seg por região|Número de leituras esperadas por segundo. |
+|Escritos/seg por região|Número de escritos esperado por segundo. |
 
-Depois de preencher os detalhes necessários, **selecione Calcular**. O separador Estimativa de **Custos** mostra o custo total para armazenamento e produção provisionada. Pode expandir o link **Show Details** neste separador para obter a repartição da entrada necessária para ler e escrever pedidos. Cada vez que alterar o valor de qualquer campo, selecione **Calcular** para recalcular o custo estimado. 
+Depois de preencher os dados necessários, **selecione Calcular**. O **separador Estimativa de Custos** mostra o custo total de armazenamento e produção a provisionada. Pode expandir o link 'Detalhes do **Espetáculo'** neste separador para obter a desagregação da produção necessária para pedidos de leitura e escrita. Sempre que alterar o valor de qualquer campo, **selecione Calcular** para re-calcular o custo estimado. 
 
-![Modo básico de planejador de capacidade](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modo básico de planejador de capacidade":::
 
-## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>Estimativa de entrada e custo provisionados utilizando modo avançado
+## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>Estimativa de produção e custos previstos através do modo avançado
 
-O modo avançado permite-lhe fornecer mais definições que impactam a estimativa ru/s. Para utilizar esta opção, navegue para o planejador de [capacidades](https://cosmos.azure.com/capacitycalculator/) e inscreva-se na ferramenta com uma conta que utiliza para o Azure. A opção de inscrição está disponível no canto direito. 
+O modo avançado permite-lhe fornecer mais configurações que impactem a estimativa RU/s. Para utilizar esta opção, navegue até ao [planificador de capacidade](https://cosmos.azure.com/capacitycalculator/) e inscreva-se na ferramenta com uma conta que utiliza para o Azure. A opção de inscrição está disponível no canto direito. 
 
-Depois de iniciar sessão, pode ver campos adicionais em comparação com os campos em modo básico. Introduza os parâmetros adicionais com base na sua carga de trabalho. 
+Depois de iniciar sedutada, pode ver campos adicionais em comparação com os campos em modo básico. Introduza os parâmetros adicionais com base na sua carga de trabalho. 
 
-|**Input**  |**Descrição**  |
+|**Entrada**  |**Descrição**  |
 |---------|---------|
 |API|Azure Cosmos DB é um serviço multi-modelo e multi-API. Para novas cargas de trabalho, selecione API SQL (Core). |
-|Número de regiões|Azure Cosmos DB está disponível em todas as regiões de Azure. Selecione o número de regiões necessárias para a sua carga de trabalho. Pode associar várias regiões à sua conta Cosmos. Consulte a [distribuição global](distribute-data-globally.md) no Azure Cosmos DB para mais detalhes.|
-|Escreve várias regiões|Se permitir [a escrita em várias regiões,](distribute-data-globally.md#key-benefits-of-global-distribution)a sua aplicação pode ler e escrever para qualquer região do Azure. Se desativar as escritas multi-regiões, a sua aplicação pode escrever dados para uma única região. <br/><br/> Enable multi-region escreve se você espera ter uma carga de trabalho ativa ativa que requer baixa latência escrita em diferentes regiões. Por exemplo, uma carga de trabalho da IOT que escreve dados para a base de dados em volumes elevados em diferentes regiões. <br/><br/> A multi-região escreve que garante 99,999% de leitura e de disponibilidade de escrita. Os escritos multi-regiões requerem mais entrada quando comparados com as regiões de escrita única. Para saber mais, veja como as RUs são diferentes para o artigo de [regiões únicas e múltiplas.](optimize-cost-regions.md)|
-|Consistência por defeito|A Azure Cosmos DB suporta 5 níveis de consistência, para permitir aos desenvolvedores equilibrar a compensação entre consistência, disponibilidade e trocas de latência. Para saber mais, consulte o artigo sobre os níveis de [consistência.](consistency-levels.md) <br/><br/> Por padrão, o Azure Cosmos DB utiliza a consistência da sessão, o que garante a capacidade de ler os seus próprios escritos numa sessão. <br/><br/> Escolher estande forte ou limitada exigirá o dobro do RU/s necessário para leituras, quando comparado com a sessão, prefixo consistente e eventual consistência. A forte coerência com as escritas multi-regiões não é suportada e irá automaticamente faltar aos escritos de uma região única com forte consistência. |
-|Política de indexação|Por padrão, o Azure Cosmos DB [indexa todas as propriedades](index-policy.md) em todos os itens para consultas flexíveis e eficientes (mapas para a política de indexação **automática).** <br/><br/> Se **optar,** nenhuma das propriedades está indexada. Isto resulta na menor carga de RU para escritos. Selecione a política **de exclusão** se espera apenas fazer leituras de [pontos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet) (procurações de valor chave) e/ou escreve, e sem consultas. <br/><br/> A política de indexação personalizada permite-lhe incluir ou excluir propriedades específicas do índice para uma menor sobrevisão e armazenamento de escrita. Para saber mais, consulte a [política de indexação](index-overview.md) e os artigos de política de [indexação](how-to-manage-indexing-policy.md#indexing-policy-examples) de amostras.|
+|Número de regiões|AZure Cosmos DB está disponível em todas as regiões do Azure. Selecione o número de regiões necessárias para a sua carga de trabalho. Pode associar várias regiões à sua conta Cosmos. Consulte [a distribuição global](distribute-data-globally.md) em Azure Cosmos DB para mais detalhes.|
+|Várias regiões escrevem|Se ativar [as gravações multi-regiões,](distribute-data-globally.md#key-benefits-of-global-distribution)a sua aplicação pode ler e escrever para qualquer região do Azure. Se desativar as gravações multi-regiões, a sua aplicação pode escrever dados para uma única região. <br/><br/> Ativar as gravações multi-regiões se espera ter uma carga de trabalho ativa que requer baixas escritas de latência em diferentes regiões. Por exemplo, uma carga de trabalho IOT que escreve dados para a base de dados em volumes elevados em diferentes regiões. <br/><br/> A multi-região escreve que garante 99,999% de leitura e disponibilidade de escrita. As escritas multi-regiões requerem mais produção quando comparadas com as regiões de escrita única. Para saber mais, veja [como as RUs são diferentes para o artigo de regiões de escrita única e múltipla.](optimize-cost-regions.md)|
+|Consistência padrão|O Azure Cosmos DB suporta 5 níveis de consistência, para permitir que os desenvolvedores equilibrem a troca entre a consistência, a disponibilidade e as trocas de latência. Para saber mais, consulte o artigo [níveis de consistência.](consistency-levels.md) <br/><br/> Por padrão, a Azure Cosmos DB usa a consistência da sessão, o que garante a capacidade de ler as suas próprias escritas numa sessão. <br/><br/> A escolha de uma estagnação forte ou limitada exigirá o dobro dos RU/s necessários para leituras, quando comparados com a sessão, prefixo consistente e eventual consistência. A forte coerência com as escritas multi-regiões não é suportada e automaticamente por defeito às escreveções de uma região única com forte consistência. |
+|Política de indexação|Por padrão, a Azure Cosmos DB [indexa todas as propriedades](index-policy.md) em todos os itens para consultas flexíveis e eficientes (mapas para a política de indexação **automática).** <br/><br/> Se **escolher,** nenhuma das propriedades está indexada. Isto resulta na menor taxa ru para escritas. Selecione **a** política se espera apenas fazer [leituras de pontos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet) (análises de valor chave) e/ou escritas, e sem consultas. <br/><br/> A política de indexação personalizada permite-lhe incluir ou excluir propriedades específicas do índice para menor produção e armazenamento de escrita. Para saber mais, consulte [a política de indexação](index-overview.md) e os artigos [de política de indexação de amostras.](how-to-manage-indexing-policy.md#indexing-policy-examples)|
 |Total de dados armazenados (por região)|Total de dados estimados armazenados em GB numa única região.|
-|Modo de carga de trabalho|Selecione **Estável** se o seu volume de carga de trabalho for constante. <br/><br/> Selecione **Variável** se o volume de carga de trabalho mudar ao longo do tempo.  Por exemplo, durante um dia específico ou um mês. <br/><br/> As seguintes definições estão disponíveis se escolher a opção de carga de trabalho variável:<ul><li>Percentagem de tempo no pico: Percentagem de tempo num mês em que a sua carga de trabalho requer pico (maior) de entrada. <br/><br/> Por exemplo, se tiver uma carga de trabalho que tenha alta atividade durante as 9h às 18h horas úteis, então a percentagem de tempo no pico é: 45 horas no pico / 730 horas /mês = ~6%.<br/><br/></li><li>Leituras/sec por região no pico - Número de leituras esperadas por segundo no pico.</li><li>Escreve/seg por região no pico – Número de escritos esperados por segundo no pico.</li><li>Leituras/sec por região fora do pico – Número de leituras esperadas por segundo durante o pico.</li><li>Escreve/seg por região fora do pico – Número de escritos esperados por segundo durante o pico off.</li></ul>Com intervalos de pico e de pico, pode otimizar o seu custo [escalando programáticamente a sua entrada prevista](set-throughput.md#update-throughput-on-a-database-or-a-container) para cima e para baixo em conformidade.|
-|Tamanho do item|O tamanho do item de dados (por exemplo, documento), que varia entre 1 KB e 2 MB. <br/><br/>Também pode carregar o documento **da amostra (JSON)** para uma estimativa mais precisa.<br/><br/>Se a sua carga de trabalho tiver vários tipos de itens (com diferentes conteúdos JSON) no mesmo recipiente, pode carregar vários documentos da JSON e obter a estimativa. Utilize o botão **adicionar novo item** para adicionar vários documentos JSON de amostra.|
+|Modo de carga de trabalho|**Selecione Steady** se o seu volume de carga de trabalho for constante. <br/><br/> Selecione **Variável** se o seu volume de carga de trabalho mudar ao longo do tempo.  Por exemplo, durante um dia ou um mês específico. <br/><br/> As seguintes definições estão disponíveis se escolher a opção de carga de trabalho variável:<ul><li>Percentagem de tempo no pico: Percentagem de tempo num mês em que a sua carga de trabalho requer pico (mais alto) de produção. <br/><br/> Por exemplo, se tiver uma carga de trabalho elevada durante as 9h às 18h, então a percentagem de tempo no pico é: 45 horas no pico / 730 horas/mês = ~6%.<br/><br/></li><li>Leituras/seg por região no pico - Número de leituras esperadas por segundo no pico.</li><li>Writes/sec por região no pico – Número de escritos esperados por segundo no pico.</li><li>Leituras/seg por região fora do pico - Número de leituras esperadas por segundo durante o pico off.</li><li>Writes/sec por região fora do pico - Número de writes esperados por segundo durante o pico off.</li></ul>Com intervalos de pico e de pico, pode otimizar o seu custo [aumentando programáticamente a sua produção provisitada para](set-throughput.md#update-throughput-on-a-database-or-a-container) cima e para baixo em conformidade.|
+|Tamanho do item|O tamanho do item de dados (por exemplo, documento), que varia de 1 KB a 2 MB. <br/><br/>Também pode enviar o documento **da amostra (JSON)** para uma estimativa mais precisa.<br/><br/>Se a sua carga de trabalho tiver vários tipos de itens (com diferentes conteúdos JSON) no mesmo recipiente, pode carregar vários documentos JSON e obter a estimativa. Utilize o botão **de artigo novo** adicionar vários documentos JSON de amostra múltipla.|
 
-Também pode utilizar o botão **'Estimativa de Guardar'** para descarregar um ficheiro CSV contendo a estimativa atual. 
+Também pode utilizar o botão **'Estimativa de Poupança'** para descarregar um ficheiro CSV que contenha a estimativa atual. 
 
-![Modo avançado de planejador de capacidade](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo avançado de planejador de capacidade":::
 
-Os preços apresentados no planificador de capacidade saca-do-bD do Azure Cosmos são estimativas baseadas nas taxas de preços públicas para o resultado e armazenamento. Todos os preços são mostrados em dólares americanos. Consulte a página de [preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para ver todas as tarifas por região.  
+Os preços indicados no planificador de capacidades da Azure Cosmos são estimativas baseadas nas taxas de preços públicos para produção e armazenamento. Todos os preços são mostrados em dólares americanos. Consulte a [página de preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para ver todas as tarifas por região.  
 
-## <a name="estimating-throughput-for-queries"></a>Estimativa de entrada para consultas
+## <a name="estimating-throughput-for-queries"></a>Estimativa da produção para consultas
 
-A calculadora de capacidade da Azure Cosmos assume que se lê (uma leitura de um único item, por exemplo, documento, por ID e valor-chave de partição) e escreve para a carga de trabalho. Para estimar a entrada necessária para consultas, execute a sua consulta num conjunto de dados representativo num recipiente Cosmos e [obtenha a carga RU](find-request-unit-charge.md). Multiplique a carga ru pelo número de consultas que antecipa executar por segundo para obter o total de RU/s necessário. 
+A calculadora de capacidade azure Cosmos assume leituras de ponto (uma leitura de um único item, por exemplo, documento, por ID e valor chave de partição) e escreve para a carga de trabalho. Para estimar a produção necessária para consultas, execute a sua consulta num conjunto de dados representativos num recipiente cosmos e [obtenha a taxa RU](find-request-unit-charge.md). Multiplique a carga RU pelo número de consultas que prevê correr por segundo para obter o total RU/s necessário. 
 
-Por exemplo, se a sua carga ``SELECT * FROM c WHERE c.id = 'Alice'`` de trabalho requer uma consulta, que é executada 100 vezes por segundo, e a carga RU da consulta é de 10 RUs, você precisará de 100 consultas / sec * 10 RU / consulta = 1000 RU/s no total para servir estes pedidos. Adicione estes RU/s aos RU/s necessários para qualquer leitura ou escrita que aconteça na sua carga de trabalho.
+Por exemplo, se a sua carga de trabalho necessitar de uma consulta, ``SELECT * FROM c WHERE c.id = 'Alice'`` que é executada 100 vezes por segundo, e a carga RU da consulta é de 10 RUs, você precisará de 100 consultas / seg * 10 RU /consulta = 1000 RU/s no total para servir estes pedidos. Adicione estes RU/s ao RU/s necessário para quaisquer leituras ou escritos que ocorram na sua carga de trabalho.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o modelo de [preços da Azure Cosmos DB.](how-pricing-works.md)
+* Saiba mais sobre [o modelo de preços da Azure Cosmos DB.](how-pricing-works.md)
 * Crie uma nova [conta Cosmos, base de dados e contentor.](create-cosmosdb-resources-portal.md)
-* Aprenda a otimizar o [custo de entrada provisionado.](optimize-cost-throughput.md)
-* Aprenda a [otimizar o custo com capacidade reservada.](cosmos-db-reserved-capacity.md)
+* Saiba como [otimizar o custo de produção a provisionado.](optimize-cost-throughput.md)
+* Saiba como [otimizar o custo com capacidade reservada.](cosmos-db-reserved-capacity.md)
 

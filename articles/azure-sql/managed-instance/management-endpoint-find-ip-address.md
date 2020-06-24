@@ -3,8 +3,8 @@ title: Descubra o endereço IP do ponto final de gestão
 titleSuffix: Azure SQL Managed Instance
 description: Saiba como obter o endereço IP público de gestão de instância gerida Azure SQL e verificar a sua proteção incorporada de firewall
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: f63167824a06a877456db4a18622710922e026ff
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 40a44fe46cf38c633380c4c353960cc4e11f2f3d
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659256"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708727"
 ---
 # <a name="determine-the-management-endpoint-ip-address---azure-sql-managed-instance"></a>Determinar o endereço IP do ponto final de gestão - Azure SQL Gestd Instance 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

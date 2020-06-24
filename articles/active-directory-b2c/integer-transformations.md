@@ -1,7 +1,7 @@
 ---
-title: Integer reclama exemplos de transformação para políticas personalizadas
+title: Inteiro reclama exemplos de transformação para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: A Integer alega exemplos de transformação para o quadro de experiência de identidade (IEF) do Azure Ative Directory B2C.
+description: O Inteiro reclama exemplos de transformação para o esquema do Azure Ative Directory B2C .
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,31 +11,31 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 066a6489e6244369453ec5d9f21d5e1e83fcd6c8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187683"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201755"
 ---
-# <a name="integer-claims-transformations"></a>Integer reclama transformações
+# <a name="integer-claims-transformations"></a>Inteiro reclama transformações
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos para a utilização do inteiro alega transformações do quadro de experiência de identidade em Azure Ative Directory B2C (Azure AD B2C). Para mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para a utilização das transformações de sinistros inteiros do esquema do Quadro de Experiência de Identidade em Azure Ative Directory B2C (Azure AD B2C). Para obter mais informações, consulte [SinistrosTransformações](claimstransformations.md).
 
-## <a name="convertnumbertostringclaim"></a>Convertenumbertostringclaim
+## <a name="convertnumbertostringclaim"></a>ConverteNumberToStringClaim
 
-Converte um tipo de dados longo num tipo de dados de cadeia.
+Converte um longo tipo de dados num tipo de dados de cadeia.
 
-| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
+| Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| Pedido de crédito | inputClaim | long | O ClaimType para converter numa corda. |
-| Pedido de saída | saídaReclamada | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| InputClaim | inputClaim | long | O ClaimType para converter para uma corda. |
+| OutputClaim | outputClaim | string | O ClaimType que é produzido após esta ReclamaçãoTransformação foi invocado. |
 
-Neste exemplo, `numericUserId` a reclamação com um tipo `UserId` de valor de longo prazo é convertida para uma reclamação com um tipo de cadeia de valor.
+Neste exemplo, a `numericUserId` reclamação com um tipo de valor de comprimento é convertida para uma `UserId` reivindicação com um tipo de cadeia de valor.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />
@@ -48,8 +48,8 @@ Neste exemplo, `numericUserId` a reclamação com um tipo `UserId` de valor de l
 
 ### <a name="example"></a>Exemplo
 
-- Créditos de entrada:
-    - **inputClaim:** 12334 (longo)
-- Alegações de saída:
-    - **saídaReivindicação:**"12334" (cadeia)
+- Reclamações de entrada:
+    - **inputClaim**: 12334 (longo)
+- Reclamações de saída:
+    - **outputClaim**: "12334" (cadeia)
 

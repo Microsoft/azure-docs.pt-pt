@@ -5,17 +5,17 @@ services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: b7ab7abb74701abeeac126b34efdf784beff2d03
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6eb6403ad6d1f181d1f51dde6db266070bf32a56
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561811"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194761"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter cadernos Azure Synapse Studio (pré-visualização)
 
@@ -119,7 +119,7 @@ As características do IntelliSense estão em diferentes níveis de maturidade p
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
 |Sparksql|Sim|Sim|-|-|-|-|-|-|
-|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
+|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -136,7 +136,7 @@ Clique no botão **de desfazer** ou pressione **Ctrl+Z** para revogar a operaç�
 
 Selecione as elipses (...) para aceder ao menu adicional de ações celulares na extrema-direita. Em seguida, **selecione Mover a célula para cima** ou mover a célula para **baixo** para mover a célula atual. 
 
-Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **ctrl+Alt+↑** para subir a célula atual. Prima **Ctrl+Alt+/** para mover a célula atual para baixo.
+Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **ctrl+Alt+↑** para subir a célula atual. Prima **Ctrl+Alt+↓** para mover a célula atual para baixo.
 
    ![mover-a-célula](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
@@ -363,7 +363,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Estender as células selecionadas acima| Shift+Up |
 |Estender as células selecionadas abaixo| Shift+Down|
 |Mover a célula para cima| Ctrl+Alt+↑ |
-|Mover a célula para baixo| Ctrl+Alt+. |
+|Mover a célula para baixo| Ctrl+Alt+↓ |
 |Eliminar células selecionadas| D, D |
 |Mude para o modo de edição| ENTER |
 

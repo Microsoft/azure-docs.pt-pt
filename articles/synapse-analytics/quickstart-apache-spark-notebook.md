@@ -1,55 +1,55 @@
 ---
-title: 'Quickstart: Crie um Apache Spark para o notebook Azure Synapse Analytics'
+title: 'Quickstart: Criar uma faísca Apache para o Azure Synapse Analytics'
 description: Este quickstart mostra como usar as ferramentas web para criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics, e executar uma consulta Spark SQL.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1ec73c07d97a0e400e048e77ba6a30a6a12c0fc4
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656186"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194914"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Crie uma piscina Apache Spark (pré-visualização) no Azure Synapse Analytics usando ferramentas web
+# <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics usando ferramentas web
 
-Neste arranque rápido, aprende-se a criar uma piscina Apache Spark (pré-visualização) em Azure Synapse utilizando ferramentas web. Em seguida, aprenda a ligar-se à piscina Apache Spark e execute consultas Spark SQL contra ficheiros e tabelas. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. Para obter informações sobre Spark in Azure Synapse, consulte [a visão geral: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
+Neste arranque rápido, você aprende a criar uma piscina Apache Spark (pré-visualização) em Azure Synapse usando ferramentas web. Em seguida, aprende a ligar-se à piscina Apache Spark e a executar consultas Spark SQL contra ficheiros e tabelas. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. Para obter informações sobre a Spark in Azure Synapse, consulte [a visão geral: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
-> A faturação dos casos Spark é pronunciada por minuto, quer esteja a usá-las ou não. Certifique-se de que encerra a sua instância Spark depois de terminar de usá-la, ou demarcar um curto prazo. Para obter mais informações, consulte a secção **Limpar recursos** deste artigo.
+> A faturação de casos de Spark é prostimada por minuto, quer esteja a usá-las ou não. Certifique-se de que desliga a sua instância Spark depois de ter terminado de a utilizar ou de definir um curto período de tempo. Para obter mais informações, consulte a secção **Limpar recursos** deste artigo.
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https://azure.microsoft.com/free/)de começar .
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [Espaço de trabalho synapse Analytics](quickstart-create-workspace.md)
-- [Piscina apache faísca](quickstart-create-apache-spark-pool-studio.md)
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Espaço de trabalho Synapse Analytics](quickstart-create-workspace.md)
+- [Piscina de faíscas Apache](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-notebook"></a>Criar um bloco de notas
 
-Um caderno é um ambiente interativo que suporta várias linguagens de programação. O caderno permite-lhe interagir com os seus dados, combinar código com marcação, texto e realizar visualizações simples.
+Um caderno é um ambiente interativo que suporta várias linguagens de programação. O caderno permite interagir com os seus dados, combinar código com marcação, texto e realizar visualizações simples.
 
 1. A partir da vista do portal Azure para o espaço de trabalho Azure Synapse que pretende utilizar, selecione **Launch Synapse Studio**.
-2. Assim que o Estúdio Synapse tiver sido lançado, selecione **Develop**. Então, paire sobre a entrada dos **Cadernos.** Selecione a elipse **(...**).
-3. A partir daí, selecione **Novo caderno**. Um novo caderno é criado e aberto com um nome gerado automaticamente.
+2. Assim que o Synapse Studio tiver sido lançado, **selecione Develop**. Então, paire sobre a entrada dos **Cadernos.** Selecione a elipse **(...**).
+3. A partir daí, selecione **Novo caderno.** Um novo caderno é criado e aberto com um nome gerado automaticamente.
   ![Novo caderno](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Novo caderno")
 
 4. Na janela **Propriedades,** forneça um nome para o caderno.
-5. Na barra de ferramentas, clique **em Publicar**.
-6. Se houver apenas uma piscina Apache Spark no seu espaço de trabalho, então é selecionada por padrão. Utilize a gota para selecionar a piscina de Apache Spark correta se nenhuma for selecionada.
-7. Clique em **Adicionar código**. A linguagem padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é boa.
+5. Na barra de ferramentas, clique em **Publicar.**
+6. Se existe apenas uma piscina Apache Spark no seu espaço de trabalho, então é selecionada por padrão. Utilize o drop-down para selecionar a piscina Apache Spark correta se nenhuma for selecionada.
+7. Clique **em Adicionar código**. A língua padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é bom.
 8. Em seguida, cria-se um simples objeto Spark DataFrame para manipular. Neste caso, cria-se a partir do código. Há três linhas e três colunas:
 
    ```python
@@ -58,20 +58,20 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
    demo_df.show()
    ```
 
-9. Agora, execute a célula usando um dos seguintes métodos:
+9. Agora, executar a célula usando um dos seguintes métodos:
 
-   - Turno de pressão **+ ENTER**.
-   - Selecione o ícone de reprodução azul à esquerda da célula.
-   - Selecione o botão **Executar todos** na barra de ferramentas.
+   - MUDANÇA DE IMPRENSA **+ ENTER**.
+   - Selecione o ícone de reprodução azul para a esquerda da célula.
+   - Selecione o botão **Executar todos os** botões na barra de ferramentas.
 
-   ![Criar objeto de quadro de dados](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Saída do trabalho de Spark")
+   ![Criar objeto de quadro de dados](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Saída do trabalho de Faísca")
 
-10. Se a instância da piscina Apache Spark ainda não estiver em funcionamento, é automaticamente iniciada. Pode ver o estado da instância da piscina Apache Spark abaixo da célula que está a executar e também no painel de estado na parte inferior do caderno. Dependendo do tamanho da piscina, começar deve demorar 2-5 minutos. Uma vez que o código tenha terminado de funcionar, as informações abaixo dos ecrãs das células mostram quanto tempo demorou a correr e a sua execução. Na célula de saída, vê-se a saída.
+10. Se a instância da piscina Apache Spark ainda não está em funcionamento, é automaticamente iniciada. Pode ver o estado da divisão Apache Spark abaixo da célula que está a executar e também no painel de estado na parte inferior do caderno. Dependendo do tamanho da piscina, o arranque deve demorar 2-5 minutos. Uma vez terminado o código, as informações abaixo dos ecrãs da célula mostram quanto tempo demorou a ser executado e a sua execução. Na célula de saída, vê-se a saída.
 
-    ![Saída da execução de uma célula](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Saída do trabalho de Spark")
+    ![Saída da execução de uma célula](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Saída do trabalho de Faísca")
 
-11. Os dados existem agora num DataFrame a partir daí pode utilizar os dados de várias maneiras diferentes. Vai precisar em diferentes formatos para o resto deste arranque rápido.
-12. Introduza o código abaixo em outra célula e execute-o, isto cria uma tabela Spark, um CSV, e um ficheiro Parquet todos com cópias dos dados:
+11. Os dados existem agora num DataFrame a partir daí, pode utilizar os dados de muitas maneiras diferentes. Vais precisar dele em formatos diferentes para o resto deste arranque rápido.
+12. Introduza o código abaixo em outra célula e execute-o, isto cria uma tabela Spark, um CSV, e um arquivo Parquet todos com cópias dos dados:
 
     ```python
      demo_df.createOrReplaceTempView('demo_df')
@@ -79,26 +79,26 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
      demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
     ```
 
-    Se utilizar o explorador de armazenamento, é possível ver o impacto das duas formas diferentes de escrever um ficheiro usado acima. Quando nenhum sistema de ficheiros é especificado, então a predefinição é utilizada, neste caso `default>user>trusted-service-user>demo_df` . Os dados são guardados na localização do sistema de ficheiros especificado.
+    Se utilizar o explorador de armazenamento, é possível ver o impacto das duas formas diferentes de escrever um ficheiro usado acima. Quando nenhum sistema de ficheiros é especificado, então o padrão é utilizado, neste caso `default>user>trusted-service-user>demo_df` . Os dados são guardados para a localização do sistema de ficheiros especificado.
 
-    Note nos formatos "csv" e "parquet", escreva operações um diretório é criado com muitos ficheiros divididos.
+    Note nos formatos "csv" e "parquet", as operações de escrita são criadas com muitos ficheiros divididos.
 
-    ![Vista exploradorde armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Vista exploradorde armazenamento da saída")
+    ![Visão explorador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Visão explorador de armazenamento da saída")
 
-    ![Vista exploradorde armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Vista exploradorde armazenamento da saída")
+    ![Visão explorador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visão explorador de armazenamento da saída")
 
 ## <a name="run-spark-sql-statements"></a>Executar instruções SQL do Spark
 
-A Linguagem de Consulta Estruturada (SQL) é a linguagem mais comum e amplamente utilizada para consulta e definição de dados. O Spark SQL funciona como uma extensão do Apache Spark para o processamento de dados estruturados e utiliza a sintaxe familiar do SQL Server.
+A Linguagem De Consulta Estruturada (SQL) é a língua mais comum e amplamente utilizada para consulta e definição de dados. O Spark SQL funciona como uma extensão do Apache Spark para o processamento de dados estruturados e utiliza a sintaxe familiar do SQL Server.
 
-1. Colhe o seguinte código numa cela vazia e, em seguida, executar o código. O comando lista as mesas na piscina.
+1. Cole o seguinte código numa cela vazia e, em seguida, executar o código. O comando lista as mesas na piscina.
 
    ```sql
    %%sql
    SHOW TABLES
    ```
 
-   Quando utiliza um Notebook com a sua piscina De faísca Synapse Azure, obtém-se um predefinição `sqlContext` que pode utilizar para executar consultas utilizando o Spark SQL. `%%sql`diz ao caderno para usar o predefinido `sqlContext` para executar a consulta. A consulta recupera as 10 melhores filas de uma tabela de sistemas que vem com todas as piscinas Azure Synapse Apache Spark por padrão.
+   Quando utilizar um Caderno com a sua piscina Azure Synapse Apache Spark, obtém uma predefinição `sqlContext` que pode utilizar para executar consultas utilizando o Spark SQL. `%%sql`diz ao caderno para usar a predefinição `sqlContext` para executar a consulta. A consulta recupera as 10 primeiras linhas de uma tabela de sistema que vem com todas as piscinas Azure Synapse Apache Spark por padrão.
 
 2. Execute outra consulta para ver os dados no `demo_df`.
 
@@ -107,45 +107,45 @@ A Linguagem de Consulta Estruturada (SQL) é a linguagem mais comum e amplamente
     SELECT * FROM demo_df
     ```
 
-    O código produz duas células de saída, uma que contém resultados de dados, a outra, que mostra a visão do trabalho.
+    O código produz duas células de saída, uma que contém dados resultando a outra, que mostra a visão do trabalho.
 
-    Por padrão, a visualização dos resultados mostra uma grelha. Mas, há um interruptor de visão por baixo da grelha que permite que a vista altere entre as vistas da grelha e do gráfico.
+    Por predefinição, a visualização dos resultados mostra uma grelha. Mas, há um interruptor de vista por baixo da grelha que permite que a vista altere entre a grelha e as vistas do gráfico.
 
     ![Saída de consulta em Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Saída de consulta em Azure Synapse Spark")
 
-3. No comutador **'Ver',** selecione **Gráfico**.
-4. Selecione o ícone das **opções de Visualização** do lado direito.
+3. No comutador **'Ver',** selecione **Chart**.
+4. Selecione o ícone **de opções Ver** do lado direito.
 5. No campo **do tipo Gráfico,** selecione "gráfico de barras".
 6. No campo da coluna do eixo X, selecione "estado".
-7. No campo da coluna do eixo Y, selecione "salário".
-8. No campo **de Agregação,** selecione para "AVG".
+7. No campo da coluna Y-axis, selecione "salário".
+8. No campo **agregação,** selecione para "AVG".
 9. Selecione **Aplicar**.
 
-   ![Produção de gráficos em Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Produção de gráficos em Azure Synapse Spark")
+   ![Saída do gráfico em Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Saída do gráfico em Azure Synapse Spark")
 
-10. É possível obter a mesma experiência de executar SQL mas sem ter que mudar de idiomas. Pode fazê-lo substituindo a célula SQL acima por esta célula PySpark, a experiência de saída é a mesma porque o comando de **exibição** é utilizado:
+10. É possível obter a mesma experiência de executar SQL, mas sem ter que mudar de linguagem. Pode fazê-lo substituindo a célula SQL acima por esta célula PySpark, a experiência de saída é a mesma porque o comando de **exibição** é utilizado:
 
     ```python
     display(spark.sql('SELECT * FROM demo_df'))
     ```
 
-11. Cada uma das células que anteriormente executadas tinha a opção de ir ao **History Server** e **à Monitorização.** Clicar nos links leva-o a diferentes partes da Experiência do Utilizador.
+11. Cada uma das células que anteriormente executavam tinha a opção de ir ao **History Server** and **Monitor .** Clicar nos links leva-o a diferentes partes da Experiência do Utilizador.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A Azure Synapse guarda os seus dados no Armazenamento do Lago Azure Data. Pode deixar uma instância spark desligar-se com segurança quando não estiver a ser utilizada. É cobrado por uma piscina De Faísca Synapse Azure, desde que esteja em funcionamento, mesmo quando não estiver a ser utilizada. 
+A Azure Synapse guarda os seus dados no Azure Data Lake Storage. Pode deixar desligar uma instância Spark com segurança quando não estiver a ser utilizada. Você é cobrado para uma piscina Apache Spark Azure Synapse desde que esteja em funcionamento, mesmo quando não está a ser utilizado. 
 
-Uma vez que as taxas para a piscina são muitas vezes mais do que as taxas de armazenamento, faz sentido económico deixar as instâncias spark encerrarquando não estão a ser utilizadas.
+Uma vez que os encargos para a piscina são muitas vezes mais do que os encargos de armazenamento, faz sentido económico deixar que os casos de Spark sejam encerrados quando não estão a ser utilizados.
 
-Para garantir que a instância Spark é encerrada, termine as sessões ligadas (cadernos). A piscina fecha quando o **tempo de inativo** especificado na piscina apache Spark é atingido. Também pode selecionar a **sessão final** a partir da barra de estado na parte inferior do caderno.
+Para garantir que a instância Spark seja desligada, termine quaisquer sessões ligadas (cadernos). A piscina fecha quando o **tempo de marcha** lenta especificado na piscina Apache Spark é atingido. Também pode selecionar a **sessão final** a partir da barra de estado na parte inferior do caderno.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar uma piscina De Faísca Synapse Azure e executar uma consulta básica de Spark SQL.
+Neste quickstart, você aprendeu a criar uma piscina Apache Spark Azure Synapse e executar uma consulta básica spark SQL.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Documentação oficial de Apache Spark](https://spark.apache.org/docs/latest/)
+- [Documentação oficial da Faísca Apache Spark](https://spark.apache.org/docs/latest/)
 
 >[!NOTE]
-> Parte da documentação oficial da Apache Spark baseia-se na utilização da consola Spark, que não está disponível no Azure Synapse Spark. Utilize o [caderno](quickstart-apache-spark-notebook.md) ou as experiências [IntelliJ.](./spark/intellij-tool-synapse.md)
+> Parte da documentação oficial do Apache Spark baseia-se na utilização da consola Spark, que não está disponível no Azure Synapse Spark. Utilize o [caderno](quickstart-apache-spark-notebook.md) ou as experiências [IntelliJ.](./spark/intellij-tool-synapse.md)

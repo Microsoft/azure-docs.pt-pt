@@ -3,15 +3,15 @@ title: Use comandos e funcionalidades de cadernos incorporados em cadernos Azure
 description: Aprenda a usar comandos e funcionalidades incorporados para fazer operações comuns usando os cadernos Python incorporados da Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: d455490f6eed0f928dc69c8f51f8d335a1dfe145
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321330"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263369"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB Python (pré-visualização)
 
@@ -140,7 +140,7 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![explorador de dados nteract](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/nteract-built-in-chart.png" alt-text="explorador de dados nteract":::
 
 ## <a name="use-the-built-in-python-sdk"></a>Use o Python SDK incorporado
 A versão 4 do [Azure Cosmos DB Python SDK para a SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) está instalada e incluída no ambiente de cadernos para a conta Azure Cosmos.
@@ -200,9 +200,9 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de cadernos
 Para redefinir o espaço de trabalho dos blocos de notas para as definições predefinidos, selecione **Reset Workspace** na barra de comando. Isto removerá quaisquer pacotes instalados personalizados e reiniciará o servidor Jupyter. Os seus cadernos, ficheiros e recursos da Azure Cosmos não serão afetados.  
 
-![Redefinir espaço de trabalho de cadernos](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Redefinir espaço de trabalho de cadernos":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça os benefícios dos [cadernos Azure Cosmos DB Jupyter](cosmosdb-jupyter-notebooks.md)
 - Conheça o [Azure Cosmos DB Python SDK para a SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)

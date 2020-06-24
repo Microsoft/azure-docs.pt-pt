@@ -4,24 +4,24 @@ description: Aprenda opções de configuração do cliente para melhorar o desem
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 0e8dc52b160ee69e9c8bfd810c80c1035fc6e0d0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d4e21e03770591229416c1f70bbd5a715b43362c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674508"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263471"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para Azure Cosmos DB Java SDK v4
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](performance-tips-async-java.md)
 > * [SDK v2 Java síncrono](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [.NET SDK v2](performance-tips.md)
+> * [SDK v2 de .NET](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -91,7 +91,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     Quando possível, coloque quaisquer aplicações que chamem Azure Cosmos DB na mesma região que a base de dados Azure Cosmos. Para uma comparação aproximada, as chamadas para Azure Cosmos DB dentro da mesma região completam dentro de 1-2 ms, mas a latência entre a costa oeste e leste dos EUA é >50 ms. Esta latência pode provavelmente variar de pedido a pedido dependendo da rota tomada pelo pedido, uma vez que passa do cliente para o limite do datacenter Azure. A latência mais baixa possível é conseguida garantindo que o pedido de chamada está localizado na mesma região de Azure que o ponto final Azure Cosmos DB. Para obter uma lista das regiões disponíveis, consulte [as Regiões Azure.](https://azure.microsoft.com/regions/#services)
 
-    ![Ilustração da política de conexão DB Azure Cosmos](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
 
     Uma aplicação que interage com uma conta DB Azure Cosmos multi-região precisa de configurar [locais preferenciais](tutorial-global-distribution-sql-api.md#preferred-locations) para garantir que os pedidos vão para uma região collocada.
 
@@ -138,33 +138,21 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     Os seguintes snippets de código mostram como inicializar o seu cliente Azure Cosmos DB para a operação API da Async ou Sync API, respectivamente:
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java V4 SDK
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-async-client"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ```java
-    CosmosAsyncClient client = new CosmosClientBuilder()
-        .setEndpoint(HOSTNAME)
-        .setKey(MASTERKEY)
-        .setConnectionPolicy(CONNECTIONPOLICY)
-        .setConsistencyLevel(CONSISTENCY)
-        .buildAsyncClient();
-    ```
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    #### <a name="sync"></a>[Sincronização](#tab/api-sync)
- 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-sync-client"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientAsync)]
 
-    ```java
-    CosmosClient client = new CosmosClientBuilder()
-        .setEndpoint(HOSTNAME)
-        .setKey(MASTERKEY)
-        .setConnectionPolicy(CONNECTIONPOLICY)
-        .setConsistencyLevel(CONSISTENCY)
-        .buildClient();
-    ```    
+    # <a name="sync"></a>[Sincronização](#tab/api-sync)
 
-    ---
+    Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientSync)]
+
+    --- 
 
 * **Afinação De ConexãoPolítica**
 
@@ -174,7 +162,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     * ***Visão geral do modo Direto***
 
-        ![Ilustração da arquitetura do modo direto](./media/performance-tips-async-java/rntbdtransportclient.png)
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
 
         A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço**da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
 
@@ -248,36 +236,13 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
     Por exemplo, o seguinte código executa um trabalho intensivo do cpu no fio de netty do loop de evento:
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
-    createItemPub.subscribe(
-        itemResponse -> {
-            //this is executed on eventloop IO netty thread.
-            //the eventloop thread is shared and is meant to return back quickly.
-            //
-            // DON'T do this on eventloop IO netty thread.
-            veryCpuIntensiveWork();                
-        });
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
 
-    Após o resultado ser recebido se quiser fazer um trabalho intensivo de CPU sobre o resultado, deve evitar fazê-lo no fio de rede IO do loop de evento. Em vez disso, pode fornecer o seu próprio Scheduler para fornecer o seu próprio fio para executar o seu trabalho, como mostrado abaixo.
+    Após o resultado ser recebido se quiser fazer um trabalho intensivo de CPU sobre o resultado, deve evitar fazê-lo no fio de rede IO do loop de evento. Em vez disso, pode fornecer o seu próprio Scheduler para fornecer o seu próprio fio para executar o seu trabalho, como mostrado abaixo `import reactor.core.scheduler.Schedulers` (requer).
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    import reactor.core.scheduler.Schedulers;
-    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
-    createItemPub
-        .subscribeOn(Schedulers.elastic())
-        .subscribe(
-        itemResponse -> {
-            //this is executed on eventloop IO netty thread.
-            //the eventloop thread is shared and is meant to return back quickly.
-            //
-            // DON'T do this on eventloop IO netty thread.
-            veryCpuIntensiveWork();                
-        });
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
 
     Com base no tipo de trabalho, deve utilizar o programador de reator apropriado para o seu trabalho. Leia [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html) aqui.
 
@@ -325,43 +290,35 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     Para melhorar o desempenho das escritas pontuais, especifique a chave de partição de item na chamada API de escrita de ponto, como mostrado abaixo:
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-createitem-good-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    asyncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions()).block();
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
-    #### <a name="sync"></a>[Sincronização](#tab/api-sync)
+    # <a name="sync"></a>[Sincronização](#tab/api-sync)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-createitem-good-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-    ```java
-    syncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceNoPKSync)]
 
-    ---
+    --- 
 
     em vez de fornecer apenas a instância do item, como mostrado abaixo:
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-createitem-bad-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    asyncContainer.createItem(item).block();
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
-    #### <a name="sync"></a>[Sincronização](#tab/api-sync)
+    # <a name="sync"></a>[Sincronização](#tab/api-sync)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-createitem-bad-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-    ```java
-    syncContainer.createItem(item);
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceAddPKSync)]
 
-    ---
+    --- 
 
     Este último é apoiado, mas irá adicionar latência à sua aplicação; o SDK deve analisar o item e extrair a chave de partição.
 
@@ -396,27 +353,19 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     Para medir a sobrecarga de qualquer operação (criar, atualizar ou apagar), inspecione o cabeçalho [de carga x-ms-pedido](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de pedido consumidas por estas operações. Também pode olhar para a propriedade requestCharge equivalente em ResourceResponse \<T> ou FeedResponse \<T> .
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-request-charge-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    CosmosAsyncItemResponse<CustomPOJO> response = asyncContainer.createItem(item).block();
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]
 
-    response.getRequestCharge();
-    ```     
+    # <a name="sync"></a>[Sincronização](#tab/api-sync)
 
-    #### <a name="sync"></a>[Sincronização](#tab/api-sync)
+    Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-request-charge-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API    
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceRequestChargeSync)]
 
-    ```java
-    CosmosItemResponse<CustomPOJO> response = syncContainer.createItem(item);
-
-    response.getRequestCharge();
-    ```     
-
-    ---
+    --- 
 
     A taxa de pedido devolvida neste cabeçalho é uma fração do seu rendimento provisitado. Por exemplo, se tiver 2000 RU/s provisidos, e se a consulta anterior devolver 1000 documentos 1KB, o custo da operação é de 1000. Como tal, dentro de um segundo, o servidor honra apenas dois desses pedidos antes de taxa limitando os pedidos subsequentes. Para obter mais informações, consulte [as unidades request](request-units.md) e a [calculadora da unidade de pedido.](https://www.documentdb.com/capacityplanner)
 
@@ -439,6 +388,6 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos. Idealmente, arquiteta a sua aplicação e fluxos de trabalho para que o seu tamanho de artigo seja ~1KB, ou ordem ou magnitude semelhante. Para aplicações sensíveis à latência, devem ser evitados grandes itens - os documentos multi-MB irão abrandar a sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

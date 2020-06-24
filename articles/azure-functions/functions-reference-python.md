@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 1d9289b6304a9c9e93afeddd98b3a229dae91797
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660595"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730752"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -251,7 +251,7 @@ def main(req):
 
 Estão disponíveis métodos adicionais de registo que permitem escrever para a consola em diferentes níveis de vestígios:
 
-| Método                 | Descrição                                |
+| Método                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Escreve uma mensagem com nível CRITICAL no madeir de raiz.  |
 | **`error(_message_)`**   | Escreve uma mensagem com ERRO de nível no madeir de raiz.    |
@@ -263,7 +263,7 @@ Para saber mais sobre o registo, consulte [as Funções Monitor Azure](functions
 
 ## <a name="http-trigger-and-bindings"></a>HTTP Gatilho e encadernações
 
-O gatilho HTTP é definido no ficheiro fun.jon. O `name` encadernação deve coincidir com o parâmetro indicado na função.
+O gatilho HTTP é definido no function.jsficheiro. O `name` encadernação deve coincidir com o parâmetro indicado na função.
 Nos exemplos anteriores, é utilizado um nome de encadernação. `req` Este parâmetro é um objeto [HttpRequest] e um objeto [HttpResponse] é devolvido.
 
 A partir do objeto [HttpRequest,] pode obter cabeçalhos de pedido, parâmetros de consulta, parâmetros de rota e o corpo da mensagem.
@@ -636,7 +636,7 @@ Há algumas bibliotecas com o tempo de funcionamento das Funções Python.
 
 ### <a name="python-standard-library"></a>Biblioteca Padrão python
 
-A Biblioteca Padrão python contém uma lista de módulos Python incorporados que são enviados com cada distribuição python. A maioria destas bibliotecas ajuda-o a aceder à funcionalidade do sistema, como o Ficheiro I/O. Nos sistemas Windows, estas bibliotecas são instaladas com Python. Nos sistemas baseados no Unix, são fornecidos por coleções de pacotes.
+A Biblioteca Padrão python contém uma lista de módulos Python incorporados que são enviados com cada distribuição python. A maioria destas bibliotecas ajuda-o a aceder à funcionalidade do sistema, como o ficheiro I/O. Nos sistemas Windows, estas bibliotecas são instaladas com Python. Nos sistemas baseados no Unix, são fornecidos por coleções de pacotes.
 
 Para ver todos os detalhes da lista destas bibliotecas, visite os links abaixo:
 
@@ -650,11 +650,11 @@ O trabalhador de Funções Python requer um conjunto específico de bibliotecas.
 
 ### <a name="azure-functions-python-library"></a>Biblioteca Azure Functions Python
 
-Cada atualização de trabalhadores python inclui uma nova versão da [biblioteca Azure Functions Python (azure.funções)](https://github.com/Azure/azure-functions-python-library). A versão da biblioteca de tempo de execução é fixada pelo Azure, e não pode ser ultrapassada por requirements.txt. A `azure-functions` entrada em requirements.txt é apenas para a linhar e a sensibilização do cliente.
+Cada atualização de trabalhadores python inclui uma nova versão da [biblioteca Azure Functions Python (azure.funções)](https://github.com/Azure/azure-functions-python-library). Esta abordagem facilita a atualização contínua das suas aplicações de função Python, uma vez que cada atualização é compatível com retro-compatível. Uma lista de lançamentos desta biblioteca pode ser encontrada em [PyPi de funções azure.](https://pypi.org/project/azure-functions/#history)
 
-A razão de tomar esta decisão é para facilitar a atualização contínua nas aplicações Azure Functions Python. A atualização da Biblioteca Python não deve estar ciente do cliente, uma vez que cada atualização é compatível com retroativos. Uma lista de lançamentos da biblioteca pode ser encontrada em [PyPi de funções azure.](https://pypi.org/project/azure-functions/#history)
+A versão da biblioteca de tempo de execução é fixada pelo Azure, e não pode ser ultrapassada por requirements.txt. A `azure-functions` entrada em requirements.txt é apenas para a linhar e a sensibilização do cliente. 
 
-Pode rastrear a versão real da biblioteca Python Functions no seu tempo de funcionamento com a seguinte linha:
+Utilize o seguinte código para rastrear a versão real da biblioteca Python Functions no seu tempo de funcionamento:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
@@ -663,6 +663,7 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 ### <a name="runtime-system-libraries"></a>Bibliotecas do sistema de tempo de execução
 
 Para obter uma lista de bibliotecas de sistema pré-instaladas em imagens do trabalhador python Docker, siga os links abaixo:
+
 |  Tempo de execução das funções  | Versão debian | Versões python |
 |------------|------------|------------|
 | Versão 2.x | Esticar  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
@@ -682,7 +683,7 @@ Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

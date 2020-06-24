@@ -3,16 +3,16 @@ title: Use comandos e funcionalidades de cadernos incorporados em cadernos Azure
 description: Aprenda a usar comandos e funcionalidades incorporados para fazer operações comuns utilizando os cadernos C# incorporados da Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: tracking-python
-ms.openlocfilehash: 46420aeb635bd4cd7b84698b7eb5d522177b443a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561769"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263420"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB C# (pré-visualização)
 
@@ -115,14 +115,14 @@ Pode utilizar o explorador de [dados nteract](https://blog.nteract.io/designing-
 
 Por exemplo, no exemplo *GetingStarted_Csharp.ipynb,* podemos imprimir a variável com o nosso resultado, o ``telemetryEvents`` . Consulte o [caderno GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) para toda a amostra. 
 
-![Célula de consulta de Csharp](media/use-notebook-features-and-commands/csharp-query-cell.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Célula de consulta de Csharp":::
 
-![explorador de dados nteract](media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="explorador de dados nteract":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Use o espectador de dicionário incorporado
 Você pode usar o espectador de dicionário incorporado para ver uma variável. Numa célula, coloque a variável que pretende visualizar na última linha, que será exibida automaticamente quando a célula é executada.
 
-![Espectador de dicionário embutido](media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Espectador de dicionário embutido":::
 
 ## <a name="upload-json-items-to-a-container"></a>Faça o upload de itens JSON para um recipiente
 Pode utilizar o ``%%upload`` comando mágico para enviar dados de um ficheiro JSON para um recipiente Azure Cosmos especificado. Utilize o seguinte comando para carregar os itens:
@@ -160,7 +160,7 @@ Pode utilizar o ``%%run`` comando mágico para executar outro caderno no seu esp
 ## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de cadernos
 Para redefinir o espaço de trabalho dos blocos de notas para as definições predefinidos, selecione **Reset Workspace** na barra de comando. Isto removerá quaisquer pacotes instalados personalizados e reiniciará o servidor Jupyter. Os seus cadernos, ficheiros e recursos da Azure Cosmos não serão afetados.  
 
-![Redefinir espaço de trabalho de cadernos](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Redefinir espaço de trabalho de cadernos":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

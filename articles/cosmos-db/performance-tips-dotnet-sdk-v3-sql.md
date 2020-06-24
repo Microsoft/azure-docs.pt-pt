@@ -3,22 +3,22 @@ title: Dicas de desempenho do Azure Cosmos DB para .NET SDK v3
 description: Aprenda opções de configuração do cliente para melhorar o desempenho do Azure Cosmos DB .NET v3 SDK.
 author: j82w
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/23/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 48ab7d0b04a155465f2325179cf5617de7873fd8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: a10272324a9535a0c2468d63a404f76ca56ce375
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680204"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263522"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [.NET SDK v2](performance-tips.md)
-> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [SDK v2 de .NET](performance-tips.md)
+> * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](performance-tips-async-java.md)
 > * [SDK v2 Java síncrono](performance-tips-java.md)
 
@@ -87,9 +87,8 @@ A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto so
 Para o SDK V3, configura o modo de ligação quando cria o `CosmosClient` caso, em `CosmosClientOptions` . Lembre-se que o modo direto é o padrão.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+string connectionString = "<your-account-connection-string>";
+CosmosClient client = new CosmosClient(connectionString,
 new CosmosClientOptions
 {
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
@@ -98,6 +97,18 @@ new CosmosClientOptions
 
 Como o TCP é suportado apenas em modo direto, se utilizar o modo gateway, o protocolo HTTPS é sempre utilizado para comunicar com o gateway.
 
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="A política de conexão DB Azure Cosmos" border="false":::
+
+**Exaustão do porto efémero**
+
+Se vir um elevado volume de ligação ou um elevado uso da porta nas suas instâncias, verifique primeiro se as instâncias do seu cliente são singletons. Por outras palavras, as instâncias do cliente devem ser únicas para o tempo de vida da aplicação.
+
+Ao executar o protocolo TCP, o cliente otimiza para a latência utilizando as ligações de longa duração em oposição ao protocolo HTTPS, que termina as ligações após 2 minutos de inatividade.
+
+Em cenários em que tenha acesso escasso e se notar uma contagem de ligação mais alta quando comparado com o acesso ao modo gateway, pode:
+
+* Configure a propriedade [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) para `PrivatePortPool` (eficaz com a versão-quadro>= versão 4.6.1 e .net core >= 2.0): Esta propriedade permite ao SDK usar uma pequena piscina de portas efémeras para diferentes pontos finais de destino Azure Cosmos DB.
+* Configure a propriedade [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) deve ser maior ou igual a 10 minutos. Os valores recomendados são entre 20 minutos e 24 horas.
 
 <a id="same-region"></a>
 
@@ -105,7 +116,9 @@ Como o TCP é suportado apenas em modo direto, se utilizar o modo gateway, o pro
 
 Quando possível, coloque quaisquer aplicações que liguem para Azure Cosmos DB na mesma região que a base de dados DB Azure Cosmos. Aqui está uma comparação aproximada: chamadas para Azure Cosmos DB dentro da mesma região completam dentro de 1 000 a 2 ms, mas a latência entre a costa oeste e leste dos EUA é de mais de 50 ms. Esta latência pode variar de pedido a pedido, dependendo do percurso feito pelo pedido à medida que passa do cliente para o limite do datacenter Azure. Você pode obter a latência mais baixa possível, garantindo que o pedido de chamada está localizado dentro da mesma região de Azure que o ponto final Azure Cosmos DB. Para obter uma lista das regiões disponíveis, consulte as [regiões de Azure.](https://azure.microsoft.com/regions/#services)
 
-![A política ](./media/performance-tips/same-region.png) de conexão DB Azure Cosmos<a id="increase-threads"></a>
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="A política de conexão DB Azure Cosmos" border="false":::
+
+   <a id="increase-threads"></a>
 
 **Aumentar o número de fios/tarefas**
 
@@ -250,7 +263,7 @@ O comportamento de relembolso automatizado ajuda a melhorar a resiliência e a u
 
 A taxa de pedido (isto é, o custo de processamento de pedido) de uma determinada operação está diretamente relacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações em pequenos documentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para uma aplicação de amostra que é usada para avaliar Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte testes de [desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

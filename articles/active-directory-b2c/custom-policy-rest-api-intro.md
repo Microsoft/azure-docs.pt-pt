@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b308e5d74f1a87ea1cebed26f602780307c77d35
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 41db591b8abdaaa58461b2782d93f7aa745cfdc6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447922"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202539"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrar as bolsas de reclamações da REST API na sua política personalizada Azure AD B2C
 
@@ -145,7 +145,7 @@ A sua API REST pode basear-se em qualquer plataforma e escrita em qualquer idiom
 ## <a name="localize-the-rest-api"></a>Localize a API REST
 Num perfil técnico RESTful, pode querer enviar o idioma/local da sessão atual e, se necessário, levantar uma mensagem de erro localizada. Utilizando as [reclamações,](claim-resolver-overview.md)pode enviar uma reclamação contextual, como o idioma do utilizador. O exemplo a seguir mostra um perfil técnico RESTful que demonstra este cenário.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -165,7 +165,7 @@ Num perfil técnico RESTful, pode querer enviar o idioma/local da sessão atual 
 
 ## <a name="handling-error-messages"></a>Manipulação de mensagens de erro
 
-A API rest pode ter de devolver uma mensagem de erro, tal como "O utilizador não foi encontrado no sistema CRM." Se ocorrer um erro, a API REST deve devolver uma mensagem de erro HTTP 409 (Código de Estado de resposta a conflitos). Para mais informações, consulte o [perfil técnico RESTful](restful-technical-profile.md#returning-error-message).
+A API rest pode ter de devolver uma mensagem de erro, tal como "O utilizador não foi encontrado no sistema CRM." Se ocorrer um erro, a API REST deve devolver uma mensagem de erro HTTP 409 (Código de Estado de resposta a conflitos). Para mais informações, consulte o [perfil técnico RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Tal só pode ser conseguido através da chamada de um perfil técnico da API REST a partir de um perfil técnico de validação. Isto permite ao utilizador corrigir os dados na página e executar novamente a validação após a submissão da página.
 
@@ -179,7 +179,7 @@ O pedido para o seu serviço REST API provém de servidores Azure AD B2C. O serv
 
 Desenhe o seu serviço REST API e os seus componentes subjacentes (como a base de dados e o sistema de ficheiros) para estar altamente disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para exemplos de utilização de um perfil técnico RESTful:
 

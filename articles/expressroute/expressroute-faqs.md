@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 882a94034831b1c710031031918e70bf3581a4a6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266649"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987304"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -152,7 +152,7 @@ Não perderá a conectividade se uma das ligações cruzadas falhar. Uma ligaç�
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Como implemento o despedimento em olhares privados?
 
-Vários circuitos ExpressRoute de diferentes locais de observação podem ser ligados à mesma rede virtual para fornecer alta disponibilidade no caso de um único circuito ficar indisponível. Em seguida, pode [atribuir pesos mais elevados](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) à ligação local para favorecer um circuito específico. Recomenda-se vivamente que os clientes confendam pelo menos dois circuitos ExpressRoute para evitar pontos únicos de falha. 
+Vários circuitos ExpressRoute de diferentes locais de observação ou até quatro ligações a partir do mesmo local de observação podem ser ligados à mesma rede virtual para fornecer alta disponibilidade no caso de um único circuito ficar indisponível. Em seguida, pode [atribuir pesos mais elevados](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a uma das ligações locais para preferir um circuito específico. Recomenda-se vivamente que os clientes confendam pelo menos dois circuitos ExpressRoute para evitar pontos únicos de falha. 
 
 Consulte [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para projetar para alta disponibilidade e [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) para projetar para recuperação de desastres.  
 
@@ -164,7 +164,7 @@ Consulte [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir uma elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
 
-Pode obter uma elevada disponibilidade ligando circuitos ExpressRoute em diferentes locais de observação (por exemplo, Singapura, Singapura2) à sua rede virtual. Se um circuito ExpressRoute se avariar, a conectividade falhará noutro circuito ExpressRoute. Por predefinição, o tráfego que sai da sua rede virtual é encaminhado com base no Roteamento multi-caminhos de custo igual (ECMP). Pode utilizar o Peso de Ligação para preferir um circuito a outro. Para obter mais informações, consulte [o Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+Pode obter uma elevada disponibilidade ligando até quatro circuitos ExpressRoute no mesmo local de observação à sua rede virtual, ou ligando circuitos ExpressRoute em diferentes locais de observação (por exemplo, Singapura, Singapura2) à sua rede virtual. Se um circuito ExpressRoute se avariar, a conectividade falhará noutro circuito ExpressRoute. Por predefinição, o tráfego que sai da sua rede virtual é encaminhado com base no Roteamento multi-caminhos de custo igual (ECMP). Pode utilizar o Peso de Ligação para preferir um circuito a outro. Para obter mais informações, consulte [o Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Como posso garantir que o meu tráfego destinado a serviços públicos Azure como o Azure Storage e o Azure SQL na Microsoft a espreitar ou a espreitar publicamente é preferido no caminho ExpressRoute?
 
@@ -195,7 +195,7 @@ Se o seu fornecedor de serviços oferecer ExpressRoute em ambos os sites, pode t
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Posso ter vários circuitos ExpressRoute no mesmo metro? Posso ligá-los à mesma rede virtual?
 
-Sim. Pode ter vários circuitos ExpressRoute com os mesmos ou diferentes fornecedores de serviços. Se o metrô tiver vários locais de observação ExpressRoute e os circuitos forem criados em diferentes locais de observação, pode ligá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de observação, pode ligar até 4 circuitos à mesma rede virtual.
+Sim. Pode ter vários circuitos ExpressRoute com os mesmos ou diferentes fornecedores de serviços. Se o metrô tiver vários locais de observação ExpressRoute e os circuitos forem criados em diferentes locais de observação, pode ligá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de observação, pode ligar até quatro circuitos à mesma rede virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como posso ligar as minhas redes virtuais a um circuito ExpressRoute
 

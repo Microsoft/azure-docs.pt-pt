@@ -5,19 +5,19 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ee789d0a9d06dfe6c5f47c02a5ff9c1637b3f976
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6cd0b2f31af187d881fe650c0829bb28e353dcbf
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209473"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987624"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar uma porta de entrada de rede virtual redundante em Zonas de Disponibilidade Azure
 
-Pode implementar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. Para obter informações, consulte [sobre gateways de rede virtual redundantes](about-zone-redundant-vnet-gateways.md) e sobre zonas de [disponibilidade azure](../availability-zones/az-overview.md).
+Pode implantar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. Para obter informações, consulte [sobre as portas de rede virtuais redundantes de zona e](about-zone-redundant-vnet-gateways.md) sobre as zonas de disponibilidade de [Azure.](../availability-zones/az-overview.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -25,7 +25,7 @@ Pode implementar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure. 
 
 ## <a name="1-declare-your-variables"></a><a name="variables"></a>1. Declare as suas variáveis
 
-Declare as variáveis que quer utilizar. Utilize o exemplo seguinte, substituindo os valores pelos seus próprios, quando necessário. Se fechar a sua sessão PowerShell/Cloud Shell em qualquer ponto durante o exercício, basta copiar e colar os valores novamente para redeclarar as variáveis. Ao especificar a localização, verifique se a região que especifica está apoiada. Para mais informações, consulte as [FAQ](#faq).
+Declare as variáveis que quer utilizar. Utilize o exemplo seguinte, substituindo os valores pelos seus próprios, quando necessário. Se fechar a sessão PowerShell/Cloud Shell em qualquer ponto durante o exercício, basta copiar e colar novamente os valores para re declarar as variáveis. Ao especificar a localização, verifique se a região especificada é suportada. Para mais informações, consulte as [FAQ.](#faq)
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -61,7 +61,7 @@ $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Loc
 
 ## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. Adicione a sub-rede gateway
 
-A sub-rede gateway contém os endereços IP reservados que os serviços de gateway da rede virtual utilizam. Utilize os seguintes exemplos para adicionar e definir uma sub-rede de gateway:
+A sub-rede gateway contém os endereços IP reservados que os serviços de gateway de rede virtuais utilizam. Utilize os seguintes exemplos para adicionar e definir uma sub-rede de gateway:
 
 Adicione a sub-rede do gateway.
 
@@ -70,18 +70,18 @@ $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name VNet1
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $getvnet
 ```
 
-Detete a configuração da sub-rede de gateway para a rede virtual.
+Deslote a configuração da sub-rede gateway para a rede virtual.
 
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
 ## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. Solicitar um endereço IP público
  
-Neste passo, escolha as instruções que se aplicam ao portal que pretende criar. A seleção de zonas para implantação dos portões depende das zonas especificadas para o endereço IP público.
+Neste passo, escolha as instruções que se aplicam ao gateway que pretende criar. A seleção das zonas de implantação dos gateways depende das zonas especificadas para o endereço IP público.
 
-### <a name="for-zone-redundant-gateways"></a><a name="ipzoneredundant"></a>Para gateways de zona redundante
+### <a name="for-zone-redundant-gateways"></a><a name="ipzoneredundant"></a>Para portais redundantes de zona
 
-Solicite um endereço IP público com um **SKU Standard** PublicIpaddress e não especifique nenhuma zona. Neste caso, o endereço IP público standard criado será um IP público redundante.   
+Solicite um endereço IP público com um SKU **standard** PublicIpaddress e não especifique nenhuma zona. Neste caso, o endereço IP público standard criado será um IP público redundante.   
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
@@ -89,15 +89,15 @@ $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $Gw
 
 ### <a name="for-zonal-gateways"></a><a name="ipzonalgw"></a>Para gateways zonais
 
-Solicite um endereço IP público com um **SKU Standard** PublicIpaddress. Especifique a zona (1, 2 ou 3). Todas as instâncias de gateway serão implantadas nesta zona.
+Solicite um endereço IP público com um SKU **standard** PublicIpaddress. Especificar a zona (1, 2 ou 3). Todas as instâncias de gateway serão implantadas nesta zona.
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
-### <a name="for-regional-gateways"></a><a name="ipregionalgw"></a>Para gateways regionais
+### <a name="for-regional-gateways"></a><a name="ipregionalgw"></a>Para portais regionais
 
-Solicite um endereço IP público com **um** SKU Basic PublicIpaddress. Neste caso, a porta de entrada é implantada como porta de entrada regional e não tem qualquer redundância de zona incorporada na porta de entrada. As instâncias de gateway são criadas em qualquer zona, respectivamente.
+Solicite um endereço IP público com um SKU de endereço público **básico.** Neste caso, a porta de entrada é implantada como uma porta de entrada regional e não tem qualquer zona-redundância incorporada na porta de entrada. As instâncias de gateway são criadas em quaisquer zonas, respectivamente.
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
@@ -112,15 +112,15 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subne
 
 ## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. Criar o portal
 
-Crie o portal da rede virtual.
+Crie o portal de rede virtual.
 
-### <a name="for-expressroute"></a>Para A Rota Expressa
+### <a name="for-expressroute"></a>Para ExpressRoute
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute -GatewaySku ErGw1AZ
 ```
 
-### <a name="for-vpn-gateway"></a>Para vpn gateway
+### <a name="for-vpn-gateway"></a>Para VPN Gateway
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
@@ -128,22 +128,22 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implementar estas novas SKUs?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implementar estes novos SKUs?
 
-Do seu ponto de vista, pode implantar os seus portões com redundância de zona. Isto significa que todos os casos dos gateways serão implantados em zonas de disponibilidade do Azure, e cada Zona de Disponibilidade é um domínio de falha e atualização diferente. Isto torna os seus gateways mais fiáveis, disponíveis e resistentes a falhas de zona.
+Do seu ponto de vista, pode implantar os seus gateways com redundância de zona. Isto significa que todas as instâncias dos gateways serão implantadas em todas as Zonas de Disponibilidade de Azure, e cada Zona de Disponibilidade é um domínio de falha e atualização diferente. Isto torna os seus gateways mais fiáveis, disponíveis e resistentes a falhas de zona.
 
 ### <a name="can-i-use-the-azure-portal"></a>Posso usar o portal Azure?
 
-Sim, pode usar o portal Azure para implementar as novas SKUs. No entanto, você verá estas novas UsS apenas nas regiões azure que têm Zonas de Disponibilidade Azure.
+Sim, pode usar o portal Azure para implantar os novos SKUs. No entanto, você verá estes novos SKUs apenas nas regiões Azure que têm Azure Availability Zones.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Que regiões estão disponíveis para eu usar as novas SKUs?
+### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Que regiões estão disponíveis para eu utilizar os novos SKUs?
 
-Consulte [as Zonas de Disponibilidade](../availability-zones/az-region.md) para obter a mais recente lista de regiões disponíveis.
+Consulte [As Zonas de Disponibilidade](../availability-zones/az-region.md) para obter a última lista de regiões disponíveis.
 
-### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso mudar/migrar/atualizar os meus portões de rede virtual existentes para gateways de zona redundante ou zonal?
+### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso alterar/migrar/atualizar os meus gateways de rede virtuais existentes para portas de entrada redundantes ou zonais?
 
-Migrar as suas portas de rede virtual existentes para gateways zonas redundantes ou zonais não é suportado atualmente. Pode, no entanto, eliminar o seu portal existente e recriar um gateway zona-redundante ou zonal.
+A migração dos seus gateways de rede virtuais existentes para portas de portais redundantes ou zonais não é suportada atualmente. Pode, no entanto, apagar o seu gateway existente e recriar uma porta de entrada redundante ou zonal.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Posso implantar os gateways VPN e Express Route na mesma rede virtual?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Posso implementar os gateways VPN e Express Route na mesma rede virtual?
 
-A coexistência de gateways VPN e Express Route na mesma rede virtual é suportada. No entanto, deve reservar uma gama de endereços IP /27 para a sub-rede gateway.
+A coexistência de gateways VPN e Express Route na mesma rede virtual é suportada. No entanto, deverá reservar um intervalo de endereço IP /27 para a sub-rede gateway.

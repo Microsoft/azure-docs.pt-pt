@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
+ms.date: 06/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: b9b4f505e7d3bdfec4bb689dcb8e08c82111ba1e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558446"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298247"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -69,7 +69,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-O código inicia-se no espaço de trabalho Azure Machine Learning definido em **config.json** (para uma explicação, consulte [Tutorial: Começa a criar a tua primeira experiência ML com o Python SDK).](tutorial-1st-experiment-sdk-setup.md) Se já não existe um conjunto de dados `'titanic_ds'` nomeado registado, então cria um. O código descarrega dados de CSV a partir da Web, utiliza-os para instantaneamente a `TabularDataset` e, em seguida, regista o conjunto de dados com o espaço de trabalho. Finalmente, a função `Dataset.get_by_name()` atribui `Dataset` o a `titanic_ds` . 
+O código inicia sessão no espaço de trabalho Azure Machine Learning definido em **config.js** (para uma explicação, consulte [Tutorial: Começa a criar a tua primeira experiência ML com o Python SDK).](tutorial-1st-experiment-sdk-setup.md) Se já não existe um conjunto de dados `'titanic_ds'` nomeado registado, então cria um. O código descarrega dados de CSV a partir da Web, utiliza-os para instantaneamente a `TabularDataset` e, em seguida, regista o conjunto de dados com o espaço de trabalho. Finalmente, a função `Dataset.get_by_name()` atribui `Dataset` o a `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Configure o seu alvo de armazenamento e cálculo
 
@@ -111,18 +111,27 @@ O próximo passo é garantir que o treino remoto tenha todas as dependências qu
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+O código acima mostra duas opções para lidar com dependências. Como apresentado, `USE_CURATED_ENV = True` com, a configuração baseia-se num ambiente curado. Os ambientes curados são "pré-preparados" com bibliotecas interdependentes comuns e podem ser significativamente mais rápidos de colocar online. Ambientes curados têm imagens estivais pré-construídas no [Registo de Contentores da Microsoft.](https://hub.docker.com/publishers/microsoftowner) O caminho tomado se mudar `USE_CURATED_ENV` para `False` mostrar o padrão para definir explicitamente as suas dependências. Nesse cenário, será criada e registada uma nova imagem personalizada do Docker num Registo de Contentores Azure dentro do seu grupo de recursos (ver [Introdução aos registos privados de contentores Docker em Azure).](https://docs.microsoft.com/azure/container-registry/container-registry-intro) Construir e registar esta imagem pode demorar alguns minutos. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Preparar dados para aprendizagem automática de máquinas
 

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 1f1a83bce3a8b46bb49bf78917690851390408e0
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140978"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194693"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark em Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark fornece primitivos para a computação de cluster in-memory. Os tra
 
 As piscinas spark em Azure Synapse oferecem um serviço Spark totalmente gerido. Os benefícios de criar uma piscina spark em Synapse Analytics estão listados aqui.
 
-| Funcionalidade | Descrição |
+| Funcionalidade | Description |
 | --- | --- |
 | Rapidez e eficiência |As ocorrências de faíscas começam em aproximadamente 2 minutos por menos de 60 nós e aproximadamente 5 minutos para mais de 60 nós. O caso encerra, por defeito, 5 minutos após o último trabalho executado, a menos que seja mantido vivo por uma ligação de caderno. |
 | Facilidade de criação |Pode criar uma nova piscina Spark em Azure Synapse em minutos utilizando o portal Azure PowerShell ou o Synapse Analytics .NET SDK. Ver [Começar com piscinas Spark no Synapse Analytics.](../quickstart-create-apache-spark-pool-studio.md) |
@@ -86,7 +86,7 @@ Use os seguintes artigos para saber mais sobre Apache Spark in Synapse Analytics
 > [!NOTE]
 > Parte da documentação oficial do Apache Spark baseia-se na utilização da consola de faíscas, esta não está disponível no Azure Synapse Spark, usa o caderno ou experiências IntelliJ em vez disso
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta visão geral, você obtém uma compreensão básica de Apache Spark em Azure Synapse Analytics. Avance para o próximo artigo para aprender a criar uma piscina spark em Azure Synapse Analytics:
 

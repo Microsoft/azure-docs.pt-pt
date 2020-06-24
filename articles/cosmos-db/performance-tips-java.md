@@ -4,24 +4,24 @@ description: Aprenda opções de configuração do cliente para melhorar o desem
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 092cee943161048bf252fb5e27a1c1169a70bed0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d65348c7bf64a9756c2682e0ac50691926938fff
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674470"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263454"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Sync Java SDK v2
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](performance-tips-async-java.md)
 > * [SDK v2 Java síncrono](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [.NET SDK v2](performance-tips.md)
+> * [SDK v2 de .NET](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -64,14 +64,14 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      ![Ilustração da política de conexão DB Azure Cosmos](./media/performance-tips-java/connection-policy.png)
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
 
    <a id="same-region"></a>
 2. **Clientes collocados na mesma região de Azure para desempenho**
 
     Quando possível, coloque quaisquer aplicações que chamem Azure Cosmos DB na mesma região que a base de dados Azure Cosmos. Para uma comparação aproximada, as chamadas para Azure Cosmos DB dentro da mesma região completam dentro de 1-2 ms, mas a latência entre a costa oeste e leste dos EUA é >50 ms. Esta latência pode provavelmente variar de pedido a pedido dependendo da rota tomada pelo pedido, uma vez que passa do cliente para o limite do datacenter Azure. A latência mais baixa possível é conseguida garantindo que o pedido de chamada está localizado na mesma região de Azure que o ponto final Azure Cosmos DB. Para obter uma lista das regiões disponíveis, consulte [as Regiões Azure.](https://azure.microsoft.com/regions/#services)
 
-    ![Ilustração da política de conexão DB Azure Cosmos](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
    
 ## <a name="sdk-usage"></a>Utilização SDK
 1. **Instale o SDK mais recente**
@@ -181,5 +181,5 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).
