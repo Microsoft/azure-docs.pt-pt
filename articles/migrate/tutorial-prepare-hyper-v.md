@@ -4,46 +4,41 @@ description: Saiba como se preparar para a avaliação/migração de VMs hiper-V
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 22fd5bc87494eb2fc162828363e7ca70afe1bbf0
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca9020a9c306eea39d75c15c96b5f9fe9bcc11fe
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322170"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770548"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs hiper-V para Azure
 
-Este artigo descreve como se preparar para a avaliação de Hiper-V VMs no local com [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), e migração de VMs Hiper-V com [Azure Migrate:Migração de servidores](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Este artigo ajuda-o a preparar-se para a avaliação e migração de VMs Hiper-V para Azure, utilizando [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), e [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Este tutorial é o primeiro de uma série que mostra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Prepara o Azure. Configure as permissões para a sua conta Azure e recursos para trabalhar com a Azure Migrate.
-> * Prepare os anfitriões hiper-V e VMs no local para avaliação do servidor. Pode preparar-se com um script de configuração ou manualmente.
-> * Preparar para a colocação do aparelho Azure Migrate. O aparelho é utilizado para descobrir e avaliar os VMs no local.
-> * Prepare os anfitriões hiper-V e VMs no local para a migração do servidor.
-
+> * Prepare o Azure para trabalhar com a Azure Migrate.
+> * Preparem-se para avaliar os Hiper-VMs.
+> * Preparar para migrar Hiper-VMs 
 
 > [!NOTE]
-> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, reveja os "How-tos" para avaliação e migração de Hiper-V.
-
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão sempre que possível e não mostram todas as definições e caminhos possíveis.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
 ## <a name="prepare-azure"></a>Preparar o Azure
 
-### <a name="azure-permissions"></a>Permissões Azure
+A tabela resume as tarefas que precisa de completar em Azure. As instruções seguem a mesa.
 
-Precisa de configurar permissões para a implantação do Azure Migrate.
-
-**Tarefa** | **Detalhes** 
---- | --- 
-**Criar um projeto Azure Migrate** | A sua conta Azure precisa de permissões de Contribuidor ou Proprietário para criar um projeto. | 
-**Registar fornecedores de recursos** | A Azure Migrate usa um aparelho Azure Migrate leve para descobrir e avaliar os VMs hiper-V com avaliação do servidor Azure Migrate.<br/><br/> Durante o registo do aparelho, os fornecedores de recursos estão registados com a assinatura escolhida no aparelho. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registar os fornecedores de recursos, precisa de uma função de Contribuinte ou Proprietário na subscrição.
-**Criar aplicação do Azure AD** | Ao registar o aparelho, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) que é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Precisa de permissões para criar aplicações AD Azure (disponíveis no Desenvolvedor de Aplicações).
-
+**Tarefa** | **Detalhes** | **Permissões**
+--- | --- | ---
+**Criar um projeto Azure Migrate** | Um projeto Azure Migrate fornece uma localização central para orquestrar e gerir avaliações e migrações com ferramentas Azure Migrate, ferramentas Microsoft e ofertas de terceiros. | A sua conta Azure necessita de permissões de Contribuinte ou Proprietário no grupo de recursos em que o projeto reside.
+**Aparelho de registo** | A Azure Migrate utiliza um aparelho Azure Migrate leve para descobrir e avaliar os Hiper-VM. [Saiba mais](migrate-appliance-architecture.md#appliance-registration). | Para registar o aparelho, a sua conta Azure necessita de permissões de Contribuinte ou Proprietário na assinatura Azure.
+**Criar aplicação do Azure AD** | Ao registar o aparelho, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) que é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho e a Azure Migrate. | A sua conta Azure necessita de permissões para criar aplicações AD Azure.
+**Criar uma VM** | Precisa de permissões para criar um VM no grupo de recursos e rede virtual, e para escrever para um disco gerido pelo Azure. | A conta Azure precisa do papel de Contribuinte de Máquina Virtual.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
@@ -57,7 +52,7 @@ Verifique se tem permissões para criar um projeto Azure Migrate.
     - Se não é o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
 
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registar o aparelho
+### <a name="assign-permissions-to-create-azure-ad-apps"></a>Atribuir permissões para criar aplicações AD Azure
 
 Pode atribuir permissões para a Azure Migrate criar a aplicação AZure AD durante o registo do aparelho, utilizando um dos seguintes métodos:
 
@@ -87,34 +82,34 @@ O arrendatário/administrador global pode conceder permissões da seguinte forma
 
 O administrador inquilino/global pode atribuir o papel de Desenvolvedor de Aplicações a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
+### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta Azure
 
-## <a name="prepare-hyper-v-for-assessment"></a>Preparar Hiper-V para avaliação
+Atribua a função contribuinte da máquina virtual à conta, para que tenha permissões para:
 
-Pode preparar o Hyper-V para avaliação de VM manualmente ou utilizando um script de configuração. Os passos de preparação são os seguintes:
-- [Verificar](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) As definições do anfitrião Hiper-V e certifique-se de que as [portas necessárias](migrate-support-matrix-hyper-v.md#port-access) estão abertas nos anfitriões Hyper-V.
-- Configure a remoagem powerShell em cada hospedeiro, de modo a que o aparelho Azure Migrate possa executar comandos PowerShell no hospedeiro, sobre uma ligação WinRM.
-- Credenciais de delegado se os discos VM estiverem localizados em ações SMB remotas.
-- Crie uma conta que o aparelho utilizará para descobrir VMs em anfitriões Hiper-V.
-- Configurar serviços de integração hiper-V em cada VM que pretende descobrir e avaliar. As definições predefinidas quando ativa os Serviços de Integração são suficientes para o Azure Migrate.
-
-    ![Ativar serviços de integração](./media/tutorial-prepare-hyper-v/integrated-services.png)
+- Criar uma VM no grupo de recursos selecionado.
+- Criar uma VM na rede virtual selecionada.
+- Escreva para um disco gerido pelo Azure. 
 
 
-## <a name="prepare-with-a-script"></a>Prepare-se com um roteiro
+### <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
 
-O guião faz o seguinte:
+[Crie uma rede Azure.](../virtual-network/manage-virtual-network.md#create-a-virtual-network) As máquinas no local são replicadas em discos geridos aZure. Quando falhas no Azure para migração, os VMs Azure são criados a partir destes discos geridos, e unidos à rede Azure que criaste.
 
-- Verifica se está a executar o script numa versão suportada do PowerShell.
-- Verifica se você (o utilizador que executa o script) tem privilégios administrativos no anfitrião Hyper-V.
-- Permite-lhe criar uma conta de utilizador local (não administrador) que o serviço Azure Migrate utiliza para comunicar com o anfitrião Hiper-V. Esta conta de utilizador é adicionada a estes grupos no anfitrião:
-    - Utilizadores de Gestão Remota
-    - Administradores de Hyper V
-    - Utilizadores do Monitor de Desempenho
-- Verifica se o anfitrião está a executar uma versão suportada do Hyper-V e o papel de Hiper-V.
-- Ativa o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no anfitrião (necessário para a recolha de metadados).
-- Permite a remoesse powerShell no hospedeiro.
-- Verifica se os Serviços de Integração Hiper-V estão ativados em todos os VM geridos pelo anfitrião.
-- Ativa o CredSSP no hospedeiro, se necessário.
+
+## <a name="prepare-for-assessment"></a>Preparar para avaliação
+
+Pode preparar o Hyper-V para avaliação de VM manualmente ou utilizando um script de configuração. Estes são os passos de preparação. Se se preparar com um script, estes são configurados automaticamente.
+
+**Passo** | **Script** | **Manual**
+--- | --- | ---
+**Verifique os requisitos do hospedeiro Hyper-V** | O script verifica se o anfitrião está a executar uma versão suportada do Hyper-V e o papel de Hiper-V.<br/><br/> Ativa o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no anfitrião (necessário para a recolha de metadados). | Verifique os [requisitos do anfitrião Hyper-V](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) para avaliação do servidor.<br/><br/> Certifique-se de que as [portas necessárias](migrate-support-matrix-hyper-v.md#port-access) estão abertas nos anfitriões Hiper-V.
+**Verificar a versão PowerShell** | Verifica se está a executar o script numa versão suportada do PowerShell. | Verifique se está a executar a versão 4.0 do PowerShell ou mais tarde no anfitrião Hyper-V.
+**Criar uma conta** | Verifica se você (o utilizador que executa o script) tem privilégios administrativos no anfitrião Hyper-V.<br/><br/>  Permite-lhe criar uma conta de utilizador local (não administrador) que o serviço Azure Migrate utiliza para comunicar com o anfitrião Hiper-V. Esta conta de utilizador é adicionada a estes grupos no anfitrião:<br/><br/> - Utilizadores de Gestão Remota<br/><br/> - Administradores hiper-V<br/><br/>- Utilizadores do Monitor de Desempenho | Crie um domínio ou conta de utilizador local com permissões de administrador nos anfitriões/cluster hiper-V.<br/><br/> - Você precisa de uma única conta para todos os anfitriões e aglomerados que você quer incluir na descoberta.<br/><br/> - A conta pode ser uma conta local ou de domínio. Recomendamos que tenha permissões de administrador nos anfitriões ou agrupamentos Hiper-V.<br/><br/> Em alternativa, se não quiser atribuir permissões de Administrador, são necessárias as seguintes permissões: Utilizadores de Gestão Remota; Administradores hiper-V; Utilizadores do Monitor de Desempenho.
+**Ativar a remoing powerShell** | Ativa a remoagem powerShell no hospedeiro, de modo a que o aparelho Azure Migrate possa executar comandos PowerShell no hospedeiro, sobre uma ligação WinRM.| Para configurar, em cada anfitrião, abra uma consola PowerShell como administrador, e executar este comando:<br/><br/>``` Enable-PSRemoting -force ```
+**Criar serviços de integração hiper-V** | Verifica se os Serviços de Integração Hiper-V estão ativados em todos os VM geridos pelo anfitrião. |  [Ativar serviços de integração de hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) em cada VM.<br/><br/> Se estiver a executar o Windows Server 2003, [siga estas instruções](prepare-windows-server-2003-migration.md).
+**Credenciais de delegado se os discos VM estiverem localizados em ações remotas de SMB** | O guião delega credenciais. | [Enable CredSSP](#enable-credssp-to-delegate-credentials) para delegar credenciais.
+
+### <a name="run-the-script"></a>Executar o script
 
 Execute o guião da seguinte forma:
 
@@ -134,7 +129,7 @@ Execute o guião da seguinte forma:
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
-### <a name="hashtag-values"></a>Valores de hashtag
+#### <a name="hashtag-values"></a>Valores de hashtag
 
 Os valores do haxixe são:
 
@@ -144,52 +139,8 @@ Os valores do haxixe são:
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
-## <a name="prepare-manually"></a>Preparar manualmente
 
-Siga os procedimentos desta secção para preparar o Hyper-V manualmente, em vez de utilizar o script.
-
-### <a name="verify-powershell-version"></a>Verificar a versão PowerShell
-
-Certifique-se de que tem a versão 4.0 do PowerShell ou posteriormente instalada no anfitrião Hyper-V.
-
-
-
-### <a name="set-up-an-account-for-vm-discovery"></a>Criar uma conta para a descoberta de VM
-
-Azure Migrate precisa de permissões para descobrir VMs no local.
-
-- Crie um domínio ou conta de utilizador local com permissões de administrador nos anfitriões/cluster hiper-V.
-
-    - Você precisa de uma única conta para todos os anfitriões e aglomerados que você quer incluir na descoberta.
-    - A conta pode ser uma conta local ou de domínio. Recomendamos que tenha permissões de administrador nos anfitriões ou agrupamentos Hiper-V.
-    - Em alternativa, se não quiser atribuir permissões de administrador, são necessárias as seguintes permissões:
-        - Utilizadores de Gestão Remota
-        - Administradores de Hyper V
-        - Utilizadores do Monitor de Desempenho
-
-### <a name="verify-hyper-v-host-settings"></a>Verifique as definições do anfitrião Hyper-V
-
-1. Verifique os [requisitos do anfitrião Hyper-V](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) para avaliação do servidor.
-2. Certifique-se de que as [portas necessárias](migrate-support-matrix-hyper-v.md#port-access) estão abertas nos anfitriões Hiper-V.
-
-### <a name="enable-powershell-remoting-on-hosts"></a>Ativar a remoing powerShell nos anfitriões
-
-Configurar a remoing PowerShell em cada hospedeiro, da seguinte forma:
-
-1. Em cada anfitrião, abra uma consola PowerShell como administradora.
-2. Execute este comando:
-
-    ```
-    Enable-PSRemoting -force
-    ```
-### <a name="enable-integration-services-on-vms"></a>Ativar serviços de integração em VMs
-
-Os Serviços de Integração devem ser ativados em cada VM para que a Azure Migrate possa capturar informações do sistema operativo no VM.
-
-Em VMs que pretende descobrir e avaliar, ative [os Serviços de Integração Hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) em cada VM.
-
-
-### <a name="enable-credssp-on-hosts"></a>Ativar o CredSSP nos anfitriões
+### <a name="enable-credssp-to-delegate-credentials"></a>Permitir ao CredSSP delegar credenciais
 
 Se o anfitrião tiver VMs com discos localizados em ações SMB, complete este passo no anfitrião.
 
@@ -218,15 +169,17 @@ Antes de configurar o aparelho Azure Migrate e iniciar a avaliação no tutor se
 4. [Reveja](migrate-appliance.md#collected-data---hyper-v) os requisitos de acesso à porta para o aparelho.
 
 
-
-
 ## <a name="prepare-for-hyper-v-migration"></a>Preparar para a migração hyper-V
 
-1. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Requisitos de hospedeiro hiper-V para migração, e os URLs Azure aos quais os anfitriões e agrupamentos Hiper-V precisam de acesso para a migração de VM.
+1. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Requisitos de hospedeiro hiper-V para migração, e os URLs Azure aos quais os anfitriões e agrupamentos Hiper-V precisam de acesso para a migração de VM.
 2. [Reveja](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para Os Hiper-VMs que pretende migrar para Azure.
+3. São necessárias algumas alterações nos VM antes de as migrar para Azure.
+    - É importante fazer estas mudanças antes de começar a migração. Se migrar o VM antes de fazer a alteração, o VM pode não arrancar em Azure.
+    - Reveja as alterações do [Windows](prepare-for-migration.md#windows-machines) e [do Linux](prepare-for-migration.md#linux-machines) que precisa de fazer.
 
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

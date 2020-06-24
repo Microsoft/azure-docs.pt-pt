@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 06/12/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 350bc92193a27b595158f65b6ae54edc1c934e35
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2f650681742b2d91396ad41aeb69505c703cd3ac
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608796"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753044"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use Python e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
@@ -92,7 +92,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
    A cadeia de ligação é um URL semelhante ao seguinte exemplo:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Guarde o fio de ligação para o Bloco de Notas. Vai precisar mais tarde ao configurar a ligação à fonte de dados.
@@ -101,11 +101,11 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 O enriquecimento de IA é apoiado por Serviços Cognitivos, incluindo Análise de Texto e Visão Computacional para o processamento de linguagem natural e imagem. Se o seu objetivo fosse completar um protótipo ou projeto real, você iria neste momento providenciar Serviços Cognitivos (na mesma região que a Azure Cognitive Search) para que você possa anexá-lo a operações de indexação.
 
-Para este exercício, no entanto, você pode ignorar o fornecimento de recursos porque a Azure Cognitive Search pode ligar-se aos Serviços Cognitivos nos bastidores e dar-lhe 20 transações gratuitas por indexer executado. Uma vez que este tutorial utiliza 7 transações, a atribuição gratuita é suficiente. Para projetos maiores, planeie o fornecimento de Serviços Cognitivos no nível S0 pay-as-you-go. Para obter mais informações, consulte [Os Serviços Cognitivos anexados.](cognitive-search-attach-cognitive-services.md)
+Uma vez que este tutorial utiliza apenas 7 transações, pode ignorar o fornecimento de recursos porque a Azure Cognitive Search pode ligar-se aos Serviços Cognitivos para 20 transações gratuitas por indexante executado. A dotação gratuita é suficiente. Para projetos maiores, planeie o fornecimento de Serviços Cognitivos no nível S0 pay-as-you-go. Para obter mais informações, consulte [Os Serviços Cognitivos anexados.](cognitive-search-attach-cognitive-services.md)
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-O terceiro componente é Azure Cognitive Search, que pode [criar no portal.](search-create-service-portal.md) Pode utilizar o nível Free para completar este walkthrough. 
+O terceiro componente é Azure Cognitive Search, que pode [criar no portal.](search-create-service-portal.md) Você pode usar o nível Livre para completar esta caminhada através. 
 
 Tal como acontece com o armazenamento da Azure Blob, aproveite um momento para recolher a chave de acesso. Mais à frente, quando iniciar os pedidos estruturantes, terá de fornecer o ponto final e a tecla api de administração utilizada para autenticar cada pedido.
 
@@ -159,7 +159,7 @@ params = {
 
 ## <a name="3---create-the-pipeline"></a>3 - Criar o gasoduto
 
-Na Pesquisa Cognitiva Azure, o processamento de IA ocorre durante a indexação (ou ingestão de dados). Esta parte do walkthrough cria quatro objetos: fonte de dados, definição de índice, skillset, indexante. 
+Na Pesquisa Cognitiva Azure, o processamento de IA ocorre durante a indexação (ou ingestão de dados). Esta parte da caminhada cria quatro objetos: fonte de dados, definição de índice, skillset, indexante. 
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
 
@@ -220,12 +220,14 @@ skillset_payload = {
             "defaultLanguageCode": "en",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/content"
+                    "name": "text", 
+                    "source": "/document/content"
                 }
             ],
             "outputs": [
                 {
-                    "name": "organizations", "targetName": "organizations"
+                    "name": "organizations", 
+                    "targetName": "organizations"
                 }
             ]
         },
@@ -233,7 +235,8 @@ skillset_payload = {
             "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/content"
+                    "name": "text", 
+                    "source": "/document/content"
                 }
             ],
             "outputs": [
@@ -269,10 +272,12 @@ skillset_payload = {
             "context": "/document/pages/*",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/pages/*"
+                    "name": "text", 
+                    "source": "/document/pages/*"
                 },
                 {
-                    "name": "languageCode", "source": "/document/languageCode"
+                    "name": "languageCode", 
+                    "source": "/document/languageCode"
                 }
             ],
             "outputs": [
@@ -378,9 +383,9 @@ Um [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) c
 
 Para ligar estes objetos num indexante, é necessário definir mapeamentos de campo.
 
-+ Os fieldMappings são processados antes do skillset, mapeando campos de origem da fonte de dados para campos alvo em um índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, não é necessário mapear.
++ Os `"fieldMappings"` são processados antes do skillset, mapeando campos de origem da fonte de dados para campos alvo em um índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, não é necessário mapear.
 
-+ As saídasFieldMappings são processadas após o skillset, referindo-se a origemFieldNames que não existem até que o documento de cracking ou enriquecimento os crie. O targetFieldName é um campo num índice.
++ Os `"outputFieldMappings"` são processados após o skillset, referindo `"sourceFieldNames"` que não existem até que o documento de cracking ou enriquecimento os crie. `"targetFieldName"`É um campo num índice.
 
 Além de ligar entradas às saídas, também pode usar mapeamentos de campo para aplainar estruturas de dados. Para mais informações, consulte [como mapear campos enriquecidos para um índice pescável.](cognitive-search-output-field-mapping.md)
 
@@ -465,7 +470,7 @@ r = requests.get(endpoint + "/indexers/" + indexer_name +
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Na resposta, monitorize o "último Resultado" pelos seus valores de "status" e "endTime". Execute periodicamente o script para verificar o estado. Quando o indexante tiver terminado, o estado será definido como "sucesso", será especificado um "endTime" e a resposta incluirá quaisquer erros e avisos ocorridos durante o enriquecimento.
+Na resposta, monitorize os `"lastResult"` seus `"status"` `"endTime"` valores e valores. Execute periodicamente o script para verificar o estado. Quando o indexante tiver terminado, o estado será definido como "sucesso", será especificado um "endTime" e a resposta incluirá quaisquer erros e avisos ocorridos durante o enriquecimento.
 
 ![Indexer é criado](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer é criado")
 
@@ -505,7 +510,7 @@ Os resultados devem ser semelhantes ao exemplo seguinte. A imagem mostra apenas 
 
 ![Índice de consulta para o conteúdo das organizações](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Consultar o índice para devolver o conteúdo das organizações")
 
-Repita para campos adicionais: conteúdo, languageCode, keyPhrases e organizações neste exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
+Repita para campos adicionais: `content` , , e neste `languageCode` `keyPhrases` `organizations` exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
 
 Pode utilizar GET ou POST, dependendo da complexidade da cadeia de consulta e do comprimento. Para obter mais informações, veja [Consultar através da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
@@ -544,7 +549,7 @@ Quando se está a trabalhar na sua própria subscrição, no final de um projeto
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com todos os objetos num oleoduto de enriquecimento de IA, vamos olhar mais de perto as definições de skillset e habilidades individuais.
 

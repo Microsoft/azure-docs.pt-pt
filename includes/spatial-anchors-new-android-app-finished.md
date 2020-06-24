@@ -2,20 +2,20 @@
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
-ms.date: 04/03/2019
+ms.date: 06/22/2020
 ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8bef7b12f4d9d9a63e41441ef22b029b2ee5afd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d20b7dee533dae17cfb1c6138e336b91c7e2b0c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74276925"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296190"
 ---
-## <a name="putting-everything-together"></a>Juntar tudo
+## <a name="putting-everything-together"></a>Juntando tudo
 
-Aqui está como `MainActivity` o arquivo completo da classe deve ser, depois de todos os diferentes elementos terem sido reunidos. Pode usá-lo como referência para comparar com o seu próprio ficheiro, e detetar se pode ter alguma diferença.
+Eis como deve ser o ficheiro completo da `MainActivity` classe, depois de todos os diferentes elementos terem sido reunidos. Pode usá-lo como referência para comparar com o seu próprio ficheiro, e identificar se ainda tiver alguma diferença.
 
 ```java
 package com.example.myfirstapp;
@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.cloudSession.getConfiguration().setAccountId(/* Copy your account Identifier in here */);
         this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
+        this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
     }
     // </initializeSession>
@@ -244,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, já viu como criar uma nova aplicação Android que integra a funcionalidade ARCore com âncoras espaciais Azure. Para saber mais sobre a biblioteca Azure Spatial Anchors, continue a nosso guia sobre como criar e localizar âncoras.
+Neste tutorial, já viu como criar uma nova aplicação Android que integra a funcionalidade ARCore com a Azure Spatial Anchors. Para saber mais sobre a biblioteca Azure Spatial Anchors, continue ao nosso guia sobre como criar e localizar âncoras.
 
 > [!div class="nextstepaction"]
 > [Criar e localizar âncoras usando âncoras espaciais Azure](/azure/spatial-anchors/create-locate-anchors-overview)

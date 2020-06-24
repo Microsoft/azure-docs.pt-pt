@@ -1,5 +1,5 @@
 ---
-title: Explore o básico com uma aplicação de cliente de amostra
+title: Explore as noções básicas com uma aplicação cliente de exemplo
 titleSuffix: Azure Digital Twins
 description: Tutorial para explorar os SDKs Azure Digital Twins usando uma aplicação de linha de comando de amostra
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 070a65207bc1aa2cf754f3a0dca59f1a2950a339
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613549"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262356"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explore a Azure Digital Twins com uma aplicação de cliente de amostra
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este tutorial introduz uma aplicação de amostra que implementa uma aplicação de cliente de linha de comando, para interagir com uma instância Azure Digital Twins. A aplicação do cliente é semelhante à escrita em [Tutorial: Código uma aplicação de cliente](tutorial-code.md).
 
@@ -44,7 +47,7 @@ Os modelos são semelhantes às aulas em linguagens de programação orientadas 
 
 Na janela do Seu Estúdio Visual onde o projeto _**AdtE2ESample**_ está aberto, utilize o painel *Solution Explorer* para navegar na pasta *AdtSampleApp\SampleClientApp\Models.* Esta pasta contém modelos de amostra.
 
-Selecione *Room.json* para abri-lo na janela de edição e alterá-lo das seguintes formas:
+Selecione *Room.js* para abri-lo na janela de edição e alterá-lo das seguintes formas:
 
 * **Atualize o número da versão**, para indicar que está a fornecer uma versão mais atualizada deste modelo. Faça-o alterando o *1* no final do `@id` valor para um *2*. Qualquer número maior do que o número atual da versão também funcionará.
 * **Editar uma propriedade.** Mude o nome da `Humidity` propriedade para *HumidityLevel* (ou algo diferente, se quiser. Se utilizar algo diferente do *HumidityLevel,* lembre-se do que utilizou e continue a usá-lo em vez de *HumidityLevel* durante todo o tutorial).
@@ -70,7 +73,7 @@ Selecione *Room.json* para abri-lo na janela de edição e alterá-lo das seguin
 
 Quando terminar, o modelo atualizado deve ser assim:
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Sala Editada.json com número de versão atualizada, propriedades De HumidityLevel e RoomName, e contém relacionamento" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento" border="false":::
 
 Certifique-se de que guarda o ficheiro antes de seguir em frente.
 
@@ -78,7 +81,7 @@ Certifique-se de que guarda o ficheiro antes de seguir em frente.
 > Se quiser tentar criar o seu próprio modelo, pode colar o código do modelo *Room* num novo ficheiro que guarde com uma extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models.* Depois, brinque com a adição de propriedades e relacionamentos para representar o que quiser. Também pode olhar para os outros modelos de amostra desta pasta para ideias.
 
 > [!TIP] 
-> Existe uma [amostra de DTDL Validador](https://github.com/Azure-Samples/DTDL-Validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [Como-a: Parse e validar modelos.](how-to-use-parser.md)
+> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [Como-a: Parse e validar modelos.](how-to-use-parser.md)
 
 ### <a name="get-started-with-the-command-line-app"></a>Começar com a app de linha de comando
 
@@ -308,7 +311,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Neste tutorial, começou com a Azure Digital Twins, criando uma instância e uma aplicação de cliente para interagir com o caso. Usou a aplicação do cliente para explorar a Azure Digital Twins, criando modelos, gémeos digitais e relacionamentos. Também fez algumas perguntas sobre a solução, para ter uma ideia do tipo de perguntas que a Azure Digital Twins pode responder sobre um ambiente.
 

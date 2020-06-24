@@ -1,30 +1,32 @@
 ---
-title: Gravação contínua de vídeo para nuvem e reprodução de tutorial em nuvem - Azure
-description: Neste tutorial, você aprenderá a usar o Live Video Analytics no IoT Edge para gravar continuamente o vídeo para a nuvem, e transmitir qualquer parte desse vídeo usando a Azure Media Services.
+title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de nuvem - Azure
+description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: a69d3f5db9dd8cbe25bbf79f44921f26258005cc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 95182478b75d506526cce28c0d5e446d71140eac
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261859"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765068"
 ---
-# <a name="tutorial-continuous-video-recording-to-cloud-and-playback-from-cloud"></a>Tutorial: Gravação contínua de vídeo para nuvem e reprodução da nuvem  
+# <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
-Neste tutorial, você aprenderá a usar live video analytics no IoT Edge para executar [gravação contínua](continuous-video-recording-concept.md) de vídeo (CVR) para a nuvem, e transmitir qualquer parte desse vídeo usando Media Services. Isto é útil para cenários como segurança, conformidade, e outros, onde é necessário manter um arquivo das imagens de uma câmara durante vários dias (ou semanas).
+Neste tutorial, você aprenderá a usar a Azure Live Video Analytics em Azure IoT Edge para executar [gravação contínua](continuous-video-recording-concept.md) de vídeo (CVR) para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services. Esta capacidade é útil para cenários como segurança e conformidade onde há necessidade de manter um arquivo das imagens de uma câmara durante dias ou semanas. 
+
+Neste tutorial você:
 
 > [!div class="checklist"]
-> * Configurar os recursos relevantes
-> * Examine o código que executa o CVR
-> * Executar o código de amostra
-> * Examine os resultados e veja o vídeo
+> * Criar os recursos relevantes.
+> * Examine o código que executa o CVR.
+> * Executar o código de amostra.
+> * Examine os resultados e veja o vídeo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida  
 
-Recomenda-se que leia as seguintes páginas de documentação
+Leia estes artigos antes de começar:
 
 * [Análise de vídeo ao vivo na visão geral do IoT Edge](overview.md)
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
@@ -33,47 +35,53 @@ Recomenda-se que leia as seguintes páginas de documentação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os pré-requisitos para este tutorial são os seguintes
+Os pré-requisitos para este tutorial são:
 
-* [Código de Estúdio Visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento com extensão [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) e extensão [C#.](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [Código de Estúdio Visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento com as [ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) e as extensões [C#.](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
     > [!TIP]
-    > Pode ser solicitado a instalar o Docker. Pode ignorar esta solicitação.
+    > Pode ser solicitado a instalar o Docker. Ignore este pedido.
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) na sua máquina de desenvolvimento.
-* Roteiro completo [de configuração de recursos de vídeo ao vivo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)
+* Preencha o [roteiro de configuração de recursos de vídeo ao vivo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
 
-No final dos passos acima, terá certos recursos Azure implantados na subscrição do Azure, incluindo:
+No final destes passos, terá recursos Azure relevantes implantados na sua subscrição Azure:
 
-* IoT Hub
-* Conta de armazenamento
+* Azure IoT Hub
+* Conta de armazenamento do Azure
 * Conta Azure Media Services
-* Linux VM em Azure, com [tempo de execução IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) instalado
+* Linux VM em Azure, com o [tempo de execução IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) instalado
 
 ## <a name="concepts"></a>Conceitos
 
-Como [explicado aqui](media-graph-concept.md), um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Para realizar o CVR, é necessário capturar o vídeo a partir de uma câmara capaz de RTSP e gravá-lo continuamente para um [ativo da Azure Media Services](terminology.md#asset). O diagrama abaixo mostra uma representação gráfica desse gráfico mediático.
+Como explicado no artigo de [conceito de gráfico de mídia,](media-graph-concept.md) um gráfico de mídia permite definir:
 
-![Gráfico de mídia](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+- De onde os meios de comunicação devem ser capturados.
+- Como deve ser processado.
+- Onde os resultados devem ser entregues. 
+ 
+ Para realizar o CVR, é necessário capturar o vídeo a partir de uma câmara capaz de RTSP e gravá-lo continuamente para um [ativo da Azure Media Services](terminology.md#asset). Este diagrama mostra uma representação gráfica do gráfico mediático.
 
-Neste tutorial, utilizará um módulo Edge construído utilizando o [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) para simular uma câmara RTSP. Dentro do gráfico de mídia, você usará um nó [de fonte RTSP](media-graph-concept.md#rtsp-source) para obter o feed ao vivo, e enviará esse vídeo para o [nó da pia](media-graph-concept.md#asset-sink) do ativo que irá gravar o vídeo para um ativo.
+![Grafo do suporte de dados](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+
+Neste tutorial, utilizará um módulo de uma borda construído utilizando o [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) para simular uma câmara RTSP. Dentro do gráfico de mídia, você usará um nó [de fonte RTSP](media-graph-concept.md#rtsp-source) para obter o feed ao vivo e enviar esse vídeo para o [nó da pia do ativo](media-graph-concept.md#asset-sink), que grava o vídeo para um ativo.
 
 ## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Antes de começar, verifique se completou a 3ª bala em [Pré-requisitos.](#prerequisites) Assim que o script de configuração do recurso terminar, clique nos suportes encaracolados para expor a estrutura da pasta. Você verá alguns ficheiros criados sob o diretório de amostras ~/clouddrive/lva.
+Antes de começar, verifique se completou a terceira bala em [Pré-requisitos.](#prerequisites) Depois de terminar o script de configuração do recurso, selecione os suportes encaracolados para expor a estrutura da pasta. Você verá alguns ficheiros criados sob o diretório de amostras ~/clouddrive/lva.
 
 ![Definições da aplicação](./media/quickstarts/clouddrive.png)
 
-De interesse neste tutorial são:
+De interesse neste tutorial estão os ficheiros:
 
-     * ~/clouddrive/lva-sample/edge-deployment/.env  - contains properties that Visual Studio Code uses to deploy modules to an edge device
-     * ~/clouddrive/lva-sample/appsettings.json - used by Visual Studio Code for running the sample code
+* **~/clouddrive/lva-sample/edge-deployment/.env**: Contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
+* **~/clouddrive/lva-sample/appsettings.jsem**: Usado pelo Código do Estúdio Visual para executar o código de amostra.
 
-Vai precisar destes ficheiros para os passos abaixo.
+Vai precisar dos ficheiros para estes passos:
 
-1. Clone o repo https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp daqui.
-1. Lance o Código do Estúdio Visual e abra a pasta onde descarregou o repo.
-1. No Visual Studio Code, navegue para a pasta "src/cloud-to-device-console-app" e crie um ficheiro chamado "appsettings.json". Este ficheiro conterá as definições necessárias para executar o programa.
-1. Copie o conteúdo do ficheiro ~/clouddrive/lva-sample/appsettings.json. O texto deve parecer:
+1. Clone o repo a partir da ligação https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp GitHub.
+1. Inicie o Código do Estúdio Visual e abra a pasta onde descarregou o repo.
+1. No Código do Estúdio Visual, navegue na pasta src/cloud-to-device-console-app e crie um ficheiro com o nome **appsettings.jsligado .** Este ficheiro contém as definições necessárias para executar o programa.
+1. Copie o conteúdo da amostra ~/clouddrive/lva-sample/appsettings.jsno ficheiro. O texto deve parecer:
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
@@ -81,9 +89,9 @@ Vai precisar destes ficheiros para os passos abaixo.
         "moduleId" : "lvaEdge"  
     }
     ```
-    A cadeia de ligação IoT Hub permite-lhe utilizar o Código do Estúdio Visual para enviar comandos para os módulos Edge via Azure IoT Hub.
+    A cadeia de ligação IoT Hub permite-lhe utilizar o Código do Estúdio Visual para enviar comandos para os módulos de borda através do Azure IoT Hub.
     
-1. Em seguida, navegue na pasta "src/edge" e crie um ficheiro chamado ".env".
+1. Em seguida, navegue na pasta src/edge e crie um ficheiro chamado **.env**.
 1. Copie o conteúdo do ficheiro ~/clouddrive/lva-sample/.env. O texto deve parecer:
 
     ```
@@ -103,66 +111,66 @@ Vai precisar destes ficheiros para os passos abaixo.
 
 ## <a name="examine-the-sample-files"></a>Examinar os ficheiros de amostras
 
-No Código do Estúdio Visual abra "src/edge/deployment.template.json". Este modelo define quais os módulos de borda que irá implantar no dispositivo de borda (o Azure Linux VM). Note que existem duas entradas na secção "módulos", com os seguintes nomes:
+No Código do Estúdio Visual, abra src/edge/deployment.template.jsligado. Este modelo define quais os módulos de borda que irá implantar no dispositivo de borda (o Azure Linux VM). Existem duas entradas na secção de **módulos** com os seguintes nomes:
 
-* IvaEdge – este é o live video analytics no módulo IoT Edge
-* rtspsim – este é o simulador RTSP
+* **LvaEdge**: Este é o vídeo ao vivo analítico no módulo IoT Edge.
+* **rtspsim**: Este é o simulador RTSP.
 
-Em seguida, navegue para a pasta "src/cloud-to-device-console-app". Aqui verá o ficheiro appsettings.json que criou juntamente com alguns outros ficheiros:
+Em seguida, navegue na pasta src/cloud-to-device-console-app. Aqui verá o appsettings.jsno ficheiro que criou juntamente com outros ficheiros:
 
-* c2d-console-app.csproj - o ficheiro do projeto para Visual Studio Code.
-* operations.json - este ficheiro lista as diferentes operações que iria executar
-* Program.cs - o código do programa de amostra que faz o seguinte:
-    * Carrega as definições da aplicação
-    * Invoca métodos diretos expostos pelo live video analytics no módulo IoT Edge. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos](direct-methods.md)
-    * Pausas para examinar a saída do programa na janela TERMINAL e os eventos gerados pelo módulo na janela OUTPUT
-    * Invoca métodos diretos para limpar recursos
+* **c2d-console-app.csproj**: O ficheiro do projeto para Visual Studio Code.
+* **operations.jsem:** Este ficheiro lista as diferentes operações que executaria.
+* **Program.cs**: O código do programa de amostra, que:
+    * Carrega as definições da aplicação.
+    * Invoca métodos diretos expostos pelo live video analytics no módulo IoT Edge. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)
+    * Pausa para examinar a saída do programa na janela **TERMINAL** e os eventos gerados pelo módulo na janela **OUTPUT.**
+    * Invoca métodos diretos para limpar recursos.
 
 ## <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>Gerar e implementar o manifesto de implantação IoT Edge 
 
-O manifesto de implantação define quais os módulos que são implantados num dispositivo de borda e configurações de configuração para esses módulos. Siga estes passos para gerar tal manifesto a partir do ficheiro do modelo e, em seguida, implante-o para o dispositivo de borda.
+O manifesto de implantação define quais os módulos que são implantados num dispositivo de borda e as definições de configuração desses módulos. Siga estes passos para gerar um manifesto a partir do ficheiro do modelo e, em seguida, desloque-o para o dispositivo de borda.
 
-1. Abra o Visual Studio Code.
-1. Desagre a cadeia de ligação IoTHub clicando no ícone "Mais ações" ao lado do painel AZURE IOT HUB no canto inferior esquerdo. Pode copiar o string a partir do ficheiro src/cloud-to-device-console-app/appsettings.json. 
+1. Iniciar código de estúdio visual.
+1. Desagre a cadeia de ligação IoT Hub selecionando o ícone **Mais ações** ao lado do painel **AZURE IOT HUB** no canto inferior esquerdo. Copie o fio da src/cloud-to-device-console-app/appsettings.jsno ficheiro. 
 
-    ![Definir cadeia de conexão IOT](./media/quickstarts/set-iotconnection-string.png)
-1. Em seguida, clique à direita no ficheiro "src/edge/deployment.template.json" e clique em "Generate IoT Edge Deployment Manifest". O Código do Estúdio Visual utiliza os valores do ficheiro .env para substituir as variáveis encontradas no ficheiro do modelo de implantação. Isto deve criar um ficheiro manifesto na pasta src/edge/config chamada "deployment.amd64.json".
+    ![Definir cadeia de conexão IoT Hub](./media/quickstarts/set-iotconnection-string.png)
+1. Clique com o botão direito para o src/edge/deployment.template.jsno ficheiro e selecione **Generate IoT Edge Deployment Manifest**. O Código do Estúdio Visual utiliza os valores do ficheiro .env para substituir as variáveis encontradas no ficheiro do modelo de implantação. Esta ação cria um ficheiro manifesto na pasta src/edge/config chamada **deployment.amd64.jsem**.
 
    ![Gerar manifesto de implantação IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
-1. Clique no "src/edge/config/deployment.amd64.json" e clique em "Criar Implementação para Dispositivo Único".
+1. Clique com o botão direito para o src/edge/config/deployment.amd64.jsno ficheiro e selecione **Criar Implementação para um único dispositivo**.
 
    ![Criar implementação para dispositivo único](./media/quickstarts/create-deployment-single-device.png)
-1. Em seguida, será solicitado que "Selecione um dispositivo IoT Hub". Selecione o dispositivo de amostra de Lva a partir da queda para baixo.
-1. Em cerca de 30 segundos, refresque o Hub Azure IoT na secção inferior esquerda e deverá ver que o dispositivo de borda tem os seguintes módulos implantados:
-    * Vídeo ao vivo analytics no IoT Edge (nome do módulo "lvaEdge")
-    * Simulador RTSP (nome do módulo "rtspsim")
+1. Em seguida, é-lhe pedido que **selecione um dispositivo IoT Hub**. Selecione o dispositivo de amostra de Lva da lista de drop-down.
+1. Em cerca de 30 segundos, refresque o Azure IoT Hub na secção inferior esquerda. Deve ver que o dispositivo de borda tem os seguintes módulos implantados:
+    * Vídeo ao vivo analytics no IoT Edge (nome do módulo **lvaEdge)**
+    * Simulador RTSP (nome do módulo **rtspsim)**
  
     ![Hub IoT](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Preparar para monitorizar os módulos 
 
-Quando utilizar o live video analytics no módulo IoT Edge para gravar o stream de vídeo ao vivo, enviará eventos para o IoT Hub. Para ver estes eventos, siga estes passos:
+Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream de vídeo ao vivo, envia eventos para o IoT Hub. Para ver estes eventos, siga estes passos:
 
-1. Abra o painel Explorer no Código do Estúdio Visual e procure o Azure IoT Hub no canto inferior esquerdo.
-1. Expandir o nó dispositivos.
-1. Clique no dispositivo lva-sample e escolheu a opção "Iniciar a monitorização de eventos incorporados".
+1. Abra o painel Explorer no Código do Estúdio Visual e procure **o Azure IoT Hub** no canto inferior esquerdo.
+1. Expandir o nó **dispositivos.**
+1. Clique com o botão direito no ficheiro do dispositivo de amostra de Lva e selecione **Start Monitoring Built-in Event Endpoint**.
 
-    ![Comece a monitorizar o ponto final do evento incorporado](./media/quickstarts/start-monitoring-iothub-events.png)
+    ![Iniciar monitorização do ponto final do evento incorporado](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## <a name="run-the-program"></a>Execute o programa 
 
-1. Código do Estúdio Visual, navegue para "src/cloud-to-device-console-app/operations.json"
-1. Sob o nó GráficoToplogiaSet, edite o seguinte:
+1. No Código do Estúdio Visual, aceda a src/cloud-to-device-console-app/operations.js.
+1. Sob o nó **GraphTopologySet,** edite o seguinte:
 
     `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Em seguida, sob os nosmos GraphInstanceSet e GraphTopologyDelete, certifique-se de que o valor da topologiaName corresponde ao valor da propriedade "nome" na topologia do gráfico acima:
+1. Em seguida, sob os nódos **GraphInstanceSet** e **GraphTopologyDelete,** certifique-se de que o valor da **topologiaName** corresponde ao valor da propriedade do **nome** na topologia do gráfico anterior:
 
     `"topologyName" : "CVRToAMSAsset"`  
-1. Abra a [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) num browser e veja o assetNamePattern. Para se certificar de que tem um ativo com um nome único, pode querer alterar o nome da instância do gráfico no ficheiro operations.json (a partir do valor predefinido de "Sample-Graph-1").
+1. Abra a [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) num browser e veja o assetNamePattern. Para se certificar de que tem um ativo com um nome único, pode querer alterar o nome da instância do gráfico no operations.jsno ficheiro (a partir do valor predefinido do Sample-Graph-1).
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
-1. Inicie uma sessão de depurar (acerte F5). Começará a ver algumas mensagens impressas na janela TERMINAL.
-1. O operations.json começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após iniciações anteriores ou tutoriais, isto devolverá listas vazias e, em seguida, fará uma pausa para que você possa chegar a Enter, como abaixo:
+1. Inicie uma sessão de depurar selecionando F5. Verá algumas mensagens impressas na janela **TERMINAL.**
+1. A operations.jsno ficheiro começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após inícios ou tutoriais anteriores, esta ação retorna listas vazias e, em seguida, faz uma pausa para que você **selecione Enter**, como mostrado:
 
     ```
     --------------------------------------------------------------------------
@@ -179,9 +187,10 @@ Quando utilizar o live video analytics no módulo IoT Edge para gravar o stream 
     Executing operation WaitForInput
     Press Enter to continue
     ```
-1. Quando premir a tecla "Entrar" na janela TERMINAL, é feito o próximo conjunto de chamadas de métodos diretos
-     * Uma chamada para o GraphTopologySet usando o topologyUrl acima.
-     * Uma chamada para o GraphInstanceSet utilizando o seguinte corpo.
+
+1. Depois de selecionar **Enter** in the **TERMINAL** window, é feito o próximo conjunto de chamadas de métodos diretos:
+   * Uma chamada para o GraphTopologySet usando o topologia anteriorUrl
+   * Uma chamada para o GraphInstanceSet utilizando o seguinte corpo
      
      ```
      {
@@ -207,30 +216,30 @@ Quando utilizar o live video analytics no módulo IoT Edge para gravar o stream 
        }
      }
      ```
-     * Uma chamada para o GraphInstanceActivate para iniciar a instância do gráfico e iniciar o fluxo de vídeo
-     * Uma segunda chamada para o GraphInstanceList para mostrar que a instância do gráfico está, de facto, no estado de execução  
-1. A saída na janela TERMINAL para agora numa introdução de "Press Enter para continuar". Não bata em "Enter" neste momento. Pode rolar para cima para ver as cargas de resposta JSON para os métodos diretos que invocou
-1. Se agora mudar para a janela OUTPUT no Código do Estúdio Visual, verá mensagens que estão a ser enviadas para o IoT Hub, pelo módulo Live Video Analytics no módulo IoT Edge.
+   * Uma chamada para o GraphInstanceActivate para iniciar a instância do gráfico e para iniciar o fluxo de vídeo
+   * Uma segunda chamada para o GraphInstanceList para mostrar que a instância do gráfico está no estado de execução 
+1. A saída na janela **TERMINAL** para agora numa **Entrada de Imprensa para continuar a** carregar. Não selecione **Enter** neste momento. Percorra para ver as cargas de resposta JSON para os métodos diretos que invocou.
+1. Se agora mudar para a janela **OUTPUT** no Código do Estúdio Visual, verá mensagens a serem enviadas para o IoT Hub pelo módulo Live Video Analytics no módulo IoT Edge.
 
-     * Estas mensagens são discutidas na secção abaixo
-1. A instância do gráfico continuará a ser executada e gravará o vídeo – o simulador RTSP continuará a fazer loop no vídeo de origem. Para parar de gravar, volte à janela TERMINAL e acerte "Enter". A próxima série de chamadas são feitas para limpar recursos:
+   Estas mensagens são discutidas na secção seguinte.
+1. A instância do gráfico continua a correr e a gravar o vídeo. O simulador RTSP continua a dar a volta ao vídeo de origem. Para parar a gravação, volte à janela **TERMINAL** e selecione **Enter**. A próxima série de chamadas são feitas para limpar recursos utilizando:
 
-     * Uma chamada para GraphInstanceDeactivar para desativar a instância do gráfico
-     * Uma chamada para o GraphInstanceDelete para apagar o caso
-     * Uma chamada para GraphTopologyDelete para apagar a topologia
-     * Uma chamada final para a GraphTopologyList para mostrar que a lista está agora vazia
+   * Uma chamada para o GraphInstanceDeactivar para desativar a instância do gráfico.
+   * Uma chamada para o GraphInstanceDelete para apagar o caso.
+   * Uma chamada para a GraphTopologyDelete para apagar a topologia.
+   * Uma chamada final para a GraphTopologyList para mostrar que a lista está agora vazia.
 
 ## <a name="interpret-the-results"></a>Interpretar os resultados 
 
-Quando executam o gráfico de mídia, o módulo Live Video Analytics no IoT Edge envia certos eventos de diagnóstico e operacionais para o IoT Edge Hub. Estes eventos são as mensagens que vê na janela OUTPUT do Código do Estúdio Visual, que contém uma secção "body" e uma secção "aplicaçõesProperties". Para entender o que estas secções representam, leia [este](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) artigo.
+Quando executam o gráfico de mídia, o módulo Live Video Analytics no IoT Edge envia certos eventos de diagnóstico e operacionais para o hub IoT Edge. Estes eventos são as mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual. Contêm uma secção do corpo e uma secção de aplicações. Para compreender o que estas secções representam, consulte [Criar e ler mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-Nas mensagens abaixo, as propriedades da aplicação e o conteúdo do corpo são definidos pelo módulo Live Video Analytics.
+Nas seguintes mensagens, as propriedades da aplicação e o conteúdo do corpo são definidos pelo módulo Live Video Analytics.
 
-## <a name="diagnostic-events"></a>Eventos de diagnóstico 
+## <a name="diagnostics-events"></a>Eventos de diagnóstico 
 
 ### <a name="mediasession-established-event"></a>Evento MediaSession Established
 
-Quando a instância do gráfico é ativada, o nó de origem RTSP tenta ligar-se ao servidor RTSP em execução no módulo rtspsim. Se for bem sucedido, imprimirá este evento:
+Quando a instância do gráfico é ativada, o nó de origem RTSP tenta ligar-se ao servidor RTSP em execução no módulo rtspsim. Se for bem sucedido, imprime este evento:
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
@@ -248,17 +257,17 @@ Quando a instância do gráfico é ativada, o nó de origem RTSP tenta ligar-se 
 }
 ```
 
-* A mensagem é um evento de Diagnóstico, MediaSessionEstablished, indica que o nó de origem RTSP (o sujeito) foi capaz de estabelecer a ligação com o simulador RTSP, e começar a receber um feed ao vivo (simulado).
-* O "sujeito" na aplicaçãoDeproperias refere o nó na topologia do gráfico a partir do qual a mensagem foi gerada. Neste caso, a mensagem é originária do nó de origem RTSP.
-* "eventType" na aplicaçãoProperties indica que este é um evento de Diagnóstico.
-* "eventTime" indica a hora em que o evento ocorreu.
-* "body" contém dados sobre o evento de diagnóstico, que, neste caso, é o [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) detalhes.
+* A mensagem é um evento de Diagnóstico (MediaSessionEstablished). Indica que o nó de origem RTSP (o sujeito) estabeleceu uma ligação com o simulador RTSP e começou a receber um feed ao vivo (simulado).
+* A secção de assunto na aplicaçãoDeproperties refere o nó na topologia do gráfico a partir do qual a mensagem foi gerada. Neste caso, a mensagem provém do nó de origem RTSP.
+* A secção de 'eventType' na aplicaçãoProperties indica que se trata de um evento de Diagnóstico.
+* A secção EventTime indica a hora em que ocorreu o evento.
+* A secção do corpo contém dados sobre o evento de Diagnóstico, que neste caso são os detalhes do [SDP.](https://en.wikipedia.org/wiki/Session_Description_Protocol)
 
 ## <a name="operational-events"></a>Eventos operacionais 
 
 ### <a name="recordingstarted-event"></a>Evento "RecordingStarted"
 
-Quando o nó da pia do ativo começa a gravar vídeo, emite este evento do tipo Microsoft.Media.Graph.Operational.RecordingStarted
+Quando o nó da pia do ativo começa a gravar o vídeo, emite este evento do tipo Microsoft.Media.Graph.Operational.RecordingStarted:
 
 ```
 [IoTHubMonitor] [9:42:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -277,13 +286,13 @@ Quando o nó da pia do ativo começa a gravar vídeo, emite este evento do tipo 
 }
 ```
 
-O "sujeito" na aplicaçãoDeproperias refere o nó do lavatório do ativo no gráfico, que gerou esta mensagem.
+A secção de assunto na aplicaçãoProperties refere o nó do lavatório do ativo no gráfico, que gerou esta mensagem.
 
-O corpo contém informações sobre a localização da saída, que neste caso é o nome do ativo Azure Media Service no qual o vídeo é gravado. Deve anotar este valor.
+A secção do corpo contém informações sobre a localização da saída. Neste caso, é o nome do ativo Azure Media Services no qual o vídeo é gravado. Tome nota deste valor.
 
 ### <a name="recordingavailable-event"></a>Evento disponível de gravação
 
-Como o nome sugere, o evento RecordingStarted é enviado quando a gravação começou - mas os dados de vídeo podem ainda não ter sido enviados para o Ativo. Quando o nó da pia do ativo tiver enviado dados de vídeo para o ativo, emite este evento do tipo Microsoft.Media.Graph.Operational.RecordingAvailable
+Como o nome sugere, o evento RecordingStarted é enviado quando a gravação foi iniciada, mas os dados de vídeo podem ainda não ter sido enviados para o ativo. Quando o nó da pia do ativo tiver enviado dados de vídeo para o ativo, emite este evento do tipo Microsoft.Media.Graph.Operational.RecordingAvailable:
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -302,15 +311,15 @@ Como o nome sugere, o evento RecordingStarted é enviado quando a gravação com
 }
 ```
 
-Este evento indica que foram escritos dados suficientes para que os jogadores/clientes iniciem a reprodução do vídeo.
+Este evento indica que foram escritos dados suficientes para que jogadores ou clientes iniciassem a reprodução do vídeo.
 
-O "sujeito" na aplicaçãoProperties refere-se ao nó AssetSink no gráfico, que gerou esta mensagem.
+A secção de assunto na aplicaçãoProperties refere o nó Desafundado do ActivoSink no gráfico, que gerou esta mensagem.
 
-O corpo contém informações sobre a localização da saída, que neste caso é o nome do ativo Azure Media Service no qual o vídeo é gravado.
+A secção do corpo contém informações sobre a localização da saída. Neste caso, é o nome do ativo Azure Media Services no qual o vídeo é gravado.
 
 ### <a name="recordingstopped-event"></a>Evento de cobertura de Gravações
 
-Quando desativa o Graph Instance, o nó da pia do ativo para de gravar o vídeo para o ativo, emite este evento do tipo Microsoft.Media.Graph.Operational.RecordingS com cobertura.
+Quando desativa o Graph Instance, o nó da pia do ativo para de gravar o vídeo para o ativo. Emite este evento do tipo Microsoft.Media.Graph.Operational.RecordingS com:
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -331,39 +340,39 @@ Quando desativa o Graph Instance, o nó da pia do ativo para de gravar o vídeo 
 
 Este evento indica que a gravação parou.
 
-O "sujeito" na aplicaçãoProperties refere-se ao nó AssetSink no gráfico, que gerou esta mensagem.
+A secção de assunto na aplicaçãoProperties refere o nó Desafundado do ActivoSink no gráfico, que gerou esta mensagem.
 
-O corpo contém informações sobre a localização da saída, que neste caso é o nome do ativo Azure Media Service no qual o vídeo é gravado.
+A secção do corpo contém informações sobre a localização da saída, que neste caso é o nome do ativo Azure Media Services no qual o vídeo é gravado.
 
 ## <a name="media-services-asset"></a>Ativo de Serviços de Mídia  
 
-Pode examinar o ativo Dos Serviços de Comunicação que foi criado pelo gráfico mediático, iniciando sessão no portal Azure e visualizando o vídeo.
+Pode examinar o ativo Media Services que foi criado pelo gráfico mediático iniciando sessão no portal Azure e visualizando o vídeo.
 
 1. Abra o seu navegador web e vá ao [portal Azure.](https://portal.azure.com/) Introduza as suas credenciais para iniciar sessão no portal. A vista predefinida é o dashboard de serviço.
-1. Localize a sua conta de Serviços de Mídia entre os recursos que tem na sua subscrição e abra a lâmina da conta
-1. Clique em Ativos na listagem de Serviços de Mídia
+1. Localize a sua conta de Serviços de Comunicação social entre os recursos que tem na sua subscrição e abra o painel de conta.
+1. Selecione **Ativos** na lista **de Serviços de Mídia.**
 
     ![Elementos](./media/continuous-video-recording-tutorial/assets.png)
-1. Encontrará um Ativo listado com o nome da amostraAsset-CVRToAMSAsset-Sample-Graph-1 – este é o padrão de nomeação escolhido no seu ficheiro de topologia de gráficos.
-1. Clique no Ativo.
-1. Na página de detalhes do ativo, clique na **nova caixa** de texto de URL de streaming.
+1. Encontrará um ativo listado com o nome de amostraAsset-CVRToAMSAsset-Sample-Graph-1. Este é o padrão de nomeação escolhido no seu arquivo de topologia de gráficos.
+1. Selecione o elemento.
+1. Na página de detalhes do ativo, **selecione Criar novo** na caixa de texto URL de **streaming.**
 
     ![Novo ativo](./media/continuous-video-recording-tutorial/new-asset.png)
 
-1. No assistente que abre, aceite as opções predefinindo e acerte em "Adicionar". Para mais informações, veja a [reprodução de vídeo](video-playback-concept.md).
+1. No assistente que abre, aceite as opções predefinitivas e **selecione Adicionar**. Para obter mais informações, consulte [a reprodução de Vídeo.](video-playback-concept.md)
 
     > [!TIP]
     > Certifique-se de que o seu [ponto final de streaming está a funcionar](../latest/streaming-endpoint-concept.md).
-1. O leitor deve carregar o vídeo e deverá ser capaz de acertar **play**>** para vê-lo.
+1. O jogador deve carregar o vídeo. Selecione **Reproduzir** para vê-lo.
 
 > [!NOTE]
-> Uma vez que a origem do vídeo era um contentor que simulava uma transmissão de câmara, os postes de tempo no vídeo estão relacionados com quando ativou a instância do gráfico, e quando o desativou. Você pode ver [este](playback-multi-day-recordings-tutorial.md) tutorial para ver como navegar numa gravação de vários dias, e ver partes desse arquivo. Nesse tutorial, também poderá ver os tempos no vídeo exibido no ecrã.
+> Como a fonte do vídeo era um contentor que simulava uma ração de câmara, as datas do vídeo estão relacionadas com a ativação da instância do gráfico e quando o desativou. Para ver como navegar numa gravação multi-dia e ver partes desse arquivo, consulte a [Reprodução de gravações de vários dias](playback-multi-day-recordings-tutorial.md) tutorial. Nesse tutorial, também pode ver as marcações de tempo no vídeo exibido no ecrã.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se pretende experimentar os outros tutoriais, deve manter os recursos criados. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine o grupo de recursos.
+Se pretende experimentar os outros tutoriais, guarde os recursos que criou. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera) com suporte para RTSP em vez de utilizar o simulador RTSP. Pode pesquisar por câmaras IP com suporte RTSP na página de [produtos conformantes ONVIF,](https://www.onvif.org/conformant-products/) procurando dispositivos que estejam em conformidade com os perfis G, S ou T.
-* Utilize um dispositivo Linux AMD64 ou X64 (vs. utilizando um VM Azure Linux). Este dispositivo deve estar na mesma rede que a câmara IP. Pode seguir as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) e, em seguida, seguir as instruções no [módulo IoT Edge para um dispositivo Linux virtual](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) para registar o dispositivo com o Azure IoT Hub.
+* Utilize um dispositivo Linux AMD64 ou X64 (vs. utilizando um VM Azure Linux). Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Em seguida, siga as instruções no implante do [seu primeiro módulo IoT Edge para um dispositivo Linux virtual](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) para registar o dispositivo com O Azure IoT Hub.

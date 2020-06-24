@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 3075ece58b44caa2077855c7ba8fcd9d949c336b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 12af4c57fd906d687eedfe7c865d36abaa0da18e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610887"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209152"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python
 
@@ -51,11 +51,11 @@ Para formar um modelo utilizando dados rotulados, necessitará dos seguintes fic
 Todos estes ficheiros devem ocupar a mesma sub-pasta e estar no seguinte formato:
 
 * input_file1.pdf 
-* input_file1.pdf.ocr.json
-* input_file1.pdf.labels.json 
+* input_file1.pdf.ocr.jsem
+* input_file1.pdf.labels.jsem 
 * input_file2.pdf 
-* input_file2.pdf.ocr.json
-* input_file2.pdf.labels.json
+* input_file2.pdf.ocr.jsem
+* input_file2.pdf.labels.jsem
 * ...
 
 > [!TIP]
@@ -65,8 +65,8 @@ Todos estes ficheiros devem ocupar a mesma sub-pasta e estar no seguinte formato
 
 Necessita de ficheiros de resultados OCR para que o serviço considere os ficheiros de entrada correspondentes para a formação rotulada. Para obter os resultados do OCR para um determinado formulário de origem, siga os passos abaixo:
 
-1. Ligue para a **[API do Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** no recipiente de Layout lido com o ficheiro de entrada como parte do corpo de pedido. Guarde a identificação encontrada no cabeçalho de **operação-localização** da resposta.
-1. Ligue para a API **[do Resultado do Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** get, utilizando o ID de operação do passo anterior.
+1. Ligue para a **[API do Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeLayoutAsync)** no recipiente de Layout lido com o ficheiro de entrada como parte do corpo de pedido. Guarde a identificação encontrada no cabeçalho de **operação-localização** da resposta.
+1. Ligue para a API **[do Resultado do Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeLayoutResult)** get, utilizando o ID de operação do passo anterior.
 1. Obtenha a resposta e escreva o conteúdo para um ficheiro. Para cada formulário de origem, o ficheiro OCR correspondente deve ter o nome original do ficheiro anexado a `.ocr.json` . A saída OCR JSON deve ter o seguinte formato. Consulte o [ficheiro OCR](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) da amostra para obter um exemplo completo. 
 
     ```json
@@ -197,7 +197,7 @@ Para cada formulário de origem, o ficheiro de etiqueta correspondente deve ter 
 
 ## <a name="train-a-model-using-labeled-data"></a>Treine um modelo usando dados rotulados
 
-Para treinar um modelo com dados rotulados, ligue para a API **[do Modelo Personalizado do Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** executando o seguinte código python. Antes de executar o código, faça estas alterações:
+Para treinar um modelo com dados rotulados, ligue para a API **[do Modelo Personalizado do Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** executando o seguinte código python. Antes de executar o código, faça estas alterações:
 
 1. `<Endpoint>`Substitua-o pelo URL do ponto final para o seu recurso 'Reconhecimento de Formulário'.
 1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
@@ -211,7 +211,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.0/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -556,9 +556,9 @@ Por vezes, quando se aplicam etiquetas diferentes dentro da mesma linha de texto
 
 Entendemos que este cenário é essencial para os nossos clientes, e estamos a trabalhar para melhorar isso no futuro. Atualmente, recomendamos que os nossos utilizadores rotulem vários campos desordenados como um campo e, em seguida, separem os termos num pós-processamento dos resultados de extração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, aprendeu a usar a API de Reconhecimento de Formulários rest com Python para treinar um modelo com dados etiquetados manualmente. Em seguida, consulte a documentação de referência da API para explorar mais aprofundadamente a API do Reconhecimento de Formulários.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)

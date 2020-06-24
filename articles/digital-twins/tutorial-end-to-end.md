@@ -1,5 +1,5 @@
 ---
-title: Ligue uma solução de ponta a ponta
+title: Ligar a uma solução de ponto a ponto
 titleSuffix: Azure Digital Twins
 description: Tutorial para construir uma solução de gémeos digitais Azure que é impulsionada por dados do dispositivo.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e824641f261fc920dd234ba8d4787fbd8ddffe48
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613387"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296989"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Construir uma solução de ponta a ponta
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Para configurar uma solução completa de ponta a ponta impulsionada por dados vivos do seu ambiente, pode ligar a sua instância Azure Digital Twins a outros serviços Azure para a gestão de dispositivos e dados.
 
@@ -133,6 +136,8 @@ No painel *publicar* que se abre de volta na janela principal do Estúdio Visual
 > [!NOTE]
 > Você pode ver um popup como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar a função Azure em Visual Studio: publicar credenciais" border="false":::
 > Em caso afirmativo, selecione **Tente obter credenciais de Azure** e **Save**.
+>
+> Se vir um aviso de que *a sua versão do tempo de execução das funções não corresponde à versão em execução no Azure,* siga as instruções para atualizar para a versão mais recente do tempo de execução do Azure Functions. Este problema pode ocorrer se estiver a utilizar uma versão mais antiga do Visual Studio do que a recomendada na secção *Pré-Requisitos* no início deste tutorial.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
 
@@ -427,7 +432,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de amostras de projeto que descarregou da sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um cenário de ponta a ponta que mostra as Gémeas Digitais Azure a serem impulsionadas por dados de dispositivos ao vivo.
 

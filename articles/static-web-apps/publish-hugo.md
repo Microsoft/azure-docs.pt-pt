@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 697fe423d6f112dcd3a03ec739f7e11db3043c53
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669907"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207826"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
 
-Este artigo demonstra como criar e implementar uma aplicação web [Hugo](https://gohugo.io/) para [Azure Azure Static Web Apps](overview.md). O resultado final é uma nova Azure Static Web Apps com as ações gitHub associadas que lhe dão controlo sobre como a aplicação é construída e publicada.
+Este artigo demonstra como criar e implementar uma aplicação web [Hugo](https://gohugo.io/) para [Azure Static Web Apps](overview.md). O resultado final é uma nova App Web Estática Azure com ações gitHub associadas que lhe dão controlo sobre como a aplicação é construída e publicada.
 
 Neste tutorial, vai aprender a:
 
@@ -191,7 +191,7 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](custom-domain.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298963"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750707"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
 
@@ -54,7 +54,7 @@ Uma rede híbrida utiliza o modelo de arquitetura hub-and-spoke para encaminhar 
    Além disso, as rotas para as redes virtuais ligadas à porta de entrada ou redes no local propagar-se-ão automaticamente para as tabelas de encaminhamento para as redes virtuais espreitadas utilizando o trânsito de gateway. Para obter mais informações, consulte o [trânsito de gateway VPN VPN para espreitar a rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)
 
 - Descreva **As Vias de Utilização** quando espreitar vNet-Spoke para VNet-Hub. Se **o UseRemoteGateways** estiver definido e **o AllowGatewayTransit** no estofo remoto também estiver definido, a rede virtual falada utiliza portais da rede virtual remota para trânsito.
-- Para encaminhar o tráfego de sub-rede falada através da firewall do hub, precisa de uma rota definida pelo utilizador (UDR) que aponte para a firewall com a opção **de propagação** da rota de gateway de rede Virtual desativada. A opção **de propagação da rota de gateway de rede virtual** impede a distribuição de rotas para as sub-redes faladas. Isto evita que as rotas aprendidas entrem em conflito com a sua UDR.
+- Para encaminhar o tráfego de sub-rede falada através da firewall do hub, pode utilizar uma rota definida pelo utilizador (UDR) que aponta para a firewall com a opção **de propagação** da rota de gateway de rede Virtual desativada. A opção **de propagação da rota de gateway de rede virtual** impede a distribuição de rotas para as sub-redes faladas. Isto evita que as rotas aprendidas entrem em conflito com a sua UDR. Se pretender manter a **propagação da rota de gateway de rede virtual** ativada, certifique-se de definir rotas específicas para a firewall para anular as que são publicadas no local em vez de BGP.
 - Configure um UDR na sub-rede do gateway do hub que aponta para o endereço IP de firewall como o próximo salto para as redes de raios. Não é necessária nenhuma UDR na sub-rede Azure Firewall, uma vez que aprende rotas a partir de BGP.
 
 Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber como estas rotas são criadas.

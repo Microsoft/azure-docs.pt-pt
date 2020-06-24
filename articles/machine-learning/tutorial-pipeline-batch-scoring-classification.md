@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 6abfeb1601c85f9202611b914f9dfd47ac50ea1a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: de1d548be7f426f42b369ae7607bd6f798b42317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560967"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296173"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
 
@@ -45,23 +45,25 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 * Se ainda não tiver um espaço de trabalho de aprendizagem automática Azure ou uma máquina virtual de portátil, complete [a Parte 1 do tutorial de configuração](tutorial-1st-experiment-sdk-setup.md).
 * Quando terminar o tutorial de configuração, utilize o mesmo servidor de caderno para abrir os *tutoriais/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoreing-classification.ipynb.*
 
-Se quiser executar o tutorial de configuração no seu próprio [ambiente local,](how-to-configure-environment.md#local)pode aceder ao tutorial no [GitHub.](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) Corra `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps pandas requests` para obter os pacotes necessários.
+Se quiser executar o tutorial de configuração no seu próprio [ambiente local,](how-to-configure-environment.md#local)pode aceder ao tutorial no [GitHub.](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) Corra `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obter os pacotes necessários.
 
 ## <a name="configure-workspace-and-create-a-datastore"></a>Configure o espaço de trabalho e crie uma datastore
 
 Crie um objeto de espaço de trabalho a partir do espaço de trabalho de Aprendizagem da Máquina de Azure existente.
-
-- Um [espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita a sua subscrição Azure e informações de recursos. O espaço de trabalho também cria um recurso em nuvem que pode usar para monitorizar e rastrear as suas execuções de modelos. 
-- `Workspace.from_config()`lê o `config.json` ficheiro e, em seguida, carrega os dados de autenticação num objeto chamado `ws` . O `ws` objeto é usado no código durante todo este tutorial.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
+> [!IMPORTANT]
+> Este código de corte espera que a configuração do espaço de trabalho seja guardada no diretório atual ou no seu progenitor. Para obter mais informações sobre a criação de um espaço de trabalho, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure.](how-to-manage-workspace.md) Para obter mais informações sobre a poupança da configuração para arquivar, consulte [Criar um ficheiro de configuração do espaço de trabalho](how-to-configure-environment.md#workspace).
+
 ## <a name="create-a-datastore-for-sample-images"></a>Criar uma loja de dados para imagens de amostras
 
 Por `pipelinedata` conta, obtenha a amostra de dados públicos de avaliação ImageNet do `sampledata` recipiente de bolhas públicas. Ligue `register_azure_blob_container()` para disponibilizar os dados ao espaço de trabalho com o nome `images_datastore` . Em seguida, desafine a loja de dados predefinido do espaço de trabalho como a datas de saída. Utilize a loja de dados de saída para obter a saída no oleoduto.
+
+Para obter mais informações sobre o acesso aos dados, consulte [Como aceder aos dados.](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk)
 
 ```python
 from azureml.core.datastore import Datastore
@@ -93,7 +95,7 @@ from azureml.core.dataset import Dataset
 from azureml.pipeline.core import PipelineData
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
-label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/*.txt"))
+label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
 output_dir = PipelineData(name="scores", 
                           datastore=def_data_store, 
                           output_path_on_compute="batchscoring/results")
@@ -168,7 +170,7 @@ Para fazer a pontuação, crie um script de pontuação de lote chamado `batch_s
 O `batch_scoring.py` script toma os seguintes parâmetros, que são passados a partir do que cria mais `ParallelRunStep` tarde:
 
 - `--model_name`: O nome do modelo a ser utilizado.
-- `--labels_name`: O nome do `Dataset` que detém o `labels.txt` ficheiro.
+- `--labels_dir`: A localização do `labels.txt` ficheiro.
 
 A infraestrutura do gasoduto utiliza a `ArgumentParser` classe para passar parâmetros em passos de gasoduto. Por exemplo, no seguinte código, o primeiro argumento `--model_name` é dado ao identificador de `model_name` propriedade. Na `init()` função, `Model.get_model_path(args.model_name)` é utilizado para aceder a esta propriedade.
 
@@ -196,9 +198,10 @@ image_size = 299
 num_channel = 3
 
 
-def get_class_label_dict():
+def get_class_label_dict(labels_dir):
     label = []
-    proto_as_ascii_lines = tf.gfile.GFile("labels.txt").readlines()
+    labels_path = os.path.join(labels_dir, 'labels.txt')
+    proto_as_ascii_lines = tf.gfile.GFile(labels_path).readlines()
     for l in proto_as_ascii_lines:
         label.append(l.rstrip())
     return label
@@ -209,14 +212,10 @@ def init():
 
     parser = argparse.ArgumentParser(description="Start a tensorflow model serving")
     parser.add_argument('--model_name', dest="model_name", required=True)
-    parser.add_argument('--labels_name', dest="labels_name", required=True)
+    parser.add_argument('--labels_dir', dest="labels_dir", required=True)
     args, _ = parser.parse_known_args()
 
-    workspace = Run.get_context(allow_offline=False).experiment.workspace
-    label_ds = Dataset.get_by_name(workspace=workspace, name=args.labels_name)
-    label_ds.download(target_path='.', overwrite=True)
-
-    label_dict = get_class_label_dict()
+    label_dict = get_class_label_dict(args.labels_dir)
     classes_num = len(label_dict)
 
     with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
@@ -263,14 +262,15 @@ def run(mini_batch):
 
 ## <a name="build-the-pipeline"></a>Construir o oleoduto
 
-Antes de executar o oleoduto, crie um objeto que defina o ambiente Python e crie as dependências que o seu `batch_scoring.py` script requer. A principal dependência necessária é o Tensorflow, mas também `azureml-defaults` instala-se para processos de fundo. Crie um `RunConfiguration` objeto utilizando as dependências. Além disso, especifique o apoio do Docker e do Docker-GPU.
+Antes de executar o oleoduto, crie um objeto que defina o ambiente Python e crie as dependências que o seu `batch_scoring.py` script requer. A principal dependência necessária é o Tensorflow, mas também instala `azureml-core` e que é exigido pela `azureml-dataprep[fuse]` ParallelRunStep. Além disso, especifique o apoio do Docker e do Docker-GPU.
 
 ```python
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults"])
+cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.15.2",
+                                            "azureml-core", "azureml-dataprep[fuse]"])
 env = Environment(name="parallelenv")
 env.python.conda_dependencies = cd
 env.docker.base_image = DEFAULT_GPU_IMAGE
@@ -281,12 +281,12 @@ env.docker.base_image = DEFAULT_GPU_IMAGE
 Crie o passo do pipeline utilizando o script, a configuração do ambiente e os parâmetros. Especifique o alvo de cálculo que já anexou ao seu espaço de trabalho.
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunConfig
+from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
     environment=env,
     entry_script="batch_scoring.py",
-    source_directory=".",
+    source_directory="scripts",
     output_action="append_row",
     mini_batch_size="20",
     error_threshold=1,
@@ -310,15 +310,20 @@ Várias classes herdam da classe dos [`PipelineStep`](https://docs.microsoft.com
 Em cenários em que há mais de um passo, uma referência de objeto na `outputs` matriz torna-se disponível como *entrada* para um passo de pipeline subsequente.
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunStep
+from azureml.pipeline.steps import ParallelRunStep
+from datetime import datetime
+
+parallel_step_name = "batchscoring-" + datetime.now().strftime("%Y%m%d%H%M")
+
+label_config = label_ds.as_named_input("labels_input")
 
 batch_score_step = ParallelRunStep(
-    name="parallel-step-test",
+    name=parallel_step_name,
     inputs=[input_images.as_named_input("input_images")],
     output=output_dir,
-    models=[model],
     arguments=["--model_name", "inception",
-               "--labels_name", "label_ds"],
+               "--labels_dir", label_config],
+    side_inputs=[label_config],
     parallel_run_config=parallel_run_config,
     allow_reuse=False
 )
@@ -330,7 +335,7 @@ Para obter uma lista de todas as classes que pode utilizar para diferentes tipos
 
 Agora, corre o oleoduto. Em primeiro lugar, crie um `Pipeline` objeto utilizando a referência do seu espaço de trabalho e o passo de pipeline que criou. O `steps` parâmetro é uma variedade de passos. Neste caso, só há um passo para a pontuação do lote. Para construir oleodutos que tenham múltiplos passos, coloque os passos em ordem nesta matriz.
 
-Em seguida, utilize a `Experiment.submit()` função para submeter o gasoduto para execução. Especifica também o parâmetro `param_batch_size` personalizado. Os `wait_for_completion` registos de saídas de função durante o processo de construção do gasoduto. Pode usar os registos para ver o progresso atual.
+Em seguida, utilize a `Experiment.submit()` função para submeter o gasoduto para execução. Os `wait_for_completion` registos de saídas de função durante o processo de construção do gasoduto. Pode usar os registos para ver o progresso atual.
 
 > [!IMPORTANT]
 > O primeiro gasoduto demora cerca de *15 minutos*. Todas as dependências devem ser descarregadas, uma imagem docker é criada, e o ambiente Python é provisionado e criado. A execução do gasoduto de novo demora significativamente menos tempo porque esses recursos são reutilizados em vez de serem criados. No entanto, o tempo total de funcionamento do gasoduto depende da carga de trabalho dos seus scripts e dos processos que estão a decorrer em cada passo do pipeline.
@@ -394,7 +399,7 @@ auth_header = interactive_auth.get_authentication_header()
 
 Obtenha o URL REST da `endpoint` propriedade do objeto de gasoduto publicado. Também pode encontrar o URL REST no seu espaço de trabalho no estúdio Azure Machine Learning. 
 
-Construa um pedido HTTP POST para o ponto final. Especifique o seu cabeçalho de autenticação no pedido. Adicione um objeto de carga JSON que tenha o nome da experiência e o parâmetro do tamanho do lote. Como notado anteriormente no tutorial, `param_batch_size` é passado para o seu script porque o `batch_scoring.py` definiu como um objeto na `PipelineParameter` configuração do passo.
+Construa um pedido HTTP POST para o ponto final. Especifique o seu cabeçalho de autenticação no pedido. Adicione um objeto de carga JSON que tenha o nome da experiência.
 
 Faça o pedido para desencadear a fuga. Inclua código para aceder à `Id` chave do dicionário de resposta para obter o valor do ID de execução.
 
@@ -405,7 +410,7 @@ rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
                          json={"ExperimentName": "batch_scoring",
-                               "ParameterAssignments": {"param_batch_size": 50}})
+                               "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
 

@@ -4,15 +4,15 @@ description: Amostras de CLI Azure para Azure Cosmos DB Table API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: sample
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 09abbfd44b76fd24dede4276c00e7f58907c3995
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 36e85ccf4c145b6881670cb95f5e84ec177ce2a5
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509445"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262927"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Amostras de CLI Azure para Azure Cosmos DB Table API
 

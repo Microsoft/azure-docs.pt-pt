@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma porta de entrada NAT - Portal Azure'
+title: 'Tutorial: Criar uma porta de entrada NAT - Portal Azure'
 titlesuffix: Azure Virtual Network NAT
 description: Este quickstart mostra como criar um gateway NAT usando o portal Azure
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341240"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711413"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Quickstart: Criar uma porta de entrada NAT utilizando o portal Azure
+# <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar uma porta de entrada NAT utilizando o portal Azure
 
-Este quickstart mostra-lhe como usar o serviço Azure Virtual Network NAT. Você vai criar uma porta de entrada NAT para fornecer conectividade de saída para uma máquina virtual em Azure. 
+Este tutorial mostra-lhe como utilizar o serviço Azure Virtual Network NAT. Você vai criar uma porta de entrada NAT para fornecer conectividade de saída para uma máquina virtual em Azure. 
 
 Se preferir, pode fazer estes passos utilizando o [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell,](quickstart-create-nat-gateway-powershell.md)ou implementar um [Modelo ARM](quickstart-create-nat-gateway-powershell.md) em vez do portal.
 
@@ -167,7 +167,7 @@ Está agora pronto para usar o serviço NAT.
 
 Quando já não for necessário, elimine o grupo de recursos, o gateway NAT e todos os recursos relacionados. Selecione o grupo de recursos **myResourceGroupNAT** que contém o gateway NAT e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma porta DE NAT e um VM para usá-lo. 
 

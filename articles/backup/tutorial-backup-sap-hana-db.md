@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417298"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770735"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -29,7 +29,9 @@ Este tutorial mostra-lhe como fazer backup das bases de dados SAP HANA que estã
 
 Certifique-se de que faz o seguinte antes de configurar backups:
 
+* Identifique ou crie um [cofre dos Serviços de Recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região e subscrição que o VM que executa o SAP HANA.
 * Permitir a conectividade do VM para a internet, para que possa chegar ao Azure, conforme descrito no procedimento de conectividade de [rede configurado](#set-up-network-connectivity) abaixo.
+* Certifique-se de que o comprimento combinado do nome VM do servidor SAP HANA e o nome do Grupo de Recursos não excedem 84 caracteres para O Gestor resoure Azure (ARM_ VMs (e 77 caracteres para VMs clássicos). Esta limitação é porque alguns caracteres são reservados pelo serviço.
 * Deve existir uma chave na **hdbuserstore** que presivam os seguintes critérios:
   * Deve estar presente na **hdbuserstore**padrão. O padrão é a conta sob a `<sid>adm` qual o SAP HANA está instalado.
   * Para o MDC, a chave deve apontar para a porta SQL de **NAMEERVER**. No caso do SDC, deve apontar para a porta SQL do **INDEXSERVER**

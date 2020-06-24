@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84902681"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292082"
 ---
 > [!NOTE]
 > Para `PHI` detetar, utilize o parâmetro e a `domain=phi` versão do modelo ou `2020-04-01` posteriormente.
@@ -51,7 +51,7 @@ Esta categoria de entidade inclui informações identificáveis do Azure, inclui
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave Azure DocumentDB Auth             | Chave de autorização para um servidor Azure DocumentDB.                           |
 | Cadeia de conexão de base de dados Azure IAAS e cadeia de conexão Azure SQL | Cadeia de ligação para uma Infraestrutura Azure como base de dados de serviço (IaaS) e cadeia de conexão SQL. |
-| Cadeia de conexão Azure SQL           | Cadeia de ligação para uma base de dados Azure SQL.                                |
+| Cadeia de conexão Azure SQL           | Cadeia de ligação para uma base de dados na Base de Dados Azure SQL.                                |
 | Cadeia de conexão Azure IoT           | Cadeia de ligação para Azure Internet das coisas (IoT).                        |
 | Azure Publicar Senha de Definição        | Palavra-passe para as definições de Azure Publish.                                        |
 | Cadeia de conexão Azure Redis Cache   | Fio de ligação para uma cache Azure para Redis.                             |
