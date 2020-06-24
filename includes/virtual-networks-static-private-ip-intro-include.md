@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060589"
 ---
-Uma máquina virtual (VM) é automaticamente atribuída a um endereço IP privado a partir de uma gama que especifica, com base na subnet na qual o VM é implantado. O VM mantém o endereço até que o VM seja eliminado. O Azure atribui dinamicamente o próximo endereço IP privado disponível a partir da subnet onde cria um VM. Se pretender um endereço IP específico da subnet atribuído ao VM, atribua um endereço IP estático.
+Uma máquina virtual (VM) é automaticamente atribuída um endereço IP privado a partir de um intervalo que especifica, com base na sub-rede em que o VM é implantado. O VM mantém o endereço até que o VM seja eliminado. O Azure atribui dinamicamente o próximo endereço IP privado disponível a partir da sub-rede em que cria um VM. Se quiser um endereço IP específico da sub-rede atribuída ao VM, atribua um endereço IP estático.

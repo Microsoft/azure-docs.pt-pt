@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b07ffe92a5dd0c105188fab55bc679c04f660ed2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300965"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249470"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Windows
 
@@ -38,7 +38,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 Execute o seguinte comando Maven no pedido da Cloud Shell para criar uma nova aplicação chamada `helloworld` :
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Em seguida, mude o seu diretório de trabalho para a pasta do projeto:
@@ -49,6 +49,8 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven
 
+O processo de implementação para o Azure App Service pode recolher automaticamente as suas credenciais Azure do CLI Azure. Se não tiver o Azure CLI instalado, o plugin Maven iniciará sessão com Oauth ou início de sessão do dispositivo. Verifique os detalhes da [autenticação com plugins Maven,](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) se necessário.
+
 Pode executar o seguinte comando maven no Comando De comando Para configurar a implementação, escolher **'2'** para o sistema operativo do **windows** no primeiro passo e, em seguida, aceitar as configurações predefinidas pressionando **ENTER** até obter o pedido **de Confirmação (Y/N)** e, em seguida, prima **'y'** e a configuração é feita. 
 
 ```bash
@@ -57,7 +59,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 Um processo de amostra parece:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
@@ -177,7 +179,7 @@ Uma vez concluída a implementação, navegue para a aplicação implementada co
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Ligue à base de dados Azure SQL com a Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Ligue à Base de Dados Azure SQL com a Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Ligue-se ao Azure DB para o MySQL com o Java](/azure/mysql/connect-java)

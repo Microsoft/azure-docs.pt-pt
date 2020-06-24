@@ -15,6 +15,6 @@ ms.locfileid: "80060576"
 
 Para melhor ilustrar como configurar um endereço IP estático para um VM, este documento utiliza este cenário:
 
-![Cenário de rede virtual: Subnets frontais e traseiras, com um endereço IP estático para a sub-rede frontal](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
+![Cenário de rede virtual: Subesí redes frontais e traseiras, com um endereço IP estático para a sub-rede frontal](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
-Neste cenário, cria-se um VM denominado *DNS01* na subnet *FrontEnd* e, em seguida, decidiu-o para utilizar um endereço IP estático de *192.168.1.101*.
+Neste cenário, cria-se um VM chamado *DNS01* na sub-rede *FrontEnd* e, em seguida, define-o para utilizar um endereço IP estático de *192.168.1.1.101*.

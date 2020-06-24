@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 9b92454abcb985a21952389f9f618c1f58d45182
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/12/2020
+ms.openlocfilehash: da29b5427b2258a32e87977289689949a47f3d8e
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344786"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743444"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Resolução de problemas Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho com Insights Inteligentes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,6 +25,8 @@ Esta página fornece informações sobre a Base de Dados Azure SQL e os problema
 
 > [!NOTE]
 > Para obter um guia de resolução rápida de problemas de desempenho utilizando Insights Inteligentes, consulte o fluxo de fluxo recomendado para [resolução de problemas](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) neste documento.
+>
+> Insights inteligentes é uma característica de pré-visualização, não disponível nas seguintes regiões: Europa Ocidental, Norte da Europa, EUA 1 e Leste dos EUA 1.
 
 ## <a name="detectable-database-performance-patterns"></a>Padrões de desempenho de base de dados detetáveis
 
@@ -326,7 +328,7 @@ Aceda a Insights Inteligentes através do portal Azure indo ao Azure SQL Analyti
 
 Insights Inteligentes geralmente precisam de uma hora de tempo para realizar a análise da causa raiz do problema de desempenho. Se não conseguir localizar o seu problema em Insights Inteligentes e é fundamental para si, utilize a Loja de Consultas para identificar manualmente a causa principal do problema de desempenho. (Normalmente, estas questões têm menos de uma hora de idade.) Para obter mais informações, consulte [o desempenho do Monitor utilizando a Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda [conceitos de Insights Inteligentes.](intelligent-insights-overview.md)
 - Utilize o [registo de diagnósticos de desempenho de Insights Inteligentes](intelligent-insights-use-diagnostics-log.md).

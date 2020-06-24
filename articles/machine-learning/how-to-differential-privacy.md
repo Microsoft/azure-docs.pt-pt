@@ -10,12 +10,12 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 65f395197256132b6b92b234932fd17ec5ba552c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433201"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84981851"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Use privacidade diferencial em Azure Machine Learning
 
@@ -24,6 +24,9 @@ ms.locfileid: "84433201"
 Aprenda a aplicar as melhores práticas de privacidade diferenciais aos modelos Azure Machine Learning utilizando os pacotes WhiteNoise Python.
 
 Privacidade diferencial é a definição padrão de privacidade. Os sistemas que aderem a esta definição de privacidade fornecem fortes garantias contra uma vasta gama de ataques de reconstrução de dados e reidentificação, incluindo ataques de adversários que possuem informações auxiliares. Saiba mais sobre como [funciona a privacidade diferencial.](./concept-differential-privacy.md)
+
+> [!NOTE]
+> Por favor, note que estamos renomeando o kit de ferramentas e apresentaremos o novo nome nas próximas semanas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

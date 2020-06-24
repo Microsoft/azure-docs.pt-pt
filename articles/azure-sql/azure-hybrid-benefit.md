@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: fcb1e5f45bc4f8d234952e338052a18d4b03ee0f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9d8a973e04618e4223f90ffb9a3004d0fe40bbf7
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344684"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743498"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,11 @@ No nível de computação previsto do modelo de compra baseado em vCore, pode tr
 
 Com o Azure Hybrid Benefit, pode optar por pagar apenas pela infraestrutura Azure subjacente utilizando a licença existente do SQL Server para o próprio motor de base de dados SQL Server (preço base compute), ou pode pagar tanto pela infraestrutura subjacente como pela licença SQL Server (preço incluído na licença).
 
-Pode escolher ou alterar o seu modelo de licenciamento utilizando o portal Azure ou utilizando uma das seguintes APIs:
+Pode escolher ou alterar o seu modelo de licenciamento no portal Azure: 
+- Para novas bases de dados, durante a criação, selecione a **base de dados Configure** no separador **Básicos** e selecione a opção de economizar dinheiro.
+- Para as bases de dados existentes, selecione **Configurar** no menu **Definições** e selecione a opção de economizar dinheiro.
+
+Também pode configurar uma base de dados nova ou existente utilizando uma das seguintes APIs:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -90,7 +94,7 @@ Os clientes da SQL Database têm os seguintes direitos associados ao Azure Hybri
 |||
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter ajuda na escolha de uma opção de implementação Azure SQL, consulte [Escolha a opção de implementação certa em Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - Para uma comparação das funcionalidades SQL Database e SQL Managed Instance, consulte a [Base de Dados SQL & as funcionalidades sql Managed Instance](database/features-comparison.md).

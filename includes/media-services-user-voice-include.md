@@ -17,7 +17,7 @@ Utilize o fórum do [UserVoice](https://go.microsoft.com/fwlink/?linkid=698785&c
 * [Bibliotecas SDK do Cliente](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
 * [Codificação e processamento](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Transmissão em direto](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
-* [Análise de Mídia](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
+* [Análise de Multimédia](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Portal do Azure](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [API REST e plataforma](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [Transmissão de vídeo a pedido em fluxo](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

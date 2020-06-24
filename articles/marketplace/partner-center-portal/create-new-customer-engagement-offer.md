@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7815b8180c29b66b12eddbff88e4728b6784be66
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 51df588b1ccd41bf05d8851f00399b61292b0736
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672770"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214111"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -26,7 +26,7 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](https:
 2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
 3. Na página 'Visão Geral', selecione **+ Nova oferta**  >  **Dynamics 365 para Envolvimento do Cliente & PowerApps**.
 
-    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-cepa.png)
+    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
 > [!NOTE]
 > Após a publicação de uma oferta, as edições feitas no Partner Center só aparecem nas montras depois de republicarem a oferta. Certifique-se de que é sempre republicante depois de escorção.
@@ -60,7 +60,7 @@ Enuprova gratuitamente a sua oferta aos clientes, fornecendo um URL válido (a c
 
 #### <a name="free-trial-listing"></a>Ensaio gratuito (listagem)
 
-Enuncia a sua oferta aos clientes com um link para um teste gratuito, fornecendo um URL válido (a começar por *http* ou *https*) onde podem obter um teste.  Por exemplo, `https://contoso.com/trial/my-app`. Os testes gratuitos de listagem de ofertas são criados, geridos e configurados pelo seu serviço e não têm subscrições geridas pela Microsoft.
+Enuncia a sua oferta aos clientes com um link para um teste gratuito, fornecendo um URL válido (começando `http` com `https` ou) onde podem obter um julgamento.  Por exemplo, `https://contoso.com/trial/my-app`. Os testes gratuitos de listagem de ofertas são criados, geridos e configurados pelo seu serviço e não têm subscrições geridas pela Microsoft.
 
 > [!NOTE]
 > Os tokens que a sua aplicação receberá através do seu link de teste só podem ser utilizados para obter informações do utilizador através do Azure Ative Directory (Azure AD) para automatizar a criação de conta na sua app. As contas da Microsoft não são suportadas para autenticação utilizando este token.
@@ -139,15 +139,30 @@ Defina detalhes do mercado para cada idioma/mercado aqui, como nome de oferta, d
 > [!NOTE]
 > A oferta de conteúdo de listagem (como a descrição, documentos, screenshots e termos de utilização) não é necessária para estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é aceitável fornecer um *URL de Link Útil* para oferecer conteúdo em um idioma diferente do utilizado no conteúdo da listagem de Oferta.
 
+Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
+
+:::image type="content" source="media/example-azure-marketplace-d365-customer-engagement.png" alt-text="Ilustra como esta oferta aparece no Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Descrições de chamadas
+
+1. Logótipo
+2. Produtos
+3. Categorias
+4. Endereço de suporte (link)
+5. Endereço de termos de utilização (link)
+6. Nome da oferta
+7. Description
+8. Screenshots/vídeos
+
 ### <a name="name"></a>Name
 
-O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo está pré-voizado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
+O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
 ### <a name="short-description"></a>Breve descrição
 
 Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser usada em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

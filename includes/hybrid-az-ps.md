@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -15,4 +15,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "73748074"
 ---
-Os passos e exemplos deste artigo utilizam os módulos Azure PowerShell Az. Para instalar os módulos Az localmente no seu computador, consulte [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para saber mais sobre o novo módulo Az, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Os cmdlets PowerShell são atualizados frequentemente. Se não estiver a executar a versão mais recente, os valores especificados nas instruções podem falhar. Para encontrar as versões instaladas do PowerShell no seu sistema, utilize o `Get-Module -ListAvailable Az` cmdlet.
+Os passos e exemplos deste artigo utilizam os módulos Azure PowerShell Az. Para instalar os módulos Az localmente no seu computador, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps). Para saber mais sobre o novo módulo Az, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Os cmdlets PowerShell são atualizados frequentemente. Se não estiver a executar a versão mais recente, os valores especificados nas instruções podem falhar. Para encontrar as versões instaladas do PowerShell no seu sistema, utilize o `Get-Module -ListAvailable Az` cmdlet.

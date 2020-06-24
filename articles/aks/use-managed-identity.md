@@ -2,34 +2,55 @@
 title: Utilize identidades geridas no Serviço Azure Kubernetes
 description: Saiba como utilizar identidades geridas no Serviço Azure Kubernetes (AKS)
 services: container-service
+author: mlearned
 ms.topic: article
 ms.date: 06/04/2020
-ms.openlocfilehash: ae66c6a6fbfef2a6052a037e010ecdeb4256bfd8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.author: mlearned
+ms.openlocfilehash: d512cb94e9a6cef131433880703f8f5150da5a3c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456441"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249696"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
 Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o provedor de nuvem Kubernetes) requer uma identidade para criar recursos adicionais como equilibradores de carga e discos geridos em Azure, esta identidade pode ser uma *identidade gerida* ou um *principal serviço.* Se utilizar um [principal de serviço,](kubernetes-service-principal.md)deve fornecer um ou a AKS cria um em seu nome. Se utilizar a identidade gerida, esta será criada automaticamente pela AKS. Os agrupamentos que utilizam os princípios de serviço acabam por chegar a um estado em que o diretor de serviço deve ser renovado para manter o cluster a funcionar. Gerir os diretores de serviços adiciona complexidade, e é por isso que é mais fácil usar identidades geridas em vez disso. Os mesmos requisitos de permissão aplicam-se tanto aos princípios de serviço como às identidades geridas.
 
-*As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. A rotação credencial para MSI ocorre automaticamente a cada 46 dias de acordo com o padrão do Azure Ative Directory. Para saber mais, leia sobre [identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-
-AKS cria duas identidades geridas:
-
-- **Identidade gerida atribuída pelo sistema**: A identidade que o fornecedor de nuvem Kubernetes utiliza para criar recursos Azure em nome do utilizador, como um [equilibrador](load-balancer-standard.md) de carga ou [um endereço IP público](static-ip.md). O ciclo de vida da identidade atribuída ao sistema está ligado ao do cluster e só deve ser utilizado pelo provedor da nuvem. A identidade é eliminada quando o cluster é eliminado.
-
-- **Identidade gerida atribuída pelo utilizador**: A identidade que é usada para autorização no cluster e qualquer outra coisa que queira controlar. Por exemplo, a identidade atribuída ao utilizador é utilizada para autorizar a AKS a utilizar registos de contentores Azure (ACRs) ou a autorizar o kubelet a obter metadados da Azure.
-
-Os addons também autenticam usando uma identidade gerida. Para cada complemento, uma identidade gerida é criada pela AKS e dura a vida do addon.
+*As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. A rotação credencial para o MI ocorre automaticamente a cada 46 dias de acordo com o padrão do Azure Ative Directory. A AKS utiliza tipos de identidade geridos atribuídos pelo sistema e atribuídos pelo utilizador. Estas identidades são atualmente imutáveis. Para saber mais, leia sobre [identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Deve ter o seguinte recurso instalado:
 
 - O Azure CLI, versão 2.2.0 ou mais tarde
+
+## <a name="limitations"></a>Limitações
+
+* Trazer as suas próprias identidades geridas não é suportado atualmente.
+* Os agrupamentos AKS com identidades geridas só podem ser ativados durante a criação do cluster.
+* Os clusters AKS existentes não podem ser atualizados ou atualizados para permitir identidades geridas.
+* Durante as operações **de atualização** do cluster, a identidade gerida está temporariamente indisponível.
+
+## <a name="summary-of-managed-identities"></a>Resumo das identidades geridas
+
+A AKS usa várias identidades geridas para serviços incorporados e addons.
+
+| Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
+|----------------------------|-----------|----------|
+| Avião de controlo | não visível | Utilizado pela AKS para gerir recursos de networking, por exemplo, criar um equilibrador de carga para entradas, IP público, etc.| Papel contribuinte para o grupo de recursos nó | Atualmente, não é suportado
+| Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | Função do leitor para grupo de recursos de nó | Atualmente, não é suportado
+| Add-on | AzurenPM | Nenhuma identidade necessária | ND | No
+| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | No
+| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | No
+| Add-on | azurepolicy | Nenhuma identidade necessária | ND | No
+| Add-on | Calico | Nenhuma identidade necessária | ND | No
+| Add-on | Dashboard | Nenhuma identidade necessária | ND | No
+| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | No
+| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | No
+| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | No
+| Add-on | Nó virtual (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | No
+
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas
 
@@ -45,20 +66,19 @@ az group create --name myResourceGroup --location westus2
 Em seguida, criar um cluster AKS:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
 Uma criação de cluster bem sucedida usando identidades geridas contém esta informação de perfil principal do serviço:
 
 ```json
 "servicePrincipalProfile": {
-    "clientId": "msi",
-    "secret": null
+    "clientId": "msi"
   }
 ```
 
 > [!NOTE]
-> Para criar e utilizar o seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos MC_*, utilize o PrincipalID do cluster System Assigned Managed Identity para executar uma atribuição de funções. Para obter mais informações sobre a atribuição de funções, consulte [o delegado de acesso a outros recursos da Azure.](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)
+> Para criar e utilizar o seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos do nó do trabalhador, utilize o PrincipalID do cluster System Assigned Managed Identity para executar uma atribuição de papel. Para obter mais informações sobre a atribuição de funções, consulte [o delegado de acesso a outros recursos da Azure.](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)
 >
 > As autorizações concedidas ao cluster Identidade Gerida utilizada pelo fornecedor Azure Cloud podem demorar 60 minutos a preencher.
 
@@ -69,8 +89,3 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 O cluster será criado em poucos minutos. Em seguida, pode implementar as suas cargas de trabalho de aplicação para o novo cluster e interagir com ele, tal como fez com os clusters AKS baseados em serviços.
-
-> [!IMPORTANT]
->
-> - Os agrupamentos AKS com identidades geridas só podem ser ativados durante a criação do cluster.
-> - Os clusters AKS existentes não podem ser atualizados ou atualizados para permitir identidades geridas.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3ed1a952cb640fcd64808ba49e1a0937d71d769f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655638"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249708"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
 
@@ -50,7 +50,7 @@ Os **detalhes e durações** da execução inferior descrevem os passos-chave qu
 
 Os detalhes da execução da atividade de cópia e as características de desempenho também são devolvidos na secção **de resultado de execução**da Copy  >  **Output** Activity, que é usada para tornar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [programáticamente monitorizar uma fábrica de dados Azure](monitor-programmatically.md).
 
-| Nome da propriedade  | Descrição | Unidade de saída |
+| Nome da propriedade  | Description | Unidade de saída |
 |:--- |:--- |:--- |
 | dadosRead | A quantidade real de dados lidos a partir da fonte. | Valor int64, em bytes |
 | dadosCritos | O monte real de dados escritos/comprometidos com a pia. O tamanho pode ser diferente do `dataRead` tamanho, uma vez que relaciona a forma como cada data armazena os dados. | Valor int64, em bytes |
@@ -58,8 +58,8 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 | ficheirosCrito | O número de ficheiros escritos/comprometidos com a pia baseada em ficheiros. | Valor int64 (sem unidade) |
 | sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a atividade Copy. | Valor int64 (sem unidade) |
 | sinkPeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade Copy. | Valor int64 (sem unidade) |
-| linhasLei | Número de linhas lidas a partir da fonte (não aplicável para cópia binária). | Valor int64 (sem unidade) |
-| linhasCopiado | Número de linhas copiadas para afundar (não aplicável à cópia binária). | Valor int64 (sem unidade) |
+| linhasLei | Número de filas lidas na fonte. Esta métrica não se aplica ao copiar ficheiros como-é sem analisá-los, por exemplo, quando os conjuntos de dados de origem e pia são do tipo de formato binário, ou outro tipo de formato com configurações idênticas. | Valor int64 (sem unidade) |
+| linhasCopiado | Número de filas copiadas para afundar. Esta métrica não se aplica ao copiar ficheiros como-é sem analisá-los, por exemplo, quando os conjuntos de dados de origem e pia são do tipo de formato binário, ou outro tipo de formato com configurações idênticas.  | Valor int64 (sem unidade) |
 | rowsSkipped | Número de filas incompatíveis que foram ignoradas. Pode permitir que linhas incompatíveis sejam ignoradas definindo `enableSkipIncompatibleRow` para ser verdadeira. | Valor int64 (sem unidade) |
 | copyDuration | Duração da cópia executada. | Valor int32, em segundos |
 | de transferência de dados | Taxa de transferência de dados. | Número do ponto flutuante, em KBps |
@@ -150,7 +150,7 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de Atividade de Cópia:
 
 \-[Visão geral da atividade da cópia](copy-activity-overview.md)

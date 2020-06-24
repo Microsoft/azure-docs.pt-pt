@@ -1,42 +1,42 @@
 ---
-title: Habilidade cognitiva de fusão de texto
+title: Função cognitiva de fusão de texto
 titleSuffix: Azure Cognitive Search
-description: Fundir texto de uma coleção de campos num campo consolidado. Use esta habilidade cognitiva num oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure.
+description: Fundir texto de uma coleção de campos num campo consolidado. Use esta habilidade cognitiva num oleoduto de enriquecimento de IA na Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162349"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982021"
 ---
-#   <a name="text-merge-cognitive-skill"></a>Habilidade cognitiva de fusão de texto
+#   <a name="text-merge-cognitive-skill"></a>Função cognitiva de fusão de texto
 
-A habilidade **Text Merge** consolida texto de uma coleção de campos num único campo. 
+A habilidade **text Merge** consolida o texto de uma coleção de campos num único campo. 
 
 > [!NOTE]
-> Esta habilidade não está ligada a uma API de Serviços Cognitivos e você não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md)para anular a opção de recursos **gratuitos** que o limita a um pequeno número de enriquecimentos diários por dia.
+> Esta habilidade não está ligada a uma API de Serviços Cognitivos e você não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso de Serviços Cognitivos](cognitive-search-attach-cognitive-services.md)para anular a opção de recursos **Gratuitos** que o limita a um pequeno número de enriquecimentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.MergeSkill
+Microsoft.Skills.text.mergeSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | Description |
 |--------------------|-------------|
-| inserirPreTag  | Corda a ser incluída antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, `""`detete o valor para .  |
-| inserirPostTag | Corda a ser incluída após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, `""`detete o valor para .  |
+| `insertPreTag`    | Corda a incluir antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, desa um valor para `""` .  |
+| `insertPostTag`   | Corda a incluir após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, desa um valor para `""` .  |
 
 
-##  <a name="sample-input"></a>Entrada da amostra
-Um documento da JSON que forneça uma entrada utilizável para esta habilidade pode ser:
+##  <a name="sample-input"></a>Entrada de amostra
+Um documento JSON que forneça informações utilizáveis para esta habilidade pode ser:
 
 ```json
 {
@@ -55,7 +55,7 @@ Um documento da JSON que forneça uma entrada utilizável para esta habilidade p
 ```
 
 ##  <a name="sample-output"></a>Resultado da amostra
-Este exemplo mostra a saída da entrada anterior, assumindo `" "`que a *inserçãoPreTag* está definida para , e inserir *PostTag* está definida para `""`. 
+Este exemplo mostra a saída da entrada anterior, assumindo que o *Encaixe de inserção* está definido para `" "` , e *inserirPostTag* está definido para `""` . 
 
 ```json
 {
@@ -71,11 +71,11 @@ Este exemplo mostra a saída da entrada anterior, assumindo `" "`que a *inserç�
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Definição de habilidade de amostra estendida
+## <a name="extended-sample-skillset-definition"></a>Definição de skillset de amostra alargada
 
-Um cenário comum para a utilização do Text Merge é fundir a representação textual de imagens (texto de uma habilidade OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
+Um cenário comum para a utilização da Fusão de Texto é fundir a representação textual de imagens (texto a partir de uma habilidade de OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-O exemplo seguinte utiliza a habilidade OCR para extrair texto de imagens incorporadas no documento. Em seguida, cria um campo *merged_text* para conter texto original e OCRed de cada imagem. Pode saber mais sobre a habilidade do OCR [aqui.](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr)
+O exemplo seguinte usa a habilidade OCR para extrair texto de imagens incorporadas no documento. Em seguida, cria um campo *merged_text* para conter texto original e OCRed de cada imagem. Pode saber mais sobre a habilidade de OCR [aqui.](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr)
 
 ```json
 {
@@ -108,25 +108,29 @@ O exemplo seguinte utiliza a habilidade OCR para extrair texto de imagens incorp
       "insertPostTag": " ",
       "inputs": [
         {
-          "name":"text", "source": "/document/content"
+          "name":"text", 
+          "source": "/document/content"
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+          "name": "itemsToInsert", 
+          "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", 
+          "source": "/document/normalized_images/*/contentOffset" 
         }
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", 
+          "targetName" : "merged_text"
         }
       ]
     }
   ]
 }
 ```
-O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obter o campo de imagens normalizadas, detete a configuração *imageAction* na definição do indexador para *gerarImagens Normalizadas* como mostrado abaixo:
+O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obter o campo de imagens normalizadas, desaprote a *configuração de imageAction* na definição de indexante para *gerar ImagensNormalizadas* como mostrado abaixo:
 
 ```json
 {
@@ -140,8 +144,8 @@ O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obt
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

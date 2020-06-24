@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: ee15c3c41ec2ddaa564011e8fb7d2c90472cc40f
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: aeb3273622b863f04c73561520efe3be6cc6fec2
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466090"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804924"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -83,13 +83,13 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-file-system"></a>Criar um sistema de ficheiros
 
-Um sistema de ficheiros funciona como um recipiente para os seus ficheiros. Pode criar um utilizando o `New-AzDatalakeGen2FileSystem` cmdlet. 
+Um sistema de ficheiros funciona como um recipiente para os seus ficheiros. Pode criar um utilizando o `New-AzStorageContainer` cmdlet. 
 
 Este exemplo cria um sistema de ficheiros chamado `my-file-system` .
 
 ```powershell
 $filesystemName = "my-file-system"
-New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
+New-AzStorageContainer -Context $ctx -Name $filesystemName
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
@@ -363,7 +363,7 @@ $Token = $Null
 do
 {
      $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Length -le 0) { Break;}
+     if($items.Count -le 0) { Break;}
      $items | Update-AzDataLakeGen2Item -Acl $acl
      $Token = $items[$items.Count -1].ContinuationToken;
 }
@@ -422,7 +422,7 @@ A tabela seguinte mostra como os cmdlets usados para o mapa de Data Lake Storage
 |Set-AzDataStoreItemOwner<br>Set-AzDataStoreItemPermission<br>Set-AzDataStoreItemAcl|Atualização-AzDataLakeGen2Item|O cmdlet Update-AzDataLakeGen2Item atualiza apenas um item e não recursivamente. Se pretender atualizar novamente, liste os itens utilizando o cmdlet Get-AzDataLakeStoreChildItem e, em seguida, faça o pipeline para o cmdlet Update-AzDataGen2Item.|
 |Teste-AzDataLakeStoreItem|Get-AzDataGen2Item|O cmdlet Get-AzDataLakeGen2Item reportará um erro se o item não existir.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 7b90748ae29a98038d96e5e3a827413637a98d47
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668241"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982004"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -73,7 +73,13 @@ Para o v2 SKU, abra o recurso IP público e selecione **Configuração**. O camp
 
 *O tempo limite keep-alive* rege quanto tempo o Gateway de aplicação aguardará que um cliente envie outro pedido HTTP sobre uma ligação persistente antes de o reutilizar ou fechar. *O tempo limite de inatividade da TCP* regula o tempo de duração da ligação TCP em caso de não atividade. 
 
-O *tempo limite Keep-Alive* no Application Gateway v1 SKU é de 120 segundos e no V2 SKU são 75 segundos. O *tempo limite de marcha lenta (TCP)* é um padrão de 4 minutos no IP virtual frontal (VIP) de v1 e v2 SKU do Gateway de aplicação. Não pode mudar estes valores.
+O *tempo limite Keep-Alive* no Application Gateway v1 SKU é de 120 segundos e no V2 SKU são 75 segundos. O *tempo limite de marcha lenta (TCP)* é um padrão de 4 minutos no IP virtual frontal (VIP) de v1 e v2 SKU do Gateway de aplicação. Pode configurar o valor de tempo limite de marcha lenta em V1 e V2 Application Gateways para estar entre 4 minutos e 30 minutos. Para os gateways de aplicações V1 e V2, terá de navegar para o IP público do Gateway de aplicações e alterar o tempo limite de marcha lenta por inatividade TCP sob a lâmina "Configuração" do IP público no Portal. Pode definir o valor de tempo limite de marcha lenta do ip público através do PowerShell executando os seguintes comandos: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS muda ao longo do tempo de vida do gateway de aplicações?
 
@@ -433,6 +439,6 @@ Mas se quiser utilizar o Gateway V2 de aplicação apenas com IP privado, pode s
 Configuração NSG de amostra apenas para acesso ip privado: ![ Configuração NSG do Gateway de aplicações apenas para acesso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Application Gateway, veja [o que é O Gateway de Aplicação Azure?](overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Encriptação de dados do Serviço de Provisionamento de Dispositivos Azure em repouso através de chaves geridas pelo cliente Microsoft Docs
+title: Encriptação de dados do Serviço de Fornecimento de Dispositivos Azure em repouso através de chaves geridas pelo cliente Microsoft Docs
 description: Encriptação de dados em repouso com chaves geridas pelo cliente para o Serviço de Provisionamento de Dispositivos
 author: chrissie926
 manager: nberdy
@@ -8,23 +8,24 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
-ms.openlocfilehash: b065135715868094b7e248aebfca35f3b55a4c48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9b5a549d550f117e080fc64193fbe29658f401d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77675146"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298230"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para o Serviço de Provisionamento de Dispositivos
 
 ## <a name="overview"></a>Descrição geral
 
-O Serviço de Provisionamento de Dispositivos (DPS) suporta a encriptação de dados em repouso com chaves geridas pelo cliente (CMK), também conhecida como Bring your own key (BYOK). O DPS fornece encriptação de dados em repouso e em trânsito. Por padrão, o DPS utiliza chaves geridas pela Microsoft para encriptar os dados. Com o suporte da CMK, os clientes têm agora a opção de encriptar os dados em repouso com uma chave de encriptação, gerida pelos clientes, utilizando o [Cofre de Chaves Azure.](https://azure.microsoft.com/services/key-vault/)
+O Serviço de Provisionamento de Dispositivos (DPS) suporta a encriptação de dados em repouso com as teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK). O DPS fornece encriptação de dados em repouso e em trânsito tal como está escrito nos nossos datacenters e desencripta-os para si, à medida que os acede. Por predefinição, o DPS utiliza as chaves geridas pela Microsoft para encriptar os dados em repouso. Com a CMK, pode obter uma camada adicional de encriptação em cima da encriptação da plataforma padrão, optando por encriptar dados em repouso com uma chave de encriptação, gerida através do seu Cofre de [Chave Azure](https://azure.microsoft.com/services/key-vault/). Isto dá-lhe a flexibilidade para criar, rodar, desativar e revogar as teclas. Se a CMK estiver configurada para o seu DPS, implica que a dupla encriptação está ativada com duas camadas de proteção protegendo ativamente os seus dados. 
 
-Esta capacidade requer a criação de um novo DPS, numa das seguintes regiões: Leste dos EUA, Oeste dos EUA 2 ou Centro-Sul dos EUA. Para experimentar esta capacidade, contacte-nos através do [suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Partilhe o nome da sua empresa e o ID de subscrição ao contactar o suporte da Microsoft.
+Esta capacidade requer a criação de um novo DPS. Para experimentar esta capacidade, contacte-nos através do [suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Partilhe o nome da sua empresa e o ID de subscrição ao contactar o suporte da Microsoft.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o Serviço de Provisionamento de Dispositivos](https://docs.microsoft.com/azure/iot-dps/)
 
-* [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

@@ -1,35 +1,35 @@
 ---
-title: Módulo PowerShell Windows Ambiente de trabalho virtual - Azure
+title: PowerShell module Windows Virtual Desktop - Azure
 description: Como instalar e configurar o módulo PowerShell para o Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9224b361adff8bfc53ca2f31dccb2519591dc7e5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 67276f7dedccc20fb768e717c237d04aa4b4a1cf
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021811"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212756"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo PowerShell para o Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows.
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure.
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-O módulo PowerShell do Windows Virtual Desktop PowerShell está integrado no módulo PowerShell Azure. Este artigo dir-lhe-á como configurar o módulo PowerShell para que possa executar cmdlets para o Windows Virtual Desktop.
+O módulo Virtual Desktop PowerShell do Windows está integrado no módulo Azure PowerShell. Este artigo dir-lhe-á como configurar o módulo PowerShell para que possa executar cmdlets para o Windows Virtual Desktop.
 
 ## <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-Para começar com a utilização do módulo, instale primeiro a [versão mais recente do PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core). Atualmente, os cmdlets do Windows Virtual Desktop funcionam apenas com o PowerShell Core.
+Para começar a utilizar o módulo, instale primeiro a [versão mais recente do PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core). Atualmente, os cmdlets virtual do Windows Desktop funcionam apenas com o PowerShell Core.
 
-Em seguida, terá de instalar o módulo DesktopVirtualization para utilizar na sua sessão PowerShell.
+Em seguida, terá de instalar o módulo desktopVirtualization para utilizar na sessão PowerShell.
 
 Executar o seguinte cmdlet PowerShell em modo elevado para instalar o módulo:
 
@@ -40,13 +40,13 @@ Install-Module -Name Az.DesktopVirtualization
 >[!NOTE]
 > Se este cmdlet não funcionar, tente executá-lo novamente com permissões elevadas.
 
-Em seguida, corra o seguinte cmdlet para ligar ao Azure:
+Em seguida, executar o seguinte cmdlet para ligar a Azure:
 
 ```powershell
 Connect-AzAccount
 ```
 
-Iniciar sessão na sua conta Azure requer um código gerado quando executa o cmdlet Connect. Para iniciar sessão, vá para <https://microsoft.com/devicelogin> , insira o código e, em seguida, inscreva-se usando as suas credenciais de administrador Azure.
+A inscrição na sua conta Azure requer um código gerado quando executam o cmdlet Connect. Para iniciar sação, vá, <https://microsoft.com/devicelogin> introduza o código e, em seguida, inscreva-se usando as suas credenciais de administração Azure.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -58,9 +58,9 @@ Youradminupn subscriptionname AzureADTenantID AzureCloud
 
 Isto irá inscrevê-lo diretamente na subscrição que é padrão para as suas credenciais de administração.
 
-## <a name="change-the-default-subscription"></a>Alterar a subscrição por defeito
+## <a name="change-the-default-subscription"></a>Alterar a subscrição padrão
 
-Se quiser alterar a subscrição predefinida depois de ter assinado o contrato, execute este cmdlet:
+Se quiser alterar a subscrição predefinida depois de ter assinado, execute este cmdlet:
 
 ```powershell
 Select-AzSubscription -Subscription <preferredsubscriptionname>
@@ -72,13 +72,13 @@ Também pode selecionar uma de uma lista utilizando o cmdlet Out-GridView:
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```
 
-Quando seleciona uma nova subscrição para utilizar, não precisa de especificar o ID da subscrição em cmdlets que executa depois. Por exemplo, o seguinte cmdlet recupera um anfitrião de sessão específico sem precisar do ID de subscrição:
+Quando selecionar uma nova subscrição para usar, não precisa de especificar o ID da subscrição em cmdlets que executar depois. Por exemplo, o seguinte cmdlet recupera um anfitrião de sessão específico sem precisar do ID de subscrição:
 
 ```powershell
 Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname>
 ```
 
-Também pode alterar as subscrições por cmdlet adicionando o nome de subscrição desejado como parâmetro. O próximo cmdlet é o mesmo que o exemplo anterior, exceto com o ID de subscrição adicionado como parâmetro para alterar a subscrição que o cmdlet utiliza.
+Também pode alterar subscrições por cmdlet adicionando o nome de subscrição pretendido como parâmetro. O cmdlet seguinte é o mesmo que o exemplo anterior, exceto com o ID de subscrição adicionado como um parâmetro para alterar a subscrição que o cmdlet usa.
 
 ```powershell
 Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -SubscriptionId <subscriptionGUID>
@@ -88,7 +88,7 @@ Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Resou
 
 O parâmetro de localização é obrigatório para todos os cmdlets **New-AzWVD** que criam novos objetos.
 
-Execute o seguinte cmdlet para obter uma lista de locais que os seus suportes de subscrição:
+Execute o seguinte cmdlet para obter uma lista de locais que a sua subscrição suporta:
 
 ```powershell
 Get-AzLocation
@@ -126,21 +126,21 @@ Providers : {Microsoft.RecoveryServices, Microsoft.DesktopVirtualization,
 Microsoft.ManagedIdentity, Microsoft.SqlVirtualMachineΓÇª}
 ```
 
-Assim que souber esquecê-la, pode usá-la num cmdlet. Por exemplo, aqui está um cmdlet que cria uma piscina de acolhimento no local "southeastasia":
+Assim que souber a localização da sua conta, pode usá-la num cmdlet. Por exemplo, aqui está um cmdlet que cria uma piscina de anfitriões na localização "southeastasia":
 
 ```powershell
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -Location “southeastasia”
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que configurao o seu módulo PowerShell, pode executar cmdlets para fazer todo o tipo de coisas no Windows Virtual Desktop. Aqui estão alguns dos locais onde pode usar o seu módulo:
+Agora que configuraste o teu módulo PowerShell, podes executar cmdlets para fazer todo o tipo de coisas no Windows Virtual Desktop. Aqui estão alguns dos locais onde pode utilizar o seu módulo:
 
-- Passe pelos [nossos tutoriais do Windows Virtual Desktop]() para configurar o seu próprio ambiente de trabalho virtual windows virtual.
+- Corra através [dos nossos tutoriais de Desktop Virtual do Windows]() para configurar o seu próprio ambiente de trabalho virtual windows.
 - [Criar um conjunto de anfitriões com o PowerShell](create-host-pools-powershell.md)
 - [Configurar o método de balanceamento de carga do Windows Virtual Desktop](configure-host-pool-load-balancing.md)
-- [Configure o tipo pessoal de atribuição de piscina de anfitrião do ambiente de trabalho](configure-host-pool-personal-desktop-assignment-type.md)
+- [Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal](configure-host-pool-personal-desktop-assignment-type.md)
 - E muito mais!
 
-Se tiver algum problema, consulte o nosso artigo de resolução de [problemas da PowerShell](troubleshoot-powershell.md) para obter ajuda.
+Se encontrar algum problema, consulte o nosso [artigo de resolução de problemas da PowerShell](troubleshoot-powershell.md) para obter ajuda.
 

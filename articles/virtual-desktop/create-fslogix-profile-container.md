@@ -4,16 +4,16 @@ description: Como criar um contentor de perfil FSLogix utilizando ficheiros Azur
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9210787c674e825c8728e3b79e261b184fbc42fa
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 968e753cb8bf4376d2082d5238004c291b8f0938
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484640"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211946"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
 
@@ -87,7 +87,7 @@ Para começar, é necessário criar uma conta Azure NetApp Files.
 
 ## <a name="create-a-capacity-pool"></a>Criar uma piscina de capacidade
 
-Em seguida, criar uma nova capacidade de piscina: 
+Em seguida, criar uma nova capacidade de piscina:
 
 1. Vá ao menu Azure NetApp Files e selecione a sua nova conta.
 2. No menu da sua conta, selecione **piscinas de capacidade** sob o serviço de Armazenamento.
@@ -228,7 +228,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
    ![Uma imagem do conteúdo da pasta no caminho de montagem. Dentro está um único ficheiro VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode utilizar os recipientes de perfil FSLogix para configurar uma partilha de perfil de utilizador. Para aprender a criar partilhas de perfil de utilizador com os seus novos recipientes, consulte [Criar um recipiente de perfil para uma piscina hospedeira utilizando uma partilha de ficheiros](create-host-pools-user-profile.md).
 

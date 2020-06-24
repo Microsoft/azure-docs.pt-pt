@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -16,6 +16,6 @@ ms.lasthandoff: 04/27/2020
 ms.locfileid: "69012237"
 ---
 > [!IMPORTANT]
-> A série StorSimple 8000 chegará ao fim [da vida](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%208000%20Series) em dezembro de 2022. Se está a considerar novas implementações da série StorSimple 8000, recomendamos que explore outras alternativas, como o [Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) ou [os dispositivos Azure Data Box Online](https://docs.microsoft.com/azure/databox-online/) para as suas cargas de trabalho.
+> A série StorSimple 8000 chegará ao seu [fim de vida](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%208000%20Series) em dezembro de 2022. Se estiver a considerar novas implementações da série StorSimple 8000, recomendamos que explore outras alternativas, como [o Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) ou os [dispositivos Azure Data Box Online](https://docs.microsoft.com/azure/databox-online/) para as suas cargas de trabalho.
 
 

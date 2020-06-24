@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: 4802e9e6fa2fdd918266d3ddc58b783bdb6bb83e
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258473"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297873"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar base de dados Azure SQL do modelo baseado em DTU para o modelo baseado em vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Além do número de vCores (CPUs lógicos) e da geração de hardware, vários o
 - Para a mesma geração de hardware e o mesmo número de vCores, IOPS e limites de recursos de produção de registo de transações para bases de dados vCore são muitas vezes mais elevados do que para as bases de dados DTU. No caso de cargas de trabalho ligadas a IO, pode ser possível reduzir o número de vCores no modelo vCore para atingir o mesmo nível de desempenho. Os limites de recursos para as bases de dados DTU e vCore em valores absolutos são expostos na vista [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) Comparar estes valores entre a base de dados DTU a migrar e uma base de dados vCore utilizando um objetivo de serviço aproximadamente correspondente irá ajudá-lo a selecionar o objetivo de serviço vCore com mais precisão.
 - A consulta de mapeamento também devolve a quantidade de memória por núcleo para a base de dados DTU ou piscina elástica a migrar, e para cada geração de hardware no modelo vCore. Garantir memória total semelhante ou superior após a migração para vCore é importante para cargas de trabalho que requerem uma grande cache de dados de memória para obter desempenho suficiente, ou cargas de trabalho que requerem grandes subsídios de memória para o processamento de consultas. Para tais cargas de trabalho, dependendo do desempenho real, pode ser necessário aumentar o número de vCores para obter memória total suficiente.
 - A [utilização histórica](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dos recursos da base de dados DTU deve ser considerada na escolha do objetivo de serviço vCore. As bases de dados DTU com recursos CPU consistentemente subutilados podem necessitar de menos vCores do que o número devolvido pela consulta de mapeamento. Inversamente, as bases de dados do DTU onde uma utilização de CPU consistentemente elevada causa um desempenho inadequado da carga de trabalho pode exigir mais vCores do que devolvidos pela consulta.
-- Se migrar bases de dados com padrões de utilização intermitentes ou imprevisíveis, considere a utilização do nível de computação [Serverless.](serverless-tier-overview.md)
+- Se migrar bases de dados com padrões de utilização intermitentes ou imprevisíveis, considere a utilização do nível de computação [Serverless.](serverless-tier-overview.md)  Note que o número máximo de trabalhadores simultâneos (pedidos) em servidores é de 75% o limite no cálculo provisionado para o mesmo número de vcores máximos configurados.  Além disso, a memória máxima disponível em servidor é de 3 GB vezes o número máximo de vcores configurados; por exemplo, a memória máxima é de 120 GB quando 40 vcores máximos são configurados.   
 - No modelo vCore, o tamanho máximo de base de dados suportado pode diferir dependendo da geração de hardware. Para grandes bases de dados, verifique os tamanhos máximos suportados no modelo vCore para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas](resource-limits-vcore-elastic-pools.md).
 - Para piscinas elásticas, os modelos [DTU](resource-limits-dtu-elastic-pools.md) e [vCore](resource-limits-vcore-elastic-pools.md) têm diferenças no número máximo de bases de dados suportadas por piscina. Isto deve ser considerado quando migram piscinas elásticas com muitas bases de dados.
 - Algumas gerações de hardware podem não estar disponíveis em todas as regiões. Verifique a disponibilidade em [Gerações de Hardware.](service-tiers-vcore.md#hardware-generations)

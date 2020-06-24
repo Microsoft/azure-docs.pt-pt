@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell

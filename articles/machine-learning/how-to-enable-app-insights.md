@@ -11,12 +11,12 @@ ms.author: larryfr
 author: blackmist
 ms.date: 06/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 30b6412ed5a8462b1ce0d8351e9e86a16b2082da
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670043"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743516"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Além de recolher os dados de saída e resposta de um ponto final, pode monitori
 ## <a name="web-service-metadata-and-response-data"></a>Metadados de serviço web e dados de resposta
 
 > [!IMPORTANT]
-> A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, apenas as saídas mais recentes do modelo são registadas. 
+> A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, poderá ver erros como fora da memória, ou nenhuma informação poderá ser registada.
 
 Para registar informações para um pedido ao serviço web, adicione `print` declarações ao seu ficheiro score.py. Cada `print` declaração resulta numa única entrada na tabela de rastreios em Insights de Aplicação, sob a mensagem `STDOUT` . O conteúdo da `print` declaração será contido na tabela de `customDimensions` `Contents` rastreios. Se imprimir uma corda JSON, produz uma estrutura de dados hierárquica na saída de vestígios sob `Contents` .
 
@@ -76,7 +76,7 @@ Se pretender registar vestígios personalizados, siga o processo de implementaç
 1. Para enviar dados para o Application Insights durante a inferência, atualize o ficheiro de pontuação adicionando declarações de impressão. Para registar informações mais complexas, como os dados do pedido e a resposta, nós uma estrutura JSON. O exemplo seguinte score.py registos de ficheiros no momento em que o modelo é inicializado, a entrada e saída durante a inferência, e o tempo em que ocorrerem erros:
 
     > [!IMPORTANT]
-    > A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, apenas as saídas mais recentes do modelo são registadas. Se os dados que pretende registar forem maiores de 64kb, deverá armazená-los para armazenar o armazenamento de bolhas utilizando as informações em [Recolha de Dados para modelos em produção](how-to-enable-data-collection.md).
+    > A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, poderá ver erros como fora da memória, ou nenhuma informação poderá ser registada. Se os dados que pretende registar forem maiores de 64kb, deverá armazená-los para armazenar o armazenamento de bolhas utilizando as informações em [Recolha de Dados para modelos em produção](how-to-enable-data-collection.md).
     
     ```python
     import pickle
@@ -195,7 +195,7 @@ O notebook [enable-app-insights-in-production-service.ipynb](https://github.com/
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja [como implementar um modelo num cluster de serviços Azure Kubernetes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) ou como implementar um modelo para [Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) para implementar os seus modelos em pontos finais de serviço web, e permitir que o Azure Application Insights aproveite a recolha de dados e a monitorização do ponto final
 * Consulte [MLOps: Gerir, implementar e monitorizar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para saber mais sobre a alavancagem de dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática

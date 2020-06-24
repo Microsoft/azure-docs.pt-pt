@@ -11,16 +11,16 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "74926224"
 ---
-Instale as versões mais recentes dos módulos PowerShell de Gestão de Serviços Azure (SM) e do módulo ExpressRoute. Não é possível utilizar o ambiente Azure CloudShell para executar módulos SM.
+Instale as versões mais recentes dos módulos PowerShell (Gestão de Serviços Azure) e do módulo ExpressRoute. Não é possível utilizar o ambiente Azure CloudShell para executar módulos SM.
 
-1. Utilize as instruções no artigo do módulo de [gestão de serviços](/powershell/azure/servicemanagement/install-azure-ps) para instalar o Módulo de Gestão de Serviços Azure. Se tiver o módulo Az ou RM já instalado, certifique-se de que utiliza o 'AllowClobber'.
-2. Importar os módulos instalados. Ao utilizar o seguinte exemplo, ajuste o caminho para refletir a localização e versão dos módulos PowerShell instalados.
+1. Utilize as instruções no artigo [de instalação do módulo de Gestão de Serviços](/powershell/azure/servicemanagement/install-azure-ps) para instalar o Módulo de Gestão de Serviços Azure. Se tiver o módulo Az ou RM já instalado, certifique-se de que utiliza '-AllowClobber'.
+2. Importe os módulos instalados. Ao utilizar o exemplo seguinte, ajuste o caminho para refletir a localização e a versão dos seus módulos PowerShell instalados.
 
    ```powershell
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
    ```
-3. Para iniciar sessão na sua conta Azure, abra a consola PowerShell com direitos elevados e ligue-se à sua conta. Utilize o seguinte exemplo para ajudá-lo a ligar utilizando o módulo de Gestão de Serviços:
+3. Para iniciar seduca na sua conta Azure, abra a sua consola PowerShell com direitos elevados e ligue-se à sua conta. Utilize o seguinte exemplo para o ajudar a ligar utilizando o módulo de Gestão de Serviços:
 
    ```powershell
    Add-AzureAccount

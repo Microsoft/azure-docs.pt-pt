@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5bc433615b19b36681796056ff4baf95d080d457
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629408"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213997"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -120,13 +120,15 @@ Para obter informações sobre preços, consulte os [Files](https://azure.micros
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Ler acesso aos dados na região secundária
 
-O armazenamento geo-redundante (com GRS ou GZRS) replica os seus dados para outra localização física na região secundária para proteger contra interrupções regionais. No entanto, esses dados só estão disponíveis para serem lidos se o cliente ou a Microsoft iniciarem uma falha da região primária para a região secundária. Quando ativa o acesso à região secundária, os seus dados estão disponíveis para serem lidos se a região primária ficar indisponível. Para ler o acesso à região secundária, permitir o armazenamento geo-redundante de acesso à leitura (RA-GRS) ou o armazenamento de zonas de acesso à leitura (RA-GZRS).
+O armazenamento geo-redundante (com GRS ou GZRS) replica os seus dados para outra localização física na região secundária para proteger contra interrupções regionais. No entanto, esses dados só estão disponíveis para serem lidos se o cliente ou a Microsoft iniciarem uma falha da região primária para a região secundária. Quando permite o acesso de leitura à região secundária, os seus dados estão disponíveis para serem lidos a todo o momento, incluindo numa situação em que a região primária fica indisponível. Para ler o acesso à região secundária, permitir o armazenamento geo-redundante de acesso à leitura (RA-GRS) ou o armazenamento de zonas de acesso à leitura (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Desenhe as suas aplicações para ler o acesso ao secundário
 
-Se a sua conta de armazenamento estiver configurada para o acesso lido à região secundária, então pode projetar as suas aplicações para mudar sem problemas para os dados de leitura da região secundária se a região primária ficar indisponível por qualquer motivo. A região secundária está sempre disponível para acesso à leitura, para que possa testar a sua aplicação para se certificar de que irá ler a partir do secundário em caso de paragem. Para obter mais informações sobre como projetar as suas aplicações para uma elevada disponibilidade, consulte [Use geo-redundância para desenhar aplicações altamente disponíveis.](geo-redundant-design.md)
+Se a sua conta de armazenamento estiver configurada para o acesso lido à região secundária, então pode projetar as suas aplicações para mudar sem problemas para os dados de leitura da região secundária se a região primária ficar indisponível por qualquer motivo. 
 
-Quando o acesso lido ao secundário está ativado, os seus dados podem ser lidos a partir do ponto final secundário, bem como do ponto final primário para a sua conta de armazenamento. O ponto final secundário apêndice o *sufixo ( secundário* ao nome da conta. Por exemplo, se o seu principal ponto final para o armazenamento blob for `myaccount.blob.core.windows.net` , então o ponto final secundário é `myaccount-secondary.blob.core.windows.net` . As chaves de acesso à conta da sua conta de armazenamento são as mesmas tanto para os pontos finais primários como secundários.
+A região secundária está disponível para acesso à leitura depois de ativar RA-GRS ou RA-GZRS, para que possa testar a sua aplicação com antecedência para se certificar de que será lida corretamente a partir do secundário em caso de interrupção. Para obter mais informações sobre como projetar as suas aplicações para uma elevada disponibilidade, consulte [Use geo-redundância para desenhar aplicações altamente disponíveis.](geo-redundant-design.md)
+
+Quando se lê o acesso ao secundário, a sua aplicação pode ser lida a partir do ponto final secundário, bem como a partir do ponto final primário. O ponto final secundário apêndice o *sufixo ( secundário* ao nome da conta. Por exemplo, se o seu principal ponto final para o armazenamento blob for `myaccount.blob.core.windows.net` , então o ponto final secundário é `myaccount-secondary.blob.core.windows.net` . As chaves de acesso à conta da sua conta de armazenamento são as mesmas tanto para os pontos finais primários como secundários.
 
 ### <a name="check-the-last-sync-time-property"></a>Consulte a propriedade Last Sync Time
 
@@ -159,7 +161,7 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 | Cenário de paralisação                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Um nó dentro de um centro de dados torna-se indisponível                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                 |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível                                           | Não                              | Sim                              | Sim<sup>1</sup>                                  | Sim                                  |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível                                           | Não                              | Sim                              | Sim<sup>1</sup>                                  | Yes                                  |
 | Uma paralisação em toda a região ocorre na região primária                                                                                     | Não                              | Não                               | Sim<sup>1</sup>                                  | Sim<sup>1</sup>                                  |
 | Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
 
@@ -184,7 +186,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

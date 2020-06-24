@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: e56b526dff9e18f19275cb248fd6955dd680324f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ebd55151a4b1656ec1187117b7c4b6da9d37e161
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605103"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298469"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à base de dados SQL, à SqL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -91,7 +91,7 @@ Neste momento, o seu servidor ou instância gerida só está configurado para ac
 
   - Crie um login SQL adicional na base de dados principal.
   - Crie uma conta de utilizador na base de dados principal associada a este novo login.
-  - Adicione a conta de utilizador à `dbmanager` `loginmanager` função, ou ambas na `master` base de dados utilizando a declaração [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (para Azure Synapse, utilize a declaração de [sp_addrolemember).](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+  - Adicione a conta de utilizador à `dbmanager` , `loginmanager` função, ou ambos na `master` base de dados utilizando a declaração ALTER [ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (para Azure Synapse, utilize a declaração [sp_addrolemember).](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
   > [!NOTE]
   > `dbmanager`e `loginmanager` as funções **não** dizem respeito a implementações de instâncias geridas SQL.
@@ -155,7 +155,7 @@ Depois de criar uma conta de utilizador numa base de dados, quer com base num lo
 
 Uma gestão eficiente do acesso utiliza permissões atribuídas a grupos de segurança do Ative Directory e funções fixas ou personalizadas em vez de utilizadores individuais.
 
-- Ao utilizar a autenticação do Azure Ative Directory, coloque os utilizadores do Azure Ative Directory num grupo de segurança do Azure Ative Directory. Crie um utilizador de base de dados contido para o grupo. Coloque um ou mais utilizadores de bases de dados numa função de base de dados personalizada com permissões específicas adequadas a esse grupo de utilizadores.
+- Ao utilizar a autenticação do Azure Ative Directory, coloque os utilizadores do Azure Ative Directory num grupo de segurança do Azure Ative Directory. Crie um utilizador de base de dados contido para o grupo. Adicione um ou mais utilizadores de bases de dados como membros para personalizar ou construir funções de base de dados com as permissões específicas adequadas a esse grupo de utilizadores.
 
 - Ao utilizar a autenticação SQL, crie utilizadores de bases de dados contidos na base de dados. Coloque um ou mais utilizadores de bases de dados numa função de base de dados personalizada com permissões específicas adequadas a esse grupo de utilizadores.
 
@@ -169,6 +169,6 @@ Deverá familiarizar-se com as seguintes funcionalidades que podem ser utilizada
 - A [Máscara de Dados](dynamic-data-masking-overview.md) pode ser utilizada para limitar a exposição de dados confidenciais.
 - Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma visão geral de todas as funcionalidades de segurança da Azure SQL Database e sql Managed Instance, consulte [a visão geral de Segurança](security-overview.md).

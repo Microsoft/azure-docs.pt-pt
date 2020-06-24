@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 17c0e02aa091d1271967b5a238f71123cc7aeede
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322674"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249283"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Não cria cópias de segurança na Base de Dados Azure SQL e isso é porque não
 
 |Camada de serviços|Período de retenção em dias|
 |---|:---:|
-|Básico|7|
+|Básica|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -133,7 +133,7 @@ Pode criar regras de firewall ao nível do servidor ou ao nível da base de dado
 
 #### <a name="service-endpoints"></a>Pontos finais de serviço
 
-Por predefinição, a sua base de dados SQL está configurada para "Permitir que os serviços Azure acedam ao servidor" – o que significa que qualquer Máquina Virtual em Azure pode tentar ligar-se à sua base de dados. Estas tentativas ainda têm de ser autenticadas. No entanto, se não pretender que a sua base de dados esteja acessível por quaisquer IPs Azure, pode desativar "Permitir que os serviços do Azure acedam ao servidor". Além disso, pode configurar [pontos finais de serviço VNet](vnet-service-endpoint-rule-overview.md).
+Por predefinição, a sua base de dados está configurada para "Permitir que os serviços do Azure acedam ao servidor" – o que significa que qualquer Máquina Virtual em Azure pode tentar ligar-se à sua base de dados. Estas tentativas ainda têm de ser autenticadas. No entanto, se não pretender que a sua base de dados esteja acessível por quaisquer IPs Azure, pode desativar "Permitir que os serviços do Azure acedam ao servidor". Além disso, pode configurar [pontos finais de serviço VNet](vnet-service-endpoint-rule-overview.md).
 
 Os pontos finais de serviço (SE) permitem-lhe expor os seus recursos Azure críticos apenas à sua própria rede virtual privada em Azure. Ao fazê-lo, elimina essencialmente o acesso do público aos seus recursos. O tráfego entre a sua rede virtual para a Azure permanece na rede de espinha dorsal Azure. Sem a SE, recebes um encaminhamento de pacotes de túneis forçados. A sua rede virtual força o tráfego de internet para a sua organização e o tráfego do Serviço Azure para percorrer a mesma rota. Com o Service Endpoints, pode otimizá-lo uma vez que os pacotes fluem diretamente da sua rede virtual para o serviço na rede de espinha dorsal Azure.
 
@@ -285,7 +285,7 @@ Pode consultar a visão de gestão dinâmica [sys.dm_db_resource_stats](/sql/rel
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estou a notar problemas de desempenho: Como é que a minha metodologia de resolução de problemas da BASE de Dados SQL difere do SQL Server
 
-Uma grande parte das técnicas de resolução de problemas que usaria para diagnosticar questões de consulta e desempenho da base de dados permanece a mesma. Afinal, o mesmo motor de base de dados SQL alimenta a nuvem. No entanto, a plataforma - Azure SQL Database construiu em 'inteligência'. Pode ajudá-lo a resolver problemas e diagnosticar problemas de desempenho ainda mais facilmente. Também pode executar algumas destas ações corretivas em seu nome e, em alguns casos, corrigi-las proativamente - automaticamente.
+Uma grande parte das técnicas de resolução de problemas que usaria para diagnosticar questões de consulta e desempenho da base de dados permanece a mesma. Afinal, o mesmo motor de base de dados alimenta a nuvem. No entanto, a plataforma - Azure SQL Database construiu em 'inteligência'. Pode ajudá-lo a resolver problemas e diagnosticar problemas de desempenho ainda mais facilmente. Também pode executar algumas destas ações corretivas em seu nome e, em alguns casos, corrigi-las proativamente - automaticamente.
 
 A sua abordagem para resolver problemas de desempenho pode beneficiar significativamente utilizando funcionalidades inteligentes como [o Query Performance Insight (QPI)](query-performance-insight-use.md) e o [Database Advisor](database-advisor-implement-performance-recommendations.md) em conjunto e, por isso, a diferença de metodologia difere nesse aspeto – já não precisa de fazer o trabalho manual de moer os detalhes essenciais que podem ajudá-lo a resolver o problema em questão. A plataforma faz o trabalho duro para si. Um exemplo disso é o QPI. Com o QPI, você pode perfurar todo o caminho até o nível de consulta e olhar para as tendências históricas e descobrir quando exatamente a consulta regrediu. O Database Advisor dá-lhe recomendações sobre coisas que podem ajudá-lo a melhorar o seu desempenho geral em geral como - índices em falta, índices de queda, parametrização das suas consultas, etc.
 
@@ -301,7 +301,7 @@ A SQL Database oferece vários níveis de serviço Básico, Standard e Premium. 
 
 |**Nível de serviço**|**Cenários de casos de uso comum**|
 |---|---|
-|**Básico**|Aplicações com um punhado de utilizadores e uma base de dados que não tem elevados requisitos de concordância, escala e desempenho. |
+|**Básica**|Aplicações com um punhado de utilizadores e uma base de dados que não tem elevados requisitos de concordância, escala e desempenho. |
 |**Standard**|Aplicações com uma considerável concordância, escala e requisitos de desempenho associados a exigências de IO baixas a médias. |
 |**Premium**|Aplicações com muitos utilizadores simultâneos, CPU/memória alta e elevadas exigências de IO. Altas aplicações sensíveis à concência, alta produção e latência podem alavancar o nível Premium. |
 |||
@@ -333,6 +333,6 @@ Tem várias formas de o conseguir:
 - **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – Esta funcionalidade ajuda-o a sincronizar os dados bi-direccionalmente entre várias bases de dados do SQL Server e a BASE de Dados SQL. Para sincronizar com as bases de dados do SQL Server, é necessário instalar e configurar o agente de sincronização num computador local ou numa máquina virtual e abrir a porta TCP de saída 1433.
 - **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com a replicação de transações pode sincronizar os seus dados de uma base de dados do SQL Server para a Base de Dados Azure SQL, sendo a instância do SQL Server o editor e a Base de Dados Azure SQL o assinante. Por enquanto, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os seus dados de uma base de dados do SQL Server para Azure SQL com o mínimo de tempo de inatividade, consulte: [Use a replicação de transações](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a Base de Dados SQL.](sql-database-paas-overview.md)

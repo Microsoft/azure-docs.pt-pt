@@ -1,44 +1,72 @@
 ---
-title: 'Quickstart: Dados de carga a granel utilizando uma única declaração T-SQL'
+title: 'Quickstart: Dados de carga a granel usando uma única declaração T-SQL'
 description: Dados de carga a granel utilizando a declaração COPY
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
-ms.date: 04/08/2020
+ms.subservice: sql-dw
+ms.date: 06/18/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d39b3085a802ca0ff745ab1f63f4a8fba966ea48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81115009"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213011"
 ---
-# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Arranque rápido: Dados de carga a granel utilizando a declaração COPY
+# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Quickstart: Dados de carga a granel utilizando a declaração COPY
 
-Neste arranque rápido, irá em massa carregar dados para o seu pool SQL utilizando a simples e flexível [declaração copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para ingestão de dados de alta produção. A declaração COPY é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados, fornecendo funcionalidade para:
+Neste arranque rápido, irá carregar em massa dados de carga na sua piscina SQL utilizando a [declaração](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) copy simples e flexível para ingestão de dados de alto rendimento. A declaração COPY é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados fornecendo a funcionalidade para:
 
-- Permitir que utilizadores mais desfavorecidos carreguem sem precisar de permissões rigorosas de CONTROLO no armazém de dados
-- Alavancar apenas uma única declaração de T-SQL sem ter que criar quaisquer objetos de base de dados adicionais
-- Aproveite um modelo de permissão mais fino sem expor chaves de conta de armazenamento utilizando assinaturas de acesso à partilha (SAS)
+- Permitir que utilizadores privilegiados mais baixos carreguem sem precisar de permissões rígidas do CONTROL no armazém de dados
+- Aproveite apenas uma única declaração T-SQL sem ter que criar quaisquer objetos de base de dados adicionais
+- Aproveite um modelo de permissão mais fino sem expor as chaves da conta de armazenamento utilizando assinaturas de acesso ao share (SAS)
 - Especifique uma conta de armazenamento diferente para a localização ERRORFILE (REJECTED_ROW_LOCATION)
-- Personalize os valores predefinidos para cada coluna-alvo e especifique os campos de dados de origem para carregar em colunas específicas de alvo
-- Especifique um exterminador de linha personalizado para ficheiros CSV
-- Delimitadores de cadeias de fuga, campo e linha para ficheiros CSV
-- Aproveite os formatos de data do servidor SQL para ficheiros CSV
-- Especifique wildcards e vários ficheiros no caminho do local de armazenamento
+- Personalize os valores predefinidos para cada coluna-alvo e especifique campos de dados de origem para carregar em colunas-alvo específicas
+- Especificar um exterminador de linha personalizado para ficheiros CSV
+- Cadeia de fuga, deslimiters de campo e linha para ficheiros CSV
+- Alavancar os formatos sql server date para ficheiros CSV
+- Especificar wildcards e vários ficheiros no caminho da localização do armazenamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este quickstart assume que já tem uma piscina SQL. Se não tiver sido criada uma piscina SQL, utilize o [Create and Connect - portal](create-data-warehouse-portal.md) quickstart.
+Este quickstart assume que já tem uma piscina SQL. Se não tiver sido criada uma piscina SQL, utilize o arranque rápido do [portal Create and Connect](create-data-warehouse-portal.md) - portal.
+
+## <a name="set-up-the-required-permissions"></a>Configurar as permissões necessárias
+
+```sql
+-- List the permissions for your user
+select  princ.name
+,       princ.type_desc
+,       perm.permission_name
+,       perm.state_desc
+,       perm.class_desc
+,       object_name(perm.major_id)
+from    sys.database_principals princ
+left join
+        sys.database_permissions perm
+on      perm.grantee_principal_id = princ.principal_id
+where name = '<yourusername>';
+
+--Make sure your user has the permissions to CREATE tables in the [dbo] schema
+GRANT CREATE TABLE TO <yourusername>;
+GRANT ALTER ON SCHEMA::dbo TO <yourusername>;
+
+--Make sure your user has ADMINISTER DATABASE BULK OPERATIONS permissions
+GRANT ADMINISTER DATABASE BULK OPERATIONS TO <yourusername>
+
+--Make sure your user has INSERT permissions on the target table
+GRANT INSERT ON <yourtable> TO <yourusername>
+
+```
 
 ## <a name="create-the-target-table"></a>Criar a tabela-alvo
 
-Neste exemplo, vamos carregar dados do conjunto de dados de táxi sinuoso de Nova Iorque. Carregaremos uma mesa chamada Trip que representa viagens de táxi feitas dentro de um ano. Executar o seguinte para criar a tabela:
+Neste exemplo, vamos carregar dados do conjunto de dados de táxi de Nova Iorque. Carregaremos uma mesa chamada Trip que representa viagens de táxi realizadas num único ano. Executar o seguinte para criar a tabela:
 
 ```sql
 CREATE TABLE [dbo].[Trip]
@@ -74,9 +102,9 @@ WITH
 );
 ```
 
-## <a name="run-the-copy-statement"></a>Executar a declaração copy
+## <a name="run-the-copy-statement"></a>Executar a declaração COPY
 
-Faça a seguinte declaração de COPY que irá carregar dados da conta de armazenamento de blob Azure na tabela Trip.
+Execute a seguinte declaração COPY que carregará os dados da conta de armazenamento da bolha Azure na tabela Trip.
 
 ```sql
 COPY INTO [dbo].[Trip] FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/'
@@ -88,7 +116,7 @@ WITH (
 
 ## <a name="monitor-the-load"></a>Monitorize a carga
 
-Verifique se a sua carga está a progredir executando periodicamente a seguinte consulta:
+Verifique se a sua carga está a progredir, executando periodicamente a seguinte consulta:
 
 ```sql
 SELECT  r.[request_id]                           
@@ -110,5 +138,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter as melhores práticas de carregamento de dados, consulte [as Melhores Práticas para carregar dados.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)
-- Para obter informações sobre como gerir os recursos para as suas cargas de dados, consulte [O Isolamento da Carga de Trabalho](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 
+- Para obter as melhores práticas de carregamento de dados, consulte [as Melhores Práticas para Carregar Dados.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)
+- Para obter informações sobre como gerir os recursos para as suas cargas de dados, consulte [o Isolamento da Carga de Trabalho.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) 

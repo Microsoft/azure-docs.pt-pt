@@ -1,45 +1,45 @@
 ---
-title: Problemas de resolução de problemas com gestão de identidade privilegiada - Diretório Ativo Azure Microsoft Docs
-description: Saiba como resolver erros do sistema com funções na Azure AD Privileged Identity Management (PIM).
+title: Resolução de problemas com Gestão de Identidade Privilegiada - Diretório Ativo Azure Microsoft Docs
+description: Saiba como resolver erros do sistema com funções na Gestão de Identidade Privilegiada Azure AD (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474f2634e6f7ddc1840548c39ae86cb54c3bf08e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d2ba5806e23aa87e5d7787be300512444f95b25
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78299691"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84742152"
 ---
-# <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Problemas de resolução de problemas com gestão de identidade privilegiada
+# <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Resolver problemas com gestão de identidade privilegiada
 
-Está a ter um problema com a Gestão de Identidade Privilegiada (PIM) no Diretório Ativo Azure (Azure AD)? A informação que se segue pode ajudá-lo a pôr as coisas a funcionar novamente.
+Está a ter algum problema com a Gestão de Identidade Privilegiada (PIM) no Azure Ative Directory (Azure AD)? A informação que se segue pode ajudá-lo a pôr as coisas a funcionar novamente.
 
-## <a name="access-to-azure-resources-denied"></a>Acesso aos recursos do Azure negado
+## <a name="access-to-azure-resources-denied"></a>Acesso aos recursos da Azure negado
 
 ### <a name="problem"></a>Problema
 
-Como proprietário ativo ou administrador de acesso ao utilizador para um recurso Azure, você é capaz de ver o seu recurso dentro da Privileged Identity Management, mas não pode realizar quaisquer ações como fazer uma atribuição elegível ou visualizar uma lista de atribuições de funções a partir da página de visão geral do recurso. Qualquer uma destas ações resulta num erro de autorização.
+Como proprietário ativo ou administrador de acesso ao utilizador para um recurso Azure, é capaz de ver o seu recurso dentro da Gestão de Identidade Privilegiada, mas não pode realizar quaisquer ações como fazer uma atribuição elegível ou visualizar uma lista de atribuições de funções a partir da página geral do recurso. Qualquer uma destas ações resulta num erro de autorização.
 
 ### <a name="cause"></a>Causa
 
-Este problema pode acontecer quando a função do Administrador de Acesso ao Utilizador para o diretor de serviço PIM foi acidentalmente removida da subscrição. Para que o serviço de Gestão de Identidade Privilegiada possa aceder aos recursos do Azure, o diretor de serviço si-PIM deve ter sido sempre atribuído ao cargo de Administrador de [Acesso ao Utilizador](../../role-based-access-control/built-in-roles.md#user-access-administrator) sobre a subscrição do Azure.
+Este problema pode ocorrer quando a função de Administrador de Acesso ao Utilizador para o principal do serviço PIM foi acidentalmente removida da subscrição. Para que o serviço de Gestão de Identidade Privilegiada possa aceder aos recursos da Azure, o diretor de serviço MS-PIM deveria ter sempre sido atribuído à [função de Administrador de Acesso](../../role-based-access-control/built-in-roles.md#user-access-administrator) ao Utilizador sobre a subscrição do Azure.
 
 ### <a name="resolution"></a>Resolução
 
-Atribuir a função de Administrador de Acesso ao Utilizador ao nome principal do serviço de Gestão de Identidade Privilegiada (MS-PIM) ao nível da subscrição. Esta atribuição deverá permitir ao serviço de Gestão de Identidade Privilegiada aceder aos recursos do Azure. A função pode ser atribuída a nível de grupo de gestão ou ao nível da subscrição, dependendo dos seus requisitos. Para mais diretores de serviços de informação, consulte [Atribuir uma aplicação a um papel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application).
+Atribua a função de Administrador de Acesso ao Utilizador ao nome principal do serviço de gestão de identidade privilegiado (MS-PIM) ao nível da subscrição. Esta atribuição deve permitir ao serviço privilegiado de Gestão de Identidade aceder aos recursos do Azure. A função pode ser atribuída a nível de grupo de gestão ou ao nível da subscrição, dependendo dos seus requisitos. Para obter mais informações, consulte [Atribuir uma aplicação a uma função.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Requisitos de licença para usar Gestão de Identidade Privilegiada](subscription-requirements.md)
+- [Requisitos de licença para utilizar a Gestão de Identidade Privilegiada](subscription-requirements.md)
 - [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Implementar o Privileged Identity Management](pim-deployment-plan.md)

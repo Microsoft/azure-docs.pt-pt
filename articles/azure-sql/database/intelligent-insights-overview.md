@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 133ca6503a2e0fa9ff19fa55cf126b9556b741e0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/12/2020
+ms.openlocfilehash: 937eee69c17d207dc348a25fe2a5e6611480db0f
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344055"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743461"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes utilizando a IA para monitorizar e resolver problemas de desempenho da base de dados (pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,6 +77,9 @@ As opções de Insights Inteligentes disponíveis são:
 | **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Sim | Sim |
 | **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Sim | Sim |
 | **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Sim | Sim |
+
+> [!NOTE]
+> Insights inteligentes é uma característica de pré-visualização, não disponível nas seguintes regiões: Europa Ocidental, Norte da Europa, EUA 1 e Leste dos EUA 1.
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Configure a exportação do diário de insights inteligentes
 
@@ -182,7 +185,7 @@ O Registo de Insights Inteligentes regista a contagem de pedidos erros. Indica s
 
 Se alguma das exceções críticas monitorizadas atravessar os limiares absolutos geridos pelo sistema, uma visão inteligente é gerada com detalhes críticos de exceção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como monitorizar as [bases de dados utilizando o SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Saiba como [resolver problemas de desempenho com Insights Inteligentes.](intelligent-insights-troubleshoot-performance.md)
