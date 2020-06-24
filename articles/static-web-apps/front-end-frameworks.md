@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 1da2403cc75d979ca34c96caff5ec7cffab7ffb0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680029"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976715"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar quadros front-end e bibliotecas com pré-visualização de aplicações web estáticas Azure
 
@@ -37,6 +37,7 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a |
 | [Agitação](https://flutter.dev/) | `build/web` | `flutter build web` |
+| [Quadro 7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Brilho](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
 | [Hiperapp](https://hyperapp.dev/) | `/` | n/a |
@@ -60,6 +61,6 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 
 <sup>2</sup> Não aplicável
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configuração de compilação e fluxo de trabalho](github-actions-workflow.md)

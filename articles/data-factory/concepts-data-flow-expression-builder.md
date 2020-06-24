@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 23355abdced3a4073cf90ccf60c14af088a4e564
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 06/20/2020
+ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324169"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126166"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construa expressões no fluxo de dados de mapeamento
 
@@ -130,6 +130,10 @@ Para converter milissegundos da época para uma data ou hora marcada, utilize `t
 
 O "l" de fuga no final da expressão anterior significa conversão para um tipo longo como sintaxe inline.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="find-time-from-epoch-or-unix-time"></a>Encontre tempo da época ou tempo unix
+
+toLong( actualTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:mm:ss. SSS') ) * 1000l
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Começar a construir expressões de transformação de dados](data-flow-expression-functions.md)

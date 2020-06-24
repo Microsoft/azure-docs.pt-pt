@@ -13,4 +13,4 @@ ms.locfileid: "67184027"
 ---
 > [!TIP]
 >
-> Se planeia utilizar as ligações HTTP ou WebHook, planeie evitar a exaustão `HttpClient`da porta que possa ser causada por uma instantiação inadequada de . Para mais informações, consulte [Como gerir as ligações em Funções Azure](../articles/azure-functions/manage-connections.md).
+> Se pretender utilizar as ligações HTTP ou WebHook, planeie evitar a exaustão do porto que possa ser causada por uma instantânea inadequada de `HttpClient` . Para obter mais informações, consulte [Como gerir as ligações em Funções Azure](../articles/azure-functions/manage-connections.md).

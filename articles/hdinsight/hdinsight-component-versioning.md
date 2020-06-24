@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 05/28/2020
-ms.openlocfilehash: 0ce7077300b1c59fcc858197e70a921d1454fd13
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7a6a672cef42eb15cbd8f2f254207e0a9d96ee33
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219700"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736208"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões Apache disponíveis para Azure HDInsight
 
@@ -36,16 +36,16 @@ As versões componentes associadas às versões hdInsight cluster estão listada
 | Colmeia Apache            | 3.1.0         | 1.2.1 (2.1.0 sobre consulta interativa ESP) |
 | Colmeia Apache Tez       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
-| Apache HBase           | 2.0.2         | 1.1.2                       |
+| Apache HBase           | 2.1.6         | 1.1.2                       |
 | Apache Sqoop           | 1.4.7         | 1.4.6                       |
 | Apache Oozie           | 4.3.1         | 4.2.0                       |
 | Apache Zookeeper       | 3.4.6         | 3.4.6                       |
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Fénix-apache         | 5             | 4.7.0                       |
-| Apache Spark           | 2,4           | 2.3.2, 2.2.0, 2.1.0         |
+| Apache Spark           | 2.4.4         | 2.3.2, 2.2.0, 2.1.0         |
 | Apache Livy            | 0,5           | 0.4, 0.4, 0.3               |
-| Apache Kafka           | 2.1           | 1.1                        |
+| Apache Kafka           | 2.1.1         | 1.1                        |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |

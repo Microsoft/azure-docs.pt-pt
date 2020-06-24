@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9158ad23bf05bf52f879afb1f1d25d2f4ba42cfb
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323642"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124260"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -21,6 +21,7 @@ Este artigo irá ajudá-lo a entender o processo de criação de pontos finais p
 - Os pontos finais privados só podem ser criados para novos cofres dos Serviços de Recuperação (que não têm quaisquer itens registados no cofre). Por isso, os pontos finais privados devem ser criados antes de tentar proteger quaisquer itens para o cofre.
 - Uma rede virtual pode conter pontos finais privados para vários cofres dos Serviços de Recuperação. Além disso, um cofre dos Serviços de Recuperação pode ter pontos finais privados para ele em várias redes virtuais. No entanto, o número máximo de pontos finais privados que podem ser criados para um cofre é de 12.
 - Assim que um ponto final privado for criado para um cofre, o cofre será bloqueado. Não será acessível (para cópias de segurança e restauros) a partir de redes para além das que contêm um ponto final privado para o cofre. Se todos os pontos finais privados do cofre forem removidos, o cofre estará acessível a partir de todas as redes.
+- Uma ligação de ponto final privado para cópia de segurança utiliza um total de 11 IPs privados na sua sub-rede. Este número pode ser superior (até 15) para certas regiões de Azure. Por isso, sugerimos que tenha iPs privados suficientes disponíveis quando tentar criar pontos finais privados para backup.
 - Enquanto um cofre de Serviços de Recuperação é usado por (ambos) Azure Backup e Azure Site Recovery, este artigo discute o uso de pontos finais privados apenas para Azure Backup.
 - O Azure Ative Directory não suporta atualmente pontos finais privados. Assim, os IPs e FQDNs necessários para que o Azure Ative Directory funcione numa região terá de ser autorizado a aceder à saída da rede segura ao realizar cópias de segurança de bases de dados em VMs Azure e cópia de segurança utilizando o agente MARS. Também pode utilizar tags NSG e Azure Firewall para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não são suportadas por pontos finais privados. Terá de desativar a Polícia de Rede antes de continuar.
@@ -41,9 +42,6 @@ Esta secção fala sobre os passos envolvidos na criação e utilização de pon
 
 >[!IMPORTANT]
 > É altamente recomendável que siga os passos na mesma sequência que mencionado neste documento. Se não o fizer, o cofre pode tornar-se incompatível com a utilização de pontos finais privados e exigir que reinicie o processo com um novo cofre.
-
->[!NOTE]
-> Certos elementos da experiência do portal Azure podem não estar disponíveis atualmente. Por favor, consulte as experiências alternativas nesses cenários até à disponibilidade total na sua região.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -345,7 +343,7 @@ Pode utilizar um dos seguintes métodos para criar funções com permissões nec
 
 Crie os seguintes ficheiros JSON e utilize o comando PowerShell no final da secção para criar funções:
 
-PrivateEndpointContributorRoleDef.json
+PrivateEndpointContributorRoleDef.jsem
 
 ```json
 {
@@ -363,7 +361,7 @@ PrivateEndpointContributorRoleDef.json
 }
 ```
 
-NetworkInterfaceReaderRoleDef.json
+NetworkInterfaceReaderRoleDef.jsem
 
 ```json
 {
@@ -381,7 +379,7 @@ NetworkInterfaceReaderRoleDef.json
 }
 ```
 
-PrivateEndpointSubnetContributorRoleDef.json
+PrivateEndpointSubnetContributorRoleDef.jsem
 
 ```json
 {
@@ -554,7 +552,7 @@ P. Tentei proteger um objeto para o meu cofre, mas falhou e o cofre ainda não c
 R. Não, o cofre não deve ter tido nenhuma tentativa de proteger quaisquer objetos no passado.
 
 P. Tenho um cofre que está a usar pontos finais privados para reforços e restauros. Posso adicionar ou remover mais tarde pontos finais privados para este cofre, mesmo que eu tenha itens de reserva protegidos?<br>
-R. Yes. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
+R. Sim. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
 
 P. O ponto final privado do Azure Backup também pode ser usado para a recuperação do local de Azure?<br>
 R. Não, o ponto final privado para cópia de segurança só pode ser utilizado para o Azure Backup. Terá de criar um novo ponto final privado para a Recuperação do Site Azure, se for suportado pelo serviço.
@@ -568,6 +566,6 @@ R. Sim, podes usar os teus próprios servidores DNS. No entanto, certifique-se d
 P. Preciso de fazer mais passos no meu servidor depois de ter seguido o processo neste artigo?<br>
 R. Depois de seguir o processo detalhado neste artigo, não precisa de fazer trabalho adicional para usar pontos finais privados para fazer backup e restauro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

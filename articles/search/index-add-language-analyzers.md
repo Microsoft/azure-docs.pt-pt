@@ -1,19 +1,19 @@
 ---
 title: Adicione analisadores de linguagem a campos de cordas
 titleSuffix: Azure Cognitive Search
-description: Análise de texto lexical multilingue para consultas e índices não ingleses na Pesquisa Cognitiva Azure.
+description: Análise lexical multilingue para consultas e índices não ingleses na Pesquisa Cognitiva Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 3bb8de76fbf425abc1643633393e5f296b50b386
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555181"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130556"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -34,7 +34,7 @@ Por exemplo, em chinês, japonês, coreano (CJK), e outras línguas asiáticas, 
 
 Para o exemplo acima, uma consulta bem sucedida teria de incluir o token completo, ou um símbolo parcial usando um sfixix wildcard, resultando numa experiência de pesquisa não natural e limitante.
 
-Uma experiência melhor é procurar palavras individuais: (Brilhante), (Galaxy). Usar um dos analisadores japoneses disponíveis na Pesquisa Cognitiva é mais propenso a desbloquear este comportamento porque esses analisadores estão mais bem equipados para dividir o pedaço de texto em palavras significativas na linguagem-alvo.
+Uma experiência melhor é procurar palavras individuais: 明るい (Bright), 私たちの (Our), 銀河系 (Galaxy). Usar um dos analisadores japoneses disponíveis na Pesquisa Cognitiva é mais propenso a desbloquear este comportamento porque esses analisadores estão mais bem equipados para dividir o pedaço de texto em palavras significativas na linguagem-alvo.
 
 ## <a name="comparing-lucene-and-microsoft-analyzers"></a>Comparar Lucene e Microsoft Analyzers
 

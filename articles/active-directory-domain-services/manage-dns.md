@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 0c0ae6a96a303c1c9d2887e6ed4dfb0d1fed4453
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7841db3138af2f8cb1efc03508b9e7c0bdb71324
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672583"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734644"
 ---
-# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrar DNS e criar reencaminhadores condicionalistas num domínio gerido por Azure AD Domain Services
+# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar DNS e criar reencaminhadores condicionalistas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
 Nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), um componente chave é DNS (Resolução de Nome de Domínio). O Azure AD DS inclui um servidor DNS que fornece resolução de nome para o domínio gerido. Este servidor DNS inclui registos DNS incorporados e atualizações para os componentes-chave que permitem executar o serviço.
 
@@ -27,7 +27,7 @@ Num ambiente híbrido, as zonas de DNS e registos configurados em outros espaço
 
 Este artigo mostra-lhe como instalar as ferramentas DNS Server e, em seguida, utilizar a consola DNS para gerir registos e criar reencaminhadores condicionalistas em Azure AD DS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -36,10 +36,10 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 * Um inquilino do Azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou um diretório apenas na nuvem.
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um domínio de domínio do Azure Ative Directory Services gerido ativo e configurado no seu inquilino AZure AD.
-    * Se necessário, complete o tutorial para [criar e configurar uma instância de Serviços de Domínio do Diretório Ativo Azure][create-azure-ad-ds-instance].
+    * Se necessário, complete o tutorial para criar e configurar um domínio gerido pelos [Serviços de Domínio do Diretório Ativo Azure][create-azure-ad-ds-instance].
 * Conectividade da sua rede virtual Azure AD DS até onde estão hospedados os seus outros espaços de nome DNS.
     * Esta conectividade pode ser fornecida com uma ligação [Azure ExpressRoute][expressroute] ou [Azure VPN Gateway.][vpn-gateway]
-* Um VM de gestão de servidores do Windows que se junta ao domínio gerido Azure AD DS.
+* Um VM de gestão de servidores do Windows que se junta ao domínio gerido.
     * Se necessário, complete o tutorial para [criar um VM do Servidor do Windows e junte-o a um domínio gerido][create-join-windows-vm].
 * Uma conta de utilizador que é membro do grupo de administradores da *Ad DC Azure* no seu inquilino AZure AD.
 
@@ -63,17 +63,17 @@ Para criar e modificar registos DNS em Azure AD DS, é necessário instalar as f
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Abra a consola de gestão DNS para administrar DNS
 
-Com as ferramentas dns Server instaladas, pode administrar registos DNS no domínio gerido Azure AD DS.
+Com as ferramentas dns Server instaladas, pode administrar registos DNS no domínio gerido.
 
 > [!NOTE]
-> Para administrar o DNS num domínio gerido pela Azure AD DS, tem de ser inscrito numa conta de utilizador que seja membro do grupo de *Administradores AAD DC.*
+> Para administrar o DNS num domínio gerido, tem de ser inscrito numa conta de utilizador que seja membro do grupo *de Administradores AAD DC.*
 
 1. A partir do ecrã Iniciar, selecione **Ferramentas Administrativas**. É apresentada uma lista de ferramentas de gestão disponíveis, incluindo **DNS** instaladas na secção anterior. Selecione **DNS** para lançar a consola DNS Management.
 1. No diálogo **'Connect to DNS Server',** selecione **O seguinte computador**, em seguida, introduza o nome de domínio DNS do domínio gerido, como *aaddscontoso.com*:
 
-    ![Ligue-se ao domínio gerido Azure AD DS na consola DNS](./media/manage-dns/connect-dns-server.png)
+    ![Conecte-se ao domínio gerido na consola DNS](./media/manage-dns/connect-dns-server.png)
 
-1. A Consola DNS conecta-se ao domínio gerido Azure AD DS especificado. Expanda as **Zonas de Procura para a Frente** ou Zonas de Procura inversa para criar as suas entradas de DNS **necessárias** ou editar os registos existentes conforme necessário.
+1. A Consola DNS liga-se ao domínio gerido especificado. Expanda as **Zonas de Procura para a Frente** ou Zonas de Procura inversa para criar as suas entradas de DNS **necessárias** ou editar os registos existentes conforme necessário.
 
     ![DNS Console - administrar domínio](./media/manage-dns/dns-manager.png)
 
@@ -82,13 +82,13 @@ Com as ferramentas dns Server instaladas, pode administrar registos DNS no domí
 
 ## <a name="create-conditional-forwarders"></a>Criar reencaminhadores condicionais
 
-Uma zona Azure AD DS DNS deve conter apenas a zona e os registos do domínio gerido em si. Não crie zonas adicionais em Azure AD DS para resolver recursos nomeados em outros espaços de nome DNS. Em vez disso, utilize reencaminhadores condicional no domínio Azure AD DS gerido para dizer ao servidor DNS para onde ir, a fim de resolver endereços para esses recursos.
+Uma zona Azure AD DS DNS deve conter apenas a zona e os registos do domínio gerido em si. Não crie zonas adicionais em Azure AD DS para resolver recursos nomeados em outros espaços de nome DNS. Em vez disso, utilize reencaminhadores condicionalistas no domínio gerido para dizer ao servidor DNS para onde ir para resolver endereços para esses recursos.
 
-Um reencaminhador condicional é uma opção de configuração num servidor DNS que permite definir um domínio DNS, como *contoso.com*, para encaminhar consultas para. Em vez do servidor DNS local tentar resolver consultas de registos nesse domínio, as consultas de DNS são reencaminhadas para o DNS configurado para esse domínio. Esta configuração garante que os registos DNS corretos são devolvidos, uma vez que não cria uma zona de DNS local com registos duplicados no domínio Azure AD DS gerido para refletir esses recursos.
+Um reencaminhador condicional é uma opção de configuração num servidor DNS que permite definir um domínio DNS, como *contoso.com*, para encaminhar consultas para. Em vez do servidor DNS local tentar resolver consultas de registos nesse domínio, as consultas de DNS são reencaminhadas para o DNS configurado para esse domínio. Esta configuração garante que os registos DNS corretos são devolvidos, uma vez que não cria uma zona de DNS local com registos duplicados no domínio gerido para refletir esses recursos.
 
-Para criar um reencaminhador condicional no seu domínio gerido Azure AD DS, complete os seguintes passos:
+Para criar um reencaminhador condicional no seu domínio gerido, complete os seguintes passos:
 
-1. Selecione a sua zona Azure AD DS DNS, como *aaddscontoso.com*.vb
+1. Selecione a sua zona DNS, como *aaddscontoso.com*.
 1. Selecione **Os Avançados Condicionais,** em seguida, selecione à direita e escolha **novo avançado condicionado...**
 1. Introduza o seu outro **Domínio DNS**, como *contoso.com*, insira os endereços IP dos servidores DNS para esse espaço de nome, como mostra o seguinte exemplo:
 
@@ -103,9 +103,9 @@ Para criar um reencaminhador condicional no seu domínio gerido Azure AD DS, com
 
 1. Para criar o reencaminhador condicional, selecione **OK**.
 
-A resolução de nomes dos recursos em outros espaços de nome de VMs ligados ao domínio gerido Azure AD DS deve agora resolver corretamente. As consultas para o domínio DNS configuradas no reencaminhador condicional são transmitidas aos servidores DNS relevantes.
+A resolução de nomes dos recursos em outros espaços de nome de VMs ligados ao domínio gerido deve agora resolver-se corretamente. As consultas para o domínio DNS configuradas no reencaminhador condicional são transmitidas aos servidores DNS relevantes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a gestão do DNS, consulte o [artigo de ferramentas DNS na Technet](https://technet.microsoft.com/library/cc753579.aspx).
 

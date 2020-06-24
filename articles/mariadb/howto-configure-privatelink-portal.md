@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0cf4663e8c1b0d1c859cd62c63ab40ae4dceae22
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: b8c649a232baeafeaf1f53753af6653bf9edd9c1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484947"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736191"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerir o Link Privado para Azure Database para MariaDB usando o Portal
 
@@ -143,7 +143,7 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes de instância** |  |
-    | Nome | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
+    | Name | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
     |Região|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Seguinte: Recurso**.
@@ -171,7 +171,7 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     |||
 
     > [!Note] 
-    > Consulte a configuração da [zona DE DNS dos serviços Azure](../private-link/private-endpoint-dns.md).
+    > Utilize a zona de DNS privada predefinida para o seu serviço ou forneça o nome da zona DE DNS preferida. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
 
 1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
 2. Quando vir a mensagem **de validação passada,** selecione **Criar**. 
@@ -249,7 +249,7 @@ Quando terminar de usar o ponto final privado, o servidor MariaDB e o VM, elimin
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste como fazer, criou um VM numa rede virtual, uma Base de Dados Azure para MariaDB e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor MariaDB utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
 
