@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87da588806908566bd1980da4c3120c0d4537b4a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673144"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905141"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -99,11 +99,13 @@ A Azure AD suporta fornecedores de identidade externos como Facebook, contas mic
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Criar um fluxo de utilizador de inscrição de autosserviço (Pré-visualização)
 
 Com um fluxo de utilizador de inscrição de autosserviço, pode criar uma experiência de inscrição para utilizadores externos que queiram aceder às suas apps. Como parte do fluxo de inscrição, você pode fornecer opções para diferentes fornecedores de identidade social ou empresarial, e recolher informações sobre o utilizador. Saiba mais sobre [a inscrição de self-service e como a configurar.](self-service-sign-up-overview.md)
-<!-- You can also use [API connectors](api-connectors-overview.md) to integrate your user flows with external systems, for example user approval systems, user input validation systems, or custom business logic. -->
+
+Também pode utilizar [conectores API](api-connectors-overview.md) para integrar os fluxos de utilizador de inscrição de autosserviço com sistemas de nuvem externa. Pode conectar-se com fluxos de trabalho de aprovação personalizados, realizar verificação de identidade, validar informações fornecidas pelo utilizador e muito mais.
 
 ![Screenshot mostrando a página de fluxos do utilizador](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Orientação sobre o licenciamento para a colaboração B2B do Azure Active Directory](licensing-guidance.md)
 - [Adicionar utilizadores convidados de colaboração B2B no portal](add-users-administrator.md)

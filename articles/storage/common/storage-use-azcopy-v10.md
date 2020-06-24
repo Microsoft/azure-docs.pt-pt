@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 60f3e725a4df619e3cc8ed7e8878fe2a5e5c3406
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bf1303c6bb13677fdea73b2a1a707c655c58b7c1
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195187"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945669"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -158,7 +158,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 Em seguida, digite o seguinte comando e, em seguida, prima a tecla ENTER.
 
 ```azcopy
-azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
+azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id
 ```
 
 Substitua o `<application-id>` espaço reservado pelo ID de aplicação do registo da aplicação do seu titular de serviço. Substitua o `<tenant-id>` espaço reservado pelo ID do inquilino da organização a que pertence a conta de armazenamento. Para encontrar o ID do inquilino, selecione **Azure Ative Directory > Properties > ID do Diretório** no portal Azure. 

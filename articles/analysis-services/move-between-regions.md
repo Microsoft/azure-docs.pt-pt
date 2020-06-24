@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32b310a2e74fc6f120dce90047da08380b776879
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680232"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699435"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
 
@@ -45,7 +45,7 @@ Antes de mover um servidor para uma região diferente, recomenda-se que crie um 
 > Este artigo descreve a restauração de uma cópia de segurança de base de dados para um servidor alvo a partir de um contentor de armazenamento na região do servidor de origem. Em alguns casos, restaurar cópias de segurança de uma região diferente pode ter um fraco desempenho, especialmente para grandes bases de dados. Para obter o melhor desempenho durante a restauração da base de dados, migrar ou criar um novo recipiente de armazenamento na região do servidor alvo. Copie os ficheiros de reserva .abf do recipiente de armazenamento da região de origem para o recipiente de armazenamento da região alvo antes de restaurar a base de dados para o servidor alvo. Embora fora do alcance deste artigo, em alguns casos, particularmente com bases de dados muito grandes, a elaboração de uma base de dados a partir do seu servidor de origem, a recriação e, em seguida, o processamento no servidor alvo para carregar dados de base de dados podem ser mais rentáveis do que usar cópia de segurança/restauro.
 
 > [!NOTE]
-> Se utilizar uma porta de dados no local para ligar a fontes de dados, também deve mover o recurso gateway para a região do servidor alvo. Para saber mais, consulte [instalar e configurar um gateway de dados no local.](analysis-services-gateway-install.md)
+> Se utilizar uma porta de dados no local para se ligar a fontes de dados, também deve mover o recurso gateway para a região do servidor alvo. Para saber mais, consulte [instalar e configurar um gateway de dados no local.](analysis-services-gateway-install.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

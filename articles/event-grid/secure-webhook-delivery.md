@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: femila
-ms.openlocfilehash: a3d67f3b1217aa7ab4c8122ae958685490a2ad34
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559025"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126081"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para Azure Ative Directory pontos finais protegidos
 
@@ -29,7 +29,7 @@ Comece por criar uma aplicação AD AZure para o seu ponto final protegido. Cons
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Ativar a Grelha de Eventos para utilizar a sua aplicação AD Azure
 
-Utilize o script PowerShell abaixo para criar um princípio de função e serviço na sua Aplicação AD Azure. Você precisará do ID do inquilino e ID de objeto da sua aplicação AD Azure:
+Utilize o script PowerShell abaixo para criar um papel e um principal de serviço na sua Aplicação AD Azure. Você precisará do ID do inquilino e ID de objeto da sua aplicação AD Azure:
 
    > [!NOTE]
    > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) para executar este script.

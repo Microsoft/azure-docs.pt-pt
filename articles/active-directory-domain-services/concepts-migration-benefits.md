@@ -1,6 +1,6 @@
 ---
-title: Benefícios da migração clássica de implantação em Serviços de Domínio Azure AD [ Microsoft Docs
-description: Saiba mais sobre os benefícios da migração de uma implantação clássica de Serviços de Domínio de Diretório Ativo Azure para o modelo de implementação do Gestor de Recursos
+title: Benefícios da migração clássica de implantação nos Serviços de Domínio Azure AD ! Microsoft Docs
+description: Saiba mais sobre os benefícios de migrar uma implementação clássica dos Serviços de Domínio do Diretório Ativo Azure para o modelo de implementação do Gestor de Recursos
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -10,47 +10,47 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: iainfou
-ms.openlocfilehash: 29d7772ef688134e8fc9009ec32cffacc3f23ca7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 837ca3afaf014c41fded09fa8342eed1c13e5dcf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014456"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734933"
 ---
-# <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Benefícios da migração do modelo de implantação classic para gestor de recursos em Serviços de Domínio ativo do Diretório Azure
+# <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Benefícios da migração do modelo de implementação clássico para gestor de recursos nos Serviços de Domínio do Diretório Ativo Azure
 
-O Azure Ative Directory Domain Services (AD DS) permite migrar um domínio gerido existente que utiliza o modelo de implementação Classic para o modelo de implementação do Gestor de Recursos. Os domínios geridos pela Azure AD DS que utilizam o modelo de implementação do Gestor de Recursos fornecem funcionalidades adicionais, tais como a política de passwords de grãos finos, registos de auditoria e proteção de bloqueio de conta.
+O Azure Ative Directory Domain Services (Azure AD DS) permite migrar um domínio gerido existente que utiliza o modelo de implementação Clássico para o modelo de implementação do Gestor de Recursos. Os domínios geridos pela Azure AD DS que utilizam o modelo de implementação do Gestor de Recursos fornecem funcionalidades adicionais, tais como a política de palavras-passe de grãos finos, registos de auditoria e proteção de bloqueio de conta.
 
-Este artigo descreve os benefícios para a migração. Para começar, consulte [migrate Azure AD Domain Services do modelo clássico de rede virtual para Gestor][howto-migrate]de Recursos .
+Este artigo descreve os benefícios para a migração. Para começar, consulte os [Serviços de Domínio Ad Azure Migrate Azure do modelo de rede virtual Clássico ao Gestor de Recursos.][howto-migrate]
 
 > [!NOTE]
-> Em 2017, a Azure AD Domain Services tornou-se disponível para hospedar numa rede azure Resource Manager. Desde então, conseguimos construir um serviço mais seguro utilizando as capacidades modernas do Gestor de Recursos Azure. Uma vez que as implementações do Azure Resource Manager substituem totalmente as implementações clássicas, as implementações clássicas da rede virtual Azure AD DS serão retiradas a 1 de março de 2023.
+> Em 2017, a Azure AD Domain Services tornou-se disponível para acolher numa rede Azure Resource Manager. Desde então, conseguimos construir um serviço mais seguro utilizando as capacidades modernas do Gestor de Recursos Azure. Como as implementações do Azure Resource Manager substituem totalmente as implementações clássicas, as implementações clássicas da rede virtual Azure AD DS serão retiradas a 1 de março de 2023.
 >
 > Para mais informações, consulte o [aviso oficial de depreciação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="migration-benefits"></a>Benefícios migratórios
 
-O processo de migração tem uma instância AD DS Azure existente que utiliza o modelo de implementação Classic e move-se para usar o modelo de implementação do Gestor de Recursos. Ao migrar um domínio gerido pelo Azure AD DS do modelo de implementação Classic to Resource Manager, evita a necessidade de voltar a juntar as máquinas ao domínio gerido ou eliminar a instância Azure AD DS e criar uma de raiz. Os VMs continuam a ser associados ao domínio gerido pela AD DS Azure no final do processo de migração.
+O processo de migração requer um domínio gerido existente que utiliza o modelo de implementação Clássico e move-se para usar o modelo de implementação do Gestor de Recursos. Quando migra um domínio gerido do modelo de implementação Classic para Resource Manager, evita-se a necessidade de voltar a juntar máquinas para o domínio gerido ou eliminar o domínio gerido e criar um de raiz. Os VM continuam a ser unidos ao domínio gerido no final do processo de migração.
 
-Após a migração, o Azure AD DS fornece muitas funcionalidades que só estão disponíveis para domínios utilizando o modelo de implementação do Gestor de Recursos, como o seguinte:
+Após a migração, o Azure AD DS fornece muitas funcionalidades que só estão disponíveis para domínios utilizando o modelo de implementação do Gestor de Recursos, tais como:
 
-* [Suporte à política de passwords de grãos finos.][password-policy]
-* Velocidades de sincronização mais rápidas entre os Serviços de Domínio Azure AD e Azure AD.
-* Dois novos [atributos que sincronizam do][attributes]gestor da AD azure  -  *manager* e *do funcionárioID.*
-* Acesso a controladores de domínio mais poderosos quando [atualizar o SKU][skus].
-* Proteção de bloqueio de conta ad.
+* [Suporte à política de palavra-passe de grão fino][password-policy].
+* Velocidades de sincronização mais rápidas entre os serviços AZure AD e Azure AD Domain Services.
+* Dois novos [atributos que sincronizam do gestor da AD Azure][attributes]  -  *manager* e *do staffID.*
+* Acesso a controladores de domínio de maior potência quando [atualizar o SKU][skus].
+* Proteção de bloqueio de conta AD.
 * [Notificações por e-mail para alertas no seu domínio gerido][email-alerts].
-* [Utilize livros de trabalho azure e monitor Azure para visualizar registos de auditoria e atividade de login.][workbooks]
-* Nas regiões apoiadas, [as Zonas de Disponibilidade Azure.][availability-zones]
-* Integrações com outros produtos Azure, tais como [Ficheiros Azure,][azure-files] [Insights HD][hd-insights]e [Windows Virtual Desktop.][wvd]
-* O apoio tem acesso a mais telemetria e pode ajudar a resolver problemas de forma mais eficaz.
-* A encriptação em repouso em repouso utilizando [discos geridos][managed-disks] pelo Azure para os dados dos controladores de domínio geridos.
+* [Utilize livros de trabalho Azure e monitor Azure para visualizar registos de auditoria e atividade de login][workbooks].
+* Nas regiões apoiadas, [Zonas de Disponibilidade Azure.][availability-zones]
+* Integrações com outros produtos Azure, tais como [Azure Files,][azure-files] [HD Insights][hd-insights]e Windows [Virtual Desktop][wvd].
+* O suporte tem acesso a mais telemetria e pode ajudar a resolver problemas de forma mais eficaz.
+* Encriptação em repouso usando [Discos Geridos Azure][managed-disks] para os dados dos controladores de domínio geridos.
 
-O Azure AD DS geriu domínios que utilizam um modelo de implementação do Gestor de Recursos, ajudando-o a manter-se atualizado com as novas funcionalidades mais recentes. Novas funcionalidades não estão disponíveis para domínios geridos pelo Azure AD DS que utilizam o modelo de implementação Classic.
+Domínios geridos que utilizam um modelo de implementação do Gestor de Recursos ajudam-no a manter-se atualizado com as novas funcionalidades mais recentes. Não existem novas funcionalidades disponíveis para domínios geridos que utilizem o modelo de implementação Classic.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para começar, consulte [migrate Azure AD Domain Services do modelo clássico de rede virtual para Gestor][howto-migrate]de Recursos .
+Para começar, consulte os [Serviços de Domínio Ad Azure Migrate Azure do modelo de rede virtual Clássico ao Gestor de Recursos.][howto-migrate]
 
 <!-- LINKS - INTERNAL -->
 [password-policy]: password-policy.md

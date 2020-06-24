@@ -1,5 +1,5 @@
 ---
-title: Converter para Diretório de Imagem
+title: Converter para o Diretório da Imagem
 titleSuffix: Azure Machine Learning
 description: Saiba como utilizar o módulo Converte-imagem diretório para converter conjunto de dados para formato de diretório de imagem.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: dc40e0a644f692b397b1f2107b27b1d940d2b284
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450634"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904597"
 ---
-# <a name="convert-to-image-directory"></a>Converter para Diretório de Imagem
+# <a name="convert-to-image-directory"></a>Converter para o Diretório da Imagem
 
 Este artigo descreve como utilizar o módulo Converte para Diretório de Imagem para ajudar a converter o conjunto de dados de imagem para o tipo de dados 'Image Directory', que é o formato de dados padronizado em tarefas relacionadas com a imagem, como a classificação de imagem no designer de Aprendizagem de Máquinas Azure (pré-visualização).
 
@@ -28,11 +28,21 @@ Este artigo descreve como utilizar o módulo Converte para Diretório de Imagem 
     Os seguintes formatos de conjunto de dados são suportados:
 
     - Ficheiro comprimido nestas extensões: ".zip", ".tar", ".gz", ".bz2".
-    - Pasta contendo 1 ficheiro comprimido em extensões válidas. 
-    - Pasta contendo imagens.
+    - Pasta contendo imagens. **Recomendo vivamente a compressão desta pasta primeiro e depois utilize o ficheiro comprimido como conjunto de dados**.
 
     > [!NOTE]
-    > A categoria de imagem pode ser gravada na saída do módulo se este conjunto de dados de imagem estiver organizado no formato Torchvision ImageFolder, consulte os [conjuntos de dados da torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obter mais informações. Caso contrário, apenas as imagens são guardadas.
+    > Se utilizar o conjunto de dados de imagem na aprendizagem supervisionada, é necessário o rótulo.
+    > Para a tarefa de classificação de imagem, o rótulo pode ser gerado como 'categoria' de imagem na saída do módulo se este conjunto de dados de imagem estiver organizado no formato Torchvision ImageFolder. Caso contrário, apenas as imagens são guardadas sem etiqueta. Aqui está um exemplo de como você poderia organizar conjunto de dados de imagem para obter etiqueta, usar a categoria de imagem como nome de sub-classificação. Consulte os [conjuntos de dados da torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obter mais informações.
+    >
+    > ```
+    > root/dog/xxx.png
+    > root/dog/xxy.png
+    > root/dog/xxz.png
+    >
+    > root/cat/123.png
+    > root/cat/nsdf3.png
+    > root/cat/asd932_.png
+    > ```
 
 3.  Envie o oleoduto.
 
@@ -44,16 +54,16 @@ A saída do módulo **Converte para Diretório de Imagem** está no formato de D
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome          | Tipo                  | Descrição   |
+| Name          | Tipo                  | Description   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Nome                   | Tipo           | Descrição            |
+| Name                   | Tipo           | Description            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

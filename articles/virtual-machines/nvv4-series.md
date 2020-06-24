@@ -3,17 +3,17 @@ title: Série NVv4
 description: Especificações para os VMs da série NVv4.
 services: virtual-machines
 ms.subservice: sizes
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 856ad9cede58b7a8dd0856cac9568832702d4b23
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f9d55208e37ae7556e8adffaa26cadd782d53d70
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678063"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738435"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -55,6 +55,6 @@ Para instalar manualmente os controladores da GPU da AMD, consulte a [configura�
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

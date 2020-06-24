@@ -11,25 +11,25 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 04/10/2020
-ms.openlocfilehash: 4ea4ad98fcea022a22196e359e24f56cb3d0f4d8
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 06/15/2020
+ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321381"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986941"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[A encriptação de dados transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ajuda a proteger a Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics contra a ameaça de atividade offline maliciosa, encriptando dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, o TDE está ativado para todas as bases de dados recentemente implantadas e deve ser ativado manualmente para bases de dados mais antigas da Base de Dados Azure SQL, instância gerida Azure SQL ou Azure Synapse Analytics.
+[A encriptação de dados transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ajuda a proteger a Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics contra a ameaça de atividade offline maliciosa, encriptando dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, o TDE está ativado para todas as bases de dados SQL recentemente implantadas e deve ser ativado manualmente para bases de dados mais antigas da Base de Dados Azure SQL, Azure SQL Managed Instance. O TDE deve ser ativado manualmente para o Azure Synapse Analytics.
 
 O TDE executa a encriptação e desencriptação em tempo real dos dados ao nível da página. Cada página é desencriptada quando é lida na memória e encriptada antes de ser escrita no disco. O TDE encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada Chave de Encriptação da Base de Dados (DEK). No arranque da base de dados, o DEK encriptado é desencriptado e depois utilizado para desencriptação e reencriminação dos ficheiros de base de dados no processo do motor do motor de base de dados sql Server. O DEK está protegido pelo protetor TDE. O protetor TDE é um certificado gerido pelo serviço (encriptação de dados transparente gerido pelo serviço) ou uma chave assimétrica armazenada no [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (encriptação de dados transparente gerida pelo cliente).
 
 Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao nível do [servidor](logical-servers.md) e é herdado por todas as bases de dados associadas a esse servidor. Para Azure SQL Managed Instance (recurso BYOK em pré-visualização), o protetor TDE é definido ao nível da instância e é herdado por todas as bases de dados encriptadas nesse caso. O *servidor* de termo refere-se tanto ao servidor como à instância em todo este documento, a menos que indicado de forma diferente.
 
 > [!IMPORTANT]
-> Todas as bases de dados recentemente criadas na Base de Dados SQL e na Azure Synapse são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de SqL Managed Instance criadas antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados SQL Managed Instance criadas através da restauração do estado de encriptação herdada da fonte.
+> Todas as bases de dados recentemente criadas na Base de Dados SQL são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de SqL Managed Instance criadas antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados SQL Managed Instance criadas através da restauração do estado de encriptação herdada da fonte.
 
 > [!NOTE]
 > O TDE não pode ser utilizado para encriptar a base de dados **principal** na Base de Dados SQL.  A base de dados **principal** contém objetos necessários para realizar as operações do TDE nas bases de dados dos utilizadores.
@@ -61,7 +61,7 @@ Não é preciso desencriptar bases de dados para operações dentro do Azure. As
 - Restaurar o ficheiro de backup para Azure SQL Managed Instance
 
 > [!IMPORTANT]
-> A utilização manual de cópias de uma base de dados encriptada pelo TDE gerido pelo serviço não é suportada em Azure SQL Managed Instance, uma vez que o certificado utilizado para encriptação não está acessível. Utilize a função de restauro ponto-em-tempo para mover este tipo de base de dados para outra Sql Managed Instance.
+> A utilização manual de cópias de uma base de dados encriptada pelo TDE gerido pelo serviço não é suportada em Azure SQL Managed Instance, uma vez que o certificado utilizado para encriptação não está acessível. Utilize a função de restauro ponto-em-tempo para mover este tipo de base de dados para outra SQL Managed Instance, ou mudar para a chave gerida pelo cliente.
 
 Quando exporta uma base de dados protegida pelo TDE, o conteúdo exportado da base de dados não está encriptado. Este conteúdo exportado é armazenado em ficheiros BACPAC não encriptados. Certifique-se de proteger adequadamente os ficheiros BACPAC e permitir o TDE após a importação da nova base de dados.
 

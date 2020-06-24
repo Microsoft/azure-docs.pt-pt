@@ -1,56 +1,56 @@
 ---
-title: Sincronizar atributos ao Azure AD para mapeamento
-description: Aprenda a sincronizar atributos do seu Diretório Ativo no local para o Azure AD. Ao configurar o fornecimento de utilizadores para aplicações SaaS, utilize a funcionalidade de extensão de diretório para adicionar atributos de origem que não são sincronizados por padrão.
+title: Sincronizar atributos ao AZure AD para mapeamento
+description: Aprenda a sincronizar atributos do seu Ative Directory para Azure AD. Ao configurar o fornecimento de utilizadores para aplicações SaaS, utilize a funcionalidade de extensão do diretório para adicionar atributos de origem que não são sincronizados por padrão.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/13/2019
-ms.author: mimart
-ms.openlocfilehash: 4b51d74d188f8f1c99f2075000e8fd91e70a81a4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.author: kenwith
+ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593153"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781078"
 ---
-# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronizar um atributo do seu Diretório Ativo no local para a AD Azure para o fornecimento a uma aplicação
+# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação
 
-Ao personalizar mapeamentos de atributos para o fornecimento de utilizadores, pode descobrir que o atributo que pretende mapear não aparece na lista de **atributos Fonte.** Este artigo mostra-lhe como adicionar o atributo em falta sincronizando-o do seu Diretório Ativo (AD) no local para o Azure Ative Directory (Azure AD).
+Ao personalizar mapeamentos de atributos para o fornecimento do utilizador, poderá descobrir que o atributo que pretende mapear não aparece na lista **de atributos Source.** Este artigo mostra-lhe como adicionar o atributo em falta sincronizando-o do seu Ative Directory (AD) no local ao Azure Ative Directory (Azure AD).
 
-A Azure AD deve conter todos os dados necessários para criar um perfil de utilizador ao fornecer contas de utilizador de Azure AD para uma aplicação SaaS. Em alguns casos, para disponibilizar os dados poderá necessitar de atributos sincronizados desde o seu AD no local até à AD Azure. O Azure AD Connect sincroniza automaticamente certos atributos ao Azure AD, mas nem todos os atributos. Além disso, alguns atributos (como o SAMAccountName) que são sincronizados por padrão podem não ser expostos usando o Microsoft Graph API. Nestes casos, pode utilizar a função de extensão do diretório Azure AD Connect para sincronizar o atributo ao Azure AD. Desta forma, o atributo será visível para o Microsoft Graph API e o serviço de provisionamento de AD Azure.
+O Azure AD deve conter todos os dados necessários para criar um perfil de utilizador ao aprovisionar as contas dos utilizadores do Azure AD para uma aplicação SaaS. Em alguns casos, para disponibilizar os dados poderá necessitar de sincronização de atributos do seu AD no local para Azure AD. O Azure AD Connect sincroniza automaticamente determinados atributos ao AZure AD, mas nem todos os atributos. Além disso, alguns atributos (como o SAMAccountName) que são sincronizados por padrão podem não ser expostos usando a API do Microsoft Graph. Nestes casos, pode utilizar a função de extensão de diretório AD Connect Azure para sincronizar o atributo a Azure AD. Desta forma, o atributo será visível para a API do Microsoft Graph e para o serviço de fornecimento de AD Azure.
 
-Se os dados necessários para o fornecimento estiverem no Diretório Ativo, mas não estiverem disponíveis para o fornecimento devido às razões acima descritas, siga estes passos.
+Se os dados necessários para o provisionamento estiverem no Ative Directory mas não estiverem disponíveis para provisões devido às razões acima descritas, siga estes passos.
  
 ## <a name="sync-an-attribute"></a>Sincronizar um atributo 
 
-1. Abra o assistente Azure AD Connect, escolha Tarefas e, em seguida, escolha **personalizar opções**de sincronização .
+1. Abra o assistente Azure AD Connect, escolha Tarefas e, em seguida, escolha **Opções de sincronização personalizadas**.
 
-   ![Página adicional de tarefas de ligação do diretório ativo Azure](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
+   ![Página de tarefas adicionais do Azure Ative Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
-2. Inscreva-se como Administrador Global da AD Azure. 
+2. Inscreva-se como administrador global da Azure AD. 
 
-3. Na página **Funcionalidades Opcionais,** selecione sincronização de atributo de **extensão do Diretório**.
+3. Na página **Funcionalidades Opcionais,** selecione **sincronização de atributos de extensão do diretório**.
  
-   ![Página opcional de funcionalidades opcional do diretório Ativo Azure](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
+   ![Página de funcionalidades opcionais do assistente de ligação ativa do Azure](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
-4. Selecione o atributo(s) que pretende estender para Azure AD.
+4. Selecione os atributos(s) que pretende estender para Azure AD.
    > [!NOTE]
    > A pesquisa em **Atributos Disponíveis** é sensível a casos.
 
-   ![Página de seleção de extensões de direção de diretório de hiperdireção do diretório ativo azure](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Página de seleção de extensões de extensões de diretório de assistente azure Ative Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
-5. Termine o assistente Azure AD Connect e deixe funcionar um ciclo de sincronização completo. Quando o ciclo está concluído, o esquema é estendido e os novos valores são sincronizados entre o seu AD no local e o Azure AD.
+5. Termine o assistente Azure AD Connect e permita que um ciclo completo de sincronização possa ser executado. Quando o ciclo estiver concluído, o esquema é estendido e os novos valores são sincronizados entre o AD no local e o AD AZure.
  
-6. No portal Azure, enquanto está [a editar mapeamentos de atributos](customize-application-attributes.md)de utilizador, a `<attributename> (extension_<appID>_<attributename>)`lista de **atributos Source** irá agora conter o atributo adicionado no formato . Selecione o atributo e mapeie-o para a aplicação-alvo para o fornecimento.
+6. No portal Azure, enquanto [está a editar mapeamentos de atributos](customize-application-attributes.md)do utilizador, a lista de **atributos Fonte** irá agora conter o atributo adicionado no formato `<attributename> (extension_<appID>_<attributename>)` . Selecione o atributo e mapeeee-o para a aplicação-alvo para provisionamento.
 
-   ![Página de seleção de extensões de direção de diretório de hiperdireção do diretório ativo azure](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
+   ![Página de seleção de extensões de extensões de diretório de assistente azure Ative Connect](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> A capacidade de fornecer atributos de referência a partir de AD no local, tais como **gerido sou** **DN/DistinguishedName,** não é suportado hoje. Pode solicitar esta funcionalidade na [Voz do Utilizador](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> A capacidade de provisão de atributos de referência de AD no local, como **gerido por ou** **DN/DistinguishedName,** não é suportada hoje em dia. Pode solicitar esta funcionalidade no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

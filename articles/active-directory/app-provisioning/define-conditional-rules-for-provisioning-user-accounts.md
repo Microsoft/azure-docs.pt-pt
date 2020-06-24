@@ -2,20 +2,20 @@
 title: Aplicativos de provisão com filtros de scoping / Microsoft Docs
 description: Aprenda a usar filtros de deteção para evitar que objetos em aplicações que suportem o fornecimento automatizado de utilizadores sejam a provisionados se um objeto não satisfizer os requisitos do seu negócio.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.author: mimart
-ms.openlocfilehash: 5ccec4174020d8b6586384a71ffe84fccd753640
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605447"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781961"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicações baseados em atributos com filtros de escotagem
 O objetivo deste artigo é explicar como usar filtros de digitalização para definir regras baseadas em atributos que determinam quais os utilizadores que estão a forcam a uma aplicação.
@@ -116,7 +116,7 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escotagem comuns
-| Atributo-alvo| Operador | Valor | Descrição|
+| Atributo-alvo| Operador | Valor | Description|
 |----|----|----|----|
 |userPrincipalName|JOGO REGEX|.\*@domain.com |Todos os utilizadores com utilizadorPrincipal que tenha o domínio @domain.com estarão em campo para o provisionamento|
 |userPrincipalName|NÃO REGEX MATCH|.\*@domain.com|Todos os utilizadores com utilizadorPrincipal que tenha o domínio @domain.com estarão fora de alcance para o provisionamento|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 3284db031214dfaa631efa6f9f40e6a069998843
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677071"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119227"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -169,7 +169,7 @@ Os tamanhos das séries A8-A11 e H também são conhecidos como *instâncias de 
 
 ### <a name="d-series"></a>Série D  
 
-**Recomendação de tamanho mais recente**: Série [Dv3](dv3-dsv3-series.md)
+**Recomendação de tamanho mais recente**: Série [Dav4,](dav4-dasv4-series.md) [Série Dv4](dv4-dsv4-series.md) e [Série Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -190,7 +190,7 @@ Caching de armazenamento premium: Não suportado
 
 ### <a name="d-series---memory-optimized"></a>Série D - memória otimizada  
 
-**Recomendação de tamanho mais recente**: Série [Dv3](dv3-dsv3-series.md)
+**Recomendação de tamanho mais recente**: Série [Dav4,](dav4-dasv4-series.md) [Série Dv4](dv4-dsv4-series.md) e [Série Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -231,7 +231,7 @@ A série DC utiliza a última geração de processador Intel XEON E-2176G de 3.7
 
 ### <a name="ds-series"></a>Série DS  
 
-**Recomendação de tamanho mais recente**: Série [Dsv3](dv3-dsv3-series.md)
+**Recomendação de tamanho mais recente**: [Séries Dasv4,](dav4-dasv4-series.md) [séries Dsv4](dv4-dsv4-series.md) e [série Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -252,7 +252,7 @@ Caching de armazenamento premium: Suportado
 
 ### <a name="ds-series---memory-optimized"></a>Série DS - memória otimizada  
 
-**Recomendação de tamanho mais recente**: Série [Dsv3](dv3-dsv3-series.md)
+**Recomendação de tamanho mais recente**: [Séries Dasv4,](dav4-dasv4-series.md) [séries Dsv4](dv4-dsv4-series.md) e [série Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1,2</sup>
 
@@ -273,6 +273,8 @@ Caching de armazenamento premium: Suportado
 <br>
 
 ### <a name="ls-series"></a>Série Ls
+
+**Recomendação de tamanho mais recente**: Série [Lsv2](lsv2-series.md)
 
 A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.
 
@@ -297,6 +299,8 @@ A produção máxima de disco possível com VMs da série L pode ser limitada pe
 
 ### <a name="gs-series"></a>Série GS
 
+**Recomendação de tamanho mais recente**: série [Easv4,](eav4-easv4-series.md) [série Esv4,](ev4-esv4-series.md) [série Edsv4](edv4-edsv4-series.md) e [sérieS M](m-series.md)
+
 ACU: 180 - 240 <sup>1</sup>
 
 Armazenamento Premium: Suportado
@@ -320,6 +324,8 @@ Caching de armazenamento premium: Suportado
 <br>
 
 ### <a name="g-series"></a>Série G
+
+**Recomendação de tamanho mais recente**: Série [Eav4,](eav4-easv4-series.md) [série Ev4](ev4-esv4-series.md) e [série Edv4](edv4-edsv4-series.md) e [sérieS M](m-series.md)
 
 ACU: 180 - 240
 
@@ -371,6 +377,6 @@ Atualizações de preservação da memória: Não suportadas
 * [GPU](sizes-gpu.md)
 * [Computação de elevado desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: b4bc57bd896eb8d250975ec8e9300d0498d70835
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 6/11/2020
+ms.openlocfilehash: 7b66f227469328767f23c6858fda15803832704b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604159"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737568"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
-Este artigo descreve como configurar a replicação de dados na Base de Dados Azure para o MySQL, configurando os servidores master e replica. Este artigo pressupõe que tem alguma experiência anterior com servidores e bases de dados do MySQL.
+Este artigo descreve como configurar a [replicação de dados na](concepts-data-in-replication.md) Base de Dados Azure para o MySQL, configurando os servidores master e replica. Este artigo pressupõe que tem alguma experiência anterior com servidores e bases de dados do MySQL.
 
 > [!NOTE]
 > Comunicação sem preconceitos
@@ -23,7 +23,7 @@ Este artigo descreve como configurar a replicação de dados na Base de Dados Az
 > A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
 
-Para criar uma réplica na Base de Dados Azure para o serviço MySQL, a replicação de dados sincroniza os dados de um servidor MySQL no local, em máquinas virtuais (VMs) ou em serviços de base de dados em nuvem.
+Para criar uma réplica na Base de Dados Azure para o serviço MySQL, [a replicação de dados](concepts-data-in-replication.md) sincroniza os dados de um servidor MySQL no local, em máquinas virtuais (VMs) ou em serviços de base de dados em nuvem. A Replicação de Dados de Entrada é baseada na replicação baseada na posição dos ficheiros de registo binário (binlog) nativo para MySQL. Para saber mais sobre a replicação do binlog, consulte a visão geral da [replicação do binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação de data-in antes de executar os passos neste artigo.
 
@@ -247,5 +247,5 @@ Para ignorar um erro de replicação e permitir a replicação, utilize o seguin
 CALL mysql.az_replication_skip_counter;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a replicação de dados](concepts-data-in-replication.md) para a base de dados Azure para o MySQL. 

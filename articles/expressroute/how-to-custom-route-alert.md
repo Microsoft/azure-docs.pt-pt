@@ -4,15 +4,15 @@ description: Este artigo mostra-lhe como utilizar a Azure Automation and Logic A
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: b8f0c4df2f8e04649bc094f4cc0a64c6eb7bd5b2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237200"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738486"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
 
