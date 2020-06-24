@@ -1,5 +1,5 @@
 ---
-title: Referência de armazenamento da fila Azure
+title: Referência de armazenamento de Filas do Azure
 description: Encontre referência API de armazenamento Azure, readme ficheiros e pacotes de biblioteca de clientes.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d01fb4d467b34f4093cbeb1346786ad793eede7d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbf20b92edf5d8dce8438731c2812a78e457a402
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346011"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976664"
 ---
-# <a name="azure-queue-storage-reference"></a>Referência de armazenamento da fila Azure
+# <a name="azure-queue-storage-reference"></a>Referência de armazenamento de Filas do Azure
 
 Encontre referência aPI de armazenamento de fila Azure, pacotes de biblioteca, ficheiros de leitura e iniciação de artigos.
 
@@ -67,8 +67,8 @@ A tabela que se segue lista a referência e a documentação da amostra para o a
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de clientes Azure Storage Queues para Python](/python/api/overview/azure/storage-queue-readme) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue storage client library v12 for Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [azure-storage-queue](/python/api/azure-storage-queue/?view=azure-python-previous) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Como usar o armazenamento da fila Azure v2.1 da Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [Bibliotecas de clientes Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue storage client library v12 for Python](/azure/storage/queues/storage-quickstart-queues-python) |
+| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Como usar o armazenamento da fila Azure v2.1 da Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 

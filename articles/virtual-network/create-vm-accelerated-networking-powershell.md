@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: da7164fbf9148764ef8da0205b147b0fd188de9d
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457257"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975797"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar um VM do Windows com rede acelerada utilizando a Azure PowerShell
 
@@ -66,6 +66,10 @@ A rede acelerada é suportada na maioria dos tamanhos de instância otimizados p
 Em casos que suportam a hiper-leitura, a rede acelerada é suportada em instâncias VM com quatro ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Para obter mais informações sobre as instâncias VM, consulte [tamanhos para máquinas virtuais windows em Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Imagens personalizadas
+
+Se estiver a utilizar uma imagem personalizada e a sua imagem suportar rede acelerada, certifique-se de que tem os controladores necessários que funcionam com mellanox ConnectX-3 e ConnectX-4 Lx NICs no Azure.
 
 ### <a name="regions"></a>Regiões
 

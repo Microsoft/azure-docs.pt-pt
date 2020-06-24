@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 3724392cc50e910c5caf4a3f6cba85070a6d107f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 2111ccd65a2944ec5f5ea0526e6e7f577261b213
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661094"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906824"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria. Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -105,9 +105,9 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     O desempenho variará em função das suas configurações ambientais, configuração e se se trata de uma sincronização inicial ou de uma sincronização em curso. Para obter mais informações, consulte [as métricas de desempenho do Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Se o mesmo ficheiro for alterado em dois servidores aproximadamente ao mesmo tempo, o que acontece?**  
-    O Azure File Sync utiliza uma simples estratégia de resolução de conflitos: mantemos ambas as alterações nos ficheiros que são alterados em dois servidores ao mesmo tempo. A alteração escrita mais recentemente mantém o nome original do ficheiro. O ficheiro mais antigo tem a máquina "fonte" e o número de conflito anexado ao nome. Segue esta taxonomia: 
+    O Azure File Sync utiliza uma simples estratégia de resolução de conflitos: mantemos ambas as alterações nos ficheiros que são alterados em dois pontos finais ao mesmo tempo. A alteração escrita mais recentemente mantém o nome original do ficheiro. O ficheiro mais antigo (determinado pela LastWriteTime) tem o nome de ponto final e o número de conflito anexado ao nome de ficheiro. Para os pontos finais do servidor, o nome do ponto final é o nome do servidor. Para pontos finais de nuvem, o nome do ponto final é **Cloud**. O nome segue esta taxonomia: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
     Por exemplo, o primeiro conflito de CompanyReport.docx tornar-se-ia CompanyReport-CentralServer.docx se a CentralServer fosse onde ocorreu a escrita mais antiga. O segundo conflito seria nomeado CompanyReport-CentralServer-1.docx. O Azure File Sync suporta 100 ficheiros de conflito por ficheiro. Uma vez atingido o número máximo de ficheiros de conflito, o ficheiro deixará de sincronizar até que o número de ficheiros de conflito seja inferior a 100.
 
@@ -133,6 +133,10 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="afs-effective-vfs"></a>
   **Como é interpretado *o espaço livre de volume* quando tenho vários pontos finais do servidor num volume?**  
   Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  
+* <a id="afs-tiered-files-tiering-disabled"></a>
+  **Tenho camadas de nuvem desativadas, por que há ficheiros hierárquicos na localização do ponto final do servidor?**  
+  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Quais ficheiros ou pastas são automaticamente excluídos pelo Azure File Sync?**  
@@ -289,7 +293,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Pode montar a partilha de ficheiros utilizando o protocolo SMB se a porta 445 (saída TCP) estiver aberta e o seu cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou o Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar o Azure File Sync para aceder à sua partilha de ficheiros Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Como posso apoiar a minha parte do ficheiro Azure?**  
     Pode utilizar [instantâneos periódicos](storage-snapshots-files.md) para proteção contra supressões acidentais. Também pode utilizar a AzCopy, Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de uma partilha de ficheiros montada. O Azure Backup oferece cópia de segurança dos Ficheiros Azure. Saiba mais sobre [backup ações de ficheiros Azure by Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
@@ -421,7 +425,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 **Como uso ficheiros Azure com MQ IBM?**  
     A IBM divulgou um documento que ajuda os clientes da IBM MQ a configurar ficheiros Azure com o serviço IBM. Para obter mais informações, consulte [Como configurar um gestor de fila de vários instâncias IBM MQ com o serviço Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)

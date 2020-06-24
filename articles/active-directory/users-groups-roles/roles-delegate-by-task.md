@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299473"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117884"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
 
@@ -38,7 +38,7 @@ Desativar proxy de aplicações | Administrador de aplicação |
 Serviço de conector de descarregamento | Administrador de aplicação | 
 Leia todas as configurações | Administrador de aplicação | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Identidades Externas/B2C
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -47,11 +47,11 @@ Criar aplicações B2C | Administrador Global |
 Criar aplicações empresariais | Administrador de Aplicações na Cloud | Administrador da Aplicação
 Criar, ler, atualizar e eliminar políticas B2C | Administrador de Política B2C IEF | 
 Criar, ler, atualizar e eliminar fornecedores de identidade | Administrador de fornecedor de identidade externa | 
-Criar, ler, atualizar e eliminar fluxos de utilizador de redefinição de palavra-passe | Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar atributos do utilizador | Administrador de atributo de fluxo de utilizador B2C | 
+Criar, ler, atualizar e eliminar fluxos de utilizador de redefinição de palavra-passe | Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar atributos do utilizador | Administrador de atributo de fluxo de id do utilizador externo | 
 Criar, ler, atualizar e eliminar utilizadores | Administrador do Utilizador
 Leia todas as configurações | Leitor global | 
 Leia os registos de auditoria b2C | Leitor global[(ver documentação)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs) | 
@@ -73,6 +73,14 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 Configure propriedades da empresa | Administrador Global | 
 
 ## <a name="connect"></a>Ligar
+
+Tarefa | Papel menos privilegiado | Funções adicionais
+---- | --------------------- | ----------------
+Autenticação passthrough | Administrador Global  | 
+Leia todas as configurações | Leitor global | Administrador Global  |
+Único sinal sem emenda | Administrador Global  | 
+
+## <a name="cloud-provisioning"></a>Provisionamento de Nuvens
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -109,7 +117,7 @@ Leia todas as configurações | Leitores de diretório | Papel de utilizador pre
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Criar exemplo de serviços de domínio Azure AD | Administrador Global | 
-Executar todas as tarefas dos Serviços de Domínio AZure AD | Grupo de Administradores Azure AD DC[(ver documentação)](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain) | 
+Executar todas as tarefas dos Serviços de Domínio AZure AD | Grupo de Administradores Azure AD DC[(ver documentação)](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain) | 
 Leia todas as configurações | Leitor na subscrição Azure contendo serviço AD DS | 
 
 ## <a name="devices"></a>Dispositivos
@@ -203,7 +211,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Ler registos de inscrição | Leitor de relatórios | Leitor de Segurança, Administrador de Segurança
 
-## <a name="multi-factor-authentication"></a>Autenticação multifator
+## <a name="multi-factor-authentication"></a>Multi-factor authentication
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------

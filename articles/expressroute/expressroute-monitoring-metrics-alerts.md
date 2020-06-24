@@ -1,119 +1,119 @@
 ---
 title: 'Azure ExpressRoute: Monitorização, Métricas e Alertas'
-description: Esta página fornece informações sobre monitorização expressRoute
+description: Esta página fornece informações sobre a monitorização ExpressRoute
 services: expressroute
 author: mialdrid
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6622a6e9f6865dbbafa145d6773440599b0c2777
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436917"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738911"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
-Este artigo ajuda-o a compreender a monitorização, métricas e alertas do ExpressRoute utilizando o Monitor Azure. O Azure Monitor é um balcão para todas as métricas, alertando, registos de diagnóstico em todo o Azure.
+Este artigo ajuda-o a compreender a monitorização, métricas e alertas ExpressRoute usando o Azure Monitor. O Azure Monitor é um stop shop para todas as métricas, alertando, registos de diagnóstico em todo o Azure.
  
 >[!NOTE]
->Não é recomendada a utilização de **Métricas Clássicas.**
+>Não é recomendável utilizar **métricas clássicas.**
 >
 
 ## <a name="expressroute-metrics"></a>Métricas ExpressRoute
 
-Para ver **Métricas,** navegue para a página *do Monitor Azure* e clique em *Métricas*. Para ver as métricas **ExpressRoute,** filtrar por circuitos De recurso Type *ExpressRoute*. Para ver as métricas **global** reach, filtre por circuitos De recurso Type *ExpressRoute* e selecione um recurso de circuito ExpressRoute que tenha alcance global ativado. Para ver as métricas **ExpressRoute Direct,** filtrar o Tipo de Recurso por *Portas ExpressRoute*. 
+Para ver **Métricas,** navegue na página *Azure Monitor* e clique em *Métricas*. Para visualizar as métricas **ExpressRoute,** filtre por *circuitos ExpressRoute*tipo de recurso . Para visualizar as métricas **do Alcance Global,** filtre pelos *circuitos ExpressRoute* do tipo de recurso e selecione um recurso de circuito ExpressRoute que tenha o Alcance Global ativado. Para visualizar métricas **ExpressRoute Direct,** filtrar o Tipo de Recurso por *Portas ExpressRoute*. 
 
 Uma vez selecionada uma métrica, a agregação padrão será aplicada. Opcionalmente, pode aplicar a divisão, que mostrará a métrica com diferentes dimensões.
 
-### <a name="available-metrics"></a>Métricas Disponíveis
-|**Métrica**|**Categoria**|**Dimensão(s)**|**Características ou características**|
+### <a name="available-metrics"></a>Métricas disponíveis
+|**Métricas**|**Categoria**|**Dimensões(s)**|**Recurso(s)**|
 | --- | --- | --- | --- |
-|Disponibilidade ARP|Disponibilidade|<ui><li>Peer (router Primary/Secondary ExpressRoute)</ui></li><ui><li> Tipo de observação (Privado/Público/Microsoft)</ui></li>|ExpressRoute|
-|Disponibilidade de BGP|Disponibilidade|<ui><li> Peer (router Primary/Secondary ExpressRoute)</ui></li><ui><li> Tipo de observação</ui></li>|ExpressRoute|
-|BitsInPerSecond|Trânsito|<ui><li> Tipo de observação (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Trânsito| <ui><li>Tipo de observação (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|GlobalReachBitsInPerSecond|Trânsito|<ui><li>Chave do circuito peered (Chave de serviço)</ui></li>|Alcance Global|
-|GlobalReachBitsOutPerSecond|Trânsito|<ui><li>Chave do circuito peered (Chave de serviço)</ui></li>|Alcance Global|
-|Estado-de-administração|Conectividade Física|Ligação|ExpressRoute Direct|
-|Protocolo de Linha|Conectividade Física|Ligação|ExpressRoute Direct|
-|Nível RxLight|Conectividade Física|<ui><li>Ligação</ui></li><ui><li>Pista</ui></li>|ExpressRoute Direct|
+|Disponibilidade de ARP|Disponibilidade|<ui><li>Peer (router expressroute primário/secundário)</ui></li><ui><li> Tipo de Peering (Privado/Público/Microsoft)</ui></li>|ExpressRoute|
+|Disponibilidade BGP|Disponibilidade|<ui><li> Peer (router expressroute primário/secundário)</ui></li><ui><li> Tipo de peering</ui></li>|ExpressRoute|
+|BitsInPerSecond|Trânsito|<ui><li> Tipo de Peering (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Trânsito| <ui><li>Tipo de Peering (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|Trânsito|<ui><li>Skey de circuito esprevado (chave de serviço)</ui></li>|Alcance Global|
+|GlobalReachBitsOutPerSecond|Trânsito|<ui><li>Skey de circuito esprevado (chave de serviço)</ui></li>|Alcance Global|
+|Estado Administrativo|Conectividade Física|Ligação|ExpressRoute Direct|
+|LineProtocol|Conectividade Física|Ligação|ExpressRoute Direct|
+|RxLightLevel|Conectividade Física|<ui><li>Ligação</ui></li><ui><li>Pista</ui></li>|ExpressRoute Direct|
 |TxLightLevel|Conectividade Física|<ui><li>Ligação</ui></li><ui><li>Pista</ui></li>|ExpressRoute Direct|
 >[!NOTE]
->A utilização do *GlobalGlobalReachBitsInPerSecond* e *da GlobalGlobalGlobalReachBitsOutPerSecond* só será visível se for estabelecida pelo menos uma ligação Global Reach.
+>A utilização *do GlobalGlobalReachBitsInPerSecond* e *da GlobalGlobalReachBitsOutPerSecond* só será visível se for estabelecida pelo menos uma ligação Global Reach.
 >
 
 ## <a name="circuits-metrics"></a>Métricas de circuitos
 
-### <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bits In and out - Métricas em todos os pares
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bits In and out - Métricas em todos os seus olhos
 
-Pode ver métricas em todos os olhares num determinado circuito ExpressRoute.
+Pode ver métricas em todos os seus olhos num determinado circuito ExpressRoute.
 
 ![métricas de circuito](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-### <a name="bits-in-and-out---metrics-per-peering"></a>Bits In and out - Métricas por espreitamento
+### <a name="bits-in-and-out---metrics-per-peering"></a>Bits Dentro e Fora - Métricas por espreitar
 
-Pode ver métricas para privados, públicos e Microsoft a espreitar em pedaços/segundo.
+Pode ver métricas para privados, públicos e Microsoft olhando em bits/segundo.
 
-![métricas por espreitamento](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+![métricas por espreitar](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
-### <a name="bgp-availability---split-by-peer"></a>Disponibilidade BGP - Dividido por Pares  
+### <a name="bgp-availability---split-by-peer"></a>Disponibilidade BGP - Dividido por Par  
 
-Pode visualizar perto da disponibilidade em tempo real de BGP em pares e pares (routers Primary e Secondary ExpressRoute). Este painel de instrumentos mostra a sessão primária de BGP para o peering privado e a segunda sessão de BGP para o peering privado. 
+Você pode ver perto da disponibilidade em tempo real de BGP através de pares e pares (routers ExpressRoute Primário e Secundário). Este painel mostra a sessão de BGP primária para o seu olhar privado e a segunda sessão de BGP para espreitar em privado. 
 
 ![Disponibilidade de BGP por par](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
-### <a name="arp-availability---split-by-peering"></a>Disponibilidade ARP - Dividido por Peering  
+### <a name="arp-availability---split-by-peering"></a>Disponibilidade ARP - Dividida por Peering  
 
-Pode visualizar perto da disponibilidade em tempo real de [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) entre pares e pares (routers Primary e Secondary ExpressRoute). Este dashboard mostra a sessão Private Peering ARP em ambos os pares, mas completa para a Microsoft espreitar através de pares. A agregação padrão (Média) foi utilizada em ambos os pares.  
+Você pode ver perto da disponibilidade em tempo real de [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) através de pares e pares (routers ExpressRoute Primário e Secundário). Este dashboard mostra a sessão private peering ARP em ambos os pares, mas completa para baixo para a Microsoft espreitando através de espreitar. A agregação padrão (Média) foi utilizada em ambos os pares.  
 
-![Disponibilidade aRP por par](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
+![Disponibilidade de ARP por par](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
 ## <a name="expressroute-direct-metrics"></a>Métricas Diretas ExpressRoute
 
-### <a name="admin-state---split-by-link"></a>Estado De Administração - Dividido por link
-Pode visualizar o estado de administração para cada ligação do par de portas ExpressRoute Direct.
+### <a name="admin-state---split-by-link"></a>Estado de Admin - Dividido por ligação
+Pode ver o estado de administração para cada ligação do par de portas ExpressRoute Direct.
 
-![er estado administrativo direto](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+![er estado de administração direta](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
 
 ### <a name="bits-in-per-second---split-by-link"></a>Bits In Per Second - Dividido por link
 Pode ver os bits por segundo em ambas as ligações do par de portas ExpressRoute Direct. 
 
 ![er bits diretos em por segundo](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
 
-### <a name="bits-out-per-second---split-by-link"></a>Bits out Por Segundo - Dividido por link
+### <a name="bits-out-per-second---split-by-link"></a>Bits out Per Second - Dividido por link
 Também pode ver os bits por segundo em ambas as ligações do par de portas ExpressRoute Direct. 
 
-![er diretas bits para fora por segundo](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+![er bits diretos para fora por segundo](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
 
 ### <a name="line-protocol---split-by-link"></a>Protocolo de Linha - Dividido por link
 Pode ver o protocolo de linha em cada link do par de portas ExpressRoute Direct.
 
 ![er protocolo de linha direta](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
 
-### <a name="rx-light-level---split-by-link"></a>Nível de luz Rx - Dividido por link
-Pode ver o nível de luz Rx (o nível de luz que a porta ExpressRoute Direct está **a receber)** para cada porta. Níveis de luz Rx saudáveis geralmente estão dentro de um intervalo de -10 a 0 dBm
+### <a name="rx-light-level---split-by-link"></a>Nível de Luz Rx - Dividido por ligação
+Pode ver o nível de luz Rx (o nível de luz que a porta ExpressRoute Direct está **a receber)** para cada porta. Os níveis de luz Rx saudáveis geralmente se enquadram num intervalo de -10 a 0 dBm
 
-![er linha direta Rx Light Level](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+![linha direta er Nível de Luz Rx](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
 
-### <a name="tx-light-level---split-by-link"></a>Nível de luz Tx - Dividido por link
-Pode ver o nível de luz Tx (o nível de luz que a porta ExpressRoute Direct está **a transmitir)** para cada porta. Níveis de luz Tx saudáveis geralmente estão dentro de um intervalo de -10 a 0 dBm
+### <a name="tx-light-level---split-by-link"></a>Tx Light Level - Dividido por link
+Pode ver o nível de luz Tx (o nível de luz que a porta Direct ExpressRoute está **a transmitir)** para cada porta. Os níveis de luz Tx saudáveis geralmente se enquadram num intervalo de -10 a 0 dBm
 
-![er linha direta Rx Light Level](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+![linha direta er Nível de Luz Rx](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
 
-## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Conexões de gateway ExpressRoute em bits/segundos
+## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Ligações de gateway ExpressRoute em bits/segundos
 
-![ligações gateway](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
+![ligações de gateway](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertas para ligações de gateway ExpressRoute
 
-1. Para configurar os alertas, navegue para **o Monitor Azure**e, em seguida, clique em **Alertas**.
+1. Para configurar alertas, navegue para **O Monitor Azure,** clique em **Alertas**.
 
    ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
-2. Clique em **+Selecione Target** e selecione o recurso de ligação de gateway ExpressRoute.
+2. Clique **em +Selecione Target** e selecione o recurso de ligação ao gateway ExpressRoute.
 
    ![alvo]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Defina os detalhes do alerta.
@@ -124,13 +124,13 @@ Pode ver o nível de luz Tx (o nível de luz que a porta ExpressRoute Direct est
 
    ![adicionar grupo de ação](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
-## <a name="alerts-based-on-each-peering"></a>Alertas baseados em cada espreitamento
+## <a name="alerts-based-on-each-peering"></a>Alertas baseados em cada observação
 
  ![o que](./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg)
 
-## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Configure alertas para registos de atividade em circuitos
+## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Alertas de configuração para registos de atividades em circuitos
 
-Nos **Critérios**de Alerta, pode selecionar **o Registo de Atividade** para o Tipo de Sinal e selecionar o Sinal.
+Nos **Critérios de Alerta,** pode selecionar **O Registo de Atividade** para o Tipo de Sinal e selecionar o Sinal.
 
   ![outro](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   

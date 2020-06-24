@@ -3,17 +3,17 @@ title: Faça o upload de um VHD para Azure ou copie um disco através de regiõe
 description: Saiba como carregar um VHD para um disco gerido aZure e copiar um disco gerido através das regiões, utilizando o Azure PowerShell, através do upload direto.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
+ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 153bbc39ceba52548d667fa4c83d0edc867fcb93
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660598"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944632"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
@@ -47,6 +47,9 @@ Antes de criar um HDD padrão vazio para o upload, vai precisar do tamanho do fi
 Agora, na sua concha local, crie um HDD padrão vazio para carregar especificando a definição **de Upload** no parâmetro **-CreateOption,** bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig.](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) Em seguida, ligue para [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco.
 
 Substituir `<yourdiskname>` `<yourresourcegroupname>` , `<yourregion>` e, em seguida, executar os seguintes comandos:
+
+> [!TIP]
+> Se estiver a criar um disco DE, adicione -HyperVGeneration <yourGeneration> ' para `New-AzDiskConfig` .
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -99,6 +102,9 @@ O seguinte script fará isso por si, o processo é semelhante aos passos descrit
 
 Substitua o `<sourceResourceGroupHere>` , , , e `<sourceDiskNameHere>` `<targetDiskNameHere>` `<targetResourceGroupHere>` `<yourOSTypeHere>` `<yourTargetLocationHere>` (um exemplo de um valor de localização seria uswest2) pelos seus valores, em seguida, executar o seguinte script para copiar um disco gerido.
 
+> [!TIP]
+> Se estiver a criar um disco DE, adicione -HyperVGeneration <yourGeneration> ' para `New-AzDiskConfig` .
+
 ```powershell
 
 $sourceRG = <sourceResourceGroupHere>
@@ -127,7 +133,7 @@ Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez o upload de um VHD com sucesso para um disco gerido, pode ligar o disco a um VM e começar a usá-lo.
 

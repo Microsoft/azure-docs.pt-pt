@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
+ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 766b7720d9a126276f4e86ff549b3047bf127691
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557217"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976749"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -213,9 +213,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> Se o `InferenceConfig` objeto `enable_gpu=True` tiver, então o `deployment_target` parâmetro deve referenciar um cluster que forneça uma GPU. Caso contrário, a implantação falhará.
 
 Para mais informações, consulte a documentação de referência [do Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)
 

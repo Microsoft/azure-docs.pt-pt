@@ -1,5 +1,5 @@
 ---
-title: Referência de armazenamento Azure Blob
+title: Referência de armazenamento de Blobs do Azure
 description: Encontre referência API de armazenamento Azure Blob, readme ficheiros e pacotes de biblioteca de clientes.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d470864dd12f5ded511f9a6e02b3e4cab0ee66d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 477170cf3c2bab54efc5ef74495f39fb89f62c77
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346081"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976698"
 ---
-# <a name="azure-blob-storage-reference"></a>Referência de armazenamento Azure Blob
+# <a name="azure-blob-storage-reference"></a>Referência de armazenamento de Blobs do Azure
 
 Encontre referência API de armazenamento Azure Blob, pacotes de biblioteca, ficheiros de leitura e começar artigos.
 
@@ -67,8 +67,8 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de clientes Azure Storage Blobs para Python](/python/api/overview/azure/storage-blob-readme) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Quickstart: Gerir bolhas com Python v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
-| 2.x | [azure-storage-blob](/python/api/azure-storage-blob/?view=azure-python-previous) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Gerir bolhas com Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 12.x | [Bibliotecas de clientes Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Quickstart: Gerir bolhas com Python v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
+| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Gerir bolhas com Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 
@@ -77,7 +77,7 @@ A tabela que se segue lista a referência e a documentação da amostra para o a
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca de clientes Azure Storage Blob para JavaScript](/javascript/api/overview/azure/storage-blob-readme) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [Quickstart: Gerir blobs com JavaScript v12 SDK num browser](/azure/storage/blobs/quickstart-blobs-javascript-browser) |
-| 10.x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Quickstart: Gerir bolhas com JavaScript v10 SDK em Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Quickstart: Gerir blobs com JavaScript v10 SDK no navegador](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
+| 10.x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Quickstart: Gerir blobs com JavaScript v10 SDK em Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Quickstart: Gerir blobs com JavaScript v10 SDK no navegador](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
 
 ## <a name="rest-apis"></a>APIs REST
 

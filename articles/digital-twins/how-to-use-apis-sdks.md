@@ -1,5 +1,5 @@
 ---
-title: Use as APIs e SDKs de gémeos digitais Azure
+title: Utilizar as APIs e SDKs do Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Veja como trabalhar com as APIs das Gémeas Digitais Azure, incluindo via SDK.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbc79458c1fe68b05a40f476c298d5fe94e86871
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: ebac7fb6cf4addaa43367d27a4926a85770dd595
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629600"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296139"
 ---
-# <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Use as APIs e SDKs de gémeos digitais Azure
+# <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 A Azure Digital Twins vem equipado com **APIs de avião de controlo** e **APIs de plano de dados** para gerir a sua instância e seus elementos. Este artigo apresenta uma visão geral das APIs disponíveis e os métodos para interagir com elas. Pode utilizar as APIs REST diretamente com os seus Swaggers associados, ou através de um SDK.
 
@@ -26,7 +29,7 @@ A versão API do plano de controlo mais atual para pré-visualização pública 
 
 Para utilizar as APIs do plano de controlo:
 * Pode ligar diretamente para as APIs, referindo-se à mais recente [pasta Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repo também inclui uma pasta de exemplos que mostram o uso.
-* Atualmente pode aceder a SDKs para controlar APIs em [Go](https://github.com/Azure/azure-sdk-for-go/releases).
+* Atualmente pode aceder a SDKs para controlar APIs em [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1), [Python,](https://pypi.org/project/azure-mgmt-digitaltwins/)ou [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins).
 
 Também pode exercer APIs de controlo do plano interagindo com as Gémeas Digitais Azure através do [portal Azure](https://portal.azure.com) e [CLI](how-to-use-cli.md).
 
@@ -257,6 +260,12 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 Esta secção contém informações gerais e diretrizes para a utilização das APIs e SDKs.
 
+> [!NOTE]
+> Por favor, note que durante a pré-visualização, a Azure Digital Twins não suporta **a Partilha de Recursos de Origem Cruzada (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](https://docs.microsoft.com/powerapps/powerapps-overview) poderá ver um erro de política.
+> Para resolver este erro, pode fazer um dos seguintes:
+> * Retire o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Este cabeçalho indica se a resposta pode ser partilhada. 
+> * Em alternativa, crie um proxy CORS e faça o pedido de API para as Gémeas Digitais Azure. 
+
 * Para usar o SDK, instantânea a `DigitalTwinsClient` aula. O construtor requer credenciais que podem ser obtidas com uma variedade de métodos de autenticação na `Azure.Identity` embalagem. Para mais `Azure.Identity` informações, consulte a [documentação do espaço de nome.](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) 
 * Pode encontrar o útil durante o `InteractiveBrowserCredential` arranque, mas existem várias outras opções, incluindo credenciais para [identidade gerida](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), que provavelmente utilizará para autenticar [funções Azure configuradas com MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) contra Azure Digital Twins. Para mais informações `InteractiveBrowserCredential` sobre , consulte a sua [documentação de classe.](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet)
 * Todas as chamadas de API de serviço são expostas como funções de membro na `DigitalTwinsClient` classe.
@@ -279,7 +288,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como usar as APIs para criar um exemplo de Azure Digital Twins:
 * [Como fazer: Criar um exemplo de Gémeos Digitais Azure](how-to-set-up-instance.md)

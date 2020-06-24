@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c5ab718fdccfebe852c1522a0cb07303a541a3dd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c24b934af17dab4f263de504da81d5ccd22d7fb9
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554248"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975318"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Quickstart: Gerir bolhas com Python v12 SDK
 
@@ -290,5 +290,5 @@ Para ver as aplicações de amostra de armazenamento Blob, continue a:
 > [!div class="nextstepaction"]
 > [Amostras de SDK v12 Python de armazenamento de Azure Blob](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Para saber mais, consulte o [Azure SDK for Python.](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md)
+* Para saber mais, consulte as [bibliotecas de clientes do Azure Storage para Python.](/azure/developer/python/sdk/storage/overview?view=storage-py-v12)
 * Para tutoriais, amostras, quickstarts e outra documentação, visite [Azure for Python Developers](/azure/python/).

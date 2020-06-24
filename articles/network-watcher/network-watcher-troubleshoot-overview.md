@@ -7,80 +7,80 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840694"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738656"
 ---
-# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Vigilante da Rede Azure
+# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Observador da Rede Azure
 
-Os Gateways de Rede Virtual proporcionam conectividade entre os recursos no local e outras redes virtuais dentro do Azure. Monitorizar os gateways e respetivas ligações é fundamental para garantir que a comunicação não é interrompida. O Network Watcher fornece a capacidade de resolver os gateways e as ligações. A capacidade pode ser chamada através do portal PowerShell, Azure CLI ou REST API. Quando chamado, o Observador de Rede diagnostica a saúde do portal, ou ligação, e devolve os resultados apropriados. O pedido é uma transação de longa duração. Os resultados são devolvidos assim que o diagnóstico estiver concluído.
+Os Gateways de Rede Virtual fornecem conectividade entre recursos no local e outras redes virtuais dentro do Azure. Monitorizar os gateways e respetivas ligações é fundamental para garantir que a comunicação não é interrompida. O Network Watcher fornece a capacidade de resolver os gateways e ligações. A capacidade pode ser chamada através do portal PowerShell, Azure CLI ou REST API. Quando chamado, o Network Watcher diagnostica a saúde do gateway, ou ligação, e devolve os resultados apropriados. O pedido é uma transação de longa duração. Os resultados são devolvidos assim que o diagnóstico estiver completo.
 
 ![portal][2]
 
 ## <a name="results"></a>Resultados
 
-Os resultados preliminares devolvidos dão uma imagem geral da saúde do recurso. Informações mais profundas podem ser fornecidas para os recursos, tal como demonstrado na seguinte secção:
+Os resultados preliminares devolvidos dão uma imagem geral da saúde do recurso. Podem ser fornecidas informações mais profundas sobre os recursos, tal como indicado na secção seguinte:
 
-A seguinte lista são os valores devolvidos com a API problemática:
+Segue-se a seguinte lista os valores devolvidos com a API de resolução de problemas:
 
-* **inícioTempo** - Este valor é o momento em que a chamada da API começou.
-* **tempo final** - Este valor é o momento em que a resolução de problemas terminou.
-* **código** - Este valor é Insalubre, se houver uma única falha de diagnóstico.
-* **resultados** - Resultados é uma recolha de resultados devolvidos na Ligação ou no portal da rede virtual.
-    * **id** - Este valor é o tipo de avaria.
+* **startTime** - Este valor é o momento em que a chamada de API de resolução de problemas começou.
+* **endTime** - Este valor é o momento em que a resolução de problemas terminou.
+* **código** - Este valor é UnHealthy, se houver uma falha de diagnóstico única.
+* **resultados** - Resultados é uma recolha de resultados devolvidos na Ligação ou no gateway de rede virtual.
+    * **id** - Este valor é o tipo de falha.
     * **resumo** - Este valor é um resumo da falha.
     * **detalhado** - Este valor fornece uma descrição detalhada da falha.
-    * **ações recomendadas** - Esta propriedade é uma coleção de ações recomendadas a tomar.
+    * **recomendações -** Esta propriedade é uma coleção de ações recomendadas a tomar.
       * **actionText** - Este valor contém o texto que descreve que medidas tomar.
       * **actionUri** - Este valor fornece o URI à documentação sobre como agir.
       * **actionUriText** - Este valor é uma breve descrição do texto de ação.
 
-As tabelas a seguir mostram os diferentes tipos de avarias (id em resultados da lista anterior) que estão disponíveis e se a falha criar registos.
+As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da lista anterior) que estão disponíveis e se a falha criar registos.
 
 ### <a name="gateway"></a>Gateway
 
 | Tipo de Falha | Razão | Registar|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro |Sim|
-| GatewayNotFound | Não é possível encontrar gateway ou gateway não é provisionado |Não|
-| PlannedMaintenance |  A instância gateway está sob manutenção  |Não|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
-| NoConnectionsFoundForGateway | Não existem ligações na porta de entrada. Esta falha é apenas um aviso.| Não|
-| ConexõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
-| Utilização do GatewayCPUExceeded | A utilização atual do CPU de gateway é > 95%. | Sim |
+| NoFault | Quando nenhum erro é detetado |Yes|
+| GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |No|
+| PlannedMaintenance |  A instância gateway está sob manutenção  |No|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | No |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | No |
+| PlatformInActive | Existe um problema com a plataforma. | No|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | No|
+| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| No|
+| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Yes|
+| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Yes |
 
 ### <a name="connection"></a>Ligação
 
 | Tipo de Falha | Razão | Registar|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro |Sim|
-| GatewayNotFound | Não é possível encontrar gateway ou gateway não é provisionado |Não|
-| PlannedMaintenance | A instância gateway está sob manutenção  |Não|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
-| Conexão EntidadeNão Encontrada | Falta a configuração da ligação | Não |
-| ConexõesMarcadasDesligadas | A ligação está marcada como "desligada" |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
-| ConexãoMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
-| Autenticação | Desfasamento da chave pré-partilhada | Sim|
-| Alcance da peerreachability | A porta de entrada dos pares não é alcançável. | Sim|
-| IkePolicyMismatch | O gateway peer tem políticas IKE que não são apoiadas pelo Azure. | Sim|
-| Erro do WfpParse | Ocorreu um erro ao analisar o registo do PAM. |Sim|
+| NoFault | Quando nenhum erro é detetado |Yes|
+| GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |No|
+| PlannedMaintenance | A instância gateway está sob manutenção  |No|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | No |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | No |
+| Entidade de ConexãoNotFound | Falta a configuração de ligação | No |
+| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |No|
+| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Yes |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Yes|
+| Autenticação | Desajuste de chave pré-partilhada | Yes|
+| PeerReachability | O portal dos pares não é alcançável. | Yes|
+| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Yes|
+| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Yes|
 
 ## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
 
-As seguintes listas de tabelas que gateways e ligações são suportadas com resolução de problemas do Observador de Rede:
+As seguintes listas de tabelas que gateways e conexões são suportadas com a resolução de problemas do Observador de Rede:
 
 |  |  |
 |---------|---------|
@@ -88,7 +88,7 @@ As seguintes listas de tabelas que gateways e ligações são suportadas com res
 |VPN      | Suportado        |
 |ExpressRoute | Não suportado |
 |**Tipos de VPN** | |
-|Baseado em Rota | Suportado|
+|Baseado em Rotas | Suportado|
 |Baseado em Políticas | Não suportado|
 |**Tipos de ligação**||
 |IPsec| Suportado|
@@ -98,21 +98,21 @@ As seguintes listas de tabelas que gateways e ligações são suportadas com res
 
 ## <a name="log-files"></a>Ficheiros de registo
 
-Os ficheiros de registo de resolução de problemas de recursos são armazenados numa conta de armazenamento após a resolução de problemas de recursos. A imagem que se segue mostra o conteúdo de uma chamada que resultou num erro.
+Os ficheiros de registo de resolução de problemas de recursos são armazenados numa conta de armazenamento após a resolução de problemas de recursos. A imagem a seguir mostra o conteúdo exemplo de uma chamada que resultou num erro.
 
 ![arquivo zip][1]
 
 > [!NOTE]
 > Em alguns casos, apenas um subconjunto dos ficheiros de registos é escrito para armazenamento.
 
-Para obter instruções sobre o download de ficheiros de contas de armazenamento azure, consulte o Get started com o [armazenamento Azure Blob utilizando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
+Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-O ficheiro **ConnectionStats.txt** contém estatísticas globais da Ligação, incluindo bytes de entrada e saída, estado de ligação e o tempo em que a Ligação foi estabelecida.
+O ficheiro **ConnectionStats.txt** contém estatísticas globais da Conexão, incluindo bytes de entrada e saída, estado de conexão e a hora em que a Ligação foi estabelecida.
 
 > [!NOTE]
-> Se a chamada para a Resolução de Problemas a API for saudável, a única coisa devolvida no ficheiro zip é um ficheiro **ConnectionStats.txt.**
+> Se a chamada para a API de resolução de problemas voltar saudável, a única coisa devolvida no ficheiro zip é um ficheiro **ConnectionStats.txt.**
 
 O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
 
@@ -126,7 +126,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### <a name="cpustatstxt"></a>CPUStats.txt
 
-O ficheiro **CPUStats.txt** contém a utilização e a memória do CPU disponíveis no momento do teste.  O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
+O **ficheiroCPUStats.txt** contém utilização e memória de CPU disponíveis no momento do teste.  O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
@@ -134,9 +134,9 @@ Current CPU Usage : 0 % Current Memory Available : 641 MBs
 
 ### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-O ficheiro **IKEErrors.txt** contém quaisquer erros IKE que tenham sido encontrados durante a monitorização.
+O **ficheiroIKEErrors.txt** contém quaisquer erros do IKE que foram encontrados durante a monitorização.
 
-O exemplo que se segue mostra o conteúdo de um ficheiro IKEErrors.txt. Os seus erros podem ser diferentes dependendo do problema.
+O exemplo a seguir mostra o conteúdo de um ficheiro IKEErrors.txt. Os seus erros podem ser diferentes dependendo do problema.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -145,11 +145,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Esfregado-wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
-O ficheiro de registo **Scrubbed-wfpdiag.txt** contém o registo do wfp. Este registo contém registo de gotas de pacote e falhas IKE/AuthIP.
+O **ficheiro de** registoScrubbed-wfpdiag.txtcontém o registo do PAM. Este registo contém registo de gotas de pacote e falhas do IKE/AuthIP.
 
-O exemplo seguinte mostra o conteúdo do ficheiro Scrubbed-wfpdiag.txt. Neste exemplo, a chave partilhada de uma Ligação não estava correta como se pode ver a partir da terceira linha a partir da parte inferior. O exemplo seguinte é apenas um corte de todo o registo, uma vez que o registo pode ser longo dependendo da questão.
+O exemplo que se segue mostra o conteúdo do ficheiro Scrubbed-wfpdiag.txt. Neste exemplo, a chave partilhada de uma Ligação não estava correta, como se pode ver a partir da terceira linha a partir de baixo. O exemplo a seguir é apenas um corte de todo o log, uma vez que o log pode ser longo dependendo do problema.
 
 ```
 ...
@@ -180,9 +180,9 @@ O exemplo seguinte mostra o conteúdo do ficheiro Scrubbed-wfpdiag.txt. Neste ex
 
 ### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.soma
 
-O ficheiro **wfpdiag.txt.sum** é um registo que mostra os amortecedores e eventos processados.
+O **ficheirowfpdiag.txt.sum** é um registo que mostra os amortecedores e eventos processados.
 
-O exemplo seguinte é o conteúdo de um ficheiro wfpdiag.txt.sum.
+Segue-se o conteúdo de um ficheiro wfpdiag.txt.sum.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
@@ -210,7 +210,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a diagnosticar um problema com uma ligação de gateway ou gateway, consulte diagnosticar problemas de [comunicação entre redes](diagnose-communication-problem-between-networks.md).
+Para aprender a diagnosticar um problema com uma ligação de gateway ou gateway, consulte [os problemas de comunicação do Diagnóstico entre redes](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

@@ -1,26 +1,26 @@
 ---
-title: 'Azure ExpressRoute: Configure S2S VPN sobre o peering da Microsoft'
-description: Configure a conectividade IPsec/IKE com o Azure através de um circuito de peering ExpressRoute Microsoft utilizando um gateway VPN site-to-site.
+title: 'Azure ExpressRoute: Configure S2S VPN sobre olhando a Microsoft'
+description: Configure a conectividade IPsec/IKE com o Azure através de um circuito de observação ExpressRoute Microsoft utilizando uma porta VPN site-to-site.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436802"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738163"
 ---
-# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configure um VPN site-to-site sobre o peering expressRoute Microsoft
+# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configure uma VPN site-to-site sobre o ExpressRoute Microsoft olhando
 
-Este artigo ajuda-o a configurar uma conectividade encriptada segura entre a sua rede no local e as suas redes virtuais Azure (VNets) através de uma ligação privada ExpressRoute. Pode utilizar o microsoft peering para estabelecer um túnel IPsec/IKE VPN site-to-site entre as suas redes selecionadas no local e os VNets Azure. Configurar um túnel seguro sobre o ExpressRoute permite a troca de dados com confidencialidade, anti-repetição, autenticidade e integridade.
+Este artigo ajuda-o a configurar uma conectividade encriptada segura entre a sua rede no local e as suas redes virtuais Azure (VNets) através de uma ligação privada ExpressRoute. Pode utilizar o Microsoft para estabelecer um túnel VPN IPsec/IKE local entre as suas redes de televisão selecionadas e VNets Azure. Configurar um túnel seguro sobre o ExpressRoute permite a troca de dados com confidencialidade, anti-repetição, autenticidade e integridade.
 
 >[!NOTE]
->Quando configurar vpn site-to-site através do peering da Microsoft, é cobrado pelo gateway VPN e pela saída VPN. Para mais informações, consulte [os preços vpN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
+>Quando configurar a VPN site-to-site sobre o espreitamento da Microsoft, é cobrado para o gateway VPN e saída VPN. Para mais informações, consulte [os preços da VPN Gateway.](https://azure.microsoft.com/pricing/details/vpn-gateway)
 >
 >
 
@@ -29,69 +29,69 @@ Este artigo ajuda-o a configurar uma conectividade encriptada segura entre a sua
 ## <a name="architecture"></a><a name="architecture"></a>Arquitetura
 
 
-  ![visão geral da conectividade](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
+  ![Visão geral da conectividade](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 
 
 Para uma elevada disponibilidade e redundância, pode configurar vários túneis sobre os dois pares MSEE-PE de um circuito ExpressRoute e permitir o equilíbrio de carga entre os túneis.
 
   ![opções de alta disponibilidade](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
-Os túneis VPN sobre o peering da Microsoft podem ser encerrados usando gateway VPN, ou utilizando um aparelho virtual de rede apropriado (NVA) disponível através do Azure Marketplace. Pode trocar rotas de forma estática ou dinâmica sobre os túneis encriptados sem expor a troca de rotas ao luminário subjacente da Microsoft. Nos exemplos deste artigo, o BGP (diferente da sessão de BGP utilizada para criar o peering da Microsoft) é usado para trocar prefixos dinamicamente sobre os túneis encriptados.
+Os túneis VPN sobre o espreitamento da Microsoft podem ser encerrados através do gateway VPN ou utilizando um aparelho virtual de rede apropriado (NVA) disponível através do Azure Marketplace. Pode trocar rotas estática ou dinamicamente pelos túneis encriptados sem expor a troca de rotas para o perspitamento subjacente da Microsoft. Nos exemplos deste artigo, o BGP (diferente da sessão de BGP utilizada para criar o estornudo microsoft) é usado para trocar dinâmicamente prefixos sobre os túneis encriptados.
 
 >[!IMPORTANT]
->Para o lado no local, tipicamente o peering da Microsoft é terminado no DMZ e o peering privado é terminado na zona de rede principal. As duas zonas seriam segregadas usando firewalls. Se estiver a configurar a Microsoft a espreitar exclusivamente para permitir uma túnel segura sobre o ExpressRoute, lembre-se de filtrar apenas através dos IPs públicos de interesse que estão a ser anunciados através do peering da Microsoft.
+>Para o lado do local, normalmente o espreitamento da Microsoft é terminado no DMZ e o espreitamento privado é terminado na zona de rede principal. As duas zonas seriam segregadas usando firewalls. Se estiver a configurar a Microsoft a espreitar exclusivamente para permitir um túnel seguro sobre o ExpressRoute, lembre-se de filtrar apenas através dos IPs de interesse público que estão a ser anunciados através do espreitamento da Microsoft.
 >
 >
 
 ## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
-1. Configure o microsoft olhando para o seu circuito ExpressRoute.
-2. Anuncie prefixos públicos regionais do Azure selecionados para a sua rede no local através do peering da Microsoft.
-3. Configure um gateway VPN e estabeleça túneis IPsec
+1. Configure a Microsoft a espreitar para o seu circuito ExpressRoute.
+2. Anuncie prefixos públicos regionais selecionados da Azure para a sua rede de instalações através do seu olhar microsoft.
+3. Configure uma porta de entrada VPN e estabeleça túneis IPsec
 4. Configure o dispositivo VPN no local.
-5. Crie a ligação IPsec/IKE do site.it.
-6. (Opcional) Configure firewalls/filtragem no dispositivo VPN no local.
-7. Teste e valide a comunicação iPsec sobre o circuito ExpressRoute.
+5. Crie a ligação site-to-site IPsec/IKE.
+6. (Opcional) Configure as firewalls/filtragem no dispositivo VPN no local.
+7. Teste e valide a comunicação IPsec sobre o circuito ExpressRoute.
 
-## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. Configure o peering da Microsoft
+## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. Configurar o espreitamento da Microsoft
 
-Para configurar uma ligação VPN site-to-site através do ExpressRoute, você deve aproveitar o peering ExpressRoute Microsoft.
+Para configurar uma ligação VPN site-to-site sobre o ExpressRoute, deve aproveitar o olho da Microsoft ExpressRoute.
 
-* Para configurar um novo circuito ExpressRoute, comece com o artigo [pré-requisitos](expressroute-prerequisites.md) da ExpressRoute e, em seguida, [Crie e modifique um circuito ExpressRoute](expressroute-howto-circuit-arm.md).
+* Para configurar um novo circuito ExpressRoute, comece com o artigo [pré-requisitos ExpressRoute](expressroute-prerequisites.md) e, em seguida, [Crie e modifique um circuito ExpressRoute](expressroute-howto-circuit-arm.md).
 
-* Se já tem um circuito ExpressRoute, mas não tem o Microsoft a espreitar configurado, configure o peering da Microsoft usando o Create e modifique o peering para um artigo de [circuito ExpressRoute.](expressroute-howto-routing-arm.md#msft)
+* Se já tem um circuito ExpressRoute, mas não tem a Microsoft a espreitar configurada, configurar a Microsoft a espreitar utilizando o Create e modificar o [espreitamento para um artigo de circuito ExpressRoute.](expressroute-howto-routing-arm.md#msft)
 
-Depois de configurar o seu circuito e espreitar a Microsoft, pode vê-lo facilmente usando a página **'Overview'** no portal Azure.
+Uma vez configurado o seu circuito e o seu espreitamento da Microsoft, pode facilmente vê-lo usando a página **'Vista Geral'** no portal Azure.
 
 ![circuito](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="2-configure-route-filters"></a><a name="routefilter"></a>2. Configurar filtros de rotas
+## <a name="2-configure-route-filters"></a><a name="routefilter"></a>2. Filtros de rota de configuração
 
-Um filtro de rota permite-lhe identificar os serviços que deseja consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista de todos os valores comunitários do BGP. 
+Um filtro de rota permite-lhe identificar os serviços que deseja consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista de todos os valores comunitários da BGP. 
 
 ![filtro de rota](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-Neste exemplo, a implantação é apenas na região *azure west US 2.* Uma regra de filtro de rota é adicionada para permitir apenas a publicidade de prefixos regionais Azure West US 2, que tem o valor comunitário BGP *12076:51026*. Especifica os prefixos regionais que pretende permitir selecionando a **regra 'Gerir'.**
+Neste exemplo, a implantação está apenas na região *Azure West US 2.* Uma regra de filtro de rota é adicionada para permitir apenas a publicidade de prefixos regionais Azure West US 2, que tem o valor comunitário BGP *12076:51026*. Especifica os prefixos regionais que pretende permitir selecionando a **regra De gerir**.
 
-Dentro do filtro de rota, também precisa de escolher os circuitos ExpressRoute para os quais o filtro de rota se aplica. Pode escolher os circuitos ExpressRoute selecionando **o circuito Adicionar**. Na figura anterior, o filtro de rota está associado ao circuito ExpressRoute.
+Dentro do filtro de rota, também é necessário escolher os circuitos ExpressRoute para os quais se aplica o filtro de rota. Pode escolher os circuitos ExpressRoute selecionando **o circuito Add**. Na figura anterior, o filtro de rota está associado ao circuito ExpressRoute exemplo.
 
-### <a name="21-configure-the-route-filter"></a><a name="configfilter"></a>2.1 Configure o filtro de rota
+### <a name="21-configure-the-route-filter"></a><a name="configfilter"></a>2.1 Configurar o filtro de rota
 
-Configure um filtro de rota. Para os passos, consulte [os filtros de rota Configure para o peering da Microsoft](how-to-routefilter-portal.md).
+Configure um filtro de rota. Para obter passos, consulte [filtros de rota de configuração para o microsoft espreitar](how-to-routefilter-portal.md).
 
 ### <a name="22-verify-bgp-routes"></a><a name="verifybgp"></a>2.2 Verificar rotas de BGP
 
-Depois de ter criado com sucesso a Microsoft a espreitar o circuito ExpressRoute e a associar um filtro de rota ao circuito, pode verificar as rotas bGP recebidas de MSEEs nos dispositivos PE que estão a espreitar com os MSEEs. O comando de verificação varia, dependendo do sistema operativo dos seus dispositivos PE.
+Depois de ter criado com sucesso a Microsoft a espreitar o circuito ExpressRoute e ter associado um filtro de rota com o circuito, pode verificar as rotas BGP recebidas dos MSEEs nos dispositivos PE que estão a espreitar com os MSEEs. O comando de verificação varia, dependendo do sistema operativo dos seus dispositivos PE.
 
-#### <a name="cisco-examples"></a>Exemplos cisco
+#### <a name="cisco-examples"></a>Exemplos de Cisco
 
-Este exemplo utiliza um comando Cisco IOS-XE. No exemplo, uma instância virtual de encaminhamento e encaminhamento (VRF) é usada para isolar o tráfego de observação.
+Este exemplo utiliza um comando Cisco IOS-XE. No exemplo, é utilizado um caso de encaminhamento e encaminhamento virtual (VRF) para isolar o tráfego de observação.
 
 ```
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-A saída parcial seguinte mostra que 68 prefixos foram recebidos do vizinho \*.243.229.34 com o ASN 12076 (MSEE):
+A seguinte saída parcial mostra que 68 prefixos foram recebidos do vizinho \* .243.229.34 com o ASN 12076 (MSEE):
 
 ```
 ...
@@ -106,44 +106,44 @@ Para ver a lista de prefixos recebidos do vizinho, use o seguinte exemplo:
 sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 ```
 
-Para confirmar que está a receber o conjunto correto de prefixos, pode cruzar a verificação. A seguinte saída de comando Azure PowerShell lista os prefixos anunciados através da Microsoft, procurando cada um dos serviços e para cada uma das regiões do Azure:
+Para confirmar que está a receber o conjunto correto de prefixos, pode verificar. A seguinte saída de comando Azure PowerShell lista os prefixos anunciados através da Microsoft, olhando para cada um dos serviços e para cada uma das regiões Azure:
 
 ```azurepowershell-interactive
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. Configure os túneis VPN gateway e IPsec
+## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. Configurar o portal VPN e os túneis IPsec
 
 Nesta secção, os túneis VPN IPsec são criados entre o gateway Azure VPN e o dispositivo VPN no local. Os exemplos utilizam dispositivos VPN Cisco Cloud Service Router (CSR1000).
 
-O diagrama seguinte mostra os túneis VPN IPsec estabelecidos entre o dispositivo VPN 1 no local e o par de instâncias de gateway VpN Azure VPN. Os dois túneis VPN iPsec estabelecidos entre o dispositivo VPN 2 no local e o par de instâncias de gateway VpN Azure VPN não estão ilustrados no diagrama, e os detalhes de configuração não estão listados. No entanto, ter túneis VPN adicionais melhora a elevada disponibilidade.
+O diagrama seguinte mostra os túneis VPN IPsec estabelecidos entre o dispositivo VPN no local 1 e o par de instâncias de gateway Azure VPN. Os dois túneis VPN IPsec estabelecidos entre o dispositivo VPN 2 no local e o par de instâncias de gateway VPN Azure não estão ilustrados no diagrama, e os detalhes de configuração não estão listados. No entanto, ter túneis VPN adicionais melhora a elevada disponibilidade.
 
   ![Túneis VPN](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
 
-Ao longo do par de túneis IPsec, é estabelecida uma sessão do EBGP para o intercâmbio de rotas de rede privada. O diagrama seguinte mostra a sessão do EBGP estabelecida sobre o par do túnel IPsec:
+Sobre o par do túnel IPsec, é estabelecida uma sessão eBGP para trocar rotas de rede privada. O seguinte diagrama mostra a sessão eBGP estabelecida sobre o par do túnel IPsec:
 
-  ![sessões eBGP sobre par de túneis](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
+  ![Sessões eBGP sobre par de túneis](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
 
-O diagrama seguinte mostra a visão geral abstrata da rede de exemplo:
+O diagrama a seguir mostra a visão geral abstrata da rede de exemplos:
 
   ![rede exemplo](./media/site-to-site-vpn-over-microsoft-peering/OverviewRef.png)
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Sobre os exemplos do modelo do Gestor de Recursos Azure
 
-Nos exemplos, o gateway VPN e as terminações do túnel IPsec são configurados usando um modelo de Gestor de Recursos Azure. Se você é novo em usar modelos de Gestor de Recursos, ou para entender o modelo de modelo de Gestor de Recursos básicos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). O modelo nesta secção cria um ambiente Greenfield Azure (VNet). No entanto, se tiver um VNet existente, pode referenciar no modelo. Se não estiver familiarizado com as configurações do site-to-site VPN IPsec/IKE, consulte [Criar uma ligação site-a-site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+Nos exemplos, o gateway VPN e as terminações do túnel IPsec são configurados usando um modelo de Gestor de Recursos Azure. Se você é novo para usar modelos de Gestor de Recursos, ou para entender o básico do modelo de Gestor de Recursos, consulte [a estrutura e sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). O modelo nesta secção cria um ambiente azul de campo verde (VNet). No entanto, se tiver um VNet existente, pode fazê-lo referenciar no modelo. Se não estiver familiarizado com as configurações site-to-site do gateway VPN/IKE, consulte [Criar uma ligação site-to-site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
->Não precisa de utilizar modelos do Gestor de Recursos Do Azure para criar esta configuração. Pode criar esta configuração utilizando o portal Azure, ou PowerShell.
+>Não precisa de utilizar os modelos do Gestor de Recursos Azure para criar esta configuração. Pode criar esta configuração utilizando o portal Azure ou PowerShell.
 >
 >
 
 ### <a name="31-declare-the-variables"></a><a name="variables3"></a>3.1 Declarar as variáveis
 
-Neste exemplo, as declarações variáveis correspondem à rede de exemplos. Ao declarar variáveis, modifique esta secção para refletir o seu ambiente.
+Neste exemplo, as declarações variáveis correspondem à rede de exemplo. Ao declarar variáveis, modifique esta secção para refletir o seu ambiente.
 
-* O **local variávelAddressPrefix** é um conjunto de endereços IP no local para encerrar os túneis IPsec.
-* O **gatewaySku** determina a entrada vpn. Para obter mais informações sobre gatewaySku e vpnType, consulte as definições de [configuração do Gateway VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para preços, consulte [preços VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
-* Desloque o **vpnType** para **RouteBased**.
+* A **variável localAddressPrefix** é uma série de endereços IP no local para terminar os túneis IPsec.
+* O **gatewaySku** determina a produção VPN. Para obter mais informações sobre gatewaySku e vpnType, consulte [as definições de configuração do Gateway VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para obter preços, consulte [os preços da VPN Gateway.](https://azure.microsoft.com/pricing/details/vpn-gateway)
+* Desa estabamente o **VPNType** para **RouteBased**.
 
 ```json
 "variables": {
@@ -177,7 +177,7 @@ Neste exemplo, as declarações variáveis correspondem à rede de exemplos. Ao 
 
 ### <a name="32-create-virtual-network-vnet"></a><a name="vnet"></a>3.2 Criar rede virtual (VNet)
 
-Se estiver a associar um VNet existente aos túneis VPN, pode saltar este passo.
+Se estiver a associar um VNet existente com os túneis VPN, pode saltar este passo.
 
 ```json
 {
@@ -210,9 +210,9 @@ Se estiver a associar um VNet existente aos túneis VPN, pode saltar este passo.
 },
 ```
 
-### <a name="33-assign-public-ip-addresses-to-vpn-gateway-instances"></a><a name="ip"></a>3.3 Atribuir endereços IP públicos às instâncias de gateway VPN
+### <a name="33-assign-public-ip-addresses-to-vpn-gateway-instances"></a><a name="ip"></a>3.3 Atribuir endereços IP públicos a instâncias de gateway VPN
  
-Atribua um endereço IP público para cada instância de gateway VPN.
+Atribua um endereço IP público para cada instância de uma porta de entrada VPN.
 
 ```json
 {
@@ -237,9 +237,9 @@ Atribua um endereço IP público para cada instância de gateway VPN.
   },
 ```
 
-### <a name="34-specify-the-on-premises-vpn-tunnel-termination-local-network-gateway"></a><a name="termination"></a>3.4 Especificar a terminação do túnel VPN no local (gateway da rede local)
+### <a name="34-specify-the-on-premises-vpn-tunnel-termination-local-network-gateway"></a><a name="termination"></a>3.4 Especificar a terminação do túnel VPN no local (porta de entrada de rede local)
 
-Os dispositivos VPN no local são referidos como o portal da **rede local**. O seguinte snippet json também especifica detalhes remotos de pares de BGP:
+Os dispositivos VPN no local são referidos como o **portal de rede local**. O seguinte json snippet também especifica detalhes remotos do par BGP:
 
 ```json
 {
@@ -262,13 +262,13 @@ Os dispositivos VPN no local são referidos como o portal da **rede local**. O s
 },
 ```
 
-### <a name="35-create-the-vpn-gateway"></a><a name="creategw"></a>3.5 Criar o gateway VPN
+### <a name="35-create-the-vpn-gateway"></a><a name="creategw"></a>3.5 Criar o portal VPN
 
 Esta secção do modelo configura o gateway VPN com as definições necessárias para uma configuração ativa. Tenha em mente os seguintes requisitos:
 
-* Crie o gateway VPN com um VpnType **"RouteBased".** Esta definição é obrigatória se pretender ativar o encaminhamento de BGP entre o gateway VPN e o VPN no local.
-* Para estabelecer túneis VPN entre as duas instâncias do gateway VPN e um dispositivo no local em modo ativo ativo, o parâmetro **"activeActive"** é definido como **verdadeiro** no modelo de Gestor de Recursos. Para saber mais sobre gateways VPN altamente disponíveis, consulte a [conectividade de gateway VPN altamente disponível](../vpn-gateway/vpn-gateway-highlyavailable.md).
-* Para configurar as sessões de eBGP entre os túneis VPN, deve especificar duas ASNs diferentes em ambos os lados. É preferível especificar números ASN privados. Para mais informações, consulte a [visão geral dos portões BGP e Azure VPN](../vpn-gateway/vpn-gateway-bgp-overview.md).
+* Crie o gateway VPN com um VpnType **"RouteBased".** Esta definição é obrigatória se pretender ativar o encaminhamento BGP entre o gateway VPN e o VPN no local.
+* Para estabelecer túneis VPN entre as duas instâncias do gateway VPN e um determinado dispositivo no local em modo ativo, o parâmetro **"ActiveActive"** é definido como **verdadeiro** no modelo de Gestor de Recursos. Para obter mais informações sobre gateways VPN altamente disponíveis, consulte [a conectividade de gateway VPN altamente disponível.](../vpn-gateway/vpn-gateway-highlyavailable.md)
+* Para configurar as sessões de eBGP entre os túneis VPN, deve especificar duas ASNs diferentes de cada lado. É preferível especificar números ASN privados. Para mais informações, consulte [a visão geral das portas BGP e Azure VPN](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ```json
 {
@@ -326,7 +326,7 @@ Esta secção do modelo configura o gateway VPN com as definições necessárias
 
 ### <a name="36-establish-the-ipsec-tunnels"></a><a name="ipsectunnel"></a>3.6 Estabelecer os túneis IPsec
 
-A ação final do guião cria túneis IPsec entre o gateway Azure VPN e o dispositivo VPN no local.
+A ação final do script cria túneis IPsec entre o gateway Azure VPN e o dispositivo VPN no local.
 
 ```json
 {
@@ -354,20 +354,20 @@ A ação final do guião cria túneis IPsec entre o gateway Azure VPN e o dispos
   }
 ```
 
-## <a name="4-configure-the-on-premises-vpn-device"></a><a name="device"></a>4. Configure o dispositivo VPN no local
+## <a name="4-configure-the-on-premises-vpn-device"></a><a name="device"></a>4. Configurar o dispositivo VPN no local
 
-O gateway Azure VPN é compatível com muitos dispositivos VPN de diferentes fornecedores. Para informações de configuração e dispositivos validados para trabalhar com gateway VPN, consulte [sobre dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+O gateway Azure VPN é compatível com muitos dispositivos VPN de diferentes fornecedores. Para obter informações de configuração e dispositivos que tenham sido validados para trabalhar com gateway VPN, consulte [sobre dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 Ao configurar o seu dispositivo VPN, necessita dos seguintes itens:
 
-* Uma chave partilhada. Esta é a mesma chave partilhada que especifica ao criar a ligação VPN site-to-site. Os exemplos usam uma chave partilhada básica. Deve gerar uma chave mais complexa para utilizar.
+* Uma chave partilhada. Esta é a mesma chave partilhada que especifica ao criar a sua ligação VPN site-to-site. Os exemplos usam uma chave partilhada básica. Deve gerar uma chave mais complexa para utilizar.
 * O endereço IP público do seu gateway VPN. Pode ver o endereço IP público através do portal do Azure, do PowerShell ou da CLI. Para encontrar o endereço IP Público do seu gateway de VPN através do portal do Azure, navegue para Gateways de rede virtual e, em seguida, clique no nome do gateway.
 
-Tipicamente, os pares eBGP estão diretamente ligados (muitas vezes sobre uma ligação WAN). No entanto, quando está a configurar o eBGP através dos túneis VPN IPsec através do peering expressRoute Microsoft, existem vários domínios de encaminhamento entre os pares do eBGP. Use o comando **ebgp-multihop** para estabelecer a relação de vizinhos do EBGP entre os dois pares não ligados diretamente. O inteiro que segue o comando ebgp-multihop especifica o valor TTL nos pacotes BGP. O comando **de percursos máximos eibgp 2** permite o equilíbrio de carga do tráfego entre as duas vias BGP.
+Normalmente, os pares eBGP estão ligados diretamente (muitas vezes sobre uma ligação WAN). No entanto, quando está a configurar o eBGP sobre os túneis VPN IPsec através do expressRoute Microsoft, existem vários domínios de encaminhamento entre os pares eBGP. Use o comando **ebgp-multihop** para estabelecer a relação de vizinho eBGP entre os dois pares não diretamente ligados. O número inteiro que segue o comando ebgp-multihop especifica o valor TTL nos pacotes BGP. O comando **de vias máximas eibgp 2** permite o equilíbrio de carga do tráfego entre os dois caminhos BGP.
 
-### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>Exemplo Cisco CSR1000
+### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>Exemplo cisco CSR1000
 
-O exemplo seguinte mostra a configuração para Cisco CSR1000 numa máquina virtual Hyper-V como o dispositivo VPN no local:
+O exemplo a seguir mostra a configuração para Cisco CSR1000 numa máquina virtual Hyper-V como o dispositivo VPN no local:
 
 ```
 !
@@ -475,13 +475,13 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. Configure filtragem e firewalls do dispositivo VPN (opcional)
+## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. Filtragem e firewalls do dispositivo VPN configurado (opcional)
 
-Configure a sua firewall e filtrando de acordo com os seus requisitos.
+Configure a sua firewall e a filtragem de acordo com os seus requisitos.
 
 ## <a name="6-test-and-validate-the-ipsec-tunnel"></a><a name="testipsec"></a>6. Testar e validar o túnel IPsec
 
-O estado dos túneis IPsec pode ser verificado na porta de entrada Azure VPN pelos comandos Powershell:
+O estado dos túneis IPsec pode ser verificado no gateway Azure VPN pelos comandos Powershell:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
@@ -519,7 +519,7 @@ LastConnectionEstablishedUtcTime : 11/04/2017 17:03:13
 
 Também pode verificar o estado do túnel no seu dispositivo VPN no local.
 
-Exemplo Cisco CSR1000:
+Exemplo cisco CSR1000:
 
 ```
 show crypto session detail
@@ -571,7 +571,7 @@ Peer: 52.175.253.112 port 4500 fvrf: (none) ivrf: (none)
         Outbound: #pkts enc'ed 477 drop 0 life (KB/Sec) 4607953/437
 ```
 
-O protocolo de linha da Interface do Túnel Virtual (VTI) não muda para "up" até que a fase 2 do IKE esteja concluída. O seguinte comando verifica a associação de segurança:
+O protocolo de linha na Interface do Túnel Virtual (VTI) não muda para "up" até que a fase 2 do IKE esteja concluída. O seguinte comando verifica a associação de segurança:
 
 ```
 csr1#show crypto ikev2 sa
@@ -599,7 +599,7 @@ csr1#show crypto ipsec sa | inc encaps|decaps
 
 ### <a name="verify-end-to-end-connectivity-between-the-inside-network-on-premises-and-the-azure-vnet"></a><a name="verifye2e"></a>Verifique a conectividade de ponta a ponta entre a rede interna no local e o Azure VNet
 
-Se os túneis IPsec estiverem prontos e as rotas estáticas estiverem corretamente definidas, deverá ser capaz de ler o endereço IP do par remoto bGP:
+Se os túneis IPsec estiverem prontos e as rotas estáticas estiverem corretamente definidas, deverá ser capaz de verificar o endereço IP do remoto par BGP:
 
 ```
 csr1#ping 10.2.0.228
@@ -615,9 +615,9 @@ Sending 5, 100-byte ICMP Echos to 10.2.0.229, timeout is 2 seconds:
 Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 ```
 
-### <a name="verify-the-bgp-sessions-over-ipsec"></a><a name="verifybgp"></a>Verifique as sessões de BGP sobre iPsec
+### <a name="verify-the-bgp-sessions-over-ipsec"></a><a name="verifybgp"></a>Verifique as sessões de BGP sobre o IPsec
 
-No gateway Azure VPN, verifique o estado do par bGP:
+No gateway Azure VPN, verifique o estado do par BGP:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
@@ -639,7 +639,7 @@ Para verificar a lista de prefixos de rede recebidos via eBGP a partir do concen
 Get-AzVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
-Na saída de exemplo, o ASN 65010 é o número do sistema autónomo BGP no local vpn.
+No exemplo, o ASN 65010 é o número do sistema autónomo BGP no local de VPN.
 
 ```azurepowershell
 AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
@@ -667,7 +667,7 @@ AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 65010  10.2.0.229   10.0.0.0/24    10.2.0.229 Igp                  0
 ```
 
-Exemplo para o Cisco CSR1000 no local:
+Exemplo para os locais Cisco CSR1000:
 
 ```
 csr1#show ip bgp neighbors 10.2.0.228 routes
@@ -688,7 +688,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 4
 ```
 
-A lista de redes anunciadas desde as instalações cisco CSR1000 até ao gateway Azure VPN pode ser listada utilizando o seguinte comando:
+A lista de redes anunciadas a partir das instalações cisco CSR1000 até ao gateway Azure VPN pode ser listada usando o seguinte comando:
 
 ```
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes
@@ -711,4 +711,4 @@ Total number of prefixes 2
 
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](how-to-npm.md)
 
-* [Adicione uma ligação site-a-site a um VNet com uma conexão de gateway VPN existente](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Adicione uma ligação site-a-local a um VNet com uma ligação de gateway VPN existente](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

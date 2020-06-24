@@ -5,12 +5,12 @@ description: Conheça as limitações conhecidas quando executar piscinas de nó
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 89cfb42da4433f17298cf2cb68f1a4b3d8f9e549
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e03343bc0bf8d2b49d2322573e75fe76cc853e32
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433019"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976613"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó de nó do Windows Server e cargas de trabalho de aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -48,7 +48,7 @@ Os clusters AKS com piscinas de nó Windows devem utilizar o modelo de rede Azur
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso mudar o máximo. De cápsulas por nó?
 
-Yes. Para as implicações e opções disponíveis, consulte [o número máximo de cápsulas.][maximum-number-of-pods]
+Sim. Para as implicações e opções disponíveis, consulte [o número máximo de cápsulas.][maximum-number-of-pods]
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Como remendar os meus nós windows?
 
@@ -101,7 +101,7 @@ O suporte de contas de serviço gerido pelo grupo (gMSA) não está atualmente d
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Posso utilizar o Azure Monitor para recipientes com nós e contentores windows?
 
-Sim, no entanto o Azure Monitor não recolhe registos (stdout) a partir de contentores windows. Pode ainda anexar-se ao fluxo de registos de estase de stdout de um recipiente Windows.
+Sim, no entanto, o Azure Monitor tem um conjunto de [limitações][azure-monitor] para o suporte do Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>E se eu precisar de uma funcionalidade que não seja suportada?
 
@@ -131,3 +131,4 @@ Para começar com os recipientes do Windows Server em AKS, [crie uma piscina de 
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
