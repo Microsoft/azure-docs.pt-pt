@@ -1,75 +1,75 @@
 ---
-title: Utilização do S2S VPN como cópia de segurança para o Azure ExpressRoute Private Peering [ Microsoft Docs
-description: Esta página fornece recomendações arquitetónicas para apoiar o peering privado Azure ExpressRoute com a S2S VPN.
+title: Usando a VPN S2S como backup para a Azure ExpressRoute Private Peering Microsoft Docs
+description: Esta página fornece recomendações arquitetônicas para apoiar o Azure ExpressRoute peering privado com S2S VPN.
 services: networking
 author: rambk
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: a6a22b667bc66d6ee69bfbd7ad1db88f72d8df0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb6ebdcae837216efac5b9333789dee032219251
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687833"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738095"
 ---
-# <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Utilização de VpN S2S como cópia de segurança para o peering privado ExpressRoute
+# <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como uma cópia de segurança para o espreitamento privado ExpressRoute
 
-No artigo intitulado Design para a recuperação de [desastres com o peering privado ExpressRoute,][DR-PP]discutimos a necessidade de uma solução de conectividade de backup para uma conectividade privada ExpressRoute e como usar circuitos geo-redundantes expressRoute para o efeito. Neste artigo, consideremos como alavancar e manter o VPN site-to-site (S2S) como um back para o peering privado ExpressRoute. 
+No artigo intitulado [Designing for disaster recovery with ExpressRoute private peering][DR-PP], discutimos a necessidade de uma solução de conectividade de backup para uma conectividade de observação privada ExpressRoute e como usar circuitos ExpressRoute geo-redundantes para o efeito. Neste artigo, consideremos como alavancar e manter a VPN site-to-site (S2S) como uma parte traseira para o expressRoute private peering. 
 
-Ao contrário dos circuitos geo-redundantes da ExpressRoute, só pode utilizar a combinação de recuperação de desastres ExpressRoute-VPN em modo passivo ativo. Um grande desafio de usar qualquer conectividade de rede de backup no modo passivo é que a ligação passiva muitas vezes falharia ao lado da ligação primária. A razão comum para as falhas da ligação passiva é a falta de manutenção ativa. Portanto, neste artigo vamos focar-nos em como verificar e manter ativamente a conectividade VPN S2S que está a apoiar um peering privado ExpressRoute.
+Ao contrário dos circuitos ExpressRoute geo redundantes, pode utilizar a combinação de recuperação de desastres ExpressRoute-VPN apenas em modo passivo ativo. Um grande desafio de usar qualquer conectividade de rede de backup no modo passivo é que a ligação passiva muitas vezes falharia ao lado da ligação primária. A razão comum para as falhas da ligação passiva é a falta de manutenção ativa. Portanto, neste artigo vamos focar-nos em como verificar e manter ativamente a conectividade VPN S2S que está a apoiar um peering privado ExpressRoute.
 
 >[!NOTE] 
->Quando uma determinada rota é publicitada através da ExpressRoute e VPN, o Azure preferiria o encaminhamento sobre a ExpressRoute.  
+>Quando uma determinada rota é publicitada através do ExpressRoute e da VPN, a Azure preferiria o encaminhamento em vez do ExpressRoute.  
 >
 
-Neste artigo, vamos ver como verificar a conectividade tanto do ponto de vista do Azure como da perspetiva do lado da rede do cliente. A capacidade de validar de qualquer uma das extremidades ajudará independentemente de gerir ou não os dispositivos de rede do lado do cliente que se peer com as entidades da rede Microsoft. 
+Neste artigo, vamos ver como verificar a conectividade tanto do ponto de vista Azure como da perspetiva de borda da rede do lado do cliente. A capacidade de validar a partir de qualquer das extremidades ajudará independentemente de gerir ou não os dispositivos de rede do lado do cliente que estão em pares com as entidades da rede microsoft. 
 
-## <a name="example-topology"></a>Exemplo de topologia
+## <a name="example-topology"></a>Topologia exemplo
 
-Na nossa configuração, temos uma rede no local ligada a um Hub Azure VNet através de um circuito ExpressRoute e uma ligação VPN S2S. O Hub Azure VNet é, por sua vez, espreitado por um VNet falado, como mostra o diagrama abaixo:
+Na nossa configuração, temos uma rede no local ligada a um Hub VNet Azure através de um circuito ExpressRoute e uma ligação S2S VPN. O Azure hub VNet é, por sua vez, espreitado para um VNet falado, como mostrado no diagrama abaixo:
 
 ![1][1]
 
-Na configuração, o circuito ExpressRoute é encerrado num par de routers "Customer Edge" (CE) no local. O LAN no local está ligado aos routers CE através de um par de firewalls que operam em modo de seguidor de líder. A VPN S2S é diretamente terminada nas firewalls.
+Na configuração, o circuito ExpressRoute é encerrado num par de routers "Customer Edge" (CE) nas instalações. O LAN no local está ligado aos routers CE através de um par de firewalls que operam no modo leader-follower. O S2S VPN é diretamente encerrado nas firewalls.
 
-A tabela seguinte enumera os prefixos IP chave da topologia:
+A tabela a seguir lista os prefixos IP chave da topologia:
 
 | **Entidade** | **Prefixo** |
 | --- | --- |
-| No local LAN | 10.1.11.0/25 |
+| Lan no local | 10.1.11.0/25 |
 | Azure Hub VNet | 10.17.11.0/25 |
 | Azure falou VNet | 10.17.11.128/26 |
 | Servidor de teste no local | 10.1.11.10 |
-| VM de teste VNet falado | 10.17.11.132 |
-| Sub-rede de ligação primária ExpressRoute p2p | 192.168.11.16/30 |
-| Sub-rede de ligação secundária ExpressRoute p2p | 192.168.11.20/30 |
-| VPN gateway primária BGP peer IP | 10.17.11.76 |
+| VNet testado em VNet | 10.17.11.132 |
+| Sub-rede p2p de ligação primária ExpressRoute | 192.168.11.16/30 |
+| Sub-rede p2p de ligação secundária ExpressRoute | 192.168.11.20/30 |
+| VPN gateway principal BGP peer IP | 10.17.11.76 |
 | VPN gateway secundário BGP peer IP | 10.17.11.77 |
-| Firewall no local VPN BGP peer IP | 192.168.11.88 |
+| Ip ip peer peer VPN BGP de firewall no local | 192.168.11.88 |
 | Router CE primário i/f em direção ao IP de firewall | 192.168.11.0/31 |
-| Firewall i/f rumo ao router primário CE router IP | 192.168.11.1/31 |
-| Router CE secundário i/f em direção ao IP da firewall | 192.168.11.2/31 |
-| Firewall i/f rumo ao router SECUNDÁRIO CE router IP | 192.168.11.3/31 |
+| Firewall i/f em direção ao IP do router CE primário | 192.168.11.1/31 |
+| Router CE secundário i/f em direção ao IP de firewall | 192.168.11.2/31 |
+| Firewall i/f em direção ao router CE secundário IP | 192.168.11.3/31 |
 
 
-A tabela seguinte lista as ASNs da topologia:
+A tabela que se segue lista as ASNs da topologia:
 
 | **Sistema autónomo** | **ASN** |
 | --- | --- |
-| Local | 65020 |
+| No local | 65020 |
 | Microsoft Enterprise Edge | 12076 |
-| Rede Virtual GW (Exr) | 65515 |
+| Rede Virtual GW (ExR) | 65515 |
 | Rede Virtual GW (VPN) | 65515 |
 
 ## <a name="high-availability-without-asymmetricity"></a>Alta disponibilidade sem assimétrica
 
 ### <a name="configuring-for-high-availability"></a>Configuração para alta disponibilidade
 
-[Configurar as ligações coexistentes ExpressRoute e Site-to-Site][Conf-CoExist] discute como configurar o circuito ExpressRoute coexistente e as ligações VPN S2S. Como discutimos em Design para uma elevada disponibilidade com o [ExpressRoute,][HA]para melhorar a elevada disponibilidade da ExpressRoute, a nossa configuração mantém o despedimento da rede (evita um único ponto de falha) até aos pontos finais. Também as ligações primárias e secundárias dos circuitos ExpressRoute estão configuradas para funcionar em modo activo- ativo, publicitando os prefixos no local da mesma forma através de ambas as ligações. 
+[As ligações de convivência ExpressRoute e Site-to-Site discutem][Conf-CoExist] como configurar as ligações expressRoute coexisting e S2S VPN. Como discutimos em [Design para alta disponibilidade com o ExpressRoute,][HA]para melhorar a alta disponibilidade expressRoute a nossa configuração mantém a redundância de rede (evita um único ponto de falha) até aos pontos finais. Também as ligações primária e secundária dos circuitos ExpressRoute estão configuradas para funcionar em modo ativo, publicitando os prefixos no local da mesma forma através de ambas as ligações. 
 
-O anúncio de rota no local do router CE primário através da ligação primária do circuito ExpressRoute é mostrado abaixo (comandos Junos):
+A publicidade da rota no local do router CE primário através da ligação primária do circuito ExpressRoute é mostrada abaixo (comandos Junos):
 
     user@SEA-MX03-01> show route advertising-protocol bgp 192.168.11.18 
 
@@ -77,7 +77,7 @@ O anúncio de rota no local do router CE primário através da ligação primár
       Prefix                  Nexthop              MED     Lclpref    AS path
     * 10.1.11.0/25            Self                                    I
 
-O anúncio de rota no local do router CE secundário através da ligação secundária do circuito ExpressRoute é mostrado abaixo (comandos Junos):
+A publicidade da rota no local do router CE secundário através da ligação secundária do circuito ExpressRoute é mostrada abaixo (comandos Junos):
 
     user@SEA-MX03-02> show route advertising-protocol bgp 192.168.11.22 
 
@@ -85,11 +85,11 @@ O anúncio de rota no local do router CE secundário através da ligação secun
       Prefix                  Nexthop              MED     Lclpref    AS path
     * 10.1.11.0/25            Self                                    I
 
-Para melhorar a elevada disponibilidade da ligação de backup, o S2S VPN também está configurado no modo ativo. A configuração de gateway Azure VPN é mostrada abaixo. Nota como parte da configuração VPN VPN os endereços IP peer BGP do gateway --10.17.11.76 e 10.17.11.77-- também estão listados.
+Para melhorar a elevada disponibilidade da ligação de backup, o S2S VPN também está configurado no modo ativo. A configuração do gateway Azure VPN é mostrada abaixo. Nota como parte da configuração VPN VPN os endereços IP peer BGP do gateway -- 10.17.11.76 e 10.17.11.77 -- também estão listados.
 
 ![2][2]
 
-A rota no local é anunciada pelas firewalls aos pares bGP primários e secundários da porta de entrada VPN. Os anúncios de rotas são mostrados abaixo (Junos):
+A rota no local é publicitada pelas firewalls aos pares primários e secundários do BGP da porta de entrada VPN. Os anúncios de rota são mostrados abaixo (Junos):
 
     user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
 
@@ -105,16 +105,16 @@ A rota no local é anunciada pelas firewalls aos pares bGP primários e secundá
     * 10.1.11.0/25            Self                                    I
 
 >[!NOTE] 
->Configurar o S2S VPN em modo ativo não só fornece alta disponibilidade para a conectividade da rede de backup de recuperação de desastres, como também fornece uma maior entrada para a conectividade de backup. Por outras palavras, a configuração do S2S VPN em modo ativo ativo é recomendada, uma vez que força a criar vários túneis subjacentes.
+>Configurar o S2S VPN em modo ativo não só fornece alta disponibilidade para a conectividade da rede de backup de recuperação de desastres, como também fornece uma maior produção para a conectividade de backup. Por outras palavras, recomenda-se a configuração da VPN S2S em modo ativo, uma vez que força a criar múltiplos túneis subjacentes.
 >
 
-### <a name="configuring-for-symmetric-traffic-flow"></a>Configuração para fluxo de tráfego simétrico
+### <a name="configuring-for-symmetric-traffic-flow"></a>Configuração para o fluxo de tráfego simétrico
 
-Notamos que quando uma determinada rota no local é publicitada através da ExpressRoute e da S2S VPN, o Azure preferiria o caminho ExpressRoute. Para forçar o Azure a preferir o caminho S2S VPN sobre a Rota Expresso coexistente, é necessário anunciar rotas mais específicas (prefixo mais longo com máscara de sub-rede maior) através da ligação VPN. O nosso objetivo aqui é usar as ligações VPN apenas de volta. Então, o comportamento de seleção de caminhos padrão do Azure está em linha com o nosso objetivo. 
+Notamos que quando uma determinada rota no local é publicitada através do ExpressRoute e da S2S VPN, a Azure preferiria o caminho ExpressRoute. Para forçar o Azure a preferir o caminho VPN S2S sobre o ExpressRoute coexistindo, é necessário anunciar rotas mais específicas (prefixo mais longo com máscara de sub-rede maior) através da ligação VPN. O nosso objetivo aqui é usar as ligações VPN apenas como costas. Assim, o comportamento de seleção de caminhos padrão de Azure está em consonância com o nosso objetivo. 
 
-É nossa responsabilidade garantir que o tráfego destinado a Azure a partir do local também prefere o caminho ExpressRoute em vez do S2S VPN. A preferência local padrão dos routers CE e firewalls na nossa configuração no local é de 100. Assim, configurando a preferência local das rotas recebidas através dos pares privados ExpressRoute superiores a 100 (digamos 150), podemos fazer o tráfego destinado ao Circuito ExpressRoute preferir o circuito ExpressRoute em estado estável.
+É nossa responsabilidade garantir que o tráfego destinado a Azure a partir do local também prefira o caminho ExpressRoute em vez da VPN S2S. A preferência local padrão dos routers ce e firewalls na nossa configuração no local é de 100. Assim, ao configurar a preferência local das rotas recebidas através dos espreitadores privados ExpressRoute superiores a 100 (digamos 150), podemos fazer com que o tráfego destinado a Azure prefira o circuito ExpressRoute no estado estável.
 
-A configuração BGP do router CE primário que termina a ligação primária do circuito ExpressRoute é mostrada abaixo. Note que o valor da preferência local das rotas anunciadas durante a sessão do IBGP está configurado para ser de 150. Da mesma forma, precisamos garantir que a preferência local do router CE secundário que termina a ligação secundária do circuito ExpressRoute também é configurada como 150.
+A configuração BGP do router CE primário que termina a ligação primária do circuito ExpressRoute é mostrada abaixo. Note-se que o valor da preferência local das rotas anunciadas durante a sessão iBGP está configurado para 150. Da mesma forma, precisamos garantir que a preferência local do router CE secundário que termina a ligação secundária do circuito ExpressRoute também está configurada para ser de 150.
 
     user@SEA-MX03-01> show configuration routing-instances Cust11 
     description "Customer 11 VRF";
@@ -139,7 +139,7 @@ A configuração BGP do router CE primário que termina a ligação primária do
       }
     }
 
-A tabela de encaminhamento das firewalls no local confirma (mostrado abaixo) que para o tráfego no local que se destina a Azure o caminho preferido é sobre a ExpressRoute em estado constante.
+A tabela de encaminhamento das firewalls no local confirma (mostrada abaixo) que para o tráfego no local que está destinado a Azure o caminho preferido é sobre ExpressRoute no estado estável.
 
     user@SEA-SRX42-01> show route table Cust11.inet.0 10.17.11.0/24    
 
@@ -177,11 +177,11 @@ A tabela de encaminhamento das firewalls no local confirma (mostrado abaixo) que
                           AS path: 65515 I, validation-state: unverified
                         > via st0.119
 
-Na tabela de rotas acima, para o hub e as rotas vNet faladas -- 10.17.11.0/25 e 10.17.11.128/26 -- vemos que o circuito ExpressRoute é preferido em relação às ligações VPN. Os 192.168.11.0 e 192.168.11.2 são IPs na interface de firewall em direção aos routers CE.
+Na tabela de rotas acima, para o hub e as rotas VNet faladas---10.17.11.0/25 e 10.17.11.128/26 -- vemos que o circuito ExpressRoute é preferido sobre as ligações VPN. Os 192.168.11.0 e 192.168.11.2 são IPs na interface de firewall em direção aos routers CE.
 
-## <a name="validation-of-route-exchange-over-s2s-vpn"></a>Validação da troca de rotas através do S2S VPN
+## <a name="validation-of-route-exchange-over-s2s-vpn"></a>Validação da permuta de rotas sobre a VPN S2S
 
-No início deste artigo, verificámos no local a publicidade de rota das firewalls para os pares primários e secundários do BGP da porta de entrada VPN. Além disso, vamos confirmar as rotas Azure recebidas pelas firewalls dos pares bGP primários e secundários da porta de entrada VPN.
+No início deste artigo, verificámos no local a publicidade das firewalls aos pares primários e secundários do BGP da porta de entrada VPN. Além disso, vamos confirmar as rotas Azure recebidas pelas firewalls dos pares primários e secundários do BGP da porta de entrada VPN.
 
     user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.76 table Cust11.inet.0 
 
@@ -198,7 +198,7 @@ No início deste artigo, verificámos no local a publicidade de rota das firewal
       10.17.11.0/25           10.17.11.77                             65515 I
       10.17.11.128/26         10.17.11.77                             65515 I
 
-Da mesma forma, vamos verificar se estão as prefixações da rota da rede no local recebidas pelo gateway Azure VPN. 
+Da mesma forma, vamos verificar os prefixos da rota de rede no local recebidos pelo gateway Azure VPN. 
 
     PS C:\Users\user> Get-AzVirtualNetworkGatewayLearnedRoute -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn | where {$_.Network -eq "10.1.11.0/25"} | select Network, NextHop, AsPath, Weight
 
@@ -213,9 +213,9 @@ Da mesma forma, vamos verificar se estão as prefixações da rota da rede no lo
     10.1.11.0/25 10.17.11.69   12076-65020  32769
     10.1.11.0/25 10.17.11.69   12076-65020  32769
 
-Como visto acima, o gateway VPN tem rotas recebidas tanto pelos pares primários como secundários do BGP gateway. Tem também visibilidade sobre as rotas recebidas através de ligações primárias e secundárias do ExpressRoute (as que têm percurso as-caminho preparado com 12076). Para confirmar as rotas recebidas através de ligações VPN, precisamos de conhecer o IP de pares bGP no local das ligações. Na nossa configuração em análise, é 192.168.11.88 e vemos as rotas recebidas dela.
+Como visto acima, o gateway VPN tem rotas recebidas tanto pelos pares primários e secundários do BGP da porta de entrada VPN. Tem também visibilidade sobre as rotas recebidas através de ligações expressRoute primárias e secundárias (as que têm percurso AS pré-terminada com 12076). Para confirmar as rotas recebidas através de ligações VPN, precisamos de conhecer o IP de pares BGP no local das ligações. Na nossa configuração em consideração, é 192.168.11.88 e vemos as rotas recebidas dela.
 
-Em seguida, vamos verificar as rotas anunciadas pela porta de entrada Azure VPN para o firewall bGP peer no local (192.168.11.88).
+Em seguida, vamos verificar as rotas anunciadas pela porta de entrada Azure VPN para o firewall BGP peer no local (192.168.11.88).
 
     PS C:\Users\user> Get-AzVirtualNetworkGatewayAdvertisedRoute -Peer 192.168.11.88 -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn |  select Network, NextHop, AsPath, Weight
 
@@ -227,17 +227,17 @@ Em seguida, vamos verificar as rotas anunciadas pela porta de entrada Azure VPN 
     10.17.11.128/26 10.17.11.77 65515       0
 
 
-A não ver as trocas de rotas indica falha de ligação. Ver [Resolução de Problemas: Uma ligação VPN de site-para-local azure não pode ligar e para][VPN Troubleshoot] de trabalhar para ajudar na resolução de problemas da ligação VPN.
+A falta de ver trocas de rotas indica falha de ligação. Ver [Resolução de Problemas: Uma ligação VPN local-a-local não pode ligar-se e deixa de trabalhar][VPN Troubleshoot] para ajudar na resolução de problemas da ligação VPN.
 
-## <a name="testing-failover"></a>Falha de teste
+## <a name="testing-failover"></a>Teste de failover
 
-Agora que confirmamos trocas de rotas bem sucedidas sobre a ligação VPN (plano de controlo), estamos prontos para mudar o tráfego (data plane) da conectividade ExpressRoute para a conectividade VPN. 
+Agora que confirmamos trocas de rotas bem sucedidas sobre a ligação VPN (avião de controlo), estamos prontos para mudar o tráfego (plano de dados) da conectividade ExpressRoute para a conectividade VPN. 
 
 >[!NOTE] 
->Nos ambientes de produção, os testes de failover têm de ser feitos durante a janela de trabalho de manutenção de rede programada, uma vez que pode ser disruptivo pelo serviço.
+>Nos ambientes de produção, os testes de failover têm de ser feitos durante a janela de trabalho de manutenção da rede programada, uma vez que pode ser perturbador do serviço.
 >
 
-Antes de fazer o interruptor de tráfego, vamos rastrear o caminho atual na nossa configuração desde o servidor de teste no local até ao VM de teste no VNet falado.
+Antes de fazer o interruptor de tráfego, vamos traçar o caminho atual na nossa configuração do servidor de teste no local para o VM de teste no VNet falado.
 
     C:\Users\PathLabUser>tracert 10.17.11.132
 
@@ -251,15 +251,15 @@ Antes de fazer o interruptor de tráfego, vamos rastrear o caminho atual na noss
 
     Trace complete.
 
-As subredes de ligação ponto a ponto da via expressa primária e secundária da nossa configuração são, respectivamente, 192.168.11.16.16/30 e 192.168.11.20/30. Na rota de rastreio acima, no passo 3 vemos que estamos a atingir 192.168.11.18, que é a interface IP do MSEE primário. A presença da interface MSEE confirma que, como esperado, o nosso percurso atual é sobre a Rota Expresso.
+As subestanets de ligação ponto a ponto da nossa configuração expressRoute primárias são, respectivamente, 192.168.11.16/30 e 192.168.11.20/30. Na rota de rastreio acima, no passo 3 vemos que estamos a atingir 192.168.11.18, que é a interface IP do MSEE primário. A presença da interface MSEE confirma que, como esperado, o nosso caminho atual é sobre o ExpressRoute.
 
-Como relatado nos pares do [circuito Reset ExpressRoute,][RST]vamos usar os seguintes comandos powershell para desativar tanto o epeering primário como secundário do circuito ExpressRoute.
+Conforme relatado no [circuito Reset ExpressRoute,][RST]vamos utilizar os seguintes comandos de powershell para desativar o espreguiçadamento primário e secundário do circuito ExpressRoute.
 
     $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
     $ckt.Peerings[0].State = "Disabled"
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-O tempo de transição depende do tempo de convergência do BGP. Na nossa configuração, o interruptor failover demora alguns segundos (menos de 10). Após o interruptor, a repetição da rota de rastreio mostra o seguinte caminho:
+O tempo de comutação de falha depende do tempo de convergência do BGP. Na nossa configuração, o interruptor de falha demora alguns segundos (menos de 10). Após o interruptor, a repetição do percurso mostra o seguinte caminho:
 
     C:\Users\PathLabUser>tracert 10.17.11.132
 
@@ -271,21 +271,21 @@ O tempo de transição depende do tempo de convergência do BGP. Na nossa config
 
     Trace complete.
 
-O resultado da rota de rastreio confirma que a ligação de backup via S2S VPN está ativa e pode fornecer continuidade de serviço se as ligações primárias e secundárias da ExpressRoute falharem. Para completar os testes de failover, vamos ativar as ligações ExpressRoute de volta e normalizar o fluxo de tráfego, utilizando o seguinte conjunto de comandos.
+O resultado do traceroute confirma que a ligação de backup via S2S VPN está ativa e pode fornecer continuidade de serviço se as ligações ExpressRoute primárias e secundárias falharem. Para completar os testes de failover, vamos ativar as ligações ExpressRoute para trás e normalizar o fluxo de tráfego, utilizando o seguinte conjunto de comandos.
 
     $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
     $ckt.Peerings[0].State = "Enabled"
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Para confirmar que o tráfego é reencaminhado para a ExpressRoute, repita a rota de rastreio e certifique-se de que está a passar pelo desvio privado expressRoute.
+Para confirmar que o tráfego é recíproca para ExpressRoute, repita o percurso e certifique-se de que está a passar pelo espreitamento privado ExpressRoute.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O ExpressRoute foi concebido para uma elevada disponibilidade sem um único ponto de falha dentro da rede Microsoft. Ainda assim, um circuito ExpressRoute está confinado a uma única região geográfica e a um prestador de serviços. S2S VPN pode ser uma boa solução passiva de recuperação de desastres para um circuito ExpressRoute. Para uma solução de ligação passiva de reserva fiável, a manutenção regular da configuração passiva e validação periódica a ligação é importante. É essencial não deixar a configuração VPN ficar velha, e repetir periodicamente (digamos cada trimestre) as etapas de validação e failover descritas neste artigo durante a janela de manutenção.
+O ExpressRoute foi concebido para uma elevada disponibilidade sem um único ponto de falha dentro da rede microsoft. Ainda um circuito ExpressRoute está confinado a uma única região geográfica e a um prestador de serviços. A S2S VPN pode ser uma boa solução de backup passiva de recuperação de desastres para um circuito ExpressRoute. Para uma solução de ligação de backup passiva fiável, a manutenção regular da configuração passiva e a validação periódica da ligação são importantes. É essencial não deixar que a configuração VPN fique velha e, periodicamente (digamos, cada trimestre) repita os passos de teste de validação e failover descritos neste artigo durante a janela de manutenção.
 
-Para ativar a monitorização e alertas com base nas métricas de gateway VPN, consulte [Os alertas de configuração nas métricas VPN Gateway][VPN-alerts].
+Para ativar a monitorização e alertas com base nas métricas de gateway VPN, consulte [Configurar alertas nas métricas VPN Gateway][VPN-alerts].
 
-Para acelerar a convergência do BGP na sequência de uma falha expressRoute, [configure BFD sobre ExpressRoute][BFD].
+Para acelerar a convergência do BGP na sequência de uma falha expressRoute, [configure o BFD sobre o ExpressRoute][BFD].
 
 <!--Image References-->
 [1]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/topology.png "topologia em consideração"

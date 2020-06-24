@@ -5,15 +5,15 @@ description: Criar ou modificar um persco de Troca com servidor de rota utilizan
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 004479d7aa3ec46da4790c0d8dfa698c6d9fb986
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249495"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700673"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Criar ou modificar um persco de troca com servidor de rota no portal Azure
 

@@ -3,12 +3,12 @@ title: Introdução ao Azure Advisor
 description: Começa com o Conselheiro Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: f40aa9d3177f251787d60f3087c5f85b6d982b6e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509122"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117867"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -27,7 +27,7 @@ Saiba como aceder ao Advisor através do portal Azure, obter recomendações e i
 
 1. O dashboard do Assistente apresentará um resumo das suas recomendações para todas as subscrições selecionadas.  Pode escolher as subscrições para as quais pretende que sejam apresentadas recomendações para utilizar a lista pendente de filtros de subscrições.
 
-1. Para obter recomendações para uma categoria específica, clique num dos separadores: **Alta Disponibilidade,** **Segurança,** **Desempenho**ou **Custo**. 
+1. Para obter recomendações para uma categoria específica, clique num dos separadores: **Fiabilidade,** **Segurança,** **Desempenho**ou **Custo**. 
 
    ![Painel de instrumentos Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -124,7 +124,8 @@ A opção de descarregamento respeita quaisquer filtros que tenha aplicado no pa
 Para saber mais sobre o Conselheiro, consulte:
 
 - [Introdução ao Conselheiro Azure](advisor-overview.md)
-- [Recomendações de Alta Disponibilidade do Conselheiro](advisor-high-availability-recommendations.md)
+- [Recomendações de fiabilidade do conselheiro](advisor-high-availability-recommendations.md)
 - [Recomendações de Segurança do Conselheiro](advisor-security-recommendations.md)
 - [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)
 - [Recomendações de Custos Do Consultor](advisor-cost-recommendations.md)
+- [Recomendações de Excelência Operacional Do Consultor](advisor-operational-excellence-recommendations.md)

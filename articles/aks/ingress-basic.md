@@ -1,47 +1,47 @@
 ---
-title: Criar um controlador de ingresso
+title: Criar um controlador de entrada
 titleSuffix: Azure Kubernetes Service
-description: Aprenda a instalar e configurar um controlador de ingresso NGINX básico num cluster do Serviço Azure Kubernetes (AKS).
+description: Aprenda a instalar e configurar um controlador básico de entrada NGINX num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: e5b3d1c94de8406c12222eea59beafd7277d646d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 049df92fcbc6126516fef5cf463b1485b1d19b0d
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561969"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945550"
 ---
-# <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso no Serviço Azure Kubernetes (AKS)
+# <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no Serviço Azure Kubernetes (AKS)
 
-Um controlador de ingresso é uma peça de software que fornece procuração inversa, encaminhamento de tráfego configurável e rescisão de TLS para os serviços kubernetes. Os recursos de ingresso kubernetes são usados para configurar as regras e rotas de ingresso para serviços kubernetes individuais. Utilizando um controlador de ingresso e regras de ingresso, um único endereço IP pode ser usado para direcionar o tráfego para vários serviços em um cluster Kubernetes.
+Um controlador de entrada é uma peça de software que fornece procuração inversa, encaminhamento de tráfego configurável e rescisão de TLS para serviços Kubernetes. Os recursos de entrada de Kubernetes são usados para configurar as regras e rotas de entrada para serviços individuais de Kubernetes. Utilizando um controlador de entrada e regras de entrada, um único endereço IP pode ser usado para encaminhar o tráfego para vários serviços num cluster kubernetes.
 
-Este artigo mostra-lhe como implantar o [controlador de ingresso NGINX][nginx-ingress] num cluster do Serviço Azure Kubernetes (AKS). Duas aplicações são então executadas no cluster AKS, cada uma das quais é acessível ao longo do endereço IP único.
+Este artigo mostra-lhe como implantar o [controlador de entrada NGINX][nginx-ingress] num cluster Azure Kubernetes Service (AKS). Duas aplicações são então executadas no cluster AKS, cada uma das quais está acessível sobre o único endereço IP.
 
 Também pode:
 
-- [Ativar o add-on de encaminhamento de aplicações HTTP][aks-http-app-routing]
-- [Criar um controlador de ingresso que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
-- [Crie um controlador de ingresso que utilize os seus próprios certificados TLS][aks-ingress-own-tls]
-- Crie um controlador de ingresso que utilize Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
+- [Ativar o addon de encaminhamento de aplicações HTTP][aks-http-app-routing]
+- [Crie um controlador ingress que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
+- [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
+- Crie um controlador ingress que utilize o Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo utiliza o [Helm 3][helm] para instalar o controlador de entrada NGINX.
+Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX.
 
 Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
-## <a name="create-an-ingress-controller"></a>Criar um controlador de ingresso
+## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
-Para criar o controlador de ingresso, utilize o Helm para instalar *a nginx-ingress.* Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
+Para criar o controlador de entrada, utilize o Helm para instalar *a entrada de nginx*. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
 
 O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
-> O exemplo seguinte cria um espaço de nome Kubernetes para os recursos de ingresso *denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.
+> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.
 
 > [!TIP]
-> Se quiser ativar a [preservação ip][client-source-ip] de origem do cliente `--set controller.service.externalTrafficPolicy=Local` para pedidos de contentores no seu cluster, adicione ao comando de instalação helm. O IP de origem do cliente é armazenado no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de ingresso com a preservação IP de origem do cliente ativada, a passagem do SSL não funcionará.
+> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, a passagem SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -58,7 +58,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Quando o serviço de equilíbrio de carga Kubernetes é criado para o controlador de entrada NGINX, é atribuído um endereço IP público dinâmico, como mostra a seguinte saída exemplo:
+Quando o serviço de balançador de carga Kubernetes é criado para o controlador de entrada NGINX, é atribuído um endereço IP público dinâmico, como mostra a saída do exemplo seguinte:
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -68,11 +68,11 @@ nginx-ingress-controller         LoadBalancer   10.0.61.144    EXTERNAL_IP   80:
 nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/TCP                       6m2s
 ```
 
-Ainda não foram criadas regras de ingresso, pelo que a página padrão 404 do controlador de ingresso NGINX é exibida se navegar para o endereço IP interno. As regras de ingresso estão configuradas nos seguintes passos.
+Ainda não foram criadas regras de entrada, pelo que a página padrão 404 do controlador NGINX é apresentada se navegar para o endereço IP interno. As regras de ingress são configuradas nos seguintes passos.
 
 ## <a name="run-demo-applications"></a>Executar aplicações de demonstração
 
-Para ver o controlador de ingresso em ação, execute duas aplicações de demonstração no seu cluster AKS. Neste exemplo, você `kubectl apply` usa para implementar duas instâncias de uma aplicação simples *do mundo Hello.*
+Para ver o controlador de entrada em ação, execute duas aplicações de demonstração no seu cluster AKS. Neste exemplo, você usa `kubectl apply` para implementar dois casos de uma simples aplicação *Hello world.*
 
 Crie um ficheiro *aks-helloworld-one.yaml* e copie no seguinte exemplo YAML:
 
@@ -80,7 +80,7 @@ Crie um ficheiro *aks-helloworld-one.yaml* e copie no seguinte exemplo YAML:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
@@ -103,7 +103,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
@@ -118,7 +118,7 @@ Crie um ficheiro *aks-helloworld-two.yaml* e copie no seguinte exemplo YAML:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   replicas: 1
   selector:
@@ -141,7 +141,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   type: ClusterIP
   ports:
@@ -150,27 +150,26 @@ spec:
     app: aks-helloworld-two
 ```
 
-Executar as duas aplicações `kubectl apply`de demonstração usando:
+Executar as duas aplicações de demonstração `kubectl apply` utilizando:
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
 kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 ```
 
-## <a name="create-an-ingress-route"></a>Criar uma rota de ingresso
+## <a name="create-an-ingress-route"></a>Criar uma rota de entrada
 
-Ambas as aplicações estão agora a funcionar no seu cluster Kubernetes. Para encaminhar o tráfego para cada aplicação, crie um recurso de entrada Kubernetes. O recurso de ingresso configura as regras que encaminham o tráfego para uma das duas aplicações.
+Ambas as aplicações estão agora a ser em execução no seu cluster Kubernetes. Para encaminhar o tráfego para cada aplicação, crie um recurso de entrada kubernetes. O recurso ingressa configura as regras que encaminham o tráfego para uma das duas aplicações.
 
-No exemplo seguinte, o tráfego para *EXTERNAL_IP* `aks-helloworld-one`é encaminhado para o serviço denominado . O tráfego para *EXTERNAL_IP/olá-mundo-dois* `aks-helloworld-two` é encaminhado para o serviço. O tráfego para *EXTERNAL_IP/estática* é `aks-helloworld-one` encaminhado para o serviço nomeado para ativos estáticos.
+No exemplo seguinte, o tráfego para *EXTERNAL_IP* é encaminhado para o serviço denominado `aks-helloworld-one` . O tráfego para *EXTERNAL_IP/olá-mundo-dois* é encaminhado para o `aks-helloworld-two` serviço. O tráfego para *EXTERNAL_IP/estática* é encaminhado para o serviço nomeado `aks-helloworld-one` para ativos estáticos.
 
-Crie um `hello-world-ingress.yaml` ficheiro nomeado e copie no seguinte exemplo YAML.
+Crie um ficheiro nomeado `hello-world-ingress.yaml` e copie no seguinte exemplo YAML.
 
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
-  namespace: ingress-basic
+  name: hello-world-ingress  
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -207,7 +206,7 @@ spec:
         path: /static(/|$)(.*)
 ```
 
-Crie o recurso `kubectl apply -f hello-world-ingress.yaml` de entrada utilizando o comando.
+Crie o recurso de entrada utilizando o `kubectl apply -f hello-world-ingress.yaml` comando.
 
 ```
 $ kubectl apply -f hello-world-ingress.yaml
@@ -216,23 +215,23 @@ ingress.extensions/hello-world-ingress created
 ingress.extensions/hello-world-ingress-static created
 ```
 
-## <a name="test-the-ingress-controller"></a>Teste o controlador de ingresso
+## <a name="test-the-ingress-controller"></a>Teste o controlador de entrada
 
-Para testar as rotas para o controlador de ingresso, navegue para as duas aplicações. Abra um navegador web para o endereço IP do seu controlador de entrada NGINX, como *EXTERNAL_IP*. A primeira aplicação de demonstração é exibida no navegador web, como mostra o exemplo seguinte:
+Para testar as rotas do controlador de entrada, navegue pelas duas aplicações. Abra um navegador web para o endereço IP do seu controlador de entrada NGINX, como *EXTERNAL_IP*. A primeira aplicação de demonstração é apresentada no navegador web, como mostra o exemplo seguinte:
 
-![Primeira aplicação a correr atrás do controlador de ingresso](media/ingress-basic/app-one.png)
+![Primeira aplicação a correr atrás do controlador de entrada](media/ingress-basic/app-one.png)
 
-Adicione agora o caminho */hello-world-two* para o endereço IP, como *EXTERNAL_IP/hello-world-two*. A segunda aplicação de demonstração com o título personalizado é exibida:
+Adicione agora o caminho */olá-mundo-dois* ao endereço IP, como *EXTERNAL_IP/olá-mundo-dois*. É apresentada a segunda aplicação de demonstração com o título personalizado:
 
-![Segunda aplicação a correr atrás do controlador de ingresso](media/ingress-basic/app-two.png)
+![Segunda aplicação a correr atrás do controlador de entrada](media/ingress-basic/app-two.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Este artigo usou o Helm para instalar os componentes de ingresso e aplicações de amostragem. Quando se implanta um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
+Este artigo usou o Helm para instalar os componentes de entrada e as aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminar o espaço de nome da amostra e todos os recursos
 
-Para eliminar todo o espaço `kubectl delete` de nome da amostra, utilize o comando e especifique o nome do seu espaço de nome. Todos os recursos no espaço de nome são eliminados.
+Para eliminar todo o espaço de nome da amostra, use o `kubectl delete` comando e especifique o nome do seu nome de espaço. Todos os recursos no espaço de nomes são eliminados.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -240,7 +239,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Eliminar recursos individualmente
 
-Em alternativa, uma abordagem mais granular é eliminar os recursos individuais criados. Lista o Helm liberta `helm list` com o comando. Procure gráficos *chamados nginx-ingress* e *aks-helloworld,* como mostra a seguinte saída exemplo:
+Em alternativa, uma abordagem mais granular consiste em eliminar os recursos individuais criados. Lista os lançamentos do Leme com o `helm list` comando. Procure gráficos *nomeados nginx-ingress* e *aks-helloworld,* como mostrado na saída do exemplo seguinte:
 
 ```
 $ helm list --namespace ingress-basic
@@ -249,7 +248,7 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-Desinstale as `helm uninstall` versões com o comando. O exemplo seguinte desinstala a implementação de ingresso NGINX.
+Desinstale os desbloqueios com o `helm uninstall` comando. O exemplo a seguir desinstala a implantação de entrada NGINX.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic
@@ -264,13 +263,13 @@ kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
 kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
 ```
 
-Remova a rota de ingresso que direcionou o tráfego para as aplicações da amostra:
+Remova a rota de entrada que direcionou o tráfego para as aplicações da amostra:
 
 ```console
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Finalmente, pode eliminar o espaço de nome si mesmo. Utilize `kubectl delete` o comando e especifique o nome do seu espaço de nome:
+Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` comando e especifique o nome do seu nome de espaço de nome:
 
 ```console
 kubectl delete namespace ingress-basic
@@ -278,17 +277,17 @@ kubectl delete namespace ingress-basic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo incluía alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
+Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 
 - [Helm CLI][helm-cli]
-- [Controlador de ingresso NGINX][nginx-ingress]
+- [Controlador de entrada NGINX][nginx-ingress]
 
 Também pode:
 
-- [Ativar o add-on de encaminhamento de aplicações HTTP][aks-http-app-routing]
-- [Criar um controlador de ingresso que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
-- [Crie um controlador de ingresso que utilize os seus próprios certificados TLS][aks-ingress-own-tls]
-- Crie um controlador de ingresso que utilize Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
+- [Ativar o addon de encaminhamento de aplicações HTTP][aks-http-app-routing]
+- [Crie um controlador ingress que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
+- [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
+- Crie um controlador ingress que utilize o Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/

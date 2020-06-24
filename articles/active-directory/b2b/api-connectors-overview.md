@@ -1,32 +1,30 @@
 ---
-title: Gerir conectores API em fluxos de inscrição de autosserviço
-description: Utilize conectores API para personalizar e alargar os fluxos de utilizador de inscrição de autosserviço
+title: Sobre conectores API em fluxos de inscrição de autosserviço - Azure AD
+description: Utilize conectores API Azure Ative (Azure AD) para personalizar e alargar os fluxos de utilizador de inscrição de autosserviço utilizando APIs web.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bb22f5f6c15e326bed2524fbc541cbdec26a70
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1c5e546c6eac77c4952a0d32d360f49d4251d49d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680162"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905182"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Utilize conectores API para personalizar e prolongar o autosserviço de inscrição 
 
 ## <a name="overview"></a>Descrição geral 
 Como desenvolvedor ou administrador de TI, pode utilizar conectores API para integrar os [fluxos de utilizador de inscrição de autosserviço](self-service-sign-up-overview.md) com sistemas externos, alavancando as APIs web. Por exemplo, pode utilizar conectores API para:
 
-- [**Integre-se com fluxos de trabalho de aprovação personalizados.**](self-service-sign-up-add-approvals.md) Conecte-se a um sistema de aprovação personalizado para gerir a criação de conta.
-<!-- - [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions. -->
-- **Realizar a prova de identidade**. Utilize um serviço de verificação e verificação de identidade para adicionar um nível extra de segurança às decisões de criação de conta.
+- [**Integre-se com um fluxo de trabalho de aprovação personalizado.**](self-service-sign-up-add-approvals.md) Conecte-se a um sistema de aprovação personalizado para gerir a criação de conta.
+- [**Realizar verificação de identidade**](code-samples-self-service-sign-up.md#identity-verification). Utilize um serviço de verificação de identidade para adicionar um nível extra de segurança às decisões de criação de conta.
 - **Validar os dados de entrada do utilizador.** Validar contra dados de utilizador mal formados ou inválidos. Por exemplo, pode validar os dados fornecidos pelo utilizador com os dados existentes numa loja de dados externos ou lista de valores permitidos. Se for inválido, pode solicitar a um utilizador que forneça dados válidos ou impeça o utilizador de continuar o fluxo de inscrição.
 - **Sobrepor os atributos do utilizador**. Reformat ou atribuir um valor a um atributo recolhido do utilizador. Por exemplo, se um utilizador introduzir o primeiro nome em todas as letras maiúsculas ou maiúsculas, pode formatar o nome apenas com a primeira letra capitalizada. 
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
@@ -56,18 +54,12 @@ Um conector API neste passo no processo de inscrição é invocado após a pági
 
 - Valide os dados de entrada do utilizador e peça a um utilizador que reenvia os dados.
 - Bloqueie uma inscrição de utilizador com base nos dados introduzidos pelo utilizador.
-- Faça a prova de identidade.
+- Realizar verificação de identidade.
 - Consultar os sistemas externos para que os dados existentes sobre o utilizador o devolvam no token da aplicação ou os armazenem em Azure AD.
 
 <!-- > [!IMPORTANT]
 > If an invalid response is returned or another error occurs (for example, a network error), the user will be redirected to the app with the error re -->
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
-
-### <a name="how-do-i-integrate-with-an-existing-api-endpoint"></a>Como me integro com um ponto final da API existente?
-Pode utilizar um [gatilho HTTP em Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) como uma forma simples de ligar e invocar outras APIs web.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [adicionar um conector API a um fluxo de utilizador](self-service-sign-up-add-api-connector.md)
 - Saiba como [adicionar um sistema de aprovação personalizado à inscrição de self-service](self-service-sign-up-add-approvals.md)
-<!--#TODO: Make doc, link.-->

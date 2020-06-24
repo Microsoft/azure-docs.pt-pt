@@ -5,17 +5,17 @@ description: Uma vez que um serviço de machine learning é implantado a partir 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
-ms.openlocfilehash: c34e0a82858ad588e93bd2aae42943fa2900d7b7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556703"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696631"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um Azure Machine Learning Studio (clássico) serviço web
 
@@ -296,7 +296,7 @@ printHttpResult(response, result)
 
 ### <a name="javascript-sample"></a>Amostra javaScript
 
-Para se conectar a um Serviço Web machine learning, utilize o pacote npm **pedido** no seu projeto. Também utilizará o `JSON` objeto para formatar a sua entrada e analisar o resultado. Instale-o utilizando `npm install request --save` , ou adicione ao seu `"request": "*"` pacote.json e `dependencies` corra `npm install` .
+Para se conectar a um Serviço Web machine learning, utilize o pacote npm **pedido** no seu projeto. Também utilizará o `JSON` objeto para formatar a sua entrada e analisar o resultado. Instale-o utilizando `npm install request --save` , ou adicione ao seu package.jsem baixo e executado `"request": "*"` `dependencies` `npm install` .
 
 **Aqui está o que um pedido completo vai parecer.**
 ```js

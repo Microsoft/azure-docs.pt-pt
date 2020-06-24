@@ -4,15 +4,15 @@ description: Descreve como resolver problemas de saúde para a Azure Application
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 626f52aa8a14cd16d36bef8930cfb75654ef3f32
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628788"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808181"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de saúde na resolução de problemas de saúde no Gateway de Aplicação
 ==================================================
@@ -395,7 +395,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 1.  Para verificar se o Gateway de Aplicação está saudável e em funcionamento, vá à opção **Saúde de Recursos** no portal e verifique se o estado é **saudável.** Se vir um estado **insalubre** ou **degradado,** [contacte o suporte](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>Próximos passos
+<a name="next-steps"></a>Passos seguintes
 ----------
 
 Saiba mais sobre [diagnósticos e registos de gateway de aplicações.](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)

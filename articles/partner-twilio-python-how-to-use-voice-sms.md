@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: tracking-python
-ms.openlocfilehash: 4722e8adadf59f8a4ad7b36a73fad5a6cff3370f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3b5c48053f7015e2bd46045d376cde27ca07d4a7
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560884"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907045"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar twilio para capacidades de voz e SMS em Python
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [Etapas Seguintes.](#NextSteps)
@@ -62,10 +62,12 @@ TwiML é um conjunto de instruções baseadas em XML com base nos verbos Twilio 
 
 Como exemplo, o seguinte TwiML converteria o texto **Hello World** em discurso.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-      <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+  <Response>
+    <Say>Hello World</Say>
+  </Response>
+```
 
 Quando a sua aplicação chama a API Twilio, um dos parâmetros da API é o URL que devolve a resposta TwiML. Para fins de desenvolvimento, pode utilizar URLs fornecidos pela Twilio para fornecer as respostas TwiML utilizadas pelas suas aplicações. Também pode hospedar os seus próprios URLs para produzir as respostas TwiML, e outra opção é usar o `TwiMLResponse` objeto.
 
@@ -100,17 +102,17 @@ Pode configurar a sua aplicação para utilizar a biblioteca Twilio para Python 
 
 * Instale a biblioteca Twilio para Python como um pacote Pip. Pode ser instalado com os seguintes comandos:
    
-        $ pip install twilio
+  `$ pip install twilio`
 
     -OU-
 
 * Descarregue a biblioteca Twilio para Python do GitHub e [https://github.com/twilio/twilio-python][twilio_python] instale-a desta forma:
 
-        $ python setup.py install
+  `$ python setup.py install`
 
 Uma vez instalada a biblioteca Twilio para Python, pode então `import` nos seus ficheiros Python:
 
-        import twilio
+  `import twilio`
 
 Para mais informações, consulte [twilio_github_readme.](https://github.com/twilio/twilio-python/blob/master/README.md)
 

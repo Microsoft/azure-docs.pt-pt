@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 4df537e8cce51cc7358784fc72ef8ae077614df7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344565"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255318"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicione uma Base de Dados Azure SQL a um grupo de autofailover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -225,7 +225,7 @@ Teste falha usando o portal Azure.
 1. Selecione **Failover** do painel de tarefas para falhar sobre o seu grupo de failover contendo a sua base de dados de amostras.
 1. Selecione **Sim** no aviso que o notifica de que as sessões de TDS serão desligadas.
 
-   ![Falhe sobre o seu grupo de failover contendo a sua base de dados na base de dados SQL](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
+   ![Falhe sobre o seu grupo de failover contendo a sua base de dados](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
 1. Reveja qual o servidor que é agora primário e qual o servidor secundário. Se o fracasso foi bem sucedido, os dois servidores deveriam ter trocado de funções.
 1. Selecione **Failover** novamente para falhar os servidores de volta às suas funções originais.
@@ -427,7 +427,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 Pode encontrar aqui outros scripts da Base de Dados Azure SQL: [Azure PowerShell](powershell-script-content-guide.md) e [Azure CLI](az-cli-script-samples-content-guide.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou uma base de dados na Base de Dados Azure SQL a um grupo de failover, e testou o failover. Aprendeu a:
 

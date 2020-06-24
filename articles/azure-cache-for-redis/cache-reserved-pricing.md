@@ -1,69 +1,69 @@
 ---
-title: Pré-pagamento para computação com capacidade reservada - Azure Cache for Redis
-description: Pré-pagamento para Azure Cache para recursos computacionais Redis com capacidade reservada
+title: Pré-pagamento para computação com capacidade reservada - Azure Cache para Redis
+description: Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77530305"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974845"
 ---
-# <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento para Azure Cache para recursos computacionais Redis com capacidade reservada
+# <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
 
-O Azure Cache para o Redis ajuda-o agora a economizar dinheiro pagando os recursos da computação em comparação com os preços de pagamento. Com a Azure Cache para a redis capacidade reservada, você assume um compromisso inicial na cache por um período de um ou três anos para obter um desconto significativo nos custos do cálculo. Para adquirir o Azure Cache para a capacidade reservada redis, é necessário especificar a região azure, o nível de serviço e o termo.
+A azure Cache para Redis agora ajuda-o a economizar dinheiro ao pré-pagar recursos compute em comparação com os preços de pay-as-you-go. Com a Azure Cache para a capacidade reservada da Redis, você assume um compromisso inicial em cache por um período de um ou três anos para obter um desconto significativo sobre os custos de cálculo. Para comprar a Cache Azure para a capacidade reservada redis, você precisa especificar a região de Azure, nível de serviço e termo.
 
-Não precisa de atribuir a reserva a instâncias específicas do Azure Cache para os casos redis. Um Azure Cache já em execução para Redis ou aqueles que são recentemente implantados receberá automaticamente o benefício de preços reservados, até ao tamanho reservado da cache. Ao comprar uma reserva, está a pré-pagar os custos do cálculo por um período de um ou três anos. Assim que comprar uma reserva, as taxas de computação Azure Cache para Redis que correspondam aos atributos de reserva já não são cobradas às taxas de pagamento. Uma reserva não cobre taxas de rede ou armazenamento associadas à cache. No final do prazo de reserva, o benefício de faturação expira e o Azure Cache for Redis é cobrado ao preço de pagamento. As reservas não renovam automaticamente. Para obter informações sobre preços, consulte a oferta de capacidade reservada ao [Azure Cache for Redis.](https://azure.microsoft.com/pricing/details/cache)
+Não precisa de atribuir a reserva a cache Azure específico para instâncias Redis. Um Cache Azure já em execução para Redis ou os recém-implantados obterão automaticamente o benefício de preços reservados, até ao tamanho da cache reservada. Ao comprar uma reserva, está a pré-pagar os custos do cálculo por um período de um ou três anos. Assim que comprar uma reserva, o Azure Cache para Redis calcula os encargos que correspondem aos atributos da reserva já não são cobrados nas tarifas pagas. Uma reserva não cobre taxas de networking ou armazenamento associadas à cache. No final do período de reserva, o benefício de faturação expira e o Azure Cache para Redis é cobrado pelo preço de pagamento como você vai. As reservas não renovam automaticamente. Para obter informações sobre preços, consulte a [Cache Azure para a oferta de capacidade reservada redis.](https://azure.microsoft.com/pricing/details/cache)
 
-Pode comprar O Cache Azure para a capacidade reservada redis no [portal Azure.](https://portal.azure.com/) Para comprar a capacidade reservada:
+Pode comprar Azure Cache para a capacidade reservada redis no [portal Azure.](https://portal.azure.com/) Para comprar a capacidade reservada:
 
-* Você deve estar no papel de proprietário para pelo menos uma Empresa ou subscrição individual com taxas pay-as-you-go.
-* Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Ou, se essa definição for desativada, deve ser um Administrador EA na subscrição.
-* Para o programa Cloud Solution Provider (CSP), apenas os agentes de administração ou agentes de vendas podem adquirir o Azure Cache para a capacidade reservada da Redis.
+* Você deve estar na função de proprietário para pelo menos uma Enterprise ou subscrição individual com taxas pay-as-you-go.
+* Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Ou, se essa definição estiver desativada, deve ser um Administrador EA na subscrição.
+* Para o programa Cloud Solution Provider (CSP), apenas os agentes administrativos ou agentes de vendas podem adquirir a Cache Azure para a capacidade reservada redis.
 
-Para obter os detalhes sobre como os clientes empresariais e clientes Pay-As-You-Go são cobrados para compras de reservas, consulte o uso da [reserva Azure para](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) a sua inscrição na Enterprise e compreenda o uso da reserva Azure para a sua [subscrição Pay-As-You-Go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Para obter os detalhes sobre como os clientes da empresa e os clientes Pay-As-You-Go são cobrados para compras de reservas, consulte [a compreensão do uso da reserva Azure para a sua inscrição na Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) e [compreenda o uso da reserva Azure para a sua subscrição Pay-As-You-Go.](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
 
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Determine o tamanho certo da cache antes da compra
 
-A dimensão da reserva deve basear-se na quantidade total de cálculo utilizado pela cache existente ou em breve implantada numa região específica e utilizando o mesmo nível de serviço.
+O tamanho da reserva deve basear-se na quantidade total de tamanho de memória utilizada pela cache existente ou em breve implantada numa região específica e utilizando o mesmo nível de serviço.
 
-Por exemplo, suponhamos que está a executar um propósito geral, Gen5 – 32 vCore cache, e duas memórias otimizadas, Gen5 – 16 caches vCore. Além disso, supõe-se que planeia implementar dentro do próximo mês um propósito geral adicional, o servidor de base de dados Gen5 – 32 vCore, e uma memória otimizada, gen5 – 16 vCore servidor de base de dados. Suponhamos que saiba que vai precisar destes recursos por pelo menos 1 ano. Neste caso, deve adquirir uma reserva de 64 (2x32) vCores, 1 ano de reserva para fins gerais de base de dados únicas - Gen5 e um 48 (2x16 + 16) vCore 1 ano reserva para memória única de base de dados otimizada - Gen5
+Por exemplo, suponhamos que esteja a executar dois caches - um a 13 GB e o outro a 26 GB. Vai precisar dos dois por pelo menos um ano. Além disso, vamos supor que planeia escalar os caches de 13 GB existentes para 26 GB durante um mês para satisfazer a sua procura sazonal, e depois reduzir. Neste caso, pode adquirir cache 1 P1 e 1 cache P2 ou 3 caches P1 numa reserva de um ano para maximizar a poupança. Receberá desconto na quantidade total de memória de cache que reserva, independentemente da forma como esse valor é atribuído através dos seus caches.
 
 
-## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Comprar Cache Azure para a capacidade reservada redis
+## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Compre Azure Cache para a capacidade reservada da Redis
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione todas as reservas **de serviços** > **Reservations**.
-3. Selecione **Adicionar** e, em seguida, no painel de reservas comprar, selecione **Azure Cache para Redis** para comprar uma nova reserva para os seus caches.
-4. Preencha os campos necessários. Bases de dados existentes ou novas que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real do seu Cache Azure para os casos Redis que obtêm o desconto depende do âmbito e quantidade selecionados.
+2. Selecione **Todos os serviços** > **Reservas**.
+3. **Selecione Adicionar** e, em seguida, no painel de reservas de compra, selecione **Azure Cache para Redis** para comprar uma nova reserva para os seus caches.
+4. Preencha os campos necessários. Bases de dados existentes ou novas que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real da sua Cache Azure para instâncias Redis que obtêm o desconto dependem do âmbito e quantidade selecionados.
 
 
 ![Visão geral dos preços reservados](media/cache-reserved-pricing/cache-reserved-price.png)
 
 
-A tabela seguinte descreve os campos necessários.
+A tabela a seguir descreve os campos necessários.
 
-| Campo | Descrição |
+| Campo | Description |
 | :------------ | :------- |
-| Subscrição   | A subscrição usada para pagar a Reserva de Capacidade Reservada Azure Cache para Redis. O método de pagamento da subscrição é cobrado os custos iniciais para o Azure Cache para a reserva de capacidade reservada redis. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços de pagamento, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
-| Âmbito | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Partilhado,** o desconto de reserva é aplicado ao Azure Cache para os casos Redis que executam em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Assinatura única,** o desconto de reserva é aplicado aos casos Azure Cache para Redis nesta subscrição. </br></br> **Grupo de recursos únicos**, o desconto de reserva é aplicado aos casos Azure Cache para Redis na subscrição selecionada e no grupo de recursos selecionados dentro dessa subscrição.
-| Região | A região azure que é coberta pelo Azure Cache para redis reserva de capacidade reservada.
-| Escalão de preço | O nível de serviço para o Azure Cache para servidores Redis.
+| Subscrição   | A subscrição utilizada para pagar a Cache Azure para reserva de capacidade reservada redis. O método de pagamento da subscrição é cobrado os custos iniciais da Cache Azure para reserva de capacidade reservada redis. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
+| Âmbito | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Partilhado**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis que estão a decorrer em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis nesta subscrição. </br></br> **Grupo de recursos únicos**, o desconto de reserva é aplicado à Cache Azure para instâncias Redis na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.
+| Região | A região de Azure que está coberta pela Cache Azure para reserva de capacidade reservada redis.
+| Escalão de preço | O nível de serviço para o Cache Azure para servidores Redis.
 | Termo | Um ano ou três anos
-| Quantidade | A quantidade de recursos computacionais que estão a ser adquiridos dentro do Azure Cache para a reserva de capacidade reservada à Redis. A quantidade é uma série de caches na região azure selecionada e nível de serviço que estão sendo reservados e receberão o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar um Azure Cache para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, então especificaria a quantidade como 26 para maximizar o benefício para todos os caches.
+| Quantidade | A quantidade de recursos computacionares que estão a ser adquiridos dentro da Cache Azure para reserva de capacidade reservada redis. A quantidade é uma série de caches na região de Azure selecionada e nível de serviço que estão sendo reservados e receberá o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar um Cache Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, então especificaria a quantidade como 26 para maximizar o benefício para todos os caches.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
-## <a name="cache-size-flexibility"></a>Flexibilidade do tamanho do cache
+## <a name="cache-size-flexibility"></a>Flexibilidade do tamanho da cache
 
-A flexibilidade do tamanho da cache ajuda-o a escalar para cima ou para baixo dentro de um nível de serviço e região, sem perder o benefício de capacidade reservado.
+A flexibilidade do tamanho da cache ajuda-o a escalar para cima ou para baixo dentro de um nível de serviço e região, sem perder o benefício de capacidade reservada.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
@@ -71,13 +71,13 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O desconto de reserva é aplicado automaticamente ao Azure Cache para casos Redis que correspondam ao âmbito de reserva e atributos. Pode atualizar o âmbito da reserva através do portal Azure, PowerShell, Azure CLI ou da API.
+O desconto de reserva é aplicado automaticamente na Cache Azure para instâncias Redis que correspondem ao âmbito e atributos da reserva. Pode atualizar o âmbito da reserva através do portal Azure, PowerShell, Azure CLI ou da API.
 
-*  Para saber como são aplicados descontos de capacidade reservados ao Azure Cache for Redis, consulte Compreender o desconto de [reserva azure](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
+*  Para saber como são aplicados descontos de capacidade reservados à Azure Cache para Redis, consulte [o desconto de reserva Azure](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
 
 * Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-    * [O que são Reservas Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+    * [O que são as reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
     * [Gerir o Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
     * [Compreender o desconto das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
     * [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)

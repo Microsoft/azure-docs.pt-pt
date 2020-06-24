@@ -2,21 +2,21 @@
 title: Desenvolver um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
 description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 712d098ee5a10d0d99319796f24811e5805b7854
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508884"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117323"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -1194,7 +1194,8 @@ A especificação SCIM não define um regime específico scim para a autenticaç
 |Concessão de código de autorização OAu|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador sair da organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para aplicativos de galeria. O suporte para aplicações não-galeria está em andamento.|
 |Concessão de credenciais de cliente oauth|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm. Tanto a concessão do código de autorização como as credenciais do cliente concedem criam o mesmo tipo de sinal de acesso, pelo que a deslocação entre estes métodos é transparente para a API.  O provisionamento pode ser completamente automatizado, e novos tokens podem ser solicitados silenciosamente sem a interação do utilizador. ||Não suportado para apps de galeria e não-galeria. O apoio está nos nossos atrasos.|
 
-[!NOTE] Não é aconselhável deixar o campo simbólico em branco na aplicação personalizada de configuração AD AD Azure. O token gerado está principalmente disponível para fins de teste.
+> [!NOTE]
+> Não é aconselhável deixar o campo simbólico em branco na aplicação personalizada de configuração AD AD Azure. O token gerado está principalmente disponível para fins de teste.
 
 **Fluxo de concessão de código de autorização OAuth:** O serviço de prestação suporta a concessão do [código de autorização.](https://tools.ietf.org/html/rfc6749#page-24) Depois de submeter o seu pedido de publicação da sua app na galeria, a nossa equipa trabalhará consigo para recolher as seguintes informações:
 *  URL de autorização: UM URL do cliente para obter autorização do proprietário do recurso através da reorientação do agente de utilizador. O utilizador é redirecionado para este URL para autorizar o acesso. Note que este URL não é atualmente configurável por inquilino.
