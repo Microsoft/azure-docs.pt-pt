@@ -498,7 +498,7 @@
           items:
             - name: Migrar para a Base de Dados SQL
               href: database/migrate-to-database-from-sql-server.md
-            - name: Gerir a base de dados SQL após a migração
+            - name: Gerir a Base de Dados SQL após a migração
               href: database/manage-data-after-migrating-to-database.md
             - name: Importar/exportar (permissão dos serviços do Azure desativada)
               href: database/database-import-export-azure-services-off.md
@@ -664,12 +664,15 @@
     - name: Guias de Início Rápido
       href: managed-instance/quickstart-content-reference-guide.md
       items:
-        - name: Criar
+        - name: Criar Instância Gerida do SQL
           items:
-            - name: Com o Portal do Azure
+            - name: Portal do Azure
               href: managed-instance/instance-create-quickstart.md
-            - name: Com o PowerShell
+            - name: PowerShell
               href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+            - name: Modelo ARM
+              displayName: Resource Manager
+              href: managed-instance/create-template-quickstart.md
             - name: Criar conjuntos de instâncias
               href: managed-instance/instance-pools-configure.md
         - name: Configurar

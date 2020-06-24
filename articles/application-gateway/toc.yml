@@ -70,8 +70,6 @@
           href: redirect-overview.md
         - name: Rescrever cabeçalhos HTTP
           href: rewrite-http-headers.md
-        - name: Páginas de erro personalizadas
-          href: custom-error.md
     - name: SSL
       items:
         - name: Terminação SSL e SSL ponto a ponto
@@ -240,6 +238,8 @@
           href: log-analytics.md
         - name: Problemas de estado de funcionamento do back-end
           href: application-gateway-backend-health-troubleshooting.md
+    - name: Páginas de erro personalizadas
+      href: custom-error.md
     - name: Migrar do v1 para v2
       href: migrate-v1-v2.md
 - name: Referência
