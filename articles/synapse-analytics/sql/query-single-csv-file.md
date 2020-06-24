@@ -5,16 +5,16 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234133"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214456"
 ---
 # <a name="query-csv-files"></a>Ficheiros CSV de consulta
 
@@ -179,6 +179,37 @@ WHERE
 
 > [!NOTE]
 > Esta consulta falharia se o ESCAPECHAR não fosse especificado, uma vez que a vírgula em "Slov,enia" seria tratada como delimiter de campo em vez de parte do nome país/região. "Slov,enia" seria tratado como duas colunas. Portanto, a linha em particular teria uma coluna mais do que as outras linhas, e uma coluna mais do que você definiu na cláusula WITH.
+
+### <a name="escaping-quoting-characters"></a>Escapando personagens citando
+
+A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha unix, colunas delimitadas em vírgula, e um carvão de citação dupla escapado dentro de valores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+
+Pré-visualização do ficheiro:
+
+![A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha unix, colunas delimitadas em vírgula, e um carvão de citação dupla escapado dentro de valores.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> O personagem citando deve ser escapado com outro personagem citando. Citar o carácter só pode aparecer dentro do valor da coluna se o valor for encapsulado com caracteres citantes.
 
 ## <a name="tab-delimited-files"></a>Ficheiros delimitados por separadores
 

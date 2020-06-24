@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 012d183a20e5fdcf39d72813051d745a3f9787a7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560125"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214371"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Resolução de problemas Colocação de Docker de modelos com serviço Azure Kubernetes e Instâncias de Contentores Azure 
 
@@ -277,7 +277,7 @@ Para obter mais informações sobre a definição `autoscale_target_utilization`
 
 Um código de estado 504 indica que o pedido está esgotado. O tempo limite de tempo padrão é de 1 minuto.
 
-Pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.py para remover chamadas desnecessárias. Se estas ações não corrigirem o problema, utilize as informações deste artigo para depurar o ficheiro score.py. O código pode estar num estado suspenso ou num ciclo infinito.
+Pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.py para remover chamadas desnecessárias. Se estas ações não corrigirem o problema, utilize as informações deste artigo para depurar o ficheiro score.py. O código pode estar num estado não responsivo ou num ciclo infinito.
 
 ## <a name="advanced-debugging"></a>Depuragem avançada
 
@@ -300,9 +300,9 @@ As implementações de serviços web locais requerem uma instalação de Docker 
 
 1. Para configurar o Código VS para comunicar com a imagem do Docker, crie uma nova configuração de depuração:
 
-    1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, selecione __configurações Open__. Um ficheiro chamado __launch.json__ abre.
+    1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, selecione __configurações Open__. Um ficheiro chamado __launch.jsem__ aberturas.
 
-    1. No ficheiro __launch.json,__ encontre a linha que `"configurations": [` contém, e insira o seguinte texto após o mesmo:
+    1. No __launch.jsficheiro,__ encontre a linha que contém `"configurations": [` , e insira o seguinte texto após o mesmo:
 
         ```json
         {
@@ -325,7 +325,7 @@ As implementações de serviços web locais requerem uma instalação de Docker 
 
         Esta secção fixa-se ao contentor Docker utilizando a porta 5678.
 
-    1. Guarde o ficheiro __launch.json.__
+    1. Guarde o __launch.jsarquivado.__
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>Criar uma imagem que inclua PTVSD
 

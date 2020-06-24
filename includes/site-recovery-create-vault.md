@@ -11,12 +11,12 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75980307"
 ---
-1. Inscreva-se nos Serviços de > **Recuperação**do [portal Azure.](https://portal.azure.com)
-2. Clique **em Criar uma** > monitorização de recursos + Backup de**gestão** > **e recuperação do site**.
+1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  **Recovery Services**
+2. Clique **em Criar um recurso**de  >  **monitorização + cópia**de segurança de gestão  >  **e recuperação do site.**
 3. Em **Nome,** especifique um nome amigável para identificar o cofre. Se tiver mais do que uma subscrição, selecione a que for adequada.
-4. [Crie um grupo](../articles/azure-resource-manager/templates/deploy-portal.md)de recursos, ou selecione um existente. Selecione uma região do Azure. 
-5. Para aceder rapidamente ao cofre a partir do painel de instrumentos, clique **em Pin para dashboard** > **Create**.
+4. [Crie um grupo de recursos,](../articles/azure-resource-manager/templates/deploy-portal.md)ou selecione um existente. Selecione uma região do Azure. 
+5. Para aceder rapidamente ao cofre a partir do painel de instrumentos, clique em **Pin para tablier**  >  **Criar**.
 
    ![Novo cofre](./media/site-recovery-create-vault/new-vault-settings.png)
 
-   O novo cofre aparecerá no **Dashboard** > **Todos os recursos,** e na página principal dos Serviços de **Recuperação.**
+   O novo cofre aparecerá no **Dashboard**  >  **Todos os recursos**e na página principal dos **cofres dos Serviços de Recuperação.**

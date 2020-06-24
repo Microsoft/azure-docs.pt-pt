@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,16 +15,16 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678678"
 ---
-As seguintes operações de modificação são suportadas para o peering de intercâmbio:
-* Adicione ligações de persparo de troca.
-* Remova as ligações de persparo de troca.
-* Adicione uma sessão IPv4 ou IPv6 em conexões Ativas.
-* Remova uma sessão IPv4 ou IPv6 sobre ligações ativas.
+As seguintes operações de modificação são suportadas para o persimento cambial:
+* Adicione as ligações de persimento cambial.
+* Remova as ligações de persimento do Exchange.
+* Adicione uma sessão IPv4 ou IPv6 em ligações Ativas.
+* Remova uma sessão IPv4 ou IPv6 em ligações Ativas.
 
 
-### <a name="add-exchange-peering-connections"></a>Adicionar ligações de persparo de troca
+### <a name="add-exchange-peering-connections"></a>Adicionar ligações de persituo de troca
 
-Este exemplo descreve como adicionar ligações a um perspelo cambial existente.
+Este exemplo descreve como adicionar ligações a um perscrutivo cambial existente.
 
 ```powershell
 
@@ -43,9 +43,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-exchange-peering-connections"></a>Remover ligações de persparo de troca
+### <a name="remove-exchange-peering-connections"></a>Remover ligações de persimento de troca
 
-Este exemplo descreve como remover as ligações a um perspelo cambial existente.
+Este exemplo descreve como remover as ligações a um perscrutivo cambial existente.
 
 ```powershell
 
@@ -53,7 +53,7 @@ $exchangePeering = Get-AzPeering -Name "SeattleExchangePeering" -ResourceGroupNa
 
 ```
 
-Veja todas as ligações e selecione a ligação que pretende remover. 
+Ver todas as ligações e selecionar a ligação que pretende remover. 
 
 ```powershell
 
@@ -85,9 +85,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adicione uma sessão IPv4 ou IPv6 em conexões ativas
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adicione uma sessão IPv4 ou IPv6 em ligações Ativas
 
-Este exemplo descreve como adicionar uma sessão IPv6 a uma conexão de Intercâmbio existente.
+Este exemplo descreve como adicionar uma sessão IPv6 a uma ligação de Troca existente.
 
 ```powershell
 
@@ -99,6 +99,6 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Remova uma sessão IPv4 ou IPv6 sobre ligações ativas
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Remover uma sessão IPv4 ou IPv6 em ligações ativas
 
-A remoção de uma sessão IPv4 ou IPv6 de uma ligação existente não é suportada atualmente no PowerShell. Para mais informações, contacte a [Microsoft a espreitar](mailto:peeringexperience@microsoft.com).
+A remoção de uma sessão IPv4 ou IPv6 de uma ligação existente não é suportada atualmente no PowerShell. Para mais informações, contacte [a Microsoft a espreitar.](mailto:peeringexperience@microsoft.com)

@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 1a0624c01a3bb75c1a7b07b130345776417cf482
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484306"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125707"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
 
@@ -21,7 +21,7 @@ GitHub Actions suporta um fluxo de trabalho automatizado de ciclo de vida de des
 Este exemplo requer o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurar o repositório GitHub e autenticar
-Precisa de uma credencial de princípio de serviço Azure para autorizar a ação de login do Azure. Para obter uma credencial Azure, execute os seguintes comandos na sua máquina local:
+Precisa de uma credencial principal do serviço Azure para autorizar a ação de login do Azure. Para obter uma credencial Azure, execute os seguintes comandos na sua máquina local:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
@@ -208,7 +208,7 @@ Se a sua ação correr por engano, por exemplo, se não tiver definido a credenc
 
  ![Verificações de repetição](./media/github-actions/actions4.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Cofre chave para ações do GitHub da nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
 * [Diretores de serviço azure ative](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub Actions para o Azure](https://github.com/Azure/actions/)

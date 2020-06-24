@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: 0444ffd27b3a261268f04f0077cca3116521e6f7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 06/19/2020
+ms.openlocfilehash: 911fa7d509e756f482b2deefad11e35f9cb5ec01
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484522"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117952"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -85,7 +85,7 @@ Para atualizar a Azure Machine Learning para utilizar a nova chave, utilize os s
 
 1. Regenerar a chave. Para obter informações sobre a regeneração de uma chave de acesso, consulte [as teclas de acesso à conta de armazenamento](../storage/common/storage-account-keys-manage.md). Guarde a nova chave.
 
-1. Para atualizar o espaço de trabalho para utilizar a nova chave, utilize os seguintes passos:
+1. O espaço de trabalho Azure Machine Learning sincronizará automaticamente a nova tecla e começará a usá-la após uma hora. Para forçar o espaço de trabalho a sincronizar-se imediatamente com a nova chave, utilize os seguintes passos:
 
     1. Para iniciar súm na subscrição Azure que contém o seu espaço de trabalho utilizando o seguinte comando Azure CLI:
 
@@ -135,6 +135,6 @@ Para atualizar a Azure Machine Learning para utilizar a nova chave, utilize os s
         
             Se estiver a atualizar credenciais para a sua **datastore predefinido,** complete este passo e repita o passo 2b para ressíncar a sua nova tecla com a datastore predefinido do espaço de trabalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o registo de datastores, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) referência de classe.

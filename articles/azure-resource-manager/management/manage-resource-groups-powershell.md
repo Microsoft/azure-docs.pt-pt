@@ -6,32 +6,32 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248362"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706499"
 ---
-# <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerencie os grupos de recursos do Gestor de Recursos Azure utilizando o Azure PowerShell
+# <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerir os grupos de recursos do Azure Resource Manager utilizando o Azure PowerShell
 
-Aprenda a utilizar o Azure PowerShell com o [Azure Resource Manager](overview.md) para gerir os seus grupos de recursos Azure. Para gerir os recursos do Azure, consulte os recursos do Manage Azure utilizando o [Azure PowerShell.](manage-resources-powershell.md)
+Saiba como utilizar o Azure PowerShell com [o Azure Resource Manager](overview.md) para gerir os seus grupos de recursos Azure. Para gerir os recursos da Azure, consulte [gerir os recursos do Azure utilizando a Azure PowerShell](manage-resources-powershell.md).
 
-Outros artigos sobre a gestão de grupos de recursos:
+Outros artigos sobre gestão de grupos de recursos:
 
-- [Gerir os grupos de recursos azure utilizando o portal Azure](manage-resources-portal.md)
-- [Gerir os grupos de recursos azure utilizando o Azure CLI](manage-resources-cli.md)
+- [Gerir grupos de recursos Azure utilizando o portal Azure](manage-resources-portal.md)
+- [Gerir grupos de recursos Azure utilizando o Azure CLI](manage-resources-cli.md)
 
 ## <a name="what-is-a-resource-group"></a>O que é um grupo de recursos
 
-Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Geralmente, adicione recursos que partilham o mesmo ciclo de vida ao mesmo grupo de recursos para que possa facilmente implantá-los, atualizar e eliminá-los como um grupo.
+Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Geralmente, adicione recursos que partilham o mesmo ciclo de vida com o mesmo grupo de recursos para que possa facilmente implementar, atualizar e apagar como um grupo.
 
 O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quando especifica uma localização para o grupo de recursos, está a especificar onde esses metadados estão armazenados. Por motivos de conformidade, poderá ter de certificar que os dados estão armazenados numa determinada região.
 
-O grupo de recursos armazena metadados sobre os recursos. Quando especifica uma localização para o grupo de recursos, está a especificar onde os metadados são armazenados.
+O grupo de recursos armazena metadados sobre os recursos. Quando especificar uma localização para o grupo de recursos, está a especificar onde esses metadados são armazenados.
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-O seguinte script PowerShell cria um grupo de recursos, e depois mostra o grupo de recursos.
+O seguinte script PowerShell cria um grupo de recursos e, em seguida, mostra o grupo de recursos.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -42,7 +42,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 Get-AzResourceGroup -Name $resourceGroupName
 ```
 
-## <a name="list-resource-groups"></a>Lista de grupos de recursos
+## <a name="list-resource-groups"></a>Grupos de recursos de lista
 
 O seguinte script PowerShell lista os grupos de recursos sob a sua subscrição.
 
@@ -68,29 +68,29 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-Para obter mais informações sobre como o Gestor de Recursos azure ordena a eliminação de recursos, consulte a eliminação do grupo de recursos do Gestor de [Recursos do Azure.](delete-resource-group.md)
+Para obter mais informações sobre como o Azure Resource Manager ordena a supressão de recursos, consulte a eliminação do [grupo de recursos Azure Resource Manager](delete-resource-group.md).
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Mobilizar recursos para um grupo de recursos existente
 
-Consulte [os recursos de implantação para um grupo](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group)de recursos existentes.
+Consulte [recursos de implantação para um grupo de recursos existente.](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group)
 
-Para validar uma implementação de um grupo de recursos, consulte [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Para validar uma implementação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementar um grupo de recursos e recursos
 
-Você pode criar um grupo de recursos e implementar recursos para o grupo usando um modelo de Gestor de Recursos. Para mais informações, consulte [Criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-group-and-resources)
+Pode criar um grupo de recursos e implementar recursos para o grupo utilizando um modelo de Gestor de Recursos. Para obter mais informações, consulte [criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-group-and-resources)
 
-## <a name="redeploy-when-deployment-fails"></a>Reimplantação quando a implantação falha
+## <a name="redeploy-when-deployment-fails"></a>Reimplantação quando a implementação falha
 
-Esta funcionalidade também é conhecida como *Rollback no erro*. Para mais informações, consulte [Reimplantação quando a implementação falhar](../templates/rollback-on-error.md).
+Esta funcionalidade também é conhecida como *Rollback on error*. Para obter mais informações, consulte [Reposicionar-se quando a implementação falhar](../templates/rollback-on-error.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Mude para outro grupo de recursos ou subscrição
+## <a name="move-to-another-resource-group-or-subscription"></a>Mude-se para outro grupo de recursos ou subscrição
 
 Pode mover os recursos do grupo para outro grupo de recursos. Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou subscrição](move-resource-group-and-subscription.md).
 
 ## <a name="lock-resource-groups"></a>Bloquear grupos de recursos
 
-O bloqueio impede que outros utilizadores da sua organização apagam ou modifiquem acidentalmente recursos críticos, tais como subscrição azure, grupo de recursos ou recursos. 
+O bloqueio impede que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos, tais como subscrição do Azure, grupo de recursos ou recursos. 
 
 O seguinte script bloqueia um grupo de recursos para que o grupo de recursos não possa ser eliminado.
 
@@ -100,7 +100,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName 
 ```
 
-O seguinte script recebe todas as fechaduras para um grupo de recursos:
+O seguinte script obtém todas as fechaduras para um grupo de recursos:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -112,16 +112,16 @@ Para obter mais informações, consulte [Bloquear recursos com o Azure Resource 
 
 ## <a name="tag-resource-groups"></a>Grupos de recursos de etiqueta
 
-Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicamente os seus ativos. Para obter informações, consulte [Utilizar tags para organizar os seus recursos Azure.](tag-resources.md#powershell)
+Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicamente os seus ativos. Para obter informações, consulte [a utilização de tags para organizar os seus recursos Azure.](tag-resources.md#powershell)
 
 ## <a name="export-resource-groups-to-templates"></a>Grupos de recursos de exportação para modelos
 
 Depois de configurar o seu grupo de recursos, pode ver um modelo de Gestor de Recursos para o grupo de recursos. Exportar o modelo oferece dois benefícios:
 
 - Automatizar futuras implementações da solução porque o modelo contém a infraestrutura completa.
-- Aprenda a sintaxe do modelo olhando para a Notação de Objetos JavaScript (JSON) que representa a sua solução.
+- Aprenda a sintaxe do modelo olhando para a Notação de Objeto JavaScript (JSON) que representa a sua solução.
 
-Para exportar todos os recursos num grupo de recursos, utilize o cmdlet [export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) e forneça o nome do grupo de recursos.
+Para exportar todos os recursos num grupo de recursos, utilize o cmdlet [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) e forneça o nome do grupo de recursos.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -133,7 +133,7 @@ Guarda o modelo como um ficheiro local.
 
 Em vez de exportar todos os recursos do grupo de recursos, pode selecionar quais os recursos para exportar.
 
-Para exportar um recurso, passe a identificação do recurso.
+Para exportar um recurso, passe o ID de recurso.
 
 ```azurepowershell-interactive
 $resource = Get-AzResource `
@@ -145,7 +145,7 @@ Export-AzResourceGroup `
   -Resource $resource.ResourceId
 ```
 
-Para exportar mais do que um recurso, passe as iDs de recurso numa matriz.
+Para exportar mais do que um recurso, passe os IDs de recursos numa matriz.
 
 ```azurepowershell-interactive
 Export-AzResourceGroup `
@@ -153,7 +153,7 @@ Export-AzResourceGroup `
   -Resource @($resource1.ResourceId, $resource2.ResourceId)
 ```
 
-Ao exportar o modelo, pode especificar se os parâmetros são usados no modelo. Por padrão, os parâmetros para nomes de recursos estão incluídos, mas não têm um valor predefinido. Deve passar o valor do parâmetro durante a implantação.
+Ao exportar o modelo, pode especificar se os parâmetros são usados no modelo. Por predefinição, os parâmetros para nomes de recursos estão incluídos, mas não têm um valor padrão. Tem de passar o valor do parâmetro durante a implantação.
 
 ```json
 "parameters": {
@@ -168,7 +168,7 @@ Ao exportar o modelo, pode especificar se os parâmetros são usados no modelo. 
 }
 ```
 
-No recurso, o parâmetro é utilizado para o nome.
+No recurso, o parâmetro é usado para o nome.
 
 ```json
 "resources": [
@@ -181,7 +181,7 @@ No recurso, o parâmetro é utilizado para o nome.
 ]
 ```
 
-Se utilizar `-IncludeParameterDefaultValue` o parâmetro ao exportar o modelo, o parâmetro do modelo inclui um valor predefinido que é definido para o valor atual. Pode utilizar esse valor predefinido ou substituir o valor predefinido, passando num valor diferente.
+Se utilizar o `-IncludeParameterDefaultValue` parâmetro ao exportar o modelo, o parâmetro do modelo inclui um valor padrão definido para o valor atual. Pode utilizar esse valor predefinido ou substituir o valor predefinido ao passar num valor diferente.
 
 ```json
 "parameters": {
@@ -196,7 +196,7 @@ Se utilizar `-IncludeParameterDefaultValue` o parâmetro ao exportar o modelo, o
 }
 ```
 
-Se utilizar `-SkipResourceNameParameterization` o parâmetro ao exportar o modelo, os parâmetros para nomes de recursos não estão incluídos no modelo. Em vez disso, o nome do recurso é definido diretamente no recurso para o seu valor atual. Não pode personalizar o nome durante a implantação.
+Se utilizar o `-SkipResourceNameParameterization` parâmetro ao exportar o modelo, os parâmetros para nomes de recursos não estão incluídos no modelo. Em vez disso, o nome do recurso é definido diretamente no recurso para o seu valor atual. Não é possível personalizar o nome durante a implantação.
 
 ```json
 "resources": [
@@ -209,19 +209,19 @@ Se utilizar `-SkipResourceNameParameterization` o parâmetro ao exportar o model
 ]
 ```
 
-O modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Fábrica de Dados, consulte [copiar ou clonar uma fábrica](https://aka.ms/exportTemplateViaAdf)de dados na Azure Data Factory .
+A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](https://aka.ms/exportTemplateViaAdf)
 
-Para exportar recursos criados através de um modelo de implantação clássico, deve [emigrar para o modelo](https://aka.ms/migrateclassicresourcetoarm)de implantação do Gestor de Recursos.
+Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](https://aka.ms/migrateclassicresourcetoarm)
 
-Para mais informações, consulte [a exportação de monoe e multi-recursos para o modelo no portal Azure](../templates/export-template-portal.md).
+Para obter mais informações, consulte [exportação única e multi-recursos para o modelo no portal Azure](../templates/export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso a grupos de recursos
 
-[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para aprender O Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](overview.md)
-- Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](../templates/template-syntax.md)de Recursos Azure .
+- Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
+- Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).
 - Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](/azure/azure-resource-manager/)
-- Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte a referência do [modelo](/azure/templates/).
+- Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte [a referência do modelo](/azure/templates/).

@@ -3,17 +3,17 @@ title: Requisitos de pacote de desenho no Azure Maps Creator
 description: Saiba mais sobre os requisitos do pacote de desenho para converter os seus ficheiros de design de instalações para mapear dados usando o serviço de conversão Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/09/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: cb34cb386939fc1160ee5a7db0007cfbf500ccb8
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660628"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791576"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
 
@@ -169,12 +169,13 @@ Um exemplo da camada zonelabel pode ser visto como a camada ZONELABELS no pacote
 
 A pasta zip deve conter um ficheiro manifesto ao nível da raiz do diretório, e o ficheiro deve ser nomeado **manifest.jsem**. Descreve os ficheiros DWG para permitir que o [serviço de Conversão de Mapas Azure](https://docs.microsoft.com/rest/api/maps/conversion) analise o seu conteúdo. Apenas os ficheiros identificados pelo manifesto serão ingeridos. Os ficheiros que estão na pasta zip, mas que não estão devidamente listados no manifesto, serão ignorados.
 
-Os caminhos de arquivo, no **edifícioSovels** objeto do ficheiro manifesto, devem ser relativos à raiz da pasta zip. O nome do ficheiro DWG deve corresponder exatamente ao nome do nível de instalação. Por exemplo, um ficheiro DWG para o nível "Cave" seria "Cave.dwg". Um ficheiro DWG para o nível 2 seria nomeado como "level_2.dwg". Use um sublinhado, se o seu nome de nível tiver um espaço. 
+Os caminhos de arquivo, no **edifícioSovels** objeto do ficheiro manifesto, devem ser relativos à raiz da pasta zip. O nome do ficheiro DWG deve corresponder exatamente ao nome do nível de instalação. Por exemplo, um ficheiro DWG para o nível "Cave" seria "Cave.dwg". Um ficheiro DWG para o nível 2 seria nomeado como "level_2.dwg". Use um sublinhado, se o seu nome de nível tiver um espaço.
 
 Embora existam requisitos na utilização dos objetos manifestos, nem todos os objetos são necessários. A tabela abaixo mostra os objetos necessários e opcionais para a versão 1.1 do [serviço de Conversão Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Objeto | Obrigatório | Descrição |
 | :----- | :------- | :------- |
+| versão | true |Versão de esquema manifesto. Atualmente, apenas a versão 1.1 é suportada.|
 | directyInfo | true | Descreve as informações geográficas e de contacto das instalações. Também pode ser usado para delinear informações geográficas e de contacto dos ocupantes. |
 | edifícioLevels | true | Especifica os níveis dos edifícios e os ficheiros que contêm a conceção dos níveis. |
 | georeferência | true | Contém informações geográficas numéricas para o desenho das instalações. |
@@ -211,7 +212,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 |-----------|------|----------|-------------|
 |nome de nível    |string    |true |    Nome de nível descritivo. Por exemplo: Piso 1, Lobby, Estacionamento Azul, Cave, e assim por diante.|
 |ordinal | número inteiro |    true | Ordinal é usado para determinar a ordem vertical dos níveis. Todas as instalações devem ter um nível com ordinal 0. |
-|heightAboveFacilityAnchor | numeric |    false |    Altura de nível acima do piso térreo em metros. |
+|heightAboveFacilityAnchor | numeric | false |    Altura de nível acima da âncora em metros. |
 | verticalExtent | numeric | false | Altura do chão ao teto (espessura) do nível dos metros. |
 |filename |    string |    true |    O caminho do sistema de arquivo do desenho cad para um nível de construção. Deve ser relativo à raiz do arquivo zip do edifício. |
 
@@ -253,7 +254,7 @@ O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 |verticalPenetrationDirection|    string|    false    |Se `verticalPenetrationCategory` for definido, definir opcionalmente a direção válida do viagens. Os valores permitidos `lowToHigh` `highToLow` `both` são, `closed` e. O valor predefinido é `both` .|
 | não Público | bool | false | Indica se a unidade está aberta ao público. |
 | isroutable | bool | false | Quando programado para `false` , a unidade não pode ser navegada para, ou através. O valor predefinido é `true` . |
-| isOpenArea | bool | false | Permite que o agente de navegação entre na unidade sem a necessidade de uma abertura ligada à unidade. Por predefinição, este valor é definido `true` para, a menos que a unidade tenha uma abertura. |
+| isOpenArea | bool | false | Permite que o agente de navegação entre na unidade sem a necessidade de uma abertura ligada à unidade. Por predefinição, este valor é definido `true` para unidades sem aberturas; `false` para unidades com aberturas.  A regulação manual `isOpenArea` para uma unidade sem `false` aberturas resulta num aviso. Isto porque a unidade resultante não será acessível por um agente de navegação.|
 
 ### <a name="the-zoneproperties-object"></a>O objeto de zonaProperties
 
@@ -265,6 +266,7 @@ O `zoneProperties` objeto contém uma matriz JSON de propriedades de zona.
 |categoriaName|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Nome alternativo da zona.  |
 |zoneNameSubtitle|    string |    false    |Legenda da zona. |
+|zoneSetId|    string |    false    | Deslote o ID para estabelecer a relação entre várias zonas para que possam ser consultadas ou selecionadas como um grupo. Por exemplo, zonas que se estendem por vários níveis. |
 
 ### <a name="sample-drawing-package-manifest"></a>Manifesto de pacote de desenho de amostra
 
@@ -400,7 +402,7 @@ Abaixo está um ficheiro manifesto de amostra para o pacote de desenho da amostr
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que o seu pacote De desenho satisfaça os requisitos, poderá utilizar o [serviço de Conversão Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote num conjunto de dados do mapa. Em seguida, pode utilizar o conjunto de dados para gerar um mapa interior utilizando o módulo De Mapas Interiores. Saiba mais sobre a utilização do módulo Mapas Interiores lendo os seguintes artigos:
 

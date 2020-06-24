@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 936580f19d7370f72ebdc52cb39f9f5e1cb5984d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 53dcc69b6e9ae94846330077f07ae57af1b0b414
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268458"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214388"
 ---
 # <a name="update-the-password-of-your-storage-account-identity-in-ad-ds"></a>Atualize a palavra-passe da sua identidade de conta de armazenamento em DS AD
 

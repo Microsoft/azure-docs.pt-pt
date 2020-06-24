@@ -9,29 +9,29 @@ ms.topic: reference
 ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: d25a738a76c955ee11f091bb0f8861bd21cc9f1d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/16/2020
+ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555868"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907555"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve o módulo executo python script em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para executar o código Python. Para obter mais informações sobre os princípios de arquitetura e design da Python, consulte [o seguinte artigo.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Use este módulo para executar o código Python. Para mais informações sobre os princípios de arquitetura e design da Python, consulte [este artigo.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 
-Com python, você pode executar tarefas que não são atualmente suportadas por módulos existentes, tais como:
+Com python, você pode executar tarefas que os módulos existentes não suportam, tais como:
 
-+ Visualização de dados utilizando`matplotlib`
-+ Usando bibliotecas Python para enumerar conjuntos de dados e modelos no seu espaço de trabalho
-+ Leitura, carregamento e manipulação de dados provenientes de fontes não suportadas pelo módulo [de dados de importação](./import-data.md)
-+ Executar o seu próprio código de aprendizagem profunda 
++ Visualizar dados utilizando `matplotlib` .
++ Usando bibliotecas Python para enumerar conjuntos de dados e modelos no seu espaço de trabalho.
++ Ler, carregar e manipular dados de fontes que o módulo [de Dados de Importação](./import-data.md) não suporta.
++ Executar o seu próprio código de aprendizagem profunda. 
 
 
-A Azure Machine Learning utiliza a distribuição de Anaconda de Python, que inclui muitos utilitários comuns para o processamento de dados. Atualizaremos automaticamente a versão Anaconda. Versão atual é:
+A Azure Machine Learning utiliza a distribuição de Anaconda de Python, que inclui muitos utilitários comuns para o processamento de dados. Atualizaremos automaticamente a versão Anaconda. A versão atual é:
  -  Anaconda 4.5+ distribuição para Python 3.6 
 
 Os pacotes pré-instalados são:
@@ -145,26 +145,37 @@ Os pacotes pré-instalados são:
 -    werkzeug==0.16.1
 -    roda==0.34.2
 
- Para instalar outros pacotes que não estão na lista pré-instalada, por *exemplo, scikit-misc,* adicione o seguinte código ao seu script: 
+ Para instalar pacotes que não estejam na lista pré-instalada (por exemplo, *scikit-misc),* adicione o seguinte código ao seu script: 
 
  ```python
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+Utilize o seguinte código para instalar pacotes para um melhor desempenho, especialmente para inferência:
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
-> Se o seu pipeline contiver vários módulos executados do Python Script e necessitar dos mesmos pacotes que não estão na lista pré-instalada, por favor instale as embalagens em cada módulo, respectivamente. 
+> Se o seu pipeline contiver vários módulos executados do Script Python que precisam de pacotes que não estão na lista pré-instalada, instale as embalagens em cada módulo.
 
 ## <a name="upload-files"></a>Carregar ficheiros
-O **Script De Python executante** suporta o upload de ficheiros usando [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+O módulo de script de Python executante suporta o upload de ficheiros utilizando o [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
 
-O exemplo a seguir mostra como carregar um ficheiro de imagem no módulo **Executar Python Script:**
+O exemplo a seguir mostra como carregar um ficheiro de imagem no módulo Executar Python Script:
 
 ```Python
 
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# imports up here can be used to
+# Imports up here can be used to
 import pandas as pd
 
 # The entry point function must have two input arguments:
@@ -186,70 +197,70 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
-    # E.g.
+    # For example:
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
 }
 ```
 
-Depois de terminado o curso do gasoduto, pode visualizar a imagem no painel direito do módulo
+Depois de terminado o curso do gasoduto, pode visualizar a imagem no painel direito do módulo.
 
 > [!div class="mx-imgBorder"]
-> ![Imagem carregada](media/module/upload-image-in-python-script.png)
+> ![Pré-visualização da imagem carregada](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Como configurar executar o script python
 
-O módulo **de script execute python** contém o código Python de amostra que pode usar como ponto de partida. Para configurar o módulo executar o **script python,** você fornece um conjunto de entradas e código Python para executar na caixa de texto **do script Python.**
+O módulo de script execute python contém o código Python de amostra que pode usar como ponto de partida. Para configurar o módulo executar o script python, forneça um conjunto de entradas e código Python para executar na caixa de texto do **script Python.**
 
 1. Adicione o módulo **de script de Python executar** ao seu oleoduto.
 
 2. Adicione e conecte no **Dataset1** quaisquer conjuntos de dados do designer que pretende utilizar para entrada. Consulte este conjunto de dados no seu script Python como **DataFrame1**.
 
-    A utilização de um conjunto de dados é opcional, se pretender gerar dados usando python, ou utilizar o código Python para importar os dados diretamente para o módulo.
+    A utilização de um conjunto de dados é opcional. Use-os se quiser gerar dados utilizando python, ou use o código Python para importar os dados diretamente para o módulo.
 
-    Este módulo suporta a adição de um segundo conjunto de dados no **Dataset2**. Consulte o segundo conjunto de dados no seu script Python como DataFrame2.
+    Este módulo suporta a adição de um segundo conjunto de dados no **Dataset2**. Consulte o segundo conjunto de dados no seu script Python como **DataFrame2**.
 
-    Os conjuntos de dados armazenados no Azure Machine Learning são automaticamente convertidos em **datas.frames de pandas** quando carregados com este módulo.
+    Os conjuntos de dados armazenados no Azure Machine Learning são automaticamente convertidos para quadros de dados de pandas quando carregados com este módulo.
 
     ![Execute o mapa de entrada python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou código Python, adicione o ficheiro com fecho contendo estes recursos personalizados no **pacote Script**. A entrada para **o pacote Script** deve ser um ficheiro com fecho de correr enviado para o seu espaço de trabalho como um conjunto de dados do tipo de ficheiro. Pode fazer o upload do conjunto de dados na página de ativos dos **Datasets** e pode arrastar e largar o módulo de conjunto de dados da lista **My datasets** na árvore do módulo esquerdo na página de autoria do designer. 
+4. Para incluir novos pacotes ou código Python, adicione o ficheiro com fecho que contém estes recursos personalizados no **pacote Script**. A entrada para **o pacote Script** deve ser um ficheiro com fecho de correr enviado para o seu espaço de trabalho como conjunto de dados do tipo de ficheiro. Pode fazer o upload do conjunto de dados na página do ativo **dos Conjuntos de Dados.** Pode arrastar o módulo de conjunto de dados da lista **My datasets** na árvore do módulo esquerdo na página de autoria do designer. 
 
     Qualquer ficheiro contido no arquivo com fecho de correr carregado pode ser utilizado durante a execução do gasoduto. Se o arquivo inclui uma estrutura de diretório, a estrutura é preservada, mas você deve preparar um diretório chamado **src** para o caminho.
 
 5. Na caixa de texto do **script Python,** escreva ou cole um script Python válido.
 
     > [!NOTE]
-    > Tenha muito cuidado ao escrever o seu script e certifique-se de que não existe erro de sintaxe, como a utilização de objetos não declarados ou módulos não importados. Preste também uma atenção extra à lista de módulos pré-instalados. Para importar módulos que não estão listados, instale os pacotes correspondentes no seu script, tais como
+    >  Tenha cuidado ao escrever o seu guião. Certifique-se de que não existem erros de sintaxe, tais como a utilização de variáveis não declaradas ou de módulos ou funções não declarados. Preste uma atenção extra à lista de módulos pré-instalados. Para importar módulos que não estejam listados, instale os pacotes correspondentes no seu script, tais como:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
     > ```
     
-    A caixa de texto **do script Python** é pré-povoada com algumas instruções em comentários, e código de amostra para acesso e saída de dados. Tem de editar ou substituir este código. Não se esqueça de seguir as convenções de Python sobre o entalhe e o invólucro.
+    A caixa de texto **do script Python** é pré-solicitada com algumas instruções em comentários, e código de amostra para acesso e saída de dados. Tem de editar ou substituir este código. Siga as convenções de Python para o entalhe e o invólucro:
 
     + O script deve conter uma função nomeada `azureml_main` como ponto de entrada para este módulo.
-    + A função ponto de entrada deve ter dois argumentos de entrada: `Param<dataframe1>` e , mesmo quando estes argumentos não são `Param<dataframe2>` usados no seu script.
-    + Os ficheiros com fecho ligados à terceira porta de entrada são desapertados e armazenados no `.\Script Bundle` diretório, que também é adicionado ao Python `sys.path` . 
+    + A função de ponto de entrada deve ter dois argumentos de entrada `Param<dataframe1>` `Param<dataframe2>` e, mesmo quando estes argumentos não são usados no seu script.
+    + Os ficheiros com fecho ligados à terceira porta de entrada são desapertados e armazenados no diretório `.\Script Bundle` , que também é adicionado ao Python `sys.path` . 
 
-    Portanto, se o seu ficheiro zip `mymodule.py` contiver, importe-o `import mymodule` utilizando.
+    Se o seu ficheiro .zip `mymodule.py` contiver, importe-o utilizando `import mymodule` .
 
-    + Dois conjuntos de dados podem ser devolvidos ao designer, que deve ser uma sequência de tipo `pandas.DataFrame` . Pode criar outras saídas no seu código Python e escrevê-las diretamente no armazenamento Azure.
+    Dois conjuntos de dados podem ser devolvidos ao designer, que deve ser uma sequência de tipo `pandas.DataFrame` . Pode criar outras saídas no seu código Python e escrevê-las diretamente no armazenamento Azure.
 
-6. Submeta o pipeline, ou selecione o módulo e clique **em Executar apenas** o script Python.
+6. Envie o pipeline ou selecione o módulo e selecione **Executar selecionado** para executar apenas o script Python.
 
     Todos os dados e códigos são carregados numa máquina virtual, e executados usando o ambiente python especificado.
 
 ## <a name="results"></a>Resultados
 
-Os resultados de quaisquer cálculos realizados pelo código Python incorporado devem ser fornecidos como pandas. DataFrame, que é automaticamente convertido para o formato de conjunto de dados Azure Machine Learning, para que possa utilizar os resultados com outros módulos no pipeline.
+Os resultados de quaisquer cálculos pelo código Python incorporado devem ser fornecidos como `pandas.DataFrame` , que é automaticamente convertido para o formato de conjunto de dados Azure Machine Learning. Em seguida, pode utilizar os resultados com outros módulos na tubagem.
 
 O módulo devolve dois conjuntos de dados:  
   
-+ **Resultados Dataset 1**, definido pelo primeiro dataframe de pandas devolvidos no script Python
++ **Resultados Dataset 1**, definido pelo primeiro quadro de dados de pandas devolvidos num script Python.
 
-+ **Resultado Dataset 2**, definido pelo segundo dataframe de pandas devolvidos no script Python
++ **Resultado Dataset 2**, definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -4,12 +4,12 @@ description: Saiba como configurar um recipiente PHP pré-construído para a sua
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9e4237f1eecb9f6542aac946525ff4583e478c2e
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234945"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905702"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configure um aplicativo Linux PHP para o Azure App Service
 
@@ -104,17 +104,17 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 As estruturas web populares permitem-lhe aceder à `X-Forwarded-*` informação no seu padrão de aplicação padrão. No [CodeIgniter,](https://codeigniter.com/)o [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) verifica o valor por `X_FORWARDED_PROTO` defeito.
 
-## <a name="customize-phpini-settings"></a>Personalize as definições php.ini
+## <a name="customize-phpini-settings"></a>Personalize as configurações php.ini
 
-Se precisar de fazer alterações na sua instalação PHP, pode alterar qualquer uma das [diretivas php.ini](https://www.php.net/manual/ini.list.php) seguindo estes passos.
+Se precisar de alterar a sua instalação PHP, pode alterar qualquer uma das [php.ini diretivas](https://www.php.net/manual/ini.list.php) seguindo estes passos.
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração atual *do php.ini* é chamar [phpinfo na](https://www.php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas não PHP_INI_SYSTEM
 
-Para personalizar PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL diretivas (ver [diretivas php.ini),](https://www.php.net/manual/ini.list.php)adicione um ficheiro *.htaccess* ao diretório de raiz da sua aplicação.
+Para personalizar PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL diretivas (ver [php.ini diretivas),](https://www.php.net/manual/ini.list.php)adicione um ficheiro *.htaccess* ao diretório de raiz da sua aplicação.
 
 No ficheiro *.htaccess,* adicione as diretivas utilizando a `php_value <directive-name> <value>` sintaxe. Por exemplo:
 
@@ -134,7 +134,7 @@ Como alternativa à utilização *de .htaccess,* pode utilizar [ini_set na](http
 
 ### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Personalizar PHP_INI_SYSTEM diretivas
 
-Para personalizar PHP_INI_SYSTEM diretivas (ver [diretivas php.ini),](https://www.php.net/manual/ini.list.php)não pode utilizar a abordagem *.htaccess.* O Serviço de Aplicações fornece um mecanismo separado utilizando a definição da `PHP_INI_SCAN_DIR` aplicação.
+Para personalizar PHP_INI_SYSTEM diretivas (ver [php.ini diretivas),](https://www.php.net/manual/ini.list.php)não pode utilizar a abordagem *.htaccess.* O Serviço de Aplicações fornece um mecanismo separado utilizando a definição da `PHP_INI_SCAN_DIR` aplicação.
 
 Primeiro, executar o seguinte comando na [Cloud Shell](https://shell.azure.com) para adicionar uma definição de aplicação chamada `PHP_INI_SCAN_DIR` :
 
@@ -142,11 +142,11 @@ Primeiro, executar o seguinte comando na [Cloud Shell](https://shell.azure.com) 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`é o diretório padrão onde *php.ini* existe. `/home/site/ini`é o diretório personalizado no qual você vai adicionar um arquivo personalizado *.ini.* Separa-se os valores com um `:` .
+`/usr/local/etc/php/conf.d`é o diretório padrão onde *existephp.ini.* `/home/site/ini`é o diretório personalizado no qual você vai adicionar um arquivo personalizado *.ini.* Separa-se os valores com um `:` .
 
 Navegue para a sessão web SSH com o seu recipiente Linux `https://<app-name>.scm.azurewebsites.net/webssh/host` ().
 
-Crie um diretório `/home/site` chamado `ini` , em seguida, crie um ficheiro *.ini* no `/home/site/ini` diretório (por exemplo, *definições.ini)* com as diretivas que pretende personalizar. Use a mesma sintaxe que usaria num ficheiro *php.ini.* 
+Crie um diretório `/home/site` chamado `ini` , em seguida, crie um ficheiro *.ini* no `/home/site/ini` diretório (por exemplo, *settings.ini)* com as diretivas que pretende personalizar. Use a mesma sintaxe que usaria num ficheiro *php.ini.* 
 
 > [!TIP]
 > Nos recipientes Linux incorporados no Serviço de Aplicações, */home* é usado como armazenamento compartilhado persistido. 
@@ -164,10 +164,10 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 
 ## <a name="enable-php-extensions"></a>Ativar extensões PHP
 
-As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode permitir extensões adicionais da mesma forma que [personaliza as diretivas php.ini](#customize-php_ini_system-directives).
+As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode permitir extensões adicionais da mesma forma que [personaliza php.ini diretivas](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração atual *do php.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 Para permitir extensões adicionais, seguindo estes passos:
@@ -187,7 +187,7 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>SSH aberto no navegador
 
@@ -198,8 +198,8 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 Quando uma aplicação PHP funcionada se comporta de forma diferente no Serviço de Aplicações ou tem erros, experimente o seguinte:
 
 - [Aceda ao fluxo de registo](#access-diagnostic-logs).
-- Teste a aplicação localmente em modo de produção. O App Service executa as suas aplicações Node.js em modo de produção, pelo que tem de se certificar de que o seu projeto funciona como esperado no modo de produção localmente. Por exemplo:
-    - Dependendo do seu *compositor.json,* podem ser instalados diferentes pacotes para o modo de produção `require` (vs. `require-dev` ).
+- Teste a aplicação localmente em modo de produção. O App Service executa a sua aplicação em modo de produção, pelo que tem de se certificar de que o seu projeto funciona como esperado no modo de produção local. Por exemplo:
+    - Dependendo da sua *composer.js,* podem ser instaladas diferentes embalagens para o modo de produção `require` (vs. `require-dev` ).
     - Certas estruturas web podem implantar ficheiros estáticos de forma diferente no modo de produção.
     - Certas estruturas web podem usar scripts de arranque personalizados quando estão em modo de produção.
 - Execute a sua aplicação no Serviço de Aplicações em modo de depuragem. Por exemplo, em [Laravel,](https://meanjs.org/)pode configurar a sua app para depurar mensagens de depuração de saída em [produção, definindo a `APP_DEBUG` `true` definição da app para ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).

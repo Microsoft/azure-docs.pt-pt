@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a6e77f630d9a78706a82bdc020dd7fd3eb11230
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431410"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213759"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 
@@ -24,7 +24,7 @@ Pode encontrar a mensagem de erro no designer seguindo estes passos:
 
 - Selecione o módulo falhado, vá ao separador **Saídas+logs,** pode encontrar o registo detalhado no ficheiro **70_driver_log.txt** na categoria **de registos azureml.**
 
-- Para obter um erro detalhado do módulo, pode verificar na categoria error_info.json **em module_statistics.**
+- Para um erro detalhado do módulo, pode verificar na error_info.jsna categoria **module_statistics.**
 
 Seguem-se códigos de erro de módulos no designer.
 
@@ -1515,7 +1515,7 @@ Exceção da biblioteca interna.
 
 Este erro é fornecido para capturar erros internos do motor de outra forma não manipulados. Portanto, a causa deste erro pode ser diferente dependendo do módulo que gerou o erro.  
 
-Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro no fórum Azure Machine Learning, juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Este feedback ajudar-nos-á a priorizar os erros e a identificar as questões mais importantes para o trabalho suplementar.  
+Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro no [fórum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Este feedback ajudar-nos-á a priorizar os erros e a identificar as questões mais importantes para o trabalho suplementar.  
 
 |Mensagens de Exceção|
 |------------------------|

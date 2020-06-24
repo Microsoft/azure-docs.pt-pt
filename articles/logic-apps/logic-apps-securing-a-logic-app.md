@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: f7796674efc8c8f8b9e58adb760153b409134488
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: dec14f54c0c0994594e86793c998d02ca6781801
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322435"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296904"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -22,6 +22,7 @@ Para controlar o acesso e proteger dados sensíveis em Azure Logic Apps, pode co
 * [Acesso a executar entradas e saídas de histórico](#secure-run-history)
 * [Acesso às entradas de parâmetros](#secure-action-parameters)
 * [Acesso a serviços e sistemas chamados de aplicações lógicas](#secure-outbound-requests)
+* [Bloquear a criação de ligações para conectores específicos](#block-connections)
 
 <a name="secure-triggers"></a>
 
@@ -99,17 +100,13 @@ No corpo, inclua a `KeyType` propriedade como qualquer um ou `Primary` `Secondar
 
 ### <a name="enable-azure-active-directory-oauth"></a>Ativar o Azure Ative Directory OAuth
 
-Se a sua aplicação lógica começar com um gatilho 'Pedido', pode ativar [a Autenticação Aberta do Diretório Azure Ative](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar chamadas de entrada no gatilho do Pedido. Antes de ativar esta autenticação, reveja estas considerações:
+Se a sua aplicação lógica começar com um [gatilho 'Pedido',](../connectors/connectors-native-reqres.md)pode ativar [a Autenticação Aberta do Diretório Azure](../active-directory/develop/about-microsoft-identity-platform.md) Ative (Azure AD OAuth) criando uma política de autorização para chamadas de entrada no gatilho Do Pedido. Antes de ativar esta autenticação, reveja estas considerações:
+
+* Uma chamada de entrada para a sua aplicação lógica pode usar apenas um esquema de autorização, seja a Azure AD OAuth ou [As Assinaturas de Acesso Partilhado (SAS)](#sas). Apenas os regimes de autorização [do tipo Portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) são suportados para tokens OAuth, que são suportados apenas para o gatilho do Pedido.
 
 * A sua aplicação lógica está limitada a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [reclamações.](../active-directory/develop/developer-glossary.md#claim) Para obter mais informações, consulte [Limites e configuração para Aplicações Lógicas Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Uma política de autorização deve incluir pelo menos a **reclamação do Emitente,** que tem um valor que começa `https://sts.windows.net/` como iD do emitente Azure AD.
-
-* Uma chamada de entrada para a sua aplicação lógica pode usar apenas um esquema de autorização, seja a Azure AD OAuth ou [As Assinaturas de Acesso Partilhado (SAS)](#sas).
-
-* Os tokens OAuth são suportados apenas para o gatilho do Pedido.
-
-* Apenas os regimes de autorização [do tipo Portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) são suportados para fichas OAuth.
+* Uma política de autorização deve incluir pelo menos a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth V2) como o ID do emitente Azure AD. Para obter mais informações sobre os tokens de acesso, consulte [os tokens de acesso à plataforma de identidade da Microsoft.](../active-directory/develop/access-tokens.md)
 
 Para ativar o Azure AD OAuth, siga estes passos para adicionar uma ou mais políticas de autorização à sua aplicação lógica.
 
@@ -126,7 +123,7 @@ Para ativar o Azure AD OAuth, siga estes passos para adicionar uma ou mais polí
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Yes | O nome que quer usar para a política de autorização |
-   | **Pedidos** | Yes | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com o ID do `https://sts.windows.net/` emitente Azure. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
+   | **Pedidos** | Yes | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` o ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
    |||
 
 1. Para adicionar outra reclamação, selecione a partir destas opções:
@@ -696,14 +693,16 @@ Aqui estão algumas formas de ajudar a proteger pontos finais que recebem chamad
 
 ## <a name="add-authentication-to-outbound-calls"></a>Adicionar autenticação a chamadas de saída
 
-Os pontos finais HTTP e HTTPS suportam vários tipos de autenticação. Com base no gatilho ou ação que utiliza para escoar chamadas ou pedidos de saída que acedam a estes pontos finais, pode selecionar entre diferentes gamas de tipos de autenticação. Para se certificar de que protege qualquer informação sensível que a sua aplicação lógica manuseie, utilize parâmetros seguros e codifique os dados conforme necessário. Para obter mais informações sobre a utilização e fixação de parâmetros, consulte [acesso às entradas de parâmetros](#secure-action-parameters).
+Os pontos finais HTTP e HTTPS suportam vários tipos de autenticação. Em alguns gatilhos e ações que utiliza para o envio de chamadas ou pedidos de saída para estes pontos finais, pode especificar um tipo de autenticação. No Logic App Designer, os gatilhos e ações que suportam a escolha de um tipo de autenticação têm uma propriedade **autenticação.** No entanto, esta propriedade pode nem sempre aparecer por defeito. Nestes casos, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Autenticação**.
 
-> [!NOTE]
-> No Logic App Designer, a propriedade **Autenticação** pode estar escondida em alguns gatilhos e ações onde pode especificar o tipo de autenticação. Para fazer com que a propriedade apareça nestes casos, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Autenticação**. Para mais informações, consulte [autenticar o acesso com identidade gerida.](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity)
+> [!IMPORTANT]
+> Para proteger informações sensíveis que a sua aplicação lógica trata, utilize parâmetros seguros e codifique os dados conforme necessário. Para obter mais informações sobre a utilização e fixação de parâmetros, consulte [acesso às entradas de parâmetros](#secure-action-parameters).
 
-| Tipo de autenticação | Apoiado por |
+Esta tabela identifica os tipos de autenticação que estão disponíveis nos gatilhos e ações onde pode selecionar um tipo de autenticação:
+
+| Tipo de autenticação | Disponibilidade |
 |---------------------|--------------|
-| [Básico](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Básica](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Certificado de Cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Diretório Ativo OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Não processado](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
@@ -718,7 +717,7 @@ Se a opção [Basic](../active-directory-b2c/secure-rest-api.md) estiver dispon�
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Yes | Básico | O tipo de autenticação a utilizar |
+| **Autenticação** | `type` | Yes | Básica | O tipo de autenticação a utilizar |
 | **Nome de utilizador** | `username` | Yes | <*nome do utilizador*>| O nome de utilizador para autenticar o acesso ao ponto final do serviço alvo |
 | **Palavra-passe** | `password` | Yes | <*senha*> | A palavra-passe para autenticar o acesso ao ponto final do serviço alvo |
 ||||||
@@ -900,7 +899,13 @@ Se a opção [Identidade Gerida](../active-directory/managed-identities-azure-re
    }
    ```
 
-## <a name="next-steps"></a>Próximos passos
+<a name="block-connections"></a>
+
+## <a name="block-creating-connections"></a>Bloquear a criação de ligações
+
+Se a sua organização não permitir a ligação a recursos específicos utilizando os seus conectores em Azure Logic Apps, pode [bloquear a capacidade de criar essas ligações](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicações lógicas utilizando a [Azure Policy.](../governance/policy/overview.md) Para obter mais informações, consulte [as ligações do Bloco criadas por conectores específicos em Azure Logic Apps](../logic-apps/block-connections-connectors.md).
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Automatizar a implementação para apps Azure Logic](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
 * [Monitorizar aplicações lógicas](../logic-apps/monitor-logic-apps-log-analytics.md)  

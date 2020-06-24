@@ -4,36 +4,55 @@ description: Como configurar o anexo de aplicações MSIX para o Windows Virtual
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6544a0536a99261d1ebc13748a5365b9893e789
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605199"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204478"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
 > [!IMPORTANT]
 > O anexo de aplicações MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tópico irá acompanhá-lo como configurar a aplicação MSIX anexar num ambiente de desktop virtual do Windows.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Antes de começar, eis o que precisa para configurar o anexo da app MSIX:
 
 - Acesso ao portal Insider do Windows Para obter a versão do Windows 10 com suporte para a aplicação MSIX anexar APIs.
 - Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar a versão Virtual Desktop Fall 2019 do Windows, consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o lançamento virtual do Windows Desktop Spring 2020, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
+- A ferramenta de embalagem MSIX.
+- Uma partilha de rede na sua implementação virtual do Windows Desktop onde o pacote MSIX será armazenado.
 
-- A ferramenta de embalagem MSIX
-- Uma partilha de rede na sua implementação virtual do Windows Desktop onde o pacote MSIX será armazenado
+## <a name="get-the-os-image"></a>Obtenha a imagem de SO
 
-## <a name="get-the-os-image-from-the-technology-adoption-program-tap-portal"></a>Obtenha a imagem do SO do portal de Adoção Tecnológica (TAP)
+Primeiro, tens de obter a imagem do SO. Pode obter a imagem do SO através do portal Azure. No entanto, se for membro do programa Windows Insider, tem a opção de utilizar o portal Insider do Windows.
+
+### <a name="get-the-os-image-from-the-azure-portal"></a>Obtenha a imagem do SO do portal Azure
+
+Para obter a imagem do SO do portal Azure:
+
+1. Abra o [portal Azure](https://portal.azure.com) e inscreva-se.
+
+2. Ir para **criar uma máquina virtual.**
+
+3. No separador **Basic,** selecione **o Windows 10 multi-sessão empresarial, versão 2004**.
+
+4. Siga o resto das instruções para terminar a criação da máquina virtual.
+
+     >[!NOTE]
+     >Pode utilizar este VM para testar diretamente o anexo de aplicações MSIX. Para saber mais, avance para [gerar um pacote VHD ou VHDX para MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Caso contrário, continue a ler esta secção.
+
+### <a name="get-the-os-image-from-the-windows-insider-portal"></a>Obtenha a imagem de SO a partir do portal Windows Insider
 
 Para obter a imagem de SO a partir do Portal Do Windows Insider:
 
@@ -45,30 +64,15 @@ Para obter a imagem de SO a partir do Portal Do Windows Insider:
 2. Desloque-se até à secção **de edição Select** e selecione **o Windows 10 Insider Preview Enterprise (FAST) – Construa 19041** ou mais tarde.
 
 3. **Selecione Confirmar,** em seguida, selecione o idioma que pretende utilizar e, em seguida, selecione **Confirmar** novamente.
-    
+
      >[!NOTE]
      >De momento, o inglês é a única língua que foi testada com a funcionalidade. Pode selecionar outros idiomas, mas podem não ser apresentados como pretendido.
-    
+
 4. Quando o link de descarregamento for gerado, selecione o **Download de 64 bits** e guarde-o para o disco rígido local.
 
-## <a name="get-the-os-image-from-the-azure-portal"></a>Obtenha a imagem do SO do portal Azure
+## <a name="prepare-the-vhd-image-for-azure"></a>Prepare a imagem VHD para O Azure
 
-Para obter a imagem do SO do portal Azure:
-
-1. Abra o [portal Azure](https://portal.azure.com) e inscreva-se.
-
-2. Ir para **criar uma máquina virtual.**
-
-3. No separador **Basic,** selecione **o Windows 10 multi-sessão empresarial, versão 2004**.
-      
-4. Siga o resto das instruções para terminar a criação da máquina virtual.
-
-     >[!NOTE]
-     >Pode utilizar este VM para testar diretamente o anexo de aplicações MSIX. Para saber mais, avance para [gerar um pacote VHD ou VHDX para MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Caso contrário, continue a ler esta secção.
-
-## <a name="prepare-the-vhd-image-for-azure"></a>Prepare a imagem VHD para O Azure 
-
-Antes de começar, terá de criar uma imagem de VHD mestre. Se ainda não criou a sua imagem master VHD, vá a [Preparar e personalize uma imagem master VHD](set-up-customize-master-image.md) e siga as instruções lá. 
+Em seguida, terá de criar uma imagem de VHD mestre. Se ainda não criou a sua imagem master VHD, vá a [Preparar e personalize uma imagem master VHD](set-up-customize-master-image.md) e siga as instruções lá.
 
 Depois de criar a sua imagem principal em VHD, tem de desativar as atualizações automáticas para aplicações de anexação de aplicações MSIX. Para desativar as atualizações automáticas, terá de executar os seguintes comandos numa solicitação de comando elevada:
 
@@ -90,7 +94,7 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-Depois de desativar as atualizações automáticas, tem de ativar o Hyper-V porque vai utilizar o comando Mount-VHD para encenar e desmontar vHD para desarmagem. 
+Depois de desativar as atualizações automáticas, tem de ativar o Hyper-V porque vai utilizar o comando Mount-VHD para encenar e desmontar vHD para desarmagem.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -102,7 +106,7 @@ Em seguida, prepare o VHD VM para Azure e carreque o disco VHD resultante para A
 
 Depois de ter enviado o VHD para Azure, crie uma piscina hospedeira baseada nesta nova imagem seguindo as instruções na [piscina de anfitriões, utilizando o tutorial do Azure Marketplace.](create-host-pools-azure-marketplace.md)
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>Prepare a aplicação para o anexo de aplicações MSIX 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Prepare a aplicação para o anexo de aplicações MSIX
 
 Se já tem um pacote MSIX, avance para a [infraestrutura virtual de ambiente de trabalho do Windows.](#configure-windows-virtual-desktop-infrastructure) Se pretender testar aplicações antigas, siga as instruções na [Criar um pacote MSIX a partir de um instalador de ambiente de trabalho num VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) para converter a aplicação legacy num pacote MSIX.
 
@@ -185,7 +189,7 @@ Antes de começar, certifique-se de que a sua partilha de rede satisfaz estes re
 - A parte é compatível com SMB.
 - Os VMs que fazem parte do pool de anfitriões da sessão têm permissões NTFS para a partilha.
 
-### <a name="set-up-an-msix-app-attach-share"></a>Crie uma partilha de anexação de aplicativo MSIX 
+### <a name="set-up-an-msix-app-attach-share"></a>Crie uma partilha de anexação de aplicativo MSIX
 
 No seu ambiente de ambiente de trabalho virtual do Windows, crie uma partilha de rede e mova o pacote para lá.
 
@@ -426,16 +430,16 @@ Cada um destes scripts automáticos executa uma fase dos scripts anexados da apl
 
 ## <a name="use-packages-offline"></a>Use pacotes offline
 
-Se estiver a utilizar pacotes da [Microsoft Store para negócios](https://businessstore.microsoft.com/) ou da [Microsoft Store for Education](https://educationstore.microsoft.com/) dentro da sua rede ou em dispositivos que não estejam ligados à internet, precisa de obter as licenças de pacote da Microsoft Store e instalá-las no seu dispositivo para executar com sucesso a aplicação. Se o seu dispositivo estiver online e puder ligar-se à Microsoft Store for Business, as licenças necessárias devem ser descarregadas automaticamente, mas se estiver offline, terá de configurar as licenças manualmente. 
+Se estiver a utilizar pacotes da [Microsoft Store para negócios](https://businessstore.microsoft.com/) ou da [Microsoft Store for Education](https://educationstore.microsoft.com/) dentro da sua rede ou em dispositivos que não estejam ligados à internet, precisa de obter as licenças de pacote da Microsoft Store e instalá-las no seu dispositivo para executar com sucesso a aplicação. Se o seu dispositivo estiver online e puder ligar-se à Microsoft Store for Business, as licenças necessárias devem ser descarregadas automaticamente, mas se estiver offline, terá de configurar as licenças manualmente.
 
-Para instalar os ficheiros de licença, terá de utilizar um script PowerShell que ligue para a classe MDM_EnterpriseModernAppManagement_StoreLicenses02_01 no Provedor de Ponte WMI.  
+Para instalar os ficheiros de licença, terá de utilizar um script PowerShell que ligue para a classe MDM_EnterpriseModernAppManagement_StoreLicenses02_01 no Provedor de Ponte WMI.
 
-Eis como configurar as licenças para uso offline: 
+Eis como configurar as licenças para uso offline:
 
 1. Descarregue o pacote de aplicações, licenças e quadros necessários da Microsoft Store para negócios. Precisa dos ficheiros de licença codificados e não codificados. As instruções de descarregamento detalhadas podem ser [encontradas aqui.](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)
 2. Atualize as seguintes variáveis no roteiro para o passo 3:
       1. `$contentID`é o valor ContentID do ficheiro de licença não codificado (.xml). Pode abrir o ficheiro de licença num editor de texto à sua escolha.
-      2. `$licenseBlob`é a cadeia inteira para a bolha de licença no ficheiro de licença codificado (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha. 
+      2. `$licenseBlob`é a cadeia inteira para a bolha de licença no ficheiro de licença codificado (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha.
 3. Execute o seguinte script a partir de um pedido Admin PowerShell. Um bom lugar para executar a instalação de licença é no final do script de [encenação](#stage-the-powershell-script) que também precisa ser executado a partir de um pedido de administrador.
 
 ```powershell
@@ -450,14 +454,14 @@ $contentID = "{'ContentID'_in_unencoded_license_file}"
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"
 
-$session = New-CimSession 
+$session = New-CimSession
 
 #The final string passed into the AddLicenseMethod should be of the form <License Content="encoded license blob" />
-$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />' 
+$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />'
 
 $params = New-Object Microsoft.Management.Infrastructure.CimMethodParametersCollection
 $param = [Microsoft.Management.Infrastructure.CimMethodParameter]::Create("param",$licenseString ,"String", "In")
-$params.Add($param) 
+$params.Add($param)
 
 
 try
@@ -469,10 +473,10 @@ try
 catch [Exception]
 {
      write-host $_ | out-string
-}  
+}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta funcionalidade não é suportada atualmente, mas pode fazer perguntas à comunidade no [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

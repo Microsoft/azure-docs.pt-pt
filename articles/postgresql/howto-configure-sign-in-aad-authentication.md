@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cbec7843b16298abfb9da683fc4dcec1e0a63a9d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 7df9c40980d7a35c1eab0f892c3aca0a30938f57
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636007"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194115"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilize o Diretório Ativo Azure para autenticar com PostgreSQL
 
@@ -115,8 +115,12 @@ Ao utilizar o cliente da `psql` linha de comando, o token de acesso precisa de s
 
 Exemplo do Windows:
 
-```shell
+```cmd
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
+```
+
+```PowerShell
+$env:PGPASSWORD='<copy/pasted TOKEN value from step 2>'
 ```
 
 Linux/macOS Exemplo:
@@ -205,7 +209,7 @@ GRANT azure_ad_user TO "DBReadUser";
 
 Isto pressupõe que criou um grupo "DBReadUser" no seu AD Azure. Os utilizadores pertencentes a esse grupo poderão agora iniciar susso na base de dados como utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja os conceitos globais de [autenticação do Azure Ative Directory com Azure Database for PostgreSQL - Single Server](concepts-aad-authentication.md)
 

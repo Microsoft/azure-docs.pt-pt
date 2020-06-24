@@ -1,41 +1,41 @@
 ---
-title: Recursos de etiquetas, grupos de recursos e subscrições para organização lógica
+title: Etiquetar recursos, grupos de recursos e subscrições para organização lógica
 description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 06/15/2020
+ms.openlocfilehash: c06bd5f44f01a98e3a39d0cf404713e0d0546192
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864492"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791933"
 ---
-# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use tags para organizar os seus recursos Azure e hierarquia de gestão
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use etiquetas para organizar os seus recursos Azure e hierarquia de gestão
 
-Você aplica etiquetas aos seus recursos Azure, grupos de recursos e subscrições para logicamente organizá-las em uma taxonomia. Cada etiqueta consiste num nome e num par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
+Aplica etiquetas nos seus recursos Azure, grupos de recursos e subscrições para organizá-las logicamente numa taxonomia. Cada etiqueta é composta por um nome e um par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
-Para recomendações sobre como implementar uma estratégia de marcação, consulte o guia de decisão de [nomeação e marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)de recursos.
+Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 > [!IMPORTANT]
-> Os nomes das etiquetas são insensíveis aos casos. Os valores das etiquetas são sensíveis aos casos.
+> Os nomes das etiquetas são insensíveis a casos. Os valores da etiqueta são sensíveis a maiôs.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="required-access"></a>Acesso obrigatório
 
-Para aplicar etiquetas a um recurso, tem de ter acesso ao tipo de recursos **Microsoft.Resources/tags.** A função [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) permite aplicar tags a uma entidade sem ter acesso à própria entidade. Atualmente, a função de colaborador de etiquetas não pode aplicar tags a recursos ou grupos de recursos através do portal. Pode aplicar etiquetas a subscrições através do portal. Suporta todas as operações de marcação através da PowerShell e da REST API.  
+Para aplicar tags a um recurso, tem de ter acesso de escrita ao tipo de recurso **Microsoft.Resources/tags.** A função [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) permite aplicar tags a uma entidade sem ter acesso à própria entidade. Atualmente, o papel de contribuinte de etiquetas não pode aplicar tags a recursos ou grupos de recursos através do portal. Pode aplicar tags a subscrições através do portal. Suporta todas as operações de tag através da PowerShell e da REST API.  
 
-O papel [de Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário à aplicação de etiquetas a qualquer entidade. Para aplicar etiquetas a apenas um tipo de recurso, utilize a função de contribuinte para esse recurso. Por exemplo, para aplicar etiquetas em máquinas virtuais, utilize o Colaborador da [Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+A [função Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário à aplicação de etiquetas a qualquer entidade. Para aplicar etiquetas a apenas um tipo de recurso, utilize a função de contribuinte para esse recurso. Por exemplo, para aplicar tags em máquinas virtuais, utilize o [Contribuinte Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
-### <a name="apply-tags"></a>Aplicar etiquetas
+### <a name="apply-tags"></a>Aplicar tags
 
-A Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Deve ter o módulo Az.Resources 1.12.0 ou mais tarde. Pode verificar a `Get-Module Az.Resources`sua versão com . Pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou mais tarde.
+A Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Deve ter o módulo Az.Resources 1.12.0 ou mais tarde. Pode verificar a sua versão com `Get-Module Az.Resources` . Pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou mais tarde.
 
-O **New-AzTag** substitui todas as etiquetas no recurso, grupo de recursos ou subscrição. Ao ligar para o comando, passe a identificação de recursos da entidade que pretende marcar.
+O **New-AzTag** substitui todas as tags no recurso, grupo de recursos ou subscrição. Ao ligar para o comando, passe na identificação de recursos da entidade que deseja marcar.
 
-O seguinte exemplo aplica um conjunto de etiquetas a uma conta de armazenamento:
+O exemplo a seguir aplica um conjunto de etiquetas a uma conta de armazenamento:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -68,7 +68,7 @@ Properties :
         Team         Compliance
 ```
 
-Para adicionar tags a um recurso que já tem tags, utilize **o Update-AzTag**. Defina o parâmetro **de funcionamento** para **fundir**.
+Para adicionar tags a um recurso que já tem tags, utilize **Update-AzTag**. Desa estação o parâmetro **de operação** **para a fusão**.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -87,7 +87,7 @@ Properties :
         Environment  Production
 ```
 
-Cada nome de etiqueta pode ter apenas um valor. Se fornecer um novo valor para uma etiqueta, o valor antigo é substituído mesmo que utilize a operação de fusão. O exemplo seguinte altera a etiqueta de Estado de Normal para Verde.
+Cada nome de etiqueta pode ter apenas um valor. Se fornecer um novo valor para uma etiqueta, o valor antigo é substituído mesmo que utilize a operação de fusão. O exemplo a seguir altera a etiqueta de Estado de Normal para Verde.
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -104,7 +104,7 @@ Properties :
         Environment  Production
 ```
 
-Quando definir o parâmetro **de funcionamento** para **substituir,** as etiquetas existentes são substituídas pelo novo conjunto de etiquetas.
+Quando definir o parâmetro **de operação** para **substituir,** as etiquetas existentes são substituídas pelo novo conjunto de etiquetas.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -122,7 +122,7 @@ Properties :
         Project     ECommerce
 ```
 
-Os mesmos comandos também funcionam com grupos de recursos ou subscrições. Você passa no identificador para o grupo de recursos ou subscrição que você quer marcar.
+Os mesmos comandos também funcionam com grupos de recursos ou subscrições. Você passa no identificador para o grupo de recursos ou subscrição que deseja marcar.
 
 Para adicionar um novo conjunto de tags a um grupo de recursos, utilize:
 
@@ -156,7 +156,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
-Pode ter mais de um recurso com o mesmo nome num grupo de recursos. Nesse caso, pode definir cada recurso com os seguintes comandos:
+Pode ter mais do que um recurso com o mesmo nome num grupo de recursos. Nesse caso, pode definir cada recurso com os seguintes comandos:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
@@ -165,16 +165,16 @@ $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Te
 
 ### <a name="list-tags"></a>Listar etiquetas
 
-Para obter as etiquetas para um recurso, grupo de recursos ou subscrição, use o comando [Get-AzTag](/powershell/module/az.resources/get-aztag) e passe no ID de recurso para a entidade.
+Para obter as etiquetas para um recurso, grupo de recursos ou subscrição, utilize o comando [Get-AzTag](/powershell/module/az.resources/get-aztag) e passe no ID de recursos para a entidade.
 
-Para ver as etiquetas para um recurso, utilize:
+Para ver as etiquetas para um recurso, use:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 Get-AzTag -ResourceId $resource.id
 ```
 
-Para ver as etiquetas para um grupo de recursos, utilize:
+Para ver as etiquetas de um grupo de recursos, utilize:
 
 ```azurepowershell-interactive
 $resourceGroup = Get-AzResourceGroup -Name demoGroup
@@ -188,7 +188,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
-### <a name="list-by-tag"></a>Lista por tag
+### <a name="list-by-tag"></a>Lista por etiqueta
 
 Para obter recursos que tenham um nome e valor específicos, use:
 
@@ -196,21 +196,21 @@ Para obter recursos que tenham um nome e valor específicos, use:
 (Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
 ```
 
-Para obter recursos que tenham um nome de etiqueta específico com qualquer valor de etiqueta, use:
+Para obter recursos que tenham um nome de identificação específico com qualquer valor de etiqueta, use:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
 
-Para obter grupos de recursos que tenham um nome e valor específicos, use:
+Para obter grupos de recursos que tenham um nome e valor específicos, utilize:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
 ```
 
-### <a name="remove-tags"></a>Remover etiquetas
+### <a name="remove-tags"></a>Remover tags
 
-Para remover etiquetas específicas, utilize o **Update-AzTag** e deset **-Operação** para **Eliminar**. Passe nas etiquetas que pretende apagar.
+Para remover etiquetas específicas, utilize **Update-AzTag** e desemote **-Operação** para **Eliminar**. Passe as etiquetas que pretende apagar.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -235,9 +235,9 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-### <a name="apply-tags"></a>Aplicar etiquetas
+### <a name="apply-tags"></a>Aplicar tags
 
-Ao adicionar tags a um grupo de recursos ou recurso, pode substituir as etiquetas existentes ou anexar novas etiquetas às etiquetas existentes.
+Ao adicionar tags a um grupo de recursos ou a um recurso, pode substituir as etiquetas existentes ou anexar novas etiquetas às etiquetas existentes.
 
 Para substituir as etiquetas num recurso, utilize:
 
@@ -263,7 +263,7 @@ Para anexar uma etiqueta às etiquetas existentes num grupo de recursos, utilize
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Atualmente, o Azure CLI não suporta a aplicação de tags a subscrições.
+Atualmente, o Azure CLI não tem um comando para aplicar tags a subscrições. No entanto, pode utilizar o CLI para implementar um modelo ARM que aplica as tags a uma subscrição. Consulte [as etiquetas aplicadas a grupos de recursos ou subscrições.](#apply-tags-to-resource-groups-or-subscriptions)
 
 ### <a name="list-tags"></a>Listar etiquetas
 
@@ -288,23 +288,23 @@ Este script devolve o formato seguinte:
 }
 ```
 
-### <a name="list-by-tag"></a>Lista por tag
+### <a name="list-by-tag"></a>Lista por etiqueta
 
-Para obter todos os recursos que tenham `az resource list`uma etiqueta e valor particulares, use:
+Para obter todos os recursos que têm uma etiqueta e valor particulares, `az resource list` use:
 
 ```azurecli-interactive
 az resource list --tag Dept=Finance
 ```
 
-Para obter grupos de recursos `az group list`que tenham uma etiqueta específica, use:
+Para obter grupos de recursos que tenham uma etiqueta específica, `az group list` use:
 
 ```azurecli-interactive
 az group list --tag Dept=IT
 ```
 
-### <a name="handling-spaces"></a>Manuseamento de espaços
+### <a name="handling-spaces"></a>Espaços de manuseamento
 
-Se os seus nomes ou valores incluem espaços, deve dar alguns passos extra. O exemplo seguinte aplica todas as etiquetas de um grupo de recursos aos seus recursos quando as etiquetas podem conter espaços.
+Se os nomes ou valores da sua etiqueta incluir espaços, deve dar alguns passos extras. O exemplo a seguir aplica todas as tags de um grupo de recursos aos seus recursos quando as etiquetas podem conter espaços.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -322,11 +322,11 @@ IFS=$origIFS
 
 ## <a name="templates"></a>Modelos
 
-Você pode marcar recursos, grupos de recursos e subscrições durante a implementação com um modelo de Gestor de Recursos.
+Pode marcar recursos, grupos de recursos e subscrições durante a implementação com um modelo de Gestor de Recursos.
 
 ### <a name="apply-values"></a>Aplicar valores
 
-O exemplo seguinte implementa uma conta de armazenamento com três etiquetas. Duas das etiquetas`Dept` `Environment`( e) estão definidas para valores literais. Uma etiqueta`LastDeployed`( ) é definida para um parâmetro que se incorre na data atual.
+O exemplo a seguir implanta uma conta de armazenamento com três etiquetas. Duas das etiquetas `Dept` `Environment` (e) são definidas para valores literais. Uma etiqueta `LastDeployed` () é definida como um parâmetro que predefini a data atual.
 
 ```json
 {
@@ -434,9 +434,9 @@ Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que 
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Aplicar etiquetas do grupo de recursos
+### <a name="apply-tags-from-resource-group"></a>Aplicar tags do grupo de recursos
 
-Para aplicar etiquetas de um grupo de recursos a um recurso, utilize a função [resourceGroup.](../templates/template-functions-resource.md#resourcegroup) Ao obter o valor `tags[tag-name]` da etiqueta, use `tags.tag-name` a sintaxe em vez da sintaxe, porque alguns caracteres não são analisados corretamente na notação do ponto.
+Para aplicar tags de um grupo de recursos a um recurso, utilize a função [Grupo de Recursos.](../templates/template-functions-resource.md#resourcegroup) Ao obter o valor da etiqueta, use a `tags[tag-name]` sintaxe em vez da `tags.tag-name` sintaxe, porque alguns caracteres não são analisados corretamente na notação do ponto.
 
 ```json
 {
@@ -468,9 +468,9 @@ Para aplicar etiquetas de um grupo de recursos a um recurso, utilize a função 
 }
 ```
 
-### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Aplicar etiquetas a grupos de recursos ou subscrições
+### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Aplicar tags em grupos de recursos ou subscrições
 
-Pode adicionar tags a um grupo de recursos ou subscrição, implementando o tipo de recursos **Microsoft.Resources/tags.** As etiquetas são aplicadas ao grupo de recursos-alvo ou à subscrição para a implementação. Cada vez que implementa o modelo, substitui quaisquer etiquetas que foram aplicadas anteriormente.
+Pode adicionar tags a um grupo de recursos ou subscrição através da implementação do tipo de recurso **Microsoft.Resources/tags.** As etiquetas são aplicadas ao grupo de recursos-alvo ou subscrição para a implementação. Cada vez que implementar o modelo substitui quaisquer tags, foram previamente aplicadas.
 
 ```json
 {
@@ -503,7 +503,7 @@ Pode adicionar tags a um grupo de recursos ou subscrição, implementando o tipo
 }
 ```
 
-Para aplicar as etiquetas a um grupo de recursos, utilize o PowerShell ou o Azure CLI. Desloque-se para o grupo de recursos que pretende marcar.
+Para aplicar as etiquetas num grupo de recursos, utilize o PowerShell ou o Azure CLI. Implemente para o grupo de recursos que pretende marcar.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -513,7 +513,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile http
 az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-Para aplicar as etiquetas a uma subscrição, utilize powerShell ou Azure CLI. Desloque-se para a subscrição que pretende marcar.
+Para aplicar as etiquetas numa subscrição, utilize o PowerShell ou o Azure CLI. Implemente a subscrição que pretende marcar.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -523,7 +523,9 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-O modelo seguinte adiciona as etiquetas de um objeto a um grupo de recursos ou subscrição.
+Para obter mais informações sobre as implementações de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](../templates/deploy-to-subscription.md)
+
+O modelo a seguir adiciona as tags de um objeto a um grupo de recursos ou a uma subscrição.
 
 ```json
 "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -559,43 +561,41 @@ O modelo seguinte adiciona as etiquetas de um objeto a um grupo de recursos ou s
 
 ## <a name="rest-api"></a>API REST
 
-Para trabalhar com etiquetas através da API De REPOUSO Azure, utilize:
+Para trabalhar com tags através da AZure REST API, utilize:
 
 * [Tags - Criar ou atualizar no âmbito](/rest/api/resources/tags/createorupdateatscope) (operação PUT)
-* [Tags - Atualização no Âmbito](/rest/api/resources/tags/updateatscope) (operação PATCH)
+* [Tags - Atualização no âmbito](/rest/api/resources/tags/updateatscope) (operação PATCH)
 * [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (operação GET)
-* [Tags - Eliminar no âmbito](/rest/api/resources/tags/deleteatscope) (OPERAÇÃO DELETE)
+* [Tags - Excluir no âmbito](/rest/api/resources/tags/deleteatscope) (operação DELETE)
 
-## <a name="inherit-tags"></a>Etiquetas herdadas
+## <a name="inherit-tags"></a>Herdar etiquetas
 
-As etiquetas aplicadas ao grupo de recursos ou subscrição não são herdadas pelos recursos. Para aplicar etiquetas de um grupo de subscrição ou de recursos aos recursos, consulte [políticas do Azure - tags](tag-policies.md).
+As etiquetas aplicadas ao grupo de recursos ou subscrição não são herdadas pelos recursos. Para aplicar tags de um grupo de subscrição ou de recursos aos recursos, consulte [Azure Policies - tags](tag-policies.md).
 
 ## <a name="tags-and-billing"></a>Etiquetas e faturação
 
 Pode utilizar etiquetas para agrupar os seus dados de faturação. Por exemplo, se estiver a executar múltiplas VMs para organizações diferentes, utilize as etiquetas para agrupar a utilização por centro de custos. Também pode utilizar etiquetas para categorizar os custos por ambiente de runtime, tal como a utilização de faturação das VMs executadas no ambiente de produção.
 
-Pode obter informações sobre etiquetas através do ficheiro [De utilização de recursos Azure e RateCard APIs](../../billing/billing-usage-rate-card-overview.md) ou do ficheiro de valores separados pela vírposta (CSV). Você descarrega o ficheiro de uso do Centro de [Conta Azure](https://account.azure.com/Subscriptions) ou do portal Azure. Para mais informações, consulte O Download ou veja a sua fatura de [faturação Do Azure e os dados de utilização diária](../../billing/billing-download-azure-invoice-daily-usage-date.md). Ao descarregar o ficheiro de utilização do Centro de Conta Azure, selecione **versão 2**. Para serviços que suportam etiquetas com faturação, as etiquetas aparecem na coluna **Tags.**
+Pode obter informações sobre tags através do [ficheiro Azure Resource Use and RateCard APIs](../../billing/billing-usage-rate-card-overview.md) ou o ficheiro de valores separados por vírgula (CSV). Descarregue o ficheiro de utilização do Centro de [Contas Azure](https://account.azure.com/Subscriptions) ou do portal Azure. Para mais informações, consulte [Download ou consulte a sua faturação Azure e dados de utilização diários.](../../billing/billing-download-azure-invoice-daily-usage-date.md) Ao descarregar o ficheiro de utilização do Centro de Conta Azure, selecione **a Versão 2**. Para serviços que suportam etiquetas com faturação, as etiquetas aparecem na coluna **Tags.**
 
-Para operações rest API, consulte [Azure Billing REST API Reference](/rest/api/billing/).
+Para operações rest API, consulte [referência API API de Faturação AZure](/rest/api/billing/).
 
 ## <a name="limitations"></a>Limitações
 
 As seguintes limitações aplicam-se às etiquetas:
 
-* Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte o [suporte da Tag para os recursos Azure](tag-support.md).
-* Atualmente, os grupos de gestão não suportam etiquetas.
-* Cada recurso, grupo de recursos e subscrição pode ter um máximo de 50 pares de nome/valor de etiquetas. Se precisar aplicar mais etiquetas do que o número máximo permitido, utilize uma corda JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos ou subscrição pode conter muitos recursos que cada um tem 50 pares de nome/valor de etiqueta.
+* Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)
+* Cada recurso, grupo de recursos e subscrição podem ter um máximo de 50 pares de nome/valor de etiqueta. Se precisar de aplicar mais etiquetas do que o número máximo permitido, utilize uma corda JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos ou subscrição pode conter muitos recursos que cada um tem 50 pares de nome/valor de tag.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
-* VMs generalizados não suportam etiquetas.
-* As etiquetas não podem ser aplicadas a recursos clássicos, como os Serviços cloud.
-* Os nomes de etiquetas `<` `>`não `%` `&`podem `\` `?`conter estes caracteres: , , , ,`/`
+* As etiquetas não podem ser aplicadas a recursos clássicos como os Cloud Services.
+* Os nomes das etiquetas não podem conter estes caracteres: `<` , , , , `>` `%` `&` `\` `?` ,`/`
 
    > [!NOTE]
-   > Atualmente, as zonas de DNS azure e os serviços de Gestor de Tráfego também não permitem a utilização de espaços na etiqueta.
+   > Atualmente, as zonas de DNS do Azure e os serviços de Gerente de Tráfego também não permitem a utilização de espaços na etiqueta.
    >
-   > A Porta frontal azure não `#` suporta o uso no nome da etiqueta.
+   > AZure Front Door não suporta o uso `#` do nome da etiqueta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte o [suporte da Tag para os recursos Azure](tag-support.md).
-* Para recomendações sobre como implementar uma estratégia de marcação, consulte o guia de decisão de [nomeação e marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)de recursos.
+* Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)
+* Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)

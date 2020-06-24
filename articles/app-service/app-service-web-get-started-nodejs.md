@@ -5,12 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4f08068e0920eb8a9e93fbbf91cb352bb8860fe3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "82690800"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905923"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure 
 
@@ -19,11 +19,11 @@ Começa com o Azure App Service criando uma aplicação Node.js/Express localmen
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension)
-- [Nó.js e npm](https://nodejs.org). Verifique o comando `node --version` para verificar se o Node.js está instalado.
+- [Node.js e npm.](https://nodejs.org) Verifique o comando `node --version` para verificar se Node.js está instalada.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - A [extensão do Serviço de Aplicações Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) para Código de Estúdio Visual.
 
-## <a name="clone-and-run-a-local-nodejs-application"></a>Clone e executar uma aplicação local de Node.js
+## <a name="clone-and-run-a-local-nodejs-application"></a>Clone e executar uma aplicação de Node.js local
 
 1. No seu computador local, abra um terminal e clone o repositório de amostras:
 
@@ -52,7 +52,7 @@ Começa com o Azure App Service criando uma aplicação Node.js/Express localmen
 
 ## <a name="deploy-the-app-to-azure"></a>Implementar a aplicação no Azure
 
-Nesta secção, implementa a sua aplicação Node.js para a Azure utilizando o Código VS e a extensão do Serviço de Aplicações Azure.
+Nesta secção, implementa a sua aplicação Node.js para o Azure utilizando o Código VS e a extensão do Serviço de Aplicações Azure.
 
 1. No terminal, certifique-se de que está na pasta *nodejs-docs-hello-world* e, em seguida, inicie o Código do Estúdio Visual com o seguinte comando:
 
@@ -77,7 +77,7 @@ Nesta secção, implementa a sua aplicação Node.js para a Azure utilizando o C
 
 1. Digite um nome globalmente único para a sua aplicação web e prima **Enter**. O nome deve ser único em toda a Azure e usar apenas caracteres alfanuméricos ('A-Z', 'a-z', e '0-9') e hífenes ('-').
 
-1. Se for direcionado para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
+1. Se apontar para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
 
 1. Se direcionar o Windows, siga as indicações adicionais:
     1. Selecione **Criar um novo grupo de recursos**e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg` .
@@ -96,7 +96,7 @@ Nesta secção, implementa a sua aplicação Node.js para a Azure utilizando o C
 
 1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir "Hello World!"
 
-1. Se implementar para o Windows, deve primeiro definir o número da versão Node.js para a aplicação web:
+1. Se implementar para o Windows, deve primeiro definir o número de versão Node.js para a aplicação web:
 
     1. No Código VS, expanda o nó para o novo serviço de aplicações, clique com o botão direito Definições de **aplicação**e selecione **Adicionar Nova Definição...**
 
@@ -155,7 +155,13 @@ Pode visualizar a saída de registo (chamadas `console.log` para) a partir da ap
 
 Parabéns, conseguiste completar esta rapidinha!
 
-Em seguida, confira as outras extensões do Azure.
+> [!div class="nextstepaction"]
+> [Tutorial: Node.js app com o MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurar Node.js app](configure-language-nodejs.md)
+
+Confira as outras extensões do Azure.
 
 * [BD do Cosmos](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -164,3 +170,4 @@ Em seguida, confira as outras extensões do Azure.
 * [Ferramentas de gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Ou obtenha-os todos instalando o pacote de extensões [Node para Azure.](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+

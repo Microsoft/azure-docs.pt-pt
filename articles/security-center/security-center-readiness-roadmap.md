@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
-ms.author: yurid
-ms.openlocfilehash: de14f334b2a68d820dbf80f194ac93430c452038
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.author: memildin
+ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833375"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771364"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -87,7 +87,7 @@ Artigos
 
 ## <a name="advanced-cloud-defense"></a>Defesa de cloud avançada
 
-As VMs do Azure podem tirar partido das capacidades avançadas de defesa da cloud no Centro de Segurança. Estas capacidades incluem acesso a máquina virtual (VM) just-in-time e controlos de aplicação adaptáveis.
+As VMs do Azure podem tirar partido das capacidades avançadas de defesa da cloud no Centro de Segurança. Estas capacidades incluem acesso de máquina virtual just-in-time (VM) e controlos de aplicações adaptativos.
 
 Utilize os seguintes recursos para aprender a utilizar estas capacidades no Centro de Segurança.
 
@@ -96,7 +96,7 @@ Vídeos
 * [Centro de Segurança do Azure - Controlos de Aplicação Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
-* [Gerir o acesso virtual à máquina usando o tempo justo](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gerir o acesso à máquina virtual utilizando o tempo justo](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Controlos de Aplicação Adaptáveis do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Atividades práticas
@@ -114,11 +114,11 @@ Artigos
 * [Melhores práticas de segurança de rede](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Recomendações PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformidade](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Os clientes de análise de log já podem usar o Azure Security Center para proteger as suas cargas de trabalho híbridas em nuvem](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Os clientes de log analytics podem agora usar o Azure Security Center para proteger as suas cargas de trabalho em nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Recursos da Comunidade
 
 * [UserVoice do Centro de Segurança](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Microsoft Q&Uma página de perguntas para o Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
+* [Microsoft Q&Uma página de perguntas para o Centro de Segurança](https://docs.microsoft.com/answers/topics/azure-security-center.html)
 
 

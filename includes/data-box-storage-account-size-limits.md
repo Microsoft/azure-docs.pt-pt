@@ -12,9 +12,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82736982"
 ---
-Aqui estão os limites do tamanho dos dados que são copiados para a conta de armazenamento. Certifique-se de que os dados que envia estão em conformidade com estes limites. Para obter informações mais atualizadas sobre estes limites, consulte os objetivos de [escalabilidade e desempenho para](../articles/storage/blobs/scalability-targets.md) o armazenamento blob e metas de escalabilidade e desempenho dos [Ficheiros Azure.](../articles/storage/files/storage-files-scale-targets.md)
+Aqui estão os limites do tamanho dos dados que são copiados na conta de armazenamento. Certifique-se de que os dados que envia estão em conformidade com estes limites. Para obter as informações mais atualizadas sobre estes limites, consulte os objetivos de [Escalabilidade e desempenho para o armazenamento blob](../articles/storage/blobs/scalability-targets.md) e [os objetivos de escalabilidade e desempenho dos Ficheiros Azure](../articles/storage/files/storage-files-scale-targets.md).
 
-| Tamanho dos dados copiados na conta de armazenamento do Azure                      | Limite predefinido          |
+| Tamanho dos dados copiados na conta de armazenamento Azure                      | Limite predefinido          |
 |---------------------------------------------------------------------|------------------------|
-| Bloco blob e página blob                                            | 2 PB para os EUA e Europa.<br>500 TB para todas as outras regiões, incluindo o Reino Unido.  <br> Isto inclui dados de todas as fontes, incluindo data Box.|
-| Ficheiros do Azure                                                          | Tamanho máximo do ficheiro Standard partilha 100TiB*, 5 TB, o ficheiro Premium partilha 100TiB por ação.<br> Todas as pastas sob *StorageAccount_AzureFiles* devem seguir este limite.       |
+| Blob de bloco e bolha de página                                            | 2 PB para os EUA e Europa.<br>500 TB para todas as outras regiões, incluindo o Reino Unido.  <br> Isto inclui dados de todas as fontes, incluindo a Caixa de Dados.|
+| Ficheiros do Azure                                                          | Tamanho máximo das ações de ficheiro Standard 100TiB*, 5 TB, Ficha Premium 100TiB por ação.<br> Todas as pastas abaixo *StorageAccount_AzureFiles* devem seguir este limite.       |

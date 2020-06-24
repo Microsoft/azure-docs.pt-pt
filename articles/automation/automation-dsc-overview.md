@@ -7,19 +7,19 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/03/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2109baf077b1b4c1074cfae9edd0d2b5ef5030d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343008"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206891"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da configuração do estado da Azure Automation
 
-A Azure Automation State Configuration é um serviço de gestão de configuração Azure que lhe permite escrever, gerir e compilar [configurações](/powershell/scripting/dsc/configurations/configurations) de Configuração do Estado (DSC) de PowerShell Desired State para nós em qualquer datacenter de nuvem ou no local. O serviço também importa [recursos DSC,](/powershell/scripting/dsc/resources/resources)e atribui configurações para os nós alvo, tudo na nuvem. Pode aceder à Configuração do Estado da Automação Azure no portal Azure selecionando a **configuração do Estado (DSC)** em **Gestão de Configuração**. 
+A Azure Automation State Configuration é um serviço de gestão de configuração Azure que lhe permite escrever, gerir e compilar [configurações](/powershell/scripting/dsc/configurations/configurations) de Configuração do Estado (DSC) de PowerShell Desired State para nós em qualquer datacenter de nuvem ou no local. O serviço também importa [recursos DSC,](/powershell/scripting/dsc/resources/resources)e atribui configurações para os nós alvo, tudo na nuvem. Pode aceder à Configuração do Estado da Automação Azure no portal Azure selecionando a **configuração do Estado (DSC)** em **Gestão de Configuração**.
 
 Pode utilizar a Configuração do Estado da Automação Azure para gerir uma variedade de máquinas:
 
@@ -53,7 +53,7 @@ A Azure Automation State Configuration traz a mesma camada de gestão para a [Co
 
 Os nós que são geridos com a Configuração do Estado da Automação Azure enviam dados detalhados do estado de reporte para o servidor de puxar incorporado. Pode configurar a Configuração do Estado da Automação Azure para enviar estes dados para o seu espaço de trabalho Log Analytics. Consulte [a configuração do Estado da Automação forward Azure reportando dados para registos do Monitor Azure](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Pré-requisitos para a utilização da Configuração do Estado da Automação Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
 Considere os requisitos nesta secção ao utilizar a Configuração do Estado da Automação Azure.
 
@@ -103,38 +103,11 @@ O suporte proxy para o agente DSC está disponível na versão 1809 do Windows e
 
 Para os nós Linux, o agente DSC suporta o proxy e utiliza a `http_proxy` variável para determinar o URL. Para saber mais sobre o suporte a procuração, consulte [gerar metaconfiguções de DSC](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
-#### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Gamas de rede de configuração do estado de Azure Automation e espaço de nome
+#### <a name="dns-records-per-region"></a>Registos dns por região
 
-Recomenda-se a utilização dos endereços listados abaixo na definição de exceções. Para endereços IP, pode descarregar os intervalos IP do [Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e tem as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP.
+Recomenda-se a utilização dos endereços listados nos [registos DNS por tabela da região](how-to/automation-region-dns-records.md) ao definir exceções.
 
-Se tiver uma conta Automation que está definida para uma região específica, pode restringir a comunicação a esse datacenter regional. A tabela seguinte fornece o registo de DNS para cada região:
-
-| **Região** | **Registo de DNS** |
-| --- | --- |
-| E.U.A. Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| E.U.A. Centro-Sul |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| E.U.A. Leste    | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
-| E.U.A. Leste 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Europa do Norte |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| Ásia Sudeste |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-
-Para obter uma lista de endereços IP da região em vez de nomes de região, descarregue o ficheiro XML do endereço IP do [Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) do Microsoft Download Center.
-
-> [!NOTE]
-> O endereço IP do Azure Datacenter XML lista os intervalos de endereços IP que são utilizados nos datacenters do Microsoft Azure. O ficheiro inclui gamas de cálculo, SQL e armazenamento.
->
->Um ficheiro atualizado é publicado semanalmente. O ficheiro reflete as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP. As novas gamas que aparecem no ficheiro não são utilizadas nos datacenters durante pelo menos uma semana. É uma boa ideia descarregar o novo ficheiro XML todas as semanas. Em seguida, atualize o seu site para identificar corretamente os serviços em execução em Azure. 
-
-Os utilizadores do Azure ExpressRoute devem ter em conta que este ficheiro é utilizado para atualizar o anúncio do Espaço Azure (Border Gateway Protocol) na primeira semana de cada mês.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para aprender a ativar os nós, consulte [Ativar a Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).

@@ -1,134 +1,134 @@
 ---
-title: Expandir a piscina de anfitriões existente com novos anfitriões de sessão - Azure
+title: Expandir o pool de anfitriões existente com novos anfitriões de sessão - Azure
 description: Como expandir um pool de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615529"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214286"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure. Se está a tentar gerir os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows introduzidos na atualização da primavera de 2020, consulte [este artigo](../expand-existing-host-pool.md).
+>Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../expand-existing-host-pool.md).
 
-À medida que aumenta o uso dentro da sua piscina de anfitriões, poderá ter de expandir a sua piscina de anfitriões existente com novos anfitriões de sessão para lidar com a nova carga.
+À medida que aumenta a utilização dentro da sua piscina de anfitriões, poderá ter de expandir a sua piscina de anfitriões existente com novos anfitriões de sessão para lidar com a nova carga.
 
-Este artigo irá dizer-lhe como você pode expandir uma piscina de anfitriões existente com novos anfitriões de sessão.
+Este artigo dir-lhe-á como pode expandir uma piscina de anfitriões existente com novos anfitriões de sessão.
 
-## <a name="what-you-need-to-expand-the-host-pool"></a>O que você precisa para expandir a piscina anfitriã
+## <a name="what-you-need-to-expand-the-host-pool"></a>O que você precisa para expandir a piscina de anfitriões
 
-Antes de começar, certifique-se de que criou uma piscina de anfitriões e máquinas virtuais de anfitrião de sessão (VMs) utilizando um dos seguintes métodos:
+Antes de começar, certifique-se de que criou uma piscina de anfitriões e máquinas virtuais de anfitrião (VMs) utilizando um dos seguintes métodos:
 
 - [Oferta do Azure Marketplace](create-host-pools-azure-marketplace-2019.md)
-- [Modelo de Gestor de Recursos GitHub Azure](create-host-pools-arm-template.md)
+- [Modelo de gestor de recursos do GitHub Azure](create-host-pools-arm-template.md)
 - [Criar um conjunto de anfitriões com o PowerShell](create-host-pools-powershell-2019.md)
 
-Você também vai precisar das seguintes informações a partir de quando você criou o pool anfitrião e vMs anfitrião de sessão:
+Você também precisará das seguintes informações a partir de quando criou o anfitrião pool e vMs anfitrião de sessão:
 
-- VM tamanho, imagem e prefixo de nome
-- Domain juntam-se e Windows Virtual Desktop credenciais de administrador de inquilino
+- Tamanho vM, imagem e prefixo de nome
+- Adere ao domínio e as credenciais de administrador de inquilinos do Windows Virtual Desktop
 - Nome de rede virtual e nome da sub-rede
 
-As próximas três secções são três métodos que pode usar para expandir a piscina anfitriã. Pode fazer qualquer uma das ferramentas de implantação com que se sinta confortável.
+As próximas três secções são três métodos que pode usar para expandir a piscina hospedeira. Pode fazer qualquer uma das ferramentas de implantação com que se sinta confortável.
 
 >[!NOTE]
->Durante a fase de implementação, verá mensagens de erro para os recursos VM da sessão anterior se estiverem desligados. Estes erros acontecem porque o Azure não pode executar a extensão DoSC PowerShell para validar que os VMs anfitriãos da sessão estão corretamente registados na sua piscina de anfitriões existente. Pode ignorar com segurança estes erros, ou pode evitar os erros iniciando todos os VMs hospedeiros da sessão na piscina de anfitriões existente antes de iniciar o processo de implementação.
+>Durante a fase de implantação, verá mensagens de erro para os recursos VM anfitrião da sessão anterior se forem atualmente desligadas. Estes erros acontecem porque o Azure não pode executar a extensão DSC powerShell para validar que os VMs do anfitrião da sessão estão corretamente registados no seu pool de anfitriões existente. Pode ignorar com segurança estes erros, ou pode evitar os erros iniciando todos os VMs do anfitrião da sessão no pool anfitrião existente antes de iniciar o processo de implementação.
 
 ## <a name="redeploy-from-azure"></a>Reimplantação de Azure
 
-Se já criou um anfitrião e vMs de anfitrião de sessão usando a [oferta do Azure Marketplace](create-host-pools-azure-marketplace-2019.md) ou o modelo [GitHub Azure Resource Manager,](create-host-pools-arm-template.md)pode reimplantar o mesmo modelo do portal Azure. A recolocação do modelo reintroduz automaticamente todas as informações que introduziu no modelo original, exceto as palavras-passe.
+Se já criou um VMs anfitrião de pool e sessão de anfitriões utilizando a oferta do [Azure Marketplace](create-host-pools-azure-marketplace-2019.md) ou [o modelo GitHub Azure Resource Manager,](create-host-pools-arm-template.md)pode recolocar o mesmo modelo a partir do portal Azure. Recolocar o modelo reencamenta automaticamente todas as informações que introduziu no modelo original, com exceção das palavras-passe.
 
-Aqui está como reimplantar o modelo do Gestor de Recursos Azure para expandir um pool de anfitriões:
+Aqui está como recolocar o modelo do Gestor de Recursos Azure para expandir uma piscina hospedeira:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. A partir da barra de pesquisa no topo do portal Azure, procure **por grupos de Recursos** e selecione o item em **Serviços**.
-3. Encontre e selecione o grupo de recursos que criou quando fez a piscina anfitriã.
+2. A partir da barra de pesquisa no topo do portal Azure, procure **grupos de Recursos** e selecione o item em **Serviços**.
+3. Encontre e selecione o grupo de recursos que criou quando fez a piscina de anfitrião.
 4. No painel do lado esquerdo do navegador, selecione **Implementações**.
-5. Selecione a implementação adequada para o seu processo de criação de piscina anfitrião:
-     - Se criou o pool de anfitriões original com a oferta do Azure Marketplace, selecione a implementação a partir de **rds.wvd-provision-host-pool**.
-     - Se criou o conjunto de anfitriões original com o modelo GitHub Azure Resource Manager, selecione a implementação chamada **Microsoft.Template**.
-6. Selecione **Recolocar**.
-     
-     >[!NOTE]
-     >Se o modelo não recolocar automaticamente quando selecionar **Reimplementar**, selecione **O Modelo** no painel do lado esquerdo do seu navegador e, em seguida, selecione **Deploy**.
+5. Selecione a implementação adequada para o processo de criação de piscina de anfitrião:
+     - Se criou a piscina de anfitriões original com a oferta do Azure Marketplace, selecione a implementação a partir **de rds.wvd-provision-host-pool**.
+     - Se criou o pool de anfitriões original com o modelo GitHub Azure Resource Manager, selecione a implementação chamada **Microsoft.Template**.
+6. Selecione **Recolocação**.
 
-7. Selecione o grupo de recursos que contém os VMs anfitriões da sessão atual na piscina de anfitriões existente.
-     
      >[!NOTE]
-     >Se vir um erro que lhe diga para selecionar um grupo de recursos diferente, mesmo que o que inseriu esteja correto, selecione outro grupo de recursos e, em seguida, selecione o grupo de recursos originais.
+     >Se o modelo não for reempreso automaticamente quando selecionar **Recolocação**, selecione **o Modelo** no painel no lado esquerdo do seu navegador e, em seguida, selecione **Implementar**.
+
+7. Selecione o grupo de recursos que contém os VMs de anfitrião de sessão atuais na piscina hospedeira existente.
+
+     >[!NOTE]
+     >Se vir um erro que lhe diga para selecionar um grupo de recursos diferente, mesmo que o que introduziu esteja correto, selecione outro grupo de recursos e, em seguida, selecione o grupo de recursos original.
 
 8. Introduza o seguinte URL para o *_artifactsLocation:*`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
-9. Insira o novo número total de anfitriões de sessão que deseja no *Número rdsh de instâncias*. Por exemplo, se estiver a expandir a sua piscina de anfitriões de cinco anfitriões para oito sessões, insira **8**.
-10. Introduza a mesma senha de domínio existente que utilizou para o domínio existente UPN. Não altere o nome de utilizador, pois isso causará um erro ao executar o modelo.
-11. Introduza a mesma senha de administração de inquilino que usou para o utilizador ou id de aplicação que inseriu para *O Inquilino Administrador Upn ou Id*de Aplicação . Mais uma vez, não mude o nome de utilizador.
-12. Complete a submissão para expandir a sua piscina anfitriã.
+9. Insira o novo número total de anfitriões de sessão que pretende para *o Número de Ocorrências de Rdsh*. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, insira **8**.
+10. Introduza a mesma senha de domínio existente que usou para o domínio existente UPN. Não altere o nome de utilizador, porque isso causará um erro quando executar o modelo.
+11. Introduza a mesma senha de administração de inquilino que usou para o ID do utilizador ou aplicação que inseriu para *o Tenant Admin Upn ou Application Id*. Mais uma vez, não mude o nome de utilizador.
+12. Complete a submissão para expandir a sua piscina de anfitriões.
 
 ## <a name="run-the-azure-marketplace-offering"></a>Executar a oferta do Azure Marketplace
 
-Siga as instruções em [Create a host pool utilizando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até chegar à Run the [Azure Marketplace oferecendo-se para fornecer uma nova piscina de anfitriões.](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada separador:
+Siga as instruções em [Criar uma piscina de anfitriões utilizando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até chegar ao Run the [Azure Marketplace oferecendo uma nova piscina de anfitriões.](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada separador:
 
 ### <a name="basics"></a>Noções básicas
 
-Todos os valores desta secção devem corresponder ao que forneceu quando criou pela primeira vez os VMs de hospedada e anfitrião da sessão, com exceção dos utilizadores de ambientes de *trabalho Predefinidos:*
+Todos os valores nesta secção devem corresponder ao que forneceu quando criou os VMs de anfitrião e de anfitrião de sessão, com exceção *dos utilizadores de ambientes de trabalho predefinidos:*
 
-1.    Para *Subscrição,* selecione a subscrição onde criou pela primeira vez o pool anfitrião.
-2.    Para o *grupo Resource,* selecione o mesmo grupo de recursos onde estão localizados os VMs hospedeiros de anfitrião da sessão de hospedas existentes.
-3.    Para *a Região,* selecione a mesma região onde estão localizadas as VMs anfitriãs da sessão de acolhimento existentes.
-4.    Para *o nome Hostpool,* insira o nome da piscina hospedeira existente.
-5.    Para *o tipo desktop,* selecione o tipo de ambiente de trabalho que corresponde à piscina de anfitriões existente.
-6.    Para *utilizadores de ambientede trabalho Predefinidos,* introduza uma lista separada da vírvia de quaisquer utilizadores adicionais que pretenda inscrever-se nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho após o Azure Marketplace oferecer acabamentos. Por exemplo, se quiser user3@contoso.com atribuir user4@contoso.com e user3@contoso.comaceder, insira.user4@contoso.com
-7.    Selecione **Seguinte: Configurar**a máquina virtual .
+1.    Para *Subscrição*, selecione a subscrição onde criou pela primeira vez o pool de anfitriões.
+2.    Para o *grupo de recursos*, selecione o mesmo grupo de recursos onde estão localizados os VMs de anfitrião da sessão de anfitriões existentes.
+3.    Para *a Região*, selecione a mesma região onde estão localizados os VMs anfitriões de piscina existentes.
+4.    Para *o nome Hostpool,* insira o nome da piscina de anfitriões existente.
+5.    Para *o tipo desktop*, selecione o tipo de ambiente de trabalho que corresponde à piscina hospedeira existente.
+6.    Para *os utilizadores de desktop predefinidos*, introduza uma lista separada de vírgula de quaisquer utilizadores adicionais que pretenda iniciar súmula nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho após o acabamento da oferta do Azure Marketplace. Por exemplo, se quiser atribuir user3@contoso.com e user4@contoso.com aceder, insira user3@contoso.com , user4@contoso.com .
+7.    Selecione **Seguinte : Configurar máquina virtual**.
 
 >[!NOTE]
->Com exceção dos utilizadores de ambientes de *trabalho Predefinidos,* todos os campos devem corresponder exatamente ao que foi configurado na piscina de anfitriões existente. Se houver um desfasamento que resultará numa nova piscina de anfitriões.
+>Com exceção *dos utilizadores de ambientes de trabalho predefinidos,* todos os campos devem corresponder exatamente ao que foi configurado na piscina hospedeira existente. Se houver uma incompatibilidade que resultará numa nova piscina de anfitriões.
 
-### <a name="configure-virtual-machines"></a>Configurar máquinas virtuais
+### <a name="configure-virtual-machines"></a>Configure máquinas virtuais
 
-Todos os valores dos parâmetros nesta secção devem corresponder ao que forneceu quando criou pela primeira vez os VMs anfitriãos da piscina e da sessão, com exceção do número total de VMs. O número de VMs que introduzir será o número de VMs na sua piscina de anfitriões expandida:
+Todos os valores de parâmetros nesta secção devem corresponder ao que forneceu quando criou os VMs de anfitrião e de anfitrião de sessão, com exceção do número total de VMs. O número de VMs que você inseriu será o número de VMs na sua piscina de anfitriões expandida:
 
-1. Selecione o tamanho VM que corresponde às VMs anfitriãs da sessão existente.
-    
+1. Selecione o tamanho VM que corresponda aos VMs do anfitrião da sessão existente.
+
     >[!NOTE]
-    >Se o tamanho de VM específico que procura não aparecer no seletor de tamanho VM, isso é porque ainda não o embarcamos na ferramenta Azure Marketplace. Para solicitar um tamanho VM, crie um pedido ou revote um pedido existente no [fórum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Se o tamanho específico do VM que procura não aparece no seletor de tamanho vM, isso é porque ainda não o acedemos à ferramenta Azure Marketplace. Para solicitar um tamanho VM, crie um pedido ou antevou um pedido existente no [fórum Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general)do Windows .
 
-2. Personalize o Perfil de *Utilização*, *Utilizadores Totais*e *Número de parâmetros de máquinas virtuais* para selecionar o número total de anfitriões de sessão que gostaria de ter na sua piscina anfitriã. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco anfitriões para oito sessões, configure estas opções para chegar a 8 máquinas virtuais.
-3. Introduza um prefixo para os nomes das máquinas virtuais. Por exemplo, se introduzir o nome "prefixo", as máquinas virtuais serão chamadas de "prefixo-0", "prefixo-1", e assim por diante.
-4. Selecione **Seguinte : Definições de máquinavirtual**.
+2. Personalize o *Perfil de Utilização,* total de *utilizadores*e *número de parâmetros de máquinas virtuais* para selecionar o número total de anfitriões de sessão que gostaria de ter na piscina de anfitriões. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, configuure estas opções para chegar a 8 máquinas virtuais.
+3. Introduza um prefixo para os nomes das máquinas virtuais. Por exemplo, se introduzir o nome "prefixo", as máquinas virtuais serão chamadas de "prefix-0", "prefixo-1", e assim por diante.
+4. Selecione **Seguinte : Configurações de máquinas virtuais**.
 
 ### <a name="virtual-machine-settings"></a>Definições da máquina virtual
 
-Todos os valores dos parâmetros nesta secção devem corresponder ao que forneceu quando criou pela primeira vez os VMs anfitriãos e anfitriões da sessão:
+Todos os valores de parâmetros nesta secção devem corresponder ao que forneceu quando criou os VMs do anfitrião e do anfitrião da sessão:
 
-1. Para *a imagem de origem* e versão Image *OS,* introduza as mesmas informações que forneceu quando criou o pool anfitrião pela primeira vez.
-2. Para *que o domínio AD se junte à UPN* e às palavras-passe associadas, introduza as mesmas informações que forneceu quando criou o pool anfitrião para se juntar aos VMs ao domínio do Diretório Ativo. Estas credenciais serão usadas para criar uma conta local nas suas máquinas virtuais. Pode redefinir estas contas locais para alterar as suas credenciais mais tarde.
-3. Para obter informações de rede virtual, selecione a mesma rede virtual e subnet para onde estão localizados os VMs de anfitrião da sessão de hospedaria existentes.
-4. Selecione **Seguinte : Configure as informações do Windows Virtual Desktop**.
+1. Para *a origem de imagem* e versão Image *OS,* insira as mesmas informações que forneceu quando criou a piscina de anfitrião pela primeira vez.
+2. Para *o domínio AD juntar-se à UPN* e às palavras-passe associadas, insira as mesmas informações que forneceu quando criou o pool anfitrião para se juntar aos VMs ao domínio do Ative Directory. Estas credenciais serão usadas para criar uma conta local nas suas máquinas virtuais. Pode redefinir estas contas locais para alterar as suas credenciais mais tarde.
+3. Para obter informações sobre a rede virtual, selecione a mesma rede virtual e sub-rede para onde estão localizados os VMs anfitriões da sessão de anfitriões existentes.
+4. Selecione **Seguinte : Configurar informações de ambiente de trabalho virtual do Windows**.
 
-### <a name="windows-virtual-desktop-information"></a>Informações sobre desktop virtual do Windows
+### <a name="windows-virtual-desktop-information"></a>Informações de ambiente de trabalho virtual do Windows
 
-Todos os valores dos parâmetros nesta secção devem corresponder ao que forneceu quando criou pela primeira vez os VMs anfitriãos e anfitriões da sessão:
+Todos os valores de parâmetros nesta secção devem corresponder ao que forneceu quando criou os VMs do anfitrião e do anfitrião da sessão:
 
-1. Para o nome do grupo de *inquilinos Windows Virtual Desktop,* insira o nome do grupo de inquilinos que contém o seu inquilino. Deixe-o como o padrão, a menos que lhe tenha sido dado um nome específico de grupo de inquilinos.
-2. Para o nome do *inquilino Do Windows Virtual Desktop,* insira o nome do inquilino onde estará a criar esta piscina de hospedada.
-3. Especifique as mesmas credenciais que usou quando criou pela primeira vez os VMs anfitriãos da piscina e da sessão. Se estiver a utilizar um diretor de serviço, insira a identificação da instância do Diretório Ativo Azure onde está localizado o seu diretor de serviço.
+1. Para *o nome do grupo de inquilinos virtual do Windows Desktop,* insira o nome para o grupo de inquilinos que contém o seu inquilino. Deixe-o como padrão, a menos que lhe tenha sido fornecido um nome específico do grupo de inquilinos.
+2. Para *o nome do inquilino virtual do Windows Desktop,* insira o nome do inquilino onde estará a criar esta piscina de anfitriões.
+3. Especifique as mesmas credenciais que usou quando criou os VMs do anfitrião e do anfitrião da sessão. Se estiver a utilizar um diretor de serviço, insira o ID do Azure Ative Directory onde está localizado o seu principal de serviço.
 4. Selecione **Seguinte : Rever + criar**.
 
 ## <a name="run-the-github-azure-resource-manager-template"></a>Executar o modelo gitHub Azure Resource Manager
 
-Siga as instruções no [modelo Run the Azure Resource Manager para fornecer uma nova piscina de anfitriões](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, exceto para o *Número Rdsh de Instâncias*. Insira o número de VMs anfitrião da sessão que deseja na piscina anfitriã depois de executar o modelo. Por exemplo, se estiver a expandir a sua piscina de anfitriões de cinco anfitriões para oito sessões, insira **8**.
+Siga as instruções em [Executar o modelo Azure Resource Manager para o fornecimento de uma nova piscina de anfitriões](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, com exceção do *Número de Ocorrências do Rdsh*. Introduza o número de VMs do anfitrião de sessão que deseja na piscina de anfitrião depois de executar o modelo. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, insira **8**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão com um cliente do Windows Virtual Desktop para os testar como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
+Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão num cliente do Windows Virtual Desktop para testá-los como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 
 - [Ligar ao cliente de Ambiente de Trabalho do Windows](../connect-windows-7-and-10.md)
 - [Ligar com o cliente web](connect-web-2019.md)
