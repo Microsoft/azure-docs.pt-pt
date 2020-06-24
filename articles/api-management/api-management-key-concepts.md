@@ -14,17 +14,17 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240367"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690205"
 ---
 # <a name="about-api-management"></a>Acerca da Gestão de API
 
 A Gestão de API (APIM) é uma forma de criar gateways de API consistentes e modernos para serviços de back-end existentes.
 
-A API Management ajuda as organizações a publicar APIs a programadores externos, parceiros e internos para desbloquear o potencial dos seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
+A API Management ajuda as organizações a publicar APIs a desenvolvedores externos, parceiros e internos para desbloquear o potencial dos seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
 
 Este artigo apresenta uma descrição geral dos cenários comuns que envolvem a APIM.  Também fornece uma breve descrição geral dos componentes principais do sistema de APIM. O artigo, em seguida, apresenta uma descrição geral mais detalhada de cada componente.
 
@@ -108,7 +108,7 @@ As expressões de política podem ser utilizadas como valores de atributo ou val
 Para obter uma lista completa das políticas de Gestão de API, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como utilizar e configurar as políticas, consulte [Políticas de API Management][API Management policies]. Para consultar um tutorial sobre a criação de um produto com políticas de limite de taxa e quota, consulte [Como criar e configurar definições de produto avançadas][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"></a><a name="developer-portal"> </a> Portal de desenvolvimento
+## <a name="developer-portal"></a><a name="developer-portal"> </a> Portal do desenvolvedor
 O portal do programador é o local onde os programadores podem saber mais sobre as suas APIs, ver e chamar operações e subscrever produtos. Os potenciais clientes podem visitar o portal do programador, ver APIs e operações e inscrever-se. O URL do seu portal do programador está localizado no dashboard do portal do Azure da sua instância de serviço de Gestão de API.
 
 Pode personalizar o aspeto e a funcionalidade do portal do programador ao adicionar conteúdo personalizado, personalizar os estilos e adicionar a sua imagem corporativa.

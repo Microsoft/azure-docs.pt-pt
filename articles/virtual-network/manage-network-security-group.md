@@ -6,17 +6,17 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: cac67e85383f36aee0a1535d69fa075f92bd6dbf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267720"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708285"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -174,7 +174,7 @@ Há um limite para quantas regras por grupo de segurança de rede pode criar par
     | **Intervalos de portas de destino** | Um dos seguintes:<ul><li>Um único porto, como`80`</li><li>Uma gama de portos, tais como`1024-65535`</li><li>Uma lista separada por vírgula de portas individuais e/ou gamas portuárias, tais como`80, 1024-65535`</li><li>Um asterisco `*` para permitir o tráfego em qualquer porto</li></ul> | Tal como acontece com **as gamas de portas Source,** pode especificar portas e gamas simples ou múltiplas. Há limites para o número que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) |
     | **Protocolo** | **Qualquer**, **TCP,** **UDP,** ou **ICMP** | Pode restringir a regra ao Protocolo de Controlo de Transmissão (TCP), ao Protocolo de Datagrama do Utilizador (UDP) ou ao Protocolo de Mensagens de Controlo de Internet (ICMP). O padrão é que a regra se aplique a todos os protocolos. |
     | **Ação** | **Permitir** ou **Negar** | Esta definição especifica se esta regra permite ou nega o acesso para a configuração fornecida da fonte e destino. |
-    | **Prioridade** | Um valor entre 100 e 4096 que é único para todas as regras de segurança dentro do grupo de segurança da rede | Azure processa as regras de segurança em ordem prioritária. Quanto menor for o número, maior é a prioridade. Recomendamos que deixe uma lacuna entre números prioritários quando criar regras, tais como 100, 200 e 300. Deixar lacunas facilita a adição de regras no futuro, para que possa dar-lhes maior ou menor prioridade do que as regras existentes. |
+    | **Priority** | Um valor entre 100 e 4096 que é único para todas as regras de segurança dentro do grupo de segurança da rede | Azure processa as regras de segurança em ordem prioritária. Quanto menor for o número, maior é a prioridade. Recomendamos que deixe uma lacuna entre números prioritários quando criar regras, tais como 100, 200 e 300. Deixar lacunas facilita a adição de regras no futuro, para que possa dar-lhes maior ou menor prioridade do que as regras existentes. |
     | **Nome** | Um nome único para a regra dentro do grupo de segurança da rede | O nome pode chegar aos 80 caracteres. Deve começar com uma letra ou número, e deve terminar com uma letra, número ou sublinhado. O nome pode conter apenas letras, números, sublinhados, períodos ou hífenes. |
     | **Descrição** | Uma descrição de texto | Pode especificar opcionalmente uma descrição de texto para a regra de segurança. |
 

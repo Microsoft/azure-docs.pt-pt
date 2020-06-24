@@ -1,24 +1,24 @@
 ---
-title: Criar um equilíbrio de carga básico interno - Azure CLI
+title: Criar um Balanceador de Carga Básica interno - Azure CLI
 titleSuffix: Azure Load Balancer
-description: Neste artigo, aprenda a criar um equilibrador de carga interno usando o Azure CLI
+description: Neste artigo, aprenda a criar um equilibrador de carga interno usando O Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bcd476f0e1418227f6ab290ad84ac9737e52bbd
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79457016"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808555"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure
 
@@ -62,7 +62,7 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Balancer de Carga interno com [az rede lb criar](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que inclui uma configuração IP frontal chamada **myFrontEnd**, uma piscina de back-end chamada **myBackEndPool** que está associada a um endereço IP privado **10.0.0.7.
+Crie um Balancer de Carga interno com [a az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclui uma configuração IP frontend chamada **myFrontEnd**, um pool back-end chamado **myBackEndPool** que está associado a um endereço IP privado **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

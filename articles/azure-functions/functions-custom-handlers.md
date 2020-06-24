@@ -1,53 +1,53 @@
 ---
-title: Manipuladores personalizados funções azure (pré-visualização)
-description: Aprenda a utilizar funções Azure com qualquer idioma ou versão de tempo de execução.
+title: Azure Functions manipuladores personalizados (pré-visualização)
+description: Aprenda a utilizar funções Azure com qualquer versão idioma ou runtime.
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995875"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052583"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Manipuladores personalizados funções azure (pré-visualização)
+# <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (pré-visualização)
 
-Todas as aplicações Functions são executadas por um manipulador específico de linguagem. Enquanto o Azure Functions suporta muitos manipuladores de [idiomas](./supported-languages.md) por padrão, existem casos em que pode querer um controlo adicional sobre o ambiente de execução da aplicação. Os manipuladores personalizados dão-lhe este controlo adicional.
+Todas as aplicações Funções são executadas por um manipulador específico da linguagem. Embora o Azure Functions suporte muitos [manipuladores de idiomas](./supported-languages.md) por padrão, existem casos em que pode querer um controlo adicional sobre o ambiente de execução da aplicação. Os manipuladores personalizados dão-lhe este controlo adicional.
 
-Os manipuladores personalizados são servidores web leves que recebem eventos do anfitrião funções. Qualquer idioma que suporte os primitivos HTTP pode implementar um manipulador personalizado.
+Os manipuladores personalizados são servidores web leves que recebem eventos do anfitrião Funções. Qualquer idioma que suporte primitivos HTTP pode implementar um manipulador personalizado.
 
-Os manipuladores personalizados são mais adequados para situações onde você quer:
+Os manipuladores personalizados são os mais adequados para situações em que deseja:
 
-- Implementar uma aplicação de função num idioma que não seja suportado oficialmente.
+- Implementar uma aplicação de função num idioma que não seja oficialmente suportado.
 - Implementar uma aplicação de função numa versão idioma ou tempo de execução não suportado por padrão.
-- Forneça um maior controlo granular sobre o ambiente de execução da aplicação de funções.
+- Fornecer um maior controlo granular sobre o ambiente de execução de aplicações de função.
 
-Com manipuladores personalizados, todos os [gatilhos e encadernações](./functions-triggers-bindings.md) de entrada e saída são suportados através de pacotes de [extensão](./functions-bindings-register.md).
+Com manipuladores personalizados, todos os [gatilhos e ligações de entrada e saída](./functions-triggers-bindings.md) são suportados através de [pacotes de extensão](./functions-bindings-register.md).
 
 ## <a name="overview"></a>Descrição geral
 
-O diagrama seguinte mostra a relação entre o anfitrião das Funções e um servidor web implementado como um manipulador personalizado.
+O diagrama seguinte mostra a relação entre o anfitrião Funções e um servidor web implementado como um manipulador personalizado.
 
-![Visão geral do manipulador personalizado funções azure](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
+![Visão geral do manipulador personalizado Azure Functions](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
 
-- Os eventos desencadeiam um pedido enviado ao anfitrião das Funções. O evento transporta uma carga bruta http (para funções acionadas em HTTP sem encadernação), ou uma carga útil que detém dados de ligação de entrada para a função.
-- O anfitrião funções então proxies o pedido para o servidor web, emitindo uma [carga útil](#request-payload)de pedido .
-- O servidor web executa a função individual e devolve uma [carga de resposta](#response-payload) ao anfitrião funções.
-- As Funções acolhem a resposta como uma carga de ligação de saída ao alvo.
+- Os eventos desencadeiam um pedido enviado ao anfitrião das Funções. O evento transporta uma carga http bruta (para funções acionadas por HTTP sem encadernações), ou uma carga útil que contém dados de ligação de entrada para a função.
+- O anfitrião Funções, em seguida, solicita o pedido ao servidor web, emitindo uma [carga útil de pedido](#request-payload).
+- O servidor web executa a função individual e devolve uma [carga útil de resposta](#response-payload) ao anfitrião Funções.
+- O anfitrião funções sugere a resposta como uma carga de ligação de saída ao alvo.
 
-Uma aplicação Azure Functions implementada como manipulador personalizado deve configurar os *ficheiros host.json* e *function.json* de acordo com algumas convenções.
+Uma aplicação Azure Functions implementada como um manipulador personalizado deve configurar o *host.jse* *function.jsem* ficheiros de acordo com algumas convenções.
 
 ## <a name="application-structure"></a>Estrutura de aplicação
 
-Para implementar um manipulador personalizado, necessita dos seguintes aspetos da sua aplicação:
+Para implementar um manipulador personalizado, precisa dos seguintes aspetos da sua aplicação:
 
-- Um ficheiro *host.json* na raiz da sua app
-- Um ficheiro *function.json* para cada função (dentro de uma pasta que corresponda ao nome da função)
+- Um *host.jsno* arquivo na raiz da sua aplicação
+- Uma *function.jsno* ficheiro para cada função (dentro de uma pasta que corresponde ao nome da função)
 - Um comando, script ou executável, que executa um servidor web
 
-O diagrama seguinte mostra como estes ficheiros se parecem no sistema de ficheiros para uma função chamada "encomenda".
+O diagrama seguinte mostra como estes ficheiros ficam no sistema de ficheiros para uma função chamada "ordem".
 
 ```bash
 | /order
@@ -58,9 +58,9 @@ O diagrama seguinte mostra como estes ficheiros se parecem no sistema de ficheir
 
 ### <a name="configuration"></a>Configuração
 
-A aplicação é configurada através do ficheiro *host.json.* Este ficheiro diz ao anfitrião das Funções onde enviar pedidos apontando para um servidor web capaz de processar eventos HTTP.
+O pedido é configurado através do *host.jsarquivado.* Este ficheiro diz ao anfitrião funções onde enviar pedidos apontando para um servidor web capaz de processar eventos HTTP.
 
-Um manipulador personalizado é definido configurando o ficheiro *host.json* com detalhes sobre como executar o servidor web através da `httpWorker` secção.
+Um manipulador personalizado é definido configurando o *host.jsem* ficheiro com detalhes sobre como executar o servidor web através da `httpWorker` secção.
 
 ```json
 {
@@ -73,9 +73,9 @@ Um manipulador personalizado é definido configurando o ficheiro *host.json* com
 }
 ```
 
-A `httpWorker` secção aponta para um alvo definido pelo `defaultExecutablePath` . O alvo de execução pode ser um comando, executável ou ficheiro onde o servidor web é implementado.
+A `httpWorker` secção aponta para um alvo tal como definido pelo `defaultExecutablePath` . O alvo de execução pode ser um comando, executável ou um ficheiro onde o servidor web é implementado.
 
-Para aplicações escritas, `defaultExecutablePath` aponta para o tempo de execução do script idioma e aponta para a localização do ficheiro `defaultWorkerPath` script. O exemplo que se segue mostra como uma aplicação JavaScript no Node.js é configurada como um manipulador personalizado.
+Para aplicações `defaultExecutablePath` escritas, aponta para o tempo de execução da linguagem do script e `defaultWorkerPath` aponta para a localização do ficheiro do script. O exemplo a seguir mostra como uma aplicação JavaScript em Node.js é configurada como um manipulador personalizado.
 
 ```json
 {
@@ -104,32 +104,32 @@ Também pode passar argumentos usando a `arguments` matriz:
 }
 ```
 
-Os argumentos são necessários para muitas configurações de depuração. Consulte a secção [Debugging](#debugging) para mais detalhes.
+Os argumentos são necessários para muitas configurações de depuração. Consulte a secção [Debugging](#debugging) para obter mais detalhes.
 
 > [!NOTE]
-> O ficheiro *host.json* deve estar ao mesmo nível na estrutura do diretório que o servidor web em execução. Alguns idiomas e cadeias de ferramentas não podem colocar o ficheiro na raiz da aplicação por defeito.
+> O *host.jsno* ficheiro deve estar ao mesmo nível na estrutura do diretório que o servidor web em execução. Alguns idiomas e porta-ferramentas podem não colocar este ficheiro na raiz da aplicação por predefinição.
 
-#### <a name="bindings-support"></a>Apoio às encadernações
+#### <a name="bindings-support"></a>Suporte de encadernações
 
-Os gatilhos padrão juntamente com as encadernações de entrada e de saída estão disponíveis através da referência de [pacotes](./functions-bindings-register.md) de extensão no ficheiro *host.json.*
+Os gatilhos padrão, juntamente com as ligações de entrada e saída, estão disponíveis referindo [pacotes de extensão](./functions-bindings-register.md) no seu *host.jsficheiro.*
 
 ### <a name="function-metadata"></a>Metadados de função
 
-Quando utilizado com um manipulador personalizado, o conteúdo *fun.json* não é diferente de como definiruma função em qualquer outro contexto. O único requisito é que *os ficheiros function.json* devem estar numa pasta nomeada para corresponder ao nome da função.
+Quando usado com um manipulador personalizado, o *function.jssobre* o conteúdo não é diferente de como definiria uma função em qualquer outro contexto. O único requisito é que *function.jsem* ficheiros devem estar numa pasta nomeada para corresponder ao nome da função.
 
 ### <a name="request-payload"></a>Solicitar carga útil
 
-A carga útil do pedido para funções http puras é a carga bruta de pedido http. As funções HTTP puras são definidas como funções sem ligações de entrada ou saída, que devolvem uma resposta HTTP.
+A carga útil do pedido para funções HTTP pura é a carga útil de pedido http bruto. As funções HTTP pura são definidas como funções sem encadernações de entrada ou saída, que devolvem uma resposta HTTP.
 
-Qualquer outro tipo de função que inclua a entrada, as encadernações de saída ou seja acionada através de uma fonte de evento que não seja http tem uma carga útil de pedido personalizado.
+Qualquer outro tipo de função que inclua entradas, encadernações de saída ou seja desencadeada através de uma fonte de evento diferente de HTTP tem uma carga útil de pedido personalizado.
 
 O seguinte código representa uma carga útil de pedido de amostra. A carga útil inclui uma estrutura JSON com dois membros: `Data` e `Metadata` .
 
-O `Data` membro inclui teclas que correspondem à entrada e disparam nomes definidos na matriz de encadernação no ficheiro *função.json.*
+O `Data` membro inclui chaves que correspondem à entrada e desempoletam nomes definidos no conjunto de encadernações nofunction.js*ficheiro.*
 
-O `Metadata` membro inclui [metadados gerados a partir da fonte do evento](./functions-bindings-expressions-patterns.md#trigger-metadata).
+O `Metadata` membro inclui [metadados gerados a partir da fonte do evento.](./functions-bindings-expressions-patterns.md#trigger-metadata)
 
-Dadas as encadernações definidas no seguinte ficheiro *função.json:*
+Tendo em conta as encadernações definidas no seguinte *function.jsem* arquivo:
 
 ```json
 {
@@ -152,7 +152,7 @@ Dadas as encadernações definidas no seguinte ficheiro *função.json:*
 }
 ```
 
-Uma carga útil de pedido semelhante a este exemplo é devolvida:
+É devolvida uma carga útil de pedido semelhante a este exemplo:
 
 ```json
 {
@@ -177,28 +177,28 @@ Uma carga útil de pedido semelhante a este exemplo é devolvida:
 
 ### <a name="response-payload"></a>Carga útil de resposta
 
-Por convenção, as respostas de função são formatadas como par de chaves/valor. As chaves suportadas incluem:
+Por convenção, as respostas da função são formatadas como pares chave/valor. As chaves suportadas incluem:
 
 | <nobr>Chave de carga útil</nobr>   | Tipo de dados | Observações                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Detém valores de resposta definidos pela `bindings` matriz o ficheiro *função.json.*<br /><br />Por exemplo, se uma função for configurada com uma ligação de saída de armazenamento blob chamada "blob", então `Outputs` contém uma chave chamada , que está definida para o valor da `blob` bolha. |
-| `Logs`        | array     | As mensagens aparecem nos registos de invocação das Funções.<br /><br />Ao correr em Azure, as mensagens aparecem no Application Insights. |
-| `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` no ficheiro *função.json.* |
+| `Outputs`     | JSON      | Detém valores de resposta definidos pela `bindings` matriz que ofunction.js*em* ficheiro.<br /><br />Por exemplo, se uma função for configurada com uma saída de armazenamento blob chamada "blob", então `Outputs` contém uma chave chamada , que é definida para o valor da `blob` bolha. |
+| `Logs`        | array     | As mensagens aparecem nos registos de invocação de funções.<br /><br />Ao correr em Azure, as mensagens aparecem no Application Insights. |
+| `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` no *function.jsem* arquivo. |
 
-Consulte o [exemplo de uma carga útil](#bindings-implementation)da amostra .
+Veja o [exemplo para uma carga útil da amostra.](#bindings-implementation)
 
 ## <a name="examples"></a>Exemplos
 
-Os manipuladores personalizados podem ser implementados em qualquer idioma que suporte eventos HTTP. Embora as Funções Azure [suportem totalmente o JavaScript e o Node.js,](./functions-reference-node.md)os seguintes exemplos mostram como implementar um manipulador personalizado utilizando javaScript em Node.js para efeitos de instrução.
+Os manipuladores personalizados podem ser implementados em qualquer idioma que suporte eventos HTTP. Embora as Funções Azure [suportem totalmente o JavaScript e Node.js, ](./functions-reference-node.md)os seguintes exemplos mostram como implementar um manipulador personalizado utilizando o JavaScript em Node.js para efeitos de instrução.
 
 > [!TIP]
-> Embora seja um guia para aprender a implementar um manipulador personalizado em outras línguas, os exemplos baseados no Nó.js mostrados aqui também podem ser úteis se você quiser executar uma app Funções em uma versão não suportada de Node.js.
+> Apesar de ser um guia para aprender a implementar um manipulador personalizado em outras línguas, os exemplos baseados em Node.js mostrados aqui também podem ser úteis se quiser executar uma aplicação De Funções numa versão não suportada de Node.js.
 
-## <a name="http-only-function"></a>Função http-only
+## <a name="http-only-function"></a>Função apenas HTTP
 
-O exemplo que se segue demonstra como configurar uma função desencadeada pelo HTTP sem ligações ou saídas adicionais. O cenário implementado neste exemplo apresenta uma função nomeada `http` que aceita um ou `GET` `POST` .
+O exemplo a seguir demonstra como configurar uma função desencadeada por HTTP sem encadernações ou saídas adicionais. O cenário implementado neste exemplo apresenta uma função nomeada `http` que aceita um ou `GET` `POST` .
 
-O seguinte corte representa a forma como é composto um pedido à função.
+O seguinte corte representa a forma como um pedido para a função é composto.
 
 ```http
 POST http://127.0.0.1:7071/api/hello HTTP/1.1
@@ -213,7 +213,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementação
 
-Numa pasta com o nome *http,* o ficheiro *function.json* configura a função desencadeada pelo HTTP.
+Numa pasta com o nome *http,* o *function.jsno* ficheiro configura a função acionada por HTTP.
 
 ```json
 {
@@ -233,9 +233,9 @@ Numa pasta com o nome *http,* o ficheiro *function.json* configura a função de
 }
 ```
 
-A função está configurada para aceitar tanto e pedidos e o valor do resultado é fornecido através de `GET` `POST` um argumento nomeado `res` .
+A função está configurada para aceitar tanto `GET` e `POST` pedidos e o valor do resultado é fornecido através de um argumento denominado `res` .
 
-Na raiz da aplicação, o ficheiro *host.json* está configurado para executar Node.js e apontar o `server.js` ficheiro.
+Na raiz da aplicação, o *host.jsem* ficheiro está configurado para executar Node.js e apontar o `server.js` ficheiro.
 
 ```json
 {
@@ -249,7 +249,7 @@ Na raiz da aplicação, o ficheiro *host.json* está configurado para executar N
 }
 ```
 
-O ficheiro *file server.js* implementa um servidor web e função HTTP.
+O ficheiro *server.js* implementa uma função web server e HTTP.
 
 ```javascript
 const express = require("express");
@@ -274,18 +274,18 @@ app.post("/hello", (req, res) => {
 });
 ```
 
-Neste exemplo, o Express é usado para criar um servidor web para lidar com eventos HTTP e está definido para ouvir pedidos através do `FUNCTIONS_HTTPWORKER_PORT` .
+Neste exemplo, o Express é utilizado para criar um servidor web para lidar com eventos HTTP e está definido para ouvir pedidos através do `FUNCTIONS_HTTPWORKER_PORT` .
 
-A função é definida no caminho de `/hello` . `GET`os pedidos são tratados devolvendo um simples objeto JSON, e os pedidos têm acesso ao órgão de `POST` pedido via `req.body` .
+A função é definida no caminho de `/hello` . `GET`os pedidos são tratados devolvendo um simples objeto JSON, e `POST` os pedidos têm acesso ao organismo de pedido via `req.body` .
 
-O percurso para a função de encomenda aqui é `/hello` e não porque o `/api/hello` anfitrião funções está procurando o pedido para o manipulador personalizado.
+A rota para a função de encomenda aqui é `/hello` e não porque o `/api/hello` anfitrião de Funções está procurando o pedido para o manipulador personalizado.
 
 >[!NOTE]
->Não `FUNCTIONS_HTTPWORKER_PORT` é o porto virado para o público usado para chamar a função. Esta porta é utilizada pelo anfitrião funções para ligar para o manipulador personalizado.
+>O `FUNCTIONS_HTTPWORKER_PORT` porto de frente para o público não é usado para chamar a função. Esta porta é utilizada pelo anfitrião Funções para chamar o manipulador personalizado.
 
 ## <a name="function-with-bindings"></a>Função com encadernações
 
-O cenário implementado neste exemplo apresenta uma função nomeada `order` que aceita um com uma carga útil que representa uma encomenda do `POST` produto. Como uma encomenda é postada na função, uma mensagem de Armazenamento de Fila é criada e uma resposta HTTP é devolvida.
+O cenário implementado neste exemplo apresenta uma função nomeada `order` que aceita uma com uma carga útil representando uma encomenda de `POST` produto. Como uma encomenda é publicada na função, uma mensagem de armazenamento de fila é criada e uma resposta HTTP é devolvida.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -302,7 +302,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementação
 
-Numa pasta denominada *ordem,* o ficheiro *função.json* configura a função desencadeada pelo HTTP.
+Numa pasta denominada *ordem,* o *function.jsno* ficheiro configura a função acionada por HTTP.
 
 ```json
 {
@@ -331,9 +331,9 @@ Numa pasta denominada *ordem,* o ficheiro *função.json* configura a função d
 
 ```
 
-Esta função é definida como uma [função ativada](./functions-bindings-http-webhook-trigger.md) em HTTP que devolve uma [resposta HTTP](./functions-bindings-http-webhook-output.md) e produz uma mensagem de armazenamento de [fila.](./functions-bindings-storage-queue-output.md)
+Esta função é definida como uma [função detonada HTTP](./functions-bindings-http-webhook-trigger.md) que devolve uma [resposta HTTP](./functions-bindings-http-webhook-output.md) e produz uma mensagem de armazenamento [de fila.](./functions-bindings-storage-queue-output.md)
 
-Na raiz da aplicação, o ficheiro *host.json* está configurado para executar Node.js e apontar o `server.js` ficheiro.
+Na raiz da aplicação, o *host.jsem* ficheiro está configurado para executar Node.js e apontar o `server.js` ficheiro.
 
 ```json
 {
@@ -347,7 +347,7 @@ Na raiz da aplicação, o ficheiro *host.json* está configurado para executar N
 }
 ```
 
-O ficheiro *file server.js* implementa um servidor web e função HTTP.
+O ficheiro *server.js* implementa uma função web server e HTTP.
 
 ```javascript
 const express = require("express");
@@ -379,24 +379,24 @@ app.post("/order", (req, res) => {
 });
 ```
 
-Neste exemplo, o Express é usado para criar um servidor web para lidar com eventos HTTP e está definido para ouvir pedidos através do `FUNCTIONS_HTTPWORKER_PORT` .
+Neste exemplo, o Express é utilizado para criar um servidor web para lidar com eventos HTTP e está definido para ouvir pedidos através do `FUNCTIONS_HTTPWORKER_PORT` .
 
-A função é definida no caminho de `/order` .  O percurso para a função de encomenda aqui é `/order` e não porque o `/api/order` anfitrião funções está procurando o pedido para o manipulador personalizado.
+A função é definida no caminho de `/order` .  A rota para a função de encomenda aqui é `/order` e não porque o `/api/order` anfitrião de Funções está procurando o pedido para o manipulador personalizado.
 
 À medida que `POST` os pedidos são enviados para esta função, os dados são expostos através de alguns pontos:
 
-- O organismo de pedido está disponível via`req.body`
-- Os dados publicados na função estão disponíveis via`req.body.Data.req.Body`
+- O corpo de pedido está disponível através de`req.body`
+- Os dados publicados na função estão disponíveis através de`req.body.Data.req.Body`
 
-A resposta da função é formatada num par chave/valor onde o `Outputs` membro detém um valor JSON onde as teclas correspondem às saídas definidas no ficheiro *função.json.*
+A resposta da função é formatada num par de teclas/valor onde o `Outputs` membro detém um valor JSON onde as teclas correspondem às saídas definidas no *function.jsno* ficheiro.
 
-Ao definir `message` igual à mensagem que veio do pedido, e à resposta http `res` esperada, esta função envia uma mensagem para o Armazenamento de Fila e devolve uma resposta HTTP.
+Ao definir `message` igual à mensagem que veio do pedido, e `res` à resposta HTTP esperada, esta função produz uma mensagem para o Armazenamento da Fila e devolve uma resposta HTTP.
 
 ## <a name="debugging"></a>Depurar
 
-Para desinserir a aplicação de personal handler functions, é necessário adicionar argumentos adequados para o idioma e tempo de funcionamento para permitir a depuração.
+Para depurar a sua aplicação de manipulador personalizado Functions, precisa adicionar argumentos apropriados para o idioma e tempo de execução para permitir a depuragem.
 
-Por exemplo, para depurar uma aplicação Node.js, a `--inspect` bandeira é passada como um argumento no ficheiro *host.json.*
+Por exemplo, para depurar um pedido de Node.js, a `--inspect` bandeira é passada como argumento nohost.js*arquivado.*
 
 ```json
 {
@@ -412,7 +412,7 @@ Por exemplo, para depurar uma aplicação Node.js, a `--inspect` bandeira é pas
 ```
 
 > [!NOTE]
-> A configuração de depuração faz parte do ficheiro *host.json,* o que significa que poderá ser necessário remover alguns argumentos antes de ser utilizado para produção.
+> A configuração de depurar faz parte do seu *host.jsem* ficheiro, o que significa que pode ter de remover alguns argumentos antes de ser implementado para a produção.
 
 Com esta configuração, pode iniciar o processo de anfitrião da Função utilizando o seguinte comando:
 
@@ -420,13 +420,13 @@ Com esta configuração, pode iniciar o processo de anfitrião da Função utili
 func host start
 ```
 
-Assim que o processo for iniciado, podes anexar um debugger e acertar pontos de rutura.
+Uma vez iniciado o processo, pode anexar um depurado e bater pontos de rutura.
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-O exemplo seguinte é uma configuração de amostra que demonstra como pode configurar o seu ficheiro *launch.json* para ligar a sua aplicação ao debugger do Código do Estúdio Visual.
+O exemplo a seguir é uma configuração de amostra que demonstra como pode configurar o seu *launch.jsno* ficheiro para ligar a sua aplicação ao depurar código do estúdio visual.
 
-Este exemplo é para Node.js, por isso pode ter que alterar este exemplo para outras línguas ou tempos de execução.
+Este exemplo é para Node.js, por isso poderá ter de alterar este exemplo para outras línguas ou tempos de execução.
 
 ```json
 {
@@ -445,13 +445,18 @@ Este exemplo é para Node.js, por isso pode ter que alterar este exemplo para ou
 
 ## <a name="deploying"></a>Implantação
 
-Um manipulador personalizado pode ser implantado em quase todas as opções de hospedagem de Funções Azure (ver [restrições).](#restrictions) Se o seu manipulador necessitar de dependências personalizadas (como um tempo de execução de idiomas), poderá ter de utilizar um [recipiente personalizado](./functions-create-function-linux-custom-image.md).
+Um manipulador personalizado pode ser implantado em quase todas as opções de hospedagem de Funções Azure (ver [restrições).](#restrictions) Se o seu manipulador necessitar de dependências personalizadas (como um tempo de execução do idioma), poderá ter de utilizar um [recipiente personalizado](./functions-create-function-linux-custom-image.md).
+
+Para implementar uma aplicação de manipulador personalizado utilizando ferramentas core de funções Azure, execute o seguinte comando.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
 
 ## <a name="restrictions"></a>Restrições
 
-- Os manipuladores personalizados não são suportados nos planos de consumo do Linux.
-- O servidor da web tem de começar dentro de 60 segundos.
+- O servidor web tem de começar dentro de 60 segundos.
 
 ## <a name="samples"></a>Amostras
 
-Consulte as [amostras personalizadas do manipulador GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers) para exemplos de como implementar funções em várias línguas diferentes.
+Consulte as [amostras de manipulador personalizado GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers) para exemplos de como implementar funções em diferentes línguas.

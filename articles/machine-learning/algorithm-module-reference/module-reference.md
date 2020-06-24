@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: e27370c2015c4679dafa5a79a820b4c984a35ec1
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 53069f24a18bac1f5c0c226ddcc3a79494c93edb
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449724"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809301"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritmo & referência do módulo para o designer de aprendizagem automática Azure (pré-visualização)
 
@@ -32,16 +32,16 @@ Para ajudar na escolha de algoritmos, consulte
 ## <a name="data-preparation-modules"></a>Módulos de preparação de dados
 
 
-| Funcionalidade | Descrição | Módulo |
+| Funcionalidade | Description | Módulo |
 | --- |--- | --- |
-| Entrada e saída de dados | Mova os dados de fontes de nuvem para o seu oleoduto. Escreva os seus resultados ou dados intermédios para o Azure Storage, uma base de dados SQL, ou Hive, enquanto executa um oleoduto, ou utilize o armazenamento em nuvem para trocar dados entre os oleodutos.  | [Introduzir os Dados Manualmente](enter-data-manually.md) <br/> [Dados de Exportação](export-data.md) <br/> [Dados de Importação](import-data.md) |
+| Entrada e saída de dados | Mova os dados de fontes de nuvem para o seu oleoduto. Escreva os seus resultados ou dados intermédios para o Azure Storage, uma base de dados SQL, ou Hive, enquanto executa um oleoduto, ou utilize o armazenamento em nuvem para trocar dados entre os oleodutos.  | [Introduzir os Dados Manualmente](enter-data-manually.md) <br/> [Exportar Dados](export-data.md) <br/> [Importar Dados](import-data.md) |
 | Transformação de Dados | Operações em dados exclusivos da aprendizagem automática, como normalizar ou binar dados, redução de dimensionalidade e conversão de dados entre vários formatos de ficheiros.| [Adicionar Colunas](add-columns.md) <br/> [Adicionar Linhas](add-rows.md) <br/> [Aplicar Operação Matemática](apply-math-operation.md) <br/> [Aplicar Transformação SQL](apply-sql-transformation.md) <br/> [Limpar Dados em Falta](clean-missing-data.md) <br/> [Valores de Clip](clip-values.md) <br/> [Converter para CSV](convert-to-csv.md) <br/> [Converter em Conjunto de Dados](convert-to-dataset.md) <br/> [Converter em Valores Indicadores](convert-to-indicator-values.md) <br/> [Editar Metadados](edit-metadata.md) <br/> [Agrupar Dados em Posições](group-data-into-bins.md) <br/> [Associar dados](join-data.md) <br/> [Normalizar Dados](normalize-data.md) <br/> [Partição e Amostra](partition-and-sample.md)  <br/> [Remover Linhas Duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selecionar Transformação de Colunas](select-columns-transform.md) <br/> [Selecionar Colunas no Conjunto de Dados](select-columns-in-dataset.md) <br/> [Dividir Dados](split-data.md) |
 | Seleção de Recursos | Selecione um subconjunto de funcionalidades relevantes e úteis para utilizar na construção de um modelo analítico. | [Seleção de funcionalidades baseadas em filtro](filter-based-feature-selection.md) <br/> [Importância da funcionalidade de permutação](permutation-feature-importance.md) |
 | Funções Estatísticas | Fornecer uma grande variedade de métodos estatísticos relacionados com a ciência dos dados. | [Resumir Dados](summarize-data.md)|
 
 ## <a name="machine-learning-algorithms"></a>Algoritmos de aprendizagem automática
 
-| Funcionalidade | Descrição | Módulo |
+| Funcionalidade | Description | Módulo |
 | --- |--- | --- |
 | Regressão | Prever um valor. | [Regressão da Árvore de Decisões Elevada](boosted-decision-tree-regression.md) <br/> [Regressão da Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão da Rede Neural](neural-network-regression.md)  <br/> |
 | Clustering | Dados de grupo juntos.| [Clustering K-Means](k-means-clustering.md)
@@ -49,15 +49,15 @@ Para ajudar na escolha de algoritmos, consulte
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Módulos para construção e avaliação de modelos
 
-| Funcionalidade | Descrição | Módulo |
+| Funcionalidade | Description | Módulo |
 | --- |--- | --- |
 | Formação de Modelos | Executar dados através do algoritmo. |  [Preparar Modelo de Clustering](train-clustering-model.md) <br/> [Preparar Modelo](train-model.md) <br/> [Modelo de Pytorch de comboio](train-pytorch-model.md) <br/> [Ajustar hiperparâmetros do modelo](tune-model-hyperparameters.md) |
-| Pontuação e Avaliação do Modelo | Meça a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Atribuir Dados a Clusters](assign-data-to-clusters.md) <br/> [Modelo de validação cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Modelo de imagem de pontuação](score-image-model.md) <br/> [Modelo de Pontuação](score-model.md) |
+| Pontuação e Avaliação do Modelo | Meça a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Atribuir Dados a Clusters](assign-data-to-clusters.md) <br/> [Modelo de validação cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Classificar o Modelo de Imagem](score-image-model.md) <br/> [Modelo de Pontuação](score-model.md) |
 | Língua python | Escreva código e incorpore-o num módulo para integrar python com o seu oleoduto. | [Criar Modelo Python](create-python-model.md) <br/> [Executar Script do Python](execute-python-script.md) |
 | Língua R | Escreva código e incorpore-o num módulo para integrar R com o seu pipeline. | [Executar Script R](execute-r-script.md) |
 | Análise de Texto | Fornecer ferramentas computacionais especializadas para trabalhar com textos estruturados e não estruturados. |  [Converter Word em Vetor](convert-word-to-vector.md) <br/> [Extrair Funcionalidades N-Grama a partir de Texto](extract-n-gram-features-from-text.md) <br/> [Hashing de Funcionalidade](feature-hashing.md) <br/> [Pré-processar Texto](preprocess-text.md) <br/> [Alocação Latente de Dirichlet](latent-dirichlet-allocation.md) |
-| Imagem Digitalizada | Módulos relacionados com o pré-processamento de dados de imagem e reconhecimento de imagem. |  [Aplicar a transformação da imagem](apply-image-transformation.md) <br/> [Converter para Diretório de Imagem](convert-to-image-directory.md) <br/> [Init Transformação de Imagem](init-image-transformation.md) <br/> [Dividido para Diretório de Imagem](split-to-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
-| Recomendação | Construa modelos de recomendação. | [Avaliar Recomendador](evaluate-recommender.md) <br/> [Classificar Recomendador SVD](score-svd-recommender.md) <br/> [Preparar Recomendador SVD](train-SVD-recommender.md) |
+| Imagem Digitalizada | Módulos relacionados com o pré-processamento de dados de imagem e reconhecimento de imagem. |  [Aplicar a Transformação da Imagem](apply-image-transformation.md) <br/> [Converter para o Diretório da Imagem](convert-to-image-directory.md) <br/> [Inicializar a Transformação da Imagem](init-image-transformation.md) <br/> [Dividir o Diretório da Imagem](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Recomendação | Construa modelos de recomendação. | [Avaliar Recomendador](evaluate-recommender.md) <br/> [Classificar Recomendador SVD](score-svd-recommender.md) <br/> [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md)<br/> [Preparar Recomendador SVD](train-SVD-recommender.md) <br/> [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md)|
 | Deteção de Anomalias | Construa modelos de deteção de anomalias. | [Deteção de Anomalias Baseada em PCA](pca-based-anomaly-detection.md) <br/> [Preparar Modelo de Deteção de Anomalias](train-anomaly-detection-model.md) |
 
 
@@ -69,6 +69,6 @@ Conheça os módulos de serviço web que são [necessários](web-service-input-o
 
 Saiba mais sobre as [mensagens de erro e códigos de exceção](designer-error-codes.md) que poderá encontrar utilizando módulos no designer de Machine Learning Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Construa um modelo em designer para prever os preços dos automóveis](../tutorial-designer-automobile-price-train-score.md)

@@ -4,23 +4,23 @@ description: Como expandir um pool de anfitriões existente com novos anfitriõe
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a60d34c73eed5d71599a90e463138186e21fdf7
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677904"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209356"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 >
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 À medida que aumenta a utilização dentro da sua piscina de anfitriões, poderá ter de expandir a sua piscina de anfitriões existente com novos anfitriões de sessão para lidar com a nova carga.
@@ -57,12 +57,12 @@ Para expandir a sua piscina de anfitriões adicionando máquinas virtuais:
 6. Ignore o separador Básicos e, em vez disso, selecione o separador **detalhes VM.** Aqui pode ver e editar os detalhes da máquina virtual (VM) que pretende adicionar à piscina anfitriã.
 
 7. Selecione o grupo de recursos que pretende criar os VMs e, em seguida, selecione a região. Pode escolher a região atual que está a usar ou uma nova região.
-   
+
 8. Introduza o número de anfitriões de sessão que pretende adicionar à sua piscina de anfitriões em **Número de VMs**. Por exemplo, se estiver a expandir a sua piscina de anfitriões por cinco anfitriões, insira **5**.
-   
+
     >[!NOTE]
     >Não é possível editar o tamanho ou imagem dos VMs porque é importante garantir que todos os VMs na piscina de anfitrião são do mesmo tamanho.
-    
+
 9. Para obter **informações sobre rede virtual**, selecione a rede virtual e a sub-rede à qual pretende que as máquinas virtuais sejam associadas. Pode selecionar a mesma rede virtual que as máquinas existentes utilizam atualmente ou escolher uma diferente que seja mais adequada à região selecionada no passo 7.
 
 10. Para a **conta Administrador,** insira o nome de utilizador e palavra-passe do domínio do Diretório Ativo associados à rede virtual selecionada. Estas credenciais serão usadas para juntar as máquinas virtuais à rede virtual.
@@ -70,11 +70,11 @@ Para expandir a sua piscina de anfitriões adicionando máquinas virtuais:
       >[!NOTE]
       >Certifique-se de que os seus nomes administrativos cumprem as informações aqui dadas. E que não há MFA habilitado na conta.
 
-11. Selecione o separador **Tag** se tiver alguma etiqueta com as quais pretende agrupar as máquinas virtuais. Caso contrário, ignore esta aba. 
+11. Selecione o separador **Tag** se tiver alguma etiqueta com as quais pretende agrupar as máquinas virtuais. Caso contrário, ignore esta aba.
 
-12. Selecione o **separador 'Rever + Criar'.** Reveja as suas escolhas e, se tudo estiver bem, selecione **Criar**. 
+12. Selecione o **separador 'Rever + Criar'.** Reveja as suas escolhas e, se tudo estiver bem, selecione **Criar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão num cliente do Windows Virtual Desktop para testá-los como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 

@@ -10,18 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 704f08bc4a41eb52789f8f28675332892d72a500
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475150"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710019"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementar o plug-in da interface de rede de contentores da Rede Virtual do Azure
 
@@ -31,7 +31,7 @@ O plug-in da interface de rede de contentores (CNI) da Rede Virtual do Azure é 
 
 O ACS-Engine implementa um cluster do Kubernetes através de um modelo do Azure Resource Manager. A configuração do cluster está especificada num ficheiro JSON transmitido à ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de definições de cluster suportadas e as respetivas descrições, veja [Motor do Microsoft Azure Container Service – Definição do Cluster](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). O plug-in é o funcionamento em rede predefinido para os clusters criados com o ACS-Engine. As seguintes definições de configuração de rede são importantes quando configurar o plug-in:
 
-  | Definição                              | Descrição                                                                                                           |
+  | Definição                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | O endereço IP alocado ao nó Principal. É uma definição obrigatória.                                     |
   | clusterSubnet em kubernetesConfig | CIDR da sub-rede da rede virtual em que o cluster está implementado e a partir do qual os IP endereços são alocados a Pods   |
@@ -92,13 +92,13 @@ O exemplo de json que se segue destina-se a um cluster com as seguintes propried
 
 Conclua os seguintes passos para instalar o plug-in em todas as máquinas virtuais do Azure num cluster do Kubernetes:
 
-1. [Descarregue e instale o plug-in](#download-and-install-the-plug-in).
+1. [Faça o download e instale o plug-in](#download-and-install-the-plug-in).
 2. Pré-aloque um conjunto de endereços IP de rede virtual em todas as máquinas virtuais a partir do qual os endereços IP serão alocados a Pods. Todas as máquinas virtuais do Azure incluem um endereço IP privado primário de rede virtual em cada interface de rede. O conjunto de endereços IP para Pods é adicionado como endereços secundários (*ipconfigs*) na interface de rede da máquina virtual, através de uma das seguintes opções:
 
    - **CLI**: [Atribuir vários endereços IP utilizando o Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [Atribuir vários endereços IP usando powerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **PowerShell**: [Atribuir vários endereços IP utilizando o PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
    - **Portal**: [Atribuir vários endereços IP utilizando o portal Azure](virtual-network-multiple-ip-addresses-portal.md)
-   - Modelo de **Gestor de Recursos Azure**: [Atribuir vários endereços IP usando modelos](virtual-network-multiple-ip-addresses-template.md)
+   - **Modelo do Gestor de Recursos Azure**: [Atribua vários endereços IP usando modelos](virtual-network-multiple-ip-addresses-template.md)
 
    Certifique-se de que adiciona endereços IP suficientes para todos os Pods que pretende colocar na máquina virtual.
 
@@ -118,7 +118,7 @@ Depois de concluir os passos anteriores, são atribuídos automaticamente endere
 
 ## <a name="deploy-plug-in-for-docker-containers"></a>Implementar plug-in para contentores do Docker
 
-1. [Descarregue e instale o plug-in](#download-and-install-the-plug-in).
+1. [Faça o download e instale o plug-in](#download-and-install-the-plug-in).
 2. Crie contentores do Docker com o seguinte comando:
 
    ```
@@ -157,10 +157,10 @@ O ficheiro de configuração de rede CNI é descrito no formato JSON. Por predef
 
 #### <a name="settings-explanation"></a>Explicação das definições
 
-- **cniVersão**: As versões de suporte plug-ins plug-ins da Rede Virtual Azure CNI 0.3.0 e 0.3.1 da [especificação CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **cniVersion**: As versões de suporte de suporte CNI da Rede Virtual Azure 0.3.0 e 0.3.1 da [especificação CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
 - **type**: nome do plug-in da rede. Definido como *azure-vnet*.
-- **mode**: modo operacional. Este campo é opcional. O único modo suportado é "bridge". Para mais informações, consulte [os modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **mode**: modo operacional. Este campo é opcional. O único modo suportado é "bridge". Para obter mais informações, consulte [os modos operacionais.](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)
 - **bridge**: nome da bridge que será utilizada para ligar contentores a uma rede virtual. Este campo é opcional. Se for omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface principal.
 - **ipam type**: nome do plug-in IPAM. Sempre definido como *azure-vnet-ipam*.
 
@@ -168,8 +168,8 @@ O ficheiro de configuração de rede CNI é descrito no formato JSON. Por predef
 
 Transfira o plug-in a partir do [GitHub](https://github.com/Azure/azure-container-networking/releases). Transfira a versão mais recente para a plataforma que está a utilizar:
 
-- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
-- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
+- **Linux**: [azure-vnet-cni-linux-amd64- \<version no.\> .tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
+- **Janelas**: [azure-vnet-cni-windows-amd64- \<version no.\> .zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
 
 Copie o script de instalação para [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) ou [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) para o seu computador. Guarde o script no diretório `scripts` no seu computador e dê o nome `install-cni-plugin.sh` ao ficheiro para Linux, ou `install-cni-plugin.ps1` para Windows. Para instalar o plug-in, execute o script adequado para a sua plataforma e especifique a versão do plug-in que está a utilizar. Por exemplo, pode especificar *v1.0.12-rc3*:
 

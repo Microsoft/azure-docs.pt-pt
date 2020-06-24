@@ -1,5 +1,5 @@
 ---
-title: Gerir um gráfico gémeo com relacionamentos
+title: Gerir um grafo duplo com relações
 titleSuffix: Azure Digital Twins
 description: Veja como gerir um gráfico de gémeos digitais ligando-os a relacionamentos.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 362b5d0f1fee1ca1763cc44f106567c543546eac
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e332936543cc36e20b88da4ce5cc9115d0890967
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612957"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725703"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 O coração de Azure Digital Twins é o [gráfico gémeo](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico gémeo é composto por gémeos digitais individuais ligados através de **relacionamentos.**
 
@@ -301,7 +304,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 
 As gémeas e as suas relações também podem ser geridas usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a consulta de um gráfico gémeo Azure Digital Twins:
 * [Conceitos: Linguagem de consulta](concepts-query-language.md)

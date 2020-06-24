@@ -2,7 +2,7 @@
 title: Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
 description: Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: 88fffc083b918157857c5c170cddda2016944c89
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: b88740c71db6ae56621410ef41975a4616ff8ecd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660339"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711379"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

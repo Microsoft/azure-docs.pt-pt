@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: 716d40a0b86ec3385f236a3d81f651d24a36845a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342120"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809486"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -79,7 +79,7 @@ Azure Front Door é um serviço multi-inquilino distribuído globalmente. Assim,
 
 ### <a name="is-http-https-redirection-supported"></a>Http->reorientação HTTPS suportada?
 
-Yes. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
+Sim. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Em que ordem são processadas as regras de encaminhamento?
 
@@ -98,7 +98,7 @@ Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua p
     > [!WARNING]
     > O espaço IP backend da Porta frontal pode mudar mais tarde, no entanto, vamos garantir que, antes disso, teríamos integrado com [as Gamas IP E Tags Azure](https://www.microsoft.com/download/details.aspx?id=56519)IP . Recomendamos que subscreva as [Gamas IP E Tags Azure](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
 
--    Efetue uma operação GET na sua Porta frontal com a versão API `2020-01-01` ou superior. Na chamada da API, procure `frontdoorID` campo. Filtrar no cabeçalho de entrada '**X-Azure-FDID**' enviado pela Porta da Frente para o seu backend com o valor do campo `frontdoorID` . 
+-    Efetue uma operação GET na sua Porta frontal com a versão API `2020-01-01` ou superior. Na chamada da API, procure `frontdoorID` campo. Filtrar no cabeçalho de entrada '**X-Azure-FDID**' enviado pela Porta da Frente para o seu backend com o valor do campo `frontdoorID` . Também pode encontrar `Front Door ID` valor na secção Overview a partir da página do portal porta da porta da frente. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>O IP pode mudar ao longo da vida da minha Porta da Frente?
 
@@ -235,7 +235,7 @@ Os registos de auditoria estão disponíveis para a Porta frontal Azure. No port
 
 Sim, a Porta frontal Azure faz alertas de apoio. Os alertas estão configurados em métricas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

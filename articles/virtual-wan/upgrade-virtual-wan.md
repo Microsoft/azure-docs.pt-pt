@@ -1,39 +1,39 @@
 ---
-title: Atualizar um Wan Virtual Azure de Basic para Standard - Portal Azure [ Microsoft Docs
-description: Pode atualizar o seu tipo virtual WAN para uma maior funcionalidade.
+title: Atualizar um Azure Virtual WAN de Basic para Standard - Portal Azure / Microsoft Docs
+description: Pode atualizar o seu tipo WAN virtual para uma maior funcionalidade.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 83fd5bafb5496908403c50dc0e000fd33a836c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 769aa6c0d546b7a9bcbe355136bad811fb4f47b3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515814"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753313"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Atualize um WAN virtual de Basic para Standard
 
-Este artigo ajuda-o a atualizar um Wan Básico para um Wan Padrão. Um tipo 'Basic' WAN cria todos os centros dentro dele como centros Básicos SKU. Num hub Básico, limita-se apenas à funcionalidade VPN site-to-site. Um tipo 'Standard' WAN cria todos os centros dentro dele como hubs Standard SKU. Quando utiliza os hubs Standard, pode ativar o ExpressRoute, user (Ponto-a-site) VPN, um hub de malha completa e o trânsito VNet-to-VNet através dos hubs Azure.
+Este artigo ajuda-o a atualizar um WAN Básico para um WAN Standard. Um tipo WAN 'Básico' cria todos os centros dentro dele como centros Básicos SKU. Num hub Basic, limita-se apenas à funcionalidade VPN site-to-site. Um tipo WAN 'Standard' cria todos os centros dentro dele como centros Standard SKU. Quando utilizar os hubs Standard, pode ativar a VPN ExpressRoute, User (Ponto a local), um hub de malha completa e o trânsito VNet-to-VNet através dos hubs Azure.
 
-A tabela que se segue mostra as configurações disponíveis para cada tipo WAN:
+A tabela a seguir mostra as configurações disponíveis para cada tipo WAN:
 
 [!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
-## <a name="to-change-the-virtual-wan-type"></a>Para alterar o tipo virtual WAN
+## <a name="to-change-the-virtual-wan-type"></a>Para alterar o tipo WAN virtual
 
 1. Na página para o seu WAN virtual, selecione **Configuração** para abrir a página de Configuração.
 
    ![Diagrama da WAN Virtual](./media/upgrade-virtual-wan/1.png)
-2. Para o tipo Virtual WAN, selecione **Standard** a partir do dropdown.
+2. Para o tipo WAN virtual, selecione **Standard** a partir do dropdown.
 
    ![Diagrama da WAN Virtual](./media/upgrade-virtual-wan/2.png)
-3. Entenda que se fizer upgrade para um Wan virtual Standard, não pode voltar a um Wan virtual Básico. Selecione **Confirmar** se quiser fazer o upgrade.
+3. Entenda que se fizer upgrade para um WAN virtual padrão, não pode voltar a um WAN virtual básico. **Selecione Confirme** se pretender atualizar.
 
    ![Diagrama da WAN Virtual](./media/upgrade-virtual-wan/4.png)
-4. Uma vez que a mudança tenha sido guardada, a sua página virtual WAN parece semelhante a este exemplo.
+4. Uma vez guardada a alteração, a sua página WAN virtual parece semelhante a este exemplo.
 
    ![Diagrama da WAN Virtual](./media/upgrade-virtual-wan/5.png)
 

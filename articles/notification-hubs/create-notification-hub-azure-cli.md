@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485155"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208268"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -79,7 +79,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
    ```output
    {
    "id": "/subscriptions/yourSubscriptionID/providers/Microsoft.NotificationHubs/checkNamespaceAvailability",
-   "isAvailiable": true,
+   "isAvailable": true,
    "location": null,
    "name": "spnhubns",
    "properties": false,
@@ -190,7 +190,7 @@ Quando já não for necessário, utilize o [comando de eliminação](/cli/azure/
 az group delete --name spnhubrg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Neste arranque rápido, criou um centro de notificação. Para saber como configurar o hub com as definições do sistema de notificação da plataforma (PNS), consulte [Configurar notificações push num centro de notificação](configure-notification-hub-portal-pns-settings.md)
 

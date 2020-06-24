@@ -3,7 +3,7 @@ title: 'Quickstart: Restaurar uma cópia de segurança (SSMS)'
 titleSuffix: Azure SQL Managed Instance
 description: Neste quickstart, aprenda a restaurar uma cópia de segurança da base de dados para Azure SQL Managed Instance usando SQL Server Management Studio (SSMS).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 23deba1dd2bbb706d1c76cb71cf1c08330049036
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 0d10105648f434eb1d02a821e972e789bd39d66f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659307"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708449"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Quickstart: Restaurar uma base de dados para Azure SQL Caso Gerido com SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ No SQL Server Management Studio, siga estes passos para restaurar a base de dado
 > Uma operação de restauro de base de dados é assíncrol e recímível. Pode obter um erro no SQL Server Management Studio se a ligação se partir ou se expirar uma pausa. A Azure SQL Database continuará a tentar restaurar a base de dados em segundo plano, e pode acompanhar o progresso da restauração utilizando as [vistas sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
 > Em algumas fases do processo de restauro, você verá um identificador único em vez do nome da base de dados real nas vistas do sistema. Saiba mais sobre `RESTORE` as diferenças de comportamento de afirmação [aqui.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se, no passo 5, uma restauração da base de dados for terminada com o ID 22003 da mensagem, crie um novo ficheiro de backup contendo as cópias de segurança e efetue novamente a restauração. Consulte [Ativar ou desativar as contas de cópia de segurança durante a cópia de segurança ou restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 - Para resolver problemas com uma cópia de segurança de um URL, consulte [o SQL Server Backup para as melhores práticas de URL e resolução de problemas](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).

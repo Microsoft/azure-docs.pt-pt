@@ -4,18 +4,18 @@ description: Como criar um pedido de apoio no portal Azure para a Azure Synapse 
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/10/2020
 author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 717db5ee9d14074b6bd2fdae78847e0ad0fa2255
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: de45e338b0b863dc2364af399a6991f56658b0e7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561433"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212280"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Quota de pedido aumenta e obtém apoio para Azure Synapse Analytics
 

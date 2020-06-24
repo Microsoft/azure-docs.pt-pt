@@ -1,5 +1,5 @@
 ---
-title: Criar um Balancer de Carga interno Azure utilizando a PowerShell
+title: Criar um balançador de carga interno Azure utilizando o PowerShell
 titleSuffix: Azure Load Balancer
 description: Saiba como utilizar o módulo do Azure PowerShell com o Azure Resource Manager para criar um balanceador de carga interno
 services: load-balancer
@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 485afaa4b7009731784cf5da6f8c28e0a787c1d9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: d477ed6f86a7437956d66bd10764261940152b5a
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629427"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808727"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
 
@@ -48,7 +48,7 @@ Para implementar um balanceador de carga, têm de ser criados os objetos seguint
 * Configuração de sonda: as sondas de estado de funcionamentos para máquinas virtuais.
 * Regras NAT de entrada: as regras de porta para acesso direto às máquinas virtuais.
 
-Para obter mais informações sobre componentes de equilíbrio de carga, consulte [os componentes do Equilíbrio de Carga Azure](components.md).
+Para obter mais informações sobre os componentes do balançador de carga, consulte [os componentes do Balançador de Carga Azure](components.md).
 
 Os seguintes passos explicam como configurar um balanceador de carga entre duas máquinas virtuais.
 
@@ -251,7 +251,7 @@ Depois de a máquina virtual ter sido criada, adicione a interface de rede.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Passo 1: Armazenar o recurso de balanceador de carga
 
-Armazene o recurso do balanceador de carga numa variável (se ainda não o tiver feito). Estamos a usar o nome variável **$lb.** Para os valores de atributo sinuoso no script, utilize os nomes para os recursos de equilíbrio de carga que foram criados nos passos anteriores.
+Armazene o recurso do balanceador de carga numa variável (se ainda não o tiver feito). Estamos a usar o nome variável **$lb.** Para os valores de atributos no script, utilize os nomes para os recursos do balanceador de carga que foram criados nos passos anteriores.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

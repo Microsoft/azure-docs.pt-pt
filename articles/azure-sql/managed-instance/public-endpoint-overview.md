@@ -2,7 +2,7 @@
 title: Secure Azure SQL Managed Instance pontos finais públicos
 description: Utilize de forma segura os pontos finais públicos em Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 3fa59620c07cc17435ca29bffbc98e88e35b0ca7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a3339d03607c2286dabbac73fd0b683c61552dc0
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310143"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708608"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Use Azure SQL Gestd Instance de forma segura com pontos finais públicos
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

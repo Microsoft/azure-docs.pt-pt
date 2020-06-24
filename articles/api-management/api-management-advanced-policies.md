@@ -1,5 +1,5 @@
 ---
-title: Políticas avançadas da Azure API Management Microsoft Docs
+title: Azure API Management avançou políticas Microsoft Docs
 description: Conheça as políticas avançadas disponíveis para utilização na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,38 +12,38 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128820"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751263"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gestão de API
 
-Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>Políticas avançadas
 
--   [Fluxo de controlo](api-management-advanced-policies.md#choose) - Aplica condicionalmente declarações políticas baseadas nos resultados da avaliação das [expressões](api-management-policy-expressions.md)booleanas .
--   [Pedido para a frente](#ForwardRequest) - Reencaminha o pedido para o serviço backend.
--   [Limite a conmoeda](#LimitConcurrency) - Impede que as políticas fechadas executem por mais do que o número especificado de pedidos de cada vez.
--   [Iniciar sessão no Event Hub](#log-to-eventhub) - Envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger.
--   [Resposta falsa](#mock-response) - Aborta a execução do gasoduto e devolve uma resposta ridicularizada diretamente ao chamador.
--   [Retry](#Retry) - Retry execução das declarações políticas fechadas, se e até que a condição seja cumprida. A execução repetir-se-á nos intervalos de tempo especificados e até à contagem de repetição especificada.
--   [Resposta de devolução](#ReturnResponse) - Aborta a execução do gasoduto e devolve a resposta especificada diretamente ao chamador.
--   [Enviar um pedido](#SendOneWayRequest) de ida - Envia um pedido para o URL especificado sem esperar por uma resposta.
--   [Enviar pedido](#SendRequest) - Envia um pedido para o URL especificado.
--   [Definir proxy HTTP](#SetHttpProxy) - Permite-lhe encaminhar pedidos encaminhadas através de um proxy HTTP.
--   [Definir método](#SetRequestMethod) de pedido - Permite-lhe alterar o método HTTP para um pedido.
--   [Definir código](#SetStatus) de estado - Altera o código de estado HTTP para o valor especificado.
--   [Variável definida](api-management-advanced-policies.md#set-variable) - Persiste um valor numa variável de [contexto](api-management-policy-expressions.md#ContextVariables) nomeado para acesso posterior.
+-   [Fluxo de](api-management-advanced-policies.md#choose) controlo - Aplica, condicionalmente, declarações políticas baseadas nos resultados da avaliação das [expressões booleanas](api-management-policy-expressions.md).
+-   [Pedido de encaminhar](#ForwardRequest) - Remete o pedido para o serviço de backend.
+-   [Limita a concordância](#LimitConcurrency) - Impede que as políticas em anexo executem mais do que o número especificado de pedidos de cada vez.
+-   [Log to Event Hub](#log-to-eventhub) - Envia mensagens no formato especificado para um Centro de Eventos definido por uma entidade Logger.
+-   [Resposta falsa](#mock-response) - Aborta a execução do gasoduto e devolve uma resposta ridícula diretamente ao autor da chamada.
+-   [Retry](#Retry) - Recauchutagem execução das declarações políticas em anexo, se e até que a condição seja satisfeita. A execução repetir-se-á nos intervalos de tempo especificados e até à contagem de repetição especificada.
+-   [Resposta de retorno](#ReturnResponse) - Aborta a execução do gasoduto e devolve a resposta especificada diretamente ao autor da chamada.
+-   [Enviar um pedido de ida](#SendOneWayRequest) - Envia um pedido para o URL especificado sem esperar por uma resposta.
+-   [Envio de pedido](#SendRequest) - Envia um pedido para a URL especificada.
+-   [Definir http proxy](#SetHttpProxy) - Permite-lhe encaminhar os pedidos reencaminhados através de um representante HTTP.
+-   [Definir método de pedido](#SetRequestMethod) - Permite-lhe alterar o método HTTP para um pedido.
+-   [Definir código de estado](#SetStatus) - Altera o código de estado HTTP para o valor especificado.
+-   [Variação variável](api-management-advanced-policies.md#set-variable) - Persiste um valor numa variável de [contexto](api-management-policy-expressions.md#ContextVariables) nomeado para acesso posterior.
 -   [Trace](#Trace) - Adiciona vestígios personalizados na saída do [Inspetor API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetria de Insights de Aplicação e Registos de Recursos.
--   [Aguardar](#Wait) - Aguarda por pedido de [envio](api-management-advanced-policies.md#SendRequest)em anexo , [Obter valor da cache](api-management-caching-policies.md#GetFromCacheByKey), ou controlar as políticas de [fluxo](api-management-advanced-policies.md#choose) para completar antes de prosseguir.
+-   [Aguarde](#Wait) - Espera por pedido de [envio](api-management-advanced-policies.md#SendRequest)anexo, [Obtenha valor a partir de cache,](api-management-caching-policies.md#GetFromCacheByKey)ou políticas de [fluxo de controlo](api-management-advanced-policies.md#choose) para concluir antes de prosseguir.
 
 ## <a name="control-flow"></a><a name="choose"></a>Fluxo de controlo
 
-A `choose` política aplica declarações políticas em anexo baseadas no resultado da avaliação das expressões booleanas, semelhantes a uma construção de se-então ou de uma mudança numa linguagem de programação.
+A `choose` política aplica declarações políticas fechadas com base no resultado da avaliação das expressões booleanas, semelhantes a um caso de então ou a uma construção de comutação numa linguagem de programação.
 
 ### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a>Declaração política
 
@@ -61,19 +61,19 @@ A `choose` política aplica declarações políticas em anexo baseadas no result
 </choose>
 ```
 
-A política de fluxo de `<when/>` controlo deve conter pelo menos um elemento. O `<otherwise/>` elemento é opcional. As `<when/>` condições dos elementos são avaliadas por ordem da sua aparição dentro da política. Serão aplicadas declarações políticas `<when/>` no âmbito do `true` primeiro elemento com atributos de condição iguais. As políticas fechadas dentro do `<otherwise/>` elemento, se presentes, serão aplicadas se todos os atributos da condição do `<when/>` elemento forem `false`.
+A política de fluxo de controlo deve conter pelo menos um `<when/>` elemento. O `<otherwise/>` elemento é opcional. As condições dos `<when/>` elementos são avaliadas por ordem da sua aparência dentro da política. Serão aplicadas declarações de política incluídas no primeiro `<when/>` elemento com atributos de condição `true` iguais. As políticas incluídas no `<otherwise/>` elemento, se presentes, serão aplicadas se todos os atributos da condição do `<when/>` elemento forem `false` .
 
 ### <a name="examples"></a>Exemplos
 
 #### <a name="example"></a><a name="ChooseExample"></a>Exemplo
 
-O exemplo que se segue demonstra uma política [de definição variável](api-management-advanced-policies.md#set-variable) e duas políticas de fluxo de controlo.
+O exemplo a seguir demonstra uma política [de variável definida](api-management-advanced-policies.md#set-variable) e duas políticas de fluxo de controlo.
 
-A política variável definida está na `isMobile` secção de entrada e cria uma `User-Agent` variável de `iPad` `iPhone` [contexto](api-management-policy-expressions.md#ContextVariables) booleana que é definida para verdade se o cabeçalho de pedido contiver o texto ou .
+A política variável definida está na secção de entrada e cria uma `isMobile` variável de [contexto](api-management-policy-expressions.md#ContextVariables) Boolean que é definida como verdadeira se o cabeçalho de `User-Agent` pedido contiver o texto `iPad` ou `iPhone` .
 
-A primeira política de fluxo de controlo também está na secção de entrada, e aplica condicionalmente uma `isMobile` de duas políticas de [parâmetros](api-management-transformation-policies.md#SetQueryStringParameter) de corda de consulta definida, dependendo do valor da variável de contexto.
+A primeira política de fluxo de controlo também está na secção de entrada, e aplica condicionalmente uma de duas políticas de parâmetros de linha de [consulta de conjunto,](api-management-transformation-policies.md#SetQueryStringParameter) dependendo do valor da variável de `isMobile` contexto.
 
-A segunda política de fluxo de controlo está na secção de saída e `isMobile` aplica condicionalmente a política [ConvertE XML à JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) quando está definida para `true`.
+A segunda política de fluxo de controlo encontra-se na secção de saída e aplica condicionalmente a política [de Conversão XML a JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) quando `isMobile` está definida para `true` .
 
 ```xml
 <policies>
@@ -106,7 +106,7 @@ A segunda política de fluxo de controlo está na secção de saída e `isMobile
 
 #### <a name="example"></a>Exemplo
 
-Este exemplo mostra como executar a filtragem de conteúdo removendo elementos de `Starter` dados da resposta recebida do serviço backend ao utilizar o produto. Para uma demonstração de configuração e utilização desta política, consulte [cloud cover Episódio 177: Mais Funcionalidades de Gestão aPI com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para as 34:30. Comece às 31:50 para ver uma visão geral da [API](https://developer.forecast.io/) de Previsão do Céu Escuro usada para esta demonstração.
+Este exemplo mostra como executar a filtragem de conteúdos removendo elementos de dados da resposta recebida do serviço de backend ao utilizar o `Starter` produto. Para uma demonstração de configuração e utilização desta política, consulte [cloud cover episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e fast-forward to 34:30. Comece às 31:50 para ver uma visão geral da [API](https://developer.forecast.io/) de Previsão do Céu Escuro usada para esta demonstração.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -126,32 +126,32 @@ Este exemplo mostra como executar a filtragem de conteúdo removendo elementos d
 
 ### <a name="elements"></a>Elementos
 
-| Elemento   | Descrição                                                                                                                                                                                                                                                               | Necessário |
+| Elemento   | Description                                                                                                                                                                                                                                                               | Necessário |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| escolher    | Elemento de raiz.                                                                                                                                                                                                                                                             | Sim      |
-| quando      | A condição de `if` utilização para as partes ou `ifelse` partes da `choose` apólice. Se `choose` a política `when` tiver várias secções, são avaliadas sequencialmente. Uma `condition` vez que o de `true`um `when` elemento avalia para , não são avaliadas mais condições. | Sim      |
-| caso contrário | Contém o corte de política a utilizar `when` se `true`nenhuma das condições avaliar para .                                                                                                                                                                               | Não       |
+| escolher    | Elemento de raiz.                                                                                                                                                                                                                                                             | Yes      |
+| quando      | A condição a usar para a `if` ou `ifelse` partes da `choose` apólice. Se a `choose` apólice tiver `when` várias secções, são avaliadas sequencialmente. Uma vez que o `condition` elemento de um quando o elemento `true` avalia, não são avaliadas mais `when` condições. | Yes      |
+| caso contrário | Contém o corte de política a utilizar se nenhuma das `when` condições avaliar `true` .                                                                                                                                                                               | No       |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo                                              | Descrição                                                                                               | Necessário |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| condição="Expressão booleana &#124; boolean constante" | A expressão booleana ou constante `when` a avaliar quando a declaração política contendo é avaliada. | Sim      |
+| condition="Expressão booleana &#124; constante booleana" | A expressão booleana ou constante para ser avaliada quando a declaração de política contendo `when` é avaliada. | Yes      |
 
 ### <a name="usage"></a><a name="ChooseUsage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="forward-request"></a><a name="ForwardRequest"></a>Pedido para a frente
+## <a name="forward-request"></a><a name="ForwardRequest"></a>Pedido de encaminho
 
-A `forward-request` política remede o pedido de entrada para o serviço de backend especificado no [contexto](api-management-policy-expressions.md#ContextVariables)do pedido. O URL do serviço backend é especificado nas [definições](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) da API e pode ser alterado usando a política de serviço de [backend definida.](api-management-transformation-policies.md)
+A `forward-request` apólice remete o pedido de entrada para o serviço de backend especificado no [contexto](api-management-policy-expressions.md#ContextVariables)do pedido . O URL de serviço de backend é especificado nas [definições](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de API e pode ser alterado usando a política [de serviço de backend set.](api-management-transformation-policies.md)
 
 > [!NOTE]
-> A eliminação desta política resulta no facto de o pedido não ser encaminhado para o serviço de backend e as políticas da secção de saída são avaliadas imediatamente após a conclusão bem sucedida das políticas na secção de entrada.
+> A eliminação desta política resulta na não reencaminhamento do pedido para o serviço de backend e as políticas na secção de saída são avaliadas imediatamente após a conclusão bem sucedida das políticas na secção de entrada.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -163,7 +163,7 @@ A `forward-request` política remede o pedido de entrada para o serviço de back
 
 #### <a name="example"></a>Exemplo
 
-A seguinte política de nível DeAPi encaminha todos os pedidos da API para o serviço backend com um intervalo de tempo de 60 segundos.
+A seguinte política de nível API remete todos os pedidos da API para o serviço de backend com um intervalo de tempo de 60 segundos.
 
 ```xml
 <!-- api level -->
@@ -183,7 +183,7 @@ A seguinte política de nível DeAPi encaminha todos os pedidos da API para o se
 
 #### <a name="example"></a>Exemplo
 
-Esta política de `base` nível de operação utiliza o elemento para herdar a política de backend do âmbito de nível de API-parental.
+Esta política de nível de funcionamento utiliza o `base` elemento para herdar a política de backend do âmbito de nível de API dos pais.
 
 ```xml
 <!-- operation level -->
@@ -203,7 +203,7 @@ Esta política de `base` nível de operação utiliza o elemento para herdar a p
 
 #### <a name="example"></a>Exemplo
 
-Esta política de nível de operação encaminha explicitamente todos os pedidos para o serviço de backend com um prazo de 120 e não herda a política de backend nível de api do nível de parentalidade. Se o serviço backend responder com um código de estado de erro de 400 a 599 incluído, a secção [de erro](api-management-error-handling-policies.md) será ativada.
+Esta política de nível de operação remete explicitamente todos os pedidos para o serviço de backend com um intervalo de tempo de 120 e não herda a política de backend de nível de API dos pais. Se o serviço de backend responder com um código de estado de erro de 400 a 599 inclusive, será ativada a secção [de erro.](api-management-error-handling-policies.md)
 
 ```xml
 <!-- operation level -->
@@ -224,7 +224,7 @@ Esta política de nível de operação encaminha explicitamente todos os pedidos
 
 #### <a name="example"></a>Exemplo
 
-Esta política de nível de operação não reencaminha os pedidos para o serviço de backend.
+Esta política de nível de funcionamento não encaminha pedidos para o serviço de backend.
 
 ```xml
 <!-- operation level -->
@@ -244,29 +244,29 @@ Esta política de nível de operação não reencaminha os pedidos para o servi�
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição   | Necessário |
+| Elemento         | Description   | Necessário |
 | --------------- | ------------- | -------- |
-| pedido para a frente | Elemento de raiz. | Sim      |
+| pedido para o futuro | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo                                     | Descrição                                                                                                                                                                                                                                                                                                    | Necessário | Predefinição |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | O tempo em segundos para esperar que os cabeçalhos de resposta HTTP sejam devolvidos pelo serviço de backend antes de um erro de tempo ser levantado. O valor mínimo é de 0 segundos. Valores superiores a 240 segundos podem não ser honrados, uma vez que a infraestrutura de rede subjacente pode deixar cair ligações inativas após este tempo. | Não       | Nenhuma    |
-| follow-redirects="falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de backend são seguidos pelo gateway ou devolvidos ao chamador.                                                                                                                                                                                                    | Não       | false   |
-| tampão-request-body="falso &#124; verdadeiro"       | Quando definido para o pedido "verdadeiro" é tamponado e será reutilizado em [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Não       | false   |
-| falha-no-erro-status-code="falso &#124; verdadeiro" | Quando definido para verdadeiramente acionar a secção [de erros para](api-management-error-handling-policies.md) códigos de resposta na gama de 400 a 599 inclusive.                                                                                                                                                                      | Não       | false   |
+| timeout="inteiro"                             | A quantidade de tempo em segundos para aguardar que os cabeçalhos de resposta HTTP sejam devolvidos pelo serviço de backend antes de um erro de tempo for aumentado. O valor mínimo é de 0 segundos. Valores superiores a 240 segundos não podem ser honrados, uma vez que a infraestrutura de rede subjacente pode deixar cair as ligações inativas após este tempo. | No       | Nenhum    |
+| follow-redirects="falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de backend são seguidos pelo gateway ou devolvidos ao chamador.                                                                                                                                                                                                    | No       | false   |
+| buffer-request-body="falso &#124; verdadeiro"       | Quando definido como pedido "verdadeiro" é tamponado e será reutilizado em [re-try](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| fail-on-error-status-code="falso &#124; verdadeiro" | Quando definido para a secção [de erro](api-management-error-handling-policies.md) verdadeiro, os códigos de resposta entre 400 e 599 inclusive.                                                                                                                                                                      | No       | false   |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** backend
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a>Limite conmoeda
+## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a>Limitação da concordância
 
-A `limit-concurrency` política impede que as políticas em anexo sejam executadas por mais do que o número especificado de pedidos a qualquer momento. Ao exceder esse número, novos pedidos falharão imediatamente com o código de estado de 429 Pedidos de Muitos Pedidos.
+A `limit-concurrency` política impede que as políticas em anexo executem mais do que o número especificado de pedidos a qualquer momento. Ao ultrapassar esse número, os novos pedidos falharão imediatamente com o código de estado de pedidos de muitos.
 
 ### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a>Declaração política
 
@@ -280,7 +280,7 @@ A `limit-concurrency` política impede que as políticas em anexo sejam executad
 
 #### <a name="example"></a>Exemplo
 
-O exemplo que se segue demonstra como limitar o número de pedidos reencaminhados para um backend com base no valor de uma variável de contexto.
+O exemplo a seguir demonstra como limitar o número de pedidos reencaminhados para um backend com base no valor de uma variável de contexto.
 
 ```xml
 <policies>
@@ -288,7 +288,7 @@ O exemplo que se segue demonstra como limitar o número de pedidos reencaminhado
   <backend>
     <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
-    <limit-concurrency/>
+    </limit-concurrency>
   </backend>
   <outbound>…</outbound>
 </policies>
@@ -296,31 +296,31 @@ O exemplo que se segue demonstra como limitar o número de pedidos reencaminhado
 
 ### <a name="elements"></a>Elementos
 
-| Elemento           | Descrição   | Necessário |
+| Elemento           | Description   | Necessário |
 | ----------------- | ------------- | -------- |
-| limite-conmoeda | Elemento de raiz. | Sim      |
+| limitação da concordância | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                                                        | Necessário | Predefinição |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Uma corda. Expressão permitida. Especifica o âmbito da moeda. Pode ser partilhado por múltiplas políticas. | Sim      | N/D     |
-| contagem máxima | Um número inteiro. Especifica um número máximo de pedidos que podem entrar na apólice.           | Sim      | N/D     |
+| chave       | Uma corda. Expressão permitida. Especifica o âmbito de concordância. Pode ser partilhado por várias políticas. | Yes      | N/D     |
+| contagem máxima | Um número inteiro. Especifica um número máximo de pedidos que são autorizados a entrar na apólice.           | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Iniciar sessão no Centro de Eventos
+## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Faça login no Centro de Eventos
 
-A `log-to-eventhub` política envia mensagens no formato especificado para um Hub de Eventodefinido por uma entidade Logger. Como o seu nome indica, a política é usada para guardar informações de contexto de pedido ou resposta selecionadas para análise online ou offline.
+A `log-to-eventhub` política envia mensagens no formato especificado para um Centro de Eventos definido por uma entidade Logger. Como o seu nome indica, a política é utilizada para guardar informações de contexto de pedido ou resposta selecionadas para análise online ou offline.
 
 > [!NOTE]
-> Para um guia passo a passo sobre a configuração de um centro de eventos e eventos de registo, consulte como registar eventos de [Gestão API com Hubs de Eventos Azure](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> Para um guia passo a passo sobre a configuração de um centro de eventos e eventos de registo, consulte [Como registar eventos de Gestão de API com Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -333,7 +333,7 @@ A `log-to-eventhub` política envia mensagens no formato especificado para um Hu
 
 ### <a name="example"></a>Exemplo
 
-Qualquer corda pode ser usada como o valor a ser registado em Centros de Eventos. Neste exemplo, a data e hora, o nome do serviço de implementação, o id de pedido, o `contoso-logger` endereço IP e o nome de operação para todas as chamadas de entrada são registados no centro de eventos Logger registado com o ID
+Qualquer string pode ser usado como o valor a ser registado em Centros de Eventos. Neste exemplo, a data e hora, nome do serviço de implantação, ID de pedido, endereço IP e nome de operação para todas as chamadas de entrada são registados no centro de eventos Logger registado com o `contoso-logger` ID
 
 ```xml
 <policies>
@@ -349,21 +349,21 @@ Qualquer corda pode ser usada como o valor a ser registado em Centros de Eventos
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição                                                                     | Necessário |
+| Elemento         | Description                                                                     | Necessário |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
-| log-to-eventhub | Elemento de raiz. O valor deste elemento é a corda para entrar no seu centro de eventos. | Sim      |
+| log-to-eventhub | Elemento de raiz. O valor deste elemento é a cadeia para iniciar sessão no seu centro de eventos. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo     | Descrição                                                               | Necessário                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | A identificação do Logger registada no seu serviço de Gestão API.         | Sim                                                                  |
-| partição-id  | Especifica o índice da partição onde as mensagens são enviadas.             | Opcional. Este atributo não pode `partition-key` ser utilizado se for utilizado. |
-| chave de partição | Especifica o valor utilizado para a atribuição de divisórias quando as mensagens são enviadas. | Opcional. Este atributo não pode `partition-id` ser utilizado se for utilizado.  |
+| logger-id     | A identificação do Madeireiro registou-se no seu serviço de Gestão API.         | Yes                                                                  |
+| partição id  | Especifica o índice da partição onde as mensagens são enviadas.             | Opcional. Este atributo não pode ser utilizado se `partition-key` for utilizado. |
+| chave de partição | Especifica o valor utilizado para a atribuição de divisórias quando as mensagens são enviadas. | Opcional. Este atributo não pode ser utilizado se `partition-id` for utilizado.  |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
@@ -371,7 +371,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 ## <a name="mock-response"></a><a name="mock-response"></a>Resposta falsa
 
-O `mock-response`, como o nome indica, é usado para ridicularizar APIs e operações. Aborta a execução normal do gasoduto e devolve uma resposta ridícula ao ouvinte. A política tenta sempre devolver respostas de maior fidelidade. Prefere exemplos de conteúdo de resposta, sempre que disponível. Gera respostas de amostra schemas, quando são fornecidos esquemmas e exemplos não. Se não forem encontrados exemplos ou esquemas, as respostas sem conteúdo são devolvidas.
+O `mock-response` , como o nome indica, é usado para ridicularizar APIs e operações. Aborta a execução normal do gasoduto e devolve uma resposta ridícula ao chamador. A política tenta sempre retribuir respostas de maior fidelidade. Prefere exemplos de conteúdo de resposta, sempre que disponível. Gera respostas de amostra a partir de esquemas, quando os esquemas são fornecidos e os exemplos não são. Se nenhum dos exemplos ou esquemas for encontrado, as respostas sem conteúdo são devolvidas.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -394,20 +394,20 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-| Elemento       | Descrição   | Necessário |
+| Elemento       | Description   | Necessário |
 | ------------- | ------------- | -------- |
-| mock-resposta | Elemento de raiz. | Sim      |
+| mock-response | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo    | Descrição                                                                                           | Necessário | Predefinição |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| código de estado  | Especifica o código de estado da resposta e é utilizado para selecionar o exemplo ou o esquema correspondente.                 | Não       | 200     |
-| tipo de conteúdo | Especifica `Content-Type` o valor do cabeçalho de resposta e é utilizado para selecionar o exemplo ou o esquema correspondente. | Não       | Nenhuma    |
+| código de estado  | Especifica o código de estado de resposta e é utilizado para selecionar o exemplo ou esquema correspondente.                 | No       | 200     |
+| tipo de conteúdo | Especifica o `Content-Type` valor do cabeçalho de resposta e é utilizado para selecionar o exemplo ou esquema correspondente. | No       | Nenhum    |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, erro
 
@@ -415,7 +415,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 ## <a name="retry"></a><a name="Retry"></a>Retry
 
-A `retry` política executa as suas políticas infantis uma `condition` vez `false` e, `count` em seguida, retenta a sua execução até que o novo try se torne ou o novo try seja esgotado.
+A `retry` política executa as suas políticas infantis uma vez e, em seguida, retrifica a sua execução até que a repetição se torne ou `condition` `false` redaça. `count`
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -435,7 +435,7 @@ A `retry` política executa as suas políticas infantis uma `condition` vez `fal
 
 ### <a name="example"></a>Exemplo
 
-No exemplo seguinte, o reencaminhamento de pedidos é novamente experimentado até dez vezes usando um algoritmo de retry exponencial. Uma `first-fast-retry` vez que está definido para falso, todas as tentativas de retenção estão sujeitas ao algoritmo de retry exponencial.
+No exemplo seguinte, o reencaminhamento de pedidos é novamente experimentado até dez vezes usando um algoritmo de retíria exponencial. Uma vez `first-fast-retry` que está definido como falso, todas as tentativas de rettentámos estão sujeitas ao algoritmo exponencial de retry.
 
 ```xml
 
@@ -453,37 +453,37 @@ No exemplo seguinte, o reencaminhamento de pedidos é novamente experimentado at
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição                                                         | Necessário |
+| Elemento | Description                                                         | Necessário |
 | ------- | ------------------------------------------------------------------- | -------- |
-| retry   | Elemento de raiz. Pode conter quaisquer outras políticas como elementos infantis. | Sim      |
+| retry   | Elemento de raiz. Pode conter quaisquer outras políticas como elementos infantis. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo        | Descrição                                                                                                                                           | Necessário | Predefinição |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condição        | Um literal ou [expressão](api-management-policy-expressions.md) booleano especificando`false`se as`true`tentativas devem ser interrompidas ou continuadas ( ).      | Sim      | N/D     |
-| count            | Um número positivo que especifica o número máximo de tentativas de tentativa.                                                                                | Sim      | N/D     |
-| intervalo         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/D     |
-| intervalo máximo     | Um número positivo em segundos especificando o intervalo máximo de espera entre as tentativas de repetição. É usado para implementar um algoritmo de retry exponencial. | Não       | N/D     |
-| delta            | Um número positivo em segundos especificando o incremento do intervalo de espera. É usado para implementar os algoritmos lineares e exponenciais de retry.             | Não       | N/D     |
-| primeira-rápida-retry | Se estiver `true` programado para , a primeira tentativa de retry é realizada imediatamente.                                                                                  | Não       | `false` |
+| condição        | Um literal ou [expressão](api-management-policy-expressions.md) booleano especificando se as retrósias devem ser paradas `false` () ou continuadas ( `true` ).      | Yes      | N/D     |
+| count            | Um número positivo que especifica o número máximo de tentativas.                                                                                | Yes      | N/D     |
+| intervalo         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Yes      | N/D     |
+| intervalo máximo     | Um número positivo em segundos especificando o intervalo máximo de espera entre as tentativas de repetição. É usado para implementar um algoritmo exponencial de retíria. | No       | N/D     |
+| delta            | Um número positivo em segundos especificando o incremento do intervalo de espera. É usado para implementar os algoritmos lineares e exponenciais de retíria.             | No       | N/D     |
+| primeira-rápida retry | Se estiver `true` definido, a primeira tentativa de repetição é executada imediatamente.                                                                                  | No       | `false` |
 
 > [!NOTE]
-> Quando apenas os `interval` especificados, são efetuadas repetições de **intervalos fixos.**
-> Quando `interval` apenas `delta` o e são especificados, **é** utilizado um algoritmo linear de repetição `interval + (count - 1)*delta`de intervalos, onde o tempo de espera entre as tentativas é calculado de acordo com a seguinte fórmula - .
-> Quando `interval`o `max-interval` `delta` algoritmo de repetição de intervalos **exponenciais** , e especificado, é aplicado, onde `max-interval` o tempo de `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`espera entre as tentativas está a crescer exponencialmente do valor para o valor de `interval` acordo com a fórmula seguinte - .
+> Quando apenas as `interval` especificadas são especificadas, são executadas recaídas de intervalo **fixa.**
+> Quando apenas o `interval` e `delta` especificado, é utilizado um algoritmo de relagem de intervalo **linear,** onde o tempo de espera entre as retrógios é calculado de acordo com a seguinte fórmula - `interval + (count - 1)*delta` .
+> Quando o `interval` algoritmo de `max-interval` `delta` relemque de intervalo **exponencial** é aplicado, onde o tempo de espera entre as retrações está a crescer exponencialmente do valor `interval` para o valor de acordo com a seguinte fórmula - `max-interval` . `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de política. Note-se que as restrições à utilização da política infantil serão herdadas por esta política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) Note que as restrições à política infantil serão herdadas por esta política.
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="return-response"></a><a name="ReturnResponse"></a>Resposta de devolução
+## <a name="return-response"></a><a name="ReturnResponse"></a>Resposta de retorno
 
-A `return-response` política aborta a execução do gasoduto e devolve uma resposta padrão ou personalizada ao chamador. A resposta `200 OK` padrão é sem corpo. A resposta personalizada pode ser especificada através de uma variável de contexto ou declarações políticas. Quando ambos são fornecidos, a resposta contida na variável de contexto é modificada pelas declarações políticas antes de ser devolvida ao chamador.
+A `return-response` apólice aborta a execução do gasoduto e devolve uma resposta padrão ou personalizada ao chamador. A resposta predefinida `200 OK` é sem corpo. A resposta personalizada pode ser especificada através de uma variável de contexto ou declarações políticas. Quando ambos são fornecidos, a resposta contida na variável de contexto é modificada pelas declarações de política antes de ser devolvida ao chamador.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -510,22 +510,22 @@ A `return-response` política aborta a execução do gasoduto e devolve uma resp
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição                                                                               | Necessário |
+| Elemento         | Description                                                                               | Necessário |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| resposta de retorno | Elemento de raiz.                                                                             | Sim      |
-| set-header      | Uma declaração política [de cabeçalho.](api-management-transformation-policies.md#SetHTTPheader) | Não       |
-| set-body        | Uma declaração [política de corpo de conjunto.](api-management-transformation-policies.md#SetBody)         | Não       |
-| definir-status      | Uma declaração de política [de estado de fixação.](api-management-advanced-policies.md#SetStatus)           | Não       |
+| resposta de retorno | Elemento de raiz.                                                                             | Yes      |
+| set-header      | Uma declaração [política de cabeçalho.](api-management-transformation-policies.md#SetHTTPheader) | No       |
+| conjunto de corpo        | Uma [declaração política de corpo definido.](api-management-transformation-policies.md#SetBody)         | No       |
+| estado de conjunto      | Uma declaração de política [de definição.](api-management-advanced-policies.md#SetStatus)           | No       |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo              | Descrição                                                                                                                                                                          | Necessário  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| resposta-variável-nome | O nome da variável de contexto referenciada a partir, por `Response` exemplo, de uma política de pedido de [envio](api-management-advanced-policies.md#SendRequest) a montante e contendo um objeto | Opcional. |
+| resposta-nome variável | O nome da variável de contexto referenciada, por exemplo, de uma política [de pedido de envio](api-management-advanced-policies.md#SendRequest) a montante e contendo um `Response` objeto | Opcional. |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
@@ -550,7 +550,7 @@ A `send-one-way-request` apólice envia o pedido fornecido para o URL especifica
 
 ### <a name="example"></a>Exemplo
 
-Esta política de amostras `send-one-way-request` mostra um exemplo de utilização da política para enviar uma mensagem para uma sala de chat Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esta amostra, consulte [A utilização de serviços externos do serviço de Gestão API Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+Esta política de amostra mostra um exemplo de utilização da `send-one-way-request` política para enviar uma mensagem para uma sala de chat Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esta amostra, consulte [utilização de serviços externos do serviço de Gestão API da Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
 
 ```xml
 <choose>
@@ -580,26 +580,26 @@ Esta política de amostras `send-one-way-request` mostra um exemplo de utilizaç
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descrição                                                                                                 | Necessário                        |
+| Elemento                    | Description                                                                                                 | Necessário                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| enviar-um-pedido de caminho       | Elemento de raiz.                                                                                               | Sim                             |
-| url                        | A URL do pedido.                                                                                     | Não se mode=cópia; caso contrário, sim. |
-| método                     | O método HTTP para o pedido.                                                                            | Não se mode=cópia; caso contrário, sim. |
-| cabeçalho                     | Peça cabeçalho. Utilize vários elementos de cabeçalho para vários cabeçalhos de pedido.                                  | Não                              |
-| body                       | O corpo de pedido.                                                                                           | Não                              |
-| autenticação-certificado | [Certificado a utilizar para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
+| enviar-um-pedido de ida       | Elemento de raiz.                                                                                               | Yes                             |
+| url                        | A URL do pedido.                                                                                     | Não se mode=copy; caso contrário, sim. |
+| método                     | O método HTTP para o pedido.                                                                            | Não se mode=copy; caso contrário, sim. |
+| cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | No                              |
+| body                       | O corpo de pedido.                                                                                           | No                              |
+| certificado de autenticação | [Certificado para utilização para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, o modo=cópia não inicia o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
-| nome          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
-| existe-ação | Especifica que medidas tomar quando o cabeçalho já estiver especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - substituição - substitui o valor do cabeçalho existente.<br />- skip - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- apagar - retira o cabeçalho do pedido.<br /><br /> Quando definido `override` para recrutar várias entradas com o mesmo nome resulta no cabeçalho sendo definido de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | Não       | anular |
+| mode="string" | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Novo      |
+| name          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/D      |
+| existe-ação | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | No       | sobreposição |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
@@ -607,7 +607,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 ## <a name="send-request"></a><a name="SendRequest"></a>Enviar pedido
 
-A `send-request` apólice envia o pedido fornecido para o URL especificado, esperando não mais do que o valor estabelecido.
+A `send-request` apólice envia o pedido fornecido para o URL especificado, esperando não mais do que o valor de tempo limite definido.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -625,7 +625,7 @@ A `send-request` apólice envia o pedido fornecido para o URL especificado, espe
 
 ### <a name="example"></a>Exemplo
 
-Este exemplo mostra uma maneira de verificar um símbolo de referência com um servidor de autorização. Para obter mais informações sobre esta amostra, consulte [A utilização de serviços externos do serviço de Gestão API Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+Este exemplo mostra uma maneira de verificar um token de referência com um servidor de autorização. Para obter mais informações sobre esta amostra, consulte [utilização de serviços externos do serviço de Gestão API da Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
 
 ```xml
 <inbound>
@@ -664,37 +664,37 @@ Este exemplo mostra uma maneira de verificar um símbolo de referência com um s
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descrição                                                                                                 | Necessário                        |
+| Elemento                    | Description                                                                                                 | Necessário                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| envio-pedido               | Elemento de raiz.                                                                                               | Sim                             |
-| url                        | A URL do pedido.                                                                                     | Não se mode=cópia; caso contrário, sim. |
-| método                     | O método HTTP para o pedido.                                                                            | Não se mode=cópia; caso contrário, sim. |
-| cabeçalho                     | Peça cabeçalho. Utilize vários elementos de cabeçalho para vários cabeçalhos de pedido.                                  | Não                              |
-| body                       | O corpo de pedido.                                                                                           | Não                              |
-| autenticação-certificado | [Certificado a utilizar para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
+| envio-pedido               | Elemento de raiz.                                                                                               | Yes                             |
+| url                        | A URL do pedido.                                                                                     | Não se mode=copy; caso contrário, sim. |
+| método                     | O método HTTP para o pedido.                                                                            | Não se mode=copy; caso contrário, sim. |
+| cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | No                              |
+| body                       | O corpo de pedido.                                                                                           | No                              |
+| certificado de autenticação | [Certificado para utilização para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, o modo=cópia não inicia o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
-| resposta-variável-nome="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, será criada após a execução [`context.Variable`](api-management-policy-expressions.md#ContextVariables) bem sucedida da apólice e tornar-se-á acessível através da recolha.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
-| timeout="integer"               | O intervalo de tempo de tempo em segundos antes da chamada para o URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Não       | 60       |
-| ignorar erro                    | Se for verdade e o pedido resultar num erro:<br /><br /> - Se o nome variável de resposta tiver sido especificado, conterá um valor nulo.<br />- Se não foi especificado o nome variável de resposta, contexto. O pedido não será atualizado.                                                                                                                                                                                                                                                                                                                                                                                   | Não       | false    |
-| nome                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
-| existe-ação                   | Especifica que medidas tomar quando o cabeçalho já estiver especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - substituição - substitui o valor do cabeçalho existente.<br />- skip - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- apagar - retira o cabeçalho do pedido.<br /><br /> Quando definido `override` para recrutar várias entradas com o mesmo nome resulta no cabeçalho sendo definido de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | Não       | anular |
+| mode="string"                   | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Novo      |
+| resposta-variável-nome="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, será criada após a execução bem sucedida da apólice e tornar-se-á acessível através da [`context.Variable`](api-management-policy-expressions.md#ContextVariables) recolha.                                                                                                                                                                                                                                                                                                                          | Yes      | N/D      |
+| timeout="inteiro"               | O intervalo de tempo em segundos antes da chamada para o URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
+| ignorar erro                    | Se for verdade e o pedido resultar em erro:<br /><br /> - Se o nome variável de resposta for especificado, conterá um valor nulo.<br />- Se não for especificado o nome variável de resposta, o contexto. O pedido não será atualizado.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
+| name                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/D      |
+| existe-ação                   | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | No       | sobreposição |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a>Definir proxy HTTP
+## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a>Definir http proxy
 
-A `proxy` política permite-lhe encaminhar pedidos encaminhados para backends através de um proxy HTTP. Apenas http (não HTTPS) é suportado entre o gateway e o proxy. Autenticação básica e NTLM apenas.
+A `proxy` política permite-lhe encaminhar os pedidos reencaminhados para backends através de um representante HTTP. Apenas HTTP (não HTTPS) é suportado entre o gateway e o proxy. Autenticação básica e ntlm.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -714,21 +714,21 @@ Note a utilização de [propriedades](api-management-howto-properties.md) como v
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição  | Necessário |
+| Elemento | Description  | Necessário |
 | ------- | ------------ | -------- |
-| proxy   | Elemento raiz | Sim      |
+| proxy   | Elemento de raiz | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo         | Descrição                                            | Necessário | Predefinição |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="string"      | URL proxy na http://host:portforma de .             | Sim      | N/D     |
-| username="string" | Nome de utilizador a utilizar para autenticação com o representante. | Não       | N/D     |
-| palavra-passe="string" | Palavra-passe a utilizar para autenticação com o representante. | Não       | N/D     |
+| url="string"      | URL de procuração na forma de http://host:port .             | Yes      | N/D     |
+| username="string" | Nome de utilizador para ser utilizado para autenticação com o representante. | No       | N/D     |
+| palavra-passe="cadeia" | Palavra-passe para ser usada para autenticação com o representante. | No       | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada
 
@@ -736,7 +736,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 ## <a name="set-request-method"></a><a name="SetRequestMethod"></a>Definir método de pedido
 
-A `set-method` política permite-lhe alterar o método de pedido http para um pedido.
+A `set-method` apólice permite-lhe alterar o método de pedido HTTP para um pedido.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -747,7 +747,7 @@ A `set-method` política permite-lhe alterar o método de pedido http para um pe
 
 ### <a name="example"></a>Exemplo
 
-Esta política de `set-method` amostras que utiliza a política mostra um exemplo de envio de uma mensagem para uma sala de chat Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esta amostra, consulte [A utilização de serviços externos do serviço de Gestão API Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+Esta política de amostras que utiliza a `set-method` política mostra um exemplo de envio de uma mensagem para uma sala de chat Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esta amostra, consulte [utilização de serviços externos do serviço de Gestão API da Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
 
 ```xml
 <choose>
@@ -777,13 +777,13 @@ Esta política de `set-method` amostras que utiliza a política mostra um exempl
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descrição                                                       | Necessário |
+| Elemento    | Description                                                       | Necessário |
 | ---------- | ----------------------------------------------------------------- | -------- |
-| método de conjunto | Elemento de raiz. O valor do elemento especifica o método HTTP. | Sim      |
+| método de conjunto | Elemento de raiz. O valor do elemento especifica o método HTTP. | Yes      |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, erro
 
@@ -791,7 +791,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 ## <a name="set-status-code"></a><a name="SetStatus"></a>Definir código de estado
 
-A `set-status` política define o código de estado HTTP para o valor especificado.
+A `set-status` apólice define o código de estado HTTP para o valor especificado.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -802,7 +802,7 @@ A `set-status` política define o código de estado HTTP para o valor especifica
 
 ### <a name="example"></a>Exemplo
 
-Este exemplo mostra como devolver uma resposta 401 se o sinal de autorização for inválido. Para mais informações, consulte [Utilização de serviços externos do serviço de Gestão API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+Este exemplo mostra como devolver uma resposta 401 se o sinal de autorização for inválido. Para mais informações, consulte [utilização de serviços externos do serviço de Gestão API da Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
 
 ```xml
 <choose>
@@ -820,27 +820,27 @@ Este exemplo mostra como devolver uma resposta 401 se o sinal de autorização f
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descrição   | Necessário |
+| Elemento    | Description   | Necessário |
 | ---------- | ------------- | -------- |
-| definir-status | Elemento de raiz. | Sim      |
+| estado de conjunto | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo       | Descrição                                                | Necessário | Predefinição |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code="integer"  | O código de estado HTTP para devolver.                            | Sim      | N/D     |
-| razão="corda" | Uma descrição da razão para devolver o código de estado. | Sim      | N/D     |
+| código="inteiro"  | O código de estado HTTP para devolver.                            | Yes      | N/D     |
+| reason="string" | Uma descrição do motivo para devolver o código de estado. | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
--   **Secções políticas:** saída, backend, erro
+-   **Secções políticas:** saída, backend, on-error
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="set-variable"></a><a name="set-variable"></a>Definir variável
+## <a name="set-variable"></a><a name="set-variable"></a>Conjunto variável
 
-A `set-variable` política declara uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) e atribui-lhe um valor especificado através de uma [expressão](api-management-policy-expressions.md) ou de uma corda literal. se a expressão contiver um literal, será convertido numa corda `System.String`e o tipo do valor será .
+A `set-variable` política declara uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) e atribui-lhe um valor especificado através de uma [expressão](api-management-policy-expressions.md) ou de uma corda literal. se a expressão contiver um literal, será convertido para uma corda e o tipo de valor será `System.String` .
 
 ### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a>Declaração política
 
@@ -850,7 +850,7 @@ A `set-variable` política declara uma variável de [contexto](api-management-po
 
 ### <a name="example"></a><a name="set-variableExample"></a>Exemplo
 
-O exemplo que se segue demonstra uma política variável definida na secção de entrada. Esta política variável `isMobile` definida cria uma variável de `User-Agent` [contexto](api-management-policy-expressions.md#ContextVariables) booleana que é definida para verdade se o cabeçalho de pedido contiver o texto `iPad` ou `iPhone`.
+O exemplo a seguir demonstra uma política variável definida na secção de entrada. Esta política variável definida cria uma `isMobile` variável de [contexto](api-management-policy-expressions.md#ContextVariables) Boolean que é definida como verdadeira se o cabeçalho de `User-Agent` pedido contiver o texto `iPad` ou `iPhone` .
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -858,67 +858,67 @@ O exemplo que se segue demonstra uma política variável definida na secção de
 
 ### <a name="elements"></a>Elementos
 
-| Elemento      | Descrição   | Necessário |
+| Elemento      | Description   | Necessário |
 | ------------ | ------------- | -------- |
-| set-variável | Elemento de raiz. | Sim      |
+| conjunto-variável | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                              | Necessário |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| nome      | O nome da variável.                                                | Sim      |
-| valor     | O valor da variável. Isto pode ser uma expressão ou um valor literal. | Sim      |
+| name      | O nome da variável.                                                | Yes      |
+| valor     | O valor da variável. Isto pode ser uma expressão ou um valor literal. | Yes      |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 -   **Âmbitos de política:** todos os âmbitos
 
 ### <a name="allowed-types"></a><a name="set-variableAllowedTypes"></a>Tipos permitidos
 
-As expressões `set-variable` utilizadas na política devem devolver um dos seguintes tipos básicos.
+As expressões utilizadas na `set-variable` apólice devem devolver um dos seguintes tipos básicos.
 
--   Sistema.Boolean
+-   System.Boolean
 -   System.SByte
 -   Sistema.Byte
--   System.UInt16
--   System.UInt32
--   System.UInt64
+-   Sistema.UInt16
+-   Sistema.UInt32
+-   Sistema.UInt64
 -   Sistema.Int16
 -   Sistema.Int32
 -   Sistema.Int64
 -   Sistema.Decimal
--   Sistema.Single
+-   Sistema.Único
 -   Sistema.Duplo
--   Sistema.Guia
+-   Sistema.Guid
 -   Sistema.String
 -   Sistema.Char
--   Sistema.Data
--   Sistema.Timespan
--   System.Byte?
--   System.UInt16?
--   System.UInt32?
--   System.UInt64?
+-   Sistema.DataTime
+-   System.TimeSpan
+-   Sistema.Byte?
+-   Sistema.UInt16?
+-   Sistema.UInt32?
+-   Sistema.UInt64?
 -   Sistema.Int16?
 -   Sistema.Int32?
 -   Sistema.Int64?
--   System.Decimal?
+-   Sistema.Decimal?
 -   Sistema.Single?
 -   Sistema.Duplo?
--   System.Guid?
--   System.String?
+-   Sistema.Guid?
+-   Sistema.String?
 -   Sistema.Char?
--   Sistema.Data?
+-   Sistema.DateTime?
 
 ## <a name="trace"></a><a name="Trace"></a>Vestígios
 
 A `trace` política adiciona um traço personalizado na saída do Inspetor API, telemetria de Insights de Aplicação e/ou Registos de Recursos.
 
--   A apólice adiciona um traço personalizado à saída do [Inspetor API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) `Ocp-Apim-Trace` quando o rastreio é acionado, ou seja, o cabeçalho de pedido está presente e definido para o cabeçalho verdadeiro e `Ocp-Apim-Subscription-Key` pedido está presente e detém uma chave válida que permite o rastreio.
--   A política cria uma telemetria [trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) em Insights de Aplicação, quando a integração de `verbosity` Insights de [Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) é ativada e o `severity` nível especificado na política é a um nível ou superior ao nível especificado na definição de diagnóstico.
--   A política adiciona uma propriedade na entrada de registo quando os [Registos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) de Recursos estão ativados e o nível de gravidade especificado na política é a um nível de verbosidade especificado na definição de diagnóstico.
+-   A apólice adiciona um traço personalizado à saída do Inspetor da [API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando o rastreio é desencadeado, ou seja, `Ocp-Apim-Trace` o cabeçalho de pedido está presente e definido para o cabeçalho verdadeiro e `Ocp-Apim-Subscription-Key` o cabeçalho de pedido está presente e contém uma chave válida que permite o rastreio.
+-   A política cria uma telemetria [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) in Application Insights, quando a [integração de Insights de Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) está ativada e o `severity` nível especificado na política é igual ou superior ao `verbosity` nível especificado na definição de diagnóstico.
+-   A política adiciona uma propriedade na entrada de registo quando os [Registos de Recursos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) estão ativados e o nível de gravidade especificado na política é superior ou superior ao nível de verbosidade especificado na definição de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -942,24 +942,24 @@ A `trace` política adiciona um traço personalizado na saída do Inspetor API, 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento  | Descrição                                                                                                                                          | Necessário |
+| Elemento  | Description                                                                                                                                          | Necessário |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| traço    | Elemento de raiz.                                                                                                                                        | Sim      |
-| message  | Uma corda ou expressão a ser registada.                                                                                                                 | Sim      |
-| do IdP | Adiciona uma propriedade personalizada à telemetria De [Rastreio](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Insights de Aplicação. | Não       |
+| traço    | Elemento de raiz.                                                                                                                                        | Yes      |
+| message  | Uma corda ou expressão a ser registada.                                                                                                                 | Yes      |
+| do IdP | Adiciona uma propriedade personalizada à telemetria Application Insights [Trace.](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) | No       |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                                                                               | Necessário | Predefinição |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | String literal significativo para o rastreador espectador e especificando a origem da mensagem.                                   | Sim      | N/D     |
-| gravidade  | Especifica o nível de gravidade do vestígio. Os valores `information` `error` permitidos são, `verbose`(do mais baixo ao mais alto). | Não       | Verboso |
-| nome      | Nome da propriedade.                                                                                                     | Sim      | N/D     |
-| valor     | Valor da propriedade.                                                                                                    | Sim      | N/D     |
+| source    | String literal significativo para o observador de vestígios e especificando a origem da mensagem.                                   | Yes      | N/D     |
+| gravidade  | Especifica o nível de gravidade do vestígio. Os valores permitidos `verbose` `information` são, `error` (do mais baixo ao mais alto). | No       | Verboso |
+| name      | Nome da propriedade.                                                                                                     | Yes      | N/D     |
+| valor     | Valor do imóvel.                                                                                                    | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend, erro
 
@@ -967,7 +967,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 ## <a name="wait"></a><a name="Wait"></a>Espera, espera.
 
-A `wait` política executa as suas políticas infantis imediatas em paralelo, e aguarda que todos ou uma das suas políticas infantis imediatas completem antes de completar. A política de espera pode ter como as suas políticas imediatas para crianças [Enviar por email](api-management-advanced-policies.md#SendRequest)o artigo [Cache](api-management-caching-policies.md#GetFromCacheByKey)e Controle as políticas de [fluxo.](api-management-advanced-policies.md#choose)
+A `wait` política executa as suas políticas imediatas para crianças em paralelo, e aguarda que todas ou uma das suas políticas imediatas para a criança terminem antes de ser concluída. A política de espera pode ter como políticas imediatas para [crianças Enviar pedido,](api-management-advanced-policies.md#SendRequest) [obter valor a partir de cache](api-management-caching-policies.md#GetFromCacheByKey)e políticas de fluxo de [controlo.](api-management-advanced-policies.md#choose)
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -981,7 +981,7 @@ A `wait` política executa as suas políticas infantis imediatas em paralelo, e 
 
 ### <a name="example"></a>Exemplo
 
-No exemplo seguinte, `choose` há duas políticas como `wait` políticas imediatas para crianças da política. Cada uma `choose` destas políticas executa em paralelo. Cada `choose` política tenta recuperar um valor em cache. Se houver uma falha de cache, um serviço de backend é chamado para fornecer o valor. Neste exemplo, `wait` a política só termina quando todas as `for` suas políticas imediatas para crianças estiverem completas, porque o atributo está definido para `all`. Neste exemplo, as variáveis `execute-branch-two`de `value-two`contexto são`execute-branch-one` `value-one`declaradas fora do âmbito desta política de exemplo.
+No exemplo seguinte, existem duas `choose` políticas como políticas imediatas para as crianças da `wait` política. Cada uma `choose` destas políticas executa em paralelo. Cada `choose` política tenta recuperar um valor em cache. Se houver uma falha de cache, um serviço de backend é chamado para fornecer o valor. Neste exemplo, a `wait` política não se completa até que todas as suas políticas imediatas para crianças completem, porque o `for` atributo está definido para `all` . Neste exemplo, as variáveis de contexto `execute-branch-one` `value-one` (, `execute-branch-two` , e - `value-two` são declaradas fora do âmbito desta política de exemplo.
 
 ```xml
 <wait for="all">
@@ -1017,28 +1017,28 @@ No exemplo seguinte, `choose` há duas políticas como `wait` políticas imediat
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição                                                                                                   | Necessário |
+| Elemento | Description                                                                                                   | Necessário |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| esperar    | Elemento de raiz. Pode conter como elementos infantis apenas `send-request`, `cache-lookup-value`e `choose` políticas. | Sim      |
+| esperar    | Elemento de raiz. Pode conter apenas como elementos infantis `send-request` `cache-lookup-value` , e `choose` políticas. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Necessário | Predefinição |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| para       | Determina se `wait` a política espera que todas as políticas imediatas para crianças sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all`- esperar que todas as políticas imediatas para crianças completem<br />- qualquer - espere que qualquer política imediata de crianças esteja concluída. Uma vez concluída a primeira política `wait` imediata da criança, a política completa e a execução de quaisquer outras políticas imediatas para crianças é encerrada. | Não       | all     |
+| para       | Determina se a política aguarda que `wait` todas as políticas imediatas para crianças sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all`- aguardar que todas as políticas imediatas para a criança terminem<br />- qualquer - aguarde que qualquer política imediata de crianças seja completada. Uma vez concluída a primeira política imediata da criança, a `wait` política completa e a execução de quaisquer outras políticas imediatas para crianças é encerrada. | No       | all     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 -   **Secções políticas:** entrada, saída, backend
 -   **Âmbitos de política:** todos os âmbitos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações que trabalhem com políticas, consulte:
+Para obter mais informações sobre as políticas, consulte:
 
--   [Políticas em Gestão aPi](api-management-howto-policies.md)
+-   [Políticas em Gestão de API](api-management-howto-policies.md)
 -   [Expressões de política](api-management-policy-expressions.md)
--   [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas configurações
--   [Amostras políticas](policy-samples.md)
+-   [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
+-   [Amostras de política](policy-samples.md)

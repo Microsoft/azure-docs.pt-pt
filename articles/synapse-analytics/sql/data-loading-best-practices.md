@@ -1,6 +1,6 @@
 ---
 title: Melhores práticas de carregamento de dados
-description: Recomendações e otimizações de desempenho para o carregamento de dados no Synapse SQL
+description: Recomendações e otimizações de desempenho para carregar dados em Sinaapse SQL
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6207abeb7fbf7639f12563813467b4c4d65e1245
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431049"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750191"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Boas práticas para carregar dados para armazenamento de dados
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Melhores práticas para carregar dados para armazenamento de dados
 
-Recomendações e otimizações de desempenho para carregar dados
+Recomendações e otimizações de desempenho para os dados de carregamento
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparar dados no Armazenamento do Azure
 
@@ -36,9 +36,9 @@ Divida grandes ficheiros comprimidos em ficheiros mais pequenos comprimidos.
 
 ## <a name="running-loads-with-enough-compute"></a>Executar cargas com computação suficiente
 
-Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se não for viável, execute um número mínimo de cargas em simultâneo. Se espera um grande trabalho de carregamento, considere escalar a sua piscina SQL antes da carga.
+Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se não for viável, execute um número mínimo de cargas em simultâneo. Se espera um grande trabalho de carregamento, considere aumentar a sua piscina SQL antes da carga.
 
-Para executar cargas com recursos de computação adequados, crie utilizadores de carregamento designados para a execução de cargas. Atribuir cada utilizador de carregamento a uma classe de recursos ou grupo de carga de trabalho específico. Para executar uma carga, inscreva-se como um dos utilizadores de carregamento e, em seguida, executar a carga. A carga é executada com a classe de recursos do utilizador.  Este método é mais simples do que tentar alterar a classe de recursos de um utilizador para que se ajuste à necessidade da classe de recursos atual.
+Para executar cargas com recursos de computação adequados, crie utilizadores de carregamento designados para a execução de cargas. Atribua cada utilizador de carregamento a uma classe de recursos específica ou grupo de carga de trabalho. Para executar uma carga, inscreva-se como um dos utilizadores de carregamento e, em seguida, carregue a carga. A carga é executada com a classe de recursos do utilizador.  Este método é mais simples do que tentar alterar a classe de recursos de um utilizador para que se ajuste à necessidade da classe de recursos atual.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exemplo de como criar um utilizador de carregamento
 
@@ -58,13 +58,13 @@ Ligar ao armazém de dados e criar um utilizador. O seguinte código partem do p
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Para executar uma carga com recursos para as classes de recursos estáticaRC20, inscreva-se como LoaderRC20 e execute a carga.
+Para executar uma carga com recursos para as classes de recursos staticRC20, inscreva-se como LoaderRC20 e execute a carga.
 
-Execute as cargas em classes de recursos estáticas em vez de dinâmicas. A utilização das classes de recursos estáticos garante os mesmos recursos independentemente das suas unidades de armazém de [dados.](resource-consumption-models.md) Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
+Execute as cargas em classes de recursos estáticas em vez de dinâmicas. A utilização das classes de recursos estáticos garante os mesmos recursos, independentemente das suas unidades de armazém de [dados.](resource-consumption-models.md) Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
 
 ## <a name="allowing-multiple-users-to-load"></a>Permitir o carregamento por parte de vários utilizadores
 
-Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. O carregamento com a [TABELA CREATE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) requer permissões controla da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
+Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. O carregamento com a [tabela CREATE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) requer permissões de CONTROLO da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
 
 Por exemplo, considere os esquemas de bases de dados schema_A, para departamento A, e schema_B, para departamento B. Permita que os utilizadores user_A e user_B sejam utilizadores do carregamento PolyBase nos departamentos A e B, respetivamente. Foram concedidas a ambos permissões de base de dados CONTROL. Agora, os criadores dos esquemas A e B bloqueiam os esquemas com DENY.
 
@@ -73,7 +73,7 @@ Por exemplo, considere os esquemas de bases de dados schema_A, para departamento
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A e user_B estão agora excluídos do esquema do outro dept.
+User_A e user_B estão agora bloqueados do esquema do outro departamento.
 
 ## <a name="loading-to-a-staging-table"></a>Carregar para uma tabela de teste
 
@@ -88,9 +88,9 @@ Os índices columnstore exigem grandes quantidades de memória para comprimir os
 - Para garantir que o utilizador de carregamento tem memória suficiente para alcançar as velocidades de compressão máximas, utilize utilizadores de carregamento que sejam membros de uma classe de recursos média ou grande.
 - Carregue linhas suficientes para preencher completamente rowgroups novos. Durante um carregamento em massa, cada 1 048 576 linhas são comprimidas diretamente para o columnstore como um rowgroup completo. Carregamentos com menos de 102,400 linhas enviam as linhas para o deltastore onde as linhas são guardadas num índice de árvore b. Se carregar muito poucas linhas, podem ir todas para o deltastore e não ser comprimidas de imediato no formato columnstore.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentar o tamanho do lote ao utilizar a SQLBulkCopy API ou o BCP
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumente o tamanho do lote ao utilizar a API da SQLBulkCopy ou o BCP
 
-Como mencionado anteriormente, o carregamento com polyBase fornecerá a maior entrada com piscina SYnapse SQL. Se não puder utilizar a PolyBase para carregar e tiver de utilizar o SQLBulkCopy API (ou BCP), deve considerar o aumento do tamanho do lote para uma melhor produção - uma boa regra do polegar é um tamanho de lote entre 100k e 1M linhas.
+Como mencionado anteriormente, o carregamento com PolyBase fornecerá a maior produção com piscina Sinaapse SQL. Se não puder utilizar o PolyBase para carregar e tiver de utilizar a API SQLBulkCopy (ou BCP) deve considerar o aumento do tamanho do lote para uma melhor produção - uma boa regra do polegar é um tamanho de lote entre 100k e 1M linhas.
 
 ## <a name="handling-loading-failures"></a>Processar falhas de carregamento
 
@@ -108,7 +108,7 @@ Se tiver milhares ou mais de inserções individuais durante o dia, junte-as par
 
 Para melhorar desempenho das consultas, é importante criar estatísticas em todas as colunas de todas as tabelas após o primeiro carregamento ou poderão ocorrer alterações substanciais nos dados.  Isto pode ser feito manualmente ou pode ativar [estatísticas de criação automática](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Para uma explicação detalhada das estatísticas, consulte [Estatísticas](develop-tables-statistics.md). O exemplo que se segue mostra como criar manualmente estatísticas sobre cinco colunas da tabela Customer_Speed.
+Para uma explicação detalhada das estatísticas, consulte [Estatísticas](develop-tables-statistics.md). O exemplo a seguir mostra como criar manualmente estatísticas em cinco colunas da tabela Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -144,6 +144,6 @@ Não é preciso fazer outras alterações às origens de dados externas subjacen
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre o PolyBase e como estruturar um processo de Extração, Carregamento e Transformação (ELT), veja [Design ELT for SQL Data Warehouse](data-loading-overview.md) (Estruturar o ELT para o SQL Data Warehouse).
+- Para saber mais sobre o PolyBase e como estruturar um processo de Extração, Carregamento e Transformação (ELT), veja [Design ELT for SQL Data Warehouse](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Estruturar o ELT para o SQL Data Warehouse).
 - Para obter um tutorial relativo ao carregamento, veja [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure para o Azure SQL Data Warehouse).
 - Para monitorizar o carregamento de dados, veja [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Monitorizar a sua carga de trabalho com redes de perímetro).

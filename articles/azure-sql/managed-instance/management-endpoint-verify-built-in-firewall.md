@@ -2,8 +2,8 @@
 title: Verifique a segurança do porto na firewall incorporada
 description: Saiba como verificar a proteção contra firewall incorporada em Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 561aba31bfd1cc37173f3ee41625ba3687f5e657
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1d2fffabba3615394bdf96ed487177bf21f3ecec
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660910"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708710"
 ---
 # <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Verifique a firewall incorporada da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,6 +29,6 @@ Para verificar estas portas, utilize qualquer ferramenta de scanner de seguranç
 
 ![Verificação da firewall incorporada](./media/management-endpoint-verify-built-in-firewall/03_verify_firewall.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a SQL Managed Instance e conectividade, consulte [a arquitetura de conectividade Azure SQL Managed Instance](connectivity-architecture-overview.md).

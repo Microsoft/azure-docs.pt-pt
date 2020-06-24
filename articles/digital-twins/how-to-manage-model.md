@@ -1,5 +1,5 @@
 ---
-title: Gerir um modelo gémeo
+title: Gerir um modelo duplo
 titleSuffix: Azure Digital Twins
 description: Veja como criar, editar e eliminar um modelo dentro da Azure Digital Twins.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 195f5f8d820ff43aed73fc0a46dcccccef43ae66
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 6c023ff8419a41353e0c8aff70d04c5b9fcb27a4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612929"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725652"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Pode gerir os [modelos](concepts-models.md) que a sua instância Azure Digital Twins conhece sobre a utilização das [**APIs digitalTwinsModels,**](how-to-use-apis-sdks.md)da [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou do [Azure Digital Twins CLI](how-to-use-cli.md). 
 
@@ -249,7 +252,7 @@ A Azure Digital Twins não impede este estado, por isso tenha cuidado para remen
 
 Os modelos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir gémeos digitais com base nos seus modelos:
 * [Como fazer: Gerir um gémeo digital](how-to-manage-twin.md)

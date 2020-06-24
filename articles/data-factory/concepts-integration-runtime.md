@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: 81061f9f20e325d6f392c76c5e2801527abc9e2b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345007"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753571"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -57,9 +57,9 @@ O diagrama seguinte mostra como os diferentes runtimes de integração podem ser
 
 Um tempo de integração Azure pode:
 
-- Fluxos de dados em execução em Azure 
-- Executar atividades de cópia entre arquivos de dados na cloud
-- Despachar as seguintes atividades de transformação na rede pública: Databricks Notebook/ Jar/ Atividade python, atividade de HIVE HDInsight, atividade do PORCO HDInsight, atividade hdInsight MapReduce, atividade hdInsight Spark, atividade de streaming HDInsight, atividade de execução de lotes de aprendizagem automática, atividade de atualização de aprendizagem automática, atividade do procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada, atividade web, atividade de Lookup e Atividade de Get Metadados.
+- Executar fluxos de dados em Azure 
+- Executar atividade de cópia entre lojas de dados em nuvem
+- Despachar as seguintes atividades de transformação na rede pública: Databricks Notebook/ Jar/ Atividade python, atividade de HIVE HDInsight, atividade do PORCO HDInsight, atividade hdInsight MapReduce, atividade hdInsight Spark, atividade de streaming HDInsight, atividade de machine learning batch execution, atividade de machine learning update resource, atividade de procedimento armazenado, atividade U-SQL de Data Lake Analytics, atividade personalizada .NET, atividade web, atividade de lookup e atividade de Get Metadas.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede de IR do Azure
 
@@ -193,7 +193,7 @@ Cada atividade de transformação externa que utiliza um motor de computação e
 
 As atividades do Data Flow são executadas no tempo de integração do Azure que lhe está associado. O computamento Spark utilizado pelos Data Flows é determinado pelas propriedades de fluxo de dados no seu Tempo de Execução de Integração Azure e são totalmente geridos pela ADF.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c9257c50320497a11a6cd1dbfdd1c709e2d9800
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658428"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207894"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da AZure API Management
 
@@ -169,7 +169,7 @@ Os portais legados requeriam a permissão `Microsoft.ApiManagement/service/getss
 
 Pode utilizar o seguinte script PowerShell para criar uma função com a permissão necessária. Lembre-se de mudar o `<subscription-id>` parâmetro. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -187,7 +187,7 @@ New-AzRoleDefinition -Role $customRole
  
 Uma vez criada a função, pode ser concedida a qualquer utilizador a partir da secção **Controlo de Acesso (IAM)** no portal Azure. A atribuição desta função a um utilizador atribuirá a permissão no âmbito do serviço. O utilizador será capaz de gerar fichas SAS em nome de *qualquer* utilizador do serviço. No mínimo, esta função deve ser atribuída ao administrador do serviço. O seguinte comando PowerShell demonstra como atribuir a função a um utilizador `user1` no âmbito mais baixo para evitar a concessão de permissões desnecessárias ao utilizador: 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 
@@ -208,12 +208,12 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | Não              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o novo portal de desenvolvedores:
 

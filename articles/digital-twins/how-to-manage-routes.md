@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a6549f4436fe1bd6a7ab27d942621ccaaf93cff7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cf18d8ef391115da5e1c8fcab235c30e96287f5b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612943"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725686"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerir pontos finais e rotas em Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Em Azure Digital Twins, você pode encaminhar notificações de eventos para [serviços](how-to-interpret-event-data.md) a jusante, ou para conectar recursos de computação. Isto é feito primeiro através da criação de **pontos finais** que podem receber os eventos, seguidos das rotas do [**evento**](concepts-route-events.md) que especificam quais os eventos gerados pela Azure Digital Twins são entregues a que pontos finais.
 
@@ -138,7 +141,7 @@ Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/E
 
 Aqui estão os filtros de rota suportados.
 
-| Nome do filtro | Descrição | Esquema de filtro | Valores suportados | 
+| Nome do filtro | Description | Esquema de filtro | Valores suportados | 
 | --- | --- | --- | --- |
 | Tipo | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui através da sua instância digital gémea | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
 | Origem | Nome da instância Azure Digital Twins | `"filter" : "source = '<hostname>'"`|  **Para notificações:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
@@ -178,7 +181,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre os diferentes tipos de mensagens de evento que pode receber:
 * [Como fazer: Interpretar dados do evento](how-to-interpret-event-data.md)

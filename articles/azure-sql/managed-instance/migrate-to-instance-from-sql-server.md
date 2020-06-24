@@ -2,7 +2,7 @@
 title: Migrar do SQL Server para Azure SQL Gestded Instance
 description: Saiba como migrar uma base de dados do SQL Server para a Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 14ad9d1b878881a85e80f72666da54f54263cee3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660842"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708687"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -202,7 +202,7 @@ Para reforçar a segurança, considere a utilização da [Autenticação do Dire
 
 Além de funcionalidades avançadas de gestão e segurança, um caso gerido fornece um conjunto de ferramentas avançadas que podem ajudá-lo a [monitorizar e afinar a sua carga de trabalho.](../database/monitor-tune-overview.md) [O Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) permite-lhe monitorizar um grande conjunto de casos geridos e centralizar a monitorização de um grande número de casos e bases de dados. [A sintonização automática](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) em instâncias geridas monitoriza continuamente o desempenho das estatísticas de execução do seu plano SQL e corrige automaticamente os problemas de desempenho identificados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a Azure SQL Managed Instance, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para um tutorial que inclua uma restauração a partir de cópia de segurança, consulte [Criar uma instância gerida.](instance-create-quickstart.md)

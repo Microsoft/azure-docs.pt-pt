@@ -1,5 +1,5 @@
 ---
-title: Criar um exemplo de Gémeos Digitais Azure
+title: Criar uma instância do Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Veja como configurar um caso do serviço Azure Digital Twins.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f097861f97e7ec62019fa631e2ac608d2e0c5024
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: bbd7c74fc87b3f7af799637e2288dcd074266843
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612874"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725615"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Configurar um exemplo de Gémeos Digitais Azure
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este artigo irá acompanhá-lo através dos passos básicos para configurar um novo exemplo Azure Digital Twins. Isto inclui a criação do caso, e a atribuição de permissões do [Azure Ative Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) para o exemplo para si mesmo.
 
@@ -72,7 +75,7 @@ O resultado deste comando é informação sobre a função que criou.
 
 Agora tens uma instância do Azure Digital Twins pronta para ir.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como configurar e autenticar uma aplicação do cliente para trabalhar com o seu exemplo:
 * [Como fazer: Autenticar uma aplicação de cliente](how-to-authenticate-client.md)

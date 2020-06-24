@@ -3,7 +3,7 @@ title: Limites de recursos
 titleSuffix: Azure SQL Managed Instance
 description: Este artigo fornece uma visão geral dos limites de recursos para Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 8007966482ba5f046a918ddfc02025e06fadc8d6
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324186"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708423"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -161,7 +161,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 Se precisar de mais casos nas suas regiões atuais, envie um pedido de apoio para alargar a quota através do portal Azure. Para obter mais informações, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](../database/quota-increase-request.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o SQL Managed Instance, veja [o que é uma sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter informações sobre preços, consulte [os preços da SQL Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

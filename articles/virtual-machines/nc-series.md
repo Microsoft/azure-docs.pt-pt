@@ -1,18 +1,18 @@
 ---
 title: Série NC - Azure Virtual Machines
 description: Especificações para os VMs da série NC.
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 3464c2cd99f2d3ec27fe2bb9e30b984e13988740
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9df68d76c9a06a8391c301fa13b6a0d1ac6529a2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672243"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726655"
 ---
 # <a name="nc-series"></a>Série NC
 
@@ -56,6 +56,6 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

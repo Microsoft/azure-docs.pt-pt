@@ -1,48 +1,48 @@
 ---
-title: Configure Global VNet peering for Azure Virtual WAN [ Microsoft Docs
-description: Ligue um VNet numa região diferente ao seu centro virtual WAN.
+title: Configure VNet Global espreitando para Azure Virtual WAN / Microsoft Docs
+description: Ligue um VNet numa região diferente ao seu hub VIRTUAL WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 340472f84d2dd2c4f46d180992745a57e8ad1884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c06ec1d93dcda5d171099943c287a9e4f43bc1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73588229"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750571"
 ---
-# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Configure Global VNet peering (VNet cross-region) para Virtual WAN
+# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Configure o peering global VNet (VNet cross-region) para O WAN Virtual
 
-Pode ligar um VNet numa região diferente ao seu centro virtual WAN.
+Pode ligar um VNet numa região diferente ao seu hub Virtual WAN.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se preencheu os seguintes critérios:
+Verifique se cumpriu os seguintes critérios:
 
-* O VNet transversal (falado) não está ligado a outro centro virtual WAN. Um discurso só pode ser ligado a um centro virtual.
-* O VNet (falado) não contém um portal de rede virtual (por exemplo, um Gateway De rede virtual Azure VPN ou ExpressRoute). Se o VNet contiver um portal de rede virtual, deve remover o portal antes de ligar o VNet falado ao centro.
+* O VNet cross-region (spoke) não está ligado a outro hub Virtual WAN. Um porta-voz só pode ser ligado a um centro virtual.
+* O VNet (spoke) não contém um gateway de rede virtual (por exemplo, um Gateway Azure VPN ou um gateway de rede virtual ExpressRoute). Se o VNet contiver um gateway de rede virtual, deve remover o gateway antes de ligar o VNet falado ao hub.
 
 ## <a name="register-this-feature"></a><a name="register"></a>Registar esta funcionalidade
 
-Pode registar-se nesta funcionalidade utilizando o PowerShell. Se selecionar "Try It" a partir do exemplo abaixo, a Azure Cloud-Shell abre e não terá de instalar os cmdlets PowerShell localmente no seu computador. Se necessário, pode alterar as subscrições utilizando o cmdlet 'Select-AzSubscription -SubscriptionId <subid>'.
+Pode registar-se para esta função utilizando o PowerShell. Se selecionar "Try It" a partir do exemplo abaixo, o Azure Cloud-Shell abre-se e não precisará de instalar os cmdlets PowerShell localmente para o computador. Se necessário, pode alterar subscrições utilizando o cmdlet 'Select-AzSubscription <subid> -SubscriptionId'.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Network'
 ```
 
-## <a name="verify-registration"></a><a name="verify"></a>Verificar o registo
+## <a name="verify-registration"></a><a name="verify"></a>Verificar registo
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Ligue um VNet ao centro
+## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Ligue um VNet ao hub
 
-Neste passo, cria-se a ligação de pares entre o seu hub e o VNet transversal. Repita estes passos para cada VNet que queira ligar.
+Neste passo, você cria a ligação de espreitar entre o seu hub e o VNet cross-region. Repita estes passos para cada VNet que queira ligar.
 
 1. Na página da WAN virtual, clique em **Ligações de rede virtual**.
 2. Na página de ligação da rede virtual, clique em **+Add connection** (+Adicionar ligação).
@@ -56,4 +56,4 @@ Neste passo, cria-se a ligação de pares entre o seu hub e o VNet transversal. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o WAN Virtual, consulte a [visão geral virtual wan](virtual-wan-about.md).
+Para saber mais sobre o VIRTUAL WAN, consulte [a Visão Geral virtual wan.](virtual-wan-about.md)

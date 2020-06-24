@@ -4,16 +4,16 @@ description: Crie um recipiente de perfil FSLogix numa partilha de ficheiros Azu
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4723c2a8fa66e4ed2c4b40975179d7d4d2b281d6
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fca57bd517296711ada2f714d523bfa0709337c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484647"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208387"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -43,7 +43,7 @@ Para criar uma conta de armazenamento:
     - Introduza um nome único para a conta de armazenamento.
     - Para **localização**, recomendamos que escolha o mesmo local que a piscina de anfitriões virtual do Windows Desktop.
     - Em **Desempenho**, selecione **Standard**. (Dependendo dos seus requisitos de IOPS. Para obter mais informações, consulte [as opções de Armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).)
-    - Para **o tipo de conta**, selecione **StorageV2** ou **FileStorage**.
+    - Para **o tipo de conta**, selecione **StorageV2** ou **FileStorage** (só disponível se o nível de desempenho for Premium).
     - Para **replicação,** selecione **armazenamento localmente redundante (LRS)**.
 
 5. Quando terminar, selecione **'Rever + criar'** e, em seguida, selecione **Criar**.
@@ -78,7 +78,7 @@ Em seguida, você precisará ativar a autenticação do Ative Directory (AD). Pa
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Atribuir permissões Azure RBAC a utilizadores de desktop virtual do Windows
 
-Todos os utilizadores que necessitem de ter perfis FSLogix armazenados na conta de armazenamento devem ser atribuídos à função de Contribuinte de Partilha SMB de Ficheiros de Armazenamento. 
+Todos os utilizadores que necessitem de ter perfis FSLogix armazenados na conta de armazenamento devem ser atribuídos à função de Contribuinte de Partilha SMB de Ficheiros de Armazenamento.
 
 Os utilizadores que se inscrevam na sessão virtual do Windows precisam de permissões de acesso para aceder à sua partilha de ficheiros. A concessão de acesso a uma partilha de Ficheiros Azure envolve configurar permissões tanto ao nível das ações como ao nível NTFS, semelhante a uma partilha tradicional do Windows.
 
@@ -98,7 +98,7 @@ Para atribuir permissões de controlo de acesso baseado em funções (RBAC):
 4. **Selecione Adicionar uma atribuição de função**.
 
 5. No separador **de atribuição de funções Adicionar,** selecione **Storage File Data SMB Share Elevated Contributor** para a conta de administrador.
-   
+
      Para atribuir permissões aos utilizadores para os seus perfis FSLogix, siga estas mesmas instruções. No entanto, quando chegar ao passo 5, selecione **Storage File Data SMB Share Contributor.**
 
 6. Selecione **Guardar**.
@@ -126,7 +126,7 @@ Eis como obter o caminho da UNC:
 
 5. Depois de copiar o URI, faça as seguintes coisas para mudá-lo para o UNC:
 
-    - Remover `https://`
+    - Remover `https://` e substituir por`\\`
     - Substitua o corte dianteiro `/` por um corte traseiro `\` .
     - Adicione o nome da partilha de ficheiros que criou na [Criar uma partilha de ficheiros Azure](#create-an-azure-file-share) até ao final do UNC.
 
@@ -157,7 +157,7 @@ Para configurar as suas permissões NTFS:
      ```
 
 3. Executar o seguinte cmdlet para rever as permissões de acesso à partilha de ficheiros Azure:
-    
+
     ```powershell
     icacls <mounted-drive-letter>:
     ```
@@ -167,7 +167,7 @@ Para configurar as suas permissões NTFS:
     Tanto a *Autoridade NT\Utilizadores autenticados* como *OS Utilizadores BUILTIN\Os utilizadores* têm determinadas permissões por padrão. Estas permissões por defeito permitem que estes utilizadores leiam os recipientes de perfil de outros utilizadores. No entanto, as permissões descritas nas [permissões de armazenamento Configure para utilização com contentores de perfil e contentores de escritório](/fslogix/fslogix-storage-config-ht) não permitem que os utilizadores leiam os recipientes de perfil uns dos outros.
 
 4. Execute os seguintes cmdlets para permitir que os utilizadores do Windows Virtual Desktop criem os seus próprios recipientes de perfil enquanto bloqueiam o acesso ao seu contentor de perfil de outros utilizadores.
-     
+
      ```powershell
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
@@ -233,6 +233,6 @@ Para verificar as suas permissões na sua sessão:
 
 Para testes adicionais, siga as instruções em [Certificar-se de que o seu perfil funciona](create-profile-container-adds.md#make-sure-your-profile-works).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para resolver problemas, consulte [este guia de resolução de problemas](/fslogix/fslogix-trouble-shooting-ht).

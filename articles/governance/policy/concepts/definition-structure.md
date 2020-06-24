@@ -1,21 +1,21 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 05/11/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a70534f91584f72ad81b71913c48062e51a324d3
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205029"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052733"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
 A Política Azure estabelece convenções para os recursos. As definições de política descrevem [as condições](#conditions) de conformidade dos recursos e o efeito a ter em conta se uma condição for satisfeita. Uma condição compara um [campo](#fields) de propriedade de recurso a um valor necessário. Os campos de propriedade de recursos são acedidos através [de pseudónimos.](#aliases) Um campo de propriedade de recursos é um campo de valor único ou uma [matriz](#understanding-the--alias) de múltiplos valores. A avaliação da condição é diferente nas matrizes.
 Saiba mais sobre [as condições.](#conditions)
 
-Ao definir convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas certos tipos de máquinas virtuais são permitidos. Ou pode exigir que todos os recursos tenham uma etiqueta particular. As políticas são herdadas por todos os recursos infantis. Se uma política é aplicada a um grupo de recursos, é aplicável a todos os recursos desse grupo de recursos.
+Ao definir convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas certos tipos de máquinas virtuais são permitidos. Ou pode exigir que os recursos tenham uma etiqueta particular. As atribuições políticas são herdadas por recursos infantis. Se uma atribuição de política for aplicada a um grupo de recursos, é aplicável a todos os recursos desse grupo de recursos.
 
 O esquema de definição de política encontra-se aqui:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
@@ -37,7 +37,7 @@ Por exemplo, o seguinte JSON mostra uma política que limita onde os recursos s�
     "properties": {
         "displayName": "Allowed locations",
         "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-        "mode": "all",
+        "mode": "Indexed",
         "metadata": {
             "version": "1.0.0",
             "category": "Locations"
@@ -91,7 +91,7 @@ Embora a propriedade **tipo** não possa ser definida, existem três valores que
 
 ### <a name="resource-manager-modes"></a>Modos gestor de recursos
 
-O **modo** determina quais os tipos de recursos que serão avaliados para uma política. Os modos suportados são:
+O **modo** determina quais os tipos de recursos avaliados para uma definição de política. Os modos suportados são:
 
 - `all`: avaliar grupos de recursos, subscrições e todos os tipos de recursos
 - `indexed`: apenas avaliar tipos de recursos que suportam etiquetas e localização
@@ -106,14 +106,14 @@ Recomendamos que desfase o **modo** `all` na maioria dos casos. Todas as defini�
 
 Os seguintes modos de Fornecedor de Recursos são atualmente suportados durante a pré-visualização:
 
-- `Microsoft.ContainerService.Data`para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As políticas que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo está a ser _depreciado._
-- `Microsoft.Kubernetes.Data`para gerir os seus clusters Kubernetes em ou fora de Azure. As políticas que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceOPAConstraint.](./effects.md#enforceopaconstraint)
+- `Microsoft.ContainerService.Data`para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo está a ser _depreciado._
+- `Microsoft.Kubernetes.Data`para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está a ser _depreciada._
 - `Microsoft.KeyVault.Data`para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Os modos de Fornecedor de Recursos suportam apenas definições de políticas incorporadas e não suportam iniciativas durante a pré-visualização.
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Metadados
 
 A propriedade opcional `metadata` armazena informações sobre a definição de política. Os clientes podem definir quaisquer propriedades e valores úteis à sua organização `metadata` em. No entanto, existem algumas propriedades _comuns_ usadas pela Azure Policy e em incorporados.
 
@@ -207,7 +207,7 @@ Ao criar uma iniciativa ou política, é necessário especificar o local da defi
 Se a localização da definição for:
 
 - **Subscrição** - Apenas os recursos dentro dessa subscrição podem ser atribuídos à apólice.
-- **Grupo de gestão** - Apenas os recursos dentro de grupos de gestão de crianças e assinaturas infantis podem ser atribuídos à política. Se pretende aplicar a definição de política a várias subscrições, a localização deve ser um grupo de gestão que contenha essas subscrições.
+- **Grupo de gestão** - Apenas os recursos dentro de grupos de gestão de crianças e assinaturas infantis podem ser atribuídos à política. Se pretende aplicar a definição de política a várias subscrições, a localização deve ser um grupo de gestão que contenha subscrição.
 
 ## <a name="policy-rule"></a>Regra política
 
@@ -283,7 +283,7 @@ Por **menos,** **menos, os locais EQuals**, **maiores**e **maiores,** se o tipo 
 Ao utilizar as condições **similares** e **não semelhantes,** fornece um wildcard `*` no valor.
 O valor não deve ter mais do que um `*` wildcard.
 
-Ao utilizar as condições **de jogo** e não **de jogo,** forneça `#` para combinar um dígito, para uma `?` letra, para combinar com `.` qualquer personagem, e qualquer outro personagem que corresponda a esse personagem real. Enquanto, **match** e **notMatch** são sensíveis a casos, todas as outras condições que avaliam uma _cadeiaValue_ são insensíveis a caso. Alternativas insensíveis a casos estão disponíveis em **matchInsensitively** e **não MatchInsensitively**.
+Ao utilizar as condições **de jogo** e não **de jogo,** forneça `#` para combinar um dígito, para uma `?` letra, para combinar com `.` qualquer personagem, e qualquer outro personagem que corresponda a esse personagem real. Embora **o match** e **o notMatch** sejam sensíveis a casos, todas as outras condições que avaliam uma _cadeiaValue_ são insensíveis a caso. Alternativas insensíveis a casos estão disponíveis em **matchInsensitively** e **não MatchInsensitively**.
 
 Num valor de campo de matriz ** \[ \* \] de pseudónimo,** cada elemento na matriz é avaliado individualmente com elementos lógicos **e** entre elementos. Para mais informações, consulte [a Avaliação do \[ \* \] pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
@@ -432,7 +432,7 @@ Com a regra da política revista, `if()` verifica o comprimento do **nome** ante
 
 ### <a name="count"></a>Contagem
 
-As condições que contam quantos membros de uma matriz na carga útil do recurso satisfazem uma expressão da condição podem ser formadas usando a expressão **da contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia cada membro da matriz [ \[ \* \] de pseudónimo para](#understanding-the--alias) uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até 3 vezes a uma única definição **de regra de política.**
+As condições que contam quantos membros de uma matriz na carga útil do recurso satisfazem uma expressão da condição podem ser formadas usando a expressão **da contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia cada membro da matriz [ \[ \* \] de pseudónimo para](#understanding-the--alias) uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até três vezes a uma única definição **de regra de política.**
 
 A estrutura da expressão **da contagem** é:
 
@@ -605,7 +605,7 @@ Todas as [funções do modelo do Gestor de Recursos](../../../azure-resource-man
 
 A função a seguir está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure:
 
-- `utcNow()`- Ao contrário de um modelo de Gestor de Recursos, este pode ser usado fora do padrãoValue.
+- `utcNow()`- Ao contrário de um modelo de Gestor de Recursos, esta propriedade pode ser usada fora _do padrãoValue._
   - Devolve uma corda que está definida para a data e hora atuais no formato Universal ISO 8601 DateTime 'yyyy-MM-ddTHH:mm:ss.fffffZ'
 
 As seguintes funções só estão disponíveis nas regras políticas:
@@ -619,7 +619,7 @@ As seguintes funções só estão disponíveis nas regras políticas:
   - `field`é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência sobre o recurso que estão sendo avaliados. Um exemplo desta utilização pode ser visto no [exemplo do DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Devolve a versão API do pedido que desencadeou a avaliação da política (exemplo: `2019-09-01` ).
-    Esta será a versão API que foi utilizada no pedido PUT/PATCH para avaliações sobre criação/atualização de recursos. A versão mais recente da API é sempre utilizada durante a avaliação de conformidade sobre os recursos existentes.
+    Este valor é a versão API que foi utilizada no pedido PUT/PATCH para avaliações sobre criação/atualização de recursos. A versão mais recente da API é sempre utilizada durante a avaliação de conformidade sobre os recursos existentes.
   
 #### <a name="policy-function-example"></a>Exemplo de função política
 
