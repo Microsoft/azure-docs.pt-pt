@@ -9,14 +9,14 @@ ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: f77aacbddc5b3dcb5da62e5e87405477d47e7001
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672328"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945652"
 ---
 # <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
 
@@ -135,11 +135,13 @@ As seguintes classes, propriedades e métodos são utilizados na tarefa anterior
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Consulta](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Adicionar](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Encriptação do lado do servidor
+## <a name="azure-storage-encryption"></a>Encriptação do Armazenamento do Azure
 
-A [Encriptação do Serviço de Armazenamento (SSE) do Azure](../common/storage-service-encryption.md) ajuda a proteger e a salvaguardar os seus dados. A SSE encripta os dados inativos, ao processar a encriptação, a desencriptação e a gestão de chaves. Todos os dados são encriptados através de uma [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das cifras em bloco mais fortes disponíveis.
+[A encriptação do Azure Storage](../common/storage-service-encryption.md) ajuda-o a proteger e a salvaguardar os seus dados encriptando os dados em repouso e manuseando encriptação e desencriptação. Todos os dados são encriptados através de uma [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das cifras em bloco mais fortes disponíveis.
 
-O SSE encripta automaticamente dados em todos os escalões de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Clássico) e todos os serviços de Armazenamento do Azure (Blob, Fila, Tabela e Ficheiro). 
+Pode optar por ter a Microsoft a gerir as chaves de encriptação, ou pode trazer as suas próprias chaves com chaves geridas pelo cliente com o Azure Key Vault. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+
+A encriptação de armazenamento Azure encripta automaticamente os dados em todos os níveis de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Classic) e todos os serviços de Armazenamento Azure (Blob, Fila, Tabela e Arquivo).
 
 ## <a name="enable-https-only"></a>Ativar apenas HTTPS
 
@@ -161,7 +163,7 @@ Agora que a transferência segura é necessária, recebe a mensagem seguinte:
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na terceira parte da série, aprendeu a proteger o acesso à conta de armazenamento, como:
 

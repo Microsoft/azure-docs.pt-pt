@@ -6,24 +6,22 @@ documentationcenter: android
 keywords: notificações push, notificação push, notificação push para o android, fcm, firebase cloud messaging
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/11/2019
+ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 244e9d9136705eeef27680d2fa590d283abb6467
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170448"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255471"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutorial: Enviar notificações push para dispositivos Android usando a versão 0.6 da Firebase SDK
 
@@ -102,7 +100,7 @@ O seu centro está agora configurado para trabalhar com mensagens cloud firebase
     ![Android SDK Manager - Google Play Services selecionados](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Se vir a caixa de diálogo **'Alterar'** confirmando,selecione **OK**. O Instalador de Componentes instala os componentes solicitados. **Selecione Acabamento** após a instalação dos componentes.
 4. Selecione **OK** para fechar a caixa de diálogo **De Definições para Novos Projetos.**  
-1. Abra o ficheiro AndroidManifest.xml e, em seguida, adicione a seguinte etiqueta à etiqueta de *aplicação.*
+1. Abra o ficheiro AndroidManifest.xml e, em seguida, adicione a seguinte etiqueta à etiqueta *de inscrição.*
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"
@@ -144,7 +142,7 @@ O seu centro está agora configurado para trabalhar com mensagens cloud firebase
     ```
 3. **Selecione Sync Now** na barra de ferramentas.
 
-### <a name="update-the-androidmanifestxml-file"></a>Atualize o ficheiro AndroidManifest.xml
+### <a name="update-the-androidmanifestxml-file"></a>Atualizar o ficheiro AndroidManifest.xml
 
 1. Depois de receber o seu token de registo FCM, utilize-o para [se registar nos Hubs de Notificação Azure.](notification-hubs-push-notification-registration-management.md) Você apoia este registo em segundo plano usando um `IntentService` nome `RegistrationIntentService` . Este serviço também atualiza o seu token de registo FCM. Também cria uma classe chamada `FirebaseService` como subclasse `FirebaseMessagingService` e substitui o método para receber e lidar com `onMessageReceived` notificações. 
 
@@ -407,7 +405,7 @@ O seu centro está agora configurado para trabalhar com mensagens cloud firebase
     }
     ```
 
-9. O `ToastNotify` método utiliza o comando *"Olá, mundo"* `TextView` para comunicar o estado e as notificações de forma permanente na aplicação. No seu layout **res**  >  **layout**  >  **activity_main.xml,** adicione o seguinte ID para esse controlo.
+9. O `ToastNotify` método utiliza o comando *"Olá, mundo"* `TextView` para comunicar o estado e as notificações de forma permanente na aplicação. No seu layout **res**  >  **layout**  >  **activity_main.xml** layout, adicione o seguinte ID para esse controlo.
 
     ```java
     android:id="@+id/text_hello"
@@ -415,7 +413,7 @@ O seu centro está agora configurado para trabalhar com mensagens cloud firebase
 
     ![Notification Hubs do Azure – Teste de Envio](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
-10. Em seguida, adicione uma subclasse para o recetor que definiu no AndroidManifest.xml. Adicione outra nova classe ao projeto com o nome `FirebaseService`.
+10. Em seguida, adicione uma subclasse para o recetor que definiu em AndroidManifest.xml. Adicione outra nova classe ao projeto com o nome `FirebaseService`.
 
 11. Adicione as seguintes declarações de importação no topo do ficheiro `FirebaseService.java`:
 
@@ -556,11 +554,13 @@ Pode enviar notificações push a partir do [portal Azure,] tomando os seguintes
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>Executar a aplicação móvel no emulador
+
 Antes de testar notificações push dentro de um emulador, certifique-se de que a sua imagem emuladora suporta o nível de API do Google que escolheu para a sua aplicação. Se a sua imagem não suportar APIs nativos do Google, poderá obter a exceção **SERVICE \_ NOT \_ AVAILABLE.**
 
 Certifique-se também de que adicionou a sua conta Google ao seu emulador de funcionamento em **Contas de**  >  **Definições.** Caso contrário, as suas tentativas de registo com a FCM podem resultar na **autenticação \_ falhada** da exceção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
 Neste tutorial, utilizou o Firebase Cloud Messaging para transmitir notificações a todos os dispositivos Android que foram registados no serviço. Para saber como enviar notificações push para dispositivos específicos, avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
@@ -573,4 +573,4 @@ Neste tutorial, utilizou o Firebase Cloud Messaging para transmitir notificaçõ
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Portal do Azure]: https://portal.azure.com
+[Portal Azure]: https://portal.azure.com

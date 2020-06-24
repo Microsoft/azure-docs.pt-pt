@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Crie a sua primeira experiência ML'
-titleSuffix: Azure Machine Learning
+title: 'Tutorial: Experimento em cadernos Jupyter (Python)'
+titleSuffix: Machine Learning - Azure
 description: Neste tutorial, você vai começar com o Azure Machine Learning Python SDK correndo em cadernos Jupyter.  Na Parte 1, cria-se um espaço de trabalho no qual irá gerir experiências e modelos ML.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 564358bf7d689abf93f6a9549fab0c2932e99f5b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c0df2459b09eca472c833be2865232c0247210dd
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558377"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106600"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começa a criar a tua primeira experiência de ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

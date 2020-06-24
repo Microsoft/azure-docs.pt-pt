@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,32 +8,32 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3bd9489adaf46e604393fc7059d37443bdd5ec3e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73489002"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977937"
 ---
-1. Localize o WAN Virtual que criou. Na página WAN Virtual, sob a secção **conectividade,** selecione **Hubs**.
-2. Na página Hubs, selecione **+Novo Hub** para abrir a página **Create virtual hub.**
+1. Localize o WAN virtual que criou. Na página VIRTUAL WAN, na secção **Conectividade,** selecione **Hubs**.
+2. Na página Hubs, selecione **+New Hub** para abrir a página **do hub virtual Create.**
 
     ![Noções básicas](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
-3. No separador **Criar hub virtual** **Basics,** complete os seguintes campos:
+3. No **separador 'Criar** página de centro virtual **Basics',** complete os seguintes campos:
 
     **Detalhes do projeto**
 
    * Região (anteriormente designada por Localização)
-   * Nome
-   * Espaço de endereços privados hub. O espaço de endereço mínimo é /24 para criar um hub, o que implica que qualquer coisa que varie de /25 a /32 produzirá um erro durante a criação.
-4. Selecione **Seguinte: Site-a-site**.
+   * Name
+   * Espaço de endereço privado hub. O espaço mínimo de endereço é /24 para criar um hub, o que implica que qualquer coisa varia entre /25 e /32 produzirá um erro durante a criação. Sendo o Azure Virtual WAN um serviço gerido pela Microsoft cria as sub-redes adequadas no centro virtual para os diferentes gateways/serviços (por exemplo, Gateways VPN, Gateways ExpressRoute, User VPN/Point-to-site Gateways, Firewall, Encaminhing etc.). Não é necessário que o utilizador planeie explicitamente o espaço de endereço de sub-rede para os serviços no Virtual Hub, uma vez que a Microsoft o faz como parte do serviço.
+4. Selecione **Seguinte: Site-to-site**.
 
     ![Site a Site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site a Site")
 
-5. No separador **Site-a-local,** preencha os seguintes campos:
+5. No **separador Site-to-site,** complete os seguintes campos:
 
    * Selecione **Sim** para criar uma VPN site-to-site.
    * O campo AS Number não é editável no centro virtual neste momento.
-   * Selecione o valor das **unidades** de escala Gateway a partir do dropdown. A unidade de escala permite-lhe escolher a entrada agregada do gateway VPN que está a ser criada no centro virtual para ligar os sites. Se escolher uma unidade de escala = 500 Mbps, implica que serão criados dois casos de redundância, cada um com uma potência máxima de 500 Mbps. Por exemplo, se tiver cinco ramos, cada um fazendo 10 Mbps no ramo, precisará de um agregado de 50 Mbps na extremidade da cabeça. O planeamento da capacidade agregada do gateway Azure VPN deve ser feito após a avaliação da capacidade necessária para suportar o número de balcões no centro.
+   * Selecione o valor das **unidades** de escala Gateway a partir do dropdown. A unidade de escala permite-lhe escolher a produção agregada do gateway VPN que está a ser criado no centro virtual para ligar sites. Se escolher uma unidade de escala de 1 = 500 Mbps, implica que serão criados dois casos de redundância, cada um com uma potência máxima de 500 Mbps. Por exemplo, se tivesse cinco ramos, cada um fazendo 10 Mbps no ramo, precisaria de um agregado de 50 Mbps na extremidade da cabeça. O planeamento da capacidade agregada da gateway Azure VPN deve ser feito após a avaliação da capacidade necessária para suportar o número de balcões no centro.
 6. Selecione **Review + Criar** para validar.
-7. Selecione **Criar** para criar o centro. Após 30 minutos, **Refresque** para ver o centro na página **Hubs.** Selecione **Ir ao recurso** para navegar para o recurso.
+7. Selecione **Criar** para criar o hub. Após 30 minutos, **Refresque-se** para ver o hub na página **Hubs.** Selecione **Vá para o recurso** para navegar para o recurso.

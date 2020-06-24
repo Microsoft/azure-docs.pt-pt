@@ -1,40 +1,40 @@
 ---
 title: 'Tutorial: Criar um caderno em Azure Cosmos DB para analisar e visualizar os dados'
-description: 'Tutorial: Aprenda a usar cadernos Jupyter incorporados para importar dados para o Azure Cosmos DB, analisar os dados e visualizar a saída.'
+description: 'Tutorial: Saiba como usar cadernos Jupyter incorporados para importar dados para Azure Cosmos DB, analisar os dados e visualizar a saída.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743585"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115283"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um caderno em Azure Cosmos DB para analisar e visualizar os dados
 
-Este artigo descreve como usar cadernos jupyter incorporados para importar dados de retalho de amostras para o Azure Cosmos DB. Você verá como usar os comandos mágicos SQL e Azure Cosmos DB para executar consultas, analisar os dados e visualizar os resultados.
+Este artigo descreve como usar cadernos Jupyter incorporados para importar dados de retalho de amostras para Azure Cosmos DB. Você verá como usar os comandos mágicos SQL e Azure Cosmos DB para executar consultas, analisar os dados e visualizar os resultados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Ativar o suporte dos cadernos ao criar a conta Azure Cosmos](enable-notebooks.md)
+* [Ativar o suporte de cadernos ao criar a conta Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Criar os recursos e os dados de importação
  
-Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e importar os dados de retalho para o contentor.
+Nesta secção, irá criar a base de dados, o contentor Azure Cosmos e importar os dados de retalho para o contentor.
 
-1. Navegue para a sua conta Azure Cosmos e abra o **Data Explorer.**
+1. Navegue na sua conta Azure Cosmos e abra o **Data Explorer.**
 
-1. Vá ao separador **Cadernos,** selecione `…` ao lado dos Meus **Cadernos** e crie um **Novo Caderno**. Selecione **Python 3** como kernel padrão.
+1. Vá ao **separador Cadernos,** selecione `…` ao lado dos Meus **Cadernos** e crie um **Novo Caderno.** Selecione **Python 3** como o Kernel padrão.
 
-   ![Criar um novo Notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Criar um novo Notebook":::
 
-1. Depois de criado um novo caderno, pode rebatizá-lo para algo como **VisualizeRetailData.ipynb.**
+1. Depois de ser criado um novo caderno, pode renomeá-lo para algo como **VisualizeRetailData.ipynb.**
 
-1. Em seguida, criará uma base de dados chamada "RetailDemo" e um contentor chamado "WebsiteData" para armazenar os dados de retalho. Pode utilizar /CartID como chave de partição. Copie e cole o seguinte código a uma nova célula no seu caderno e execute-o:
+1. Em seguida, irá criar uma base de dados chamada "RetailDemo" e um contentor chamado "WebsiteData" para armazenar os dados de retalho. Pode utilizar /CartID como chave de partição. Copie e cole o seguinte código para uma nova célula no seu caderno e execute-o:
 
    ```python
    import azure.cosmos
@@ -47,22 +47,22 @@ Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e imp
    print('Container WebsiteData created')
    ```
 
-   Para executar uma célula, `Shift + Enter` selecione ou selecione a célula e escolha a opção **Executar** Célula Ativa na barra de navegação do explorador de dados.
+   Para executar uma célula, `Shift + Enter` selecione ou selecione a célula e escolha a opção **'Executar Célula Ativa'** na barra de navegação do explorador de dados.
 
-   ![Executar a célula ativa](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Executar a célula ativa":::
 
-   A base de dados e o contentor são criados na sua conta atual do Azure Cosmos. O recipiente está aprovisionado com 400 RU/s. Verá a seguinte saída após a criação da base de dados e do recipiente. 
+   A base de dados e o contentor são criados na sua conta atual da Azure Cosmos. O contentor é a provisionado com 400 RU/s. Verá a seguinte saída após a criação da base de dados e do recipiente. 
 
    ```console
     Database RetailDemo created
     Container WebsiteData created
    ```
 
-   Também pode atualizar o separador **Data** e ver os recursos recém-criados:
+   Também pode atualizar o separador **Dados** e ver os recursos recém-criados:
 
-   ![Atualizar o separador de dados para ver o novo recipiente](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Atualizar o separador de dados para ver o novo recipiente":::
 
-1. Em seguida, importará os dados de retalho da amostra para o contentor Azure Cosmos. Aqui está o formato de um item a partir dos dados de retalho:
+1. Em seguida, importará os dados de varejo da amostra para o contentor Azure Cosmos. Aqui está o formato de um item a partir dos dados de retalho:
 
    ```json
     {
@@ -80,7 +80,7 @@ Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e imp
     }
    ```
 
-   Para efeitos tutoriais, os dados de retalho da amostra são armazenados no armazenamento de blob Azure. Pode importá-lo para o contentor Azure Cosmos colando o seguinte código numa nova célula. Pode confirmar que os dados são importados com sucesso através de uma consulta para selecionar o número de itens.
+   Para o efeito tutorial, os dados de varejo da amostra são armazenados no armazenamento de bolhas Azure. Pode importá-lo para o contentor Azure Cosmos colando o seguinte código numa nova célula. Pode confirmar que os dados são importados com sucesso através de uma consulta para selecionar o número de itens.
 
    ```python
     # Read data from storage
@@ -104,7 +104,7 @@ Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e imp
     print('Container with id \'{0}\' contains \'{1}\' items'.format(container.id, result[0]))
    ```
 
-   Quando executa a consulta anterior, devolve a seguinte saída:
+   Quando executam a consulta anterior, retorna a seguinte saída:
 
    ```console
    Importing data. This will take a few minutes...
@@ -112,45 +112,45 @@ Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e imp
    Container with id 'WebsiteData' contains '2654' items
    ```
 
-## <a name="get-your-data-into-a-dataframe"></a>Obtenha os seus dados num DataFrame
+## <a name="get-your-data-into-a-dataframe"></a>Coloque os seus dados num DataFrame
 
-Antes de executar consultas para analisar os dados, pode ler os dados do contentor para um [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) para análise. Utilize o seguinte comando mágico sql para ler os dados num DataFrame:
+Antes de executar consultas para analisar os dados, pode ler os dados do recipiente para um [DataFrame pandas](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) para análise. Utilize o seguinte comando mágico sql para ler os dados num DataFrame:
 
 ```bash
 %%sql --database {database_id} --container {container_id} --output outputDataframeVar 
 {Query text}
 ```
 
-Para saber mais, consulte os [comandos e funcionalidades do caderno incorporado no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md) Vai sairá da `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` consulta. Os resultados serão guardados num Pandas DataFrame chamado df_cosmos. Colhe o seguinte comando numa nova célula de caderno e executá-lo:
+Para saber mais, consulte os [comandos e funcionalidades do caderno incorporado no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md) Vai fazer a `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` consulta. Os resultados serão guardados num DataFrame pandas nomeado df_cosmos. Cole o seguinte comando numa nova célula de caderno e execute-o:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```
 
-Numa nova célula de caderno, execute o seguinte código para ler os primeiros 10 itens da saída:
+Numa nova célula de portátil, execute o seguinte código para ler os primeiros 10 itens da saída:
 
 ```python
 # See a sample of the result
 df_cosmos.head(10)
 ```
 
-![Faça consulta para obter top 10 itens](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Faça consulta para obter os 10 melhores itens":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Executar consultas e analisar os seus dados
 
-Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
+Nesta secção, irá executar algumas consultas sobre os dados recuperados.
 
-* **Consulta1:** Executar um Grupo consultando no DataFrame para obter a soma das receitas totais de vendas para cada país/região e exibir 5 itens dos resultados. Numa nova célula de caderno, execute o seguinte código:
+* **Consulta1:** Executar um Grupo por consulta no DataFrame para obter a soma do total das receitas de vendas de cada país/região e apresentar 5 itens dos resultados. Numa nova célula de caderno, execute o seguinte código:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
    display(df_revenue.head(5))
    ```
 
-   ![Total de receitas de vendas](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Produção total de receitas de vendas":::
 
-* **Consulta2:** Para obter uma lista dos cinco principais itens comprados, abra uma nova célula de caderno e execute o seguinte código:
+* **Consulta2:** Para obter uma lista dos cinco principais itens adquiridos, abra uma nova célula de portátil e execute o seguinte código:
 
    ```python
    import pandas as pd
@@ -159,18 +159,18 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Os cinco principais itens comprados](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Top 5 itens comprados":::
 
 ## <a name="visualize-your-data"></a>Visualizar os seus dados  
 
-1. Agora que temos os nossos dados sobre as receitas do contentor Azure Cosmos, pode visualizar os seus dados com uma biblioteca de visualização à sua escolha. Neste tutorial, usaremos a biblioteca Bokeh. Abra uma nova célula de caderno e execute o seguinte código para instalar a biblioteca Bokeh. Depois de todos os requisitos estarem satisfeitos, a biblioteca será instalada.
+1. Agora que temos os nossos dados sobre as receitas do contentor Azure Cosmos, pode visualizar os seus dados com uma biblioteca de visualização à sua escolha. Neste tutorial, usaremos a biblioteca Bokeh. Abra uma nova célula de portátil e execute o seguinte código para instalar a biblioteca Bokeh. Depois de todos os requisitos estarem preenchidos, a biblioteca será instalada.
 
    ```python
    import sys
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Em seguida, prepare-se para traçar os dados num mapa. Junte-se aos dados em Azure Cosmos DB com informações de país/região localizadas no armazenamento Azure Blob e converta o resultado em formato GeoJSON. Copie o seguinte código para uma nova célula de caderno e execute-o.
+1. Em seguida, prepare-se para traçar os dados num mapa. Junte os dados em Azure Cosmos DB com informações de país/região localizadas no armazenamento de Azure Blob e converta o resultado no formato GeoJSON. Copie o seguinte código para uma nova célula de portátil e execute-o.
 
    ```python
    import urllib.request, json
@@ -187,7 +187,7 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualizar as receitas de vendas de diferentes países/regiões num mapa mundial executando o seguinte código numa nova célula de caderno:
+1. Visualizar as receitas de vendas de diferentes países/regiões num mapa mundial executando o seguinte código numa nova célula portátil:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,11 +233,11 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    show(p)
    ```
 
-   A saída exibe o mapa do mundo com cores diferentes. As cores mais escuras para mais claras representam os países/regiões com maior receita para menor estoque de receitas.
+   A saída exibe o mapa do mundo com cores diferentes. As cores mais escuras para mais claras representam os países/regiões com maiores receitas para as receitas mais baixas.
 
-   ![Visualização do mapa de receitas de países/regiões](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Visualização do mapa de receitas dos países/regiões](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
-1. Vamos ver outro caso de visualização de dados. O contentor do SiteData tem registo de utilizadores que viram um item, adicionados ao seu carrinho e adquiridos o item. Vamos traçar a taxa de conversão dos artigos comprados. Executar o seguinte código numa nova célula para visualizar a taxa de conversão de cada item:
+1. Vamos ver outro caso de visualização de dados. O contentor WebsiteData tem registo de utilizadores que visualizaram um item, adicionados ao seu carrinho, e compraram o item. Vamos traçar a taxa de conversão dos artigos comprados. Executar o seguinte código numa nova célula para visualizar a taxa de conversão de cada item:
 
    ```python
    from bokeh.io import show, output_notebook
@@ -286,8 +286,8 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    show(p)
    ```
 
-   ![Visualizar a taxa de conversão de compra](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualizar taxa de conversão de compra":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre comandos de caderno Python, veja [como usar comandos e funcionalidades de cadernos incorporados no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md)
+* Para saber mais sobre os comandos de caderno python, veja [como usar comandos e funcionalidades de cadernos incorporados no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md)

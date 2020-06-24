@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, tracking-python
-ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 88ca971986119b3612c79d0bee381d3a0fc9a977
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561110"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906841"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Construa uma imagem personalizada e corra no Serviço de Aplicações a partir de um registo privado
 
-[O App Service](app-service-linux-intro.md) fornece imagens estivas incorporadas no Linux com suporte para versões específicas, tais como PHP 7.3 e Node.js 10.14. O App Service utiliza a tecnologia de contentores Docker para acolher imagens incorporadas e imagens personalizadas como plataforma como serviço. Neste tutorial, você aprende a construir uma imagem personalizada e executá-la no Serviço de Aplicações. Este padrão é útil se as imagens incorporadas não incluírem a linguagem que quer ou se a aplicação exigir uma configuração específica que não é fornecida nas mesmas.
+[O App Service](app-service-linux-intro.md) fornece imagens estivas incorporadas no Linux com suporte para versões específicas, como PHP 7.3 e Node.js 10.14. O App Service utiliza a tecnologia de contentores Docker para acolher imagens incorporadas e imagens personalizadas como plataforma como serviço. Neste tutorial, você aprende a construir uma imagem personalizada e executá-la no Serviço de Aplicações. Este padrão é útil se as imagens incorporadas não incluírem a linguagem que quer ou se a aplicação exigir uma configuração específica que não é fornecida nas mesmas.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Implementar uma imagem personalizada para um registo de contentores privados
@@ -236,23 +236,33 @@ Navegue para a aplicação Web (`http://<app-name>.azurewebsites.net`) para conf
 
 ## <a name="change-web-app-and-redeploy"></a>Alterar e reimplementar a aplicação Web
 
-No seu repositório Git local, abra app/templates/app/index.html. Localize o primeiro elemento HTML e altere-o para
+No seu repositório local de Git, abra *a aplicação/modelos/app/index.html*. Altere o primeiro elemento HTML para corresponder ao seguinte código.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-Depois de modificar o ficheiro do Python e de o guardar, tem de recriar e enviar a imagem do Docker nova. Em seguida, reinicie a aplicação Web, para que as alterações entrem em vigor. Utilize os mesmos comandos que utilizou anteriormente neste tutorial. Pode consultar-se para [construir a imagem a partir do ficheiro Docker](#build-the-image-from-the-docker-file) e empurrar a imagem para o registo do contentor [Azure](#push-image-to-azure-container-registry). Siga as instruções em [Testar a aplicação Web](#test-the-web-app) para testar a aplicação Web.
+Depois de guardar as suas alterações, reconstrua e empurre a nova imagem do Docker usando os mesmos comandos que usou anteriormente neste tutorial. Pode consultar-se para [construir a imagem a partir do ficheiro Docker](#build-the-image-from-the-docker-file) e empurrar a imagem para o registo do contentor [Azure](#push-image-to-azure-container-registry).
+
+Depois de empurrar a nova imagem, reinicie a aplicação web para que as alterações entrem em vigor utilizando o seguinte comando:
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+`<app_name>`Substitua-o pelo nome específico usado anteriormente.
+
+Uma vez reiniciada a aplicação, teste-a seguindo as instruções no [Teste da aplicação web](#test-the-web-app).
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="enable-ssh-connections"></a>Ativar ligações SSH
 

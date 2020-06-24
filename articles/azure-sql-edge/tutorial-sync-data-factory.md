@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235052"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255437"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do SQL Edge para o armazenamento do Azure Blob utilizando a Azure Data Factory
 
@@ -25,10 +25,10 @@ Neste tutorial, você usará Azure Data Factory para sincronizar gradualmente os
 Se ainda não criou uma base de dados ou tabela na sua implementação Azure SQL Edge, utilize um destes métodos para criar um:
 
 * Utilize [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) ou o [Azure Data Studio](/sql/azure-data-studio/download/) para ligar ao SQL Edge. Executar um script SQL para criar a base de dados e a tabela.
-* Crie uma base de dados e uma tabela SQL utilizando [o SQLCMD](/sql/tools/sqlcmd-utility/) ligando-se diretamente ao módulo SQL Edge. Para obter mais informações, consulte [Connect to the Database Engine utilizando sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
-* Utilize SQLPackage.exe para colocar um ficheiro de embalagem DAC no recipiente SQL Edge. Pode automatizar este processo especificando o ficheiro SqlPackage URI como parte da configuração de propriedades desejadas do módulo. Também pode utilizar diretamente a ferramenta cliente SqlPackage.exe para implantar um pacote DAC no SQL Edge.
+* Crie uma base de dados e uma tabela utilizando [o SQLCMD](/sql/tools/sqlcmd-utility/) ligando-se diretamente ao módulo SQL Edge. Para obter mais informações, consulte [Connect to the Database Engine utilizando sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Utilize SQLPackage.exe para colocar um ficheiro de embalagem DAC no recipiente SQL Edge. Pode automatizar este processo especificando o ficheiro SqlPackage URI como parte da configuração de propriedades desejadas do módulo. Também pode utilizar diretamente a ferramenta SqlPackage.exe cliente para implantar um pacote DAC para SQL Edge.
 
-    Para obter informações sobre como baixar SqlPackage.exe, consulte [Download e instale sqlpackage](/sql/tools/sqlpackage-download/). Seguem-se alguns comandos de amostra para SqlPackage.exe. Para mais informações, consulte a documentação SqlPackage.exe.
+    Para obter informações sobre como descarregar SqlPackage.exe, consulte [Download e instale sqlpackage.](/sql/tools/sqlpackage-download/) Seguem-se alguns comandos de amostra para SqlPackage.exe. Para mais informações, consulte a documentação SqlPackage.exe.
 
     **Criar um pacote DAC**
 
@@ -198,7 +198,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
     |Name|Tipo|Valor|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|Cadeia|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. Para validar as definições do pipeline, **selecione Validate** na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Pipeline Validation Report,** selecione **>>** .
 

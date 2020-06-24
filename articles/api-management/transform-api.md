@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258750"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100371"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API
 
@@ -26,7 +26,7 @@ O tutorial mostra como transformar a API para que a mesma não revele informaç�
 
 Este tutorial também mostra como é fácil adicionar proteção à sua API de back-end através da configuração do limite de taxas com a Gestão de API do Azure. Por exemplo, poderá limitar um número de chamadas à API para que não seja sobreutilizada pelos programadores. Para obter mais informações, veja [Políticas de Gestão de API](api-management-policies.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -73,14 +73,14 @@ A resposta original deve ter o seguinte aspeto:
 
 1. Selecione **API da Conferência de Demonstração**.
 2. Na parte superior do ecrã, selecione o separador **Design**.
-3. Selecione **todas as operações**.
+3. Selecione **Todas as operações**.
 4. Na secção **Processamento de saída**, clique no ícone**</>**.
-5. Posicione o cursor dentro do ** &lt;&gt; ** elemento de saída.
+5. Posicione o cursor dentro do elemento ** &lt; de saída. &gt; **
 6. Na janela direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho de HTTP** duas vezes (para inserir dois fragmentos de política).
 
    ![Políticas](./media/transform-api/transform-api.png)
 
-7. Modifique ** \<** o seu código de>de saída para se parecer com este:
+7. Modifique o seu **\<outbound>** código para ficar assim:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -109,28 +109,25 @@ Para ver a resposta original:
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
 1.  Selecione **API da Conferência de Demonstração**.
-2.  Selecione **todas as operações**.
+2.  Selecione **Todas as operações**.
 3.  Na parte superior do ecrã, selecione o separador **Design**.
 4.  Na secção **Processamento de saída**, clique no ícone**</>**.
-5.  Posicione o cursor dentro do **Insert policy** ** &lt;&gt; ** elemento de saída e clique em inserir o botão de política no canto superior direito.
-6.  Na janela direita, em **Políticas de transformação**, clique em **+ Localizar e substituir a cadeia no corpo**.
-7.  Modifique o código **find-and-replace** (no elemento de **\<saída\>**) para substituir o URL para que corresponda ao seu gateway de APIM. Por exemplo:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Posicione o cursor dentro do elemento ** &lt; de saída &gt; ** e clique no botão Mostrar **cortes** no canto superior direito.
+6.  Na janela direita, sob as **políticas de transformação,** clique **em URLs de máscara em conteúdo**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Proteger uma API ao adicionar a política de limite de taxas (limitação)
 
-Esta secção mostra como adicionar proteção à API de back-end através da configuração de limites de taxas. Por exemplo, poderá limitar um número de chamadas à API para que não seja sobreutilizada pelos programadores. Neste exemplo, o limite é definido para 3 chamadas por 15 segundos para cada id de subscrição. Após 15 segundos, um desenvolvedor pode voltar a tentar chamar a API.
+Esta secção mostra como adicionar proteção à API de back-end através da configuração de limites de taxas. Por exemplo, poderá limitar um número de chamadas à API para que não seja sobreutilizada pelos programadores. Neste exemplo, o limite é definido para 3 chamadas por 15 segundos para cada Id de subscrição. Após 15 segundos, um desenvolvedor pode voltar a tentar ligar para a API.
 
 ![Definir a política de entrada](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
 1.  Selecione **API da Conferência de Demonstração**.
-2.  Selecione **todas as operações**.
+2.  Selecione **Todas as operações**.
 3.  Na parte superior do ecrã, selecione o separador **Design**.
 4.  Na secção **Processamento de entrada**, clique no ícone **</>**.
-5.  Posicione o cursor no interior do ** &lt;&gt; ** elemento de entrada.
+5.  Posicione o cursor dentro do elemento ** &lt; de entrada. &gt; **
 6.  Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
-7.  Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>**) para o seguinte código:
+7.  Modifique o seu código **limite de taxa por chave** (no **\<inbound\>** elemento) para o seguinte código:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

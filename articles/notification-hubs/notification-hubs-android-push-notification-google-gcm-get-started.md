@@ -1,13 +1,11 @@
 ---
-title: Envie notificações push para Android usando Hubs de notificação Azure e Mensagens Cloud do Google [ Microsoft Docs
+title: Envie notificações push para Android usando Azure Notification Hubs e Google Cloud Messaging Microsoft Docs
 description: Neste tutorial, irá aprender a utilizar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
 services: notification-hubs
 documentationcenter: android
 keywords: notificações push, notificação push, notificação push android
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -18,19 +16,19 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7e442d85303485ca8800d4bcb31a9afde06d0e69
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595023"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249245"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Push notifications to Android using Azure Notification Hubs and Google Cloud Messaging (depreciado)
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Push notificações para dispositivos Android utilizando hubs de notificação Azure e Mensagens Google Cloud (depreciadas)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 > [!WARNING]
-> A partir de 10 de abril de 2018, a Google deprecou o Google Cloud Messaging (GCM). O servidor GCM e as APIs clientes são depreciadas e serão removidas logo a 29 de maio de 2019. Para mais informações, consulte [gcm e FCM Perguntas Frequentes.](https://developers.google.com/cloud-messaging/faq)
+> A partir de 10 de abril de 2018, a Google depreifou o Google Cloud Messaging (GCM). O servidor GCM e as APIs do cliente são depreciadas e serão removidas logo a 29 de maio de 2019. Para obter mais informações, consulte [GCM e FCM Perguntas Frequentes.](https://developers.google.com/cloud-messaging/faq)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -38,7 +36,7 @@ Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar not
 Vai criar uma aplicação Android em branco para receber notificações push através do Google Cloud Messaging (GCM).
 
 > [!IMPORTANT]
-> O Google Cloud Messaging (GCM) está deprecida e será removida [em breve](https://developers.google.com/cloud-messaging/faq).
+> O Google Cloud Messaging (GCM) é precotado e será removido [em breve](https://developers.google.com/cloud-messaging/faq).
 
 > [!IMPORTANT]
 > Este tópico demonstra as notificações push com o Google Cloud Messaging (GCM). Se utiliza o Firebase Cloud Messaging (FCM) da Google, veja [Sending push notifications to Android with Azure Notification Hubs and FCM (Enviar notificações push para o Android com Hubs de Notificação do Azure e FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md).
@@ -55,8 +53,8 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura Azure.** Se não tiver uma subscrição Azure, [crie uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
+* **Assinatura Azure**. Se não tiver uma subscrição do Azure, [crie uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* [Estúdio Android](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Criar um projeto que suporte o Google Cloud Messaging
 
@@ -68,7 +66,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ### <a name="configure-gcm-setting-for-the-notification-hub"></a>Configurar a definição do GCM para o hub de notificação
 
-1. Selecione **Google (GCM)** em DEFINIÇÕES DE **NOTIFICAÇÃO**.
+1. Selecione **o Google (GCM)** em **DEFINIÇÕES DE NOTIFICAÇÃO**.
 2. Introduza a **Chave de API** que recebeu do Google Cloud Console.
 3. Selecione **Guardar** na barra de ferramentas.
 
@@ -160,14 +158,14 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
 
 ### <a name="adding-code"></a>Adicionar código
 
-1. No Project View, expanda **a app** > **src** > **main** > **java.** Com o botão direito do rato, clique na pasta do pacote por baixo de **java**, clique em **Nova**, e, em seguida, clique em **Classe Java**. Adicione uma nova classe com o nome `NotificationSettings`.
+1. No Project View, expanda **a app**  >  **src**  >  **main**  >  **java.** Com o botão direito do rato, clique na pasta do pacote por baixo de **java**, clique em **Nova**, e, em seguida, clique em **Classe Java**. Adicione uma nova classe com o nome `NotificationSettings`.
 
     ![Android Studio - nova classe Java][6]
 
     Atualize os três marcadores de posição no seguinte código da classe `NotificationSettings`:
 
-   * `SenderId`: O número do projeto que obteve anteriormente na [Consola Google Cloud](https://cloud.google.com/console).
-   * `HubListenConnectionString`: `DefaultListenAccessSignature` A corda de ligação para o seu centro. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [Portal do Azure].
+   * `SenderId`: O número do projeto que obteve anteriormente na Consola Google [Cloud](https://cloud.google.com/console).
+   * `HubListenConnectionString`: A `DefaultListenAccessSignature` cadeia de ligação para o seu hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [Portal do Azure].
    * `HubName`: Utilize o nome do seu centro de notificação que aparece na página do hub no [portal Azure].
 
      Código `NotificationSettings`:
@@ -449,7 +447,7 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
         }
     }
     ```
-14. No Android Studio na barra de menus, clique no **Build** > **Rebuild Project** para se certificar de que não existem erros no seu código.
+14. No Android Studio na barra de menus, clique em **Build**  >  **Rebuild Project** para se certificar de que não existem erros no seu código.
 
 ## <a name="testing-your-app"></a>Testar a aplicação
 
@@ -483,13 +481,13 @@ Pode testar a receção das notificações push na aplicação ao enviar notific
 
 Se pretender testar as notificações push no interior de um emulador, certifique-se de que a imagem do emulador suporta o nível da API da Google que escolheu para a sua aplicação. Se a imagem não suportar as APIs nativas da Google, termina com a exceção **SERVIÇO\_NÃO\_DISPONÍVEL**.
 
-Além disso, certifique-se de que adicionou a sua conta Google ao seu emulador de execução em**Contas** **de Definições** > . Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
+Além disso, certifique-se de que adicionou a sua conta Google ao seu emulador de execução em **Contas de**  >  **Definições.** Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcional) Enviar notificações push diretamente a partir da aplicação
 
 Normalmente, enviaria notificações através de um servidor de backend. Em alguns casos, poderia querer enviar notificações push diretamente a partir da aplicação de cliente. Esta secção explica como enviar notificações do cliente utilizando a [API REST do Notification Hub do Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. No Android Studio Project View, expanda o**layout****principal** > **de res** > da **App** > **SRC.** >  Abra o `activity_main.xml` ficheiro de esquema e clique no separador **Texto** para atualizar o conteúdo de texto do ficheiro. Atualize-o com o código abaixo, que adiciona novos `Button` e comandos `EditText` para o envio de mensagens de notificação push para o Notification Hub. Adicione este código na parte inferior, imediatamente antes de `</RelativeLayout>`.
+1. No Android Studio Project View, expanda **o**layout principal de res da App  >  **SRC.**  >  **main**  >  **res**  >  **layout** Abra o `activity_main.xml` ficheiro de esquema e clique no separador **Texto** para atualizar o conteúdo de texto do ficheiro. Atualize-o com o código abaixo, que adiciona novos `Button` e comandos `EditText` para o envio de mensagens de notificação push para o Notification Hub. Adicione este código na parte inferior, imediatamente antes de `</RelativeLayout>`.
 
     ```xml
     <Button
@@ -510,7 +508,7 @@ Normalmente, enviaria notificações através de um servidor de backend. Em algu
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
-2. No Android Studio Project View, expanda os**valores****principais** > de**res** > da **App** > **SRC.** >  Abra o ficheiro `strings.xml` e adicione os valores de cadeia que são referenciados pelo novo `Button` e pelos comandos `EditText`. Adicione as seguintes linhas na parte inferior do ficheiro, imediatamente antes de `</resources>`.
+2. No Android Studio Project View, expanda **os**  >  principais**src**  >  **main**  >  **valores de res da**App SRC.  >  **values** Abra o ficheiro `strings.xml` e adicione os valores de cadeia que são referenciados pelo novo `Button` e pelos comandos `EditText`. Adicione as seguintes linhas na parte inferior do ficheiro, imediatamente antes de `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>
@@ -746,4 +744,4 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos And
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Portal do Azure]: https://portal.azure.com
+[Portal Azure]: https://portal.azure.com

@@ -1,52 +1,52 @@
 ---
 title: Scripts do PowerShell de exemplo
-description: Exemplos que mostram como usar a parte frontal através de scripts PowerShell
+description: Exemplos que mostram como usar a extremidade frontal através de scripts PowerShell
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80891497"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052299"
 ---
 # <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo
 
-A renderização remota Azure fornece as seguintes duas APIs REST:
+A Azure Remote Rendering fornece as seguintes duas APIs DE REST:
 
-- [Conversão REST API](../how-tos/conversion/conversion-rest-api.md)
+- [API DE REPOUSO de Conversão](../how-tos/conversion/conversion-rest-api.md)
 - [Sessão REST API](../how-tos/session-rest-api.md)
 
-O [repositório](https://github.com/Azure/azure-remote-rendering) de amostras ARR contém scripts de amostra na pasta *Scripts* para interagir com as APIs rest do serviço. Este artigo descreve o seu uso.
+O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering) contém scripts de amostra na pasta *Scripts* para interagir com as APIs REST do serviço. Este artigo descreve o seu uso.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar os scripts de amostra, precisa de uma configuração funcional do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Instalar o Azure PowerShell:
-    1. Abra um PowerShell com direitos de administração
-    1. Executar:`Install-Module -Name Az -AllowClobber`
+    1. Abrir um PowerShell com direitos de administração
+    1. Corra:`Install-Module -Name Az -AllowClobber`
 
-1. Se tiver erros sobre a execução de scripts, certifique-se de que a sua política de [execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
-    1. Abra um PowerShell com direitos de administração
-    1. Executar:`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+1. Se tiver erros em executar scripts, certifique-se de que a sua [política de execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
+    1. Abrir um PowerShell com direitos de administração
+    1. Corra:`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
-1. [Prepare uma conta de Armazenamento Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
+1. [Preparar uma conta de Armazenamento Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Inicie sessão na sua subscrição contendo a sua conta de renderização remota Azure:
-    1. Abra uma PowerShell
-    1. Executar: `Connect-AzAccount` e siga as instruções no ecrã.
+1. Faça login na sua subscrição contendo a sua conta de renderização remota Azure:
+    1. Abra um PowerShell
+    1. Corra: `Connect-AzAccount` e siga as instruções no ecrã.
 
 > [!NOTE]
-> Caso a sua organização tenha mais do que uma subscrição, poderá ser necessário especificar os argumentos Do Id e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
-1. Descarregue a pasta *Scripts* do [repositório GithHub de renderização remota azure](https://github.com/Azure/azure-remote-rendering).
+1. Descarregue a pasta *Scripts* a partir do [repositório GithHub de renderização remota do Azure.](https://github.com/Azure/azure-remote-rendering)
 
 ## <a name="configuration-file"></a>Ficheiro de configuração
 
-Ao lado `.ps1` dos ficheiros `arrconfig.json` há um que precisa preencher:
+Ao lado dos `.ps1` ficheiros há um `arrconfig.json` que precisa de preencher:
 
 ```json
 {
@@ -74,42 +74,45 @@ Ao lado `.ps1` dos ficheiros `arrconfig.json` há um que precisa preencher:
 ```
 
 > [!CAUTION]
-> Certifique-se de escapar corretamente às pestanas no caminho LocalAssetDirectoryPath\\\\utilizando backslashes duplos: " e use cortes para a frente "/" em todos os outros caminhos, como inputFolderPath e inputAssetPath.
+> Certifique-se de que escapa corretamente às costas no caminho LocalAssetDirectoryPath utilizando duas costas: \\ \\ " e use barras para a frente "/" em todos os outros caminhos, como inputFolderPath e inputAssetPath.
 
-### <a name="accountsettings"></a>contasDefinições
+> [!CAUTION]
+> Os valores opcionais têm de ser preenchidos ou é necessário remover completamente a chave e o valor. Por exemplo, se não utilizar o `"outputAssetFileName"` parâmetro, tem de eliminar toda a linha interior `arrconfig.json` .
 
-Para `arrAccountId` `arrAccountKey`e , consulte [Criar uma conta de renderização remota Azure](../how-tos/create-an-account.md).
-Para `region` ver a [lista das regiões disponíveis.](../reference/regions.md)
+### <a name="accountsettings"></a>contasSettings
 
-### <a name="renderingsessionsettings"></a>renderizaçãoSessionSettings
+Para `arrAccountId` e , consulte Criar uma conta de `arrAccountKey` [renderização remota Azure](../how-tos/create-an-account.md).
+Para `region` ver a lista das [regiões disponíveis.](../reference/regions.md)
 
-Esta estrutura deve ser preenchida se quiser executar **RenderingSession.ps1**.
+### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-- **vmSize:** Seleciona o tamanho da máquina virtual. Selecione *standard* ou *premium*. Desligue as sessões de renderização quando já não precisar delas.
-- **maxLeaseTime:** A duração pela qual pretende arrendar o VM. Será encerrado quando o contrato expirar. O tempo de arrendamento pode ser prolongado mais tarde (ver abaixo).
+Esta estrutura deve ser preenchida se quiser correr **RenderingSession.ps1**.
 
-### <a name="assetconversionsettings"></a>assetConversãoDeDefinições
+- **vmSize:** Selecione o tamanho da máquina virtual. Selecione *standard* ou *premium*. Desligue as sessões de renderização quando já não precisar delas.
+- **maxLeaseTime:** A duração para a qual pretende arrendar o VM. Será encerrado quando o contrato expirar. O tempo de locação pode ser prolongado mais tarde (ver abaixo).
 
-Esta estrutura deve ser preenchida se quiser executar **Conversão.ps1**.
+### <a name="assetconversionsettings"></a>activosConversionSettings
 
-Para mais detalhes, consulte [Prepare uma conta de Armazenamento Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
+Esta estrutura deve ser preenchida se quiser correr **Conversion.ps1**.
+
+Para mais detalhes, consulte [preparar uma conta de Armazenamento Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
 ## <a name="script-renderingsessionps1"></a>Script: RenderingSession.ps1
 
-Este script é usado para criar, consultar e parar de renderizar sessões.
+Este script é usado para criar, consultar e parar sessões de renderização.
 
 > [!IMPORTANT]
-> Certifique-se de que preencheu as *definições* de conta e *renderizando* secções SessionSettings em arrconfig.json.
+> Certifique-se de que preencheu as *secções de contasSes* e *renderingSesettings* em arrconfig.js.
 
 ### <a name="create-a-rendering-session"></a>Criar uma sessão de renderização
 
-Uso normal com um arrconfig.json totalmente preenchido:
+Utilização normal com um arrconfig.jscompletamente preenchido em:
 
 ```PowerShell
 .\RenderingSession.ps1
 ```
 
-O script chamará a gestão da [sessão REST API](../how-tos/session-rest-api.md) para girar um VM renderizador com as definições especificadas. No sucesso, recuperará a *sessãoId*. Em seguida, irá sondê-lo propriedades da sessão até que a sessão esteja pronta ou ocorreu um erro.
+O script chamará a gestão da [sessão REST API](../how-tos/session-rest-api.md) para girar um VM de renderização com as definições especificadas. No sucesso, recuperará a *sessãoId.* Em seguida, irá sondar as propriedades da sessão até que a sessão esteja pronta ou ocorreu um erro.
 
 Para utilizar um ficheiro **config alternativo:**
 
@@ -117,21 +120,21 @@ Para utilizar um ficheiro **config alternativo:**
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Pode **substituir as definições individuais** a partir do ficheiro config:
+Pode **substituir as definições individuais** do ficheiro config:
 
 ```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-Para **iniciar apenas uma sessão sem sondagens,** pode utilizar:
+Para iniciar apenas **uma sessão sem sondagens,** pode utilizar:
 
 ```PowerShell
 .\RenderingSession.ps1 -CreateSession
 ```
 
-A *sessãoId* que o script recupera deve ser passada para a maioria dos outros comandos de sessão.
+A *sessãoId* que o script recupera deve ser passada para a maioria dos comandos de sessão.
 
-### <a name="retrieve-session-properties"></a>Recuperar propriedades da sessão
+### <a name="retrieve-session-properties"></a>Recuperar propriedades de sessão
 
 Para obter as propriedades de uma sessão, corra:
 
@@ -139,15 +142,15 @@ Para obter as propriedades de uma sessão, corra:
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-Use `-Poll` para esperar até que a sessão esteja *pronta* ou tenha ocorrido um erro.
+Utilize `-Poll` para aguardar até que a sessão esteja *pronta* ou tenha ocorrido um erro.
 
-### <a name="list-active-sessions"></a>Lista de sessões ativas
+### <a name="list-active-sessions"></a>Listar sessões ativas
 
 ```PowerShell
 .\RenderingSession.ps1 -GetSessions
 ```
 
-### <a name="stop-a-session"></a>Pare uma sessão
+### <a name="stop-a-session"></a>Parar uma sessão
 
 ```PowerShell
 .\RenderingSession.ps1 -StopSession -Id <sessionID>
@@ -155,30 +158,30 @@ Use `-Poll` para esperar até que a sessão esteja *pronta* ou tenha ocorrido um
 
 ### <a name="change-session-properties"></a>Alterar propriedades da sessão
 
-Neste momento, apenas apoiamos a alteração do maxLeaseTime de uma sessão.
+De momento, só apoiamos a alteração do maxLeaseTime de uma sessão.
 
 > [!NOTE]
-> O tempo de arrendamento é sempre contado a partir do momento em que a sessão VM foi inicialmente criada. Assim, para prolongar o aluguer da sessão por mais uma hora, aumente *o maxLeaseTime* em uma hora.
+> O tempo de arrendamento é sempre contado a partir do momento em que a sessão VM foi inicialmente criada. Assim, para prolongar o arrendamento da sessão por mais uma hora, aumente *o maxLeaseTime* em uma hora.
 
 ```PowerShell
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## <a name="script-conversionps1"></a>Script: Conversão.ps1
+## <a name="script-conversionps1"></a>Script: Conversion.ps1
 
-Este script é usado para converter modelos de entrada no formato de tempo de execução específico de Renderização Remota Azure.
+Este script é utilizado para converter modelos de entrada no formato de execução específico de renderização remota Azure.
 
 > [!IMPORTANT]
-> Certifique-se de que preencheu as secções de *Definições* de conta e *de assetConversionSettings* em arrconfig.json.
+> Certifique-se de que preencheu as *secções de contasSettings* e *activosConversionSettings* em arrconfig.js.
 
-O script demonstra as duas opções para usar contas de armazenamento com o serviço:
+O script demonstra as duas opções de utilização de contas de armazenamento com o serviço:
 
-- Conta de armazenamento ligada à conta de renderização remota Azure
+- Conta de armazenamento ligada à Conta de Renderização Remota Azure
 - Fornecer acesso ao armazenamento através de Assinaturas de Acesso Partilhado (SAS)
 
 ### <a name="linked-storage-account"></a>Conta de armazenamento ligada
 
-Depois de ter preenchido totalmente o arrconfig.json e ligado uma conta de armazenamento, pode utilizar o seguinte comando. A ligação da sua conta de armazenamento é descrita na [Create a Account](../how-tos/create-an-account.md#link-storage-accounts).
+Uma vez preenchido completamente arrconfig.jse ligado a uma conta de armazenamento, pode utilizar o seguinte comando. A ligação da sua conta de armazenamento é descrita na [Criar uma Conta](../how-tos/create-an-account.md#link-storage-accounts).
 
 A utilização de uma conta de armazenamento ligada é a forma preferida de utilizar o serviço de conversão, uma vez que não há necessidade de gerar Assinaturas de Acesso Partilhado.
 
@@ -186,28 +189,28 @@ A utilização de uma conta de armazenamento ligada é a forma preferida de util
 .\Conversion.ps1
 ```
 
-1. Faça upload de todos `assetConversionSettings.modelLocation` os ficheiros contidos no recipiente de entrada blob sob o dado`inputFolderPath`
+1. Faça o upload de todos os ficheiros contidos no `assetConversionSettings.modelLocation` recipiente de bolha de entrada sob o dado`inputFolderPath`
 1. Ligue para a conversão do [modelo REST API](../how-tos/conversion/conversion-rest-api.md) para iniciar a conversão do [modelo](../how-tos/conversion/model-conversion.md)
 1. Sondagem do estado de conversão até que a conversão tenha sido bem sucedida ou falhada
-1. Detalhes de saída da localização dos ficheiros convertidos (conta de armazenamento, recipiente de saída, caminho de ficheiro no recipiente)
+1. Detalhes de saída da localização do ficheiro convertido (conta de armazenamento, recipiente de saída, caminho de arquivo no recipiente)
 
-### <a name="access-to-storage-via-shared-access-signatures"></a>Acesso ao armazenamento através de Assinaturas de Acesso Partilhado
+### <a name="access-to-storage-via-shared-access-signatures"></a>Acesso ao armazenamento através de assinaturas de acesso partilhado
 
 ```PowerShell
 .\Conversion.ps1 -UseContainerSas
 ```
 
-Isto irá:
+Isto será:
 
-1. Faça upload do `assetConversionSettings.localAssetDirectoryPath` ficheiro local do recipiente de entrada blob
-1. Gerar um SAS URI para o recipiente de entrada
-1. Gerar um SAS URI para o recipiente de saída
+1. Faça o upload do ficheiro local do `assetConversionSettings.localAssetDirectoryPath` para o recipiente de bolha de entrada
+1. Gere um SAS URI para o recipiente de entrada
+1. Gere um SAS URI para o recipiente de saída
 1. Ligue para a conversão do [modelo REST API](../how-tos/conversion/conversion-rest-api.md) para iniciar a conversão do [modelo](../how-tos/conversion/model-conversion.md)
 1. Sondagem do estado de conversão até que a conversão tenha sido bem sucedida ou falhada
-1. Detalhes de saída da localização dos ficheiros convertidos (conta de armazenamento, recipiente de saída, caminho de ficheiro no recipiente)
-1. Saída de um SAS URI para o modelo convertido no recipiente de saída blob
+1. Detalhes de saída da localização do ficheiro convertido (conta de armazenamento, recipiente de saída, caminho de arquivo no recipiente)
+1. Desada um SAS URI para o modelo convertido no recipiente de bolha de saída
 
-### <a name="additional-command-line-options"></a>Opções adicionais da linha de comando
+### <a name="additional-command-line-options"></a>Opções adicionais de linha de comando
 
 Para utilizar um ficheiro **config alternativo:**
 
@@ -215,44 +218,44 @@ Para utilizar um ficheiro **config alternativo:**
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Para iniciar apenas a conversão do **modelo sem sondagens,** pode utilizar:
+Para iniciar apenas **a conversão de modelos sem sondagens,** pode utilizar:
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
-Pode **substituir as definições individuais** a partir do ficheiro config utilizando os seguintes interruptores de linha de comando:
+Pode **substituir as definições individuais** do ficheiro config utilizando os seguintes comutadores de linha de comando:
 
-* **Id:** ConversãoId usado com GetConversionStatus
-* **ArrAccountId:** arrAccountId das definições de conta
-* **ArrAccountKey:** substituição por arrAccountKey das definições de conta
-* **Região:** substituição da região das definições de contas
-* **ResourceGroup:** substituição de recursosGroup de assetConversionSettings
-* **Nome da conta** de armazenamento: sobreposição para armazenamentoNome de conta de activosConversão
-* **BlobInputContainerName:** sobreposição para blobInputContainer de assetConversionSettings
-* **LocalAssetDirectoryPath:** substituição para localAssetDirectoryPath de AssetConversionSettings
-* **InputAssetPath:** substituição para entradaAssetPath de assetConversionSettings
-* **BlobOutputContainerName:** sobreposição para blobOutputContainerName of assetConversionSettings
-* **OutputFolderPath:** sobreposição para a saídaFolderPath de assetConversionSettings
-* **OutputAssetFileName:** sobreposição para outputAssetFileName de assetConversionSettings
+* **Id:** ConversionId usado com GetConversionStatus
+* **ArrAccountId:** arrAccountD de accountsettings
+* **ArrAccountKey:** substituição por arrAccountKey de contasSetings
+* **Região:** sobreposição de regiões de contasSetings
+* **Grupo de Recursos:** substituição de recursos Grupo de activosConversionSettings
+* **ArmazenamentoCocountName:** substituição para armazenamentoAcontão de activosConversionSettings
+* **BlobInputContainerName:** substituição de blobInputContainer de activosConversionSettings
+* **LocalAssetDirectoryPath:** substituição para localAssetDirectoryPath de activosConversionSettings
+* **InputAssetPath:** substituição para inputAssetPath de activosConversionSettings
+* **BlobOutputContainerName:** substituição para blobOutputContainerName de activosConversionSettings
+* **OutputFolderPath:** substituição para a saídaFolderPath de activosConversionSettings
+* **OutputAssetFileName:** substituição para outputAssetFileName de activosConversionSettings
 
-Por exemplo, pode combinar algumas das opções dadas como esta:
+Por exemplo, pode combinar uma série de opções dadas como esta:
 
 ```PowerShell
 .\Conversion.ps1 -LocalAssetDirectoryPath "C:\\models\\box" -InputAssetPath box.fbx -OutputFolderPath another/converted/box -OutputAssetFileName newConversionBox.arrAsset
 ```
 
-### <a name="run-the-individual-conversion-stages"></a>Executar as fases individuais de conversão
+### <a name="run-the-individual-conversion-stages"></a>Executar as fases de conversão individuais
 
 Se quiser executar etapas individuais do processo, pode utilizar:
 
-Apenas fazer upload de dados do localAssetDirectoryPath dado
+Apenas faça upload de dados a partir do LocalAssetDirectoryPath
 
 ```PowerShell
 .\Conversion.ps1 -Upload
 ```
 
-Apenas inicie o processo de conversão de um modelo já carregado para o armazenamento de blob (não faça upload, não faça sondagem no estado de conversão) O script devolverá uma *conversãoId*.
+Basta iniciar o processo de conversão de um modelo já carregado para o armazenamento de bolhas (não executar Upload, não sondar o estado de conversão) O script devolverá uma *conversãoId*.
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
@@ -264,10 +267,10 @@ E pode recuperar o estado de conversão desta conversão utilizando:
 .\Conversion.ps1 -GetConversionStatus -Id <conversionId> [-Poll]
 ```
 
-Use `-Poll` para esperar até que a conversão esteja feita ou ocorreu um erro.
+Utilize `-Poll` para aguardar até que a conversão seja feita ou ocorreu um erro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Render um modelo com Unidade](../quickstarts/render-model.md)
+- [Quickstart: Renderiza um modelo com Unidade](../quickstarts/render-model.md)
 - [Quickstart: Converter um modelo para renderização](../quickstarts/convert-model.md)
 - [Conversão de modelo](../how-tos/conversion/model-conversion.md)

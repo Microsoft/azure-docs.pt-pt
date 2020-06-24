@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234338"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100862"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -41,7 +41,7 @@ Também precisa de saber as seguintes coisas:
 - Onde está a origem da imagem que pretende usar. É da Galeria Azure ou é uma imagem personalizada?
 - O seu domínio junta-se a credenciais.
 
-Além disso, certifique-se de que registou o fornecedor de recursos microsoft.DesktopVirtualization. Se ainda não o fez, vá a **Subscrições,** selecione o nome da subscrição yoru e, em seguida, selecione **os fornecedores de recursos Azure**.
+Além disso, certifique-se de que registou o fornecedor de recursos microsoft.DesktopVirtualization. Se ainda não o fez, vá a **Subscrições,** selecione o nome da sua subscrição e, em seguida, selecione **os fornecedores de recursos Azure**.
 
 Quando criar uma piscina de anfitriões virtual do Windows com o modelo Azure Resource Manager, pode criar uma máquina virtual a partir da galeria Azure, uma imagem gerida ou uma imagem não gerida. Para saber mais sobre como criar imagens VM, consulte [Prepare um VHD ou VHDX do Windows para fazer o upload para Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Crie uma imagem gerida de um VM generalizado em Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -111,7 +111,7 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
     - Se escolher **a Galeria,** selecione uma das imagens recomendadas do menu suspenso:
 
-      - Windows 10 Enterprise multi-sessão, Versão 1909 + Office 365 ProPlus – Gen 1
+      - Windows 10 Enterprise multi-sessão, Versão 1909 + Microsoft 365 Apps para empresa – Gen 1
       - Windows 10 Enterprise multi-sessão, Versão 1909 – Gen 1
       - Windows Server 2019 Datacenter - Gen1
 
@@ -169,7 +169,7 @@ Para registar o grupo de aplicações de desktop num espaço de trabalho:
      >[!NOTE]
      >O processo de avaliação + criar não verifica se a sua palavra-passe cumpre os padrões de segurança ou se a sua arquitetura está correta, por isso terá de verificar se existe algum problema com qualquer uma dessas coisas por si mesmo. 
 
-5. Reveja as informações sobre a sua implementação para se certificar de que tudo parece estar certo. Quando terminar, selecione **Criar**. Isto inicia o processo de implantação, que cria os seguintes objetos:
+5. Reveja as informações sobre a sua implementação para se certificar de que tudo parece estar certo. Quando concluir, selecione **Criar**. Isto inicia o processo de implantação, que cria os seguintes objetos:
 
      - Sua nova piscina de anfitriões.
      - Um grupo de aplicativos de desktop.
