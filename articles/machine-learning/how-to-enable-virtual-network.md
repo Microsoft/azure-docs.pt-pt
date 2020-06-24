@@ -9,36 +9,23 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: be78681ba01cf98f087331a5a9a6c7974f3b1122
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5415237a502116b597c1514f75f35203108237ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560259"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299080"
 ---
-# <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteja a sua máquina de aprendizagem de ciclos de vida com redes virtuais privadas
+# <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a isolar trabalhos de experimentação/formação e inferência/pontuação em Azure Machine Learning dentro de uma Rede Virtual Azure (vnet). Você também vai aprender sobre *algumas configurações avançadas de segurança*, informações que não são necessárias para casos básicos ou experimentais de uso.
-
-> [!WARNING]
-> Se o seu armazenamento subjacente estiver numa rede virtual, os utilizadores não poderão utilizar a experiência web do estúdio da Azure Machine Learning, incluindo:
-> - drag-n-drop designer
-> - UI para aprendizagem automática de máquinas
-> - UI para rotulagem de dados
-> - UI para conjuntos de dados
-> - Notebooks
-> 
-> Se tentar, receberá uma mensagem semelhante ao seguinte erro:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## <a name="what-is-a-vnet"></a>O que é um VNET?
+Neste artigo, você aprenderá a proteger os seus ciclos de vida de aprendizagem automática isolando a Azure Machine Learning e inferências de trabalhos dentro de uma Rede Virtual Azure (vnet). O Azure Machine Learning conta com outros serviços Azure para recursos compute, também conhecidos como [metas de computação,](concept-compute-target.md)para formar e implementar modelos. Os alvos podem ser criados numa rede virtual. Por exemplo, pode utilizar o computamento Azure Machine Learning para treinar um modelo e, em seguida, implementar o modelo para o Serviço Azure Kubernetes (AKS). 
 
 Uma **rede virtual** funciona como uma fronteira de segurança, isolando os seus recursos Azure da internet pública. Também pode aderir a uma rede virtual Azure à sua rede no local. Ao juntar redes, pode treinar os seus modelos de forma segura e aceder aos seus modelos implantados para inferência.
 
-O Azure Machine Learning conta com outros serviços Azure para recursos compute, também conhecidos como [metas de computação,](concept-compute-target.md)para formar e implementar modelos. Os alvos podem ser criados numa rede virtual. Por exemplo, pode utilizar o computamento Azure Machine Learning para treinar um modelo e, em seguida, implementar o modelo para o Serviço Azure Kubernetes (AKS). 
-
+Se o seu **armazenamento subjacente estiver numa rede virtual, os utilizadores não poderão utilizar a experiência web do estúdio da Azure Machine Learning**, incluindo o designer drag-n-drop ou o UI para aprendizagem automática de máquinas, rotulagem de dados e conjuntos de dados, ou cadernos integrados.  Se tentar, receberá uma mensagem semelhante ao seguinte erro:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +64,7 @@ Também pode [ativar o Azure Private Link](how-to-configure-private-link.md) par
 
 <a id="amlcompute"></a>
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters de computação & instâncias
+## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters de computação & instâncias 
 
 Para utilizar um [ **alvo de computação** Azure Machine Learning gerido](concept-compute-target.md#azure-machine-learning-compute-managed) ou um [ **caso** de computação Azure Machine Learning](concept-compute-instance.md) numa rede virtual, devem ser cumpridos os seguintes requisitos de rede:
 
@@ -102,7 +89,9 @@ Para utilizar um [ **alvo de computação** Azure Machine Learning gerido](conce
 
 ### <a name="required-ports"></a><a id="mlcports"></a>Portos necessários
 
-O Machine Learning Compute utiliza atualmente o serviço Azure Batch para a prestação de VMs na rede virtual especificada. A sub-rede deve permitir a comunicação de entrada a partir do serviço Batch. Utiliza esta comunicação para agendar corridas nos nós do Machine Learning Compute e para comunicar com o Azure Storage e outros recursos. O serviço Batch adiciona grupos de segurança de rede (NSGs) ao nível das interfaces de rede (NICs) que estão ligadas aos VMs. Estes NSGs configuram automaticamente regras de entrada e saída para permitir o tráfego seguinte:
+Se planeia proteger a rede virtual restringindo o tráfego de rede de/para a internet pública, deve permitir comunicações de entrada a partir do serviço Azure Batch.
+
+O serviço Batch adiciona grupos de segurança de rede (NSGs) ao nível das interfaces de rede (NICs) que estão ligadas aos VMs. Estes NSGs configuram automaticamente regras de entrada e saída para permitir o tráfego seguinte:
 
 - Tráfego TCP de entrada nos portos 29876 e 29877 a partir de uma etiqueta de __serviço__ de __BatchNodeManagement__.
 
@@ -116,9 +105,10 @@ O Machine Learning Compute utiliza atualmente o serviço Azure Batch para a pres
 
 - Para o porputação, o tráfego TCP no porto 44224 a partir de uma etiqueta de __serviço__ da __AzureMachineLearning__.
 
-Tenha cuidado se modificar ou adicionar regras de entrada ou saída em NSGs configurados pelo Batch. Se um NSG bloqueia a comunicação aos nós de computação, o serviço de computação define o estado dos nós de computação para inutilizável.
-
-Não precisa de especificar NSGs ao nível da sub-rede, porque o serviço Azure Batch configura os seus próprios NSGs. No entanto, se a sub-rede especificada tiver associado NSGs ou uma firewall, configufique as regras de segurança de entrada e saída, como mencionado anteriormente.
+> [!IMPORTANT]
+> Tenha cuidado se modificar ou adicionar regras de entrada ou saída em NSGs configurados pelo Batch. Se um NSG bloqueia a comunicação aos nós de computação, o serviço de computação define o estado dos nós de computação para inutilizável.
+>
+> Não precisa de especificar NSGs ao nível da sub-rede, porque o serviço Azure Batch configura os seus próprios NSGs. No entanto, se a sub-rede que contém o cálculo Azure Machine Learning tiver associado NSGs ou uma firewall, também deve permitir o tráfego listado anteriormente.
 
 A configuração da regra NSG no portal Azure é mostrada nas seguintes imagens:
 
@@ -436,6 +426,9 @@ Para obter mais informações sobre a utilização do balançador de carga inter
 
 As instâncias do recipiente Azure são criadas dinamicamente ao implementar um modelo. Para permitir que o Azure Machine Learning crie ACI dentro da rede virtual, deve ativar a delegação de __sub-redes__ para a sub-rede utilizada pela implantação.
 
+> [!WARNING]
+> Para utilizar as instâncias do contentor Azure dentro da rede virtual, o Registo de Contentores Azure (ACR) para o seu espaço de trabalho também não pode estar na rede virtual.
+
 Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os seguintes passos:
 
 1. Para ativar a delegação de sub-redes na sua rede virtual, utilize as informações no Add ou remova um artigo [de delegação de sub-rede.](../virtual-network/manage-subnet-delegation.md) Pode ativar a delegação ao criar uma rede virtual ou adicioná-la a uma rede existente.
@@ -463,7 +456,7 @@ Para obter informações sobre a utilização de Azure Machine Learning com Azur
 
 1. Para encontrar o nome do Registo do Contentor Azure para o seu espaço de trabalho, utilize um dos seguintes métodos:
 
-    __Portal Azure__
+    __Portal do Azure__
 
     A partir da secção de visão geral do seu espaço de trabalho, o valor do __registo__ liga-se ao Registo do Contentor de Azure.
 

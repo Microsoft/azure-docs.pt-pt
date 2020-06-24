@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: a5c55149b9cfbe1c82208347f96383a60b6b1817
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 7ed23f192fc173c1c9802593ed7a043fabd765c2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331547"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254604"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,7 @@ A versão redundante da zona da arquitetura de alta disponibilidade é ilustrada
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação acelerada da base de dados (ADR)
 
-[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) é uma nova funcionalidade de motor de base de dados SQL que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração. A ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance e Azure SQL Data Warehouse.
+[A Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) é uma nova funcionalidade de motor de base de dados que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração. A ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance e Azure SQL Data Warehouse.
 
 ## <a name="testing-application-fault-resiliency"></a>Teste de resiliência da falha da aplicação
 
@@ -106,7 +106,7 @@ Uma falha pode ser iniciada usando REST API ou PowerShell. Para REST API, consul
 
 A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Está dependente do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para uma maior tolerância a falhas. Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

@@ -1,77 +1,78 @@
 ---
-title: Escala automaticamente os casos de Faísca Synapse Azure
-description: Utilize a função De Escala Automática Azure Synapse para escalar automaticamente as instâncias de faísca synapse
+title: Escala automática Azure Synapse Apache Spark instâncias
+description: Utilize a função Azure Synapse Autoscale para escalar automaticamente as instâncias de faíscas apaches
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
+ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644876"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194285"
 ---
-# <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automaticamente piscinas de Faíscas Apache Synapse Anapse Anapse
+# <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automática Piscinas Apache Spark Azure Synapse
 
-A funcionalidade De Escala Automática da Piscina De Synapse Azure Synapse aescala automaticamente o número de nós numa instância de cluster para cima e para baixo. Durante a criação de uma nova Apache Spark para a piscina Azure Synapse Analytics, um número mínimo e máximo de nós pode ser definido quando a Escala Automática é selecionada. A escala automática monitoriza então os requisitos de recursos da carga e escala o número de nós para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
+A funcionalidade De Escala Automática da piscina Apache Spark for Azure Synapse Analytics escala automaticamente o número de nós num caso de cluster para cima e para baixo. Durante a criação de uma nova piscina Apache Spark para Azure Synapse Analytics, um número mínimo e máximo de nós pode ser definido quando a Autoscale é selecionada. Em seguida, a autoescala os requisitos de recursos da carga e dimensiona o número de nós para cima ou para baixo. Não há nenhum custo adicional para esta funcionalidade.
 
 ## <a name="metrics-monitoring"></a>Monitorização de métricas
 
-A escala automática monitoriza continuamente a instância Spark e recolhe as seguintes métricas:
+A autoescala continuamente a instância Spark e recolhe as seguintes métricas:
 
 |Metric|Descrição|
 |---|---|
-|CpU total pendente|O número total de núcleos necessários para iniciar a execução de todos os nós pendentes.|
-|Total de Memória Pendente|A memória total (em MB) necessária para iniciar a execução de todos os nós pendentes.|
-|CpU total grátis|A soma de todos os núcleos não utilizados nos nós ativos.|
-|Memória Total Livre|A soma da memória não utilizada (em MB) nos nós ativos.|
-|Memória Usada por Nó|A carga num nó. Um nó no qual é utilizado 10 GB de memória, é considerado sob mais carga do que um trabalhador com 2 GB de memória usada.|
+|CPU total pendente|O número total de núcleos necessários para iniciar a execução de todos os nós pendentes.|
+|Memória Total Pendente|A memória total (em MB) necessária para iniciar a execução de todos os nós pendentes.|
+|CpU total gratuito|A soma de todos os núcleos não reutilizados nos nós ativos.|
+|Memória Total Livre|A soma da memória nãousada (em MB) nos nós ativos.|
+|Memória usada por nó|A carga num nó. Um nó no qual são utilizados 10 GB de memória, é considerado sob mais carga do que um trabalhador com 2 GB de memória usada.|
 
-As métricas acima são verificadas a cada 30 segundos. A escala automática toma decisões de escala e escala com base nestas métricas.
+As métricas acima são verificadas a cada 30 segundos. A autoescala toma decisões de escala e de escala com base nestas métricas.
 
-## <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
+## <a name="load-based-scale-conditions"></a>Condições de escala à base de carga
 
-Quando forem detetadas as seguintes condições, a Escala Automática emitirá um pedido de escala:
+Quando forem detetadas as seguintes condições, a Autoscale emitirá um pedido de escala:
 
-|Aumento vertical|Redução da escala|
+|Aumento vertical|Escala para baixo|
 |---|---|
-|O CPU total pendente é superior ao total de CPU gratuito por mais de 1 minuto.|O CPU total pendente é inferior ao total de CPU gratuito por mais de 2 minutos.|
-|A memória total pendente é maior do que a memória total gratuita por mais de 1 minuto.|A memória total pendente é inferior a memória gratuita total por mais de 2 minutos.|
+|O CPU total pendente é superior ao CPU total gratuito por mais de 1 minuto.|O CPU total pendente é inferior ao total de CPU gratuito por mais de 2 minutos.|
+|A memória total pendente é maior do que a memória total gratuita por mais de 1 minuto.|A memória total pendente é inferior à memória total gratuita por mais de 2 minutos.|
 
-Para a escala, o serviço Azure Synapse Autoscale calcula quantos novos nós são necessários para satisfazer os atuais requisitos de CPU e memória, e emite um pedido de escala para adicionar o número necessário de nós.
+Para a escala, o serviço Azure Synapse Autoscale calcula quantos novos nós são necessários para satisfazer os requisitos atuais de CPU e memória, e em seguida, emite um pedido de escala para adicionar o número necessário de nós.
 
-Para a redução da escala, com base no número de executores, mestres de aplicação por nó e os atuais requisitos de CPU e memória, a Autoscale emite um pedido para remover um certo número de nós. O serviço também deteta quais os nódosos candidatos à remoção com base na execução atual do emprego. A operação de redução da escala primeiro desativa os nós e, em seguida, retira-os do cluster.
+Para uma escala para baixo, com base no número de executores, mestres de aplicações por nó e os atuais requisitos de CPU e memória, a Autoscale emite um pedido para remover um determinado número de nós. O serviço também deteta quais os nós que são candidatos à remoção com base na execução de empregos em curso. A operação de escala para baixo primeiro desativa os nós e, em seguida, remove-os do cluster.
 
 ## <a name="get-started"></a>Introdução
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Crie uma piscina de faíscas com autoscalcificação
+### <a name="create-a-spark-pool-with-autoscaling"></a>Criar uma piscina spark com autoscaling
 
-Para ativar a função De escala Automática, complete os seguintes passos como parte do processo normal de criação da piscina:
+Para ativar a funcionalidade Autoscale, complete os seguintes passos como parte do processo normal de criação de piscinas:
 
-1. No separador **Basics,** selecione a caixa de verificação **enable autoscale.**
-1. Introduza os valores desejados para as seguintes propriedades:  
+1. No **separador Basics,** selecione a caixa **de verificação de escala automática Enable.**
+1. Introduza os valores pretendidos para as seguintes propriedades:  
 
-    * **Número min** de nós.
+    * **Número** min de nós.
     * **Número máximo** de nós.
 
 O número inicial de nós será o mínimo. Este valor define o tamanho inicial da instância quando é criado. O número mínimo de nós não pode ser inferior a três.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considere a latência da escala para cima ou para baixo operações
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considere a latência de operações de escala para cima ou para baixo
 
-Pode levar 1 a 5 minutos para que uma operação de escalação esteja concluída.
+Pode levar 1 a 5 minutos para uma operação de escalonamento ser concluída.
 
-### <a name="preparation-for-scaling-down"></a>Preparação para a escala
+### <a name="preparation-for-scaling-down"></a>Preparação para escalonamento
 
-Durante o processo de escala, a Escala Automática colocará os nós em estado de desmantelamento para que nenhum novo executor possa lançar nesse nó.
+Durante o processo de escalonamento, a Autoscale colocará os nós em estado de desmantelamento para que nenhum novo executor possa lançar nesse nó.
 
-Os trabalhos de corrida continuarão a funcionar e a terminar. Os postos de trabalho pendentes esperam ser programados normalmente, com menos nós disponíveis.
+Os trabalhos de corrida continuarão a funcionar e a terminar. Os postos de trabalho pendentes aguardarão para ser agendados normalmente, com menos nós disponíveis.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Quickstart para criar uma nova piscina Spark [Criar uma piscina de faíscas](../quickstart-create-apache-spark-pool-portal.md)
+Quickstart para criar uma nova piscina Spark [Criar uma piscina spark](../quickstart-create-apache-spark-pool-portal.md)

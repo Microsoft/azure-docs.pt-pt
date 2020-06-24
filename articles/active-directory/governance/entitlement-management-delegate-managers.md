@@ -1,6 +1,6 @@
 ---
-title: Delegar governação de acesso a gestores de pacotes de acesso na gestão de direitos da AD Azure - Diretório Ativo Azure
-description: Aprenda a delegar a governação de acesso dos administradores de TI para aceder aos gestores de pacotes e gestores de projetos para que eles possam gerir o acesso a si mesmos.
+title: Delegar governação de acesso a gestores de pacotes de acesso na gestão de direitos Azure AD - Azure Ative Directory
+description: Saiba como delegar a governação de acesso dos administradores de TI para aceder a gestores de pacotes e gestores de projetos para que eles possam gerir o acesso a si mesmos.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/07/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7acea7503e5cdde9ff55c27f16351b21453fe521
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73174368"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078334"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegar governação de acesso aos gestores de pacotes de acesso na gestão de direitos da AD Azure
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegar governação de acesso a gestores de pacotes de acesso na gestão de direitos Azure AD
 
-Para delegar a criação e gestão de pacotes de acesso num catálogo, adiciona os utilizadores ao papel de gestor de pacotes de acesso. Os gestores de pacotes de acesso devem estar familiarizados com a necessidade de os utilizadores solicitarem o acesso aos recursos num catálogo. Por exemplo, se um catálogo for usado para um projeto, então um líder de projeto pode ser um gestor de pacotede acesso para esse catálogo.  Os gestores de pacotes de acesso não podem adicionar recursos a um catálogo, mas podem gerir os pacotes e políticas de acesso num catálogo.  Ao delegar a um gestor de pacotes de acesso, essa pessoa pode então ser responsável por:
+Para delegar a criação e gestão de pacotes de acesso num catálogo, adicione os utilizadores à função de gestor de pacotes de acesso. Os gestores de pacotes de acesso devem estar familiarizados com a necessidade de os utilizadores solicitarem o acesso aos recursos num catálogo. Por exemplo, se um catálogo for usado para um projeto, então um líder de projeto pode ser um gestor de pacotes de acesso para esse catálogo.  Os gestores de pacotes de acesso não podem adicionar recursos a um catálogo, mas podem gerir os pacotes e políticas de acesso num catálogo.  Ao delegar a um gestor de pacotes de acesso, essa pessoa pode então ser responsável por:
 
-- Que papéis um utilizador terá para os recursos num catálogo
+- Que funções um utilizador terá para os recursos de um catálogo
 - Quem vai precisar de acesso
 - Quem precisa aprovar os pedidos de acesso
 - Quanto tempo o projeto vai durar
@@ -40,33 +40,33 @@ Este vídeo fornece uma visão geral de como delegar a governação de acesso do
 
 Siga estes passos para atribuir um utilizador à função de gestor de pacotes de acesso:
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador ou proprietário do Catálogo
+**Papel pré-requisito:** Administrador global, administrador de utilizadores ou proprietário do catálogo
 
-1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
+1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **Catálogos** e abra o catálogo a que pretende adicionar administradores.
+1. No menu esquerdo, clique em **Catálogos** e, em seguida, abra o catálogo a que pretende adicionar administradores.
 
-1. No menu esquerdo, clique em **Papéis e administradores.**
+1. No menu esquerdo, clique em **Funções e administradores.**
 
-    ![Cataloga funções e administradores](./media/entitlement-management-shared/catalog-roles-administrators.png)
+    ![Funções de catálogos e administradores](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
-1. Clique em **Adicionar gestores** de pacotes de acesso para selecionar os membros para estas funções.
+1. Clique **em Adicionar gestores de pacotes de acesso** para selecionar os membros para estas funções.
 
-1. Clique em **Selecionar** para adicionar estes membros.
+1. Clique **em Selecionar** para adicionar estes membros.
 
-## <a name="remove-an-access-package-manager"></a>Remova um gestor de pacotes de acesso
+## <a name="remove-an-access-package-manager"></a>Remover um gestor de pacotes de acesso
 
 Siga estes passos para remover um utilizador da função de gestor de pacotes de acesso:
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador ou proprietário do Catálogo
+**Papel pré-requisito:** Administrador global, administrador de utilizadores ou proprietário do catálogo
 
-1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
+1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **Catálogos** e abra o catálogo a que pretende adicionar administradores.
+1. No menu esquerdo, clique em **Catálogos** e, em seguida, abra o catálogo a que pretende adicionar administradores.
 
-1. No menu esquerdo, clique em **Papéis e administradores.**
+1. No menu esquerdo, clique em **Funções e administradores.**
 
-1. Adicione uma marca de verificação ao lado de um gestor de pacotede acesso que pretende remover.
+1. Adicione uma marca de verificação ao lado de um gestor de pacotes de acesso que pretende remover.
 
 1. Clique em **Remover**.
 

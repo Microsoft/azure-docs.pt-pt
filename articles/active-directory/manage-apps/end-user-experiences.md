@@ -1,70 +1,70 @@
 ---
-title: Experiências de utilizador final para aplicações - Diretório Ativo Azure
-description: O Azure Ative Directory (Azure AD) fornece várias formas personalizáveis de implementar aplicações para utilizadores finais na sua organização.
+title: Experiências de utilizador final para aplicações - Azure Ative Directory
+description: O Azure Ative Directory (Azure AD) oferece várias formas personalizáveis de implementar aplicações para utilizadores finais na sua organização.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266627"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763402"
 ---
-# <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Diretório Ativo do Azure
+# <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Azure Ative Directory
 
-O Azure Ative Directory (Azure AD) fornece várias formas personalizáveis de implementar aplicações para utilizadores finais na sua organização:
+O Azure Ative Directory (Azure AD) oferece várias formas personalizáveis de implementar aplicações para utilizadores finais na sua organização:
 
-* Painel de acesso Azure AD
-* Lançador de aplicações office 365
+* Painel de acesso AD AD Azure
+* Lançador de aplicações Office 365
 * Início de sessão direto em aplicações federadas
 * Ligações avançadas para aplicações federadas, baseadas em palavras-passe ou existentes
 
-Qual o(s) método que escolhe s implementar na sua organização é a sua discrição.
+Qual o método(s) que escolheu implementar na sua organização é a sua discrição.
 
-## <a name="azure-ad-access-panel"></a>Painel de acesso Azure AD
+## <a name="azure-ad-access-panel"></a>Painel de acesso AD AD Azure
 
-O Painel https://myapps.microsoft.com de Acesso é um portal baseado na web que permite a um utilizador final com uma conta organizacional no Azure Ative Directory visualizar e lançar aplicações às quais foi concedido acesso pelo administrador da AD Azure. Se for um utilizador final com [o Azure Ative Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)também pode utilizar capacidades de gestão de grupos de self-service através do Painel de Acesso.
+O Painel de Acesso é um portal baseado na https://myapps.microsoft.com Web que permite a um utilizador final com uma conta organizacional no Azure Ative Diretório visualizar e lançar aplicações às quais lhes foi concedido acesso pelo administrador AZure AD. Se for um utilizador final com [o Azure Ative Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)também pode utilizar as capacidades de gestão do grupo self-service através do Painel de Acesso.
 
 ![Screenshot mostra o portal do Painel de Acesso AD Azure](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Por padrão, todas as aplicações estão listadas numa única página. Mas pode usar coleções para agrupar aplicações relacionadas e apresentá-las num separador, tornando-as mais fáceis de encontrar. Por exemplo, pode utilizar coleções para criar agrupamentos lógicos de candidaturas para funções específicas de trabalho, tarefas, projetos, e assim por diante. Para obter informações, consulte [como utilizar as coleções das Minhas Apps para personalizar os painéis](access-panel-collections.md)de acesso ao utilizador. 
+Por predefinição, todas as aplicações estão listadas numa única página. Mas pode usar coleções para agrupar aplicações relacionadas e apresentá-las num separador, tornando-as mais fáceis de encontrar. Por exemplo, você pode usar coleções para criar agrupamentos lógicos de aplicações para papéis de trabalho específicos, tarefas, projetos, e assim por diante. Para obter informações, consulte [como utilizar as coleções My Apps para personalizar painéis de acesso ao utilizador.](access-panel-collections.md) 
 
-O Painel de Acesso é separado do portal Azure e não exige que os utilizadores tenham uma subscrição Azure ou uma subscrição do Office 365.
+O Painel de Acesso está separado do portal Azure e não requer que os utilizadores tenham uma subscrição Azure ou uma subscrição do Office 365.
 
-Para obter mais informações sobre o painel de acesso da AD Azure, consulte a [introdução ao painel](../user-help/active-directory-saas-access-panel-introduction.md)de acesso .
+Para obter mais informações sobre o painel de acesso Azure AD, consulte a [introdução ao painel de acesso.](../user-help/active-directory-saas-access-panel-introduction.md)
 
-## <a name="office-365-application-launcher"></a>Lançador de aplicações office 365
+## <a name="office-365-application-launcher"></a>Lançador de aplicações Office 365
 
-Para as organizações que implementaram o Office 365, as aplicações atribuídas aos utilizadores através [https://portal.office.com/myapps](https://portal.office.com/myapps)do Azure AD também estarão presentes no portal do Office 365 em . Isto torna mais fácil e conveniente para os utilizadores de uma organização lançar as suas apps sem ter de usar um segundo portal, sendo a solução de lançamento recomendada para as organizações que utilizam o Office 365.
+Para as organizações que tenham implantado o Office 365, as aplicações atribuídas aos utilizadores através do Azure AD também aparecerão no portal do Office 365 em [https://portal.office.com/myapps](https://portal.office.com/myapps) . Isto torna fácil e conveniente para os utilizadores de uma organização lançar as suas apps sem ter de usar um segundo portal, e é a solução de lançamento de apps recomendada para organizações que usam o Office 365.
 
 ![Screenshot mostra o portal Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
-Para mais informações sobre o lançador de aplicações do Office 365, consulte A sua aplicação aparecer no lançador de [aplicações do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Para obter mais informações sobre o lançador de aplicações do Office 365, consulte [se a sua aplicação aparecer no lançador de aplicações office 365.](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Início de sessão direto em aplicações federadas
 
-A maioria das aplicações federadas que suportam saml 2.0, WS-Federation ou OpenID conectam também suportam a capacidade de os utilizadores iniciarem a aplicação, e depois são assinados através da AD Azure, quer por redirecção automática, quer clicando num link para iniciar sessão. Isto é conhecido como prestador de serviços iniciado sessão de sinalização e aplicações mais federadas na galeria de aplicações Azure AD suportam esta situação (ver a documentação ligada ao único assistente de configuração de sinalização da aplicação no portal Azure para mais detalhes).
+A maioria das aplicações federadas que suportam SAML 2.0, WS-Federation ou OpenID connect também suportam a capacidade de os utilizadores começarem na aplicação, e depois ser assinados através do Azure AD, quer por redirecionamento automático quer clicando num link para iniciar sessão. Isto é conhecido como acesso iniciado pelo prestador de serviços, e a maioria das aplicações federadas na galeria de aplicações AD AZure suportam isso (ver a documentação ligada a partir do único assistente de configuração de sinalização da aplicação no portal Azure para mais detalhes).
 
 ![Exemplo de um sinal de aplicativo móvel na página](./media/end-user-experiences/workdaymobile.png)
 
-## <a name="direct-sign-on-links"></a>Links de sinalização direto
+## <a name="direct-sign-on-links"></a>Links de acesso direto
 
-A Azure AD também suporta links de inscrição simples diretos para aplicações individuais que suportam o único sign-on baseado em palavra-passe, o único signo ligado e qualquer forma de inscrição única federada.
+O Azure AD também suporta links de entrada única diretos para aplicações individuais que suportam um único sinal baseado em palavra-passe, um único sinal ligado e qualquer forma de inscrição única federada.
 
-Estes links são URLs especificamente concebidos que enviam um utilizador através do processo de iniciação de acesso a Anúncio sem exigir que o utilizador os lance a partir do painel de acesso Azure AD ou do Office 365. Estes **URLs** de acesso ao Utilizador podem ser encontrados sob as propriedades das aplicações empresariais disponíveis. No portal Azure, selecione **aplicações Azure Ative Directory** > **Enterprise.** Selecione a aplicação e, em seguida, selecione **Propriedades**.
+Estas ligações são URLs especificamente concebidos que enviam um utilizador através do processo de inscrição AZure AD para uma aplicação específica sem exigir que o utilizador os lance do painel de acesso AD AZure ou do Office 365. Estes **URLs de acesso** ao Utilizador podem ser encontrados sob as propriedades das aplicações disponíveis para a empresa. No portal Azure, selecione aplicações **Azure Ative Directory**  >  **Enterprise**. Selecione a aplicação e, em seguida, **selecione Propriedades**.
 
 ![Exemplo do URL de acesso ao utilizador nas propriedades do Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
-Estes links podem ser copiados e colados em qualquer lugar que pretenda fornecer uma ligação de inscrição à aplicação selecionada. Isto pode estar num e-mail, ou em qualquer portal personalizado baseado na Web que tenha configurado para o acesso à aplicação do utilizador. Aqui está um exemplo de um URL de assinatura direta da AD Azure para o Twitter:
+Estes links podem ser copiados e colados em qualquer lugar que pretenda fornecer um link de inscrição para a aplicação selecionada. Isto pode estar num e-mail ou em qualquer portal personalizado baseado na Web que tenha configurado para acesso a aplicações de utilizador. Aqui está um exemplo de um URL de assinatura simples azure AD para o Twitter:
 
 `https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
@@ -72,10 +72,10 @@ Semelhante aos URLs específicos da organização para o painel de acesso, pode 
 
 `https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-Quando um utilizador autorizado clica num destes links específicos para aplicações, vê primeiro a sua página de entrada organizacional (assumindo que ainda não estão inscritos), e após o início o início do início o registo é redirecionado para a sua aplicação sem parar no painel de acesso primeiro. Se o utilizador estiver a perder pré-requisitos para aceder à aplicação, como a extensão do navegador de sinal único baseada em palavra-passe, o link irá levar o utilizador a instalar a extensão em falta. O URL de ligação também permanece constante se a configuração de inscrição única para as alterações da aplicação.
+Quando um utilizador autorizado clica num destes links específicos da aplicação, vê primeiro a sua página de início de sação organizacional (assumindo que ainda não está inscrita), e após o início de sação é redirecionado para a sua app sem parar primeiro no painel de acesso. Se o utilizador não tiver pré-requisitos para aceder à aplicação, como a extensão do navegador de sinal único baseada na palavra-passe, então o link irá solicitar ao utilizador que instale a extensão em falta. O URL de ligação também permanece constante se a configuração de inscrição única para a aplicação mudar.
 
-Estas ligações utilizam os mesmos mecanismos de controlo de acesso que o painel de acesso e o Office 365, e apenas os utilizadores ou grupos que tenham sido atribuídos à aplicação no portal Azure poderão autenticar com sucesso. No entanto, qualquer utilizador que não esteja autorizado verá uma mensagem explicando que não lhes foi concedido acesso, e é-lhes dado um link para carregar o painel de acesso para visualizar as aplicações disponíveis para as quais têm acesso.
+Estas ligações utilizam os mesmos mecanismos de controlo de acesso que o painel de acesso e o Office 365, e apenas os utilizadores ou grupos que tenham sido designados para a aplicação no portal Azure poderão autenticar com sucesso. No entanto, qualquer utilizador que não seja autorizado verá uma mensagem explicando que não lhes foi concedido acesso, e é-lhes dado um link para carregar o painel de acesso para visualizar as aplicações disponíveis para as quais têm acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para planos de implantação, consulte os planos de [implantação do Diretório Ativo do Azure](../fundamentals/active-directory-deployment-plans.md)
+Para planos de implantação, consulte [os planos de implantação do Azure Ative Directory](../fundamentals/active-directory-deployment-plans.md)

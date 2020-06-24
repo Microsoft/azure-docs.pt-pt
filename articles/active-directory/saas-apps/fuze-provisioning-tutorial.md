@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Fuze para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador à Fuze.
+title: 'Tutorial: Configure Fuze para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Fuze.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,150 +15,149 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a58402297380116f83214e52ae7f2796412755b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aacaa8ca7e0cd15b34f29479d38d7bc8d95001de
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77057911"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253720"
 ---
-# <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Tutorial: Configure Fuze para fornecimento automático de utilizadores
+# <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Tutorial: Configure Fuze para o fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Diretório Ativo fuze e azure (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para fuze.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Fuze e no Azure Ative Directory (Azure AD) para configurar a Azure AD para provisão automática e desa provisionamento de utilizadores e/ou grupos para [fuze.](https://www.fuze.com/) Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
->
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+## <a name="capabilities-supported"></a>Capacidades suportadas
+> [!div class="checklist"]
+> * Criar utilizadores em Fuze
+> * Remova os utilizadores em Fuze quando já não necessitam de acesso
+> * Mantenha os atributos do utilizador sincronizados entre Azure AD e Fuze
+> * [Único sinal de](https://docs.microsoft.com/azure/active-directory/saas-apps/fuze-tutorial) fuze (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um inquilino do Azure AD.
-* [Um inquilino fuze.](https://www.fuze.com/)
-* Uma conta de utilizador em Fuze com permissões de administrador.
+* [Um inquilino da AD Azure.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+* Uma conta de utilizador em Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global).
+* [Um inquilino de Fuze.](https://www.fuze.com/)
+* Uma conta de utilizador em Fuze com permissões de Administração.
 
-## <a name="assigning-users-to-fuze"></a>Atribuir utilizadores a Fuze
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planeie a sua implantação de provisionamento
+1. Saiba [como funciona o serviço de prestação de serviços.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+2. Determinar quem estará no [âmbito do provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine quais os dados a [mapear entre Azure AD e Fuze](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Fuze. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à Fuze seguindo as instruções aqui:
+## <a name="step-2-configure-fuze-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure fuze para apoiar o provisionamento com Azure AD
 
-* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+Antes de configurar o Fuze para o fornecimento automático do utilizador com a Azure AD, terá de permitir o fornecimento scim no Fuze. 
 
-## <a name="important-tips-for-assigning-users-to-fuze"></a>Dicas importantes para atribuir utilizadores ao Fuze
+1. Comece por contactar o seu representante da Fuze para obter as seguintes informações:
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à Fuze para testar a configuração automática de fornecimento do utilizador. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
-
-* Ao atribuir um utilizador ao Fuze, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
-
-## <a name="setup-fuze-for-provisioning"></a>Configurar Fuze para provisionamento
-
-Antes de configurar o Fuze para o fornecimento automático de utilizadores com a AD Azure, terá de ativar o fornecimento de SCIM no Fuze. 
-
-1. Comece por contactar o seu representante fuze para obter as seguintes informações necessárias:
-
-    * Lista de SKUs de Produto Fuze atualmente em uso na sua empresa.
+    * Lista de SKUs de produto fuze atualmente em uso na sua empresa.
     * Lista de códigos de localização para as localizações da sua empresa.
     * Lista de códigos de departamento para a sua empresa.
 
-2. Pode encontrar estes SKUs e códigos no seu contrato de Fuze e documentos de configuração, ou contactando o seu representante fuze.
+2. Pode encontrar estes SKUs e códigos nos documentos de contração e configuração do Fuze, ou contactando o seu representante fuze.
 
-3. Assim que os requisitos forem recebidos, o seu representante fuze fornecer-lhe-á o símbolo de autenticação Fuze que é necessário para permitir a integração. Este valor será inserido no campo Secret Token no separador de fornecimento da sua aplicação Fuze no portal Azure.
+3. Assim que os requisitos forem recebidos, o seu representante fuze fornecer-lhe-á o sinal de autenticação fuze que é necessário para permitir a integração. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação Fuze no portal Azure.
 
-## <a name="add-fuze-from-the-gallery"></a>Adicione Fuze da galeria
+## <a name="step-3-add-fuze-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione Fuze da galeria de aplicações AZure AD
 
-Antes de configurar o Fuze para o fornecimento automático de utilizadores com a AD Azure, tem de adicionar fuze da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
+Adicione Fuze da galeria de aplicações AZure AD para começar a gerir o fornecimento à Fuze. Se já configurar fuze para SSO, pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar inicialmente a integração. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)
 
-**Para adicionar Fuze da galeria de aplicações Azure AD, execute os seguintes passos:**
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4. Definir quem estará no âmbito do provisionamento 
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+* Ao atribuir os utilizadores ao Fuze, tem de selecionar outra função que não **o Acesso Predefinido**. Os utilizadores com a função De Acesso Predefinido estão excluídos do provisionamento e serão marcados como não efetivamente intitulados nos registos de provisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+* Comece minúsculo. Teste com um pequeno conjunto de utilizadores antes de rolar para todos. Quando o âmbito de provisão é definido para utilizadores designados, pode controlá-lo atribuindo um ou dois utilizadores à aplicação. Quando o âmbito é definido para todos os utilizadores, pode especificar um [filtro de deteção baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+## <a name="step-5-configuring-automatic-user-provisioning-to-fuze"></a>Passo 5. Configurar o fornecimento automático do utilizador à Fuze 
 
-3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
-
-    ![O novo botão de aplicação](common/add-new-app.png)
-
-4. Na caixa de pesquisa, introduza **Fuze**, selecione **Fuze** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
-
-    ![Fuze na lista de resultados](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-fuze"></a>Configurar o fornecimento automático de utilizadores à Fuze 
-
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Fuze com base em atribuições de utilizador e/ou grupo em Azure AD.
-
-> [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para fuze, seguindo as instruções fornecidas no tutorial de [sinalização Fuze Single](fuze-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Fuze com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para fuze em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Fuze**.
+2. Na lista de candidaturas, selecione **Fuze**.
 
     ![O link Fuze na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Separador de provisionamento](common/provisioning.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento](common/provisioning-automatic.png)
 
-5. No âmbito da secção de `https://api.fuze.com/scim/v2` **Credenciais de Administrador,** insere-se no URL do **Arrendatário**. Insera o valor token de **autenticação SCIM** recuperado anteriormente do representante fuze em **Token Secreto**. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao Fuze. Se a ligação falhar, certifique-se de que a sua conta Fuze tem permissões de Administrador e tente novamente.
+5. Sob a secção **credenciais de administração,** insira o **url base SCIM 2.0 e** o valor de token de autenticação SCIM recuperado anteriormente do representante do Fuze em TENANT **URL** e **Secret Token**. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao Fuze. Se a ligação falhar, certifique-se de que a sua conta Fuze tem permissões de Administração e tente novamente.
 
-    ![Ficha de URL do inquilino](common/provisioning-testconnection-tenanturltoken.png)
+    ![Token URL do inquilino](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+    ![E-mail de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Fuze**.
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Fuze**.
 
-    ![Mapeamento de utilizadores de fuze](media/fuze-provisioning-tutorial/image01.png)
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Fuze na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Fuze para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Fuze na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Fuze para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |nome.dado Nome|String|
+   |nome.famíliaName|String|
+   |e-mails[tipo eq "work"].value|String|
+   |ativo|Booleano|
 
-    ![Mapeamento de utilizadores de fuze](media/fuze-provisioning-tutorial/image00.png)
+10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para ativar o serviço de prestação de Ad Azure para fuze, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-11. Para ativar o serviço de provisionamento de AD Azure para fuze, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
+    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
 
-    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
-
-12. Defina os utilizadores e/ou grupos que gostaria de fornecer ao Fuze, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+12. Defina os utilizadores e/ou grupos que deseja providenciar à Fuze, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para fornecer, clique em **Guardar**.
+15. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
+    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure em Fuze.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
+Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
+
+1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Fuze suporta atributos SCIM personalizados **chamados Direitos**. Estes atributos só podem ser criados e não atualizados. 
+* Fuze suporta atributos SCIM personalizados **chamados Direitos.** Estes atributos só podem ser criados e não atualizados. 
+
+## <a name="change-log"></a>Change log
+
+* 06/15/2020 - Limite de taxa de integração ajustado a 10 pedidos/segundo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o provisionamento de contas de utilizador para aplicações empresariais.](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Aprenda a rever os registos e obtenha relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

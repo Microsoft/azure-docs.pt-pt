@@ -4,19 +4,19 @@ description: Personalize a configuração da sessão de autenticação AZure AD,
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b551fcace5289b9ffd9fb131b5ba1120b3fdd2
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 72cc876e2fd695e40b3b9cf7d9a52d34dea2387c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483710"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253261"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -134,7 +134,7 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](app-based-mfa.md).
 * Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)

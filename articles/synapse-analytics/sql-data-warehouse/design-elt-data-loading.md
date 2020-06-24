@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fc5316e2d6509f3e4db9a6cba150efc42c8bc548
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266377"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201163"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para piscina SQL synapse
 
@@ -111,7 +111,7 @@ Utilize o seguinte mapeamento do tipo de dados SQL ao carregar ficheiros Parquet
 |                            INT32                             |            INT(8, falso)            |     tinyint      |
 |                            INT32                             |            INT(16, falso)             |       int        |
 |                            INT32                             |           INT(32, falso)            |      bigint      |
-|                            INT32                             |                 DATA                  |       data       |
+|                            INT32                             |                 DATA                  |       date       |
 |                            INT32                             |                DECIMAL                |     decimal      |
 |                            INT32                             |            TEMPO (MILLIS)             |       hora       |
 |                            INT64                             |            INT(64, verdade)            |      bigint      |

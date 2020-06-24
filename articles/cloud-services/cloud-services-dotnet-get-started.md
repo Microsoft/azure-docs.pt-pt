@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: dcaa87b8bf37cc0410c052b82014209327d5fe99
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310653"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255233"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -104,9 +104,9 @@ Na secção seguinte, irá configurar a solução para utilizar recursos em nuve
 Terá de efetuar os passos seguintes para executar a aplicação na nuvem:
 
 * Crie um serviço em nuvem do Azure.
-* Crie uma Base de Dados SQL do Azure.
+* Criar uma base de dados na Base de Dados Azure SQL.
 * Crie uma conta do Storage do Azure.
-* Configure a solução para utilizar a Base de Dados SQL do Azure, quando é executada no Azure.
+* Configure a solução para utilizar a sua base de dados quando esta for executada em Azure.
 * Configure a solução para utilizar a sua conta do Storage do Azure, quando é executada no Azure.
 * Implemente o projeto no serviço em nuvem do Azure.
 
@@ -124,13 +124,13 @@ Um serviço em nuvem do Azure é o ambiente onde a aplicação irá ser executad
 5. Selecione a região onde pretende implementar a aplicação.
 
     Este campo especifica em qual datacenter será alojado o serviço em nuvem. Para uma aplicação de produção, deverá escolher a região mais próxima dos seus clientes. Para este tutorial, escolha a região mais próxima de si.
-5. Clique **em Criar**.
+5. Clique em **Criar**.
 
     Na imagem seguinte, é criado um serviço cloud com o URL CSvccontosoads.cloudapp.net.
 
     ![Novo Serviço em Nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Criar uma Base de Dados SQL do Azure
+### <a name="create-a-database-in-azure-sql-database"></a>Criar uma base de dados na Base de Dados Azure SQL
 Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada na nuvem.
 
 1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Bases de Dados > Base de Dados SQL**.
@@ -153,7 +153,7 @@ Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada
 9. Clique em **Selecionar** para o novo servidor.
 
     ![Novo servidor](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Clique **em Criar**.
+10. Clique em **Criar**.
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 Uma conta do Storage do Azure fornece recursos para armazenar dados de fila e blob na nuvem.
@@ -176,14 +176,15 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
     Se o serviço em nuvem e a conta do Storage estiverem em datacenters diferentes (regiões diferentes), a latência aumentará e será ser-lhe-á debitada a largura de banda fora do datacenter. A largura de banda dentro de um datacenter é gratuita.
 
     Os grupos de afinidades do Azure fornecem um mecanismo para minimizar a distância entre os recursos num data center, o que poderá reduzir a latência. Este tutorial não utiliza grupos de afinidades. Para obter mais informações, consulte [Como Criar um Grupo de Afinidades no Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Clique **em Criar**.
+7. Clique em **Criar**.
 
     ![Nova conta do Storage](./media/cloud-services-dotnet-get-started/newstorage.png)
 
     Na imagem, é criada uma conta do Storage com o URL `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurar a solução para utilizar a Base de Dados SQL do Azure quando for executada no Azure
-O projeto Web e o projeto de função de trabalho têm a sua própria cadeia de ligação de base de dados, e cada uma tem de apontar para a Base de Dados SQL do Azure quando a aplicação for executada no Azure.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Configure a solução para utilizar a sua base de dados na Base de Dados Azure SQL quando funciona em Azure
+
+O projeto web e o projeto de função do trabalhador cada um tem a sua própria cadeia de conexão de base de dados, e cada um precisa apontar para a base de dados na Base de Dados Azure SQL quando a aplicação é executada em Azure.
 
 Utilizará uma [transformação Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função da Web e uma definição de ambiente de serviço em nuvem para a função de trabalho.
 

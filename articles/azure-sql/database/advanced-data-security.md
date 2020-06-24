@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 7efcc4a9ec7da2bdd4005c124d5d0e8dd03c4363
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 5a732683b52885173a60563f436b6ab01ea00710
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669703"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254111"
 ---
 # <a name="advanced-data-security"></a>Segurança de dados avançada
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Para visualizar e gerir as definições de ADS, navegue para **Segurança Avanç
 
 ![Definições do servidor](./media/advanced-data-security/server_settings.png)
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Gerir as definições de ADS para uma base de dados SQL
+## <a name="4-manage-ads-settings-for-a-database"></a>4. Gerir as definições de ADS para uma base de dados
 
 Para substituir as definições de ADS para uma determinada base de dados, consulte a Segurança avançada de dados na caixa **de verificação do nível da base de dados.** Utilize esta opção apenas se tiver um requisito específico para receber alertas separados de Proteção de Ameaças Avançadas ou resultados de avaliação de vulnerabilidade para cada base de dados, em vez dos alertas e resultados recebidos para todas as bases de dados do servidor ou caso gerido.
 
@@ -74,7 +74,7 @@ As definições avançadas de segurança de dados para o seu servidor ou instân
 
 ![Definições de base de dados](./media/advanced-data-security/database_settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Classificação & data Discovery](data-discovery-and-classification-overview.md)
 - Saiba mais sobre [a avaliação da vulnerabilidade](sql-vulnerability-assessment.md)

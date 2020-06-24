@@ -2,45 +2,44 @@
 title: Configurar uma análise de dependência sem agente na avaliação do servidor Azure Migrate
 description: Configure a análise de dependência sem agente na Avaliação do Servidor Azure Migrate.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: 68c95c74768f9d9628f92b061754c942b080565c
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 6/08/2020
+ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659973"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771381"
 ---
-# <a name="set-up-agentless-dependency-visualization"></a>Configurar a visualização da dependência sem agente 
+# <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências de máquinas (sem agente)
 
-Este artigo descreve como configurar uma análise de dependência sem agente no Azure Migrate:Server Assessment. [A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar e a compreender dependências entre máquinas que pretende avaliar e migrar para Azure.
+Este artigo descreve como configurar uma análise de dependência sem agente no Azure Migrate:Server Assessment. [A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar e a compreender dependências entre máquinas para avaliação e migração para Azure.
 
 
 > [!IMPORTANT]
-> A visualização de dependência de agentes está atualmente em pré-visualização apenas para VMware VMs, descoberto com a ferramenta Azure Migrate:Server Assessment.
+> A visualização de dependência de agentes está atualmente em pré-visualização para VMware VMs descobertos com a ferramenta Azure Migrate:Server Assessment.
 > As características podem ser limitadas ou incompletas.
 > Esta pré-visualização é coberta pelo suporte ao cliente e pode ser usada para cargas de trabalho de produção.
 > Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## <a name="current-limitations"></a>Limitações atuais
 
+- Na visão de análise de dependência, não é possível adicionar ou remover um servidor de um grupo.
+- Um mapa de dependência de um grupo de servidores não está disponível atualmente.
+- Os dados de dependência não podem ser descarregados em formato tabular.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- [Saiba mais sobre](concepts-dependency-visualization.md#agentless-analysis) a análise da dependência de agente.
-- [Rever](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) os requisitos pré-requisitos e requisitos de suporte para a criação de visualização de dependência sem agentes para VMware VMs
-- Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto Azure Migrate.
-- Se já criou um projeto, certifique-se de que [adicionou](how-to-assess.md) a ferramenta Azure Migrate:Server Assessment.
-- Certifique-se de que montou um [aparelho Azure Migrate](migrate-appliance.md) para descobrir as suas máquinas no local. Saiba como configurar um aparelho para [VMware VMs.](how-to-set-up-appliance-vmware.md) O aparelho descobre máquinas no local e envia metadados e dados de desempenho para a Azure Migrate:Avaliação do servidor.
+- [Reveja](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operativos suportados e as permissões necessárias.
+- Certifique-se de:
+    - Tenha um projeto Azure Migrate. Se não o fizeres, [cria](how-to-add-tool-first-time.md) um agora.
+    - Verifique se [adicionou](how-to-assess.md) a ferramenta Azure Migrate:Server Assessment ao projeto.
+    - Crie um [aparelho Azure Migrate](migrate-appliance.md) para descobrir máquinas no local. [Configurar um aparelho](how-to-set-up-appliance-vmware.md) para VMware VMs. O aparelho descobre máquinas no local e envia metadados e dados de desempenho para a Azure Migrate:Avaliação do servidor.
+- Verifique se as Ferramentas VMware (mais tarde de 10.2) estão instaladas em cada VM que pretende analisar.
 
-
-## <a name="current-limitations"></a>Limitações atuais
-
-- Neste momento não é possível adicionar ou remover um servidor de um grupo, na vista de análise de dependência.
-- Um mapa de dependência de um grupo de servidores não está disponível atualmente.
-- Atualmente, os dados de dependência não podem ser descarregados em formato tabular.
 
 ## <a name="create-a-user-account-for-discovery"></a>Criar uma conta de utilizador para a descoberta
 
-Crie uma conta de utilizador para que a Avaliação do Servidor possa aceder ao VM para ser descoberta. [Conheça os](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) requisitos de conta.
+Crie uma conta de utilizador para que a Avaliação do Servidor possa aceder ao VM para descobrir dependências. [Saiba mais](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) sobre os requisitos de conta para Windows e Linux VMs.
 
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Adicione a conta de utilizador ao aparelho
@@ -105,6 +104,25 @@ Os dados de dependência são exportados e descarregados num formato CSV. O fich
 
 ![Dependências das exportações](./media/how-to-create-group-machine-dependencies-agentless/export.png)
 
+### <a name="dependency-information"></a>Informação sobre dependência
+
+Cada linha no CSV exportado corresponde a uma dependência observada na faixa horária especificada. 
+
+O quadro seguinte resume os campos do CSV exportado. Note que os campos de nome, aplicação e processo do servidor são preenchidos apenas para servidores que tenham uma análise de dependência sem agentes ativada.
+
+**Nome do campo** | **Detalhes**
+--- | --- 
+Horário | O horário durante o qual a dependência foi observada. <br/> Os dados de dependência são capturados ao longo de 6 horas de slots atualmente.
+Nome do servidor de origem | Nome da máquina de origem 
+Aplicação de origem | Nome da aplicação na máquina de origem 
+Processo de origem | Nome do processo na máquina de origem 
+Nome do servidor de destino | Nome da máquina de destino
+ID de destino | Endereço IP da máquina de destino
+Aplicação de destino | Nome da aplicação na máquina de destino
+Processo de destino | Nome do processo na máquina de destino 
+Porta de destino | Número de porta na máquina de destino
+
+
 ## <a name="stop-dependency-discovery"></a>Parar a descoberta da dependência
 
 Escolha as máquinas em que pretende parar a descoberta da dependência.
@@ -117,6 +135,6 @@ Escolha as máquinas em que pretende parar a descoberta da dependência.
 5. Clique **em Remover servidores**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Agrupem as máquinas](how-to-create-a-group.md) para avaliação.
+[Máquinas de grupo](how-to-create-a-group.md) para avaliação.

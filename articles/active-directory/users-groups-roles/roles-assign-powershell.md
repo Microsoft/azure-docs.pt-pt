@@ -1,44 +1,44 @@
 ---
-title: Atribuir funções personalizadas utilizando o Azure PowerShell - Azure AD [ Microsoft Docs
-description: Gerencie os membros de um cargo personalizado de administrador da Azure AD com a Azure PowerShell.
+title: Atribuir funções personalizadas usando Azure PowerShell - Azure AD / Microsoft Docs
+description: Gerir membros de um papel personalizado de administrador AD Azure com a Azure PowerShell.
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582600"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732060"
 ---
-# <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com âmbito de recursos utilizando powerShell no Diretório Ativo Azure
+# <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com âmbito de recursos utilizando o PowerShell no Azure Ative Directory
 
-Este artigo descreve como criar uma atribuição de papéis no âmbito da organização em Azure Ative Directory (Azure AD). Atribuir um papel no âmbito da organização concede acesso em toda a organização Azure AD. Para criar uma atribuição de funções com um âmbito de um único recurso Azure AD, consulte [como criar uma função personalizada e atribuí-la no âmbito](roles-create-custom.md)do recurso . Este artigo utiliza o módulo PowerShell Version 2 do [Diretório Ativo Azure.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)
+Este artigo descreve como criar uma atribuição de papel no âmbito da organização em Azure Ative Directory (Azure AD). Atribuir um papel no âmbito da organização concede acesso a toda a organização Azure AD. Para criar uma atribuição de funções com um âmbito de um único recurso AD Azure, consulte [Como criar uma função personalizada e atribuí-la no âmbito de recursos](roles-create-custom.md). Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)
 
-Para obter mais informações sobre as funções de administrador da Azure AD, consulte as funções de [administrador de atribuição no Diretório Ativo azure](directory-assign-admin-roles.md).
+Para obter mais informações sobre as funções de administrador da Azure AD, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](directory-assign-admin-roles.md).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Ligue-se à sua organização Azure AD utilizando uma conta de administrador global para atribuir ou remover funções.
+Ligue-se à sua organização Azure AD usando uma conta de administrador global para atribuir ou remover funções.
 
-## <a name="prepare-powershell"></a>Preparar powerShell
+## <a name="prepare-powershell"></a>Preparar PowerShell
 
-Instale o módulo PowerShell Azure AD a partir da [Galeria PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de pré-visualização Azure AD PowerShell, utilizando o seguinte comando:
+Instale o módulo Azure AD PowerShell da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de pré-visualização Azure AD PowerShell, utilizando o seguinte comando:
 
 ``` PowerShell
 import-module azureadpreview
 ```
 
-Para verificar se o módulo está pronto a ser utilizado, corresponda à versão devolvida pelo seguinte comando ao indicado aqui:
+Para verificar se o módulo está pronto a ser utilizado, combine a versão devolvida pelo seguinte comando ao indicado aqui:
 
 ``` PowerShell
 get-module azureadpreview
@@ -47,13 +47,13 @@ get-module azureadpreview
   Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-Agora pode começar a utilizar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo AD Azure, consulte a documentação de referência on-line para o módulo de [pré-visualização da AD Azure](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
+Agora pode começar a utilizar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo AD Azure, consulte a documentação de referência on-line para o [módulo de pré-visualização AZure AD](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
 
-## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Atribuir uma função a um utilizador ou diretor de serviço com âmbito de recurso
+## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Atribuir uma função a um utilizador ou principal de serviço com âmbito de recursos
 
-1. Abra o módulo powerShell de pré-visualização Da AD Azure.
-1. Inscreva-se executando `Connect-AzureAD`o comando.
-1. Crie uma nova função utilizando o seguinte script PowerShell.
+1. Abra o módulo PowerShell de pré-visualização Azure AD.
+1. Inscreva-se executando o comando `Connect-AzureAD` .
+1. Crie um novo papel utilizando o seguinte script PowerShell.
 
 ``` PowerShell
 ## Assign a role to a user or service principal with resource scope
@@ -69,13 +69,13 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Para atribuir a função a um diretor de serviço em vez de um utilizador, utilize o [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Para atribuir a função a um principal de serviço em vez de um utilizador, utilize o [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## <a name="operations-on-roledefinition"></a>Operações em RoleDefinition
 
-Os objetos de definição de papel contêm a definição do papel incorporado ou personalizado, juntamente com as permissões que são concedidas por essa atribuição de funções. Este recurso apresenta definições de papéis personalizadas e diretórios incorporados (que são exibidos na forma equivalente roleDefinition). Hoje, uma organização azure ad pode ter um máximo de 30 Definições personalizadas únicas definidas.
+Os objetos de definição de função contêm a definição do papel incorporado ou personalizado, juntamente com as permissões que são concedidas por essa atribuição de funções. Este recurso exibe definições de funções personalizadas e diretórios incorporados (que são apresentados na forma equivalente de definição de função). Hoje, uma organização Azure AD pode ter um máximo de 30 RoleDefinitions personalizados únicos definidos.
 
-### <a name="create-operations-on-roledefinition"></a>Criar operações na Definição de RoleDefinition
+### <a name="create-operations-on-roledefinition"></a>Criar Operações na Interpretação de Função
 
 ``` PowerShell
 # Basic information
@@ -95,7 +95,7 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="read-operations-on-roledefinition"></a>Ler Operações sobre Definição de RoleDefinition
+### <a name="read-operations-on-roledefinition"></a>Ler Operações em RoleDefinition
 
 ``` PowerShell
 # Get all role definitions
@@ -108,7 +108,7 @@ Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
-### <a name="update-operations-on-roledefinition"></a>Atualizar operações na RoleDefinition
+### <a name="update-operations-on-roledefinition"></a>Operações de atualização sobre adefinição de funções
 
 ``` PowerShell
 # Update role definition
@@ -117,18 +117,18 @@ Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb16
 Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
-### <a name="delete-operations-on-roledefinition"></a>Eliminar operações em RoleDefinition
+### <a name="delete-operations-on-roledefinition"></a>Eliminar operações na RoleDefinition
 
 ``` PowerShell
 # Delete role definition
 Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
-## <a name="operations-on-roleassignment"></a>Operações em RoleAssignment
+## <a name="operations-on-roleassignment"></a>Operações de Destacamento de RoleAssinamento
 
-As atribuições de funções contêm informações que ligam um determinado diretor de segurança (um utilizador ou diretor de serviço de aplicação) a uma definição de função. Se necessário, pode adicionar um âmbito de um único recurso Azure AD para as permissões atribuídas.  Restringir o âmbito das permissões é suportado para funções incorporadas e personalizadas.
+As atribuições de funções contêm informações que ligam um dado principal de segurança (um utilizador ou principal do serviço de aplicações) a uma definição de função. Se necessário, pode adicionar um âmbito de um único recurso AD Azure para as permissões atribuídas.  A restrição do âmbito das permissões é suportada para funções incorporadas e personalizadas.
 
-### <a name="create-operations-on-roleassignment"></a>Criar operações em RoleAssignment
+### <a name="create-operations-on-roleassignment"></a>Criar Operações sobre RoleAssignment
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -143,7 +143,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="read-operations-on-roleassignment"></a>Ler Operações sobre Atribuição de Funções
+### <a name="read-operations-on-roleassignment"></a>Ler Operações sobre RoleAssignment
 
 ``` PowerShell
 # Get role assignments for a given principal
@@ -153,7 +153,7 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### <a name="delete-operations-on-roleassignment"></a>Eliminar operações em RoleAssignment
+### <a name="delete-operations-on-roleassignment"></a>Eliminar operações sobre a assinatura de roleAssignment
 
 ``` PowerShell
 # Delete role assignment
@@ -162,6 +162,6 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Partilhe connosco no fórum de [funções administrativas da Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-- Para mais informações sobre funções e atribuições de funções de administrador da AD azul, consulte [funções](directory-assign-admin-roles.md)de administrador de atribuição .
-- Para obter permissões de utilizador predefinidas, consulte uma [comparação das permissões padrão dos hóspedes e dos utilizadores dos membros](../fundamentals/users-default-permissions.md).
+- Partilhe connosco no fórum de [funções administrativas Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Para obter mais sobre funções e atribuições de funções de administrador ad azure, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+- Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](../fundamentals/users-default-permissions.md).

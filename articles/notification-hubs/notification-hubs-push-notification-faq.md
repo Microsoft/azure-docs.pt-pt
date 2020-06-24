@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: notificações push, notificações push, notificações push iOS, notificações push android, ios push, push android push
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 29ef1ec551169bb84680f343e38949f73724f5ae
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307389"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255131"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com a Azure Notification Hubs: Perguntas frequentes
 
@@ -69,7 +67,7 @@ Os SDKs do servidor estão disponíveis para .NET, Java, Node.js, PHP e Python. 
 
 ### <a name="which-client-platforms-do-you-support"></a>Que plataformas de clientes apoia?
 
-As notificações push são suportadas para [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android,](notification-hubs-android-push-notification-google-fcm-get-started.md) [Windows Universal,](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) [Windows Phone,](notification-hubs-windows-mobile-push-notifications-mpns.md) [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin[(iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android, e [Safari.](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) Para mais informações, aceda à página [de tutoriais 'Iniciar' os Centros de Notificação.]
+As notificações push são suportadas para [iOS](ios-sdk-get-started.md), [Android,](notification-hubs-android-push-notification-google-fcm-get-started.md) [Windows Universal,](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) [Windows Phone,](notification-hubs-windows-mobile-push-notifications-mpns.md) [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md), e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para mais informações, consulte a página [de tutoriais 'Iniciar' no Centro de Notificação.](ios-sdk-get-started.md)
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Suporta mensagens de texto, e-mail ou notificações web?
 
@@ -181,7 +179,7 @@ O Azure Notification Hubs encripta todos os dados do cliente em repouso, com exc
 
 ### <a name="is-there-audit-log-capability"></a>Existe capacidade de registo de auditoria?
 
-Yes. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
+Sim. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
@@ -206,7 +204,6 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 [Preços dos hubs de notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Centros de Notificação REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Centros de Notificação Iniciando tutoriais]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Orientação de registo de backend]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Orientação de registo de backend 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

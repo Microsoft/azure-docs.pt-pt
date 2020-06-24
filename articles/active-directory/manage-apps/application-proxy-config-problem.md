@@ -1,43 +1,43 @@
 ---
-title: Problema na criação de aplicação de procuração de aplicações / Microsoft Docs
-description: Como resolver problemas criando aplicações de procuração de aplicações no portal Azure AD Admin
+title: Problema na criação de uma aplicação Proxy de aplicação de aplicação / Microsoft Docs
+description: Como resolver problemas criando aplicações de Procuração de Aplicações no portal AD AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2593f80db4c271d6ae4773f324cc9777e5400550
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65825806"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764966"
 ---
-# <a name="problem-creating-an-application-proxy-application"></a>Problema de criação de uma aplicação proxy de aplicação 
+# <a name="problem-creating-an-application-proxy-application"></a>Problema na criação de uma aplicação de Procuração de Aplicação 
 
-Abaixo estão algumas das questões comuns que as pessoas enfrentam na criação de uma nova aplicação de procuração de aplicações.
+Abaixo estão algumas das questões comuns que as pessoas enfrentam ao criar uma nova aplicação de procuração de aplicações.
 
 ## <a name="recommended-documents"></a>Documentos recomendados 
 
-Para saber mais sobre a criação de uma aplicação proxy de aplicação através do Portal da Administração, consulte as aplicações da Publicação utilizando o Proxy de [Aplicação AD Azure](application-proxy-add-on-premises-application.md).
+Para saber mais sobre a criação de uma aplicação Proxy de aplicação através do Portal Admin, consulte [as aplicações publicar usando o Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-Se estiver a seguir os passos desse documento e estiver a ter um erro na criação da aplicação, consulte os detalhes do erro para obter informações e sugestões para a forma de corrigir a aplicação. A maioria das mensagens de erro incluem uma correção sugerida. 
+Se estiver a seguir os passos nesse documento e estiver a obter um erro ao criar a aplicação, consulte os detalhes de erro para obter informações e sugestões de como corrigir a aplicação. A maioria das mensagens de erro incluem uma correção sugerida. 
 
 ## <a name="specific-things-to-check"></a>Coisas específicas para verificar
 
 Para evitar erros comuns, verifique:
 
--   É um administrador com permissão para criar um pedido de procuração de aplicação
+-   É um administrador com permissão para criar uma aplicação de Procuração de Aplicação
 
 -   O URL interno é único
 

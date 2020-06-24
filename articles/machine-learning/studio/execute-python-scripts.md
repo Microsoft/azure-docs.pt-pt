@@ -5,17 +5,17 @@ description: Aprenda a usar o módulo Execut Python Script para usar o código P
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 1d164a5ab3d1ea9c1b07f11ee074670d3e5124c5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4afb6dca94642ab9b908a4f07ff5de56677626f2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558913"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696308"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem de máquina python no Azure Machine Learning Studio (clássico)
 
@@ -79,9 +79,9 @@ Em seguida, criamos um ficheiro Hello.zip que contém Hello.py:
 
 ![Ficheiro zip contendo código Python definido pelo utilizador](./media/execute-python-scripts/figure5.png)
 
-Faça o upload do ficheiro zip como um conjunto de dados para o Studio (clássico). Em seguida, crie e execute uma experiência que utilize o código Python no ficheiro Hello.zip, fixando-o à terceira porta de entrada do módulo **executante python script,** tal como mostrado na imagem seguinte.
+Faça o upload do ficheiro zip como um conjunto de dados para o Studio (clássico). Em seguida, crie e execute uma experiência que utilize o código Python no ficheiro Hello.zip, fixando-o à terceira porta de entrada do módulo **executante python script,** como mostrado na imagem seguinte.
 
-![Experimente a experiência com Hello.zip como entrada para um módulo de script execute Python](./media/execute-python-scripts/figure6a.png)
+![Experimente a experiência com Hello.zip como entrada para um módulo de script de Python executo](./media/execute-python-scripts/figure6a.png)
 
 ![Código Python definido pelo utilizador carregado como um ficheiro zip](./media/execute-python-scripts/figure6b.png)
 

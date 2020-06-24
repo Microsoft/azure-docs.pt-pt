@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 6204600cde1b9776e5edbbe129d550065cebf331
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 78af56e0b6f9e8e195ab77fdc57da336dd170c25
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322112"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255063"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ A autenticação é o processo de provar que o utilizador é quem diz ser. Azure
 
 - **Autenticação SQL:**
 
-    A autenticação da base de dados SQL refere-se à autenticação de um utilizador ao ligar-se à Base de Dados Azure SQL ou à Instância Gerida Azure SQL utilizando o nome de utilizador e a palavra-passe. Um **login de administração do servidor** com um nome de utilizador e senha deve ser especificado quando o servidor está a ser criado. Utilizando estas credenciais, um **administrador de servidor** pode autenticar em qualquer base de dados desse servidor ou instância como o proprietário da base de dados. Depois disso, podem ser criados logins e utilizadores SQL adicionais pela administração do servidor, que permitem aos utilizadores conectar-se usando o nome de utilizador e a palavra-passe.
+    A autenticação SQL refere-se à autenticação de um utilizador ao ligar-se à Base de Dados Azure SQL ou à Instância Gerida Azure SQL utilizando o nome de utilizador e a palavra-passe. Um **login de administração do servidor** com um nome de utilizador e senha deve ser especificado quando o servidor está a ser criado. Utilizando estas credenciais, um **administrador de servidor** pode autenticar em qualquer base de dados desse servidor ou instância como o proprietário da base de dados. Depois disso, podem ser criados logins e utilizadores SQL adicionais pela administração do servidor, que permitem aos utilizadores conectar-se usando o nome de utilizador e a palavra-passe.
 
 - **Autenticação do Diretório Ativo Azure:**
 
@@ -73,7 +73,7 @@ A autorização refere-se às permissões atribuídas a um utilizador dentro de 
 
 Como uma boa prática, crie papéis personalizados quando necessário. Adicione os utilizadores ao papel com os privilégios menos necessários para fazer a sua função de trabalho. Não adtribua permissões diretamente aos utilizadores. A conta de administração do servidor é um membro da função de db_owner incorporada, que tem permissões extensivas e só deve ser concedida a poucos utilizadores com funções administrativas. Para aplicações, utilize o [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo ou utilizar [funções de aplicação](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Esta prática garante que a aplicação que se liga à base de dados tem os privilégios menos necessários pela aplicação. Seguir estas boas práticas também fomenta a separação de deveres.
 
-### <a name="row-level-security"></a>Row-level security
+### <a name="row-level-security"></a>Segurança ao Nível da Linha
 
 A Segurança de Nível de Linha permite que os clientes controlem o acesso a linhas numa tabela de bases de dados com base nas características do utilizador executar uma consulta (por exemplo, membro do grupo ou contexto de execução). A Segurança de Nível de Linha também pode ser usada para implementar conceitos de segurança personalizados baseados em etiquetas. Para obter mais informações, consulte [a segurança de nível de linha.](/sql/relational-databases/security/row-level-security)
 
@@ -87,7 +87,7 @@ A SQL Database e a SQL Managed Instance protegem os dados dos clientes fornecend
 
 A SQL Database e a SQL Managed Instance auditing rastreia as atividades da base de dados e ajuda a manter o cumprimento das normas de segurança, registando eventos de base de dados a um registo de auditoria numa conta de armazenamento Azure detida pelo cliente. A auditoria permite que os utilizadores monitorizem as atividades em curso na base de dados, bem como analisem e investiguem atividades históricas para identificar potenciais ameaças ou suspeitas de abuso e violações de segurança. Para obter mais informações, consulte Começar com [a SQL Database Auditing](../../azure-sql/database/auditing-overview.md).  
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
 
 A Advanced Threat Protection está a analisar os seus registos para detetar comportamentos incomuns e tentativas potencialmente nocivas de aceder ou explorar bases de dados. São criados alertas para atividades suspeitas como injeção de SQL, potencial infiltração de dados e ataques de força bruta ou para anomalias nos padrões de acesso para capturar escaladas de privilégios e utilização de credenciais violadas. Os alertas são vistos a partir do Centro de [Segurança do Azure,](https://azure.microsoft.com/services/security-center/)onde são fornecidos os detalhes das atividades suspeitas e recomendações para uma investigação mais aprofundada dada juntamente com ações para mitigar a ameaça. A Proteção Avançada de Ameaças pode ser ativada por servidor por uma taxa adicional. Para obter mais informações, consulte [Começar com a SqL Database Advanced Threat Protection](threat-detection-configure.md).
 
@@ -152,7 +152,7 @@ Para mais informações, consulte [Começar com a descoberta e classificação d
 
 Além das funcionalidades e funcionalidades acima referidas que podem ajudar a sua aplicação a cumprir vários requisitos de segurança, a Azure SQL Database também participa em auditorias regulares, tendo sido certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma discussão sobre a utilização de logins, contas de utilizador, funções de base de dados e permissões na Base de Dados SQL e na SQL Managed Instance, consulte [Gerir logins e contas de utilizador.](logins-create-manage.md)
 - Para uma discussão sobre a auditoria da base de dados, consulte [a auditoria.](../../azure-sql/database/auditing-overview.md)

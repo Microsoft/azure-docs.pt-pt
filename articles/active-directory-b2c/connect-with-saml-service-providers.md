@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 68143c4ac3851604996e1f7ba2adce48934e59c5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b40d9c95cec3e83ff02aa04ca39eb942635ee90d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295393"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202940"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -119,7 +119,7 @@ Localize a `<ClaimsProviders>` secção e adicione o seguinte corte XML.
 
 Pode alterar o valor dos `IssuerUri` metadados. Este é o emitente URI que é devolvido na resposta SAML da Azure AD B2C. A sua aplicação de partido de gestão deve ser configurada para aceitar um emitente URI durante a validação de afirmação DAL.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -159,13 +159,13 @@ Agora que o seu inquilino pode emitir afirmações SAML, precisa de criar a pol�
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3.1 Criar política de inscrição ou de inscrição
 
-1. Crie uma cópia do ficheiro *Signin.xml* do Signo De início no seu diretório de trabalho e guarde-o com um novo nome. Por exemplo, *SignUpOrSigninSAML.xml*. Este é o seu ficheiro de política do partido.
+1. Crie uma cópia do ficheiro *SignUpOrSignin.xml* no seu diretório de trabalho do pack inicial e guarde-o com um novo nome. Por exemplo, *SignUpOrSigninSAML.xml. * Este é o seu ficheiro de política do partido.
 
 1. Abra o ficheiro *SignUpOrSigninSAML.xml* no seu editor preferido.
 
 1. Mude a `PolicyId` `PublicPolicyUri` política para _B2C_1A_signup_signin_saml_ e como se `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` vê abaixo.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -178,7 +178,7 @@ Agora que o seu inquilino pode emitir afirmações SAML, precisa de criar a pol�
 
 1. Adicione o corte XML logo antes do `<RelyingParty>` elemento. Este XML substitui o passo de orquestração número 7 da jornada do utilizador _Do SignUpOrSignIn._ Se tiver começado a partir de uma pasta diferente no pacote de arranque, ou personalizado a sua viagem de utilizador adicionando ou removendo etapas de orquestração, certifique-se de que o número (no `order` elemento) está alinhado com o especificado na viagem do utilizador para o passo do emissor de token (por exemplo, nas outras pastas de arranque é o passo número 4 para `LocalAccounts` , 6 para `SocialAccounts` e 9 para `SocialAndLocalAccountsWithMfa` ).
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -190,7 +190,7 @@ Agora que o seu inquilino pode emitir afirmações SAML, precisa de criar a pol�
 
 1. Substitua todo o `<TechnicalProfile>` elemento no elemento pelo seguinte perfil técnico `<RelyingParty>` XML.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -210,7 +210,7 @@ Agora que o seu inquilino pode emitir afirmações SAML, precisa de criar a pol�
 
 O seu ficheiro final de política do partido deve parecer o seguinte:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -297,7 +297,7 @@ Se existirem propriedades especificadas tanto no URL de metadados SAML *como* no
 
 Para este tutorial, que utiliza a aplicação de teste SAML, utilize o seguinte valor `samlMetadataUrl` para:
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -309,7 +309,7 @@ Se optar por configurar o URL de resposta e url de logout no manifesto de aplica
 
 Para este tutorial, no qual utiliza a aplicação de teste SAML, desapedaque `url` a propriedade do valor indicado no seguinte corte `replyUrlsWithType` JSON.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -324,7 +324,7 @@ Esta propriedade opcional representa o `Logout` URL `SingleLogoutService` (URL n
 
 Para este tutorial, que utiliza a aplicação de teste SAML, deixe `logoutUrl` definido `https://samltestapp2.azurewebsites.net/logout` para:
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

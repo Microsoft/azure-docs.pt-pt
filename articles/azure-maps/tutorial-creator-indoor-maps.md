@@ -3,17 +3,17 @@ title: Use o Criador para criar mapas interiores
 description: Use o Criador de Mapas Azure para criar mapas interiores.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/28/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c27752d7a4b8e99dd70563cece02a4fd4e67bdc1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 93827e4d5f6bcf66191ae78c18adac71b5dd0a22
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560357"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255182"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -64,25 +64,30 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
 5. Clique no botão **'Enviar'** azul e aguarde que o pedido seja processado. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta. Copie o valor da chave **localização,** que é a `status URL` .
 
-6. Para verificar o estado da chamada da API, crie um pedido GET HTTP sobre o `status URL` . Terá de anexar a chave de subscrição primária do URL para autenticação.
+6. Para verificar o estado da chamada da API, crie um pedido **GET** HTTP sobre o `status URL` . Terá de anexar a chave de subscrição primária do URL para autenticação. O pedido **GET** deve gostar do seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationsId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Quando o pedido **GET** HTTP estiver concluído com sucesso, pode utilizar o `resourceLocation` URL para recuperar metadados deste recurso no passo seguinte.
+7. Quando o pedido **GET** HTTP estiver concluído com sucesso, retornará um `resourceLocation` . Contém `resourceLocation` o único para o conteúdo `udid` carregado. Opcionalmente, pode utilizar o `resourceLocation` URL para recuperar metadados deste recurso no passo seguinte.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{upload-udid}?api-version=1.0"
+        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. Para recuperar metadados de conteúdo, crie um pedido **GET** HTTP no `resourceLocation` URL que copiou no passo 7. O corpo de resposta contém um exclusivo `udid` para o conteúdo carregado, a localização para aceder/descarregar o conteúdo no futuro, e alguns outros metadados sobre o conteúdo como a data, tamanho e assim por diante. Um exemplo da resposta global é:
+8. Para recuperar metadados de conteúdo, crie um pedido **GET** HTTP no `resourceLocation` URL que foi recuperado no passo 7. Certifique-se de anexar a chave de subscrição primária ao URL para autenticação. O pedido **GET** deve gostar do seguinte URL:
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. Quando o pedido **GET** HTTP estiver concluído com sucesso, o organismo de resposta conterá `udid` o especificado no passo `resourceLocation` 7, a localização para aceder/descarregar o conteúdo no futuro, e outros metadados sobre o conteúdo como a data, tamanho e assim por diante criados/atualizados. Um exemplo da resposta global é:
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
@@ -102,7 +107,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 2. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para converter o seu pacote de desenho carregado em dados de mapa. Use o `udid` para o pacote carregado.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={upload-udid}&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
 
 3. Clique no botão **Enviar** e aguarde que o pedido processe. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta e procure a chave **localização.** Copie o valor da chave **Localização,** que é o `status URL` pedido de conversão.
@@ -163,7 +168,7 @@ O conjunto de dados é uma coleção de características do mapa, tais como edif
 4. Faça um pedido **GET** no `statusURL` para obter o `datasetId` . Apecir a chave de subscrição primária do Azure Maps para a autenticação. O pedido deve parecer-se com o seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 5. Quando o pedido **GET** HTTP estiver concluído com sucesso, o cabeçalho de resposta conterá `datasetId` o conjunto de dados criado. Copiar o `datasetId` . Terá de usar o `datasetId` para criar um azulejo.
@@ -192,7 +197,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 3. Faça um pedido **GET** no `statusURL` para o azulejo. Apecir a chave de subscrição primária do Azure Maps para a autenticação. O pedido deve parecer-se com o seguinte URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Quando o pedido **GET** HTTP estiver concluído com sucesso, o cabeçalho de resposta conterá `tilesetId` o para o teesto criado. Copiar o `tilesetId` .

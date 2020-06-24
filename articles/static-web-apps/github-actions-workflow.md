@@ -2,17 +2,17 @@
 title: GitHub Actions fluxos de trabalho para Azure Static Web Apps
 description: Aprenda a usar repositórios GitHub para configurar a implementação contínua para Azure Static Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
-ms.openlocfilehash: e2cc1e20c20c17742f2bea56f4e87e8678e4cc03
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.author: cshoe
+ms.openlocfilehash: 4d69bb69081643e0223c23a9029aabb35c8d22ef
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434010"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254723"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
@@ -155,13 +155,13 @@ A implantação chama sempre `npm install` antes de qualquer comando personaliza
 
 ## <a name="route-file-location"></a>Localização do ficheiro de rota
 
-Pode personalizar o fluxo de trabalho para procurar as [rotas.json](routes.md) em qualquer pasta do seu repositório. A seguinte propriedade pode ser definida sob a secção de um `with` trabalho.
+Pode personalizar o fluxo de trabalho para procurar o [routes.jsem](routes.md) qualquer pasta do seu repositório. A seguinte propriedade pode ser definida sob a secção de um `with` trabalho.
 
 | Propriedade            | Descrição |
 |---------------------|-------------|
-| `routes_location` | Define o local do diretório onde se encontra o ficheiro _rotas.json._ Esta localização é relativa à raiz do repositório. |
+| `routes_location` | Define o local do diretório onde se encontra a _routes.jsno_ ficheiro. Esta localização é relativa à raiz do repositório. |
 
- Ser explícito sobre a localização do seu ficheiro _rotas.json_ é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `app_artifact_location` por defeito.
+ Ser explícito sobre a localização do seu _routes.jsem_ ficheiro é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `app_artifact_location` por padrão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

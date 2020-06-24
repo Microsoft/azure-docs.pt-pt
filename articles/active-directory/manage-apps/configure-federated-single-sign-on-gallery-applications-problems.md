@@ -1,114 +1,114 @@
 ---
-title: Problemas de configuração de SSO federado para aplicações da Azure AD Gallery
-description: Resolver alguns dos problemas comuns que pode encontrar ao configurar um único letreiro federado usando o SAML para aplicações listadas na Galeria de Aplicações da AD Azure
+title: Problemas configurados SSO federados para apps da Galeria AD Azure
+description: Resolva alguns dos problemas comuns que pode encontrar ao configurar um único sign-on federado usando o SAML para aplicações que estão listadas na Galeria de Aplicações AD Azure
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 858e61c6371aac28d709a9016e4b9cbed6befe3f
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274643"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763606"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema configurando um único sign-on federado para uma aplicação da Galeria AD Azure
+# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema configurado único sinal para uma aplicação da Galeria AD AD Azure
 
-Se encontrar algum problema ao configurar uma aplicação. Verifique se seguiu todos os passos do tutorial para a aplicação. Na configuração da aplicação, tem documentação inline sobre como configurar a aplicação. Além disso, pode aceder à [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação passo a passo.
+Se encontrar um problema ao configurar uma aplicação. Verifique se seguiu todos os passos do tutorial para a aplicação. Na configuração da aplicação, tem documentação em linha sobre como configurar a aplicação. Além disso, pode aceder à [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação detalhada passo a passo.
 
-## <a name="cant-add-another-instance-of-the-application"></a>Não posso adicionar outra instância da aplicação
+## <a name="cant-add-another-instance-of-the-application"></a>Não posso adicionar outro exemplo da aplicação
 
 Para adicionar uma segunda instância de uma aplicação, você precisa ser capaz de:
 
--   Configure um identificador único para a segunda instância. Não conseguirá configurar o mesmo identificador usado em primeira instância.
+-   Configurar um identificador único para a segunda instância. Não conseguirá configurar o mesmo identificador usado em primeira instância.
 
--   Configure um certificado diferente do utilizado em primeira instância.
+-   Configurar um certificado diferente do utilizado em primeira instância.
 
-Se a aplicação não apoiar nenhuma das anteriores. Então, não será capaz de configurar uma segunda instância.
+Se a aplicação não apoiar nenhum dos acima. Então, não poderá configurar uma segunda instância.
 
-## <a name="cant-add-the-identifier-or-the-reply-url"></a>Não pode adicionar o Identificador ou o URL de Resposta
+## <a name="cant-add-the-identifier-or-the-reply-url"></a>Não é possível adicionar o Identificador ou o URL de Resposta
 
-Se não conseguir configurar o Identificador ou o URL de resposta, confirme que os valores de URL do Identificador e resposta correspondem aos padrões pré-configurados para a aplicação.
+Se não conseguir configurar o Identificador ou o URL de resposta, confirme que os valores de URL de identificação e resposta correspondem aos padrões pré-configurados para a aplicação.
 
 Para conhecer os padrões pré-configurados para a aplicação:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.** Vai para o passo 7. Se já estiver na lâmina de configuração da aplicação em Azure AD.
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.** Vai para o passo 7. Se já estiver na lâmina de configuração da aplicação no Azure AD.
 
-2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
+2. Abra a **Extensão do Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+3. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
+4. clique em **Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative.
 
 5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
+   * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 
-6. Selecione a aplicação que pretende configurar um único sinal.
+6. Selecione a aplicação desejada para configurar um único sinal de inscrição.
 
-7. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
+7. Uma vez que a aplicação é carregada, clique **no único sinal de inscrição** do menu de navegação à esquerda da aplicação.
 
-8. Selecione **sign-on baseado em SAML** a partir do **modo** drop-down.
+8. Selecione **O Sinal de SDOL baseado no** **modo** de entrega.
 
-9. Vá à caixa de texto URL **do Identificador** ou **resposta,** na **secção Domínio e URLs.**
+9. Aceda à caixa de texto de URL **de identificação** ou **resposta,** na **secção Domínio e URLs.**
 
 10. Existem três formas de conhecer os padrões suportados para a aplicação:
 
-    * Na caixa de texto, vê os padrões suportados como espaço reservado *Exemplo:* <https://contoso.com>.
+    * Na caixa de texto, vê os padrãos suportados como um espaço reservado *Exemplo:* <https://contoso.com> .
 
-    * se o padrão não for suportado, vê-se um ponto de exclamação vermelho quando se tenta introduzir o valor na caixa de texto. Se pairar sobre o rato sobre a marca de exclamação vermelha, verá os padrões suportados.
+    * se o padrão não for suportado, vê-se um ponto de exclamação vermelho quando tenta introduzir o valor na caixa de texto. Se pairares sobre o ponto de exclamação vermelho, vês os padrões suportados.
 
-    * No tutorial para a aplicação, também pode obter informações sobre os padrões suportados. Sob a secção de inscrição individual da **Configuração Azure AD.** Vá ao passo para configurar os valores sob a secção **Domínio e URLs.**
+    * No tutorial para a aplicação, também pode obter informações sobre os padrões suportados. Sob a secção de inscrição única da **Azure AD.** Vá ao passo para configurar os valores na secção **Domínio e URLs.**
 
-Se os valores não coincidirem com os padrões pré-configurados em Azure AD. Pode:
+Se os valores não corresponderem aos padrões pré-configurados no Azure AD. Pode:
 
--   Trabalhe com o fornecedor de aplicações para obter valores que correspondam ao padrão pré-configurado em Azure AD
+-   Trabalhe com o fornecedor de aplicações para obter valores que correspondam ao padrão pré-configurado no AD AZure
 
--   Ou, pode contactar a equipa <aadapprequest@microsoft.com> da Azure AD no tutorial para solicitar a atualização dos padrões suportados para a aplicação
+-   Ou, você pode contactar a equipa AZure AD em <aadapprequest@microsoft.com> ou deixar um comentário no tutorial para solicitar a atualização dos padrões suportados para a aplicação
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde posso definir o formato EntityID (Identificador de Utilizador)
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é que eu defini o formato EntityID (User Identifier)
 
-Não será possível selecionar o formato EntityID (Identificador de Utilizador) que o Azure AD envia para a aplicação na resposta após a autenticação do utilizador.
+Não poderá selecionar o formato EntityID (User Identifier) que o Azure AD envia para a aplicação na resposta após a autenticação do utilizador.
 
-A Azure AD selecione o formato para o atributo NameID (Identificador de utilizador) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o [protocolo SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) de assinatura única ao abrigo da secção NameIDPolicy,
+A Azure AD seleciona o formato para o atributo NameID (User Identifier) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o protocolo [SEML de assinatura única](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) sob a secção NameIDPolicy,
 
-## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Não é possível encontrar os metadados da AD Azure para completar a configuração com a aplicação
+## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Não é possível encontrar os metadados AD Azure para completar a configuração com a aplicação
 
-Para descarregar os metadados de aplicação ou certificado da Azure AD, siga estes passos:
+Para descarregar os metadados ou certificados da aplicação a partir da Azure AD, siga estes passos:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.**
 
-2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
+2. Abra a **Extensão do Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+3. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
+4. clique em **Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative.
 
 5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
+   * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 
-6. Selecione a aplicação que configurau um único sinal.
+6. Selecione a aplicação que configurar um único sinal de inscrição.
 
-7. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
+7. Uma vez que a aplicação é carregada, clique **no único sinal de inscrição** do menu de navegação à esquerda da aplicação.
 
-8. Vá à secção **de Certificado de Assinatura SAML** e, em seguida, clique no valor da coluna **Descarregue.** Dependendo do que a aplicação requer configurar um único sinal, você vê a opção de descarregar o Metadata XML ou o Certificado.
+8. Aceda à secção **de Certificado de Assinatura SAML** e, em seguida, clique em Baixar **o** valor da coluna. Dependendo do que a aplicação requer configurar um único sinal, vê a opção de descarregar o Metadadata XML ou o Certificado.
 
 A Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser recuperados como um ficheiro XML.
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Não sei como personalizar as reclamações da SAML enviadas para uma aplicação
 
-Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
+Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos seguintes
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

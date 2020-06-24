@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2c5f65993909e142de6017b07591529cd7cb7b86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560861"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200584"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com SQL on demand (pré-visualização)
 
@@ -49,7 +49,7 @@ Esta é uma forma rápida e fácil de ler o conteúdo dos ficheiros sem pré-con
     Esta opção permite configurar a localização da conta de armazenamento na fonte de dados e especificar o método de autenticação que deve ser utilizado para aceder ao armazenamento. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`sem `DATA_SOURCE` uma forma rápida e fácil de aceder aos ficheiros de armazenamento, mas oferece opções de autenticação limitadas. Como exemplo, o Azure AD principal só pode aceder a ficheiros usando a sua [identidade AZure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) e não pode aceder a ficheiros disponíveis ao público. Se precisar de opções de autenticação mais poderosas, use `DATA_SOURCE` a opção e defina a credencial que pretende utilizar para aceder ao armazenamento.
+    > `OPENROWSET`sem `DATA_SOURCE` uma forma rápida e fácil de aceder aos ficheiros de armazenamento, mas oferece opções de autenticação limitadas. Como exemplo, os principais da AD Azure podem aceder a ficheiros apenas utilizando a sua [identidade AZure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou ficheiros disponíveis publicamente. Se precisar de opções de autenticação mais poderosas, use `DATA_SOURCE` a opção e defina a credencial que pretende utilizar para aceder ao armazenamento.
 
 
 ## <a name="security"></a>Segurança
@@ -60,7 +60,8 @@ O administrador de armazenamento também deve permitir que um utilizador aceda a
 
 `OPENROWSET`utilizar as seguintes regras para determinar como autenticar para o armazenamento:
 - Entrar `OPENROWSET` sem mecanismo de `DATA_SOURCE` autenticação depende do tipo de chamada.
-  - Os logins AD do Azure só podem aceder a ficheiros utilizando a sua própria [identidade AZure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o armazenamento Azure permitir que o utilizador Azure AD aceda a ficheiros subjacentes (por exemplo, se o autor da chamada tiver a permissão do Leitor de Armazenamento no armazenamento) e se [ativar a autenticação passthrough AD do Azure](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) no serviço Synapse SQL.
+  - Qualquer utilizador pode usar `OPENROWSET` sem `DATA_SOURCE` ler ficheiros disponíveis publicamente no armazenamento Azure.
+  - Os logins AD do Azure podem aceder a ficheiros protegidos utilizando a sua própria [identidade AD Azure](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o armazenamento Azure permitir que o utilizador Azure AD aceda a ficheiros subjacentes (por exemplo, se o autor da chamada tiver `Storage Reader` permissão para o armazenamento do Azure).
   - Os logins SQL também podem ser utilizados `OPENROWSET` sem `DATA_SOURCE` aceder a ficheiros disponíveis ao público, ficheiros protegidos utilizando token SAS ou Identidade Gerida do espaço de trabalho synapse. Seria necessário [criar credenciais de âmbito de servidor](develop-storage-files-storage-access-control.md#examples) para permitir o acesso aos ficheiros de armazenamento. 
 - Com o mecanismo de autenticação é definido na credencial de âmbito de `OPENROWSET` `DATA_SOURCE` base de dados atribuída à fonte de dados referenciada. Esta opção permite-lhe aceder ao armazenamento disponível ao público, ou ao armazenamento de acesso utilizando o token SAS, identidade gerida do espaço de trabalho ou [identidade AD AD do chamador](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (se o chamador for o Azure AD principal). Se `DATA_SOURCE` referenciar o armazenamento Azure que não é público, você precisaria [criar credencial de base de dados](develop-storage-files-storage-access-control.md#examples) e referenciar-lo `DATA SOURCE` para permitir o acesso a ficheiros de armazenamento.
 
@@ -132,7 +133,7 @@ Se especificar a unstructured_data_path ser uma pasta, uma consulta a pedido do 
 > [!NOTE]
 > Ao contrário de Hadoop e PolyBase, a SQL on-demand não devolve subpaminações. Além disso, ao contrário de Hadoop e PolyBase, o SQL on demand devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
-No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta a pedido do SQL devolverá as linhas do mydata.txt e _hidden.txt. Não devolverá o meudata2.txt e o mydata3.txt porque estão localizados numa sub-dobradeira.
+No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta a pedido do SQL regressará às linhas de mydata.txt e _hidden.txt. Não devolverá mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 
 ![Dados recursivos para tabelas externas](./media/develop-openrowset/folder-traversal.png)
 
@@ -177,7 +178,7 @@ ESCAPE_CHAR = 'char'
 
 Especifica o carácter no ficheiro que é usado para escapar a si mesmo e todos os valores delimiter no ficheiro. Se o personagem de fuga for seguido por um valor diferente de si mesmo, ou por qualquer um dos valores delimiter, o personagem de fuga é deixado cair ao ler o valor. 
 
-O parâmetro ESCAPE_CHAR será aplicado independentemente de o FIELDQUOTE estar ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando é escapado com citações duplas em alinhamento com o comportamento do Excel CSV.
+O parâmetro ESCAPE_CHAR será aplicado independentemente de o FIELDQUOTE estar ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando deve ser escapado com outro personagem citando. Citar o carácter só pode aparecer dentro do valor da coluna se o valor for encapsulado com caracteres citantes.
 
 PRIMEIRA SOBRANCELHA = 'first_row' 
 
@@ -238,10 +239,6 @@ FROM
     ) AS [r]
 ```
 
-Se estiver a receber um erro ao dizer que os ficheiros não podem ser listados, tem de permitir o acesso ao armazenamento público no Synapse SQL a pedido:
-- Se estiver a utilizar um login SQL, tem de [criar credenciais com âmbito de servidor que permitam o acesso ao armazenamento público.](develop-storage-files-storage-access-control.md#examples)
-- Se estiver a utilizar um azure AD principal para aceder ao armazenamento público, precisaria de [criar credenciais com âmbito de servidor que permitam o acesso ao armazenamento público](develop-storage-files-storage-access-control.md#examples) e desativar a [autenticação passthrough AZure AD.](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais amostras, consulte o [quickstart de armazenamento de dados](query-data-storage.md) de consulta para aprender a usar 'OPENROWSET para ler os formatos de ficheiro [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Também pode aprender a guardar os resultados da sua consulta para o Azure Storage utilizando [o CETAS](develop-tables-cetas.md).
+Para obter mais amostras, consulte o [quickstart de armazenamento de dados](query-data-storage.md) de consulta para aprender a usar `OPENROWSET` para ler os formatos de ficheiro [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Também pode aprender a guardar os resultados da sua consulta para o Azure Storage utilizando [o CETAS](develop-tables-cetas.md).

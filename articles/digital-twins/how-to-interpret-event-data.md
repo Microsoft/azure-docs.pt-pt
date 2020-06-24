@@ -1,5 +1,5 @@
 ---
-title: Interpretar dados do evento
+title: Interpretar dados de eventos
 titleSuffix: Azure Digital Twins
 description: Veja como interpretar diferentes tipos de eventos e as suas diferentes mensagens de notificação.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4c95e686de23654688d0d7c3182c6565a907b750
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e194c046cde623e0fcdd4c73ac24f2bf0755945c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612964"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299437"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Diferentes eventos em Azure Digital Twins produzem notificações , que permitem que a solução recue quando estão a acontecer **diferentes**ações. Estes são então [encaminhados](concepts-route-events.md) para diferentes locais dentro e fora da Azure Digital Twins que podem usar esta informação para tomar medidas.
 
@@ -233,46 +236,6 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 }
 ```
 
-### <a name="digital-twin-model-change-notifications"></a>Notificações digitais de mudança de modelos duplos
-
-**As notificações de alteração de modelo** são ativadas quando um [modelo](concepts-models.md) digital twins Definition Language (DTDL) é carregado, recarregado, remendado, desativado ou eliminado.
-
-#### <a name="properties"></a>Propriedades
-
-Aqui estão os campos no corpo de uma notificação de mudança de modelo.
-
-| Name    | Valor |
-| --- | --- |
-| `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto |
-| `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Model.Upload`<br>`Microsoft.DigitalTwins.Model.Reload`(Específico do hub)<br>`Microsoft.DigitalTwins.Model.Patch`(Específico do hub)<br>`Microsoft.DigitalTwins.Model.Decom`<br>`Microsoft.DigitalTwins.Model.Delete` |
-| `datacontenttype` | application/json |
-| `subject` | ID do modelo, na forma`dtmi:<domain>:<unique model identifier>;<model version number>` |
-| `time` | Tempo de tempo para quando a operação ocorreu no modelo |
-| `sequence` | Valor expressando a posição do evento na maior sequência ordenada de eventos. Os serviços têm de adicionar um número de sequência em todas as notificações para indicar a sua encomenda, ou manter a sua própria encomenda de outra forma. O número de sequência aumenta com cada mensagem. Será reposto para 1 se o objeto for eliminado e recriado com o mesmo ID. |
-| `sequencetype` | Mais detalhes sobre como o campo de sequência é usado. Por exemplo, esta propriedade pode especificar que o valor deve ser um inteiro assinado de 32 bits, que começa em 1 e aumenta em 1 cada vez. |
-| `modelstatus` | O estado de resolução para a resolução de um modelo. Valores possíveis: Bem sucedido/NãoFound/Falhado (apenas IoT Hub) | 
-| `updatereason` | Atualizar a razão do modelo no esquema. Valores possíveis: Criar/Redefinir/Substituir (apenas IoT Hub) | 
-
-#### <a name="body-details"></a>Detalhes do corpo
-
-Não existe nenhum corpo de mensagens para as ações de upload, recarregamento e patching de modelos. O utilizador deve fazer uma `GET` chamada para obter o conteúdo do modelo. 
-
-Para e `Model.Decom` , o corpo do patch será em formato de patch JSON, como todos os outros APIs de patch na superfície Azure Digital Twins API. Então, para desativar um modelo, usaria:
-
-```json
-[
-  {
-    "op": "replace",
-    "path": "/decommissionedState",
-    "value": true
-  }
-]
-```
-
-Para `Model.Delete` , o órgão de pedido é o mesmo que um `GET` pedido, e recebe o último estado antes da supressão.
-
 ### <a name="digital-twin-change-notifications"></a>Notificações digitais de mudança de gémeos
 
 **As notificações digitais de mudança dupla** são desencadeadas quando um gémeo digital está a ser atualizado, como:
@@ -327,7 +290,7 @@ A notificação correspondente (se executada sincronizadamente pelo serviço, co
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar pontos finais e rotas para entregar eventos:
 * [Como fazer: Gerir pontos finais e rotas](how-to-manage-routes.md)

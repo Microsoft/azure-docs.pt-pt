@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267312"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253618"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Utilize SSMS para ligar e consultar a Base de Dados Azure SQL ou a exemplo gerida do Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ Completar este arranque rápido requer os seguintes itens:
   > [!IMPORTANT]
   > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com um caso gerido, você deve importar a base de dados Adventure Works em uma base de dados de casos ou modificar os scripts deste artigo para usar a base de dados de importadores do Mundo Largo.
 
-Se simplesmente quiser executar algumas consultas ad-hoc sem instalar SSMS, consulte [Quickstart: Use o editor de consulta do portal Azure para consultar uma base de dados SQL](connect-query-portal.md).
+Se simplesmente quiser executar algumas consultas ad-hoc sem instalar SSMS, consulte [Quickstart: Use o editor de consulta do portal Azure para consultar uma base de dados na Base de Dados Azure SQL](connect-query-portal.md).
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 

@@ -1,6 +1,6 @@
 ---
-title: Otimizar a entrada da rede VM [ Microsoft Docs
-description: Aprenda a otimizar a entrada da rede de máquinas virtuais Azure.
+title: Otimizar o rendimento da rede VM Microsoft Docs
+description: Saiba como otimizar o funcionamento da rede de máquinas virtuais Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -9,40 +9,40 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75690890"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695968"
 ---
-# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a entrada da rede para máquinas virtuais Azure
+# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure
 
-As máquinas virtuais Azure (VM) têm definições de rede padrão que podem ser otimizadas para a entrada de rede. Este artigo descreve como otimizar a entrada de rede para Microsoft Azure Windows e VMs Linux, incluindo grandes distribuições como Ubuntu, CentOS e Red Hat.
+As máquinas virtuais Azure (VM) têm definições de rede predefinidas que podem ser otimizadas para o rendimento da rede. Este artigo descreve como otimizar a produção de rede para o Microsoft Azure Windows e Linux VMs, incluindo grandes distribuições como Ubuntu, CentOS e Red Hat.
 
 ## <a name="windows-vm"></a>VM do Windows
 
-Se o seu Windows VM suportar [a Rede Acelerada,](create-vm-accelerated-networking-powershell.md)permitir essa funcionalidade seria a configuração ideal para a entrada. Para todos os outros VMs do Windows, a utilização de salvia lateral de receção (RSS) pode atingir uma entrada máxima mais alta do que um VM sem RSS. O RSS pode ser desativado por padrão num VM do Windows. Para determinar se o RSS está ativado e capacitá-lo se está atualmente desativado, complete os seguintes passos:
+Se o seu VM do Windows suportar [rede acelerada,](create-vm-accelerated-networking-powershell.md)ativar essa funcionalidade seria a configuração ideal para a produção. Para todos os outros VMs do Windows, a utilização de Receive Side Scaling (RSS) pode atingir uma produção máxima mais alta do que um VM sem RSS. O RSS pode ser desativado por predefinição num VM do Windows. Para determinar se o RSS está ativado e capacitá-lo se está atualmente desativado, complete os seguintes passos:
 
-1. Veja se o RSS está ativado `Get-NetAdapterRss` para um adaptador de rede com o comando PowerShell. No exemplo seguinte, a `Get-NetAdapterRss`saída devolvida do RSS não está ativada.
+1. Veja se o RSS está ativado para um adaptador de rede com o `Get-NetAdapterRss` comando PowerShell. No exemplo seguinte, a saída devolvida do `Get-NetAdapterRss` RSS não está ativada.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Para ativar o RSS, introduza o seguinte comando:
+2. Para ativar o RSS, insira o seguinte comando:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-    O comando anterior não tem uma saída. O comando alterou as definições de NIC, causando perda temporária de conectividade durante cerca de um minuto. Uma caixa de diálogo de religação aparece durante a perda de conectividade. A conectividade é tipicamente restaurada após a terceira tentativa.
-3. Confirme que o RSS está ativado `Get-NetAdapterRss` no VM, entrando novamente no comando. Se for bem sucedido, a saída de exemplo seguinte é devolvida:
+    O comando anterior não tem saída. O comando alterou as definições de NIC, causando perda temporária de conectividade durante cerca de um minuto. Uma caixa de diálogo de reconectação aparece durante a perda de conectividade. A conectividade é tipicamente restaurada após a terceira tentativa.
+3. Confirme se o RSS está ativado no VM, entrando novamente no `Get-NetAdapterRss` comando. Se for bem sucedida, a saída de exemplo a seguir é devolvida:
 
     ```powershell
     Name                    : Ethernet
@@ -52,11 +52,11 @@ Se o seu Windows VM suportar [a Rede Acelerada,](create-vm-accelerated-networkin
 
 ## <a name="linux-vm"></a>VM do Linux
 
-O RSS é sempre ativado por padrão num VM Azure Linux. Os kernels Linux lançados desde outubro de 2017 incluem novas opções de otimização de rede que permitem a um VM Linux obter uma maior entrada de rede.
+O RSS é sempre ativado por padrão num VM Azure Linux. Os kernels Linux lançados desde outubro de 2017 incluem novas opções de otimização de rede que permitem a um Linux VM alcançar uma maior produção de rede.
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implementações
 
-O kernel Ubuntu Azure oferece o melhor desempenho de rede no Azure e tem sido o núcleo padrão desde 21 de setembro de 2017. Para obter este núcleo, instale primeiro a versão mais recente suportada de 16.04-LTS, da seguinte forma:
+O kernel Ubuntu Azure fornece o melhor desempenho de rede em Azure e tem sido o núcleo padrão desde 21 de setembro de 2017. Para obter este núcleo, instale pela primeira vez a versão mais recente suportada de 16.04-LTS, da seguinte forma:
 
 ```json
 "Publisher": "Canonical",
@@ -65,7 +65,7 @@ O kernel Ubuntu Azure oferece o melhor desempenho de rede no Azure e tem sido o 
 "Version": "latest"
 ```
 
-Depois de concluída a criação, insira os seguintes comandos para obter as últimas atualizações. Estes passos também funcionam para os VMs atualmente a executar o kernel Ubuntu Azure.
+Depois de concluída a criação, insira os seguintes comandos para obter as últimas atualizações. Estes passos também funcionam para VMs atualmente com o kernel Ubuntu Azure.
 
 ```bash
 #run as root or preface with sudo
@@ -74,7 +74,7 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-O seguinte conjunto de comando opcional pode ser útil para as implementações ubuntu existentes que já têm o kernel Azure, mas que não conseguiram novas atualizações com erros.
+O seguinte conjunto de comandos opcional pode ser útil para as implementações ubuntu existentes que já têm o kernel Azure, mas que não conseguiram novas atualizações com erros.
 
 ```bash
 #optional steps may be helpful in existing deployments with the Azure kernel
@@ -87,9 +87,9 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Upgrade de kernel Ubuntu Azure para VMs existentes
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Upgrade do kernel Ubuntu Azure para os VM existentes
 
-Um desempenho significativo de entrada pode ser alcançado através da atualização para o kernel Azure Linux. Para verificar se tem este núcleo, verifique a sua versão kernel.
+Um desempenho significativo de produção pode ser alcançado através da atualização para o núcleo Azure Linux. Para verificar se tem este núcleo, verifique a sua versão kernel.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -99,7 +99,7 @@ uname -r
 #4.13.0-1007-azure
 ```
 
-Se o seu VM não tiver o kernel Azure, o número da versão geralmente começa com "4.4". Se o VM não tiver o núcleo Azure, execute os seguintes comandos como raiz:
+Se o seu VM não tiver o núcleo Azure, o número da versão geralmente começa com "4.4". Se o VM não tiver o núcleo Azure, executar os seguintes comandos como raiz:
 
 ```bash
 #run as root or preface with sudo
@@ -121,7 +121,7 @@ Para obter as mais recentes otimizações, o melhor é criar um VM com a versão
 "Version": "latest"
 ```
 
-Os Novos EMs existentes podem beneficiar da instalação dos mais recentes Serviços de Integração linux (LIS). A otimização da entrada está no LIS, a partir de 4.2.2-2, embora as versões posteriores contenham mais melhorias. Introduza os seguintes comandos para instalar os mais recentes LIS:
+Os VM novos e existentes podem beneficiar da instalação dos mais recentes Serviços de Integração Linux (LIS). A otimização de produção está no LIS, a partir de 4.2.2-2, embora as versões posteriores contenham melhorias adicionais. Introduza os seguintes comandos para instalar o LIS mais recente:
 
 ```bash
 sudo yum update
@@ -140,7 +140,7 @@ Para obter as otimizações, o melhor é criar um VM com a versão mais recente 
 "Version": "latest"
 ```
 
-Os Novos EMs existentes podem beneficiar da instalação dos mais recentes Serviços de Integração linux (LIS). A otimização de entrada está no LIS, a partir de 4.2. Introduza os seguintes comandos para descarregar e instalar o LIS:
+Os VM novos e existentes podem beneficiar da instalação dos mais recentes Serviços de Integração Linux (LIS). A otimização de produção está em LIS, a partir de 4.2. Introduza os seguintes comandos para descarregar e instalar LIS:
 
 ```bash
 wget https://aka.ms/lis
@@ -149,9 +149,9 @@ cd LISISO
 sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
-Saiba mais sobre a Versão 4.2 dos Serviços de Integração linux para Hyper-V visualizando a [página de descarregamento](https://www.microsoft.com/download/details.aspx?id=55106).
+Saiba mais sobre a Versão 4.2 dos Serviços de Integração Linux para Hiper-V visualizando a página de [descarregamento](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Passos seguintes
-* Consulte o resultado otimizado com [a largura de banda/teste de saída Azure VM](virtual-network-bandwidth-testing.md) para o seu cenário.
-* Leia sobre como a [largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
-* Saiba mais com a [Rede Virtual Azure frequentemente colocada seleções (FAQ)](virtual-networks-faq.md)
+* Consulte o resultado otimizado com [bandwidth/Throughput testando Azure VM](virtual-network-bandwidth-testing.md) para o seu cenário.
+* Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
+* Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)
