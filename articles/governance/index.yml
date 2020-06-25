@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/22/2020
-  ms.openlocfilehash: 0b9a78c6632d93a9aabaffeca400250c1adfb6d3
-  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+  ms.date: 06/16/2020
+  ms.openlocfilehash: b76bde8d10ecfdd54531030ff5a006e4c46cb1a9
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84609187"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85321542"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -113,7 +113,7 @@ additionalContent:
         url: /powershell/module/az.resources/#resources
       - text: SDK do Azure para .NET
         url: /dotnet/api/overview/azure/managementgroups
-      - text: SDK do Azure para Node
+      - text: SDK do Azure para JavaScript
         url: /javascript/api/@azure/arm-managementgroups/managementgroups
       - text: REST
         url: /rest/api/resources/managementgroups
@@ -157,10 +157,10 @@ additionalContent:
       - text: SDK do Azure para .NET
         url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
         note: (Definições de Política)
-      - text: SDK do Azure para Node
+      - text: SDK do Azure para JavaScript
         url: /javascript/api/@azure/arm-policy
         note: (Política)
-      - text: SDK do Azure para Node
+      - text: SDK do Azure para JavaScript
         url: /javascript/api/@azure/arm-policyinsights
         note: (Informações da Política)
       - text: SDK do Azure para Python
@@ -198,7 +198,7 @@ additionalContent:
       - text: SDK do Azure para Java
         url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
         note: (Maven)
-      - text: SDK do Azure para Node
+      - text: SDK do Azure para JavaScript
         url: /javascript/api/@azure/arm-resourcegraph
       - text: SDK do Azure para Python
         url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
