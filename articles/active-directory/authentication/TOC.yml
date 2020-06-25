@@ -36,6 +36,8 @@
       items:
         - name: Como funciona o MFA
           href: concept-mfa-howitworks.md
+        - name: Pedidos e duração da sessão
+          href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
         - name: Residência dos dados
           href: concept-mfa-data-residency.md
         - name: Licenças

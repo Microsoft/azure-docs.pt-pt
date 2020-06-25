@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830315"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686414"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Início Rápido: Criar um orçamento com um modelo do Azure Resource Manager
 
@@ -74,7 +74,7 @@ No modelo, está definido um recurso do Azure:
     * **Limiar**: introduza um valor de limiar para a notificação. É enviada uma notificação quando o custo exceder o limiar. É sempre uma percentagem e tem de ser entre 0 e 1000.
     * **E-mails de Contacto**: introduza uma lista de endereços de e-mail para enviar a notificação de orçamento quando o limiar for excedido. O formato esperado é `["user1@domain.com","user2@domain.com"]`.
     * **Funções de Contacto**: introduza a lista de funções de contacto para enviar a notificação de orçamento para quando o limiar for excedido. Os valores predefinidos são Proprietário, Contribuidor e Leitor. O formato esperado é `["Owner","Contributor","Reader"]`.
-    * **Grupos de Contacto**: introduza uma lista de grupos de ações para enviar a notificação de orçamento quando o limiar for excedido. É aceite uma matriz de cadeias. O formato esperado é `["Action Group Name1","Action Group Name2"]`. Se não quiser utilizar grupos de ações, introduza `[]`.
+    * **Grupos de Contacto**: introduza uma lista de IDs de recursos de grupos de ações, como URIs de recursos completos, para onde enviar a notificação de orçamento quando o limiar é excedido. É aceite uma matriz de cadeias. O formato esperado é `["action group resource ID1","action group resource ID2"]`. Se não quiser utilizar grupos de ações, introduza `[]`.
     * **Filtro de Recursos**: introduza uma lista de filtros para os recursos. O formato esperado é `["Resource Filter Name1","Resource Filter Name2"]`. Se não quiser aplicar um filtro, introduza `[]`. Se introduzir um filtro de recursos, também tem de introduzir os valores de **filtros de medidores**.
     * **Filtro de Medidores**: introduza uma lista de filtros em medidores, obrigatórios para orçamentos com a categoria **Utilização**. O formato esperado é `["Meter Filter Name1","Meter Filter Name2"]`. Se não introduziu um **filtro de recursos**, introduza `[]`.
     * **Aceito os termos e condições acima apresentados**: selecione.

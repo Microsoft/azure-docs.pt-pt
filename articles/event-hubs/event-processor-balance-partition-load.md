@@ -1,23 +1,14 @@
 ---
 title: Equilibrar a carga de partição em vários casos - Azure Event Hubs Microsoft Docs
 description: Descreve como equilibrar a carga de partição em várias instâncias da sua aplicação usando um processador de eventos e o Azure Event Hubs SDK.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/28/2020
-ms.author: shvija
-ms.openlocfilehash: 4851a3edad9726230a8fc0dd3085caa172c8d5f3
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 06/23/2020
+ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147873"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314982"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrar a carga de partição em vários casos da sua aplicação
 Para escalar a sua aplicação de processamento de eventos, pode executar várias instâncias da aplicação e fazê-la equilibrar a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitiu equilibrar a carga entre várias instâncias do seu programa e eventos de checkpoint ao receber. Nas versões mais recentes (5.0 em diante), **EventProcessorClient** (.NET e Java) ou **EventHubConsumerClient** (Python e JavaScript) permite-lhe fazer o mesmo. O modelo de desenvolvimento é simplificado utilizando eventos. Subscreve os eventos que lhe interessam ao registar um manipulador de eventos.
@@ -94,7 +85,7 @@ Quando o ponto de verificação é realizado para marcar um evento como processa
 
 Por predefinição, a função que processa os eventos é chamada sequencialmente para uma determinada partição. Eventos subsequentes e chamadas para esta função a partir da mesma fila de partição nos bastidores, à medida que a bomba de evento continua a funcionar em segundo plano em outros fios. Note que eventos de diferentes divisórias podem ser processados simultaneamente e qualquer estado partilhado que seja acedido através de divisórias tem que ser sincronizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes arranques rápidos:
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)

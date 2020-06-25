@@ -37,6 +37,8 @@
       href: ../../api-management/security-baseline.md
     - name: Linha de base de segurança do Gateway de Aplicação
       href: ../../application-gateway/security-baseline.md
+    - name: Linha de base de segurança da Automatização
+      href: ../../automation/security-baseline.md
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Linha de base de segurança do Backup
@@ -51,24 +53,32 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Linha de base de segurança do Data Box
+      href: ../../databox/security-baseline.md
     - name: Linha de base de segurança do Data Explorer
       href: /azure/data-explorer/security-baseline
     - name: Linha de base de segurança do Data Factory
-      href: /azure/data-factory/security-baseline
+      href: ../../data-factory/security-baseline.md
     - name: Linha de base de segurança do Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
       href: ../../event-hubs/security-baseline.md
+    - name: Linha de base de segurança do ExpressRoute
+      href: ../../expressroute/security-baseline.md
     - name: Linha de base de segurança das Funções
       href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Linha de base de segurança do Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Linha de base de segurança do Logic Apps
+      href: ../../logic-apps/security-baseline.md
     - name: Linha de base de segurança do MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Linha de base de segurança do MySQL
       href: ../../mysql/security-baseline.md
+    - name: Linha de base de segurança do Observador de Rede
+      href: ../../network-watcher/security-baseline.md
     - name: Linha de base de segurança do PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Linha de base de segurança da Base de Dados SQL

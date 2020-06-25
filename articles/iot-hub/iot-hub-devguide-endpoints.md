@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b7139c458d2cc2a59f4202e9cbc7d48433514f34
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792098"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314039"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais IoT Hub
 
@@ -38,11 +38,11 @@ A lista que se segue descreve os pontos finais:
 
 * **Gestão da identidade do dispositivo**. Cada hub IoT expõe um conjunto de pontos finais HTTPS REST para gerir identidades do dispositivo (criar, recuperar, atualizar e eliminar). [As identidades do dispositivo](iot-hub-devguide-identity-registry.md) são utilizadas para a autenticação do dispositivo e para o controlo de acessos.
 
-* **Gestão de dois dispositivos**. Cada hub IoT expõe um conjunto de ponto final HTTPS REST virado para o serviço para consultar e atualizar [gémeos do dispositivo](iot-hub-devguide-device-twins.md) (etiquetas e propriedades de atualização).
+* **Gestão de dois dispositivos**. Cada hub IoT expõe um conjunto de ponto final HTTPS REST virado para o serviço para consultar e atualizar [gémeos do dispositivo](iot-hub-devguide-device-twins.md) (etiquetas e propriedades de atualização). 
 
 * **Gestão de empregos.** Cada hub IoT expõe um conjunto de ponto final HTTPS REST virado para o serviço para consultar e gerir [postos de trabalho.](iot-hub-devguide-jobs.md)
 
-* **Pontos finais do dispositivo**. para cada dispositivo no registo de identidades, o Hub IoT expõe um conjunto de pontos finais –
+* **Pontos finais do dispositivo**. Para cada dispositivo no registo de identidade, o IoT Hub expõe um conjunto de pontos finais. Salvo quando anotados, estes pontos finais são expostos utilizando protocolos [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0.](https://www.amqp.org/) AMQP e MQTT também estão disponíveis através [de WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
 
   * *Enviar mensagens dispositivo-a-nuvem*. Um dispositivo utiliza este ponto final para [enviar mensagens dispositivo-a-nuvem](iot-hub-devguide-messages-d2c.md).
 
@@ -50,11 +50,9 @@ A lista que se segue descreve os pontos finais:
 
   * *Iniciar uploads de ficheiros*. Um dispositivo utiliza este ponto final para receber um Azure Storage SAS URI do IoT Hub para [carregar um ficheiro](iot-hub-devguide-file-upload.md).
 
-  * *Recupere e atualize as propriedades gémeas do dispositivo*. Um dispositivo utiliza este ponto final para aceder às propriedades do seu [dispositivo Twin.](iot-hub-devguide-device-twins.md)
+  * *Recupere e atualize as propriedades gémeas do dispositivo*. Um dispositivo utiliza este ponto final para aceder às propriedades do seu [dispositivo Twin.](iot-hub-devguide-device-twins.md) HTTPS não é suportado.
 
-  * *Receba pedidos de métodos diretos.* Um dispositivo utiliza este ponto final para ouvir os pedidos do [método direto.](iot-hub-devguide-direct-methods.md)
-
-    Estes pontos finais são expostos utilizando protocolos [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0.](https://www.amqp.org/) AMQP e MQTT também estão disponíveis através [de WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
+  * *Receba pedidos de métodos diretos.* Um dispositivo utiliza este ponto final para ouvir os pedidos do [método direto.](iot-hub-devguide-direct-methods.md) HTTPS não é suportado.
 
 * **Pontos finais de serviço**. Cada hub IoT expõe um conjunto de pontos finais para a sua solução traseira para comunicar com os seus dispositivos. Com uma exceção, estes pontos finais só são expostos utilizando os protocolos [AMQP](https://www.amqp.org/) e AMQP sobre webSockets. O ponto final de invocação do método direto está exposto sobre o protocolo HTTPS.
   

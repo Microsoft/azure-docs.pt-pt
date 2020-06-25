@@ -394,30 +394,64 @@
       items:
         - name: O que é um assistente de voz?
           href: voice-assistants.md
-    - name: Comandos Personalizados (Pré-visualização)
+    - name: Comandos Personalizados
       items:
         - name: O que são Comandos Personalizados?
           href: custom-commands.md
         - name: Guias de Início Rápido
           items:
             - name: Criar uma aplicação de Comandos Personalizados
-              href: quickstart-custom-speech-commands-create-new.md
-            - name: Criar um comando personalizado com parâmetros
-              href: quickstart-custom-speech-commands-create-parameters.md
-            - name: Utilizar Comandos Personalizados com Voz Personalizada
-              href: quickstart-custom-speech-commands-select-custom-voice.md
-            - name: Utilizar Comandos Personalizados com o SDK de Voz
-              href: quickstart-custom-speech-commands-speech-sdk.md
+              href: quickstart-custom-commands-application.md
         - name: Guias de procedimentos
           items:
-            - name: Satisfazer comandos de um cliente
-              href: how-to-custom-speech-commands-fulfill-sdk.md
-            - name: Adicionar validação de parâmetros
-              href: how-to-custom-speech-commands-validations.md
-            - name: Adicionar uma confirmação
-              href: how-to-custom-speech-commands-confirmations.md
-            - name: Adicionar uma correção de um passo
-              href: how-to-custom-speech-commands-one-step-correction.md
+            - name: Programar
+              items:
+                - name: Criar uma aplicação com comandos simples
+                  href: how-to-custom-commands-create-application-with-simple-commands.md
+                - name: Adicionar parâmetros aos comandos
+                  href: how-to-custom-commands-add-parameters-to-commands.md
+                - name: Adicionar configurações aos parâmetros dos comandos
+                  href: how-to-custom-commands-add-parameter-configuration.md
+                - name: Adicionar regras de interação
+                  href: how-to-custom-commands-add-interaction-rules.md
+                - name: Adicionar modelos de geração de linguagem para respostas de voz
+                  href: how-to-custom-commands-add-language-generation-templates.md
+            - name: Integrar
+              items:
+                - name: Integrar numa aplicação cliente com o SDK de Voz
+                  href: how-to-custom-commands-setup-speech-sdk.md
+                - name: Enviar a atividade para a aplicação cliente
+                  href: how-to-custom-commands-send-activity-to-client.md
+                - name: Configurar pontos finais Web
+                  href: how-to-custom-commands-setup-web-endpoints.md
+            - name: Implementação
+              items:
+                - name: Implementação Contínua com o Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+            - name: Teste
+              items:
+                - name: Testar a sua aplicação de Comandos Personalizados
+                  href: how-to-custom-commands-developer-flow-test.md
+            - name: Depurar
+              items:
+                - name: Depurar erros ao criar a aplicação
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Depurar erros ao executar a aplicação
+                  href: how-to-custom-commands-debug-runtime.md
+            - name: Referências
+              items:
+                - name: Conceitos dos Comandos Personalizados
+                  href: custom-commands-references.md
+        - name: Recursos
+          items:
+            - name: Exemplos de Comandos Personalizados (GitHub)
+              href: 'https://aka.ms/speech/cc-samples'
+            - name: Exemplos do Assistente de Voz (GitHub)
+              href: 'http://aka.ms/speech/va-samples'
+            - name: FAQ dos assistentes de voz
+              href: faq-voice-assistants.md
+            - name: API de Voz
+              href: speech-sdk.md
     - name: Direct Line Speech
       items:
         - name: O que é a Voz do Direct Line?

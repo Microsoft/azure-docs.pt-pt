@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: fc19f247a9a915bfafde68f652784c42285928ca
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 00b4306340e9888ea5a794c7940a021674060e05
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974930"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316128"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Cache para Redis.
@@ -289,7 +289,7 @@ O servidor Redis não suporta o TLS de forma nativa, mas o Azure Cache para Redi
 >
 >
 
-As ferramentas vermelhas como `redis-cli` não funcionam com a porta TLS, mas pode utilizar um utilitário de modo a ligar as `stunnel` ferramentas de forma segura à porta TLS seguindo as instruções no anunciado ASP.NET sessão do fornecedor de estado para o post [de pré-visualização do Redis.](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
+As ferramentas vermelhas como `redis-cli` não funcionam com a porta TLS, mas pode utilizar um utilitário de modo a ligar as `stunnel` ferramentas de forma segura à porta TLS seguindo as instruções no anunciado ASP.NET sessão do fornecedor de estado para o post [de pré-visualização do Redis.](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/)
 
 Para obter instruções sobre o download das ferramentas Redis, veja como posso executar os [comandos Redis?](#cache-commands)
 

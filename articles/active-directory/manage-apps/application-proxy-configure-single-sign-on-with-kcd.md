@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69ac1e70684b2c4396bb15a439edab37a7e45040
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975593"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317530"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos Restrita Delegação para um único sign-on para as suas apps com Proxy de aplicação
 
@@ -156,3 +156,4 @@ No então, em alguns casos, o pedido é enviado com sucesso para o pedido de bac
 
 * [Como configurar um pedido de procuração de aplicação para utilizar a delegação restrita kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)
+

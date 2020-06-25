@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: c587af529831c4fb8cdb15b50b2a0b16a868efe3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: fa8baa5f17b0f6d667ce05c027e41120b4a15e82
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255386"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316063"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -150,7 +150,7 @@ Para criar e gerir servidores, bases de dados e firewalls com Transact-SQL, util
 |[CREATE DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Cria uma nova base de dados na Base de Dados Azure SQL. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 |[CRIAR BASE DE DADOS (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Cria uma nova base de dados de armazém de dados em Azure Synapse. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica a base de dados ou piscina elástica. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Modifica uma base de dados de armazém de dados em Azure Synapse.|
+|[ALTER DATABASE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Modifica uma base de dados de armazém de dados em Azure Synapse.|
 |[BASE DE DADOS DROP (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objetives (Base de Dados Azure SQL)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo do serviço (nível de preços) e o nome elástico da piscina, se houver, para uma base de dados. Se for iniciado na base de dados principal de um servidor, retorna a informação em todas as bases de dados. Para a Azure Synapse, deve estar ligado à base de dados principal.|
 |[sys.dm_db_resource_stats (Base de Dados Azure SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devoluções cpu, IO e consumo de memória para uma base de dados na Base de Dados Azure SQL. Existe uma linha por cada 15 segundos, mesmo que não haja atividade na base de dados.|

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 445e86f1979d52496052572c1682e0b894d512dd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84339880"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313224"
 ---
 # <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gerir um dispositivo Azure Stack Edge via Windows PowerShell
 
@@ -86,12 +86,12 @@ Se a função de cálculo estiver configurada no seu dispositivo, também pode o
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitor e resolução de problemas módulos de computação
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
 ## <a name="exit-the-remote-session"></a>Sair da sessão remota
 
 Para sair da sessão remota powerShell, feche a janela PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Implementar [Azure Stack Edge](azure-stack-edge-deploy-prep.md) no portal Azure.

@@ -8,12 +8,12 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
-ms.openlocfilehash: 6e570c100a30f18a843f50cb8dc93572bb62d0f7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080735"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317298"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas de Azure
 
@@ -87,6 +87,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Escritor de AcrQuarantineWriter](#acrquarantinewriter) | acr escritor de dados de quarentena | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Azure Kubernetes Service Cluster Função de Administrador](#azure-kubernetes-service-cluster-admin-role) | Lista de ação de credencial de administrador de agrupamento. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Papel de utilizador do cluster de serviço Azure Kubernetes](#azure-kubernetes-service-cluster-user-role) | Listar ação credencial do utilizador do cluster. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | [Papel de Colaborador de Serviço Azure Kubernetes](#azure-kubernetes-service-contributor-role) | Concede acesso à leitura e escreva clusters de serviçoS Azure Kubernetes | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
 > | **Bases de dados** |  |  |
 > | [Papel do leitor de conta de cosm de Cosmos DB](#cosmos-db-account-reader-role) | Pode ler os dados da conta DB da Azure Cosmos. Consulte [o Contribuinte de Conta DocumentDB](#documentdb-account-contributor) para gerir as contas DB da Azure Cosmos. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operador de DB cosmos](#cosmos-db-operator) | Permite-lhe gerir as contas DB da Azure Cosmos, mas não aceder aos dados nelas. Impede o acesso às chaves da conta e às cordas de ligação. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -3138,6 +3139,50 @@ Listar ação credencial do utilizador do cluster. [Saiba mais](../aks/control-k
     }
   ],
   "roleName": "Azure Kubernetes Service Cluster User Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-kubernetes-service-contributor-role"></a>Papel de Colaborador de Serviço Azure Kubernetes
+
+Concede acesso à leitura e escreva clusters de serviçoS Azure Kubernetes
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/read | Obtenha um cluster gerido |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/write | Cria um novo cluster gerido ou atualiza um existente |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to read and write Azure Kubernetes Service clusters",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "name": "ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/read",
+        "Microsoft.ContainerService/managedClusters/write",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

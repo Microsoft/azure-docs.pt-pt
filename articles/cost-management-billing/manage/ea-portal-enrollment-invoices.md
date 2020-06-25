@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16f89fa99c9619e3956a089763ece1b96aff4480
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298130"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807804"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -224,7 +224,7 @@ Para os serviços em que a zona e a região afetam os preços, veja a tabela seg
 | Zona 2 | Este da Ásia-Pacífico <br> Sudeste da Ásia-Pacífico <br> Leste do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Austrália Sudeste | Ásia-Pacífico <br> Japão <br> América Latina <br> Médio Oriente/África <br> Leste da Austrália <br> Austrália Sudeste |
 | Zona 3 | Sul do Brasil |   |
 
-Não há custos para a saída de dados entre serviços alojados no mesmo datacenter. Por exemplo, o Office 365 e o Azure.
+Não há custos para a saída de dados entre serviços alojados no mesmo datacenter. Por exemplo, Microsoft 365 e Azure.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>Alocação monetária e utilização não faturada
 

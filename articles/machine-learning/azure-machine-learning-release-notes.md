@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 0b7d7b9e3b373c8a994538bc3d5f31b78df3cd6a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 30e2ec47e2b9b3a95acb5b79800ce64ba11e757d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210427"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317900"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -77,7 +77,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
   + **azureml-pipeline-steps**
     + Doc melhora o pacote de passos de gasoduto azureml.
     + Removido o requisito de passthru_automl_config para a utilização intermédia de dados com AutoMLStep em Pipelines.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Doc melhora a azureml-telemetria.
   + **azureml-train-automl-client**
     + Consertado um bug onde `experiment.submit()` chamado duas vezes num `AutoMLConfig` objeto resultou em comportamento diferente.
@@ -1017,7 +1017,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
   + Aplicar a transformação SQL
   + Valores de clip
   + Resumir dados
-  + Importação a partir da base de dados SQL
+  + Importação da Base de Dados SQL
 
 ## <a name="2019-10-14"></a>2019-10-14
 
@@ -2031,7 +2031,7 @@ Nota: Data Prep Python SDK deixará de instalar `numpy` e `pandas` pacotes. Cons
 ### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning Data Prep SDK v1.0.12
 
 + **Novas funcionalidades**
-  + Data Prep agora suporta a leitura de uma base de dados Azure SQL usando Datastore.
+  + A Data Prep suporta agora a leitura da Base de Dados Azure SQL utilizando a Datastore.
 
 + **Alterações**
   + Melhorou o desempenho da memória de certas operações em dados grandes.

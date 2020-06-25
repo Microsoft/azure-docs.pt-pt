@@ -1,18 +1,14 @@
 ---
 title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 1f07e6eb1a219db4f8eb94c54acaa3181e186da6
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670026"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312828"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integre os Hubs de Eventos Azure com Azure Private Link
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
@@ -198,7 +194,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -274,7 +270,7 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 Para mais informações, consulte [o serviço Azure Private Link: Limitações](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Azure Private Link](../private-link/private-link-service-overview.md)
 - Saiba mais sobre [os Azure Event Hubs](event-hubs-about.md)

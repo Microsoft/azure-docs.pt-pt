@@ -150,7 +150,7 @@
       href: concept-ml-pipelines.md
     - name: Preparação e segurança para empresas
       items:
-        - name: Segurança empresarial
+        - name: Segurança e governação empresariais
           items:
             - name: Descrição geral da segurança empresarial
               displayName: authorization authentication encryption aad azure active directory
@@ -164,8 +164,8 @@
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Proteger os serviços Web com TLS
-              href: how-to-secure-web-service.md
               displayName: ssl
+              href: how-to-secure-web-service.md
             - name: Utilize a identidade Azure AD em implementações AKS
               href: how-to-use-azure-ad-identity.md
             - name: Voltar a gerar chaves de acesso ao armazenamento
@@ -274,19 +274,16 @@
               href: how-to-differential-privacy.md
     - name: Preparar modelos
       items:
+        - name: Configurar ambientes de preparação
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
         - name: Utilizar avaliadores para ML
           items:
             - name: Criar avaliadores em formação
               href: how-to-train-ml-models.md
-            - name: Configurar ambientes de preparação
-              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-              href: how-to-set-up-training-targets.md
             - name: Otimizar hiperparâmetros
               displayName: parameter
               href: how-to-tune-hyperparameters.md
-            - name: Utilizar o Key Vault durante a preparação
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -295,17 +292,33 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Preparação de controlo e monitorização
+          items:
+            - name: 'Comece, monitorize ou cancele execuções'
+              displayName: 'cancel, fail, status, child run'
+              href: how-to-manage-runs.md
+            - name: Métricas de registo para execuções de preparações
+              href: how-to-track-experiments.md
+            - name: Controlar experiências com o MLflow
+              displayName: 'log, monitor, metrics, Databricks'
+              href: how-to-use-mlflow.md
+            - name: Visualizar execuções com TensorBoard
+              displayName: 'log, monitor, metrics'
+              href: how-to-monitor-tensorboard.md
+        - name: Interpretar e explicar modelos
+          displayName: interpretability
+          items:
+            - name: Interpretar modelos de ML
+              displayName: 'SDK, interpret, explain, explanability, interpretability'
+              href: how-to-machine-learning-interpretability-aml.md
+            - name: Explicar modelos de ML automatizados
+              displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
+              href: how-to-machine-learning-interpretability-automl.md
+        - name: Utilizar o Key Vault durante a preparação
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
         - name: Aprendizagem por reforço
           href: how-to-use-reinforcement-learning.md
-    - name: Interpretar e explicar modelos
-      displayName: interpretability
-      items:
-        - name: Interpretar modelos de ML
-          displayName: 'SDK, interpret, explain, explanability, interpretability'
-          href: how-to-machine-learning-interpretability-aml.md
-        - name: Explicar modelos de ML automatizados
-          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
-          href: how-to-machine-learning-interpretability-automl.md
     - name: Automatizar a aprendizagem automática
       displayName: 'automl, auto ml'
       items:
@@ -334,19 +347,6 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Entender os gráficos e as métricas
           href: how-to-understand-automated-ml.md
-    - name: Controlar e monitorizar experimentações
-      items:
-        - name: 'Comece, monitorize ou cancele execuções'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: Métricas de registo para execuções de preparações
-          href: how-to-track-experiments.md
-        - name: Controlar experiências com o MLflow
-          displayName: 'log, monitor, metrics, Databricks'
-          href: how-to-use-mlflow.md
-        - name: Visualizar execuções com TensorBoard
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
     - name: Implementar e fornecer modelos
       items:
         - name: Onde e como implementar
@@ -413,7 +413,6 @@
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Depurar pipelines no Application Insights
-          displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
         - name: Dados de transformação do estruturador
           displayName: pipeline
@@ -483,7 +482,7 @@
       displayName: 'bugs, errors, troubleshoot'
       href: resource-known-issues.md
     - name: Fórum de utilizadores
-      href: 'https://aka.ms/aml-forum-service'
+      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparar os nossos produtos de ML

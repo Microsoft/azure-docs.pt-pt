@@ -1,19 +1,14 @@
 ---
 title: Guia de desenvolvedores apache Kafka para centros de eventos
 description: Este artigo fornece links para artigos que descrevem como integrar as suas aplicações Kafka com Azure Event Hubs.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: b7486c251784b345351669bda6f0eb2309977728
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297465"
+ms.locfileid: "85314242"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guia de desenvolvimento apache Kafka para hubs de eventos Azure
 Este artigo fornece links para artigos que descrevem como integrar as suas aplicações Apache Kafka com Azure Event Hubs. 
@@ -21,7 +16,7 @@ Este artigo fornece links para artigos que descrevem como integrar as suas aplic
 ## <a name="overview"></a>Descrição geral
 O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs suporta o protocolo Apache Kafka 1.0 e mais tarde, e trabalha com as aplicações kafka existentes, incluindo o MirrorMaker. Para mais informações, consulte [Os Centros de Eventos para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="quickstarts"></a>Guias de Início Rápido
+## <a name="quickstarts"></a>Guias de Introdução
 Você pode encontrar quickstarts no GitHub e neste conjunto de conteúdos que o ajuda rapidamente a subir em Event Hubs para Kafka.
 
 ### <a name="quickstarts-in-github"></a>Quickstarts em GitHub
@@ -42,7 +37,7 @@ Veja os seguintes quickstarts no **azure-event-hubs-for-kafka** repo:
 Consulte o quickstart: [Streaming de dados com Os Centros de Eventos utilizando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) neste conjunto de conteúdos, que fornece instruções passo a passo sobre como transmitir para Os Centros de Eventos. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma alteração de configuração nas suas aplicações. 
 
 
-## <a name="tutorials"></a>Tutoriais 
+## <a name="tutorials"></a>Tutorials (Tutoriais) 
 
 ### <a name="tutorials-in-github"></a>Tutoriais em GitHub
 Veja os seguintes tutoriais no GitHub:
@@ -65,7 +60,7 @@ Veja os seguintes tutoriais no GitHub:
 ### <a name="tutorials-in-docs"></a>Tutoriais em DOCS
 Além disso, consulte o tutorial: [Processa Apache Kafka para eventos de Event Hubs usando a analytics Stream](event-hubs-kafka-stream-analytics.md) neste conjunto de conteúdos, que mostra como transmitir dados em Centros de Eventos e processá-lo com Azure Stream Analytics.
 
-## <a name="how-to-guides"></a>Guias de procedimentos
+## <a name="how-to-guides"></a>How-to guides (Guias de procedimentos)
 Consulte os seguintes guias de como fazer na nossa documentação:
 
 | Artigo | Description | 

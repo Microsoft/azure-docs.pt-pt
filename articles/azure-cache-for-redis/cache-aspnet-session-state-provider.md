@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 1599fe76f3542717bebe63228d8c46f7e5de97c3
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457172"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316069"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache do Azure para Redis
 
@@ -94,9 +94,9 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 * **operationTimeoutInMilliseconds** – Esta definição permite-lhe substituir a definição syncTimeout no cliente StackExchange.Redis. Se não for especificado, é utilizada a definição padrão de sincronizaçãotimeout de 1000. Para obter mais informações, consulte [o modelo de configuração StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** - Esta definição permite especificar a serialização personalizada do conteúdo da sessão que é enviado para o Redis. O tipo especificado deve ser implementado `Microsoft.Web.Redis.ISerializer` e deve declarar o construtor público sem parâmetros. Por defeito `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` é usado.
 
-Para obter mais informações sobre estas propriedades, consulte o anúncio original do blog post no [Anunciado ASP.NET Session State Provider for Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Para obter mais informações sobre estas propriedades, consulte o anúncio original do blog post no [Anunciado ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 
-Não se esqueça de comentar a secção padrão de fornecedor de estado de sessão InProc na sua web.config.
+Não se esqueça de comentar a secção padrão de provedores do estado de sessão inProc na sua web.config.
 
 ```xml
 <!-- <sessionState mode="InProc"
@@ -131,6 +131,6 @@ Para obter mais informações sobre o estado da sessão e outras boas práticas,
 * [NCache](https://www.alachisoft.com/ncache/session-index.html)
 * [Apache inflamar](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [fornecedor de cache de saída ASP.NET para a cache Azure para redis](cache-aspnet-output-cache-provider.md).

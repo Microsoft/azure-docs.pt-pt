@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/16/2020
+ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 85b724cacc9c878f39de62e91e18713a1817933d
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817239"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316402"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -225,13 +225,20 @@ A tabela seguinte define as classificações suportadas para atualizações do L
 |Atualizações críticas e de segurança     | Atualizações para um problema específico ou para um problema específico do produto, relacionado com a segurança.         |
 |Outras atualizações     | Todas as outras atualizações que não são de natureza crítica ou que não são atualizações de segurança.        |
 
+>[!NOTE]
+>A classificação de atualização para máquinas Linux só está disponível quando usada nas regiões de nuvem pública suportadas do Azure. Ao utilizar a Atualização de Gestão nas seguintes regiões de nuvem nacionais:
+>* Azure US Government
+>* 21Vianet na China
+>
+> não existem classificações de atualizações do Linux e são reportadas na categoria **Outras atualizações.** A Atualização Management utiliza dados publicados pelas distribuições suportadas, especificamente os seus ficheiros [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language). Como o acesso à Internet é restrito a partir destas nuvens nacionais, a Update Management não pode aceder e consumir estes ficheiros.
+
 Para o Linux, a Update Management pode distinguir entre atualizações críticas e atualizações de segurança na nuvem enquanto exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para remendar, a Update Management baseia-se nos dados de classificação disponíveis na máquina. Ao contrário de outras distribuições, o CentOS não dispõe desta informação disponível na versão RTM. Se tiver máquinas CentOS configuradas para devolver dados de segurança para o seguinte comando, a Gestão de Atualização pode corrigir com base nas classificações.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Não existe atualmente um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas é prestado um suporte de melhor esforço aos clientes que possam ter ativado esta funcionalidade por si só. 
+Não existe atualmente um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas é prestado um suporte de melhor esforço aos clientes que possam ter ativado esta funcionalidade por si só.
 
 Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necessário instalar o plugin de segurança yum. No Red Hat Enterprise Linux 7, o plugin já faz parte do próprio yum e não há necessidade de instalar nada. Para mais informações, consulte o seguinte artigo de [conhecimento](https://access.redhat.com/solutions/10021)da Red Hat .
 

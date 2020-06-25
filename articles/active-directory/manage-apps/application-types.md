@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1878004f51a66ba414c3e74be97c7135a51295bc
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763708"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317467"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de candidaturas
 
@@ -66,7 +66,7 @@ Quando filtrado para **todas as aplicações,** a **Lista** de Todas as Aplicaç
 
 5. Quando adiciona um novo registo de candidaturas criando uma aplicação personalizada utilizando o [portal V2.0 Application Registration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
-6. Ao adicionar uma aplicação que está a desenvolver utilizando os métodos de [autenticação ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) do Visual Studio ou [serviços conectados](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6. Ao adicionar uma aplicação que está a desenvolver utilizando os métodos de [autenticação ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) do Visual Studio ou [serviços conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
 
 7. Quando cria um objeto principal de serviço utilizando o [Módulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0)
 

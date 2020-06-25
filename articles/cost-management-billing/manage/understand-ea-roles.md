@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295308"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678023"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerir as funções Enterprise do Azure
 
@@ -27,6 +27,10 @@ Para ajudar a gerir a utilização e o gasto da sua organização, os clientes d
 <sup>1</sup> O contacto de faturação do contrato EA terá esta função.
 
 <sup>2</sup> O contacto de faturação não pode ser adicionado nem alterado no portal EA do Azure e será adicionado à inscrição do EA com base no utilizador configurado como o contacto de faturação no nível do acordo. Para alterar o contacto de faturação, tem de ser feito um pedido através de um consultor parceiro/software ao Regional Operations Center (ROC).
+
+O primeiro administrador da inscrição que é configurado durante o aprovisionamento da inscrição determina o tipo de autenticação da conta de faturação. Quando o contacto de faturação é adicionado ao Portal EA como administrador só de leitura, é-lhe dada autenticação da conta Microsoft. 
+
+Por exemplo, se o tipo de autenticação inicial estiver configurado como Mista, o EA será adicionado como uma conta Microsoft e o contacto de faturação terá privilégios de administração de EA só de leitura. Se o administrador do EA não aprovar a autorização da conta Microsoft relativamente a um contacto de faturação já existente, esse administrador pode eliminar o utilizador em causa e pedir ao cliente que o volte a adicionar como administrador só de leitura com uma conta escolar ou profissional definida apenas ao nível da inscrição no Portal EA.
 
 Estas funções são específicas para gerir Contratos Enterprise do Azure e são uma adição às funções incorporadas que o Azure possui para controlar o acesso aos recursos. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
 

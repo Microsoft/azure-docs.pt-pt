@@ -3,16 +3,16 @@ title: Analisar custos com a Aplicação Power BI
 description: Este artigo explica como instalar e utilizar a Aplicação Power BI do Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461604"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888194"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar o custo com a Aplicação Power BI do Azure Cost Management para Contratos Enterprise (EA)
 
@@ -127,6 +127,27 @@ Para obter mais detalhes sobre como utilizar o relatório, veja a secção [Cobe
 ## <a name="troubleshoot-problems"></a>Resolução de problemas
 
 Se estiver a ter problemas com a aplicação Power BI, as informações de resolução de problemas seguintes podem ajudar.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>Erro ao processar os dados no conjunto de dados
+
+Pode obter um erro a indicar:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+Deverá aparecer um nome de tabela em vez de `<TableName>`.
+
+#### <a name="cause"></a>Causa
+
+O valor predefinido de **Âmbito** de `Enrollment Number` foi mudado na ligação ao Cost Management.
+
+#### <a name="solution"></a>Solução
+
+Volte a ligar-se ao Cost Management e defina o valor de **Âmbito** como `Enrollment Number`. Não introduza o número de inscrição da sua organização; em alternativa, escreva `Enrollment Number` exatamente como aparece na imagem seguinte.
+
+![Introduzir as informações de inscrição de EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>Erro BudgetAmount
 

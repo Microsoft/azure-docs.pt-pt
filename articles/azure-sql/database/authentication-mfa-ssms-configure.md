@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: fc8f79221a5923dea9f767e62566c716bbdcad50
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9548168e15522a8fb21cfd33c0cf475841a5d52b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344837"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318237"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação multi-factor para SQL Server Management Studio e AZure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -73,9 +73,9 @@ Os passos a seguir mostram como ligar utilizando o SSMS mais recente.
 
 Quando a verificação está concluída, o SSMS liga-se normalmente presumindo credenciais válidas e acesso a firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral da autenticação multi-factor, consulte [a Autenticação Universal com Base de Dados SQL, SQL Managed Instance e Azure Synapse (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Concede acesso à sua base de dados: [Autenticação e Autorização de Dados sql: Concessão de Acesso](logins-create-manage.md)  
-- Certifique-se de que outros podem ligar através da firewall: [Configurar uma regra de firewall ao nível do servidor utilizando o portal Azure](/database/firewall-configure.md)  
+- Certifique-se de que outros podem ligar através da firewall: [Configurar uma regra de firewall ao nível do servidor utilizando o portal Azure](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
 - Ao utilizar **o Ative Directory- Universal com** autenticação MFA, o rastreio ADAL está disponível a partir de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desligado por predefinição, pode ligar o rastreio ADAL utilizando o menu **Ferramentas**, **Opções,** em **Serviços Azure**, **Azure Cloud,** **Nível de Rastreio da Janela de Saída ADAL,** seguido de ativar a **saída** no menu **Ver.** Os vestígios estão disponíveis na janela de saída ao selecionar a **opção Azure Ative Directory**.

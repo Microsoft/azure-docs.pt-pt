@@ -14,6 +14,10 @@
       items:
         - name: IA+Machine Learning
           items:
+            - name: Cognitive Search
+              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Serviços Cognitivos
+              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Máquina Virtual de Ciência de Dados
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -40,6 +44,8 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Synapse Analytics
+              href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockchain
           items:
             - name: Blockchain
@@ -130,8 +136,6 @@
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Web
           items:
-            - name: Cognitive Search
-              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Hubs de Notificação
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutoriais
@@ -293,6 +297,14 @@
           href: export-template-portal.md
         - name: Detetar recursos
           href: view-resources.md
+    - name: Validar modelos
+      items:
+        - name: Implementação de Hipóteses
+          href: template-deploy-what-if.md
+        - name: Conjunto de ferramentas de teste
+          href: test-toolkit.md
+        - name: Casos de teste
+          href: test-cases.md
     - name: Implementar modelos
       items:
         - name: Implementar - portal
@@ -309,8 +321,6 @@
           href: deploy-rest.md
         - name: Implementar a partir do GitHub
           href: deploy-to-azure-button.md
-        - name: Implementação de Hipóteses
-          href: template-deploy-what-if.md
         - name: Implementar novamente depois do erro
           displayName: rollback
           href: rollback-on-error.md

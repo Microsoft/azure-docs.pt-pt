@@ -110,12 +110,17 @@
     - name: Políticas de autor para propriedades de matriz
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
-    - name: Criar uma política de Configuração de Convidado em Windows
-      displayName: 'powershell, dsc, chef, windows'
-      href: ./how-to/guest-configuration-create.md
-    - name: Criar uma política de Configuração de Convidado em Linux
-      displayName: 'powershell, dsc, chef, linux'
-      href: ./how-to/guest-configuration-create-linux.md
+    - name: Configuração de Convidado
+      items:
+        - name: Criar uma política de Configuração de Convidado em Windows
+          displayName: 'powershell, dsc, chef, windows'
+          href: ./how-to/guest-configuration-create.md
+        - name: Criar uma política de Configuração de Convidado em Linux
+          displayName: 'powershell, dsc, chef, linux'
+          href: ./how-to/guest-configuration-create-linux.md
+        - name: Criar uma política de Configuração de Convidado a partir da Política de Grupo
+          displayName: 'powershell, dsc, grouppolicy, windows'
+          href: ./how-to/guest-configuration-create-group-policy.md
     - name: Obter dados de conformidade
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md
@@ -155,9 +160,9 @@
     - name: Azure PowerShell
       items:
         - name: Política
-          href: '/powershell/module/az.resources/#policies'
+          href: /powershell/module/az.resources/#policies
         - name: Informações da Política
-          href: '/powershell/module/az.policyinsights#policy_insights'
+          href: /powershell/module/az.policyinsights#policy_insights
         - name: Configuração de Convidado
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: SDK do Azure para .NET

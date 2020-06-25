@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 20b186c75358344e6e995b24b8e54e308c8653d2
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975423"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318033"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicações no local através do Proxy de Aplicação do Azure Ative Directory
 
@@ -71,3 +71,4 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 
 ## <a name="next-steps"></a>Passos seguintes
 Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).
+

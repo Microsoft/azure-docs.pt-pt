@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747684"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944972"
 ---
 ::: zone target="docs"
 
@@ -159,7 +159,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 
 ### <a name="in-self-managed"></a>[Em Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar o Data Box Disk no Japão, Singapura, Coreia e Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
+Se estiver a utilizar o Data Box Disk no Japão, em Singapura, na Coreia, Europa Ocidental ou na Índia e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
 
 1. Aceda ao painel **Descrição geral** da encomenda no portal do Azure. Siga as instruções apresentadas quando selecionar **Agendar recolha**. Deverá ver um código de Autorização, o qual é utilizado no momento da entrega da encomenda.
 

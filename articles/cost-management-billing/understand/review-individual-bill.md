@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: banders
-ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194160"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888313"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Analisar a fatura individual do Azure
 
@@ -100,7 +100,7 @@ A secção **Custos de Utilização** da fatura mostra o valor total (custo) de 
 
 ![Custos de utilização da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
-No ficheiro CSV de utilização, filtre por *MeterName* para o Recurso correspondente mostrado na fatura. Em seguida, some o valor do *Custo* dos itens na coluna. Veja a seguir um exemplo.
+No ficheiro CSV de utilização, filtre por *MeterName* para o Recurso correspondente mostrado na fatura. Em seguida, some o valor do *Custo* dos itens na coluna. Eis um exemplo focado no nome do medidor (discos P10) que corresponde ao mesmo item de linha na fatura.
 
 ![Valor somado do ficheiro de utilização para MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

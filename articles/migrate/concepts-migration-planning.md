@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: 377085a98214d5fa92d08dd78d37635364295c46
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 81132f0a6f8b57d8798a9a5c4f0a2b9c1ac736d4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85269147"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317406"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Construir plano de migração com Azure Migrate
 
@@ -70,7 +70,7 @@ Assim que descobrir os seus servidores, utilize mapeamento de dependência sem a
 
 Como o Azure proporciona flexibilidade para redimensionar a sua capacidade de nuvem ao longo do tempo, a migração é uma oportunidade para otimizar o CPU e os recursos de memória alocados aos seus servidores. Crie uma avaliação sobre o grupo identificado anteriormente para entender o histórico de desempenho das cargas de trabalho, o que será muito crucial nas recomendações de VM SKUs e discos sobre Azure.
 
-## <a name="asses-your-readiness-for-migration"></a>Assa a sua prontidão para a migração
+## <a name="assess-your-readiness-for-migration"></a>Avalie a sua prontidão para a migração
 
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Análise de prontidão e adequação para a Azure
 Exportar o relatório de avaliação do Azure VM e filtrar pelas seguintes categorias de prontidão para compreender a prontidão em VM para o Azure:
