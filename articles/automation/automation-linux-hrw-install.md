@@ -3,14 +3,14 @@ title: Implementar um Trabalhador de Runbook Híbrido Linux na Azure Automation
 description: Este artigo diz como instalar um Azure Automation Hybrid Runbook Worker para executar livros em máquinas baseadas em Linux no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: a8679c189e77fe7b191a645b07c68b6101604644
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c569c83ed0bc5d78f0e5670c802188ee9fd8fd53
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079151"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340799"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -120,13 +120,25 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido Linux, execute os 
 
     Nos resultados da pesquisa, deverá consultar os registos de batimentos cardíacos da máquina, indicando que está ligado e a reportar ao serviço. Por defeito, cada agente encaminha um registo de batimentos cardíacos para o seu espaço de trabalho atribuído.
 
-3. Executar o seguinte comando para adicionar a máquina a um grupo híbrido de trabalhador runbook, alterando os valores para os parâmetros *-w*, *-k*, *-g*, e *-e*. Para o parâmetro *-g,* substitua o valor pelo nome do grupo híbrido Runbook Worker a que o novo Trabalhador de Runbook Híbrido Linux deve aderir. Se o nome não existir na sua conta automation, é criado um novo grupo híbrido runbook worker com esse nome.
+3. Executar o seguinte comando para adicionar a máquina a um grupo híbrido de trabalhadores runbook, especificando os valores para os parâmetros `-w` , `-k` , e `-g` `-e` .
+
+    Pode obter as informações necessárias para os parâmetros `-k` e a partir da página `-e` **Chaves** na sua conta Dem automação. Selecione **Teclas** na secção **de definições** de conta a partir do lado esquerdo da página.
+
+    ![Gerir página Chaves](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+
+    * Para o `-e` parâmetro, copie o valor para **URL**.
+
+    * Para o `-k` parâmetro, copie o valor **da chave de acesso primário**.
+
+    * Para o `-g` parâmetro, especifique o nome do grupo híbrido Runbook Worker que o novo trabalhador do Linux Hybrid Runbook deve aderir. Se este grupo já existir na conta Automation, a máquina atual é-lhe adicionada. Se este grupo não existe, é criado com esse nome.
+
+    * Para o `-w` parâmetro, especifique o seu ID do espaço de trabalho Do Log Analytics.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
    ```
 
-4. Após a conclusão do comando, a página do Grupo operário Híbrido no portal Azure mostra o novo grupo e o número de membros. Se este for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo na lista na página grupos de trabalhadores híbridos e selecionar o azulejo **híbrido operário.** Na página "Trabalhadores Híbridos", vê cada membro do grupo listado.
+4. Após o fim do comando, a página grupo de trabalhadores híbridos na sua conta Automation mostra o novo grupo e o número de membros. Se este for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo na lista na página grupos de trabalhadores híbridos e selecionar o azulejo **híbrido operário.** Na página "Trabalhadores Híbridos", vê cada membro do grupo listado.
 
     > [!NOTE]
     > Se estiver a utilizar a extensão da máquina virtual Log Analytics para o Linux para um Azure VM, recomendamos que a definição `autoUpgradeMinorVersion` `false` para versões de auto-actualização possa causar problemas com o Trabalhador de Runbook Híbrido. Para aprender a atualizar a extensão manualmente, consulte a [implementação do CLI Azure](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).

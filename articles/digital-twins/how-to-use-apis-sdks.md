@@ -8,12 +8,12 @@ ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 9ed482a5d6619960a50a409b08aa8c6d9725ab9e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 0f5911711d08902b573f3919df144aeb10af07f2
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321602"
+ms.locfileid: "85338481"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -111,29 +111,27 @@ Criar e consultar gémeos:
 
 ```csharp
 // Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+
+twinData.Id = $"firstTwin";
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", "Hello World!");
 try {
-    await client.CreateDigitalTwinAsync($"firstTwin", JsonSerializer.Serialize(initData));
+    await client.CreateDigitalTwinAsync("firstTwin", JsonSerializer.Serialize(twinData));
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
-
+ 
 // Run a query    
 AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
 await foreach (string twin in result)
 {
+    // Use JSON deserialization to pretty-print
     object jsonObj = JsonSerializer.Deserialize<object>(twin);
     string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
     Console.WriteLine(prettyTwin);
+    // Or use BasicDigitalTwin for convenient property access
+    BasicDigitalTwin btwin = JsonSerializer.Deserialize<BasicDigitalTwin>(twin);
 }
 ```
 

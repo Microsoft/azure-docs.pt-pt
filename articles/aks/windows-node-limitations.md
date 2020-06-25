@@ -5,12 +5,12 @@ description: Conheça as limitações conhecidas quando executar piscinas de nó
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: e03343bc0bf8d2b49d2322573e75fe76cc853e32
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976613"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339887"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó de nó do Windows Server e cargas de trabalho de aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -85,7 +85,7 @@ Tem de manter o nome num máximo de 6 (seis) caracteres. Esta é uma limitação
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Todas as funcionalidades são suportadas com nós Windows?
 
-As políticas de rede e kubenet não são suportadas atualmente com nós Windows. 
+As políticas de rede e kubenet não são suportadas atualmente com nós Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Posso executar controladores de entrada nos nós do Windows?
 
@@ -101,7 +101,7 @@ O suporte de contas de serviço gerido pelo grupo (gMSA) não está atualmente d
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Posso utilizar o Azure Monitor para recipientes com nós e contentores windows?
 
-Sim, no entanto, o Azure Monitor tem um conjunto de [limitações][azure-monitor] para o suporte do Windows.
+Sim, pode, no entanto, o Azure Monitor está em pré-visualização pública para recolha de registos (stdout, stderr) e métricas de recipientes Windows. Também pode anexar ao fluxo de registos de estase de stdout de um recipiente Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>E se eu precisar de uma funcionalidade que não seja suportada?
 

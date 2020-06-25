@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 647d0b13930109b093532ce0b330e9b3eb6d439b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 92df0a7919a7d01b062356bfa4d32cc701e1e6f4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260955"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341296"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -153,7 +153,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**A encriptação transparente de dados nas bases de dados SQL deve ser ativada**|Permitir encriptação de dados transparentes para proteger os dados em repouso e cumprir os requisitos de conformidade.<br>(Política relacionada: A encriptação transparente de dados nas bases de dados SQL deve ser ativada)|Baixa|**S**|SQL|
 |**A avaliação da vulnerabilidade deve ser ativada na Base de Dados SQL**|A avaliação de vulnerabilidades pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados.<br>(Política relacionada: A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL)|Alta|**S**|SQL|
 |**A avaliação da vulnerabilidade deve ser ativada em casos geridos pela SQL**|A avaliação de vulnerabilidades pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados.<br>(Política relacionada: A avaliação da vulnerabilidade deve ser ativada em casos geridos do SQL)|Alta|**S**|SQL|
-|**As vulnerabilidades nas bases de dados SQL em VMs devem ser remediadas**|A SQL Vulnerability Assessment analisa a sua base de dados por vulnerabilidades de segurança e expõe quaisquer desvios das melhores práticas, tais como configurações erradas, permissões excessivas e dados sensíveis desprotegidos. A resolução das vulnerabilidades encontradas pode melhorar consideravelmente a sua estatura de segurança na base de dados.|Alta|N|SQL|
+|**As vulnerabilidades nos seus servidores SQL em máquinas devem ser remediadas**|A SQL Vulnerability Assessment analisa a sua base de dados por vulnerabilidades de segurança e expõe quaisquer desvios das melhores práticas, tais como configurações erradas, permissões excessivas e dados sensíveis desprotegidos. A resolução das vulnerabilidades encontradas pode melhorar consideravelmente a sua estatura de segurança na base de dados.|Alta|N|SQL|
 |**As vulnerabilidades nas suas bases de dados SQL devem ser remediadas**|A SQL Vulnerability Assessment analisa a sua base de dados por vulnerabilidades de segurança e expõe quaisquer desvios das melhores práticas, tais como configurações erradas, permissões excessivas e dados sensíveis desprotegidos. A resolução das vulnerabilidades encontradas pode melhorar consideravelmente a sua estatura de segurança na base de dados.<br>(Política relacionada: As vulnerabilidades nas bases de dados SQL devem ser remediadas)|Alta|N|SQL|
 ||||||
 
@@ -172,7 +172,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**As contas preprecadas devem ser removidas da sua subscrição**|Remova as contas precotadas das suas subscrições para permitir o acesso apenas aos utilizadores atuais.<br>(Política relacionada: As contas precodadas devem ser removidas da sua subscrição)|Alta|N|Subscrição|
 |**Deve haver mais de um proprietário atribuído à sua subscrição**|Designe mais de um proprietário de subscrição para ter o administrador de acesso a despedimentos.<br>(Política relacionada: Deve haver mais de um proprietário atribuído à sua subscrição)|Alta|N|Subscrição|
 |**Um máximo de 3 proprietários deve ser designado para a sua subscrição**|Designar menos de três proprietários de subscrição para reduzir o potencial de violação por um proprietário comprometido.<br>(Política relacionada: Um máximo de 3 proprietários deve ser designado para a sua subscrição)|Alta|N|Subscrição|
-|**Os registos de diagnóstico no Cofre de Chaves devem ser ativados**|Ativar os registos e retê-los até um ano. Isto permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre de Chaves devem ser ativados)|Baixa|**S**|Key Vault|
+|**Os registos de diagnóstico no Cofre de Chaves devem ser ativados**|Ativar os registos e retê-los até um ano. Isto permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre de Chaves devem ser ativados)|Baixa|**S**|Cofre de Chaves|
 ||||||
 
 

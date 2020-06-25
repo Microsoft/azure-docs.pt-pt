@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Use a Política Azure para aplicar configurações de cluster à escala
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 80ffd70b830483c548f29a029d448bb6b480a8d4
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676204"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341374"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utilize a Política Azure para aplicar configurações de cluster à escala (Visualização)
 
@@ -26,7 +26,7 @@ Se estiver a utilizar vários repos git como fontes de verdade para cada cluster
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
 1. No portal Azure, navegue para a Política, e na secção de **Autorização** da barra lateral, selecione **Definições**.
-2. Escolha a política incorporada "Implementar GitOps para Kubernetes" na categoria "Kubernetes" e clique em **Select**.
+2. Escolha a política incorporada "Implementar GitOps para Kubernetes" na categoria "Kubernetes" e clique em **Atribuir**.
 3. Desaprote o **Âmbito** para o grupo de gestão, subscrição ou grupo de recursos onde a atribuição de política se aplicará.
 4. Se pretender excluir quaisquer recursos do âmbito de aplicação da política, então desa um conjunto **de exclusões**.
 5. Dê à atribuição de política um **nome** e **descrição** que pode usar para identificá-lo facilmente.
@@ -49,6 +49,6 @@ Após a criação da atribuição da política, para qualquer novo `connectedClu
 5. Use **kubectl** para interrogar o cluster: você deve ver o espaço de nome e artefactos que foram criados pelo `sourceControlConfiguration` .
 6. Dentro de 5 minutos, você deve ver no aglomerado os artefactos que são descritos nos manifestos no repo Git configurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar o Monitor Azure para contentores com arco habilitado a clusters Kubernetes](./deploy-azure-monitor-for-containers.md)

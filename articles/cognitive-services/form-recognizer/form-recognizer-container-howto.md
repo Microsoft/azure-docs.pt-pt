@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213198"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355612"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulários (pré-visualização)
 
@@ -138,6 +138,9 @@ Use o comando de execução do [estivador](https://docs.docker.com/engine/refere
 [Exemplos](form-recognizer-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
 ### <a name="form-recognizer"></a>Reconhecedor de Formato
+
+> [!NOTE]
+> Os diretórios utilizados `--mount` nestes exemplos são caminhos de diretório do Windows. Se estiver a utilizar o Linux ou o macOS, altere o parâmetro para o seu ambiente. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \

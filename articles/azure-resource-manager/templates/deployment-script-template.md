@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: jgao
-ms.openlocfilehash: 3d9ab41fdb05eca3b39bf1ad222f6d42a3311b77
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6cf10ea9693f922ee8edfb6bab5d1a7cde681fcb
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193737"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339421"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -362,10 +362,10 @@ Timeout             : PT1H
 
 Utilizando o CLI Azure, pode gerir scripts de implementação no âmbito de subscrição ou grupo de recursos:
 
-- [az implementações-scripts eliminar](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): Eliminar um script de implementação.
-- [lista de scripts de implementação az](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): Listar todos os scripts de implantação.
-- [az deployment-scripts show](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): Recuperar um script de implementação.
-- [az implementação-scripts show-log](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Mostrar registos de scripts de implementação.
+- [az implementações-scripts eliminar](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): Eliminar um script de implementação.
+- [lista de scripts de implementação az](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): Listar todos os scripts de implantação.
+- [az deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): Recuperar um script de implementação.
+- [az implementação-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Mostrar registos de scripts de implementação.
 
 A saída do comando da lista é semelhante a:
 

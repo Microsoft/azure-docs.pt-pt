@@ -7,12 +7,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: nicolela
-ms.openlocfilehash: ee2f1636547378102f35b432914426b3e24d92ef
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d3f6a855f4b162f0b14ff01ed0a3560897383c49
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898991"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341766"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Criar um laboratório para aulas de engenharia usando a SolidWorks
 
@@ -77,8 +77,6 @@ Os passos desta secção mostram como configurar a sua máquina virtual de model
 
     > [!NOTE]
     > Na caixa de diálogo **Do Servidor de Adicionar,** será solicitado o número de **porta** utilizado para o seu servidor de licença e o nome ou endereço IP do servidor de licença.
-
-1. Depois de ter terminado a instalação do software do cliente, também precisa de permitir que a GPU seja utilizada sobre a ligação RDP. Consulte o artigo sobre [como ativar a GPU sobre a ligação rdp](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) para obter mais informações.
 
 ## <a name="cost"></a>Custo
 

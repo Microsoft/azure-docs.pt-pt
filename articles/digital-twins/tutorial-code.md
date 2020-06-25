@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 7798151d0aeaa553c21db0fd8e71f4ac674a9a56
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298400"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355714"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs de Gémeos Digitais Azure
 
@@ -566,5 +566,5 @@ Continue até ao próximo tutorial para explorar as coisas que pode fazer com um
 > [Tutorial: Explore o básico com uma aplicação de cliente de amostra](tutorial-command-line-app.md)
 
 Também pode adicionar ao código que escreveu neste tutorial aprendendo mais operações de gestão nos artigos de como fazer, ou começar a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial.
-* [Como fazer: Gerir um modelo gémeo](how-to-manage-model.md)
+* [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)
 * [Conceitos: Modelos personalizados](concepts-models.md)

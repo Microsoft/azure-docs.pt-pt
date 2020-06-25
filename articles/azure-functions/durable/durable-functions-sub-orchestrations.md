@@ -1,28 +1,32 @@
 ---
-title: Suborquestrações para Funções Duráveis - Azure
-description: Como chamar orquestrações de orquestrações na extensão de Funções Duráveis para Funções Azure.
+title: Sub-orquestrações para Funções Duradouras - Azure
+description: Como chamar orquestrações de orquestrações na extensão de Funções Duradouras para Funções Azure.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5625bc2ddfa4b6f527ca16f19f33d257a1834d4b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261522"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340821"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestrações em Funções Duráveis (Funções Azure)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Sub-orquestrações em Funções Duradouras (Funções Azure)
 
-Além de chamar funções de atividade, as funções de orquestração podem chamar outras funções de orquestrador. Por exemplo, você pode construir uma orquestração maior a partir de uma biblioteca de funções orquestradoras menores. Ou pode executar várias instâncias de uma função orquestradora em paralelo.
+Além de chamar funções de atividade, as funções de orquestrador podem chamar outras funções de orquestrador. Por exemplo, pode construir uma orquestração maior a partir de uma biblioteca de funções orquestradoras menores. Ou pode executar vários casos de uma função orquestradora em paralelo.
 
-Uma função orquestradora pode chamar `CallSubOrchestratorAsync` outra `CallSubOrchestratorWithRetryAsync` função de orquestrador usando os ou os métodos em .NET, ou os `callSubOrchestrator` ou `callSubOrchestratorWithRetry` métodos em JavaScript. O artigo de [manipulação de erros & Compensação](durable-functions-error-handling.md#automatic-retry-on-failure) tem mais informações sobre a retentativa automática.
+Uma função orquestradora pode chamar outra função orquestradora utilizando os `CallSubOrchestratorAsync` `CallSubOrchestratorWithRetryAsync` métodos ou métodos em .NET, ou os `callSubOrchestrator` métodos ou `callSubOrchestratorWithRetry` métodos em JavaScript. O artigo [de tratamento de erros & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) tem mais informações sobre a repetição automática.
 
-As funções sub-orquestradoras comportam-se como funções de atividade do ponto de vista do chamador. Podem devolver um valor, lançar uma exceção, e podem ser aguardados pela função orquestradora-mãe. 
+As funções de sub-orquestrador comportam-se tal como as funções de atividade do ponto de vista do chamador. Podem devolver um valor, lançar uma exceção, e podem ser aguardados pela função de orquestrador-mãe. 
+
+> [!NOTE]
+> As sub-orquestrações são atualmente suportadas em .NET e JavaScript.
+
 ## <a name="example"></a>Exemplo
 
-O exemplo que se segue ilustra um cenário IoT ("Internet das Coisas") onde existem vários dispositivos que precisam de ser aprovisionados. A seguinte função representa o fluxo de trabalho de provisionamento que deve ser executado para cada dispositivo:
+O exemplo a seguir ilustra um cenário IoT ("Internet das Coisas") onde há vários dispositivos que precisam de ser a provisionados. A seguinte função representa o fluxo de trabalho de provisionamento que precisa de ser executado para cada dispositivo:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -66,11 +70,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Esta função de orquestrador pode ser usada como é para o fornecimento de dispositivos únicos ou pode fazer parte de uma orquestração maior. Neste último caso, a função de orquestrador-mãe pode agendar instâncias de utilização da `DeviceProvisioningOrchestration` `CallSubOrchestratorAsync` API (.NET) ou `callSubOrchestrator` (JavaScript).
+Esta função orquestradora pode ser usada como-é para o provisionamento de dispositivos one-off ou pode fazer parte de uma orquestração maior. Neste último caso, a função de orquestrador-mãe pode agendar instâncias de `DeviceProvisioningOrchestration` utilização da `CallSubOrchestratorAsync` API (.NET) ou `callSubOrchestrator` (JavaScript).
 
-Aqui está um exemplo que mostra como executar múltiplas funções orquestradoras em paralelo.
+Aqui está um exemplo que mostra como executar várias funções orquestradoras em paralelo.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -94,7 +98,7 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
+> Os exemplos C# anteriores são para Funções Duradouras 2.x. Para funções duradouras 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -123,9 +127,9 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> As suborquestrações devem ser definidas na mesma aplicação de funções que a orquestração dos pais. Se precisar de ligar e esperar por orquestrações noutra aplicação de função, considere utilizar o suporte incorporado para HTTP APIs e o padrão de consumidor de sondagens HTTP 202. Para mais informações, consulte o tópico [http Features.](durable-functions-http-features.md)
+> As sub-orquestrações devem ser definidas na mesma aplicação de função que a orquestração dos pais. Se precisar de ligar e aguardar orquestrações noutra aplicação de funções, considere usar o suporte incorporado para ASP HTTP e o padrão de consumidor de sondagens HTTP 202. Para mais informações, consulte o tópico [HTTP Features.](durable-functions-http-features.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como definir um estatuto de orquestração personalizada](durable-functions-custom-orchestration-status.md)
+> [Saiba como definir um estado de orquestração personalizado](durable-functions-custom-orchestration-status.md)

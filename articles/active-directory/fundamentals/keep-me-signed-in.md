@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4b253a3017f1a836ac989bb897065a6a7d8337
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a82f81888828cb5edd42c37a6e8b2c2ee51fe603
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739953"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339557"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configure o 'Stay signed in?' solicitação para contas AD AZure
 
@@ -28,7 +28,7 @@ O diagrama seguinte mostra o fluxo de entrada do utilizador para um inquilino ge
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado":::
 
 > [!NOTE]
-> Configurar a opção manter-me assinado requer que utilize o Azure Ative Directory (Azure AD) Premium 1, Premium 2 ou Edições Básicas, ou ter uma licença Office 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscreva-se no Azure AD Premium.](active-directory-get-started-premium.md)<br><br>As edições Azure AD Premium e Basic estão disponíveis para clientes na China usando o exemplo mundial de Azure AD. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para mais informações, fale connosco através do [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Configurar a opção manter-me assinado requer que utilize o Azure Ative Directory (Azure AD) Premium 1, Premium 2 ou Edições Basic, ou ter uma licença Microsoft 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscreva-se no Azure AD Premium.](active-directory-get-started-premium.md)<br><br>As edições Azure AD Premium e Basic estão disponíveis para clientes na China usando o exemplo mundial de Azure AD. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para mais informações, fale connosco através do [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="configure-kmsi"></a>Configurar KMSI
 
@@ -61,6 +61,6 @@ Pode impedir que os utilizadores vejam a interrupção definindo **a opção 'Mo
 
 Saiba mais sobre outras definições que afetam o tempo limite da sessão de sessão de sessão:
 
-* Escritório 365 - [Tempo limite de sessão inativo](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
+* Microsoft 365 - [Intervalo de sessão inativo](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
 * Acesso Condicional Azure AD - [Frequência de inscrição do utilizador](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 * Portal Azure – [Tempo de inatividade ao nível do diretório](https://docs.microsoft.com/azure/azure-portal/admin-timeout)

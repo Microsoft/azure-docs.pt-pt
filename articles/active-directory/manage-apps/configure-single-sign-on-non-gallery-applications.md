@@ -12,12 +12,12 @@ ms.date: 06/08/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e3aa91ce9b1b4ba56507dfe1920d7f7dbd18ac3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 1604e132cb77fbb2a2a1033a1f23f70dd3e6b8b9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763538"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355969"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar o início de sessão único baseado em SAML para aplicações que não estão na galeria
 
@@ -42,6 +42,8 @@ Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte 
 
 3. Na secção **'Gerir',** selecione **'Único's sign-on'**. 
 
+   - Note que existem alguns cenários em que a opção **de inscrição única** não estará presente. Por exemplo, se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única está configurada no portal **de registo da App** e não aparecerá na navegação sob **aplicações da Enterprise.** Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
+
 4. Selecione **SAML**. Aparece **a configuração de um único sign-on com SAML - página de pré-visualização.**
 
    ![Passo 1 Editar a Configuração Básica SAML](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
@@ -50,7 +52,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte 
 
 1. Introduza as seguintes definições. Deve obter os valores do vendedor de aplicações. Pode introduzir manualmente os valores ou carregar um ficheiro de metadados para extrair o valor dos campos.
 
-    | Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Description |
+    | Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
     |:--|:--|:--|:--|
     | **Identificador (ID de Entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do Público do token SAML. Espera-se que o pedido o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize o seguinte padrão: 'https:// <subdomain> .contoso.com' *Pode encontrar este valor como elemento **emitente** no **pedido AuthnRequest** (pedido SAML) enviado pela aplicação.* |
     | **URL de resposta** | Necessário | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos URL de resposta adicionais para especificar URLs de resposta múltipla. Por exemplo, pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para efeitos de teste, pode especificar URLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |

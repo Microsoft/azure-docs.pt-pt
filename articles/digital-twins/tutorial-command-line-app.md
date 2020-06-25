@@ -8,12 +8,12 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 18f7657cdaf3eb1fef76ca65856fde3b29b714a7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262356"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355884"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -131,7 +131,8 @@ Re-executar o `CreateModels` comando para tentar re-carregar um dos mesmos model
 CreateModels Room
 ```
 
-Como os modelos não podem ser substituídos, este irá agora devolver um erro de serviço:
+Como os modelos não podem ser substituídos, isto irá agora devolver um erro de serviço.
+Para obter os detalhes sobre como eliminar os modelos existentes, consulte [Como-a-fazer: Gerir modelos personalizados](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

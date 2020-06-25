@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e2957ea179d9737bb6aad6fb8f121780575115b
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 807cc4647a27cf62109885ba1adaeaf5058a20c4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976400"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355425"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -62,7 +62,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Selecione **Rever + criar**.
 1. Reveja as definições do diretório. Em seguida, selecione **Criar**.
 
-Você pode ligar vários inquilinos Azure AD B2C a uma única subscrição Azure para efeitos de faturação.
+Você pode ligar vários inquilinos Azure AD B2C a uma única subscrição Azure para efeitos de faturação. Para ligar um inquilino, você deve ser um administrador no inquilino Azure AD B2C e ser atribuído pelo menos um papel de Contribuinte dentro da subscrição Azure. Consulte [link um inquilino Azure AD B2C para uma subscrição](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selecione o seu diretório de inquilinos B2C
 

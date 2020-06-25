@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e379b81fafb156b1ea71a8992abfdc060065b8b2
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763181"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339163"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Utilize o relatório de atividade da aplicação AD FS (pré-visualização) para migrar aplicações para Azure AD
 
@@ -36,8 +36,9 @@ Os dados da atividade da aplicação AD FS estão disponíveis para os utilizado
 
 * A sua organização deve estar atualmente a usar AD FS para aceder a aplicações.
 * A Azure AD Connect Health deve ser ativado no seu inquilino AZure AD.
+* O Azure AD Connect Health para o agente AD FS deve ser instalado.
    * [Saiba mais sobre a Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Começar a configurar a Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Começar com a configuração do Azure AD Connect Health e instalar o agente AD FS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Descubra aplicações AD FS que podem ser migradas 
 
@@ -73,7 +74,7 @@ O relatório de atividade da aplicação AD FS está disponível no portal Azure
 
 A tabela que se segue lista todos os testes de configuração que são realizados em aplicações AD FS.
 
-|Resultado  |Passe/Aviso/Falha  |Description  |
+|Resultado  |Passe/Aviso/Falha  |Descrição  |
 |---------|---------|---------|
 |Regras de teste-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migradora foi detetada para a Autorização Adicional.       | Passe/Aviso          | A parte dependente tem regras para solicitar a autenticação de vários fatores (MFA). Para passar para Azure AD, traduza essas regras em políticas de Acesso Condicional. Se estiver a utilizar um MFA no local, recomendamos que se mude para a Azure MFA. [Saiba mais sobre o Acesso Condicional.](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)        |
 |Test-ADFSRPAdditionalWsFedEndpoint <br> A parte de contemitimento tem AdicionalWSFedEndpoint definido para verdadeiro.       | Aprovado/Reprovado          | O partido em ad FS permite vários pontos finais de afirmação da WS-Fed.Atualmente, a AZure AD só suporta uma.Se tiver um cenário em que este resultado esteja a bloquear a migração, [avise-nos.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |

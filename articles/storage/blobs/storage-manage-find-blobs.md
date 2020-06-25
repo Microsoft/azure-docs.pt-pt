@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 083b130d1bb02ccc922c834c09a0d16fab004ae9
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433573"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355663"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerir e encontrar dados sobre o armazenamento de blob Azure com índice blob (pré-visualização)
 
@@ -36,11 +36,11 @@ Os prefixos de nome de contentor e bolha são categorização unidimensional par
 
 Considere as seguintes cinco bolhas na sua conta de armazenamento:
 >
-> container1/transaction.csv  
-> container2/campanha.docx  
+> contentor1/transaction.csv  
+> contentor2/campaign.docx  
 > fotos/bannerphoto.png  
-> archives/complete/2019review.pdf  
-> logs/2020/01/01/logfile.txt  
+> arquivos/concluídos/2019review.pdf  
+> registos/2020/01/01/logfile.txt  
 >
 
 Estas bolhas estão atualmente separadas utilizando um prefixo de contentor/nome de pasta virtual/blob. Com o Blob Index, pode definir um atributo de etiqueta de índice `Project = Contoso` nestas cinco bolhas para categorizá-los juntos, mantendo a sua organização atual de prefixo. Isto elimina a necessidade de mover dados expondo a capacidade de filtrar e encontrar dados usando o índice multidimensional da plataforma de armazenamento.
@@ -63,7 +63,7 @@ Pode aplicar várias tags na sua bolha para ser mais descritivo dos dados.
 > "Prioridade" = '01' 
 >
 
-Para modificar os atributos de etiqueta de índice existentes, tem primeiro de recuperar os atributos de etiqueta existentes, modificar os atributos da etiqueta e substituir pela operação SetBlobTags. Para remover todas as etiquetas de índice da bolha, ligue para a operação SetBlobTags sem atributos de etiqueta especificados. Como as tags do índice blob são um sub-recurso para o conteúdo de dados blob, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera o último tempo modificado da bolha.
+Para modificar os atributos de etiqueta de índice existentes, tem primeiro de recuperar os atributos de etiqueta existentes, modificar os atributos da etiqueta e substituir pela operação SetBlobTags. Para remover todas as etiquetas de índice da bolha, ligue para a operação SetBlobTags sem atributos de etiqueta especificados. Como as tags do índice blob são um sub-recurso para o conteúdo de dados blob, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera o último tempo modificado do blob ou ETag (etiqueta de entidade). Pode criar ou modificar tags de índice para todas as bolhas de base atuais e versões anteriores; no entanto, as etiquetas em instantâneos ou bolhas apagadas suaves não podem ser modificadas. 
 
 Aplicam-se os seguintes limites às etiquetas blob Index:
 - Cada bolha pode ter até 10 tags de índice de bolhas
@@ -237,7 +237,7 @@ No entanto, apenas as tags Blob Index são automaticamente indexadas e tornadas 
 
 O quadro seguinte resume as diferenças entre as etiquetas metadata e blob Index:
 
-|              |   Metadata   |   Etiquetas blob Index  |
+|              |   Metadados   |   Etiquetas blob Index  |
 |--------------|--------------|--------------------|
 | **Limites**         | Sem limite numérico; Total de 8 KB; caso insensível | 10 etiquetas por blob max; 768 bytes por etiqueta; caso sensível |
 | **Updates**      | Não é permitido no nível de arquivo; O SetBlobMetadata substitui todos os metadados existentes; SetBlobMetadata altera o último tempo modificado da bolha | Permitido para todos os níveis de acesso; O SetBlobTags substitui todas as etiquetas existentes; SetBlobTags não altera o último tempo modificado da bolha |

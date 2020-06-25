@@ -1,19 +1,14 @@
 ---
 title: Azure Service Bus - Atualizar automaticamente as unidades de mensagens
 description: Este artigo mostra-lhe como pode utilizar um runbook da Azure Automation para atualizar automaticamente as unidades de mensagens de um espaço de nomes de Service Bus.
-services: service-bus-messaging
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-ms.openlocfilehash: db86f22247b757ed2f1cc2c168421346ad90a1fc
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/23/2020
+ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657655"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341493"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus 
 Este artigo mostra-lhe como pode atualizar automaticamente [as unidades](service-bus-premium-messaging.md) de mensagens de um espaço de nomes do Service Bus com base no uso de recursos (CPU ou memória). 
@@ -177,5 +172,5 @@ O procedimento a seguir mostra como criar um alerta que desencadeie o livro de v
     > [!NOTE]
     > Agora, quando o uso do CPU de espaço de nome ultrapassa os 75, o alerta desencadeia o runbook de automação, o que aumenta as unidades de mensagens do espaço de nomes do Service Bus. Da mesma forma, pode criar um alerta para outro runbook de automação, que diminui as unidades de mensagens se o uso do CPU de espaço de nome for inferior a 25. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para conhecer as unidades de mensagens, consulte as [mensagens Premium](service-bus-premium-messaging.md)

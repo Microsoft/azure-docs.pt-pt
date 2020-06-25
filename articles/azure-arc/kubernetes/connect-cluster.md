@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 232d5e5a5f6efd6ddbd6124f78de4f4b8c1cd639
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676425"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341390"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
 Ligue um cluster Kubernetes ao Arco de Azure.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Verifique se tem os seguintes requisitos prontos:
 
@@ -77,10 +77,8 @@ Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 O registo é um processo assíncronos. A inscrição pode demorar aproximadamente 10 minutos. Pode monitorizar o processo de registo com os seguintes comandos:
@@ -228,7 +226,7 @@ Pode eliminar um `Microsoft.Kubernetes/connectedcluster` recurso utilizando o po
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar o GitOps num cluster ligado](./use-gitops-connected-cluster.md)
 * [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

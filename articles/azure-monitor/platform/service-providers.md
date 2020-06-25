@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: b23cc2f69e78135998dcaa8a182f3d3ccc0eba82
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190405"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340887"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de monitores Azure para Prestadores de Serviços
 
@@ -64,7 +64,7 @@ As vantagens da arquitetura centralizada são:
 As desvantagens da arquitetura centralizada são:
 
 * Esta arquitetura é aplicável apenas para dados de VM baseados em agentes, não abrangerá fontes de dados de tecido PaaS, SaaS e Azure.
-* Pode ser difícil separar os dados entre os clientes quando são fundidos num único espaço de trabalho. O único bom método para o fazer é utilizar o nome de domínio totalmente qualificado do computador (FQDN) ou através do ID de assinatura Azure. 
+* Pode ser difícil separar os dados entre os clientes quando são fundidos num único espaço de trabalho. O único bom método para o fazer é utilizar o nome de domínio totalmente qualificado do computador (FQDN) ou através do ID de assinatura Azure.
 * Todos os dados de todos os clientes serão armazenados na mesma região com uma única nota e as mesmas definições de retenção e configuração.
 * Os serviços de tecido azul e PaaS, como o Azure Diagnostics e os Registos de Auditoria Azure, exigem que o espaço de trabalho esteja no mesmo inquilino que o recurso, pelo que não podem enviar os registos para o espaço de trabalho central.
 * Todos os agentes VM de todos os clientes serão autenticados no espaço de trabalho central usando o mesmo ID e chave do espaço de trabalho. Não existe um método para bloquear registos de um cliente específico sem interromper outros clientes.
@@ -77,13 +77,13 @@ Existem duas opções para implementar registos numa localização central:
 
 1. Espaço de trabalho central: O prestador de serviços pode criar um espaço de trabalho no seu inquilino e utilizar um script que utilize a [API de Consulta](https://dev.loganalytics.io/) com a [API de Recolha](../../azure-monitor/platform/data-collector-api.md) de Dados para trazer os dados dos vários espaços de trabalho para esta localização central. Outra opção, além de um script, é utilizar [aplicações Azure Logic.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 
-2. Power BI como localização central: O Power BI pode funcionar como a localização central quando os vários espaços de trabalho exportam dados para ele utilizando a integração entre o espaço de trabalho Log Analytics e [o Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI como localização central: O Power BI pode funcionar como a localização central quando os vários espaços de trabalho exportam dados para ele utilizando a integração entre o espaço de trabalho Log Analytics e [o Power BI](../../azure-monitor/platform/powerbi.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Automatizar a criação e configuração de espaços de trabalho usando [modelos de Gestor de Recursos](template-workspace-configuration.md)
 
-* Automatizar a criação de espaços de trabalho utilizando [o PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Automatizar a criação de espaços de trabalho utilizando [o PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
 
 * Utilizar [alertas](../../azure-monitor/platform/alerts-overview.md) para integrar-se com os sistemas existentes
 

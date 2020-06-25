@@ -1,20 +1,16 @@
 ---
-title: 'Tutorial: Atualizar o consórcio de inventário de retalho utilizando canais de publicação/subscrição e filtros tópicos com o Azure CLI'
-description: 'Tutorial: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição, e como adicionar e usar regras de filtro usando o Azure CLI'
-services: service-bus-messaging
-author: spelluru
-manager: timlt
-ms.author: spelluru
-ms.date: 11/05/2019
+title: 'Tutorial: Atualizar o sortido de inventário de retalho utilizando canais de publicação/subscrição e filtros tópicos com Azure CLI'
+description: 'Tutorial: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição, e como adicionar e usar regras de filtro usando O Azure CLI'
+ms.date: 06/23/2020
 ms.topic: tutorial
-ms.service: service-bus-messaging
-ms.custom: mvc
-ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+author: spelluru
+ms.author: spelluru
+ms.openlocfilehash: 5340ec8d3d7a479fb349ce5ed1d32f917668d0d8
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718920"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340996"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar inventários utilizando a CLI e tópicos/subscrições
 
@@ -32,7 +28,7 @@ Um exemplo deste cenário é uma atualização da variedade de inventário para 
 
 ![tópico](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
-Se não tiver uma subscrição Azure, pode criar uma [conta gratuita][] antes de começar.
+Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +36,7 @@ Para desenvolver uma aplicação Service Bus com Java, tem de ter o seguinte ins
 
 - [Kit de Desenvolvimento de Java](https://aka.ms/azure-jdks), versão mais recente.
 - [CLI do Azure](https://docs.microsoft.com/cli/azure)
-- [Apache Maven](https://maven.apache.org), versão 3.0 ou superior.
+- [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -326,7 +322,7 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 ```
 
 > [!NOTE]
-> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -346,7 +342,7 @@ Avance para o próximo tutorial para saber mais sobre a utilização de capacida
 > [!div class="nextstepaction"]
 > [Atualizar inventário com o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[conta livre]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

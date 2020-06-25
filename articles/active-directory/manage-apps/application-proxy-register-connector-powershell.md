@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b959649074e68d50a266f05841ce4c87e2b3e20
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 3c68fc08276bebf7af3c67c35075a27be42d8f1e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760019"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339309"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação não acompanhado para o conector proxy aplicação AD Azure
 
@@ -69,8 +69,9 @@ Existem dois métodos que pode utilizar para registar o conector:
     **Usando C#:**
 
         using System;
-        using System.Diagnostics;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Linq;
+        using System.Collections.Generic;
+        using Microsoft.Identity.Client;
 
         class Program
         {
@@ -78,22 +79,17 @@ Existem dois métodos que pode utilizar para registar o conector:
         /// <summary>
         /// The AAD authentication endpoint uri
         /// </summary>
-        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.microsoftonline.com/common/oauth2/token?api-version=1.0");
+        static readonly string AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 
         /// <summary>
         /// The application ID of the connector in AAD
         /// </summary>
         static readonly string ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489";
-
-        /// <summary>
-        /// The reply address of the connector application in AAD
-        /// </summary>
-        static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
-
+ 
         /// <summary>
         /// The AppIdUri of the registration service in AAD
         /// </summary>
-        static readonly Uri RegistrationServiceAppIdUri = new Uri("https://proxy.cloudwebappproxy.net/registerapp");
+        static readonly string RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp/user_impersonation";
 
         #endregion
 
@@ -104,72 +100,86 @@ Existem dois métodos que pode utilizar para registar o conector:
 
         public void GetAuthenticationToken()
         {
-            AuthenticationContext authContext = new AuthenticationContext(AadAuthenticationEndpoint.AbsoluteUri);
+    
+        IPublicClientApplication clientApp = PublicClientApplicationBuilder
+           .Create(ConnectorAppId)
+           .WithDefaultRedirectUri() // will automatically use the default Uri for native app
+           .WithAuthority(AadAuthenticationEndpoint)
+           .Build();
 
-            AuthenticationResult authResult = authContext.AcquireToken(RegistrationServiceAppIdUri.AbsoluteUri,
-                ConnectorAppId,
-                ConnectorRedirectAddress,
-                PromptBehavior.Always);
+        AuthenticationResult authResult = null;
+            
+        IAccount account = null;
 
-            if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
-            {
-                Trace.TraceError("Authentication result, token or tenant id returned are null");
-                throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
-            }
+        IEnumerable<string> scopes = new string[] { RegistrationServiceAppIdUri };
 
-            token = authResult.AccessToken;
-            tenantID = authResult.TenantId;
+        try
+         {
+          authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
+         }
+          catch (MsalUiRequiredException ex)
+         {
+          authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
+         }
+
+
+        if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
+        {
+         Trace.TraceError("Authentication result, token or tenant id returned are null");
+         throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
+        }
+
+        token = authResult.AccessToken;
+        tenantID = authResult.TenantId;
         }
 
     **Utilizando a PowerShell:**
 
-        # Locate AzureAD PowerShell Module
-        # Change Name of Module to AzureAD after what you have installed
-        $AADPoshPath = (Get-InstalledModule -Name AzureAD).InstalledLocation
-        # Set Location for ADAL Helper Library
-        $ADALPath = $(Get-ChildItem -Path $($AADPoshPath) -Filter Microsoft.IdentityModel.Clients.ActiveDirectory.dll -Recurse ).FullName | Select-Object -Last 1
+        # Load MSAL (Tested with version 4.7.1) 
 
-        # Add ADAL Helper Library
-        Add-Type -Path $ADALPath
-
-        #region constants
-
+        Add-Type -Path "..\MSAL\Microsoft.Identity.Client.dll" 
+        
         # The AAD authentication endpoint uri
-        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/"
+        
+        $authority = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
 
-        # The application ID of the connector in AAD
-        [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
+        #The application ID of the connector in AAD
 
-        # The reply address of the connector application in AAD
-        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob"
+        $connectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489";
 
-        # The AppIdUri of the registration service in AAD
-        [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"
+        #The AppIdUri of the registration service in AAD
+        $registrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp/user_impersonation"
 
-        #endregion
+        # Define the resources and scopes you want to call 
 
-        #region GetAuthenticationToken
+        $scopes = New-Object System.Collections.ObjectModel.Collection["string"] 
 
-        # Set AuthN context
-        $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $AadAuthenticationEndpoint
+        $scopes.Add($registrationServiceAppIdUri)
 
-        # Build platform parameters
-        $promptBehavior = [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Always
-        $platformParam = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList $promptBehavior
+        $app = [Microsoft.Identity.Client.PublicClientApplicationBuilder]::Create($connectorAppId).WithAuthority($authority).WithDefaultRedirectUri().Build()
 
-        # Do AuthN and get token
-        $authResult = $authContext.AcquireTokenAsync($RegistrationServiceAppIdUri.AbsoluteUri, $ConnectorAppId, $ConnectorRedirectAddress, $platformParam).Result
+        [Microsoft.Identity.Client.IAccount] $account = $null
+
+        # Acquiring the token 
+
+        $authResult = $null
+
+        $authResult = $app.AcquireTokenInteractive($scopes).WithAccount($account).ExecuteAsync().ConfigureAwait($false).GetAwaiter().GetResult()
 
         # Check AuthN result
-        If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId) ) {
-        $token = $authResult.AccessToken
-        $tenantId = $authResult.TenantId
+        If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId)) {
+        
+         $token = $authResult.AccessToken
+         $tenantId = $authResult.TenantId
+
+         Write-Output "Success: Authentication result returned."
+        
         }
         Else {
-        Write-Output "Authentication result, token or tenant id returned are null"
-        }
-
-        #endregion
+         
+         Write-Output "Error: Authentication result, token or tenant id returned with null."
+        
+        } 
 
 2. Assim que tiver o token, crie um SecureString utilizando o token:
 

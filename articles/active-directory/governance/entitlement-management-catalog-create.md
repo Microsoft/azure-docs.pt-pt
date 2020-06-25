@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253d0dc945e0351b5c017739d081c567a139f5d1
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078438"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339576"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerir um catálogo de recursos na gestão de direitos Azure AD
 
@@ -57,7 +57,7 @@ Também pode criar um catálogo utilizando o Microsoft Graph.  Um utilizador num
 
 ## <a name="add-resources-to-a-catalog"></a>Adicionar recursos a um catálogo
 
-Para incluir recursos num pacote de acesso, os recursos devem existir num catálogo. Os tipos de recursos que pode adicionar são grupos, aplicações e sites SharePoint Online. Os grupos podem ser criados em nuvem grupos office 365 ou grupos de segurança Azure AD criados na nuvem. As aplicações podem ser aplicações empresariais Azure AD, incluindo aplicações SaaS e suas próprias aplicações federadas para Azure AD. Os sites podem ser sites SharePoint Online ou coleções de sites SharePoint Online.
+Para incluir recursos num pacote de acesso, os recursos devem existir num catálogo. Os tipos de recursos que pode adicionar são grupos, aplicações e sites SharePoint Online. Os grupos podem ser criados em nuvem Grupos Microsoft 365 ou grupos de segurança Azure AD criados na nuvem. As aplicações podem ser aplicações empresariais Azure AD, incluindo aplicações SaaS e suas próprias aplicações federadas para Azure AD. Os sites podem ser sites SharePoint Online ou coleções de sites SharePoint Online.
 
 **Papel pré-requisito:** Ver [funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 

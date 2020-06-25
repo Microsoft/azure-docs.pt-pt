@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f297cec0e5f88461d61b14974b57992f847f6e1c
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051984"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356156"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
@@ -44,7 +44,7 @@ Certifique-se de que a função de autenticação pass-through ainda está **ati
 
 Se o utilizador não conseguir assinar para utilizar a Autenticação Pass-through, poderá ver um dos seguintes erros virados para o utilizador no ecrã de entrada AD Azure: 
 
-|Erro|Description|Resolução
+|Erro|Descrição|Resolução
 | --- | --- | ---
 |AADSTS80001|Incapaz de ligar ao Ative Directory|Certifique-se de que os servidores de agentes são membros da mesma floresta de AD que os utilizadores cujas palavras-passe precisam de ser validadas e que são capazes de se conectar ao Ative Directory.  
 |AADSTS8002|Ocorreu um tempo limite de ligação ao Ative Directory|Verifique se o Ative Directory está disponível e está a responder aos pedidos dos agentes.

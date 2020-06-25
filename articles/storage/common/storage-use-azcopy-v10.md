@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bf1303c6bb13677fdea73b2a1a707c655c58b7c1
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2cff9a427cf395414c5b0778f51f4587c8578478
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945669"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340917"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -300,7 +300,7 @@ Se planeias usar o [Jenkins](https://jenkins.io/) para executar scripts, certifi
 
 ## <a name="use-azcopy-in-azure-storage-explorer"></a>Use AzCopy no Explorador de Armazenamento Azure
 
-[O Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) utiliza o AzCopy para executar todas as suas operações de transferência de dados. Pode utilizar o [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) se quiser aproveitar as vantagens de desempenho do AzCopy, mas prefere utilizar uma interface gráfica do utilizador em vez da linha de comando para interagir com os seus ficheiros.
+[O Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) utiliza a AzCopy para executar todas as suas operações de transferência de dados. Pode utilizar o [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) se quiser aproveitar as vantagens de desempenho do AzCopy, mas prefere utilizar uma interface gráfica do utilizador em vez da linha de comando para interagir com os seus ficheiros.
 
 O Storage Explorer utiliza a chave da sua conta para realizar operações, por isso, depois de assinar no Storage Explorer, não necessitará de fornecer credenciais de autorização adicionais.
 

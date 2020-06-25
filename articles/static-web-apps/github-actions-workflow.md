@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4d69bb69081643e0223c23a9029aabb35c8d22ef
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254723"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340930"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
@@ -50,7 +50,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: Build And Deploy
       id: builddeploy
       uses: Azure/static-web-apps-deploy@v0.0.1-preview
@@ -102,7 +104,7 @@ Cada gatilho do evento requer um manipulador de eventos. [Os](https://help.githu
 
 No ficheiro de fluxo de trabalho static Web Apps, existem dois empregos disponíveis.
 
-| Name  | Description |
+| Nome  | Descrição |
 |---------|---------|
 |`build_and_deploy_job` | Executa quando empurra comete ou abre um pedido de puxão contra a sucursal listada na `on` propriedade. |
 |`close_pull_request_job` | Executa apenas quando fecha um pedido de puxar que remove o ambiente de encenação criado a partir de pedidos de puxar. |
@@ -148,7 +150,7 @@ Pode ter um controlo fino sobre o que os comandos funcionam durante uma implanta
 
 A implantação chama sempre `npm install` antes de qualquer comando personalizado.
 
-| Comando            | Description |
+| Comando            | Descrição |
 |---------------------|-------------|
 | `app_build_command` | Define um comando personalizado para executar durante a implementação da aplicação de conteúdo estático.<br><br>Por exemplo, para configurar uma construção de produção para uma aplicação angular entrar `ng build --prod` . Se ficar em branco, o fluxo de trabalho tenta executar os `npm run build` comandos ou `npm run build:Azure` comandos.  |
 | `api_build_command` | Define um comando personalizado para executar durante a implementação da aplicação API de Funções Azure. |

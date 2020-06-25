@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff25cb15257302ac806aa9480d6d7b911eb36d06
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253295"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339728"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -216,7 +216,7 @@ As fichas de acesso são por defeito emitidas se uma condição de Política ca 
 
 ### <a name="minimize-the-number-of-ca-policies"></a>Minimizar o número de políticas de CA
 
-Criar uma política para cada app não é eficiente e leva a uma administração difícil. O Acesso Condicional aplicará apenas as primeiras 195 políticas por utilizador. Recomendamos que analise as suas apps e as agrupe em aplicações que tenham os mesmos requisitos de recursos para os mesmos utilizadores. Por exemplo, se todas as aplicações do Office 365 ou todas as aplicações DE RH tiverem os mesmos requisitos para os mesmos utilizadores, crie uma única política e inclua todas as aplicações a que se aplica. 
+Criar uma política para cada app não é eficiente e leva a uma administração difícil. O Acesso Condicional aplicará apenas as primeiras 195 políticas por utilizador. Recomendamos que analise as suas apps e as agrupe em aplicações que tenham os mesmos requisitos de recursos para os mesmos utilizadores. Por exemplo, se todas as aplicações da Microsoft 365 ou todas as aplicações DE RH tiverem os mesmos requisitos para os mesmos utilizadores, crie uma única política e inclua todas as aplicações a que se aplica. 
 
 ### <a name="set-up-emergency-access-accounts"></a>Criar contas de acesso de emergência
 

@@ -1,24 +1,17 @@
 ---
 title: Descrição Gera de integração do Azure Service Bus para o Event Grid | Microsoft Docs
-description: Este artigo fornece uma descrição de como as mensagens Azure Service Bus se integram com a Azure Event Grid.
-services: service-bus-messaging
+description: Este artigo fornece uma descrição de como as mensagens do Azure Service Bus se integram com a Azure Event Grid.
 documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+author: spelluru
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773483"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340573"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -38,7 +31,7 @@ Para ativar a funcionalidade, precisa dos seguintes itens:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se tem acesso de contribuinte
-Aceda ao seu espaço de nome service Bus e, em seguida, selecione o controlo de **acesso (IAM)**, e selecione o separador de **tarefas de role.** 
+Vá ao seu espaço de nomes de Service Bus e, em seguida, selecione **Access control (IAM)** e selecione o separador **atribuições de funções.** Verifique se tem acesso ao espaço de nomes. 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de eventos
 
@@ -119,7 +112,7 @@ Pode criar subscrições do Event Grid para espaços de nomes do Service Bus de 
 
 * No portal do Azure
 * Na [CLI do Azure](#azure-cli-instructions)
-* No [PowerShell](#powershell-instructions)
+* Em [PowerShell](#powershell-instructions)
 
 ## <a name="azure-portal-instructions"></a>Instruções do portal do Azure
 
@@ -152,7 +145,7 @@ namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-Se estiver a usar a BASH 
+Se estiver a usar BASH 
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 

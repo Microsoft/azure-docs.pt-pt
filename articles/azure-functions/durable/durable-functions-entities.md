@@ -1,65 +1,65 @@
 ---
-title: Entidades duráveis - Funções Azure
-description: Saiba quais são as entidades duráveis e como usá-las na extensão de Funções Duráveis para Funções Azure.
+title: Entidades duradouras - Funções Azure
+description: Saiba o que são entidades duráveis e como usá-las na extensão de Funções Duradouras para Funções Azure.
 author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877547"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341562"
 ---
-# <a name="entity-functions"></a>Funções da entidade
+# <a name="entity-functions"></a>Funções de entidade
 
-As funções da entidade definem as operações de leitura e atualização de pequenas peças de Estado, conhecidas como *entidades duráveis.* Tal como as funções orquestradoras, as funções da entidade são funções com um tipo especial de gatilho, o gatilho da *entidade*. Ao contrário das funções orquestradoras, as funções da entidade gerem explicitamente o estado de uma entidade, em vez de representarem implicitamente o Estado através do fluxo de controlo.
+As funções de entidade definem operações de leitura e atualização de pequenas peças de Estado, conhecidas como *entidades duráveis.* Tal como as funções de orquestrador, as funções da entidade são funções com um tipo especial de gatilho, o gatilho da *entidade*. Ao contrário das funções orquestradoras, as funções da entidade gerem explicitamente o estado de uma entidade, em vez de representarem implicitamente o Estado através do fluxo de controlo.
 As entidades fornecem um meio para escalonar as aplicações distribuindo o trabalho por muitas entidades, cada uma com um estado modestamente dimensionado.
 
 > [!NOTE]
-> As funções da entidade e funcionalidades conexas só estão disponíveis nas Funções Duráveis 2.0 ou superior.
+> As funções de entidade e a funcionalidade relacionada só estão disponíveis em Funções Duráveis 2.0 ou superiores. Atualmente são suportados em .NET e JavaScript.
 
 ## <a name="general-concepts"></a>Conceitos gerais
 
-As entidades comportam-se um pouco como pequenos serviços que comunicam através de mensagens. Cada entidade tem uma identidade única e um estado interno (se existir). Tal como serviços ou objetos, as entidades realizam operações quando são solicitadas a fazê-lo. Quando uma operação executa, pode atualizar o estado interno da entidade. Também pode chamar serviços externos e esperar por uma resposta. As entidades comunicam com outras entidades, orquestrações e clientes através da utilização de mensagens que são implicitamente enviadas através de filas fiáveis. 
+As entidades comportam-se um pouco como pequenos serviços que comunicam através de mensagens. Cada entidade tem uma identidade única e um estado interno (se existir). Como serviços ou objetos, as entidades realizam operações quando solicitadas a fazê-lo. Quando uma operação executa, pode atualizar o estado interno da entidade. Pode também chamar os serviços externos e aguardar uma resposta. As entidades comunicam com outras entidades, orquestrações e clientes utilizando mensagens que são implicitamente enviadas através de filas fiáveis. 
 
 Para evitar conflitos, todas as operações numa única entidade são garantidas para executar em série, isto é, uma após a outra. 
 
-### <a name="entity-id"></a>ID da entidade
-As entidades são acedidas através de um identificador único, o ID da *entidade.* Um ID de entidade é simplesmente um par de cordas que identifica exclusivamente uma instância de entidade. Consiste num:
+### <a name="entity-id"></a>ID de entidade
+As entidades são acedidas através de um identificador único, o ID da *entidade.* Um ID de entidade é simplesmente um par de cordas que identifica unicamente uma instância de entidade. Consiste em:
 
-* Nome da **entidade,** que é um nome que identifica o tipo de entidade. Um exemplo é "Contador". Este nome deve coincidir com o nome da função entidade que implementa a entidade. Não é sensível ao caso.
-* **Chave da entidade,** que é uma cadeia que identifica exclusivamente a entidade entre todas as outras entidades com o mesmo nome. Um exemplo é um GUID.
+* **Nome da entidade,** que é um nome que identifica o tipo da entidade. Um exemplo é "Counter". Este nome deve corresponder ao nome da função da entidade que implementa a entidade. Não é sensível ao caso.
+* **Chave de entidade,** que é uma cadeia que identifica exclusivamente a entidade entre todas as outras entidades com o mesmo nome. Um exemplo é um GUID.
 
-Por exemplo, `Counter` uma função de entidade pode ser usada para manter a pontuação num jogo online. Cada instância do jogo tem uma identificação de entidade única, como `@Counter@Game1` e `@Counter@Game2`. Todas as operações que visam uma determinada entidade exigem especificar uma identidade de entidade como parâmetro.
+Por exemplo, uma `Counter` função de entidade pode ser usada para manter a pontuação num jogo online. Cada instância do jogo tem uma identificação de entidade única, como `@Counter@Game1` e `@Counter@Game2` . Todas as operações que visam uma determinada entidade requerem especificar um ID de entidade como parâmetro.
 
 ### <a name="entity-operations"></a>Entity operations (Operações de entidade) ###
 
 Para invocar uma operação numa entidade, especifique:
 
-* **Identificação** da entidade-alvo.
-* Nome de **funcionamento**, que é uma cadeia que especifica a operação a executar. Por exemplo, `Counter` a `add`entidade `get`poderia `reset` apoiar , ou operações.
-* **Entrada de funcionamento**, que é um parâmetro de entrada opcional para a operação. Por exemplo, a operação de adição pode ter uma quantidade de inteiro como entrada.
-* **Hora programada**, que é um parâmetro opcional para especificar o tempo de entrega da operação. Por exemplo, uma operação pode ser programada de forma fiável para ser executada vários dias no futuro.
+* **ID de entidade** da entidade-alvo.
+* **Nome da operação,** que é uma cadeia que especifica a operação a realizar. Por exemplo, a `Counter` entidade poderia `add` `get` suportar, ou `reset` operações.
+* **Entrada de operação**, que é um parâmetro de entrada opcional para o funcionamento. Por exemplo, a operação de adição pode tomar uma quantia número inteiro como entrada.
+* **Hora programada**, que é um parâmetro opcional para especificar o tempo de entrega da operação. Por exemplo, uma operação pode ser agendada de forma fiável para ser executada vários dias no futuro.
 
-As operações podem devolver um valor de resultado ou um resultado de erro, como um erro Do JavaScript ou uma exceção .NET. Este resultado ou erro pode ser observado por orquestrações que chamaram a operação.
+As operações podem devolver um valor de resultado ou um resultado de erro, como um erro JavaScript ou uma exceção .NET. Este resultado ou erro pode ser observado por orquestrações que chamaram a operação.
 
-Uma operação de entidade também pode criar, ler, atualizar e apagar o estado da entidade. O estado da entidade é sempre persistente no armazenamento.
+Uma operação de entidade também pode criar, ler, atualizar e apagar o estado da entidade. O estado da entidade é sempre duradoura no armazenamento.
 
 ## <a name="define-entities"></a>Definir entidades
 
-Atualmente, as duas APIs distintas para a definição de entidades são:
+Atualmente, as duas APIs distintas para entidades determinantes são:
 
-**Sintaxe baseada em funções,** onde as entidades são representadas como funções e as operações são explicitamente despachadas pela aplicação. Esta sintaxe funciona bem para entidades com estado simples, poucas operações, ou um conjunto dinâmico de operações como nos quadros de aplicações. Esta sintaxe pode ser aborrecida de manter porque não apanha erros de tipo no momento da compilação.
+**Sintaxe baseada em funções,** onde as entidades são representadas como funções e operações são explicitamente despachadas pela aplicação. Esta sintaxe funciona bem para entidades com estado simples, poucas operações, ou um conjunto dinâmico de operações como em quadros de aplicação. Esta sintaxe pode ser aborrecida para manter porque não apanha erros de tipo no tempo de compilação.
 
-**Sintaxe baseada em classe (apenas EM NET),** onde entidades e operações são representadas por classes e métodos. Esta sintaxe produz código mais facilmente legível e permite que as operações sejam invocadas de forma segura. A sintaxe baseada na classe é uma camada fina em cima da sintaxe baseada na função, por isso ambas as variantes podem ser usadas alternadamente na mesma aplicação.
+**Sintaxe baseada na classe (apenas.NET),** onde entidades e operações são representadas por classes e métodos. Esta sintaxe produz um código mais facilmente legível e permite que as operações sejam invocadas de forma tipo segura. A sintaxe baseada na classe é uma camada fina em cima da sintaxe baseada na função, para que ambas as variantes possam ser usadas intercambiavelmente na mesma aplicação.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Exemplo: Sintaxe baseada em funções - C #
 
-O seguinte código é um `Counter` exemplo de uma entidade simples implementada como uma função durável. Esta função define `add`três `reset`operações, e, `get`cada uma das quais opera num estado inteiro.
+O código a seguir é um exemplo de uma entidade simples `Counter` implementada como uma função durável. Esta função define três `add` operações, e cada uma das quais opera num estado `reset` `get` inteiro.
 
 ```csharp
 [FunctionName("Counter")]
@@ -84,7 +84,7 @@ Para obter mais informações sobre a sintaxe baseada na função e como usá-la
 
 ### <a name="example-class-based-syntax---c"></a>Exemplo: Sintaxe baseada em classe - C #
 
-O exemplo seguinte é uma `Counter` implementação equivalente da entidade utilizando classes e métodos.
+O exemplo a seguir é uma implementação equivalente da `Counter` entidade utilizando classes e métodos.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -105,17 +105,17 @@ public class Counter
 }
 ```
 
-O estado desta entidade é `Counter`um objeto de tipo, que contém um campo que armazena o valor atual do balcão. Para persistir este objeto no armazenamento, é serializado e desserializado pela biblioteca [Json.NET.](https://www.newtonsoft.com/json) 
+O estado desta entidade é um objeto de `Counter` tipo, que contém um campo que armazena o valor atual do balcão. Para persistir este objeto no armazenamento, é serializado e desercializado pela biblioteca [Json.NET.](https://www.newtonsoft.com/json) 
 
-Para obter mais informações sobre a sintaxe baseada na classe e como usá-la, consulte [as classes de entidades Definintes.](durable-functions-dotnet-entities.md#defining-entity-classes)
+Para obter mais informações sobre a sintaxe baseada na classe e como usá-la, consulte [as classes de entidades definidoras](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="example-javascript-entity"></a>Exemplo: Entidade JavaScript
 
-Entidades duráveis estão disponíveis no JavaScript a partir `durable-functions` da versão **1.3.0** do pacote npm. O seguinte código `Counter` é a entidade implementada como uma função durável escrita no JavaScript.
+As entidades duráveis estão disponíveis no JavaScript a partir da versão **1.3.0** do `durable-functions` pacote npm. O código a seguir é a `Counter` entidade implementada como uma função durável escrita no JavaScript.
 
-**Contador/função.json**
+**Contador/function.jsligado**
 ```json
 {
   "bindings": [
@@ -154,27 +154,27 @@ module.exports = df.entity(function(context) {
 
 ## <a name="access-entities"></a>Entidades de acesso
 
-As entidades podem ser acedidas através de comunicação de sentido único ou bidirecional. A seguinte terminologia distingue as duas formas de comunicação: 
+As entidades podem ser acedidas através de comunicação unidirecional ou bidirecional. A seguinte terminologia distingue as duas formas de comunicação: 
 
-* **Chamar** uma entidade usa comunicação bidirecional (ida e volta). Envia uma mensagem de operação à entidade e depois aguarda a mensagem de resposta antes de continuar. A mensagem de resposta pode fornecer um valor de resultado ou um resultado de erro, como um erro JavaScript ou uma exceção .NET. Este resultado ou erro é então observado pelo chamador.
-* **Sinalizar** uma entidade utiliza comunicação de sentido único (fogo e esquecimento). Enviauma mensagem de operação, mas não espere sã e reata. Embora a mensagem seja garantida para ser entregue eventualmente, o remetente não sabe quando e não consegue observar qualquer valor ou erro do resultado.
+* **Chamar** uma entidade utiliza comunicação bidirecional (ida e volta). Envia uma mensagem de operação à entidade e, em seguida, aguarda a mensagem de resposta antes de continuar. A mensagem de resposta pode fornecer um valor de resultado ou um resultado de erro, como um erro JavaScript ou uma exceção .NET. Este resultado ou erro é então observado pelo autor da chamada.
+* **A sinalização de** uma entidade utiliza comunicação unidirecional (fogo e esquecimento). Envias uma mensagem de operação, mas não esperes por uma resposta. Enquanto a mensagem é garantida para ser entregue eventualmente, o remetente não sabe quando e não pode observar qualquer valor de resultado ou erros.
 
-As entidades podem ser acedidas a partir de funções de cliente, a partir de funções orquestradoras, ou de dentro das funções da entidade. Nem todas as formas de comunicação são apoiadas por todos os contextos:
+As entidades podem ser acedidas a partir de funções de cliente, de funções orquestradoras ou de funções de entidade. Nem todas as formas de comunicação são apoiadas por todos os contextos:
 
 * A partir de dentro dos clientes, pode sinalizar entidades e pode ler o estado da entidade.
-* A partir de orquestrações, pode sinalizar entidades e pode ligar para entidades.
-* De dentro de entidades, pode sinalizar entidades.
+* A partir de dentro de orquestrações, pode sinalizar entidades e pode chamar entidades.
+* A partir de entidades, pode sinalizar entidades.
 
-Os exemplos que se seguem ilustram estas várias formas de aceder a entidades.
+Os exemplos que se seguem ilustram estas várias formas de acesso às entidades.
 
 ### <a name="example-client-signals-an-entity"></a>Exemplo: Cliente sinaliza uma entidade
 
-Para aceder a entidades de uma Função Azure ordinária, que também é conhecida como função cliente, utilize a [entidade de vinculação](durable-functions-bindings.md#entity-client)do cliente. O exemplo seguinte mostra uma função acionada pela fila que sinaliza uma entidade que utiliza esta ligação.
+Para aceder a entidades de uma Função Azure ordinária, também conhecida como função de cliente, utilize a [entidade de ligação ao cliente.](durable-functions-bindings.md#entity-client) O exemplo a seguir mostra uma função acionada por fila que sinaliza uma entidade utilizando esta ligação.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
-> Para a simplicidade, os seguintes exemplos mostram a sintaxe dactilografada vagamente para aceder a entidades. Em geral, recomendamos que [aceda a entidades através](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) de interfaces porque fornece mais verificação de tipo.
+> Para simplificar, os exemplos a seguir mostram a sintaxe vagamente digitada para aceder a entidades. Em geral, recomendamos que [aceda a entidades através de interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) porque fornece mais verificação de tipo.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -203,13 +203,13 @@ module.exports = async function (context) {
 
 ---
 
-O *sinal* de termo significa que a invocação da API da entidade é de sentido único e assíncrono. Não é possível que uma função do cliente saiba quando a entidade processou a operação. Além disso, a função do cliente não pode observar quaisquer valores ou exceções de resultados. 
+O termo *sinal* significa que a invocação da API da entidade é unidireccionária e assíncrono. Não é possível que um cliente funcione saber quando a entidade processou a operação. Além disso, a função do cliente não pode observar quaisquer valores de resultados ou exceções. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Exemplo: Cliente lê um estado de entidade
 
 As funções do cliente também podem consultar o estado de uma entidade, como mostra o seguinte exemplo:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -238,13 +238,13 @@ module.exports = async function (context) {
 
 ---
 
-As consultas estatais da entidade são enviadas para a loja de rastreio Durável e devolvem o estado mais recentemente persistido da entidade. Este Estado é sempre um estado "comprometido", ou seja, nunca é um estado temporário intermédio assumido no meio da execução de uma operação. No entanto, é possível que este estado esteja velho em comparação com o estado de memória da entidade. Apenas as orquestrações podem ler o estado de memória de uma entidade, como descrito na secção seguinte.
+As consultas estatais da entidade são enviadas para a loja de rastreio Durable e devolvem o estado mais recentemente persistido da entidade. Este Estado é sempre um estado "comprometido", ou seja, nunca é um estado intermédio temporário assumido no meio da execução de uma operação. No entanto, é possível que este estado esteja velho em comparação com o estado de memória da entidade. Apenas as orquestrações podem ler o estado de memória de uma entidade, conforme descrito na secção seguinte.
 
-### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exemplo: Orquestração sinaliza e chama uma entidade
+### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exemplo: Sinalização de orquestração e chama uma entidade
 
-As funções de orquestrador podem aceder a entidades utilizando APIs na ligação do gatilho da [orquestração](durable-functions-bindings.md#orchestration-trigger). O seguinte código de exemplo mostra uma `Counter` função orquestradora chamando e sinalizando uma entidade.
+As funções orquestradoras podem aceder a entidades utilizando APIs na ligação do gatilho de [orquestração](durable-functions-bindings.md#orchestration-trigger). O seguinte código de exemplo mostra uma função orquestradora a chamar e sinalizar uma `Counter` entidade.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -277,21 +277,21 @@ module.exports = df.orchestrator(function*(context){
 ```
 
 > [!NOTE]
-> O JavaScript não suporta atualmente sinalizar uma entidade de um orquestrador. Em vez disso, utilize `callEntity`.
+> O JavaScript não suporta atualmente a sinalização de uma entidade de um orquestrador. Em vez disso, utilize `callEntity`.
 
 ---
 
-Apenas as orquestrações são capazes de chamar entidades e obter uma resposta, o que pode ser um valor de retorno ou uma exceção. As funções do cliente que utilizam a [ligação](durable-functions-bindings.md#entity-client) do cliente só podem sinalizar entidades.
+Apenas as orquestrações são capazes de chamar entidades e obter uma resposta, o que pode ser um valor de retorno ou uma exceção. As funções do cliente que utilizam a [ligação](durable-functions-bindings.md#entity-client) ao cliente só podem sinalizar entidades.
 
 > [!NOTE]
-> Chamar uma entidade de uma função de orquestrador é semelhante a chamar uma [função](durable-functions-types-features-overview.md#activity-functions) de atividade a partir de uma função orquestradora. A principal diferença é que as funções da entidade são objetos duráveis com um endereço, que é o ID da entidade. As funções da entidade suportam especificar um nome de operação. As funções de atividade, por outro lado, são apátridas e não têm o conceito de operações.
+> Chamar uma entidade de uma função orquestradora é semelhante a chamar uma [função](durable-functions-types-features-overview.md#activity-functions) de atividade de uma função orquestradora. A principal diferença é que as funções da entidade são objetos duráveis com um endereço, que é o ID da entidade. A entidade funciona suporte especificando um nome de operação. As funções de atividade, por outro lado, são apátridas e não têm o conceito de operações.
 
 ### <a name="example-entity-signals-an-entity"></a>Exemplo: Entidade sinaliza uma entidade
 
-Uma função de entidade pode enviar sinais a outras entidades, ou mesmo a si mesma, enquanto executa uma operação.
-Por exemplo, podemos `Counter` modificar o exemplo da entidade anterior para que envie um sinal "marco-alcance" a alguma entidade de monitorização quando o contador atinge o valor 100.
+Uma função de entidade pode enviar sinais a outras entidades, ou mesmo a si mesmo, enquanto executa uma operação.
+Por exemplo, podemos modificar o exemplo da entidade anterior `Counter` para que envie um sinal "marco atingido" a alguma entidade monitora quando o contador atinge o valor 100.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -323,14 +323,14 @@ Por exemplo, podemos `Counter` modificar o exemplo da entidade anterior para que
 
 ## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>Coordenação de entidades (atualmente apenas .NET)
 
-Pode haver alturas em que é preciso coordenar operações em várias entidades. Por exemplo, num pedido bancário, pode ter entidades que representam contas bancárias individuais. Quando transfere fundos de uma conta para outra, deve garantir que a conta fonte tem fundos suficientes. Deve também garantir que as atualizações tanto nas contas de origem como para as contas de destino são feitas de forma consistente transacional.
+Pode haver alturas em que é preciso coordenar operações em várias entidades. Por exemplo, numa aplicação bancária, poderá ter entidades que representam contas bancárias individuais. Quando transfere fundos de uma conta para outra, deve certificar-se de que a conta de origem tem fundos suficientes. Também deve garantir que as atualizações para as contas de origem e destino são feitas de forma transacional.
 
 ### <a name="example-transfer-funds-c"></a>Exemplo: Fundos de transferência (C#)
 
-O código de exemplo seguinte transfere fundos entre duas entidades de conta utilizando uma função de orquestrador. Coordenar atualizações de entidades `LockAsync` requer a utilização do método para criar uma _secção crítica_ na orquestração.
+O seguinte exemplo código transfere fundos entre duas entidades de conta utilizando uma função orquestradora. Coordenar as atualizações das entidades requer a utilização do `LockAsync` método para criar uma secção _crítica_ na orquestração.
 
 > [!NOTE]
-> Para a simplicidade, este exemplo `Counter` reutiliza a entidade previamente definida. Numa aplicação real, seria melhor definir `BankAccount` uma entidade mais detalhada.
+> Para simplificar, este exemplo reutiliza a `Counter` entidade definida anteriormente. Numa aplicação real, seria melhor definir uma entidade mais `BankAccount` detalhada.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -372,61 +372,61 @@ public static async Task<bool> TransferFundsAsync(
 }
 ```
 
-Em `LockAsync` .NET, `IDisposable`devoluções , que termina a secção crítica quando eliminada. Este `IDisposable` resultado pode ser `using` usado juntamente com um bloco para obter uma representação sintática da secção crítica.
+Em .NET, `LockAsync` `IDisposable` devoluções , que termina a secção crítica quando eliminada. Este `IDisposable` resultado pode ser usado juntamente com um bloco para obter uma `using` representação sintática da secção crítica.
 
-No exemplo anterior, uma função orquestradora transferiu fundos de uma entidade fonte para uma entidade de destino. O `LockAsync` método bloqueou tanto as entidades de origem como as entidades da conta de destino. Este bloqueio garantiu que nenhum outro cliente poderia consultar ou modificar o estado de qualquer conta `using` até que a lógica da orquestração saísse da secção crítica no final do comunicado. Este comportamento impede a possibilidade de descoberto a partir da conta fonte.
+No exemplo anterior, uma função orquestradora transferiu fundos de uma entidade de origem para uma entidade de destino. O `LockAsync` método bloqueou as entidades de conta de origem e de destino. Este bloqueio garantiu que nenhum outro cliente poderia consultar ou modificar o estado de qualquer uma das contas até que a lógica de orquestração saísse da secção crítica no final da `using` declaração. Este comportamento impede a possibilidade de descoberto da conta de origem.
 
 > [!NOTE] 
-> Quando uma orquestração termina, normalmente ou com um erro, quaisquer secções críticas em curso são implicitamente terminadas e todas as fechaduras são libertadas.
+> Quando uma orquestração termina, normalmente ou com um erro, quaisquer secções críticas em curso são implicitamente encerradas e todas as fechaduras são libertadas.
 
 ### <a name="critical-section-behavior"></a>Comportamento da secção crítica
 
-O `LockAsync` método cria uma secção crítica numa orquestração. Estas secções críticas impedem que outras orquestrações alterem-se num conjunto de entidades especificada. Internamente, `LockAsync` a API envia operações de "bloqueio" às entidades e devoluções quando recebe uma mensagem de resposta "lock acquired" de cada uma dessas mesmas entidades. Tanto o bloqueio como o desbloqueio são operações incorporadas apoiadas por todas as entidades.
+O `LockAsync` método cria uma secção crítica numa orquestração. Estas secções críticas impedem que outras orquestrações escamemem alterações a um determinado conjunto de entidades. Internamente, a `LockAsync` API envia operações de "bloqueio" às entidades e regressa quando recebe uma mensagem de resposta "lock adquirida" de cada uma dessas mesmas entidades. Tanto o bloqueio como o desbloqueio são operações incorporadas apoiadas por todas as entidades.
 
-Nenhuma operação de outros clientes é permitida numa entidade enquanto está em estado fechado. Este comportamento garante que apenas uma instância de orquestração pode bloquear uma entidade de cada vez. Se um ouvinte tentar invocar uma operação numa entidade enquanto está bloqueada por uma orquestração, essa operação é colocada numa fila de operações pendente. Não são processadas operações pendentes até que a orquestração de detenção abra o bloqueio.
+Não são permitidas operações de outros clientes numa entidade enquanto estiver num estado fechado. Este comportamento garante que apenas uma instância de orquestração pode bloquear uma entidade de cada vez. Se um chamador tentar invocar uma operação numa entidade enquanto está trancada por uma orquestração, essa operação é colocada numa fila de operação pendente. Não são processadas operações pendentes até que a orquestração de retenção liberte o seu bloqueio.
 
 > [!NOTE] 
-> Este comportamento é ligeiramente diferente dos primitivos de sincronização usados `lock` na maioria das linguagens de programação, como a afirmação em C#. Por exemplo, em C#, a `lock` declaração deve ser utilizada por todos os fios para garantir uma sincronização adequada através de vários fios. As entidades, no entanto, não exigem que todos os chamadores bloqueiem explicitamente uma entidade. Se qualquer chamada bloquear uma entidade, todas as outras operações nessa entidade estão bloqueadas e em fila atrás dessa fechadura.
+> Este comportamento é ligeiramente diferente dos primitivos de sincronização usados na maioria das linguagens de programação, como a `lock` afirmação em C#. Por exemplo, em C#, a `lock` declaração deve ser usada por todos os fios para garantir uma sincronização adequada através de vários fios. As entidades, no entanto, não exigem que todos os chamadores bloqueiem explicitamente uma entidade. Se alguém bloquear uma entidade, todas as outras operações dessa entidade estão bloqueadas e em fila atrás dessa fechadura.
 
-Os bloqueios às entidades são duráveis, pelo que persistem mesmo que o processo de execução seja reciclado. As fechaduras são internamente persistidas como parte do estado durável de uma entidade.
+Os bloqueios às entidades são duráveis, pelo que persistem mesmo que o processo de execução seja reciclado. Os cadeados são internamente persistidos como parte do estado duradouro de uma entidade.
 
-Ao contrário das transações, as secções críticas não revertem automaticamente as alterações em caso de erros. Em vez disso, qualquer manipulação de erros, como o retrocesso ou a retenção, deve ser explicitamente codificado, por exemplo, capturando erros ou exceções. Esta escolha de design é intencional. Reverter automaticamente todos os efeitos de uma orquestração é difícil ou impossível em geral, porque as orquestrações podem executar atividades e fazer chamadas para serviços externos que não podem ser relançados. Além disso, as tentativas de retrocesso podem falhar e exigir mais manipulação de erros.
+Ao contrário das transações, as secções críticas não revertem automaticamente as alterações em caso de erros. Em vez disso, qualquer manipulação de erros, como retrocesso ou reversão, deve ser explicitamente codificada, por exemplo, através da captura de erros ou exceções. Esta escolha de design é intencional. Reverter automaticamente todos os efeitos de uma orquestração é difícil ou impossível em geral, porque as orquestrações podem executar atividades e fazer chamadas para serviços externos que não podem ser revertidos. Além disso, as tentativas de retrocesso podem falhar e exigir mais manipulação de erros.
 
 ### <a name="critical-section-rules"></a>Regras de secção crítica
 
-Ao contrário dos primitivos de bloqueio de baixo nível na maioria das línguas de programação, as secções críticas são *garantidas para não travar*. Para evitar impasses, aplicamos as seguintes restrições: 
+Ao contrário dos primitivos de baixo nível na maioria das linguagens de programação, as secções críticas são *garantidas para não travar*. Para evitar impasses, aplicamos as seguintes restrições: 
 
 * Secções críticas não podem ser aninhadas.
-* Secções críticas não podem criar suborquestrações.
-* Secções críticas podem ligar apenas para entidades que bloquearam.
-* Secções críticas não podem chamar a mesma entidade usando várias chamadas paralelas.
-* Secções críticas podem sinalizar apenas entidades que não trancaram.
+* Secções críticas não podem criar suborquívers.
+* As secções críticas só podem chamar entidades que tenham bloqueado.
+* As secções críticas não podem chamar a mesma entidade usando várias chamadas paralelas.
+* Secções críticas só podem sinalizar entidades que não bloquearam.
 
-Quaisquer violações destas regras causam um `LockingRulesViolationException` erro de tempo de execução, como em .NET, que inclui uma mensagem que explica que regra foi quebrada.
+Quaisquer violações destas regras causam um erro de tempo de execução, como `LockingRulesViolationException` em .NET, que inclui uma mensagem que explica que regra foi quebrada.
 
 ## <a name="comparison-with-virtual-actors"></a>Comparação com atores virtuais
 
-Muitas das entidades duráveis são inspiradas no modelo do [ator.](https://en.wikipedia.org/wiki/Actor_model) Se já conhece os atores, pode reconhecer muitos dos conceitos descritos neste artigo. As entidades duráveis são particularmente semelhantes a [atores virtuais](https://research.microsoft.com/projects/orleans/), ou grãos, popularizados pelo [projeto de Orleães.](http://dotnet.github.io/orleans/) Por exemplo:
+Muitas das características de entidades duráveis são inspiradas no [modelo do ator.](https://en.wikipedia.org/wiki/Actor_model) Se já conhece atores, pode reconhecer muitos dos conceitos descritos neste artigo. As entidades duráveis são particularmente semelhantes a [atores virtuais,](https://research.microsoft.com/projects/orleans/)ou grãos, como popularizado pelo [projeto Orleans.](http://dotnet.github.io/orleans/) Por exemplo:
 
-* As entidades duráveis são endereçadas através de uma identificação da entidade.
-* As operações de entidades duráveis executam em série, uma de cada vez, para evitar as condições de corrida.
-* As entidades duráveis são criadas implicitamente quando são chamadas ou sinalizadas.
-* Quando não executam as operações, as entidades duráveis são silenciosamente descarregadas da memória.
+* As entidades duradouras são endereçadas através de uma identificação de entidade.
+* As operações de entidades duradouras executam em série, uma de cada vez, para evitar condições de corrida.
+* As entidades duradouras são criadas implicitamente quando são chamadas ou sinalizadas.
+* Quando não executam operações, as entidades duráveis são silenciosamente descarregadas da memória.
 
-Há algumas diferenças importantes que merecem ser notadas:
+Há algumas diferenças importantes que merecem ser notantes:
 
-* As entidades duráveis priorizam a durabilidade em detrimento da latência, pelo que podem não ser adequadas para aplicações com requisitos rigorosos de latência.
-* Entidades duráveis não têm intervalos incorporados para mensagens. Em Orleães, todas as mensagens estão esgotadas depois de um tempo configurável. A predefinição é 30 segundos.
+* As entidades duradouras priorizam a durabilidade em relação à latência, pelo que podem não ser adequadas para aplicações com requisitos rigorosos de latência.
+* Entidades duradouras não têm prazos incorporados para mensagens. Em Orleães, todas as mensagens saem depois de um tempo configurável. A predefinição é 30 segundos.
 * As mensagens enviadas entre entidades são entregues de forma fiável e em ordem. Em Orleães, a entrega fiável ou ordenada é suportada para conteúdos enviados através de streams, mas não é garantido para todas as mensagens entre grãos.
-* Os padrões de resposta a pedidos nas entidades limitam-se a orquestrações. De dentro de entidades, apenas é permitida a mensagem de sentido único (também conhecida como sinalização), como no modelo original do ator, e ao contrário dos grãos em Orleães. 
-* Entidades duráveis não bloqueiam. Em Orleães, os impasses podem ocorrer e não resolvem até que as mensagens se estem.
-* As entidades duráveis podem ser utilizadas em conjunto com orquestrações duráveis e mecanismos de bloqueio distribuídos. 
+* Os padrões de resposta de pedido nas entidades limitam-se a orquestrações. De dentro das entidades, apenas mensagens unidirecionais (também conhecidas como sinalização) são permitidas, como no modelo de ator original, e ao contrário dos grãos em Orleães. 
+* Entidades duradouras não estão num impasse. Em Orleães, os impasses podem ocorrer e não se resolvem até que as mensagens se esusem.
+* Entidades duradouras podem ser usadas em conjunto com orquestrações duradouras e mecanismos de bloqueio distribuídos. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Leia o guia do Programador a entidades duráveis em .NET](durable-functions-dotnet-entities.md)
+> [Leia o guia do Desenvolvedor para entidades duráveis em .NET](durable-functions-dotnet-entities.md)
 
 > [!div class="nextstepaction"]
 > [Conheça os centros de tarefas](durable-functions-task-hubs.md)

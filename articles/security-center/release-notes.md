@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: f41b87f50dfac15c6228398a2c9d1c6ae470903d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: cebc1d54443c63a3fb9a2c8b6e9471525e0d7403
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260938"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341256"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -31,6 +31,14 @@ Esta página é atualizada regularmente, por isso revisite-a com frequência. Se
 
 
 ## <a name="june-2020"></a>Junho de 2020
+
+As atualizações em junho incluem:
+- [API de pontuação segura (pré-visualização)](#secure-score-api-preview)
+- [Segurança avançada de dados para máquinas SQL (Azul, outras nuvens e on-prem) (pré-visualização)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
+- [Duas novas recomendações para implantar o agente Log Analytics nas máquinas Azure Arc (pré-visualização)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
+- [Novas políticas para criar configurações contínuas de automação de exportação e fluxo de trabalho em escala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
+- [Nova recomendação para a utilização de NSGs para proteger máquinas virtuais não-orientadas para a Internet](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+
 
 ### <a name="secure-score-api-preview"></a>API de pontuação segura (pré-visualização)
 
@@ -76,6 +84,29 @@ Saiba mais sobre como o Azure Security Center utiliza o agente em [O que é o ag
 Saiba mais sobre [extensões para máquinas Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 
+
+### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Novas políticas para criar configurações contínuas de automação de exportação e fluxo de trabalho em escala
+
+Automatizar os processos de monitorização e resposta a incidentes da sua organização pode melhorar consideravelmente o tempo necessário para investigar e mitigar incidentes de segurança.
+
+Para implementar as suas configurações de automação em toda a sua organização, utilize estas políticas Azure 'DeployIfdNotExist' incorporadas para criar e configurar procedimentos [contínuos](continuous-export.md) de exportação e [automatização de fluxos de trabalho:](workflow-automation.md)
+
+As políticas podem ser encontradas na política de Azure:
+
+
+|Objetivo  |Política  |ID de política  |
+|---------|---------|---------|
+|Exportação contínua para centro de eventos|[Implementar exportação para Centro de Eventos para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Exportação contínua para o espaço de trabalho Log Analytics|[Implementar exportação para log analytics espaço de trabalho para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Automatização do fluxo de trabalho para alertas de segurança|[Implementar alertas de automatização de fluxos de trabalho para alertas do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Automatização do fluxo de trabalho para recomendações de segurança|[Implementar recomendações do Workflow Automation for Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+||||
+
+Começa com [modelos de automatização de fluxos de trabalho.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)
+
+Saiba mais sobre a utilização das duas políticas de exportação em [Alertas e Recomendações do Centro de Segurança Azure de Exportação Contínua através de Política.](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745)
+
+
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nova recomendação para a utilização de NSGs para proteger máquinas virtuais não-orientadas para a Internet
 
 O controlo de segurança "implementar as melhores práticas de segurança" inclui agora a seguinte nova recomendação:
@@ -89,6 +120,16 @@ Saiba mais na tabela [de recomendações da Rede.](recommendations-reference.md#
 
 
 ## <a name="may-2020"></a>Maio de 2020
+
+As atualizações em maio incluem:
+- [Regras de supressão de alerta (pré-visualização)](#alert-suppression-rules-preview)
+- [A avaliação da vulnerabilidade da máquina virtual está agora geralmente disponível](#virtual-machine-vulnerability-assessment-is-now-generally-available)
+- [Alterações no acesso à máquina virtual (JIT) (JIT)](#changes-to-just-in-time-jit-virtual-machine-vm-access)
+- [Recomendações personalizadas foram transferidas para um controlo de segurança separado](#custom-recommendations-have-been-moved-to-a-separate-security-control)
+- [Toggle adicionado para ver recomendações em controlos ou como uma lista plana](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
+- [Controlo de segurança alargado "Implementar as melhores práticas de segurança"](#expanded-security-control-implement-security-best-practices)
+- [As políticas personalizadas com metadados personalizados estão agora geralmente disponíveis](#custom-policies-with-custom-metadata-are-now-generally-available)
+- [Capacidades de análise de despejo de colisão migram para deteção de ataque sem ficheiros](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
 
 
 ### <a name="alert-suppression-rules-preview"></a>Regras de supressão de alerta (pré-visualização)
@@ -211,6 +252,11 @@ Alguns dos benefícios desta transição:
 
 ## <a name="april-2020"></a>Abril de 2020
 
+As atualizações em abril incluem:
+- [Pacotes de conformidade dinâmicos estão agora geralmente disponíveis](#dynamic-compliance-packages-are-now-generally-available)
+- [Recomendações de identidade agora incluídas no free tier do Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
 ### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Pacotes de conformidade dinâmicos estão agora geralmente disponíveis
 
 O painel de conformidade regulamentar do Azure Security Center inclui agora **pacotes de conformidade dinâmicos** (agora geralmente disponíveis) para acompanhar normas adicionais da indústria e regulamentares.
@@ -248,6 +294,14 @@ Saiba mais sobre [a monitorização da identidade e do acesso.](security-center-
 
 
 ## <a name="march-2020"></a>Março de 2020
+
+As atualizações em março incluem:
+- [A automatização do fluxo de trabalho está agora geralmente disponível](#workflow-automation-is-now-generally-available)
+- [Integração do Centro de Segurança Azure com o Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
+- [Proteção para o Serviço Azure Kubernetes](#protection-for-azure-kubernetes-service)
+- [Experiência just-in-time melhorada](#improved-just-in-time-experience)
+- [Duas recomendações de segurança para aplicações web depreciadas](#two-security-recommendations-for-web-applications-deprecated)
+
 
 ### <a name="workflow-automation-is-now-generally-available"></a>A automatização do fluxo de trabalho está agora geralmente disponível
 
