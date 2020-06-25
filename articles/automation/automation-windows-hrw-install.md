@@ -3,14 +3,14 @@ title: Implementar um trabalhador de runbook híbrido do Windows na Azure Automa
 description: Este artigo diz como implementar um Trabalhador De Runbook Híbrido que pode usar para executar livros em máquinas baseadas no Windows no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: b1cac1ed1ff92086991d405ad72950e362493619
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6141440cdb5b232145417c6051cb340e806f9352
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079191"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338014"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -190,15 +190,15 @@ Agora, executar o `Add-HybridRunbookWorker` cmdlet utilizando a seguinte sintaxe
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 ```
 
-Pode obter as informações necessárias para este cmdlet a partir da página 'Chaves's gerir no portal Azure. Abra esta página selecionando **Chaves** na página Definições na sua conta Demôm automação.
+Pode obter as informações necessárias para os parâmetros `EndPoint` e a partir da página `Token` **Chaves** na sua conta Dem automação. Selecione **Teclas** na secção **de definições** de conta a partir do lado esquerdo da página.
 
 ![Gerir página Chaves](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
+* Para o `EndPoint` parâmetro, copie o valor para **URL**.
+
+* Para o `Token` parâmetro, copie o valor **da chave de acesso primário**.
+
 * Para o `GroupName` parâmetro, utilize o nome do grupo híbrido Runbook Worker. Se este grupo já existir na conta Automation, a máquina atual é-lhe adicionada. Se este grupo não existe, é adicionado.
-
-* Para o `EndPoint` parâmetro, utilize a entrada **URL** na página 'Gerir Chaves'.
-
-* Para o `Token` parâmetro, utilize a entrada **da chave de acesso primário** na página 'Chaves's 'Gestão'.
 
 * Se necessário, desa estale o `Verbose` parâmetro para receber detalhes sobre a instalação.
 

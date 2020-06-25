@@ -1,25 +1,19 @@
 ---
 title: 'Quickstart: Use filas de autocarros da Azure Service com Python'
 description: Este artigo mostra-lhe como usar python para criar, enviar mensagens e receber mensagens das filas do Azure Service Bus.
-services: service-bus-messaging
+author: spelluru
 documentationcenter: python
-author: axisc
-editor: spelluru
-ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
+ms.date: 06/23/2020
+ms.author: spelluru
 ms.custom: seo-python-october2019, tracking-python
-ms.openlocfilehash: 38e4d4a8677ca88cfe4cf8d9fab19cec6a8874d4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f4fa90025e9aaa12c065514e0dd4e5d76e4f8d24
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560060"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337289"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Quickstart: Use filas de autocarros da Azure Service com Python
 

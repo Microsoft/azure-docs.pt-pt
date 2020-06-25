@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2d701e3022d0f2fa50f44b6150e44b612db71d6a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 2ac6a7eacd68bb8770d30fe18ddc0f1d3f6a7056
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84989010"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322943"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[As contas dos Serviços Cognitivos devem permitir a encriptação de dados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2bdd0062-9d75-436e-89df-487dd8e4b3c7) |Esta política audita qualquer conta de Serviços Cognitivos que não utilize encriptação de dados. Para cada conta de Serviços Cognitivos com armazenamento, deve ativar a encriptação de dados com a chave gerida pelo cliente ou com a Microsoft gerida. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_Encryption_Audit.json) |
 |[As contas dos Serviços Cognitivos devem permitir a encriptação de dados com a chave gerida pelo cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67121cc7-ff39-4ab8-b7e3-95b84dab487d) |Esta política audita qualquer conta de Serviços Cognitivos que não utilize encriptação de dados com chave gerida pelo cliente. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_CustomerManagedKey_Audit.json) |

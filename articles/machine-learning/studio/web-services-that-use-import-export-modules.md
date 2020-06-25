@@ -11,18 +11,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 3cc47eb3fb097b7ed88cf931ef423aa34c0d071c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 634c8b118a9d1f041e536f17cc9588f3a85fa4d6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84705734"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321830"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web do Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
 
 Quando cria uma experiência preditiva, normalmente adiciona-se uma entrada e saída de serviço web. Quando implementa a experiência, os consumidores podem enviar e receber dados do serviço web através das entradas e saídas. Para algumas aplicações, os dados de um consumidor podem estar disponíveis a partir de um feed de dados ou já residir numa fonte de dados externa, como o armazenamento Azure Blob. Nestes casos, não precisam de ler e escrever dados utilizando entradas e saídas de serviço web. Em vez disso, podem utilizar o Serviço de Execução de Lotes (BES) para ler dados da fonte de dados utilizando um módulo de Dados de Importação e escrever os resultados da pontuação para um local de dados diferente utilizando um módulo de Dados de Exportação.
 
-Os módulos de dados de importação e exportação, podem ler e escrever para vários locais de dados, tais como um URL web via HTTP, uma Consulta de Colmeia, uma base de dados Azure SQL, armazenamento de mesa Azure, armazenamento de Blob Azure, um feed de dados fornecer, ou uma base de dados SQL Server.
+Os módulos de dados de importação e exportação, podem ler e escrever para vários locais de dados, tais como um URL web via HTTP, uma Consulta de Colmeia, uma base de dados na Base de Dados Azure SQL, armazenamento de mesa Azure, armazenamento de Azure Blob, um feed de dados fornecer, ou uma base de dados do SQL Server.
 
 Este tópico utiliza a amostra "Amostra 5: Comboio, Teste, Avaliação para Classificação Binária: Conjunto de Dados para Adultos" e assume que o conjunto de dados já foi carregado numa tabela Azure SQL chamada censusdata.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 9dd4bc79760dde00808358fe489f6e539c2b9a2e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3e17df2a3c92d24a7fa662fbf92f8c89b434eb0d
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220439"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338231"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -39,7 +39,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões Azu
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.ServiceBus*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Geralmente disponível em todas as regiões do Azure onde a ADLS Gen1 está disponível.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: Geralmente disponível em todas as regiões Azure onde o serviço de Aplicação está disponível.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** *(Microsoft.Web*): Geralmente disponível em todas as regiões Azure onde o serviço de aplicações está disponível.
 
 **Pré-visualização pública**
 
@@ -151,5 +151,5 @@ Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede vir
 - [Garantir um Armazém de Dados Azure SQL a uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
 - [Políticas de ponto final de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Modelo de gestor de recursos Azure](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

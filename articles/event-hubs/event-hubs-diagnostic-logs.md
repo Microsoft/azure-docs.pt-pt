@@ -1,25 +1,14 @@
 ---
 title: Configurar registos de diagnóstico - Azure Event Hub / Microsoft Docs
 description: Saiba como configurar registos de atividades e registos de diagnóstico para centros de eventos em Azure.
-keywords: ''
-documentationcenter: ''
-services: event-hubs
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
 ms.topic: article
-ms.workload: data-services
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 30ce33adc8e33f8da67c745b52681d171e97db8d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299063"
+ms.locfileid: "85322462"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 

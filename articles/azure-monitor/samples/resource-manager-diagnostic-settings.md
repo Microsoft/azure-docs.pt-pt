@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/09/2020
-ms.openlocfilehash: 0a71d50945d5be489872e90a5a6d9989295e1fa9
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/23/2020
+ms.openlocfilehash: 540175f02660717793ded667f9c07de8549ec2f5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753516"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320846"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para definições de diagnóstico no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar configurações de diagnóstico para um recurso Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -34,46 +34,66 @@ A amostra a seguir cria uma definição de diagnóstico para um registo de ativi
     "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
-            "type": "String"
+          "type": "String"
         },
         "workspaceId": {
-            "type": "String"
+          "type": "String"
         },
         "storageAccountId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubAuthorizationRuleId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubName": {
-            "type": "String"
+          "type": "String"
         }
-
     },
     "resources": [
         {
-          "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
-          "apiVersion": "2017-05-01-preview",
-          "name": "[(parameters('settingName')]",
-          "dependsOn": [],
-          "properties": {
-            "workspaceId": "[parameters('workspaceId')]",
-            "storageAccountId": "[parameters('storageAccountId')]",
-            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-            "eventHubName": "[parameters('eventHubName')]",
-            "logs": [
-              {
-                "category": "AuditEvent",
-                "enabled": true
-              }
-            ],
-            "metrics": [
-              {
-                "category": "AllMetrics",
-                "enabled": true
-              }
-            ]
-          }
+            "type": "Microsoft.Insights/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[parameters('settingName')]",
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "Administrative",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Security",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ServiceHealth",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Alert",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Recommendation",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Policy",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Autoscale",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ResourceHealth",
+                        "enabled": true
+                    }
+                ]
+            }
         }
     ]
 }
@@ -87,7 +107,7 @@ A amostra a seguir cria uma definição de diagnóstico para um registo de ativi
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
-          "value": "Send to all locations"
+        "value": "Send to all locations"
       },
       "workspaceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"

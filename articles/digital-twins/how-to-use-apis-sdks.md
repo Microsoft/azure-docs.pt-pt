@@ -8,12 +8,12 @@ ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: ebac7fb6cf4addaa43367d27a4926a85770dd595
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 9ed482a5d6619960a50a409b08aa8c6d9725ab9e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296139"
+ms.locfileid: "85321602"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -258,13 +258,13 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 ## <a name="general-apisdk-usage-notes"></a>Notas gerais de utilização da API/SDK
 
-Esta secção contém informações gerais e diretrizes para a utilização das APIs e SDKs.
-
 > [!NOTE]
 > Por favor, note que durante a pré-visualização, a Azure Digital Twins não suporta **a Partilha de Recursos de Origem Cruzada (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](https://docs.microsoft.com/powerapps/powerapps-overview) poderá ver um erro de política.
 > Para resolver este erro, pode fazer um dos seguintes:
 > * Retire o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Este cabeçalho indica se a resposta pode ser partilhada. 
 > * Em alternativa, crie um proxy CORS e faça o pedido de API para as Gémeas Digitais Azure. 
+
+A lista a seguir fornece detalhes adicionais e orientações gerais para a utilização das APIs e dos SDKs.
 
 * Para usar o SDK, instantânea a `DigitalTwinsClient` aula. O construtor requer credenciais que podem ser obtidas com uma variedade de métodos de autenticação na `Azure.Identity` embalagem. Para mais `Azure.Identity` informações, consulte a [documentação do espaço de nome.](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) 
 * Pode encontrar o útil durante o `InteractiveBrowserCredential` arranque, mas existem várias outras opções, incluindo credenciais para [identidade gerida](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), que provavelmente utilizará para autenticar [funções Azure configuradas com MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) contra Azure Digital Twins. Para mais informações `InteractiveBrowserCredential` sobre , consulte a sua [documentação de classe.](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet)

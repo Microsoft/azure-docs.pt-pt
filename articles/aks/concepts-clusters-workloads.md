@@ -4,12 +4,12 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho de K
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ddf6543ff0e4313b28c183718b6ac3b2395e0dbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729976"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336627"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
@@ -105,9 +105,9 @@ Para manter o desempenho e funcionalidade do nó, os recursos são reservados em
 
 As regras acima referidas para a alocação de memória e CPU são usadas para manter os nós de agente saudáveis, incluindo algumas cápsulas de sistema de hospedagem que são fundamentais para a saúde do agrupamento. Estas regras de atribuição também fazem com que o nó reporte menos memória alocável e CPU do que faria se não fizesse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
-Por exemplo, se um nó oferecer 7 GB, reportará 34% da memória não alocável em cima do limiar de despejo rígido de 750Mi.
+Por exemplo, se um nó oferecer 7 GB, reportará 34% da memória não alocável, incluindo o limiar de despejo rígido de 750Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Além das reservas para a própria Kubernetes, o nó oss subjacente reserva também uma quantidade de CPU e recursos de memória para manter as funções de SO.
 

@@ -1,20 +1,14 @@
 ---
 title: Problemas de conectividade de resolução de problemas - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre problemas de conectividade com os Azure Event Hubs.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2020
-ms.author: spelluru
-ms.openlocfilehash: 4111a71200ec9bffdfed37c926635754c868f71e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/23/2020
+ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726723"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322379"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Problemas de conectividade de resolução de problemas - Azure Event Hubs
 Existem várias razões para as aplicações do cliente não conseguirem ligar-se a um centro de eventos. Os problemas de conectividade que experimenta podem ser permanentes ou transitórios. Se o problema acontecer a toda a hora (permanente), pode querer verificar a cadeia de ligação, as definições de firewall da sua organização, definições de firewall IP, definições de segurança da rede (pontos finais de serviço, pontos finais privados, etc.) e muito mais. Para questões transitórias, o upgrade para a versão mais recente do SDK, executar comandos para verificar pacotes abandonados, e obter vestígios de rede pode ajudar a resolver problemas. 

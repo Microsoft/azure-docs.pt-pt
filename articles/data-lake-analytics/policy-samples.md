@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Data Lake Analytics
 description: Lista definições políticas incorporadas da Azure Policy para Azure Data Lake Analytics. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ff6807e4a66bde49fea39853b2b2867c7d0924c3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c4b7d926985e23b47f13be6539045ab774ef6ef0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887378"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321784"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Azure Policy definições incorporadas para Azure Data Lake Analytics
 

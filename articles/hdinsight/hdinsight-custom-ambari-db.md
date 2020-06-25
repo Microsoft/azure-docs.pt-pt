@@ -1,59 +1,60 @@
 ---
-title: Base de dados Personalizada Apache Ambari no Azure HDInsight
-description: Aprenda a criar clusters HDInsight com a sua própria base de dados Personalizada Apache Ambari.
+title: Base de dados personalizada Apache Ambari em Azure HDInsight
+description: Saiba como criar clusters HDInsight com a sua própria base de dados Apache Ambari personalizada.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4cb96e1299010636e0bce3cb99fbba9862822564
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e92b0679111a6d5c6173da04c5061c95956125b8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022270"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322962"
 ---
-# <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurar clusters HDInsight com um Ambari DB personalizado
+# <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurar clusters HDInsight com um DB Ambari personalizado
 
 Apache Ambari simplifica a gestão e monitorização de um cluster Apache Hadoop. Ambari fornece uma UI web fácil de usar e REST API. Ambari está incluído em clusters HDInsight, e é usado para monitorizar o cluster e fazer alterações de configuração.
 
-Na criação normal de clusters, como descrito em outros artigos como [Configurar clusters no HDInsight,](hdinsight-hadoop-provision-linux-clusters.md)Ambari é implantado numa base de [dados S0 Azure SQL](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) que é gerida pelo HDInsight e não é acessível aos utilizadores.
+Na criação normal de clusters, como descrito em outros artigos como [Configurar clusters em HDInsight,](hdinsight-hadoop-provision-linux-clusters.md)Ambari é implantado numa [Base de Dados S0 Azure SQL](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) que é gerida por HDInsight e não é acessível aos utilizadores.
 
-A funcionalidade Ambari DB personalizada permite-lhe implementar um novo cluster e configurar ambari numa base de dados externa que gere. A implementação é feita com um modelo de Gestor de Recursos Azure. Esta funcionalidade tem os seguintes benefícios:
+A funcionalidade DB personalizada permite-lhe implementar um novo cluster e configurar o Ambari numa base de dados externa que gere. A implementação é feita com um modelo de Gestor de Recursos Azure. Esta funcionalidade tem os seguintes benefícios:
 
-- Personalização - escolha o tamanho e a capacidade de processamento da base de dados. Se tiver grandes clusters a processar cargas de trabalho intensivas, uma base de dados Ambari com especificações mais baixas pode tornar-se um estrangulamento para operações de gestão.
+- Personalização - escolha o tamanho e capacidade de processamento da base de dados. Se tiver grandes clusters a processar cargas de trabalho intensivas, uma base de dados Ambari com especificações mais baixas pode tornar-se um estrangulamento para as operações de gestão.
 - Flexibilidade - pode escalar a base de dados conforme necessário para atender às suas necessidades.
 - Controle - pode gerir backups e segurança para a sua base de dados de uma forma que se enquadre nos requisitos das suas organizações.
 
 O restante deste artigo discute os seguintes pontos:
 
-- requisitos para usar a funcionalidade Ambari DB personalizada
-- os passos necessários para fornecer clusters HDInsight usando a sua própria base de dados externa para Apache Ambari
+- requisitos para usar a funcionalidade DB Ambari personalizada
+- os passos necessários para a disponibilização de clusters HDInsight utilizando a sua própria base de dados externa para Apache Ambari
 
-## <a name="custom-ambari-db-requirements"></a>Requisitos personalizados de Ambari DB
+## <a name="custom-ambari-db-requirements"></a>Requisitos personalizados de DB Ambari
 
-Pode implementar um Ambari DB personalizado com todos os tipos e versões de cluster. Vários aglomerados não podem usar o mesmo Ambari DB.
+Você pode implementar um DB Ambari personalizado com todos os tipos e versões de cluster. Vários clusters não podem usar o mesmo Ambari DB.
 
 O Ambari DB personalizado tem os seguintes outros requisitos:
 
-- Deve ter um servidor e base de dados Existentes Azure SQL DB.
-- A base de dados que fornece para a configuração de Ambari deve estar vazia. Não deve haver mesas no esquema dbo padrão.
-- O utilizador utilizado para ligar à base de dados deve ter select, CREATE TABLE e INSERIR permissões na base de dados.
-- Ligue a opção de [permitir o acesso aos serviços Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#azure-portal-steps) no servidor onde irá hospedar Ambari.
-- Os endereços IP de gestão do serviço HDInsight precisam de ser permitidos na regra da firewall. Consulte os endereços IP de [gestão HDInsight](hdinsight-management-ip-addresses.md) para obter uma lista dos endereços IP que devem ser adicionados à regra de firewall ao nível do servidor.
+- O nome da base de dados não pode conter hífens ou espaços
+- Deve ter um servidor Escriba DB Azure existente e base de dados.
+- A base de dados que fornece para a instalação do Ambari deve estar vazia. Não deve haver tabelas no esquema dbo padrão.
+- O utilizador utilizado para ligar à base de dados deve ter permissões SELECT, CREATE TABLE e INSERT na base de dados.
+- Ligue a opção para Permitir o [acesso aos serviços Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#azure-portal-steps) no servidor onde irá acolher a Ambari.
+- Os endereços IP de gestão do serviço HDInsight devem ser permitidos na regra da firewall. Consulte [endereços IP de gestão hdInsight](hdinsight-management-ip-addresses.md) para uma lista dos endereços IP que devem ser adicionados à regra de firewall ao nível do servidor.
 
 Quando hospedar o seu Apache Ambari DB numa base de dados externa, lembre-se dos seguintes pontos:
 
 - Você é responsável pelos custos adicionais do Azure SQL DB que detém Ambari.
-- Volte periodicamente ao seu Ambari DB personalizado. A Base de Dados Azure SQL gera cópias de segurança automaticamente, mas o prazo de retenção de cópias de segurança varia. Para mais informações, consulte [Saiba mais sobre cópias automáticas](../azure-sql/database/automated-backups-overview.md)de backups da Base de Dados SQL .
+- Apoie periodicamente o seu DB Ambari personalizado. A base de dados Azure SQL gera cópias de segurança automaticamente, mas o prazo de retenção de backup varia. Para obter mais informações, consulte [as cópias de segurança automáticas da Base de Dados SQL.](../azure-sql/database/automated-backups-overview.md)
 
-## <a name="deploy-clusters-with-a-custom-ambari-db"></a>Implementar clusters com um Ambari DB personalizado
+## <a name="deploy-clusters-with-a-custom-ambari-db"></a>Implementar clusters com um DB Ambari personalizado
 
-Para criar um cluster HDInsight que utilize a sua própria base de dados ambari externa, utilize o [modelo personalizado Ambari DB Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db).
+Para criar um cluster HDInsight que utiliza a sua própria base de dados Ambari externa, utilize o [modelo de arranque rápido Ambari DB personalizado.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db)
 
-Editar os parâmetros no para `azuredeploy.parameters.json` especificar informações sobre o seu novo cluster e a base de dados que irá manter Ambari.
+Edite os parâmetros no `azuredeploy.parameters.json` para especificar informações sobre o seu novo cluster e a base de dados que irá deter Ambari.
 
 Pode iniciar a implantação utilizando o Azure CLI. `<RESOURCEGROUPNAME>`Substitua-o pelo grupo de recursos onde pretende implantar o seu cluster.
 
@@ -64,6 +65,6 @@ az group deployment create --name HDInsightAmbariDBDeployment \
     --parameters azuredeploy.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use external metadata stores in Azure HDInsight](hdinsight-use-external-metadata-stores.md) (Utilizar arquivos de metadados externos no Azure HDInsight)

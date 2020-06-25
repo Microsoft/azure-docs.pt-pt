@@ -1,26 +1,14 @@
 ---
 title: Capture streaming eventos - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece uma visão geral da funcionalidade Captura que lhe permite capturar eventos streaming através de Azure Event Hubs.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
-ms.service: event-hubs
-ms.workload: na
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 07d3424b73f8716bfe6f9b5f187714b36ef821a2
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 271948d4496d773585beecdbcec8e4c66d0ce622
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296615"
+ms.locfileid: "85323087"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos através de Azure Event Hubs em Azure Blob Storage ou Azure Data Lake Storage
 O Azure Event Hubs permite-lhe capturar automaticamente os dados de streaming em Event Hubs num [armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) ou na conta [Azure Data Lake Storage Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) da sua escolha, com a flexibilidade adicional de especificar um intervalo de tempo ou tamanho. A configuração do Capture é rápida, não há custos administrativos para executá-lo, e escala automaticamente com [unidades de produção](event-hubs-scalability.md#throughput-units)de Event Hubs . O Event Hubs Capture é a forma mais fácil de carregar dados de streaming no Azure e permite-lhe focar no processamento de dados e não na captura de dados.

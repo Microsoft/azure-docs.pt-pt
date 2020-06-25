@@ -1,19 +1,16 @@
 ---
 title: Use o portal Azure para criar uma fila de ônibus de serviço
 description: Neste arranque rápido, aprende-se a criar uma fila de ônibus de serviço utilizando o portal Azure. Em seguida, utiliza uma aplicação de cliente de amostra para enviar mensagens e receber mensagens da fila.
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0753259f76c46c5df4246008f3f80ffa5bf35747
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240647"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337331"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Quickstart: Use o portal Azure para criar uma fila de ônibus de serviço
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila através da [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -24,8 +21,8 @@ Este início rápido descreve como enviar e receber mensagens de e para uma fila
 
 Para concluir este tutorial, confirme que tem instalada:
 
-- Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita][] antes de começar.
-- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Usa o Estúdio Visual para construir uma amostra que envia mensagens e recebe mensagens de uma fila. A amostra é para testar a fila que criou usando o PowerShell. 
+- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
+- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Utiliza o Visual Studio para construir uma amostra que envia mensagens e recebe mensagem de uma fila. A amostra é para testar a fila que criou usando o PowerShell. 
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -35,13 +32,13 @@ Para concluir este tutorial, confirme que tem instalada:
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
 > [!NOTE]
-> A amostra utilizada nesta secção para enviar e receber mensagens é uma amostra .NET. Para que as amostras enviem/recebam mensagens utilizando outros idiomas de programação, consulte [amostras de Autocarro de Serviço](service-bus-samples.md). 
+> A amostra utilizada nesta secção para enviar e receber mensagens é uma amostra .NET. Para que as amostras enviem/recebam mensagens utilizando outras linguagens de programação, consulte [as amostras do Service Bus](service-bus-samples.md). 
 > 
-> Para obter instruções passo a passo para enviar/receber mensagens utilizando vários idiomas de programação, consulte os seguintes arranques rápidos:
+> Para obter instruções passo a passo para enviar/receber mensagens utilizando várias linguagens de programação, consulte os seguintes arranques rápidos:
 > - [.NET](service-bus-dotnet-get-started-with-queues.md)
 > - [Java](service-bus-java-how-to-use-queues.md)
-> - [Nó.js usando pacote azure/service-bus](service-bus-nodejs-how-to-use-queues-new-package.md)
-> - [Nó.js usando pacote azure-sb](service-bus-nodejs-how-to-use-queues.md)
+> - [Node.js usando pacote azure/service-bus](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node.js usando pacote azure-sb](service-bus-nodejs-how-to-use-queues.md)
 > - [PHP](service-bus-php-how-to-use-queues.md)
 > - [Python](service-bus-python-how-to-use-queues.md)
 > - [Ruby](service-bus-ruby-how-to-use-queues.md)
@@ -82,7 +79,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-A corda de ligação e `Main()` o nome da fila são passados para o método como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+A cadeia de ligação e o nome da fila são passados para o `Main()` método como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -119,7 +116,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync() cria um cliente de fila com os argumentos `RegisterOnMessageHandlerAndReceiveMessages()`da linha de comando, chama um manipulador de mensagens recetora chamado , e envia o conjunto de mensagens:
+O método MainAsync() cria um cliente de fila com os argumentos da linha de comando, chama um manipulador de mensagens recetora nomeado `RegisterOnMessageHandlerAndReceiveMessages()` , e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -209,17 +206,17 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 > [!NOTE]
-> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre escrever código para enviar e receber mensagens, continue aos tutoriais na secção **Enviar e receber mensagens.** 
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre escrever código para enviar e receber mensagens, continue para os tutoriais na secção **Enviar e receber mensagens.** 
 
 > [!div class="nextstepaction"]
 > [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[conta livre]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

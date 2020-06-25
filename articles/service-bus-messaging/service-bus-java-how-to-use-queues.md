@@ -1,51 +1,41 @@
 ---
-title: Use as filas de ônibus de serviço Azure com Java
-description: Neste tutorial, aprende-se a criar aplicações Java para enviar mensagens e receber mensagens de uma fila de ônibus de serviço azure.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f701439c-553e-402c-94a7-64400f997d59
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Use filas de ônibus de serviço Azure com Java
+description: Neste tutorial, você aprende a criar aplicações Java para enviar mensagens e receber mensagens de uma fila de ônibus de serviço Azure.
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 224a5ce0a2c8a7fc031f1ad3314e4d8889966433
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 86097603b8b17b0e474cef4b57171bb51d5a1420
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788302"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338085"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use as filas de ônibus do Azure Service com a Java para enviar e receber mensagens
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use filas de autocarros da Azure Service com a Java para enviar e receber mensagens
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-Neste tutorial, aprende-se a criar aplicações Java para enviar mensagens e receber mensagens de uma fila de ônibus de serviço azure. 
+Neste tutorial, você aprende a criar aplicações Java para enviar mensagens e receber mensagens de uma fila de ônibus de serviço Azure. 
 
 > [!NOTE]
-> Você pode encontrar amostras de Java no GitHub no [repositório de ônibus azure-service](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+> Você pode encontrar amostras de Java no GitHub no [repositório azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os benefícios do [seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de ônibus de serviço para criar uma fila.
-    1. Leia a **visão geral** rápida das filas de **ônibus**de serviço . 
-    2. Crie um espaço de **nome**de ônibus de serviço . 
-    3. Pegue a corda de **ligação**.
-    4. Crie uma **fila**de ônibus de serviço.
-3. Instale [o Azure SDK para Java.][Azure SDK for Java] 
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+2. Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de Service Bus para criar uma fila.
+    1. Leia a **visão geral** rápida das filas de **autocarros**de serviço. 
+    2. Crie um espaço de nomes de **autocarro de serviço.** 
+    3. Obtenha a **cadeia de ligação.**
+    4. Criar uma fila de **autocarros de serviço**.
+3. Instale [o Azure SDK para Java][Azure SDK for Java]. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
-Certifique-se de que instalou o [SDK Azure para Java][Azure SDK for Java] antes de construir esta amostra. 
+Certifique-se de que instalou o [Azure SDK para Java][Azure SDK for Java] antes de construir esta amostra. 
 
-Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto. Se estiver a utilizar o IntelliJ, consulte [Instalar o Kit de Ferramentas Azure para IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
+Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para Eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto. Se estiver a utilizar o IntelliJ, consulte [instalar o Conjunto de Ferramentas Azure para IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
-![Adicione bibliotecas Microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+![Adicione bibliotecas microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 
 Adicione as `import` seguintes declarações ao topo do ficheiro Java:
@@ -68,7 +58,7 @@ import org.apache.commons.cli.*;
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar mensagens para uma fila de ônibus de serviço, a sua aplicação instantaneamente um objeto **QueueClient** e envia mensagens sincronicamente. O código seguinte mostra como enviar uma mensagem para uma Fila que foi criada através do portal.
+Para enviar mensagens para uma fila de autocarros de serviço, a sua aplicação instantaneamente um objeto **de FilaClient** e envia mensagens assíncronosamente. O código que se segue mostra como enviar uma mensagem para uma Fila que foi criada através do portal.
 
 ```java
 public void run() throws Exception {
@@ -116,20 +106,20 @@ public void run() throws Exception {
 
 ```
 
-As mensagens enviadas e recebidas das filas de ônibus de serviço são exemplos da classe [Mensagem.](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) Os objetos de mensagem têm um conjunto de propriedades padrão (como Label e TimeToLive), um dicionário que é usado para conter propriedades personalizadas específicas da aplicação, e um corpo de dados de aplicação arbitrárias. Uma aplicação pode definir o corpo da mensagem passando qualquer objeto serializável no construtor da Mensagem, e o serializador apropriado será então usado para serializar o objeto. Em alternativa, pode fornecer um **java. Io. Objeto InputStream.**
+Mensagens enviadas e recebidas das filas do Service Bus são exemplos da classe [Message.](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) Os objetos de mensagem têm um conjunto de propriedades padrão (como Label e TimeToLive), um dicionário que é usado para conter propriedades personalizadas específicas da aplicação, e um corpo de dados de aplicações arbitrárias. Uma aplicação pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da mensagem, e o serializador apropriado será então usado para serializar o objeto. Em alternativa, pode fornecer um **java. Io. Objeto InputStream.**
 
 
 As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-A principal forma de receber mensagens de uma fila é usar um objeto **ServiceBusContract.** As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
+A principal forma de receber mensagens de uma fila é utilizar um objeto **ServiceBusContract.** As mensagens recebidas podem funcionar em dois modos diferentes: **ReceberAndDelete** e **PeekLock**.
 
-Ao utilizar o modo **ReceiveAndDelete,** receber é uma operação de tiro único - isto é, quando o Service Bus recebe um pedido de leitura de uma mensagem numa fila, marca a mensagem como sendo consumida e devolve-a à aplicação. O modo **ReceiveAndDelete** (que é o modo predefinido) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar não processar uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento.
-Como o Service Bus marcou a mensagem como sendo consumida, então quando a aplicação recomeça e começa a consumir mensagens novamente, perdeu a mensagem que foi consumida antes do acidente.
+Ao utilizar o modo **ReceiveAndDelete,** receber é uma operação de tiro único - isto é, quando a Service Bus recebe um pedido de leitura para uma mensagem numa fila, marca a mensagem como sendo consumida e devolve-a à aplicação. O modo **ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar não processar uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento.
+Como a Service Bus marcou a mensagem como sendo consumida, então quando a aplicação reinicia e volta a consumir mensagens, perdeu a mensagem que foi consumida antes do acidente.
 
-No modo **PeekLock,** o receive torna-se uma operação de duas fases, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Após a aplicação terminar de processar a mensagem (ou armazená-la de forma fiável para processamento futuro), completa a segunda fase do processo de receção, ligando **completa()** à mensagem recebida. Quando o Ônibus de Serviço vê a chamada **completa,** marca a mensagem como sendo consumida e retira-a da fila. 
+No modo **PeekLock,** receber torna-se uma operação de dois estágios, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Após o final da aplicação terminar o processamento da mensagem (ou armazena-a de forma fiável para processamento futuro), completa a segunda fase do processo de receção, chamando **completamente na** mensagem recebida. Quando a Service Bus vê a chamada **completa,** marca a mensagem como sendo consumida e retira-a da fila. 
 
-O exemplo que se segue demonstra como as mensagens podem ser recebidas e processadas utilizando o modo **PeekLock** (não o modo predefinido). O exemplo abaixo utiliza o modelo de callback com um manipulador `TestQueue`de mensagens registado e processa mensagens à medida que chegam à nossa . Este modo **chama-se completo()** automaticamente à medida que o retorno de chamada regressa normalmente e chama **de abandono()** se a chamada for uma exceção. 
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas utilizando o modo **PeekLock** (não o modo predefinido). O exemplo abaixo utiliza o modelo de retorno com um manipulador de mensagens registado e processa mensagens à medida que chegam ao nosso `TestQueue` . Este modo chama **completo()** automaticamente à medida que a chamada retorna normalmente e chama **de abandono()** se o retorno lançar uma exceção. 
 
 ```java
     public void run() throws Exception {
@@ -182,17 +172,17 @@ O exemplo que se segue demonstra como as mensagens podem ser recebidas e process
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem por alguma razão, então pode ligar para o método de **abandono()** sobre o objeto cliente com o sinal de bloqueio da mensagem recebida obtido através do **getLockToken()**. Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não for capaz de processar a mensagem por alguma razão, então pode ligar para o método **de abandono()** no objeto do cliente com o sinal de bloqueio da mensagem recebida obtido via **getLockToken()**. Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
 
-Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia automaticamente a mensagem e disponibiliza-a para ser recebida novamente.
+Existe também um tempo limite associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia automaticamente a mensagem e torna-a disponível para ser novamente recebida.
 
-No caso de a aplicação se falhar após o processamento da mensagem, mas antes de ser emitido o pedido **completo,** a mensagem é retransmitida à aplicação quando recomeçar. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é muitas vezes conseguido usando o método **getMessageId** da mensagem, que permanece constante através de tentativas de entrega.
+No caso de a aplicação falhar após o processamento da mensagem, mas antes de o pedido **completo** ser emitido, a mensagem é reenrimida à aplicação quando reinicia. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é muitas vezes conseguido usando o método **getMessageId** da mensagem, que permanece constante em todas as tentativas de entrega.
 
 > [!NOTE]
-> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu o básico das filas de ônibus de serviço, consulte [filas, tópicos e subscrições][Queues, topics, and subscriptions] para mais informações.
+Agora que aprendeu o básico das filas do Service Bus, consulte [filas, tópicos e subscrições][Queues, topics, and subscriptions] para mais informações.
 
 Para obter mais informações, veja [Centro para Programadores do Java](https://azure.microsoft.com/develop/java/).
 

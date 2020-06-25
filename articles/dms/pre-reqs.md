@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 9aaf334b328b2e20ed94f0c7c87727add1f2baee
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d87052ecfe85fa35c41c8b306bb48551fd06be9
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195667"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322846"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Descrição geral dos pré-requisitos para utilizar o Azure Database Migration Service
 
@@ -113,13 +113,13 @@ Além dos pré-requisitos do Serviço de Migração da Base de Dados Azure que s
 
 Ao utilizar o Serviço de Migração da Base de Dados Azure para realizar migrações de bases de dados SQL para Azure SQL Database, para além dos pré-requisitos comuns a todos os cenários de migração, certifique-se de que aborda os seguintes pré-requisitos adicionais:
 
-* Criar uma instância da Base de Dados SQL do Azure; para tal, siga o detalhe descrito no artigo [Criar uma base de Dados SQL do Azure no portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Crie uma instância de exemplo da caixa de dados Azure SQL Database, o que faz seguindo os detalhes do artigo [Criar uma base de dados na Base de Dados Azure SQL no portal Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * Transferir e instalar o [Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
 * Abrir a Firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
 * Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
 * Crie uma regra de [firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) ao nível do servidor para a Base de Dados SQL para permitir o acesso do Serviço de Migração da Base de Dados Azure às bases de dados-alvo. Forneça a gama de sub-redes da rede virtual utilizada para o Serviço de Migração da Base de Dados Azure.
 * Confirmar que as credenciais utilizadas para ligar à instância de origem do SQL Server têm permissões [CONTROLAR SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-* Confirmar que as credenciais utilizadas para ligar à instância de destino da Base de Dados SQL do Azure têm permissões CONTROLAR BASE DE DADOS nas bases de dados SQL do Azure de destino.
+* Certifique-se de que as credenciais utilizadas para ligar à base de dados-alvo têm permissão de BASE DE DADOS DE CONTROLO na base de dados-alvo.
 
    > [!NOTE]
    > Para obter uma listagem completa dos pré-requisitos necessários para utilizar o Serviço de Migração da Base de Dados Azure para efetuar migrações do SQL Server para a Base de Dados Azure SQL, consulte o [tutorial Migrate SQL Server para Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).

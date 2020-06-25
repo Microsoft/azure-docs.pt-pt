@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1b5d51eafc0cb21a02f8a750bd78b5be7aca734f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605515"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336875"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -64,7 +64,7 @@ A imagem abaixo destaca os diferentes passos deste ciclo de vida.
 
 Segue-se um guia para a criação de um lançamento da Azure Pipelines que automatiza a implantação de uma fábrica de dados em vários ambientes.
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 -   Uma subscrição Azure ligada ao Servidor da Fundação Visual Studio Team ou ao Azure Repos que utiliza o ponto final do [serviço Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -197,7 +197,7 @@ A equipa de fábrica de dados forneceu uma [amostra de script pré e pós-implan
 
    ![Construa o seu próprio modelo](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Selecione **o ficheiro De carga**e, em seguida, selecione o modelo gerado de Gestor de Recursos. Este é o ficheiro **arm_template.json** localizado no ficheiro .zip exportado no passo 1.
+1. Selecione **o ficheiro De carga**e, em seguida, selecione o modelo gerado de Gestor de Recursos. Esta é a **arm_template.jsno** ficheiro localizado no ficheiro .zip exportado no passo 1.
 
    ![Modelo de edição](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -212,7 +212,7 @@ Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pod
 * Utiliza CI/CD automatizado e pretende alterar algumas propriedades durante a implementação do Gestor de Recursos, mas as propriedades não são parametrizadas por padrão.
 * A sua fábrica é tão grande que o modelo de Gestor de Recursos predefinido é inválido porque tem mais do que os parâmetros máximos permitidos (256).
 
-Para anular o modelo de parametrização padrão, crie um ficheiro chamado **definição de parâmetros de modelo de braço** na pasta raiz do seu ramo de git. Tens de usar esse nome exato do ficheiro.
+Para anular o modelo de parametrização padrão, crie um ficheiro nomeado **arm-template-parameters-definition.jsna** pasta raiz do seu ramo de git. Tens de usar esse nome exato do ficheiro.
 
    ![Arquivo de parâmetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -225,7 +225,7 @@ Ao exportar um modelo de Gestor de Recursos, a Data Factory lê este ficheiro a 
 
 ### <a name="custom-parameter-syntax"></a>Sintaxe de parâmetro personalizado
 
-Seguem-se algumas diretrizes a seguir quando cria o ficheiro de parâmetros personalizados, **a definição de parâmetros do modelo de braço.** O ficheiro é composto por uma secção para cada tipo de entidade: gatilho, pipeline, serviço ligado, conjunto de dados, tempo de integração e fluxo de dados.
+Seguem-se algumas diretrizes a seguir quando criar o ficheiro de parâmetros personalizados, **arm-template-parameters-definition.jsem .** O ficheiro é composto por uma secção para cada tipo de entidade: gatilho, pipeline, serviço ligado, conjunto de dados, tempo de integração e fluxo de dados.
 
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
 * Definir um nome de propriedade indica  `*` que pretende parametrizar todas as propriedades por baixo (apenas até ao primeiro nível, não recursivamente). Também pode fornecer exceções a esta configuração.
@@ -422,6 +422,7 @@ Abaixo está o modelo de parametrização padrão atual. Se precisar de adiciona
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
                     "environmentUrl": "=",
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
@@ -574,9 +575,9 @@ Se configurar o Git, os modelos ligados são gerados e guardados ao lado dos mod
 
 ![Pasta de modelos de gestor de recursos ligados](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Os modelos de Gestor de Recursos ligados geralmente consistem de um modelo mestre e um conjunto de modelos de crianças que estão ligados ao mestre. O modelo dos pais é chamado ArmTemplate_master.json, e os modelos de criança são nomeados com o padrão ArmTemplate_0.json, ArmTemplate_1.json, e assim por diante. 
+Os modelos de Gestor de Recursos ligados geralmente consistem de um modelo mestre e um conjunto de modelos de crianças que estão ligados ao mestre. O modelo dos pais é chamado ArmTemplate_master.js, e os modelos de criança são nomeados com o padrão ArmTemplate_0.js, ArmTemplate_1.js, e assim por diante. 
 
-Para utilizar modelos ligados em vez do modelo completo de Gestor de Recursos, atualize a sua tarefa CI/CD para apontar para ArmTemplate_master.json em vez de ArmTemplateForFactory.json (o modelo completo de Gestor de Recursos). O Gestor de Recursos também requer que faça o upload dos modelos ligados para uma conta de armazenamento para que o Azure possa aceder aos mesmos durante a implementação. Para obter mais informações, consulte [a implementação de modelos de Gestor de Recursos ligados com VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Para utilizar modelos ligados em vez do modelo completo de Gestor de Recursos, atualize a sua tarefa CI/CD para apontar para ArmTemplate_master.jsem vez de ArmTemplateForFactory.js(o modelo completo do Gestor de Recursos). O Gestor de Recursos também requer que faça o upload dos modelos ligados para uma conta de armazenamento para que o Azure possa aceder aos mesmos durante a implementação. Para obter mais informações, consulte [a implementação de modelos de Gestor de Recursos ligados com VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Lembre-se de adicionar os scripts data Factory no seu pipeline CI/CD antes e depois da tarefa de implantação.
 
@@ -726,8 +727,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

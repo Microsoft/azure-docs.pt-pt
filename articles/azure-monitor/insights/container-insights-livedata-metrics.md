@@ -4,41 +4,38 @@ description: Este artigo descreve a visão em tempo real das métricas sem usar 
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 54d751769005dabb4708eb198bcc765d830ba605
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196136"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338021"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como ver métricas em tempo real
 
-O Azure Monitor para recipientes Live Data (pré-visualização) permite visualizar métricas sobre o nó e o estado da pod num cluster em tempo real. Emula o acesso direto ao `kubectl top nodes` , e ordena para `kubectl get pods –all-namespaces` `kubectl get nodes` ligar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com este Insight. 
+O Azure Monitor para recipientes Live Data (pré-visualização) permite visualizar métricas sobre o nó e o estado da pod num cluster em tempo real. Emula o acesso direto ao `kubectl top nodes` , e ordena para `kubectl get pods –all-namespaces` `kubectl get nodes` ligar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com este Insight.
 
-Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade.  
-
->[!NOTE]
->Os clusters AKS ativados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esta funcionalidade. Esta funcionalidade baseia-se no acesso direto à API de Kubernetes através de um servidor proxy do seu navegador. Permitir a segurança em rede para bloquear a API de Kubernetes a partir deste proxy bloqueará este tráfego. 
+Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade.
 
 >[!NOTE]
->Esta funcionalidade está disponível em todas as regiões do Azure, incluindo a Azure China. Atualmente, não está disponível no Governo dos EUA da Azure.
+>Os clusters AKS ativados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esta funcionalidade. Esta funcionalidade baseia-se no acesso direto à API de Kubernetes através de um servidor proxy do seu navegador. Permitir a segurança em rede para bloquear a API de Kubernetes a partir deste proxy bloqueará este tráfego.
 
 Para obter ajuda na configuração ou resolução de problemas da funcionalidade Dados Ao Vivo (pré-visualização), reveja o nosso [guia de configuração](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Como Funciona 
+## <a name="how-it-works"></a>Como Funciona
 
-A funcionalidade Dados Ao Vivo (pré-visualização) acede diretamente à API de Kubernetes, e informações adicionais sobre o modelo de autenticação podem ser [encontradas aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+A funcionalidade Dados Ao Vivo (pré-visualização) acede diretamente à API de Kubernetes, e informações adicionais sobre o modelo de autenticação podem ser [encontradas aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Esta funcionalidade realiza uma operação de sondagem contra os pontos finais das métricas (incluindo, `/api/v1/nodes` e ), que é a cada cinco `/apis/metrics.k8s.io/v1beta1/nodes` `/api/v1/pods` segundos por defeito. Estes dados estão em cache no seu navegador e são cartografados nos quatro gráficos de desempenho incluídos no Azure Monitor para contentores no **separador Cluster** selecionando **Go Live (pré-visualização)**. Cada sondagem subsequente é traçada numa janela de visualização rolante de cinco minutos. 
+Esta funcionalidade realiza uma operação de sondagem contra os pontos finais das métricas (incluindo, `/api/v1/nodes` e ), que é a cada cinco `/apis/metrics.k8s.io/v1beta1/nodes` `/api/v1/pods` segundos por defeito. Estes dados estão em cache no seu navegador e são cartografados nos quatro gráficos de desempenho incluídos no Azure Monitor para contentores no **separador Cluster** selecionando **Go Live (pré-visualização)**. Cada sondagem subsequente é traçada numa janela de visualização rolante de cinco minutos.
 
 ![Go Ao vivo na vista Cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
-O intervalo de votação é configurado a partir do intervalo **definido,** permitindo-lhe definir as sondagens para novos dados a cada 1, 5, 15 e 30 segundos. 
+O intervalo de votação é configurado a partir do intervalo **definido,** permitindo-lhe definir as sondagens para novos dados a cada 1, 5, 15 e 30 segundos.
 
 ![Intervalo de sondagens drop-down ao vivo](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
->Recomendamos que o intervalo de votação seja de um segundo, enquanto se desmente um problema por um curto período de tempo. Estes pedidos podem afetar a disponibilidade e estrangulamento da API de Kubernetes no seu cluster. Depois, reconfigure para um intervalo de votação mais longo. 
+>Recomendamos que o intervalo de votação seja de um segundo, enquanto se desmente um problema por um curto período de tempo. Estes pedidos podem afetar a disponibilidade e estrangulamento da API de Kubernetes no seu cluster. Depois, reconfigure para um intervalo de votação mais longo.
 
 >[!IMPORTANT]
 >Nenhum dado é armazenado permanentemente durante o funcionamento desta função. Todas as informações capturadas durante esta sessão são imediatamente eliminadas quando fecha o seu navegador ou navega para longe da funcionalidade. Os dados só permanecem presentes para visualização dentro da janela de cinco minutos; quaisquer métricas com mais de cinco minutos também são permanentemente eliminadas.
@@ -47,9 +44,9 @@ Estes gráficos não podem ser fixados ao último dashboard Azure que viu em mod
 
 ## <a name="metrics-captured"></a>Métricas capturadas
 
-### <a name="node-cpu-utilization---node-memory-utilization-"></a>Utilização do NÓ CPU % / Utilização da memória do nó % 
+### <a name="node-cpu-utilization---node-memory-utilization-"></a>Utilização do NÓ CPU % / Utilização da memória do nó %
 
-Estes dois gráficos de desempenho mapeiam para um equivalente de invocar `kubectl top nodes` e capturar os resultados das colunas **CPU%** e **MEMORY%** para o respetivo gráfico. 
+Estes dois gráficos de desempenho mapeiam para um equivalente de invocar `kubectl top nodes` e capturar os resultados das colunas **CPU%** e **MEMORY%** para o respetivo gráfico.
 
 ![Os principais nosdes de kubectl exemplo resultados](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
@@ -81,7 +78,7 @@ Este gráfico de desempenho mapeia para um equivalente de invocar `kubectl get p
 ![Gráfico de contagem de pods de nó](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Os nomes de estado interpretados por `kubectl` podem não corresponder exatamente à tabela. 
+>Os nomes de estado interpretados por `kubectl` podem não corresponder exatamente à tabela.
 
 ## <a name="next-steps"></a>Passos seguintes
 

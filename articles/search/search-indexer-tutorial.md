@@ -1,23 +1,23 @@
 ---
 title: C# tutorial indexante dados Azure SQL
 titleSuffix: Azure Cognitive Search
-description: Neste tutorial C#, ligue-se à base de dados Azure SQL, extraia dados pesquisáveis e carregue-os num índice de Pesquisa Cognitiva Azure.
+description: Neste tutorial C#, ligue-se à Base de Dados Azure SQL, extraia dados pesquisáveis e carregue-os num índice de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: c2972d13b25d167c2144c4f66e36822e85e29690
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261023"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321003"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Índice Azure SQL dados usando o .NET SDK
 
-Configure um [indexante](search-indexer-overview.md) para extrair dados pesquisáveis da base de dados Azure SQL, enviando-os para um índice de pesquisa em Azure Cognitive Search. 
+Configure um [indexante](search-indexer-overview.md) para extrair dados pesquisáveis da Base de Dados Azure SQL, enviando-os para um índice de pesquisa em Azure Cognitive Search. 
 
 Este tutorial utiliza C# e o [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
 
@@ -144,7 +144,7 @@ Os esquemas também podem incluir outros elementos, como perfis de classificaç�
 
 O programa principal inclui lógica para criar um cliente, um índice, uma fonte de dados e um indexante. Verifica e elimina os recursos existentes com o mesmo nome, no pressuposto de que poderá executar este programa várias vezes.
 
-O objeto de origem de dados está configurado com configurações específicas dos recursos de base de dados Azure SQL, incluindo [indexação parcial ou incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para alavancar as funcionalidades de deteção de [alterações incorporadas](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do Azure SQL. A base de dados de hotéis de demonstração em Azure SQL tem uma coluna de "soft delete" chamada **IsDeleted**. Quando esta coluna é definida como verdadeira na base de dados, o indexante remove o documento correspondente do índice de Pesquisa Cognitiva Azure.
+O objeto de origem de dados está configurado com configurações específicas dos recursos da Base de Dados Azure SQL, incluindo [indexação parcial ou incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para alavancar as funcionalidades de deteção de [alterações incorporadas](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do Azure SQL. A base de dados de hotéis de demonstração em Azure SQL tem uma coluna de "soft delete" chamada **IsDeleted**. Quando esta coluna é definida como verdadeira na base de dados, o indexante remove o documento correspondente do índice de Pesquisa Cognitiva Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -253,4 +253,4 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os re
 Agora que está familiarizado com o básico da indexação da base de dados SQL, vamos olhar mais de perto para a configuração do indexante.
 
 > [!div class="nextstepaction"]
-> [Configurar um indexante de base de dados Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configurar um indexante de base de dados SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

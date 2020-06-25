@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c29305fe6a5b4ff33652720d87a2a9c447888472
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077867"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338178"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
 
@@ -45,7 +45,7 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver p
 
 * Se existirem utilizadores que já tenham sido atribuídos a um recurso que quer gerir com um pacote de acesso, confirme que os utilizadores são atribuídos ao pacote de acesso com uma política adequada. Por exemplo, poderá incluir um grupo num pacote de acesso que já tenha utilizadores nesse grupo. Caso esses utilizadores no grupo necessitem de acesso contínuo, têm de ter uma política adequada para os pacotes de acesso para que não percam o acesso ao grupo. Pode atribuir o pacote de acesso ao solicitar que os utilizadores façam o pedido do pacote de acesso que contém esse recurso ou ao atribuir-lhes diretamente o pacote de acesso. Para mais informações, consulte [as definições de pedido de alteração e aprovação para um pacote de acesso.](entitlement-management-access-package-request-policy.md)
 
-* Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
+* Quando remove um membro de uma equipa, eles também são removidos do Grupo Microsoft 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
 
 * Confirme que o seu diretório não está configurado para várias regiões. De momento, a gestão de direitos não suporta localizações de várias regiões no SharePoint Online. Os sites do SharePoint Online têm de estar na localização geográfica predefinida para serem regidos pela gestão de direitos. Para mais informações, consulte [multi-geo capabilities no OneDrive e SharePoint Online.](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)
 

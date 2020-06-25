@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: kgremban
-ms.openlocfilehash: 5c3c9c7a061fd4c471b1ef159388deb1a851dd57
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d73f3a37bb084533733b27b49ac171747cee814c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297159"
+ms.locfileid: "85321884"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian
 
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opção 2: Provisionamento automático
 
-Os dispositivos IoT Edge podem ser automaticamente a provisionados utilizando o Serviço de Provisionamento de [Dispositivos Azure IoT Hub (DPS)](../iot-dps/index.yml). Atualmente, o IoT Edge suporta dois mecanismos de atestado ao utilizar o fornecimento automático, mas os seus requisitos de hardware podem ter impacto nas suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip de Módulo de Plataforma Fidedigna (TPM) por padrão. Para obter mais informações, veja os seguintes artigos:
+Os dispositivos IoT Edge podem ser automaticamente a provisionados utilizando o Serviço de Provisionamento de [Dispositivos Azure IoT Hub (DPS)](../iot-dps/index.yml). Atualmente, o IoT Edge suporta três mecanismos de atestado ao utilizar o fornecimento automático, mas os seus requisitos de hardware podem ter impacto nas suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip de Módulo de Plataforma Fidedigna (TPM) por padrão. Para obter mais informações, veja os seguintes artigos:
 
 * [Criar e providenciar um dispositivo IoT Edge com um TPM virtual num Linux VM](how-to-auto-provision-simulated-device-linux.md)
 * [Criar e providenciar um dispositivo IoT Edge utilizando certificados X.509](how-to-auto-provision-x509-certs.md)

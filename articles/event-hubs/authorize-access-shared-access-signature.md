@@ -1,20 +1,14 @@
 ---
 title: Autorizar o acesso com uma assinatura de acesso partilhado nos Hubs de Eventos Azure
 description: Este artigo fornece informações sobre a autorização de acesso aos recursos do Azure Event Hubs utilizando assinaturas de acesso partilhado (SAS).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 0c572723c493847ed15f80948511d1cc993fa7e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298757"
+ms.locfileid: "85323124"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autorizar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado
 Uma assinatura de acesso partilhado (SAS) fornece-lhe uma forma de conceder acesso limitado aos recursos no seu espaço de nomes De Event Hubs. A SAS guarda o acesso aos recursos do Event Hubs com base nas regras de autorização. Estas regras são configuradas num espaço de nome, ou numa entidade (centro de eventos ou tópico). Este artigo fornece uma visão geral do modelo SAS e analisa as melhores práticas da SAS.

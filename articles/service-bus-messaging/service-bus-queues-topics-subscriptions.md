@@ -1,21 +1,14 @@
 ---
 title: Mensagens de autocarro da Azure Service - filas, tópicos e subscrições
 description: Este artigo fornece uma visão geral das entidades de mensagens Azure Service Bus (fila, tópicos e subscrições).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: aschhab
-ms.openlocfilehash: 3dc78a22e0e596d812d90fec63475a0b21e9164f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/23/2020
+ms.openlocfilehash: 7d6dbbd0a8cf5699c2cdca34ebeca6773c1fbf6e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84699010"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337206"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 

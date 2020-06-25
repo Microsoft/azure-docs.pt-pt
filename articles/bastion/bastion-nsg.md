@@ -1,57 +1,57 @@
 ---
 title: Trabalhar com VMs e NSGs em Azure Bastion
-description: Este artigo descreve como incorporar o acesso da NSG ao Azure Bastion
+description: Este artigo descreve como incorporar o acesso nSG com Azure Bastion
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: charwen
-ms.openlocfilehash: 0188f9bc1c7c0e8d7fed9f590d078085b175614f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4782213b38ad9e265cc66c3073dc5f357c50561
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732201"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321655"
 ---
-# <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com o NSG access e azure Bastion
+# <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
-Ao trabalhar com o Azure Bastion, pode utilizar grupos de segurança de rede (NSGs). Para mais informações, consulte [Grupos de Segurança](../virtual-network/security-overview.md). 
+Ao trabalhar com a Azure Bastion, pode utilizar grupos de segurança de rede (NSGs). Para mais informações, consulte [os Grupos de Segurança.](../virtual-network/security-overview.md)
 
-![Arquitetura](./media/bastion-nsg/nsg-architecture.png)
+:::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
 Neste diagrama:
 
-* O anfitrião bastião está implantado na rede virtual.
+* O hospedeiro Bastion está implantado na rede virtual.
 * O utilizador liga-se ao portal Azure utilizando qualquer navegador HTML5.
 * O utilizador navega para a máquina virtual Azure para RDP/SSH.
 * Connect Integration - Sessão RDP/SSH de clique único dentro do navegador
-* Não é necessário ip público no Azure VM.
+* Não é necessário um IP público no Azure VM.
 
 ## <a name="network-security-groups"></a><a name="nsg"></a>Grupos de segurança de rede
 
-Esta secção mostra-lhe o tráfego de rede entre o utilizador e o Bastião Azure, e através de VMs-alvo na sua rede virtual:
+Esta secção mostra-lhe o tráfego de rede entre o utilizador e o Bastião Azure, e através de VMs de destino na sua rede virtual:
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-O Azure Bastion é implantado especificamente na ***AzureBastionSubnet.***
+O Azure Bastion é implantado especificamente para ***a AzureBastionSubnet***.
 
-* **Tráfego ingress:**
+* **Tráfego ingresso:**
 
-   * **Tráfego ingresso da internet pública:** O Bastião Azure vai criar um IP público que precisa do porto 443 habilitado no IP público para o tráfego de ingressos. A porta 3389/22 não é necessária para ser aberta na AzureBastionSubnet.
-   * **Tráfego ingresso do avião de controlo do Bastião Azure:** Para a conectividade do plano de controlo, ative a entrada da porta 443 a partir da etiqueta de serviço **GatewayManager.** Isto permite ao plano de controlo, isto é, gateway manager ser capaz de falar com Azure Bastion.
+   * **Tráfego ingresso da internet pública:** O Bastião Azure criará um IP público que necessita do porto 443 habilitado no IP público para o tráfego de entrada. A porta 3389/22 NÃO é obrigada a ser aberta na AzureBastionSubnet.
+   * **Tráfego ingresso do avião de controlo Azure Bastion:** Para a conectividade do plano de controlo, ative a porta 443 de entrada a partir da etiqueta de serviço **GatewayManager.** Isto permite que o avião de controlo, isto é, o Gateway Manager possa falar com Azure Bastion.
 
 * **Tráfego de Egress:**
 
-   * **Tráfego de Egress para os VMs-alvo:** O Azure Bastion vai atingir os VMs-alvo em IP privado. Os NSGs precisam de permitir o tráfego de saída para outras subredes VM-alvo para as portas 3389 e 22.
-   * **Tráfego de Egress para outros pontos finais públicos em Azure:** O Azure Bastion precisa de ser capaz de se ligar a vários pontos finais públicos dentro do Azure (por exemplo, para armazenar registos de diagnóstico e registos de medição). Por esta razão, o Azure Bastion precisa de saída para 443 para a etiqueta de serviço **AzureCloud.**
+   * **Tráfego Egress para alvo VMs:** Azure Bastion atingirá os VMs alvo em IP privado. Os NSGs precisam de permitir o tráfego de saída para outras sub-redes VM alvo para as portas 3389 e 22.
+   * **Tráfego Egress para outros pontos finais públicos em Azure:** O Azure Bastion precisa de ser capaz de se ligar a vários pontos finais públicos dentro de Azure (por exemplo, para armazenar registos de diagnósticos e registos de medição). Por esta razão, a Azure Bastion precisa de uma saída para a marca de serviço 443 para **a AzureCloud.**
 
-### <a name="target-vm-subnet"></a>Subnet-alvo VM
-Esta é a sub-rede que contém a máquina virtual alvo a que pretende rdp/SSH.
+### <a name="target-vm-subnet"></a>Sub-rede VM alvo
+Esta é a sub-rede que contém a máquina virtual alvo a que pretende fazer RDP/SSH.
 
-   * **Tráfego ingresso do Bastião Azure:** O Azure Bastion chegará ao vm alvo em vez de IP privado. As portas RDP/SSH (portas 3389/22 respectivamente) devem ser abertas do lado vM-alvo em relação ao IP privado. Como uma boa prática, você pode adicionar a gama de endereços IP Subnet Da Uigar IU nesta regra para permitir que apenas a Bastion possa abrir estas portas nos VMs-alvo na sua subnet VM alvo.
+   * **Tráfego ingresso de Azure Bastion:** Azure Bastion chegará ao VM alvo em vez de IP privado. As portas RDP/SSH (portas 3389/22, respectivamente) precisam de ser abertas no lado alvo do VM em vez de IP privado. Como uma boa prática, pode adicionar o intervalo de endereço IP da Subnet Azure Bastion nesta regra para permitir que apenas Bastion possa abrir estas portas nos VMs-alvo na sub-rede VM alvo.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações sobre o Bastião Azure, consulte as [FAQ.](bastion-faq.md)
+Para mais informações sobre O Azure Bastion, consulte as [FAQ](bastion-faq.md).

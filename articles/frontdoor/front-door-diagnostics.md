@@ -6,17 +6,17 @@ documentationcenter: ''
 author: sharad4u
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 7939daf97309d5026fd24732cd922e47c2b16812
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743631"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322315"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -88,6 +88,7 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 | RequestUri | URI do pedido recebido. |
 | RespostaBytes | Bytes enviados pelo servidor backend como resposta.  |
 | RoutingRuleName | O nome da regra de encaminhamento que o pedido correspondia. |
+| RegrasSEngineMatchNames | Os nomes das regras que o pedido correspondia. |
 | SecurityProtocol | A versão do protocolo TLS/SSL utilizada pelo pedido ou nula se não houver encriptação. |
 | SentToOriginShield | Campo booleano representando se houvesse uma falha de cache no primeiro ambiente e o pedido foi enviado para a cache regional. Ignore este campo se a regra de encaminhamento for um redirecionamento ou quando não tiver o caching ativado. |
 | TimeTaken | O tempo que a ação demorou, em milissegundos. |

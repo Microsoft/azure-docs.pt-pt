@@ -1,30 +1,22 @@
 ---
 title: 'Tutorial: Azure Service Bus para exemplos de integração da Grade de Eventos'
 description: 'Tutorial: Este artigo fornece exemplos de mensagens de Service Bus e integração de Event Grid.'
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e25e6c9efd7cf06f9d8e20f6cbc8c4b413ca67c
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670430"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337052"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder aos eventos de autocarro do Azure Service recebidos através da Azure Event Grid utilizando funções Azure e Apps Azure Logic
 Neste tutorial, você aprende a responder aos eventos do Azure Service Bus que são recebidos através da Azure Event Grid utilizando Azure Functions e Azure Logic Apps. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes do Service Bus
 > * Preparar uma aplicação de amostra para enviar mensagens
@@ -361,7 +353,7 @@ Nesta secção, saiba como receber e processar mensagens depois de receber um ev
 3. Siga as instruções na secção Enviar mensagens para a secção [de tópicos do Service Bus](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tema e monitorizar a função. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).

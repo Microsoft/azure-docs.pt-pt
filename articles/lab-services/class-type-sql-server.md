@@ -7,12 +7,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 06/05/2020
 ms.author: enewman
-ms.openlocfilehash: f37ace3663b49da8a8e6b3b16047111988609d6b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd27264e91220c7f68aaae35650234bd9c1e4cac
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898998"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322266"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Crie um laboratório para gerir e desenvolver com o SQL Server
 

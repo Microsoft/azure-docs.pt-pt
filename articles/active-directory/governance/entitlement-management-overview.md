@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44c8a46c844b9bc4b92702323df18addb207dd6c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078170"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338189"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -67,13 +67,13 @@ A gestão de direitos introduz à Azure AD o conceito de pacote de *acesso.* Um 
  Aqui estão os tipos de recursos a que pode gerir o acesso do utilizador com a gestão de direitos:
 
 - Adesão a grupos de segurança Azure AD
-- Membro do Office 365 Grupos e Equipas
+- Membro da Microsoft 365 Grupos e Equipas
 - Atribuição a aplicações empresariais AZure AD, incluindo aplicações SaaS e aplicações personalizadas que suportam a federação/único sinal em e/ou provisionamento
 - Adesão a sites online do SharePoint
 
-Também pode controlar o acesso a outros recursos que dependem de grupos de segurança AZure AD ou grupos office 365.  Por exemplo:
+Também pode controlar o acesso a outros recursos que dependem de grupos de segurança AD Azure ou grupos Microsoft 365.  Por exemplo:
 
-- Pode dar licenças aos utilizadores para o Microsoft Office 365 utilizando um grupo de segurança AZure AD num pacote de acesso e configurando [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo
+- Pode dar licenças aos utilizadores para o Microsoft 365 utilizando um grupo de segurança AD AZure num pacote de acesso e configurando [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo
 - Você pode dar aos utilizadores acesso para gerir recursos Azure usando um grupo de segurança Azure AD em um pacote de acesso e criando uma [atribuição de papel Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo
 
 ## <a name="how-do-i-control-who-gets-access"></a>Como controlo quem tem acesso?
@@ -114,7 +114,7 @@ Os pacotes de acesso não substituem outros mecanismos de acesso.  São mais ade
 
 Para melhor compreender a gestão de direitos e a sua documentação, pode remeter para a seguinte lista de termos.
 
-| Termo | Description |
+| Termo | Descrição |
 | --- | --- |
 | pacote de acesso | Um conjunto de recursos que uma equipa ou projeto precisa e é governado com políticas. Um pacote de acesso está sempre contido num catálogo. Criaria um novo pacote de acesso para um cenário em que os utilizadores precisam de pedir acesso.  |
 | pedido de acesso | Um pedido de acesso aos recursos num pacote de acesso. Um pedido normalmente passa por um fluxo de trabalho de aprovação.  Se aprovado, o utilizador que solicita recebe uma atribuição de pacote de acesso. |

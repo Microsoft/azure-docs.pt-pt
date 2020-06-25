@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: femila
 ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4ae40c37d42848cc2ac726694e32df621996df03
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560313"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321330"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -59,7 +59,7 @@ Para obter detalhes completos sobre as capacidades de cada processador, bem como
 * [Aplicações Lógicas](handler-webhooks.md#logic-apps)
 * [Power Automamate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Service Bus](handler-service-bus.md)
-* [Armazenamento de filas](handler-storage-queues.md)
+* [Armazenamento de Filas](handler-storage-queues.md)
 * [WebHooks](handler-webhooks.md)
 
 ## <a name="concepts"></a>Conceitos
@@ -103,7 +103,7 @@ O Event Grid liga as origens de dados e os processadores de eventos. Por exemplo
 
 ![Automatização das operações](./media/overview/Ops_automation.png)
 
-O Event Grid permite-lhe acelerar a automatização e simplificar a aplicação de políticas. Por exemplo, utilize a Grelha de Eventos para notificar a Azure Automation quando for criada uma máquina virtual ou base de dados SQL. Utilize os eventos para verificar automaticamente se as configurações de serviço estão em conformidade, colocar metadados em ferramentas de operações, marcar máquinas virtuais ou itens de trabalho de ficheiro.
+O Event Grid permite-lhe acelerar a automatização e simplificar a aplicação de políticas. Por exemplo, utilize a Grade de Eventos para notificar a Azure Automation quando for criada uma máquina virtual ou base de dados em Azure SQL. Utilize os eventos para verificar automaticamente se as configurações de serviço estão em conformidade, colocar metadados em ferramentas de operações, marcar máquinas virtuais ou itens de trabalho de ficheiro.
 
 ### <a name="application-integration"></a>Integração de aplicações
 

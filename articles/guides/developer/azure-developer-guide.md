@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 38e93585c2d9fd3c9cf6e4affdfd1b0a250fedc4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695084"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321915"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -130,7 +130,7 @@ A maioria das aplicações deve armazenar dados, por isso, seja como for que dec
 
   > **Quando utilizar:** Quando a sua aplicação requer armazenamento de dados com integridade referencial, suporte transacional e suporte para consultas TSQL.
   >
-  > **Começar:** [Criar uma base de dados SQL em minutos utilizando o portal Azure](../../sql-database/sql-database-get-started.md).
+  > **Começar:** [Criar uma base de dados na Base de Dados Azure SQL em minutos utilizando o portal Azure](../../sql-database/sql-database-get-started.md).
 
 
 Pode utilizar [a Azure Data Factory](../../data-factory/introduction.md) para transferir os dados existentes no local para a Azure. Se não estiver pronto para mover dados para a nuvem, as [Conexões Híbridas](../../app-service/app-service-hybrid-connections.md) no Azure App Service permitem-lhe ligar a sua aplicação do Serviço de Aplicações ao local. Também pode ligar-se aos serviços de dados e armazenamento da Azure a partir das suas aplicações no local.
@@ -268,7 +268,7 @@ Serviços como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-
 
 Executar a sua aplicação no Azure provavelmente envolve trabalhar com vários serviços Azure. Estes serviços seguem o mesmo ciclo de vida e podem ser considerados como uma unidade lógica. Por exemplo, uma aplicação web pode usar aplicativos Web, SQL Database, Storage, Azure Cache para redis e serviços da Rede de Entrega de Conteúdos Azure. [O Azure Resource Manager](../../azure-resource-manager/management/overview.md) permite-lhe trabalhar com os recursos da sua aplicação como grupo. Pode implementar, atualizar ou eliminar todos os recursos numa única operação coordenada.
 
-Juntamente com o agrupamento e gestão logicamente de recursos relacionados, o Azure Resource Manager inclui capacidades de implementação que permitem personalizar a implementação e configuração de recursos relacionados. Por exemplo, pode utilizar o Gestor de Recursos e configurar uma aplicação. Esta aplicação pode consistir em várias máquinas virtuais, um equilibrador de carga e uma base de dados Azure SQL como uma única unidade.
+Juntamente com o agrupamento e gestão logicamente de recursos relacionados, o Azure Resource Manager inclui capacidades de implementação que permitem personalizar a implementação e configuração de recursos relacionados. Por exemplo, pode utilizar o Gestor de Recursos e configurar uma aplicação. Esta aplicação pode consistir em várias máquinas virtuais, um equilibrador de carga e uma base de dados na Base de Dados Azure SQL como uma única unidade.
 
 Desenvolve estas implementações utilizando um modelo de Gestor de Recursos Azure, que é um documento com formato JSON. Os modelos permitem definir uma implementação e gerir as suas aplicações usando modelos declarativos, em vez de scripts. Os seus modelos podem funcionar para diferentes ambientes, tais como testes, encenação e produção. Por exemplo, pode utilizar modelos para adicionar um botão a um repo GitHub que implementa o código no repo para um conjunto de serviços Azure com um único clique.
 

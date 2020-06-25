@@ -3,12 +3,12 @@ title: Monitorar um cluster do Serviço Azure Kubernetes (AKS) implantado Micros
 description: Saiba como permitir a monitorização de um cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contentores já implantados na sua subscrição.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5b7450f5eb132dab9961de712d8cddb33bd2c521
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264213"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337977"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 
@@ -27,10 +27,10 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Ativar a utilização do CLI Azure
 
-O passo seguinte permite a monitorização do seu cluster AKS utilizando o Azure CLI. Neste exemplo, não é obrigado a criar ou especificar um espaço de trabalho existente. Este comando simplifica o processo para si, criando um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster AKS se já não existir na região.  O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<GUID> - \<Region> *.  
+O passo seguinte permite a monitorização do seu cluster AKS utilizando o Azure CLI. Neste exemplo, não é obrigado a criar ou especificar um espaço de trabalho existente. Este comando simplifica o processo para si, criando um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster AKS se já não existir na região.  O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<GUID> - \<Region> *.
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 A saída assemelha-se-á ao seguinte:
@@ -41,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integre-se com um espaço de trabalho existente
 
-Se preferir integrar-se com um espaço de trabalho existente, execute os seguintes passos para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics necessário para o `--workspace-resource-id` parâmetro e, em seguida, executar o comando para ativar o add-on de monitorização contra o espaço de trabalho especificado.  
+Se preferir integrar-se com um espaço de trabalho existente, execute os seguintes passos para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics necessário para o `--workspace-resource-id` parâmetro e, em seguida, executar o comando para ativar o add-on de monitorização contra o espaço de trabalho especificado.
 
 1. Listar todas as subscrições a que tem acesso utilizando o seguinte comando:
 
@@ -112,7 +112,7 @@ Para permitir a monitorização do seu cluster AKS no portal Azure a partir do A
 
 4. A partir da lista de aglomerados não monitorizados, encontre o recipiente na lista e clique em **Enable**.
 
-5. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o da lista de espera.  
+5. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o da lista de espera.
     A lista pré-seleciona o espaço de trabalho predefinido e a localização para a qual o contentor AKS é implantado na subscrição.
 
     ![Permitir a monitorização dos insights do contentor AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -130,15 +130,15 @@ Para ativar a monitorização diretamente de um dos seus clusters AKS no portal 
 
 2. Na lista de recursos, comece a escrever **contentores.**  Os filtros da lista com base na sua entrada.
 
-3. Selecione **serviços Kubernetes**.  
+3. Selecione **serviços Kubernetes**.
 
     ![A ligação de serviços kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Na lista de contentores, selecione um recipiente.
 
-5. Na página geral do recipiente, selecione **Recipientes monitores**.  
+5. Na página geral do recipiente, selecione **Recipientes monitores**.
 
-6. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o na lista de espera.  
+6. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o na lista de espera.
     A lista pré-seleciona o espaço de trabalho predefinido e a localização para a qual o contentor AKS é implantado na subscrição.
 
     ![Permitir a monitorização da saúde dos contentores AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -227,7 +227,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     }
     ```
 
-2. Guarde este ficheiro **comoClusterOnboarding.json existente** numa pasta local.
+2. Guarde este ficheiro à medida **queexistingClusterOnboarding.jsnuma** pasta local.
 
 3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -260,7 +260,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 
     Editar os **valores para aksResourceTagValues** para corresponder aos valores de etiqueta existentes especificados para o cluster AKS.
 
-5. Guarde este ficheiro como **oClusterParam.json existente** numa pasta local.
+5. Guarde este ficheiro à medida **queexistingClusterParam.jsnuma** pasta local.
 
 6. Está pronto para implementar este modelo.
 
@@ -310,7 +310,21 @@ A saída deve assemelhar-se ao seguinte, o que indica que foi corretamente impla
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+Se existirem nós do Windows Server no cluster, pode executar o seguinte comando para verificar se o agente é implantado com sucesso.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+A saída deve assemelhar-se ao seguinte, o que indica que foi corretamente implantado:
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 Para verificar a implantação da solução, executar o seguinte comando:
 
@@ -328,23 +342,23 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Versão de agente antes de 06072018
 
-Para verificar se a versão do agente Log Analytics lançada antes *do 06072018* é devidamente implantada, execute o seguinte comando:  
+Para verificar se a versão do agente Log Analytics lançada antes *do 06072018* é devidamente implantada, execute o seguinte comando:
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-A saída deve assemelhar-se ao seguinte, o que indica que foi corretamente implantado:  
+A saída deve assemelhar-se ao seguinte, o que indica que foi corretamente implantado:
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## <a name="view-configuration-with-cli"></a>Ver configuração com CLI
 
-Utilize o `aks show` comando para obter detalhes como é a solução ativada ou não, o que é o log Analytics workspace resourceID, e detalhes sumários sobre o cluster.  
+Utilize o `aks show` comando para obter detalhes como é a solução ativada ou não, o que é o log Analytics workspace resourceID, e detalhes sumários sobre o cluster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>

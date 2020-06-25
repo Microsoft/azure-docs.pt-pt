@@ -1,22 +1,14 @@
 ---
 title: Criar um cluster dedicado ao Event Hubs utilizando o portal Azure
 description: Neste arranque rápido, você aprende a criar um cluster Azure Event Hubs usando o portal Azure.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: ''
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: ad2c392fca7bf85ecf0840f6442ef8454e768f7a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: cb657619e16f7be1d633bab61625026a40a378b8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296105"
+ms.locfileid: "85323105"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Quickstart: Criar um cluster dedicado de Centros de Eventos usando o portal Azure 
 Os clusters de eventos Hubs oferecem implantações de inquilinos únicos para clientes com as necessidades de streaming mais exigentes. Esta oferta tem um SLA garantido de 99,99% e está disponível apenas no nosso nível de preços dedicado. Um [cluster Event Hubs](event-hubs-dedicated-overview.md) pode entrar em milhões de eventos por segundo com capacidade garantida e latência do subsegundo. Os espaços de nome e os centros de eventos criados dentro de um cluster incluem todas as características da oferta padrão e muito mais, mas sem limites de entrada. A oferta dedicada também inclui a popular funcionalidade [de captura de Centros de Eventos](event-hubs-capture-overview.md) sem custos adicionais, permitindo-lhe abastruto e registar fluxos de dados para [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).

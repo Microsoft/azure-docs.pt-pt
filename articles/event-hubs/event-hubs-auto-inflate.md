@@ -1,24 +1,14 @@
 ---
 title: Dimensionar automaticamente as unidades de produção - Azure Event Hubs Microsoft Docs
 description: Ativar automaticamente a insuflada num espaço de nome para aumentar automaticamente as unidades de produção.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: afd28fa878651b08443f7863c16cd22c1bc96e3d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297329"
+ms.locfileid: "85322543"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de produção de Hubs de Eventos Azure
 O Azure Event Hubs é uma plataforma de streaming de dados altamente escalável. Como tal, o uso do Event Hubs aumenta frequentemente depois de começar a usar o serviço. Tal utilização requer o aumento das unidades de [produção](event-hubs-scalability.md#throughput-units) pré-determinadas para escalar os Centros de Eventos e lidar com taxas de transferência maiores. A função **de insuflação automática** dos Centros de Eventos aumenta automaticamente aumentando o número de unidades de produção, para satisfazer as necessidades de utilização. O aumento das unidades de produção impede cenários de estrangulamento, nos quais:

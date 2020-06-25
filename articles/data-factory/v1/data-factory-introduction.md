@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196599"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321095"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -142,6 +142,6 @@ Para saber como criar fábricas de dados com pipelines de dados, siga as instru�
 
 | Tutorial | Descrição |
 | --- | --- |
-| [Move data between two cloud data stores (Mover dados entre dois arquivos de dados na cloud)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Crie uma fábrica de dados com um pipeline que move dados do armazenamento de blobs para uma base de dados SQL. |
+| [Move data between two cloud data stores (Mover dados entre dois arquivos de dados na cloud)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Crie uma fábrica de dados com um pipeline que transa de dados do armazenamento de bolhas para a Base de Dados SQL. |
 | [Utilizar o cluster do Hadoop para transformar dados](data-factory-build-your-first-pipeline.md) |Crie a primeira fábrica de dados do Azure com um pipeline de dados que processa dados através da execução do script Hive num cluster do Azure HDInsight (Hadoop). |
 | [Utilizar o Data Management Gateway para mover dados entre um arquivo de dados no local e um arquivo de dados na cloud](data-factory-move-data-between-onprem-and-cloud.md) |Construa uma fábrica de dados com um oleoduto que move dados de uma base de dados do SQL Server para uma bolha Azure. Como parte das instruções, vai instalar e configurar o Data Management Gateway no seu computador. |

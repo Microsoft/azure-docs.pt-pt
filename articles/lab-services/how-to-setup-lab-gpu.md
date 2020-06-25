@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2020
 ms.author: nicolela
-ms.openlocfilehash: adac35bd3f59870f0c164b69548375610e9733b1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 0d42d3292c894aec1deff5da548383499ca50db9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897342"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338299"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Criar um laboratório com máquinas virtuais gpu
 
@@ -26,7 +26,6 @@ Este artigo mostra-lhe como fazer as seguintes tarefas:
 
 - Escolha entre as unidades de processamento de gráficos *de visualização* e *de cálculo* (GPUs).
 - Certifique-se de que os controladores gpu adequados estão instalados.
-- Configurar definições de Protocolo remoto de Ambiente de Trabalho (RDP) para ligar a uma máquina virtual GPU (VM).
 
 ## <a name="choose-between-visualization-and-compute-gpu-sizes"></a>Escolha entre visualização e calcular tamanhos de GPU
 Na primeira página do assistente de criação de laboratório, na lista de que **tamanho virtual da máquina precisa?**  
@@ -37,13 +36,13 @@ Neste processo, tem a opção de selecionar GPUs **de Visualização** ou **Comp
 
 Tal como descrito na tabela seguinte, o tamanho da GPU *do cálculo* destina-se a aplicações intensivas de computação.  Por exemplo, o [tipo de classe de aprendizagem profunda em linguagem natural](./class-type-deep-learning-natural-language-processing.md) utiliza o tamanho da Pequena **GPU (Compute).**  A GPU computacional é adequada para este tipo de aula, porque os alunos usam quadros de aprendizagem profunda e ferramentas que são fornecidas pela [imagem da Máquina Virtual de Ciência de Dados](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) para treinar modelos de aprendizagem profunda com grandes conjuntos de dados.
 
-| Tamanho | Núcleos | RAM | Description | 
+| Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
 | Pequena GPU (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações intensivas em computador, como inteligência artificial (IA) e aprendizagem profunda. |
 
 Os tamanhos de GPU *de visualização* destinam-se a aplicações com grande intensidade gráfica.  Por exemplo, o [tipo de classe de engenharia SolidWorks](./class-type-solidworks.md) mostra usando o tamanho de **GPU pequeno (Visualização).**  A GPU de visualização é adequada para este tipo de aula, porque os alunos interagem com o ambiente de design 3D assistido por computador SolidWorks (CAD) para modelar e visualizar objetos sólidos.
 
-| Tamanho | Núcleos | RAM | Description | 
+| Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
 | Pequeno GPU (Visualização) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamanho é mais adequado para visualização remota, streaming, jogos e codificação que utilizam quadros como OpenGL e DirectX. |
 | GPU médio (Visualização) | -&nbsp;12 &nbsp; núcleos<br>-&nbsp;112 &nbsp; GB &nbsp; DE RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para visualização remota, streaming, jogos e codificação que utilizam quadros como OpenGL e DirectX. |
@@ -56,9 +55,6 @@ Para tirar partido das capacidades de GPU dos seus VMs de laboratório, certifiq
 Como mostrado na imagem anterior, esta opção é ativada por padrão, o que garante que os controladores *mais recentes* são instalados para o tipo de GPU e imagem que selecionou.
 - Quando seleciona um tamanho GPU *compute,* os seus VMs de laboratório são alimentados pelo [GPU NVIDIA Tesla K80.](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf)  Neste caso, são instalados os mais recentes controladores [compute Unified Device Architecture (CUDA),](https://www.nvidia.com/object/io_69526.html) o que permite a computação de alto desempenho.
 - Ao selecionar um tamanho GPU *de visualização,* os seus VMs de laboratório são alimentados pela tecnologia [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU e [GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  Neste caso, são instalados os mais recentes controladores GRID, o que permite a utilização de aplicações com grande intensidade gráfica.
-
-> [!IMPORTANT]
-> Para ter a melhor experiência do utilizador com GPUs *de visualização,* certifique-se de que *ambos os* controladores estão instalados *e* a GPU está ativada sobre ligações RDP. Para obter mais informações, consulte a [GPU enable over RDP connection to Windows VMs](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) section this article.
 
 ### <a name="install-the-drivers-manually"></a>Instale os controladores manualmente
 Poderá ser necessário instalar uma versão do controlador que não seja a versão mais recente.  Esta secção mostra como instalar manualmente os controladores apropriados, dependendo se está a usar uma GPU *computacional* ou uma GPU *de visualização.*
@@ -99,7 +95,6 @@ Para instalar manualmente os controladores para o tamanho de GPU de visualizaç�
   
 1. Reinicie o modelo VM.
 1. Valide que os controladores são instalados corretamente seguindo as instruções na secção [Validate the installed drivers.](how-to-setup-lab-gpu.md#validate-the-installed-drivers)
-1. Configure as definições de RDP para ativar a ligação gpu seguindo as instruções da [GPU ativar a ligação RDP à secção VMs do Windows.](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms)
 1. Depois de instalar os controladores e outros softwares necessários para a sua aula, **selecione Publicar** para criar os VM dos seus alunos.
 
 ### <a name="validate-the-installed-drivers"></a>Validar os controladores instalados
@@ -121,25 +116,6 @@ Esta secção descreve como validar que os seus controladores de GPU estão corr
 
 #### <a name="linux-images"></a>Imagens linux
 Siga as instruções na secção "Verificar a instalação do controlador" dos [controladores da Instalação NVIDIA GPU em VMs da série N que executam o Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
-
-## <a name="enable-gpu-over-rdp-connection-to-windows-vms"></a>Ativar a GPU sobre a ligação rdp aos VMs do Windows
-Quando estiver a utilizar o RDP para ligar a um VM do Windows que é alimentado por uma GPU *de visualização,* precisa de fazer alguma configuração extra para que a GPU seja usada para renderizar gráficos. Caso contrário, o CPU será usado para renderizar gráficos.
-
-No modelo VM, faça o seguinte:
-
-1. Configure as definições rdp para a utilização da GPU.
-
-   a. Siga as instruções na [renderização de aplicações aceleradas pela GPU.](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#configure-gpu-accelerated-app-rendering)  
-   b. Siga as instruções na [codificação de quadros acelerados pela GPU.](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#configure-gpu-accelerated-frame-encoding)
-
-1. Verifique a configuração. 
-
-   a. Siga as instruções na [verificação da renderização de aplicações aceleradas pela GPU](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#verify-gpu-accelerated-app-rendering).  
-   b. Siga as instruções na [verificação da codificação de quadros acelerados pela GPU](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#verify-gpu-accelerated-frame-encoding).
-
-1. Tem agora os controladores instalados e as definições DE PDR configuradas para utilizar a sua GPU.  Depois de ter instalado o outro software necessário para a sua aula, pode selecionar **a Publish** para criar os VM dos seus alunos.  
-
-Quando os seus alunos se ligarem aos seus VM utilizando RDP, os seus ambientes de trabalho serão renderizados de acordo com a GPU dos seus VM.
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:

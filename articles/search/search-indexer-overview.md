@@ -1,7 +1,7 @@
 ---
 title: Indexantes para rastreio de dados durante a importação
 titleSuffix: Azure Cognitive Search
-description: Base de dados Crawl Azure SQL, Azure Cosmos DB ou armazenamento Azure para extrair dados pesquisáveis e povoar um índice de Pesquisa Cognitiva Azure.
+description: Base de Dados De Azure SQL Crawl, SQL Managed Instance, Azure Cosmos DB ou armazenamento Azure para extrair dados pesquisáveis e povoar um índice de Pesquisa Cognitiva azul.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2faadc962b31560e9e2eb10372493a483bf06905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 28f5bac80529306fc11eb7eb059b6f25071efd41
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203890"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320969"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -50,7 +50,7 @@ Indexantes rastejam lojas de dados em Azure.
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
 * [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
-* [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database e SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [Instância Gerida do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
@@ -128,7 +128,7 @@ O histórico de execução contém até as 50 execuções concluídas mais recen
 ## <a name="next-steps"></a>Passos seguintes
 Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as tarefas específicas de cada tipo de origem de dados.
 
-* [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage do Azure](search-howto-indexing-azure-tables.md)

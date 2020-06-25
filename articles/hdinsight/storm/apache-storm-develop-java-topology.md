@@ -1,6 +1,6 @@
 ---
-title: Apache Storm exemplo Java topology - Azure HDInsight
-description: Aprenda a criar topoologias de tempestade Apache em Java criando um exemplo de topologia de contagem de palavras.
+title: Apache Storm exemplo Java topologia - Azure HDInsight
+description: Aprenda a criar topologias da Tempestade Apache em Java criando um exemplo de topologia de contagem de palavras.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,33 +8,33 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 471d07f4aa5abe7552ff33e767e8783239dd1989
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 8a7aab9317a918273090070020953812847727ed
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203884"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320829"
 ---
-# <a name="create-an-apache-storm-topology-in-java"></a>Crie uma topologia da tempestade Apache em Java
+# <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia da Tempestade Apache em Java
 
-Aprenda a criar uma topologia baseada em Java para a Tempestade Apache. Cria-se uma topologia de tempestade que implementa uma aplicação de contagem de palavras. Usa-se o Apache Maven para construir e embalar o projeto. Depois, aprende-se a definir a topologia usando a estrutura do Fluxo de Tempestade Apache.
+Aprenda a criar uma topologia baseada em Java para a Tempestade Apache. Cria-se uma topologia storm que implementa uma aplicação de contagem de palavras. Usas o Apache Maven para construir e embalar o projeto. Depois, aprende-se a definir a topologia usando a estrutura apache storm flux.
 
-Depois de completar os passos deste documento, pode implementar a topologia para a Tempestade Apache no HDInsight.
+Depois de completar os passos neste documento, você pode colocar a topologia para Apache Storm em HDInsight.
 
 > [!NOTE]  
-> Uma versão completa dos exemplos de topologia storm [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)criados neste documento está disponível em .
+> Uma versão completa dos exemplos de topologia storm criados neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks)
 
-* [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado](https://maven.apache.org/install.html) de acordo com Apache.  Maven é um sistema de construção de projetos para projetos Java.
+* [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
 ## <a name="test-environment"></a>Ambiente de teste
 
-O ambiente utilizado para este artigo era um computador que executava o Windows 10.  Os comandos foram executados num pedido de comando, e os vários ficheiros foram editados com o Bloco de Notas.
+O ambiente utilizado para este artigo era um computador que executava o Windows 10.  Os comandos foram executados num pedido de comando, e os vários ficheiros foram editados com Bloco de Notas.
 
-A partir de um pedido de comando, introduza os comandos abaixo para criar um ambiente de trabalho:
+A partir de um pedido de comando, insira os comandos abaixo para criar um ambiente de trabalho:
 
 ```cmd
 mkdir C:\HDI
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-Insira o seguinte comando para criar um projeto Maven chamado **WordCount:**
+Insira o seguinte comando para criar um projeto Maven chamado **WordCount**:
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -52,32 +52,32 @@ cd WordCount
 mkdir resources
 ```
 
-Este comando cria um `WordCount` diretório nomeado no local atual, que contém um projeto básico de Maven. O segundo comando altera o `WordCount`atual diretório de trabalho para . O terceiro comando cria um `resources`novo diretório, que será usado mais tarde.  O `WordCount` diretório contém os seguintes itens:
+Este comando cria um diretório nomeado `WordCount` na localização atual, que contém um projeto maven básico. O segundo comando altera o atual diretório de trabalho para `WordCount` . O terceiro comando cria um novo diretório, `resources` que será usado mais tarde.  O `WordCount` diretório contém os seguintes itens:
 
-* `pom.xml`: Contém configurações para o projeto Maven.
-* `src\main\java\com\microsoft\example`: Contém o seu código de candidatura.
+* `pom.xml`: Contém definições para o projeto Maven.
+* `src\main\java\com\microsoft\example`: Contém o seu código de aplicação.
 * `src\test\java\com\microsoft\example`: Contém testes para a sua aplicação.  
 
 ### <a name="remove-the-generated-example-code"></a>Remova o código de exemplo gerado
 
-Elimine os ficheiros `AppTest.java`de `App.java` teste e aplicação gerados e introduzindo os comandos abaixo:
+Elimine os ficheiros de teste e aplicação gerados `AppTest.java` e `App.java` introduzindo os comandos abaixo:
 
 ```cmd
 DEL src\main\java\com\microsoft\example\App.java
 DEL src\test\java\com\microsoft\example\AppTest.java
 ```
 
-## <a name="add-maven-repositories"></a>Adicione repositórios Maven
+## <a name="add-maven-repositories"></a>Adicionar repositórios maven
 
-O HDInsight baseia-se na Plataforma de Dados Hortonworks (HDP), pelo que recomendamos a utilização do repositório Hortonworks para descarregar dependências para os seus projetos apache storm.  
+O HDInsight baseia-se na Plataforma de Dados da Hortonworks (HDP), pelo que recomendamos a utilização do repositório da Hortonworks para descarregar dependências para os seus projetos de Apache Storm.  
 
-Abra `pom.xml` entrando no comando abaixo:
+Abra `pom.xml` introduzindo o comando abaixo:
 
 ```cmd
 notepad pom.xml
 ```
 
-Em seguida, adicione o `<url>https://maven.apache.org</url>` seguinte XML após a linha:
+Em seguida, adicione o seguinte XML após a `<url>https://maven.apache.org</url>` linha:
 
 ```xml
 <repositories>
@@ -118,7 +118,7 @@ Em seguida, adicione o `<url>https://maven.apache.org</url>` seguinte XML após 
 
 ## <a name="add-properties"></a>Adicionar propriedades
 
-A Maven permite-lhe definir valores de nível de projeto chamados propriedades. In, `pom.xml`adicione o seguinte `</repositories>` texto após a linha:
+A Maven permite-lhe definir valores de nível de projeto chamados propriedades. In `pom.xml` , adicione o seguinte texto após a `</repositories>` linha:
 
 ```xml
 <properties>
@@ -130,11 +130,11 @@ A Maven permite-lhe definir valores de nível de projeto chamados propriedades. 
 </properties>
 ```
 
-Pode agora utilizar este valor noutras `pom.xml`secções do . Por exemplo, ao especificar a versão dos componentes `${storm.version}` Storm, pode utilizar em vez de codificar um valor.
+Agora pode utilizar este valor noutras secções do `pom.xml` . Por exemplo, ao especificar a versão dos componentes Storm, pode utilizar `${storm.version}` em vez de codificar um valor.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Adicione uma dependência dos componentes da tempestade. Em, `pom.xml`adicione o seguinte `<dependencies>` texto na secção:
+Adicione uma dependência para os componentes da tempestade. In `pom.xml` , adicione o seguinte texto na `<dependencies>` secção:
 
 ```xml
 <dependency>
@@ -146,14 +146,14 @@ Adicione uma dependência dos componentes da tempestade. Em, `pom.xml`adicione o
 </dependency>
 ```
 
-Na hora da compilação, Maven `storm-core` usa esta informação para procurar no repositório Maven. Olha pela primeira vez no repositório do seu computador local. Se os ficheiros não estiverem lá, maven descarrega-os do repositório público de Maven e armazena-os no repositório local.
+Na hora da compilação, Maven usa esta informação para procurar `storm-core` no repositório de Maven. Primeiro olha para o repositório no seu computador local. Se os ficheiros não estiverem lá, Maven os descarrega do repositório público de Maven e armazena-os no repositório local.
 
 > [!NOTE]  
-> Reparem `<scope>provided</scope>` na linha nesta secção. Esta definição diz à Maven para excluir o **núcleo de tempestade** de quaisquer ficheiros JAR que são criados, porque é fornecido pelo sistema.
+> Reparem `<scope>provided</scope>` na linha desta secção. Esta definição diz ao Maven para excluir **o núcleo de tempestade de** quaisquer ficheiros JAR que são criados, porque é fornecido pelo sistema.
 
 ## <a name="build-configuration"></a>Configuração de construção
 
-Os plug-ins Maven permitem personalizar as fases de construção do projeto. Por exemplo, a forma como o projeto é compilado ou como embalá-lo num ficheiro JAR. Em `pom.xml`, adicione o seguinte `</project>` texto diretamente acima da linha.
+Os plug-ins maven permitem-lhe personalizar as fases de construção do projeto. Por exemplo, como o projeto é compilado ou como embalá-lo em um arquivo JAR. In `pom.xml` , adicione o seguinte texto diretamente acima da `</project>` linha.
 
 ```xml
 <build>
@@ -164,13 +164,13 @@ Os plug-ins Maven permitem personalizar as fases de construção do projeto. Por
 </build>
 ```
 
-Esta secção é usada para adicionar plug-ins, recursos e outras opções de configuração de construção. Para obter uma `pom.xml` referência completa [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)do ficheiro, consulte .
+Esta secção é usada para adicionar plug-ins, recursos e outras opções de configuração de construção. Para uma referência completa do `pom.xml` ficheiro, consulte [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html) .
 
 ### <a name="add-plug-ins"></a>Adicionar plug-ins
 
-* **Exec Maven Plugin**
+* **Executivo Maven Plugin**
 
-    Para as topoologias apache storm implementadas em Java, o [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) é útil porque permite-lhe executar facilmente a topologia localmente no seu ambiente de desenvolvimento. Adicione o `<plugins>` seguinte à `pom.xml` secção do ficheiro para incluir o plugin Exec Maven:
+    Para as topologias da Tempestade Apache implementadas em Java, o [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) é útil porque permite-lhe executar facilmente a topologia localmente no seu ambiente de desenvolvimento. Adicione o seguinte à `<plugins>` secção do ficheiro para incluir o `pom.xml` plugin Exec Maven:
 
     ```xml
     <plugin>
@@ -197,13 +197,13 @@ Esta secção é usada para adicionar plug-ins, recursos e outras opções de co
 
 * **Apache Maven Compiler Plugin**
 
-    Outro plug-in útil [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/)é o , que é usado para alterar opções de compilação. Altere a versão Java que Maven usa para a fonte e alvo para a sua aplicação.
+    Outro plug-in útil é o [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , que é usado para alterar opções de compilação. Altere a versão Java que Maven usa para a origem e o alvo para a sua aplicação.
 
-  * Para HDInsight __3.4 ou anterior,__ defina a versão java de origem e de meta para __1.7__.
+  * Para HDInsight __3.4 ou anterior__, defina a versão de origem e java alvo para __1.7__.
 
-  * Para hDInsight __3.5,__ defina a versão Java de origem e de meta para __1.8__.
+  * Para HDInsight __3.5__, defina a versão de origem e java alvo para __1.8__.
 
-  Adicione o `<plugins>` seguinte texto na `pom.xml` secção do ficheiro para incluir o plugin do Compilador Apache Maven. Este exemplo especifica 1.8, pelo que a versão hDInsight alvo é de 3.5.
+  Adicione o texto a seguir na `<plugins>` secção do ficheiro para incluir o `pom.xml` plugin Apache Maven Compiler. Este exemplo especifica 1.8, pelo que a versão target HDInsight é 3.5.
 
   ```xml
   <plugin>
@@ -217,9 +217,9 @@ Esta secção é usada para adicionar plug-ins, recursos e outras opções de co
   </plugin>
   ```
 
-### <a name="configure-resources"></a>Configurar recursos
+### <a name="configure-resources"></a>Configure recursos
 
-A secção de recursos permite-lhe incluir recursos não codificados, tais como ficheiros de configuração necessários por componentes na topologia. Para este exemplo, adicione o `<resources>` seguinte `pom.xml` texto na secção do ficheiro. Em seguida, guarde e feche o ficheiro.
+A secção de recursos permite-lhe incluir recursos não codificantes, tais como ficheiros de configuração necessários por componentes na topologia. Para este exemplo, adicione o seguinte texto na `<resources>` secção do `pom.xml` ficheiro. Em seguida, guarde e feche o ficheiro.
 
 ```xml
 <resource>
@@ -231,23 +231,23 @@ A secção de recursos permite-lhe incluir recursos não codificados, tais como 
 </resource>
 ```
 
-Este exemplo adiciona o diretório de recursos`${basedir}`na raiz do projeto como um `log4j2.xml`local que contém recursos, e inclui o ficheiro nomeado . Este ficheiro é utilizado para configurar que informações são registadas pela topologia.
+Este exemplo adiciona o diretório de recursos na raiz do projeto `${basedir}` como um local que contém recursos, e inclui o ficheiro denominado `log4j2.xml` . Este ficheiro é usado para configurar que informações são registadas pela topologia.
 
 ## <a name="create-the-topology"></a>Criar a topologia
 
-Uma topologia apache baseada em Java consiste em três componentes que deve ser autor (ou referência) como dependência.
+Uma topologia da Tempestade Apache baseada em Java consiste em três componentes que deve ser autor (ou referência) como uma dependência.
 
 * **Bicos**: Lê dados de fontes externas e emite fluxos de dados para a topologia.
 
-* **Parafusos**: O processamento em fluxos emitidos por bicos ou outros parafusos e emite um ou mais fluxos.
+* **Parafusos**: O processamento em correntes emitidas por bicos ou outros parafusos e emite um ou mais fluxos.
 
 * **Topologia**: Define como os bicos e parafusos são organizados, e fornece o ponto de entrada para a topologia.
 
 ### <a name="create-the-spout"></a>Criar o bico
 
-Para reduzir os requisitos para a criação de fontes de dados externas, o bico que se segue simplesmente emite frases aleatórias. É uma versão modificada de um bico que é fornecido com os exemplos de [Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Embora esta topologia use um bico, outros podem ter vários que alimentam dados de diferentes fontes para a topologia`.`
+Para reduzir os requisitos de configuração de fontes de dados externas, o bico seguinte simplesmente emite frases aleatórias. É uma versão modificada de um bico que é fornecido com os [exemplos de Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Embora esta topologia use um bico, outros podem ter vários que alimentam dados de diferentes fontes para a topologia`.`
 
-Introduza o comando abaixo para `RandomSentenceSpout.java`criar e abra um novo ficheiro:
+Introduza o comando abaixo para criar e abrir um novo `RandomSentenceSpout.java` ficheiro:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
@@ -320,20 +320,20 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]  
 > Para um exemplo de um bico que lê a partir de uma fonte de dados externa, consulte um dos seguintes exemplos:
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Um exemplo que lê no Twitter.
-> * [Tempestade-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Um bico que se lê de Kafka.
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Um bico de exemplo que lê no Twitter.
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Um bico que lê de Kafka.
 
 ### <a name="create-the-bolts"></a>Criar os parafusos
 
-Os parafusos tratam do processamento de dados. Os parafusos podem fazer qualquer coisa, por exemplo, computação, persistência ou conversa ção com componentes externos. Esta topologia usa dois parafusos:
+Os parafusos tratam o processamento de dados. Os parafusos podem fazer qualquer coisa, por exemplo, computação, persistência ou falar com componentes externos. Esta topologia usa dois parafusos:
 
-* **SplitSentence**: Divide as frases emitidas por **RandomSentenceSpout** em palavras individuais.
+* **SplitSentence**: Divide as frases emitidas pela **RandomSentenceSpout** em palavras individuais.
 
 * **WordCount**: Conta quantas vezes cada palavra ocorreu.
 
-#### <a name="splitsentence"></a>SplitSentence
+#### <a name="splitsentence"></a>Frase dividida
 
-Introduza o comando abaixo para `SplitSentence.java`criar e abra um novo ficheiro:
+Introduza o comando abaixo para criar e abrir um novo `SplitSentence.java` ficheiro:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\SplitSentence.java
@@ -390,7 +390,7 @@ public class SplitSentence extends BaseBasicBolt {
 
 #### <a name="wordcount"></a>WordCount
 
-Introduza o comando abaixo para `WordCount.java`criar e abra um novo ficheiro:
+Introduza o comando abaixo para criar e abrir um novo `WordCount.java` ficheiro:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCount.java
@@ -479,15 +479,15 @@ public class WordCount extends BaseBasicBolt {
 }
 ```
 
-### <a name="define-the-topology"></a>Defina a topologia
+### <a name="define-the-topology"></a>Definir a topologia
 
-A topologia liga os bicos e parafusos num gráfico. O gráfico define como os dados fluem entre os componentes. Também fornece pistas de paralelismo que storm usa ao criar instâncias dos componentes dentro do cluster.
+A topologia une os bicos e parafusos num gráfico. O gráfico define como os dados fluem entre os componentes. Também fornece dicas de paralelismo que a Tempestade usa ao criar instâncias dos componentes dentro do cluster.
 
-A imagem que se segue é um diagrama básico do gráfico dos componentes para esta topologia.
+A imagem a seguir é um diagrama básico do gráfico de componentes para esta topologia.
 
-![diagrama mostrando os bicos e parafusos arranjo](./media/apache-storm-develop-java-topology/word-count-topology1.png)
+![diagrama mostrando o arranjo de bicos e parafusos](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
-Para implementar a topologia, insira o comando `WordCountTopology.java`abaixo para criar e abrir um novo ficheiro:
+Para implementar a topologia, insira o comando abaixo para criar e abrir um novo `WordCountTopology.java` ficheiro:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCountTopology.java
@@ -557,9 +557,9 @@ public class WordCountTopology {
 }
 ```
 
-### <a name="configure-logging"></a>Configurar a exploração madeireira
+### <a name="configure-logging"></a>Confiria a exploração madeireira
 
-A tempestade usa [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) para registar informações. Se não configurar o registo, a topologia emite informações de diagnóstico. Para controlar o que está registado, crie um ficheiro nomeado `log4j2.xml` no `resources` diretório, introduzindo o comando abaixo:
+A tempestade usa [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) para registar informações. Se não configurar o registo, a topologia emite informações de diagnóstico. Para controlar o que está registado, crie um ficheiro nomeado `log4j2.xml` no `resources` diretório introduzindo o comando abaixo:
 
 ```cmd
 notepad resources\log4j2.xml
@@ -586,14 +586,14 @@ Em seguida, copie e cole o texto XML abaixo no novo ficheiro.  Em seguida, feche
 </Configuration>
 ```
 
-Este XML configura um novo `com.microsoft.example` madeireiro para a classe, que inclui os componentes neste exemplo topologia. O nível está definido para rastrear este madeireiro, que captura qualquer informação de registo emitida por componentes nesta topologia.
+Este XML configura um novo madeirão para a `com.microsoft.example` classe, que inclui os componentes nesta topologia exemplo. O nível está definido para rastrear este madeireiro, que captura qualquer informação de registo emitido por componentes nesta topologia.
 
-A `<Root level="error">` secção configura o nível raiz `com.microsoft.example`do registo (tudo o que não está dentro) para apenas registar informações de erro.
+A `<Root level="error">` secção configura o nível de raiz da exploração madeireira (tudo o que não está em ) `com.microsoft.example` apenas para registar informações de erro.
 
-Para obter mais informações sobre a configuração do registo para o Log4j 2, consulte [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+Para obter mais informações sobre a configuração do registo registado no Log4j 2, consulte [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html) .
 
 > [!NOTE]  
-> Versão de tempestade 0.10.0 e uso mais alto Log4j 2.x. Versões mais antigas da tempestade usaram log4j 1.x, que usou um formato diferente para configuração de log. Para obter informações sobre [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat)a configuração mais antiga, consulte .
+> Versão de tempestade 0.10.0 e utilização mais alta Log4j 2.x. Versões mais antigas da tempestade usaram Log4j 1.x, que usou um formato diferente para a configuração do registo. Para obter informações sobre a configuração mais antiga, consulte [https://cwiki.apache.org/confluence/display/LOGGINGLOG4J/Log4jXmlFormat](https://cwiki.apache.org/confluence/display/LOGGINGLOG4J/Log4jXmlFormat) .
 
 ## <a name="test-the-topology-locally"></a>Teste a topologia localmente
 
@@ -603,7 +603,7 @@ Depois de guardar os ficheiros, utilize o seguinte comando para testar a topolog
 mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 ```
 
-À medida que funciona, a topologia exibe informações de arranque. O seguinte texto é um exemplo da saída da contagem de palavras:
+À medida que funciona, a topologia exibe informações de arranque. O texto a seguir é um exemplo da saída da contagem de palavras:
 
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
@@ -613,28 +613,28 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
-Este registo de exemplo indica que a palavra 'e' foi emitida 113 vezes. A contagem continua a aumentar enquanto a topologia correr. Este aumento deve-se ao facto de o bico emitir continuamente as mesmas frases.
+Este registo de exemplo indica que a palavra "e" foi emitida 113 vezes. A contagem continua a aumentar enquanto a topologia correr. Este aumento deve-se ao facto de o bico emitir continuamente as mesmas frases.
 
-Há um intervalo de 5 segundos entre a emissão de palavras e as contagens. O componente **WordCount** está configurado apenas para emitir informações quando um tique-taque chegar. Pede que os tuples de carrapato só sejam entregues a cada cinco segundos.
+Há um intervalo de 5 segundos entre a emissão de palavras e contagens. O componente **WordCount** é configurado apenas para emitir informações quando um tuple de carrapato chega. Pede que os tique-taques só sejam entregues a cada cinco segundos.
 
-## <a name="convert-the-topology-to-flux"></a>Converter a topologia em Flux
+## <a name="convert-the-topology-to-flux"></a>Converter a topologia em Fluxo
 
-[O Fluxo](https://storm.apache.org/releases/2.0.0/flux.html) é um novo quadro disponível com a tempestade 0.10.0 e superior. O fluxo permite-lhe separar a configuração da implementação. Os seus componentes ainda estão definidos em Java, mas a topologia é definida usando um ficheiro YAML. Pode embalar uma definição de topologia padrão com o seu projeto, ou usar um ficheiro autónomo ao submeter a topologia. Ao submeter a topologia à Tempestade, utilize variáveis ambientais ou ficheiros de configuração para preencher valores de definição de topologia YAML.
+[O fluxo](https://storm.apache.org/releases/2.0.0/flux.html) é um novo quadro disponível com a Tempestade 0.10.0 ou superior. O fluxo permite separar a configuração da implementação. Os seus componentes ainda estão definidos em Java, mas a topologia é definida usando um ficheiro YAML. Pode embalar uma definição de topologia padrão com o seu projeto, ou usar um ficheiro autónomo ao submeter a topologia. Ao submeter a topologia à Tempestade, utilize variáveis ambientais ou ficheiros de configuração para preencher valores de definição de topologia YAML.
 
 O ficheiro YAML define os componentes a utilizar para a topologia e o fluxo de dados entre eles. Pode incluir um ficheiro YAML como parte do ficheiro do frasco. Ou pode usar um ficheiro YAML externo.
 
-Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)
+Para obter mais informações sobre o Fluxo, consulte [o quadro do Fluxo (). https://storm.apache.org/releases/current/flux.html) ](https://storm.apache.org/releases/current/flux.html)
 
 > [!WARNING]  
-> Devido a um [bug (comhttps://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) a tempestade 1.0.1, você pode precisar de instalar um ambiente de desenvolvimento de [tempestade](https://storm.apache.org/releases/current/Setting-up-development-environment.html) para executar topoologias de Fluxo localmente.
+> Devido a um [bug (com https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) a Tempestade 1.0.1, poderá ser necessário instalar um ambiente de desenvolvimento de [tempestade](https://storm.apache.org/releases/current/Setting-up-development-environment.html) para executar as topologias do Flux localmente.
 
-1. Anteriormente, `WordCountTopology.java` definiu a topologia, mas não é necessário com o Flux. Eliminar o ficheiro com o seguinte comando:
+1. Anteriormente, `WordCountTopology.java` definiu a topologia, mas não é necessária com o Flux. Eliminar o ficheiro com o seguinte comando:
 
     ```cmd
     DEL src\main\java\com\microsoft\example\WordCountTopology.java
     ```
 
-1. Introduza o comando abaixo para `topology.yaml`criar e abra um novo ficheiro:
+1. Introduza o comando abaixo para criar e abrir um novo `topology.yaml` ficheiro:
 
     ```cmd
     notepad resources\topology.yaml
@@ -679,13 +679,13 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
              args: ["word"]           # field(s) to group on
     ```
 
-1. Introduza o comando `pom.xml` abaixo para abrir para fazer as revisões descritas abaixo:
+1. Introduza o comando abaixo para abrir `pom.xml` para fazer as revisões descritas abaixo:
 
     ```cmd
     notepad pom.xml
     ```
 
-   1. Adicione a seguinte nova `<dependencies>` dependência na secção:
+   1. Adicione a seguinte nova dependência na `<dependencies>` secção:
 
         ```xml
         <!-- Add a dependency on the Flux framework -->
@@ -696,7 +696,7 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
         </dependency>
         ```
 
-   1. Adicione o seguinte plugin à `<plugins>` secção. Este plugin trata da criação de um pacote (arquivo de frascos) para o projeto, e aplica algumas transformações específicas ao Flux ao criar o pacote.
+   1. Adicione o seguinte plugin à `<plugins>` secção. Este plugin trata da criação de um pacote (ficheiro jar) para o projeto, e aplica algumas transformações específicas ao Flux ao criar o pacote.
 
         ```xml
         <!-- build an uber jar -->
@@ -737,9 +737,9 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
         </plugin>
         ```
 
-   1. Para a secção Exec Maven `<configuration>`  >  `<mainClass>` Plugin, navegue e mude `${storm.topology}` para `org.apache.storm.flux.Flux`. Esta definição permite ao Flux lidar com a gestão da topologia localmente em desenvolvimento.
+   1. Para a secção Exec Maven Plugin, navegue `<configuration>`  >  `<mainClass>` para e mude `${storm.topology}` para `org.apache.storm.flux.Flux` . Esta definição permite ao Flux lidar com a topologia localmente em desenvolvimento.
 
-   1. Na `<resources>` secção, adicione o `<includes>`seguinte a . Este XML inclui o ficheiro YAML que define a topologia como parte do projeto.
+   1. Na `<resources>` secção, adicione o seguinte a `<includes>` . Este XML inclui o ficheiro YAML que define a topologia como parte do projeto.
 
         ```xml
         <include>topology.yaml</include>
@@ -747,23 +747,23 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
 
 ## <a name="test-the-flux-topology-locally"></a>Teste a topologia do fluxo localmente
 
-1. Introduza o seguinte comando para compilar e executar a topologia do Fluxo usando Maven:
+1. Introduza o seguinte comando para compilar e executar a topologia do Fluxo com recurso a Maven:
 
     ```cmd
     mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
     ```
 
     > [!WARNING]  
-    > Se a sua topologia usar a Tempestade 1.0.1 bits, este comando falha. Esta falha é [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055)causada por . Em vez disso, [instale storm no seu ambiente](https://storm.apache.org/releases/current/Setting-up-development-environment.html) de desenvolvimento e use os seguintes passos:
+    > Se a sua topologia usar a Tempestade 1.0.1 bits, este comando falha. Esta falha é causada [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) por. Em vez disso, [instale a Tempestade no seu ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html) e use os seguintes passos:
     >
-    > Se instalou a Tempestade no seu ambiente de [desenvolvimento,](https://storm.apache.org/releases/current/Setting-up-development-environment.html)pode utilizar os seguintes comandos:
+    > Se [instalou a Storm no seu ambiente de desenvolvimento,](https://storm.apache.org/releases/current/Setting-up-development-environment.html)pode utilizar os seguintes comandos:
     >
     > ```cmd
     > mvn compile package
     > storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
     > ```
 
-    O `--local` parâmetro executa a topologia em modo local no seu ambiente de desenvolvimento. O `-R /topology.yaml` parâmetro utiliza `topology.yaml` o recurso de ficheiro do ficheiro do frasco para definir a topologia.
+    O `--local` parâmetro executa a topologia em modo local no seu ambiente de desenvolvimento. O `-R /topology.yaml` parâmetro utiliza o recurso de ficheiro do ficheiro do frasco para definir a `topology.yaml` topologia.
 
     À medida que funciona, a topologia exibe informações de arranque. O seguinte texto é um exemplo da saída:
 
@@ -780,13 +780,13 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
 
 2. Crie um novo yaml de topologia do projeto.
 
-    1. Introduza o comando `topology.xml`abaixo para abrir:
+    1. Introduza o comando abaixo para `topology.xml` abrir:
 
     ```cmd
     notepad resources\topology.yaml
     ```
 
-    1. Encontre a secção seguinte e `10` `5`altere o valor de . Esta modificação altera o intervalo entre a emissão de lotes de palavras conta de 10 segundos para 5.  
+    1. Encontre a seguinte secção e altere o valor de `10` `5` . Esta modificação altera o intervalo entre a emissão de lotes de contagem de palavras de 10 segundos a 5.  
 
     ```yaml
     - id: "counter-bolt"
@@ -796,7 +796,7 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
            parallelism: 1  
     ```
 
-    1. Guardar ficheiros como `newtopology.yaml`.
+    1. Guarde o ficheiro como `newtopology.yaml` .
 
 3. Para executar a topologia, insira o seguinte comando:
 
@@ -804,32 +804,32 @@ Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .http
     mvn exec:java -Dexec.args="--local resources/newtopology.yaml"
     ```
 
-    Ou, se tiver storm no seu ambiente de desenvolvimento:
+    Ou, se tiveres a Tempestade no teu ambiente de desenvolvimento:
 
     ```cmd
     storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local resources/newtopology.yaml
     ```
 
-    Este comando `newtopology.yaml` usa a definição de topologia. Como não incluímos `compile` o parâmetro, Maven usa a versão do projeto construído em etapas anteriores.
+    Este comando usa a `newtopology.yaml` definição de topologia. Como não incluímos o `compile` parâmetro, Maven usa a versão do projeto construído em passos anteriores.
 
-    Uma vez iniciada a topologia, deve notar que o tempo entre `newtopology.yaml`os lotes emitidos mudou para refletir o valor em . Para que possa ver que pode alterar a sua configuração através de um ficheiro YAML sem ter de recompilar a topologia.
+    Uma vez iniciada a topologia, deve notar que o tempo entre os lotes emitidos mudou para refletir o valor em `newtopology.yaml` . Para que possa ver que pode alterar a sua configuração através de um ficheiro YAML sem ter de recompiler a topologia.
 
-Para obter mais informações sobre estas e outras características da estrutura do Fluxo, consulte [o Flux .https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)
+Para obter mais informações sobre estas e outras características da estrutura do Fluxo, consulte [o Flux ( . https://storm.apache.org/releases/current/flux.html) ](https://storm.apache.org/releases/current/flux.html)
 
 ## <a name="trident"></a>Tridente
 
-[Tridente](https://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível que é fornecida pela Tempestade. Apoia o processamento audais. A principal vantagem do Tridentél é que garante que cada mensagem que entra na topologia é processada apenas uma vez. Sem utilizar o Trident, a sua topologia só pode garantir que as mensagens são processadas pelo menos uma vez. Há também outras diferenças, como componentes incorporados que podem ser usados em vez de criar parafusos. Os parafusos são substituídos por componentes menos genéricos, tais como filtros, projeções e funções.
+[Tridente](https://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível que é fornecida pela Tempestade. Apoia o processamento estatal. A principal vantagem do Tridente é que garante que cada mensagem que entra na topologia é processada apenas uma vez. Sem usar o Trident, a sua topologia só pode garantir que as mensagens são processadas pelo menos uma vez. Há também outras diferenças, como componentes incorporados que podem ser usados em vez de criar parafusos. Os parafusos são substituídos por componentes menos genéricos, tais como filtros, projeções e funções.
 
-As aplicações tridente podem ser criadas utilizando projetos Maven. Usa os mesmos passos básicos apresentados anteriormente neste artigo — só o código é diferente. O tridente também não pode (atualmente) ser usado com a estrutura do Fluxo.
+As aplicações tridentes podem ser criadas utilizando projetos Maven. Usa os mesmos passos básicos que apresentados anteriormente neste artigo — apenas o código é diferente. Tridente também não pode (atualmente) ser usado com a estrutura do fluxo.
 
-Para mais informações sobre tridente, consulte a visão geral da [API tridente](https://storm.apache.org/releases/current/Trident-API-Overview.html).
+Para mais informações sobre tridente, consulte a Visão Geral da [API Trident.](https://storm.apache.org/releases/current/Trident-API-Overview.html)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeste a criar uma topologia da Tempestade Apache usando o Java. Agora aprenda a:
 
-* [Implementar e gerir as topoologias da tempestade Apache no HDInsight](apache-storm-deploy-monitor-topology-linux.md)
+* [Implementar e gerir as topologias da Tempestade Apache em HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
 * [Desenvolver topologias com Python](apache-storm-develop-python-topology.md)
 
-Você pode encontrar mais exemplos de topoologias apache storm visitando [as topoologias exemplo para Apache Storm em HDInsight](apache-storm-example-topology.md).
+Você pode encontrar mais exemplo As topologias da Tempestade Apache visitando [Topologias exemplo para Apache Storm em HDInsight](apache-storm-example-topology.md).

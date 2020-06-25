@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 15a18693b3d1623f5f549742ff95ac4194952eb8
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 04442d7c82b463c0cfa5813bd4b20554b57ec950
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717854"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323228"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -172,7 +172,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 O nível de serviço Business Critical não aplicará corretamente [os limites máximos de memória para objetos otimizados](../managed-instance/resource-limits.md#in-memory-oltp-available-space) pela memória em alguns casos. A SQL Managed Instance pode permitir que a carga de trabalho utilize mais memória para operações OLTP na memória, o que pode afetar a disponibilidade e a estabilidade do caso. As consultas em memória do OLTP que estão a atingir os limites podem não falhar imediatamente. Esta questão será resolvida em breve. As consultas que usam mais memória da memória ALTP falharão mais cedo se atingirem os [limites](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Solução alternativa**: [Monitorize a utilização do armazenamento OLTP na memória](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitor-space) utilizando o [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não está a utilizar mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores, ou otimize a sua carga de trabalho para utilizar menos memória.
+**Solução alternativa**: [Monitorize a utilização do armazenamento OLTP na memória](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-monitor-space) utilizando o [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não está a utilizar mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores, ou otimize a sua carga de trabalho para utilizar menos memória.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erro errado devolvido ao tentar remover um ficheiro que não está vazio
 

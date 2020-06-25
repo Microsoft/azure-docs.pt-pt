@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a27d8ec5aba55abcea54069b9707d766c4acc7a7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078315"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338216"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure
 
@@ -103,13 +103,13 @@ Para garantir que pessoas fora da sua organização podem solicitar pacotes de a
 
 - Certifique-se de que as definições de nível do site permitem o acesso ao hóspede (as mesmas opções que as seleções anteriormente listadas). Para obter mais informações, consulte [Turn external sharing on or off for a site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Reveja as definições de partilha de grupos do Office 365
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Reveja as definições de partilha de grupos microsoft 365
 
-- Se pretender incluir grupos office 365 nos seus pacotes de acesso para utilizadores externos, certifique-se de que **os utilizadores let adicionam novos hóspedes à organização** está definido para **On** para permitir o acesso dos hóspedes. Para mais informações, consulte [Gerir o acesso dos hóspedes aos Grupos Office 365.](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)
+- Se pretender incluir os grupos Microsoft 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que **os utilizadores do Let adicionam novos hóspedes à organização** está definido para o **On** para permitir o acesso dos hóspedes. Para obter mais informações, consulte [Gerir o acesso dos hóspedes aos Grupos Microsoft 365.](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)
 
-- Se pretender que os utilizadores externos possam aceder ao site e recursos do SharePoint Online associados a um grupo do Office 365, certifique-se de que liga a partilha externa do SharePoint Online. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se pretender que os utilizadores externos possam aceder ao site e recursos do SharePoint Online associados a um grupo Microsoft 365, certifique-se de que liga a partilha externa do SharePoint Online. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Para obter informações sobre como definir a política de hóspedes para grupos do Office 365 ao nível do diretório no PowerShell, consulte [Exemplo: Configurar a política de hóspedes para grupos ao nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Para obter informações sobre como definir a política de hóspedes para os grupos Microsoft 365 ao nível do diretório no PowerShell, consulte [exemplo: Configurar a política do Convidado para grupos ao nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Reveja as definições de partilha das suas equipas
 

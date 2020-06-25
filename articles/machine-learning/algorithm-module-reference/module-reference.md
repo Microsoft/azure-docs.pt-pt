@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53069f24a18bac1f5c0c226ddcc3a79494c93edb
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: b85140d5a54d7447a80899f498dd63014bd11695
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84809301"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321862"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritmo & referência do módulo para o designer de aprendizagem automática Azure (pré-visualização)
 
@@ -34,7 +34,7 @@ Para ajudar na escolha de algoritmos, consulte
 
 | Funcionalidade | Description | Módulo |
 | --- |--- | --- |
-| Entrada e saída de dados | Mova os dados de fontes de nuvem para o seu oleoduto. Escreva os seus resultados ou dados intermédios para o Azure Storage, uma base de dados SQL, ou Hive, enquanto executa um oleoduto, ou utilize o armazenamento em nuvem para trocar dados entre os oleodutos.  | [Introduzir os Dados Manualmente](enter-data-manually.md) <br/> [Exportar Dados](export-data.md) <br/> [Importar Dados](import-data.md) |
+| Entrada e saída de dados | Mova os dados de fontes de nuvem para o seu oleoduto. Escreva os seus resultados ou dados intermédios para Azure Storage, SQL Database ou Hive, enquanto executa um pipeline, ou utilize o armazenamento em nuvem para trocar dados entre os oleodutos.  | [Introduzir os Dados Manualmente](enter-data-manually.md) <br/> [Exportar Dados](export-data.md) <br/> [Importar Dados](import-data.md) |
 | Transformação de Dados | Operações em dados exclusivos da aprendizagem automática, como normalizar ou binar dados, redução de dimensionalidade e conversão de dados entre vários formatos de ficheiros.| [Adicionar Colunas](add-columns.md) <br/> [Adicionar Linhas](add-rows.md) <br/> [Aplicar Operação Matemática](apply-math-operation.md) <br/> [Aplicar Transformação SQL](apply-sql-transformation.md) <br/> [Limpar Dados em Falta](clean-missing-data.md) <br/> [Valores de Clip](clip-values.md) <br/> [Converter para CSV](convert-to-csv.md) <br/> [Converter em Conjunto de Dados](convert-to-dataset.md) <br/> [Converter em Valores Indicadores](convert-to-indicator-values.md) <br/> [Editar Metadados](edit-metadata.md) <br/> [Agrupar Dados em Posições](group-data-into-bins.md) <br/> [Associar dados](join-data.md) <br/> [Normalizar Dados](normalize-data.md) <br/> [Partição e Amostra](partition-and-sample.md)  <br/> [Remover Linhas Duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selecionar Transformação de Colunas](select-columns-transform.md) <br/> [Selecionar Colunas no Conjunto de Dados](select-columns-in-dataset.md) <br/> [Dividir Dados](split-data.md) |
 | Seleção de Recursos | Selecione um subconjunto de funcionalidades relevantes e úteis para utilizar na construção de um modelo analítico. | [Seleção de funcionalidades baseadas em filtro](filter-based-feature-selection.md) <br/> [Importância da funcionalidade de permutação](permutation-feature-importance.md) |
 | Funções Estatísticas | Fornecer uma grande variedade de métodos estatísticos relacionados com a ciência dos dados. | [Resumir Dados](summarize-data.md)|

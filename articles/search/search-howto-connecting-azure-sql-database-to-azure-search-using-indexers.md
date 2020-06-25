@@ -1,7 +1,7 @@
 ---
 title: Pesquisa sobre os dados do Azure SQL
 titleSuffix: Azure Cognitive Search
-description: Importar dados da Base de Dados Azure SQL utilizando indexantes, para pesquisa completa de texto na Pesquisa Cognitiva de Azure. Este artigo abrange ligações, configuração do indexante e ingestão de dados.
+description: Importar dados da Base de Dados Azure SQL ou sql Gestd Instance usando indexantes, para pesquisa completa de texto na Pesquisa Cognitiva de Azure. Este artigo abrange ligações, configuração do indexante e ingestão de dados.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9279622ee54a9fdaa6617cfe2758cfb563fdbffa
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 1afe92720997ede327f098b9a435d00842ae201e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080605"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322145"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo da base de dados Azure SQL usando um indexador de pesquisa cognitiva Azure
+# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
-Antes de consultar um [índice de Pesquisa Cognitiva Azure,](search-what-is-an-index.md)deve povoá-lo com os seus dados. Se os dados viverem numa base de dados Azure SQL, um **indexante de Pesquisa Cognitiva Azure para a Base de Dados Azure SQL** (ou **indexante Azure SQL** para abreviar) pode automatizar o processo de indexação, o que significa menos código para escrever e menos infraestruturas para se preocupar.
+Antes de consultar um [índice de Pesquisa Cognitiva Azure,](search-what-is-an-index.md)deve povoá-lo com os seus dados. Se os dados viverem na Base de Dados Azure SQL ou na SQL Managed Instance, um **indexante de pesquisa cognitiva Azure para a Base de Dados Azure SQL** (ou **indexante Azure SQL** para abreviar) pode automatizar o processo de indexação, o que significa menos código para escrever e menos infraestruturas para se preocupar.
 
-Este artigo cobre a mecânica da utilização de [indexadores,](search-indexer-overview.md)mas também descreve funcionalidades disponíveis apenas com bases de dados Azure SQL (por exemplo, rastreio de alterações integradas). 
+Este artigo cobre a mecânica da utilização de [indexadores,](search-indexer-overview.md)mas também descreve funcionalidades disponíveis apenas com base de dados Azure SQL ou SQL Managed Instance (por exemplo, rastreio de alterações integrado). 
 
-Além das bases de dados Azure SQL, a Azure Cognitive Search fornece indexantes para [Azure Cosmos DB,](search-howto-index-cosmosdb.md) [armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md)e [armazenamento de mesaS Azure](search-howto-indexing-azure-tables.md). Para solicitar suporte para outras fontes de dados, forneça o seu feedback sobre o [fórum de feedback da Azure Cognitive Search](https://feedback.azure.com/forums/263029-azure-search/).
+Além da Base de Dados Azure SQL e da SQL Managed Instance, a Azure Cognitive Search fornece indexadores para [Azure Cosmos DB,](search-howto-index-cosmosdb.md) [armazenamento de Azure Blob](search-howto-indexing-azure-blob-storage.md)e [armazenamento de mesa Azure](search-howto-indexing-azure-tables.md). Para solicitar suporte para outras fontes de dados, forneça o seu feedback sobre o [fórum de feedback da Azure Cognitive Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexantes e fontes de dados
 
@@ -172,7 +172,7 @@ Se a sua base de dados SQL suportar o rastreio de [alterações,](https://docs.m
 
 + Requisitos de versão da base de dados:
   * SQL Server 2012 SP3 e mais tarde, se estiver a utilizar o SQL Server em VMs Azure.
-  * Azure SQL Database V12, se estiver a utilizar a Base de Dados Azure SQL.
+  * Azure SQL Database ou SQL Managed Instance.
 + Tabelas apenas (sem vistas). 
 + Na base de dados, ative o [rastreio de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) para a tabela. 
 + Não há chave primária composta (uma chave primária que contenha mais de uma coluna) sobre a tabela.  
@@ -354,7 +354,7 @@ Para indexação incremental, a Azure Cognitive Search suporta duas políticas d
 
 Nas réplicas apenas de leitura, a base de dados SQL não suporta o rastreio integrado de alterações. Portanto, deve usar a política da Marca de Alta Água. 
 
-A nossa recomendação padrão é usar o tipo de dados de partilha de linha para a coluna de alta marca de água. No entanto, a utilização da rowversão baseia-se na função da SQL `MIN_ACTIVE_ROWVERSION` Database, que não é suportada em réplicas apenas de leitura. Portanto, deve apontar o indexante para uma réplica primária se estiver a utilizar a versão de linha.
+A nossa recomendação padrão é usar o tipo de dados de partilha de linha para a coluna de alta marca de água. No entanto, a utilização da versão de linha `MIN_ACTIVE_ROWVERSION` baseia-se na função, que não é suportada em réplicas apenas de leitura. Portanto, deve apontar o indexante para uma réplica primária se estiver a utilizar a versão de linha.
 
 Se tentar utilizar a versão de linha numa réplica apenas de leitura, verá o seguinte erro: 
 
