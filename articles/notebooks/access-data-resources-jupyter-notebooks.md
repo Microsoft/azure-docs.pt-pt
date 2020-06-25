@@ -4,12 +4,12 @@ description: Saiba como aceder a ficheiros, APIs de REST, bases de dados e difer
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 2c7133e9c258c77aa9c242dd7276076625153703
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a7e242c000b57cbbfafebc1e11191199a7a4b95f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554372"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319140"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados da cloud num bloco de notas
 
@@ -42,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bases de dados Azure SQL
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database e SQL Managed Instance
 
-Pode aceder às bases de dados do SQL Server com a ajuda das bibliotecas pyodbc ou pymssql.
+Pode aceder a bases de dados em SQL Database ou SQL Managed Instance com a ajuda das bibliotecas pyodbc ou pymssql.
 
-[Use python para consultar uma base de dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) dá-lhe instruções sobre a criação de uma base de dados contendo dados AdventureWorks, e mostra como consultar esses dados. O mesmo código é indicado no caderno de amostras deste artigo.
+[Use python para consultar uma base de dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) dá-lhe instruções sobre a criação de uma base de dados na Base de Dados SQL contendo dados adventureWorks, e mostra como consultar esses dados. O mesmo código é indicado no caderno de amostras deste artigo.
 
 ## <a name="azure-storage"></a>Storage do Azure
 

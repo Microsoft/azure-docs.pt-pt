@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 02850b8780e70d402cff2b8fd301c2f79cd6c55e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235070"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318646"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Implementar o modelo ML na Borda Azure SQL utilizando ONNX 
 
@@ -32,7 +32,7 @@ Na parte três deste tutorial em três partes para prever impurezas de minério 
    |_Campo_|_Valor_|
    |-------|-------|
    |Tipo de ligação| Microsoft SQL Server|
-   |Servir|Endereço IP público mencionado no VM que foi criado para esta demonstração|
+   |Server|Endereço IP público mencionado no VM que foi criado para esta demonstração|
    |Nome de utilizador|SG|
    |Palavra-passe|A palavra-passe forte que foi usada ao criar a instância Azure SQL Edge|
    |Base de Dados|Predefinição|

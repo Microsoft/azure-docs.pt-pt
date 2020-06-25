@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cc316636c3f708d4b3ef81a22f57dab9b140d2fa
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 9b5a2bb939384ff06423693c8e4a788b80f3908c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195960"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318897"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de scripts JSON
 > [!NOTE]
@@ -83,7 +83,7 @@ A estrutura de alto nível para uma atividade dentro de uma definição de gasod
 
 A tabela seguinte descreve as propriedades dentro da definição JSON da atividade:
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Description | Necessário |
 | --- | --- | --- |
 | name |Nome da atividade. Especificar um nome que represente a ação que a atividade está configurada para fazer<br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">","*","%", "&", \\ ""</li></ul> |Yes |
 | descrição |Texto que descreve para que a atividade é usada. |No |
@@ -98,7 +98,7 @@ A tabela seguinte descreve as propriedades dentro da definição JSON da ativida
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento em tempo de execução de uma atividade, especificamente quando a fatia de uma mesa é processada. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Description |
 | --- | --- | --- | --- |
 | concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um maior valor de concordância acelera o processamento de dados. |
 | executaçãoPriorityOrder |Mais recenteMente Primeiro<br/><br/>O Mais Antigo Primeiro |O Mais Antigo Primeiro |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver duas fatias (uma acontecendo às 16h, e outra às 17h), e ambas estiverem pendentes de execução. Se definir a execuçãoPriorityOrder para newestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como OFIrst mais antigo, então a fatia às 16:00 é processada. |
@@ -114,7 +114,7 @@ A secção typeProperties é diferente para cada atividade. As atividades de tra
 **A atividade de cópia** tem duas subsecções na secção de tipos de propriedades: **fonte** e **pia**. Consulte a secção [DATA STORES](#data-stores) neste artigo para amostras JSON que mostrem como utilizar uma loja de dados como fonte e/ou pia.
 
 ### <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
-No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. Nesta amostra, a [atividade Copy](data-factory-data-movement-activities.md) copia dados de um armazenamento Azure Blob para uma base de dados Azure SQL.
+No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. Nesta amostra, a [atividade Copy](data-factory-data-movement-activities.md) copia dados de um armazenamento Azure Blob para Azure SQL Database.
 
 ```json
 {
@@ -334,10 +334,10 @@ A seguinte secção de disponibilidade especifica que o conjunto de dados de sa�
 
 A secção **de política** na definição de conjunto de dados define os critérios ou a condição que as fatias de conjunto de dados devem cumprir.
 
-| Nome da Política | Descrição | Aplicado a | Necessário | Predefinição |
+| Nome da Política | Description | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | tamanho mínimoS |Valida que os dados numa **bolha Azure** satisfaz os requisitos mínimos de tamanho (em megabytes). |Blob do Azure |No |ND |
-| sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
+| sobrancelhas mínimas |Valida que os dados na **Base de Dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
 
 **Exemplo:**
 
@@ -354,7 +354,7 @@ A secção **de política** na definição de conjunto de dados define os crité
 
 A menos que um conjunto de dados seja produzido pela Azure Data Factory, deve ser marcado como **externo**. Esta definição aplica-se geralmente às entradas da primeira atividade num gasoduto, a menos que a atividade ou a corrente do gasoduto sejam utilizadas.
 
-| Name | Descrição | Necessário | Valor Predefinido |
+| Name | Description | Necessário | Valor Predefinido |
 | --- | --- | --- | --- |
 | dataDelaia |Hora de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, se os dados estiverem disponíveis a hora, a verificação para ver os dados externos está disponível e a fatia correspondente está Pronta pode ser retardada usando dataDelay.<br/><br/>Só se aplica ao presente.  Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Esta definição não afeta fatias no passado (fatias com Tempo final de fatia + dadosDelay < Agora) são processadas sem demora.<br/><br/>Tempo superior a 23:59 horas precisa de ser especificado usando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |No |0 |
 | retryInterval |O tempo de espera entre um fracasso e a próxima tentativa de repetição. Se uma tentativa falhar, a próxima tentativa é depois de redaval. <br/><br/>Se são 13:00 agora, começamos a primeira tentativa. Se a duração para completar a primeira verificação de validação for de 1 minuto e a operação tiver falhado, a próxima repetição é de 1:00 + 1 min (duração) + 1 min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há atraso. A repetição acontece imediatamente. |No |00:01:00 (1 minuto) |
@@ -458,7 +458,7 @@ Para definir um conjunto de dados Azure Blob, defina o **tipo** de conjunto de d
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Caminho para o recipiente e pasta no armazenamento do blob. Exemplo: myblobcontainer\myblobfolder\ |Yes |
-| fileName |O nome da bolha. fileName é opcional e sensível a casos.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona na Bolha específica.<br/><br/>Quando o data de ficheiroName não é especificado, copy inclui todas as Blobs na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |O nome da bolha. fileName é opcional e sensível a casos.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona na Bolha específica.<br/><br/>Quando o data de ficheiroName não é especificado, copy inclui todas as Blobs na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy é uma propriedade opcional. Pode usá-lo para especificar uma pasta dinâmicaPath e nome de ficheiro para dados da série de tempo. Por exemplo, a pastaPath pode ser parametrizada para cada hora de dados. |No |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |No |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -641,7 +641,7 @@ Para definir um conjunto de dados da Azure Data Lake Store, defina o **tipo** de
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | folderPath |Caminho para o recipiente e pasta na loja Azure Data Lake. |Yes |
-| fileName |Nome do ficheiro na loja Azure Data Lake. fileName é opcional e sensível a casos. <br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona no ficheiro específico.<br/><br/>Quando o data de ficheiro não é especificado, a Cópia inclui todos os ficheiros na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Nome do ficheiro na loja Azure Data Lake. fileName é opcional e sensível a casos. <br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona no ficheiro específico.<br/><br/>Quando o data de ficheiro não é especificado, a Cópia inclui todos os ficheiros na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy é uma propriedade opcional. Pode usá-lo para especificar uma pasta dinâmicaPath e nome de ficheiro para dados da série de tempo. Por exemplo, a pastaPath pode ser parametrizada para cada hora de dados. |No |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |No |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -3175,10 +3175,10 @@ Para definir um conjunto de dados Amazon S3, defina o **tipo** de conjunto de da
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| baldeName |O nome do balde S3. |Cadeia |Yes |
-| chave |A chave do objeto S3. |Cadeia |No |
-| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |Cadeia |No |
-| versão |A versão do objeto S3 se a versão S3 estiver ativada. |Cadeia |No |
+| baldeName |O nome do balde S3. |String |Yes |
+| chave |A chave do objeto S3. |String |No |
+| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |String |No |
+| versão |A versão do objeto S3 se a versão S3 estiver ativada. |String |No |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |No | |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No | |
 
@@ -4843,7 +4843,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | linkedServiceName |Serviço ligado a Azure Storage a ser utilizado pelo cluster a pedido para armazenar e processar dados. <p>Atualmente, não é possível criar um cluster HDInsight a pedido que utilize uma Loja de Lagos de Dados Azure como armazenamento. Se pretender armazenar os dados dos resultados do processamento de HDInsight numa Loja de Lagos de Dados Azure, utilize uma Atividade de Cópia para copiar os dados do Azure Blob Storage para a Azure Data Lake Store.</p>  | Yes |
 | adicionalLinkedServiceNames |Especifica contas de armazenamento adicionais para o serviço ligado ao HDInsight para que o serviço Data Factory possa registá-los em seu nome. |No |
 | osTipos |Tipo de sistema operativo. Os valores permitidos são: Windows (padrão) e Linux |No |
-| hcatalogLinkedServiceName |O nome do serviço ligado Azure SQL que aponta para a base de dados HCatalog. O cluster HDInsight a pedido é criado utilizando a base de dados Azure SQL como a metástaria. |No |
+| hcatalogLinkedServiceName |O nome do serviço ligado Azure SQL que aponta para a base de dados HCatalog. O cluster HDInsight a pedido é criado utilizando a Base de Dados Azure SQL como a metástaria. |No |
 
 ### <a name="json-example"></a>Exemplo JSON
 O JSON seguinte define um serviço hdinsight baseado na procura do Linux. O serviço Data Factory cria automaticamente um cluster HDInsight **baseado em Linux** ao processar uma fatia de dados.
@@ -5057,7 +5057,7 @@ Para obter mais informações, consulte o artigo [do conector SQL Server.](data-
 
 ## <a name="data-transformation-activities"></a>ATIVIDADES DE TRANSFORMAÇÃO DE DADOS
 
-Atividade | Descrição
+Atividade | Description
 -------- | -----------
 [Atividade da Colmeia HDInsight](#hdinsight-hive-activity) | A atividade de Hive HDInsight num oleoduto da Data Factory executa consultas de Hive no seu próprio ou a pedido do grupo HDInsight baseado em Windows/Linux.
 [Atividade do Porco HDInsight](#hdinsight-pig-activity) | A atividade do Porco HDInsight num oleoduto da Data Factory executa consultas de porco no seu próprio conjunto de Windows/HdInsight baseado em Windows/Linux.
@@ -5236,7 +5236,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | redutor | Nome do redutor executável. No exemplo, wc.exe é o redutor executável. |
 | entrada | Ficheiro de entrada (incluindo localização) para o mapper. No exemplo: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"` adfsample é o recipiente blob, exemplo/dados/Gutenberg é a pasta, e davinci.txt é a bolha. |
 | saída | Ficheiro de saída (incluindo localização) para o redutor. A saída do trabalho de streaming Hadoop é escrita para o local especificado para esta propriedade. |
-| filePaths | Caminhos para o mapper e executáveis redutores. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o recipiente blob, exemplo/apps é a pasta, e wc.exe é o executável. |
+| filePaths | Caminhos para o mapper e executáveis redutores. No exemplo: "adfsample/exemplo/apps/wc.exe", adfsample é o recipiente blob, exemplo/apps é a pasta, e wc.exe é o executável. |
 | fileLinkedService | Serviço ligado a Azure Storage que representa o armazenamento Azure que contém os ficheiros especificados na secção filePaths. |
 | argumentos | Uma lista de argumentos separados por vírgula para o programa MapReduce. No tempo de execução, você vê alguns argumentos extra (por exemplo: mapreduce.job.tags) a partir do quadro MapReduce. Para diferenciar os seus argumentos com os argumentos MapReduce, considere usar a opção e o valor como argumentos como mostrados no exemplo seguinte (-s, --input, --output etc., são opções imediatamente seguidas pelos seus valores) |
 | obterDebugInfo | Um elemento opcional. Quando está definido para Falha, os registos são descarregados apenas por falha. Quando é definido para All, os registos são sempre descarregados independentemente do estado de execução. |
@@ -5547,7 +5547,7 @@ As seguintes propriedades são suportadas na secção **typeProperties** quando 
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome de procedure armazenado |Especifique o nome do procedimento armazenado na base de dados Azure SQL ou no Azure SQL Data Warehouse que é representado pelo serviço ligado que a tabela de saída utiliza. |Yes |
+| nome de procedure armazenado |Especifique o nome do procedimento armazenado na Base de Dados Azure SQL ou no Armazém de Dados Azure SQL que é representado pelo serviço ligado que a tabela de saída utiliza. |Yes |
 | parametrómetros de reserva armazenados |Especifique os valores para os parâmetros de procedimento armazenados. Se precisar de passar nulo para um parâmetro, utilize a sintaxe: "param1": nulo (todos os casos inferiores). Consulte a seguinte amostra para saber sobre a utilização deste imóvel. |No |
 
 Se especificar um conjunto de dados de entrada, deve estar disponível (em estado 'Pronto') para que a atividade de procedimento armazenado seja executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como parâmetro. É utilizado apenas para verificar a dependência antes de iniciar a atividade de procedimento armazenado. Deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado.

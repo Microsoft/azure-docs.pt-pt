@@ -41,6 +41,10 @@
       href: automation-runbook-types.md
     - name: DSC do PowerShell
       href: /powershell/scripting/dsc/overview/overview
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Segurança de dados
       items:
         - name: Encriptação de recursos seguros
@@ -63,6 +67,8 @@
           href: how-to/automation-region-dns-records.md
         - name: Gerir uma conta Run As de Automatização
           href: manage-runas-account.md
+        - name: Ligar de forma privada a uma conta de Automatização
+          href: how-to/private-link-security.md
         - name: Gerir permissões e segurança de funções
           href: automation-role-based-access-control.md
         - name: Mover a conta de Automatização para outra subscrição

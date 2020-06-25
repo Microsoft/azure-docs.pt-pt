@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e47dee10e00340f04afd4a9807501bf83d25f9ec
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: f16f9b3fe6cd17b9fb6eb1cb2bd3ef1f42824701
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709170"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312717"
 ---
-|Name |Description |Políticas |Versão |
+|Nome |Descrição |Políticas |Versão |
 |---|---|---|---|
 |[Auditoria Linux VMs que não têm as aplicações especificadas instaladas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApplicationLinux.json) |Esta iniciativa implementa os requisitos de política e audita máquinas virtuais Linux que não tenham as aplicações especificadas instaladas. Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
 |[Auditoria Linux VMs que têm as aplicações especificadas instaladas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApplicationLinux.json) |Esta iniciativa implementa os requisitos de política e audita máquinas virtuais Linux que tenham as aplicações especificadas instaladas. Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
@@ -37,3 +37,4 @@ ms.locfileid: "84709170"
 |[Auditoria Windows VMs que têm as aplicações especificadas instaladas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |Esta iniciativa implementa os requisitos de política e audita máquinas virtuais do Windows que tenham as aplicações especificadas instaladas. Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Auditoria VMs do Windows com um reboot pendente](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |Esta iniciativa implementa os requisitos de política e audita máquinas virtuais do Windows com um reboot pendente. Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Auditar servidores web do Windows que não estão a utilizar protocolos de comunicação seguros](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |Esta iniciativa implementa os requisitos de política e audita servidores web do Windows que não estão a utilizar protocolos de comunicação seguros (TLS 1.1 ou TLS 1.2). Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
+|[Implementar pré-requisitos para permitir políticas de configuração de hóspedes em máquinas virtuais](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |Esta iniciativa adiciona uma identidade gerida atribuída ao sistema e implementa a extensão de Configuração de Hóspedes apropriada para a plataforma para máquinas virtuais que são elegíveis para serem monitorizadas pelas políticas de Configuração de Hóspedes. Este é um pré-requisito para todas as políticas de Configuração de Hóspedes e deve ser atribuído ao âmbito de atribuição de políticas antes de usar qualquer política de Configuração de Convidados. Para mais informações sobre a Configuração do Hóspede, visite [https://aka.ms/gcpol](https://aka.ms/gcpol) . |4 |1.0.0-pré-visualização |

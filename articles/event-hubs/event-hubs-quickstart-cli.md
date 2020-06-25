@@ -1,21 +1,15 @@
 ---
-title: Criar um hub de eventos utilizando o Azure CLI - Azure Event Hubs [ Hubs de Eventos Azure] Microsoft Docs
+title: Criar um centro de eventos usando Azure CLI - Azure Event Hubs Microsoft Docs
 description: Este início rápido descreve como criar um hub de eventos com a CLI do Azure e, em seguida, enviar e receber eventos com Java.
-services: event-hubs
-author: spelluru
-manager: timlt
-ms.service: event-hubs
-ms.devlang: java
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/11/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 92fd7d15ee5bc54cc41b78f4ba0d078d3f8fac6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d3499d6c480a3bfdbad57ffa367c5d2d326d565
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77162638"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313116"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: Criar um hub de eventos com a CLI do Azure
 
@@ -74,7 +68,7 @@ Parabéns! Utilizou a CLI do Azure para criar um espaço de nomes dos Hubs de Ev
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos e um hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte o **Envio e receba** tutoriais de eventos: 
+Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos e um hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:** 
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
@@ -84,7 +78,7 @@ Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)
 
-[crie uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[criar uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

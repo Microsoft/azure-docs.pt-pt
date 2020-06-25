@@ -1,64 +1,54 @@
 ---
-title: Envie ou receba eventos de Azure Event Hubs usando .NET (mais recente)
-description: Este artigo fornece um walkthrough para criar uma aplicação .NET Core que envia/recebe eventos de/para Azure Event Hubs usando o mais recente pacote Azure.Messaging.EventHubs.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
+title: Enviar ou receber eventos de Azure Event Hubs usando .NET (mais recente)
+description: Este artigo fornece uma passagem para criar uma aplicação .NET Core que envia/recebe eventos de/a partir de Azure Event Hubs usando o mais recente pacote Azure.Messaging.EventHubs.
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/20/2020
-ms.author: spelluru
-ms.openlocfilehash: 44e77330e6a651a93b1f88fa6b20450ebc2b1455
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 06/23/2020
+ms.openlocfilehash: 8752064b59030c04e409e13baf7bf58836ce7ac7
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773979"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320160"
 ---
-# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Envie eventos e receba eventos de Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar eventos para e receber eventos dos Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET. 
 
 > [!IMPORTANT]
-> Este quickstart utiliza a nova biblioteca **Azure.Messaging.EventHubs.** Para um arranque rápido que utiliza a antiga biblioteca **Microsoft.Azure.EventHubs,** consulte [Enviar e receber eventos utilizando a biblioteca Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
+> Este quickstart utiliza a nova biblioteca **Azure.Messaging.EventHubs.** Para obter um arranque rápido que utilize a antiga biblioteca **Microsoft.Azure.EventHubs,** consulte [Enviar e receber eventos utilizando a biblioteca Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
+Se você é novo em Azure Event Hubs, consulte o [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
 Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
-- **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. A biblioteca de clientes do Azure Event Hubs utiliza novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode usar a biblioteca com versões linguísticas C# anteriores, mas a nova sintaxe não estará disponível. Para utilizar a sintaxe completa, recomenda-se que compile com o [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 ou superior e a [versão linguística](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) definida para `latest` . Se estiver a usar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição gratuita da Comunidade, pode ser descarregado [aqui.](https://visualstudio.microsoft.com/vs/)
-- **Crie um espaço de nome sinuoso do Event Hubs e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) Em seguida, obtenha a cadeia de **ligação para o espaço** de nome do Event Hubs seguindo as instruções do artigo: Obtenha a corda de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Usa a corda de ligação mais tarde neste arranque rápido.
+- **Subscrição do Microsoft Azure**. Para utilizar os serviços Azure, incluindo os Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os benefícios do seu assinante MSDN quando [criar uma conta.](https://azure.microsoft.com)
+- **Microsoft Visual Studio 2019**. A biblioteca de clientes Azure Event Hubs faz uso de novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode utilizar a biblioteca com versões linguísticas C# anteriores, mas a nova sintaxe não estará disponível. Para utilizar a sintaxe completa, recomenda-se que compile com a versão [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 ou superior e [a versão linguística](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) definida para `latest` . Se estiver a utilizar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição comunitária gratuita, pode ser descarregado [aqui.](https://visualstudio.microsoft.com/vs/)
+- **Crie um espaço de nomes de Centros de Eventos e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de ligação para o espaço de nomes Do Event Hubs** seguindo as instruções do artigo: Obter a cadeia de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a cadeia de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos 
 Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para enviar eventos para um centro de eventos. 
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-1. Inicie o Estúdio Visual 2019. 
-1. Selecione **Criar um novo projeto.** 
-1. Na caixa de diálogo Criar uma nova caixa de diálogo de **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **File** no menu, selecione **New**, e, em seguida, selecione **Project**. 
+1. Iniciar o Visual Studio 2019. 
+1. **Selecione Criar um novo projeto.** 
+1. Na caixa de diálogo do **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **Ficheiro** no menu, selecione **Novo**, e, em seguida, selecione **Project**. 
     1. Selecione **C#** para a linguagem de programação.
     1. Selecione **Consola** para o tipo de aplicação. 
-    1. Selecione **App de Consola (.NET Core)** na lista de resultados. 
-    1. Em seguida, selecione **Next**. 
+    1. Selecione **App de Consola (.NET Core)** da lista de resultados. 
+    1. Em seguida, selecione **Seguinte**. 
 
         ![Caixa de diálogo Novo Projeto](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
-1. Introduza **eventHubsSender** para o nome do projeto, **EventHubsQuickStart** para o nome da solução e, em seguida, selecione **OK** para criar o projeto. 
+1. **Insira o EventHubsSender** para o nome do projeto, **EventHubsQuickStart** para o nome da solução e, em seguida, selecione **OK** para criar o projeto. 
 
-    ![C# > consola app](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
+    ![C# > App consola](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager**Manager  >  **Consola** do menu. 
-1. Executar o seguinte comando para instalar o pacote **NuGet Azure.Messaging.EventHubs** NuGet:
+1. Selecione **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola** do menu. 
+1. Executar o seguinte comando para instalar o pacote **Azure.Messaging.EventHubs** NuGet:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs
@@ -76,7 +66,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
     using Azure.Messaging.EventHubs.Producer;
     ```
 
-2. Adicione constantes à classe para a cadeia de `Program` ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos suportes com os valores adequados que obteve ao criar o centro do evento. Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos. 
+2. Adicione constantes à `Program` classe para a cadeia de ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos parênteses pelos valores adequados que obteve ao criar o centro de eventos. Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos. 
 
     ```csharp
     private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
@@ -106,41 +96,41 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
         }
     ```
 5. Construa o projeto e garanta que não há erros.
-6. Executar o programa e esperar pela mensagem de confirmação. 
-7. No portal Azure, pode verificar se o centro do evento recebeu as mensagens. Mude para a vista **Mensagens** na secção **Métricas.** Refresque a página para atualizar o gráfico. Pode levar alguns segundos para mostrar que as mensagens foram recebidas. 
+6. Executar o programa e aguardar a mensagem de confirmação. 
+7. No portal Azure, pode verificar se o centro de eventos recebeu as mensagens. Ver **mensagens** na secção **Métricas.** Refresque a página para atualizar o gráfico. Pode levar alguns segundos para mostrar que as mensagens foram recebidas. 
 
-    [![Verifique se o centro do evento recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
+    [![Verifique se o centro de eventos recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > Para obter o código fonte completo com comentários mais informísticos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
+    > Para obter o código fonte completo com mais comentários informativos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
 
 ## <a name="receive-events"></a>Receber eventos
-Esta secção mostra como escrever uma aplicação de consola .NET Core que recebe mensagens de um hub de eventos usando um processador de eventos. O processador de eventos simplifica a receção de eventos a partir de centros de eventos, gerindo pontos de verificação persistentes e recebeções paralelas desses centros de eventos. Um processador de eventos está associado a um evento específico Hub e a um grupo de consumidores. Recebe eventos de várias divisórias no centro do evento, passando-os a um delegado manipulador para processamento usando código que fornece. 
+Esta secção mostra como escrever uma aplicação de consola .NET Core que recebe mensagens de um centro de eventos utilizando um processador de eventos. O processador do evento simplifica a receção de eventos a partir de centros de eventos, gerindo pontos de verificação persistentes e receções paralelas desses centros de eventos. Um processador de eventos está associado a um hub de evento específico e a um grupo de consumidores. Recebe eventos de múltiplas divisórias no centro do evento, passando-as a um delegado de manipulador para processamento usando o código que fornece. 
 
 
 > [!NOTE]
-> Se estiver a funcionar no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a correr [na versão Azure Stack Hub 2002,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento a versão API 2017-11-09. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento Do Hub De Pilha Azure: Diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+> Se estiver a correr no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a executar [a versão 2002 do Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar a versão API do serviço de armazenamento 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento do Azure Stack Hub: Diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
 
-### <a name="create-an-azure-storage-and-a-blob-container"></a>Crie um Armazenamento Azure e um recipiente de bolhas
-Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Siga estes passos para criar uma conta de Armazenamento Azure. 
+### <a name="create-an-azure-storage-and-a-blob-container"></a>Criar um armazenamento Azure e um recipiente blob
+Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verificação. Siga estes passos para criar uma conta de Armazenamento Azure. 
 
 1. [Criar uma conta de Armazenamento Azure](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md)
+3. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
-    Anote a corda de ligação e o nome do recipiente. Vaiusá-los no código de receção. 
+    Observe o fio de ligação e o nome do recipiente. Vai usá-los no código de receção. 
 
 
 ### <a name="create-a-project-for-the-receiver"></a>Criar um projeto para o recetor
 
-1. Na janela Solution Explorer, clique à direita na solução **EventHubQuickStart,** aponte para **Adicionar**e selecione **New Project**. 
-1. Selecione **App consola (.NET Core)** e selecione **Next**. 
-1. Introduza **eventHubsReceiver** para o nome do **Projeto**, e selecione **Criar**. 
+1. Na janela Solution Explorer, clique à direita na solução **EventHubQuickStart,** aponte para **Adicionar,** e selecione **Novo Projeto**. 
+1. Selecione **App de Consola (.NET Core)** e selecione **Seguinte**. 
+1. **Insira o EventHubsReceiver** para o **nome do projeto**e selecione **Create**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager**Manager  >  **Consola** do menu. 
-1. Executar o seguinte comando para instalar o pacote **NuGet Azure.Messaging.EventHubs** NuGet:
+1. Selecione **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola** do menu. 
+1. Executar o seguinte comando para instalar o pacote **Azure.Messaging.EventHubs** NuGet:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs
@@ -151,7 +141,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
     Install-Package Azure.Messaging.EventHubs.Processor
     ```    
 
-### <a name="update-the-main-method"></a>Atualizar o método Principal 
+### <a name="update-the-main-method"></a>Atualizar o método principal 
 
 1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs.**
 
@@ -163,7 +153,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
     using Azure.Messaging.EventHubs.Consumer;
     using Azure.Messaging.EventHubs.Processor;
     ```
-1. Adicione constantes à classe para a cadeia de `Program` ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos suportes com os valores adequados que obteve ao criar o centro do evento. Substitua os espaços reservados nos suportes pelos valores adequados que obteve ao criar o centro do evento e a conta de armazenamento (teclas de acesso - fio de ligação primária). Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos.
+1. Adicione constantes à `Program` classe para a cadeia de ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos parênteses pelos valores adequados que obteve ao criar o centro de eventos. Substitua os espaços reservados nos suportes pelos valores adequados que obteve ao criar o centro de eventos e a conta de armazenamento (teclas de acesso - cadeia de ligação primária). Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos.
 
     ```csharp
         private const string ehubNamespaceConnectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
@@ -199,7 +189,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
             await processor.StopProcessingAsync();
         }    
     ```
-1. Agora, adicione os seguintes métodos de manipulador de eventos e erros à classe. 
+1. Agora, adicione os seguintes métodos de manipulação de eventos e erros à classe. 
 
     ```csharp
         static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
@@ -222,18 +212,18 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
 1. Construa o projeto e garanta que não há erros.
 
     > [!NOTE]
-    > Para obter o código fonte completo com mais comentários informísticos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs).
-6. Executar a aplicação recetora. 
-1. Devia ver uma mensagem de que o evento foi recebido. 
+    > Para obter o código fonte completo com mais comentários informativos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs).
+6. Executar a aplicação do recetor. 
+1. Deve ver uma mensagem de que o evento foi recebido. 
 
     ![Evento recebido](./media/getstarted-dotnet-standard-send-v2/event-received.png)
 
-    Estes eventos são os três eventos que enviou para o centro de eventos mais cedo, executando o programa de remetentes. 
+    Estes eventos são os três eventos que enviou para o centro de eventos mais cedo, executando o programa remetente. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 Vê as amostras do GitHub. 
 
-- [Amostras de Hubs de Eventos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [Amostras de Centros de Eventos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Amostras de processador de eventos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
-- [Amostra de controlo de acesso baseada em funções (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+- [Amostra de controlo de acesso baseado em funções (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

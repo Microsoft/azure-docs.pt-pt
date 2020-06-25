@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707162"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319725"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução da Fábrica de Dados
 > [!NOTE]
@@ -233,7 +233,7 @@ A secção **de política** na definição de conjunto de dados define os crité
 | Nome da Política | Description | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | tamanho mínimoS | Valida que os dados numa **bolha Azure** satisfaz os requisitos mínimos de tamanho (em megabytes). |Blob do Azure |No |ND |
-| sobrancelhas mínimas | Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
+| sobrancelhas mínimas | Valida que os dados na **Base de Dados Azure SQL** ou **na tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
 
 #### <a name="examples"></a>Exemplos
 **tamanho mínimoS:**

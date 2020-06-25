@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 06/19/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c6358411572de6049a3362cc0e8e26b9cbc82d43
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 4f7be81c3593e35dfbbcf3a5671726da70ae0c7e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906856"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319674"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com registos do Monitor Azure
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com registos do Monitor Azure    
 
 > [!NOTE]
 > Este artigo descreve como compreender e controlar os seus custos para os Registos do Monitor Azure. Um artigo relacionado, [monitorização da utilização e custos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) descreve como visualizar a utilização e os custos estimados em várias funcionalidades de monitorização do Azure para diferentes modelos de preços. Todos os preços e custos apresentados neste artigo são apenas para fins. 
@@ -32,7 +32,7 @@ Neste artigo analisamos como pode monitorizar proativamente o volume de dados in
 
 ## <a name="pricing-model"></a>Modelo preços
 
-O preço padrão para Log Analytics é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. O volume de dados é medido como o tamanho dos dados que serão armazenados. Cada espaço de trabalho Log Analytics é cobrado como um serviço separado e contribui para a fatura da sua subscrição Azure. A quantidade de ingestão de dados pode ser considerável dependendo dos seguintes fatores: 
+O preço padrão para Log Analytics é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. O volume de dados é medido como o tamanho dos dados que serão armazenados em GB (10^9 bytes). Cada espaço de trabalho Log Analytics é cobrado como um serviço separado e contribui para a fatura da sua subscrição Azure. A quantidade de ingestão de dados pode ser considerável dependendo dos seguintes fatores: 
 
   - Número de soluções de gestão habilitados e sua configuração
   - Número de VMs monitorizados
@@ -40,7 +40,7 @@ O preço padrão para Log Analytics é um modelo **Pay-As-You-Go** baseado no vo
   
 Além do modelo Pay-As-You-Go, o Log Analytics tem níveis **de Reserva de Capacidade** que lhe permitem economizar até 25% em comparação com o preço Pay-As-You-Go. O preço da reserva de capacidade permite-lhe comprar uma reserva a partir de 100 GB/dia. Qualquer utilização acima do nível de reserva será faturada na tarifa Pay-As-You-Go. Os níveis de Reserva de Capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, pode mudar para um nível de Reserva de Capacidade de nível mais elevado (que reiniciará o período de compromisso de 31 dias), mas não pode voltar para Pay-As-You-Go ou para um nível de Reserva de Capacidade mais baixo até que o período de compromisso esteja terminado. A faturação dos níveis de Reserva de Capacidade é feita diariamente. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre o Log Analytics Pay-As-You-Go e o preço da Reserva de Capacidade. 
 
-Em todos os níveis de preços, o tamanho dos dados de um evento é calculado a partir de uma representação de cadeia das propriedades que são armazenadas no Log Analytics para este evento, quer os dados sejam enviados de um agente ou adicionados durante o processo de ingestão. Isto inclui quaisquer [campos personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) que são adicionados à medida que os dados são recolhidos e depois armazenados no Log Analytics. Várias propriedades comuns a todos os tipos de dados, incluindo algumas [Propriedades Standard Do Log Analytics,](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties)estão excluídas no cálculo do tamanho do evento. Isto `_ResourceId` `_ItemId` inclui, `_IsBillable` `_BilledSize` `Type` e. Todas as outras propriedades armazenadas no Log Analytics estão incluídas no cálculo do tamanho do evento. Alguns tipos de dados estão totalmente isentos de taxas de ingestão de dados, por exemplo, os tipos AzureActivity, Heartbeat e Usage. Para determinar se um evento foi excluído da faturação para ingestão de dados, pode utilizar a `_IsBillable` propriedade como mostrado [abaixo.](#data-volume-for-specific-events)
+Em todos os níveis de preços, o tamanho dos dados de um evento é calculado a partir de uma representação de cadeia das propriedades que são armazenadas no Log Analytics para este evento, quer os dados sejam enviados de um agente ou adicionados durante o processo de ingestão. Isto inclui quaisquer [campos personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) que são adicionados à medida que os dados são recolhidos e depois armazenados no Log Analytics. Várias propriedades comuns a todos os tipos de dados, incluindo algumas [Propriedades Standard Do Log Analytics,](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties)estão excluídas no cálculo do tamanho do evento. Isto `_ResourceId` `_ItemId` inclui, `_IsBillable` `_BilledSize` `Type` e. Todas as outras propriedades armazenadas no Log Analytics estão incluídas no cálculo do tamanho do evento. Alguns tipos de dados estão totalmente isentos de taxas de ingestão de dados, por exemplo, os tipos AzureActivity, Heartbeat e Usage. Para determinar se um evento foi excluído da faturação para ingestão de dados, pode utilizar a `_IsBillable` propriedade como mostrado [abaixo.](#data-volume-for-specific-events) A utilização é reportada em GB (1.0E9 bytes). 
 
 Além disso, note que algumas soluções, como [o Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e a [Gestão de Configuração](https://azure.microsoft.com/pricing/details/automation/) têm os seus próprios modelos de preços. 
 
@@ -196,7 +196,7 @@ Cada espaço de trabalho tem a sua tampa diária aplicada numa hora diferente do
 Logo após o limite diário, a recolha de tipos de dados faturados para para o resto do dia. (A latência inerente à aplicação do limite diário significa que a tampa não é aplicada precisamente ao nível da tampa diária especificada.) Um banner de aviso aparece em toda a página para o espaço de trabalho de Log Analytics selecionado e um evento de operação é enviado para a tabela *de operação* na categoria **LogManagement.** A recolha de dados retoma após o tempo de reset definido no *limite diário ser fixado em*. Recomendamos a definição de uma regra de alerta baseada neste evento de operação, configurada para notificar quando o limite de dados diário tiver sido atingido. 
 
 > [!WARNING]
-> A tampa diária não impede a recolha de dados do Azure Security Center, com exceção dos espaços de trabalho em que o Azure Security Center foi instalado antes de 19 de junho de 2017. 
+> A tampa diária não impede a recolha de dados do Azure Sentinal ou do Azure Security Center, com exceção dos espaços de trabalho em que o Azure Security Center foi instalado antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar que limite de dados diários para definir
 

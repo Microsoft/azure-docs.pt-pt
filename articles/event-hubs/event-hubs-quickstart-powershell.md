@@ -1,21 +1,14 @@
 ---
-title: 'Quickstart: Criar um hub de eventos usando powerShell - Hubs de eventos Azure'
+title: 'Quickstart: Criar um centro de eventos utilizando powerShell - Azure Event Hubs'
 description: Este início rápido descreve como criar um hub de eventos com o Azure PowerShell e, em seguida, enviar e receber eventos com o SDK .NET Standard.
-services: event-hubs
-author: spelluru
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: spelluru
-ms.openlocfilehash: 89ec1957e75fa45eef6c7939a77e5cc1b3cf7806
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 397373dba183c951b1381e6546e064637bc150c6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77162128"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314651"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos com o Azure PowerShell
 
@@ -30,7 +23,7 @@ Neste início rápido, vai criar um hub de eventos com o Azure PowerShell.
 Para concluir este tutorial, confirme que tem:
 
 - Subscrição do Azure. Se não tiver uma, [crie uma conta gratuita][] antes de começar.
-- [Estúdio Visual 2019.](https://www.visualstudio.com/vs)
+- [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [SDK .NET Standard](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,7 +51,7 @@ New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namesp
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
 Agora que tem um espaço de nomes dos Hubs de Eventos, crie um hub de eventos nesse espaço de nomes:  
-O período `MessageRetentionInDays` permitido é entre 1 e 7 dias.
+O período permitido `MessageRetentionInDays` é entre 1 e 7 dias.
 
 ```azurepowershell-interactive
 New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
@@ -68,7 +61,7 @@ Parabéns! Utilizou o Azure PowerShell para criar um espaço de nomes dos Hubs d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou o espaço de nomes dos Hubs de Eventos e utilizou exemplos de aplicações para enviar e receber eventos do hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte o **Envio e receba** tutoriais de eventos: 
+Neste artigo, criou o espaço de nomes dos Hubs de Eventos e utilizou exemplos de aplicações para enviar e receber eventos do hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:** 
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
@@ -79,7 +72,7 @@ Neste artigo, criou o espaço de nomes dos Hubs de Eventos e utilizou exemplos d
 - [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)
 
 
-[crie uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[criar uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps
 [New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-Azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

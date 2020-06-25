@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure SignalR
 description: Lista definições de políticas incorporadas da Azure Policy para Azure SignalR. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 06/11/2020
+ms.date: 06/23/2020
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bbc44ebc089c70ef89cff5aaf138ad91f7c28bb0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 192f457127936de2b353b44d2c733894b04e6592
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888516"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316585"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Definições incorporadas da Política Azure para O Sinal de Azure
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 33f67e1bfa27f4314f64cbcc4d472905fcb15099
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707043"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318769"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formatos de arquivo e compressão suportados pela Azure Data Factory
 *Este tópico aplica-se aos seguintes conectores: [Amazon S3,](data-factory-amazon-simple-storage-service-connector.md) [Azure Blob,](data-factory-azure-blob-connector.md) [Azure Data Lake Store](data-factory-azure-datalake-connector.md), File [System](data-factory-onprem-file-system-connector.md), [FTP,](data-factory-ftp-connector.md) [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md)e [SFTP](data-factory-sftp-connector.md).*
@@ -497,7 +497,7 @@ A secção **de compressão** tem duas propriedades:
 
 Quando especifica `compression` a propriedade num conjunto de dados de entrada JSON, o pipeline pode ler dados comprimidos a partir da fonte; e quando especifica a propriedade num conjunto de dados de saída JSON, a atividade de cópia pode escrever dados comprimidos para o destino. Aqui estão alguns cenários de amostra:
 
-* Leia os dados comprimidos do GZIP a partir de uma bolha Azure, descomprimir e escreva dados de resultados para uma base de dados Azure SQL. Você define o conjunto de dados Azure Blob com a `compression` `type` propriedade JSON como GZIP.
+* Leia os dados comprimidos do GZIP a partir de uma bolha Azure, descomprimir e escreva dados de resultados para a Base de Dados Azure SQL. Você define o conjunto de dados Azure Blob com a `compression` `type` propriedade JSON como GZIP.
 * Leia os dados de um ficheiro de texto simples do Sistema de Ficheiros no local, comprima-os utilizando o formato GZip e escreva os dados comprimidos para uma bolha Azure. Você define um conjunto de dados Azure Blob de saída com a `compression` `type` propriedade JSON como GZip.
 * Leia o ficheiro .zip do servidor FTP, descomprimir os ficheiros para obter os ficheiros dentro e colocar esses ficheiros na Azure Data Lake Store. Você define um conjunto de dados FTP de entrada com a `compression` `type` propriedade JSON como ZipDeflate.
 * Leia os dados comprimidos do GZIP a partir de uma bolha Azure, descomprimir, comprimi-lo usando o BZIP2 e escrever dados de resultados para uma bolha Azure. Você define o conjunto de dados Azure Blob com `compression` `type` definido para GZIP e o conjunto de dados de saída com `compression` `type` definido para BZIP2 neste caso.   

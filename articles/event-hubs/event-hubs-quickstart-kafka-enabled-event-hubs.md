@@ -1,22 +1,17 @@
 ---
-title: 'Quickstart: Streaming de dados com Hubs de Eventos Azure usando o protocolo Kafka'
-description: 'Quickstart: Este artigo fornece informações sobre como transmitir para Os Hubs de Eventos Azure usando o protocolo Kafka e APIs.'
-services: event-hubs
-author: ShubhaVijayasarathy
-ms.author: shvija
-ms.service: event-hubs
+title: 'Quickstart: Streaming de dados com Azure Event Hubs usando o protocolo Kafka'
+description: 'Quickstart: Este artigo fornece informações sobre como transmitir para Azure Event Hubs usando o protocolo kafka e APIs.'
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/12/2020
-ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 4a63aeec7b282ba9b707a1521c51fd944ca24411
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261827"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314425"
 ---
-# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Hubs de Eventos usando o protocolo Kafka
-Este quickstart mostra como transmitir para Os Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma mudança de configuração nas suas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
+# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Centros de Eventos utilizando o protocolo Kafka
+Este quickstart mostra como transmitir para Os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma alteração de configuração nas suas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
@@ -33,10 +28,10 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
-Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka para o espaço de nome está ativado automaticamente. Você pode transmitir eventos a partir das suas aplicações que usam o protocolo Kafka em centros de eventos de nível padrão. Siga instruções passo a passo no [Create a event hub utilizando o portal Azure](event-hubs-create.md) para criar um espaço de nome de hubs de evento de nível **padrão.** 
+Quando cria um espaço de nome de nível **padrão,** o ponto final de Kafka para o espaço de nome é automaticamente ativado. Você pode transmitir eventos a partir das suas aplicações que usam o protocolo Kafka em centros de eventos de nível padrão. Siga as instruções passo a passo no centro de eventos Criar um centro de eventos utilizando o [portal Azure](event-hubs-create.md) para criar um espaço de nomes **padrão** de centros de eventos de nível padrão. 
 
 > [!NOTE]
-> O Event Hubs para Kafka está disponível apenas em camadas **standard** e **dedicada.** O nível **básico** não suporta Kafka em Centros de Eventos.
+> Os Centros de Eventos para Kafka estão disponíveis apenas em níveis **standard** e **dedicados.** O nível **básico** não suporta Kafka em Centros de Eventos.
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Enviar e receber mensagens com Kafka em Hubs de Eventos
 
@@ -64,8 +59,8 @@ Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ```    
 
-    Pode encontrar aqui o código de origem para a classe de [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java)manipulador de amostras CustomAuthenticateCallbackHandler no GitHub .
-4. Execute o código do produtor e transmita eventos em Event Hubs:
+    Pode encontrar o código-fonte para a classe de manipulador de amostras CustomAuthenticateCallbackHandler no GitHub [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+4. Executar o código do produtor e transmitir eventos em Event Hubs:
    
     ```shell
     mvn clean package
@@ -95,10 +90,10 @@ Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ``` 
 
-    Pode encontrar aqui o código de origem para a classe de [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java)manipulador de amostras CustomAuthenticateCallbackHandler no GitHub .
+    Pode encontrar o código-fonte para a classe de manipulador de amostras CustomAuthenticateCallbackHandler no GitHub [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
 
-    Você pode encontrar todas as amostras oAuth para Centros de Eventos para Kafka [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
-7. Execute o código de consumo e processe eventos a partir do centro de eventos utilizando os seus clientes Kafka:
+    Você pode encontrar todas as amostras de OAuth para Centros de Eventos para Kafka [aqui.](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth)
+7. Executar o código de consumo e processar eventos a partir do centro de eventos usando os seus clientes Kafka:
 
     ```java
     mvn clean package
@@ -108,4 +103,4 @@ Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka
 Se o cluster Kafka dos Hubs de Eventos tiver eventos, começará agora a recebê-los do consumidor.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a transmitir para O Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Para saber mais, consulte o guia de [desenvolvimento da Apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md) 
+Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md) 

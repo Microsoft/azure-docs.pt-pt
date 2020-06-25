@@ -1,50 +1,50 @@
 ---
-title: Monitorize aplicações java em qualquer ambiente - Insights de aplicação do Monitor Azure
-description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Mapa de rastreio e aplicação distribuído.
+title: Monitorize as aplicações java em qualquer ambiente - Azure Monitor Application Insights
+description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508076"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319708"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java codeless application monitoring Azure Monitor Application Insights - pré-visualização pública
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights - visualização pública
 
-A monitorização da aplicação sem código Java tem tudo a ver com simplicidade - não existem alterações de código, o agente Java pode ser ativado através de apenas algumas alterações de configuração.
+A monitorização da aplicação sem código java tem tudo a ver com simplicidade - não há alterações de código, o agente Java pode ser ativado através de apenas algumas alterações de configuração.
 
- O agente Java trabalha em qualquer ambiente, e permite-lhe monitorizar todas as suas aplicações Java. Por outras palavras, quer esteja a executar as suas aplicações Java em VMs, no local, no AKS, no Windows, Linux - o que quiser, o agente Java 3.0 irá monitorizar a sua aplicação.
+ O agente Java trabalha em qualquer ambiente, e permite-lhe monitorizar todas as suas aplicações Java. Por outras palavras, quer esteja a executar as suas aplicações Java em VMs, no local, em AKS, no Windows, Linux - diga o que quiser, o agente Java 3.0 irá monitorizar a sua aplicação.
 
-A adição dos Insights de Aplicação Java SDK à sua aplicação já não é necessária, uma vez que o agente 3.0 recolhe pedidos, dependências e registos por si só.
+A adição da Aplicação Insights Java SDK à sua aplicação já não é necessária, uma vez que o agente 3.0 recolhe automaticamente pedidos, dependências e registos por si só.
 
-Ainda pode enviar telemetria personalizada da sua aplicação. O agente 3.0 irá rastreá-lo e correlacionar-lo juntamente com toda a telemetria auto-recolhida.
+Ainda pode enviar telemetria personalizada a partir da sua aplicação. O agente 3.0 irá rastreá-lo e correlacioná-lo juntamente com toda a telemetria automática.
 
 ## <a name="quickstart"></a>Início Rápido
 
 **1. Descarregue o agente**
 
-Baixar [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Baixar [aplicaçõesinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-**2. Indicar o JVM ao agente**
+**2. Aponte o JVM ao agente**
 
-Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` ao JVM args da sua aplicação
+Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` aos args JVM da sua aplicação
 
-Os típicos args `-Xmx512m` `-XX:+UseG1GC`JVM incluem e . Então, se sabe onde adicionar isto, então já sabe onde adicionar isto.
+Os arg típicos jvm incluem `-Xmx512m` e `-XX:+UseG1GC` . Então, se sabe onde adicionar isto, então já sabe onde adicionar isto.
 
-Para obter ajuda adicional para configurar os args JVM da sua aplicação, consulte [o 3.0 Preview: Dicas para atualizar o seu Args JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+Para obter ajuda adicional para configurar os args JVM da sua aplicação, consulte [3.0 Preview: Dicas para atualizar os seus args JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
-**3. Aponte o agente para o seu recurso Insights de Aplicação**
+**3. Aponte o agente para o seu recurso Application Insights**
 
-Se ainda não tiver um recurso Application Insights, pode criar um novo seguindo os passos no guia de criação de [recursos.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
+Se ainda não tiver um recurso Application Insights, pode criar um novo seguindo os passos no guia de [criação de recursos.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
 
-Aponte o agente para o seu recurso Application Insights, quer através da definição de uma variável ambiental:
+Aponte o agente para o seu recurso Application Insights, quer definindo uma variável ambiental:
 
 ```
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Ou criando um ficheiro `ApplicationInsights.json`de configuração chamado , `applicationinsights-agent-3.0.0-PREVIEW.4.jar`e colocando-o no mesmo diretório que, com o seguinte conteúdo:
+Ou criando um ficheiro de configuração denominado `ApplicationInsights.json` , e colocando-o no mesmo diretório `applicationinsights-agent-3.0.0-PREVIEW.5.jar` que, com o seguinte conteúdo:
 
 ```json
 {
@@ -56,39 +56,39 @@ Ou criando um ficheiro `ApplicationInsights.json`de configuração chamado , `ap
 
 Pode encontrar a sua cadeia de ligação no seu recurso Application Insights:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Linha de ligação insights de aplicação":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Cadeia de conexão de insights de aplicação":::
 
 **4. É isto!**
 
 Agora inicie a sua aplicação e vá ao seu recurso Application Insights no portal Azure para ver os seus dados de monitorização.
 
 > [!NOTE]
-> Pode levar alguns minutos para os seus dados de monitorização aparecerem no portal.
+> Pode levar alguns minutos para que os seus dados de monitorização apareçam no portal.
 
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-No `ApplicationInsights.json` ficheiro, pode configurar adicionalmente:
+No `ApplicationInsights.json` ficheiro, pode ainda configurar:
 
-* Nome de papel de nuvem
-* Instância de papel de nuvem
+* Nome do papel da nuvem
+* Instância de papel em nuvem
 * Captura de registo de aplicações
 * Métricas JMX
 * Micrometer
 * Heartbeat
 * Amostragem
 * HTTP Proxy
-* Autodiagnóstico
+* Autodiagnóssis
 
-Consulte os detalhes em [3.0 Visualização Pública: Opções](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)de Configuração .
+Consulte os detalhes em [3.0 Visualização pública: Opções de configuração](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Pedidos, dependências, registos e métricas recolhidos automaticamente
+## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Pedidos, dependências, registos e métricas autocolecedes
 
 ### <a name="requests"></a>Pedidos
 
-* Consumidores jMS
-* Consumidores de Kafka
-* Rede/WebFlux
+* Consumidores JMS
+* Consumidores kafka
+* Netty/WebFlux
 * Servlets
 * Agendamento da primavera
 
@@ -99,14 +99,14 @@ Consulte os detalhes em [3.0 Visualização Pública: Opções](https://docs.mic
 * java.net.HttpURLConnection
 * JMS
 * Kafka
-* Cliente netty
+* Cliente Netty
 * OkHttp
 
 ### <a name="other-dependencies"></a>Outras dependências
 
 * Cassandra
 * JDBC
-* MongoDB (asincronização e sincronização)
+* MongoDB (assíco e sincronização)
 * Redis (Alface e Jedis)
 
 ### <a name="logs"></a>Registos
@@ -117,22 +117,22 @@ Consulte os detalhes em [3.0 Visualização Pública: Opções](https://docs.mic
 
 ### <a name="metrics"></a>Métricas
 
-* Micrómetro (incluindo métricas do Actuador de Arranque de primavera)
+* Micrometro (incluindo métricas do actuador de bota de mola)
 * Métricas JMX
 
 ## <a name="sending-custom-telemetry-from-your-application"></a>Envio de telemetria personalizada a partir da sua aplicação
 
 O nosso objetivo em 3.0+ é permitir-lhe enviar a sua telemetria personalizada usando APIs padrão.
 
-Apoiamos o Micrometro, a OpenTelemettry API e as populares estruturas de exploração madeireira. Aplicação Insights Java 3.0 capturará automaticamente a telemetria e correlacionará-a juntamente com toda a telemetria auto-recolhida.
+Apoiamos o Micrometro, a API openTelemetry e os quadros populares de registo. O Application Insights Java 3.0 irá capturar automaticamente a telemetria e correlacioná-la juntamente com toda a telemetria automática.
 
 Por esta razão, não estamos a planear lançar um SDK com Application Insights 3.0 neste momento.
 
-Application Insights Java 3.0 já está a ouvir a telemetria que é enviada para a Aplicação Insights Java SDK 2.x. Esta funcionalidade é uma parte importante da história de upgrade para os utilizadores 2.x existentes, e preenche uma lacuna importante no nosso suporte de telemetria personalizado até que a API OpenTelemettry seja GA.
+Application Insights Java 3.0 já está a ouvir a telemetria que é enviada para a Aplicação Insights Java SDK 2.x. Esta funcionalidade é uma parte importante da história de upgrade para os utilizadores existentes em 2.x, e preenche uma lacuna importante no nosso suporte de telemetria personalizado até que a API OpenTelemetry seja GA.
 
-## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Envio de telemetria personalizada usando Insights de Aplicação Java SDK 2.x
+## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Envio de telemetria personalizada usando Application Insights Java SDK 2.x
 
-Adicione `applicationinsights-core-2.6.0.jar` à sua aplicação (todas as versões 2.x são suportadas pela Application Insights Java 3.0, mas vale a pena usar as mais recentes se tiver escolha):
+Adicione `applicationinsights-core-2.6.0.jar` à sua aplicação (todas as versões 2.x são suportadas pela Application Insights Java 3.0, mas vale a pena usar as últimas se tiver escolha):
 
 ```xml
   <dependency>
@@ -142,7 +142,7 @@ Adicione `applicationinsights-core-2.6.0.jar` à sua aplicação (todas as vers�
   </dependency>
 ```
 
-Criar um TelemettryClient:
+Criar um TelemetriaClient:
 
   ```java
 private static final TelemetryClient telemetryClient = new TelemetryClient();
@@ -157,14 +157,14 @@ telemetryClient.trackEvent("WinGame");
 ```
 ### <a name="metrics"></a>Métricas
 
-Pode enviar telemetria métrica via [Micrometro:](https://micrometer.io)
+Pode enviar telemetria métrica através [do Micrometro:](https://micrometer.io)
 
 ```java
   Counter counter = Metrics.counter("test_counter");
   counter.increment();
 ```
 
-Ou também pode utilizar Insights de Aplicação Java SDK 2.x:
+Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
 
 ```java
   telemetryClient.trackMetric("queueLength", 42.0);
@@ -187,18 +187,18 @@ Ou também pode utilizar Insights de Aplicação Java SDK 2.x:
 ```
 
 ### <a name="logs"></a>Registos
-Pode enviar uma telemetria de log personalizada através da sua estrutura de registo favorita.
+Pode enviar telemetria de registo personalizado através da sua estrutura de registo favorito.
 
-Ou também pode utilizar Insights de Aplicação Java SDK 2.x:
+Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
 
 ```java
   telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
 ### <a name="exceptions"></a>Exceções
-Pode enviar telemetria de exceção personalizada através da sua estrutura de registo favorita.
+Pode enviar telemetria de exceção personalizada através da sua estrutura de registo favorito.
 
-Ou também pode utilizar Insights de Aplicação Java SDK 2.x:
+Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
 
 ```java
   try {
@@ -208,9 +208,9 @@ Ou também pode utilizar Insights de Aplicação Java SDK 2.x:
   }
 ```
 
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Upgrade de Application Insights Java SDK 2.x
+## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Upgrade a partir de Application Insights Java SDK 2.x
 
-Se já está a utilizar insights de aplicação Java SDK 2.x na sua aplicação, não há necessidade de removê-lo. O agente Java 3.0 irá detetá-lo e capturá-lo e correlacionar qualquer telemetria personalizada que envie através do Java SDK 2.x, enquanto suprimia qualquer auto-recordação realizada pelo Java SDK 2.x para evitar a captura de duplicados.
+Se já estiver a utilizar o Application Insights Java SDK 2.x na sua aplicação, não há necessidade de a remover. O agente Java 3.0 irá detetá-lo e capturar e correlacionar qualquer telemetria personalizada que está a enviar através do Java SDK 2.x, enquanto suprimiu qualquer autocolecção realizada pelo Java SDK 2.x para evitar a captura duplicada.
 
 > [!NOTE]
-> Nota: Java SDK 2.x TelemettryInitializers e TelemettryProcessors não serão executados quando utilizaro agente 3.0.
+> Nota: Java SDK 2.x TelemetriaInitializadores e TelemetriaProcessadores não serão executados quando utilizar o agente 3.0.

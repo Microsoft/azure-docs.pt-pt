@@ -1,19 +1,14 @@
 ---
 title: Adicione dinamicamente divisórias a um centro de eventos em Azure Event Hubs
 description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a um centro de eventos em Azure Event Hubs.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 985e85e0958984be6ebecb9f0898e2723de9e85d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297295"
+ms.locfileid: "85317941"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs
 O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos. Uma partição é uma sequência ordenada de eventos mantida num hub de eventos. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Para obter mais informações sobre divisórias em geral, consulte [As Partições](event-hubs-scalability.md#partitions)

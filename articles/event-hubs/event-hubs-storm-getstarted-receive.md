@@ -1,54 +1,42 @@
 ---
 title: 'Quickstart: Receba eventos usando Apache Storm - Azure Event Hubs'
-description: 'Quickstart: Este artigo fornece informações sobre como receber eventos de Azure Event Hubs usando a Tempestade Apache.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
+description: 'Quickstart: Este artigo fornece informações sobre como receber eventos de Azure Event Hubs usando Apache Storm.'
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73717608"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315361"
 ---
-# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Quickstart: Receba eventos de Centros de Eventos usando a Tempestade Apache
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Quickstart: Receber eventos de Centros de Eventos usando a Tempestade Apache
 
-[Apache Storm](https://storm.incubator.apache.org) é um sistema de computação em tempo real distribuído que simplifica o processamento fiável de fluxos de dados não limitados. Esta secção mostra como usar um bico de tempestade Azure Event Hubs Storm para receber eventos de Event Hubs. Usando a Tempestade Apache, você pode dividir eventos em vários processos hospedados em diferentes nós. A integração dos Hubs de Eventos com a Tempestade simplifica o consumo de eventos, verificando transparentemente o seu progresso utilizando a instalação do Zookeeper da Tempestade, gerindo pontos de verificação persistentes e recebeções paralelas dos Centros de Eventos.
+[Apache Storm](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento fiável de fluxos de dados ilimitados. Esta secção mostra como usar um bico de tempestade Azure Event Hubs para receber eventos de Event Hubs. Usando a Tempestade Apache, você pode dividir eventos através de vários processos hospedados em diferentes nós. A integração do Event Hubs com a Storm simplifica o consumo de eventos, verificando de forma transparente o seu progresso utilizando a instalação do Zookeeper da Tempestade, gerindo pontos de verificação persistentes e receções paralelas dos Centros de Eventos.
 
-Para mais informações sobre os Hubs de Eventos, receba padrões, consulte a visão geral do [Event Hubs][Event Hubs overview].
+Para obter mais informações sobre os Centros de Eventos, consulte a visão geral do [Event Hubs][Event Hubs overview].
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar com o quickstart, **crie um espaço de nome do Event Hubs e um hub de eventos.** Utilize o [portal Azure](https://portal.azure.com) para criar um espaço de nome de Hubs de Eventos tipo, e obtenha as credenciais de gestão que a sua aplicação precisa para comunicar com o hub do evento. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) 
+Antes de começar com o quickstart, **crie um espaço de nomes de Event Hubs e um centro de eventos.** Utilize o [portal Azure](https://portal.azure.com) para criar um espaço de nome de centros de eventos tipo, e obtenha as credenciais de gestão que a sua aplicação necessita para comunicar com o centro de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Criar projeto e adicionar código
 
-Este tutorial utiliza uma instalação [de tempestade HDInsight,][HDInsight Storm] que vem com o bico de Hubs de Eventojá disponível.
+Este tutorial utiliza uma instalação [HDInsight Storm,][HDInsight Storm] que vem com o bico de Evento Hubs já disponível.
 
-1. Siga o procedimento [HDInsight Storm - Get Started](../hdinsight/storm/apache-storm-overview.md) para criar um novo cluster HDInsight e ligue-o através do Ambiente de Trabalho Remoto.
-2. Copie `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` o ficheiro para o seu ambiente de desenvolvimento local. Isto contém o spout de tempestade de eventos.
-3. Utilize o seguinte comando para instalar a embalagem na loja Local Maven. Isto permite adicioná-lo como uma referência no projeto Storm em um passo posterior.
+1. Siga o [hdInsight Storm - Inicie](../hdinsight/storm/apache-storm-overview.md) o procedimento para criar um novo cluster HDInsight e conecte-o através do Ambiente de Trabalho Remoto.
+2. Copie o `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` ficheiro para o seu ambiente de desenvolvimento local. Isto contém os eventos-storm-spout.
+3. Utilize o seguinte comando para instalar a embalagem na loja local de Maven. Isto permite-lhe adicioná-lo como referência no projeto Storm num passo posterior.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. No Eclipse, crie um novo projeto Maven (clique em **File**, em seguida **Novo,** em **seguida, Projeto).**
+4. No Eclipse, crie um novo projeto Maven (clique em **File,** em seguida, **Novo,** em **seguida, Projeto).**
    
-    ![Arquivo -> Novo Projeto de >][12]
-5. Selecione Utilizar a localização do espaço de **trabalho predefinido**e, em seguida, clique **em Next**
-6. Selecione o arquétipo **maven-arquétipo-quickstart** e, em seguida, clique **em Seguinte**
+    ![Projeto De arquivo -> Novo->][12]
+5. Selecione **Use a localização padrão do espaço de trabalho**e, em seguida, clique em **Seguinte**
+6. Selecione o **arquétipo maven-arquétipo-quickstart** e, em seguida, clique em **Seguinte**
 7. Insira um **GroupId** e **ArtifactId,** em seguida, clique em **Terminar**
-8. Em **pom.xml,** adicione as seguintes dependências no `<dependency>` nó.
+8. Em **pom.xml, **adicione as seguintes dependências no `<dependency>` nó.
 
     ```xml  
     <dependency>
@@ -80,7 +68,7 @@ Este tutorial utiliza uma instalação [de tempestade HDInsight,][HDInsight Stor
     </dependency>
     ```
 
-9. Na pasta **SRC,** crie um ficheiro chamado **Config.properties** e `receive rule key` `event hub name` copie o seguinte conteúdo, substituindo os valores e valores:
+9. Na pasta **src,** crie um ficheiro chamado **Config.properties** e copie o seguinte conteúdo, substituindo os `receive rule key` valores e `event hub name` valores:
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -95,8 +83,8 @@ Este tutorial utiliza uma instalação [de tempestade HDInsight,][HDInsight Stor
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    O valor para **eventhub.receiver.credits** determina quantos eventos são loteados antes de os lançar para o oleoduto Storm. Por uma questão de simplicidade, este exemplo define este valor para 10. Na produção, deve normalmente ser fixado a valores mais elevados; por exemplo, 1024.
-10. Crie uma nova classe chamada **LoggerBolt** com o seguinte código:
+    O valor para **eventhub.receiver.credits** determina quantos eventos são lotados antes de os lançar no oleoduto Storm. Por uma questão de simplicidade, este exemplo define este valor para 10. Na produção, deve normalmente ser definida para valores mais elevados; por exemplo, 1024.
+10. Criar uma nova classe chamada **LoggerBolt** com o seguinte código:
     
     ```java
     import java.util.Map;
@@ -135,8 +123,8 @@ Este tutorial utiliza uma instalação [de tempestade HDInsight,][HDInsight Stor
     }
     ```
     
-    Este parafuso storm regista o conteúdo dos eventos recebidos. Isto pode ser facilmente estendido para armazenar tuples num serviço de armazenamento. A [tempestade HDInsight com o exemplo do Event Hub] utiliza esta mesma abordagem para armazenar dados em Azure Storage e Power BI.
-11. Crie uma classe chamada **LogTopology** com o seguinte código:
+    Este parafuso de tempestade regista o conteúdo dos eventos recebidos. Isto pode ser facilmente estendido para armazenar tuples em um serviço de armazenamento. O [exemplo hdInsight Storm with Event Hub] utiliza esta mesma abordagem para armazenar dados em Azure Storage e Power BI.
+11. Criar uma classe chamada **LogTopology** com o seguinte código:
     
     ```java
     import java.io.FileReader;
@@ -240,7 +228,7 @@ Este tutorial utiliza uma instalação [de tempestade HDInsight,][HDInsight Stor
     }
     ```
 
-    Esta classe cria um novo bico de Hubs de Eventos, utilizando as propriedades no ficheiro de configuração para o instantaneamente. É importante notar que este exemplo cria tantas tarefas de bicocomo o número de divisórias no centro do evento, de forma a utilizar o paralelismo máximo permitido por esse centro de eventos.
+    Esta classe cria um novo bico de Event Hubs, utilizando as propriedades do ficheiro de configuração para o instantanear. É importante notar que este exemplo cria tantas tarefas de bico como o número de divisórias no centro de eventos, de modo a utilizar o máximo de paralelismo permitido por esse centro de eventos.
 
 ## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
@@ -252,7 +240,7 @@ Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Tempestade HDInsight com exemplo de Hub de Evento]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
+[Tempestade HDInsight com exemplo de Event Hub]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 
