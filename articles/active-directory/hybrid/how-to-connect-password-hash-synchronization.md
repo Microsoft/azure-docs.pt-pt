@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e37095a964e656160edbbbc4a325feceb1e48e74
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84749629"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358567"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações de que precisa de sincronizar as suas palavras-passe de utilizador de uma instância do Ative Directory no local para uma instância do Azure Ative Directory (Azure AD) baseada na nuvem.
@@ -122,7 +122,6 @@ Caveat: Se existirem contas sincronizadas que precisam de ter senhas não expira
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Esta funcionalidade está em Visualização Pública neste momento.
 > O comando Set-MsolPasswordPolicy PowerShell não funcionará em domínios federados. 
 
 #### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronizar senhas temporárias e "Alterar palavras-passe no próximo logon"
@@ -140,9 +139,6 @@ Para suportar palavras-passe temporárias em AZure AD para utilizadores sincroni
 
 > [!CAUTION]
 > Só deve utilizar esta funcionalidade quando o SSPR e o Password Writeback estiverem ativados no arrendatário.  Isto é para que, se um utilizador alterar a sua palavra-passe através de SSPR, seja sincronizado com o Ative Directory.
-
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização pública neste momento.
 
 #### <a name="account-expiration"></a>Expiração da conta
 

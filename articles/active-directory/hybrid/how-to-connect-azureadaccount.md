@@ -1,6 +1,6 @@
 ---
-title: Alterar a senha da conta do Conector Azure AD / Microsoft Docs
-description: Este tópico documenta como restaurar a conta azure AD Connector.
+title: Alterar a senha da conta do Conector AZure AD ! Microsoft Docs
+description: Este tópico documenta como restaurar a conta Azure AD Connector.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,43 +11,43 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7f6b623cc5f864106dc2f119308370e80014a4c2
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: e4f31c560fe3dd91689b361ed520e466fd52da1c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611029"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360015"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe da conta do Conector do Azure AD
-A conta Azure AD Connector deve ser gratuita. Se precisas de redefinir as suas credenciais, então este tópico é para ti. Por exemplo, se um Administrador Global tiver, por engano, redefinir a palavra-passe na conta utilizando o PowerShell.
+A conta Azure AD Connector é supostamente gratuita em serviço. Se precisas de redefinir as suas credenciais, então este tópico é para ti. Por exemplo, se um Administrador Global tiver, por engano, redefiniu a palavra-passe na conta utilizando o PowerShell.
 
 ## <a name="reset-the-credentials"></a>Redefinir as credenciais
-Se a conta de Conector AD Azure não puder contactar a AD Azure devido a problemas de autenticação, a palavra-passe pode ser redefinida.
+Se a conta Azure AD Connector não puder contactar a Azure AD devido a problemas de autenticação, a palavra-passe pode ser reiniciada.
 
-1. Inicie sessão no servidor de sincronização Azure AD Connect e inicie a PowerShell.
+1. Inicie sedumento no servidor de sincronização Azure AD Connect e inicie o PowerShell.
 2. Execute `Add-ADSyncAADServiceAccount`.
-   ![Conta de addadsyncadservice de cmdlet PowerShell](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
-3. Forneça credenciais de administração da Azure AD Global.
+   ![Conta de serviços de serviço de powerShell cmdlet addadsyncaadservice](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
+3. Forneça credenciais de administração Azure AD Global.
 
-Este cmdlet repõe a palavra-passe para a conta de serviço e atualiza-a tanto no Azure AD como no motor de sincronização.
+Este cmdlet reinicia a palavra-passe para a conta de serviço e atualizá-la tanto no AD AZure como no motor de sincronização.
 
-## <a name="known-issues-these-steps-can-solve"></a>Questões conhecidas que estes passos podem resolver
-Esta secção é uma lista de erros relatados pelos clientes que foram corrigidos por uma redefinição de credenciais na conta do Conector Azure AD.
-
----
-Evento 6900 O servidor encontrou um erro inesperado ao processar uma notificação de alteração de senha: AADSTS70002: Erro validando credenciais. AADSTS50054: A palavra-passe antiga é usada para autenticação.
+## <a name="known-issues-these-steps-can-solve"></a>Questões conhecidas estes passos podem resolver
+Esta secção é uma lista de erros reportados por clientes que foram corrigidos por uma credencial reposta na conta Azure AD Connector.
 
 ---
-Erro do Evento 659 ao recuperar a configuração da sincronização da política de passwords. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Error validando credenciais. AADSTS50054: A palavra-passe antiga é usada para autenticação.
+Evento 6900 O servidor encontrou um erro inesperado ao processar uma notificação de alteração de palavra-passe: AADSTS70002: Credenciais de validação de erros. AADSTS50054: A palavra-passe antiga é utilizada para autenticação.
+
+---
+Erro do evento 659 enquanto recupera a configuração da sincronização da política de palavra-passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Credenciais de validação de erros. AADSTS50054: A palavra-passe antiga é utilizada para autenticação.
 
 ## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**
 
-* [Sincronização Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

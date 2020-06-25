@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eaeece4b44c0804774a15194e19c34ce200bc80
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 23bcb63b6b499e72cb43089659e513d276bd8306
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558516"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358978"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com uma base de dados ADSync existente
 O Azure AD Connect requer uma base de dados do SQL Server para armazenar dados. Pode utilizar o SQL Server 2012 Express LocalDB padrão instalado com Azure AD Connect ou utilizar a sua própria versão completa do SQL. Anteriormente, quando instalou o Azure AD Connect, foi sempre criada uma nova base de dados chamada ADSync. Com a versão 1.1.613.0 (ou depois do Azure AD Connect), tem a opção de instalar o Azure AD Connect apontando-o para uma base de dados ADSync existente.
@@ -56,7 +56,7 @@ Notas importantes a tomar nota antes de prosseguir:
 - Não é possível que vários servidores AD Connect Azure partilhem a mesma base de dados ADSync. O método "utilizar a base de dados existente" permite-lhe reutilizar uma base de dados ADSync existente com um novo servidor AZURE AD Connect. Não apoia a partilha.
 
 ## <a name="steps-to-install-azure-ad-connect-with-use-existing-database-mode"></a>Passos para instalar O AZURE AD Connect com o modo "use a base de dados existente"
-1.  Descarregue o instalador Azure AD Connect (AzureADConnect.MSI) para o servidor Windows. Clique duas vezes no instalador Azure AD Connect para começar a instalar o Azure AD Connect.
+1.  Descarregue o instalador Azure AD Connect (AzureADConnect.MSI) para o servidor windows. Clique duas vezes no instalador Azure AD Connect para começar a instalar o Azure AD Connect.
 2.  Assim que a instalação do MSI estiver concluída, o assistente do Azure AD Connect é iniciado com a configuração do modo Express. Feche o ecrã ao clicar no ícone Sair.
 ![Bem-vindo](./media/how-to-connect-install-existing-database/db1.png)
 3.  Inicie uma nova linha de comandos ou a sessão do PowerShell. Navegue para a pasta "C:\Program Files\Microsoft Azure Ative Directory Connect". Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Utilizar base de dados existente".

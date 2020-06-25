@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2f928ac2f8772942eb748d68a65662938b1405ed
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84882516"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361943"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
 
@@ -21,9 +21,9 @@ Quando utiliza o Profiler Application Insights ou o Snapshot Debugger, os artefa
 Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de armazenamento que controla. Isso significa que controla a política de encriptação em repouso, a política de gestão vitalícia e o acesso à rede. No entanto, será responsável pelos custos associados a essa conta de armazenamento.
 
 > [!NOTE]
-> Se estiver a ativar o Link Privado, o Bring Your Own Storage é um requisito. Para mais informações sobre o Private Link, [consulte a documentação.](https://docs.microsoft.com/azure/private-link/private-link-overview)
+> Se estiver a ativar o Link Privado, o Bring Your Own Storage é um requisito. Para obter mais informações sobre o Link Privado para Insights de Aplicações, [consulte a documentação.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
 >
-> Se estiver a ativar as chaves geridas pelo cliente, o Bring Your Own Storage é um requisito. Para obter mais informações sobre as Chaves Geridas pelo Cliente, [consulte a documentação](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> Se estiver a ativar as chaves geridas pelo cliente, o Bring Your Own Storage é um requisito. Para obter mais informações sobre as Chaves Geridas pelo Cliente para Insights de Aplicações, [consulte a documentação.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como é que a minha conta de armazenamento vai ser acedida?
 1. Os agentes que executam as suas Máquinas Virtuais ou Serviço de Aplicações irão enviar artefactos (perfis, instantâneos e símbolos) para contentores de bolhas na sua conta. Este processo envolve contactar o profiler de insights de aplicações ou o serviço Snapshot Debugger para obter um token SAS (Shared Access Signature) para uma nova bolha na sua conta de armazenamento.

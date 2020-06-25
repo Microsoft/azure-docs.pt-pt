@@ -30,9 +30,9 @@
     - name: Automatização com principais de serviço
       href: analysis-services-service-principal.md
     - name: Bibliotecas de cliente
-      href: analysis-services-data-providers.md
+      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current'
     - name: Nível de compatibilidade
-      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current'
     - name: Ligar a origens de dados no local
       href: analysis-services-gateway.md
     - name: Ligar aos servidores

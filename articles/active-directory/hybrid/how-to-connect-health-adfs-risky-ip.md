@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health com relatório IP arriscado da AD FS Microsoft Docs
-description: Descreve o relatório IP de risco Da AD Connect Health AD FS.
+title: Azure AD Connect Health com relatório IP de risco da AD FS / Microsoft Docs
+description: Descreve o relatório IP de risco Azure AD Connect Health AD FS.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -11,17 +11,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897251"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359353"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
 Os clientes do AD FS podem expor pontos finais de autenticação de palavras-passe à Internet para disponibilizar serviços de autenticação aos utilizadores finais, para que aqueles acedam a aplicações SaaS, como o Office 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
@@ -39,13 +39,13 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 > 
 
 ## <a name="what-is-in-the-report"></a>O que está no relatório?
-O sinal falhado nos endereços IP do cliente de atividade são agregados através de servidores proxy de aplicação web. Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Disponibiliza as informações seguintes: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+O sinal falhado nos endereços IP do cliente da atividade é agregado através de servidores Proxy de aplicação web. Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Disponibiliza as informações seguintes: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Item de Relatório | Descrição |
 | ------- | ----------- |
 | Time Stamp (Carimbo de Data/Hora) | Mostra o carimbo de data/hora com base na hora local do portal do Azure quando a janela de tempo da deteção é iniciada.<br /> Todos os eventos diários são gerados à meia-noite, no fuso horário UTC. <br />O carimbo de data/hora dos eventos de hora é arredondado para o início da hora. Pode ver a hora de início da primeira atividade em “firstAuditTimestamp” no ficheiro exportado. |
 | Trigger Type (Tipo de Acionador) | Mostra o tipo da janela de tempo da deteção. Os tipos de acionadores de agregação são horários ou diários. É útil para detetar um ataque de força bruta de frequência elevada por oposição a um ataque lento, em que o número de tentativas é distribuído ao longo do dia. |
-| Endereço IP | O endereço IP em risco individual que recebeu atividades de início de sessão com palavra-passe errada ou bloqueio de extranet. Isto pode ser um iPv4 ou um endereço IPv6. |
+| Endereço IP | O endereço IP em risco individual que recebeu atividades de início de sessão com palavra-passe errada ou bloqueio de extranet. Isto pode ser um IPv4 ou um endereço IPv6. |
 | Bad Password Error Count (Contagem de Erros de Palavra-passe Errada) | A contagem de erros de Palavra-Passe Errada que ocorreram no endereço IP durante a janela de tempo da deteção. Estes erros podem acontecer várias vezes a determinados utilizadores Tenha em atenção que esta contagem não inclui tentativas falhadas devido a palavras-passe expiradas. |
 | Extranet Lock Out Error Count (Contagem de Erros de Bloqueio de Extranet) | A contagem de erros de Bloqueio de Extranet que ocorreram no endereço IP durante a janela de tempo da deteção. Os erros de Bloqueio de Extranet podem acontecer várias vezes a determinados utilizadores. Só serão vistos de o Bloqueio de Extranet estiver configurado no AD FS (versões 2012R2 ou superiores). <b>Tenha em atenção</b> que recomendamos vivamente ativar esta funcionalidade caso permita inícios de sessão de extranet através da utilização de palavras-passe. |
 | Unique Users Attempted (Utilizadores Individuais Tentados) | A contagem de contas de utilizador individuais tentadas no endereço IP durante a janela de tempo da deteção. Esta contagem proporciona um mecanismo para diferenciar um padrão de ataque a um único utilizador por oposição a um padrão de ataque a vários utilizadores.  |
@@ -62,10 +62,10 @@ Por exemplo, o item de relatório abaixo indica que, na janela entre as 18:00 e 
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
 
-## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do equilibrista de carga na lista
+## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do balançador de carga na lista
 O balanceador de carga agregou as atividades de início de sessão falhadas e atingiu o limiar de alerta. Se vir endereços IP do balanceador de carga, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web. Configure o seu balanceador de carga corretamente para o reencaminhamento do endereço IP do cliente. 
 
-## <a name="download-risky-ip-report"></a>Baixar relatório IP arriscado 
+## <a name="download-risky-ip-report"></a>Baixar relatório IP de risco 
 Ao utilizar a funcionalidade **Exportar**, é possível exportar toda a lista de endereços IP em risco dos últimos 30 dias a partir do portal do Connect Health. O resultado da exportação incluíra todas as atividades de início de sessão do AD FS falhadas em cada janela de tempo de deteção, pelo que pode personalizar a filtragem após a exportação. Para além das agregações realçadas no portal, o resultado da exportação também mostrará mais detalhes sobre as atividades de início de sessão falhadas por endereço IP:
 
 |  Item de Relatório  |  Descrição  | 
@@ -78,7 +78,7 @@ Ao utilizar a funcionalidade **Exportar**, é possível exportar toda a lista de
 ## <a name="configure-notification-settings"></a>Configurar as definições de notificação
 Os contactos dos administradores do relatório podem ser atualizados através das **Definições de Notificação**. Por predefinição, a notificação de alerta de e-mail de IP em risco está no estado desativado. Para ativar a notificação, utilize o botão em “Obter notificações por e-mail para endereços IP que excedam o relatório de limiar de atividades falhadas”. Tal como as definições de notificação de alertas genéricas no Connect Health, permite-lhe personalizar a lista de destinatários designados da notificação quanto ao relatório de IP em risco a partir daí. Também pode notificar todos os administradores globais quando fizer a alteração. 
 
-## <a name="configure-threshold-settings"></a>Configurar as definições do limiar
+## <a name="configure-threshold-settings"></a>Configurações de limiar de configuração
 O limiar de alerta pode ser atualizado a partir das Definições do Limiar. Para começar, o sistema tem um limiar predefinido. Existem quatro categorias nas definições de limiar do relatório de IP em risco:
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)

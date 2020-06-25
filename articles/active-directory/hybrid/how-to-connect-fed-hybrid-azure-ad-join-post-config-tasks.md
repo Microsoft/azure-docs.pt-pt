@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Hybrid Azure AD juntam-se a tarefas de configuração de posts / Microsoft Docs'
-description: Este documento detalha as tarefas de configuração de post necessárias para completar a adi do Hybrid Azure
+title: 'Azure AD Connect: Hybrid Azure AD juntam-se a tarefas de configuração pós-109 Microsoft Docs'
+description: Este documento detalha as tarefas de configuração de posts necessárias para completar a junção híbrida AZure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,90 +11,90 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 491a8f00de2fcd4c977a1856005b4358a4b62bd6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049667"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359794"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
 
-Depois de ter executado o Azure AD Connect para configurar a sua organização para a adesão do Hybrid Azure AD, existem alguns passos adicionais que deve completar para finalizar essa configuração.  Efetue apenas os passos aplicáveis aos seus dispositivos.
+Depois de ter executado o Azure AD Connect para configurar a sua organização para a ad AZure Híbrida, existem alguns passos adicionais que deve completar para finalizar essa configuração.  Realize apenas os passos que se aplicam aos seus dispositivos.
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1. Configurar o lançamento controlado (Opcional)
-Todos os dispositivos ligados ao domínio que executam o Windows 10 e o Windows Server 2016 registam-se automaticamente com o Azure AD assim que todos os passos de configuração estiverem completos. Se preferir um lançamento controlado em vez deste registo automático, pode utilizar a política do grupo para ativar ou desativar seletivamente o lançamento automático.  Esta política de grupo deve ser definida antes de iniciar os outros passos de configuração:
+Todos os dispositivos ligados ao domínio que executam o Windows 10 e o Windows Server 2016 registam-se automaticamente com AZure AD assim que todos os passos de configuração estiverem completos. Se preferir uma saída controlada em vez deste registo automático, pode utilizar a política de grupo para ativar ou desativar de forma seletiva o lançamento automático.  Esta política de grupo deve ser definida antes de iniciar os outros passos de configuração:
 * Crie um objeto de política de grupo no seu Diretório Ativo.
-* Nomeie-o (ex- Hybrid Azure AD join).
-* Editar e ir a: Políticas de configuração de computador > > modelos administrativos > componentes do Windows > Registo do Dispositivo.
+* Nomeá-lo (ex-Hybrid Azure AD aderir).
+* Editar e ir para: Políticas de configuração de computador > > modelos administrativos > componentes do Windows > registo do dispositivo.
 
 >[!NOTE]
->Para 2012R2, as definições de política estão em **Políticas de configuração de computador > > modelos administrativos > componentes do Windows > se juntar em > automaticamente no local de trabalho juntem-se aos computadores dos clientes**
+>Para 2012R2 as definições de política estão na **Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Workplace Juntam-se > automaticamente no local de trabalho juntam-se a computadores clientes**
 
-* Ativar esta definição: Registe os computadores unidos pelo domínio como dispositivos.
-* Aplicar e clicar OK.
-* Ligue o GPO à localização da sua escolha (unidade organizacional, grupo de segurança ou ao domínio de todos os dispositivos).
+* Ativar esta definição: Registar computadores unidos pelo domínio como dispositivos.
+* Aplique e clique OK.
+* Ligue o GPO à localização da sua escolha (unidade organizacional, grupo de segurança ou ao domínio para todos os dispositivos).
 
-## <a name="2-configure-network-with-device-registration-endpoints"></a>2. Configurar rede com pontos finais de registo do dispositivo
-Certifique-se de que os seguintes URLs estão acessíveis a partir de computadores dentro da sua rede organizacional para registo em Azure AD:
+## <a name="2-configure-network-with-device-registration-endpoints"></a>2. Rede de configuração com pontos finais de registo de dispositivos
+Certifique-se de que os seguintes URLs estão acessíveis a partir de computadores dentro da sua rede organizacional para registo a Azure AD:
 
 * `https://enterpriseregistration.windows.net`
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com` 
 
-## <a name="3-implement-wpad-for-windows-10-devices"></a>3. Implementar wPAD para dispositivos Windows 10
-Se a sua organização aceder à Internet através de um proxy de saída, implemente o Web Proxy Auto-Discovery (WPAD) para permitir que os computadores do Windows 10 se registem no Azure AD.
+## <a name="3-implement-wpad-for-windows-10-devices"></a>3. Implementar WPAD para dispositivos Windows 10
+Se a sua organização aceder à Internet através de um proxy de saída, implemente web Proxy Auto-Discovery (WPAD) para permitir que os computadores do Windows 10 se registem no AZure AD.
 
-## <a name="4-configure-the-scp-in-any-forests-that-were-not-configured-by-azure-ad-connect"></a>4. Configure o SCP em quaisquer florestas que não tenham sido configuradas pela Azure AD Connect 
+## <a name="4-configure-the-scp-in-any-forests-that-were-not-configured-by-azure-ad-connect"></a>4. Configurar o SCP em quaisquer florestas que não foram configuradas pela Azure AD Connect 
 
 O ponto de ligação de serviço (SCP) contém as informações do seu inquilino Azure AD que serão utilizados pelos seus dispositivos para registo automático.  Execute o script PowerShell, ConfigureSCP.ps1, que descarregou a partir do Azure AD Connect.
 
-## <a name="5-configure-any-federation-service-that-was-not-configured-by-azure-ad-connect"></a>5. Configure qualquer serviço da federação que não tenha sido configurado pela Azure AD Connect
+## <a name="5-configure-any-federation-service-that-was-not-configured-by-azure-ad-connect"></a>5. Configurar qualquer serviço da federação que não tenha sido configurado pela Azure AD Connect
 
-Se a sua organização utilizar um serviço da federação para iniciar sessão no Azure AD, as regras de reclamação no seu fundo de confiança azure AD devem permitir a autenticação do dispositivo. Se estiver a usar a federação com AD FS, vá à [Ajuda AD FS](https://aka.ms/aadrptclaimrules) para gerar as regras de reclamação. Se estiver a utilizar uma solução de federação não microsoft, contacte esse fornecedor para obter orientação.  
+Se a sua organização utilizar um serviço de federação para iniciar sedutação no Azure AD, as regras de reclamação no seu Azure AD confiam na confiança do partido deve permitir a autenticação do dispositivo. Se estiver a utilizar a federação com FS AD, vá à [Ajuda AD FS](https://aka.ms/aadrptclaimrules) para gerar as regras de reclamação. Se estiver a utilizar uma solução de federação não-Microsoft, contacte o fornecedor para obter orientação.  
 
 >[!NOTE]
->Se tiver dispositivos de nível inferior windows, o serviço deve suportar a emissão do método de autenticação e das reclamações wiaormultiauthn ao receber pedidos para o fundo Azure AD. Em AD FS, deve adicionar uma regra de transformação de emissão que passa pelo método de autenticação.
+>Se tiver dispositivos de nível inferior ao Windows, o serviço deve suportar a emissão das reclamações de métodos de autenticação e wiaormultiauthn ao receber pedidos ao fundo Azure AD. Em AD FS, deve adicionar uma regra de transformação de emissão que passa pelo método de autenticação.
 
-## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Ativar o SSO SSO SEm Emenda A D ad azul para dispositivos de nível inferior windows
+## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Ativar SSO sem emenda AD AD para dispositivos de nível inferior do Windows
 
-Se a sua organização utilizar a Sincronização de Password Hash ou a Autenticação Pass-through para iniciar sessão no Azure AD, ative o https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ssoAzure AD Seamless SSO com esse método de entrada para autenticar dispositivos de nível inferior do Windows: . 
+Se a sua organização utilizar a Sincronização de Hash password ou a autenticação pass-through para iniciar sedutação no Azure AD, ative o SSO sem emenda AD Ad Ad Ad com esse método de entrada para autenticar dispositivos de nível inferior do Windows: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
-## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Definir a política de Anúncios Azure para dispositivos de nível inferior windows
+## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Desconfie da política AD do Azure para dispositivos de nível inferior do Windows
 
-Para registar dispositivos de nível inferior do Windows, é necessário certificar-se de que a política de AD Azure permite que os utilizadores registem dispositivos. 
+Para registar dispositivos de nível inferior do Windows, é necessário certificar-se de que a política Azure AD permite que os utilizadores registem dispositivos. 
 
 * Faça login na sua conta no portal Azure.
-* Ir a: Diretório Ativo > Dispositivos > Dispositivos
-* Definir "Os utilizadores podem registar os seus dispositivos com AD Azure" para ALL.
+* Ir para: Azure Ative Directory > Devices > Device
+* "Os utilizadores podem registar os seus dispositivos com Azure AD" para ALL.
 * Clicar em Guardar
 
-## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Adicione o ponto final do Azure AD aos dispositivos de nível inferior do Windows
+## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Adicione o ponto final AD AD do Windows a dispositivos de nível inferior ao Windows
 
-Adicione o ponto final de autenticação do dispositivo Azure AD às zonas intranet locais nos dispositivos de nível inferior do Windows para evitar solicitações de certificado ao autenticar os dispositivos:`https://device.login.microsoftonline.com` 
+Adicione o ponto final de autenticação do dispositivo AZure AD às zonas intranet locais nos dispositivos de nível inferior do Windows para evitar indicações de certificado ao autenticar os dispositivos:`https://device.login.microsoftonline.com` 
 
-Se estiver a utilizar [o SSO Sso sem emenda,](how-to-connect-sso.md)também ative "Permitir atualizações da barra de estado através do script" nessa zona e adicionar o seguinte ponto final:`https://autologon.microsoftazuread-sso.com` 
+Se estiver a utilizar [o Seamless SSO,](how-to-connect-sso.md)também ative "Permitir atualizações da barra de estado através do script" nessa zona e adicione o seguinte ponto final:`https://autologon.microsoftazuread-sso.com` 
 
-## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instale a Microsoft Workplace Join em dispositivos de nível inferior windows
+## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar o Microsoft Workplace Adere aos dispositivos de nível inferior do Windows
 
-Este instalador cria uma tarefa programada no sistema do dispositivo que funciona no contexto do utilizador. A tarefa é desencadeada quando o utilizador faz o sinal de si no Windows. A tarefa junta-se silenciosamente ao dispositivo com a AD Azure com as credenciais do utilizador após a autenticação utilizando a Autenticação Integrada do Windows. O centro de https://www.microsoft.com/download/details.aspx?id=53554descarregamento está em . 
+Este instalador cria uma tarefa programada no sistema do dispositivo que funciona no contexto do utilizador. A tarefa é ativada quando o utilizador entra no Windows. A tarefa junta-se silenciosamente ao dispositivo com a Azure AD com as credenciais do utilizador depois de autenticar utilizando a Autenticação Integrada do Windows. O centro de descarregamento está em https://www.microsoft.com/download/details.aspx?id=53554 . 
 
-## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configure a política do grupo para permitir o registo do dispositivo
+## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurar a política de grupo para permitir o registo do dispositivo
 
-* Crie um objeto de política de grupo no seu Diretório Ativo-- se ainda não for criado.
-* Nomeie-o (ex- Hybrid Azure AD join).
-* Editar & ir para: Políticas de configuração de > de computador > modelos administrativos > componentes do Windows > Registo de Dispositivos
-* Ativar: Registar computadores ligados ao domínio como dispositivos
-* Aplicar e clicar OK.
-* Ligue o GPO à localização da sua escolha (unidade organizacional, grupo de segurança ou ao domínio de todos os dispositivos).
+* Crie um objeto de política de grupo no seu Diretório Ativo, se ainda não for criado.
+* Nomeá-lo (ex-Hybrid Azure AD aderir).
+* Editar & ir para: Políticas de configuração de computador > > modelos administrativos > componentes do Windows > registo do dispositivo
+* Ativar: Registar computadores unidos pelo domínio como dispositivos
+* Aplique e clique OK.
+* Ligue o GPO à localização da sua escolha (unidade organizacional, grupo de segurança ou ao domínio para todos os dispositivos).
 
 >[!NOTE]
->Para 2012R2, as definições de política estão em **Políticas de configuração de computador > > modelos administrativos > componentes do Windows > se juntar em > automaticamente no local de trabalho juntem-se aos computadores dos clientes**
+>Para 2012R2 as definições de política estão na **Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Workplace Juntam-se > automaticamente no local de trabalho juntam-se a computadores clientes**
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurar a reescrita do dispositivo](how-to-connect-device-writeback.md)
+[Configurar a redução do dispositivo](how-to-connect-device-writeback.md)

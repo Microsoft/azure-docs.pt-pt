@@ -615,6 +615,8 @@
               href: app/remove-application-insights.md
         - name: Monitorização sem código
           items:
+            - name: Descrição geral
+              href: app/codeless-overview.md
             - name: VM do Azure e conjunto de dimensionamento
               href: app/azure-vm-vmss-apps.md
             - name: Serviço de Aplicações do Azure

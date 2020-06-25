@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7fca57bd517296711ada2f714d523bfa0709337c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: eea6f901a7228d7ed411d27296e1fb44a41d9f72
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208387"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361341"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -74,7 +74,8 @@ Em seguida, você precisará ativar a autenticação do Ative Directory (AD). Pa
 
 3.  Abra o portal Azure, abra a sua conta de armazenamento, **selecione Configuração**e confirme que **o Ative Directory (AD)** está definido como **Ativado**.
 
-     ![Uma imagem da página de Configuração com diretório ativo Azure (AD) ativada.](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem da página de Configuração com diretório ativo Azure (AD) ativada.](media/active-directory-enabled.png)
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Atribuir permissões Azure RBAC a utilizadores de desktop virtual do Windows
 

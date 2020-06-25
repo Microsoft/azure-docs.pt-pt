@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 468597c82ae6c99aadeb33fafae78e3b3ed343cd
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213674"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361154"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar a autenticação multi-factor do Azure para o Windows Virtual Desktop
 
@@ -48,7 +48,8 @@ Esta secção irá mostrar-lhe como criar uma política de Acesso Condicional qu
 6. Em **aplicativos ou ações cloud**  >  **Inclua**, **selecione apps Select**.
    - Escolha **o Ambiente de Trabalho Virtual do Windows** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07), em seguida, **Selecione**, e depois **Feito**.
 
-     ![Uma imagem da página de aplicações ou ações cloud. As aplicações do Windows Virtual Desktop e do Windows Virtual Desktop Client estão em destaque a vermelho.](media/cloud-apps-enterprise.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem da página de aplicações ou ações cloud. As aplicações do Windows Virtual Desktop e do Windows Virtual Desktop Client estão em destaque a vermelho.](media/cloud-apps-enterprise.png)
 
      >[!NOTE]
      >Para encontrar o ID da aplicação que pretende selecionar, vá a **Aplicações empresariais** e selecione **as Aplicações** microsoft a partir do menu suspenso do tipo de aplicação.

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690903"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357771"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.

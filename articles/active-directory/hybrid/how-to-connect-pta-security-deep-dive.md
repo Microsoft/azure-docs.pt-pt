@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c3d8fdf4467a1a4c932ab6ec8fd6067d2d2ef34
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252734"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358247"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Ative Directory Pass-through Authentication security deep mergulho
 

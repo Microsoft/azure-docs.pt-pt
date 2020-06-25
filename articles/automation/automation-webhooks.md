@@ -3,14 +3,14 @@ title: Inicie um runbook Azure Automation a partir de um webhook
 description: Este artigo diz como usar um webhook para iniciar um livro de formulários na Azure Automation a partir de uma chamada HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/03/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 78ce1e46b7ea2cc82a0c478b0c81abbf701f68a9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342974"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361681"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
@@ -29,7 +29,7 @@ A tabela a seguir descreve as propriedades que deve configurar para um webhook.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Name |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
+| Nome |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
 | URL |URL do webhook. Este é o endereço único que um cliente chama com um HTTP POST para iniciar o livro de aplicação ligado ao webhook. É gerado automaticamente quando se cria o webhook. Não é possível especificar uma URL personalizada. <br> <br> O URL contém um símbolo de segurança que permite a um sistema de terceiros invocar o livro de bordo sem mais autenticação. Por esta razão, deve tratar o URL como uma palavra-passe. Por razões de segurança, só pode ver o URL no portal Azure ao criar o webhook. Note o URL num local seguro para utilização futura. |
 | Data de validade | Data de validade do webhook, após o qual já não pode ser utilizado. Pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
 | Ativado | Definição indicando se o webhook é ativado por padrão quando é criado. Se definir esta propriedade para Disabled, nenhum cliente pode usar o webhook. Você pode definir esta propriedade quando você criar o webhook ou qualquer outro tempo após a sua criação. |
@@ -83,9 +83,13 @@ Agora passamos o seguinte objeto JSON na UI para o `WebhookData` parâmetro. Est
 
 A segurança de um webhook depende da privacidade do seu URL, que contém um símbolo de segurança que permite que o webhook seja invocado. A Azure Automation não efetua qualquer autenticação num pedido desde que seja feita ao URL correto. Por esta razão, os seus clientes não devem utilizar webhooks para runbooks que realizem operações altamente sensíveis sem utilizar um meio alternativo de validação do pedido.
 
-Pode incluir lógica dentro de um livro de aplicação para determinar se é chamado por um webhook. Que o livro verifique a `WebhookName` propriedade do `WebhookData` parâmetro. O runbook pode realizar uma validação adicional procurando informações específicas nas `RequestHeader` propriedades e `RequestBody` propriedades.
+Considere as seguintes estratégias:
 
-Outra estratégia é fazer com que o livro de corridas execute alguma validação de uma condição externa quando recebe um pedido webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que há um novo compromisso com um repositório GitHub. O livro pode ligar-se ao GitHub para validar que ocorreu um novo compromisso antes de continuar.
+* Pode incluir lógica dentro de um livro de aplicação para determinar se é chamado por um webhook. Que o livro verifique a `WebhookName` propriedade do `WebhookData` parâmetro. O runbook pode realizar uma validação adicional procurando informações específicas nas `RequestHeader` propriedades e `RequestBody` propriedades.
+
+* Peça ao livro de aplicação para realizar alguma validação de uma condição externa quando receber um pedido webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que há um novo compromisso com um repositório GitHub. O livro pode ligar-se ao GitHub para validar que ocorreu um novo compromisso antes de continuar.
+
+* A Azure Automation suporta tags de serviço de rede virtual Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md) e desencadear webhooks a partir da sua rede virtual. As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement** no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 
@@ -116,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de devolução do `POST` pedido.
 
-| Código | Texto | Description |
+| Código | Texto | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite, e o livro foi feito com sucesso. |
 | 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O símbolo na URL é inválido.</li>  </ul> |

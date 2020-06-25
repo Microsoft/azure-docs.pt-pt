@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: dc2763fd3c203a5b0443299d9824b6ebf61bdc78
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791083"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361909"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicione ou remova atribuições de funções Azure para utilizadores convidados externos usando o portal Azure
 
@@ -89,7 +89,9 @@ No Azure RBAC, para dar acesso, atribui-se um papel. Para adicionar uma atribui�
 
     Se não tiver permissões para atribuir funções, a opção de atribuição de funções Add será desativada.
 
-    ![Adicionar menu](./media/role-assignments-external-users/add-menu.png)
+    ![Adicionar menu de atribuição de funções](./media/shared/add-role-assignment-menu.png)
+
+    O painel Adicionar atribuição de função é aberto.
 
 1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
 
@@ -119,7 +121,9 @@ Se o utilizador convidado ainda não estiver no seu diretório, pode convidar o 
 
 1. Clique em **Adicionar** > **Adicionar atribuição de funções** para abrir o painel Adicionar atribuição de funções.
 
-    ![Adicionar menu](./media/role-assignments-external-users/add-menu.png)
+    ![Adicionar menu de atribuição de funções](./media/shared/add-role-assignment-menu.png)
+
+    O painel Adicionar atribuição de função é aberto.
 
 1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
 

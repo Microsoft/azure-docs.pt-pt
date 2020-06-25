@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4285c7d8cd6c9feee84eaae3c49ffd1f21d5df27
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 72b21514e07b65b89d10b317da95ec7d92ecae78
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253091"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360338"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD juntou dispositivos
 
@@ -88,7 +88,7 @@ Não é possível atribuir grupos à função de administrador do dispositivo, a
 
 Os administradores do dispositivo são atribuídos a todos os dispositivos Azure AD. Não podem ser examinados para um conjunto específico de dispositivos.
 
-Quando retira os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local num dispositivo, desde que estejam inscritos no mesmo. O privilégio é revogado durante a próxima entrada, ou após 4 horas quando um novo token de atualização primária é emitido.
+Quando retira os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local num dispositivo, desde que estejam inscritos no mesmo. O privilégio é revogado durante a próxima entrada após 4 horas quando um novo token de atualização primária é emitido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

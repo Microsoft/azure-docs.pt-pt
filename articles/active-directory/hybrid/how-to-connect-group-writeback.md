@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7823ee7f7d4d5c9bb34d5c57ab0eea7d77c257d3
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: d2a41dcf9c224e9e4a9a280078432e0b57e16c2a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84947093"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359420"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect group writeback
 

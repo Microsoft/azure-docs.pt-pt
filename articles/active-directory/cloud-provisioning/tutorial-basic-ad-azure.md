@@ -1,48 +1,48 @@
 ---
-title: Tutorial - Diretório Ativo Básico no local e ambiente da AD Azure.
+title: Tutorial - Diretório Ativo Básico no local e ambiente AD Azure.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793901"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360525"
 ---
-# <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Ambiente de Diretório Ativo Básico
+# <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Ambiente básico de diretório ativo
 
 Este tutorial acompanha-o através da criação de um ambiente básico de Diretório Ativo. 
 
 ![Criar](media/tutorial-single-forest/diagram1.png)
 
-Você pode usar o ambiente que você cria no tutorial para testar vários aspetos de cenários de identidade híbrida e será um pré-requisito para alguns dos tutoriais.  Se já tiver um ambiente de Diretório Ativo existente, pode usá-lo como substituto.  Esta informação é fornecida para indivíduos que eu estou começando do nada.
+Você pode usar o ambiente que você cria no tutorial para testar vários aspetos de cenários de identidade híbrida e será um pré-requisito para alguns dos tutoriais.  Se já tiver um ambiente de Diretório Ativo existente, pode usá-lo como substituto.  Esta informação é fornecida para indivíduos que o meu começo do nada.
 
 Este tutorial consiste em
 ## <a name="prerequisites"></a>Pré-requisitos
 Seguem-se os pré-requisitos necessários para completar este tutorial
-- Um computador com [Hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Sugere-se que o faça num computador [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou windows [Server 2016.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
-- Um [adaptador de rede externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual se comunique com a internet.
-- Uma [subscrição azure](https://azure.microsoft.com/free)
+- Um computador com [Hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Sugere-se que o faça num [computador Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou Windows [Server 2016.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
+- Um [adaptador de rede externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique com a internet.
+- Uma [subscrição do Azure](https://azure.microsoft.com/free)
 - Uma cópia do Windows Server 2016
-- [Microsoft .NET quadro 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Quadro Microsoft .NET 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
 
 > [!NOTE]
 > Este tutorial utiliza scripts PowerShell para que possa criar o ambiente tutorial no mais rápido tempo.  Cada um dos scripts usa variáveis que são declaradas no início dos scripts.  Pode e deve alterar as variáveis para refletir o seu ambiente.
 >
->Os scripts utilizados criam um ambiente geral de Diretório Ativo antes de instalar o agente de fornecimento de nuvem Azure AD Connect.  São relevantes para todos os tutoriais.
+>Os scripts utilizados criam um ambiente de Diretório Ativo geral antes de instalar o agente de provisionamento de nuvem Azure AD Connect.  São relevantes para todos os tutoriais.
 >
-> Cópias dos scripts PowerShell que são usados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
+> Cópias dos scripts PowerShell que são usados neste tutorial estão disponíveis no GitHub [aqui.](https://github.com/billmath/tutorial-phs)
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-A primeira coisa que precisa de fazer, para que o nosso ambiente de identidade híbrida esteja a funcionar é criar uma máquina virtual que será usada como nosso servidor de Diretório Ativo no local.  Faça o seguinte:
+A primeira coisa que precisa de fazer, para pôr o nosso ambiente de identidade híbrida a funcionar é criar uma máquina virtual que será usada como o nosso servidor Ative Directory no local.  Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -77,17 +77,17 @@ Para terminar a construção da máquina virtual, é necessário terminar a inst
 
 1. Hyper-V Manager, clique duas vezes na máquina virtual
 2. Clique no botão Iniciar.
-3. Será solicitado a "carregar em qualquer tecla para arrancar a partir de CD ou DVD". Vá em frente e faça-o.
-4. No ecrã de arranque do Windows Server, selecione o seu idioma e clique em **Next**.
-5. Clique em **Instalar agora**.
-6. Insira a chave da sua licença e clique **em Next**.
-7. Verifique **Aceito os termos da licença e clico **em Seguinte**.
-8. Selecione **Personalizado: Instale apenas o Windows (Avançado)**
-9. Clique **em Seguinte**
-10. Uma vez concluída a instalação, reinicie a máquina virtual, inicie o início e execute as atualizações do Windows para garantir que o VM é o mais atualizado.  Instale as últimas atualizações.
+3. Será solicitado que "Pressione qualquer tecla para arrancar a partir de CD ou DVD". Vá em frente e fazê-lo.
+4. No ecrã de arranque do Windows Server selecione o seu idioma e clique em **Seguinte**.
+5. Clique **em Instalar agora**.
+6. Introduza a chave da licença e clique em **Seguinte**.
+7. Verifique **Aceito os termos da licença e clique em **Seguinte**.
+8. Selecione **Personalizado: Instalar apenas o Windows (Avançado)**
+9. Clique **em seguida**
+10. Uma vez concluída a instalação, reinicie a máquina virtual, inscreva-se e execute atualizações do Windows para garantir que o VM é o mais atualizado.  Instale as últimas atualizações.
 
-## <a name="install-active-directory-prerequisites"></a>Instalar pré-requisitos de Diretório Ativo
-Agora que tem uma máquina virtual, precisa de fazer algumas coisas antes de instalar o Ative Directory.  Ou seja, precisa de mudar o nome da máquina virtual, definir um endereço IP estático e informações DNS e instalar as ferramentas de Administração do Servidor Remoto.   Faça o seguinte:
+## <a name="install-active-directory-prerequisites"></a>Instalar pré-requisitos do Diretório Ativo
+Agora que tem uma máquina virtual, precisa fazer algumas coisas antes de instalar o Ative Directory.  Ou seja, é necessário mudar o nome da máquina virtual, definir um endereço IP estático e informações sobre DNS e instalar as ferramentas de Administração do Servidor Remoto.   Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -122,8 +122,8 @@ Agora que tem uma máquina virtual, precisa de fazer algumas coisas antes de ins
     Restart-Computer
     ```
 
-## <a name="create-a-windows-server-ad-environment"></a>Criar um ambiente aD do Windows Server
-Agora que criou o VM e foi renomeado e tem um endereço IP estático, pode ir em frente e instalar e configurar os Serviços de Domínio do Diretório Ativo.  Faça o seguinte:
+## <a name="create-a-windows-server-ad-environment"></a>Criar um ambiente AD do Servidor do Windows
+Agora que tem o VM criado e foi renomeado e tem um endereço IP estático, pode ir em frente e instalar e configurar serviços de domínio de diretório ativo.  Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -153,8 +153,8 @@ Agora que criou o VM e foi renomeado e tem um endereço IP estático, pode ir em
     Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
     ```
 
-## <a name="create-a-windows-server-ad-user"></a>Criar um utilizador de Anúncio do Servidor windows
-Agora que tem o nosso ambiente de Diretório Ativo, precisa de uma conta de teste.  Esta conta será criada no nosso ambiente ad-in-local e, em seguida, sincronizada com a Azure AD.  Faça o seguinte:
+## <a name="create-a-windows-server-ad-user"></a>Criar um utilizador AD do Servidor do Windows
+Agora que tens o nosso ambiente de Diretório Ativo, precisas de uma conta de teste.  Esta conta será criada no nosso ambiente de AD no local e depois sincronizada para Azure AD.  Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -194,7 +194,7 @@ Agora que tem o nosso ambiente de Diretório Ativo, precisa de uma conta de test
 
 
 ## <a name="create-an-azure-ad-tenant"></a>Criar um inquilino do Azure AD
-Agora você precisa criar um inquilino Azure AD para que você possa sincronizar nossos utilizadores para a nuvem.  Para criar um novo inquilino do Azure AD, faça o seguinte.
+Agora você precisa criar um inquilino AZure AD para que você possa sincronizar nossos utilizadores para a nuvem.  Para criar um novo inquilino do Azure AD, faça o seguinte.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com) e inicie sessão com uma conta que tenha uma subscrição do Azure.
 2. Selecione o **ícone de adição (+)** e pesquise **Azure Active Directory**.
@@ -202,7 +202,7 @@ Agora você precisa criar um inquilino Azure AD para que você possa sincronizar
 4. Selecione **Criar**.</br>
 ![Criar](media/tutorial-single-forest/create1.png)</br>
 5. Forneça um **nome de organização**, juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Esta ação irá criar o seu diretório.
-6. Uma vez concluída, clique no link **aqui,** para gerir o diretório.
+6. Uma vez concluído, clique no link **aqui,** para gerir o diretório.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Criar um administrador global em Azure AD
 Agora que tem um inquilino da AD Azure, vai criar uma conta de administrador global.  Para criar a conta de administrador global faça o seguinte.
@@ -210,15 +210,15 @@ Agora que tem um inquilino da AD Azure, vai criar uma conta de administrador glo
 1.  Em **Gerir**, selecione **Utilizadores**.</br>
 ![Criar](media/tutorial-single-forest/administrator1.png)</br>
 2.  Selecione **Todos os utilizadores** e, em seguida, selecione **+ Novo utilizador**.
-3.  Indique um nome e nome de utilizador para o mesmo. Este será o Administrador Global do inquilino. Também vai querer mudar o **papel de Diretório** para **administrador global.** Pode também mostrar a palavra-passe temporária. Quando concluir, selecione **Criar**.</br>
+3.  Indique um nome e nome de utilizador para o mesmo. Este será o Administrador Global do inquilino. Também vai querer alterar o **papel de Diretório** para **administrador global.** Pode também mostrar a palavra-passe temporária. Quando concluir, selecione **Criar**.</br>
 ![Criar](media/tutorial-single-forest/administrator2.png)</br>
 4. Uma vez concluído, abra um novo navegador web e inscreva-se para myapps.microsoft.com usando a nova conta de administrador global e a senha temporária.
-5. Mude a palavra-passe para o administrador global para algo de que se lembrará.
+5. Altere a palavra-passe para o administrador global para algo que irá lembrar.
 
 ## <a name="optional--additional-server-and-forest"></a>Opcional: Servidor adicional e floresta
-Segue-se uma secção opcional que fornece passos para criar um servidor adicional e ou floresta.  Isto pode ser usado em alguns dos tutoriais mais avançados, como [Pilot for Azure AD Connect to cloud provisioning](tutorial-pilot-aadc-aadccp.md).
+Segue-se uma secção opcional que fornece passos para a criação de um servidor adicional e ou floresta.  Isto pode ser usado em alguns dos tutoriais mais avançados, tais como [Pilot for Azure AD Connect para o provisionamento em nuvem](tutorial-pilot-aadc-aadccp.md).
 
-Se necessitar apenas de um servidor adicional, pode parar depois do - Criar o passo da **máquina virtual** e juntar o servidor ao domínio existente que foi criado acima.  
+Se necessitar apenas de um servidor adicional, pode parar após o - Criar o passo **da máquina virtual** e juntar o servidor ao domínio existente que foi criado acima.  
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -264,17 +264,17 @@ Para terminar a construção da máquina virtual, é necessário terminar a inst
 
 1. Hyper-V Manager, clique duas vezes na máquina virtual
 2. Clique no botão Iniciar.
-3. Será solicitado a "carregar em qualquer tecla para arrancar a partir de CD ou DVD". Vá em frente e faça-o.
-4. No ecrã de arranque do Windows Server, selecione o seu idioma e clique em **Next**.
-5. Clique em **Instalar agora**.
-6. Insira a chave da sua licença e clique **em Next**.
-7. Verifique **Aceito os termos da licença e clico **em Seguinte**.
-8. Selecione **Personalizado: Instale apenas o Windows (Avançado)**
-9. Clique **em Seguinte**
-10. Uma vez concluída a instalação, reinicie a máquina virtual, inicie o início e execute as atualizações do Windows para garantir que o VM é o mais atualizado.  Instale as últimas atualizações.
+3. Será solicitado que "Pressione qualquer tecla para arrancar a partir de CD ou DVD". Vá em frente e fazê-lo.
+4. No ecrã de arranque do Windows Server selecione o seu idioma e clique em **Seguinte**.
+5. Clique **em Instalar agora**.
+6. Introduza a chave da licença e clique em **Seguinte**.
+7. Verifique **Aceito os termos da licença e clique em **Seguinte**.
+8. Selecione **Personalizado: Instalar apenas o Windows (Avançado)**
+9. Clique **em seguida**
+10. Uma vez concluída a instalação, reinicie a máquina virtual, inscreva-se e execute atualizações do Windows para garantir que o VM é o mais atualizado.  Instale as últimas atualizações.
 
-### <a name="install-active-directory-prerequisites"></a>Instalar pré-requisitos de Diretório Ativo
-Agora que tem uma máquina virtual, precisa de fazer algumas coisas antes de instalar o Ative Directory.  Ou seja, precisa de mudar o nome da máquina virtual, definir um endereço IP estático e informações DNS e instalar as ferramentas de Administração do Servidor Remoto.   Faça o seguinte:
+### <a name="install-active-directory-prerequisites"></a>Instalar pré-requisitos do Diretório Ativo
+Agora que tem uma máquina virtual, precisa fazer algumas coisas antes de instalar o Ative Directory.  Ou seja, é necessário mudar o nome da máquina virtual, definir um endereço IP estático e informações sobre DNS e instalar as ferramentas de Administração do Servidor Remoto.   Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -323,8 +323,8 @@ Agora que tem uma máquina virtual, precisa de fazer algumas coisas antes de ins
     #Restart the computer 
     Restart-Computer
     ```
-### <a name="create-a-windows-server-ad-environment"></a>Criar um ambiente aD do Windows Server
-Agora que criou o VM e foi renomeado e tem um endereço IP estático, pode ir em frente e instalar e configurar os Serviços de Domínio do Diretório Ativo.  Faça o seguinte:
+### <a name="create-a-windows-server-ad-environment"></a>Criar um ambiente AD do Servidor do Windows
+Agora que tem o VM criado e foi renomeado e tem um endereço IP estático, pode ir em frente e instalar e configurar serviços de domínio de diretório ativo.  Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -369,8 +369,8 @@ Agora que criou o VM e foi renomeado e tem um endereço IP estático, pode ir em
     Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
     ```
 
-### <a name="create-a-windows-server-ad-user"></a>Criar um utilizador de Anúncio do Servidor windows
-Agora que tem o nosso ambiente de Diretório Ativo, precisa de uma conta de teste.  Esta conta será criada no nosso ambiente ad-in-local e, em seguida, sincronizada com a Azure AD.  Faça o seguinte:
+### <a name="create-a-windows-server-ad-user"></a>Criar um utilizador AD do Servidor do Windows
+Agora que tens o nosso ambiente de Diretório Ativo, precisas de uma conta de teste.  Esta conta será criada no nosso ambiente de AD no local e depois sincronizada para Azure AD.  Faça o seguinte:
 
 1. Abra o PowerShell ISE como Administrador.
 2. Execute o seguinte script.
@@ -409,7 +409,7 @@ Agora que tem o nosso ambiente de Diretório Ativo, precisa de uma conta de test
     ```
 
 ## <a name="conclusion"></a>Conclusão
-Agora você tem um ambiente que pode ser usado para tutoriais existentes e para testar características adicionais fornecendo fornecimento de nuvem.
+Agora você tem um ambiente que pode ser usado para tutoriais existentes e para testar funcionalidades adicionais que o fornecimento de nuvens fornece.
 
 ## <a name="next-steps"></a>Passos seguintes 
 

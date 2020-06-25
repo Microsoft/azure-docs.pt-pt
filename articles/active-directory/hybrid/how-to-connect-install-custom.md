@@ -9,17 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d406f26e90dd061e3db3b190dbb76a37c0bee2d
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 4e7fafd556add81d089dc67f0a4f9428de6d1b5e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944921"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359335"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -37,7 +37,7 @@ Quando instalar os serviços de sincronização, pode deixar a secção de confi
 
 ![Componentes necessários](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| Configuração opcional | Description |
+| Configuração opcional | Descrição |
 | --- | --- |
 | Utilizar um SQL Server existente |Permite-lhe especificar o nome do SQL Server e o nome da instância. Escolha esta opção se já tiver um servidor de base de dados que pretende utilizar. Introduza o nome da instância, seguido de uma vírgula e do número de porta em **Nome da Instância**, caso o SQL Server não tenha a navegação ativada.  Em seguida, especifique o nome da base de dados Azure AD Connect.  Os seus privilégios SQL determinam se será criada uma nova base de dados ou se o seu administrador SQL deve criar a base de dados com antecedência.  Se tiver permissões SQL SA, consulte [como instalar utilizando uma base de dados existente.](how-to-connect-install-existing-database.md)  Se tiver sido delegada permissões (DBO) consulte [instalar Azure AD Connect com permissões de administrador delegadas sql](how-to-connect-install-sql-delegation.md). |
 | Utilizar uma conta de serviço existente |Por predefinição, o Azure AD Connect utiliza uma conta de serviço virtual para ser utilizada pelos serviços de sincronização. Se utilizar um servidor do SQL remoto ou um proxy que exija a autenticação, tem de utilizar uma **conta de serviço gerido** ou utilizar uma conta de serviço no domínio e conhecer a palavra-passe. Nesses casos, introduza a conta a utilizar. Certifique-se de que o utilizador que está a executar a instalação é um SA no SQL Server, para possa ser criado um início sessão para a conta de serviço.  Consulte [as contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.  Para obter mais informações, veja [Instalar o Azure AD Connect com permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).|
@@ -48,7 +48,7 @@ Depois de instalar os componentes necessários, é-lhe pedido que selecione o m�
 
 ![Início de Sessão de Utilizador](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Opção Início de Sessão Único | Description |
+| Opção Início de Sessão Único | Descrição |
 | --- | --- |
 | Sincronização hash de palavra-passe |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](how-to-connect-password-hash-synchronization.md). |
 |Autenticação pass-through|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
@@ -79,7 +79,7 @@ Para ligar ao seu serviço do Active Directory Domain Services, o Azure AD Conne
 
 Depois de introduzir o nome da floresta e de clicar em **Adicionar Diretório**, é apresentada uma caixa de diálogo de pop-up que mostra as opções seguintes:
 
-| Opção | Description |
+| Opção | Descrição |
 | --- | --- |
 | Criar conta nova | Selecione esta opção se quiser que o assistente do Azure AD Connect crie a conta do AD DS de que precisa para ligar à floresta do AD durante a sincronização de diretórios. Se esta opção estiver selecionada, introduza o nome de utilizador e a palavra-passe de uma conta de administrador empresarial. O assistente do Azure AD Connect vai utilizar a conta de administrador empresarial indicada para criar a conta do AD DS necessária. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrator ou fabrikam.com\administrator. |
 | Utilizar conta existente | Selecione esta opção se quiser indicar uma conta do AD DS existente para ser utilizada com o Azure AD Connect para ligar à floresta do AD durante a sincronização de diretórios. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\syncuser ou fabrikam.com\syncuser. Esta conta pode ser uma conta de utilizador normal, porque precisa apenas das permissões de leitura predefinidas. No entanto, dependendo do seu cenário, poderá precisar de mais permissões. Para obter mais informações, veja [Azure AD Connect Accounts and permissions](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account) (Contas e permissões do Azure AD Connet). |
@@ -127,7 +127,7 @@ A funcionalidade Correspondência entre florestas permite-lhe definir o modo com
 
 ![Exclusivo](./media/how-to-connect-install-custom/unique2.png)
 
-| Definição | Description |
+| Definição | Descrição |
 | --- | --- |
 | [Os utilizadores são representados apenas uma vez em todas as florestas](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Todos os utilizadores são criados como objetos individuais no Azure AD. Os objetos não estão associados no metaverso. |
 | [Atributo de correio](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opção associa utilizadores e contactos se o atributo de correio tiver o mesmo valor em florestas diferentes. Utilize esta opção quando os contactos foram criados utilizando GALSync. Se esta opção for escolhida, os objetos de Utilizador cujo atributo Mail não estiver preenchido não será sincronizados com o Azure AD. |
@@ -138,7 +138,7 @@ A funcionalidade Correspondência entre florestas permite-lhe definir o modo com
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Selecione a forma como os utilizadores devem ser identificados com o Azure AD - Âncora de Origem
 O atributo sourceAnchor é imutável durante o ciclo de vida de um objeto de utilizador. É a chave primária da ligação do utilizador no local com o utilizador no Azure AD.
 
-| Definição | Description |
+| Definição | Descrição |
 | --- | --- |
 | Permitir que seja o Azure a gerir a âncora de por mim | Selecione esta opção se pretender que o Azure AD escolha o atributo por si. Se selecionar esta opção, o assistente do Azure AD Connect aplica a lógica de seleção do atributo sourceAnchor descrita na secção do artigo [Azure AD Connect: Criar conceitos com o ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). O assistente apresenta o atributo que foi escolhido como o atributo de Âncora de Origem depois de a Instalação personalizada estar concluída. |
 | Um atributo específico | Selecione esta opção se pretender especificar um atributo do AD existente como o atributo sourceAnchor. |
@@ -174,7 +174,7 @@ Este ecrã permite-lhe selecionar as funcionalidades opcionais para os seus cen�
 
 
 
-| Funcionalidades Opcionais | Description |
+| Funcionalidades Opcionais | Descrição |
 | --- | --- |
 | Implementação Híbrida do Exchange |A funcionalidade Implementação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está a sincronizar um conjunto específico de [atributos](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD para o diretório no local. |
 | Pastas Públicas de Correio do Exchange | A funcionalidade Pastas Públicas de Correio do Exchange permite-lhe sincronizar objetos de Pastas Públicas ativadas para correio do seu Active Directory no local para o Azure AD. |

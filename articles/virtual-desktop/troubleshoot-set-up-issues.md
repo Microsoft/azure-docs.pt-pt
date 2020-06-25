@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop ambiente anfitrião criação de piscina - Azure
-description: Como resolver problemas e resolver problemas de piscina de inquilinos e anfitriões durante a configuração de um ambiente de ambiente de trabalho virtual windows.
+description: Como resolver problemas e resolver problemas de inquilinos e piscinas durante a configuração de um ambiente de desktop virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,61 +8,63 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612600"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361172"
 ---
-# <a name="host-pool-creation"></a>Criação de piscina anfitriã
+# <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo aborda problemas durante a configuração inicial do inquilino do Windows Virtual Desktop e a infraestrutura de piscina de hospedas de sessão relacionada.
+Este artigo cobre problemas durante a configuração inicial do inquilino virtual do Windows Desktop e da infraestrutura de piscina de anfitrião de sessão relacionada.
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de desktop virtual windows com a equipa de produtos e membros ativos da comunidade.
+Visite a [Comunidade Virtual desktop tech do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de desktop virtual do Windows com a equipa de produtos e membros da comunidade ativa.
 
-## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirir a imagem multi-sessão do Windows 10 Enterprise
+## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Aquisição da imagem multi-sessão do Windows 10 Enterprise
 
-Para utilizar a imagem multissessão do Windows 10 Enterprise, vá ao Mercado Azure, selecione **Start Microsoft** > **Windows 10** > e [Windows 10 Enterprise multi-sessão, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para utilizar a imagem multi-sessão empresarial do Windows 10, vá ao Azure Marketplace, **selecione Get Start**Microsoft Windows  >  **10** > e Windows [10 Enterprise multi-sessão, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas com a utilização do portal Azure para criar piscinas de acolhimento
+## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas com a utilização do portal Azure para criar piscinas hospedeiras
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Erro: "Criar uma conta gratuita" aparece ao aceder ao serviço
 
-![Uma imagem mostrando o portal Azure exibindo a mensagem "Criar uma conta gratuita"](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem mostrando o portal Azure exibindo a mensagem "Criar uma conta gratuita"](media/create-new-account.png)
 
-**Causa**: Não existem subscrições ativas na conta com a qual assinou no Azure, ou a conta não tem permissões para visualizar as subscrições. 
+**Causa**: Não existem subscrições ativas na conta com a qual assinou com o Azure, ou a conta não tem permissões para visualizar as subscrições. 
 
-**Correção**: Inscreva-se na subscrição onde irá implementar as máquinas virtuais anfitriãs da sessão (VMs) com uma conta que tem pelo menos acesso ao nível dos contribuintes.
+**Correção**: Faça o sessão onde irá implantar as máquinas virtuais (VMs) do anfitrião da sessão com uma conta que tenha pelo menos acesso ao nível do contribuinte.
 
 ### <a name="error-exceeding-quota-limit"></a>Erro: "Exceder o limite de quota"
 
 Se a sua operação ultrapassar o limite de quota, pode fazer uma das seguintes coisas: 
 
-- Crie uma nova piscina de anfitriões com os mesmos parâmetros, mas menos VMs e núcleos VM.
+- Crie uma nova piscina hospedeira com os mesmos parâmetros, mas menos VMs e núcleos VM.
 
-- Abra o link que vê no campo statusMessage num browser para submeter um pedido para aumentar a quota para a sua subscrição Azure para o SKU VM especificado.
+- Abra o link que vê no campo statusMessage num browser para submeter um pedido de aumento da quota para a sua subscrição Azure para o VM SKU especificado.
 
-## <a name="azure-resource-manager-template-errors"></a>Erros de modelo do Gestor de Recursos Azure
+## <a name="azure-resource-manager-template-errors"></a>Erros do modelo do Gestor de Recursos Azure
 
-Siga estas instruções para resolução de problemas de implementações mal sucedidas de modelos do Gestor de Recursos Azure e do PowerShell DSC.
+Siga estas instruções para resolver implementações infrutíferas dos modelos do Gestor de Recursos Azure e do PowerShell DSC.
 
-1. Reveja os erros na implementação utilizando as operações de implantação do View com o [Gestor de Recursos Azure](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se não houver erros na implementação, reveja os erros no registo de atividade utilizando registos de atividade do [View para auditar ações sobre recursos](../azure-resource-manager/resource-group-audit.md).
-3. Uma vez identificado o erro, utilize a mensagem de erro e os recursos em Troubleshoot erros comuns de implementação do [Azure com o Gestor de Recursos Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
-4. Elimine quaisquer recursos criados durante a implementação anterior e volte a implementar o modelo novamente.
+1. Rever erros na implementação utilizando [operações de implementação do View com o Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
+2. Se não houver erros na implementação, reveja os erros no registo de atividades utilizando [registos de atividades do View para auditar ações sobre recursos](../azure-resource-manager/resource-group-audit.md).
+3. Assim que o erro for identificado, utilize a mensagem de erro e os recursos em [erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
+4. Elimine quaisquer recursos criados durante a implementação anterior e volte a tentar implementar o modelo novamente.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: A sua implementação falhou....\<nome de anfitrião>/joindomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: A sua implantação falhou.... \<hostname> /joindomain
 
-![A sua imagem falhada de implantação.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![A sua imagem falhada de implantação falhou.](media/failure-joindomain.png)
 
 Exemplo de erro bruto:
 
@@ -74,46 +76,48 @@ Exemplo de erro bruto:
  extension 'joindomain'. Error message: \\\"Exception(s) occurred while joining Domain 'diamondsg.onmicrosoft.com'\\\".\"\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Causa 1:** As credenciais previstas para a adesão de VMs ao domínio estão incorretas.
+**Causa 1:** As credenciais previstas para a junção de VMs ao domínio estão incorretas.
 
-**Correção 1:** Ver que o erro das "credenciais incorretas" para os VMs não está unido ao domínio na [configuração VM do anfitrião](troubleshoot-vm-configuration.md)da sessão .
+**Correção 1:** Consulte o erro de "credenciais incorretas" para VMs não se junta ao domínio na [configuração VM do anfitrião da Sessão](troubleshoot-vm-configuration.md).
 
 **Causa 2:** O nome de domínio não resolve.
 
-**Correção 2:** Ver [Erro: O nome](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) do domínio não resolve na [configuração VM do anfitrião](troubleshoot-vm-configuration.md)da sessão .
+**Correção 2:** Ver [Erro: O nome de domínio não se resolve](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) na [configuração VM do anfitrião da Sessão](troubleshoot-vm-configuration.md).
 
-**Causa 3:** A configuração DNS da rede virtual (VNET) está definida para **Padrão**.
+**Causa 3:** A configuração DE DNS da sua rede virtual (VNET) está definida como **Padrão**.
 
 Para corrigir isto, faça as seguintes coisas:
 
 1. Abra o portal Azure e vá ao separador **redes Virtuais.**
 2. Encontre o seu VNET e, em seguida, selecione **servidores DNS**.
-3. O menu de servidores DNS deve aparecer no lado direito do ecrã. Nesse menu, selecione **Custom**.
-4. Certifique-se de que os servidores DNS listados em Custom correspondem ao seu controlador de domínio ou ao domínio ative directory. Se não vir o seu servidor DNS, pode adicioná-lo introduzindo o seu valor no campo de **servidor DNS Add.**
+3. O menu de servidores DNS deve aparecer no lado direito do seu ecrã. Nesse menu, selecione **Custom**.
+4. Certifique-se de que os servidores DNS listados no Custom correspondem ao seu controlador de domínio ou ao domínio do Ative Directory. Se não vir o servidor DNS, pode adicioná-lo introduzindo o seu valor no campo do **servidor Add DNS.**
 
-### <a name="error-your-deployment-failedunauthorized"></a>Erro: A sua implementação falhou...\Não autorizada
+### <a name="error-your-deployment-failedunauthorized"></a>Erro: A sua implantação falhou...\Não autorizada
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
 ```
 
-**Causa:** A subscrição que está a usar é um tipo que não consegue aceder às funcionalidades necessárias na região onde o cliente está a tentar implementar. Por exemplo, as subscrições de MSDN, Free ou Education podem mostrar este erro.
+**Causa:** A subscrição que está a usar é um tipo que não consegue aceder às funcionalidades necessárias na região onde o cliente está a tentar implementar. Por exemplo, as assinaturas MSDN, Free ou Education podem mostrar este erro.
 
-**Correção:** Altere o seu tipo de subscrição ou região para aquele que pode aceder às funcionalidades necessárias.
+**Correção:** Altere o tipo de subscrição ou região para um que possa aceder às funcionalidades necessárias.
 
 ### <a name="error-vmextensionprovisioningerror"></a>Erro: VMExtensionProvisioningError
 
-![Screenshot da sua implantação falhou com o estado de provisionamento terminal falhado.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot da sua implantação falhou com o estado de provisionamento terminal falhado.](media/failure-vmextensionprovisioning.png)
 
-**Causa 1:** Erro transitório com o ambiente de ambiente de trabalho virtual do Windows.
+**Causa 1:** Erro transitório com o ambiente de trabalho virtual do Windows.
 
 **Causa 2:** Erro transitório com ligação.
 
-**Correção:** Confirme que o ambiente de trabalho virtual do Windows é saudável ao iniciar sessão utilizando o PowerShell. Termine o registo VM manualmente em [Criar uma piscina de anfitriões com powerShell](create-host-pools-powershell.md).
+**Correção:** Confirme que o ambiente de ambiente de trabalho virtual do Windows é saudável ao iniciar sessão com o PowerShell. Termine manualmente o registo VM em [Criar uma piscina de anfitriões com PowerShell](create-host-pools-powershell.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de utilizador do Administrador especificado não é permitido
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de utilizador do administrador especificado não é permitido
 
-![A imagem da sua implantação falhou na qual um administrador especificado não é permitido.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![A imagem da sua implantação falhou na qual não é permitido um administrador especificado.](media/failure-username.png)
 
 Exemplo de erro bruto:
 
@@ -124,13 +128,14 @@ Exemplo de erro bruto:
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
-**Causa:** A palavra-passe fornecida contém substrings proibidos (administrador, administrador, raiz).
+**Causa:** A palavra-passe fornecida contém sublamentos proibidos (administrador, administrador, raiz).
 
 **Correção:** Atualizar o nome de utilizador ou utilizar diferentes utilizadores.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: VM reportou uma falha no processamento de extensão
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM reportou uma falha ao processar a extensão
 
-![Screenshot da operação de recursos concluída com estado de provisionamento terminal na sua implementação falhou.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot da operação de recursos concluída com estado de provisionamento terminal na Sua Implementação Falhou.](media/failure-processing.png)
 
 Exemplo de erro bruto:
 
@@ -143,13 +148,14 @@ Exemplo de erro bruto:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
-**Causa:** A extensão DoDSC powerShell não foi capaz de obter acesso administrativo no VM.
+**Causa:** A extensão DSC da PowerShell não foi capaz de obter acesso administrativo no VM.
 
-**Correção:** Confirme o nome de utilizador e a palavra-passe ter acesso administrativo na máquina virtual e executar novamente o modelo do Gestor de Recursos Azure.
+**Correção:** Confirme o nome de utilizador e a palavra-passe têm acesso administrativo na máquina virtual e execute novamente o modelo do Gestor de Recursos Azure.
 
-### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erro: Implementação Falhada – Configuração 'FirstSessionHost' de configuração do PowerShell DSC concluída com erro(s)
+### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erro: ImplementaçãoFailed – Configuração DShell 'FirstSessionHost' concluída com Erro(s)
 
-![Falha na falha de implementação com configuração do DSC powerShell 'FirstSessionHost' concluída com Error(s).](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot de falha de implementação com configuração DSC 'FirstSessionHost' completada com Erro(s).](media/failure-dsc.png)
 
 Exemplo de erro bruto:
 
@@ -175,11 +181,11 @@ Exemplo de erro bruto:
 
 ```
 
-**Causa:** A extensão DoDSC powerShell não foi capaz de obter acesso administrativo no VM.
+**Causa:** A extensão DSC da PowerShell não foi capaz de obter acesso administrativo no VM.
 
-**Correção:** Confirme o nome de utilizador e a palavra-passe fornecida têm acesso administrativo na máquina virtual e executem novamente o modelo do Gestor de Recursos Azure.
+**Correção:** Confirme o nome de utilizador e a palavra-passe fornecidas têm acesso administrativo na máquina virtual e execute novamente o modelo do Gestor de Recursos Azure.
 
-### <a name="error-deploymentfailed--invalidresourcereference"></a>Erro: Implementação Falhada – Referência de Recursos Inválidos
+### <a name="error-deploymentfailed--invalidresourcereference"></a>Erro: ImplementaçãoFailed – InvalidResourceReference
 
 Exemplo de erro bruto:
 
@@ -202,11 +208,11 @@ the referenced resource exists, and that both resources are in the same
 region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Causa:** Parte do nome do grupo de recursos é usado para certos recursos criados pelo modelo. Devido ao nome que combina com os recursos existentes, o modelo pode selecionar um recurso existente de um grupo diferente.
+**Causa:** Parte do nome do grupo de recursos é usado para certos recursos criados pelo modelo. Devido ao nome que corresponde aos recursos existentes, o modelo pode selecionar um recurso existente de um grupo diferente.
 
-**Correção:** Ao executar o modelo do Gestor de Recursos Azure para implementar VMs de anfitrião da sessão, torne os dois primeiros caracteres únicos para o seu nome de grupo de recursos de subscrição.
+**Correção:** Ao executar o modelo Azure Resource Manager para implementar VMs de anfitrião de sessão, torne os dois primeiros caracteres únicos para o nome do grupo de recursos de subscrição.
 
-### <a name="error-deploymentfailed--invalidresourcereference"></a>Erro: Implementação Falhada – Referência de Recursos Inválidos
+### <a name="error-deploymentfailed--invalidresourcereference"></a>Erro: ImplementaçãoFailed – InvalidResourceReference
 
 Exemplo de erro bruto:
 
@@ -229,11 +235,11 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 }\r\n ]\r\n }\r\n ]\r\n }\r\n\
 ```
 
-**Causa:** Este erro deve-se ao facto de o NIC criado com o modelo do Gestor de Recursos Azure ter o mesmo nome que outro NIC já no VNET.
+**Causa:** Este erro deve-se ao facto de o NIC criado com o modelo Azure Resource Manager ter o mesmo nome que outro NIC já no VNET.
 
 **Correção:** Use um prefixo de hospedeiro diferente.
 
-### <a name="error-deploymentfailed--error-downloading"></a>Error: DeploymentFailed – Error download
+### <a name="error-deploymentfailed--error-downloading"></a>Erro: ImplementaçãoFailed – Transferência de erros
 
 Exemplo de erro bruto:
 
@@ -248,18 +254,18 @@ be found in the logs located under
 the VM.\\\"
 ```
 
-**Causa:** Este erro deve-se a uma rota estática, regra da firewall ou NSG bloqueando o download do ficheiro zip ligado ao modelo do Gestor de Recursos Azure.
+**Causa:** Este erro deve-se a uma rota estática, regra de firewall ou NSG bloqueando o descarregamento do ficheiro zip ligado ao modelo Azure Resource Manager.
 
-**Correção:** Remova o bloqueio da rota estática, regra da firewall ou NSG. Opcionalmente, abra o ficheiro json modelo do Gestor de Recursos Do Azure num editor de texto, leve o link para o ficheiro zip e descarregue o recurso para uma localização permitida.
+**Correção:** Remova a rota estática de bloqueio, a regra da firewall ou a NSG. Opcionalmente, abra o ficheiro json do modelo Azure Resource Manager num editor de texto, pegue o link para o ficheiro zip e descarregue o recurso para uma localização permitida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte a [visão geral, feedback e suporte](troubleshoot-set-up-overview.md)de Resolução de Problemas.
-- Para resolver problemas ao configurar uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração virtual](troubleshoot-vm-configuration.md)do anfitrião da sessão .
-- Para resolver problemas com as ligações do cliente do Windows Virtual Desktop, consulte [as ligações](troubleshoot-service-connection.md)de serviço do Windows Virtual Desktop .
-- Para resolver problemas com clientes do Desktop Remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
+- Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
+- Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
+- Para resolver problemas com as ligações do cliente virtual do Windows Desktop, consulte [as ligações do serviço de desktop virtual do Windows](troubleshoot-service-connection.md).
+- Para resolver problemas com clientes de ambiente de trabalho remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
 - Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Para saber mais sobre o serviço, consulte o ambiente de ambiente de [trabalho virtual do Windows](environment-setup.md).
-- Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)do modelo de gestor de recursos de resolução de problemas .
-- Para conhecer as ações de auditoria, consulte operações de [auditoria com o Gestor de Recursos.](../azure-resource-manager/management/view-activity-logs.md)
-- Para aprender sobre as ações para determinar os erros durante a implementação, consulte as operações de [implantação do View](../azure-resource-manager/templates/deployment-history.md).
+- Para saber mais sobre o serviço, consulte o [ambiente de ambiente de trabalho virtual do Windows.](environment-setup.md)
+- Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../azure-resource-manager/management/view-activity-logs.md)
+- Para obter ações para determinar os erros durante a implementação, consulte [as operações de implantação](../azure-resource-manager/templates/deployment-history.md)da visualização .

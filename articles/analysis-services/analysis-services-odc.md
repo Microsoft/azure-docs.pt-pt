@@ -1,41 +1,41 @@
 ---
-title: Ligue-se aos Serviços de Análise Azure com um ficheiro .odc [ Microsoft Docs
-description: Saiba como criar um ficheiro de Ligação de Dados do Office para se conectar e obter dados de um servidor de Serviços de Análise em Azure.
+title: Ligue-se aos Serviços de Análise Azure com um ficheiro .odc Microsoft Docs
+description: Saiba como criar um ficheiro de Ligação de Dados do Office para ligar e obter dados de um servidor de Serviços de Análise em Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a4e2dc09c54b39d58b0193e7ac9f585236886722
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 36031006f155f1651845dbce48b6c6ec84397e93
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572678"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361426"
 ---
-# <a name="create-an-office-data-connection-file"></a>Criar um ficheiro de Ligação de Dados do Escritório
+# <a name="create-an-office-data-connection-file"></a>Criar um ficheiro de ligação de dados do Office
 
-A informação neste artigo descreve como pode criar um ficheiro de Ligação de Dados do Office para se ligar a um servidor do Azure Analysis Services a partir do Número 16.0.7369.2117 ou anterior, ou Excel 2013. É também necessário um [fornecedor MSOLAP.7](analysis-services-data-providers.md) atualizado.
-
-
-1. Copie o ficheiro de ligação da amostra abaixo e cole num editor de texto. 
-
-2. Em, `odc:ConnectionString`altere as seguintes propriedades:
-
-    *   Em `Data Source=asazure://<region>.asazure.windows.net/<servername>;` `<region>` alteração à região do `<servername>` seu servidor de Serviços de Análise e ao nome do seu servidor.
-
-    *   Em `Initial Catalog=<database>;` `<database>` troca do nome da sua base de dados.
-
-3. Em `<odc:CommandText>Model</odc:CommandText>` `Model` mudança para o nome do seu modelo ou perspetiva. 
-
-4. Guarde o `.odc` ficheiro com uma extensão do nome de\\*utilizador*c:\Utilizadores \Documentos\My Data Sources.
-
-5. Clique no ficheiro e clique **em Abrir no Excel**. Ou no Excel, na fita **Data,** clique em **Conexões Existentes,** selecione o seu ficheiro e, em seguida, clique em **Abrir**.
+As informações neste artigo descrevem como pode criar um ficheiro de Ligação de Dados do Office para ligar a um servidor Azure Analysis Services a partir da versão Excel 2016 número 16.0.7369.2117 ou anterior, ou Excel 2013. É igualmente necessário um [fornecedor MSOLAP.7](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) atualizado.
 
 
+1. Copie o ficheiro de ligação da amostra abaixo e cole-o num editor de texto. 
 
-**Arquivo de ligação à amostra**
+2. Em `odc:ConnectionString` , alterar as seguintes propriedades:
+
+    *   Em `Data Source=asazure://<region>.asazure.windows.net/<servername>;` alteração para a `<region>` região do seu servidor de Serviços de Análise e `<servername>` para o nome do seu servidor.
+
+    *   Em `Initial Catalog=<database>;` alteração ao nome da sua base de `<database>` dados.
+
+3. Em `<odc:CommandText>Model</odc:CommandText>` mudança para o nome do seu modelo ou `Model` perspetiva. 
+
+4. Guarde o ficheiro com uma `.odc` extensão do nome de utilizador C:\Users \\ *username*\Documentos\A minha pasta de Fontes de Dados.
+
+5. Clique com o botão direito no ficheiro e, em seguida, clique **em Abrir no Excel**. Ou no Excel, na fita **Data,** clique em **Conexões Existentes,** selecione o seu ficheiro e, em seguida, clique em **Abrir**.
+
+
+
+**Ficheiro de ligação à amostra**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="https://www.w3.org/TR/REC-html40">

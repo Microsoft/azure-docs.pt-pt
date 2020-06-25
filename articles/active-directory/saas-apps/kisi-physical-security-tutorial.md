@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ca4d30786953504218ef09c7c591ff2f46f524
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: bd85042d30be0bb37de590fe9b011948b9acf0db
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765538"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361375"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Segurança Física de Kisi
 
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://identity.kms.kisi.io/organizations/sign_in?domain=<DOMAIN>`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://web.kisi.io/organizations/sign_in?domain=<DOMAIN>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente de Segurança Física da Kisi](mailto:support@getkisi.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -102,11 +102,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Kisi Physical Security espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  |  Atributo de origem|
+    | Nome |  |  Atributo de origem|
     | ---------------| --------------- | --------- |
     | FirstName | | user.givenname |
     | LastName | | utilizador.sobrenome |
-    | E-mail | | user.mail |
+    | E-mail | | user.userprincipalname |
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 

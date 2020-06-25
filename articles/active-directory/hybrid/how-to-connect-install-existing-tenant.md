@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2d8117e00b5da47dd489983f5fe1494cf814e07
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886151"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358833"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Quando você tem um inquilino existente
 A maioria dos tópicos para como usar o Azure AD Connect assume que você começa com um novo inquilino AD AZure e que não há utilizadores ou outros objetos lá. Mas se você começou com um inquilino AZure AD, povoou-o com utilizadores e outros objetos, e agora quer usar Connect, então este tópico é para você.

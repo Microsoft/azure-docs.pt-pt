@@ -7,17 +7,17 @@ manager: daveba
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 634c10771751522dba4093fe1c830820926fd621
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558570"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357873"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: Faça uma alteração na configuração padrão
 O objetivo deste artigo é interprir como fazer alterações na configuração padrão no Azure Ative Directory (Azure AD) Conecte a sincronização. Fornece passos para alguns cenários comuns. Com este conhecimento, deverá ser capaz de fazer alterações simples na sua própria configuração com base nas suas próprias regras de negócio.
@@ -264,8 +264,8 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Name | *Fornecer um nome* | Por exemplo, *In from AD – UserType* |
-    | Description | *Fornecer uma descrição* |  |
+    | Nome | *Fornecer um nome* | Por exemplo, *In from AD – UserType* |
+    | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Escolha o conector AD no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
@@ -306,8 +306,8 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Name | *Fornecer um nome* | Por exemplo, *out to AAD – UserType* |
-    | Description | *Fornecer uma descrição* ||
+    | Nome | *Fornecer um nome* | Por exemplo, *out to AAD – UserType* |
+    | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o conector AAD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||

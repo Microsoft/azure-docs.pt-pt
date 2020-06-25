@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31a2bcdcf7b21999ddf17170b024589204c0e9e5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b8d0bcff79b6101047545614538dc1d58a854a6d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212790"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361256"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -37,11 +37,13 @@ Para criar um VM com o VHD copiado:
 
 2. Na página Especificar Geração, selecione **Geração 1**.
 
-    ![Uma imagem da página Especifica geração. A opção "Geração 1" é selecionada.](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da página Especifica geração. A opção "Geração 1" é selecionada.](media/a41174fd41302a181e46385e1e701975.png)
 
 3. No tipo checkpoint, desative os pontos de verificação desmarcando a caixa de verificação.
 
-    ![Uma imagem da secção do tipo checkpoint da página Checkpoints.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da secção do tipo checkpoint da página Checkpoints.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 Também pode executar o seguinte cmdlet em PowerShell para desativar os pontos de verificação.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Se criar um VM a partir de um VHD existente, cria um disco dinâmico por padrão. Pode ser alterado para um disco fixo selecionando **EditAr Disco...** como mostrado na imagem seguinte. Para obter instruções mais detalhadas, consulte [Prepare um VHD ou VHDX do Windows para fazer o upload para Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Uma imagem da opção Edit Disco.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem da opção Edit Disco.](media/35772414b5a0f81f06f54065561d1414.png)
 
 Também pode executar o cmdlet PowerShell seguinte para alterar o disco para um disco fixo.
 
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 Para o anfitrião de sessão virtual do Windows Desktop que utilize o Windows 10 Enterprise ou o Windows 10 Enterprise multi-sessão, recomendamos desativar o Storage Sense. Pode desativar o Sentido de Armazenamento no menu Definições em **Armazenamento**, como mostra a seguinte imagem:
 
-![Uma imagem do menu de armazenamento em Definições. A opção "Sentido de armazenamento" está desligada.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem do menu de armazenamento em Definições. A opção "Sentido de armazenamento" está desligada.](media/storagesense.png)
 
 Também pode alterar a definição com o registo executando o seguinte comando:
 
@@ -189,15 +193,18 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
 
 2. Faça o upload do VHD para um recipiente de bolhas na sua conta de armazenamento. Pode fazer o upload rapidamente com a [ferramenta Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta Storage Explorer, consulte [este artigo.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
 
-    ![Uma imagem da janela de pesquisa da Ferramenta do Explorador de Armazenamento microsoft Azure. É selecionada a caixa de verificação "Upload .vhd ou vhdx como bolhas de página (recomendadas)".](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da janela de pesquisa da Ferramenta do Explorador de Armazenamento microsoft Azure. É selecionada a caixa de verificação "Upload .vhd ou vhdx como bolhas de página (recomendadas)".](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Em seguida, vá ao portal Azure no seu navegador e procure por "Imagens". A sua pesquisa deve levá-lo à página **de imagem Criar,** como mostrado na seguinte imagem:
 
-    ![Uma imagem da página de imagem Create do portal Azure, preenchida com valores de exemplo para a imagem.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da página de imagem Create do portal Azure, preenchida com valores de exemplo para a imagem.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Uma vez criada a imagem, deverá ver uma notificação como a da seguinte imagem:
 
-    ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

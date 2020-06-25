@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db7c0595d109efddb092f5e96babda17038e5e9e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635820"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359012"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md#115610) e agora suporta cenários adicionais que anteriormente não eram suportados.
@@ -99,5 +99,5 @@ Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos,
 |UpgradeNotSupedLocaldbSizeExceed|O tamanho DB local é maior ou igual a 8 GB|
 |UpgradeNotSupportedAADHealthUploadDisabled|Os uploads de dados de saúde foram desativados do portal|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f716c52443abedb0fb838fa95b421033f5e93408
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 97ddc91b5e49cafa87b90113f0160d8aec9c699a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85218052"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360321"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -66,7 +66,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 
-| Função| Description |
+| Função| Descrição |
 | - | - |
 | Administrador do dispositivo| Um representante da equipa de dispositivos que pode verificar se o plano irá satisfazer os requisitos do dispositivo da sua organização. |
 | Administrador de rede| Um representante da equipa de rede que pode certificar-se de que cumpre os requisitos da rede. |
@@ -118,9 +118,8 @@ Os dispositivos iOS e Android só podem estar registados no Azure AD. A tabela a
 |**Principais capacidades**| | |  |
 | SSO para cloud resources| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
 | Recursos de SSO para o local| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Acesso condicional| ![selecionar](./media/plan-device-deployment/check.png) 
-Dispositivos em conformidade| ![selecionar](./media/plan-device-deployment/check.png)
-Dispositivo conforme| ![selecionar](./media/plan-device-deployment/check.png) |
+| Acesso Condicional <br> (Exigir que os dispositivos sejam marcados como conformes) <br> (Deve ser gerido pelo MDM)| ![selecionar](./media/plan-device-deployment/check.png) | ![selecionar](./media/plan-device-deployment/check.png)|![selecionar](./media/plan-device-deployment/check.png) |
+Acesso Condicional <br>(Requera dispositivos híbridos AZure AD)| | | ![selecionar](./media/plan-device-deployment/check.png)
 | Palavra-passe de self-service reiniciada a partir do ecrã de login do Windows| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
 | Windows hello PIN reset| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
 | Estado empresarial roaming através de dispositivos| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |

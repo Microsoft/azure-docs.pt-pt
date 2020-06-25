@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 47c504d9359779294c4690059d1958614d863e58
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: b0cdff2ce71fb63194933bdfed26da16fdebcca7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260887"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361926"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilize o Link Privado Azure para ligar de forma segura as redes ao Azure Monitor
 
@@ -168,9 +168,8 @@ Restringir o acesso desta forma só se aplica aos dados do recurso Application I
 
 > [!NOTE]
 > Para garantir totalmente os Insights de Aplicação baseados no espaço de trabalho, é necessário bloquear tanto o acesso ao recurso Application Insights como o espaço de trabalho subjacente ao Log Analytics.
-
-> [!NOTE]
-> Atualmente, os diagnósticos ao nível do código (profiler/debugger) não suportam o Private Link.
+>
+> Os diagnósticos ao nível do código (profiler/debugger) precisam que forneça a sua própria conta de armazenamento para suportar uma ligação privada. Aqui está a [documentação](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) para como fazer isto.
 
 ## <a name="use-apis-and-command-line"></a>Use APIs e linha de comando
 
@@ -226,7 +225,7 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 
 | Ambiente em nuvem | Recursos do Agente | Portas | Direção |
 |:--|:--|:--|:--|
-|Azure Público     | scadvisor.blob.core.windows.net         | 443 | Saída
+|Azure Público     | scadvisorcontent.blob.core.windows.net         | 443 | Saída
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
 

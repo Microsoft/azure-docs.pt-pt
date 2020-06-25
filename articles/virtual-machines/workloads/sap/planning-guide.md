@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60d2f8017454cd73e91bb022bab79a48b0af8a36
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1a3b07dadba17f72f6f4c5765787c7122eebaa89
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209594"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361409"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -549,13 +549,6 @@ Dentro de Azure, um nome disco/VHD segue a seguinte ligação de nomeação que 
 A cadeia acima precisa de identificar exclusivamente o disco/VHD que é armazenado no Azure Storage.
 
 
-#### <a name="managed-disks"></a><a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
-
-Os discos geridos são um tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs que são armazenados em Contas de Armazenamento Azure. Os Discos Geridos alinham-se automaticamente com o conjunto de disponibilidade da máquina virtual a que estão ligados e, portanto, aumentam a disponibilidade da sua máquina virtual e dos serviços que estão a funcionar na máquina virtual. Para mais informações, leia o [artigo Geral.](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)
-
-Recomendamos que utilize discos geridos Azure, porque simplificam a implementação e gestão das suas máquinas virtuais.
-
-
 #### <a name="azure-persisted-storage-types"></a>Tipos de armazenamento Azure persistidos
 O Azure oferece uma variedade de opções de armazenamento persistidos que podem ser usadas para carga de trabalho SAP e componentes específicos da pilha SAP. Para mais detalhes, leia o documento [Azure armazenamento para cargas de trabalho SAP](./planning-guide-storage.md).
 
@@ -967,7 +960,7 @@ Durante o download, os VHDs ou Discos Geridos não podem estar ativos. Mesmo ao 
   ```
 
 * Descarregar um VHD  
-  Uma vez que o sistema SAP é parado e o VM é desligado, você pode usar o cmdlet PowerShell Save-AzVhd no alvo no local para baixar os discos VHD de volta para o mundo do local. Para isso, precisa do URL do VHD, que pode encontrar na 'secção de armazenamento' do portal Azure (precisa navegar para a Conta de Armazenamento e para o recipiente de armazenamento onde o VHD foi criado) e precisa de saber para onde o VHD deve ser copiado.
+  Uma vez que o sistema SAP é parado e o VM é desligado, você pode usar o cmdlet PowerShell `Save-AzVhd` no alvo no local para baixar os discos VHD de volta para o mundo no local. Para isso, precisa do URL do VHD, que pode encontrar na 'secção de armazenamento' do portal Azure (precisa navegar para a Conta de Armazenamento e para o recipiente de armazenamento onde o VHD foi criado) e precisa de saber para onde o VHD deve ser copiado.
 
   Em seguida, pode aproveitar o comando definindo o parâmetro SourceUri como o URL do VHD para descarregar e o LocalFilePath como a localização física do VHD (incluindo o seu nome). O comando pode parecer:
 
@@ -988,7 +981,7 @@ Durante o download, os VHDs ou Discos Geridos não podem estar ativos. Mesmo ao 
   ```
 
 * Descarregar um VHD   
-  Uma vez que o sistema SAP é parado e o VM é desligado, você pode usar o download do _bloco de armazenamento_ Azure CLI no alvo do local para baixar os discos VHD de volta para o mundo do local. Para isso, precisa do nome e do recipiente do VHD, que pode encontrar na 'Secção de Armazenamento' do portal Azure (precisa navegar para a Conta de Armazenamento e para o recipiente de armazenamento onde o VHD foi criado) e precisa de saber para onde o VHD deve ser copiado.
+  Uma vez que o sistema SAP é parado e o VM é desligado, você pode usar o comando Azure CLI `_azure storage blob download_` no alvo no local para baixar os discos VHD de volta para o mundo no local. Para isso, precisa do nome e do recipiente do VHD, que pode encontrar na 'Secção de Armazenamento' do portal Azure (precisa navegar para a Conta de Armazenamento e para o recipiente de armazenamento onde o VHD foi criado) e precisa de saber para onde o VHD deve ser copiado.
 
   Em seguida, pode aproveitar o comando definindo os parâmetros blob e o recipiente do VHD para descarregar e o destino como a localização do alvo físico do VHD (incluindo o seu nome). O comando pode parecer:
 

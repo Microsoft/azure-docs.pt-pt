@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: 828615add9f24b5a2089e240bbf62647f34a25f0
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207418"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361392"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
 
@@ -211,10 +211,6 @@ ms.locfileid: "85207418"
 [planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Cópia de discos entre contas de armazenamento Azure)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Estrutura VM/VHD para implantações DE SAP)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Definição automática para discos anexos)
-[planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (VM único com cenário de demonstração/treino SAP NetWeaver)
-[planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Conceitos de implantação apenas em nuvem de instâncias SAP)
-[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solução de monitorização Azure para SAP)
-[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Discos geridos)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -446,7 +442,7 @@ O assistente orienta-o através da definição dos parâmetros necessários para
 1. **Definições:**
    * **Armazenamento**
      * **Tipo de disco**: Selecione o tipo de disco do disco OS. Se pretender utilizar o Armazenamento Premium para os seus discos de dados, recomendamos também a utilização de Armazenamento Premium para o disco OS.
-     * **Utilize discos geridos**: Se pretender utilizar Discos Geridos, selecione Sim. Para obter mais informações sobre Discos Geridos, consulte o capítulo [Discos Geridos][planning-guide-managed-disks] no guia de planeamento.
+     * **Utilize discos geridos**: Se pretender utilizar Discos Geridos, selecione Sim. Para obter mais informações sobre Discos Geridos, consulte o capítulo [Discos Geridos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) no guia de planeamento.
      * **Conta de armazenamento**: Selecione uma conta de armazenamento existente ou crie uma nova. Nem todos os tipos de armazenamento funcionam para executar aplicações SAP. Para obter mais informações sobre tipos de armazenamento, consulte [a estrutura de armazenamento de um VM para implantações RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Rede**
      * **Rede virtual** e **Sub-rede**: Para integrar a máquina virtual com a sua intranet, selecione a rede virtual que está ligada à sua rede no local.
@@ -586,7 +582,7 @@ O assistente orienta-o através da definição dos parâmetros necessários para
 1. **Definições:**
    * **Armazenamento**
      * **Tipo de disco**: Selecione o tipo de disco do disco OS. Se pretender utilizar o Armazenamento Premium para os seus discos de dados, recomendamos também a utilização de Armazenamento Premium para o disco OS.
-     * **Utilize discos geridos**: Se pretender utilizar Discos Geridos, selecione Sim. Para obter mais informações sobre Discos Geridos, consulte o capítulo [Discos Geridos][planning-guide-managed-disks] no guia de planeamento.
+     * **Utilize discos geridos**: Se pretender utilizar Discos Geridos, selecione Sim. Para obter mais informações sobre Discos Geridos, consulte o capítulo [Discos Geridos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) no guia de planeamento.
    * **Rede**
      * **Rede virtual** e **Sub-rede**: Para integrar a máquina virtual com a sua intranet, selecione a rede virtual que está ligada à sua rede no local.
      * **Endereço IP público**: Selecione o endereço IP público que pretende utilizar ou introduza parâmetros para criar um novo endereço IP público. Pode utilizar um endereço IP público para aceder à sua máquina virtual através da Internet. Certifique-se de que também cria um grupo de segurança de rede para ajudar a garantir o acesso à sua máquina virtual.
@@ -917,7 +913,7 @@ Para obter mais informações sobre as rotas definidas pelo utilizador, consulte
 > Declaração geral de apoio: Abra sempre um incidente com o SAP sobre o componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR se precisar de suporte para a Extensão Azure para SAP.
 > Existem engenheiros de suporte dedicados da Microsoft a trabalhar no sistema de suporte SAP para ajudar os nossos clientes conjuntos.
 
-Quando tiver preparado o VM como descrito nos [cenários de implementação de VMs para SAP on Azure,][deployment-guide-3]o Agente VM Azure está instalado na máquina virtual. O próximo passo é implantar a Extensão Azure para o SAP, que está disponível no Repositório de Extensão Azure nos datacenters globais do Azure. Para obter mais informações, consulte [o planeamento e implementação de Máquinas Virtuais Azure para o SAP NetWeaver][planning-guide-9.1].
+Quando tiver preparado o VM como descrito nos [cenários de implementação de VMs para SAP on Azure,][deployment-guide-3]o Agente VM Azure está instalado na máquina virtual. O próximo passo é implantar a Extensão Azure para o SAP, que está disponível no Repositório de Extensão Azure nos datacenters globais do Azure. Para obter mais informações, consulte [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
 
 Estamos em vias de lançar uma nova versão da Extensão Azure para SAP. A nova extensão utiliza a identidade atribuída ao sistema da máquina virtual para obter informações sobre os discos anexos, interfaces de rede e a própria máquina virtual. Para poder aceder a estes recursos, a identidade do sistema da máquina virtual necessita de permissão do Leitor para a máquina virtual, disco DE, discos de dados e interfaces de rede. Atualmente, recomendamos apenas instalar a nova extensão nos seguintes cenários:
 
@@ -1503,7 +1499,7 @@ Siga os passos do capítulo [Configure a Extensão Azure para SAP][deployment-gu
 
 Se os erros não desaparecerem, [contacte o suporte][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contactar o Suporte
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Suporte de contato
 
 Erro inesperado ou não há solução conhecida. Colete o ficheiro AzureEnhancedMonitoring_service.log localizado na pasta C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \drop (Windows) ou /var/log/azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorforLinux (Linux) e contacte o suporte DA SAP para mais assistência.
 

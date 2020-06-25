@@ -10,22 +10,30 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 06/05/2020
-ms.openlocfilehash: 7238e2d7cbcb26a7b45ae9d7db52a0826abe0754
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897983"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361647"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
 Este artigo descreve o que é novo e o que mudou a cada nova construção de Azure SQL Edge.
 
+## <a name="ctp-21"></a>CTP 2.1 
+### <a name="sql-engine-build-number---15020001545"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1545
+### <a name="fixes"></a>Correções
+1. Corrija o PREVISÃO com os modelos ONNX para lidar com o problema do CPUID na ARM 
+2. Correção para melhorar o manuseamento do caminho de falha no arranque do streaming TSQL 
+3. Corrija o valor incorreto do atraso da marca de água nas métricas de trabalho quando não há dados. 
+4. Corrija o problema com o adaptador de saída quando o adaptador tem esquemas variáveis entre lotes.  
+
 ## <a name="ctp-20"></a>CTP 2.0 
 ### <a name="sql-engine-build-number---15020001401"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1401
 ### <a name="whats-new"></a>Novidades
 1.  Nome do produto atualizado para 'Azure SQL Edge'
-2.  função Date_bucket
+1.  função Date_bucket
 
     i.  Suporte para data, hora, tipo data
 3.  PREVER com ONNX

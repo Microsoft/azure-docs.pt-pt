@@ -1,25 +1,25 @@
 ---
-title: Como utilizar o Sign-on Único com o fornecimento de nuvem
-description: Este artigo descreve como instalar e usar assim com o fornecimento de nuvens.
+title: Como utilizar o Sign-on único com provisão de nuvem
+description: Este artigo descreve como instalar e usar sso com provisão de nuvem.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3667dd529ce5542be84c5e357053d8cd11eb91e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9afda3303d828bdbb162a9e18ac817b7f8091e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76908994"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360661"
 ---
-# <a name="using-single-sign-on-with-cloud-provisioning"></a>Utilização de um único sinal com fornecimento de nuvem
-O seguinte documento descreve como usar um único sinal com o fornecimento de nuvens.
+# <a name="using-single-sign-on-with-cloud-provisioning"></a>Usando o Sign-On único com provisão de nuvem
+O documento que se segue descreve como utilizar um único sinal com provisão de nuvem.
 
 [!INCLUDE [active-directory-cloud-provisioning-sso.md](../../../includes/active-directory-cloud-provisioning-sso.md)]
 
