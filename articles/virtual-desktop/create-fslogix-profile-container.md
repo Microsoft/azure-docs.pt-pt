@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 968e753cb8bf4376d2082d5238004c291b8f0938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211946"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362990"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
 
@@ -53,7 +53,8 @@ Para começar, é necessário criar uma conta Azure NetApp Files.
 
 4. Se esta for a sua primeira utilização usando a Azure Cloud Shell, crie uma conta de armazenamento na mesma subscrição que mantém os seus Ficheiros Azure NetApp e o Windows Virtual Desktop.
 
-   ![A janela da conta de armazenamento com o botão de armazenamento criar na parte inferior da janela realçada a vermelho.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![A janela da conta de armazenamento com o botão de armazenamento criar na parte inferior da janela realçada a vermelho.](media/create-storage-button.png)
 
 5. Uma vez que a Azure Cloud Shell carregue, executar os dois cmdlets seguintes.
 
@@ -67,7 +68,8 @@ Para começar, é necessário criar uma conta Azure NetApp Files.
 
 6. No lado esquerdo da janela, selecione **Todos os serviços**. Introduza **os Ficheiros Azure NetApp** na caixa de pesquisa que aparece no topo do menu.
 
-   ![Uma imagem de um utilizador que introduz "Ficheiros Azure NetApp" na caixa de pesquisa de todos os serviços. Os resultados da pesquisa mostram o recurso Azure NetApp Files.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma imagem de um utilizador que introduz "Ficheiros Azure NetApp" na caixa de pesquisa de todos os serviços. Os resultados da pesquisa mostram o recurso Azure NetApp Files.](media/azure-netapp-files-search-box.png)
 
 
 7. Selecione **ficheiros Azure NetApp** nos resultados da pesquisa e, em seguida, selecione **Criar**.
@@ -108,7 +110,8 @@ Depois disso, tens de te juntar a uma ligação ao Ative Directory.
 
 1. Selecione **as ligações Ative Directory** no menu no lado esquerdo da página e, em seguida, selecione o botão **'Juntar',** para abrir a página **'Ligar Diretório Activo'.**
 
-   ![Uma imagem do menu de ligações do Diretório Ativo.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma imagem do menu de ligações do Diretório Ativo.](media/active-directory-connections-menu.png)
 
 2. Introduza os seguintes valores na página **'Juntar Diretório Ativo'** para se juntar a uma ligação:
 
@@ -148,7 +151,8 @@ Depois de criar o volume, configuure os parâmetros de acesso ao volume.
 
 6.  Para ver o caminho de montagem, selecione **Vá para o recurso** e procure-o no separador Vista Geral.
 
-    ![Uma imagem do ecrã da visão geral com uma seta vermelha apontando para o caminho de montagem.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem do ecrã da visão geral com uma seta vermelha apontando para o caminho de montagem.](media/overview-mount-path.png)
 
 ## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Configure fSLogix em máquinas virtuais de anfitrião de sessão (VMs)
 
@@ -218,7 +222,8 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
 4. Abra **os Ficheiros Azure NetApp**, selecione a sua conta Azure NetApp Files e, em seguida, selecione **Volumes**. Assim que o menu Volumes abrir, selecione o volume correspondente.
 
-   ![Uma imagem da conta NetApp que instalou anteriormente no portal Azure com o botão Volumes selecionado.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma imagem da conta NetApp que instalou anteriormente no portal Azure com o botão Volumes selecionado.](media/netapp-account.png)
 
 5. Vá ao **separador Visão Geral** e confirme que o recipiente de perfil FSLogix está a utilizar espaço.
 
@@ -226,7 +231,8 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
    Dentro desta pasta, deve haver um perfil VHD (ou VHDX) como o do exemplo seguinte.
 
-   ![Uma imagem do conteúdo da pasta no caminho de montagem. Dentro está um único ficheiro VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma imagem do conteúdo da pasta no caminho de montagem. Dentro está um único ficheiro VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

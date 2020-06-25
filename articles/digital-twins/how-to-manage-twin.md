@@ -1,5 +1,5 @@
 ---
-title: Gerir um digital twin
+title: Gerir gémeos digitais
 titleSuffix: Azure Digital Twins
 description: Veja como recuperar, atualizar e eliminar gémeos e relacionamentos individuais.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 9acea128313fc440834626dd3a99b117e4b25a8f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 07c77f3cf149fdd6533a070b29f709758be23ce5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735902"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362735"
 ---
 # <a name="manage-digital-twins"></a>Gerir gémeos digitais
 
@@ -21,7 +21,7 @@ ms.locfileid: "84735902"
 
 As entidades do seu ambiente são representadas por [gémeos digitais.](concepts-twins-graph.md) Gerir os seus gémeos digitais pode incluir criação, modificação e remoção. Para estas operações, pode utilizar as [**APIs DigitalTwins,**](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md).
 
-Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacionamentos e o [gráfico gémeo](concepts-twins-graph.md) como um todo, ver [Como-a- Gerir um gráfico gémeo com relacionamentos](how-to-manage-graph.md).
+Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacionamentos e o [gráfico gémeo](concepts-twins-graph.md) como um todo, ver [Como-a- Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md).
 
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
@@ -347,4 +347,4 @@ Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
-* [Como fazer: Gerir um gráfico gémeo com relacionamentos](how-to-manage-graph.md)
+* [Como fazer: Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md)

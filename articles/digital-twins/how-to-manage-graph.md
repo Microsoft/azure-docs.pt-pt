@@ -1,5 +1,5 @@
 ---
-title: Gerir um grafo duplo com relações
+title: Gerir o gráfico gémeo com relacionamentos
 titleSuffix: Azure Digital Twins
 description: Veja como gerir um gráfico de gémeos digitais ligando-os a relacionamentos.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e332936543cc36e20b88da4ce5cc9115d0890967
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 13ceed847b3946b47fb3389145843ad085391dc5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725703"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362803"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -23,7 +23,7 @@ O coração de Azure Digital Twins é o [gráfico gémeo](concepts-twins-graph.m
 
 Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance.md) em funcionamento e tenha configurado a [autenticação](how-to-authenticate-client.md) para a sua aplicação de clientes, pode utilizar as [**APIs DigitalTwins**](how-to-use-apis-sdks.md) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [Como-a- Gerir um gémeo digital](how-to-manage-twin.md).
+Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [Como-a- Gerir gémeos digitais.](how-to-manage-twin.md)
 
 ## <a name="create-relationships"></a>Criar relacionamentos
 

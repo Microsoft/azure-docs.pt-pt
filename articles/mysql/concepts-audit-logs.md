@@ -5,24 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 00e4ef2452d2048f386d48e994ba1051ca81ec75
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100960"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362130"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registos de auditoria na Base de Dados Azure para o MySQL
 
 Na Base de Dados Azure para o MySQL, o registo de auditoria está disponível para os utilizadores. O registo de auditoria pode ser usado para rastrear a atividade de nível de base de dados e é comumente utilizado para o cumprimento.
 
-> [!IMPORTANT]
-> A funcionalidade de registo de auditoria encontra-se atualmente em pré-visualização.
-
 ## <a name="configure-audit-logging"></a>Configurar a exploração de auditoria
 
->[!NOTE]
+>[!IMPORTANT]
 > Recomenda-se apenas registar os tipos de eventos e utilizadores necessários para os seus fins de auditoria para garantir que o desempenho do seu servidor não seja fortemente impactado.
 
 Por predefinição, o registo de auditoria é desativado. Para a capacitá-lo, desatado `audit_log_enabled` para ON.

@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Veja como interpretar diferentes tipos de eventos e as suas diferentes mensagens de notificação.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e194c046cde623e0fcdd4c73ac24f2bf0755945c
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: e8a1bb19a18f43bae4639d2ca9d9b9941bd29324
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299437"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362832"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
@@ -39,7 +39,11 @@ Algumas notificações estão em conformidade com a norma CloudEvents. A conform
 * Notificações emitidas por [gémeos digitais](concepts-twins-graph.md) com [um modelo](concepts-models.md) em conformidade com CloudEvents
 * Notificações processadas e emitidas pela Azure Digital Twins estão em conformidade com cloudEvents
 
-Os serviços têm de adicionar um número de sequência em todas as notificações para indicar a sua encomenda, ou manter a sua própria encomenda de outra forma. As notificações emitidas pela Azure Digital Twins para a Event Grid são formatadas no esquema da Grelha de Eventos, até que a Grelha de Eventos suporte os Eventos CloudEvents na entrada. Os atributos de extensão nos cabeçalhos serão adicionados como propriedades no esquema da Grelha de Eventos dentro da carga útil. 
+Os serviços têm de adicionar um número de sequência em todas as notificações para indicar a sua encomenda, ou manter a sua própria encomenda de outra forma. 
+
+As notificações emitidas pela Azure Digital Twins para a Event Grid serão automaticamente formatadas para o esquema cloudEvents ou para o esquema EventGridEvent, dependendo do tipo de esquema definido no tópico da grelha de eventos. 
+
+Os atributos de extensão nos cabeçalhos serão adicionados como propriedades no esquema da Grelha de Eventos dentro da carga útil. 
 
 ### <a name="event-notification-bodies"></a>Organismos de notificação de eventos
 
@@ -50,43 +54,39 @@ O conjunto de campos que o corpo contém varia com diferentes tipos de notifica�
 Mensagem de telemetria:
 
 ```json
-{ 
-    "specversion": "1.0", 
-    "type": "microsoft.iot.telemetry", 
-    "source": "myhub.westus2.azuredigitaltwins.net", 
-    "subject": "thermostat.vav-123", 
-    "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
-    "dataschema": "dtmi:com:contoso:DigitalTwins:VAV;1",
-    "time": "2018-04-05T17:31:00Z", 
-    "datacontenttype" : "application/json", 
-    "data":  
-      {
-          "temp": 70,
-          "humidity": 40 
-      }
+{
+  "specversion": "1.0",
+  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
+  "type": "microsoft.iot.telemetry",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
+  "data": {
+    "Temperature": 10
+  },
+  "dataschema": "dtmi:example:com:floor4;2",
+  "datacontenttype": "application/json",
+  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
 }
 ```
 
 Mensagem de notificação do ciclo de vida:
 
 ```json
-{ 
-    "specversion": "1.0", 
-    "type": "microsoft.digitaltwins.twin.create", 
-    "source": "mydigitaltwins.westus2.azuredigitaltwins.net", 
-    "subject": "device-123", 
-    "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
-    "time": "2018-04-05T17:31:00Z", 
-    "datacontenttype" : "application/json", 
-    "dataschema": "dtmi:com:contoso:DigitalTwins:Device;1",           
-    "data":  
-      { 
-        "$dtId": "room-123", 
-        "property": "value",
-        "$metadata": { 
-                //...
-        } 
-      } 
+{
+  "specversion": "1.0",
+  "id": "d047e992-dddc-4a5a-b0af-fa79832235f8",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net",
+  "data": {
+    "$dtId": "floor1",
+    "$etag": "W/\"e398dbf4-8214-4483-9d52-880b61e491ec\"",
+    "$metadata": {
+      "$model": "dtmi:example:Floor;1"
+    }
+  },
+  "subject": "floor1",
+  "time": "2020-06-23T19:03:48.9700792Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-18f4e34b3e4a784aadf5913917537e7d-691a71e0a220d642-01"
 }
 ```
 
@@ -111,12 +111,11 @@ Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto. |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Create`<br>`Microsoft.DigitalTwins.TwinProxy.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Attach`<br>`Microsoft.DigitalTwins.TwinProxy.Detach` |
-| `datacontenttype` | application/json |
+| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
+| `datacontenttype` | `application/json` |
 | `subject` | ID do gémeo digital |
 | `time` | Tempo de tempo para quando a operação ocorreu no gémeo |
-| `sequence` | Valor expressando a posição do evento na maior sequência ordenada de eventos. Os serviços têm de adicionar um número de sequência em todas as notificações para indicar a sua encomenda, ou manter a sua própria encomenda de outra forma. O número de sequência aumenta com cada mensagem. Será reposto para 1 se o objeto for eliminado e recriado com o mesmo ID. |
-| `sequencetype` | Mais detalhes sobre como o campo de sequência é usado. Por exemplo, esta propriedade pode especificar que o valor deve ser um inteiro assinado de 32 bits, que começa em 1 e aumenta em 1 cada vez. |
+| `traceparent` | Um contexto de traço W3C para o evento |
 
 #### <a name="body-details"></a>Detalhes do corpo
 
@@ -165,7 +164,6 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
   "comfortIndex": 85,
   "$metadata": {
     "$model": "dtmi:com:contoso:Building;1",
-    "$kind": "DigitalTwin",
     "avgTemperature": {
       "desiredValue": 72,
       "desiredVersion": 5,
@@ -197,11 +195,11 @@ Aqui estão os campos no corpo de uma notificação de mudança de borda.
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto |
 | `source` | Nome do exemplo das Gémeas Digitais Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`<br>`datacontenttype    application/json for Relationship.Create`<br>`application/json-patch+json for Relationship.Update` |
-| `subject` | ID da relação, como`<twinID>/relationships/<relationshipName>/<edgeID>` |
+| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
+|`datacontenttype`| `application/json` |
+| `subject` | ID da relação, como`<twinID>/relationships/<relationshipName>` |
 | `time` | Tempo de tempo para quando a operação ocorreu na relação |
-| `sequence` | Valor expressando a posição do evento na maior sequência ordenada de eventos. Os serviços têm de adicionar um número de sequência em todas as notificações para indicar a sua encomenda, ou manter a sua própria encomenda de outra forma. O número de sequência aumenta com cada mensagem. Será reposto para 1 se o objeto for eliminado e recriado com o mesmo ID. |
-| `sequencetype` | Mais detalhes sobre como o campo de sequência é usado. Por exemplo, esta propriedade pode especificar que o valor deve ser um inteiro assinado de 32 bits, que começa em 1 e aumenta em 1 cada vez. |
+| `traceparent` | Um contexto de traço W3C para o evento |
 
 #### <a name="body-details"></a>Detalhes do corpo
 
@@ -212,13 +210,16 @@ O corpo é a carga útil de uma relação, também em formato JSON. Utiliza o me
 Aqui está um exemplo de uma notificação de relacionamento de atualização para atualizar uma propriedade:
 
 ```json
-[
-  {
-    "op": "replace",
-    "path": "ownershipUser",
-    "value": "user3"
+{
+    "modelId": "dtmi:example:Floor;1",
+    "patch": [
+      {
+        "value": "user3",
+        "path": "/ownershipUser",
+        "op": "replace"
+      }
+    ]
   }
-]
 ```
 
 Pois, `Relationship.Delete` o corpo é o mesmo que o `GET` pedido, e recebe o último estado antes da eliminação.
@@ -227,7 +228,7 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 ```json
 {
-    "$relationshipId": "EdgeId1",
+    "$relationshipName": "RelationshipName1",
     "$sourceId": "building11",
     "$relationshipName": "Contains",
     "$targetId": "floor11",
@@ -235,6 +236,7 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
     "ownershipDepartment": "Operations"
 }
 ```
+
 
 ### <a name="digital-twin-change-notifications"></a>Notificações digitais de mudança de gémeos
 
@@ -252,11 +254,10 @@ Aqui estão os campos no corpo de uma notificação digital de mudança de géme
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
-| `datacontenttype` | aplicação/json-patch+json |
+| `datacontenttype` | `application/json` |
 | `subject` | ID do gémeo digital |
 | `time` | Timetamp para quando a operação ocorreu no gémeo digital |
-| `sequence` | Valor expressando a posição do evento na maior sequência ordenada de eventos. Os serviços têm de adicionar um número de sequência em todas as notificações para indicar a sua encomenda, ou manter a sua própria encomenda de outra forma. O número de sequência aumenta com cada mensagem. Será reposto para 1 se o objeto for eliminado e recriado com o mesmo ID. |
-| `sequencetype` | Mais detalhes sobre como o campo de sequência é usado. Por exemplo, esta propriedade pode especificar que o valor deve ser um inteiro assinado de 32 bits, que começa em 1 e aumenta em 1 cada vez. |
+| `traceparent` | Um contexto de traço W3C para o evento |
 
 #### <a name="body-details"></a>Detalhes do corpo
 
@@ -266,28 +267,37 @@ Por exemplo, digamos que um gémeo digital foi atualizado usando o seguinte Patc
 
 ```json
 [
-  {
-    "op": "replace",
-    "path": "/mycomp/prop1",
-    "value": {"a":3}
-  }
+    {
+        "op": "replace",
+        "value": 40,
+        "path": "/Temperature"
+    },
+    {
+        "op": "add",
+        "value": 30,
+        "path": "/comp1/prop1"
+    }
 ]
 ```
 
 A notificação correspondente (se executada sincronizadamente pelo serviço, como a Azure Digital Twins atualizando um gémeo digital) teria um corpo como:
 
 ```json
-[
-    { "op": "replace", "path": "/myComp/prop1", "value": {"a": 3}},
-    { "op": "replace", "path": "/myComp/$metadata/prop1",
-        "value": {
-            "desiredValue": { "a": 3 },
-            "desiredVersion": 2,
-                "ackCode": 200,
-            "ackVersion": 2 
-        }
-    }
-]
+{
+    "modelId": "dtmi:example:com:floor4;2",
+    "patch": [
+      {
+        "value": 40,
+        "path": "/Temperature",
+        "op": "replace"
+      },
+      {
+        "value": 30,
+        "path": "/comp1/prop1",
+        "op": "add"
+      }
+    ]
+  }
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

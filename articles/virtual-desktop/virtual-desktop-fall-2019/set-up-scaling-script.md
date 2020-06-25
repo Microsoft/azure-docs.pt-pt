@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3a82665f197301fe81c448dd18181f0602bdbef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209798"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362548"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando Azure Automation
 
@@ -106,7 +106,8 @@ Primeiro, vai precisar de uma conta Azure Automation para executar o livro de ex
 
 6. Depois de configurar a sua conta Azure Automation, inscreva-se na sua subscrição Azure e verifique se a sua conta Azure Automation e o livro de verificação relevante apareceram no seu grupo de recursos especificado, como mostra a seguinte imagem:
 
-![Uma imagem da página geral do Azure mostrando a conta de automação e o runbook recém-criado.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem da página geral do Azure mostrando a conta de automação e o runbook recém-criado.](../media/automation-account.png)
 
   Para verificar se o seu webhook está onde deveria estar, selecione o nome do seu runbook. Em seguida, vá à secção de Recursos do seu runbook e selecione **Webhooks**.
 
@@ -236,11 +237,13 @@ Por fim, terá de criar a App Azure Logic e definir um calendário de execução
 
      Depois de executar o script, a App Lógica deve aparecer num grupo de recursos, como mostra a seguinte imagem.
 
-     ![Uma imagem da página de visão geral para um exemplo Azure Logic App.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem da página de visão geral para um exemplo Azure Logic App.](../media/logic-app.png)
 
 Para escoar alterações no calendário de execução, como alterar o intervalo de recorrência ou o fuso horário, vá ao programador de escala automática e selecione **Editar** para ir ao Logic Apps Designer.
 
-![Uma imagem do Designer de Aplicações Lógicas. Os menus Recurrence e Webhook que permitem ao utilizador editar tempos de recorrência e o ficheiro webhook estão abertos.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem do Designer de Aplicações Lógicas. Os menus Recurrence e Webhook que permitem ao utilizador editar tempos de recorrência e o ficheiro webhook estão abertos.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Gerencie a sua ferramenta de escala
 
@@ -252,7 +255,8 @@ Pode ver um estado resumido de todos os trabalhos de runbook ou ver um estado ma
 
 À direita da sua conta de Automação selecionada, em "Estatísticas de Emprego", pode ver uma lista de resumos de todos os trabalhos de runbook. A abertura da página **Jobs** no lado esquerdo da janela mostra o estado atual do trabalho, os horários de início e os tempos de conclusão.
 
-![Uma imagem da página do estado do trabalho.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem da página do estado do trabalho.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Ver registos e saída de ferramenta de escala
 
@@ -260,5 +264,6 @@ Pode visualizar os registos de operações de escala e dimensionamento, abrindo 
 
 Navegue para o runbook (o nome predefinido é WVDAutoScaleRunbook) no seu grupo de recursos que hospeda a conta Azure Automation e selecione **Overview**. Na página geral, selecione um trabalho em Empregos Recentes para ver a sua saída de ferramenta de escala, como mostra a imagem seguinte.
 
-![Uma imagem da janela de saída para a ferramenta de escala.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem da janela de saída para a ferramenta de escala.](../media/tool-output.png)
 

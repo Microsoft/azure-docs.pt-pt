@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3348920260b6c256b25d0ff2419cdfd2a00dea35
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207316"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362446"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
 
@@ -93,7 +93,8 @@ Para obter a chave de acesso à Conta de Armazenamento:
 
     Isto irá descarregar um ficheiro RDP que lhe permitirá iniciar sôm no VM com as suas próprias credenciais.
 
-    ![Uma imagem do separador RDP da janela da máquina virtual.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem do separador RDP da janela da máquina virtual.](media/rdp-tab.png)
 
 6. Quando se inscrever no VM, faça um pedido de comando como administrador.
 
@@ -156,11 +157,13 @@ Para configurar um recipiente de perfil FSLogix:
 
 9.  Clique com o botão direito em **Perfis,** selecione **Novo**e, em seguida, selecione **DWORD (32-bit) Valor.** Nomeie o valor **Ativado** e desa um valor **de Dados** para **1**.
 
-    ![Uma imagem da chave perfis. O ficheiro REG_DWORD é realçado e o seu valor de Dados está definido para 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da chave perfis. O ficheiro REG_DWORD é realçado e o seu valor de Dados está definido para 1.](media/dword-value.png)
 
 10. Clique com o botão direito em **Perfis**, selecione **Novo**e, em seguida, selecione **Multi-String Value**. Nomeie o valor **VHDLocations e insira** o URI para a partilha de Ficheiros Azure `\\fsprofile.file.core.windows.net\share` como o valor de Dados.
 
-    ![Uma imagem da tecla Perfis mostrando o ficheiro VHDLocations. O seu valor de dados mostra o URI para a partilha de Ficheiros Azure.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da tecla Perfis mostrando o ficheiro VHDLocations. O seu valor de dados mostra o URI para a partilha de Ficheiros Azure.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Atribuir utilizadores a um anfitrião de sessão
 

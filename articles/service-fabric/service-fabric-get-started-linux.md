@@ -3,12 +3,12 @@ title: Crie o seu ambiente de desenvolvimento no Linux
 description: Instale o runtime e o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir esta configuração, estará pronto para criar aplicações.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 38ea94e14a182671b3540a87c3bf90e861479fe5
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 346230c0363bf58926cc46cb8bac2de61b81d68b
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338469"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361977"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -61,40 +61,45 @@ Para instalar o SDK e o pacote de runtime associado através da ferramenta de li
 
 1. Abra um terminal.
 
-2. Adicione o repositório `dotnet` à lista de origens.
+2. Adicione o `dotnet` repo à sua lista de fontes correspondente à sua distribuição.
 
     ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 3. Adicione a chave nova do Gnu Privacy Guard (GnuPG ou GPG) ao porta-chaves do APT.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 4. Adicione a chave de GPG oficial do Docker ao porta-chaves do APT.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-5. Configure o repositório do Docker.
+5. Adicione a chave GPG MS Open Tech ao seu porta-chaves APT.
+
+    ```bash
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
+    ```
+
+6. Configure o repositório do Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Adicione a chave Azul JDK ao seu porta-chaves APT e configua o seu repositório.
+7. Adicione a chave Azul JDK ao seu porta-chaves APT e configua o seu repositório.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-7. Atualize as listas de pacotes com base nos repositórios adicionados recentemente.
+8. Atualize as listas de pacotes com base nos repositórios adicionados recentemente.
 
     ```bash
     sudo apt-get update

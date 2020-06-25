@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 4e2b223337bbe5d46f314a8d2126ab562b937445
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 79035a2fa2f7f3bed4890faa749661f025cea312
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726086"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362871"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -98,7 +98,7 @@ Os dados digitais de gémeos e de relacionamento são armazenados no formato JSO
 
 Quando representado como um objeto JSON, um gémeo digital apresentará os seguintes campos:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
 | `$conformance` | Um enum que contém o estado de conformidade deste gémeo digital *(conformante,* *não-conformante,* *desconhecido)* |
@@ -164,7 +164,7 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 
 Quando representado como um objeto JSON, uma relação de um gémeo digital mostrará os seguintes campos:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | `$edgeId` | Uma cadeia fornecida pelo utilizador que representa o ID desta borda de relacionamento. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `edgeId` é única no contexto da instância Azure Digital Twins. |
 | `$sourceId` | O ID da fonte digital twin |
@@ -187,8 +187,8 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir elementos gráficos com APIs Azure Digital Twin:
-* [Como fazer: Gerir um gémeo digital](how-to-manage-twin.md)
-* [Como fazer: Gerir um gráfico gémeo com relacionamentos](how-to-manage-graph.md)
+* [Como fazer: Gerir gémeos digitais](how-to-manage-twin.md)
+* [Como fazer: Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md)
 
 Ou, saiba se consulta o gráfico gémeo Azure Digital Twins para obter informações:
 * [Conceitos: Linguagem de consulta](concepts-query-language.md)

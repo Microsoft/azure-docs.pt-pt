@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2680a463bd0150a92dc587eb2f233ef58a58f6d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 307fe6cd287d7a58435f745cd066be8308293267
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214167"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362113"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão com um modelo de Gestor de Recursos Azure
 
@@ -71,11 +71,13 @@ Depois de o modelo gitHub Azure Resource Manager estar concluído, encontrará u
 
 Antes de iniciar sedível e utilizar a ferramenta de gestão, tem de fornecer consentimento para a nova aplicação AD Azure associada à ferramenta de gestão. O consentimento permite que a ferramenta de gestão faça chamadas de gestão virtual do Windows desktop em nome do utilizador que se encontra atualmente inscrito na ferramenta.
 
-![Uma imagem que mostra as permissões fornecidas quando concorda com a ferramenta de gestão da UI.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem que mostra as permissões fornecidas quando concorda com a ferramenta de gestão da UI.](../media/management-ui-delegated-permissions.png)
 
 Para determinar que utilizador pode utilizar para iniciar singagem na ferramenta, aceda à página de [definições do utilizador do Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) e tome nota do valor para **os Utilizadores poderem consentir em aplicações que acedam aos dados da empresa em seu nome**.
 
-![Uma imagem de imagem que mostra se os utilizadores podem conceder consentimento a aplicações apenas para o seu utilizador.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem de imagem que mostra se os utilizadores podem conceder consentimento a aplicações apenas para o seu utilizador.](../media/management-ui-user-consent-allowed.png)
 
 - Se o valor for definido para **Sim,** pode iniciar scontabilidade com qualquer conta de utilizador no Diretório Ativo Azure e fornecer o consentimento apenas para esse utilizador. No entanto, se iniciar susta na ferramenta de gestão com um utilizador diferente mais tarde, deve voltar a efetuar o mesmo consentimento.
 - Se o valor for definido como **Nº,** deve inscrever-se como Administrador Global no Diretório Ativo Azure e fornecer consentimento administrativo para todos os utilizadores do diretório. Nenhum outro utilizadores terá de enfrentar um pedido de consentimento.
@@ -87,7 +89,8 @@ Assim que decidir qual o utilizador que utilizará para fornecer o seu consentim
 2. Inscreva-se utilizando a conta de utilizador Azure Ative Directory apropriada.
 3. Se autenticar com um Administrador Global, pode agora selecionar a caixa de verificação para **Consent em nome da sua organização.** Selecione **Aceitar** para fornecer consentimento.
 
-   ![Uma imagem mostrando a página de consentimento completa que o utilizador ou administrador verá.](../media/management-ui-consent-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma imagem mostrando a página de consentimento completa que o utilizador ou administrador verá.](../media/management-ui-consent-page.png)
 
 Isto irá agora levá-lo à ferramenta de gestão.
 

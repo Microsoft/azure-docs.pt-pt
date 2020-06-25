@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
 ms.reviewer: baanders
-ms.openlocfilehash: 4051b5c098b0ce299185a483abf2bdd39bb6c11f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 50fade5179d5323a332d9b103f2fac17d402aa3f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725822"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362854"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -163,5 +163,5 @@ Dependendo da configuração da sua topologia, poderá armazenar estes três atr
 
 Para ler mais sobre gestão, atualização e recolha de informações do gráfico de gémeos, consulte as seguintes referências:
 
-* [Como fazer: Gerir um gémeo digital](./how-to-manage-twin.md)
+* [Como fazer: Gerir gémeos digitais](./how-to-manage-twin.md)
 * [Como fazer: Consulta do gráfico gémeo](./how-to-query-graph.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ad222c5fb5554698b6166b0b10a52221a31b360
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5b54f87635e1ea972778b0039dc34170c5b7ab8a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886212"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362293"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -31,7 +31,11 @@ Quando um utilizador abre um ficheiro hierárquico, o Azure File Sync recorda pe
 ### <a name="how-does-cloud-tiering-work"></a>Como funciona o nível das nuvens?
 O filtro do sistema Azure File Sync constrói um "mapa de calor" do seu espaço de identificação em cada ponto final do servidor. Monitoriza os acessos (operações de leitura e escrita) ao longo do tempo e, em seguida, com base tanto na frequência como na recessão do acesso, atribui uma pontuação de calor a cada ficheiro. Um ficheiro frequentemente acedido que foi recentemente aberto será considerado quente, enquanto um ficheiro que mal é tocado e não foi acedido há algum tempo será considerado legal. Quando o volume de ficheiros de um servidor exceder o limiar de espaço livre de volume definido, irá nivelar os ficheiros mais frescos para Azure Files até que a sua percentagem de espaço livre seja satisfeita.
 
-Nas versões 4.0 e acima do agente Azure File Sync, pode especificar ainda mais uma política de data em cada ponto final do servidor que irá nivelar quaisquer ficheiros não acedidos ou modificados num determinado número de dias.
+Além disso, pode especificar uma política de data em cada ponto final do servidor que irá nivelar quaisquer ficheiros não acedidos dentro de um número especificado de dias, independentemente da capacidade de armazenamento local disponível. Esta é uma boa escolha para libertar proativamente o espaço do disco local se você sabe que os ficheiros nesse ponto final do servidor não precisam de ser mantidos localmente para além de uma certa idade. Isso liberta capacidade valiosa de disco local para outros pontos finais no mesmo volume, para cache mais dos seus ficheiros.
+
+O mapa de calor de nível de nuvem é essencialmente uma lista ordenada de todos os ficheiros que estão sincronizados e estão num local que tem o tiering de nuvem ativado. Para determinar a posição relativa de um ficheiro individual nesse mapa térmico, o sistema utiliza o máximo de qualquer um dos seguintes cartões temporais, por esta ordem: MAX (Última Hora de Acesso, Última Hora Modificada, Tempo de Criação). Normalmente, o último tempo de acesso é rastreado e disponível. No entanto, quando um novo ponto final do servidor é criado, com o tiering da nuvem ativado, então inicialmente não passou tempo suficiente para observar o acesso ao ficheiro. Na ausência de um último tempo de acesso, o último tempo modificado é utilizado para avaliar a posição relativa no mapa de calor. O mesmo recuo é aplicável à política de datas. Sem uma última hora de acesso, a política de datas atuará no último tempo modificado. Se isso não estiver disponível, irá recorrer ao tempo de criação de um ficheiro. Com o tempo, o sistema observará cada vez mais pedidos de acesso a ficheiros e pivô para utilizar predominantemente o último tempo de acesso auto-rastreado.
+
+O tiering em nuvem não depende da funcionalidade NTFS para rastrear a última vez de acesso. Esta funcionalidade NTFS está desligada por padrão e devido a considerações de desempenho, não recomendamos que ative manualmente esta funcionalidade. As faixas de nivelamento da nuvem último tempo de acesso separada e eficientemente.
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do ficheiro para um ficheiro de nível?

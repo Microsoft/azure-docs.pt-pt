@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 89de2e86e425e2c585f9a1243f6666a0ae077c10
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ddbe49f34bbdbf0f9c461a25f23d6f7cbd8600d9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726094"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362956"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autenticar uma aplicação de cliente com Azure Digital Twins
 
@@ -175,7 +175,7 @@ Para autenticar uma aplicação .NET com os serviços Azure, pode utilizar o seg
 Você precisará do seu *ID de Aplicação (cliente)* e *Diretório (inquilino) ID* de anteriormente, bem como o URL da sua instância Azure Digital Twins.
 
 > [!TIP]
-> O URL da instância Azure Digital Twins é feito adicionando *https://* ao início do *nome de anfitrião*da sua instância Azure Digital Twins . Para ver o nome do anfitrião, juntamente com todas as propriedades do seu caso, pode `az dt show --dt-name <your-Azure-Digital-Twins-instance>` correr.
+> O URL da instância Azure Digital Twins é feito adicionando *https://* ao início do *nome de anfitrião*da sua instância Azure Digital Twins . Para ver o *nome do anfitrião,* juntamente com todas as propriedades do seu caso, pode `az dt show --dt-name <your-Azure-Digital-Twins-instance>` correr. Pode utilizar o `az account show --query tenantId` comando para ver o seu *ID do Diretório (inquilino).* 
 
 ```javascript
 import * as Msal from "msal";
@@ -259,4 +259,4 @@ Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [Conceitos: Segurança para soluções Azure Digital Twins](concepts-security.md)
 
 Ou, agora que a autenticação está configurada, passe a criar modelos no seu caso:
-* [Como fazer: Gerir um modelo gémeo](how-to-manage-model.md)
+* [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)

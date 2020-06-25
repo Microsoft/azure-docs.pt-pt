@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 23ecfc96c8f75dbae4cfb02cc16f5e5de359c4f6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210733"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362181"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Linguagem                          | Suportado | Personalizações                                    |
+| Região  | Idioma                          | Suportado | Personalizações                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | Árabe (EAU)                      | Sim       | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Yes       | Modelo de linguagem                                    |
@@ -99,7 +99,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-|Região  | Linguagem            | Género | Nome de voz | Suporte de estilo |
+|Região  | Idioma            | Género | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | `de-DE` | Alemão (Alemanha)                | Mulheres | "de-DE-KatjaNeural"      | Geral |
 | `en-AU` | Inglês (Austrália)             | Mulheres | "en-AU-NatashaNeural"    | Geral |
@@ -135,7 +135,7 @@ Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguage
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Região | Linguagem | Género | Nome de voz |
+| Região | Idioma | Género | Nome de voz |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | Árabe (Egito) | Mulheres | "ar-EG-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | "ar-SA-Naayf" |
@@ -274,8 +274,8 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 | Japonês                | `ja`          |
 | Canarês                 | `kn`          |
 | Rio Kiswahili               | `sw`          |
-| Klingon                 | `tlh`         |
-| Klingon (plqaD)         | `tlh-Qaak`    |
+| Klingon                 | `tlh-Latn`    |
+| Klingon (plqaD)         | `tlh-Piqd`    |
 | Coreano                  | `ko`          |
 | Letão                 | `lv`          |
 | Lituano              | `lt`          |
@@ -317,7 +317,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Região | Idioma | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 | pt-PT | Inglês (E.U.A.) | sim | sim | sim |
 |zh-CN  |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|

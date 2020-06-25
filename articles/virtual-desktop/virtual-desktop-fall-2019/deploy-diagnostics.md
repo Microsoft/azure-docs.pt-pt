@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0660947907b26e1a86bbd68bb32d1ac5d211b20e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206058"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362344"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -195,7 +195,8 @@ Para definir o URI de redirecionamento:
 6. Selecione **Web** no menu suspenso em Type.
 7. Introduza o URL a partir da página geral da aplicação e adicione **/security/signin-callback** até ao final da visão. Por exemplo: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![A página URI redirecionado](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![A página URI redirecionado](../media/redirect-uri-page.png)
 
 8. Agora, vá aos seus recursos Azure, selecione o recurso Azure App Services com o nome que forneceu no modelo e navegue para o URL associado a ele. (Por exemplo, se o nome da aplicação que usou no modelo `contosoapp45` foi, então o url associado é <https://contosoapp45.azurewebsites.net> ).
 9. Inscreva-se utilizando a conta de utilizador Azure Ative Directory apropriada.

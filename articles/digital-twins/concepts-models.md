@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cacf4c21e92b434aeb73cd76e6dda26508f41d77
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5aef0c9a9b0f3dbfb5ad2f4c827b1a11190e097a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261363"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362888"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -23,7 +23,7 @@ Uma característica chave da Azure Digital Twins é a capacidade de definir o se
 
 Um modelo é semelhante a uma **classe** numa linguagem de programação orientada a objetos, definindo uma forma de dados para um conceito particular no seu ambiente de trabalho real. Os modelos têm nomes (como *O Ambiente* ou *O Medidor de Temperatura),* e contêm elementos como propriedades, telemetria/eventos e comandos que descrevem o que este tipo de entidade no seu ambiente pode fazer. Mais tarde, utilizará estes modelos para criar [**gémeos digitais**](concepts-twins-graph.md) que representam entidades específicas que cumprem esta descrição do tipo.
 
-Os modelos são escritos utilizando a Linguagem de **Definição Digital DeFins (DTDL)** baseada em JSON.  
+Os modelos são escritos utilizando a **Linguagem de Definição Digital DeFins (DTDL)** baseada em JSON-LD.  
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Linguagem de definição de gémeos digital (DTDL) para modelos de escrita
 
@@ -112,7 +112,7 @@ Aqui está um exemplo de um modelo típico, escrito como uma interface DTDL. O m
 
 Os campos do modelo são:
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | `@id` | Um identificador para o modelo. Deve estar no `dtmi:<domain>:<unique model identifier>;<model version number>` formato. |
 | `@type` | Identifica o tipo de informação que está a ser descrita. Para uma interface, o tipo é *Interface.* |
@@ -207,7 +207,7 @@ Ou, para obter mais informações sobre a biblioteca de parser, incluindo um exe
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir os modelos com as APIs digitalTwinsModels:
-* [Como fazer: Gerir um modelo gémeo](how-to-manage-model.md)
+* [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)
 
 Ou, saiba como os gémeos digitais são criados com base em modelos:
 * [Conceitos: Gémeos digitais e o gráfico gémeo](concepts-twins-graph.md)

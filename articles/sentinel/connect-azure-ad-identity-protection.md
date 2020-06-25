@@ -1,48 +1,45 @@
 ---
-title: Conecte dados de proteção de identidade Azure AD ao Azure Sentinel
-description: Saiba como ligar dados de Proteção de Identidade Azure AD ao Azure Sentinel.
+title: Ligue os dados de Proteção de Identidade Azure AD ao Azure Sentinel
+description: Saiba como ligar os dados de Proteção de Identidade Azure AD ao Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.topic: conceptual
-ms.date: 11/17/2019
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: yelevin
-ms.openlocfilehash: b82ddfef57efaaca0ae43750cd306a63a772b911
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f85e543c83413e840354c053a1f4cb0925fc271
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80616832"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362905"
 ---
-# <a name="connect-data-from-azure-ad-identity-protection"></a>Conecte dados da Proteção de Identidade da AD Azure
+# <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Ligar dados do Azure Ative Directory (Azure AD) Proteção de Identidade
 
-
-
-Pode transmitir registos da [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) para o Azure Sentinel para transmitir alertas para o Azure Sentinel para ver dashboards, criar alertas personalizados e melhorar a investigação. A Azure Ative Directory Identity Protection proporciona uma visão consolidada dos utilizadores de risco, deteções de risco e vulnerabilidades, com a capacidade de remediar imediatamente o risco, e definir políticas para remediar automaticamente eventos futuros. O serviço baseia-se na experiência da Microsoft em proteger as identidades dos consumidores e ganha uma precisão tremenda a partir do sinal de mais de 13 mil milhões de logins por dia. 
-
+Pode transmitir registos da [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) para o Azure Sentinel para transmitir alertas no Azure Sentinel para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A Azure Ative Directory Identity Protection fornece uma visão consolidada dos utilizadores de risco, deteções de riscos e vulnerabilidades, com a capacidade de remediar o risco imediatamente, e definir políticas para remediar automaticamente eventos futuros. O serviço baseia-se na experiência da Microsoft em proteger as identidades dos consumidores e obtém uma precisão tremenda do sinal de mais de 13 mil milhões de logins por dia. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter uma [licença Azure Ative Directory Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/)
-- Utilizador com permissões de administrador global ou administrador de segurança
+- Você deve ter uma [assinatura Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
+- Deve ter um utilizador com permissões globais de administrador ou administrador de segurança.
 
 
-## <a name="connect-to-azure-ad-identity-protection"></a>Ligue-se à Proteção de Identidade Azure AD
+## <a name="connect-to-azure-ad-identity-protection"></a>Ligue-se à Proteção de Identidade AD AZure
 
-Se já tem Proteção de Identidade Azure AD, certifique-se de que está [ativado na sua rede](../active-directory/identity-protection/overview-identity-protection.md).
-Se a Azure AD Identity Protection for implementada e obter dados, os dados de alerta podem ser facilmente transmitidos para o Azure Sentinel.
+Se tiver uma subscrição Azure AD Premium P2, a Azure AD Identity Protection está incluída. Se alguma [política estiver ativada](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) e gerar alertas, os dados de alerta podem ser facilmente transmitidos para Azure Sentinel.
 
+1. Em Azure Sentinel, selecione **os conectores de dados** e, em seguida, clique no azulejo **Azure AD Identity Protection.**
 
-1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no azulejo **azure AD Identity Protection.**
+1. Clique **em Connect** para começar a transmitir eventos de Proteção de Identidade Azure AD em Azure Sentinel.
 
-2. Clique em **Connect** para começar a transmitir eventos de Proteção de Identidade Azure AD em Azure Sentinel.
+1. Para utilizar o esquema relevante no Log Analytics para os alertas de Proteção de Identidade AZure AD, procure por **SecurityAlert**.
 
-
-6. Para utilizar o esquema relevante no Log Analytics para os alertas de Proteção de Identidade Azure AD, procure **SecurityAlert**.
+Se quiser testar o conector, pode [simular deteções](../active-directory/identity-protection/howto-identity-protection-simulate-risk.md) para gerar alertas de amostras que serão transmitidos para Azure Sentinel.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar a Proteção de Identidade Azure AD ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+
+Neste documento, aprendeu a ligar a Azure AD Identity Protection ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

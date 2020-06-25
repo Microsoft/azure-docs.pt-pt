@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100862"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362939"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -67,20 +67,23 @@ Para começar a criar a sua nova piscina de anfitriões:
    
    A geografia Azure associada às regiões selecionadas é onde os metadados desta piscina anfitriã e seus objetos relacionados serão armazenados. Certifique-se de que escolhe as regiões dentro da geografia em que pretende que os metadados de serviço sejam armazenados.
 
-     ![Uma imagem do portal Azure mostrando o campo de Localização com a localização leste dos EUA selecionada. Ao lado do campo está o texto que diz: "Os metadados serão armazenados nos EUA Orientais."](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem do portal Azure mostrando o campo de Localização com a localização leste dos EUA selecionada. Ao lado do campo está o texto que diz: "Os metadados serão armazenados nos EUA Orientais."](media/portal-location-field.png)
 
 8. No tipo de piscina host, selecione se a sua piscina de anfitriões será **Pessoal** ou **Piscina.**
 
     - Se escolher **o Personal,** selecione **automaticamente** ou **direto** no campo Tipo de Atribuição.
 
-      ![Uma imagem do menu drop-down do tipo de atribuição. O utilizador selecionou o Automatic.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma imagem do menu drop-down do tipo de atribuição. O utilizador selecionou o Automatic.](media/assignment-type-field.png)
 
 9. Se escolher **Pooled, insira**as seguintes informações:
 
      - Para **o limite de sessão Max,** insira o número máximo de utilizadores que pretende equilibrar a carga para um único anfitrião de sessão.
      - Para **o algoritmo de equilíbrio de carga,** escolha a largura primeiro ou a profundidade primeiro, com base no seu padrão de utilização.
 
-       ![Uma imagem do campo do tipo de atribuição com "Pooled" selecionado. O Utilizador está a pairar sobre o seu cursor sobre a Amplitude-primeiro no menu de equilíbrio de carga.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![Uma imagem do campo do tipo de atribuição com "Pooled" selecionado. O Utilizador está a pairar sobre o seu cursor sobre a Amplitude-primeiro no menu de equilíbrio de carga.](media/pooled-assignment-type.png)
 
 10. Selecione **Seguinte: Detalhes VM**.
 
@@ -117,11 +120,13 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
      Se não vir a imagem desejada, **selecione Procurar todas as imagens e discos**, o que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras.
 
-     ![Uma imagem do Marketplace com uma lista de imagens da Microsoft exibidas.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem do Marketplace com uma lista de imagens da Microsoft exibidas.](media/marketplace-images.png)
 
      Também pode ir a **My Items** e escolher uma imagem personalizada que já carregou.
 
-     ![Uma imagem do separador My Items.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem do separador My Items.](media/my-items.png)
 
     - Se escolher **o Storage Blob,** pode aproveitar a sua própria imagem através do Hyper-V ou num VM Azure. Tudo o que tem de fazer é introduzir a imagem na bolha de armazenamento como um URI.
 
@@ -136,7 +141,8 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
     >[!NOTE]
     >Para maior segurança, recomendamos que não abra portos públicos de entrada.
 
-    ![Uma imagem da página do grupo de segurança que mostra uma lista de portas disponíveis num menu suspenso.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da página do grupo de segurança que mostra uma lista de portas disponíveis num menu suspenso.](media/available-ports.png)
     
     Se escolher **Advanced,** selecione um grupo de segurança de rede existente que já configura.
 

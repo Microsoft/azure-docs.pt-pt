@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307654"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362412"
 ---
-# <a name="create-application-with-simple-commands"></a>Criar aplicação com comandos simples
+# <a name="create-application-with-simple-commands"></a>Criar uma aplicação com comandos simples
 
 Neste artigo, vai aprender a:
  - Criar uma aplicação vazia
@@ -26,6 +26,10 @@ Neste artigo, vai aprender a:
 
 ## <a name="create-empty-application"></a>Criar aplicação vazia
 Crie uma aplicação de Comandos Personalizados vazios. Para mais detalhes, consulte o [arranque rápido](quickstart-custom-commands-application.md). Desta vez, em vez de importar um projeto, cria-se um projeto em branco.
+
+1. Na caixa **Nome,** insira o nome do projeto como `Smart-Room-Lite` (ou outra coisa à sua escolha).
+1. Na lista **de línguas,** selecione **Inglês (Estados Unidos)**.
+1. Selecione ou crie um recurso LUIS à sua escolha.
 
    > [!div class="mx-imgBorder"]
    > ![Criar um projeto](media/custom-commands/create-new-project.png)
@@ -36,7 +40,7 @@ Pode atualizar o recurso de autoria que selecionou na janela do **projeto Novo**
 
 ## <a name="add-turnon-command"></a>Adicionar comando TurnOn
 
-Na aplicação **smart room-lite** Comandos Personalizados, adicione um simples comando que processa uma `turn on the tv` expressão, e responda com a mensagem `Ok, turning the tv on` .
+Na aplicação de Comandos Personalizados **Smart-Room-Lite** vazia que acabou de criar, adicione um simples comando que processa uma `turn on the tv` expressão, e responde com a mensagem `Ok, turning the tv on` .
 
 1. Crie um novo Comando selecionando **Novo comando** na parte superior do painel esquerdo. A nova janela **de comando** abre-se.
 1. Fornecer valor para o campo **Nome** como **TurnOn**.
@@ -44,7 +48,7 @@ Na aplicação **smart room-lite** Comandos Personalizados, adicione um simples 
 
 O painel do meio lista as diferentes propriedades do comando. Configurar as seguintes propriedades do comando. Para obter explicação de todas as propriedades de configuração de um comando, vá a [referências](./custom-commands-references.md).
 
-| Configuração            | Description                                                                                                                 |
+| Configuração            | Descrição                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **Frases de exemplo** | Palavras de exemplo que o utilizador pode dizer para desencadear este Comando                                                                 |
 | **Parâmetros**       | Informações necessárias para completar o Comando                                                                                |
@@ -74,23 +78,17 @@ Por enquanto, não temos parâmetros, por isso podemos passar para a secção **
 
 Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao utilizador que está a ser tomada uma ação de cumprimento. Para ler mais sobre regras e regras de conclusão, vá a [referências.](./custom-commands-references.md)
 
-1. Selecione a regra de conclusão por defeito **Concluída** e edite-a da seguinte forma: 
+1. Selecione a regra de conclusão por defeito **Concluída** e edite-a da seguinte forma:
 
     
     | Definição    | Valor sugerido                          | Descrição                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | ConfirmaçãoResponse                  | Um nome que descreve o propósito da regra          |
-    | **Condições** | Nenhum                                     | Condições que determinam quando a regra pode ser executada    |
+    | **Condições** | Nenhuma                                     | Condições que determinam quando a regra pode ser executada    |
     | **Ações**    | Envie resposta de fala > editor simples > Primeira variação >`Ok, turning the tv on` | A ação a tomar quando a condição de regra é verdadeira |
     
 
-1. Em alternativa, pode eliminar a regra de conclusão por defeito existente e criar uma nova selecionando o **Add** na parte superior do painel central.
-1. Fornecer valor na secção **Nome.**
-1. Adicione uma ação.
-   1. Criar uma ação selecionando **Adicionar uma ação** na secção **Ações.**
-   1. Na janela **Nova Ação,** na lista **Tipo,** selecione **Enviar resposta da fala**.
-   1. Em **Resposta**, selecione **Editor Simples**.
-   1. No campo primeira **variação,** forneça valor para a resposta como `Ok, turning the tv on` .
+
 
    > [!div class="mx-imgBorder"]
    > ![Criar uma resposta de discurso](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao uti
 1. **Selecione Guardar** para guardar a ação.
 1. De volta à secção **de regras de Conclusão,** selecione **Guardar** para guardar todas as alterações. 
 
+
+ > [!NOTE]
+    > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, pode eliminar a regra de conclusão por defeito existente e adicionar a sua própria regra.
 
 ### <a name="try-it-out"></a>Experimente
 
@@ -124,8 +125,8 @@ Em seguida, edite as regras de conclusão **existentes:**
 
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
-| Name  | ConfirmaçãoResponse                  |
-| Condições | Nenhum                                     |
+| Nome  | ConfirmaçãoResponse                  |
+| Condições | Nenhuma                                     |
 | Ações    | Envie resposta de fala > editor simples > Primeira variação >`Ok, setting temperature to 40 degrees` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.
@@ -136,7 +137,7 @@ Crie um novo **Comando SetAlarm** usando a frase exemplo",**acende um alarme par
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
 | Nome da Regra  | ConfirmaçãoResponse                  |
-| Condições | Nenhum                                     |
+| Condições | Nenhuma                                     |
 | Ações    | Envie resposta à fala > editor simples > Primeira variação >`Ok, setting an alarm for 9 am tomorrow` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.

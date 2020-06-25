@@ -2,24 +2,20 @@
 title: Adicione ou remova atribuições de funções Azure usando o portal Azure - Azure RBAC
 description: Saiba como conceder acesso aos recursos Azure para utilizadores, grupos, diretores de serviços ou identidades geridas utilizando o portal Azure e o controlo de acesso baseado em funções Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3e4d2dca6817951f2f06a86c4338106f194b7751
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790964"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362254"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicione ou remova atribuições de funções Azure usando o portal Azure
 
@@ -35,11 +31,11 @@ Para adicionar ou remover atribuições de funções, você deve ter:
 
 ## <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
-**O controlo de acesso (IAM)** é a lâmina que utiliza para atribuir funções para conceder acesso aos recursos da Azure. É também conhecido como gestão de identidade e acesso e aparece em vários locais do portal Azure. O seguinte mostra um exemplo da lâmina do controlo de acesso (IAM) para uma subscrição.
+**O controlo de acesso (IAM)** é a página que normalmente utiliza para atribuir funções para conceder acesso aos recursos do Azure. É também conhecido como gestão de identidade e acesso e aparece em vários locais do portal Azure. O seguinte mostra um exemplo da página access control (IAM) para uma subscrição.
 
-![Lâmina de controlo de acesso (IAM) para uma subscrição](./media/role-assignments-portal/access-control-subscription.png)
+![Página de controlo de acesso (IAM) para uma subscrição](./media/role-assignments-portal/access-control-subscription.png)
 
-Para ser o mais eficaz com a lâmina do controlo de acesso (IAM), ajuda se conseguir responder às seguintes três perguntas quando está a tentar atribuir uma função:
+Para ser o mais eficaz com a página access control (IAM), ajuda se conseguir responder às seguintes três perguntas quando está a tentar atribuir uma função:
 
 1. **Quem precisa de acesso?**
 
@@ -71,7 +67,7 @@ No Azure RBAC, para conceder acesso a um recurso Azure, adiciona-se uma atribui�
 
    Se não tiver permissões para atribuir funções, a opção de atribuição de funções Add será desativada.
 
-   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu de atribuição de funções](./media/shared/add-role-assignment-menu.png)
 
     O painel Adicionar atribuição de função é aberto.
 
@@ -105,7 +101,7 @@ Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lh
 
    Se não tiver permissões para atribuir funções, a opção de atribuição de funções Add será desativada.
 
-   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu de atribuição de funções](./media/shared/add-role-assignment-menu.png)
 
     O painel Adicionar atribuição de função é aberto.
 
@@ -118,6 +114,75 @@ Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lh
 1. Clique em **Guardar** para atribuir a função.
 
    Após alguns instantes, é atribuída ao utilizador a função Proprietário no âmbito da subscrição.
+
+## <a name="add-a-role-assignment-for-a-managed-identity-preview"></a>Adicionar uma atribuição de função para uma identidade gerida (Pré-visualização)
+
+Pode adicionar atribuições de funções para uma identidade gerida utilizando a página **de Controlo de Acesso (IAM),** conforme descrito anteriormente neste artigo. Quando utilizar a página 'Controlo de Acesso' (IAM), começa pelo âmbito e, em seguida, seleciona a identidade e função geridas. Esta secção descreve uma forma alternativa de adicionar atribuições de funções para uma identidade gerida. Utilizando estes passos, começa-se com a identidade gerida e, em seguida, seleciona o âmbito e o papel.
+
+> [!IMPORTANT]
+> A adição de uma atribuição de funções para uma identidade gerida utilizando estes passos alternativos está atualmente em pré-visualização.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
+
+Siga estes passos para atribuir um papel a uma identidade gerida atribuída pelo sistema, começando pela identidade gerida.
+
+1. No portal Azure, abra uma identidade gerida atribuída pelo sistema.
+
+1. No menu esquerdo, clique em **Identidade.**
+
+    ![Identidade gerida atribuída pelo sistema](./media/shared/identity-system-assigned.png)
+
+1. Em **Permissões,** clique nas **atribuições de funções Azure**.
+
+    Se as funções já estiverem atribuídas à identidade gerida atribuída pelo sistema, consulte a lista de atribuições de funções. Esta lista inclui todas as atribuições de funções que tem permissão para ler.
+
+    ![Atribuições de funções para uma identidade gerida atribuída pelo sistema](./media/shared/role-assignments-system-assigned.png)
+
+1. Para alterar a subscrição, clique na lista **de Assinaturas.**
+
+1. Clique **em Adicionar atribuição de função (Pré-visualização)**.
+
+1. Utilize as listas de drop-down para selecionar o conjunto de recursos a que a atribuição de funções se aplica, tais como **Subscrição,** **Grupo de Recursos**ou recurso.
+
+    Se não tiver a atribuição de funções, escreva permissões para o âmbito selecionado, será exibida uma mensagem inline. 
+
+1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
+
+   ![Adicione painel de atribuição de funções](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Clique em **Guardar** para atribuir a função.
+
+   Após alguns momentos, a identidade gerida é atribuída ao papel no âmbito selecionado.
+
+### <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
+
+Siga estes passos para atribuir uma função a uma identidade gerida atribuída pelo utilizador, começando pela identidade gerida.
+
+1. No portal Azure, abra uma identidade gerida atribuída ao utilizador.
+
+1. No menu esquerdo, clique nas **atribuições de funções Azure**.
+
+    Se as funções já estiverem atribuídas à identidade gerida atribuída pelo utilizador selecionado, consulte a lista de atribuições de funções. Esta lista inclui todas as atribuições de funções que tem permissão para ler.
+
+    ![Atribuições de funções para uma identidade gerida atribuída pelo sistema](./media/shared/role-assignments-user-assigned.png)
+
+1. Para alterar a subscrição, clique na lista **de Assinaturas.**
+
+1. Clique **em Adicionar atribuição de função (Pré-visualização)**.
+
+1. Utilize as listas de drop-down para selecionar o conjunto de recursos a que a atribuição de funções se aplica, tais como **Subscrição,** **Grupo de Recursos**ou recurso.
+
+    Se não tiver a atribuição de funções, escreva permissões para o âmbito selecionado, será exibida uma mensagem inline. 
+
+1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
+
+   ![Adicione painel de atribuição de funções](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Clique em **Guardar** para atribuir a função.
+
+   Após alguns momentos, a identidade gerida é atribuída ao papel no âmbito selecionado.
 
 ## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
 

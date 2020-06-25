@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: be5709c8ccf8626ac3a48fdf7cad1c61dbfbf628
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 87d57470ffbe1d65bb646c51387e15e58ab6fa30
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729521"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362922"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -59,7 +59,7 @@ Para definir uma rota de eventos, os desenvolvedores primeiro devem definir pont
 * Service Bus
 
 Os pontos finais são criados utilizando APIs do plano de controlo (suportado pelo [CLI das Gémeas Digitais Azure](how-to-use-cli.md), ou através do portal Azure. Uma definição de ponto final dá:
-* ID do ponto final (ou nome amigável)
+* O nome do ponto final
 * O tipo de ponto final (Event Grid, Event Hub ou Service Bus)
 * A cadeia de ligação primária e a cadeia de ligação secundária para autenticar 
 * O caminho tópico do ponto final, como *your-topic.westus2.eventgrid.azure.net*
@@ -67,18 +67,18 @@ Os pontos finais são criados utilizando APIs do plano de controlo (suportado pe
 As APIs de ponta que estão disponíveis no plano de controlo são:
 * Criar ponto final
 * Obtenha a lista de pontos finais
-* Obtenha ponto final por ID (passe no ID do ponto final)
-* Eliminar ponto final por ID (passe no ID do ponto final)
+* Obter ponto final pelo nome
+* Eliminar ponto final pelo nome
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
  
 As rotas do evento são criadas numa aplicação de cliente com a seguinte chamada [.NET (C#) SDK:](how-to-use-apis-sdks.md) 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-ID>"));
+await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
 ```
 
-* O `endpoint-ID` ponto final identifica um ponto final, como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
+* O `endpoint-name` ponto final identifica um ponto final, como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
 
 O objeto de rota do evento passou também para `EventRoutes.Add` um parâmetro de [ **filtro** ](./how-to-manage-routes.md#filter-events), que pode ser usado para restringir os tipos de eventos que seguem esta rota.
 

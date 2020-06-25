@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 81a3d8e08486f76fc23a489acd3138d7b9fe8134
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711634"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362361"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -121,7 +121,8 @@ Quando o Windows Virtual Desktop Agent é instalado pela primeira vez em VMs de 
 
 ### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: O estado arquivado no cmdlet Get-AzWvdSessionHost mostra o estado como Indisponível
 
-![O cmdlet Get-AzWvdSessionHost mostra o estado como Indisponível.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O cmdlet Get-AzWvdSessionHost mostra o estado como Indisponível.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** O agente não é capaz de se atualizar para uma nova versão.
 
@@ -194,7 +195,8 @@ Se tiver problemas com a pilha virtual do Windows Desktop lado a lado, digite o 
 
 A saída de **qwinsta** listará **rdp-sxs** na saída se a pilha lado a lado for instalada e ativada.
 
-![Pilha lado a lado instalada ou ativada com qwinsta listada como rdp-sxs na saída.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Pilha lado a lado instalada ou ativada com qwinsta listada como rdp-sxs na saída.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examine as entradas de registo listadas abaixo e confirme que os seus valores coincidem. Se faltam as teclas de registo ou se os valores estiverem desajustados, siga as instruções na [Criar uma piscina de anfitrião com o PowerShell](create-host-pools-powershell.md) sobre como reinstalar a pilha lado a lado.
 
@@ -208,7 +210,8 @@ Examine as entradas de registo listadas abaixo e confirme que os seus valores co
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Erro: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE código de erro.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE código de erro.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** A pilha lado a lado não está instalada no VM do anfitrião da sessão.
 
@@ -244,19 +247,21 @@ Siga estas instruções para executar a remediação a partir da mesma sub-rede 
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname é o nome da máquina do VM com a pilha avariada lado a lado.
 
 7. Aceite o Contrato de Licença PsExec clicando em Concordar.
 
-    ![Imagem de imagem do contrato de licença de software.](media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Imagem de imagem do contrato de licença de software.](media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >Este diálogo aparecerá apenas na primeira vez que o PsExec for executado.
 
 8. Após a sessão de solicitação de comando abrir no VM com a pilha avariada lado a lado, corra qwinsta e confirme que está disponível uma entrada chamada RDP-sxs. Caso contrário, uma pilha lado a lado não está presente no VM, por isso o problema não está ligado à pilha lado a lado.
 
-    ![Pedido de comando do administrador](media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Pedido de comando do administrador](media/AdministratorCommandPrompt.png)
 
 9. Executar o seguinte comando, que irá listar os componentes da Microsoft instalados no VM com a pilha avariada lado a lado.
 
@@ -324,7 +329,8 @@ Para verificar qual a versão da multi-sessão do Windows 10 Enterprise tem:
 3. Selecione **Sobre o seu PC**.
 4. Verifique o número ao lado de "Versão". O número deve ser "1809" ou "1903", como mostra a seguinte imagem.
 
-    ![Uma imagem da janela de especificações do Windows. O número da versão é realçado em azul.](media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da janela de especificações do Windows. O número da versão é realçado em azul.](media/windows-specifications.png)
 
 Agora que conhece o número da sua versão, avance para a secção relevante.
 

@@ -3,16 +3,17 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 81c8c642eb8b5da1e45e4d9a703685acf219ca5a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259155"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362633"
 ---
-# <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Azure Policy
+# <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
-A Azure Policy pode auditar as definições dentro de uma máquina. A validação é executada pela extensão da Configuração de Convidado e pelo cliente. A extensão, através do cliente, valida as definições, como:
+A Azure Policy pode auditar as definições dentro de uma máquina, tanto para máquinas que executam em Azure como [arc connected Machines](https://docs.microsoft.com/azure/azure-arc/servers/overview).
+A validação é executada pela extensão da Configuração de Convidado e pelo cliente. A extensão, através do cliente, valida as definições, como:
 
 - A configuração do sistema operativo
 - Presença ou configuração da aplicação
@@ -21,33 +22,36 @@ A Azure Policy pode auditar as definições dentro de uma máquina. A validaçã
 Neste momento, a maioria das políticas de configuração de hóspedes da Azure Policy apenas auditam as definições dentro da máquina.
 Não aplicam configurações. A exceção é uma política incorporada [referida abaixo.](#applying-configurations-using-guest-configuration)
 
+## <a name="enable-guest-configuration"></a>Ativar a configuração do hóspede
+
+Para auditar o estado das máquinas no seu ambiente, incluindo máquinas em Azure e Arc Connected Machines, reveja os seguintes detalhes.
+
 ## <a name="resource-provider"></a>Fornecedor de recursos
 
 Antes de poder utilizar a Configuração do Convidado, tem de registar o fornecedor de recursos. O fornecedor de recursos é registado automaticamente se a atribuição de uma política de Configuração de Hóspedes for feita através do portal. Pode registar-se manualmente através do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [, Azure PowerShell,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Extensão e cliente
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Implementar requisitos para máquinas virtuais Azure
 
-Para auditar as definições dentro de uma máquina, está ativada uma [extensão de máquina virtual.](../../../virtual-machines/extensions/overview.md) A extensão descarrega a atribuição de política aplicável e a definição de configuração correspondente.
+Para auditar as definições dentro de uma máquina, está ativada uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) e a máquina deve ter uma identidade gerida pelo sistema. A extensão descarrega a atribuição de política aplicável e a definição de configuração correspondente. A identidade é utilizada para autenticar a máquina à medida que lê e escreve para o serviço de Configuração de Hóspedes. A extensão não é necessária para máquinas ligadas ao arco porque está incluída no agente da Máquina Ligada ao Arco.
 
 > [!IMPORTANT]
-> A extensão de Configuração do Hóspede é necessária para realizar auditorias em máquinas virtuais Azure. Para implementar a extensão à escala, atribua as seguintes definições políticas: 
->  - [Implementar pré-requisitos para ativar a política de configuração do hóspede em VMs windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->  - [Implemente os pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> A extensão de Configuração do Hóspede e uma identidade gerida são necessárias para auditar máquinas virtuais Azure. Para implementar a extensão em escala, atribua a seguinte iniciativa política: 
+>  - [Implementar pré-requisitos para permitir políticas de configuração de hóspedes em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
-Para limitar a extensão de aplicações de impacto que estão a decorrer dentro da máquina, a Configuração do Hóspede não pode exceder mais de 5% do CPU. Esta limitação existe tanto para definições incorporadas como personalizadas.
+Para limitar a extensão de aplicações de impacto que estão a decorrer dentro da máquina, a Configuração do Hóspede não pode exceder mais de 5% do CPU. Esta limitação existe tanto para definições incorporadas como personalizadas. O mesmo se aplica ao serviço de Configuração de Hóspedes no agente Da Máquina Ligada ao Arco.
 
 ### <a name="validation-tools"></a>Ferramentas de validação
 
 Dentro da máquina, o cliente de Configuração de Hóspedes utiliza ferramentas locais para executar a auditoria.
 
-A tabela a seguir mostra uma lista das ferramentas locais utilizadas em cada sistema operativo suportado:
+A tabela a seguir mostra uma lista das ferramentas locais utilizadas em cada sistema operativo suportado. Para conteúdos incorporados, a Configuração do Convidado lida com o carregamento destas ferramentas automaticamente.
 
 |Sistema operativo|Ferramenta de validação|Notas|
 |-|-|-|
 |Windows|[Configuração de estado desejada powerShell](/powershell/scripting/dsc/overview/overview) v2| Carregado lateralmente numa pasta apenas utilizada pela Azure Policy. Não entrará em conflito com o Windows PowerShell DSC. PowerShell Core não é adicionado ao caminho do sistema.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Instala a versão 2.2.61 do Chef InSpec em localização padrão e adicionada ao caminho do sistema. Dependenices para o pacote InSpec, incluindo Ruby e Python também estão instalados. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Instala a versão 2.2.61 do Chef InSpec em localização padrão e adicionada ao caminho do sistema. Também estão instaladas dependências para o pacote InSpec, incluindo Ruby e Python. |
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
@@ -58,7 +62,7 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 As políticas de configuração dos hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível.
 A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Name|Versões|
+|Publisher|Nome|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
@@ -70,20 +74,17 @@ A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens 
 
 As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.
 
-### <a name="unsupported-client-types"></a>Tipos de clientes não suportados
-
-O Windows Server Nano Server não é suportado em nenhuma versão.
-
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisitos da rede de extensão de configuração do hóspede
 
 Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos datacenters Azure na porta **443**. Se uma rede em Azure não permitir o tráfego de saída, configure exceções com as regras [do Grupo de Segurança de Rede.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) A [etiqueta de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Hóspedes.
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidade geridos
 
-As políticas **deployIfNotExists** que adicionam a extensão a máquinas virtuais também permitem um sistema atribuído identidade gerida, se não existir.
+Políticas na iniciativa [Implementar pré-requisitos para permitir políticas de configuração de hóspedes em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) permitem uma identidade gerida atribuída ao sistema, se não existir. Há duas definições políticas na iniciativa que gerem a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso da máquina em Azure.
 
-> [!WARNING]
-> Evite ativar a identidade gerida atribuída pelo utilizador a máquinas virtuais no âmbito de políticas que permitam a identidade gerida atribuída pelo sistema. A identidade atribuída ao utilizador é substituída e a máquina pode ficar sem resposta.
+Se a máquina não tiver atualmente identidades geridas, a política eficaz será: [ \[ \] Pré-visualização : Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Convidados em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+
+Se a máquina tiver atualmente uma identidade de sistema atribuída ao utilizador, a política eficaz será: [ \[ \] Pré-visualização : Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Hóspedes em máquinas virtuais com uma identidade atribuída ao utilizador](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração do hóspede
 

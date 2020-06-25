@@ -2,18 +2,18 @@
 title: Gerir pontos finais e rotas
 titleSuffix: Azure Digital Twins
 description: Veja como configurar e gerir pontos finais e rotas de eventos para os dados da Azure Digital Twins.
-author: cschormann
-ms.author: cschorm
-ms.date: 3/17/2020
+author: alexkarcher-msft
+ms.author: alkarche
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cf18d8ef391115da5e1c8fcab235c30e96287f5b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b6f5765f51983e3b1ca9c182849b64258476a2ce
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725686"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362769"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerir pontos finais e rotas em Azure Digital Twins
 
@@ -74,17 +74,19 @@ As amostras deste artigo utilizam o C# SDK.
 
 As rotas do evento são definidas usando APIs de plano de dados. Uma definição de rota pode conter estes elementos:
 * O ID da rota que você quer usar
-* O ID do ponto final que quer usar
+* O nome do ponto final que quer usar
 * Um filtro que define quais os eventos enviados para o ponto final 
 
-Se não houver ID de rota, nenhuma mensagem é encaminhada para fora da Azure Digital Twins. Se houver um ID de rota e o filtro estiver `null` , todas as mensagens são encaminhadas para o ponto final. Se houver um ID de rota e um filtro for adicionado, as mensagens serão filtradas com base no filtro.
+Se não houver ID de rota, nenhuma mensagem é encaminhada para fora da Azure Digital Twins. Se houver um ID de rota e o filtro estiver `true` , todas as mensagens são encaminhadas para o ponto final. Se houver um ID de rota e um filtro diferente for adicionado, as mensagens serão filtradas com base no filtro.
 
 Uma rota deve permitir a seleção de várias notificações e tipos de eventos. 
 
-Aqui está a chamada para o SDK que é usado para adicionar uma rota de eventos:
+`CreateEventRoute`é a chamada SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo da sua utilização:
 
 ```csharp
-await client.CreateEventRoute("routeName", new EventRoute("endpointID"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
 > [!TIP]
@@ -130,22 +132,23 @@ Sem filtragem, os pontos finais recebem uma variedade de eventos da Azure Digita
 
 Pode restringir os eventos que estão a ser enviados adicionando um filtro a um ponto final.
 
-Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-03-01-pré-visualização* com o seguinte corpo:
+Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-05-31-pré-visualização* com o seguinte corpo:
 
 ```json  
 {
-    "endpointId": "<endpoint-ID>",
+    "endpointName": "<endpoint-name>",
     "filter": "<filter-text>"
 }
 ``` 
 
 Aqui estão os filtros de rota suportados.
 
-| Nome do filtro | Description | Esquema de filtro | Valores suportados | 
+| Nome do filtro | Descrição | Esquema de filtro | Valores suportados | 
 | --- | --- | --- | --- |
-| Tipo | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui através da sua instância digital gémea | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
-| Origem | Nome da instância Azure Digital Twins | `"filter" : "source = '<hostname>'"`|  **Para notificações:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
-| Assunto | Uma descrição do evento no contexto da fonte do evento acima | `"filter": " subject = '<subject>'"` | **Para notificações,** o assunto é`<twinid>` <br> ou um formato URI para sujeitos, que são identificados exclusivamente por múltiplas partes ou IDs:<br>`<twinid>/relationships/<relationship>/<edgeid>`<br> **Para a telemetria,** o sujeito é o caminho do componente (se a telemetria for emitida a partir de um componente gémeo), tais como `comp1.comp2` . Se a telemetria não for emitida a partir de um componente, então o seu campo de objetos está vazio. |
+| Tipo | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui através da sua instância digital gémea | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Origem | Nome da instância Azure Digital Twins | `"filter" : "source = '<hostname>'"`|  **Para notificações:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Assunto | Uma descrição do evento no contexto da fonte do evento acima | `"filter": " subject = '<subject>'"` | **Para notificações**: O assunto é`<twinid>` <br> ou um formato URI para sujeitos, que são identificados exclusivamente por múltiplas partes ou IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **Para a telemetria**: O sujeito é o caminho do componente (se a telemetria for emitida a partir de um componente gémeo), tais como `comp1.comp2` . Se a telemetria não for emitida a partir de um componente, então o seu campo de objetos está vazio. |
+| Esquema de dados | ID modelo DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **Para telemetria**: O esquema de dados é o ID do modelo do gémeo ou o componente que emite a telemetria <br>**Para notificações**: O esquema de dados não é suportado|
 | Tipo do conteúdo | Tipo de conteúdo do valor dos dados | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Versão spec | A versão do esquema de evento que está a usar | `"filter": "specversion = '<version>'"` | Deve `1.0` ser. Isto indica que o esquema do CloudEvents versão 1.0 |
 | Verdadeiro / Falso | Permite criar uma rota sem filtragem, ou desativar uma rota | `"filter" : "<true/false>"` | `true`= rota está ativada sem filtragem <br> `false`= rota é desativada |

@@ -5,24 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 9b577b12250f1a600c91776e64ecaf65be5d8476
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100885"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362429"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registos de auditoria na Base de Dados Azure para MariaDB
 
 Na Base de Dados Azure para MariaDB, o registo de auditoria está disponível para os utilizadores. O registo de auditoria pode ser usado para rastrear a atividade de nível de base de dados e é comumente utilizado para o cumprimento.
 
-> [!IMPORTANT]
-> A funcionalidade de registo de auditoria encontra-se atualmente em pré-visualização.
-
 ## <a name="configure-audit-logging"></a>Configurar a exploração de auditoria
 
->[!NOTE]
+>[!IMPORTANT]
 > Recomenda-se apenas registar os tipos de eventos e utilizadores necessários para os seus fins de auditoria para garantir que o desempenho do seu servidor não seja fortemente impactado.
 
 Por predefinição, o registo de auditoria é desativado. Para a capacitá-lo, desatado `audit_log_enabled` para ON.

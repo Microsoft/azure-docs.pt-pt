@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 06/24/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 151e7d286dac91ddd0e988027968f2e44a83e35e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687196"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362650"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -26,7 +26,9 @@ Uma forma de controlar o acesso de rede de saída a partir de uma sub-rede do Az
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando encaminha o tráfego de rede para a firewall como o gateway padrão de sub-rede.
 
-Neste tutorial, criou uma VNet única simplificada com três sub-redes para uma implementação simples. Para implantações de produção, recomenda-se um [modelo de hub e spoke.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) A firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets espreitados na mesma região com uma ou mais sub-redes.
+Neste tutorial, criou uma VNet única simplificada com três sub-redes para uma implementação simples.
+
+Para implantações de produção, [recomenda-se](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) um modelo de hub e spoke, onde a firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets espreitados na mesma região com uma ou mais sub-redes.
 
 * **AzureFirewallSubnet** - a firewall está nesta sub-rede.
 * **Workload-SN** - o servidor de carga de trabalho está nesta sub-rede. O tráfego de rede desta sub-rede passa pela firewall.
@@ -34,7 +36,7 @@ Neste tutorial, criou uma VNet única simplificada com três sub-redes para uma 
 
 ![Tutorial de infraestrutura de rede](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar um ambiente de rede de teste
@@ -142,7 +144,7 @@ Implemente a firewall na VNet.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**Teste-FW-RG** |
-   |Name     |**Test-FW01**|
+   |Nome     |**Test-FW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilização existente**: **Test-FW-VN**|
    |Endereço IP público     |**Adicione novo**. O endereço IP público tem de ser do tipo SKU Standard.|

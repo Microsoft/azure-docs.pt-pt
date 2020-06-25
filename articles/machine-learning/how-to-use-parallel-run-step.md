@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 04/15/2020
+ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: b26527321cf7fc5ca7fc4b061f11b86f8830ec29
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ae79a4f7264224f29db4ede0944ae079130b6394
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552323"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362616"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados utilizando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ As seguintes ações configuram os recursos de aprendizagem automática que voc�
 
 ### <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()`lê o ficheiro config.json e carrega os detalhes num objeto chamado WS.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()`lê o config.jsno ficheiro e carrega os detalhes num objeto chamado WS.
 
 ```python
 from azureml.core import Workspace
@@ -210,7 +210,7 @@ O script *deve conter* duas funções:
 - `init()`: Utilize esta função para qualquer preparação dispendiosa ou comum para posterior inferência. Por exemplo, use-o para carregar o modelo num objeto global. Esta função será chamada apenas uma vez no início do processo.
 -  `run(mini_batch)`: A função funcionará para cada `mini_batch` instância.
     -  `mini_batch`: ParallelRunStep invocará o método de execução e passará uma lista ou o Pandas DataFrame como argumento para o método. Cada entrada em mini_batch será - uma trajetória de ficheiro se a entrada for um Dataset de Ficheiros, um DataFrame de Pandas se a entrada for um Conjunto de Dados Tabular.
-    -  `response`: método de execução() deve devolver um DataFrame pandas ou uma matriz. Para append_row output_action, estes elementos devolvidos são anexados ao ficheiro de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída devolvido indica uma execução bem sucedida do elemento de entrada no mini-lote de entrada. Deve certificar-se de que os dados suficientes são incluídos no resultado de execução para mapear a entrada para executar o resultado da saída. A saída de execução será escrita no ficheiro de saída e não garantida para estar em ordem, deve utilizar alguma chave na saída para mapear a entrada.
+    -  `response`: método de execução() deve devolver um DataFrame pandas ou uma matriz. Para append_row output_action, estes elementos devolvidos são anexados ao ficheiro de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída devolvido indica uma execução bem sucedida do elemento de entrada no mini-lote de entrada. Certifique-se de que os dados suficientes são incluídos no resultado de execução para mapear a entrada para executar o resultado da saída. A saída de execução será escrita no ficheiro de saída e não garantida para estar em ordem, deve utilizar alguma chave na saída para mapear a entrada.
 
 ```python
 # Snippets from a sample script.
@@ -270,7 +270,7 @@ Agora tem tudo o que precisa: as entradas de dados, o modelo, a saída e o seu s
 
 ### <a name="prepare-the-environment"></a>Preparar o ambiente
 
-Primeiro, especifique as dependências do seu script. Isto permite-lhe instalar pacotes de pips, bem como configurar o ambiente. Por favor, inclua sempre pacotes **azureml-core** e **azureml-dataprep[pandas, fusíveis].**
+Primeiro, especifique as dependências do seu script. Ao fazê-lo, permite-lhe instalar pacotes de pips, bem como configurar o ambiente. Incluem sempre pacotes **azureml-core** e **azureml-dataprep[pandas, fusíveis].**
 
 Se utilizar uma imagem personalizada do estivador (user_managed_dependencies=Verdade), também deverá ter a Conda instalada.
 
@@ -309,7 +309,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: O `run()` tempo de tempo de invocação do método em segundos. (opcional; valor predefinido `60` é)
 - `run_max_try`: Contagem máxima de tentativa `run()` para um mini-lote. A `run()` é falhado se uma exceção for lançada, ou nada for devolvido quando for alcançado `run_invocation_timeout` (opcional; o valor padrão `3` é). 
 
-Pode especificar `mini_batch_size` , e como , para `node_count` `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` que, quando reenviar uma corrida de gasoduto, possa afinar os valores dos parâmetros. Neste exemplo, utiliza o PipelineParameter `mini_batch_size` e `Process_count_per_node` altera estes valores quando voltar a apresentar uma execução posterior. 
+Pode especificar `mini_batch_size` , , e como , para `node_count` `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` que, quando reenviar uma corrida de gasoduto, possa afinar os valores dos parâmetros. Neste exemplo, utiliza o PipelineParameter `mini_batch_size` e `Process_count_per_node` altera estes valores quando voltar a apresentar uma execução posterior. 
 
 ```python
 from azureml.pipeline.core import PipelineParameter

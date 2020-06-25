@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f6b956981269bca83140e4d1d08067b2d0db0d1d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 58f05b2f9f15166e161b31578b47cf06afcb13a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204783"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362582"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para utilizadores do Windows Virtual Desktop
 
@@ -37,14 +37,18 @@ Para obter uma lista de RemoteApps publicados para um grupo de aplicações, exe
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Amigável em destaque.](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Amigável em destaque.](../media/get-rdsremoteapp.png)
 
 Para atribuir um nome amigável a um RemoteApp, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável em destaque.](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável em destaque.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalize o nome do visor para um ambiente de trabalho remoto
 
@@ -55,14 +59,18 @@ Para recuperar o recurso de ambiente de trabalho remoto, execute o seguinte cmdl
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Amigável em destaque.](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Amigável em destaque.](../media/get-rdsremotedesktop.png)
 
 Para atribuir um nome amigável ao recurso de ambiente de trabalho remoto, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável em destaque.](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável em destaque.](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

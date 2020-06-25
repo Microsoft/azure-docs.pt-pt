@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 124d81651cd937dc9671f725f54826b1ff9a42a5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235898"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362327"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -30,7 +30,8 @@ Visite a [Comunidade Virtual desktop tech do Windows](https://techcommunity.micr
 
 Para utilizar a imagem multi-sessão do Windows 10 Enterprise, vá ao Azure Marketplace, **selecione Get Start**Microsoft Windows  >  **10** > e Windows [10 Enterprise para Desktops Virtuais, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Uma imagem de seleção do Windows 10 Enterprise para Desktops Virtuais, Versão 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem de seleção do Windows 10 Enterprise para Desktops Virtuais, Versão 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Criação de inquilino virtual do Windows Desktop
 
@@ -54,7 +55,8 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: O utilizador não está autorizado a consultar o serviço de gestão
 
-![Screenshot da janela PowerShell na qual um utilizador não está autorizado a consultar o serviço de gestão.](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot da janela PowerShell na qual um utilizador não está autorizado a consultar o serviço de gestão.](../media/UserNotAuthorizedNewTenant.png)
 
 Exemplo de erro bruto:
 
@@ -75,7 +77,8 @@ Exemplo de erro bruto:
 
 **Correção:** Siga as instruções em [Atribuir a função de candidatura do TenantCreator a um utilizador no seu inquilino Azure Ative Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Depois de seguir as instruções, terá um utilizador atribuído à função De InquilinoCreator.
 
-![Screenshot do papel do TenantCreator atribuído.](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot do papel do TenantCreator atribuído.](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Criar VMs de sessão virtual do Windows
 
@@ -87,7 +90,8 @@ O Windows Virtual Desktop – Provision a host pool template está disponível n
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erro: Ao utilizar o link do GitHub, aparece a mensagem "Criar uma conta gratuita"
 
-![Screenshot para criar uma conta gratuita.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot para criar uma conta gratuita.](../media/be615904ace9832754f0669de28abd94.png)
 
 **Causa 1:** Não existem subscrições ativas na conta utilizada para iniciar súm na Azure ou a conta utilizada não tem permissões para visualizar as subscrições.
 
@@ -110,7 +114,8 @@ O Windows Virtual Desktop – Provision a host pool template está disponível n
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Erro: Recebe erro de "implementação do modelo não é válido"
 
-![Screenshot de "implantação do modelo ... não é válido" erro](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot de "implantação do modelo ... não é válido" erro](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Antes de tomar medidas específicas, terá de verificar o registo de atividade para ver o erro detalhado da validação de implementação falhada.
 
@@ -119,10 +124,14 @@ Para visualizar o erro no registo de atividade:
 1. Saia da atual oferta de implantação do Azure Marketplace.
 2. Na barra de pesquisa superior, procure e selecione **Registo de Atividades.**
 3. Encontre uma atividade chamada **Implantação Validada** que tenha um estado de **Falha** e selecione a atividade.
-   ![Screenshot de atividade individual **Validate Deployment** com um estado **Falhado**](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot de atividade individual **Validate Deployment** com um estado **Falhado**](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Selecione JSON e, em seguida, desloque-se até à parte inferior do ecrã até ver o campo "statusMessage".
-   ![Screenshot de atividade falhada, com uma caixa vermelha em torno do status Propriedade Message do texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot de atividade falhada, com uma caixa vermelha em torno do status Propriedade Message do texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Se o seu modelo de operação ultrapassar o limite de quota, pode fazer uma das seguintes coisas para corrigi-lo:
 
@@ -140,7 +149,8 @@ Siga estas instruções para resolver implementações infrutíferas dos modelos
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: A sua implantação falhou.... \<hostname> /joindomain
 
-![A sua imagem falhada de implantação falhou.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![A sua imagem falhada de implantação falhou.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Exemplo de erro bruto:
 
@@ -181,7 +191,8 @@ Para corrigir isto, faça as seguintes coisas:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Erro: VMExtensionProvisioningError
 
-![A screenshot da sua implantação falhou com o estado de provisionamento terminal falhado.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot da sua implantação falhou com o estado de provisionamento terminal falhado.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Causa 1:** Erro transitório com o ambiente de trabalho virtual do Windows.
 
@@ -191,7 +202,8 @@ Para corrigir isto, faça as seguintes coisas:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de utilizador do administrador especificado não é permitido
 
-![A imagem da sua implantação falhou na qual não é permitido um administrador especificado.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![A imagem da sua implantação falhou na qual não é permitido um administrador especificado.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Exemplo de erro bruto:
 
@@ -210,7 +222,8 @@ Exemplo de erro bruto:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM reportou uma falha ao processar a extensão
 
-![Screenshot da operação de recursos concluída com estado de provisionamento terminal na Sua Implementação Falhou.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot da operação de recursos concluída com estado de provisionamento terminal na Sua Implementação Falhou.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Exemplo de erro bruto:
 
@@ -236,7 +249,8 @@ Exemplo de erro bruto:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erro: ImplementaçãoFailed – Configuração DShell 'FirstSessionHost' concluída com Erro(s)
 
-![Screenshot de falha de implementação com configuração DSC 'FirstSessionHost' completada com Erro(s).](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot de falha de implementação com configuração DSC 'FirstSessionHost' completada com Erro(s).](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Exemplo de erro bruto:
 
@@ -365,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O utilizador requer autenticação multi-factor Azure (MFA)
 
-![A screenshot da sua implementação falhou devido à falta de autenticação multi-factor (MFA)](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot da sua implementação falhou devido à falta de autenticação multi-factor (MFA)](../media/MFARequiredError.png)
 
 Exemplo de erro bruto:
 

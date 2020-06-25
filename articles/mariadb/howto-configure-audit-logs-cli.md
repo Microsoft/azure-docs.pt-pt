@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 670fd7f34b75ae05726053decdab7c15cdcdecc8
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 1dcad61ed94926aa2aa2237ea735287cd9c9f137
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100848"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362701"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e aceder a registos de auditoria no CLI do Azure
 
 Pode configurar a [Base de Dados Azure para registos de auditoria MariaDB](concepts-audit-logs.md) do Azure CLI.
-
-> [!IMPORTANT]
-> A funcionalidade de registo de auditoria encontra-se atualmente em pré-visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +30,7 @@ Para passar por este guia, precisa:
 
 ## <a name="configure-audit-logging"></a>Configurar a exploração de auditoria
 
->[!NOTE]
+>[!IMPORTANT]
 > Recomenda-se apenas registar os tipos de eventos e utilizadores necessários para os seus fins de auditoria para garantir que o desempenho do seu servidor não seja fortemente impactado.
 
 Ativar e configurar o registo de auditoria utilizando os seguintes passos: 
