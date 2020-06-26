@@ -6,17 +6,17 @@ author: periclesrocha
 manager: charlesf
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: machine-learning
 ms.date: 06/22/2020
 ms.author: procha
 ms.reviewer: charlesf
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 783131dc4063bc01673b08c448a60c429e42b680
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 4d45343c071a6a01981f8de87ee0efea409241b0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306985"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368163"
 ---
 # <a name="azure-synapse-analytics-machine-learning-and-ai-partners"></a>Azure Synapse Analytics machine learning e parceiros de IA
 

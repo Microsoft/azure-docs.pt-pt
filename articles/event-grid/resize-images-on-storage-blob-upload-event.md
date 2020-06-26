@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e46aa28d770cf561df40a0f4b40ef39a70e35687
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560526"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367942"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar redimensionar imagens carregadas usando a Grade de Eventos
 
@@ -62,7 +62,11 @@ Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o 
 
 Se não registou o fornecedor de recursos do Event Grid na sua subscrição anteriormente, confirme que está registado.
 
-```azurecli-interactive
+```bash
+az provider register --namespace Microsoft.EventGrid
+```
+
+```powershell
 az provider register --namespace Microsoft.EventGrid
 ```
 
@@ -72,22 +76,43 @@ As Funções do Azure requerem uma conta de armazenamento geral. Além da conta 
 
 1. Detenha uma variável para manter o nome do grupo de recursos que criou no tutorial anterior.
 
-    ```azurecli-interactive
+    ```bash
     resourceGroupName="myResourceGroup"
     ```
-2. Desagure uma variável para manter a localização dos recursos a serem criados. 
 
-    ```azurecli-interactive
+    ```powershell
+    $resourceGroupName="myResourceGroup"
+    ```
+
+1. Desagure uma variável para manter a localização dos recursos a serem criados. 
+
+    ```bash
     location="eastus"
-    ```    
-3. Desconfie uma variável para o nome da nova conta de armazenamento que o Azure Functions requer.
-    ```azurecli-interactive
+    ```
+
+    ```powershell
+    $location="eastus"
+    ```
+
+1. Desconfie uma variável para o nome da nova conta de armazenamento que o Azure Functions requer.
+
+    ```bash
     functionstorage="<name of the storage account to be used by the function>"
     ```
-4. Crie a conta de armazenamento para a função Azure.
 
-    ```azurecli-interactive
+    ```powershell
+    $functionstorage="<name of the storage account to be used by the function>"
+    ```
+
+1. Crie a conta de armazenamento para a função Azure.
+
+    ```bash
     az storage account create --name $functionstorage --location $location \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
+    ```
+
+    ```powershell
+    az storage account create --name $functionstorage --location $location `
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -99,14 +124,25 @@ No seguinte comando, forneça o seu próprio nome de aplicação de função ún
 
 1. Especifique um nome para a aplicação de função que vai ser criada.
 
-    ```azurecli-interactive
+    ```bash
     functionapp="<name of the function app>"
     ```
-2. Crie a função Azure.
 
-    ```azurecli-interactive
+    ```powershell
+    $functionapp="<name of the function app>"
+    ```
+
+1. Crie a função Azure.
+
+    ```bash
     az functionapp create --name $functionapp --storage-account $functionstorage \
       --resource-group $resourceGroupName --consumption-plan-location $location \
+      --functions-version 2
+    ```
+
+    ```powershell
+    az functionapp create --name $functionapp --storage-account $functionstorage `
+      --resource-group $resourceGroupName --consumption-plan-location $location `
       --functions-version 2
     ```
 
@@ -118,7 +154,7 @@ A função necessita de credenciais para a conta de armazenamento Blob, que são
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-```azurecli-interactive
+```bash
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -127,9 +163,18 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
+```powershell
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
+  --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName `
+  --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails `
+  THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-```azurecli-interactive
+```bash
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -140,6 +185,20 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
   AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
   AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+  AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+```powershell
+$blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName `
+  -n $blobStorageAccount --query [0].value --output tsv)
+
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
+  --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName `
+  --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails `
+  AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount `
+  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey `
   AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 ```
 
@@ -155,9 +214,15 @@ Agora, pode implementar um projeto de código de função nesta aplicação de f
 
 A função de redimensionar a amostra C# está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código para a aplicação de função utilizando o comando [config de fonte de config de origem config da função az.](/cli/azure/functionapp/deployment/source)
 
-```azurecli-interactive
+```bash
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName \
   --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
+```
+
+```powershell
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName `
+  --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
@@ -165,11 +230,18 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 A função de redimensionamento do Node.js de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
-```azurecli-interactive
+```bash
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
+
+```powershell
+az functionapp deployment source config --name $functionapp `
+  --resource-group $resourceGroupName --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+```
+
 ---
 
 A função de redimensionamento da imagem é acionada por pedidos de HTTP enviados a partir do serviço Event Grid. Indica ao Event Grid que pretende obter estas notificações no URL da sua função ao criar uma subscrição de evento. Neste tutorial, subscreve eventos criados no blob.
@@ -184,7 +256,7 @@ Para obter mais informações sobre esta função, veja os [ficheiros function.j
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-Para saber mais sobre esta função, consulte os [ficheiros function.json e index.js](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
+Para saber mais sobre esta função, consulte os [ficheirosfunction.jse index.js ficheiros](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
 
 ---
 
@@ -220,7 +292,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
 
 1. Mude para o **separador Filtros** e faça as seguintes ações:
     1. Selecione Ative a opção **de filtragem do assunto.**
-    2. Para **o sujeito começar com**, insira o seguinte valor : **/blobServices/default/containers/images/blobs/**.
+    1. Para **o sujeito começar com**, insira o seguinte valor : **/blobServices/default/containers/images/blobs/**.
 
         ![Especifique o filtro para a subscrição do evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

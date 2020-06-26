@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: spark
+ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 60cbb269693b23b658b8e28f90383814d6657661
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: caefc69fcb2bc20930e02965b9311bca2692dc63
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194336"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368316"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Adicione e gere bibliotecas para Apache Spark em Azure Synapse Analytics
 

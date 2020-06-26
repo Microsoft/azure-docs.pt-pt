@@ -1,19 +1,19 @@
 ---
-title: Gatilho DB Azure Cosmos para funções 2.x
+title: Gatilho DB Azure Cosmos para funções 2.x e superior
 description: Aprenda a usar o gatilho Azure Cosmos DB em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e7a422e0637c6343e1b2757fdf9aee7375ee2c3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561636"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374241"
 ---
-# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Azure Cosmos DB gatilho para funções Azure 2.x
+# <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB gatilho para funções Azure 2.x e superior
 
 O Azure Cosmos DB Trigger utiliza o [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) para ouvir inserções e atualizações através de divisórias. O feed de alteração publica inserções e atualizações, não eliminações.
 
@@ -57,9 +57,9 @@ namespace CosmosDBSamplesV2
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são adicionados ou modificados.
+O exemplo a seguir mostra uma ligação do gatilho Cosmos DB numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são adicionados ou modificados.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -93,9 +93,9 @@ Aqui está o código do guião C:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são adicionados ou modificados.
+O exemplo a seguir mostra uma ligação do gatilho Cosmos DB numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são adicionados ou modificados.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -122,9 +122,9 @@ Aqui está o código JavaScript:
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são modificados.
+O exemplo a seguir mostra uma ligação do gatilho Cosmos DB numa *function.jsem* ficheiro e numa [função Python](functions-reference-python.md) que usa a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são modificados.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -215,9 +215,9 @@ A partir da [biblioteca de funções java,](https://docs.microsoft.com/java/api/
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `CosmosDBTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDBTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `cosmosDBTrigger` . |
 |**direção** | n/a | Deve ser definido para `in` . Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
-ms.author: kenwith
+ms.date: 06/10/2020
+ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2a2691935cb38c20e20b6a776acfe70cc458a6ed
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763079"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374446"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -195,8 +195,6 @@ Utilize as seguintes fases para planear e implementar a sua solução na sua org
 
    Opcionalmente, pode utilizar reclamações emitidas no token SAML para a aplicação da empresa utilizando a [documentação de orientação da Microsoft.](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) Certifique-se de que este mapa é o que espera receber na resposta SAML para a sua aplicação. Se encontrar problemas durante a configuração, utilize as nossas orientações sobre [como depurar a integração SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
 
-A aplicação personalizada no embarque é uma funcionalidade de licençaS Azure AD Premium P1 ou P2.
-
 ### <a name="provide-sso-change-communications-to-end-users"></a>Fornecer comunicações de alteração SSO aos utilizadores finais
 
 Implemente o seu plano de comunicação. Certifique-se de que está a informar os seus utilizadores finais de que está a chegar uma mudança, quando chegar, o que fazer agora e como procurar ajuda.
@@ -237,11 +235,11 @@ Utilize sempre a função com o menor número de permissões disponíveis para r
 
 | Persona| Funções | Papel de AD AZure (se necessário) |
 |--------|-------|-----------------------------|
-| Administração de mesa de ajuda | Suporte de nível 1 | Nenhum |
+| Administração de mesa de ajuda | Suporte de nível 1 | Nenhuma |
 | Administrador de identidade | Configurar e depurar quando as questões impactam Azure AD | Administrador global |
-| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
+| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
 | Administradores de infraestruturas | Cert proprietário de capotamento | Administrador global |
-| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
+| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
 
 Recomendamos a [utilização de Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerir as suas funções para fornecer auditoria, controlo e revisão de acesso adicionais para utilizadores com permissões de diretório.
 

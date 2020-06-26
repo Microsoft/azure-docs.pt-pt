@@ -1,6 +1,6 @@
 ---
-title: Esconda uma aplicação da experiência do utilizador no Azure AD
-description: Como ocultar uma aplicação da experiência do utilizador em painéis de acesso Azure Ative Directory ou lançadores office 365.
+title: Esconda uma aplicação Enterprise da experiência do utilizador no Azure AD
+description: Como ocultar uma aplicação Enterpise da experiência do utilizador em painéis de acesso Azure Ative Directory ou lançadores office 365.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,14 +12,14 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e792298c68ed24fb8854c399f32e04e0deaefc0
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: d21ba14fba24c9b8e0b460e56b93d0e5212bfb27
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763334"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367704"
 ---
-# <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicações de utilizadores finais no Azure Ative Directory
+# <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicações da Empresa de utilizadores finais no Azure Ative Directory
 
 Instruções para como ocultar aplicações do painel MyApps ou do lançador do Office 365 dos utilizadores finais. Quando uma aplicação é ocultada, os utilizadores ainda têm permissões para a aplicação. 
 
@@ -42,6 +42,9 @@ Use os seguintes passos para esconder uma aplicação do painel MyApps e do lan�
 7.  Para a pergunta **Visível para os utilizadores,** clique em **Nº**.
 8.  Clique em **Guardar**.
 
+> [!NOTE]
+> Estas instruções aplicam-se apenas às aplicações da Enterprise.
+
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Use a Azure AD PowerShell para esconder uma aplicação
 
 Para ocultar uma aplicação do painel MyApps, pode adicionar manualmente a etiqueta HideApp ao principal do serviço para a aplicação. Executar os seguintes comandos [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) para definir a **No**propriedade **Visível para Os Utilizadores da aplicação?** 
@@ -62,10 +65,11 @@ Use os seguintes passos para esconder todas as aplicações do Office 365 do pai
 
 1.  Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global para o seu diretório.
 2.  Selecione **Azure Active Directory**.
-3.  Selecione **Definições do utilizador**.
-4.  Nas **aplicações da Enterprise,** clique **em Gerir como os utilizadores finais lançam e vêem as suas aplicações.**
-5.  Para **os utilizadores só podem ver as aplicações do Office 365 no portal Do Office 365**, clique em **Sim**.
-6.  Clique em **Guardar**.
+3.  Selecione **Utilizadores**.
+4.  Selecione **Definições do utilizador**.
+5.  Nas **aplicações da Enterprise,** clique **em Gerir como os utilizadores finais lançam e vêem as suas aplicações.**
+6.  Para **os utilizadores só podem ver as aplicações do Office 365 no portal Do Office 365**, clique em **Sim**.
+7.  Clique em **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)

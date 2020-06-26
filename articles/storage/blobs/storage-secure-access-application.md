@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945652"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367381"
 ---
 # <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento a
 
 Nesta parte da série de tutoriais, os tokens SAS servem para aceder às miniaturas. Neste passo, definiu o acesso público do contentor de *miniaturas* como `off`.
 
-```azurecli-interactive 
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
@@ -52,6 +52,19 @@ az storage container set-permission \
     --public-access off
 ```
 
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
+
+az storage container set-permission `
+    --account-name $blobStorageAccount `
+    --account-key $blobStorageAccountKey `
+    --name thumbnails `
+    --public-access off
+```
+
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configurar os tokens SAS para miniaturas
 
 Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, você usa fichas de acesso compartilhada (SAS) para recuperar as imagens de miniatura. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos. Para obter mais informações sobre o SAS, consulte [Grant acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
@@ -60,11 +73,19 @@ Neste exemplo, o repositório de código fonte utiliza o ramo `sasTokens`, que t
 
 No comando seguinte, `<web-app>` é o nome da aplicação Web.
 
-```azurecli-interactive 
+```bash
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
     --resource-group myResourceGroup --branch sasTokens --manual-integration \
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
+```powershell
+az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
+
+az webapp deployment source config --name <web_app> `
+    --resource-group myResourceGroup --branch sasTokens --manual-integration `
     --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 

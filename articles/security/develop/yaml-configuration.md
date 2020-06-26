@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c53954e1aa1779bbf6933f7a81a95d25c8b4043a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362276"
+ms.locfileid: "85367262"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Opções de configuração YAML para personalizar as tarefas de construção
 
@@ -125,7 +125,6 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | AntiMalware | boolean | AllTools = falso | Verdadeiro | true |  | Publique os resultados gerados por tarefas de construção antiMalware.
 | BinSkim | boolean | AllTools = falso | Verdadeiro | true |  | Publique os resultados gerados pela BinSkim para construir tarefas.
 | CredScan | boolean | AllTools = falso | Verdadeiro | true |  | Publique os resultados gerados pelo Credential Scanner para construir tarefas.
-| MSRD | boolean | AllTools = falso | Verdadeiro | true |  | Publique informações de trabalho e urls de emprego para empregos MSRD iniciados pela tarefa de construção do MSRD. Os empregos da MSRD estão há muito tempo a decorrer e fornecem relatórios separados.
 | RoslynAnalyzers | boolean | AllTools = falso | Verdadeiro | false |  | Publique os resultados gerados por Roslyn Analyzers constroem tarefas.
 | TSLint | boolean | AllTools = falso | Verdadeiro | true |  | Publique os resultados gerados pela TSLint para construir tarefas. Note que apenas os registos TSLint no formato JSON são suportados para relatórios. Se escolheu um formato diferente, por favor atualize a sua tarefa de construção TSLint em conformidade.
 | ToolLogsNotFoundAction | picklist | sempre | Verdadeiro | Standard | Erro, Nenhum, Padrão, Aviso | A ação a tomar quando não forem encontrados registos de uma ferramenta selecionada (ou qualquer ferramenta se todas as Ferramentas forem verificadas), o que implica que a ferramenta não foi executada.<br/><br/>**Opções:**<br/>**Nenhuma:** A mensagem é escrita para o fluxo de saída verboso acessível apenas definindo o sistema variável VSTS.debug para **verdadeiro**. **system.debug**<br/>**Standard:** (Padrão) Escreve uma mensagem de saída padrão que não foram encontrados registos para a ferramenta.<br/>**Aviso:** Escreve uma mensagem de aviso amarela de que não foram encontrados registos para a ferramenta, que aparece na página de resumo da construção como aviso.<br/>**Erro:** Escreve uma mensagem de erro vermelha e lança uma exceção, quebrando a construção. Utilize esta opção para garantir, com as opções individuais da ferramenta, quais as ferramentas que são utilizadas.
@@ -141,7 +140,6 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | BinSkim | boolean | AllTools = falso | Verdadeiro | false |  | Relatório de resultados gerados por BinSkim constroem tarefas.
 | BinSkimBreakOn | pickList | AllTools = verdadeiro OR BinSkim = verdadeiro | Verdadeiro | Erro | Erro, WarningAbove | O nível dos resultados a reportar.
 | CredScan | boolean | AllTools = falso | Verdadeiro | false |  | Relatório resultados gerados pelo Credential Scanner constroem tarefas.
-| MSRD | boolean | AllTools = falso | Verdadeiro | false |  | Reportar informações de trabalho e urls de emprego para empregos MSRD iniciados pela tarefa de construção do MSRD. Os empregos da MSRD estão há muito tempo a decorrer e fornecem relatórios separados.
 | RoslynAnalyzers | boolean | AllTools = falso | Verdadeiro | false |  | Relatório resultados gerados por Roslyn Analyzer constroem tarefas.
 | RoslynAnalyzersBreakOn | pickList | AllTools = verdadeiros OU RoslynAnalyzers = verdadeiros | Verdadeiro | Erro | Erro, WarningAbove | O nível dos resultados a reportar.
 | TSLint | boolean | AllTools = falso | Verdadeiro | false |  | Relatório resultados gerados pela TSLint constroem tarefas. Note que apenas os registos TSLint no formato JSON são suportados para relatórios. Se escolheu um formato diferente, por favor atualize a sua tarefa de construção TSLint em conformidade.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/20/2020
-ms.openlocfilehash: dcb0f60f38fbc1b52e29d7fffe0bce7a59257cb5
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 3c62f9794a4eb963bcd23a294d82b67cd9e37d08
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119074"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367228"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -103,8 +103,8 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | ---- | ----- | ----- |
 | Ação: Execuções por 5 minutos | 100.000 é o limite de incumprimento, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [executar a sua aplicação lógica no modo "alta produção",](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)que está em pré-visualização. Ou, pode distribuir a carga de trabalho por mais do que uma aplicação lógica, se necessário. |
 | Ação: Chamadas de saída simultâneas | ~2500 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
-| Ponto final de tempo de execução: Chamadas recebidas simultâneas | ~1.000 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
-| Ponto final de tempo de execução: Ler chamadas por 5 minutos  | 60 000 | Pode distribuir carga de trabalho por mais de uma aplicação, se necessário. |
+| Ponto final de tempo de execução: Chamadas de entrada simultâneas | ~1.000 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
+| Ponto final de tempo de execução: Ler chamadas por 5 minutos  | 60 000 | Este limite aplica-se a chamadas que obtêm as entradas e saídas brutas do histórico de execução de uma aplicação lógica. Pode distribuir a carga de trabalho por mais de uma aplicação, se necessário. |
 | Ponto final de tempo de execução: Invocar chamadas por 5 minutos | 45 000 | Pode distribuir carga de trabalho por mais de uma aplicação, se necessário. |
 | Produção de conteúdo por 5 minutos | 600 MB | Pode distribuir carga de trabalho por mais de uma aplicação, se necessário. |
 ||||

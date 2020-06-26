@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 357fe6f04c79b5ad0cdf569e6716589007f6253b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 189ebcc74461a57a4e91bf50262c377540cf885b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791967"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367840"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos a partir do Hub IoT
 
@@ -33,7 +33,7 @@ Consulte a [orientação de comunicação Nuvem-a-dispositivo](iot-hub-devguide-
 
 ## <a name="method-lifecycle"></a>Ciclo de vida do método
 
-Os métodos diretos são implementados no dispositivo e podem exigir zero ou mais entradas na carga útil do método para instantanear corretamente. Invoca um método direto através de um URI virado para o serviço ( `{iot hub}/twins/{device id}/methods/` ). Um dispositivo recebe métodos diretos através de um tópico MQTT específico do dispositivo ( `$iothub/methods/POST/{method name}/` ) ou através de ligações AMQP (as propriedades e `IoThub-methodname` `IoThub-status` aplicações). 
+Os métodos diretos são implementados no dispositivo e podem exigir zero ou mais entradas na carga útil do método para instantanear corretamente. Invoca um método direto através de um URI virado para o serviço ( `{iot hub}/twins/{device id}/methods/` ). Um dispositivo recebe métodos diretos através de um tópico MQTT específico do dispositivo ( `$iothub/methods/POST/{method name}/` ) ou através de ligações AMQP (as propriedades e `IoThub-methodname` `IoThub-status` aplicações).
 
 > [!NOTE]
 > Quando invoca um método direto num dispositivo, os nomes e valores de propriedade só podem conter alfanumérico imprimível US-ASCII, exceto qualquer um no seguinte conjunto:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -41,7 +41,7 @@ Os métodos diretos são implementados no dispositivo e podem exigir zero ou mai
 
 Os métodos diretos são sincronizados e sucedem ou falham após o período de tempo limite (padrão: 30 segundos, padrão entre 5 e 300 segundos). Os métodos diretos são úteis em cenários interativos onde pretende que um dispositivo aja se e somente se o dispositivo estiver online e receber comandos. Por exemplo, acender uma luz de um telefone. Nestes cenários, pretende-se um sucesso ou falha imediato para que o serviço de cloud possa atuar o mais rapidamente possível. O dispositivo pode devolver algum corpo de mensagem como resultado do método, mas não é necessário para o método fazê-lo. Não há garantias sobre a ordem ou qualquer semântica de conucção em chamadas metódãs.
 
-Os métodos diretos são apenas HTTPS do lado da nuvem e HTTPS, MQTT, AMQP, MQTT sobre WebSockets, ou AMQP sobre WebSockets do lado do dispositivo.
+Os métodos diretos são apenas HTTPS do lado da nuvem e MQTT, AMQP, MQTT sobre WebSockets, ou AMQP sobre WebSockets do lado do dispositivo.
 
 A carga útil para pedidos e respostas de métodos é um documento JSON até 128 KB.
 
@@ -80,12 +80,11 @@ O valor fornecido como `responseTimeoutInSeconds` no pedido é o tempo que o ser
 
 O valor fornecido como `connectTimeoutInSeconds` no pedido é o tempo após a invocação de um método direto que o serviço IoT Hub deve aguardar para que um dispositivo desligado fique online. O valor padrão é 0, o que significa que os dispositivos já devem estar on-line após a invocação de um método direto. O valor máximo é de `connectTimeoutInSeconds` 300 segundos.
 
-
 #### <a name="example"></a>Exemplo
 
 Este exemplo permitir-lhe-á iniciar de forma segura um pedido de invocação de um Método Direto num dispositivo IoT registado num Hub IoT Azure.
 
-Para começar, utilize a [extensão IoT do Microsoft Azure para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para criar uma SharedAccessSignature. 
+Para começar, utilize a [extensão IoT do Microsoft Azure para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para criar uma SharedAccessSignature.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>

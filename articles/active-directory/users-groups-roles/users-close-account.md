@@ -13,16 +13,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b1a89acdf189e41f3c72ec12fc84920cd0c795d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84731092"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374581"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Feche o seu trabalho ou conta escolar numa organização não gerida da AD AZure
 
-Se você é um utilizador de uma organização não gerida Azure Ative (Azure AD) e já não precisa de usar apps dessa organização ou manter qualquer associação com ela, pode fechar a sua conta a qualquer momento. Uma organização não importada não tem um administrador global. Os utilizadores de uma organização não administrada podem fechar as suas contas por conta própria, sem terem de contactar um administrador.
+Se for um utilizador de uma organização não gerida do Azure Ative Directory (Azure AD) e já não precisar de utilizar aplicações dessa organização ou manter qualquer associação com ela, pode fechar a sua conta a qualquer momento. Uma organização não importada não tem um administrador global. Os utilizadores de uma organização não administrada podem fechar as suas contas por conta própria, sem terem de contactar um administrador.
 
 Os utilizadores de uma organização nãogerida são muitas vezes criados durante a inscrição de self-service. Um exemplo pode ser um trabalhador da informação numa organização que se inscreve para um serviço gratuito. Para obter mais informações sobre a inscrição de self-service, consulte [o que é a inscrição de self-service para o Azure Ative Directory?](directory-self-service-signup.md)
 

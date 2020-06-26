@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 51df588b1ccd41bf05d8851f00399b61292b0736
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8996335a8d39e4dd9fc79584593fe333b302c8be
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214111"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373442"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -213,10 +213,6 @@ Forneça o logótipo da sua oferta em três tamanhos de pixel:
 - **Pequeno** (obrigatório; 48 x 48)
 - **Grande** (obrigatório; 216 x 216)
 - **Largo** (opcional; 255 x 115)
-
-#### <a name="hero"></a>Herói
-
-A imagem de herói é opcional. Se fornecer um, deve medir 815 x 290 pixels.
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

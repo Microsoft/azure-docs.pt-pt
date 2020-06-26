@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: cc53f7ae6eb6254eaa05bf643ecfa0188650df95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d7ac494edfb9b1deeceafcac523ac58bccde96b3
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77461871"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85365153"
 ---
 Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https://portal.azure.com).
 
@@ -56,7 +56,7 @@ Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https:/
 
 1.  Selecione **Seguinte: Tags** para continuar para o próximo ecrã.
 
-    As etiquetas são pares de nome/valor. Pode atribuir a mesma etiqueta a múltiplos recursos e grupos de recursos para categorizar recursos e consolidar a faturação. para obter mais informações, consulte [utilize etiquetas para organizar os seus recursos Azure.](../articles/azure-resource-manager/management/tag-resources.md)
+    As etiquetas são pares de nome/valor. Pode atribuir a mesma etiqueta a múltiplos recursos e grupos de recursos para categorizar recursos e consolidar a faturação. Para mais informações, consulte [utilize etiquetas para organizar os seus recursos Azure.](../articles/azure-resource-manager/management/tag-resources.md)
 
     ![Atribuir tags para o hub usando o portal Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 

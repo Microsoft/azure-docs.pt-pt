@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c444e54d29482f69d924df3796cc5da4afb4188
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759101"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367721"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de adesão a um pedido no local utilizando o representante de aplicação AZure AD
 
@@ -36,7 +36,7 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Estou com problemas de conectividade na minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Não sei que portas abrir para a minha aplicação](application-proxy-connectivity-ports-how-to.md)
+  * [Não sei que portas abrir para a minha aplicação](application-proxy-add-on-premises-application.md)
   * [Encontrei um problema porque não havia um conector a funcionar num grupo de conectores da minha aplicação](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Estou a ter um problema ao configurar o Proxy de Aplicações do Azure AD no portal de administração

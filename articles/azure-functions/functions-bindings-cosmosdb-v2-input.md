@@ -1,19 +1,19 @@
 ---
-title: Ligação de entrada DB Azure Cosmos para funções 2.x
+title: Ligação de entrada DB Azure Cosmos para funções 2.x e superior
 description: Aprenda a utilizar a ligação de entrada DB Azure Cosmos em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: bce234b0d2fee38f0644ae0bd961cdcd815b0bd2
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: b6daccb7ec4665842fd42a0938e3cbf18e2d7540
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667901"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374377"
 ---
-# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Ligação de entrada DB Azure Cosmos para funções Azure 2.x
+# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Ligação de entrada DB Azure Cosmos para Funções Azure 2.x e superior
 
 O enlace de entrada do Azure Cosmos DB utiliza a API do SQL para obter um ou mais documentos do Azure Cosmos DB e passa-os para o parâmetro de entrada da função. Os parâmetros de consulta ou o ID do documento podem ser determinados com base no acionador que invoca a função.
 
@@ -1428,7 +1428,7 @@ A partir da [biblioteca de funções java,](https://docs.microsoft.com/java/api/
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `cosmosDB` .        |
 |**direção**     | n/a | Deve ser definido para `in` .         |
@@ -1467,7 +1467,7 @@ A partir da [biblioteca de funções Java,](https://docs.microsoft.com/java/api/
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando um documento DB Azure Cosmos é criado ou modificado (Gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Guardar alterações num documento DB do Azure Cosmos (ligação à saída)](./functions-bindings-cosmosdb-v2-output.md)

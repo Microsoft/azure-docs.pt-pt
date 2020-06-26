@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 05/10/2019
-ms.openlocfilehash: a4a78dfd1fd88dfc6b212f0c50716bf3293a7ccd
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 06/25/2020
+ms.openlocfilehash: 9cefd07e02eaf80b7cfdf65cab8d4eb410da4677
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221355"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373289"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de características: Azure SQL Database e Azure SQL Managed Instance
 
@@ -39,7 +39,7 @@ A tabela que se segue lista as principais funcionalidades do SQL Server e fornec
 | **Funcionalidade** | **Base de Dados SQL do Azure** | **Instância Gerida do SQL no Azure** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - consulte [a loja Cert](always-encrypted-certificate-store-configure.md) e [o cofre key](always-encrypted-azure-key-vault-configure.md) | Sim - consulte [a loja Cert](always-encrypted-certificate-store-configure.md) e [o cofre key](always-encrypted-azure-key-vault-configure.md) |
-| [Sempre em Grupos de Disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99.99-99.995% de disponibilidade](high-availability-sla.md) é garantida para cada base de dados. Recuperação de desastres é discutida em [visão geral da continuidade do negócio com Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [A disponibilidade de 99.99.%](high-availability-sla.md) é garantida para todas as bases de dados e [não pode ser gerida pelo utilizador](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). A recuperação de desastres é discutida na [visão geral da continuidade do negócio com a Base de Dados Azure SQL](business-continuity-high-availability-disaster-recover-hadr-overview.md). Utilize [grupos de falha automática](auto-failover-group-overview.md) para configurar uma instância gerida secundária do SQL noutra região. As instâncias do SQL Server e a BASE de Dados SQL não podem ser usadas como secundários para a SQL Managed Instance. |
+| [Grupos de Disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99.99-99.995% de disponibilidade](high-availability-sla.md) é garantida para cada base de dados. Recuperação de desastres é discutida em [visão geral da continuidade do negócio com Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [A disponibilidade de 99.99.%](high-availability-sla.md) é garantida para todas as bases de dados e [não pode ser gerida pelo utilizador](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). A recuperação de desastres é discutida na [visão geral da continuidade do negócio com a Base de Dados Azure SQL](business-continuity-high-availability-disaster-recover-hadr-overview.md). Utilize [grupos de falha automática](auto-failover-group-overview.md) para configurar uma instância gerida secundária do SQL noutra região. As instâncias do SQL Server e a BASE de Dados SQL não podem ser usadas como secundários para a SQL Managed Instance. |
 | [Anexar uma base de dados](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Não | Não |
 | [Auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sim](auditing-overview.md)| [Sim,](../managed-instance/auditing-configure.md)com [algumas diferenças](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Autenticação do Azure Ative Directory (Azure AD)](authentication-aad-overview.md) | Sim. Apenas utilizadores de AD Azure. | Sim. Incluindo logins AD a nível do servidor. |
@@ -100,9 +100,9 @@ A tabela que se segue lista as principais funcionalidades do SQL Server e fornec
 | [Agente do SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Não - ver [trabalhos elásticos](elastic-jobs-overview.md) | Sim - ver [diferenças de agente de servidor SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
 | [Auditoria ao Servidor SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Não - ver [auditoria da BASE de Dados SQL](auditing-overview.md) | Sim - ver [diferenças de auditoria](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | A maioria - ver funções individuais | Sim - ver [Procedimentos armazenados, funções, despoleta diferenças](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [Procedimentos armazenados do sistema](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Alguns - ver procedimentos individuais armazenados | Sim - ver [Procedimentos armazenados, funções, despoleta diferenças](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [Tabelas de sistema](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Alguns - ver tabelas individuais | Sim - ver [diferenças T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Vistas de catálogo de sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Alguns - ver pontos de vista individuais | Sim - ver [diferenças T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Procedimentos armazenados no sistema](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Alguns - ver procedimentos individuais armazenados | Sim - ver [Procedimentos armazenados, funções, despoleta diferenças](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
+| [Tabelas do sistema](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Alguns - ver tabelas individuais | Sim - ver [diferenças T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Vistas de catálogo do sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Alguns - ver pontos de vista individuais | Sim - ver [diferenças T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [TempDB](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database) | Sim. [Tamanho de 32 GB por núcleo para cada base de dados](resource-limits-vcore-single-databases.md). | Sim. [Tamanho de 24 GB por vCore para todo o nível GP e limitado por tamanho por exemplo no nível BC](../managed-instance/resource-limits.md#service-tier-characteristics)  |
 | [Tabelas temporárias](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Tabelas temporárias globais locais e de base de dados | Tabelas temporárias globais locais e de instâncias |
 | Escolha do fuso horário | No | [Sim,](../managed-instance/timezones-overview.md)e deve ser configurado quando o SQL Managed Instance é criado. |
@@ -128,11 +128,11 @@ A plataforma Azure fornece uma série de capacidades PaaS que são adicionadas c
 | Retenção da cópia de segurança | Sim. 7 dias por defeito, máx. | Sim. 7 dias por defeito, máx. |
 | [Serviço de Migração de Dados (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Sim | Sim |
 | Acesso ao sistema de ficheiros | Não. Utilize [o BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para aceder e carregar dados do Azure Blob Storage como alternativa. | Não. Utilize [o BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para aceder e carregar dados do Azure Blob Storage como alternativa. |
-| [Geo-restauro](recovery-using-backups.md#geo-restore) | Sim - todos os níveis de serviço que não a hiperescala | Sim - todos os níveis de serviço que não a hiperescala |
+| [Geo-restauro](recovery-using-backups.md#geo-restore) | Sim | Sim |
 | [Arquitetura de hiperescala](service-tier-hyperscale.md) | Yes | No |
 | [Retenção de backup a longo prazo - LTR](long-term-retention-overview.md) | Sim, mantenha automaticamente as cópias de segurança até 10 anos. | Ainda não. Utilize `COPY_ONLY` [cópias de segurança manuais](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) como solução temporária. |
 | Pausa/currículo | Sim, no [modelo sem servidor](serverless-tier-overview.md) | No |
-| [Gestão baseada na política](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
+| [Gestão baseada em políticas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
 | Endereço IP público | Sim. O acesso pode ser restringido utilizando firewall ou pontos finais de serviço.  | Sim. Tem de ser explicitamente ativado e a porta 3342 deve ser ativada nas regras do NSG. O IP público pode ser desativado se necessário. Consulte [o ponto final do Público](../managed-instance/public-endpoint-overview.md) para mais detalhes. |
 | [Restauro de base de dados para um ponto no tempo](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sim - todos os níveis de serviço que não a hiperescala - ver [recuperação da Base de Dados SQL](recovery-using-backups.md#point-in-time-restore) | Sim - ver [recuperação da base de dados SQL](recovery-using-backups.md#point-in-time-restore) |
 | Agrupamentos de recursos | Sim, como [piscinas elásticas](elastic-pool-overview.md) | Sim. Um único exemplo de SQL Managed Instance pode ter várias bases de dados que partilham o mesmo conjunto de recursos. Além disso, pode implementar várias instâncias de SQL Managed Instance em [conjuntos de caso (pré-visualização)](../managed-instance/instance-pools-overview.md) que podem partilhar os recursos. |
@@ -165,8 +165,8 @@ AZure SQL Database e Azure SQL Managed Instance suportam várias ferramentas de 
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Sim](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Sim [versão 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sim | Sim |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Sim [versão 18.0 e superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-| [PowerShell do SQL Server](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
-| [Gerador de perfis do SQL Server](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - ver [eventos estendidos](xevent-db-diff-from-svr.md) | Yes |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
+| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - ver [eventos estendidos](xevent-db-diff-from-svr.md) | Yes |
 | [Gestor de Operações do Centro de Sistema (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Sim, [na pré-estreia](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## <a name="migration-methods"></a>Métodos de migração

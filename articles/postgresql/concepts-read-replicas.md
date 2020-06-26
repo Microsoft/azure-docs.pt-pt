@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.openlocfilehash: 48e23aa8cf20dd1225d3d7774d9703b960e0155a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/24/2020
+ms.openlocfilehash: 0d678d900ec31b00d27eba19617d533c5010c1dc
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737891"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368005"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -43,10 +43,7 @@ Pode ter um servidor principal em qualquer [Base de Dados Azure para a região p
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
 Pode sempre criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor principal esteja localizado. Estas são as regiões universais de réplica:
 
-Austrália Leste, Austrália Sudeste, Eua Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental.
-
-*West US 2 está temporariamente indisponível como uma localização réplica da região transversal.
-
+Austrália Leste, Austrália Sudeste, Eua Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões universais de réplicas, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor principal. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
@@ -55,7 +52,7 @@ Se estiver a utilizar réplicas transversais para o planeamento de recuperação
 
 Existem limitações a considerar: 
 
-* Disponibilidade regional: A base de dados Azure para PostgreSQL está disponível em West US 2, France Central, UAE North e Germany Central. No entanto, as suas regiões emparelhadas não estão disponíveis.
+* Disponibilidade regional: A Azure Database for PostgreSQL está disponível em France Central, UAE North e Germany Central. No entanto, as suas regiões emparelhadas não estão disponíveis.
     
 * Pares unidirecionais: Algumas regiões azures são emparelhadas apenas numa direção. Estas regiões incluem a Índia Ocidental, Brasil Sul. 
    Isto significa que um servidor principal na Índia Ocidental pode criar uma réplica no Sul da Índia. No entanto, um servidor principal no Sul da Índia não pode criar uma réplica na Índia Ocidental. Isto porque a região secundária da Índia Ocidental é a Índia do Sul, mas a região secundária do Sul da Índia não é a Índia Ocidental.

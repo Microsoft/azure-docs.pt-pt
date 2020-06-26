@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 0fad77f4704b9cbd8c2a37e39c09a334b08766ef
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193549"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367959"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Apagar e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -24,7 +24,7 @@ Quando elimina um espaço de trabalho Log Analytics, é realizada uma operação
 > [!NOTE]
 > Se pretender anular o comportamento de eliminação suave e eliminar permanentemente o seu espaço de trabalho, siga os passos no [espaço de trabalho permanente para eliminar](#permanent-workspace-delete).
 
-Deve ter cuidado ao eliminar um espaço de trabalho porque pode haver dados e configurações importantes que podem ter um impacto negativo no seu funcionamento do serviço. Reveja quais os agentes, soluções e outros serviços e fontes da Azure que armazenam os seus dados no Log Analytics, tais como:
+Deve ter cuidado ao eliminar um espaço de trabalho porque pode haver dados e configurações importantes que podem ter um impacto negativo no seu funcionamento do serviço. Reveja quais os agentes, soluções e outros serviços Azure que armazenam os seus dados no Log Analytics, tais como:
 
 * Soluções de gestão
 * Automatização do Azure
@@ -105,10 +105,13 @@ O espaço de trabalho e todos os seus dados são devolvidos após a operação d
 > * A recriação de um espaço de trabalho durante o período de eliminação suave dá uma indicação de que este nome do espaço de trabalho já está em uso. 
  
 ## <a name="troubleshooting"></a>Resolução de problemas
-Deve ter pelo menos permissões *do Log Analytics Contributor* para eliminar um espaço de trabalho.<br>
-Se receber uma mensagem de erro *Este nome do espaço de trabalho já está em uso* ou em *conflito* ao criar um espaço de trabalho, pode ser desde:
-* O nome do espaço de trabalho não está disponível e é usado por alguém da sua organização, ou por outro cliente.
-* O espaço de trabalho foi apagado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:<br>
-   1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho.
-   2. [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho.
-   3. Crie um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+
+Deve ter pelo menos permissões *do Log Analytics Contributor* para eliminar um espaço de trabalho.
+
+* Se não tiver a certeza se o espaço de trabalho eliminado está em estado de exclusão suave e pode ser recuperado, clique em [Recuperar](#recover-workspace) na página *de espaços de trabalho do Log Analytics* para ver uma lista de espaços de trabalho de eliminação suave por subscrição. Os espaços de trabalho permanentemente eliminados não estão incluídos na lista.
+* Se receber uma mensagem de erro *Este nome do espaço de trabalho já está em uso* ou em *conflito* ao criar um espaço de trabalho, pode ser desde:
+  * O nome do espaço de trabalho não está disponível e é usado por alguém da sua organização, ou por outro cliente.
+  * O espaço de trabalho foi apagado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:<br>
+     1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho.
+     2. [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho.
+     3. Crie um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.

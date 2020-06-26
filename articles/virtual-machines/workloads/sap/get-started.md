@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 06/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46864b0af7a4770debaed84cc3805a219f6687e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd170d505286d57f383af50da282e120167fe499
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361290"
+ms.locfileid: "85367364"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -112,6 +112,8 @@ Para obter informações sobre a integração dos serviços Azure em componentes
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 06/24/2020: Alteração na [criação do Pacemaker no SLES em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para lançar o novo agente melhorado da cerca de Azure e uma configuração STONITH mais resistente para dispositivos, com base no Agente da Cerca de Azure 
+- 06/24/2020: Alteração na [configuração do Pacemaker na RHEL em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para lançar uma configuração STONITH mais resistente
 - 06/23/2020: Alterações ao planeamento e implementação de [máquinas virtuais Azure para](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) guia e introdução de tipos de armazenamento [Azure para](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) guia de carga SAP
 - 06/22/2020: Adicione etapas de instalação para nova extensão VM para SAP ao [Guia de Implantação](deployment-guide.md)
 - 06/16/2020: Alteração da [conectividade de ponto final público para VMs utilizando O Azure Standard ILB em cenários SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) para adicionar uma ligação à documentação SUSE Public Cloud Infrastructure 101 

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 30d71333bb29720afd82c7dbbde7126b30a7f6d6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803674"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367398"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o portal Azure
 
@@ -45,7 +45,7 @@ Nesta secção, cria-se um equilibrador de carga que carregará máquinas virtua
     | Name                   | **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** ou **Basic**. A Microsoft recomenda a Standard para cargas de trabalho de produção. |
+    | SKU           | Selecione **Standard**. |
     | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**.  O IP público existente deve ser **o Standard** SKU.  Os IPs públicos básicos não são compatíveis com **o balanceador de** carga Standard SKU.  |
     | Nome do endereço IP público              | Digite **o myPublicIP** na caixa de texto.|
     | Zona de disponibilidade | Selecione **Zona redundante** para criar um equilibrador de carga resistente. Para criar um Balanceador de Carga zonal, selecione uma zona específica a partir de 1, 2 ou 3 |

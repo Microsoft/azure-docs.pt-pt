@@ -3,12 +3,12 @@ title: Pré-visualização - Saiba a política do Azure para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab18b85fc24deb58a6c65ca038d47120056eaa75
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791712"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373629"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a política do Azure para os clusters Kubernetes (pré-visualização)
 
@@ -52,9 +52,6 @@ Antes de instalar o Add-on de Política Azure ou permitir qualquer uma das funci
 1. Precisa da versão 2.0.62 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 1. Registe os fornecedores de recursos e as funcionalidades de pré-visualização.
-
-   > [!CAUTION]
-   > Quando regista uma funcionalidade numa subscrição, não é possível dess registar essa funcionalidade. Depois de ativar algumas funcionalidades de pré-visualização, podem ser utilizados predefinidos para todos os clusters AKS criados na subscrição. Não ative funcionalidades de pré-visualização em subscrições de produção. Utilize uma subscrição separada para testar funcionalidades de pré-visualização e recolher feedback.
 
    - Portal Azure:
 

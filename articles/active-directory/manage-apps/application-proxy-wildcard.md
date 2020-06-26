@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d04751cb8796290135cfc045385e1bf4cf3c3c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759951"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367738"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações Wildcard no proxy de aplicação do Azure Ative Directory
 
@@ -62,7 +62,7 @@ Embora [os domínios personalizados](application-proxy-configure-custom-domain.m
 1. Crie um domínio verificado dentro do Azure.
 1. Faça o upload de um certificado TLS/SSL no formato PFX para o seu representante de aplicação.
 
-Deve considerar a utilização de um certificado wildcard para corresponder à aplicação que pretende criar. Em alternativa, também pode utilizar um certificado que apenas enumera aplicações específicas. Neste caso, apenas os pedidos listados no certificado serão acessíveis através desta aplicação wildcard.
+Deve considerar a utilização de um certificado wildcard para corresponder à aplicação que pretende criar. 
 
 Por razões de segurança, este é um requisito difícil e não apoiaremos wildcards para aplicações que não podem usar um domínio personalizado para o URL externo.
 

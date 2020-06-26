@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f54eae8c57d3317c6d654b4a019501410239bf9
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: ff1c0bd880f2052e6ee2ad3c5cdc3bed803f6da1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317500"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367772"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -30,7 +30,7 @@ Tópico |  Detalhes
 --------- | --------- |
 Passos para atualizar a partir do Azure AD Connect | Diferentes métodos para [atualizar de uma versão anterior para o mais recente](how-to-upgrade-previous-version.md) lançamento do Azure AD Connect.
 Permissões obrigatórias | Para permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
-Transferência| [Baixar Azure Ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Download| [Baixar Azure Ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Lançar uma nova versão do Azure AD Connect é um processo que requer vários passos de controlo de qualidade para garantir a funcionalidade de funcionamento do serviço, e enquanto passamos por este processo o número de versão de um novo lançamento, bem como o estado de lançamento, serão atualizados para refletir o estado mais recente.
@@ -581,8 +581,6 @@ Permitir    | Controladores de domínio da empresa | Ler Permissões     | Este 
 Permitir    | Utilizadores Autenticados           | Conteúdo da Lista        | Este objeto  |
 Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
 Permitir    | Utilizadores Autenticados           | Ler Permissões     | Este objeto  |
-
-Para apertar as definições da conta DS AD pode executar [este script PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script PowerShell atribuirá as permissões acima mencionadas na conta DS AD.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script PowerShell para apertar uma conta de serviço pré-existente
 

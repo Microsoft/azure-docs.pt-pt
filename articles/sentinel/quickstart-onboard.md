@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: a07ba26128d1d4689e820ec8e300ca9420c3c2d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771177"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367092"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
 
 Neste arranque rápido, aprenda a embarcar Azure Sentinel. 
 
-Para embarcar no Azure Sentinel, primeiro tem de ativar o Azure Sentinel e, em seguida, ligar as suas fontes de dados. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e fornecendo integração em tempo real, incluindo soluções microsoft Threat Protection, fontes microsoft 365, incluindo Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security, e muito mais. Além disso, existem conectores incorporados no ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
+Para embarcar no Azure Sentinel, primeiro tem de ativar o Azure Sentinel e, em seguida, ligar as suas fontes de dados. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e fornecendo integração em tempo real, incluindo soluções microsoft Threat Protection, fontes Microsoft 365 (incluindo Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security, entre outras. Além disso, existem conectores incorporados no ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o Formato Comum de Eventos (CEF), Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
 
 Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros criados por especialistas que superem insights com base nos seus dados. Estes livros de trabalho podem ser facilmente personalizados às suas necessidades.
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c92cb120f91f8cb76675ba9fc50bad0517886e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360542"
+ms.locfileid: "85373833"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
 
@@ -32,7 +32,7 @@ O fornecimento de nuvens está programado para ser executado a cada 2 minutos. A
 
 Isto era esperado. As falhas devem-se ao objeto do utilizador não presente no Azure AD. Uma vez que o utilizador é adcedido ao Azure AD, as hashes de palavra-passe devem ser a provisionadas na execução subsequente. Aguarde um par de corridas e confirme que a sincronização de haxixe de palavra-passe já não tem os erros.
 
-**P: O que acontece se a instância do Ative Directory tiver atributos que não são suportados por provisões de nuvem (por exemplo, extensões de diretório)?**
+**P: O que acontece se a instância do Ative Directory tiver atributos que não são suportados por provisões em nuvem (por exemplo, extensões de diretório)?**
 
 O fornecimento de nuvens será executado e providenciará os atributos suportados. Os atributos não suportados não serão ad provisionados ao Azure AD. Reveja as extensões do diretório no Ative Directory e certifique-se de que não precisa desses atributos para fluir para a Azure AD. Se forem necessários um ou mais atributos, considere utilizar a sincronização Azure AD Connect ou mover as informações necessárias para um dos atributos suportados (por exemplo, atributos de extensão 1-15).
 
@@ -62,7 +62,7 @@ Sim, o fornecimento em nuvem cria um principal de serviço para a configuração
 
 **P: O que acontece quando um utilizador sincronizado é obrigado a alterar a palavra-passe no próximo logon?**
 
-Se a sincronização de haxixe de palavra-passe estiver ativada no fornecimento de nuvem e o utilizador sincronizado for obrigado a alterar a palavra-passe no próximo logo no início da AD, o provisionamento em nuvem não prevê a alteração do hash de palavra-passe para Azure AD. Uma vez que o utilizador mude a palavra-passe, o hash da palavra-passe do utilizador é alojado de AD para Azure AD.
+Se a sincronização de haxixe de palavra-passe estiver ativada no fornecimento de nuvem e o utilizador sincronizado for obrigado a alterar a palavra-passe no próximo logo no início da AD, o provisionamento em nuvem não prevê o hash de palavra-passe "a ser alterado" para Azure AD. Uma vez que o utilizador mude a palavra-passe, o hash da palavra-passe do utilizador é alojado de AD para Azure AD.
 
 **P: O suporte de provisão em nuvem suporta a redução do MS-dS-consistênciaGUID para qualquer objeto?**
 
@@ -70,7 +70,7 @@ Não, o provisionamento em nuvem não suporta a redução do MS-dS-consistência
 
 **P: Estou a a provisionar utilizadores usando o fornecimento de nuvens. Apaguei a configuração. Por que ainda vejo os velhos objetos sincronizados em Azure AD?** 
 
-Quando elimina a configuração, o provisionamento em nuvem não limpa os objetos sincronizados em Azure AD. Para garantir que não tem os objetos antigos, altere o âmbito da configuração para um grupo vazio ou Unidades Organizacionais. Uma vez que o provisionamento é executado e limpa os objetos, desative e elimine a configuração. 
+Quando elimina a configuração, o provisionamento em nuvem não remove automaticamente os objetos sincronizados em AZure AD. Para garantir que não tem os objetos antigos, altere o âmbito da configuração para um grupo vazio ou Unidades Organizacionais. Uma vez que o provisionamento é executado e limpa os objetos, desative e elimine a configuração. 
 
 **P: O que significa que o híbrido Exchange não é suportado?**
 
@@ -79,6 +79,10 @@ A funcionalidade Implementação Híbrida do Exchange permite a coexistência de
 **P: Posso instalar o agente de provisão de nuvem no Núcleo do Servidor do Windows?**
 
 Não, a instalação do agente no núcleo do servidor não é suportada.
+
+**P: Posso usar um servidor de encenação com o agente de provisão de nuvem?**
+
+Não, os servidores de paragem não são suportados.
 
 ## <a name="next-steps"></a>Passos seguintes 
 

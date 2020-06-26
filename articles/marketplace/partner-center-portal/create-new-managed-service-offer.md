@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 1d3804a019add8f97dcbad0f9d707d50c35830bb
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ffc8e1919350c9a14cb53bd243af66fdfa839d04
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753920"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373459"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -138,9 +138,9 @@ Nesta secção, pode fornecer logotipos e imagens que serão utilizados ao mostr
 
 Forneça o logótipo da sua oferta em quatro tamanhos de pixel:
 
-- **Pequeno** (40 x 40)
+- **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (115 x 115)
+- **Grande** (216 x 216)
 - **Largo** (255 x 115)
 
 Siga estas diretrizes para os seus logotipos:

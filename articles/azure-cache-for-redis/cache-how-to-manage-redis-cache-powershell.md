@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: cabb1a7d45906c9e60e1defd7d3d99286cdd39fb
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 10591c6e1e47be5d0f8fcb5eb4a4d4d8c1adf564
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318254"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367874"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir a cache Azure para Redis com Azure PowerShell
 > [!div class="op_single_selector"]
@@ -779,5 +779,5 @@ Para saber mais sobre a utilização do Windows PowerShell com o Azure, consulte
 * [Utilizar grupos de recursos para gerir os seus recursos Azure](../azure-resource-manager/templates/deploy-portal.md): Saiba como criar e gerir grupos de recursos no portal Azure.
 * [Blog Azure](https://azure.microsoft.com/blog/): Conheça as novidades em Azure.
 * [Blog Windows PowerShell](https://devblogs.microsoft.com/powershell/): Conheça as novas funcionalidades no Windows PowerShell.
-* ["Ei, tipo dos guiões!" Blog](https://devblogs.microsoft.com/scripting/author/the-scripting-guys/): Obtenha dicas e truques do mundo real da comunidade Windows PowerShell.
+* ["Ei, tipo dos guiões!" Blog](https://blogs.technet.microsoft.com/heyscriptingguy/author/the-scripting-guys/): Obtenha dicas e truques do mundo real da comunidade Windows PowerShell.
 

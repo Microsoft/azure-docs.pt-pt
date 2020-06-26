@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: a1cf2b57665cad4dd09639579b42b29a288eeca1
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975576"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367789"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planeie uma implementação de procuração de aplicativo AD Azure
 
@@ -317,7 +317,7 @@ Os seguintes artigos abrangem cenários comuns que também podem ser usados para
 * [Problema ao apresentar a página da aplicação](application-proxy-page-appearance-broken-problem.md)
 * [O carregamento da aplicação é demasiado demorado](application-proxy-page-load-speed-problem.md)
 * [As ligações na página da aplicação não funcionam](application-proxy-page-links-broken-problem.md)
-* [Que portas devo abrir para a minha aplicação](application-proxy-connectivity-ports-how-to.md)
+* [Que portas devo abrir para a minha aplicação](application-proxy-add-on-premises-application.md)
 * [Não existe nenhum conector que funcione num grupo de conectores da minha aplicação](application-proxy-connectivity-no-working-connector.md)
 * [Configurar no portal de administração](application-proxy-config-how-to.md)
 * [Configurar o início de sessão único na minha aplicação](application-proxy-config-sso-how-to.md)

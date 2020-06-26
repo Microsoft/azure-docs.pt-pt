@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a8d156cc2eea881b84dc0ef58f7b6538e0225f
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759866"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367755"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não pode aceder a esta aplicação corporativa" ao utilizar uma aplicação Proxy de aplicação
 
@@ -71,7 +71,7 @@ Como primeiro passo rápido, verifique e corrija o URL interno abrindo a aplica�
 Para verificar se o pedido é atribuído a um grupo de conector em funcionamento:
 
 1. Abra a aplicação no portal indo para **Azure Ative Directory,** clicando em **Aplicações empresariais,** em seguida, **todas as aplicações.** Abra a aplicação e, em seguida, selecione **Application Proxy** a partir do menu esquerdo.
-1. Olhe para o campo do Grupo Connector. Se não houver conectores ativos no grupo, vê-se um aviso. Se não vir nenhum aviso, passe para verificar se todas as portas necessárias são [permitidas.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to)
+1. Olhe para o campo do Grupo Connector. Se não houver conectores ativos no grupo, vê-se um aviso. Se não vir nenhum aviso, passe para verificar se todas as portas necessárias são [permitidas.](application-proxy-add-on-premises-application.md)
 1. Se o Grupo de Conector errado estiver a aparecer, utilize a redução para selecionar o grupo correto e confirme que já não vê avisos. Se o Grupo de Conector pretendido estiver a aparecer, clique na mensagem de aviso para abrir a página com a gestão do Conector.
 1. A partir daqui, há algumas maneiras de perfurar mais:
 
@@ -83,7 +83,7 @@ Depois de utilizar estas etapas para garantir que a aplicação é atribuída a 
 
 ## <a name="check-all-required-ports-are-open"></a>Verifique se todas as portas necessárias estão abertas
 
-Para verificar se todas as portas necessárias estão abertas, consulte a documentação sobre a [abertura das portas.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) Se todas as portas necessárias estiverem abertas, mova-se para a secção seguinte.
+Verifique se todas as portas necessárias estão abertas. Para as portas necessárias, consulte a secção de portas abertas do [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy in Azure Ative Directory](application-proxy-add-on-premises-application.md). Se todas as portas necessárias estiverem abertas, mova-se para a secção seguinte.
 
 ## <a name="check-for-other-connector-errors"></a>Verifique se existem outros erros do conector
 

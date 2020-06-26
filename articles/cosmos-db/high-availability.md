@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3f3eddf57b559d9e8f4837db453232308869767
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f459e1dd70850db1d7087b4c99de741b37d3bfda
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118054"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367126"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -82,7 +82,7 @@ A redundância da zona é uma *capacidade suplementar* para a funcionalidade [de
 
 Ao configurar as gravações multi-regiões para a sua conta Azure Cosmos, pode optar pela redundância da zona sem custos adicionais. Caso contrário, consulte a nota abaixo sobre os preços para o apoio ao despedimento de zona. Você pode ativar a redundância de zona em uma região existente da sua conta Azure Cosmos removendo a região e adicionando-a de volta com a zona de redundância ativada.
 
-Esta funcionalidade está disponível em: *Reino Unido Sul, Sudeste Asiático, Leste dos EUA, Leste dos EUA 2, Central EUA, Europa Ocidental, Eua Ocidental 2, Austrália Oriental, Japão Leste, Norte da Europa, França Regiões Centrais.*
+Esta funcionalidade está disponível em: *Reino Unido Sul, Sudeste Asiático, Leste dos EUA, Leste dos EUA 2, Central EUA, Europa Ocidental, Eua Ocidental 2, Japão Leste, Norte da Europa, França Regiões Centrais.*
 
 > [!NOTE]
 > Permitir zonas de disponibilidade para uma única região A conta Azure Cosmos resultará em encargos que equivalem a adicionar uma região adicional à sua conta. Para obter detalhes sobre os preços, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o custo multi-região em artigos [DB da Azure Cosmos.](optimize-cost-regions.md)

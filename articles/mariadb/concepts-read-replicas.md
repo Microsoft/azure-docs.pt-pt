@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/10/2020
-ms.openlocfilehash: f7606e2cbe6655801903de62ff9080eba8a0dd53
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 6/24/2020
+ms.openlocfilehash: d1d1dbb273ed1da3835f533b5f38743db73816c7
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708030"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367342"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -47,9 +47,7 @@ Você pode ter um servidor principal em qualquer [Base de Dados Azure para a reg
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
 Pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor principal está localizado. As regiões de réplica universal apoiadas incluem:
 
-Austrália Leste, Austrália Sudeste, Eua Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental.
-
-*West US 2 está temporariamente indisponível como uma localização réplica da região transversal.
+Austrália Leste, Austrália Sudeste, Eua Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões universais de réplicas, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor principal. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
@@ -58,7 +56,7 @@ Se estiver a utilizar réplicas transversais para o planeamento de recuperação
 
 No entanto, existem limitações a considerar: 
 
-* Disponibilidade regional: A base de dados Azure para MariaDB está disponível em West US 2, France Central, UAE North e Germany Central. No entanto, as suas regiões emparelhadas não estão disponíveis.
+* Disponibilidade regional: A Base de Dados Azure para MariaDB está disponível em France Central, UAE Norte e Alemanha Central. No entanto, as suas regiões emparelhadas não estão disponíveis.
     
 * Pares unidirecionais: Algumas regiões azures são emparelhadas apenas numa direção. Estas regiões incluem a Índia Ocidental, o Sul do Brasil e o Gov Virginia dos EUA. 
    Isto significa que um servidor principal na Índia Ocidental pode criar uma réplica no Sul da Índia. No entanto, um servidor principal no Sul da Índia não pode criar uma réplica na Índia Ocidental. Isto porque a região secundária da Índia Ocidental é a Índia do Sul, mas a região secundária do Sul da Índia não é a Índia Ocidental.

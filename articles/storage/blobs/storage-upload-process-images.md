@@ -5,27 +5,27 @@ author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 37e751d78bddd76847a4859b6f24e37bec5c9acb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e8caf6af0b30809857fd59d88fd57e5e43010ae2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730500"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368350"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com armazenamento Azure
 
-Este tutorial é a primeira parte de uma série. Neste tutorial, você vai aprender a implementar uma aplicação web que usa a biblioteca de clientes de armazenamento Azure Blob para fazer upload de imagens para uma conta de armazenamento. Quando terminar, terá uma aplicação web que armazena e exibe imagens do armazenamento do Azure.
+Este tutorial é a primeira parte de uma série. Neste tutorial, você vai aprender a implementar uma aplicação web. A aplicação web utiliza a biblioteca de clientes de armazenamento Azure Blob para fazer o upload de imagens para uma conta de armazenamento. Quando terminar, terá uma aplicação web que armazena e exibe imagens do armazenamento do Azure.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 ![App de resizer de imagem em .NET](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-![App de resizer de imagem em Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![App de resizer de imagem em JavaScript](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -46,7 +46,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure. Crie uma [con
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Para instalar e utilizar o CLI localmente, este tutorial requer que execute a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Para instalar e utilizar o CLI localmente, executar a versão 2.0.4 ou posterior do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -97,28 +97,26 @@ O acesso público do contentor de *imagens* está definido para `off` . O acesso
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount \
+az storage container create --name images \
+  --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey
 
-az storage container create -n thumbnails --account-name $blobStorageAccount \
+az storage container create --name thumbnails \
+  --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey --public-access container
-
-echo "Make a note of your Blob storage account key..."
-echo $blobStorageAccountKey
 ```
 
 ```powershell
 $blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount `
+az storage container create --name images `
+  --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey
 
-az storage container create -n thumbnails --account-name $blobStorageAccount `
+az storage container create --name thumbnails `
+  --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey --public-access container
-
-echo "Make a note of your Blob storage account key..."
-echo $blobStorageAccountKey
 ```
 
 Tome nota do nome e chave da sua conta de armazenamento Blob. A aplicação da amostra utiliza estas definições para ligar à conta de armazenamento para fazer o upload das imagens. 
@@ -143,7 +141,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 A aplicação web fornece um espaço de hospedagem para o código de aplicação da amostra que é implantado a partir do repositório de amostras GitHub. Crie uma [aplicação Web](../../app-service/overview.md) no plano do `myAppServicePlan`Serviço de Aplicações com o comando[az webapp create](/cli/azure/webapp).  
 
-No comando seguinte, `<web_app>` substitua-o por um nome único. Os carateres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` não for exclusivo, obtém a mensagem de erro *O Website com o nome `<web_app>` já existe.* O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.  
+No comando seguinte, `<web_app>` substitua-o por um nome único. Os carateres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` não for único, obtém-se a mensagem de erro: *O website com nome próprio já `<web_app>` existe.* O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.  
 
 ```bash
 webapp="<web_app>"
@@ -177,20 +175,20 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
+O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
 ```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+  --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
 ```
 
 ```powershell
 az webapp deployment source config --name $webapp --resource-group myResourceGroup `
   --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+  --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
 ```
 
 ---
@@ -217,9 +215,9 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-A aplicação Web de exemplo utiliza a [Biblioteca de Cliente de Armazenamento do Azure](https://github.com/Azure/azure-storage-js) para pedir tokens de acesso, os quais são utilizados para carregar imagens. As credenciais de conta de armazenamento utilizadas pelo Storage SDK estão definidas nas definições da aplicação para a web. Adicione as definições de aplicações à aplicação implementada com o comando de configuração de [appsettings az webapp.](/cli/azure/webapp/config/appsettings)
+A aplicação web de amostras utiliza a [biblioteca de clientes Azure Storage para o JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) para fazer upload de imagens. As credenciais de conta de armazenamento estão definidas nas definições da aplicação para a aplicação web. Adicione as definições de aplicações à aplicação implementada com o comando de configuração de [appsettings az webapp.](/cli/azure/webapp/config/appsettings)
 
 ```bash
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -243,7 +241,7 @@ Para testar a aplicação Web, navegue para o URL da aplicação publicada. O UR
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Selecione a região de **fotos upload** para especificar e carregar um ficheiro, ou arraste um ficheiro para a região. A imagem desaparece se for carregada com êxito. A secção **De Miniaturas Geradas** permanecerá vazia até testá-la mais tarde neste tópico.
+Selecione a região de **fotos upload** para especificar e carregar um ficheiro, ou arraste um ficheiro para a região. A imagem desaparece se for carregada com êxito. A secção **De Miniaturas Geradas** permanecerá vazia até testá-la mais tarde neste tutorial.
 
 ![Faça upload de fotos em .NET](media/storage-upload-process-images/figure1.png)
 
@@ -283,16 +281,16 @@ As classes e métodos seguintes são utilizados na tarefa anterior:
 | [ArmazenamentoSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [Construtor de StorageSharedKeyCredential (String, String)](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-**Selecione Escolher Ficheiro** para selecionar um ficheiro e, em seguida, clique em Upload **Image**. A secção **De Miniaturas Geradas** permanecerá vazia até testá-la mais tarde neste tópico. 
+**Selecione Escolher Ficheiro** para selecionar um ficheiro e, em seguida, clique em Upload **Image**. A secção **De Miniaturas Geradas** permanecerá vazia até testá-la mais tarde neste tutorial.
 
-![Faça upload de fotos em Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
+![Faça upload de fotos em Node.js](media/storage-upload-process-images/upload-app-nodejs.png)
 
 No código de exemplo, a rota `post` é responsável por carregar a imagem para um contentor de blobs. A rota utiliza os módulos para ajudar a processar o carregamento:
 
 - [multer](https://github.com/expressjs/multer) implementa a estratégia de upload para o manipulador de rotas.
-- [em fluxo](https://github.com/sindresorhus/into-stream) converte o tampão num fluxo conforme exigido pelo [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [em fluxo](https://github.com/sindresorhus/into-stream) converte o tampão num fluxo conforme exigido pelo [uploadStream](/javascript/api/%40azure/storage-blob/blockblobclient#uploadstream-readable--number--number--blockblobuploadstreamoptions-).
 
 À medida que o ficheiro é enviado para a rota, o conteúdo do ficheiro permanece na memória até que o ficheiro seja enviado para o recipiente blob.
 
@@ -300,34 +298,33 @@ No código de exemplo, a rota `post` é responsável por carregar a imagem para 
 > O carregamento de ficheiros grandes na memória pode ter um efeito negativo no desempenho da sua aplicação web. Se espera que os utilizadores publiquem ficheiros grandes, pode considerar a paragem de ficheiros no sistema de ficheiros do servidor web e, em seguida, agendar uploads para o armazenamento blob. Uma vez que os ficheiros estejam no armazenamento blob, pode removê-los do sistema de ficheiros do servidor.
 
 ```javascript
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const {
-  Aborter,
-  BlobURL,
-  BlockBlobURL,
-  ContainerURL,
-  ServiceURL,
-  StorageURL,
-  SharedKeyCredential,
-  uploadStreamToBlockBlob
+  BlobServiceClient,
+  StorageSharedKeyCredential,
+  newPipeline
 } = require('@azure/storage-blob');
 
 const express = require('express');
 const router = express.Router();
+const containerName1 = 'thumbnails';
 const multer = require('multer');
 const inMemoryStorage = multer.memoryStorage();
 const uploadStrategy = multer({ storage: inMemoryStorage }).single('image');
 const getStream = require('into-stream');
-const containerName = 'images';
+const containerName2 = 'images';
 const ONE_MEGABYTE = 1024 * 1024;
 const uploadOptions = { bufferSize: 4 * ONE_MEGABYTE, maxBuffers: 20 };
-const ONE_MINUTE = 60 * 1000;
-const aborter = Aborter.timeout(30 * ONE_MINUTE);
 
-const sharedKeyCredential = new SharedKeyCredential(
+const sharedKeyCredential = new StorageSharedKeyCredential(
   process.env.AZURE_STORAGE_ACCOUNT_NAME,
   process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY);
-const pipeline = StorageURL.newPipeline(sharedKeyCredential);
-const serviceURL = new ServiceURL(
+const pipeline = newPipeline(sharedKeyCredential);
+
+const blobServiceClient = new BlobServiceClient(
   `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
   pipeline
 );
@@ -335,31 +332,62 @@ const serviceURL = new ServiceURL(
 const getBlobName = originalName => {
   // Use a random number to generate a unique file name, 
   // removing "0." from the start of the string.
-  const identifier = Math.random().toString().replace(/0\./, ''); 
+  const identifier = Math.random().toString().replace(/0\./, '');
   return `${identifier}-${originalName}`;
 };
 
-router.post('/', uploadStrategy, async (req, res) => {
+router.get('/', async (req, res, next) => {
 
-    const blobName = getBlobName(req.file.originalname);
-    const stream = getStream(req.file.buffer);
-    const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
-    const blobURL = BlobURL.fromContainerURL(containerURL, blobName);
-    const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL);
+  let viewData;
 
-    try {
+  try {
+    const containerClient = blobServiceClient.getContainerClient(containerName1);
+    const listBlobsResponse = await containerClient.listBlobFlatSegment();
 
-      await uploadStreamToBlockBlob(aborter, stream,
-        blockBlobURL, uploadOptions.bufferSize, uploadOptions.maxBuffers);
-
-      res.render('success', { message: 'File uploaded to Azure Blob storage.' });   
-
-    } catch (err) {
-
-      res.render('error', { message: 'Something went wrong.' });
-
+    for await (const blob of listBlobsResponse.segment.blobItems) {
+      console.log(`Blob: ${blob.name}`);
     }
+
+    viewData = {
+      title: 'Home',
+      viewName: 'index',
+      accountName: process.env.AZURE_STORAGE_ACCOUNT_NAME,
+      containerName: containerName1
+    };
+
+    if (listBlobsResponse.segment.blobItems.length) {
+      viewData.thumbnails = listBlobsResponse.segment.blobItems;
+    }
+  } catch (err) {
+    viewData = {
+      title: 'Error',
+      viewName: 'error',
+      message: 'There was an error contacting the blob storage container.',
+      error: err
+    };
+    res.status(500);
+  } finally {
+    res.render(viewData.viewName, viewData);
+  }
 });
+
+router.post('/', uploadStrategy, async (req, res) => {
+  const blobName = getBlobName(req.file.originalname);
+  const stream = getStream(req.file.buffer);
+  const containerClient = blobServiceClient.getContainerClient(containerName2);;
+  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+  try {
+    await blockBlobClient.uploadStream(stream,
+      uploadOptions.bufferSize, uploadOptions.maxBuffers,
+      { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
+    res.render('success', { message: 'File uploaded to Azure Blob storage.' });
+  } catch (err) {
+    res.render('error', { message: err.message });
+  }
+});
+
+module.exports = router;
 ```
 
 ---
@@ -386,15 +414,15 @@ Navegue novamente para a aplicação para verificar se a imagem carregada no con
 
 ![.NET app de resizer de imagem com nova imagem exibida](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-![Node.js app de resizer de imagem V10 com nova imagem exibida](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js app de resizer de imagem com nova imagem exibida](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
-Na segunda parte da série, automatizas a criação de imagens de miniaturas para que não precises desta imagem. No contentor de **miniaturas** no portal do Azure, selecione a imagem que carregou e selecione **Eliminar** para eliminar a imagem. 
+Na segunda parte da série, automatizas a criação de imagens de miniaturas para que não precises desta imagem. No recipiente **das miniaturas,** selecione a imagem que carregou e selecione **Eliminar** para remover a imagem.
 
-Pode ativar a Rede de Entrega de Conteúdos (CDN) para cache de conteúdo a partir da sua conta de armazenamento Azure. Para obter mais informações sobre como ativar a CDN com a sua conta de armazenamento Azure, consulte [integrar uma conta de armazenamento Azure com a Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+Pode ativar a Rede de Entrega de Conteúdos (CDN) para cache de conteúdo a partir da sua conta de armazenamento Azure. Para obter mais informações, consulte [Integrar uma conta de armazenamento Azure com a Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 41e6352afb5eebc6ab09f43feac4e211232fd270
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 7826df83506083e2db1bdb011704cb0fef628801
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85292068"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378470"
 ---
 Utilize o gatilho de função para responder a um evento enviado para um fluxo de eventos do centro de eventos. Deve ter lido o acesso ao centro de eventos subjacente para configurar o gatilho. Quando a função é desencadeada, a mensagem transmitida para a função é dactilografada como uma corda.
 
@@ -355,7 +355,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**caminho** |**Nome eventHub** | Funciona apenas 1.x. O nome do centro de eventos. Quando o nome do hub do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
 |**eventHubName** |**Nome eventHub** | Funções 2.x e superior. O nome do centro de eventos. Quando o nome do hub do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. Pode ser referenciado através de [configurações de aplicativos](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings)`%eventHubName%` |
 |**consumerGroup** |**Grupo de Consumidores** | Uma propriedade opcional que define o [grupo de consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) usado para subscrever eventos no centro. Se omitido, o `$Default` grupo de consumidores é utilizado. |
-|**cardinalidade** | n/a | Para JavaScript. De modo a `many` ativar o lote.  Se omitir ou definir `one` para , uma única mensagem é transmitida para a função. |
+|**cardinalidade** | n/a | Usado para todos os idiomas não-C#. De modo a `many` ativar o lote.  Se omitir ou definir `one` para , uma única mensagem é transmitida para a função.<br><br>Em C#, esta propriedade é automaticamente atribuída sempre que o gatilho tem uma matriz para o tipo.|
 |**conexão** |**Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão **Informação de Ligação** para o [espaço de nomes,](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)e não o próprio hub do evento. Esta cadeia de ligação deve ter pelo menos permissões de leitura para ativar o gatilho.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]

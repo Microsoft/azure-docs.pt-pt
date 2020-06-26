@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5b54f87635e1ea972778b0039dc34170c5b7ab8a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 869614c2e3fe11c289ab6eb7f6c1407f666de2b0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362293"
+ms.locfileid: "85368146"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -82,7 +82,11 @@ Manter mais dados locais significa custos de saída mais baixos, uma vez que men
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Adicionei um novo ponto final do servidor. Quanto tempo até os meus ficheiros neste nível de servidor?
-Nas versões 4.0 e acima do agente Azure File Sync, uma vez que os seus ficheiros foram enviados para a partilha de ficheiros Azure, serão nivelados de acordo com as suas políticas assim que a próxima sessão de tiering for executada, o que acontece uma vez por hora. Em agentes mais velhos, o tiering pode levar até 24 horas para acontecer.
+
+Se os ficheiros precisam ou não de ser nivelados por políticas definidas é avaliado uma vez por hora. Pode encontrar duas situações quando um novo ponto final do servidor é criado:
+
+1. Quando adiciona um novo ponto final do servidor, muitas vezes existem ficheiros nessa localização do servidor. Têm de ser carregados primeiro, antes que o nível das nuvens possa começar. A política de espaço livre de volume não começará o seu trabalho até que o upload inicial de todos os ficheiros esteja terminado. No entanto, a política de datas opcionais começará a funcionar numa base de ficheiro individual, assim que um ficheiro tiver sido carregado. O intervalo de uma hora também se aplica aqui. 
+2. Quando adiciona um novo ponto final do servidor, é possível que conecte uma localização vazia do servidor a uma partilha de ficheiros Azure com os seus dados nele. Seja para um segundo servidor ou durante uma situação de recuperação de desastres. Se optar por descarregar o espaço de nomes e recordar o conteúdo durante o download inicial para o seu servidor, depois de o espaço de nome sair, os ficheiros serão recolhidos com base na última marca de tempo modificada. Apenas quantos ficheiros serão recolhidos como adequados dentro da política de espaço livre de volume e da política de data opcional.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Como posso saber se um ficheiro foi divulgado?

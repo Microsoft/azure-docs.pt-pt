@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: f1887065ef356717e05814a23ad85c7f0e6c6ab0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 47c3606b0b1ada93aeb8a107f48222fb26483a9c
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362667"
+ms.locfileid: "85368282"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para Azure Cognitive Search no portal Azure
 
@@ -43,7 +43,8 @@ A Azure Cognitive Search aproveita outros serviços Azure para uma monitorizaç�
 Vários aspetos de um serviço de pesquisa são determinados quando o serviço é prestado e não podem ser alterados mais tarde:
 
 * Nome de serviço (não é possível renomear um serviço)
-* Contagem máxima de replicação e partição (determinada pelo nível)
+* Localização do serviço (não é possível deslocar um serviço intacto para outra região)
+* Contas máximas de replicação e partição (determinadas pelo nível, Básico ou Standard)
 
 Se começou com o Basic com o seu máximo de uma partição, e agora precisa de mais divisórias, terá de [criar um novo serviço](search-create-service-portal.md) num nível mais elevado e recriar o seu conteúdo no novo serviço. 
 

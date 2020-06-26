@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7144cb18d19fd6be040b0a6ca4e8bb18498dfe6c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977941"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85365201"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -29,9 +29,34 @@ Cada gateway tem duas instâncias, a divisão acontece para que cada instância 
 
 ### <a name="how-do-i-add-dns-servers-for-p2s-clients"></a>Como adiciono servidores DNS para clientes P2S?
 
-Existem duas opções para adicionar servidores DNS para os clientes P2S.
+Existem duas opções para adicionar servidores DNS para os clientes P2S. O primeiro método é preferido, uma vez que adiciona os servidores DNS personalizados ao gateway em vez do cliente.
 
-1. Abra um bilhete de suporte com a Microsoft e que adicione os seus servidores DNS ao hub
+1. Utilize o seguinte script powershell para adicionar os servidores DNS personalizados. Por favor, substitua os valores para o seu ambiente.
+```
+// Define variables
+$rgName = "testRG1"
+$virtualHubName = "virtualHub1"
+$P2SvpnGatewayName = "testP2SVpnGateway1"
+$vpnClientAddressSpaces = 
+$vpnServerConfiguration1Name = "vpnServerConfig1"
+$vpnClientAddressSpaces = New-Object string[] 2
+$vpnClientAddressSpaces[0] = "192.168.2.0/24"
+$vpnClientAddressSpaces[1] = "192.168.3.0/24"
+$customDnsServers = New-Object string[] 2
+$customDnsServers[0] = "7.7.7.7"
+$customDnsServers[1] = "8.8.8.8"
+$virtualHub = $virtualHub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $virtualHubName
+$vpnServerConfig1 = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnServerConfiguration1Name
+
+// Specify custom dns servers for P2SVpnGateway VirtualHub while creating gateway
+createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgname -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
+
+// Specify custom dns servers for P2SVpnGateway VirtualHub while updating existing gateway
+$P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
+$updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName  -CustomDnsServer $customDnsServers 
+
+// Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+```
 2. Ou, se estiver a utilizar o Cliente VPN Azure para o Windows 10, ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** pode modificar o perfil descarregado do ficheiro XML e adicionar as etiquetas antes de o importar.
 
 ```
@@ -72,12 +97,19 @@ Para obter os passos de automatização, veja [Automatização dos parceiros da 
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Sou obrigado a utilizar um dispositivo de parceiro preferencial?
 
-Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1.
+Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1. A VIRTUAL WAN também tem soluções parceiras CPE que automatizam a conectividade com a Azure Virtual WAN, facilitando a configuração de ligações VPN IPsec em escala.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como é que os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
 
 As soluções de conectividade definida pelo software gerem, normalmente, os respetivos dispositivos de ramo com um controlador ou um centro de aprovisionamento de dispositivos. O controlador pode utilizar APIs do Azure para automatizar a conectividade à WAN Virtual do Azure. A automatização inclui o upload de informações do ramo, o descarregamento da configuração Azure, a criação de túneis IPSec em centros virtuais Azure e a configuração automática da conectividade do dispositivo de ramo para Azure Virtual WAN. Quando se tem centenas de agências, a ligação utilizando parceiros VIRTUAIS WAN CPE é fácil porque a experiência de embarque retira a necessidade de configurar, configurar e gerir a conectividade IPsec em larga escala. Para obter mais informações, consulte [a automatização de parceiros Virtual WAN.](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)
 
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>E se um dispositivo que estou a usar não estiver na lista de parceiros do Wan Virtual? Ainda posso usá-lo para ligar ao Azure Virtual WAN VPN?
+
+Sim, desde que o dispositivo suporte iPsec IKEv1 ou IKEv2. Os parceiros WAN virtuais automatizam a conectividade do dispositivo para os pontos finais Azure VPN. Isto implica automatizar etapas como 'branch information upload', 'IPsec e configuração' e 'conectividade'. Uma vez que o seu dispositivo não é de um ecossistema parceiro Virtual WAN, terá de fazer o levantamento pesado de tomar manualmente a configuração Azure e atualizar o seu dispositivo para configurar a conectividade IPsec.
+
+### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
+
+Todas as APIs wan virtuais estão abertas API. Pode ver a documentação [A automatização do parceiro Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) para avaliar a viabilidade técnica. Um parceiro ideal é o que tem um dispositivo que pode ser aprovisionado para a conectividade IKEv1 ou IKEv2 IPsec. Uma vez concluída a empresa o trabalho de automatização do seu dispositivo CPE com base nas diretrizes de automatização acima indicadas, pode chegar azurevirtualwan@microsoft.com para ser listado aqui Conectividade através de [parceiros.]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners) Se é um cliente que gostaria que uma determinada solução da empresa fosse listada como um parceiro Virtual WAN, por favor contacte a empresa contacte a WAN Virtual enviando um e-mail para azurevirtualwan@microsoft.com .
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como é que o WAN virtual suporta dispositivos SD-WAN?
 
@@ -132,14 +164,6 @@ Sim. Veja a página [Preços](https://azure.microsoft.com/pricing/details/virtua
 * Se tivesse o gateway ExpressRoute devido aos circuitos ExpressRoute que se ligavam a um hub virtual, então pagaria pelo preço unitário da escala. Cada unidade de escala em ER é de 2 Gbps e cada unidade de ligação é carregada à mesma velocidade que a unidade de ligação VPN.
 
 * Se tivesses falado VNETs ligados ao centro, as acusações de espreitar os VNETs falados ainda se aplicam. 
-
-### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
-
-Todas as APIs wan virtuais estão abertas API. Pode ver a documentação para avaliar a viabilidade técnica. Se tiver alguma dúvida, envie um e-mail para azurevirtualwan@microsoft.com . Um parceiro ideal é o que tem um dispositivo que pode ser aprovisionado para a conectividade IKEv1 ou IKEv2 IPsec.
-
-### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>E se um dispositivo que estou a usar não estiver na lista de parceiros do Wan Virtual? Ainda posso usá-lo para ligar ao Azure Virtual WAN VPN?
-
-Sim, desde que o dispositivo suporte iPsec IKEv1 ou IKEv2. Os parceiros WAN virtuais automatizam a conectividade do dispositivo para os pontos finais Azure VPN. Isto implica automatizar etapas como 'branch information upload', 'IPsec e configuração' e 'conectividade'. Uma vez que o seu dispositivo não é de um ecossistema parceiro Virtual WAN, terá de fazer o levantamento pesado de tomar manualmente a configuração Azure e atualizar o seu dispositivo para configurar a conectividade IPsec.
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>É possível construir uma WAN Virtual do Azure com um modelo do Resource Manager?
 

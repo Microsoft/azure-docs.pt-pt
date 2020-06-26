@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e56e5878c2f3528bee50137b4d40d947feda3ece
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 937f84d1b918eb7b9f38a62caef5dea7cede6d4d
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197155"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367891"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
@@ -248,6 +248,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |security.ubuntu.com:80 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
+|\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |

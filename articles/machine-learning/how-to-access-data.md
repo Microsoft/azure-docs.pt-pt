@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d73427db5fd168a31c478f92ef11307df136a775
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 07d2326d6677ccba93e2d3173bf8abccf309fe70
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125417"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374717"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,7 +72,7 @@ Recomendamos a criação de uma loja de dados para um [recipiente Azure Blob](ht
 
 [A azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) é construída em cima do armazenamento Azure Blob e projetada para análise de big data da empresa. Uma parte fundamental do Data Lake Storage Gen2 é a adição de um [espaço hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) de nomes para o armazenamento blob. O espaço hierárquico organiza objetos/ficheiros numa hierarquia de diretórios para um acesso eficiente aos dados.
 
-Quando cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure são automaticamente registados no espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore` e, respectivamente. `workspaceblobstore`é usado para armazenar artefactos do espaço de trabalho e seus registos de experiências de aprendizagem automática. `workspacefilestore`é usado para armazenar cadernos e scripts R autorizados através de [instância computacional](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). O `workspaceblobstore` recipiente é definido como a datastore predefinido.
+Quando cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure são automaticamente registados no espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore` e, respectivamente. `workspaceblobstore`é usado para armazenar artefactos do espaço de trabalho e seus registos de experiências de aprendizagem automática. `workspacefilestore`é usado para armazenar cadernos e scripts R autorizados através de [instância computacional](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). O `workspaceblobstore` recipiente é definido como a datastore predefinido e não pode ser eliminado do espaço de trabalho.
 
 > [!IMPORTANT]
 > O designer de Machine Learning (pré-visualização) criará uma datastore com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não **do not** utilize esta loja de dados para qualquer acesso confidencial aos dados.
@@ -158,8 +158,6 @@ Se a sua partilha de ficheiros estiver na rede virtual, inclua o parâmetro `ski
 
 Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credenciais ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. Para utilizar o seu principal de serviço, tem de registar a [sua candidatura](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder ao titular do serviço o acesso do Leitor *de Dados blob de armazenamento.* Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-Para utilizar o seu principal serviço, tem de registar a [sua candidatura](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder ao titular do serviço o acesso adequado aos dados. Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
-
 O código a seguir cria e regista a `adlsgen2_datastore_name` datastore para o `ws` espaço de trabalho. Esta loja de dados acede ao sistema de ficheiros `test` na `account_name` conta de armazenamento, utilizando as credenciais principais do serviço fornecido.
 
 ```python 
@@ -237,6 +235,7 @@ Também pode alterar a loja de dados predefinido com o seguinte código. Esta ca
 ```Python
  ws.set_default_datastore(new_default_datastore)
 ```
+
 <a name="up-and-down"></a>
 ## <a name="upload-and-download-data"></a>Carregar e transferir dados
 
@@ -260,7 +259,7 @@ O `target_path` parâmetro especifica a localização na partilha de ficheiros (
 
 Também pode fazer o upload de uma lista de ficheiros individuais para a datastore através do `upload_files()` método.
 
-### <a name="download"></a>Transferência
+### <a name="download"></a>Download
 
 Descarregue os dados de uma loja de dados para o seu sistema de ficheiros local:
 

@@ -7,12 +7,12 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 04581826ab6b05333e910a162c7a0ca9566ec334
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c6b84b25ae85d20ccd7872daf16014e5bed6934b
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079124"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374156"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Azure Monitor para a sua aplicação Python
 
@@ -251,9 +251,9 @@ Para obter mais informações sobre como modificar a telemetria rastreada antes 
 
 4. O exportador enviará dados métricos ao Azure Monitor num intervalo fixo. O padrão é a cada 15 segundos. Estamos a seguir uma única métrica, por isso estes dados métricos, com o valor e o carimbo de tempo que contém, serão enviados todos os intervalos. Pode encontrar os dados em `customMetrics` .
 
-#### <a name="standard-metrics"></a>Métricas padrão
+#### <a name="performance-counters"></a>Contadores de desempenho
 
-Por predefinição, o exportador de métricas enviará um conjunto de métricas padrão para o Azure Monitor. Pode desativá-lo colocando `enable_standard_metrics` a bandeira no construtor do exportador de `False` métricas.
+Por predefinição, o exportador de métricas enviará um conjunto de contadores de desempenho para o Azure Monitor. Pode desativá-lo colocando `enable_standard_metrics` a bandeira no construtor do exportador de `False` métricas.
 
 ```python
 ...
@@ -262,17 +262,16 @@ exporter = metrics_exporter.new_metrics_exporter(
   connection_string='InstrumentationKey=<your-instrumentation-key-here>')
 ...
 ```
-Abaixo está uma lista de métricas padrão que são atualmente enviadas:
+Abaixo está uma lista de contadores de desempenho que são enviados atualmente:
 
 - Memória Disponível (bytes)
 - Tempo do processador CPU (percentagem)
 - Taxa de Pedido de Entrada (por segundo)
 - Pedido de entrada Tempo médio de execução (milissegundos)
-- Taxa de pedido de saída (por segundo)
 - Processo CPU Utilização (percentagem)
 - Processe Bytes Privados (bytes)
 
-Você deve ser capaz de ver estas métricas em `performanceCounters` . A taxa de pedido de entrada seria inferior `customMetrics` a . Para mais informações, consulte [os contadores de desempenho.](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters)
+Você deve ser capaz de ver estas métricas em `performanceCounters` . Para mais informações, consulte [os contadores de desempenho.](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters)
 
 #### <a name="modify-telemetry"></a>Modificar a telemetria
 

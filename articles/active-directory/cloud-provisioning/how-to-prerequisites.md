@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a2ea1cfba9b460f5723f69cd0382c7413b97bef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360814"
+ms.locfileid: "85373867"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento de nuvem Azure AD Connect
 Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Conecte o fornecimento de nuvem como solução de identidade.
@@ -27,7 +27,7 @@ Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative D
 Precisa do seguinte para utilizar o provisionamento da nuvem AZure AD Connect:
     
 - Um administrador de identidade híbrido conta para o seu inquilino AZure AD que não é um utilizador convidado.
-- Um servidor no local para o agente de provisionamento com o Windows 2012 R2 ou mais tarde.
+- Um servidor no local para o agente de provisionamento com o Windows 2012 R2 ou mais tarde.  Este servidor deve ser um servidor de nível 0 baseado no [modelo de nível administrativo ative directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configurações de firewall no local.
 
 >[!NOTE]

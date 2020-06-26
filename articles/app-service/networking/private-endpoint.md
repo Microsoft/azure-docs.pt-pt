@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 92fdb48f11d4d8753706d61fab9fd32e2b06f488
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: bc9cd134e4c83aea94ae0049158b3054c602cce8
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668190"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374428"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
@@ -31,7 +31,7 @@ A utilização de Ponto Final Privado para a sua Aplicação Web permite-lhe:
 - Ligue-se seguramente à Web App a partir de redes no local que se conectam ao VNet usando um VPN ou ExpressRoute private peering.
 - Evite qualquer exfiltração de dados do seu VNet. 
 
-Se necessitar apenas de uma ligação segura entre o seu VNet e a sua Web App, um Ponto Final de Serviço é a solução mais simples. Se também precisar de chegar à aplicação web a partir do local através de um gateway Azure, um VNet com olhos regionais ou um VNet globalmente espreitado, o Private Endpoint é a solução.  
+Se necessitar apenas de uma ligação segura entre o seu VNet e a sua Web App, um Ponto Final de Serviço é a solução mais simples. Se também precisar de chegar à aplicação web a partir do local através de um Azure Gateway, um VNet com olhos regionais, ou um VNet globalmente espreitado, o Private Endpoint é a solução.  
 
 Para mais informações, consulte [os Pontos finais de serviço.][serviceendpoint]
 
@@ -57,7 +57,7 @@ Do ponto de vista da segurança:
 - Quando ativa o Private Endpoint para a sua Web App, a configuração das [restrições][accessrestrictions] de acesso da Web App não é avaliada.
 - Pode eliminar o risco de exfiltração de dados do VNet removendo todas as regras NSG onde o destino é a marca Internet ou os serviços Azure. Quando implementa um Ponto Final Privado para uma Aplicação Web, só pode chegar a esta Aplicação Web específica através do Ponto Final Privado. Se tiver outra Web App, tem de implementar outro Ponto Final Privado dedicado para esta outra Web App.
 
-Nos registos HTTP web da sua Web App, encontrará o IP de origem do cliente. Isto é implementado usando o protocolo TCP Proxy, reencaminhando a propriedade IP do cliente até a Web App. Para obter mais informações, consulte [obter informações de ligação utilizando o TCP Proxy v2][tcpproxy].
+Nos registos HTTP web da sua Web App, encontrará o IP de origem do cliente. Esta funcionalidade é implementada utilizando o protocolo TCP Proxy, reencaminhando a propriedade IP do cliente até à Web App. Para obter mais informações, consulte [obter informações de ligação utilizando o TCP Proxy v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -65,12 +65,22 @@ Nos registos HTTP web da sua Web App, encontrará o IP de origem do cliente. Ist
 
 ## <a name="dns"></a>DNS
 
-Como esta funcionalidade está em pré-visualização, não alteramos a entrada de DNS durante a pré-visualização. Você precisa de gerir a entrada DNS no seu servidor DNS privado ou na zona privada do Azure DNS.
+Por padrão, sem Private Endpoint, o nome público da sua aplicação web é um nome canónico para o cluster.
+Por exemplo, a resolução de nomes será: mywebapp.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+
+Quando implanta um Ponto Final Privado, mudamos a entrada de DNS para apontar para o nome canónico mywebapp.privatelink.azurewebsites.net.
+Por exemplo, a resolução de nomes será: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+
+Se tiver um servidor DNS privado ou uma zona privada Azure DNS, precisa de configurar uma zona chamada privatelink.azurewebsites.net. Registe o registo da sua aplicação web com um registo A e o Private Endpoint IP.
+Por exemplo, a resolução de nomes será: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net A 10.10.10.8 
+
 Se precisar de usar um nome DNS personalizado, tem de adicionar o nome personalizado na sua Web App. Durante a pré-visualização, o nome personalizado deve ser validado como qualquer nome personalizado, utilizando a resolução pública de DNS. Para mais informações, consulte [a validação personalizada do DNS.][dnsvalidation]
 
 Se precisar de utilizar a consola Kudu, ou a API Kudu REST (implantação com agentes auto-hospedados da Azure DevOps, por exemplo), precisa de criar dois registos na sua zona privada Azure DNS ou no seu servidor DNS personalizado. 
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+
+Estes dois registos são automaticamente povoados se tiver uma zona privada chamada privatelink.azurewebsites.net ligada ao VNet onde cria o Ponto Final Privado.
 
 ## <a name="pricing"></a>Preços
 
@@ -84,9 +94,9 @@ Durante a pré-visualização, apenas a ranhura de produção é exposta por tr�
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para implementar o ponto final privado para a sua Web App através do portal ver [como ligar-se privadamente a uma Aplicação Web][howtoguide]
+Para implementar o ponto final privado da sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web][howtoguide]
 
 
 

@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: 6eb6403ad6d1f181d1f51dde6db266070bf32a56
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 458cbe35e9d46b8a6afde399e20f3b484dfe6478
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194761"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373374"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter cadernos Azure Synapse Studio (pré-visualização)
 
@@ -344,7 +344,7 @@ Semelhante aos Cadernos Jupyter, os portáteis do Azure Synapse Studio têm uma 
 
    ![modo de comando](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, não se pode escrever na célula. Introduza o modo de edição premindo `Enter` ou utilizando o rato para clicar na área de editor de uma célula.
+2. O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, pode digitar na célula. Introduza o modo de edição premindo `Enter` ou utilizando o rato para clicar na área de editor de uma célula.
    
    ![modo-de-edição](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

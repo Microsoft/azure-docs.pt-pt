@@ -1,19 +1,19 @@
 ---
-title: Ligação de saída DB Azure Cosmos para funções 2.x
+title: Ligação de saída DB Azure Cosmos para funções 2.x e superior
 description: Aprenda a utilizar a ligação de saída DB Azure Cosmos em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: b58924607f002af27d21343389404fcc66d1f35d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2228a9609b0e0325dc4e6f7ccbe88417c900b688
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561669"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374343"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Ligação de saída DB Azure Cosmos para Funções Azure 2.x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Ligação de saída DB Azure Cosmos para Funções Azure 2.x e superior
 
 A ligação de saída DB da Azure Cosmos permite-lhe escrever um novo documento numa base de dados DB da Azure Cosmos utilizando a API SQL.
 
@@ -125,7 +125,7 @@ Esta secção contém os seguintes exemplos:
 
 ### <a name="queue-trigger-write-one-doc"></a>Gatilho de fila, escreva um doc
 
-O exemplo a seguir mostra uma ligação de saída DB Azure Cosmos num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função utiliza uma ligação de entrada de fila para uma fila que recebe JSON no seguinte formato:
+O exemplo a seguir mostra uma ligação de saída DB Azure Cosmos numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função utiliza uma ligação de entrada de fila para uma fila que recebe JSON no seguinte formato:
 
 ```json
 {
@@ -146,7 +146,7 @@ A função cria documentos DB Azure Cosmos no seguinte formato para cada registo
 }
 ```
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -205,7 +205,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Aqui está o ficheiro function.json:
+Aqui está a function.jsarquivada:
 
 ```json
 {
@@ -250,7 +250,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação de saída DB Azure Cosmos num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza uma ligação de entrada de fila para uma fila que recebe JSON no seguinte formato:
+O exemplo a seguir mostra uma ligação de saída DB Azure Cosmos numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza uma ligação de entrada de fila para uma fila que recebe JSON no seguinte formato:
 
 ```json
 {
@@ -271,7 +271,7 @@ A função cria documentos DB Azure Cosmos no seguinte formato para cada registo
 }
 ```
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -307,7 +307,7 @@ Aqui está o código JavaScript:
 
 O exemplo a seguir demonstra como escrever um documento para uma base de dados Azure CosmosDB como saída de uma função.
 
-A definição de ligação é definida em *função.json* onde *o tipo* é definido para `cosmosDB` .
+A definição de ligação é definida em *function.jsno* local onde *o tipo* é definido para `cosmosDB` .
 
 ```json
 {
@@ -562,9 +562,9 @@ A `CosmosDBOutput` anotação está disponível para escrever dados para cosmos 
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `CosmosDB` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDB` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `cosmosDB` .        |
 |**direção**     | n/a | Deve ser definido para `out` .         |
@@ -595,9 +595,9 @@ Por predefinição, quando escreve para o parâmetro de saída na sua função, 
 
 <a name="host-json"></a>
 
-## <a name="hostjson-settings"></a>configurações host.json
+## <a name="hostjson-settings"></a>host.jsnas definições
 
-Esta secção descreve as definições de configuração global disponíveis para esta ligação na versão 2.x. Para obter mais informações sobre as configurações globais na versão 2.x, consulte [a referência host.json para a versão 2.x das Funções Azure](functions-host-json.md).
+Esta secção descreve as definições de configuração global disponíveis para esta ligação na versão 2.x. Para obter mais informações sobre as configurações globais na versão 2.x, consulte [host.jsem referência para a versão 2.x das Funções Azure](functions-host-json.md).
 
 ```json
 {

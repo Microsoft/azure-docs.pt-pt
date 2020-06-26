@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: dae826367661648f3ee56235fd6497d265bf6a1e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 45a7de4f19b663823a5eff7ba4f352992c3aaf0d
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339448"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374207"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
 
@@ -35,22 +35,22 @@ O exemplo a seguir descreve como criar uma aplicação de função C# no Estúdi
 
 Para configurar o seu ambiente, crie uma aplicação de função e teste. Os seguintes passos ajudam-no a criar as aplicações e funções necessárias para suportar os testes:
 
-1. [Criar uma nova aplicação funções](./functions-create-first-azure-function.md) e nomeá-la *Funções*
-2. [Crie uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e nomeie-o *MyHttpTrigger*.
-3. [Crie uma função temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-o *MyTimerTrigger*.
-4. [Crie uma aplicação de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) em Estúdio Visual clicando em **Arquivo > New > Project > Visual C# > .NET Core > xUnit Test Project** e nomeá-lo *Funções.Test*. 
+1. [Criar uma nova aplicação funções](./functions-create-first-azure-function.md) e nomeá-la **Funções**
+2. [Crie uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e nomeie-o **MyHttpTrigger**.
+3. [Crie uma função temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-o **MyTimerTrigger**.
+4. [Crie uma aplicação de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) na solução e nomeie-a **Funções.Testes**. 
 5. Utilize o NuGet para adicionar uma referência da aplicação de teste à [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Referenciar a aplicação *Funções* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) a partir de *Funções.Teste* app.
+6. [Referenciar a aplicação *Funções* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) a partir da aplicação *Funções.Testes.*
 
 ### <a name="create-test-classes"></a>Criar aulas de teste
 
-Agora que as aplicações são criadas, pode criar as classes usadas para executar os testes automatizados.
+Agora que os projetos são criados, pode criar as classes usadas para executar os testes automatizados.
 
 Cada função requer um exemplo de [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para lidar com o registo de mensagens. Alguns testes ou não registam mensagens ou não têm qualquer preocupação com a forma como o registo é implementado. Outros testes precisam de avaliar as mensagens registadas para determinar se um teste está a passar.
 
-A `ListLogger` classe implementa a interface e contém uma lista interna de `ILogger` mensagens para avaliação durante um teste.
+Irá criar uma nova classe com o nome `ListLogger` de uma lista interna de mensagens para avaliar durante um teste. Para implementar a `ILogger` interface necessária, a classe precisa de um âmbito. A classe seguinte ridiculariza uma margem para que os casos de teste passem para a `ListLogger` classe.
 
-**Clique com o botão direito** na aplicação *Funções.Teste* e selecione **Adicionar > Classe**, nomeie-o **NullScope.cs** e introduza o seguinte código:
+Criar uma nova classe em *Funções.Testes* projeto nomeado **NullScope.cs** e introduza o seguinte código:
 
 ```csharp
 using System;
@@ -68,7 +68,7 @@ namespace Functions.Tests
 }
 ```
 
-Em seguida, clique com o **botão direito** na aplicação *Funções.Teste* e selecione **Adicionar > Classe**, nomeie-o **ListLogger.cs** e introduza o seguinte código:
+Em seguida, crie uma nova classe em *Funções.Testes* projeto nomeado **ListLogger.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -114,7 +114,7 @@ A `ListLogger` classe implementa os seguintes membros conforme contratado pela `
 
 A `Logs` coleção é um exemplo de e é `List<string>` inicializada no construtor.
 
-Em seguida, clique com o **botão direito** na aplicação *Funções.Teste* e selecione **Adicionar > Classe**, nomeie-o **LoggerTypes.cs** e introduza o seguinte código:
+Em seguida, crie um novo ficheiro em *Funções.Testes* projeto denominado **LoggerTypes.cs** e introduza o seguinte código:
 
 ```csharp
 namespace Functions.Tests
@@ -129,7 +129,7 @@ namespace Functions.Tests
 
 Esta enumeração especifica o tipo de madeirão utilizado pelos testes. 
 
-Em seguida, clique com o **botão direito** na aplicação *Funções.Teste* e selecione **Adicionar > Classe**, nomeie-o **TestFactory.cs** e introduza o seguinte código:
+Agora crie uma nova classe em *Funções.Testes* projeto chamado **TestFactory.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -163,12 +163,11 @@ namespace Functions.Tests
             return qs;
         }
 
-        public static DefaultHttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
         {
-            var request = new DefaultHttpRequest(new DefaultHttpContext())
-            {
-                Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue))
-            };
+            var context = new DefaultHttpContext();
+            var request = context.Request;
+            request.Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue));
             return request;
         }
 
@@ -201,7 +200,7 @@ A `TestFactory` classe implementa os seguintes membros:
 
 - **CreateLogger**: Com base no tipo madeirão, este método devolve uma classe de madeireiros utilizada para testes. O `ListLogger` registo de mensagens registadas disponível para avaliação em testes.
 
-Em seguida, clique com o **botão direito** na aplicação *Funções.Teste* e selecione **Adicionar > Classe**, nomeie-o **FunctionsTests.cs** e introduza o seguinte código:
+Finalmente, crie uma nova classe em *Funções.Testes* projeto nomeado **FunctionsTests.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;

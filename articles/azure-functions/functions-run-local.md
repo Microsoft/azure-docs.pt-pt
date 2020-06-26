@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: bf5821a0781b5208096a0c02058cf2239a99e7d6
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697243"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367857"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções Azure Core Tools
 
@@ -132,8 +132,9 @@ Os passos seguintes utilizam [o APT](https://wiki.debian.org/Apt) para instalar 
 
     | Distribuição linux | Versão |
     | --------------- | ----------- |
-    | Debian 9 | `stretch` |
-    | Debian 8 | `jessie` |
+    | Debian 10 | `buster`  |
+    | Debian 9  | `stretch` |
+    | Ubuntu 19.04    | `disco`     |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |

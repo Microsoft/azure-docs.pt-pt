@@ -1,26 +1,26 @@
 ---
 title: Usando a configuração de estado desejada com conjuntos de escala de máquina virtual
-description: Utilizando conjuntos de escala de máquina virtual com a extensão de configuração do Estado Do Estado Do Azure para configurar máquinas virtuais.
+description: Utilizando conjuntos de balança de máquina virtual com a extensão de configuração do estado Azure desejada para configurar máquinas virtuais.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 04/05/2017
+ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4a972cab0559ff8a4bb22588c712515daa2fab16
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6939339ce8d0f324fbd9e14ba31d23a6febcfcbe
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124846"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373902"
 ---
-# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Utilização de conjuntos de escala de máquina virtual com a extensão DSC Azure
-[Os conjuntos](virtual-machine-scale-sets-overview.md) de escala de máquina virtual podem ser utilizados com o manipulador de extensão de configuração do [Estado Pretendido (DSC) azure.](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Os conjuntos de escala de máquinas virtuais fornecem uma forma de implantar e gerir um grande número de máquinas virtuais, e podem escalar elásticomente para dentro e para fora em resposta à carga. A DSC é usada para configurar os VMs à medida que entram online, pelo que estão a executar o software de produção.
+# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Usando conjuntos de balança de máquina virtual com a extensão Azure DSC
+[Os conjuntos de balança de máquina virtual](virtual-machine-scale-sets-overview.md) podem ser utilizados com o controlador de [extensão de configuração de estado (DSC) desejado.](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Os conjuntos de escala de máquinas virtuais fornecem uma forma de implantar e gerir um grande número de máquinas virtuais, e podem dimensionar elasticamente para dentro e para fora em resposta à carga. A DSC é usada para configurar os VMs à medida que entram online, por isso estão a executar o software de produção.
 
-## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Diferenças entre a implantação para máquinas virtuais e conjuntos de escala de máquinas virtuais
-A estrutura do modelo subjacente para um conjunto de escala de máquina virtual é ligeiramente diferente de um único VM. Especificamente, um único VM implementa extensões sob o nó "virtualMachines". Há uma entrada de "extensões" tipo onde dSC é adicionado ao modelo
+## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Diferenças entre implantação em máquinas virtuais e conjuntos de escala de máquinas virtuais
+A estrutura subjacente do modelo para um conjunto de escala de máquina virtual é ligeiramente diferente de um único VM. Especificamente, um único VM implementa extensões sob o nó "virtualMachines". Há uma entrada de tipo "extensões" onde dSC é adicionado ao modelo
 
 ```
 "resources": [
@@ -59,7 +59,7 @@ A estrutura do modelo subjacente para um conjunto de escala de máquina virtual 
       ]
 ```
 
-Um nó de conjunto de escala de máquina virtual tem uma secção "propriedades" com o atributo "VirtualMachineProfile", "extensionProfile". DSC é adicionado em "extensões"
+Um nó de conjunto de escala de máquina virtual tem uma secção de "propriedades" com o atributo "VirtualMachineProfile", "extensionProfile". DSC é adicionado em "extensões"
 
 ```
 "extensionProfile": {
@@ -91,14 +91,14 @@ Um nó de conjunto de escala de máquina virtual tem uma secção "propriedades"
 ```
 
 ## <a name="behavior-for-a-virtual-machine-scale-set"></a>Comportamento para um conjunto de escala de máquina virtual
-O comportamento de um conjunto de escala de máquina virtual é idêntico ao comportamento de um único VM. Quando um novo VM é criado, é automaticamente provisionado com a extensão DSC. Se uma versão mais recente do WMF for necessária pela extensão, o VM reinicia antes de entrar online. Uma vez on-line, ele descarrega a configuração DSC .zip e disponibiliza-a no VM. Mais detalhes podem ser encontrados na [visão geral da extensão DoD Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O comportamento de um conjunto de escala de máquina virtual é idêntico ao comportamento de um único VM. Quando um novo VM é criado, é automaticamente a provisionado com a extensão DSC. Se for necessária uma versão mais recente do WMF pela extensão, o VM reinicia antes de ficar online. Uma vez online, descarrega a configuração DSC .zip e fornece-a no VM. Mais detalhes podem ser encontrados [na Visão Geral da Extensão Azure DSC](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Passos seguintes
-Examine o modelo do Gestor de [Recursos Azure para a extensão DSC](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Examine o [modelo do Gestor de Recursos Azure para a extensão DSC](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Saiba como a [extensão DSC lida com segurança as credenciais](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Saiba como a [extensão DSC lida com as credenciais de forma segura](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para obter mais informações sobre o manipulador de extensão Azure DSC, consulte introdução ao manipulador de extensão de [configuração de configuração do Estado Pretendido .](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+Para obter mais informações sobre o controlador de extensão Azure DSC, consulte [Introdução ao controlador de extensão de configuração do estado Azure Desired](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para mais informações sobre o PowerShell DSC, visite o centro de [documentação PowerShell](/powershell/scripting/dsc/overview/overview). 
+Para mais informações sobre o PowerShell DSC, [visite o centro de documentação PowerShell](/powershell/scripting/dsc/overview/overview). 
 

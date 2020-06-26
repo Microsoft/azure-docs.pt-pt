@@ -13,16 +13,16 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 893f449c6a8e6b41a79fe9d7c26db461b757e4a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317762"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367432"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicações para a Microsoft Authentication Library (MSAL)
 
-Muitos desenvolvedores construíram e implementaram aplicações utilizando a Biblioteca de Autenticação ativa do Diretório Ativo (ADAL). Recomendamos agora a utilização da Biblioteca de Autenticação da Microsoft (MSAL) para autenticação e autorização de entidades AZure AD.
+Muitos desenvolvedores construíram e implementaram aplicações usando a Azure Ative Directory Authentication Library (ADAL). Recomendamos agora a utilização da Biblioteca de Autenticação da Microsoft (MSAL) para autenticação e autorização de entidades AZure AD.
 
 Utilizando o MSAL em vez de ADAL:
 

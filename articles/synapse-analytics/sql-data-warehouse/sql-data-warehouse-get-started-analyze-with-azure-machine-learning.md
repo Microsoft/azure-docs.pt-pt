@@ -6,18 +6,18 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql-dw
+ms.subservice: machine-learning
 ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 2f69ece56ebd17bcf012fdbc2c1d8da7a020be66
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 76a0e4660967dafec8e314fd681d05e694e562b1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212331"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368197"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]

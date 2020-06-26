@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c34eee74070dfb137311867615f55a7c89522cd5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708994"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374411"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>SaaS oferecem lista de verificação de criação no Partner Center
 
@@ -92,7 +92,7 @@ A página de listagem é onde fornece o texto e imagens que os clientes vêem ao
 | Links úteis Título + URL  | Opcional. |
 | Título de documentos comprovativos + arquivo  | Obrigatório, min 1 e máx. Deve ser o formato de ficheiro PDF. |
 | Capturas de ecrã  | Necessário, imagem de min 1 e máx. quatro ou mais recomendados. Deve ser 1280 X 720 em formato PNG. |
-| Logotipos da loja (Pequeno, Médio, Grande, Largo, Herói)  | Pequeno (48 X 48) e Grande (216 X 216) necessários; outros tamanhos opcionais, mas recomendados: Médio (90 x 90), Largo (255 x 115), Herói (815 x 290). Deve estar no formato PNG. |
+| Logotipos da loja (Pequeno, Médio, Grande, Largo)  | Pequeno (48 X 48) e Grande (216 X 216) necessários; outros tamanhos opcionais, mas recomendados: Médio (90 x 90), Largo (255 x 115). Deve estar em. Formato PNG. |
 | Nome de vídeos + URL + miniatura  | Opcional, recomendado, máximo 4 vídeos. Miniatura deve ser de 1280 x 720 em formato PNG. O vídeo deve ser apresentado no YouTube ou no Vimeo. |
 | Contactos (Programa CSP, Engenharia, Apoio)  | Contacto de Engenharia e Apoio necessário (Nome, e-mail e número de telefone); CSP Programa contacto opcional, mas recomendado. |
 | URL de apoio  | Necessário. |

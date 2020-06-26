@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: d1dc54810371c4258616ca95b9f0f0abeee4c415
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462962"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374615"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Pré-visualização - Adicione uma piscina de nó de ponto a um cluster Azure Kubernetes Service (AKS)
 
@@ -41,9 +41,6 @@ Quando criar um cluster para utilizar uma piscina de nó de ponto, esse cluster 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Funcionalidade de pré-visualização do spotpoolpreview
 
 Para criar um cluster AKS que utilize um conjunto de nós spot, você deve ativar a bandeira de funcionalidade *spotpoolpreview* na sua subscrição. Esta funcionalidade fornece o mais recente conjunto de melhorias de serviço ao configurar um cluster.
-
-> [!CAUTION]
-> Quando regista uma funcionalidade numa subscrição, não é possível desacrevi-la. Depois de ativar algumas funcionalidades de pré-visualização, podem ser utilizados predefinidos para todos os clusters AKS criados na subscrição. Não ative funcionalidades de pré-visualização em subscrições de produção. Utilize uma subscrição separada para testar funcionalidades de pré-visualização e recolher feedback.
 
 Registe a bandeira de *características spotpoolpreview* utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
 
@@ -145,7 +142,7 @@ Quando uma cápsula com esta tolerância é implantada, kubernetes pode agendar 
 
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor *0.98765* seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo para *-1,* o caso não será despejado com base no preço. O preço, por exemplo, será o preço atual para o Spot ou o preço para uma instância padrão, o que for menor, desde que exista capacidade e quota disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a adicionar uma piscina de nó de ponto a um cluster AKS. Para obter mais informações sobre como controlar os casulos em piscinas de nós, consulte [as melhores práticas para funcionalidades avançadas de programador em AKS][operator-best-practices-advanced-scheduler].
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1e9ec975a17be2675d2f56b2cee87f91d7e9aae
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 388c40867c21390c3de8a033a1bfa08eb95bd602
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733131"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367415"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
 Use o logótipo da sua organização e esquemas de cores personalizados para fornecer um look-and-feel consistente nas suas páginas de inscrição do Azure Ative(Azure AD). As suas páginas de insusição aparecem quando os utilizadores acedem às aplicações web da sua organização, como o Office 365, que utiliza a Azure AD como fornecedor de identidade.
@@ -62,7 +62,17 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 
         - **Dica de nome de utilizador.** Digite o texto sugestiva que aparece para os utilizadores se esquecer o seu nome de utilizador. Este texto deve ser Unicode, sem links ou código, e não pode exceder 64 caracteres. Se os hóspedes iniciarem sôms na sua aplicação, sugerimos que não adicione esta dica.
 
-        - **Texto de página de s-in.** Digite o texto que aparece na parte inferior da página de inscrição. Pode utilizar este texto para comunicar informações adicionais, como o número de telefone para o seu balcão de assistência ou uma declaração legal. Este texto deve ser Unicode e não exceder 256 caracteres.
+        - **Iniciar sessão de texto e formatação.** Digite o texto que aparece na parte inferior da página de inscrição. Pode utilizar este texto para comunicar informações adicionais, como o número de telefone para o seu balcão de assistência ou uma declaração legal. Este texto deve ser Unicode e não exceder 1024 caracteres.
+
+           Pode personalizar o texto da página de entrada que introduziu. Para iniciar um novo parágrafo, utilize a tecla de entrada duas vezes. Também pode alterar a formatação de texto para incluir um link arrojado, itálico, um ponto de sublinhar ou clicável. Utilize a seguinte sintaxe para adicionar formatação ao texto: 
+
+          > Hiperligação:```[text](link)``` 
+          
+          > Arrojado: ``` **text** ``` ou``` __text__ ``` 
+          
+          > Itálico: ``` *text* ``` ou``` _text_ ``` 
+          
+          > Sublinhar:``` ++text++ ``` 
 
     - **Definições avançadas**
             

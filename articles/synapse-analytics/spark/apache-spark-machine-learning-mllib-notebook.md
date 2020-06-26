@@ -6,15 +6,15 @@ author: euangMS
 ms.service: synapse-analytics
 ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
-ms.subservice: spark
+ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 402b479280f0cb7655b68cc00a0ea7fbe55b8c15
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: fd3637eed35fa4b9f40623612be9fc99703051e3
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194659"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368180"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 

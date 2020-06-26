@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/24/2020
+ms.openlocfilehash: 988b26b319c706b97edfbd3545a525b7d685d7f1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488227"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368299"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço de Pesquisa Cognitiva Azure no portal
 
@@ -24,6 +24,14 @@ Neste artigo, aprenda a criar um recurso no [portal Azure.](https://portal.azure
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar, consulte [Gerir a Pesquisa Cognitiva Azure com PowerShell](search-manage-powershell.md).
+
+## <a name="before-you-start"></a>Antes de começar
+
+As seguintes propriedades de serviço são fixadas durante o tempo de vida do serviço. A alteração de qualquer uma destas propriedades mais tarde exigirá um novo serviço:
+
+* name
+* nível (Grátis, Básico, Padrão)
+* região (escolha um local que tenha serviços relacionados, tais como Serviços Cognitivos ou serviços de dados)
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 

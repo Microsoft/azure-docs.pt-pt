@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: d2705570f6993ecda0c88241d2dc517fac60695c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194047"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374530"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviçoS Azure Kubernetes
 
@@ -100,7 +100,7 @@ Como mencionado, o olhar vNet é uma forma de aceder ao seu cluster privado. Par
 
 ## <a name="limitations"></a>Limitações 
 * As gamas autorizadas IP não podem ser aplicadas ao ponto final do servidor api privado, aplicam-se apenas ao servidor API público
-* As Zonas de Disponibilidade são atualmente suportadas para certas regiões, veja-se o início deste documento 
+* [As Zonas de Disponibilidade][availability-zones] são atualmente apoiadas em determinadas regiões. 
 * [As limitações do serviço Azure Private Link][private-link-service] aplicam-se a clusters privados.
 * Sem suporte para agentes hospedados pela Microsoft Azure DevOps com clusters privados. Considere usar [agentes auto-hospedados.][devops-agents] 
 * Para os clientes que precisam de permitir que o Registo de Contentores Azure trabalhe com AKS privado, a rede virtual de registo de contentores deve ser espreite com a rede virtual do cluster de agentes.
@@ -121,3 +121,4 @@ Como mencionado, o olhar vNet é uma forma de aceder ao seu cluster privado. Par
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

@@ -3,14 +3,16 @@ title: Use Azure AD no serviço Azure Kubernetes
 description: Saiba como utilizar o Azure AD no Serviço Azure Kubernetes (AKS)
 services: container-service
 manager: gwallace
+author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
-ms.openlocfilehash: 8d446d82550a6bc790d162ee944b0753979b6546
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.date: 06/25/2020
+ms.author: mlearned
+ms.openlocfilehash: 280637be417d904de6dbb7ae2e2647026da6c838
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782675"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374547"
 ---
 # <a name="integrate-aks-managed-azure-ad-preview"></a>Integre A azure AD gerido pela AKS (Preview)
 
@@ -62,9 +64,6 @@ kubectl version --client
 ```
 
 Utilize [estas instruções](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para outros sistemas operativos.
-
-> [!CAUTION]
-> Depois de registar uma funcionalidade numa subscrição, não pode atualmente não registar essa funcionalidade. Quando ativa algumas funcionalidades de pré-visualização, podem ser utilizados predefinidos para todos os clusters AKS criados posteriormente na subscrição. Não ative funcionalidades de pré-visualização em subscrições de produção. Em vez disso, utilize uma subscrição separada para testar funcionalidades de pré-visualização e recolher feedback.
 
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
@@ -190,7 +189,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 ## <a name="non-interactive-login-with-kubelogin"></a>Login não interativo com kubelogin
 
-Existem alguns cenários não interativos, como os oleodutos de integração contínua, que não estão atualmente disponíveis com kubectl. Você pode usar [kubelogin](https://github.com/Azure/kubelogin) para aceder ao cluster em cenários não interativos.
+Existem alguns cenários não interativos, como os oleodutos de integração contínua, que não estão atualmente disponíveis com kubectl. Você pode usar [kubelogin](https://github.com/Azure/kubelogin) para aceder ao cluster com login principal de serviço não interativo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

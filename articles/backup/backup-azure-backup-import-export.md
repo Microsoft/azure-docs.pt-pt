@@ -4,12 +4,12 @@ description: Saiba como pode utilizar o Azure Backup para enviar dados para fora
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 6d448687836842835259fcf7bbad41af815dfb58
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 5611b5a6fc9ba8bbff11e35449caf0dd9d33fa21
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629289"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373307"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline em Azure Backup
 
@@ -90,7 +90,7 @@ Esta secção descreve o fluxo de trabalho de backup offline para que os seus da
 
     * **Localização de localização**: Local de armazenamento temporário para o qual está escrita a cópia de reserva inicial. A localização da paragem pode estar numa partilha de rede ou num computador local. Se o computador de cópia e o computador de origem forem diferentes, especifique o caminho completo da rede do local de paragem.
     * **Conta de Armazenamento do Gestor de Recursos Azure**: O nome da conta de armazenamento do tipo de gestor de recursos (finalidade geral v1 ou finalidade geral v2) em qualquer subscrição do Azure.
-    * **Recipiente de armazenamento Azure**: O nome da bolha de armazenamento de destino na conta de armazenamento Azure onde os dados de reserva são importados antes de serem copiados para o cofre dos Serviços de Recuperação.
+    * **Recipiente de armazenamento Azure**: O nome do recipiente de armazenamento de blob de destino na conta de armazenamento Azure onde os dados de reserva são importados antes de serem copiados para o cofre dos Serviços de Recuperação.
     * **ID de assinatura Azure**: O ID para a subscrição Azure onde a conta de armazenamento Azure é criada.
     * **Nome de emprego de importação Azure**: O nome único pelo qual o serviço Azure Import/Export e o Azure Backup acompanham a transferência de dados enviados em discos para a Azure.
   
@@ -216,6 +216,6 @@ No momento do próximo backup programado, o Azure Backup executa uma cópia de s
 
 Depois de terminada a cópia de segurança inicial, pode eliminar com segurança os dados importados para o contentor de armazenamento Azure e os dados de backup no local de paragem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).
