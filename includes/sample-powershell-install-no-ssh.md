@@ -1,16 +1,16 @@
 ---
-author: sptramer
 ms.topic: include
 ms.date: 01/30/2019
-ms.service: azure-powershell
-ms.author: sttramer
-ms.openlocfilehash: 85a78200fa5c2b90908de6ac0de8723b20ffe56b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+author: mikefrobbins
+ms.author: mirobb
+manager: barbkess
+ms.openlocfilehash: e59fea8b1a615abc9ab00646d5a0b37974348352
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263982"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378617"
 ---
-Esta amostra requer Azure PowerShell Az 1.0 ou mais tarde. Corra `Get-Module -ListAvailable Az` para ver quais versões estão instaladas. Se precisar de instalar, consulte [instalar o módulo PowerShell Azure](/powershell/azure/install-az-ps). 
+Esta amostra requer Azure PowerShell Az 1.0 ou mais tarde. Corra `Get-Module -ListAvailable Az` para ver quais versões estão instaladas. Se precisar de instalar, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). 
 
-Executar [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para iniciar sessão no Azure.
+Executar [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para iniciar sação no Azure.

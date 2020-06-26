@@ -3,12 +3,12 @@ title: Backup offline para Gestor de Proteção de Dados (DPM) e Microsoft Azure
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1deda1f0d2671e1316cf8f5c231207a5c32c10b4
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632060"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374836"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (versões anteriores)
 
@@ -58,7 +58,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
     | Estados Unidos da América | [Ligação](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Ligação](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Foi criada uma conta de armazenamento Azure com o modelo de implementação do Gestor de Recursos na subscrição a partir da qual descarregou o ficheiro de definições de publicação.
+* Foi criada uma conta de armazenamento Azure com o modelo de implementação do Gestor de Recursos na subscrição a partir da qual descarregou o ficheiro de definições de publicação. Na conta de armazenamento, crie um novo recipiente blob que será usado como destino.
 
   ![Criar uma conta de armazenamento com desenvolvimento do Gestor de Recursos](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -69,7 +69,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Prepare o servidor para o processo de backup offline
 
 >[!NOTE]
-> Se não conseguir encontrar os utilitários listados, como *a AzureOfflineBackupCertGen.exe,* na sua instalação do Agente MARS, escreva AskAzureBackupTeam@microsoft.com para ter acesso aos mesmos.
+> Se não conseguir encontrar os utilitários listados, como *AzureOfflineBackupCertGen.exe, *na sua instalação do Agente MARS, escreva AskAzureBackupTeam@microsoft.com para ter acesso aos mesmos.
 
 * Abra uma solicitação de comando elevada no servidor e execute o seguinte comando:
 
@@ -81,13 +81,13 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
     Se já existe uma aplicação, esta executável pede-lhe para fazer o upload manual do certificado para o pedido no arrendatário. Siga os passos [desta secção](#manually-upload-an-offline-backup-certificate) para fazer o upload do certificado manualmente para a aplicação.
 
-* A ferramenta *AzureOfflineBackup.exe* gera um ficheiro *OfflineApplicationParams.xml.* Copie este ficheiro para o servidor com MABS ou DPM.
+* A ferramenta *AzureOfflineBackupCertGen.exe* gera um ficheiro *OfflineApplicationParams.xml.* Copie este ficheiro para o servidor com MABS ou DPM.
 * Instale o [mais recente agente MARS](https://aka.ms/azurebackup_agent) na instância DPM ou no servidor Azure Backup.
 * Registe o servidor para Azure.
 * Execute o seguinte comando:
 
     ```cmd
-    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname to be used for offline backup>
     ```
 
 * O comando anterior cria o ficheiro `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml` .
@@ -104,7 +104,7 @@ Siga estes passos para enviar manualmente o certificado de cópia de segurança 
 
 1. Selecione a inscrição. Under **Manage** no painel esquerdo, vá a **Certificados & segredos**.
 1. Verifique se há certificados pré-existentes ou chaves públicas. Se não houver nenhuma, pode eliminar com segurança a aplicação selecionando o botão **Eliminar** na página **'Vista Geral'** da aplicação. Em seguida, pode voltar a tentar os passos para [preparar o servidor para o](#prepare-the-server-for-the-offline-backup-process) processo de backup offline e saltar os seguintes passos. Caso contrário, continue a seguir estes passos a partir da instância DPM ou do servidor Azure Backup onde pretende configurar a cópia de segurança offline.
-1. Selecione o **pedido de certificado de computador Gerir**o  >  separador**pessoal.** Procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. From **Start** – **Run**, type *Certlm.msc*. Nos **Certificados -** Janela do Computador Local, selecione os Certificados – Separador Pessoal **do Computador Local.** Procure o certificado com o nome  >  **Personal** `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 1. Selecione o certificado, clique com o botão direito **Todas as Tarefas**e, em seguida, selecione **Export**, sem uma chave privada, no formato .cer.
 1. Aceda à aplicação de backup offline Azure no portal Azure.
 1. **Selecione Gerir**  >  **certificados &**  >  **segredos Enviar por isso certificado de upload**de segredos . Faça o upload do certificado exportado no passo anterior.
@@ -278,6 +278,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento da próxima cópia de segurança programada, o Azure Backup executa cópia de backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

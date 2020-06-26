@@ -4,19 +4,19 @@ description: Se tiver contas internas de utilizador para parceiros, distribuidor
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb872c6468e7f1e16897b2c87c34450c102560e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 85f217266a2b28bfaf15df6a70a28784873dd123
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975730"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386917"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Convidar utilizadores internos para a colaboração B2B
 

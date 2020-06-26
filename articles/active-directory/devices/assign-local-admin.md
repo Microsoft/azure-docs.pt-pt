@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b21514e07b65b89d10b317da95ec7d92ecae78
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360338"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386373"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD juntou dispositivos
 
 Para gerir um dispositivo Windows, tem de ser membro do grupo de administradores locais. Como parte do processo de adesão do Azure Ative Directory (Azure AD), a Azure AD atualiza a adesão deste grupo a um dispositivo. Pode personalizar a atualização de membros para satisfazer os requisitos do seu negócio. Uma atualização de adesão é, por exemplo, útil se pretender que o seu pessoal de helpdesk faça tarefas que exijam direitos de administrador num dispositivo.
 
-Este artigo explica como funciona a atualização de membros e como pode personalizá-la durante uma AZure AD Join. O conteúdo deste artigo não se aplica a uma adada **híbrida** Azure.
+Este artigo explica como funciona a atualização de membros dos administradores locais e como pode personalizá-la durante uma AZure AD Join. O conteúdo deste artigo não se aplica a um híbrido **Azure AD.**
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -59,10 +59,13 @@ Para modificar a função de administrador do dispositivo, configurar **administ
 >[!NOTE]
 > Esta opção requer um inquilino Azure AD Premium. 
 
-Os administradores do dispositivo são atribuídos a todos os dispositivos ad AZure. Não é possível colocar os administradores do dispositivo num conjunto específico de dispositivos. A atualização da função de administrador do dispositivo não tem necessariamente um impacto imediato nos utilizadores afetados. Nos dispositivos em que um utilizador já está inscrito, a atualização de privilégios ocorre quando *ambas* as ações abaixo acontecem:
+Os administradores do dispositivo são atribuídos a todos os dispositivos ad AZure. Não é possível colocar os administradores do dispositivo num conjunto específico de dispositivos. A atualização da função de administrador do dispositivo não tem necessariamente um impacto imediato nos utilizadores afetados. Nos dispositivos em que um utilizador já está inscrito, a elevação do privilégio ocorre quando *ambas* as ações abaixo acontecem:
 
-- Passaram 4 horas para a Azure AD emitir um novo Token Primary Refresh com os privilégios apropriados. 
+- Passaram-se até 4 horas para a Azure AD emitir um novo Token Primary Refresh com os privilégios apropriados. 
 - O utilizador assina e assina de volta, não bloqueia/desbloqueia, para refrescar o seu perfil.
+
+>[!NOTE]
+> As ações acima referidas não são aplicáveis aos utilizadores que não tenham assinado anteriormente no dispositivo relevante. Neste caso, os privilégios do administrador são aplicados imediatamente após a sua primeira sing-in ao dispositivo. 
 
 ## <a name="manage-regular-users"></a>Gerir utilizadores regulares
 
@@ -88,7 +91,7 @@ Não é possível atribuir grupos à função de administrador do dispositivo, a
 
 Os administradores do dispositivo são atribuídos a todos os dispositivos Azure AD. Não podem ser examinados para um conjunto específico de dispositivos.
 
-Quando retira os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local num dispositivo, desde que estejam inscritos no mesmo. O privilégio é revogado durante a próxima entrada após 4 horas quando um novo token de atualização primária é emitido.
+Quando retira os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local num dispositivo, desde que estejam inscritos no mesmo. O privilégio é revogado durante a sua próxima entrada quando um novo token de atualização primária é emitido. Esta revogação, semelhante à elevação do privilégio, pode demorar até 4 horas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

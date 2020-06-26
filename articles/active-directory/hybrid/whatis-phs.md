@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568f284a22f170c2a6a0d60d9e2cfed0645937ba
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 3e40eecce3ff0ea5b252fd135ae553fa20e0a77b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261380"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386356"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>O que é a sincronização de hash de palavra-passe com a Azure AD?
 A sincronização de hash de palavra-passe é um dos métodos de entrada usados para realizar a identidade híbrida. O Azure AD Connect sincroniza um haxixe, do haxixe, da palavra-passe de um utilizador de uma instância do Ative Directory no local para uma instância AD Azure baseada na nuvem.
@@ -29,6 +29,12 @@ A sincronização de hash de palavra-passe ajuda reduzindo o número de palavras
 
 * Melhore a produtividade dos seus utilizadores.
 * Reduza os custos do seu helpdesk.  
+
+O Password Hash Sync também permite [a deteção de credenciais vazadas](../identity-protection/concept-identity-protection-risks.md#user-risk) para as suas contas híbridas. A Microsoft trabalha ao lado de pesquisadores web escuros e agências de aplicação da lei para encontrar pares de nome de utilizador/palavra-passe disponíveis ao público. Se algum destes pares corresponder aos dos nossos utilizadores, a conta associada é transferida para um risco elevado. 
+
+>[!NOTE]
+> Apenas novas credenciais vazadas encontradas depois de permitir que o PHS seja processado contra o seu inquilino. A verificação contra pares credenciais anteriormente encontrados não é realizada.
+
 
 Opcionalmente, pode configurar a sincronização de hash de palavra-passe como uma cópia de segurança se decidir utilizar a [Federação com Serviços da Federação de Diretórios Ativos (AD FS)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) como método de entrada.
 

@@ -6,17 +6,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf5b758059dc44f17afba191e49fc170e38feef
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 4369f42df8862adbc0b7fafd42979b9ceac0729b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886416"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386611"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definir atributos personalizados para fluxos de utilizador (Pré-visualização)
 

@@ -1,107 +1,107 @@
 ---
-title: Debug SAML com base em um único sign-on - Azure Ative Diretório / Microsoft Docs
-description: Debug SAML com base em inscrição única para aplicações no Diretório Ativo Azure.
+title: Debug SAML- Azure Ative Directory Microsoft Docs
+description: Debug SAML com base em um único sign-on para aplicações no Azure Ative Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d92b43b47a20a75d2c8b6becb69cfee5829e80f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154853"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383585"
 ---
-# <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Debug SAML com base em assinaturaúnica para aplicações no Diretório Ativo Azure
+# <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Saiba como encontrar e corrigir problemas [de inscrição simples](../manage-apps/what-is-single-sign-on.md) para aplicações no Azure Ative Directory (Azure AD) que suportam a Linguagem de Marcação de Afirmação de [Segurança (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
+Saiba como encontrar e corrigir problemas [de inscrição única](../manage-apps/what-is-single-sign-on.md) para aplicações no Azure Ative Directory (Azure AD) que suportam [a Linguagem de Marcação de Afirmação de Segurança (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Recomendamos a instalação da [extensão de sessão de sinalização segura das Minhas Aplicações.](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension) Esta extensão do navegador facilita a recolha do pedido SAML e da informação de resposta SAML que necessita para resolver problemas com um único sinal. Caso não possa instalar a extensão, este artigo mostra-lhe como resolver problemas com e sem a extensão instalada.
+Recomendamos a instalação da [extensão de inscrição segura das minhas apps](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensão do navegador facilita a recolha do pedido SAML e das informações de resposta SAML de que necessita para resolver problemas com um único sing-on. Caso não possa instalar a extensão, este artigo mostra-lhe como resolver problemas com e sem a extensão instalada.
 
-Para descarregar e instalar a Extensão de Sinal seguro das Minhas Aplicações, utilize um dos seguintes links.
+Para descarregar e instalar a extensão de inscrição segura das minhas apps, utilize um dos seguintes links.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-## <a name="test-saml-based-single-sign-on"></a>Teste de assinatura única baseada em SAML
+## <a name="test-saml-based-single-sign-on"></a>Teste de sinscrição única baseada em SAML
 
-Para testar um único signo baseado em SAML entre a AD Azure e uma aplicação-alvo:
+Para testar o sign-on único baseado em SAML entre a Azure AD e uma aplicação-alvo:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global ou outro administrador autorizado a gerir aplicações.
-1. Na lâmina esquerda, selecione **Azure Ative Directory**, e, em seguida, selecione **aplicações Enterprise**. 
-1. A partir da lista de aplicações da empresa, selecione o pedido para o qual pretende testar um único sinal e, em seguida, a partir das opções à esquerda selecione **Single sign-on**.
-1. Para abrir a experiência de teste de inscrição única baseada no SAML, vá ao Teste de **um único sinal (passo** 5). Se o botão **Teste** estiver acinzentado, tem de preencher e guardar os atributos necessários primeiro na secção **de Configuração SAML Básica.**
-1. No teste de uma **lâmina de inscrição única,** utilize as suas credenciais corporativas para iniciar sessão na aplicação-alvo. Pode iniciar sessão como utilizador atual ou como utilizador diferente. Se iniciar sessão como um utilizador diferente, uma solicitação pedir-lhe-á que autentique.
+1. Na lâmina esquerda, selecione **Azure Ative Directory**e, em seguida, selecione **aplicações Enterprise**. 
+1. A partir da lista de aplicações empresariais, selecione a aplicação para a qual pretende testar um único sinal de sôr-in e, em seguida, a partir das opções no **seleto único à**esquerda .
+1. Para abrir a experiência de teste de súmis com base em SAML, vá ao **Teste de um único sign-on** (passo 5). Se o botão **Teste** estiver acinzentado, tem de preencher e guardar primeiro os atributos necessários na secção **Configuração Básica SAML.**
+1. Na lâmina **de inscrição única** do Teste, utilize as suas credenciais corporativas para iniciar snutil na aplicação-alvo. Pode iniciar sposição como utilizador atual ou como um utilizador diferente. Se iniciar sus como um utilizador diferente, um pedido será solicitado para autenticar.
 
-    ![Screenshot mostrando a página SAML SSO do teste](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
+    ![Screenshot mostrando a página SSO do teste SAML](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
-Se tiver sucesso, o teste já passou. Neste caso, a Azure AD emitiu um sinal de resposta SAML ao pedido. A aplicação usou o símbolo SAML para o inscrever com sucesso.
+Se tiver assinado com sucesso, o teste passou. Neste caso, a Azure AD emitiu um sinal de resposta SAML ao pedido. A aplicação usou o símbolo SAML para o iniciar com sucesso.
 
-Se tiver um erro na página de sessão de sessão da empresa ou na página da aplicação, utilize uma das seguintes secções para resolver o erro.
+Se tiver um erro na página de sindução da empresa ou na página da aplicação, utilize uma das secções seguintes para resolver o erro.
 
-## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Resolva um erro de inscrição na página de sessão da sua empresa
+## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Resolva um erro de inscrição na página de sindução da sua empresa
 
-Quando tentar iniciar sessão, poderá ver um erro na página de sessão da sua empresa semelhante ao seguinte exemplo.
+Quando tentar iniciar sôm, poderá ver um erro na página de sindução da sua empresa que é semelhante ao exemplo a seguir.
 
-![Exemplo mostrando um erro na página de inscrição da empresa](./media/howto-v1-debug-saml-sso-issues/error.png)
+![Exemplo mostrando um erro na página de insusição da empresa](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-Para desinserir este erro, precisa da mensagem de erro e do pedido SAML. A Extensão de Acesso Seguro das Minhas Aplicações reúne automaticamente esta informação e exibe orientações de resolução sobre o Azure AD.
+Para depurar este erro, precisa da mensagem de erro e do pedido DEL. A extensão de início de sposição "My Apps Secure" reúne automaticamente estas informações e exibe orientações de resolução sobre a Azure AD.
 
-### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Para resolver o erro de inscrição com a extensão de sessão de sinalização segura das minhas aplicações instalada
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Para resolver o erro de inscrição com a extensão de inscrição segura das minhas apps instalada
 
-1. Quando ocorre um erro, a extensão redireciona-o de volta para a lâmina **de sinalização única** do Azure AD Test.
-1. Na lâmina **de sinalização single do Teste,** selecione **Descarregue o pedido SAML**.
-1. Deve consultar orientações específicas de resolução com base no erro e nos valores do pedido SAML.
-1. Verá um botão **Fix-lo** para atualizar automaticamente a configuração em Azure AD para resolver o problema. Se não vir este botão, então a questão do início de sessão não se deve a uma configuração errada no Azure AD.
+1. Quando ocorre um erro, a extensão redireciona-o de volta para a lâmina **de sinalização Ad test** Azure.
+1. Na lâmina **de inscrição única** do teste, selecione **Descarregue o pedido SAML**.
+1. Deve consultar orientações de resolução específicas com base no erro e nos valores do pedido DA SAML.
+1. Verá um botão **Fix it** para atualizar automaticamente a configuração em AD Azure para resolver o problema. Se não vir este botão, então a questão da inscrição não se deve a uma configuração errada no Azure AD.
 
-Se não for prevista qualquer resolução para o erro de entrada, sugerimos que utilize a caixa de texto de feedback para nos informar.
+Se não for fornecida nenhuma resolução para o erro de entrada, sugerimos que utilize a caixa de texto de feedback para nos informar.
 
-### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>Para resolver o erro sem instalar a extensão de 'Sign-in' "Secure Sign-in" das Minhas Aplicações
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>Para resolver o erro sem instalar a extensão de inscrição segura das minhas apps
 
 1. Copie a mensagem de erro no canto inferior direito da página. A mensagem de erro inclui:
-    - Um CorrelationID e carimbo de tempo. Estes valores são importantes quando se cria um caso de suporte com a Microsoft porque ajudam os engenheiros a identificar o seu problema e a fornecer uma resolução precisa ao seu problema.
-    - Uma declaração identificando a causa principal do problema.
-1. Volte para o Azure AD e encontre a lâmina **de inscrição única** do Teste.
-1. Na caixa de texto acima Obtenha orientação de **resolução,** cola a mensagem de erro.
-1. Clique em **obter orientação** de resolução para mostrar passos para resolver o problema. A orientação pode requerer informações do pedido SAML ou da resposta SAML. Se não estiver a utilizar a extensão de acesso seguro das Minhas Aplicações, poderá necessitar de uma ferramenta como o [Fiddler](https://www.telerik.com/fiddler) para recuperar o pedido e resposta do SAML.
-1. Verifique se o destino no pedido SAML corresponde ao URL de Serviço de Assinatura Única SAML obtido a partir de Azure AD.
-1. Verifique se o emitente no pedido SAML é o mesmo identificador configurado para a aplicação em Azure AD. A Azure AD usa o emitente para encontrar uma aplicação no seu diretório.
-1. Verifique o AfirmaçãoConsumerServiceURL é onde a aplicação espera receber o token SAML da Azure AD. Pode configurar este valor em Azure AD, mas não é obrigatório se fizer parte do pedido da SAML.
+    - Uma CorrelationID e um timetamp. Estes valores são importantes quando cria um caso de suporte com a Microsoft porque ajudam os engenheiros a identificar o seu problema e fornecem uma resolução precisa para o seu problema.
+    - Uma declaração que identifica a causa principal do problema.
+1. Volte para a Azure AD e encontre a lâmina **de sinalização única do teste.**
+1. Na caixa de texto acima **Obtenha orientação de resolução,** cole a mensagem de erro.
+1. Clique **em Obter orientação de resolução** para exibir etapas para resolver o problema. A orientação pode requerer informações do pedido SAML ou da resposta SAML. Se não estiver a utilizar a extensão de entrada segura das minhas apps, poderá necessitar de uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) para recuperar o pedido e resposta do SAML.
+1. Verifique se o destino no pedido SAML corresponde ao URL de Serviço Único de Inscrição SAML obtido a partir de Azure AD.
+1. Verifique se o emitente no pedido DO SAML é o mesmo identificador que configuraste para o pedido em Azure AD. A Azure AD usa o emitente para encontrar uma aplicação no seu diretório.
+1. Verifique a AfirmaçãoConsumerServiceURL é onde a aplicação espera receber o token SAML da Azure AD. Você pode configurar este valor em Azure AD, mas não é obrigatório se faz parte do pedido da SAML.
 
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Resolver um erro de inscrição na página de aplicação
 
-Pode iniciar sessão com sucesso e depois ver um erro na página da aplicação. Isto ocorre quando a Azure AD emitiu um sinal para o pedido, mas o pedido não aceita a resposta.
+Pode iniciar sôm com sucesso e depois ver um erro na página da aplicação. Isto ocorre quando a Azure AD emitiu um sinal para o pedido, mas o pedido não aceita a resposta.
 
 Para resolver o erro, siga estes passos:
 
-1. Se a aplicação estiver na Galeria AD Azure, verifique se seguiu todas as etapas para integrar a aplicação com a Azure AD. Para encontrar as instruções de integração da sua candidatura, consulte a [lista de tutoriais de integração de aplicações SaaS.](../saas-apps/tutorial-list.md)
-1. Recupere a resposta SAML.
-    - Se a extensão de sinal de segurança das Minhas Aplicações for instalada, a partir da lâmina **de sinalização single do Teste,** clique em **baixar a resposta SAML**.
-    - Se a extensão não estiver instalada, utilize uma ferramenta como o [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML.
-1. Note estes elementos no símbolo de resposta SAML:
-   - Identificador único do utilizador do valor e formato do NameID
-   - Reclamações emitidas no símbolo
-   - Certificado usado para assinar o símbolo.
+1. Se a aplicação estiver na Galeria AD Azure, verifique se seguiu todos os passos para integrar a aplicação com a Azure AD. Para encontrar as instruções de integração da sua candidatura, consulte a [lista de tutoriais de integração de aplicações SaaS.](../saas-apps/tutorial-list.md)
+1. Recupere a resposta do SAML.
+    - Se a extensão de inscrição segura das minhas apps for instalada, a partir da lâmina **de sinal único de teste,** clique em baixar a resposta **SAML**.
+    - Se a extensão não for instalada, utilize uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML.
+1. Note estes elementos no token de resposta SAML:
+   - Identificador exclusivo do utilizador do valor e formato NameID
+   - Reclamações emitidas no token
+   - Certificado usado para assinar o token.
 
-     Para obter mais informações sobre a resposta SAML, consulte o [protocolo SAML de sign-on único](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+     Para obter mais informações sobre a resposta [SAML,](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)consulte o protocolo SAML de assinatura única .
 
-1. Agora que reviu a resposta do SAML, consulte [error na página de uma aplicação depois de iniciar sessão](../manage-apps/application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
-1. Se ainda não conseguir assinar com sucesso, pode perguntar ao fornecedor de aplicações o que falta na resposta SAML.
+1. Agora que reviu a resposta DO SAML, consulte [Error na página de uma aplicação depois de iniciar sessão](../manage-apps/application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
+1. Se ainda não conseguir assinar com sucesso, pode perguntar ao vendedor de aplicações o que falta na resposta SAML.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que o único sinal está a funcionar para a sua aplicação, pode [automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS](../manage-apps/user-provisioning.md) ou [começar com](../conditional-access/app-based-conditional-access.md)o Acesso Condicional .
+Agora que o único sign-on está a funcionar com a sua aplicação, pode [automatizar o fornecimento e desaprovisionamento do utilizador às aplicações saaS](../manage-apps/user-provisioning.md) ou [começar com o Acesso Condicional.](../conditional-access/app-based-conditional-access.md)

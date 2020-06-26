@@ -1,33 +1,33 @@
 ---
-title: Diretório Ativo Azure para programadores (v1.0) visão geral
-description: Este artigo fornece uma visão geral da assinatura nas contas de trabalho e escola da Microsoft utilizando o ponto final do Azure Ative Directory v1.0 e plataforma.
+title: Diretório Ativo Azure para desenvolvedores (v1.0) visão geral
+description: Este artigo fornece uma visão geral da assinatura em contas de trabalho e escola da Microsoft, utilizando o Azure Ative Directory v1.0 endpoint e plataforma.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5489c65a0e955183b034e173706b6decfa6df9d5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154496"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387495"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>Diretório Ativo Azure para programadores (v1.0) visão geral
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Diretório Ativo Azure para desenvolvedores (v1.0) visão geral
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que permite que os programadores criem aplicações que iniciam a sessão dos utilizadores de forma segura com uma conta escolar ou profissional da Microsoft. O Azure AD suporta programadores que criam aplicações de inquilino único e de linha de negócio (LOB), bem como os programadores que procuram desenvolver aplicações multi-inquilino. Para além do início de sessão básico, o Azure AD também permite que as aplicações chamem APIs da Microsoft, como o [Microsoft Graph](https://docs.microsoft.com/graph/overview), e APIs personalizadas que são criadas na plataforma do Azure AD. Esta documentação mostra como adicionar suporte do Azure AD à sua aplicação através da utilização de protocolos padrão da indústria, como o OAuth2.0 e o OpenID Connect.
 
 > [!NOTE]
-> A maioria dos conteúdos desta página foca-se no ponto final v1.0 e plataforma, que suporta apenas o trabalho da Microsoft ou contas escolares. Se quiser assinar contas de consumo ou de Microsoft pessoais, consulte as informações no [ponto final e plataforma v2.0](../develop/v2-overview.md). O ponto final v2.0 oferece uma experiência unificada de desenvolvedor para apps que queiram assinar em todas as identidades da Microsoft.
+> A maioria dos conteúdos desta página foca-se no ponto final e plataforma v1.0, que suporta apenas o trabalho da Microsoft ou contas escolares. Se pretender iniciar scontabilidade de consumo ou pessoal da Microsoft, consulte as informações no [ponto final e plataforma v2.0](../develop/v2-overview.md). O ponto final v2.0 oferece uma experiência de desenvolvimento unificada para apps que querem assinar em todas as identidades da Microsoft.
 
 | | |
 | --- | --- |
@@ -37,11 +37,11 @@ O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que pe
 
 ## <a name="get-started"></a>Introdução
 
-Os quickstarts e tutoriais v1.0 passam por você através da construção de uma app na sua plataforma preferida usando o Azure AD Authentication Library (ADAL) SDK. Consulte os **quickstarts v1.0** e **os tutoriais v1.0** na [plataforma de identidade da Microsoft (Azure Ative Directory para desenvolvedores)](index.yml) para começar.
+Os v1.0 quickstarts e tutoriais o percorrem através da construção de uma aplicação na sua plataforma preferida utilizando a Azure AD Authentication Library (ADAL) SDK. Consulte os **v1.0 Quickstarts** e **v1.0 Tutorials** na [plataforma de identidade da Microsoft (Azure Ative Directory para desenvolvedores)](index.yml) para começar.
 
 ## <a name="how-to-guides"></a>Guias de procedimentos
 
-Consulte os **guias v1.0 Como obter** informações detalhadas e passar as tarefas mais comuns em Azure AD.
+Consulte os **guias v1.0 Como obter** informações detalhadas e acompanhá-lo às tarefas mais comuns em Azure AD.
 
 ## <a name="reference-topics"></a>Tópicos de referência
 
@@ -56,6 +56,6 @@ Os seguintes artigos fornecem informações detalhadas sobre APIs, mensagens de 
 
 ## <a name="videos"></a>Vídeos
 
-Consulte vídeos da plataforma de [desenvolvimento do Azure Ative Directory](videos.md) para ajudar a migrar para a nova plataforma de identidade da Microsoft.
+Consulte [vídeos da plataforma de desenvolvimento do Azure Ative Directory](videos.md) para ajudar a migrar para a nova plataforma de identidade da Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1f08005c5179add52863f5fa6260eec1fbae53e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 765deda747d46a9ee5b6913c192fa1a43c56d35d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810034"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385909"
 ---
 # <a name="azure-active-directory-b2c-partners"></a>Parceiros Azure Ative Directory B2C
 
@@ -34,6 +34,7 @@ A nossa rede de parceiros alarga as nossas capacidades de solução para o ajuda
 | ![logotipo](./media/partner-gallery/itsme-logo.png) | [o seu nome](./partner-itsme.md) é uma solução de ID digital compatível com identificação eletrónica, autenticação e fidedignidade (eiDAS) para permitir que os utilizadores assinem de forma segura sem leitores de cartões, palavras-passe, autenticação de dois fatores e múltiplos códigos PIN. |
 | ![logotipo](./media/partner-gallery/trusona-logo.png) | A integração [da Trusona](./partner-trusona.md) ajuda-o a assinar de forma segura e permite a autenticação sem palavras-passe, a autenticação de vários fatores e a digitalização da licença digital.|
 | ![logotipo](./media/partner-gallery/twilio-logo.png) | [A Twilio Check App](./partner-twilio.md) fornece múltiplas soluções para permitir a autenticação de vários fatores (MFA) através de sms única senha (OTP), senha única baseada no tempo (TOTP), e notificações push, e para cumprir os requisitos sca para a Diretiva de Serviços de Pagamento 2 (PSD2).|
+| ![logotipo](./media/partner-gallery/typingdna-logo.png) | [A Digitação deDNA](./partner-typingdna.md) é um fornecedor de verificação de identidade e de impermeabilização com base no padrão de dactilografia do utilizador, fornece soluções de verificação de ID que forçam a autenticação de vários fatores e ajuda a cumprir os requisitos da SCA para a Diretiva 2 dos Serviços de Pagamento (PSD2). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

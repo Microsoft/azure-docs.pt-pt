@@ -1,26 +1,26 @@
 ---
-title: API colaboração B2B e personalização - Diretório Ativo Azure
+title: Colaboração B2B API e personalização - Azure Ative Directory
 description: A colaboração do B2B Azure Active Directory suporta as relações entre empresas, permitindo a parceiros de negócios acederem, seletivamente, às suas aplicações empresariais
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: reference
+ms.topic: how-to
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263468"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387206"
 ---
-# <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directory B2B colaboração API e personalização
+# <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directy B2B colaboração API e personalização
 
-Tivemos muitos clientes a dizer-nos que querem personalizar o processo de convite de uma forma que funcione melhor para as suas organizações. Com a nossa API, podes fazer isso. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Muitos clientes dizem-nos que querem personalizar o processo de convite de uma forma que funcione melhor para as suas organizações. Com a nossa API, podes fazer isso. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Capacidades do convite API
 
@@ -45,21 +45,21 @@ A API oferece as seguintes capacidades:
     "sendInvitationMessage": true
     ```
 
-   com uma mensagem para o destinatário que você pode personalizar
+   com uma mensagem para o destinatário que pode personalizar
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
     ```
 
-4. E opte por cc: pessoas que pretende manter informadas sobre o seu convite para este colaborador.
+4. E escolha cc: pessoas que quer manter ao corrente sobre o seu convite a este colaborador.
 
-5. Ou personalize completamente o seu convite e o fluxo de trabalho de embarque, optando por não enviar notificações através do Azure AD.
+5. Ou personalize completamente o seu fluxo de trabalho de convite e de embarque, optando por não enviar notificações através do Azure AD.
 
     ```
     "sendInvitationMessage": false
     ```
 
-   Neste caso, obtém-se um URL de redenção da API que pode incorporar num modelo de e-mail, IM ou outro método de distribuição à sua escolha.
+   Neste caso, você recebe de volta um URL de resgate da API que você pode incorporar em um modelo de e-mail, IM, ou outro método de distribuição à sua escolha.
 
 6. Finalmente, se for administrador, pode optar por convidar o utilizador como membro.
 
@@ -74,18 +74,18 @@ A API pode ser executada nos seguintes modos de autorização:
 
 ### <a name="app--user-mode"></a>App + Modo de utilizador
 
-Neste modo, quem estiver a utilizar a API precisa de ter as permissões para ser criado convites B2B.
+Neste modo, quem estiver a usar a API precisa de ter as permissões para criar convites B2B.
 
 ### <a name="app-only-mode"></a>Modo apenas app
 
-No contexto apenas da aplicação, a aplicação precisa do Utilizador.Invite.All scope for the invitation to succeed.
+No contexto apenas da aplicação, a aplicação precisa do Utilizador.Convidar.Todas as possibilidades para o convite ter sucesso.
 
 Para mais informações, consulte:https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
 
-Pode utilizar o PowerShell para adicionar e convidar utilizadores externos para uma organização facilmente. Crie um convite utilizando o cmdlet:
+Pode utilizar o PowerShell para adicionar e convidar facilmente utilizadores externos para uma organização. Crie um convite utilizando o cmdlet:
 
 ```powershell
 New-AzureADMSInvitation
@@ -93,19 +93,19 @@ New-AzureADMSInvitation
 
 Pode utilizar as seguintes opções:
 
-* -Nome de visualização userdisplay
-* -Endereço de email do UserUser
-* -Enviar Mensagem de Convite
-* -InvitedUserMessageInfo
+* -Nome do Nome do Casamento Convidado
+* -ConvidadoUserEmailAddress
+* -Enviar AColhimento de Mensagens
+* -ConvidadoUserMessageInfo
 
 ### <a name="invitation-status"></a>Estatuto do convite
 
-Depois de enviar um convite a um utilizador externo, pode utilizar o cmdlet **Get-AzureADUser** para ver se o aceitaram. As seguintes propriedades do Get-AzureADUser são povoadas quando um utilizador externo é enviado um convite:
+Depois de enviar um convite a um utilizador externo, pode utilizar o **cmdlet Get-AzureADUser** para ver se o aceitaram. As seguintes propriedades da Get-AzureADUser são povoadas quando um utilizador externo é enviado um convite:
 
-* **O UserState** indica se o convite é **Aceitação Pendente** ou **Aceito**.
-* **UserStateChangedOn** mostra a marca de tempo para a mais recente alteração na propriedade **userState.**
+* **O UserState** indica se o convite é **pendente** ou **aceite.**
+* **UserStateChangedOn** mostra o tempo de pontuação para a última alteração na propriedade **UserState.**
 
-Pode utilizar a opção **Filter** para filtrar os resultados pelo **UserState**. O exemplo abaixo mostra como filtrar resultados para mostrar apenas utilizadores que tenham um convite pendente. O exemplo também mostra a opção **Format-List,** que permite especificar as propriedades a exibir. 
+Pode utilizar a opção **Filtro** para filtrar os resultados pelo **UserState**. O exemplo abaixo mostra como filtrar resultados para mostrar apenas utilizadores que tenham um convite pendente. O exemplo também mostra a opção **Lista de Formatos,** que permite especificar as propriedades a exibir. 
  
 
 ```powershell
@@ -113,15 +113,15 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 ```
 
 > [!NOTE]
-> Certifique-se de que tem a versão mais recente do módulo PowerShell AzureAD ou do módulo PowerShell AzureADPreview. 
+> Certifique-se de que tem a versão mais recente do módulo AzureAD PowerShell ou do módulo AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-Confira a referência da [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)API do convite em .
+Confira a referência a API do convite em [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Os elementos do convite de colaboração B2B enviar e-mail](invitation-email-elements.md)
+- [Os elementos do e-mail de convite de colaboração B2B](invitation-email-elements.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
 - [Adicione utilizadores de colaboração B2B sem convite](add-user-without-invite.md)

@@ -1,144 +1,144 @@
 ---
-title: Lista a sua aplicação na galeria de aplicações da AD Azure [ Microsoft Docs
-description: Saiba como listar uma aplicação que suporta um único sign-on na galeria de aplicações do Azure Ative Directory
+title: Enuprova a sua aplicação na galeria de aplicações AZure AD ! Microsoft Docs
+description: Saiba como listar uma aplicação que suporta um único sign-on na galeria de aplicações Azure Ative Directory
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666928"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383874"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Este artigo mostra como listar uma aplicação na galeria de aplicações Azure Ative Directory (Azure AD), implementar um único sign-on (SSO) e gerir a listagem.
+Este artigo mostra como listar uma aplicação na galeria de aplicações Azure Ative (Azure AD), implementar um único sign-on (SSO) e gerir a listagem.
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicações da AD Azure?
+## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicações AD AZure?
 
-- Os clientes encontram a melhor experiência de inscrição individual possível.
+- Os clientes encontram a melhor experiência possível de inscrição única.
 - A configuração da aplicação é simples e mínima.
 - Uma pesquisa rápida encontra a sua aplicação na galeria.
-- Os clientes ada toda a AD Gratuito, Básico e Premium Azure podem utilizar esta integração.
+- Os clientes AD Azure gratuitos, básicos e premium podem utilizar esta integração.
 - Os clientes mútuos obtêm um tutorial de configuração passo a passo.
-- Os clientes que utilizam o Sistema de Gestão de Identidade de Domínio Transversal[(SCIM)](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)podem utilizar o provisionamento para a mesma aplicação.
+- Os clientes que utilizam o Sistema de Gestão de Identidade de Domínio Cruzado[(SCIM)](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)podem utilizar o provisionamento para a mesma aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para aplicações federadas (Open ID e SAML/WS-Fed), a aplicação deve apoiar o modelo software-as-a-service (SaaS) para ser listado na galeria de aplicações Azure AD. As aplicações da galeria da empresa devem suportar múltiplas configurações de clientes e não qualquer cliente específico.
-- Para o Open ID Connect, a aplicação deve ser multiarrendada e o quadro de consentimento da [AD Azure](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) deve ser corretamente implementado para a aplicação. O utilizador pode enviar o pedido de sessão para um ponto final comum para que qualquer cliente possa dar o seu consentimento à aplicação. Pode controlar o acesso do utilizador com base no ID do inquilino e na UPN do utilizador recebida no token.
-- Para a SAML 2.0/WS-Fed, a sua aplicação deve ter a capacidade de fazer a integração SAML/WS-Fed SSO no modo SP ou IDP. Certifique-se de que esta capacidade está a funcionar corretamente antes de submeter o pedido.
-- Para obter uma senha SSO, certifique-se de que o suporte da sua aplicação é autenticação para que a abóbada de senha possa ser feita para obter um único sinal para funcionar como esperado.
+- Para aplicações federadas (Open ID e SAML/WS-Fed), a aplicação deve apoiar o modelo software-as-a-service (SaaS) para ser listado na galeria de aplicações AD Azure. As aplicações da galeria da empresa devem suportar múltiplas configurações de clientes e não qualquer cliente específico.
+- Para o Open ID Connect, a aplicação deve ser multitendida e o [quadro de consentimento Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) deve ser devidamente implementado para a aplicação. O utilizador pode enviar o pedido de inscrição para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso do utilizador com base no ID do inquilino e na UPN do utilizador recebida no token.
+- Para a SAML 2.0/WS-Fed, a sua aplicação deve ter a capacidade de fazer a integração SSO SAML/WS-Fed no modo SP ou IDP. Certifique-se de que esta capacidade está a funcionar corretamente antes de submeter o pedido.
+- Para a palavra-passe SSO, certifique-se de que a sua aplicação suporta a autenticação do formulário para que a abóbada de senha possa ser feita para obter um único sinal de acesso ao funcionamento como esperado.
 - Precisa de uma conta permanente para testes com pelo menos dois utilizadores registados.
 
-**Como obter anúncio sacana do Azure para programadores?**
+**Como obter Azure AD para desenvolvedores?**
 
-Você pode obter uma conta de teste gratuita com todas as funcionalidades premium Azure AD - 90 dias grátis e pode ser estendida desde que trabalhe com ele:https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Você pode obter uma conta de teste gratuita com todas as funcionalidades premium AZure AD - 90 dias grátis e pode ser estendida desde que faça dev trabalhar com ele:https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
 
-Depois de ter testado que a integração da sua aplicação funciona com a AD Azure, submeta o seu pedido de aplicação no portal da [Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
+Depois de ter testado que a integração da sua aplicação funciona com a Azure AD, submeta o seu pedido de candidatura no [portal da Rede de Aplicações](https://microsoft.sharepoint.com/teams/apponboarding/Apps)da Microsoft .
 
-Se a página seguinte aparecer após a sua inscrição, contacte a Equipa de [Integração SSO Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Forneça a conta de e-mail que pretende utilizar para submeter o pedido. Um endereço de [name@yourbusiness.com](mailto:name@yourbusiness.com) e-mail de negócios, como é o caso de preferir. A equipa da Azure AD irá adicionar a conta no portal da Microsoft Application Network.
+Se a página seguinte aparecer depois de iniciar sina, contacte a [Equipa de Integração Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Forneça a conta de e-mail que pretende utilizar para submeter o pedido. Um endereço de e-mail de negócios como [name@yourbusiness.com](mailto:name@yourbusiness.com) é preferível. A equipa Azure AD adicionará a conta no portal da Rede de Aplicações da Microsoft.
 
 ![Mensagem de pedido de acesso no portal SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 
-Depois de adicionada a conta, pode iniciar sessão no portal da Microsoft Application Network.
+Depois de a conta ser adicionada, pode iniciar sôm no portal da Rede de Aplicações da Microsoft.
 
-Se a página seguinte aparecer após a sua inscrição, forneça uma justificação de negócio para necessitar de acesso na caixa de texto. Em seguida, selecione Acesso ao **Pedido**.
+Se a página seguinte aparecer depois de iniciar sôm, forneça uma justificação comercial para precisar de acesso na caixa de texto. Em seguida, selecione **'Pedir'.**
 
   ![Caixa de justificação de negócios no portal SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
 
-A nossa equipa analisa os detalhes e dá-lhe acesso em conformidade. Após a aprovação do seu pedido, pode iniciar sessão no portal e submeter o pedido selecionando o azulejo De **enviar (ISV)** na página inicial.
+A nossa equipa analisa os detalhes e dá-lhe acesso em conformidade. Após a aprovação do seu pedido, pode iniciar sedível no portal e submeter o pedido selecionando o azulejo do **Pedido de Submissão (ISV)** na página inicial.
 
-![Enviar Pedido (ISV) azulejo na página inicial](./media/howto-app-gallery-listing/homepage.png)
+![Enviar azulejos do Pedido (ISV) na página inicial](./media/howto-app-gallery-listing/homepage.png)
 
-## <a name="issues-on-logging-into-portal"></a>Questões sobre a exploração de login no portal
+## <a name="issues-on-logging-into-portal"></a>Problemas no login no portal
 
-Se está a ver este erro durante o login, então aqui estão os detalhes sobre o assunto e é assim que pode corrigi-lo.
+Se estiver a ver este erro durante o início de sessão, então aqui estão os detalhes sobre o assunto e é assim que pode corrigi-lo.
 
-* Se o seu sign-in foi bloqueado como mostrado abaixo:
+* Se o seu sinal de sposição foi bloqueado como mostrado abaixo:
 
-  ![questões que resolvem a aplicação na galeria](./media/howto-app-gallery-listing/blocked.png)
+  ![questões que resolvem aplicação na galeria](./media/howto-app-gallery-listing/blocked.png)
 
 **O que está a acontecer:**
 
-O utilizador convidado é federado a um inquilino doméstico que também é um Azure AD. O utilizador convidado está em alto risco. A Microsoft não permite que os utilizadores de alto risco acedam aos seus recursos. Todos os utilizadores de alto risco (funcionários ou hóspedes/fornecedores) devem remediar/fechar o risco de aceder aos recursos da Microsoft. Para os utilizadores convidados, este risco de utilizador vem do inquilino doméstico e a política vem do inquilino de recursos (Microsoft neste caso).
+O utilizador convidado é federado a um inquilino doméstico que também é um AD Azure. O utilizador convidado está em alto risco. A Microsoft não permite que utilizadores de alto risco acedam aos seus recursos. Todos os utilizadores de alto risco (empregados ou hóspedes/fornecedores) devem remediar/fechar o seu risco de aceder aos recursos da Microsoft. Para os utilizadores convidados, este risco de utilizador provém do arrendatário doméstico e a política provém do inquilino de recursos (Microsoft neste caso).
  
 **Soluções seguras:**
 
-* Os utilizadores de hóspedes registados pela MFA remediam o seu próprio risco de utilizador. Isto pode ser feito pelo utilizador convidado que executahttps://aka.ms/sspr) uma alteração ou reset de senha segura (no seu inquilino doméstico (isto precisa de MFA e SSPR no inquilino da casa). A alteração ou reset de palavra-passe segura deve ser iniciada em Azure AD e não on-prem.
+* Os utilizadores de hóspedes registados no MFA remediam o seu próprio risco de utilizador. Isto pode ser feito pelo utilizador convidado que executa uma alteração de senha garantida ou reset https://aka.ms/sspr) (no seu inquilino de casa (isto precisa de MFA e SSPR no inquilino doméstico). A alteração ou reset de palavra-passe garantido deve ser iniciada no Ad Azure e não no pré-pré.
 
-* Os utilizadores convidados têm os seus administradores a remediar o seu risco. Neste caso, o administrador realizará um reset de palavra-passe (geração temporária de passwords). Isto não precisa de proteção contra a identidade. O administrador do utilizador convidado https://aka.ms/RiskyUsers pode ir e clicar em 'Reset password'.
+* Os utilizadores convidados têm os seus administradores a remediar o seu risco. Neste caso, o administrador realizará um reset de palavra-passe (geração temporária de palavra-passe). Isto não precisa de proteção de identidade. O administrador do utilizador convidado pode ir e clicar em 'Redefinir a https://aka.ms/RiskyUsers palavra-passe'.
 
-* Os utilizadores convidados têm os seus administradores próximos / descartam o seu risco. Mais uma vez, isto não precisa de proteção contra a identidade. O administrador pode https://aka.ms/RiskyUsers ir e clicar em 'Descartar o risco do utilizador'. No entanto, o administrador deve fazer as devidas diligências para garantir que se tratava de uma falsa avaliação de risco positiva antes de fechar o risco do utilizador. Caso contrário, estão a colocar em risco os seus recursos e os recursos da Microsoft, suprimindo uma avaliação de risco sem investigação.
+* Os utilizadores convidados têm os seus administradores próximos /dispensam o seu risco. Mais uma vez, isto não precisa de proteção de identidade. O administrador pode ir https://aka.ms/RiskyUsers e clicar em 'Dispensar o risco do utilizador'. No entanto, a administração deve fazer as devidas diligências para garantir que se tratava de uma falsa avaliação de risco positivo antes de fechar o risco do utilizador. Caso contrário, estão a colocar os seus recursos e os recursos da Microsoft em risco, suprimindo uma avaliação de risco sem investigação.
 
 > [!NOTE]
-> Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-federation-protocol"></a>Implementar SSO utilizando o protocolo da federação
 
-Para listar uma aplicação na galeria de aplicações Azure AD, primeiro é necessário implementar um dos seguintes protocolos da federação apoiados pela Azure AD. Também precisa de concordar com os termos e condições da galeria de aplicações da AD Azure. Leia os termos e condições da galeria de aplicações da AD Azure [neste site.](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)
+Para listar uma aplicação na galeria de aplicações AZure AD, primeiro tem de implementar um dos seguintes protocolos da federação apoiados pela Azure AD. Também tem de concordar com os termos e condições da galeria de aplicações Azure. Leia os termos e condições da galeria de aplicações AZure AD [neste site.](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)
 
-- **OpenID Connect**: Para integrar a sua aplicação com o Azure AD utilizando o protocolo Open ID Connect, siga as [instruções dos desenvolvedores](v1-authentication-scenarios.md).
+- **Ligação OpenID**: Para integrar a sua aplicação com a Azure AD utilizando o protocolo Open ID Connect, siga as [instruções dos desenvolvedores.](v1-authentication-scenarios.md)
 
-    ![Listando uma aplicação OpenID Connect na galeria](./media/howto-app-gallery-listing/openid.png)
+    ![Listagem de uma aplicação OpenID Connect na galeria](./media/howto-app-gallery-listing/openid.png)
 
-    * Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID Connect, selecione **OpenID Connect & OAuth 2.0,** como mostrado.
-    * Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID Connect, selecione **OpenID Connect & OAuth 2.0** como mostrado.
+    * Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar o SAML 2.0, pode integrá-la diretamente com um inquilino DaD Azure seguindo as [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar SAML 2.0, pode integrá-lo diretamente com um inquilino AZure AD seguindo as [instruções para adicionar uma aplicação personalizada.](../active-directory-saas-custom-apps.md)
 
   ![Listando uma aplicação SAML 2.0 ou WS-Fed na galeria](./media/howto-app-gallery-listing/saml.png)
 
-  * Se quiser adicionar a sua candidatura à lista na galeria utilizando **o SAML 2.0** ou **o WS-Fed,** selecione **SAML 2.0/WS-Fed** como mostrado.
+  * Se pretender adicionar a sua candidatura à lista na galeria utilizando **SAML 2.0** ou **WS-Fed,** selecione **SAML 2.0/WS-Fed** como mostrado.
 
-  * Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>Implementar SSO utilizando a palavra-passe SSO
 
-Crie uma aplicação web que tenha uma página de início de sessão HTML para configurar o [único sign-on baseado em palavra-passe](../manage-apps/what-is-single-sign-on.md). O SSO baseado em palavra-passe, também referido como abóbada de senhas, permite-lhe gerir o acesso do utilizador e palavras-passe a aplicações web que não suportam a federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, como nas contas de aplicações da sua organização nas redes sociais.
+Crie uma aplicação web que tenha uma página de entrada HTML para configurar um [único sinal baseado em palavra-passe](../manage-apps/what-is-single-sign-on.md). O SSO baseado em palavras-passe, também referido como cofre de palavras-passe, permite-lhe gerir o acesso ao utilizador e palavras-passe a aplicações web que não suportam a federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, como é o caso das contas de aplicações da sua organização nas redes sociais.
 
-![Listando uma aplicação SSO de senha na galeria](./media/howto-app-gallery-listing/passwordsso.png)
+![Listagem de uma aplicação SSO de palavra-passe na galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
 * Se pretender adicionar a sua aplicação à lista na galeria utilizando a palavra-passe SSO, selecione **Password SSO** como mostrado.
-* Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+* Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="request-for-user-provisioning"></a>Pedido de prestação de utilizadores
+## <a name="request-for-user-provisioning"></a>Pedido de provisionamento de utilizadores
 
-Siga o processo mostrado na seguinte imagem para solicitar o fornecimento do utilizador.
+Acompanhe o processo apresentado na imagem seguinte para solicitar o provisionamento do utilizador.
 
-   ![Pedido de prestação de utilizadores](./media/howto-app-gallery-listing/user-provisioning.png)
+   ![Pedido de provisionamento de utilizadores](./media/howto-app-gallery-listing/user-provisioning.png)
 
 ## <a name="update-or-remove-an-existing-listing"></a>Atualizar ou remover uma listagem existente
 
-Para atualizar ou remover uma aplicação existente na galeria de aplicações Azure AD, primeiro precisa de submeter o pedido no portal da Rede de [Aplicações](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se tiver uma conta do Office 365, use-a para iniciar sessão neste portal. Caso contrário, utilize a sua conta Microsoft, como o Outlook ou o Hotmail, para iniciar sessão.
+Para atualizar ou remover uma aplicação existente na galeria de aplicações AZure AD, primeiro tem de submeter o pedido no [portal da Rede de Aplicações.](https://microsoft.sharepoint.com/teams/apponboarding/Apps) Se tiver uma conta office 365, use-a para iniciar sôm. Caso contrário, utilize a sua conta Microsoft, como o Outlook ou o Hotmail, para iniciar scontabilidade.
 
-- Selecione a opção adequada como mostrado na seguinte imagem.
+- Selecione a opção adequada como mostrado na imagem seguinte.
 
-    ![Listando uma aplicação SAML na galeria](./media/howto-app-gallery-listing/updateorremove.png)
+    ![Listagem de uma aplicação SAML na galeria](./media/howto-app-gallery-listing/updateorremove.png)
 
     * Para atualizar uma aplicação existente, selecione a opção adequada de acordo com o seu requisito.
-    * Para remover uma aplicação existente da galeria de aplicações Azure AD, **selecione Remover a minha listagem de aplicações da galeria**.
-    * Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Para remover uma aplicação existente na galeria de aplicações AD AZure, selecione **Remova a minha lista de aplicações da galeria.**
+    * Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="list-requests-by-customers"></a>Pedidos de lista por clientes
 
-Os clientes podem submeter um pedido de lista de uma aplicação selecionando pedidos de **App por Clientes** > **Enviar novo pedido**.
+Os clientes podem submeter um pedido de lista de uma aplicação selecionando **pedidos de App por Clientes**  >  **Enviar novo pedido.**
 
-![Mostra o azulejo de apps solicitado pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Mostra o azulejo de aplicações solicitado pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Aqui está o fluxo de aplicações solicitadas pelo cliente.
 
@@ -146,9 +146,9 @@ Aqui está o fluxo de aplicações solicitadas pelo cliente.
 
 ## <a name="timelines"></a>Linhas cronológicas
 
-A cronologia do processo de listagem de uma aplicação SAML 2.0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
+A cronologia para o processo de listagem de uma aplicação SAML 2.0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
 
-  ![Cronologia para a listagem de uma aplicação SAML na galeria](./media/howto-app-gallery-listing/timeline.png)
+  ![Cronologia para listar uma aplicação SAML na galeria](./media/howto-app-gallery-listing/timeline.png)
 
 A cronologia do processo de listagem de uma aplicação OpenID Connect na galeria é de 2 a 5 dias úteis.
 
@@ -156,4 +156,4 @@ A cronologia do processo de listagem de uma aplicação OpenID Connect na galeri
 
 ## <a name="escalations"></a>Escaladas
 
-Para quaisquer escaladas, envie e-mail para a SaaSApplicationIntegrations@service.microsoft.comEquipa de [Integração SSO da AD Azure](mailto:SaaSApplicationIntegrations@service.microsoft.com) em , e responderemos o mais rápido possível.
+Para qualquer escalada, envie um e-mail para a [Equipa de Integração SSO do Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) SaaSApplicationIntegrations@service.microsoft.com em , e responderemos o mais rapidamente possível.

@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 07/17/2017
+ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 39539f29df48d19b956b8bab6f63da50473453d4
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221300"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374734"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -44,7 +44,7 @@ As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtu
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de balança de máquina virtual Azure com Equilibrador de Carga Azure
 
-Ao trabalhar com conjuntos de balança de máquina virtual e balanceador de carga, deve considerar-se o seguinte:
+Ao trabalhar com conjuntos de balança de máquina virtual e balanceador de carga, devem ser considerados os seguintes itens:
 
 * **Vários conjuntos de escala de máquina virtual não podem usar o mesmo equilibrador de carga**.
 * **Regras de encaminhamento e entrada de entrada:**
@@ -52,7 +52,7 @@ Ao trabalhar com conjuntos de balança de máquina virtual e balanceador de carg
   * Após a criação do conjunto de escala, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda sanitária do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
   * Ao utilizar a balança de máquina virtual definida no pool de backend do balanceador de carga, as regras NAT de entrada padrão são criadas automaticamente.
 * **Piscina NAT de entrada:**
-  * A piscina NAT de entrada é uma coleção de regras NAT de entrada. 1 piscina NAT de entrada não suporta conjuntos de escala vm múltiplos.
+  * A piscina NAT de entrada é uma coleção de regras NAT de entrada. Uma piscina NAT de entrada não suporta vários conjuntos de escala de máquina virtual.
 * **Regras de equilíbrio de carga:**
   * Quando se utiliza a balança de máquina virtual definida no pool de backend do balanceador de carga, a regra de equilíbrio de carga padrão é criada automaticamente.
 * **Regras de saída:**
@@ -146,7 +146,7 @@ O resultado para um nome dns de máquina virtual individual teria o formato segu
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>IPv4 Público por máquina virtual
-Em geral, as máquinas virtuais de conjuntos de dimensionamento do Azure não precisam de ter os seus próprios endereços IP públicos. Na maioria dos cenários, é mais económico e seguro associar um endereço IP público a um balanceador de carga ou a uma máquina virtual individual (também chamada “jumpbox”), que depois encamihna as ligações de entrada às máquinas virtuais do conjunto de dimensionamento, conforme necessário (por exemplo, através de regras NAT de entrada).
+Em geral, as máquinas virtuais de conjuntos de dimensionamento do Azure não precisam de ter os seus próprios endereços IP públicos. Para a maioria dos cenários, é mais económico e seguro associar um endereço IP público a um equilibrador de carga ou a uma máquina virtual individual (também conhecida como uma caixa de salto), que, em seguida, encaminha as ligações de entrada para a escala definir máquinas virtuais conforme necessário (por exemplo, através de regras NAT de entrada).
 
 No entanto, alguns cenários requerem que as máquinas virtuais do conjunto de dimensionamento tenham os seus próprios endereços IP públicos. Um exemplo de um cenário destes são os jogos, em que uma consola tem de fazer uma ligação direta a uma máquina virtual na cloud, que está a fazer o processamento físico do jogo. Outro exemplo é quando as máquinas virtuais têm de fazer ligações externas a outras em várias regiões numa base de dados distribuída.
 

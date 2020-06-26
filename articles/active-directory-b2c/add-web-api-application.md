@@ -7,15 +7,15 @@ manager: celestedg
 ms.author: mimart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2265ac0880822a46abf8597730fa28703e9b3cfc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300156"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385965"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicione uma aplicação web API ao seu inquilino Azure Ative Directory B2C
 
@@ -50,7 +50,7 @@ Se tiver uma aplicação que implemente o fluxo de subvenção implícito, por e
 6. Para **incluir aplicativo web/web API** e **permitir fluxo implícito,** selecione **Sim**.
 7. Para **URL de resposta,** insira um ponto final onde a Azure AD B2C deve devolver quaisquer fichas que o seu pedido de candidatura. Na sua aplicação de produção, poderá definir o URL de resposta para um valor como `https://localhost:44332` . Para efeitos de teste, desa um pouco para o URL de resposta `https://jwt.ms` .
 8. Para **app ID URI,** insira o identificador utilizado para a sua API web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
-9. Clique **em Criar**.
+9. Clique em **Criar**.
 10. Na página de propriedades, grave o ID da aplicação que utilizará quando configurar a aplicação web.
 
 * * *

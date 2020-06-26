@@ -1,35 +1,35 @@
 ---
-title: Permitir a marcha da idade no Diretório Ativo Azure B2C [ Microsoft Docs
+title: Habilitar a idade em Azure Ative Directory B2C / Microsoft Docs
 description: Saiba como identificar menores usando a sua aplicação.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bd93f9062f8446ce20436a7a04e2054aaf5be71
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189978"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386136"
 ---
-# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar a gating idade no Diretório Ativo Azure B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar a idade gating em Azure Ative Directory B2C
 
 >[!IMPORTANT]
 >Esta funcionalidade está em pré-visualização pública. Não utilize recurso para aplicações de produção.
 >
 
-A marcha etária no Diretório Ativo Azure B2C (Azure AD B2C) permite identificar menores que pretendam utilizar a sua aplicação. Pode optar por impedir o menor de assinar a candidatura. Os utilizadores também podem voltar à aplicação e identificar a sua faixa etária e o seu estado de consentimento parental. Azure AD B2C pode bloquear menores sem o consentimento dos pais. O Azure AD B2C também pode ser criado para permitir que a aplicação decida o que fazer com menores.
+A gating de idade em Azure Ative Directory B2C (Azure AD B2C) permite identificar menores que queiram usar a sua aplicação. Pode optar por impedir que o menor assine a inscrição. Os utilizadores também podem voltar à aplicação e identificar a sua faixa etária e o seu estado de consentimento parental. Azure AD B2C pode bloquear menores sem o consentimento dos pais. O Azure AD B2C também pode ser criado para permitir que o pedido decida o que fazer com menores.
 
-Depois de permitir a marcha da idade no [fluxo](user-flow-overview.md)do utilizador, os utilizadores são questionados quando nasceram e em que país/região vivem. Se um utilizador assinar que não tenha introduzido previamente a informação, terá de entrar nela da próxima vez que iniciar a sua inscrição. As regras são aplicadas sempre que um utilizador entra.
+Depois de ativar a idade no fluxo do seu [utilizador,](user-flow-overview.md)os utilizadores são questionados sobre quando nasceram e em que país/região vivem. Se um utilizador assinar que não tenha introduzido previamente a informação, terá de a introduzir na próxima vez que iniciar a sua inscrição. As regras são aplicadas sempre que um utilizador assina.
 
-O Azure AD B2C utiliza a informação que o utilizador introduz para identificar se é menor. O campo **ageGroup** é então atualizado na sua conta. O valor `null`pode `Undefined` `Minor`ser, , e `Adult` `NotAdult`.  Os campos **ageGroup** e **consentProvidedForMinor** são então utilizados para calcular o valor da **classificação legalAgeGroup .**
+Azure AD B2C utiliza a informação que o utilizador introduz para identificar se é menor. O campo **AgeGroup** é então atualizado na sua conta. O valor pode `null` ser, `Undefined` , , e `Minor` `Adult` `NotAdult` .  Os **campos ageGroup** e **consentProvidedForMinor** são então utilizados para calcular o valor da **legalAgeGroupClassification**.
 
-A marcha etária envolve dois valores etários: a idade em que alguém já não é considerado menor, e a idade em que um menor deve ter o consentimento dos pais. A tabela que se segue enumera as regras de idade utilizadas para a definição de um menor e um menor que exigem o consentimento.
+A idade envolve dois valores de idade: a idade em que alguém já não é considerado menor, e a idade em que um menor deve ter o consentimento dos pais. A tabela a seguir enumera as regras de idade utilizadas para a definição de um menor e um menor que exigem consentimento.
 
 | País/Região | Nome país/região | Idade de consentimento menor | Idade menor |
 | -------------- | ------------------- | ----------------- | --------- |
@@ -71,39 +71,39 @@ A marcha etária envolve dois valores etários: a idade em que alguém já não 
 | DT | Chade | Nenhuma | 21 |
 | TH | Tailândia | Nenhuma | 20 |
 | TW | Taiwan | Nenhuma | 20 |
-| EUA | Estados Unidos | 13 | 18 |
+| EUA | Estados Unidos da América | 13 | 18 |
 
-## <a name="age-gating-options"></a>Opções de gating de idade
+## <a name="age-gating-options"></a>Opções de gating idade
 
-### <a name="allowing-minors-without-parental-consent"></a>Permitir menores sem consentimento parental
+### <a name="allowing-minors-without-parental-consent"></a>Permitir menores sem consentimento dos pais
 
-Para fluxos de utilizador que permitam o inscrição, o inserção ou ambos, pode optar por permitir menores sem consentimento na sua aplicação. Os menores sem consentimento dos pais podem inscrever-se ou inscrever-se normalmente e o Azure AD B2C emite um documento de identificação com a alegação **legalAgeGroupClassification.** Esta alegação define a experiência que os utilizadores têm, como recolher o consentimento dos pais e atualizar o campo **ConsentProvidedForMinor.**
+Para fluxos de utilizador que permitem a inscrição, o sismo ou ambos, pode optar por permitir menores sem consentimento na sua aplicação. Os menores sem consentimento parental podem inscrever-se ou inscrever-se normalmente e o Azure AD B2C emite um sinal de identificação com a reclamação **legalAgeGroupClassification.** Esta alegação define a experiência que os utilizadores têm, como a recolha do consentimento dos pais e a atualização do **consentimentoProvidedForMinor.**
 
 ### <a name="blocking-minors-without-parental-consent"></a>Bloquear menores sem consentimento dos pais
 
-Para fluxos de utilizador que permitam o inscrição, o inserção ou ambos, pode optar por bloquear menores sem consentimento da aplicação. Estão disponíveis as seguintes opções para manusear utilizadores bloqueados no Azure AD B2C:
+Para fluxos de utilizador que permitem a inscrição, o sismo ou ambos, pode optar por bloquear menores sem o consentimento da aplicação. As seguintes opções estão disponíveis para o manuseamento de utilizadores bloqueados no Azure AD B2C:
 
-- Envie um JSON de volta para a aplicação - esta opção envia uma resposta de volta ao pedido que um menor foi bloqueado.
-- Mostre uma página de erro - o utilizador é mostrado uma página informando-os de que não pode aceder à aplicação.
+- Envie um JSON de volta ao pedido - esta opção envia uma resposta de volta à aplicação de que um menor foi bloqueado.
+- Mostrar uma página de erro - é mostrado ao utilizador uma página informando-os de que não podem aceder à aplicação.
 
-## <a name="set-up-your-tenant-for-age-gating"></a>Instale o seu inquilino para a gating idade
+## <a name="set-up-your-tenant-for-age-gating"></a>Instale o seu inquilino para a idade de gating
 
-Para utilizar a idade em um fluxo de utilizador, você precisa configurar o seu inquilino para ter propriedades adicionais.
+Para utilizar a idade num fluxo de utilizador, você precisa configurar o seu inquilino para ter propriedades adicionais.
 
-1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior. Selecione o diretório que contém o seu inquilino.
+1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior. Selecione o diretório que contém o seu inquilino.
 2. Selecione **Todos os serviços** no canto superior esquerdo do portal Azure, procure e selecione **Azure AD B2C**.
 3. Selecione **Propriedades** para o seu inquilino no menu à esquerda.
-2. Sob a secção **de marcha da Idade,** clique em **Configurar**.
-3. Aguarde a operação e o seu inquilino será preparado para a marcha da idade.
+2. Na secção **de gating da Idade,** clique em **Configurar**.
+3. Aguarde que a operação esteja concluída e o seu inquilino será preparado para a idade.
 
-## <a name="enable-age-gating-in-your-user-flow"></a>Ativar a marcha da idade no fluxo do utilizador
+## <a name="enable-age-gating-in-your-user-flow"></a>Ativar a gating de idade no fluxo do seu utilizador
 
-Depois de o seu inquilino ser configurado para usar a marcha etária, pode então utilizar esta funcionalidade nos [fluxos](user-flow-versions.md) de utilizador onde está ativada. Permite a marcha da idade com os seguintes passos:
+Depois de o seu inquilino ser configurado para usar a idade, pode então utilizar esta funcionalidade nos [fluxos](user-flow-versions.md) de utilizador onde está ativada. Permite a formação de idades com os seguintes passos:
 
-1. Crie um fluxo de utilizador que tenha a marcha da idade ativada.
+1. Crie um fluxo de utilizador que tenha a idade ativada.
 2. Depois de criar o fluxo do utilizador, selecione **Propriedades** no menu.
-3. Na secção Idade de **marcha,** selecione **Ativado**.
-4. Em seguida, decide como pretende gerir utilizadores que se identifiquem como menores. Para **iniciar sessão ou iniciar sessão,** selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se estiver selecionado o bloqueio `Send a JSON back to the application` de `Show an error message`menores, selecione ou .
+3. Na secção **de gating idade,** selecione **Ativado**.
+4. Em seguida, decide como pretende gerir utilizadores que se identificam como menores. Para **iniciar s sesuda ou iniciar s inscrição,** selecione `Allow minors to access your application` ou `Block minors from accessing your application` . Se forem selecionados menores de bloqueio, selecione `Send a JSON back to the application` ou `Show an error message` .
 
 
 

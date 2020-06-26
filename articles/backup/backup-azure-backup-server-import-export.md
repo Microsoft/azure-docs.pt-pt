@@ -3,12 +3,12 @@ title: Cópia de segurança offline para o DPM e Azure Backup Server
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 1fb9910f2cdf8f000725fde697d971fc1c3d385b
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: bb9b3599e74e74058598acd53f5156459c0b74fb
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631983"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374938"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
 
@@ -83,9 +83,9 @@ As informações nesta secção ajudam-no a completar o fluxo de trabalho de bac
    A descrição das entradas é a seguinte:
 
    * **Localização de localização**: Local de armazenamento temporário para o qual está escrita a cópia de reserva inicial. A localização da paragem pode estar numa partilha de rede ou num computador local. Se o computador de cópia e o computador de origem forem diferentes, especifique o caminho completo da rede do local de paragem.
-   * **Conta de Armazenamento Azure**: O nome da conta de armazenamento na subscrição Azure associada ao ficheiro de definições de publicação Azure.
-   * **Recipiente de armazenamento Azure**: O nome da bolha de armazenamento de destino na conta de armazenamento Azure onde os dados de reserva são importados.
-   * **ID de assinatura Azure**: O ID de subscrição Azure para a subscrição de onde descarregou o ficheiro de definições Azure Publish.
+   * **Conta de Armazenamento do Gestor de Recursos Azure**: O nome da conta de armazenamento do tipo de gestor de recursos (finalidade geral v1 ou finalidade geral v2) em qualquer subscrição do Azure.
+   * **Recipiente de armazenamento Azure**: O nome do recipiente de armazenamento do blob de destino na conta de armazenamento Azure onde os dados de reserva são importados.
+   * **ID de assinatura Azure**: O ID para a subscrição Azure onde a conta de armazenamento Azure é criada.
    * **Nome de emprego de importação Azure**: O nome único pelo qual o serviço Azure Import e a Azure Backup acompanham a transferência de dados enviados em discos para a Azure.
 
     Guarde a **localização de preparação** e as informações sobre o **Nome do Trabalho da Importação de Azure** que forneceu. É necessário preparar os discos.
@@ -198,6 +198,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento do próximo trabalho de criação de réplicas online programado, o Data Protection Manager realiza backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

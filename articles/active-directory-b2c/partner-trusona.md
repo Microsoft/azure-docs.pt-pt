@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e2c5c3126690ad38326b983fb79d1a1fa174fb6
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078919"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385557"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrando Trusona com Azure Ative Directory B2C
 

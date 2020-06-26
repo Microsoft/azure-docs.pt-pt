@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e80503ce300d3ddca1a1bceabfc09d11cf7625f7
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 57dbec2b91d313c9c93c141c9f3ec839a299d47d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84809957"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385489"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integração da App Twilio Check com o Azure Ative Directory B2C
 
