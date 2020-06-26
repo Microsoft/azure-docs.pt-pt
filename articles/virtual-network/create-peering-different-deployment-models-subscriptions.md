@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 46f86c3aa730b5222a6c6e36bdb392a0ae891c6c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84689423"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412503"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um espreitamento de rede virtual - diferentes modelos de implementação e subscrições
 
@@ -34,7 +34,7 @@ Os passos para criar um espreguiçadeira de rede virtual são diferentes, depend
 
 Não é possível criar um espreitamento de rede virtual entre duas redes virtuais implantadas através do modelo clássico de implementação. Este tutorial utiliza redes virtuais que existem na mesma região. Este tutorial pares redes virtuais na mesma região. Também pode espreitar redes virtuais em [diferentes regiões apoiadas.](virtual-network-manage-peering.md#cross-region) Recomenda-se que se familiarize com os [requisitos e constrangimentos de espreitar](virtual-network-manage-peering.md#requirements-and-constraints) antes de espreitar as redes virtuais.
 
-Ao criar uma rede virtual de observação entre redes virtuais que existam em diferentes subscrições, as subscrições devem ser associadas ao mesmo inquilino do Azure Ative Directory. Se ainda não tem um inquilino do Azure Ative Directory, pode criar rapidamente [um.](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) Você pode conectar redes virtuais em diferentes subscrições e diferentes inquilinos do Azure Ative Directory usando um Gateway Azure [VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Ao criar uma rede virtual que espreita entre redes virtuais que existem em diferentes subscrições, as subscrições podem associar-se ao mesmo inquilino do Azure Ative Directory. Se ainda não tem um inquilino do Azure Ative Directory, pode criar rapidamente [um.](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)
 
 Pode utilizar o [portal Azure,](#portal)a [interface de linha de comando](#cli) Azure (CLI) ou Azure [PowerShell](#powershell) para criar um espreitamento de rede virtual. Clique em qualquer uma das ligações de ferramentas anteriores para ir diretamente aos passos para criar uma rede virtual que espreita usando a sua ferramenta de eleição.
 

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 73cd8083dc6853e36b05854ab2fd7c0226f99bd6
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: a672db649323a82c75a7e8c0cd6556eadce8089d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080086"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414560"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade cognitiva OCR
 
 A habilidade **de reconhecimento de caracteres óticos (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em Serviços Cognitivos. As habilidades **OCR** mapeiam para a seguinte funcionalidade:
 
 + Para inglês, espanhol, alemão, francês, italiano, português e holandês, é utilizada a nova API ["Read".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
-+ Para todas as outras línguas, é utilizada a API ["OCR".](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api)
++ Para todas as outras línguas, é utilizada a API ["OCR".](../cognitive-services/computer-vision/concept-recognizing-text.md)
 
 A habilidade **OCR** extrai texto de ficheiros de imagem. Os formatos de ficheiros suportados incluem:
 
@@ -41,7 +41,7 @@ A habilidade **OCR** extrai texto de ficheiros de imagem. Os formatos de ficheir
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `detectOrientation`   | Permite a autodestecer a orientação da imagem. <br/> Valores válidos: verdadeiros / falsos.|
 | `defaultLanguageCode` | <p>   Código linguístico do texto de entrada. As linguagens suportadas incluem: <br/> zh-hans (Chinêss simplificados) <br/> zh-Hant (tradicional chinês) <br/>cs (checo) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (grego) <br/> hu (húngaro) <br/> que (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (norueguês) <br/>   pl (polaco) <br/> pt (português) <br/>  ru (russo) <br/>  es (espanhol) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (romeno) <br/> sr-Cyrl (SérvioCyrillic) <br/> sr-Latn (SérvioLatino) <br/>  sk (eslovaco) <br/>  unk (Desconhecido) <br/><br/> Se o código linguístico não for especificado ou nulo, o idioma será definido para inglês. Se a língua for explicitamente definida como "unk", a língua será detetada automaticamente. </p> |
@@ -51,13 +51,13 @@ Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especi
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente, apenas funciona com o campo "/document/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` é definido para um valor diferente de ```none``` . Consulte a [amostra](#sample-output) para mais informações.|
 
 
 ## <a name="skill-outputs"></a>Saídas de competências
-| Nome de saída     | Description                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | `text`            | Texto simples extraído da imagem.   |
 | `layoutText`    | Tipo complexo que descreve o texto extraído e o local onde o texto foi encontrado.|

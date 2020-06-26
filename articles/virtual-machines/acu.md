@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: 3fda339b234b83bae9cbf0b6614cb75c66031f71
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 74c0f5be7998450b0fb868ff4969e412fdaa4788
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678533"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414475"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)
 
@@ -44,8 +44,20 @@ Hiper-roscado e capaz de executar virtualização aninhada
 | [DS1_v2 - DS15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [D_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
+| [Dav4](dav4-dasv4-series.md) |230 - 260** | 2:1 |
+| [Dasv4](dav4-dasv4-series.md) |230 - 260** | 2:1 |
+| [Dv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Ddv4](ddv4-ddsv4-series.md) | 195 -210* | 2:1\*\*\* |
+| [Ddsv4](ddv4-ddsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
+| [Eav4](eav4-easv4-series.md) |230 - 260** | 2:1 |
+| [Easv4](eav4-easv4-series.md) | 230 - 260** | 2:1 |
+| [Ev4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Esv4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Edv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
+| [Edsv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [F2s_v2 - F72s_v2](fsv2-series.md) |195 - 210* | 2:1\*\*\* |
 | [F1 - F16](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [F1s - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |

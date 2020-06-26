@@ -7,15 +7,15 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: spelluru
-ms.openlocfilehash: 488d3025f279916cb98e75f3f8db56fdc9d6d1de
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392970"
+ms.locfileid: "85412843"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Definir alertas em métricas de grelha de evento azure e registos de atividade
-Este artigo descreve como criar alertas nas métricas da Azure Event Grid e nas operações de registo de atividades. 
+Este artigo descreve como criar alertas nas métricas da Azure Event Grid e nas operações de registo de atividades. Pode criar alertas nas métricas de publicação e entrega dos recursos da Azure Event Grid (tópicos e domínios). Para tópicos do sistema, [crie alertas utilizando a página **Métricas** ](#create-alerts-using-the-metrics-page).
 
 ## <a name="create-alerts-on-dead-lettered-events"></a>Criar alertas sobre eventos com letras mortas
 O procedimento a seguir mostra como criar um alerta sobre a métrica **de eventos com letras mortas** para um tópico personalizado. Neste exemplo, um e-mail é enviado ao proprietário do grupo de recursos Azure quando o evento com letras mortas conta para um tópico que vai acima de 10. 
@@ -33,6 +33,9 @@ O procedimento a seguir mostra como criar um alerta sobre a métrica **de evento
     2. Selecione dimensões (opcional). 
         
         :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Configurar lógica de sinal":::        
+
+        > [!NOTE]
+        > Pode selecionar **+** o botão para **EventSubscriptionName** para especificar um nome de subscrição do evento para filtrar eventos. 
     3. Rola para baixo. Na secção **lógica alerta,** selecione um **Operador,** **tipo de agregação,** e introduza um **valor Threshold**, e selecione **Fazer**. Neste exemplo, um alerta é desencadeado quando o número total de eventos mortos é superior a 10. 
     
         :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Lógica de alerta":::                
@@ -66,7 +69,7 @@ Por exemplo, para criar um alerta num evento de falha de entrega, selecione **Ev
 
 
 ## <a name="create-alerts-using-the-metrics-page"></a>Criar alertas utilizando a página Métricas
-Também pode criar alertas utilizando a página **Métricas.** Os degraus são semelhantes. 
+Também pode criar alertas utilizando a página **Métricas.** Os degraus são semelhantes. Para tópicos do sistema, só pode utilizar a página **Métricas** para criar alertas, uma vez que a página **Alertas** não está disponível. 
 
 :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Página de métricas - Criar botão de alerta":::   
     

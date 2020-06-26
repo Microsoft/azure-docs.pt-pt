@@ -8,12 +8,12 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
-ms.openlocfilehash: 28313391201281b7c30617c4b910583194b2bcd2
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 2131912244b2f895ebb7d9bbc28f132ac2404ae7
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080121"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414577"
 ---
 # <a name="azure-resource-providers-operations"></a>Operações de fornecedores de recursos Azure
 
@@ -166,7 +166,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Addons/register/action | Registar a subscrição especificada com microsoft.Addons |
 > | Microsoft.Addons/operations/read | Recebe operações de rp apoiadas. |
@@ -180,7 +180,7 @@ Serviço Azure: núcleo
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Marketplace/register/action | Regista o fornecedor de recursos Microsoft.Marketplace na subscrição. |
 > | Microsoft.Marketplace/privateStores/ação | Atualizações PrivateStore. |
@@ -202,7 +202,7 @@ Serviço Azure: núcleo
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.MarketplaceApps/ClassicDevServices/read | Faz uma operação GET num serviço de dev clássico. |
 > | Microsoft.MarketplaceApps/ClassicDevServices/delete | Faz uma operação DELETE num recurso de serviço de dev clássico. |
@@ -216,7 +216,7 @@ Serviço Azure: núcleo
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.MarketplaceOrdering/agreements/read | Devolva todos os acordos sob subscrição dada |
 > | Microsoft.MarketplaceOrdering/agreements/offers/plans/read | Devolva um acordo para um determinado item de mercado |
@@ -231,7 +231,7 @@ Serviço Azure: núcleo
 Serviço Azure: [Azure Service Health](../service-health/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ResourceHealth/register/action | Regista a subscrição do Microsoft ResourceHealth |
 > | Microsoft.ResourceHealth/unregister/action | Desregista a subscrição para o Microsoft ResourceHealth |
@@ -255,7 +255,7 @@ Serviço Azure: [Azure Service Health](../service-health/index.yml)
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Support/register/action | Fornecedor de Recursos de Suporte de Registos |
 > | Microsoft.Support/checkNameAvailability/action | Verifica se o nome é válido e não está em uso para o tipo de recurso |
@@ -276,7 +276,7 @@ Serviço Azure: núcleo
 Serviço Azure: Máquina virtual modelo de implementação clássica
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ClassicCompute/register/action | Registe-se no Classic Compute |
 > | Microsoft.ClassicCompute/checkDomainNameAvailability/action | Verifica a disponibilidade de um dado nome de domínio. |
@@ -393,7 +393,7 @@ Serviço Azure: Máquina virtual modelo de implementação clássica
 Serviço Azure: [Máquinas Virtuais, Conjuntos](../virtual-machines/index.yml) [de escala de máquinas virtuais](../virtual-machine-scale-sets/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Compute/register/action | Registra subscrição com o fornecedor de recursos Microsoft.Compute |
 > | Microsoft.Compute/unregister/action | Subscrição de não-registos com o fornecedor de recursos Microsoft.Compute |
@@ -575,7 +575,7 @@ Serviço Azure: [Máquinas Virtuais, Conjuntos](../virtual-machines/index.yml) [
 Serviço Azure: [Tecido de Serviço](../service-fabric/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ServiceFabric/register/action | Registar qualquer Ação |
 > | Microsoft.ServiceFabric/clusters/read | Leia qualquer Cluster |
@@ -604,14 +604,14 @@ Serviço Azure: [Tecido de Serviço](../service-fabric/index.yml)
 > | Microsoft.ServiceFabric/locations/operations/read | Ler quaisquer Operações por local |
 > | Microsoft.ServiceFabric/operations/read | Ler quaisquer Operações Disponíveis |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="microsoftcdn"></a>Microsoft.Cdn
 
 Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Cdn/register/action | Regista a subscrição do fornecedor de recursos CDN e permite a criação de perfis CDN. |
 > | Microsoft.Cdn/CheckNameAvailability/action |  |
@@ -682,7 +682,7 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 Serviço Azure: Rede virtual de modelo de implementação clássica
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ClassicNetwork/register/action | Registe-se na Rede Clássica |
 > | Microsoft.ClassicNetwork/expressroutecrossconnections/read | Obtenha ligações expressas de rota cruzada. |
@@ -761,7 +761,7 @@ Serviço Azure: Rede virtual de modelo de implementação clássica
 Serviço Azure: [Application Gateway](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Azure Firewall](../firewall/index.yml), [Azure Front Door Service](../frontdoor/index.yml), [Azure Private Link,](../private-link/index.yml) [Load Balancer,](../load-balancer/index.yml) [Network Watcher,](../network-watcher/index.yml) [Traffic Manager,](../traffic-manager/index.yml) [Virtual Network,](../virtual-network/index.yml) [Virtual WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Network/register/action | Regista a subscrição |
 > | Microsoft.Network/unregister/action | Não registra a subscrição |
@@ -1296,7 +1296,7 @@ Serviço Azure: [Application Gateway](../application-gateway/index.yml), [Azure 
 Serviço Azure: Armazenamento de modelo de implantação clássica
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ClassicStorage/register/action | Registe-se no Armazenamento Clássico |
 > | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | Verifica a disponibilidade de uma conta de armazenamento. |
@@ -1361,7 +1361,7 @@ Serviço Azure: Armazenamento de modelo de implantação clássica
 Serviço Azure: [Caixa de Dados Azure](../databox-family/index.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataBox/register/action | Fornecedor de registo Microsoft.Databox |
 > | Microsoft.DataBox/unregister/action | Un-Register Provider Microsoft.Databox |
@@ -1386,7 +1386,7 @@ Serviço Azure: [Caixa de Dados Azure](../databox-family/index.md)
 Serviço Azure: [Azure Import/Export](../storage/common/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ImportExport/register/action | Regista a subscrição do fornecedor de recursos de importação/exportação e permite a criação de postos de trabalho de importação/exportação. |
 > | Microsoft.ImportExport/jobs/write | Cria um trabalho com os parâmetros especificados ou atualizar as propriedades ou tags para o trabalho especificado. |
@@ -1401,7 +1401,7 @@ Serviço Azure: [Azure Import/Export](../storage/common/storage-import-export-se
 Serviço Azure: [Ficheiros Azure NetApp](../azure-netapp-files/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.NetApp/register/action | Ação de Registo de Assinaturas |
 > | Microsoft.NetApp/unregister/action | Unregisters Subscrição com o fornecedor de recursos Microsoft.NetApp |
@@ -1451,7 +1451,7 @@ Serviço Azure: [Ficheiros Azure NetApp](../azure-netapp-files/index.yml)
 Serviço Azure: [Armazenamento](../storage/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Storage/register/action | Regista a subscrição do fornecedor de recursos de armazenamento e permite a criação de contas de armazenamento. |
 > | Microsoft.Storage/checknameavailability/read | Verifica se o nome da conta é válido e não está a ser utilizado. |
@@ -1578,7 +1578,7 @@ Serviço Azure: [Armazenamento](../storage/index.yml)
 Serviço Azure: [Armazenamento](../storage/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | microsoft.storagesync/register/action | Regista a subscrição do Fornecedor de Sincronização de Armazenamento |
 > | microsoft.storagesync/unregister/action | Desregista a subscrição do Fornecedor de Sincronização de Armazenamento |
@@ -1631,7 +1631,7 @@ Serviço Azure: [Armazenamento](../storage/index.yml)
 Serviço Azure: [StorSimple](../storsimple/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.StorSimple/register/action | Fornecedor de registo Microsoft.StorSimple |
 > | Microsoft.StorSimple/managers/clearAlerts/action | Limpe todos os alertas associados ao gestor do dispositivo. |
@@ -1810,7 +1810,7 @@ Serviço Azure: [StorSimple](../storsimple/index.yml)
 Serviço Azure: [Certificados de Serviço de Aplicações](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.CertificateRegistration/provisionGlobalAppAppServicePrincipalInUserTenant/Action | Principal de serviço de prestação para o principal da aplicação de serviço |
 > | Microsoft.CertificateRegistration/validateCertificateRegistrationInformation/Action | Validar objeto de compra de certificado sem o submeter |
@@ -1836,7 +1836,7 @@ Serviço Azure: [Certificados de Serviço de Aplicações](../app-service/config
 Serviço Azure: [Serviço de Aplicações](../app-service/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DomainRegistration/generateSsoRequest/Action | Gere um pedido de inscrição no centro de controlo de domínio. |
 > | Microsoft.DomainRegistration/validateDomainRegistrationInformation/Action | Validar objeto de compra de domínio sem o submeter |
@@ -1863,7 +1863,7 @@ Serviço Azure: [Serviço de Aplicações](../app-service/index.yml)
 Serviço Azure: [Azure Maps](../azure-maps/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Maps/register/action | Registar o fornecedor |
 > | Microsoft.Maps/accounts/write | Criar ou atualizar uma Conta Maps. |
@@ -1899,7 +1899,7 @@ Serviço Azure: [Azure Maps](../azure-maps/index.yml)
 Serviço Azure: [Media Services](../media-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Media/register/action | Regista a subscrição do fornecedor de recursos dos Media Services e permite a criação de contas de Media Services |
 > | Microsoft.Media/unregister/action | Desregista a subscrição do fornecedor de recursos dos Serviços de Comunicação Social |
@@ -2003,7 +2003,7 @@ Serviço Azure: [Media Services](../media-services/index.yml)
 Serviço Azure: [Azure Search](../search/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Search/register/action | Regista a subscrição do fornecedor de recursos de pesquisa e permite a criação de serviços de pesquisa. |
 > | Microsoft.Search/checkNameAvailability/action | Verifica a disponibilidade do nome de serviço. |
@@ -2028,7 +2028,7 @@ Serviço Azure: [Azure Search](../search/index.yml)
 Serviço Azure: [Serviço Azure SignalR](../azure-signalr/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.SignalRService/register/action | Regista o fornecedor de recursos 'Microsoft.SignalRService' com uma subscrição |
 > | Microsoft.SignalRService/unregister/action | Desregistem o fornecedor de recursos 'Microsoft.SignalRService' com uma subscrição |
@@ -2065,7 +2065,7 @@ Serviço Azure: [Serviço Azure SignalR](../azure-signalr/index.yml)
 Serviço Azure: [Serviço de Aplicações,](../app-service/index.yml) [Funções Azure](../azure-functions/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | microsoft.web/unregister/action | Não registre o fornecedor de recursos Microsoft.Web para a subscrição. |
 > | microsoft.web/valide/ação | Validar . |
@@ -2530,7 +2530,7 @@ Serviço Azure: [Serviço de Aplicações,](../app-service/index.yml) [Funções
 Serviço Azure: [Instâncias de contentores](../container-instances/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ContainerInstance/register/action | Regista a subscrição do fornecedor de recursos de instância de contentores e permite a criação de grupos de contentores. |
 > | Microsoft.ContainerInstance/containerGroups/read | Pegue todos os grupos de contentores. |
@@ -2560,7 +2560,7 @@ Serviço Azure: [Instâncias de contentores](../container-instances/index.yml)
 Serviço Azure: [Registo de Contentores](../container-registry/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ContainerRegistry/register/action | Regista a subscrição do fornecedor de recursos de registo de contentores e permite a criação de registos de contentores. |
 > | Microsoft.ContainerRegistry/checkNameAvailability/read | Verifique se o nome do registo do contentor está disponível para utilização. |
@@ -2645,7 +2645,7 @@ Serviço Azure: [Registo de Contentores](../container-registry/index.yml)
 Serviço Azure: [Serviço Azure Kubernetes (AKS)](../aks/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ContainerService/register/action | Registra subscrição com o fornecedor de recursos Microsoft.ContainerService |
 > | Microsoft.ContainerService/unregister/action | Subscrição de não-registos com o fornecedor de recursos Microsoft.ContainerService |
@@ -2984,7 +2984,7 @@ Serviço Azure: [Serviço Azure Kubernetes (AKS)](../aks/index.yml)
 Serviço Azure: [Azure Dev Spaces](../dev-spaces/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DevSpaces/register/action | Registe o fornecedor de recursos Microsoft Dev Spaces com uma subscrição |
 > | Microsoft.DevSpaces/controladores/ler | Leia as propriedades do controlador Azure Dev Spaces |
@@ -3003,7 +3003,7 @@ Serviço Azure: [Azure Dev Spaces](../dev-spaces/index.yml)
 Serviço Azure: [Azure Cache para Redis](../azure-cache-for-redis/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Cache/checknameavailability/action | Verifica se um nome está disponível para uso com um novo Redis Cache |
 > | Microsoft.Cache/register/action | Regista o fornecedor de recursos 'Microsoft.Cache' com uma subscrição |
@@ -3040,7 +3040,7 @@ Serviço Azure: [Azure Cache para Redis](../azure-cache-for-redis/index.yml)
 Serviço Azure: [Data Factory](../data-factory/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataFactory/register/action | Regista a subscrição do Fornecedor de Recursos da Fábrica de Dados. |
 > | Microsoft.DataFactory/unregister/action | Desregista a subscrição do Fornecedor de Recursos da Fábrica de Dados. |
@@ -3167,7 +3167,7 @@ Serviço Azure: [Data Factory](../data-factory/index.yml)
 Serviço Azure: [Serviço de Migração de Bases de Dados Azure](../dms/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataMigration/register/action | Regista a subscrição com o prestador de serviços de migração da Azure Database |
 > | Microsoft.DataMigration/locations/operationResults/read | Obtenha o estatuto de uma operação de longa duração relacionada com uma resposta aceite 202 |
@@ -3205,7 +3205,7 @@ Serviço Azure: [Serviço de Migração de Bases de Dados Azure](../dms/index.ym
 Serviço Azure: [Base de Dados Azure para MariaDB](../mariadb/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DBforMariaDB/register/action | Registar fornecedor de recursos MariaDB |
 > | Microsoft.DBforMariaDB/checkNameAvailability/action | Verifique se o nome dado pelo servidor está disponível para provisão em todo o mundo para uma determinada subscrição. |
@@ -3283,7 +3283,7 @@ Serviço Azure: [Base de Dados Azure para MariaDB](../mariadb/index.yml)
 Serviço Azure: [Base de Dados Azure para o MySQL](../mysql/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DBforMySQL/register/action | Registar provedor de recursos MySQL |
 > | Microsoft.DBforMySQL/checkNameAvailability/action | Verifique se o nome dado pelo servidor está disponível para provisão em todo o mundo para uma determinada subscrição. |
@@ -3361,7 +3361,7 @@ Serviço Azure: [Base de Dados Azure para o MySQL](../mysql/index.yml)
 Serviço Azure: [Base de Dados Azure para PostgreSQL](../postgresql/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DBforPostgreSQL/register/action | Registre o fornecedor de recursos postgresql |
 > | Microsoft.DBforPostgreSQL/checkNameAvailability/action | Verifique se o nome dado pelo servidor está disponível para provisão em todo o mundo para uma determinada subscrição. |
@@ -3453,7 +3453,7 @@ Serviço Azure: [Base de Dados Azure para PostgreSQL](../postgresql/index.yml)
 Serviço Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DocumentDB/registo/ação |  Registe o fornecedor de recursos Do Microsoft DocumentDB para a subscrição |
 > | Microsoft.DocumentDB/base de dadosAconselhos/ler | Verifica a disponibilidade de nomes. |
@@ -3682,7 +3682,7 @@ Serviço Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Sql/checkNameAvailability/action | Verifique se o nome dado pelo servidor está disponível para provisão em todo o mundo para uma determinada subscrição. |
 > | Microsoft.Sql/register/action | Regista a subscrição do fornecedor de recursos microsoft SQL Database e permite a criação de Bases de Dados DO Microsoft SQL. |
@@ -4095,7 +4095,7 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 Serviço Azure: [SQL Server em Azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.SqlVirtualMachine/register/action | Registe subscrição com o fornecedor de recursos Microsoft.SqlVirtualMachine |
 > | Microsoft.SqlVirtualMachine/unregister/action | Subscrição não registrada com o fornecedor de recursos Microsoft.SqlVirtualMachine |
@@ -4122,7 +4122,7 @@ Serviço Azure: [SQL Server em Azure Virtual Machines](../azure-sql/virtual-mach
 Serviço Azure: [Azure Analysis Services](../analysis-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.AnalysisServices/register/action | Registra fornecedor de recursos de Serviços de Análise. |
 > | Microsoft.AnalysisServices/locations/checkNameAvailability/action | Verifica se o nome do Servidor de Análise é válido e não está em uso. |
@@ -4140,10 +4140,10 @@ Serviço Azure: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
-Serviço Azure: [Azure Databricks](../azure-databricks/index.yml)
+Serviço Azure: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Databricks/register/action | Registe-se na Databricks. |
 > | Microsoft.Databricks/locations/getNetworkPolicies/action | Obtenha a Rede Intent Polices para uma sub-rede com base na localização usada pela NRP |
@@ -4170,7 +4170,7 @@ Serviço Azure: [Azure Databricks](../azure-databricks/index.yml)
 Serviço Azure: [Data Lake Analytics](../data-lake-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataLakeAnalytics/register/action | Registe a subscrição do DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/read | Obtenha informações sobre uma conta datalakeanalytics existente. |
@@ -4207,7 +4207,7 @@ Serviço Azure: [Data Lake Analytics](../data-lake-analytics/index.yml)
 Serviço Azure: [Azure Data Lake Store](../storage/blobs/data-lake-storage-introduction.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataLakeStore/register/action | Registe a subscrição da DataLakeStore. |
 > | Microsoft.DataLakeStore/contas/ler | Obtenha informações sobre uma conta DataLakeStore existente. |
@@ -4242,7 +4242,7 @@ Serviço Azure: [Azure Data Lake Store](../storage/blobs/data-lake-storage-intro
 Serviço Azure: [Centros de Eventos](../event-hubs/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.EventHub/checkNamespaceDabilidade/ação | Verifica a disponibilidade do espaço de nome sob subscrição dada. Esta API é depreciada por favor utilize checkNameAvailability. |
 > | Microsoft.EventHub/checkNameAvailability/action | Verifica a disponibilidade do espaço de nome sob subscrição dada. |
@@ -4321,7 +4321,7 @@ Serviço Azure: [Centros de Eventos](../event-hubs/index.yml)
 Serviço Azure: [HDInsight](../hdinsight/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.HDInsight/register/action | Registre o fornecedor de recursos HDInsight para a subscrição |
 > | Microsoft.HDInsight/unregister/action | Fornecedor de recursos HDInsight não registador para a subscrição |
@@ -4351,7 +4351,7 @@ Serviço Azure: [HDInsight](../hdinsight/index.yml)
 Serviço Azure: [Azure Data Explorer](/azure/data-explorer/)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Kusto/register/action | Ação de Registo de Assinaturas |
 > | Microsoft.Kusto/Register/action | Regista a subscrição do Fornecedor de Recursos Kusto. |
@@ -4409,7 +4409,7 @@ Serviço Azure: [Azure Data Explorer](/azure/data-explorer/)
 Serviço Azure: [Power BI Incorporado](https://docs.microsoft.com/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.PowerBIDedicated/register/action | Registra fornecedor de recursos dedicados Power BI. |
 > | Microsoft.PowerBIDedicated/capacities/read | Recupera a informação da capacidade dedicada do Power BI especificado. |
@@ -4429,7 +4429,7 @@ Serviço Azure: [Power BI Incorporado](https://docs.microsoft.com/azure/power-bi
 Serviço Azure: [Stream Analytics](../stream-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.StreamAnalytics/Register/action | Registe a subscrição com o Fornecedor de Recursos Stream Analytics |
 > | Microsoft.StreamAnalytics/locations/quotas/Read | Ler quota de assinatura de stream analytics |
@@ -4475,7 +4475,7 @@ Serviço Azure: [Stream Analytics](../stream-analytics/index.yml)
 Serviço Azure: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Blockchain/registo/ação | Regista a subscrição do Fornecedor de Recursos Blockchain. |
 > | Microsoft.Blockchain/blockchainMembers/read | Obtém ou Lista os membros blockchain existentes. |
@@ -4502,7 +4502,7 @@ Serviço Azure: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 Serviço Azure: [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.BotService/checknameavailability/action | Ver Disponibilidade de nome de um Bot |
 > | Microsoft.BotService/listauthserviceproviders/action | Fornecedores de serviços da Lista Auth |
@@ -4525,7 +4525,7 @@ Serviço Azure: [Azure Bot Service](https://docs.microsoft.com/azure/bot-service
 Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.CognitiveServices/register/action | Ação de Registo de Assinaturas |
 > | Microsoft.CognitiveServices/register/action | Inscrição para Serviços Cognitivos |
@@ -4865,7 +4865,7 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 Serviço Azure: [Machine Learning Studio](../machine-learning/studio/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.MachineLearning/register/action | Regista a subscrição do fornecedor de recursos de serviço web machine learning e permite a criação de serviços web. |
 > | Microsoft.MachineLearning/webServices/action | Criar propriedades regionais de serviço web para regiões apoiadas |
@@ -4894,7 +4894,7 @@ Serviço Azure: [Machine Learning Studio](../machine-learning/studio/index.yml)
 Serviço Azure: [Serviço de Aprendizagem automática](../machine-learning/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.MachineLearningServices/register/action | Regista a subscrição do Fornecedor de Recursos de Machine Learning Services |
 > | Microsoft.MachineLearningServices/locations/updateQuotas/action | Quota de atualização para cada família VM no espaço de trabalho. |
@@ -5004,7 +5004,7 @@ Serviço Azure: [Serviço de Aprendizagem automática](../machine-learning/index
 Serviço Azure: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Service](../iot-dps/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Devices/register/action | Registe a subscrição do fornecedor de recursos IotHub e permita a criação de recursos IotHub |
 > | Microsoft.Devices/checkNameAvailability/Action | Verifique se o nome IotHub está disponível |
@@ -5138,7 +5138,7 @@ Serviço Azure: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Se
 Serviço Azure: [IoT Central](../iot-central/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.IoTCentral/checkNameAvailability/action | Verifique se está disponível um nome de aplicação central IoT |
 > | Microsoft.IoTCentral/checkSubdomainAvailability/action | Verifica se está disponível um subdomínio de aplicação central IoT |
@@ -5154,7 +5154,7 @@ Serviço Azure: [IoT Central](../iot-central/index.yml)
 Serviço Azure: [Centros de Notificação](../notification-hubs/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.NotificationHubs/register/action | Regista a subscrição do fornecedor de recursos NotificationHubs e permite a criação de Namespaces e NotificationHubs |
 > | Microsoft.NotificationHubs/unregister/action | Desregista a subscrição do fornecedor de recursos NotificationHubs e permite a criação de Namespaces e NotificationHubs |
@@ -5189,7 +5189,7 @@ Serviço Azure: [Centros de Notificação](../notification-hubs/index.yml)
 Serviço Azure: [Time Series Insights](../time-series-insights/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.TimeSeriesInsights/register/action | Regista a subscrição do fornecedor de recursos Time Series Insights e permite a criação de ambientes time series Insights. |
 > | Microsoft.TimeSeriesInsights/environments/read | Obtenha as propriedades de um ambiente. |
@@ -5213,7 +5213,7 @@ Serviço Azure: [Time Series Insights](../time-series-insights/index.yml)
 Serviço Azure: [Azure Digital Twins](../digital-twins/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.IoTSpaces/register/action | Registar subscrição para o fornecedor de recursos do Microsoft.IoTSpaces Graph para permitir a criação de recursos |
 > | Microsoft.IoTSpaces/Graph/write | Criar recurso gráfico Microsoft.IoTSpaces |
@@ -5225,7 +5225,7 @@ Serviço Azure: [Azure Digital Twins](../digital-twins/index.yml)
 Serviço Azure: [Âncoras Espaciais Azure](../spatial-anchors/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.MixedReality/register/action | Regista uma subscrição para o fornecedor de recursos de Realidade Mista. |
 > | Microsoft.MixedReality/remoteRendersAccounts/fornecedores/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para Microsoft.MixedReality/remoteRenderingAccounts |
@@ -5258,7 +5258,7 @@ Serviço Azure: [Âncoras Espaciais Azure](../spatial-anchors/index.yml)
 Serviço Azure: [API Management](../api-management/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ApiManagement/register/action | Registar subscrição para o fornecedor de recursos Microsoft.ApiManagement |
 > | Microsoft.ApiManagement/unregister/action | Subscrição de não registo para o fornecedor de recursos Microsoft.ApiManagement |
@@ -5477,7 +5477,7 @@ Serviço Azure: [API Management](../api-management/index.yml)
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.AppConfiguration/register/action | Regista uma subscrição para utilizar a Configuração da Aplicação microsoft. |
 > | Microsoft.AppConfiguration/checkNameAvailability/read | Verifique se o nome do recurso está disponível para utilização. |
@@ -5514,7 +5514,7 @@ Serviço Azure: núcleo
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.AzureStack/register/action | Registra subscrição com o fornecedor de recursos Microsoft.AzureStack |
 > | Microsoft.AzureStack/cloudManifestFiles/read | Obtém o Ficheiro Manifesto de Nuvem |
@@ -5537,7 +5537,7 @@ Serviço Azure: núcleo
 Serviço Azure: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Certificado de upload para registo de dispositivos |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Cria ou atualiza os dispositivos Data Box Edge |
@@ -5614,7 +5614,7 @@ Serviço Azure: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.m
 Serviço Azure: [Catálogo de Dados](../data-catalog/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DataCatalog/register/action | Registar a subscrição do Fornecedor de Recursos do Catálogo de Dados |
 > | Microsoft.DataCatalog/unregister/action | Desregistar a subscrição do Fornecedor de Recursos do Catálogo de Dados |
@@ -5632,7 +5632,7 @@ Serviço Azure: [Catálogo de Dados](../data-catalog/index.yml)
 Serviço Azure: [Grade de Eventos](../event-grid/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.EventGrid/register/action | Regista a subscrição do fornecedor de recursos EventGrid. |
 > | Microsoft.EventGrid/unregister/action | Desregista a subscrição do fornecedor de recursos EventGrid. |
@@ -5704,7 +5704,7 @@ Serviço Azure: [Grade de Eventos](../event-grid/index.yml)
 Serviço Azure: [Aplicativos Lógicos](../logic-apps/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Logic/register/action | Regista o fornecedor de recursos Microsoft.Logic para uma determinada subscrição. |
 > | Microsoft.Logic/integrationAconselhos/leitura | Lê a conta de integração. |
@@ -5817,7 +5817,7 @@ Serviço Azure: [Aplicativos Lógicos](../logic-apps/index.yml)
 Serviço Azure: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Relay/checkNamespaceDabilidade/ação | Verifica a disponibilidade do espaço de nome sob subscrição dada. Esta API é depreciada por favor utilize checkNameAvailability. |
 > | Microsoft.Relay/checkNameAvailability/action | Verifica a disponibilidade do espaço de nome sob subscrição dada. |
@@ -5880,7 +5880,7 @@ Serviço Azure: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 Serviço Azure: [Service Bus](../service-bus/index.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ServiceBus/checkNamespaceDabilidade/ação | Verifica a disponibilidade do espaço de nome sob subscrição dada. Esta API é depreciada por favor utilize checkNameAvailability. |
 > | Microsoft.ServiceBus/checkNameAvailability/action | Verifica a disponibilidade do espaço de nome sob subscrição dada. |
@@ -5976,7 +5976,7 @@ Serviço Azure: [Service Bus](../service-bus/index.md)
 Serviço Azure: [Azure Ative Directory Domain Services](../active-directory-domain-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.AAD/unregister/action | Serviço de Domínio Não Registado |
 > | Microsoft.AAD/register/action | Serviço de Domínio de Registo |
@@ -5994,7 +5994,7 @@ Serviço Azure: [Azure Ative Directory Domain Services](../active-directory-doma
 Serviço Azure: Azure Ative Directory
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | microsoft.aadiam/azureADMetrics/read | Leia a definição de métricas AD Azure |
 > | microsoft.aadiam/azureADMetrics/write | Criar e atualizar definição de métricas AD Azure |
@@ -6024,7 +6024,7 @@ Serviço Azure: Azure Ative Directory
 Serviço Azure: [Azure Ative Directory](../active-directory/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ADHybridHealthService/configuração/ação | Atualiza a configuração do inquilino. |
 > | Microsoft.ADHybridHealthService/serviços/ação | Atualiza uma instância de serviço no inquilino. |
@@ -6103,7 +6103,7 @@ Serviço Azure: [Azure Ative Directory](../active-directory/index.yml)
 Serviço Azure: [Azure Ative Directory B2C](../active-directory-b2c/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.AzureActiveDirectory/register/action | Registar subscrição para o fornecedor de recursos Microsoft.AzureActiveDirectory |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/write | Criar ou atualizar recurso B2C Diretório |
@@ -6117,7 +6117,7 @@ Serviço Azure: [Azure Ative Directory B2C](../active-directory-b2c/index.yml)
 Serviço Azure: [Identidades geridas para recursos da Azure](../active-directory/managed-identities-azure-resources/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ManagedIdentity/register/action | Regista a subscrição do fornecedor de recursos de identidade gerido |
 > | Microsoft.ManagedIdentity/identities/read | Obtém uma identidade atribuída ao sistema existente |
@@ -6134,7 +6134,7 @@ Serviço Azure: [Identidades geridas para recursos da Azure](../active-directory
 Serviço Azure: [Cofre de Chaves](../key-vault/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.KeyVault/register/action | Regista uma subscrição |
 > | Microsoft.KeyVault/unregister/action | Não registra uma subscrição |
@@ -6213,7 +6213,7 @@ Serviço Azure: [Cofre de Chaves](../key-vault/index.yml)
 Serviço Azure: [Centro de Segurança](../security-center/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Security/register/action | Regista a subscrição do Azure Security Center |
 > | Microsoft.Security/unregister/action | Desregista a subscrição do Azure Security Center |
@@ -6290,7 +6290,7 @@ Serviço Azure: [Centro de Segurança](../security-center/index.yml)
 Serviço Azure: Microsoft Monitoring Insights
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.SecurityGraph/diagnosticsettings/write | Escrever uma definição de diagnóstico |
 > | Microsoft.SecurityGraph/diagnosticsettings/read | Ler uma definição de diagnóstico |
@@ -6302,7 +6302,7 @@ Serviço Azure: Microsoft Monitoring Insights
 Serviço Azure: [Azure Sentinel](../sentinel/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.SecurityInsights/register/action | Regista a subscrição do Azure Sentinel |
 > | Microsoft.SecurityInsights/unregister/action | Desregista a assinatura de Azure Sentinel |
@@ -6355,7 +6355,7 @@ Serviço Azure: [Azure Sentinel](../sentinel/index.yml)
 Serviço Azure: [Azure Lab Services](../lab-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.DevTestLab/register/action | Regista a subscrição |
 > | Microsoft.DevTestLab/labCenters/delete | Apagar centros de laboratório. |
@@ -6475,7 +6475,7 @@ Serviço Azure: [Azure Lab Services](../lab-services/index.yml)
 Serviço Azure: [Azure Lab Services](../lab-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.LabServices/register/action | Regista a subscrição |
 > | Microsoft.LabServices/labAccounts/delete | Apagar contas de laboratório. |
@@ -6532,7 +6532,7 @@ Serviço Azure: [Azure Lab Services](../lab-services/index.yml)
 Serviço Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.VisualStudio/Register/Action | Registar subscrição do Azure com o fornecedor Microsoft.VisualStudio |
 > | Microsoft.VisualStudio/Account/Write | Definir Conta |
@@ -6555,7 +6555,7 @@ Serviço Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Migrate/register/action | Registra subscrição com o fornecedor de recursos Microsoft.Migrate |
 > | Microsoft.Migrate/assessmentprojects/read | Obtém as propriedades do projeto de avaliação |
@@ -6622,7 +6622,7 @@ Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.OffAzure/register/action | Registra subscrição com o fornecedor de recursos Microsoft.OffAzure |
 > | Microsoft.OffAzure/register/action | Registra subscrição com o fornecedor de recursos Microsoft.OffAzure |
@@ -6858,14 +6858,14 @@ Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Obtém as propriedades de um VMware vCenter |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Cria ou atualiza o VMware vCenter |
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.AlertsManagement/register/action | Regista a subscrição para a Gestão de Alertas da Microsoft |
 > | Microsoft.AlertsManagement/actionRules/read | Obtenha todas as regras de ação para os filtros de entrada. |
@@ -6892,7 +6892,7 @@ Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Insights/Metrics/Action | Ação Métrica |
 > | Microsoft.Insights/Register/Action | Registar o fornecedor Microsoft Insights |
@@ -7209,7 +7209,7 @@ Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.OperationalInsights/register/action | Registar uma subscrição a um fornecedor de recursos. |
 > | microsoft.operationalinsights/register/action | Rergisters a assinatura. |
@@ -7577,7 +7577,7 @@ Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.OperationsManagement/register/action | Registar uma subscrição a um fornecedor de recursos. |
 > | Microsoft.OperationsManagement/managementAssociations/write | Criar uma nova Associação de Gestão |
@@ -7595,7 +7595,7 @@ Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.WorkloadMonitor/components/read | Obtém componentes para o recurso |
 > | Microsoft.WorkloadMonitor/componentsSummary/read | Recebe resumo dos componentes |
@@ -7614,7 +7614,7 @@ Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 Serviço Azure: [Azure Advisor](../advisor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Advisor/generateRecommendations/action | Obtém o estado das recomendações |
 > | Microsoft.Advisor/register/action | Regista a subscrição do Microsoft Advisor |
@@ -7638,7 +7638,7 @@ Serviço Azure: [Azure Advisor](../advisor/index.yml)
 Serviço Azure: [Azure Policy](../governance/policy/overview.md), [Azure RBAC,](overview.md) [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/action | Concede ao chamador o acesso de Administrador de Acesso de Utilizador no âmbito do inquilino |
 > | Microsoft.Authorization/classicAdministrators/read | Lê os administradores para a subscrição. |
@@ -7679,7 +7679,7 @@ Serviço Azure: [Azure Policy](../governance/policy/overview.md), [Azure RBAC,](
 Serviço Azure: [Automação](../automation/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Automation/register/action | Regista a subscrição da Azure Automation |
 > | Microsoft.Automation/automationAs/webhooks/ação | Gera um URI para um webhook Azure Automation |
@@ -7811,7 +7811,7 @@ Serviço Azure: [Automação](../automation/index.yml)
 Serviço Azure: [Lote](../batch/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Batch/register/action | Regista a subscrição do Fornecedor de Recursos de Lote e permite a criação de contas Batch |
 > | Microsoft.Batch/não registrister/ação | Não registra a subscrição do Fornecedor de Recursos de Lote impedindo a criação de contas Batch |
@@ -7861,7 +7861,7 @@ Serviço Azure: [Lote](../batch/index.yml)
 Serviço Azure: [Gestão de Custos + Faturação](../cost-management-billing/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Billing/valideAddress/action |  |
 > | Microsoft.Billing/register/action |  |
@@ -7910,7 +7910,7 @@ Serviço Azure: [Gestão de Custos + Faturação](../cost-management-billing/ind
 Serviço Azure: [Azure Blueprints](../governance/blueprints/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Blueprint/register/action | Regista o Fornecedor de Recursos Azure Blueprints |
 > | Microsoft.Blueprint/blueprintAssignments/read | Leia quaisquer artefactos de planta |
@@ -7934,7 +7934,7 @@ Serviço Azure: [Azure Blueprints](../governance/blueprints/index.yml)
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Capacity/calcular preço/ação | Calcular qualquer Preço de Reserva |
 > | Microsoft.Capacity/checkoffers/ação | Verifique quaisquer ofertas de subscrição |
@@ -7973,7 +7973,7 @@ Serviço Azure: núcleo
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Commerce/register/action | Registar subscrição para o Microsoft Commerce UsageAggregate |
 > | Microsoft.Commerce/unregister/action | Subscrição não registrada para o Microsoft Commerce UsageAggregate |
@@ -7985,7 +7985,7 @@ Serviço Azure: núcleo
 Serviço Azure: [Gestão de Custos](../cost-management-billing/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Consumption/register/action | Registrar-se no Consumo RP |
 > | Microsoft.Consumption/aggregatedcost/read | Lista AgregadaCost para grupo de gestão. |
@@ -8020,7 +8020,7 @@ Serviço Azure: [Gestão de Custos](../cost-management-billing/index.yml)
 Serviço Azure: [Gestão de Custos](../cost-management-billing/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.CostManagement/consulta/ação | Consultar os dados de utilização por um âmbito. |
 > | Microsoft.CostManagement/reports/action | Agendar relatórios sobre os dados de utilização por um âmbito. |
@@ -8065,7 +8065,7 @@ Serviço Azure: [Gestão de Custos](../cost-management-billing/index.yml)
 Serviço Azure: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Features/register/action | Regista a característica de uma subscrição. |
 > | Microsoft.Features/features/read | Obtém as características de uma subscrição. |
@@ -8079,7 +8079,7 @@ Serviço Azure: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Serviço Azure: [Política Azure](../governance/policy/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.GuestConfiguration/register/action | Regista a subscrição do fornecedor de recursos Microsoft.GuestConfiguration. |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Crie uma nova atribuição de configuração de hóspedes. |
@@ -8093,7 +8093,7 @@ Serviço Azure: [Política Azure](../governance/policy/index.yml)
 Serviço Azure: [Azure Arc](../azure-arc/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.HybridCompute/register/action | Regista a subscrição do Fornecedor de Recursos Microsoft.HybridCompute |
 > | Microsoft.HybridCompute/unregister/action | Não registra a subscrição para Microsoft.HybridCompute Resource Provider |
@@ -8112,7 +8112,7 @@ Serviço Azure: [Azure Arc](../azure-arc/index.yml)
 Serviço Azure: [Farol Azure](../lighthouse/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.ManagedServices/register/action | Registe-se nos Serviços Geridos. |
 > | Microsoft.ManagedServices/unregister/action | Não registro dos Serviços Geridos. |
@@ -8131,7 +8131,7 @@ Serviço Azure: [Farol Azure](../lighthouse/index.yml)
 Serviço Azure: [Grupos de Gestão](../governance/management-groups/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Management/checkNameAvailability/action | Verifique se o nome do grupo de gestão especificado é válido e único. |
 > | Microsoft.Management/getEntities/action | Listar todas as entidades (Grupos de Gestão, Assinaturas, etc.) para o utilizador autenticado. |
@@ -8151,7 +8151,7 @@ Serviço Azure: [Grupos de Gestão](../governance/management-groups/index.yml)
 Serviço Azure: [Política Azure](../governance/policy/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.PolicyInsights/register/action | Regista o fornecedor de recursos Microsoft Policy Insights e permite ações nele. |
 > | Microsoft.PolicyInsights/unregister/action | Desregistem o fornecedor de recursos Microsoft Policy Insights. |
@@ -8180,7 +8180,7 @@ Serviço Azure: [Política Azure](../governance/policy/index.yml)
 Serviço Azure: [Portal Azure](../azure-portal/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Portal/registo/ação | Registar-se no Portal |
 > | Microsoft.Portal/consolas/excluir | Remove a instância cloud shell. |
@@ -8198,7 +8198,7 @@ Serviço Azure: [Portal Azure](../azure-portal/index.yml)
 Serviço Azure: [Recuperação do Local](../site-recovery/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | Inscrição para fornecedor de recursos dado |
 > | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
@@ -8404,7 +8404,7 @@ Serviço Azure: [Recuperação do Local](../site-recovery/index.yml)
 Serviço Azure: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Resources/checkResourceName/action | Verifique se o nome do recurso é válido. |
 > | Microsoft.Resources/calcularTemplateHash/ação | Calcular o haxixe do modelo fornecido. |
@@ -8465,7 +8465,7 @@ Serviço Azure: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Serviço Azure: [Agendador](../scheduler/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Scheduler/jobcollections/read | Obter Coleção de Emprego |
 > | Microsoft.Scheduler/jobcollections/write | Cria ou atualiza a recolha de emprego. |
@@ -8484,7 +8484,7 @@ Serviço Azure: [Agendador](../scheduler/index.yml)
 Serviço Azure: [Aplicações geridas Azure](../azure-resource-manager/managed-applications/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Solutions/register/action | Registe-se em Soluções. |
 > | Microsoft.Solutions/unregister/action | Não registadores de Soluções. |
@@ -8509,7 +8509,7 @@ Serviço Azure: [Aplicações geridas Azure](../azure-resource-manager/managed-a
 Serviço Azure: núcleo
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Subscrição/CreateSubscription/action | Criar uma subscrição do Azure |
 > | Microsoft.Subscrição/registo/ação | Registra subscrição com o fornecedor de recursos Microsoft.Subscrição |
@@ -8525,7 +8525,7 @@ Serviço Azure: núcleo
 Serviço Azure: Microsoft Monitoring Insights
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Intune/diagnosticsettings/write | Escrever uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettings/read | Ler uma definição de diagnóstico |
@@ -8539,7 +8539,7 @@ Serviço Azure: Microsoft Monitoring Insights
 Serviço Azure: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 
 > [!div class="mx-tableFixed"]
-> | Ação | Description |
+> | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.BingMaps/updateCommunicationPreference/action | Atualiza as preferências de comunicação para o proprietário da Microsoft.BingMaps |
 > | Microsoft.BingMaps/listCommunicationPreference/action | Obtém as preferências de comunicação para o proprietário da Microsoft.BingMaps |

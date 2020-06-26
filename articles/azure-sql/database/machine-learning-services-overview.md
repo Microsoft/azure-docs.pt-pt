@@ -7,18 +7,18 @@ ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: dphansen
-ms.author: davidph
+author: garyericson
+ms.author: garye
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c45d52b89d23b2b030f6292a2257dfd732e8f766
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 0a11e2ba820797bac8ce93517841fd37a8256d2c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344769"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413064"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services com R (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Os Serviços de Machine Learning incluem uma distribuição base de R, sobrepost
 
 Os pacotes R de código aberto mais comuns são pré-instalados em Serviços de Machine Learning. Os seguintes pacotes R da Microsoft também estão incluídos:
 
-| Pacote R | Description|
+| Pacote R | Descrição|
 |-|-|
 | [Microsoft R Open](https://mran.microsoft.com/rro) | O Microsoft R Open é a distribuição melhorada de R da Microsoft. É uma plataforma completa de código aberto para análise estatística e ciência de dados. Baseia-se em e 100% compatível com R, e inclui capacidades adicionais para melhorar o desempenho e a reprodutibilidade. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR é a biblioteca primária para funções R. escaláveis nesta biblioteca estão entre as mais utilizadas. Transformações e manipulação de dados, resumo estatístico, visualização e muitas formas de modelação e análises são encontradas nestas bibliotecas. Adicionalmente, as funções nestas bibliotecas distribuem automaticamente cargas de trabalho através dos núcleos disponíveis para processamento paralelo, com a capacidade de trabalhar em pedaços de dados que são coordenados e geridos pelo motor de cálculo. |
@@ -52,7 +52,7 @@ Além dos pacotes pré-instalados, pode [instalar pacotes adicionais.](machine-l
 > [!IMPORTANT]
 > O registo dos Serviços de Aprendizagem de Máquinas de Base de Dados Azure SQL (pré-visualização) está atualmente **fechado**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [principais diferenças dos serviços de aprendizagem automática de servidores SQL.](machine-learning-services-differences.md)
 - Para aprender a usar R para consultar os Serviços de Aprendizagem de Máquinas de Base de Dados Azure SQL (pré-visualização), consulte o [guia Quickstart](connect-query-r.md).

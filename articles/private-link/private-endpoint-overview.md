@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 40b3ebf9193ad2d167cb36792900746201605298
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106469"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414152"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -65,7 +65,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servidores    | mariadbServer |
 |**Azure IoT Hub** | Microsoft.Devices/IotHubs    | IotHub |
-|**Azure Key Vault** | Microsoft.KeyVault/cofres    | cofre |
+|**Cofre da Chave Azure** | Microsoft.KeyVault/cofres    | cofre |
 |**Serviço Azure Kubernetes - Kubernetes API** | Microsoft.ContainerService/managedClusters    | geridoCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Registo de Contentores do Azure** | Microsoft.ContainerRegistry/registries    | registry |
@@ -76,7 +76,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Reencaminhamento do Azure** | Microsoft.Relay/namespaces | espaço de nomes |
 |**Azure Event Grid** | Microsoft.EventGrid/tópicos    | tópico |
 |**Azure Event Grid** | Microsoft.EventGrid/domínios    | domínio |
-|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure WebApps** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | área de trabalho |
   
  

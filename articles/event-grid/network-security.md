@@ -5,14 +5,14 @@ services: event-grid
 author: VidyaKukke
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/25/2020
 ms.author: vkukke
-ms.openlocfilehash: ba3bc14c9b4a9d5d866dbb1b9369557b948078d0
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390198"
+ms.locfileid: "85414254"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Event Grid: 
@@ -37,6 +37,7 @@ A Azure Event Grid suporta controlos de acesso baseados em IP para publicação 
 
 Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida).
 
+Para obter instruções passo a passo para configurar firewall IP para tópicos e domínios, consulte [a firewall IP configurar](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Pontos finais privados
 Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir ingresss de eventos diretamente da sua rede virtual para seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. Um ponto final privado é uma interface de rede especial para um serviço Azure no seu VNet. Quando cria um ponto final privado para o seu tópico ou domínio, proporciona uma conectividade segura entre os clientes no seu VNet e o seu recurso Desempaço de Evento. O ponto final privado é atribuído um endereço IP a partir do intervalo de endereço IP do seu VNet. A ligação entre o ponto final privado e o serviço Deresecação de Eventos utiliza uma ligação privada segura.

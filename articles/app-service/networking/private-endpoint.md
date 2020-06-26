@@ -4,17 +4,17 @@ description: Conecte-se privadamente a uma Aplicação Web usando o Azure Privat
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 06/26/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bc9cd134e4c83aea94ae0049158b3054c602cce8
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: b9cf0467829425003a33ef806d8e7028e7f27add
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374428"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413404"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
@@ -65,22 +65,52 @@ Nos registos HTTP web da sua Web App, encontrará o IP de origem do cliente. Est
 
 ## <a name="dns"></a>DNS
 
+Quando utilizar o Private Endpoint para a Web App, o URL solicitado deve corresponder ao nome da sua Aplicação Web. Por defeito mywebappname.azurewebsites.net.
+
 Por padrão, sem Private Endpoint, o nome público da sua aplicação web é um nome canónico para o cluster.
-Por exemplo, a resolução de nomes será: mywebapp.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+Por exemplo, a resolução de nomes será:
 
-Quando implanta um Ponto Final Privado, mudamos a entrada de DNS para apontar para o nome canónico mywebapp.privatelink.azurewebsites.net.
-Por exemplo, a resolução de nomes será: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+|Name |Tipo |Valor |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
 
-Se tiver um servidor DNS privado ou uma zona privada Azure DNS, precisa de configurar uma zona chamada privatelink.azurewebsites.net. Registe o registo da sua aplicação web com um registo A e o Private Endpoint IP.
-Por exemplo, a resolução de nomes será: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net A 10.10.10.8 
+
+Quando implementa um Ponto Final Privado, atualizamos a entrada de DNS para apontar para o nome canónico mywebapp.privatelink.azurewebsites.net.
+Por exemplo, a resolução de nomes será:
+
+|Name |Tipo |Valor |Observação |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154|<-- Este IP público não é o seu Ponto Final Privado, receberá um erro de 503|
+
+Tem de configurar um servidor DNS privado ou uma zona privada Azure DNS, para testes que pode modificar a entrada do anfitrião da sua máquina de teste.
+A zona DE DNS que precisa de criar é: **privatelink.azurewebsites.net**. Registe o registo da sua Web App com um registo A e o Private Endpoint IP.
+Por exemplo, a resolução de nomes será:
+
+|Name |Tipo |Valor |Observação |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-- Gere esta entrada no seu sistema DNS para apontar para o seu endereço IP private endpoint|
+
+Após esta configuração DNS, pode chegar à sua Web App em privado com o nome padrão mywebappname.azurewebsites.net.
+
 
 Se precisar de usar um nome DNS personalizado, tem de adicionar o nome personalizado na sua Web App. Durante a pré-visualização, o nome personalizado deve ser validado como qualquer nome personalizado, utilizando a resolução pública de DNS. Para mais informações, consulte [a validação personalizada do DNS.][dnsvalidation]
 
-Se precisar de utilizar a consola Kudu, ou a API Kudu REST (implantação com agentes auto-hospedados da Azure DevOps, por exemplo), precisa de criar dois registos na sua zona privada Azure DNS ou no seu servidor DNS personalizado. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+Para a consola Kudu, ou Kudu REST API (implementação com agentes auto-hospedados da Azure DevOps, por exemplo), deve criar dois registos na sua zona privada Azure DNS ou no seu servidor DNS personalizado. 
 
-Estes dois registos são automaticamente povoados se tiver uma zona privada chamada privatelink.azurewebsites.net ligada ao VNet onde cria o Ponto Final Privado.
+| Name | Tipo | Valor |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+
+> [!TIP]
+> Estes dois registos são automaticamente preenchidos se tiver uma zona privada de DNS chamada privatelink.azurewebsites.net ligada ao VNet onde cria o Ponto Final Privado.
+
 
 ## <a name="pricing"></a>Preços
 

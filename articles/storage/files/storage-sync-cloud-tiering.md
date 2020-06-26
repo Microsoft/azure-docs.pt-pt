@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 869614c2e3fe11c289ab6eb7f6c1407f666de2b0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368146"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413982"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -39,7 +39,30 @@ O tiering em nuvem não depende da funcionalidade NTFS para rastrear a última v
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do ficheiro para um ficheiro de nível?
-Para as versões de agente 9.x e mais recentes, o tamanho mínimo do ficheiro para um ficheiro para tier baseia-se no tamanho do cluster do sistema de ficheiros (o dobro do tamanho do cluster do sistema de ficheiros). Por exemplo, se o tamanho do cluster do sistema de ficheiros NTFS for 4KB, o tamanho mínimo de ficheiro resultante para um ficheiro para o nível é de 8KB. Para as versões de agente 8.x ou mais, o tamanho mínimo do ficheiro para um ficheiro é de 64KB.
+
+Para as versões 9 e mais recentes, o tamanho mínimo do ficheiro para um ficheiro é baseado no tamanho do cluster do sistema de ficheiros. A tabela a seguir ilustra os tamanhos mínimos de ficheiro que podem ser nivelados, com base no tamanho do cluster de volume:
+
+|Tamanho do cluster de volume (Bytes) |Arquivos deste tamanho ou maior podem ser hierarquizados  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) e maior    | 64 KB   |
+
+Todos os sistemas de ficheiros utilizados pelo Windows organizam o seu disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de atribuição). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usado para segurar um ficheiro. Quando os tamanhos dos ficheiros não saem para um múltiplo do tamanho do cluster, deve ser utilizado espaço adicional para segurar o ficheiro (até ao próximo múltiplo do tamanho do cluster).
+
+O Azure File Sync é suportado em volumes NTFS com Windows Server 2012 R2 e mais recentes. A tabela seguinte descreve os tamanhos de cluster padrão quando cria um novo volume NTFS. 
+
+|Tamanho do volume    |Windows Server 2012R2 e mais recente |
+|---------------|---------------|
+|7 MB - 16 TB   | 4 KB          |
+|16TB - 32 TB   | 8 KB          |
+|32TB - 64 TB   | 16 KB         |
+|64TB - 128 TB  | 32 KB         |
+|128TB - 256 TB | 64 KB         |
+|> 256 TB       | Não suportado |
+
+É possível que, após a criação do volume, tenha formatado manualmente o volume com um tamanho de cluster diferente (unidade de atribuição). Se o seu volume provém de uma versão mais antiga do Windows, os tamanhos de cluster padrão também podem ser diferentes. [Este artigo tem mais detalhes sobre os tamanhos de cluster padrão.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Como funciona a política de arrumo de espaço livre no volume?
@@ -85,7 +108,7 @@ Manter mais dados locais significa custos de saída mais baixos, uma vez que men
 
 Se os ficheiros precisam ou não de ser nivelados por políticas definidas é avaliado uma vez por hora. Pode encontrar duas situações quando um novo ponto final do servidor é criado:
 
-1. Quando adiciona um novo ponto final do servidor, muitas vezes existem ficheiros nessa localização do servidor. Têm de ser carregados primeiro, antes que o nível das nuvens possa começar. A política de espaço livre de volume não começará o seu trabalho até que o upload inicial de todos os ficheiros esteja terminado. No entanto, a política de datas opcionais começará a funcionar numa base de ficheiro individual, assim que um ficheiro tiver sido carregado. O intervalo de uma hora também se aplica aqui. 
+1. Quando adiciona um novo ponto final do servidor, muitas vezes existem ficheiros nessa localização do servidor. Têm de ser carregados primeiro, antes que o nível das nuvens possa começar. A política de espaço livre de volume não começará o seu trabalho até que o carregamento inicial de todos os ficheiros tenha terminado. No entanto, a política de datas opcionais começará a funcionar numa base de ficheiro individual, assim que um ficheiro tiver sido carregado. O intervalo de uma hora também se aplica aqui. 
 2. Quando adiciona um novo ponto final do servidor, é possível que conecte uma localização vazia do servidor a uma partilha de ficheiros Azure com os seus dados nele. Seja para um segundo servidor ou durante uma situação de recuperação de desastres. Se optar por descarregar o espaço de nomes e recordar o conteúdo durante o download inicial para o seu servidor, depois de o espaço de nome sair, os ficheiros serão recolhidos com base na última marca de tempo modificada. Apenas quantos ficheiros serão recolhidos como adequados dentro da política de espaço livre de volume e da política de data opcional.
 
 <a id="is-my-file-tiered"></a>

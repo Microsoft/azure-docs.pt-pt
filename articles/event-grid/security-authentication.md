@@ -1,88 +1,21 @@
 ---
-title: Segurança e autenticação da Grelha de Eventos Azure
-description: Este artigo descreve diferentes formas de autenticar o acesso aos seus recursos de Grade de Eventos (WebHook, subscrições, tópicos personalizados)
+title: Autenticar a entrega do evento aos manipuladores de eventos (Azure Event Grid)
+description: Este artigo descreve diferentes formas de autenticar a entrega aos manipuladores de eventos na Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 06/25/2020
 ms.author: spelluru
-ms.openlocfilehash: d028367b82e8529d5260c086f2e4afa609582b00
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 46b1aa500f00046dd4d6e318b270982e8b747a79
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100222"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412826"
 ---
-# <a name="authenticating-access-to-azure-event-grid-resources"></a>Autenticação de acesso aos recursos da Grelha de Eventos Azure
-Este artigo fornece informações sobre os seguintes cenários:  
-
-- Autenticar clientes que publicam eventos para tópicos da Azure Event Grid utilizando a Assinatura de Acesso Partilhado (SAS) ou chave. 
-- Proteja o ponto final webhook que é usado para receber eventos da Grade de Eventos usando O Diretório Ativo Azure (Azure AD) ou um segredo compartilhado.
-
-## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Autenticar clientes editoriais usando SAS ou chave
-Os tópicos personalizados utilizam a Assinatura de Acesso Partilhado (SAS) ou a autenticação de chaves. Recomendamos SAS, mas a autenticação chave fornece uma programação simples, e é compatível com muitos editores webhook existentes.
-
-Inclui o valor de autenticação no cabeçalho HTTP. Para SAS, utilize **a aeg-sas-token** para o valor do cabeçalho. Para autenticação de chave, utilize **a chave aeg-sas para** o valor do cabeçalho.
-
-### <a name="key-authentication"></a>Autenticação de chaves
-
-A autenticação da chave é a forma mais simples de autenticação. Utilize o formato: `aeg-sas-key: <your key>` no cabeçalho da mensagem.
-
-Por exemplo, passa-se uma chave com:
-
-```
-aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
-```
-
-Também pode especificar `aeg-sas-key` como parâmetro de consulta. 
-
-```
-https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
-```
-
-### <a name="sas-tokens"></a>Tokens SAS
-
-Os tokens SAS para a Grade de Eventos incluem o recurso, um tempo de validade e uma assinatura. O formato do símbolo SAS é: `r={resource}&e={expiration}&s={signature}` .
-
-O recurso é o caminho para o tópico da grelha de eventos para o qual está a enviar eventos. Por exemplo, um caminho de recurso válido é: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01` . Para ver todas as versões API suportadas, consulte os [tipos de recursos microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
-
-Gera-se a assinatura a partir de uma chave.
-
-Por exemplo, um valor **aeg-sas-token** válido é:
-
-```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
-```
-
-O exemplo a seguir cria um token SAS para utilização com grade de eventos:
-
-```cs
-static string BuildSharedAccessSignature(string resource, DateTime expirationUtc, string key)
-{
-    const char Resource = 'r';
-    const char Expiration = 'e';
-    const char Signature = 's';
-
-    string encodedResource = HttpUtility.UrlEncode(resource);
-    var culture = CultureInfo.CreateSpecificCulture("en-US");
-    var encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString(culture));
-
-    string unsignedSas = $"{Resource}={encodedResource}&{Expiration}={encodedExpirationUtc}";
-    using (var hmac = new HMACSHA256(Convert.FromBase64String(key)))
-    {
-        string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(unsignedSas)));
-        string encodedSignature = HttpUtility.UrlEncode(signature);
-        string signedSas = $"{unsignedSas}&{Signature}={encodedSignature}";
-
-        return signedSas;
-    }
-}
-```
-
-### <a name="encryption-at-rest"></a>Encriptação inativa
-
-Todos os eventos ou dados escritos em disco pelo serviço Desempenhado pelo Serviço de Grelha de Eventos são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptada em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados retidos são de 24 horas de adesão à [política de relíndi da Grelha de Eventos.](delivery-and-retry.md) A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o tempo de vida do evento, o que for menor.
+# <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega do evento aos manipuladores de eventos (Azure Event Grid)
+Este artigo fornece informações sobre a autenticação da entrega de eventos aos manipuladores de eventos. Também mostra como proteger os pontos finais do webhook que são usados para receber eventos da Grade de Eventos usando O Diretório Ativo Azure (Azure AD) ou um segredo partilhado.
 
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Utilizar identidades atribuídas ao sistema para a entrega de eventos
 Você pode ativar uma identidade gerida atribuída ao sistema para um tópico ou domínio e usar a identidade para encaminhar eventos para destinos apoiados, tais como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -113,6 +46,6 @@ Para obter mais informações sobre a entrega de eventos a webhooks, consulte [a
 > [!IMPORTANT]
 A Azure Event Grid suporta apenas pontos finais **https** webhook. 
 
-## <a name="next-steps"></a>Passos seguintes
 
-- Para uma introdução à Grade de Eventos, consulte [Sobre a Grelha de Eventos](overview.md)
+## <a name="next-steps"></a>Passos seguintes
+Consulte [clientes editoriais Authenticate](security-authenticate-publishing-clients.md) para saber sobre autenticar clientes que publicam eventos em tópicos ou domínios. 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 69c7c7f361a930ab1dc2e0437365d2f4457b57e2
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101080"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412941"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -44,6 +44,8 @@ Da mesma forma, pode utilizar o `az eventgrid domain create` comando para criar 
 Na secção anterior, aprendeu a ativar uma identidade gerida pelo sistema enquanto criava um tópico ou um domínio. Nesta secção, aprende-se a ativar uma identidade gerida pelo sistema para um tópico ou domínio existente. 
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
+O procedimento que se segue mostra como ativar a identidade gerida pelo sistema para um tópico. Os passos para permitir uma identidade para um domínio são semelhantes. 
+
 1. Vá ao [portal Azure.](https://portal.azure.com)
 2. Procure **tópicos de grelha de eventos** na barra de pesquisa no topo.
 3. Selecione o **tópico** para o qual deseja ativar a identidade gerida. 

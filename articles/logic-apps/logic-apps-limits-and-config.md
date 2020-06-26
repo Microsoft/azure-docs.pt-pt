@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/20/2020
-ms.openlocfilehash: 3c62f9794a4eb963bcd23a294d82b67cd9e37d08
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 06/25/2020
+ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367228"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412700"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -216,7 +216,7 @@ Aqui estão os limites para conectores personalizados que pode criar a partir de
 
 Cada subscrição do Azure tem estes limites de conta de integração:
 
-* Uma conta de integração [de nível livre](../logic-apps/logic-apps-pricing.md#integration-accounts) por região de Azure
+* Uma conta de integração [de nível livre](../logic-apps/logic-apps-pricing.md#integration-accounts) por região de Azure. Este nível só está disponível para regiões públicas em Azure, por exemplo, eua ocidental ou sudeste asiático, mas não para [o Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) ou [para o Governo Azure.](../azure-government/documentation-government-welcome.md)
 
 * 1.000 contas totais de integração, incluindo contas de integração em quaisquer [ambientes de serviços de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) tanto em termos de Programadores como [de SKUs Premium.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
@@ -268,7 +268,7 @@ Para taxas de preços, consulte [os preços das Aplicações Lógicas.](https://
 
 | Ponto final de tempo de execução | Gratuito | Básica | Standard | Notas |
 |------------------|------|-------|----------|-------|
-| Ler chamadas por 5 minutos | 3.000 | 30,000 | 60 000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
+| Ler chamadas por 5 minutos | 3.000 | 30,000 | 60 000 | Este limite aplica-se a chamadas que obtêm as entradas e saídas brutas do histórico de execução de uma aplicação lógica. Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
 | Invocar chamadas por 5 minutos | 3.000 | 30,000 | 45 000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
 | Chamadas de rastreio por 5 minutos | 3.000 | 30,000 | 45 000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
 | Bloquear chamadas simultâneas | ~1.000 | ~1.000 | ~1.000 | O mesmo para todos os SKUs. Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |

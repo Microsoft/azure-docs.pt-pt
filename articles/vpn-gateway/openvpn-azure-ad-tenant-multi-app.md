@@ -4,15 +4,15 @@ description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenti
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: how-to
-ms.date: 02/19/2020
+ms.topic: conceptual
+ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: 2fc329bd77bafb2e11575b75be102314df98131f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 0ef0c7d3a269753067e53a69b9da680db969e25d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987207"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414436"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino do Azure Active Directory para as ligações do protocolo OpenVPN P2S
 
@@ -26,34 +26,22 @@ Ao ligar-se ao seu VNet, pode utilizar a autenticação baseada em certificados 
 
 ## <a name="6-enable-authentication-on-the-gateway"></a><a name="enable-authentication"></a>6. Ativar a autenticação no gateway
 
-Neste passo, você ativa a autenticação AZure AD no gateway VPN.
+Neste passo, você ativará a autenticação AZure AD no gateway VPN.
 
-1. Ativar a autenticação Azure AD no gateway VPN executando os seguintes comandos. Certifique-se de modificar os comandos para refletir o seu próprio ambiente:
+1. Ativar a autenticação AZure AD no gateway VPN navegando para a **configuração ponto-a-local** e escolhendo **o OpenVPN (SSL)** como o **tipo de túnel**. Selecione **O Diretório Ativo Azure** como o **tipo de Autenticação** e, em seguida, preencha as informações na secção **Diretório Ativo Azure.**
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "application ID from previous section" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24
-    ```
+    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+
     > [!NOTE]
-    > Não utilize o ID de aplicação do cliente Azure VPN nos comandos acima: Irá conceder a todos os utilizadores acesso ao gateway VPN. Utilize o ID das aplicações que registou.
+    > Não utilize o ID de aplicação do cliente Azure VPN: Irá permitir a todos os utilizadores o acesso ao gateway VPN. Utilize o ID das aplicações que registou.
 
-2. Crie e descarregue o perfil executando os seguintes comandos. Altere os valores -ResourcGroupName e -Nome para corresponder aos seus.
+2. Crie e descarregue o perfil clicando no link de **cliente VPN de descarregamento.**
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+3. Extraia o ficheiro zip descarregado.
 
-3. Depois de executar os comandos, vê um resultado semelhante ao abaixo. Copie o URL de resultados para o seu navegador para descarregar o ficheiro zip do perfil.
+4. Navegue na pasta "AzureVPN" desapertada.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/profile.png)
-
-4. Extraia o ficheiro zip descarregado.
-
-5. Navegue na pasta "AzureVPN" desapertada.
-
-6. Tome nota da localização do ficheiro "azurevpnconfig.xml". O azurevpnconfig.xml contém a definição para a ligação VPN e pode ser importado diretamente para a aplicação do Cliente Azure VPN. Também pode distribuir este ficheiro a todos os utilizadores que necessitem de se conectar por e-mail ou outros meios. O utilizador necessitará de credenciais AZure AD válidas para se conectar com sucesso.
+5. Tome nota da localização do ficheiro "azurevpnconfig.xml". O azurevpnconfig.xml contém a definição para a ligação VPN e pode ser importado diretamente para a aplicação do Cliente Azure VPN. Também pode distribuir este ficheiro a todos os utilizadores que necessitem de se conectar por e-mail ou outros meios. O utilizador necessitará de credenciais AZure AD válidas para se conectar com sucesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,14 +4,14 @@ description: Saiba como auditar as operações do avião de controlo, tais como 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: cb6a27c0f03b7c0c41d8f323609df612363cfd9e
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262655"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414193"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Seguem-se alguns cenários de exemplo em que a auditoria das operações dos avi
 
 Antes de auditar as operações do avião de controlo em Azure Cosmos DB, desative os metadados baseados em chaves para escrever o acesso na sua conta. Quando os metadados-chave escrevem o acesso é desativado, os clientes que se conectam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Pode desativar o acesso de escrita definindo a `disableKeyBasedMetadataWriteAccess` propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com o papel e credenciais adequados de controlo de acesso baseado em funções (RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção a partir do artigo dos SDKs.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 
 
-Depois de `disableKeyBasedMetadataWriteAccess` ligado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"Operação 'POST' no recurso 'ContainerNameorDatabaseName' não é permitido através do ponto final do Azure Cosmos DB.* Tem de acessar o acesso a tais operações para a sua conta, ou realizar as operações de criação/atualização através do Azure Resource Manager, Azure CLI ou Azure Powershell. Para voltar a mudar, desative o Desativado MetadataWriteAccess para **falso** utilizando o Azure CLI, conforme descrito no artigo De prevenção do artigo [da Cosmos SDK.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) Certifique-se de mudar o valor de `disableKeyBasedMetadataWriteAccess` falso em vez de verdadeiro.
+Depois de `disableKeyBasedMetadataWriteAccess` ligado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"Operação 'POST' no recurso 'ContainerNameorDatabaseName' não é permitido através do ponto final do Azure Cosmos DB.* Tem de acessar o acesso a tais operações para a sua conta, ou realizar as operações de criação/atualização através do Azure Resource Manager, Azure CLI ou Azure PowerShell. Para voltar a mudar, desative o Desativado MetadataWriteAccess para **falso** utilizando o Azure CLI, conforme descrito no artigo De prevenção do artigo [da Cosmos SDK.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) Certifique-se de mudar o valor de `disableKeyBasedMetadataWriteAccess` falso em vez de verdadeiro.
 
 Considere os seguintes pontos ao desligar os metadados, escreva o acesso:
 
@@ -71,7 +71,7 @@ As imagens que se seguem captam registos quando um nível de consistência é al
 
 :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controle os registos do avião quando um VNet é adicionado":::
 
-As imagens que se seguem captam registos quando a produção de uma tabela Cassandra é atualizada:
+As imagens seguintes captam registos quando o espaço-chave ou uma tabela de uma conta Cassandra são criados e quando o resultado é atualizado. Os registos do plano de controlo para criar e atualizar operações na base de dados e o contentor são registados separadamente, como mostrado na imagem seguinte:
 
 :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controle os registos do avião quando a produção é atualizada":::
 
@@ -101,30 +101,39 @@ Seguem-se as operações do avião de controlo disponíveis ao nível da conta. 
 
 Seguem-se as operações do avião de controlo disponíveis na base de dados e no nível do contentor. Estas operações estão disponíveis como métricas no monitor Azure:
 
+* Base de Dados SQL Criada
 * Base de Dados SQL Atualizada
-* Recipiente SQL Atualizado
 * Produção de base de dados SQL atualizada
-* Produção de contentores SQL atualizada
 * Base de Dados SQL Eliminada
+* Recipiente SQL criado
+* Recipiente SQL Atualizado
+* Produção de contentores SQL atualizada
 * Recipiente SQL eliminado
+* Cassandra Keyspace Criado
 * Cassandra Keyspace Atualizado
-* Tabela Cassandra Atualizada
 * Cassandra Keyspace Throughput Atualizado
-* Produção de tabela Cassandra atualizada
 * Cassandra Keyspace eliminada
+* Tabela Cassandra Criada
+* Tabela Cassandra Atualizada
+* Produção de tabela Cassandra atualizada
 * Tabela Cassandra Eliminada
+* Gremlin Base de Dados Criada
 * Base de Dados Gremlin Atualizada
-* Gráfico de Gremlin Atualizado
 * Produção de base de dados gremlin atualizada
-* Throughputo de gráfico gremlin atualizado
 * Gremlin Base de Dados Eliminada
+* Gremlin Graph Criado
+* Gráfico de Gremlin Atualizado
+* Throughputo de gráfico gremlin atualizado
 * Gremlin Graph Eliminado
+* Base de Dados de Mongo Criada
 * Base de Dados de Mongo Atualizada
-* Coleção Mongo Atualizada
 * Produção de base de dados de Mongo atualizada
-* Produção de coleção de Mongo atualizada
 * Base de Dados de Mongo eliminada
+* Coleção Mongo Criada
+* Coleção Mongo Atualizada
+* Produção de coleção de Mongo atualizada
 * Coleção mongo eliminada
+* Tabela AzureTable Criada
 * Tabela AzureTable atualizada
 * Produção de tabela azuretable atualizado
 * Tabela AzureTable Eliminada
@@ -144,14 +153,15 @@ Seguem-se os nomes de funcionamento nos registos de diagnóstico para diferentes
 
 Para operações específicas da API, a operação é nomeada com o seguinte formato:
 
-* ApiKind + ApiKindResourceType + OperationType + Início/Concluir
-* ApiKind + ApiKindResourceType + "Produção" + operaçãoType + Início/Completo
+* ApiKind + ApiKindResourceType + OperationType
+* ApiKind + ApiKindResourceType + "Produção" + operaçãoType
 
 **Exemplo** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 A propriedade *ResourceDetails* contém todo o corpo de recursos como uma carga útil de pedido e contém todas as propriedades solicitadas para atualizar
 
@@ -161,14 +171,28 @@ Seguem-se alguns exemplos para obter registos de diagnóstico para operações d
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

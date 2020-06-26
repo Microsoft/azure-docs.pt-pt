@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2dc73038151297952dc208031b4a3b6dbcf146
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 68dc90cdb096849df17bc25ac185b1239b46ec72
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759322"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413149"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para o início de sessão único federado
 
@@ -241,7 +241,7 @@ A aplicação precisa de enviar o pedido SAML codificado no cabeçalho de locali
 
 **Causa possível**
 
-Durante um único sinal, se o pedido de inscrição não contiver um URL de resposta explícito (URL de serviço ao consumidor de afirmação), então a Azure AD selecionará qualquer um dos URLs de confiança configurados para essa aplicação. Mesmo que a aplicação tenha um URL de resposta explícito configurado, o utilizador pode ser redirecionado https://127.0.0.1:444 . 
+Durante um único sinal, se o pedido de inscrição não contiver um URL de resposta explícito (URL de serviço ao consumidor de afirmação), então a Azure AD selecionará qualquer um dos URLs de resposta configurados para esse pedido. Mesmo que a aplicação tenha um URL de resposta explícito configurado, o utilizador pode ser redirecionado https://127.0.0.1:444 . 
 
 Quando a aplicação foi adicionada como uma aplicação sem galeria, o Azure Active Directory criou este URL de resposta como um valor predefinido. Este comportamento foi alterado e o Azure Active Directory já não o adiciona por predefinição. 
 
