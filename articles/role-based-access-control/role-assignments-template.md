@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: beb6b5666be0d3264720c5bc7a3c9516c1bd18f4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790879"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392459"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
@@ -68,7 +68,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de papéis.
 
-### <a name="resource-group-without-parameters"></a>Grupo de recursos (sem parâmetros)
+### <a name="resource-group-scope-without-parameters"></a>Âmbito do grupo de recursos (sem parâmetros)
 
 O modelo a seguir mostra uma forma básica de adicionar uma atribuição de função. Alguns valores são especificados dentro do modelo. O modelo a seguir demonstra:
 
@@ -111,7 +111,7 @@ O seguinte mostra um exemplo da atribuição de funções do Leitor a um utiliza
 
 ![Atribuição de funções no âmbito do grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
 
-### <a name="resource-group-or-subscription"></a>Grupo de recursos ou subscrição
+### <a name="resource-group-or-subscription-scope"></a>Grupo de recursos ou âmbito de subscrição
 
 O modelo anterior não é muito flexível. O modelo a seguir utiliza parâmetros e pode ser usado em diferentes âmbitos. O modelo a seguir demonstra:
 
@@ -195,7 +195,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### <a name="resource"></a>Recurso
+### <a name="resource-scope"></a>Âmbito do recurso
 
 Se precisar de adicionar uma atribuição de função ao nível de um recurso, o formato da atribuição de funções é diferente. Fornece o espaço de nome do fornecedor de recursos e o tipo de recurso do recurso para atribuir a função. Também inclui o nome do recurso em nome da atribuição de funções.
 

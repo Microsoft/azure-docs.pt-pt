@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 792b3894bf051298250ea8f402086c1edf297842
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c9489b9e1afe5e42121f61a3b0b50b28b2401bd3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362752"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392289"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Configurar um exemplo de Gémeos Digitais Azure
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este artigo irá acompanhá-lo através dos passos básicos para configurar um novo exemplo Azure Digital Twins. Isto inclui a criação do caso, e a atribuição de permissões do [Azure Ative Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) para o exemplo para si mesmo.
 
@@ -58,7 +55,9 @@ Para utilizar a Azure Digital Twins com uma aplicação para clientes, também t
 
 #### <a name="assign-yourself-a-role"></a>Atribua-se um papel
 
-Crie uma atribuição de papel para si mesmo, utilizando o seu e-mail associado ao inquilino da AAD na sua assinatura Azure. Em primeiro lugar, certifique-se de que é classificado como proprietário na sua assinatura Azure. Pode verificar isto utilizando o `az role assignment list --assignee <your-Azure-email>` comando para verificar *funçõesDefinitionName* é *Proprietário*. Em seguida, pode utilizar o seguinte comando para atribuir o seu utilizador a uma função de proprietário para a sua instância Azure Digital Twins:
+Crie uma atribuição de papel para si mesmo, utilizando o seu e-mail associado ao inquilino da AAD na sua assinatura Azure. 
+
+Em primeiro lugar, certifique-se de que é classificado como proprietário na sua assinatura Azure. Pode verificar isto utilizando o `az role assignment list --assignee <your-Azure-email>` comando e verificar se o valor do nome *dedefinição* é *proprietário.* Como proprietário na subscrição, pode utilizar o seguinte comando para atribuir o seu utilizador a uma função de proprietário para a sua instância Azure Digital Twins:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

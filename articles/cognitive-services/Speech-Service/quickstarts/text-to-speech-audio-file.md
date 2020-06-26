@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Sintetizar o discurso em ficheiro áudio - Serviço de fala'
+title: 'Quickstart: Sintetizar a fala em ficheiro áudio - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você usará o SDK do Discurso para converter texto em discurso sintetizado em um ficheiro áudio.
+description: Neste arranque rápido, utiliza-se o SDK do Discurso para converter texto em linguagem sintetizada num ficheiro áudio.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: dd8b22580a913bfeee851b089cbf2c09da530503
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a902f15b8e782cd001e4d6dab3177751e39900e8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715185"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391456"
 ---
 # <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Quickstart: Sintetizar o discurso num ficheiro áudio
 

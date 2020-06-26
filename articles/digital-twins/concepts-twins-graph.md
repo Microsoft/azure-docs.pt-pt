@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 79035a2fa2f7f3bed4890faa749661f025cea312
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c4bbc3510cc273504d7c97287d3aeb1948db2eb2
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362871"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390674"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Numa solução Azure Digital Twins, as entidades do seu ambiente são representadas por **gémeos digitais**Azure. Um gémeo digital é um exemplo de um dos seus [modelos personalizados.](concepts-models.md) Pode ser conectado a outros gémeos digitais através de **relações** para formar um **gráfico gémeo**: este gráfico gémeo é a representação de todo o seu ambiente.
 
@@ -98,7 +95,7 @@ Os dados digitais de gémeos e de relacionamento são armazenados no formato JSO
 
 Quando representado como um objeto JSON, um gémeo digital apresentará os seguintes campos:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
 | `$conformance` | Um enum que contém o estado de conformidade deste gémeo digital *(conformante,* *não-conformante,* *desconhecido)* |
@@ -164,7 +161,7 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 
 Quando representado como um objeto JSON, uma relação de um gémeo digital mostrará os seguintes campos:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$edgeId` | Uma cadeia fornecida pelo utilizador que representa o ID desta borda de relacionamento. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `edgeId` é única no contexto da instância Azure Digital Twins. |
 | `$sourceId` | O ID da fonte digital twin |

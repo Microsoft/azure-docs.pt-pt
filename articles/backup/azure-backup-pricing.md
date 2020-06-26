@@ -3,12 +3,12 @@ title: Preços do Azure Backup
 description: Saiba como estimar os seus custos para orçamentar os preços de reserva da Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: d88587cfdbb4f60d0da8641fc0362b8f763779ad
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84908166"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391116"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Azure Backup
 
@@ -56,7 +56,7 @@ Para estimar os custos de backup de VMs Azure ou servidores no local usando Azur
 
   - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
 
-  - Quanto tempo espera reter "Instantâneo restaurar instantâneos"? (1-7 dias)
+  - Quanto tempo espera reter "Instantâneo restaurar instantâneos"? (1-5 dias)
 
     - Esta opção permite restaurar desde há sete dias de forma rápida usando instantâneos armazenados em discos
 
@@ -66,7 +66,7 @@ Para estimar os custos de backup de VMs Azure ou servidores no local usando Azur
 
 - **Opcional** - Redundância de Armazenamento de Backup
 
-  - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa. Escolha **RAGRS** se quiser ativar **a restauração da região transversal** para as suas cópias de segurança
+  - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa. Selecione a opção **RAGRS** na folha se quiser entender os custos quando [o Cross-Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) estiver ativado para as suas cópias de segurança.
 
 - **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
 
@@ -104,7 +104,7 @@ Para estimar os custos de backup dos servidores SQL em execução em VMs Azure u
 
     - Também pode optar por ter uma política com backups completos diários/semanais/mensais/mensais. Esta opção consumirá um pouco mais de armazenamento do que a primeira opção.
 
-  - Quanto tempo espera reter cópias de segurança de "log"? (em dias) [1-35]
+  - Quanto tempo espera reter cópias de segurança de "log"? (em dias) [7-35]
 
   - Quanto tempo espera reter reforços "Daily"? (em dias)
 
@@ -124,7 +124,29 @@ Para estimar os custos de backup dos servidores SQL em execução em VMs Azure u
 
 ## <a name="estimate-costs-for-backing-up-sap-hana-servers-in-azure-vms"></a>Estimativa de custos para o backup dos servidores SAP HANA em VMs Azure
 
-Estimar os custos de suporte dos servidores SAP HANA em VMs Azure é como estimar para servidores SQL. Pode utilizar as mesmas variáveis mencionadas na secção anterior, para além da compressão SQL.
+Para estimar os custos de backup dos servidores SAP HANA em execução em VMs Azure usando Azure Backup, você precisará dos seguintes parâmetros:
+
+- Tamanho total das bases de dados SAP HANA que está a tentar fazer. Esta deve ser a soma do tamanho total da cópia de segurança de cada uma das bases de dados, conforme reportado pela SAP HANA.
+- Número de servidores SAP HANA com o tamanho acima
+- Qual é o tamanho esperado de backups de registos?
+  - O % indica o tamanho médio do registo diário em % do tamanho total das bases de dados SAP HANA que está a fazer no servidor SAP HANA
+- Qual é a quantidade esperada de dados diários nestes servidores?
+  - O % indica o tamanho médio diário do churn em % do tamanho total das bases de dados SAP HANA que está a fazer no servidor SAP HANA
+  - Tipicamente, as bases de dados têm "alto" churn
+  - Se conhece o **seu churn%**, pode usar a opção **Entrar a sua própria** parte
+- Escolha a política de backup
+  - Tipo de Cópia de Segurança
+    - A política mais eficaz que pode escolher é **os diferenciais diários** com backups **completos semanais/mensais/ano.** O Azure Backup também pode restaurar a partir de diferenciais através de um único clique.
+    - Também pode optar por ter uma política com backups **completos diários/semanais/mensais/mensais.** Esta opção consumirá um pouco mais de armazenamento do que a primeira opção.
+  - Quanto tempo espera reter cópias de segurança de "log"? (em dias) [7-35]
+  - Quanto tempo espera reter reforços "Daily"? (em dias)
+  - Quanto tempo espera manter os reforços "Weekly"? (em semanas)
+  - Quanto tempo espera reter reforços "Mensais"? (em meses)
+  - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
+- **Opcional** - Redundância de Armazenamento de Backup
+  - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa.
+- **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
+  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9845780eaeaa42dc38f97344f86b7e9af3d37180
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 574e2e1647ecf33fb05600407163c96247b6ce41
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669391"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391048"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: Configurar um grupo de disponibilidade de servidor SQL em Azure Virtual Machines manualmente
 
@@ -39,7 +39,7 @@ O tutorial pressupõe que você tem uma compreensão básica do SQL Server Alway
 
 A tabela a seguir enumera os pré-requisitos necessários para completar antes de iniciar este tutorial:
 
-|  |Requisito |Descrição |
+|  |Requisito |Description |
 |----- |----- |----- |
 |![Square](./media/availability-group-manually-configure-tutorial/square.png) | Duas instâncias do SQL Server | - Em um conjunto de disponibilidade azure <br/> - Num único domínio <br/> - Com funcionalidade de Clustering Failover instalada |
 |![Square](./media/availability-group-manually-configure-tutorial/square.png)| Windows Server | Partilha de ficheiros para testemunha de cluster |  
@@ -360,7 +360,7 @@ Neste momento, tem um Grupo de Disponibilidade com réplicas em duas instâncias
 
 Nas máquinas virtuais Azure, um Grupo de Disponibilidade de Servidor SQL requer um equilibrador de carga. O equilibrador de carga contém os endereços IP para os ouvintes do Grupo Availability e o Cluster de Falha do Servidor do Windows. Esta secção resume como criar o equilibrador de carga no portal Azure.
 
-Um equilibrador de carga n Azure pode ser um Balanceador de Carga Padrão ou um Balanceador de Carga Básico. O Balanceador de Carga Padrão tem mais funcionalidades do que o Balanceador de Carga Básica. Para um grupo de disponibilidade, o Balanceador de Carga Padrão é necessário se utilizar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter mais informações sobre a diferença entre o balançador de carga SKUs, consulte [a comparação SKU do Balanceador de Carga](../../../load-balancer/skus.md).
+Um equilibrador de carga em Azure pode ser um Balanceador de Carga Padrão ou um Balanceador de Carga Básico. O Balanceador de Carga Padrão tem mais funcionalidades do que o Balanceador de Carga Básica. Para um grupo de disponibilidade, o Balanceador de Carga Padrão é necessário se utilizar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter mais informações sobre a diferença entre o balançador de carga SKUs, consulte [a comparação SKU do Balanceador de Carga](../../../load-balancer/skus.md).
 
 1. No portal Azure, vá ao grupo de recursos onde estão os seus SqL Servers e selecione **+ Adicionar**.
 1. Procurar **balanceador de carga**. Escolha o equilibrador de carga publicado pela Microsoft.
@@ -538,6 +538,6 @@ A ligação SQLCMD liga-se automaticamente a qualquer instância do SQL Server q
 > Certifique-se de que a porta especificada está aberta na firewall de ambos os Servidores SQL. Ambos os servidores requerem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou editar a regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx).
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione um endereço IP a um equilibrador de carga para um segundo grupo de disponibilidade](availability-group-listener-powershell-configure.md#Add-IP).

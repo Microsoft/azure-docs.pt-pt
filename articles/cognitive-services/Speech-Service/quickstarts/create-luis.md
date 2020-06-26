@@ -1,27 +1,27 @@
 ---
 title: 'Quickstart: Criar uma chave LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você vai aprender a criar uma aplicação LUIS e obter uma chave.
+description: Neste arranque rápido, aprende-se a criar uma aplicação LUIS e obtém uma chave.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: df12b51020083489d431d0ebcd7eb506ef97caa2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400838"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391609"
 ---
-# <a name="quickstart-getting-a-luis-endpoint-key"></a>Quickstart: Obter uma chave de ponto final LUIS
+# <a name="quickstart-getting-a-luis-endpoint-key"></a>Quickstart: Obter uma chave de ponta LUIS
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que tem os seguintes itens antes de iniciar este tutorial:
+Certifique-se de ter os seguintes itens antes de iniciar este tutorial:
 
 * Uma conta do LUIS. Pode obtê-la gratuitamente através do [portal do LUIS](https://www.luis.ai/home).
 
@@ -29,34 +29,34 @@ Certifique-se de que tem os seguintes itens antes de iniciar este tutorial:
 
 O LUIS integra-se no serviço Voz para reconhecer as intenções de voz. Não precisa de uma subscrição do serviço Voz, apenas do LUIS.
 
-Luis usa três tipos de chaves:
+LUIS usa três tipos de chaves:
 
 |Tipo de chave|Objetivo|
 |--------|-------|
-|Criação|Permite criar e modificar as aplicações do LUIS programáticamente|
-|Inicial|Permite testar a sua aplicação LUIS usando apenas texto|
-|Ponto Final |Autoriza o acesso a uma determinada app LUIS|
+|Criação|Permite criar e modificar aplicações LUIS programáticamente|
+|Inicial|Permite testar a sua aplicação LUIS apenas com texto|
+|Ponto Final |Autoriza o acesso a uma determinada aplicação LUIS|
 
-Para este tutorial, você precisa do tipo de chave de ponto final. O tutorial utiliza o exemplo da aplicação Home Automation LUIS, que pode criar seguindo a [aplicação de domótica pré-construída Utilização.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) Se criou uma aplicação LUIS própria, pode usá-la.
+Para este tutorial, precisa do tipo chave de ponta. O tutorial usa o exemplo da aplicação Home Automation LUIS, que pode criar seguindo o quickstart da [app de domótica Utilização.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) Se criou uma aplicação PRÓPRIA LUIS, pode usá-la em vez disso.
 
-Ao criar uma aplicação LUIS, o LUIS gera automaticamente uma chave de arranque para que possa testar a aplicação usando consultas de texto. Esta chave não permite a integração do serviço da Fala e não funcionará com este tutorial. Crie um recurso LUIS no painel azure e atribua-o à aplicação LUIS. Para este tutorial, pode utilizar o escalão de subscrição.
+Quando cria uma aplicação LUIS, o LUIS gera automaticamente uma chave de arranque para que possa testar a aplicação utilizando consultas de texto. Esta chave não permite a integração do serviço de fala e não funcionará com este tutorial. Crie um recurso LUIS no painel Azure e atribua-o à app LUIS. Para este tutorial, pode utilizar o escalão de subscrição.
 
-Depois de criar o recurso LUIS no painel de instrumentos Do Azure, inicie sessão no [portal LUIS,](https://www.luis.ai/home)escolha a sua aplicação na página **My Apps** e, em seguida, mude para a página **'Gerir'** da aplicação. Por fim, selecione **Keys e Endpoints** na barra lateral.
+Depois de criar o recurso LUIS no painel Azure, inicie sessão no [portal LUIS,](https://www.luis.ai/home)escolha a sua aplicação na página **My Apps** e, em seguida, mude para a página **Manage** da app. Por fim, selecione **Chaves e Pontos finais** na barra lateral.
 
 ![Definições de chaves e ponto final do portal do LUIS](~/articles/cognitive-services/Speech-Service/media/sdk/luis-keys-endpoints-page.png)
 
-Na página de **definições de Teclas e ponto final:**
+Na página **de definições de Chaves e Ponto final:**
 
-1. Desloque-se até à secção **Recursos e Teclas** e selecione **recurso atribuir**.
-1. Na placa de atribuição de uma chave para a sua caixa de diálogo de **aplicações,** epreça as seguintes alterações:
+1. Percorra a secção **Recursos e Chaves e** selecione Recurso de **atribuição**.
+1. Na chave Atribuir uma chave para a sua caixa de diálogo **de aplicações,** faça as seguintes alterações:
 
-   * Under **Tenant,** escolha **Microsoft**.
-   * Em **nome de subscrição,** escolha a subscrição Azure que contém o recurso LUIS que pretende utilizar.
-   * Em **Chave,** escolha o recurso LUIS que pretende utilizar com a app.
+   * Sob **Inquilino,** escolha **a Microsoft.**
+   * Em **Nome de Assinatura,** escolha a subscrição Azure que contém o recurso LUIS que pretende utilizar.
+   * Em **Tecla,** escolha o recurso LUIS que pretende utilizar com a app.
 
    Passados alguns momentos, a subscrição nova aparece na tabela, na parte inferior da página.
 
-1. Selecione o ícone ao lado de uma tecla para copiá-lo para a área de recortes. (Pode utilizar uma chave qualquer.)
+1. Selecione o ícone ao lado de uma chave para copiá-lo para a área de transferência. (Pode utilizar uma chave qualquer.)
 
 ![Chaves de subscrição da aplicação LUIS](~/articles/cognitive-services/Speech-Service/media/sdk/luis-keys-assigned.png)
 
@@ -64,4 +64,4 @@ Na página de **definições de Teclas e ponto final:**
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Reconhecer intenções](~/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md)
+> [Reconhecer Intenções](~/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md)

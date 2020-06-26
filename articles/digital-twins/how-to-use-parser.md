@@ -7,17 +7,14 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 753fa7afb49ca58aa2eceb309beb8316024b41bc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b6d6e16b079f1423fd1ea812e384546ae5d84067
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362718"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392204"
 ---
 # <a name="dtdl-client-side-parser-library"></a>Biblioteca de parser do lado do cliente DTDL
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 [Os modelos](concepts-models.md) em Azure Digital Twins são definidos usando a linguagem de definição de gémeos digitais baseada em JSON-LD (DTDL). Para os casos em que é útil analisar os seus modelos, uma biblioteca de análise DTDL é fornecida em NuGet.org como uma biblioteca do lado do cliente: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 

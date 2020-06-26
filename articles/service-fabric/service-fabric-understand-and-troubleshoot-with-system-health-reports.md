@@ -1,16 +1,16 @@
 ---
 title: Resolver problemas com relatórios de estado de funcionamento do sistema
 description: Descreve os relatórios de saúde enviados pelos componentes do Azure Service Fabric e a sua utilização para problemas de resolução de problemas de aglomerado ou aplicação
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.author: gwallace
+ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84692483"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392578"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Os componentes do Azure Service Fabric fornecem relatórios de saúde do sistema sobre todas as entidades do cluster fora da caixa. A [loja de saúde](service-fabric-health-introduction.md#health-store) cria e elimina entidades com base nos relatórios do sistema. Também os organiza numa hierarquia que capta interações de entidades.
@@ -773,7 +773,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Transferência
+### <a name="download"></a>Download
 System.Hosting reporta um erro se o download do pacote de aplicações falhar.
 
 * **SourceId**: System.Hosting
@@ -851,7 +851,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Transferência
+### <a name="download"></a>Download
 System.Hosting reporta um erro se o download do pacote de serviço falhar.
 
 * **SourceId**: System.Hosting

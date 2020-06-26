@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: e030bd1124a93c667070a2b58f2f0e1c10c7d3a6
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718562"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392238"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -176,6 +176,11 @@ Para obter mais informações sobre as chaves geridas pelo cliente com a Cosmos 
 Todas as imagens do contentor no seu registo (Registo do Contentor Azure) estão encriptadas em repouso. O Azure encripta automaticamente uma imagem antes de a armazenar e desencriptada quando a Azure Machine Learning puxa a imagem.
 
 Para utilizar as suas próprias chaves (geridas pelo cliente) para encriptar o registo do seu contentor Azure, é necessário criar o seu próprio ACR e anexá-lo enquanto forja o espaço de trabalho ou encriptar a instância padrão que é criada no momento do fornecimento do espaço de trabalho.
+
+> [!IMPORTANT]
+> A Azure Machine Learning requer que a conta de administração seja ativada no seu Registo de Contentores Azure. Por predefinição, esta definição é desativada quando cria um registo de contentores. Para obter informações sobre a habilitação da conta de administração, consulte [a conta Admin](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Uma vez criado um registo de contentores Azure para um espaço de trabalho, não o elimine. Ao fazê-lo, quebrará o seu espaço de trabalho de Aprendizagem de Máquinas Azure.
 
 Para um exemplo de criação de um espaço de trabalho utilizando um registo de contentores Azure existente, consulte os seguintes artigos:
 

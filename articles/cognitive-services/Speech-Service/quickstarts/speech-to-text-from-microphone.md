@@ -1,23 +1,23 @@
 ---
 title: 'Quickstart: Reconhecer a fala a partir de um microfone - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você usará o Speech SDK para reconhecer interativamente a fala a partir de dados áudio capturados a partir de um microfone.
+description: Neste arranque rápido, você usa o Speech SDK para reconhecer interativamente a fala a partir de dados áudio capturados a partir de um microfone.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
+ms.date: 06/25/2020
+ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js-go-spx
-ms.openlocfilehash: b2a0dfb363bb834bff03ffc36b0763cc38097089
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e5097b30bd280e0a46e3b327d94fbd26244a4fdc
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609642"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391575"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Quickstart: Reconhecer a fala a partir de um microfone
 

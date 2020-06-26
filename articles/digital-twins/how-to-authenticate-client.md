@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: ddbe49f34bbdbf0f9c461a25f23d6f7cbd8600d9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: e52307c92d9371af6479f64841c6f269ed10e4b4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362956"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390827"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autenticar uma aplicação de cliente com Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Depois de [criar uma instância Azure Digital Twins,](how-to-set-up-instance.md)pode criar uma aplicação de cliente que irá utilizar para interagir com o caso. Depois de configurar um projeto de cliente inicial, este artigo mostra-lhe como autenticar adequadamente essa aplicação do cliente com a instância Azure Digital Twins.
 

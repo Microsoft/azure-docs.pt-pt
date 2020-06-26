@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: b121d7f5f1ad626f80a03ebe6cd47a932c209672
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: df48be038635799c08be409f7f1600e324cd8380
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85116438"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392170"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Indo social com Azure Cosmos DB
 
@@ -228,7 +228,7 @@ Para uma experiência social, deve alinhar a sua estratégia de partição com a
 
 Cosmos DB executará as suas consultas (incluindo [agregados)](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)em todas as suas divisórias de forma transparente, para que não precise adicionar nenhuma lógica à medida que os seus dados crescem.
 
-Com o tempo, acabará por crescer no tráfego e o seu consumo de recursos (medido em [RUs,](request-units.md)ou Unidades de Pedido) aumentará. Você vai ler e escrever com mais frequência à medida que a sua base de utilizadores cresce. A base de utilizadores começará a criar e a ler mais conteúdo. Então a capacidade de **escalar a sua produção** é vital. Aumentar as RUs é fácil. Pode fazê-lo com alguns cliques no portal Azure ou [emitindo comandos através da API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Com o tempo, acabará por crescer no tráfego e o seu consumo de recursos (medido em [RUs,](request-units.md)ou Unidades de Pedido) aumentará. Você vai ler e escrever com mais frequência à medida que a sua base de utilizadores cresce. A base de utilizadores começará a criar e a ler mais conteúdo. Então a capacidade de **escalar a sua produção** é vital. Aumentar as RUs é fácil. Pode fazê-lo com alguns cliques no portal Azure ou [emitindo comandos através da API](/rest/api/cosmos-db/replace-an-offer).
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Escalonamento e definição de uma chave de partição":::
 

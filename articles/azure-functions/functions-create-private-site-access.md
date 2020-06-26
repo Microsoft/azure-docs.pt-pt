@@ -1,17 +1,17 @@
 ---
 title: Permitir o acesso ao site privado às Funções Azure
 description: Aprenda a configurar o acesso ao site privado da rede virtual Azure para funções Azure.
-author: mcollier
-ms.author: mcollier
+author: craigshoemaker
+ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 930b691019d5cb56e487c58e3ca01c4f7ee4ef98
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261161"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390283"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
@@ -68,7 +68,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
     | [_Grupo de recursos_](../azure-resource-manager/management/overview.md) | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  A utilização do mesmo grupo de recursos facilita a limpeza dos recursos quando termina este tutorial. |
     | _Nome da máquina virtual_ | myVM | O nome VM tem de ser único no grupo de recursos |
     | [_Região_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
-    | _Portos de entrada pública_ | Nenhum | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
+    | _Portos de entrada pública_ | Nenhuma | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
 
 1. Escolha o _separador 'Rede'_ e selecione **Criar novo** para configurar uma nova rede virtual.
 

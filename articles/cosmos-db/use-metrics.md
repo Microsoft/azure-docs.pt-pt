@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: 735c68a3aec4d7bbb5626497de445f61e375b34b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 157f0a710a0b3aed25455600bbf19d4ae84ed848
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263403"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391949"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas em Azure Cosmos DB
 
@@ -46,7 +46,7 @@ As secções seguintes explicam cenários comuns onde pode utilizar métricas DB
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Entenda quantos pedidos estão a ter sucesso ou a causar erros
 
-Para começar, dirija-se ao [portal Azure](https://portal.azure.com) e navegue até à lâmina **métrica.** Na lâmina, encontre o número **de pedidos excedeu a capacidade por gráfico de 1 minuto. Este gráfico mostra um minuto a minuto de pedidos totais segmentados pelo código de estado. Para obter mais informações sobre os códigos de estado HTTP, consulte [os códigos de estado HTTP para Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para começar, dirija-se ao [portal Azure](https://portal.azure.com) e navegue até à lâmina **métrica.** Na lâmina, encontre o número **de pedidos excedeu a capacidade por gráfico de 1 minuto. Este gráfico mostra um minuto a minuto de pedidos totais segmentados pelo código de estado. Para obter mais informações sobre os códigos de estado HTTP, consulte [os códigos de estado HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 O código de estado de erro mais comum é 429 (limitação/estrangulamento de taxa). Este erro significa que os pedidos à Azure Cosmos DB são mais do que o rendimento previsto. A solução mais comum para este problema é [aumentar as RUs](./set-throughput.md) para a recolha dada.
 

@@ -203,6 +203,10 @@
       items:
         - name: CLI do Azure
           href: /cli/azure/ext/databox/databox
+        - name: Azure PowerShell
+          href: /powershell/module/az.databox
+        - name: APIs do .NET
+          href: /dotnet/api/overview/azure/databox/management
     - name: Recursos
       items:
         - name: Produto do Data Box

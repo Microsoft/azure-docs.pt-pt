@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: sngun
-ms.openlocfilehash: fce6cd441214cff4c76b05f8a2b6cb630613a66f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 67354ca5b9dc7b553b8aa40183b504542d4c08b4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263437"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392391"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB e .NET SDK v2
 
@@ -62,7 +62,7 @@ Se estiver a testar em níveis de produção elevados (mais de 50.000 RU/s), a a
 > [!NOTE] 
 > O uso elevado do CPU pode causar um aumento da latência e solicitar exceções no tempo limite.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
 
 **Política de ligação: Utilize o modo de ligação direta**
@@ -203,7 +203,7 @@ Cache document URIs sempre que possível para o melhor desempenho de leitura. É
 
 Quando se faz uma leitura a granel de documentos utilizando a funcionalidade de feed de leitura (por exemplo, `ReadDocumentFeedAsync` ) ou quando emite uma consulta SQL, os resultados são devolvidos de forma segmentada se o conjunto de resultados for demasiado grande. Por predefinição, os resultados são devolvidos em pedaços de 100 itens ou 1 MB, qualquer que seja o limite atingido primeiro.
 
-Para reduzir o número de viagens redondas de rede necessárias para obter todos os resultados aplicáveis, pode aumentar o tamanho da página utilizando [a contagem de x-ms-max-item](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para solicitar até 1.000 cabeçalhos. Quando precisa de apresentar apenas alguns resultados, por exemplo, se a interface do utilizador ou aplicação API retorna apenas 10 resultados de cada vez, também pode diminuir o tamanho da página para 10 para reduzir a produção consumida para leituras e consultas.
+Para reduzir o número de viagens redondas de rede necessárias para obter todos os resultados aplicáveis, pode aumentar o tamanho da página utilizando [a contagem de x-ms-max-item](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para solicitar até 1.000 cabeçalhos. Quando precisa de apresentar apenas alguns resultados, por exemplo, se a interface do utilizador ou aplicação API retorna apenas 10 resultados de cada vez, também pode diminuir o tamanho da página para 10 para reduzir a produção consumida para leituras e consultas.
 
 > [!NOTE] 
 > A `maxItemCount` propriedade não deve ser usada apenas para paginação. O seu principal uso é melhorar o desempenho das consultas reduzindo o número máximo de itens devolvidos numa única página.  
@@ -246,7 +246,7 @@ A produção é proscedida com base no número de Unidades de [Pedido definidas]
 
 A complexidade de uma consulta afeta quantas Unidades de Pedido são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 
-Para medir a sobrecarga de qualquer operação (criar, atualizar ou apagar), inspecione o cabeçalho [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente `RequestCharge` dentro ou no `ResourceResponse\<T>` `FeedResponse\<T>` .NET SDK) para medir o número de Unidades de Pedido consumidas pelas operações:
+Para medir a sobrecarga de qualquer operação (criar, atualizar ou apagar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente `RequestCharge` dentro ou no `ResourceResponse\<T>` `FeedResponse\<T>` .NET SDK) para medir o número de Unidades de Pedido consumidas pelas operações:
 
 ```csharp
 // Measure the performance (Request Units) of writes
@@ -266,7 +266,7 @@ A taxa de pedido devolvida neste cabeçalho é uma fração da sua produção pr
 
 **Taxa de maneneta limitando/taxa de pedido demasiado grande**
 
-Quando um cliente tenta exceder a produção reservada para uma conta, não há degradação de desempenho no servidor e não há uso da capacidade de produção para além do nível reservado. O servidor terminará preventivamente o pedido com o RequestRateTooLarge (código de estado HTTP 429). Retornará um cabeçalho [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) que indica o tempo, em milissegundos, que o utilizador deve esperar antes de tentar novamente o pedido.
+Quando um cliente tenta exceder a produção reservada para uma conta, não há degradação de desempenho no servidor e não há uso da capacidade de produção para além do nível reservado. O servidor terminará preventivamente o pedido com o RequestRateTooLarge (código de estado HTTP 429). Retornará um cabeçalho [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) que indica o tempo, em milissegundos, que o utilizador deve esperar antes de tentar novamente o pedido.
 
     HTTP Status 429,
     Status Line: RequestRateTooLarge

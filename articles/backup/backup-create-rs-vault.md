@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar cofres dos Serviços de Recuperação
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 410ef023898cc57847b8e2f7a5153d50731e2d4c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: ac30a57dcbceb4616961c9d100e6ac8639ef2172
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764405"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391065"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -58,6 +58,9 @@ Para criar um cofre dos Serviços de Recuperação:
 ## <a name="set-storage-redundancy"></a>Definir redundância de armazenamento
 
 O Azure Backup manuseia automaticamente o armazenamento para o cofre. Tem de especificar como é que o armazenamento é replicado.
+
+>[!NOTE]
+>As definições de replicação de armazenamento para o cofre não são relevantes para a cópia de segurança da partilha de ficheiros Azure, uma vez que a solução atual é baseada em instantâneos e não há dados transferidos para o cofre. As imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com reserva.
 
 1. No painel **Cofres dos Serviços de Recuperação**, clique em novo cofre. Na secção **Definições,** clique em **Propriedades**.
 2. Em **Propriedades**, em **Configuração de Cópia de Segurança,** clique em **Atualização**.

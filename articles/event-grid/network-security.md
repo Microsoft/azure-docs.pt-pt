@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: 073878d6dfb0637b8d0fb7fdf5c7f6d77d2b2c8d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ba3bc14c9b4a9d5d866dbb1b9369557b948078d0
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672651"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390198"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Event Grid: 
@@ -84,10 +84,10 @@ A tabela que se segue descreve os vários estados da ligação privada ao ponto 
 
 | Estado de Ligação   |  Publicar com sucesso (Sim/Não) |
 | ------------------ | -------------------------------|
-| Aprovado           | Sim                            |
-| Rejeitado           | Não                             |
-| Pendente            | Não                             |
-| Desligado       | Não                             |
+| Aprovado           | Yes                            |
+| Rejeitado           | No                             |
+| Pendente            | No                             |
+| Desligado       | No                             |
 
 Para que a publicação seja bem sucedida, o estado de ligação de ponto final privado deve ser **aprovado**. Se uma ligação for rejeitada, não pode ser aprovada usando o portal Azure. A única possibilidade é apagar a ligação e criar uma nova.
 
@@ -96,7 +96,9 @@ Para que a publicação seja bem sucedida, o estado de ligação de ponto final 
 
 **A** funcionalidade IP Firewall está disponível nos níveis básico e premium da Grade de Eventos. Permitimos criar até 16 regras ip firewall por tópico ou domínio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode configurar firewall IP para o seu recurso Desempaçar o acesso através da internet pública a partir de apenas um conjunto selecionado de endereços IP ou intervalos de endereços IP. Para obter instruções passo a passo, consulte [a firewall IP configurar](configure-firewall.md).
 
 Pode configurar pontos finais privados para restringir o acesso apenas a partir de redes virtuais selecionadas. Para obter instruções passo a passo, consulte [pontos finais privados configure](configure-private-endpoints.md).
+
+Para resolver problemas de conectividade da rede, consulte [problemas de conectividade da rede troubleshoot](troubleshoot-network-connectivity.md)

@@ -1,5 +1,5 @@
 ---
-title: Utilize o serviço de mesa de armazenamento Azure ou a Tabela Azure Cosmos DB API da PHP
+title: Utilize o serviço de mesa de armazenamento Azure ou AZure Cosmos DB Table API da PHP
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 author: sakash279
 ms.author: akshanka
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: a19928516685e7496dc3e892d2598b24b5abae19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dcea83b9452b33baef8d563c7776aa9bd258a5f4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76771063"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389688"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Como utilizar o serviço Tabela de Armazenamento do Azure ou a API de Tabelas do Azure Cosmos DB a partir de PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -140,7 +140,7 @@ catch(ServiceException $e){
 Para obter mais informações sobre as restrições em nomes de tabelas, veja [Understanding the Table Service Data Model][table-data-model] (Compreender o Modelo de Dados do Serviço Tabela).
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
-Para adicionar uma entidade a uma tabela, crie um novo objeto de **Entity** e transmita-o para **TableRestProxy->insertEntity**. Tenha em atenção que, quando cria uma entidade, tem de especificar uma `PartitionKey` e uma `RowKey`. Estes são os identificadores exclusivos de uma entidade e os valores que podem ser consultados muito mais rapidamente do que as outras propriedades da entidade. O sistema utiliza a `PartitionKey` para distribuir automaticamente as entidades da tabela através de vários nós de Armazenamento. As entidades com a mesma `PartitionKey` são armazenadas no mesmo nó. (As operações em várias entidades armazenadas no mesmo nó têm um desempenho melhor do que em entidades armazenadas em diferentes nós.) A `RowKey` identificação única de uma entidade dentro de uma partição.
+Para adicionar uma entidade a uma tabela, crie um novo objeto de **Entity** e transmita-o para **TableRestProxy->insertEntity**. Tenha em atenção que, quando cria uma entidade, tem de especificar uma `PartitionKey` e uma `RowKey`. Estes são os identificadores exclusivos de uma entidade e os valores que podem ser consultados muito mais rapidamente do que as outras propriedades da entidade. O sistema utiliza a `PartitionKey` para distribuir automaticamente as entidades da tabela através de vários nós de Armazenamento. As entidades com a mesma `PartitionKey` são armazenadas no mesmo nó. (As operações em várias entidades armazenadas no mesmo nó têm um melhor desempenho do que em entidades armazenadas em diferentes nós.) O `RowKey` iD único de uma entidade dentro de uma divisória.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -509,8 +509,8 @@ Agora que já tem as noções básicas sobre o serviço Tabela do Azure e o Azur
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: https://php.net/require_once
-[table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
+[table-service-timeouts]: /rest/api/storageservices/setting-timeouts-for-table-service-operations
 
-[table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model
-[filters]: https://docs.microsoft.com/rest/api/storageservices/Querying-Tables-and-Entities
-[entity-group-transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions
+[table-data-model]: /rest/api/storageservices/Understanding-the-Table-Service-Data-Model
+[filters]: /rest/api/storageservices/Querying-Tables-and-Entities
+[entity-group-transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions

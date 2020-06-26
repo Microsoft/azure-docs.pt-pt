@@ -1,5 +1,5 @@
 ---
-title: Configure o fluxo de credenciais de senha do proprietário de recursos
+title: Configure o fluxo de credenciais de senha do proprietário do recurso
 titleSuffix: Azure AD B2C
 description: Saiba como configurar o fluxo ROPC em Azure AD B2C.
 services: active-directory-b2c
@@ -7,38 +7,38 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636420"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389603"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure as credenciais de senha do proprietário de recursos fluem em Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C
 
-O fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo de autenticação padrão OAuth onde a aplicação, também conhecida como parte de fiação, troca credenciais válidas como userid e password para um token de id, ficha de acesso e um token de atualização.
+O fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo de autenticação padrão OAuth onde a aplicação, também conhecida como a parte de gestão, troca credenciais válidas como userid e password para um token de ID, token de acesso e um token de atualização.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-##  <a name="create-a-resource-owner-user-flow"></a>Criar um fluxo de utilizador proprietário de recursos
+##  <a name="create-a-resource-owner-user-flow"></a>Criar um fluxo de utilizador do proprietário de recursos
 
 1. Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
 2. Para mudar para o seu inquilino Azure AD B2C, selecione o diretório B2C no canto superior direito do portal.
 3. Clique nos **fluxos do utilizador**e selecione **Novo fluxo de utilizador**.
-4. Clique no separador **All** e selecione **Iniciar sessão utilizando ROPC**.
-5. Forneça um nome para o fluxo do utilizador, como *ROPC_Auth*.
-6. Em **reclamações de Aplicação,** clique em **Mostrar mais**.
-7. Selecione as alegações de aplicação de que necessita para a sua aplicação, como Nome de Exibição, Endereço de E-mail e Fornecedor de Identidade.
+4. Clique no separador **'Todos'** e selecione **Iniciar s-seção utilizando o ROPC.**
+5. Fornecer um nome para o fluxo do utilizador, como *ROPC_Auth*.
+6. In **Application claims**, clique Em Mostrar **mais**.
+7. Selecione as alegações de aplicação que necessita para a sua aplicação, como Nome de Exibição, Endereço de E-mail e Fornecedor de Identidade.
 8. Selecione **OK** e, em seguida, selecione **Criar**.
-9. Clique no **fluxo do utilizador executar**.
+9. Clique **no fluxo do utilizador executar**.
 
-   Verá então um ponto final como este exemplo:
+   Em seguida, verá um ponto final como este exemplo:
 
    `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
@@ -47,27 +47,27 @@ O fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo 
 
 [!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
-## <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
+## <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 
-Utilize a sua aplicação de desenvolvimento API favorita para gerar uma chamada API e reveja a resposta para desinserir o fluxo do utilizador. Construa uma chamada como esta com a informação na tabela seguinte como o corpo do pedido do POST:
-- Substitua * \< o nome do inquilino>.onmicrosoft.com* pelo nome do seu inquilino B2C.
-- Substitua * \< B2C_1A_ROPC_Auth>* com o nome completo da sua política de credenciais de senha do proprietário de recursos.
-- Substitua o * \< bef222d56-552f-4a5b-b90a-1988a7d634c3>* com o ID de inscrição do seu registo.
+Use a sua aplicação de desenvolvimento API favorita para gerar uma chamada de API e reveja a resposta para depurar o fluxo do seu utilizador. Construa uma chamada como esta com a informação na tabela seguinte como o corpo do pedido DOM:
+- Substitua * \<tenant-name> .onmicrosoft.com* pelo nome do seu inquilino B2C.
+- *\<B2C_1A_ROPC_Auth>* Substitua-a pelo nome completo da política de credenciais de senha do seu proprietário de recursos.
+- *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* Substitua-o pelo ID do formulário de inscrição.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chave | Valor |
 | --- | ----- |
 | o nome de utilizador | leadiocl@outlook.com |
-| palavra-passe | Passxword1 |
+| palavra-passe | Palavra-passe1 |
 | grant_type | palavra-passe |
-| scope | openid \< bef222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
-| client_id | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
+| scope | offline_access aberto \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token simbólico |
 
-*Client_id* é o valor que já tinha notado como id de aplicação. *Offline_access* é opcional se quiser receber um token refrescante. O nome de utilizador e a palavra-passe que utiliza devem ser credenciais de um utilizador existente no seu inquilino Azure AD B2C.
+*Client_id* é o valor que já observou como iD da aplicação. *Offline_access* é opcional se quiser receber um token de atualização. O nome de utilizador e a palavra-passe que utiliza devem ser credenciais de um utilizador existente no seu inquilino Azure AD B2C.
 
-O pedido post real parece o seguinte:
+O pedido do POST real parece ser o seguinte:
 
 ```
 POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
@@ -78,7 +78,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 ```
 
 
-Uma resposta bem sucedida com acesso offline parece o seguinte exemplo:
+Uma resposta bem sucedida com acesso offline parece ser o seguinte exemplo:
 
 ```json
 {
@@ -90,7 +90,7 @@ Uma resposta bem sucedida com acesso offline parece o seguinte exemplo:
 }
 ```
 
-## <a name="redeem-a-refresh-token"></a>Resgatar um token refrescante
+## <a name="redeem-a-refresh-token"></a>Resgatar um token refresh
 
 Construa uma chamada POST como a mostrada aqui com a informação na tabela seguinte como o corpo do pedido:
 
@@ -100,13 +100,13 @@ Construa uma chamada POST como a mostrada aqui com a informação na tabela segu
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
-| recurso | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* e *recursos* são os valores que observou anteriormente como id da aplicação. *Refresh_token* é o símbolo que recebeu na chamada de autenticação mencionada anteriormente.
+*Client_id* e *recursos* são os valores que já observou como iD da aplicação. *Refresh_token* é o símbolo que recebeu na chamada de autenticação mencionada anteriormente.
 
-Uma resposta bem sucedida parece o seguinte exemplo:
+Uma resposta bem sucedida parece ser o seguinte exemplo:
 
 ```json
 {
@@ -124,13 +124,13 @@ Uma resposta bem sucedida parece o seguinte exemplo:
 }
 ```
 > [!NOTE]
-> Ao criar utilizadores através da API graph, a aplicação precisa de ter permissões "openid", "offline_access" e "profile" do Microsoft Graph.
+> Ao criar utilizadores através da API de gráficos, a aplicação precisa de ter permissões "openid", "offline_access" e "perfil" do Microsoft Graph.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementar com o seu SDK nativo preferido ou usar App-Auth
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implemente com o seu SDK nativo preferido ou use app-Auth
 
-A implementação do Azure AD B2C cumpre as normas OAuth 2.0 para credenciais de senha do proprietário de recursos públicos e deve ser compatível com a maioria dos SDKs dos clientes. Testámos este fluxo extensivamente, em produção, com appAuth para iOS e AppAuth para Android. Para obter as mais recentes informações, consulte [Native App SDK para OAuth 2.0 e OpenID Connect implementando as melhores práticas modernas.](https://appauth.io/)
+A implementação Azure AD B2C cumpre as normas OAuth 2.0 para credenciais de senha do proprietário de recursos públicos do cliente e deve ser compatível com a maioria dos SDKs do cliente. Testámos extensivamente este fluxo, em produção, com AppAuth para iOS e AppAuth para Android. Para obter as informações mais recentes, consulte [Native App SDK para OAuth 2.0 e OpenID Connect implementando as melhores práticas modernas.](https://appauth.io/)
 
-Descarregue amostras de trabalho que tenham sido configuradas para utilização com Azure AD B2C do GitHub, [para Android](https://aka.ms/aadb2cappauthropc) e [para iOS](https://aka.ms/aadb2ciosappauthropc).
+Descarregue amostras de trabalho que tenham sido configuradas para uso com Azure AD B2C do GitHub, [para Android](https://aka.ms/aadb2cappauthropc) e [para iOS.](https://aka.ms/aadb2ciosappauthropc)
 
 
 

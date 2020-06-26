@@ -2,13 +2,13 @@
 title: Sobre repositórios & imagens
 description: Introdução a conceitos-chave de registos de contentores Azure, repositórios e imagens de contentores.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711991"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390453"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
 
@@ -24,13 +24,11 @@ Além das imagens do contentor Docker, o Registo de Contentores Azure suporta ar
 
 O endereço de um artefacto num registo de contentores Azure inclui os seguintes elementos. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **loginUrl** - O nome totalmente qualificado do anfitrião do registo. O hospedeiro de registo num registo de contentores Azure encontra-se no formato *de miogitária*.azurecr.io (todas minúsculas). Tem de especificar o loginUrl ao utilizar o Docker ou outras ferramentas do cliente para puxar ou empurrar artefactos para um registo de contentores Azure. 
-* **namespace** - Agrupamento lógico delídeo de imagens ou artefactos relacionados - por exemplo, para um grupo de trabalho ou app
-* **artefacto** - O nome de um repositório para uma determinada imagem ou artefacto
-* **tag** - Uma versão específica de uma imagem ou artefacto armazenado num repositório
-
+* **repositório** - Nome de um agrupamento lógico de uma ou mais imagens ou artefactos relacionados - por exemplo, as imagens para uma aplicação ou um sistema operativo base. Pode incluir o caminho *do espaço de nome.* 
+* **tag** - Identificador de uma versão específica de uma imagem ou artefacto armazenado num repositório.
 
 Por exemplo, o nome completo de uma imagem num registo de contentores Azure pode parecer:
 
@@ -40,20 +38,24 @@ Consulte as seguintes secções para obter mais informações sobre estes elemen
 
 ## <a name="repository-name"></a>Nome do repositório
 
-Os registos de contentores *gerem repositórios,* coleções de imagens de contentores ou outros artefactos com o mesmo nome, mas etiquetas diferentes. Por exemplo, as três imagens que se seguem estão no repositório "acr-helloworld":
+Um *repositório* é uma coleção de imagens de contentores ou outros artefactos com o mesmo nome, mas etiquetas diferentes. Por exemplo, as três imagens que se seguem estão no repositório "acr-helloworld":
 
 
 - *acr-helloworld:mais recente*
 - *acr-helloworld:v1*
 - *acr-helloworld:v2*
 
-Os nomes do repositório também podem incluir [espaços de nome.](container-registry-best-practices.md#repository-namespaces) Os espaços de nome permitem-lhe agrupar imagens utilizando nomes de repositórios delimitados para a frente, por exemplo:
+Os nomes do repositório também podem incluir [espaços de nome.](container-registry-best-practices.md#repository-namespaces) Os espaços de nome permitem identificar repositórios relacionados e propriedade de artefactos na sua organização, utilizando nomes delimitados para a frente. No entanto, o registo gere todos os repositórios de forma independente, não como uma hierarquia. Por exemplo:
 
 - *marketing/campanha10-18/web:v2*
 - *marketing/campanha10-18/api:v3*
 - *marketing/campanha10-18/email-ender:v2*
 - *devolução do produto/submissão da web:20180604*
 - *produto-devoluções/legacy-integrador:20180715*
+
+Os nomes do repositório só podem incluir caracteres alfanuméricos minúsculos, períodos, traços, sublinhados e cortes para a frente. 
+
+Para obter regras completas de nomeação do repositório, consulte a [Especificação de Distribuição](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview)da Iniciativa de Recipiente Aberto .
 
 ## <a name="image"></a>Imagem
 
@@ -63,9 +65,11 @@ Uma imagem de recipiente ou outro artefacto dentro de um registo está associado
 
 A *etiqueta* para uma imagem ou outro artefacto especifica a sua versão. Um único artefacto dentro de um repositório pode ser atribuído uma ou muitas etiquetas, e também pode ser "não pontuado". Ou seja, pode eliminar todas as tags de uma imagem, enquanto os dados da imagem (suas camadas) permanecem no registo.
 
-O repositório (ou repositório e espaço de nome) mais uma etiqueta define o nome de uma imagem. Pode empurrar e puxar uma imagem especificando o seu nome na operação push ou pull.
+O repositório (ou repositório e espaço de nome) mais uma etiqueta define o nome de uma imagem. Pode empurrar e puxar uma imagem especificando o seu nome na operação push ou pull. A etiqueta `latest` é utilizada por defeito se não fornecer uma nos comandos do Docker.
 
 A forma como identifica as imagens dos contentores é guiada pelos seus cenários para as desenvolver ou implantar. Por exemplo, são recomendadas etiquetas estáveis para manter as suas imagens base e etiquetas únicas para a implementação de imagens. Para obter mais informações, consulte [recomendações para a marcação e versão das imagens dos recipientes](container-registry-image-tag-version.md).
+
+Para obter regras de identificação de etiquetas, consulte a documentação do [Docker.](https://docs.docker.com/engine/reference/commandline/tag/)
 
 ### <a name="layer"></a>Camada
 

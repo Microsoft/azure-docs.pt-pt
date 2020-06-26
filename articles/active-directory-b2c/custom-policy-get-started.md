@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295529"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389297"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
 
@@ -140,7 +140,7 @@ Cada pacote de arranque contém:
 
 - **Ficheiro base** - São necessárias poucas modificações na base. Exemplo: *TrustFrameworkBase.xml*
 - **Ficheiro de extensão** - Este ficheiro é onde a maioria das alterações de configuração são feitas. Exemplo: *TrustFrameworkExtensions.xml*
-- **Ficheiros de partes dependentes** - Ficheiros específicos de tarefas chamados pela sua aplicação. Exemplos: *SignUpOrSignin.xml,* *ProfileEdit.xml,* *PasswordReset.xml*
+- **Ficheiros de partes dependentes** - Ficheiros específicos de tarefas chamados pela sua aplicação. Exemplos: *SignUpOrSignin.xml*, *ProfileEdit.xml, * *PasswordReset.xml*
 
 Neste artigo, edita os ficheiros de política personalizados XML no pacote de arranque **SocialAndLocalAccounts.** Se precisar de um editor XML, experimente [o Visual Studio Code,](https://code.visualstudio.com/download)um editor de plataformas cruzadas leve.
 

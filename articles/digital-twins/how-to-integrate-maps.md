@@ -7,18 +7,15 @@ ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 ms.reviewer: baanders
-ms.openlocfilehash: 50fade5179d5323a332d9b103f2fac17d402aa3f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 8f3e670a4f2a49bcce48be1ba0452a36cbf96df1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362854"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392323"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este artigo percorre os passos necessários para utilizar os dados da Azure Digital Twins para atualizar as informações exibidas num *mapa interior* utilizando [o Azure Maps](../azure-maps/about-azure-maps.md). A Azure Digital Twins armazena um gráfico das suas relações com dispositivos IoT e encaminha a telemetria para diferentes pontos finais, tornando-se o serviço perfeito para atualizar sobreposições informativas nos mapas.
 

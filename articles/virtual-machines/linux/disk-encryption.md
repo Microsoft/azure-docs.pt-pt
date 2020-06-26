@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 4dd7ddf5a74c06d6690832e7e412bec08462b0e2
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 806f5d3c94204806a3b585a287ba7a29323a99d6
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100469"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392527"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -75,12 +75,11 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
 - Se esta função estiver ativada para o seu disco, não poderá desativá-la.
     Se precisar de contornar isto, tem de [copiar todos os dados](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) para um disco gerido totalmente diferente que não esteja a utilizar chaves geridas pelo cliente.
-- Apenas [as teclas RSA "macias" e "duras"](../../key-vault/keys/about-keys.md) do tamanho 2048 são suportadas, sem outras teclas ou tamanhos.
+- Apenas [o software e as teclas HSM RSA](../../key-vault/keys/about-keys.md) do tamanho 2048 são suportadas, sem outras chaves ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptados usando as mesmas chaves geridas pelo cliente e devem estar na mesma subscrição.
 - As imagens criadas a partir de discos encriptados com encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptadas com as mesmas teclas geridas pelo cliente.
 - Todos os recursos relacionados com as chaves geridas pelo cliente (Cofres chave Azure, conjuntos de encriptação de discos, VMs, discos e instantâneos) devem estar na mesma subscrição e região.
 - Discos, instantâneos e imagens encriptadas com chaves geridas pelo cliente não podem passar para outra subscrição.
-- Se utilizar o portal Azure para criar o seu conjunto de encriptação de disco, não poderá utilizar imagens por enquanto.
 - Os discos geridos encriptados utilizando chaves geridas pelo cliente também não podem ser encriptados com encriptação do disco Azure.
 - Para obter informações sobre a utilização de chaves geridas pelo cliente com galerias de imagens partilhadas, consulte [Preview: Utilize chaves geridas pelo cliente para encriptar imagens](../image-version-encryption.md).
 

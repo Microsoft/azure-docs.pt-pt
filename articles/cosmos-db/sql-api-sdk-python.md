@@ -9,27 +9,27 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: 07ccfaf842af0959388e4a3c49e7ae30c029e3c1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677621"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391915"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [SDK v2 de .NET](sql-api-sdk-dotnet.md)
+> * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
 > * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
@@ -39,7 +39,7 @@ ms.locfileid: "84677621"
 |**Baixar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
 |**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**Instruções de instalação da SDK**|[Instruções de instalação python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
-|**Introdução**|[Começa com o Python SDK](create-sql-api-python.md)|
+|**Começar**|[Começa com o Python SDK](create-sql-api-python.md)|
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>História do lançamento
@@ -96,7 +96,7 @@ ms.locfileid: "84677621"
 
 * A versão 4.0.0b2 é a segunda iteração nos nossos esforços para construir uma biblioteca de clientes que se adapte às melhores práticas linguísticas python.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 * A ligação ao cliente foi adaptada para consumir o gasoduto HTTP definido em `azure.core.pipeline` .
 
@@ -306,7 +306,7 @@ Qualquer pedido à Azure Cosmos DB utilizando um SDK reformado é rejeitado pelo
 > [!WARNING]
 > Todas as versões do Python SDK para API SQL antes da versão **1.0.0** foram reformadas em **29 de fevereiro de 2016**. E, todas as versões 1.x e 2.x do Python SDK para a SQL API serão aposentadas no dia **30 de agosto de 2020**.
 
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
 | [4.0.0](#400) |20 de maio de 2020 |--- |
 | [3.0.2](#302) |15 de novembro de 2018 |--- |
@@ -342,6 +342,6 @@ Qualquer pedido à Azure Cosmos DB utilizando um SDK reformado é rejeitado pelo
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 

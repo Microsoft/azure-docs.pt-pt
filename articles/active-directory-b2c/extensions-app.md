@@ -1,48 +1,48 @@
 ---
-title: App de extensões no Diretório Ativo Azure B2C [ Microsoft Docs
-description: Restaurar a aplicação b2c-extensões.
+title: App extensões em Azure Ative Directory B2C / Microsoft Docs
+description: Restaurar a aplicação de extensões b2c.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 547b625996a65999c32c1b73699e3b408be01de3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: accd32f376c6030900a9f9a3c29547118d0a1a7b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188601"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85388515"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App de extensões
 
-Quando um diretório Azure AD B2C `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` é criado, uma aplicação chamada é automaticamente criada dentro do novo diretório. Esta aplicação, referida como a **app b2c-extensions,** é visível nos registos da *App.* É utilizado pelo serviço Azure AD B2C para armazenar informações sobre utilizadores e atributos personalizados. Se a aplicação for eliminada, o Azure AD B2C não funcionará corretamente e o seu ambiente de produção será afetado.
+Quando um diretório AD B2C AD É criado, uma aplicação chamada `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` é criada automaticamente dentro do novo diretório. Esta aplicação, designada por **app de extensões b2c,** está visível nos *registos da App.* É utilizado pelo serviço Azure AD B2C para armazenar informações sobre utilizadores e atributos personalizados. Se a aplicação for eliminada, o Azure AD B2C não funcionará corretamente e o seu ambiente de produção será afetado.
 
 > [!IMPORTANT]
-> Não elimine a aplicação b2c-extensions a menos que esteja a planear apagar imediatamente o seu inquilino. Se a aplicação permanecer eliminada por mais de 30 dias, as informações do utilizador serão permanentemente perdidas.
+> Não elimine a aplicação de extensões b2c a não ser que esteja a planear eliminar imediatamente o seu inquilino. Se a aplicação permanecer eliminada por mais de 30 dias, as informações do utilizador serão permanentemente perdidas.
 
-## <a name="verifying-that-the-extensions-app-is-present"></a>Verificando se a aplicação de extensões está presente
+## <a name="verifying-that-the-extensions-app-is-present"></a>Verificação de que a app de extensões está presente
 
-Para verificar se a aplicação b2c-extensões está presente:
+Para verificar se a aplicação de extensões b2c está presente:
 
 1. Dentro do seu inquilino Azure AD B2C, clique em **Todos os serviços** no menu de navegação à esquerda.
 1. Procure e abra **as inscrições da App.**
-1. Procure uma app que comece com **b2c-extensions-app**
+1. Procure uma app que comece com **a app de extensões B2c**
 
 ## <a name="recover-the-extensions-app"></a>Recuperar a app de extensões
 
-Se apagou acidentalmente a aplicação b2c-extensions, tem 30 dias para recuperá-la. Pode restaurar a aplicação utilizando a API graph:
+Se acidentalmente eliminar a aplicação de extensões b2c, tem 30 dias para a recuperar. Pode restaurar a aplicação utilizando a API do gráfico:
 
-1. Navegue [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)para .
-1. Inicie sessão no site como administrador global do diretório Azure AD B2C para o que pretende restaurar a aplicação eliminada. Este administrador global deve ter um endereço `username@{yourTenant}.onmicrosoft.com`de e-mail semelhante ao seguinte: .
-1. Emita um HTTP `https://graph.windows.net/myorganization/deletedApplications` GET contra o URL com api-version=1.6. Esta operação listará todas as aplicações que foram eliminadas nos últimos 30 dias.
+1. Navegue para [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/) .
+1. Faça login no site como administrador global para o diretório Azure AD B2C para o que pretende restaurar a aplicação eliminada. Este administrador global deve ter um endereço de e-mail semelhante ao seguinte: `username@{yourTenant}.onmicrosoft.com` .
+1. Emita um HTTP GET contra o URL `https://graph.windows.net/myorganization/deletedApplications` com versão api=1.6. Esta operação irá listar todas as aplicações que foram eliminadas nos últimos 30 dias.
 1. Encontre a aplicação na lista onde o nome começa com 'b2c-extension-app' e copie o seu `objectid` valor patrimonial.
-1. Emita uma PUBLICAÇÃO `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`HTTP contra o URL . Substitua `{OBJECTID}` a parte do `objectid` URL pela parte do passo anterior.
+1. Emita um POST HTTP contra o URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore` . Substitua a `{OBJECTID}` parte do URL pelo passo `objectid` anterior.
 
 Deverá agora poder [ver a aplicação restaurada](#verifying-that-the-extensions-app-is-present) no portal Azure.
 
 > [!NOTE]
-> Uma aplicação só pode ser restaurada se tiver sido eliminada nos últimos 30 dias. Se já passaram mais de 30 dias, os dados serão permanentemente perdidos. Para mais assistência, preencha um bilhete de apoio.
+> Um pedido só pode ser restaurado se tiver sido eliminado nos últimos 30 dias. Se já se passaram mais de 30 dias, os dados serão permanentemente perdidos. Para mais assistência, preencha um bilhete de apoio.

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 0a455ef911d28306b30bed2fbb00edea198181dd
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205429"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390368"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -269,6 +269,7 @@ A criação de um registo de contentores Azure para acesso anónimo (público) �
 - [Porque é que o portal Azure não lista todos os meus repositórios ou etiquetas?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Porque é que o portal Azure não consegue ir buscar repositórios ou etiquetas?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Porque é que o meu pedido de puxar ou empurrar falha com uma operação proibida?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [O formato repositório é inválido ou não suportado](#repository-format-is-invalid-or-unsupported)
 - [Como posso recolher vestígios de http no Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Verifique a saúde com`az acr check-health`
@@ -439,6 +440,12 @@ Eis alguns cenários em que as operações podem ser proibidas:
 * A imagem ou repositório talvez bloqueado para que não possa ser apagado ou atualizado. Pode utilizar o comando [de repositório az acr show](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) para visualizar os atributos atuais.
 * Algumas operações são proibidas se a imagem estiver em quarentena. Saiba mais sobre [a quarentena.](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)
 * O seu registo pode ter atingido o [limite de armazenamento.](container-registry-skus.md#service-tier-features-and-limits)
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>O formato repositório é inválido ou não suportado
+
+Se vir um erro como "formato repositório não suportado", "formato inválido", ou "os dados solicitados não existem" ao especificar um nome de repositório em operações de repositório, verifique a ortografia e o caso do nome. Os nomes de repositórios válidos só podem incluir caracteres alfanuméricos minúsculos, períodos, traços, sublinhados e cortes para a frente. 
+
+Para obter regras completas de nomeação do repositório, consulte a [Especificação de Distribuição](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview)da Iniciativa de Recipiente Aberto .
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Como posso recolher vestígios de http no Windows?
 

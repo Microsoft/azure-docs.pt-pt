@@ -7,18 +7,20 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 07c9c683ebc66070e3b280b3e4fc0af65db0ad54
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559898"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389705"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure 
 
 Este artigo explica como trabalhar com gatilhos temporizadores em Funções Azure. Um gatilho de temporizador permite-lhe executar uma função num horário. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+Para obter informações sobre como executar manualmente uma função acionada pelo temporizador, consulte [executar manualmente uma função não acionada por HTTP](./functions-manually-run-non-http.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
 
@@ -52,9 +54,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho do temporizador num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve um registo que indica se esta invocação da função se deve a uma falha de horário. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
+O exemplo a seguir mostra uma ligação do gatilho do temporizador numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve um registo que indica se esta invocação da função se deve a uma falha de horário. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -80,9 +82,9 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho do temporizador num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um registo que indica se esta invocação da função se deve a uma falha de horário. Um [objeto temporizador](#usage) é passado para a função.
+O exemplo a seguir mostra uma ligação do gatilho do temporizador numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um registo que indica se esta invocação da função se deve a uma falha de horário. Um [objeto temporizador](#usage) é passado para a função.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -111,9 +113,9 @@ module.exports = function (context, myTimer) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no ficheiro *function.json.* A [função Python](functions-reference-python.md) real que utiliza a encadernação é descrita no ficheiro * __init__.py.* O objeto transmitido para a função é do tipo [azure.funções.TimerRequest .](/python/api/azure-functions/azure.functions.timerrequest) A lógica da função escreve para os registos indicando se a invocação atual se deve a uma falha de horário. 
+O exemplo a seguir utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no *function.jsficheiro.* A [função Python](functions-reference-python.md) real que utiliza a encadernação é descrita no ficheiro * __init__.py.* O objeto transmitido para a função é do tipo [azure.funções.TimerRequest .](/python/api/azure-functions/azure.functions.timerrequest) A lógica da função escreve para os registos indicando se a invocação atual se deve a uma falha de horário. 
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -213,9 +215,9 @@ public void keepAlive(
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `TimerTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `TimerTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "TimerTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -330,7 +332,7 @@ Se estiver a partilhar contas de armazenamento através de aplicações de funç
 | Versão de funções | Definição                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2.x (e superior)  | `AzureFunctionsWebHost__hostid`variável de ambiente |
-| 1.x               | `id`em *host.json*                                  |
+| 1.x               | `id`em *host.jsem*                                  |
 
 Pode omitir o valor de identificação ou definir manualmente a configuração de identificação de cada aplicação de função para um valor diferente.
 

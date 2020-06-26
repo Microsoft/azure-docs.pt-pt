@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 18f7657cdaf3eb1fef76ca65856fde3b29b714a7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355884"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391830"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explore a Azure Digital Twins com uma aplicação de cliente de amostra
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este tutorial introduz uma aplicação de amostra que implementa uma aplicação de cliente de linha de comando, para interagir com uma instância Azure Digital Twins. A aplicação do cliente é semelhante à escrita em [Tutorial: Código uma aplicação de cliente](tutorial-code.md).
 

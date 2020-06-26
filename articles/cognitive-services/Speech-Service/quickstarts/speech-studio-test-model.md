@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d696c0f6d1cdab8175af77c265435c48824f3e15
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346115"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391541"
 ---
 # <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Quickstart: Teste um modelo usando um ficheiro áudio no Speech Studio
 
@@ -62,6 +62,6 @@ Pode descarregar ficheiros que descrevam transcrições em detalhes muito maiore
 2. No diálogo de Descarregamento, desescolh **o áudio**e clique em **Baixar**.
 3. Desaperte o ficheiro zip descarregado e examine os ficheiros extraídos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba melhorar a precisão do reconhecimento da fala [treinando um modelo personalizado.](../how-to-custom-speech-test-and-train.md)

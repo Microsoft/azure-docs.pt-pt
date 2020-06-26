@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: a1413e0f7f8fb9a28d657c32171c518a1bf64a41
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 7805e65b3f49a69d4667180715a58585767ddf5a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907419"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391499"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)
 
@@ -218,6 +218,13 @@ O quadro seguinte detalha as características e limites dos [níveis](../../cont
 ## <a name="database-migration-service-limits"></a>Limites do serviço de migração de bases de dados
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## <a name="digital-twins-limits"></a>Limites de Gémeos Digitais
+
+> [!NOTE]
+> Algumas áreas deste serviço têm limites ajustáveis, e outras não. Isto está representado nas tabelas abaixo com a coluna *ajustável?* Quando o limite pode ser ajustado, o valor *ajustável* é *Sim*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
 ## <a name="event-grid-limits"></a>Limites da grelha de eventos
 

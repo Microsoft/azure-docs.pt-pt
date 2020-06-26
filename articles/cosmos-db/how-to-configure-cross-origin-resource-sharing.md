@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 331b78737000a51b09d393160f07150f81058412
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261652"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390878"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configure a partilha de recursos de origem cruzada (CORS)
 
 Cross-Origin Resource Sharing (CORS) é uma funcionalidade HTTP que permite a uma aplicação web em execução sob um domínio aceder a recursos em outro domínio. Os navegadores da Web implementam uma restrição de segurança conhecida como política de mesma origem que impede uma página web de chamar APIs em um domínio diferente. No entanto, o CORS fornece uma forma segura de permitir que o domínio de origem chame APIs em outro domínio. A API Core (SQL) em Azure Cosmos DB suporta agora a Partilha de Recursos de Origem Cruzada (CORS) utilizando o cabeçalho "AllowedOrigins". Depois de ativar o suporte DO CORS para a sua conta Azure Cosmos, apenas são avaliados pedidos autenticados para determinar se são permitidos de acordo com as regras especificadas.
 
-Pode configurar a definição de partilha de recursos de origem cruzada (CORS) a partir do portal Azure ou a partir de um modelo de Gestor de Recursos Azure. Para contas cosmos usando a API Core (SQL), a Azure Cosmos DB suporta uma biblioteca JavaScript que funciona em ambientes Node.js e baseados no navegador. Esta biblioteca pode agora tirar partido do suporte DO CORS ao utilizar o modo Gateway. Não é necessária nenhuma configuração do lado do cliente para utilizar esta funcionalidade. Com o suporte do CORS, os recursos de um navegador podem aceder diretamente ao Azure Cosmos DB através da [biblioteca JavaScript](https://www.npmjs.com/package/@azure/cosmos) ou diretamente da [API REST](https://docs.microsoft.com/rest/api/cosmos-db/) para operações simples.
+Pode configurar a definição de partilha de recursos de origem cruzada (CORS) a partir do portal Azure ou a partir de um modelo de Gestor de Recursos Azure. Para contas cosmos usando a API Core (SQL), a Azure Cosmos DB suporta uma biblioteca JavaScript que funciona em ambientes Node.js e baseados no navegador. Esta biblioteca pode agora tirar partido do suporte DO CORS ao utilizar o modo Gateway. Não é necessária nenhuma configuração do lado do cliente para utilizar esta funcionalidade. Com o suporte do CORS, os recursos de um navegador podem aceder diretamente ao Azure Cosmos DB através da [biblioteca JavaScript](https://www.npmjs.com/package/@azure/cosmos) ou diretamente da [API REST](/rest/api/cosmos-db/) para operações simples.
 
 > [!NOTE]
 > O suporte do CORS só é aplicável e suportado para a API AZure Cosmos DB Core (SQL). Não é aplicável às APIs DB do Azure Cosmos para Cassandra, Gremlin ou MongoDB, uma vez que estes protocolos não utilizam HTTP para comunicação com servidores de clientes.

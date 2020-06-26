@@ -2,19 +2,19 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: c16b71646e20b71c0d0ca8c9f8e028773983022f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/25/2020
+ms.openlocfilehash: 1ae0512f1d82da09c9e77b43ba57acb0cde11f5a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673994"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391201"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
 Sempre que implementa um modelo, as informações sobre a implementação são escritas para o histórico de implementação. Cada grupo de recursos está limitado a 800 implementações no seu histórico de implantação.
 
-A partir de junho de 2020, o Azure Resource Manager elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro.
+O Azure Resource Manager em breve começará a eliminar automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro.
 
 > [!NOTE]
 > Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.
@@ -84,6 +84,6 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a visualização do histórico de implementação, consulte [o histórico de implementação da Azure Resource Manager](deployment-history.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: b277ae91dbdd747aba012d6e7302ed6cba61d938
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d5aef82fe29ec544e29d7c65950e719110ad276a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262272"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391864"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 
@@ -75,10 +75,10 @@ Neste cenário, a aplicação de função irá ler a temperatura do aquário e, 
 
 Agora temos uma aplicação de função que tem uma identidade gerida atribuída ao sistema com o papel **de Contribuinte de Conta DocumentDB** nas permissões DB do Azure Cosmos. O seguinte código de aplicação de função obterá as teclas DB do Azure Cosmos, criará um objeto CosmosClient, obterá a temperatura do aquário e, em seguida, guardá-lo para Azure Cosmos DB.
 
-Esta amostra utiliza a [API de Chaves de Lista](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) para aceder às chaves da conta Azure Cosmos DB.
+Esta amostra utiliza a [API de Chaves de Lista](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) para aceder às chaves da conta Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Se quiser [atribuir a função Cosmos DB Account Reader,](#grant-access-to-your-azure-cosmos-account) terá de utilizar a [Lista De Leitura única chaves API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Isto vai preencher apenas as chaves só de leitura.
+> Se quiser [atribuir a função Cosmos DB Account Reader,](#grant-access-to-your-azure-cosmos-account) terá de utilizar a [Lista De Leitura única chaves API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Isto vai preencher apenas as chaves só de leitura.
 
 A API de Chaves de Lista devolve o `DatabaseAccountListKeysResult` objeto. Este tipo não está definido nas bibliotecas C. O seguinte código mostra a implementação desta classe:  
 

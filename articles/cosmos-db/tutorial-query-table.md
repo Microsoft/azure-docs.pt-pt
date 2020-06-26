@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484674"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391898"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
 
-A [API de Tabela](table-introduction.md) do Azure Cosmos DB suporta as consultas OData e [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) relativamente a dados de chave/valor (tabela).  
+A [API de Tabela](table-introduction.md) do Azure Cosmos DB suporta as consultas OData e [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) relativamente a dados de chave/valor (tabela).  
 
 Este artigo abrange as seguintes tarefas:
 
@@ -26,13 +26,13 @@ Este artigo abrange as seguintes tarefas:
 
 As consultas neste artigo utilizam a tabela `People` de exemplo seguinte:
 
-| PartitionKey | RowKey | Email | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-Veja [Consultar Tabelas e Entidades](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para obter detalhes sobre como consultar através da API de Tabela.
+Veja [Consultar Tabelas e Entidades](/rest/api/storageservices/fileservices/querying-tables-and-entities) para obter detalhes sobre como consultar através da API de Tabela.
 
 Para obter mais informações sobre as capacidades avançadas do Azure Cosmos DB, veja [API de Tabela do Azure Cosmos DB](table-introduction.md) e [Desenvolver com a API de Tabela no .NET](tutorial-develop-table-dotnet.md).
 
@@ -52,7 +52,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 
 **Resultados**
 
-| PartitionKey | RowKey | Email | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
@@ -65,7 +65,7 @@ Quando estiver a criar uma cadeia de filtro, não se esqueça destas regras:
 * Utilize os operadores lógicos definidos pela Especificação do Protocolo OData para comparar uma propriedade a um valor. Tenha em atenção que não é possível comparar uma propriedade a um valor dinâmico. Um lado da expressão tem de ser uma constante.
 * O nome da propriedade, o operador e o valor constante têm de estar separados por espaços com codificação URL. Um espaço tem codificação URL como `%20`.
 * Todas as partes da cadeia de filtro são sensíveis a maiúsculas e minúsculas.
-* O valor constante tem de ser do mesmo tipo de dados da propriedade para que o filtro devolva resultados válidos. Para obter mais informações sobre os tipos de propriedade suportados, veja [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
+* O valor constante tem de ser do mesmo tipo de dados da propriedade para que o filtro devolva resultados válidos. Para obter mais informações sobre os tipos de propriedade suportados, veja [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Segue-se uma consulta de exemplo que mostra como filtrar pelas propriedades PartitionKey e Email com um `$filter` OData.
 
@@ -75,11 +75,11 @@ Segue-se uma consulta de exemplo que mostra como filtrar pelas propriedades Part
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Para obter mais informações sobre como criar expressões de filtro para vários tipos de dados, veja [Consultar Tabelas e Entidades](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Para obter mais informações sobre como criar expressões de filtro para vários tipos de dados, veja [Consultar Tabelas e Entidades](/rest/api/storageservices/querying-tables-and-entities).
 
 **Resultados**
 
-| PartitionKey | RowKey | Email | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
@@ -94,7 +94,7 @@ IQueryable<CustomerEntity> linqQuery = table.CreateQuery<CustomerEntity>()
             .Select(x => new CustomerEntity() { PartitionKey = x.PartitionKey, RowKey = x.RowKey, Email = x.Email });
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 

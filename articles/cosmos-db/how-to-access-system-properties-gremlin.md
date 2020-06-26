@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 1b3c95f5727c3839974f79e8d147f99d49c4b1d6
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261754"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390351"
 ---
 # <a name="system-document-properties"></a>Propriedades de documento do sistema
 
-A Azure Cosmos DB tem [propriedades do sistema](https://docs.microsoft.com/rest/api/cosmos-db/databases) tais ```_ts``` ```_self``` como, , , e ```_attachments``` em todos os ```_rid``` ```_etag``` documentos. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, estas propriedades estão disponíveis para traversal. No entanto, é possível incluir propriedades específicas, ou todas elas, em Gremlin traversal.
+A Azure Cosmos DB tem [propriedades do sistema](/rest/api/cosmos-db/databases) tais ```_ts``` ```_self``` como, , , e ```_attachments``` em todos os ```_rid``` ```_etag``` documentos. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, estas propriedades estão disponíveis para traversal. No entanto, é possível incluir propriedades específicas, ou todas elas, em Gremlin traversal.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())

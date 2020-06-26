@@ -1,63 +1,63 @@
 ---
-title: Notas de desenvolvedor para políticas personalizadas
+title: Notas do desenvolvedor para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Notas para desenvolvedores sobre configuração e manutenção Azure AD B2C com políticas personalizadas.
+description: Notas para desenvolvedores sobre configurar e manter Azure AD B2C com políticas personalizadas.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90d9c6a2ebf445ba492f2e1634e57910cd235aed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7defc33f8e3e2daca60fa5c15c41c62333ffc2d7
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679247"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389263"
 ---
-# <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas de desenvolvedor espreitapara políticas personalizadas no Diretório Ativo Azure B2C
+# <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
-A configuração de política personalizada no Diretório Ativo Azure B2C está agora geralmente disponível. Este método de configuração é direcionado para desenvolvedores de identidade avançadas construindo soluções de identidade complexas. As políticas personalizadas disponibilizam o poder do Quadro de Experiência de Identidade nos inquilinos DoAzure AD B2C.
-Os desenvolvedores de identidade avançados que usam políticas personalizadas devem planear investir algum tempo completando walk-throughs e lendo documentos de referência.
+A configuração de política personalizada no Azure Ative Directory B2C está agora disponível geralmente. Este método de configuração é direcionado para desenvolvedores de identidade avançados construindo soluções de identidade complexas. As políticas personalizadas disponibilizam o poder do Quadro de Experiência de Identidade nos inquilinos Azure AD B2C.
+Os desenvolvedores de identidade avançados que usam políticas personalizadas devem planear investir algum tempo completando documentos de referência de walk-throughs e leitura.
 
-Embora a maioria das opções de política personalizadas disponíveis estejam agora geralmente disponíveis, existem capacidades subjacentes, tais como tipos de perfil técnico e APIs de definição de conteúdo que estão em diferentes fases do ciclo de vida do software. Muitos mais estão vindo. O quadro abaixo especifica o nível de disponibilidade a um nível mais granular.
+Embora a maioria das opções de política personalizadas disponíveis estejam agora geralmente disponíveis, existem capacidades subjacentes, tais como tipos de perfis técnicos e APIs de definição de conteúdo que estão em diferentes fases do ciclo de vida do software. Muitos mais estão vindo. O quadro abaixo especifica o nível de disponibilidade a um nível mais granular.
 
 ## <a name="features-that-are-generally-available"></a>Características que estão geralmente disponíveis
 
-- Autor e carregue as viagens de utilizador de autenticação personalizada utilizando políticas personalizadas.
-    - Descreva as viagens de utilizador passo a passo como trocas entre fornecedores de sinistros.
+- Autor e faça upload das viagens personalizadas do utilizador da autenticação utilizando políticas personalizadas.
+    - Descreva as viagens dos utilizadores passo a passo como trocas entre fornecedores de sinistros.
     - Defina a ramificação condicional nas viagens do utilizador.
-- Interopera com serviços com API REST nas suas viagens de utilizador de autenticação personalizada.
+- Interoperar com serviços com API ativados pela REST nas suas viagens personalizadas de utilizador de autenticação.
 - Federate com fornecedores de identidade que estejam em conformidade com o protocolo OpenIDConnect.
 - Federate com fornecedores de identidade que aderem ao protocolo SAML 2.0.
 
-## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades dos desenvolvedores de funcionalidades de política personalizada
+## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades dos desenvolvedores de recursos de política personalizada
 
-A configuração da política manual permite um acesso de nível inferior à plataforma subjacente do Azure AD B2C e resulta na criação de um quadro único e de confiança. As muitas permutações possíveis de fornecedores de identidade personalizadas, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo requerem uma abordagem metódica ao design e configuração.
+A configuração manual da política concede acesso de nível inferior à plataforma subjacente do Azure AD B2C e resulta na criação de um quadro único e fidedificador. As muitas permutações possíveis de fornecedores de identidade personalizados, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo requerem uma abordagem metódica do design e da configuração.
 
-Os desenvolvedores que consomem o conjunto de funcionalidades de política personalizada devem aderir às seguintes orientações:
+Os desenvolvedores que consomem o conjunto de recursos de política personalizado devem aderir às seguintes orientações:
 
 - Familiarize-se com a linguagem de configuração das políticas personalizadas e gestão de chaves/segredos. Para mais informações, consulte [TrustFrameworkPolicy](trustframeworkpolicy.md).
-- Apropriar-se de cenários e integrações personalizadas. Documente o seu trabalho e informe a organização do seu site ao vivo.
+- Tome posse de cenários e integrações personalizadas. Documente o seu trabalho e informe a sua organização do site ao vivo.
 - Realizar testes de cenário metódico.
-- Siga o desenvolvimento de software e encenando as melhores práticas com um mínimo de um ambiente de desenvolvimento e teste e um ambiente de produção.
-- Mantenha-se informado sobre novos desenvolvimentos dos fornecedores de identidade e serviços com os quais se integra. Por exemplo, acompanhe as mudanças nos segredos e das alterações programadas e não programadas no serviço.
-- Instale uma monitorização ativa e monitorize a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre a integração com os Insights de Aplicação, consulte [o Diretório Ativo Azure B2C: Recolha de Registos](analytics-with-application-insights.md).
-- Mantenha os endereços de e-mail de contacto atuais na subscrição do Azure e mantenha-se atento aos e-mails da equipa de sites ao vivo da Microsoft.
-- Tome medidas oportunas quando aconselhado a fazê-lo pela equipa de sites ao vivo da Microsoft.
+- Acompanhe o desenvolvimento de software e a realização de boas práticas com um mínimo de um ambiente de desenvolvimento e teste e um ambiente de produção.
+- Mantenha-se informado sobre novos desenvolvimentos dos fornecedores de identidade e serviços com os quais integra. Por exemplo, acompanhe as mudanças de segredos e as alterações programadas e não programadas do serviço.
+- Crie uma monitorização ativa e monitorize a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre a integração com a Application Insights, consulte [o Azure Ative Directory B2C: Collecting Logs](analytics-with-application-insights.md).
+- Mantenha os endereços de e-mail de contato atuais na subscrição do Azure e mantenha-se atento aos e-mails da equipa do site da Microsoft.
+- Tome medidas oportunas quando aconselhado a fazê-lo pela equipa do site da Microsoft.
 
 ## <a name="terms-for-features-in-public-preview"></a>Termos para funcionalidades na pré-visualização pública
 
-- Encorajamo-lo a utilizar as funcionalidades de pré-visualização pública apenas para fins de avaliação.
-- Os acordos de nível de serviço (SLAs) não se aplicam às funcionalidades de pré-visualização pública.
-- Os pedidos de apoio para funcionalidades de pré-visualização pública podem ser apresentados através de canais de suporte regulares.
+- Encorajamo-lo a usar as funcionalidades de pré-visualização do público apenas para fins de avaliação.
+- Os contratos de nível de serviço (SLAs) não se aplicam às funcionalidades de pré-visualização do público.
+- Os pedidos de apoio para funcionalidades de pré-visualização públicas podem ser arquivados através de canais de suporte regulares.
 
-## <a name="features-by-stage-and-known-issues"></a>Características por palco e questões conhecidas
+## <a name="features-by-stage-and-known-issues"></a>Características por fase e questões conhecidas
 
-Política personalizada/Experiência de Identidade As capacidades de enquadramento estão em constante e rápido desenvolvimento. A tabela seguinte é um índice de funcionalidades e disponibilidade de componentes.
+As capacidades de enquadramento de política/identidade personalizadas estão em constante e rápida desenvolvimento. O quadro a seguir é um índice de funcionalidades e disponibilidade de componentes.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protocolos e fluxos de autorização
@@ -65,45 +65,45 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Código de autorização OAuth2](authorization-code-flow.md) |  |  | X |  |
-| Código de autorização OAuth2 com PKCE |  |  | X | Aplicações móveis apenas  |
+| Código de autorização OAuth2 com PKCE |  |  | X | Apenas aplicações móveis  |
 | [Fluxo implícito OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenciais de senha do proprietário de recursos OAuth2](ropc-custom.md) |  | X |  |  |
-| [Ligação OIDC](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | ENCADEr e Redirecionar encadernações. |
+| [OIDC Connect](openid-connect.md) |  |  | X |  |
+| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | ENCADERAMENTO E Redireccionamento de encadernações. |
 | OAuth1 |  |  |  | Não suportado. |
 | WSFED | X |  |  |  |
 
-### <a name="identify-providers-federation"></a>Identificar a federação de fornecedores 
+### <a name="identify-providers-federation"></a>Identificar federação de fornecedores 
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por exemplo, google+.  |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por exemplo, o Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Por exemplo, Facebook.  |
-| [OAuth1](oauth1-technical-profile.md) |  | X |  | Por exemplo, No Twitter. |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | Por exemplo, Twitter. |
 | [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Por exemplo, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
-### <a name="rest-api-integration"></a>Integração da API REST
+### <a name="rest-api-integration"></a>REST Integração API
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [REST API com auth básico](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [REST API com certificado de cliente auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
-| [REST API com o portador oAuth2](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
+| [REST API com Auth2 portador de OAuth2](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
 ### <a name="component-support"></a>Suporte de componentes
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [Autenticação do fator telefone](phone-factor-technical-profile.md) |  |  | X |  |
+| [Autenticação de fator telefone](phone-factor-technical-profile.md) |  |  | X |  |
 | [Autenticação Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Palavra-passe monouso](one-time-password-technical-profile.md) |  | X |  |  |
-| [Diretório Azure Ative](active-directory-technical-profile.md) como diretório local |  |  | X |  |
-| Subsistema de e-mail Azure para verificação de email |  |  | X |  |
-| [Fornecedores de serviços de e-mail de terceiros](custom-email.md) |  |X  |  |  |
-| [Suporte multilingues](localization.md)|  |  | X |  |
-| [Validações predicadas](predicates.md) |  |  | X | Por exemplo, complexidade de senhas. |
+| [Diretório Ativo Azure](active-directory-technical-profile.md) como diretório local |  |  | X |  |
+| Subsistema de e-mail Azure para verificação de e-mail |  |  | X |  |
+| [Fornecedores de serviços de e-mail de terceiros](custom-email-mailjet.md) |  |X  |  |  |
+| [Suporte multi-linguístico](localization.md)|  |  | X |  |
+| [Validações predicados](predicates.md) |  |  | X | Por exemplo, complexidade da palavra-passe. |
 | [Controlos de exibição](display-controls.md) |  |X  |  |  |
 
 
@@ -117,45 +117,45 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 | [1.0.0](page-layout.md#100) |  |  | X |  |
 | [Suporte JavaScript](javascript-samples.md) |  | X |  |  |
 
-### <a name="app-ief-integration"></a>Integração App-IEF
+### <a name="app-ief-integration"></a>Integração app-IEF
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Parâmetro de corda de consulta`domain_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
-| Parâmetro de corda de consulta`login_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
-| Insira a JSON na viagem do utilizador via`client_assertion` | X |  |  | Será depreciado. |
-| Insira a JSON na viagem do utilizador como`id_token_hint` |  | X |  | Abordagem para a frente para passar jSON. |
-| [Passe o fornecedor de identidade ficha para o pedido](idp-pass-through-custom.md) |  | X |  | Por exemplo, do Facebook à app. |
+| Parâmetro de cadeia de consulta`domain_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
+| Parâmetro de cadeia de consulta`login_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
+| Insira o JSON na viagem do utilizador através`client_assertion` | X |  |  | Será depreciado. |
+| Insira o JSON na jornada do utilizador como`id_token_hint` |  | X |  | Avance para passar JSON. |
+| [Passe o token do fornecedor de identidade para a aplicação](idp-pass-through-custom.md) |  | X |  | Por exemplo, do Facebook à app. |
 
-### <a name="session-management"></a>Gestão de Sessões
+### <a name="session-management"></a>Gestão de Sessão
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [Provedor de sessão SSO padrão](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [Fornecedor de sso predefinido](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Fornecedor externo de sessão de login](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [Provedor de sessão SAML SSO](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-| [Provedor de Sessão OAuthSSOSession](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
 | [Fim de sessão único](session-overview.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Segurança
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| Chaves de política- Gerar, Manual, Carregar |  |  | X |  |
-| Chaves políticas- RSA/Cert, Segredos |  |  | X |  |
+| Chaves de política - Gerar, Manual, Carregar |  |  | X |  |
+| Chaves de Política- RSA/Cert, Segredos |  |  | X |  |
 
 
-### <a name="developer-interface"></a>Interface de desenvolvedor
+### <a name="developer-interface"></a>Interface do desenvolvedor
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Ux do Portal-IEF |  |  | X |  |
+| Azure Portal-IEF UX |  |  | X |  |
 | Upload de política |  |  | X |  |
-| [Registos de viagem de utilizador insights de aplicação](troubleshoot-with-application-insights.md) |  | X |  | Usado para resolução de problemas durante o desenvolvimento.  |
-| [Registos de eventos de Insights de Aplicação](application-insights-technical-profile.md) |  | X |  | Usado para monitorizar os fluxos de utilizadores na produção. |
+| [Registos de viagem do utilizador Do Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Usado para resolução de problemas durante o desenvolvimento.  |
+| [Registos de eventos do Application Insights](application-insights-technical-profile.md) |  | X |  | Usado para monitorizar os fluxos de produção dos utilizadores. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte as operações do [Microsoft Graph disponíveis para O Azure AD B2C](microsoft-graph-operations.md)
-- Saiba mais sobre [as políticas personalizadas e as diferenças com os fluxos de utilizadores.](custom-policy-overview.md)
+- Consulte as operações do [Microsoft Graph disponíveis para Azure AD B2C](microsoft-graph-operations.md)
+- Saiba mais sobre [as políticas personalizadas e as diferenças com os fluxos dos utilizadores.](custom-policy-overview.md)

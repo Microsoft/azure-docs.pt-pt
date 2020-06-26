@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295410"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389331"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Ative Directory B2C: Ative atributos personalizados numa política de perfil personalizado
 
@@ -85,7 +85,7 @@ Para ativar atributos personalizados na sua política, forneça **ID de aplicaç
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD B2C.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **as inscrições da App.**
 4. Selecione **o Quadro de Experiência de Identidade.**
-5. Selecione **Carregar a Política Personalizada**e, em seguida, carregar os ficheiros de política TrustFrameworkExtensions.xml que alterou.
+5. Selecione **''Personal's Personal Policy**' '' e, em seguida, faça o upload dos ficheiros de política TrustFrameworkExtensions.xml que alterou.
 
 > [!NOTE]
 > A primeira vez que o perfil técnico AZure AD persiste na reclamação ao diretório, verifica se o atributo personalizado existe. Caso contrário, cria o atributo personalizado.  

@@ -1,32 +1,32 @@
 ---
-title: Configure pontos finais privados para tópicos ou domínios da Grelha de Eventos Do Azure
-description: Este artigo descreve como configurar pontos finais privados para tópicos ou domínio sintetizar a Grelha de Eventos.
+title: Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
+description: Este artigo descreve como configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890815"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390470"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configure pontos finais privados para tópicos ou domínios da Grelha de Eventos Do Azure
-Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente da sua rede virtual para os seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. O ponto final privado utiliza um endereço IP do espaço de endereço VNet para o seu tópico ou domínio. Para obter mais informações conceptuais, consulte a [segurança da Rede.](network-security.md)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
+Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir ingresss de eventos diretamente da sua rede virtual para seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. O ponto final privado utiliza um endereço IP a partir do espaço de endereço VNet para o seu tópico ou domínio. Para obter mais informações conceptuais, consulte [a segurança da rede.](network-security.md)
 
 Este artigo descreve como configurar pontos finais privados para tópicos ou domínios.
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure 
-Esta secção mostra-lhe como usar o portal Azure para criar um ponto final privado para um tópico ou domínio.
+Esta secção mostra-lhe como usar o portal Azure para criar um ponto final privado para um tópico ou um domínio.
 
 > [!NOTE]
-> Os passos mostrados nesta secção são principalmente para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios.** 
+> Os passos mostrados nesta secção são principalmente para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios**. 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para o seu tópico ou domínio.
-2. Mude para o separador **De Rede** da sua página de tópicos. Selecione **+ ponto final privado** na barra de ferramentas.
+2. Mude para o **separador 'Rede'** da página do tópico. Selecione **+ Ponto final privado** na barra de ferramentas.
 
     ![Adicionar ponto final privado](./media/configure-private-endpoints/add-button.png)
 2. Uma página do **Básico,** siga estes passos: 
@@ -34,97 +34,97 @@ Esta secção mostra-lhe como usar o portal Azure para criar um ponto final priv
     2. Selecione um **grupo de recursos Azure** para o ponto final privado. 
     3. Insira um **nome** para o ponto final. 
     4. Selecione a **região** para o ponto final. O seu ponto final privado deve estar na mesma região que a sua rede virtual, mas pode numa região diferente do recurso de ligação privada (neste exemplo, um tópico de grelha de eventos). 
-    5. Em seguida, selecione **Seguinte: O** botão de >de recursos na parte inferior da página. 
+    5. Em seguida, selecione **Seguinte: O** botão >de recursos na parte inferior da página. 
 
       ![Ponto final privado - página básica](./media/configure-private-endpoints/basics-page.png)
-3. Na página **Recurso,** siga estes passos: 
-    1. Para obter o método de ligação, se selecionar **Ligar a um recurso Azure no meu diretório,** siga estes passos. Este exemplo mostra como se conectar a um recurso Azure no seu diretório. 
+3. Na página **de Recursos,** siga estes passos: 
+    1. Para o método de ligação, se selecionar **Ligar a um recurso Azure no meu diretório,** siga estes passos. Este exemplo mostra como ligar-se a um recurso Azure no seu diretório. 
         1. Selecione a **subscrição Azure** na qual o seu **tópico/domínio** existe. 
-        1. Para **o tipo de recurso**, selecione **Microsoft.EventGrid/topics** ou **Microsoft.EventGrid/domínios** para o **tipo de Recurso**.
-        2. Para **Recurso,** selecione um tópico/domínio da lista de lançamentos. 
-        3. Confirme que o **subrecurso Target** está definido para **tópico** ou **domínio** (com base no tipo de recurso selecionado).    
+        1. Para **o tipo de recurso**, selecione **Microsoft.EventGrid/topics** ou **Microsoft.EventGrid/domains** para o **tipo de recurso**.
+        2. Para **obter recursos,** selecione um tópico/domínio da lista de drop-down. 
+        3. Confirme que o **subresource do Target** está definido para **tópico** ou **domínio** (com base no tipo de recurso selecionado).    
         4. Selecione **Seguinte: Configuração >** botão na parte inferior da página. 
 
             ![Ponto final privado - página de recursos](./media/configure-private-endpoints/resource-page.png)
     2. Se selecionar **Ligar a um recurso utilizando um ID de recurso ou um pseudónimo,** siga estes passos:
-        1. Insira a identificação do recurso. Por exemplo: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
-        2. Para **Recurso,** insira **tópico** ou **domínio.** 
+        1. Introduza a identificação do recurso. Por exemplo: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
+        2. Para **recurso,** introduza **tópico** ou **domínio**. 
         3. (opcional) Adicione uma mensagem de pedido. 
         4. Selecione **Seguinte: Configuração >** botão na parte inferior da página. 
 
             ![Ponto final privado - página de recursos](./media/configure-private-endpoints/connect-azure-resource-id.png)
-4. Na página **de Configuração,** selecione a subnet numa rede virtual para onde pretende implementar o ponto final privado. 
-    1. Selecione uma **rede virtual**. Apenas redes virtuais na subscrição e localização atualmente selecionadas estão listadas na lista de drop-down. 
+4. Na página **Configuração,** seleciona a sub-rede numa rede virtual para onde pretende implantar o ponto final privado. 
+    1. Selecione uma **rede virtual.** Apenas as redes virtuais na subscrição e localização atualmente selecionadas estão listadas na lista de drop-down. 
     2. Selecione uma **sub-rede** na rede virtual selecionada. 
-    3. Selecione **Seguinte: Etiquetas >** botão na parte inferior da página. 
+    3. Selecione **Seguinte: Tags >** botão na parte inferior da página. 
 
     ![Ponto final privado - página de configuração](./media/configure-private-endpoints/configuration-page.png)
-5. Na página **Tags,** crie quaisquer tags (nomes e valores) que queira associar ao recurso de ponto final privado. Em seguida, selecione **Review + crie** o botão na parte inferior da página. 
-6. No **Review + criar,** reveja todas as definições e selecione **Criar** para criar o ponto final privado. 
+5. Na página **Tags,** crie quaisquer tags (nomes e valores) que pretenda associar ao recurso de ponto final privado. Em seguida, **selecione Rever + criar** botão na parte inferior da página. 
+6. No **Review + criar,** rever todas as definições e selecionar **Criar** para criar o ponto final privado. 
 
-    ![Endpoint privado - rever & criar página](./media/configure-private-endpoints/review-create-page.png)
+    ![Ponto final privado - rever & criar página](./media/configure-private-endpoints/review-create-page.png)
     
 
 ### <a name="manage-private-link-connection"></a>Gerir a ligação de ligação privada
 
-Quando se cria um ponto final privado, a ligação tem de ser aprovada. Se o recurso para o qual está a criar um ponto final privado estiver no seu diretório, pode aprovar o pedido de ligação desde que tenha permissões suficientes. Se estiver a ligar-se a um recurso Azure noutro diretório, tem de esperar que o proprietário desse recurso aprove o seu pedido de ligação.
+Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recurso para o qual está a criar um ponto final privado estiver no seu diretório, pode aprovar o pedido de ligação desde que tenha permissões suficientes. Se estiver a ligar-se a um recurso Azure noutro diretório, tem de esperar que o proprietário desse recurso aprove o seu pedido de ligação.
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
 |--|--|--|
-| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos de Link privado. |
+| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos link privado. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
-| Rejeitar | Rejected | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
+| Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
  
-###  <a name="how-to-manage-a-private-endpoint-connection"></a>Como gerir uma ligação de ponto final privado
+###  <a name="how-to-manage-a-private-endpoint-connection"></a>Como gerir uma ligação privada de ponto final
 As seguintes secções mostram-lhe como aprovar ou rejeitar uma ligação de ponto final privado. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Na barra de pesquisa, digite tópicos de Grelha de **Eventos** ou **domínios da Grelha de Eventos**.
+1. Na barra de pesquisa, digite **tópicos de Grade de Eventos** ou **domínios de Grade de Eventos**.
 1. Selecione o **tópico** ou **domínio** que pretende gerir.
-1. Selecione o separador **Networking.**
+1. Selecione o **separador 'Rede'.**
 1. Se houver alguma ligação pendente, verá uma ligação listada com **pendente** no estado de provisionamento. 
 
 ### <a name="to-approve-a-private-endpoint"></a>Para aprovar um ponto final privado
-Pode aprovar um ponto final privado que esteja no estado pendente. Para aprovar, siga estes passos: 
+Pode aprovar um ponto final privado que está no estado pendente. Para aprovar, siga estes passos: 
 
 > [!NOTE]
 > Os passos mostrados nesta secção são principalmente para tópicos. Pode utilizar passos semelhantes para aprovar pontos finais privados para **domínios**. 
 
-1. Selecione o **ponto final privado** que pretende aprovar e selecione **Aprovar** na barra de ferramentas.
+1. Selecione o **ponto final privado** que deseja aprovar e selecione **Aprovar** na barra de ferramentas.
 
     ![Ponto final privado - estado pendente](./media/configure-private-endpoints/pending.png)
-1. Na caixa de diálogo de **ligação Approve,** introduza um comentário (opcional) e selecione **Sim**. 
+1. Na caixa de diálogo de **ligação Aprova,** introduza um comentário (opcional) e selecione **Sim**. 
 
-    ![Ponto final privado - aprove](./media/configure-private-endpoints/approve.png)
-1. Confirme que vê o estado do ponto final como **Aprovado**. 
+    ![Ponto final privado - aprovar](./media/configure-private-endpoints/approve.png)
+1. Confirme que vê o estado do ponto final como **aprovado**. 
 
     ![Ponto final privado - estado aprovado](./media/configure-private-endpoints/approved-status.png)
 
 ### <a name="to-reject-a-private-endpoint"></a>Rejeitar um ponto final privado
-Pode rejeitar um ponto final privado que esteja no estado pendente ou no estado aprovado. Para rejeitar, siga estes passos: 
+Pode rejeitar um ponto final privado que esteja no estado pendente ou aprovado. Para rejeitar, siga estes passos: 
 
 > [!NOTE]
 > Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para rejeitar pontos finais privados para **domínios**. 
 
-1. Selecione o **ponto final privado** que deseja rejeitar e selecione **Rejeitar** na barra de ferramentas.
+1. Selecione o **ponto final privado** que pretende rejeitar e selecione **Rejeitar** na barra de ferramentas.
 
     ![Ponto final privado - rejeitar](./media/configure-private-endpoints/reject-button.png)
 1. Na caixa de diálogo de **ligação Rejeitar,** introduza um comentário (opcional) e selecione **Sim**. 
 
     ![Ponto final privado - rejeitar](./media/configure-private-endpoints/reject.png)
-1. Confirme que vê o estado do ponto final como **Rejeitado**. 
+1. Confirme que vê o estado do ponto final como **rejeitado**. 
 
     ![Ponto final privado - estado rejeitado](./media/configure-private-endpoints/rejected-status.png)
 
     > [!NOTE]
-    > Não se pode aprovar um ponto final privado no portal Azure uma vez rejeitado. 
+    > Não pode aprovar um ponto final privado no portal Azure uma vez que é rejeitado. 
 
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
-Para criar um ponto final privado, utilize o método de criação de pontos [de criação da rede Az,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) tal como mostrado no seguinte exemplo:
+Para criar um ponto final privado, utilize o método [de criação de ponto final privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -138,19 +138,19 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para criar um ponto de ligação privado da [rede Az.](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) Alguns pontos a notar neste exemplo são: 
+Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para [a criação de pontos de terminação privadas da rede AZ](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a notar neste exemplo são: 
 
-- Para `private-connection-resource-id`especificar a identificação do recurso do **tópico** ou **domínio**. O exemplo anterior usa o tipo: tópico.
-- para, `group-ids` `topic` especificar `domain`ou . No exemplo anterior, `topic` é utilizado. 
+- Para `private-connection-resource-id` , especificar o ID de recurso do **tópico** ou **domínio**. O exemplo anterior utiliza o tipo: tópico.
+- para `group-ids` especificar `topic` ou . `domain` . No exemplo anterior, `topic` é usado. 
 
-Para eliminar um ponto final privado, utilize o método [de eliminação de pontos finais privados da rede Az,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
+Para eliminar um ponto final privado, utilize o método [de eliminação do ponto de terminação privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
 ```
 
 > [!NOTE]
-> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios.** 
+> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios**. 
 
 
 
@@ -161,14 +161,14 @@ Atualize a extensão da Grelha de Eventos Azure para o CLI executando o seguinte
 az extension update -n eventgrid
 ```
 
-Se a extensão não estiver instalada, execute o seguinte comando para instalá-la: 
+Se a extensão não estiver instalada, executar o seguinte comando para instalá-la: 
 
 ```azurecli-interactive
 az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Criar um ponto final privado
-Para criar um ponto final privado, utilize o método de criação de pontos [de criação da rede Az,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) tal como mostrado no seguinte exemplo:
+Para criar um ponto final privado, utilize o método [de criação de ponto final privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -182,31 +182,31 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para criar um ponto de ligação privado da [rede Az.](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) Alguns pontos a notar neste exemplo são: 
+Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para [a criação de pontos de terminação privadas da rede AZ](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a notar neste exemplo são: 
 
-- Para `private-connection-resource-id`especificar a identificação do recurso do **tópico** ou **domínio**. O exemplo anterior usa o tipo: tópico.
-- para, `group-ids` `topic` especificar `domain`ou . No exemplo anterior, `topic` é utilizado. 
+- Para `private-connection-resource-id` , especificar o ID de recurso do **tópico** ou **domínio**. O exemplo anterior utiliza o tipo: tópico.
+- para `group-ids` especificar `topic` ou . `domain` . No exemplo anterior, `topic` é usado. 
 
-Para eliminar um ponto final privado, utilize o método [de eliminação de pontos finais privados da rede Az,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
+Para eliminar um ponto final privado, utilize o método [de eliminação do ponto de terminação privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
 ```
 
 > [!NOTE]
-> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios.** 
+> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios**. 
 
 #### <a name="sample-script"></a>Script de exemplo
-Aqui está um script de amostra que cria os seguintes recursos Azure:
+Aqui está um guião de amostra que cria os seguintes recursos Azure:
 
 - Grupo de recursos
 - Rede virtual
-- Subnet na rede virtual
-- Tópico da Grelha de Eventos Azure
+- Sub-rede na rede virtual
+- Tópico da grelha de eventos Azure
 - Ponto final privado para o tema
 
 > [!NOTE]
-> Os passos mostrados nesta secção são para tópicos. Pode usar passos semelhantes para criar pontos finais privados para domínios.
+> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para domínios.
 
 ```azurecli-interactive
 subscriptionID="<AZURE SUBSCRIPTION ID>"
@@ -277,7 +277,7 @@ az eventgrid topic show \
 ```
 
 ### <a name="approve-a-private-endpoint"></a>Aprovar um ponto final privado
-O seguinte corte CLI mostra-lhe como aprovar uma ligação de ponto final privado. 
+A amostra seguinte, o snippet CLI mostra-lhe como aprovar uma ligação de ponto final privado. 
 
 ```azurecli-interactive
 az eventgrid topic private-endpoint-connection approve \
@@ -289,7 +289,7 @@ az eventgrid topic private-endpoint-connection approve \
 
 
 ### <a name="reject-a-private-endpoint"></a>Rejeitar um ponto final privado
-A amostra seguinte, o corte CLI mostra-lhe como rejeitar uma ligação de ponto final privado. 
+A amostra seguinte, o snippet CLI mostra-lhe como rejeitar uma ligação de ponto final privado. 
 
 ```azurecli-interactive
 az eventgrid topic private-endpoint-connection reject \
@@ -300,7 +300,7 @@ az eventgrid topic private-endpoint-connection reject \
 ```
 
 ### <a name="disable-public-network-access"></a>Desativar o acesso à rede pública
-Por predefinição, o acesso à rede pública está ativado para um tópico ou domínio da Grelha de Eventos. Para permitir o acesso apenas através de pontos finais privados, desative o acesso da rede pública executando o seguinte comando:  
+Por predefinição, o acesso à rede pública está ativado para um tópico ou domínio da Grade de Eventos. Para permitir o acesso apenas através de pontos finais privados, desative o acesso à rede pública executando o seguinte comando:  
 
 ```azurecli-interactive
 az eventgrid topic update \
@@ -311,13 +311,13 @@ az eventgrid topic update \
 
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
-Esta secção mostra-lhe como criar um ponto final privado para um tópico ou domínio usando powerShell. 
+Esta secção mostra-lhe como criar um ponto final privado para um tópico ou domínio usando o PowerShell. 
 
 ### <a name="prerequisite"></a>Pré-requisito
-Siga as instruções de [Como: Utilize o portal para criar uma aplicação e um diretor](../active-directory/develop/howto-create-service-principal-portal.md) de serviço da Azure AD que possam aceder a recursos para criar uma aplicação de Diretório Ativo Azure e observar os valores para o Id de **Diretório (inquilino),** **ID de aplicação (cliente)** e segredo de **aplicação (cliente).** 
+Siga as instruções de [Como: Use o portal para criar uma aplicação AD Azure e um diretor de serviço que possa aceder](../active-directory/develop/howto-create-service-principal-portal.md) a recursos para criar uma aplicação de Diretório Ativo Azure e anotar os valores para o **ID do Diretório (inquilino),** **ID de aplicação (cliente)** e **aplicação (cliente) secreto.** 
 
-### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Prepare token e cabeçalhos para chamadas REST API 
-Executar os seguintes comandos pré-requisitos para obter um símbolo de autenticação para usar com chamadas e autorização da API REST e outras informações de cabeçalho. 
+### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Prepare token e cabeçalhos para chamadas de API REST 
+Executar os seguintes comandos pré-requisitos para obter um token de autenticação para usar com chamadas e autorização rest API e outras informações de cabeçalho. 
 
 ```azurepowershell-interactive
 $body = "grant_type=client_credentials&client_id=<CLIENT ID>&client_secret=<CLIENT SECRET>&resource=https://management.core.windows.net"
@@ -333,7 +333,7 @@ $Headers = @{}
 $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
 ```
 
-### <a name="create-a-subnet-with-endpoint-network-policies-disabled"></a>Criar uma subrede com políticas de rede de pontofinal desativadas
+### <a name="create-a-subnet-with-endpoint-network-policies-disabled"></a>Criar uma sub-rede com políticas de rede de pontos finais desativadas
 
 ```azurepowershell-interactive
 
@@ -358,10 +358,10 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-### <a name="create-an-event-grid-topic-with-a-private-endpoint"></a>Crie um tópico de grelha de evento com um ponto final privado
+### <a name="create-an-event-grid-topic-with-a-private-endpoint"></a>Crie um tópico de grelha de eventos com um ponto final privado
 
 > [!NOTE]
-> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios.** 
+> Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar pontos finais privados para **domínios**. 
 
 
 ```azurepowershell-interactive
@@ -408,7 +408,7 @@ Invoke-RestMethod -Method 'Get'  `
 
 ```
 
-Quando verificar que o ponto final foi criado, deve ver o resultado semelhante ao seguinte:
+Quando verificar se o ponto final foi criado, deverá ver o resultado semelhante ao seguinte:
 
 ```json
 
@@ -437,8 +437,8 @@ Quando verificar que o ponto final foi criado, deve ver o resultado semelhante a
 }
 ```
 
-### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma ligação de ponto final privado
-A amostra seguinte O corte PowerShell mostra-lhe como aprovar um ponto final privado. 
+### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma ligação privada de ponto final
+A amostra seguinte, o snippet PowerShell mostra-lhe como aprovar um ponto final privado. 
 
 > [!NOTE]
 > Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para aprovar pontos finais privados para **domínios**. 
@@ -459,8 +459,8 @@ Invoke-RestMethod -Method 'Get'  `
 
 ```
 
-### <a name="reject-a-private-endpoint-connection"></a>Rejeitar uma ligação de ponto final privado
-O exemplo que se segue mostra como rejeitar um ponto final privado usando o PowerShell. Pode obter o GUID para o ponto final privado a partir do resultado do comando GET anterior. 
+### <a name="reject-a-private-endpoint-connection"></a>Rejeitar uma ligação privada de ponto final
+O exemplo a seguir mostra-lhe como rejeitar um ponto final privado utilizando o PowerShell. Pode obter o GUIADO para o ponto final privado a partir do resultado do comando GET anterior. 
 
 > [!NOTE]
 > Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para rejeitar pontos finais privados para **domínios**. 
@@ -481,7 +481,8 @@ Invoke-RestMethod -Method 'Get'
     -Headers $Headers
 ```
 
-Pode aprovar a ligação mesmo depois de rejeitada através da API. Se usar o portal Azure, não pode aprovar um ponto final que tenha sido rejeitado. 
+Pode aprovar a ligação mesmo depois de rejeitada através da API. Se usar o portal Azure, não pode aprovar um ponto final que foi rejeitado. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber como configurar as definições de firewall IP, consulte a [firewall IP configure para tópicos ou domínios da Grelha de Eventos do Azure](configure-firewall.md).
+* Para saber como configurar as definições de firewall IP, consulte [a firewall IP configurar para tópicos ou domínios da Grelha de Eventos Azure](configure-firewall.md).
+* Para resolver problemas de conectividade da rede, consulte [problemas de conectividade da rede troubleshoot](troubleshoot-network-connectivity.md)

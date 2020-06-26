@@ -3,14 +3,14 @@ title: Faça o back up ações de ficheiros Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a78760e793704d9ec4580e21ea86e0ba573b3949
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340714"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391163"
 ---
-# <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure 
+# <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 
 Este artigo explica como usar o portal Azure para fazer o back up [Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -26,27 +26,6 @@ Neste artigo, aprenderá a:
 * Certifique-se de que a partilha de ficheiros está presente num dos [tipos de conta de armazenamento suportado](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Modificar a replicação do armazenamento
-
-Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Se o cofre for o seu mecanismo de reserva primário, recomendamos que utilize GRS.
-* Pode utilizar [o armazenamento localmente redundante (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como uma opção de baixo custo.
-
-Para modificar o tipo de replicação de armazenamento:
-
-1. No novo cofre, selecione **Propriedades** sob a secção **Definições.**
-
-1. Na página **Propriedades,** em **Configuração de Cópia de Segurança,** selecione **Update**.
-
-1. Selecione o tipo de replicação de armazenamento e **selecione Guardar**.
-
-    ![Atualizar configuração de backup](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> Não é possível modificar o tipo de replicação de armazenamento depois de o cofre ser configurado e contém itens de reserva. Se queres fazer isto, tens de recriar o cofre.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Descubra ações de ficheiros e configuure backup
 
