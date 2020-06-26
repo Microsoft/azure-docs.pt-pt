@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/10/2020
-ms.openlocfilehash: d217c579c5f2cb5c3b6b984c0f2e0c57f17df2c9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.date: 6/25/2020
+ms.openlocfilehash: fc5557c1b20d87d2f96559e1d41efa4576045f09
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669771"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392782"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na Base de Dados Azure para MariaDB
 As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, suporte ao privilégio, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados.
@@ -21,7 +21,9 @@ As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, 
 > [!NOTE]
 > Se estiver à procura de valores min/max para parâmetros do servidor como `max_connections` `innodb_buffer_pool_size` e, esta informação passou para o artigo **[de parâmetros](./concepts-server-parameters.md)** do servidor.
 
-A Azure Database for MySQL suporta afinar os valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` , é determinado pelo `query_cache_size` nível de preços e vCores do servidor. Consulte os [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre estes limites. 
+A Base de Dados Azure para MariaDB suporta afinação dos valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` , é determinado pelo `query_cache_size` nível de preços e vCores do servidor. Consulte os [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre estes limites.
+
+Após a implementação inicial, um servidor Azure para o servidor MariaDB inclui tabelas de sistemas para informações de fuso horário, mas estas tabelas não são povoadas. As tabelas do fuso horário podem ser povoadas chamando o `mysql.az_load_timezone` procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada mySQL Workbench. Consulte o [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou os artigos [do Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como ligar para o procedimento armazenado e definir os fusos horários globais ou ao nível da sessão.
 
 ## <a name="storage-engine-support"></a>Suporte ao motor de armazenamento
 
@@ -74,6 +76,6 @@ A Azure Database for MySQL suporta afinar os valores dos parâmetros do servidor
 ## <a name="current-known-issues"></a>Questões conhecidas atuais
 - A instância do servidor MariaDB exibe a versão incorreta do servidor após a ligação ser estabelecida. Para obter a versão correta do motor de instância do servidor, utilize o `select version();` comando.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)
 - [Versões de base de dados MariaDB suportadas](concepts-supported-versions.md)

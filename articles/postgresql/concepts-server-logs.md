@@ -1,36 +1,36 @@
 ---
 title: Registos - Base de Dados Azure para PostgreSQL - Servidor Único
-description: Descreve a configuração, armazenamento e análise de registo slogantes na Base de Dados Azure para PostgreSQL - Servidor Único
+description: Descreve a configuração, armazenamento e análise de registo na Base de Dados Azure para PostgreSQL - Servidor Único
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131228"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392816"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
 
-A Base de Dados Azure para PostgreSQL permite-lhe configurar e aceder aos registos padrão do Postgres. Os registos podem ser utilizados para identificar, resolução de problemas e erros de configuração de reparação e desempenho sub-ideal. O registo de informações que pode configurar e aceder inclui erros, informações de consulta, registos de autovácuo, ligações e pontos de verificação. (O acesso aos registos de transações não está disponível).
+A Base de Dados Azure para PostgreSQL permite-lhe configurar e aceder aos registos padrão do Postgres. Os registos podem ser utilizados para identificar, resolver problemas e reparar erros de configuração e desempenho subóptima. Registar informações que pode configurar e aceder inclui erros, informações de consulta, registos de autovacuum, ligações e pontos de verificação. (O acesso aos registos de transações não está disponível).
 
-A exploração madeireira de auditoria é disponibilizada através de uma extensão de Postgres, pgaudit. Para saber mais, visite o artigo [conceitos de auditoria.](concepts-audit.md)
+O registo de auditoria é disponibilizado através de uma extensão postgres, pgaudit. Para saber mais, visite o artigo [conceitos de auditoria.](concepts-audit.md)
 
 
-## <a name="configure-logging"></a>Configurar a exploração madeireira 
-Pode configurar o registo padrão do Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada base de dados Azure `log_checkpoints` para `log_connections` servidor PostgreSQL, e estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de exploração madeireira: 
+## <a name="configure-logging"></a>Confiria a exploração madeireira 
+Pode configurar a sessão padrão de Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada Base de Dados Azure para servidor PostgreSQL, `log_checkpoints` e `log_connections` estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de registo registador: 
 
-![Base de Dados Azure para PostgreSQL - Parâmetros de exploração](./media/concepts-server-logs/log-parameters.png)
+![Base de Dados Azure para Pós-SQL - Parâmetros de registo](./media/concepts-server-logs/log-parameters.png)
 
-Para saber mais sobre os parâmetros de registo postgres, visite as secções [Quando Registar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e O [Que Registar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) as secções da documentação postgres. A maioria, mas não todos, os parâmetros de registo postgres estão disponíveis para configurar na Base de Dados Azure para PostgreSQL.
+Para saber mais sobre os parâmetros de registo de postgres, visite as secções [De Início](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e O [Que Registar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) da documentação postgres. A maioria, mas não todos, os parâmetros de registo de postgres estão disponíveis para configurar na Base de Dados Azure para PostgreSQL.
 
-Para saber configurar parâmetros na Base de Dados Azure para PostgreSQL, consulte a [documentação](howto-configure-server-parameters-using-portal.md) do portal ou a [documentação CLI](howto-configure-server-parameters-using-cli.md). 
+Para saber como configurar parâmetros na Base de Dados Azure para PostgreSQL, consulte a [documentação](howto-configure-server-parameters-using-portal.md) do portal ou a documentação do [CLI](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> Configurar um elevado volume de registos, por exemplo, registo de demonstração de declaração, pode adicionar sobrecargas significativas de desempenho. 
+> Configurar um grande volume de registos, por exemplo, registo de declarações, pode adicionar uma sobrecarga de desempenho significativa. 
 
 ## <a name="access-log-files"></a>Aceder a ficheiros .log
 O formato de registo predefinido na Base de Dados Azure para PostgreSQL é .log. Uma linha de amostra deste tronco parece:
@@ -39,91 +39,92 @@ O formato de registo predefinido na Base de Dados Azure para PostgreSQL é .log.
 2019-10-14 17:00:03 UTC-5d773cc3.3c-LOG: connection received: host=101.0.0.6 port=34331 pid=16216
 ```
 
-A Base de Dados Azure para PostgreSQL fornece um local de armazenamento de curto prazo para os ficheiros .log. Um novo ficheiro começa a cada 1 hora ou 100 MB, o que vier primeiro. Os registos são anexados ao ficheiro atual, uma vez que são emitidos a partir de Postgres.  
+A Azure Database for PostgreSQL fornece um local de armazenamento de curto prazo para os ficheiros .log. Um novo ficheiro começa a cada 1 hora ou 100 MB, o que vier primeiro. Os registos são anexados ao ficheiro atual, uma vez que são emitidos a partir de Postgres.  
 
-Pode definir o período de retenção para `log_retention_period` este armazenamento de registo de curto prazo utilizando o parâmetro. O valor predefinido é de três dias; o valor máximo é de sete dias. O local de armazenamento a curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar espaço a novos registos. 
+Pode definir o período de retenção para este armazenamento de registo de curto prazo utilizando o `log_retention_period` parâmetro. O valor predefinido é de três dias; o valor máximo é de sete dias. O local de armazenamento de curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar lugar a novos registos. 
 
-Para a retenção a mais longo prazo de registos e análise de registo, pode descarregar os ficheiros .log e movê-los para um serviço de terceiros. Pode descarregar os ficheiros através do [portal Azure,](howto-configure-server-logs-in-portal.md) [Azure CLI](howto-configure-server-logs-using-cli.md). Em alternativa, pode configurar as definições de diagnóstico do Monitor Azure que emitem automaticamente os seus registos (em formato JSON) para locais de longo prazo. Saiba mais sobre esta opção na secção abaixo. 
+Para uma retenção a mais longo prazo de registos e análise de registos, pode descarregar os ficheiros .log e movê-los para um serviço de terceiros. Pode descarregar os ficheiros utilizando o [portal Azure](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md). Em alternativa, pode configurar as definições de diagnóstico do Azure Monitor que emite automaticamente os seus registos (em formato JSON) para locais de longo prazo. Saiba mais sobre esta opção na secção abaixo. 
 
-Pode parar de gerar ficheiros .log, definindo o parâmetro `logging_collector` para OFF. Recomenda-se desligar a geração de ficheiros .log se estiver a utilizar as definições de diagnóstico do Monitor Azure. Esta configuração reduzirá o impacto de desempenho de uma exploração extraloga adicional.
+Pode parar de gerar ficheiros .log definindo o parâmetro `logging_collector` para OFF. É recomendada a desativação da geração de ficheiros .log se estiver a utilizar as definições de diagnóstico do Azure Monitor. Esta configuração reduzirá o impacto de desempenho de registos adicionais.
 
 ## <a name="resource-logs"></a>Registos do recurso
 
-A Base de Dados Azure para PostgreSQL está integrada com as definições de diagnóstico do Monitor Azure. As definições de diagnóstico permitem-lhe enviar os seus registos Postgres em formato JSON para registos de monitorização azure para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento. 
+A Base de Dados Azure para PostgreSQL está integrada com as definições de diagnóstico do Monitor Azure. As definições de diagnóstico permitem-lhe enviar os seus registos postgres no formato JSON para registos do Monitor Azure para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento. 
 
 > [!IMPORTANT]
-> Esta função de diagnóstico para registos de servidores só está disponível nos níveis de preços otimizados para fins [gerais](concepts-pricing-tiers.md)e memória .
+> Esta funcionalidade de diagnóstico para registos de servidores só está disponível nos [níveis de preços](concepts-pricing-tiers.md)otimizados para fins gerais e memória.
 
 
-### <a name="configure-diagnostic-settings"></a>Configurar as definições de diagnóstico
+### <a name="configure-diagnostic-settings"></a>Configurar configurações de diagnóstico
 
-Pode ativar as definições de diagnóstico do seu servidor Postgres utilizando o portal Azure, CLI, REST API e Powershell. A categoria de registo a selecionar é **PostgreSQLLogs**. (Existem outros registos que pode configurar se estiver a utilizar a [Consulta Store](concepts-query-store.md).)
+Pode ativar as definições de diagnóstico para o seu servidor Postgres utilizando o portal Azure, CLI, REST API e Powershell. A categoria de registo a selecionar é **PostgreSQLLogs**. (Existem outros registos que pode configurar se estiver a utilizar [a Loja de Consultas](concepts-query-store.md).)
 
 Para ativar registos de recursos utilizando o portal Azure:
 
-   1. No portal, vá a *Definições* de Diagnóstico no menu de navegação do seu servidor Postgres.
-   2. *Selecione Adicionar definição de diagnóstico*.
-   3. Diga este cenário. 
+   1. No portal, aceda a *Definições de Diagnóstico* no menu de navegação do seu servidor Postgres.
+   2. Selecione *Adicionar Definição de Diagnóstico*.
+   3. Diga o nome desta definição. 
    4. Selecione o seu ponto final preferido (conta de armazenamento, centro de eventos, análise de registo). 
-   5. Selecione o tipo de log **PostgreSQLLogs**.
+   5. Selecione o tipo de registo **PostgreSQLLogs**.
    7. Guarde a sua configuração.
 
-Para ativar registos de recursos utilizando powershell, CLI ou REST API, visite o artigo de definições de [diagnóstico.](../azure-monitor/platform/diagnostic-settings.md)
+Para ativar registos de recursos utilizando a API Powershell, CLI ou REST, visite o artigo [de definições de diagnóstico.](../azure-monitor/platform/diagnostic-settings.md)
 
-### <a name="access-resource-logs"></a>Registos de recursos de acesso
+### <a name="access-resource-logs"></a>Aceder a registos de recursos
 
-A forma como acede aos registos depende do ponto final que escolher. Para o Armazenamento Azure, consulte o artigo da conta de armazenamento de [registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Hubs de Eventos, consulte o artigo de [logs do Stream Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
-Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na mesa são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral da consulta do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
+Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
 
-Seguem-se consultas que pode tentar começar. Pode configurar alertas com base em consultas.
+Seguem-se as consultas que pode tentar começar. Pode configurar alertas com base em consultas.
 
-Procure todos os registos do Postgres para um determinado servidor no último dia
+Procure todos os registos postgres para um servidor particular no último dia
 ```
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
+| where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
 
-Pesquisar todas as tentativas de ligação não-local
+Procure todas as tentativas de ligação não locais
 ```
 AzureDiagnostics
 | where Message contains "connection received" and Message !contains "host=127.0.0.1"
 | where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
-A consulta acima mostrará resultados nas últimas 6 horas para qualquer registo de servidor do Postgres neste espaço de trabalho.
+A consulta acima mostrará resultados nas últimas 6 horas para qualquer servidor postgres que faça login neste espaço de trabalho.
 
-### <a name="log-format"></a>Formato de log
+### <a name="log-format"></a>Formato de registo
 
 A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo do ponto final de saída que escolher, os campos incluídos e a ordem em que aparecem podem variar. 
 
 |**Campo** | **Descrição** |
 |---|---|
-| TenantId | Sua identificação do inquilino |
+| TenantId | Sua iD do seu inquilino |
 | SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
+| TempoGerado [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
 | Tipo | Tipo de tronco. Sempre`AzureDiagnostics` |
 | SubscriptionId | GUID para a subscrição a que o servidor pertence |
 | ResourceGroup | Nome do grupo de recursos a que o servidor pertence |
 | ResourceProvider | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| ResourceId | Recurso URI |
+| ResourceId | URI de recursos |
 | Recurso | Nome do servidor |
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| errorLevel | Nível de exploração madeireira, exemplo: LOG, ERROR, NOTICE |
+| erroLevel | Nível de registo, exemplo: LOG, ERROR, NOTICE |
 | Mensagem | Mensagem de registo primário | 
 | Domain | Versão do servidor, exemplo: postgres-10 |
-| Detalhe | Mensagem de registo secundária (se aplicável) |
+| Detalhes | Mensagem de registo secundário (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
-| DatatypeName | Nome do tipo de dados (se aplicável) |
-| Nome lógico do servidor | Nome do servidor | 
-| _ResourceId | Recurso URI |
-| Prefixo | Prefixo da linha de log |
+| Nome de datatype | Nome do tipo de dados (se aplicável) |
+| Nome LógicoServerName | Nome do servidor | 
+| _ResourceId | URI de recursos |
+| Prefixo | Prefixo da linha de registo |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre o acesso a registos do [portal Azure](howto-configure-server-logs-in-portal.md) ou [do Azure CLI](howto-configure-server-logs-using-cli.md).
-- Saiba mais sobre os preços do [Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/)
+- Saiba mais sobre o acesso a registos a partir do [portal Azure](howto-configure-server-logs-in-portal.md) ou [do Azure CLI](howto-configure-server-logs-using-cli.md).
+- Saiba mais sobre [os preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 - Saiba mais sobre [registos de auditoria](concepts-audit.md)

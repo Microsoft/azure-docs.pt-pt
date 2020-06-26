@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/8/2020
-ms.openlocfilehash: 5ea5a94c73adda1328b97c3e985c4b6ac614d1b9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.date: 6/25/2020
+ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255029"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392731"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parâmetros do servidor na Base de Dados Azure para MariaDB
 
@@ -211,7 +211,7 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 ### <a name="time_zone"></a>time_zone
 
-As tabelas do fuso horário podem ser povoadas chamando o `mysql.az_load_timezone` procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada mySQL Workbench. Consulte o [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou os artigos [do Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como ligar para o procedimento armazenado e definir os fusos horários globais ou ao nível da sessão.
+Após a implementação inicial, um servidor Azure para o servidor MariaDB inclui tabelas de sistemas para informações de fuso horário, mas estas tabelas não são povoadas. As tabelas do fuso horário podem ser povoadas chamando o `mysql.az_load_timezone` procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada mySQL Workbench. Consulte o [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou os artigos [do Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como ligar para o procedimento armazenado e definir os fusos horários globais ou ao nível da sessão.
 
 ## <a name="non-configurable-server-parameters"></a>Parâmetros de servidor não configuráveis
 
