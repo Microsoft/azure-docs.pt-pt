@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Configurar um Motor de Regras
       href: front-door-tutorial-rules-engine.md
+    - name: Adicionar Cabeçalhos de Segurança com o Motor de Regras
+      href: front-door-security-headers.md
     - name: Firewall de aplicações Web e Front Door
       href: front-door-waf.md
 - name: Amostras

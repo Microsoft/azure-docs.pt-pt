@@ -1,21 +1,16 @@
 ---
 title: Guia para configurar uma máquina de modelos Windows Microsoft Docs
 description: Passos genéricos para preparar uma máquina de modelos Windows em Serviços de Laboratório.  Estes passos incluem a definição do calendário de atualização do Windows, a instalação do OneDrive e a instalação do Office.
-services: lab-services
-documentationcenter: na
 author: EMaher
-manager: ''
-editor: ''
-ms.service: lab-services
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895830"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445326"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelos Windows nos serviços do Azure Lab
 

@@ -1,24 +1,14 @@
 ---
 title: Utilize capacidades de reivindicação em Azure DevTest Labs Microsoft Docs
 description: Conheça diferentes cenários para utilizar capacidades de reivindicação/não-reclamação da Azure DevTest Labs
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
-ms.author: spelluru
-ms.openlocfilehash: a15148260bccadc59966c86031100f0e0332b0f9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898529"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476534"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Utilize capacidades de reclamação em Azure DevTest Labs
 O serviço Azure DevTest Labs melhora a eficácia e eficiência dos desenvolvedores e testadores. Este artigo centra-se na capacidade de reivindicar ou desclamar máquinas virtuais em Azure DevTest Labs. Também enumera várias formas de esta funcionalidade melhorar a experiência do utilizador. Antes de olhar para diferentes cenários onde esta funcionalidade pode ser usada, vamos olhar para o que é **reivindicar** e como funciona.

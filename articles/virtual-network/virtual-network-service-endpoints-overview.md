@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 3e17df2a3c92d24a7fa662fbf92f8c89b434eb0d
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338231"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444459"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -90,7 +90,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 ### <a name="considerations"></a>Considerações
 
-- Depois de ativar um ponto final de serviço, os endereços IP de origem das máquinas virtuais no interruptor de sub-rede. Os endereços IP de origem passam de usar endereços IPv4 públicos para utilizar o seu endereço IPv4 privado ao comunicar com o serviço a partir dessa sub-rede. Todas as ligações TCP abertas existentes para o serviço serão fechadas durante esta mudança. Certifique-se de que não existem tarefas críticas em execução quando ativar ou desativar um ponto final de serviço para um serviço para uma sub-rede. Verifique também se as aplicações conseguem ligar-se automaticamente aos serviços do Azure após esta mudança do endereço IP.
+- Depois de permitir um ponto final de serviço, os endereços IP de origem passam a utilizar endereços IPv4 públicos para utilizar o seu endereço IPv4 privado ao comunicar com o serviço a partir dessa sub-rede. Todas as ligações TCP abertas existentes para o serviço serão fechadas durante esta mudança. Certifique-se de que não existem tarefas críticas em execução quando ativar ou desativar um ponto final de serviço para um serviço para uma sub-rede. Verifique também se as aplicações conseguem ligar-se automaticamente aos serviços do Azure após esta mudança do endereço IP.
 
   A mudança do endereço IP só afeta o tráfego de serviço da rede virtual. Não há qualquer impacto em qualquer outro tráfego endereçado a ou a partir dos endereços públicos IPv4 atribuídos às suas máquinas virtuais. Nos serviços do Azure, se tiver regras de firewall existente que utilizem IPs públicos do Azure, estas regras deixam de funcionar com a mudança para os endereços privados da rede virtual.
 - Com os pontos finais de serviço, as entradas de DNS para os serviços Azure permanecem como é hoje e continuam a resolver-se para endereços IP públicos atribuídos ao serviço Azure.

@@ -4,12 +4,12 @@ ms.author: miparker
 ms.date: 06/02/2020
 ms.service: notification-hubs
 ms.topic: include
-ms.openlocfilehash: 40bc1c8c3d578e35b6689124f60f82d8ea85f0f2
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: fc479522b3fd436ff02ff6b8985bdeddb66da90a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112073"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448779"
 ---
 ### <a name="create-the-xamarinforms-solution"></a>Criar a solução Xamarin.Forms
 
@@ -190,8 +190,9 @@ ms.locfileid: "85112073"
     {
         public class NotificationRegistrationService : INotificationRegistrationService
         {
-            const string CachedTagsKey = "cached_tags";
             const string RequestUrl = "api/notifications/installations";
+            const string CachedDeviceTokenKey = "cached_device_token";
+            const string CachedTagsKey = "cached_tags";
 
             string _baseApiUrl;
             HttpClient _client;
@@ -210,47 +211,51 @@ ms.locfileid: "85112073"
                 => _deviceInstallationService ??
                     (_deviceInstallationService = ServiceContainer.Resolve<IDeviceInstallationService>());
 
-            public Task DeregisterDeviceAsync()
+            public async Task DeregisterDeviceAsync()
             {
+                var cachedToken = await SecureStorage.GetAsync(CachedDeviceTokenKey)
+                    .ConfigureAwait(false);
+
+                if (cachedToken == null)
+                    return;
+
                 var deviceId = DeviceInstallationService?.GetDeviceId();
 
                 if (string.IsNullOrWhiteSpace(deviceId))
                     throw new Exception("Unable to resolve an ID for the device.");
 
-                SecureStorage.Remove(CachedTagsKey);
+                await SendAsync(HttpMethod.Delete, $"{RequestUrl}/{deviceId}")
+                    .ConfigureAwait(false);
 
-                return SendAsync(HttpMethod.Delete, $"{RequestUrl}/{deviceId}");
+                SecureStorage.Remove(CachedDeviceTokenKey);
+                SecureStorage.Remove(CachedTagsKey);
             }
 
             public async Task RegisterDeviceAsync(params string[] tags)
             {
                 var deviceInstallation = DeviceInstallationService?.GetDeviceInstallation(tags);
 
-                if (deviceInstallation == null)
-                    throw new Exception($"Unable to get device installation information.");
-
-                if (string.IsNullOrWhiteSpace(deviceInstallation.InstallationId))
-                    throw new Exception($"No {nameof(deviceInstallation.InstallationId)} value for {nameof(DeviceInstallation)}");
-
-                if (string.IsNullOrWhiteSpace(deviceInstallation.Platform))
-                    throw new Exception($"No {nameof(deviceInstallation.Platform)} value for {nameof(DeviceInstallation)}");
-
-                if (string.IsNullOrWhiteSpace(deviceInstallation.PushChannel))
-                    throw new Exception($"No {nameof(deviceInstallation.PushChannel)} value for {nameof(DeviceInstallation)}");
-
                 await SendAsync<DeviceInstallation>(HttpMethod.Put, RequestUrl, deviceInstallation)
                     .ConfigureAwait(false);
 
-                var serializedTags = JsonConvert.SerializeObject(tags);
-                await SecureStorage.SetAsync(CachedTagsKey, serializedTags);
+                await SecureStorage.SetAsync(CachedDeviceTokenKey, deviceInstallation.PushChannel)
+                    .ConfigureAwait(false);
+
+                await SecureStorage.SetAsync(CachedTagsKey, JsonConvert.SerializeObject(tags));
             }
 
             public async Task RefreshRegistrationAsync()
             {
+                var cachedToken = await SecureStorage.GetAsync(CachedDeviceTokenKey)
+                    .ConfigureAwait(false);
+
                 var serializedTags = await SecureStorage.GetAsync(CachedTagsKey)
                     .ConfigureAwait(false);
 
-                if (string.IsNullOrWhiteSpace(serializedTags))
+                if (string.IsNullOrWhiteSpace(cachedToken) ||
+                    string.IsNullOrWhiteSpace(serializedTags) ||
+                    string.IsNullOrWhiteSpace(DeviceInstallationService.Token) ||
+                    cachedToken == DeviceInstallationService.Token)
                     return;
 
                 var tags = JsonConvert.DeserializeObject<string[]>(serializedTags);

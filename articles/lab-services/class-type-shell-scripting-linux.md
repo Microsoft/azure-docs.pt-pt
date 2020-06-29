@@ -1,24 +1,14 @@
 ---
 title: Crie um laboratório de scripts de conchas Linux com os Serviços de Laboratório Azure Microsoft Docs
 description: Aprende a criar um laboratório para ensinar a escrever em Linux.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
-ms.author: spelluru
-ms.openlocfilehash: 67d3bc1977affc83fd7b55d128e3aee503375ff1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899012"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444969"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Crie um laboratório para ensinar scripts de conchas em Linux
 Este artigo mostra-lhe como criar um laboratório para ensinar scripts de conchas no Linux. A scripting é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de amostra, a classe cobre scripts tradicionais de bash e scripts melhorados. Scripts melhorados são scripts que combinam comandos de bash e Ruby. Esta abordagem permite à Ruby passar dados e bater comandos para interagir com a concha. 

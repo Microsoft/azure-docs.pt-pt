@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Service B
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 9bc48d82d1e63f08ab68e8f9c6a63e781c14c675
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338088"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475990"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
 A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Service Bus Premium conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
@@ -93,7 +93,7 @@ Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida 
 
 ## <a name="rotate-your-encryption-keys"></a>Rode as suas chaves de encriptação
 
-Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure Key Vaults. Para obter mais informações, consulte [Configurar a rotação e a auditoria da chave.](../key-vault/secrets/key-rotation-log-monitoring.md) As datas de ativação e de validade também podem ser definidas para automatizar a rotação da chave. O serviço Service Bus detetará novas versões chave e começará a usá-las automaticamente.
+Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure Key Vaults. As datas de ativação e de validade também podem ser definidas para automatizar a rotação da chave. O serviço Service Bus detetará novas versões chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783372"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444663"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -40,7 +40,7 @@ Para obter informações específicas de referência do Cofre de Chaves para Pow
 
 As operações key Vault são geridas separadamente através de permissões de controlo de acesso baseado em funções (RBAC) da seguinte forma:
 
-| Operação | Description | Permissão do utilizador |
+| Operação | Descrição | Permissão do utilizador |
 |:--|:--|:--|
 |Lista|Listas eliminadas cofres-chave.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
@@ -267,7 +267,7 @@ A listagem de objetos de cofre apagados também mostra quando estão programados
 
 Quando a proteção contra a purga é ligada, um cofre ou um objeto em estado apagado não podem ser purgados até que o período de retenção tenha passado. Tal cofre ou objeto ainda pode ser recuperado. Esta funcionalidade garante que um cofre ou um objeto nunca poderão ser permanentemente eliminados até que o período de retenção tenha passado. O período de retenção predefinido é de 90 dias, mas, durante a criação do cofre chave, é possível definir o intervalo de política de retenção para um valor de 7 a 90 dias. A política de proteção da purga utiliza o mesmo intervalo. Uma vez definido, o intervalo da política de retenção não pode ser alterado.
 
-Só pode ativar a proteção contra a purga se também estiver ativada a eliminação suave. 
+Só pode ativar a proteção contra a purga se também estiver ativada a eliminação suave. A proteção de purga incapacitante não é suportada neste momento. 
 
 Para ligar a proteção de eliminação e purga suave ao criar um cofre, utilize o cmdlet [New-AzKeyVault:](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)
 

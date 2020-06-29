@@ -1,24 +1,14 @@
 ---
 title: Anexar ou destacar uma galeria de imagens partilhada nos Serviços de Laboratório Azure Microsoft Docs
 description: Este artigo descreve como anexar uma galeria de imagens partilhada a um laboratório de sala de aula em Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2020
-ms.author: spelluru
-ms.openlocfilehash: 5574b490ddf949ce0eaac6ccbed436890fe40f2e
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e0b29bcabe1cfb234b422982c0f8faab49c30796
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896047"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445360"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou destacar uma galeria de imagens partilhada nos Serviços do Laboratório Azure
 Este artigo mostra-lhe como anexar ou separar uma galeria de imagens partilhada numa conta de laboratório. 

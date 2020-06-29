@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 17798401c9781ab567f50ef141f96cc885083b01
-  ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+  ms.openlocfilehash: 7e444b27d701b3b7ff143a404c4210f9123767b4
+  ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84974964"
+  ms.lasthandoff: 06/25/2020
+  ms.locfileid: "85362531"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -1141,7 +1141,7 @@ productDirectory:
     - networking
     url: virtual-network/index.yml
   - title: WAN Virtual
-    summary: Otimize e automatize a conectividade ramo a ramo através do Azure
+    summary: Serviço hub-and-spoke gerido pela Microsoft para garantir conectividade e segurança
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-wans.svg
     azureCategories:
     - networking
@@ -1215,7 +1215,7 @@ productDirectory:
     url: virtual-machines/windows/managed-disks-overview.md
   - title: Ficheiros do Azure
     summary: Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
+    imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
     azureCategories:
     - storage
     url: storage/files/index.yml

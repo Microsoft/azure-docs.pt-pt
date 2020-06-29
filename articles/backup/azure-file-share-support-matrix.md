@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 72492ea77534b636d90820c96e36163e6c6efebe
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 3d9c9e4518ea6cd53c1f1d5e4a50040e3cf025b4
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488465"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443320"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
@@ -31,7 +31,8 @@ West Central EUA, Austrália Sudeste , Canadá Central
 | ------------------------ | ------------------------------------------------------------ |
 | Tipo de Conta            | A Azure Backup suporta ações de ficheiros Azure presentes em contas de armazenamento de tipo v1, v2 de uso geral e de armazenamento de ficheiros |
 | Desempenho              | A Azure Backup suporta ações de ficheiros em contas standard e Premium Storage |
-| Replicação              | As ações de ficheiros Azure em Contas de Armazenamento com qualquer tipo de replicação são suportadas |
+| Replicação              | As ações de ficheiros Azure em contas de armazenamento com qualquer tipo de replicação são suportadas |
+| Firewall ativada         | As ações de ficheiros Azure em contas de armazenamento com regras de Firewall que permitem ao Microsoft Azure Services aceder à conta de armazenamento são suportadas|
 
 ## <a name="supported-file-shares"></a>Ações de ficheiros suportadas
 
@@ -46,8 +47,10 @@ West Central EUA, Austrália Sudeste , Canadá Central
 
 | Definição                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
-| Número máximo de ações de ficheiros que podem ser protegidas por dia por cofre | 200   |
+| Número máximo de ações de ficheiros que podem ser protegidas por abóbada por dia| 200   |
 | Número máximo de contas de armazenamento que podem ser registadas por cofre por dia | 50    |
+| Número máximo de ações de ficheiros que podem ser protegidas por cofre | 2000   |
+| Número máximo de contas de armazenamento que podem ser registadas por cofre | 200   |
 
 ## <a name="backup-limits"></a>Limites de backup
 

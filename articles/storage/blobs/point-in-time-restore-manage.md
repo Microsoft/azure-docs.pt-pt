@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 747acc27a5eaf8551e44a3bf52f55b5a380b73ce
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752638"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445445"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)
 
@@ -38,6 +38,10 @@ O seguinte comando instala o módulo de [pré-visualização Az.Storage 2.0.1:](
 Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
 ```
 
+O comando acima requer a instalação da versão 2.2.4.1 ou superior ao PowerShellGet. Para determinar que versão atualmente carregou:
+```powershell
+Get-Module PowerShellGet
+```
 Para obter mais informações sobre a instalação do Azure PowerShell, consulte [instalar a Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Permitir e configurar o ponto-a-tempo restaurar

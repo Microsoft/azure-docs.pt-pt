@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 084c1c604ac780b133f89eaeeb3fa5e780c2d565
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 3189fec114ca68dfd862c0973b289b9eff25fed5
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392595"
+ms.locfileid: "85445564"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -289,7 +289,7 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
 
 Ao aceder ao estúdio a partir de um recurso dentro de uma rede virtual (por exemplo, uma instância de computação ou máquina virtual), deve permitir o tráfego de saída da rede virtual para o estúdio. 
 
-Por exemplo, se estiver a utilizar grupos de segurança de rede (NSG) para restringir o tráfego de saída, adicione uma regra a um destino de __marcação__ de serviço de __AzureFrontDoor.FirstParty__.
+Por exemplo, se estiver a utilizar grupos de segurança de rede (NSG) para restringir o tráfego de saída, adicione uma regra a um destino de __marcação__ de serviço de __AzureFrontDoor.Frontend__.
 
 <a id="aksvnet"></a>
 

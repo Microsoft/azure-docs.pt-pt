@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97ddc91b5e49cafa87b90113f0160d8aec9c699a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360321"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444255"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -42,7 +42,7 @@ Antes de começar, certifique-se de que está familiarizado com a [visão geral]
 
 Os principais benefícios de dar aos seus dispositivos uma identidade AD Azure:
 
-* Aumentar a produtividade – Com a Azure AD, os seus utilizadores podem fazer [um sso sem emenda (SSO)](/azuread-join-sso.md) para os seus recursos no local e na nuvem, o que lhes permite ser produtivos onde quer que estejam.
+* Aumentar a produtividade – Com a Azure AD, os seus utilizadores podem fazer [um sso sem emenda (SSO)](./azuread-join-sso.md) para os seus recursos no local e na nuvem, o que lhes permite ser produtivos onde quer que estejam.
 
 * Aumentar a segurança – Os dispositivos AD Azure permitem-lhe aplicar [políticas de Acesso Condicional (CA)](../conditional-access/require-managed-devices.md) a recursos baseados na identidade do dispositivo ou utilizador. As políticas da CA podem oferecer proteção extra utilizando [a Proteção de Identidade Azure AD](../identity-protection/overview-identity-protection.md). A junção de um dispositivo ao Azure AD é um pré-requisito para aumentar a sua segurança com uma estratégia [de autenticação sem palavras-passe.](../authentication/concept-authentication-passwordless.md)
 

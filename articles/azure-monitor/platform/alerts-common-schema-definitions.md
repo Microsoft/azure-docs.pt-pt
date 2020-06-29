@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: b8afaae744522bec5675e5a8c17d8b0ea0be0c37
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367143"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445377"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
@@ -71,7 +71,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="essentials"></a>Essentials
 
-| Campo | Description|
+| Campo | Descrição|
 |:---|:---|
 | alertId | O GUID identifica exclusivamente a instância de alerta. |
 | alertaRule | O nome da regra de alerta que gerou a hora de alerta. |
@@ -180,7 +180,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
                 "value": "INC-Gen2Alert"
             }
         ],
-        "SearchResult": {
+        "SearchResults": {
             "tables": [
                 {
                     "name": "PrimaryResult",
@@ -223,7 +223,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
         ]
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
-    },
+    }
 }
 ```
 

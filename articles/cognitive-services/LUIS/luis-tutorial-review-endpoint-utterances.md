@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Revisão das declarações de pontofinal - LUIS'
-description: Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as declarações recebidas através do ponto final luis http que luis não tem certeza. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
+title: 'Tutorial: Rever as declarações de ponto final - LUIS'
+description: Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as expressões recebidas através do ponto final LUIS HTTP de que a LUIS não tem a certeza. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.openlocfilehash: 32d43b36910c8fbfd60463f4062b6a00b9272fdb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 06/22/2020
+ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592581"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445934"
 ---
-# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de pontofinal
-Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as declarações, recebidas através do ponto final luis HTTPS, de que o LUIS não tem a certeza. Você deve rever as declarações de ponto final como uma parte regular da sua manutenção agendada do LUIS.
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de ponto final
+Neste tutorial, melhore as previsões das aplicações verificando ou corrigindo as expressões, recebidas através do ponto final LUIS HTTPS, de que a LUIS não tem a certeza. Você deve rever as declarações de ponto final como uma parte regular da sua manutenção agendada LUIS.
 
-Este processo de revisão permite que a LUIS aprenda o domínio da sua aplicação. Luis seleciona as palavras que aparecem na lista de revisão. Esta lista é:
+Este processo de revisão permite ao LUIS aprender o seu domínio de aplicação. LUIS seleciona as expressões que aparecem na lista de revisão. Esta lista é:
 
 * Específica da aplicação.
 * Destina-se a melhorar a precisão de predição da aplicação.
@@ -22,7 +22,7 @@ Este processo de revisão permite que a LUIS aprenda o domínio da sua aplicaç�
 
 Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -33,31 +33,31 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="download-json-file-for-app"></a>Descarregue o ficheiro JSON para aplicação
+## <a name="download-json-file-for-app"></a>Baixar ficheiro JSON para app
 
 Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-## <a name="import-json-file-for-app"></a>Importar ficheiro JSON para app
+## <a name="import-json-file-for-app"></a>Importar ficheiro JSON para aplicação
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treine a app para aplicar as alterações da entidade na app
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treine a app para aplicar as alterações da entidade à app
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publique a app para aceder a ela a partir do ponto final http
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publique a app para aceder a partir do ponto final HTTP
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="add-utterances-at-the-endpoint"></a>Adicione expressões no ponto final
 
-Nesta aplicação, tem intenções e entidades, mas não tem qualquer utilização de ponto final. Este uso de ponto final é necessário para melhorar a aplicação com a revisão de expressão de ponto final.
+Nesta aplicação, tem intenções e entidades, mas não tem qualquer utilização no ponto final. Esta utilização do ponto final é necessária para melhorar a aplicação com a revisão da expressão de ponto final.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ pelas palavras na tabela seguinte. Para cada expressão, submeta a expressão, e obtenha o resultado. Em seguida, substitua a expressão no final com a próxima expressão.
+1. Vá até ao final do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ pelas expressões na tabela seguinte. Para cada expressão, submeta a expressão e obtenha o resultado. Em seguida, substitua a expressão no final com a próxima expressão.
 
-    |Expressão de endpoint|Intenção alinhada|
+    |Expressão de ponto final|Intenção alinhada|
     |--|--|
     |`I'm looking for a job with Natural Language Processing`|`GetJobInformation`|
     |`I want to cancel on March 3`|`Utilities.Cancel`|
@@ -73,35 +73,35 @@ Nesta aplicação, tem intenções e entidades, mas não tem qualquer utilizaç�
 
 ## <a name="review-endpoint-utterances"></a>Rever pronunciações de ponto final
 
-Reveja as declarações finais para uma intenção corretamente alinhada. Embora exista um único conjunto de expressões para rever em todas as versões, o processo de alinhamento correto da intenção adiciona o exemplo apenas ao _modelo ativo_ atual.
+Reveja as declarações do ponto final para uma intenção corretamente alinhada. Embora exista um único conjunto de expressões para rever em todas as versões, o processo de alinhamento correta da intenção adiciona apenas o exemplo do _modelo ativo_ atual.
 
-1. A partir da secção **Build** do portal, selecione **Comentários finais** da navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**.
+1. A partir da secção **Build** do portal, selecione Rever as **expressões** do ponto final da navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
     Esta `I'm looking for a job with Natural Language Processing` expressão, não está na intenção correta.
 
-1.  Para alinhar esta expressão, na linha de expressão, selecione a **intenção alinhada** correta de `GetJobInformation` . Adicione a expressão alterada à aplicação selecionando a marca de verificação.
+1.  Para alinhar esta expressão, na linha de expressão, selecione a **intenção** alinhada correta de `GetJobInformation` . Adicione a expressão alterada à aplicação selecionando a marca de verificação.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    Reveja as restantes declarações nesta intenção, corrigindo a intenção alinhada conforme necessário. Utilize a tabela inicial de expressão neste tutorial para ver a intenção alinhada.
+    Reveja as restantes declarações nesta intenção, corrigindo a intenção alinhada conforme necessário. Use a tabela de expressão inicial neste tutorial para ver a intenção alinhada.
 
-    A lista de declarações de **pontofinal** de revisão já não deve ter as declarações corrigidas. Se aparecerem mais declarações, continue a trabalhar através da lista, corrigindo as intenções alinhadas até que a lista esteja vazia.
+    A lista **de declarações de ponto final de revisão** não deve continuar a ter as expressões corrigidas. Se aparecerem mais expressões, continue a trabalhar através da lista, corrigindo as intenções alinhadas até que a lista esteja vazia.
 
-    Qualquer correção da rotulagem da entidade é feita após a intenção estar alinhada, a partir da página de detalhes da Intenção.
+    Qualquer correção da rotulagem da entidade é feita após o alinhamento da intenção, a partir da página de detalhes da Intenção.
 
 1. Prepare e publique novamente a aplicação.
 
 ## <a name="get-intent-prediction-from-endpoint"></a>Obtenha previsão de intenção a partir do ponto final
 
-Para verificar as declarações corretamente alinhadas do exemplo, melhorou a previsão da aplicação, tente uma expressão próxima da expressão corrigida.
+Para verificar as expressões de exemplo corretamente alinhadas melhorou a previsão da app, experimente uma expressão próxima da expressão corrigida.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por `Are there any natural language processing jobs in my department right now?` .
+1. Vá até ao final do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por `Are there any natural language processing jobs in my department right now?` .
 
    ```json
     {
@@ -207,7 +207,7 @@ Para verificar as declarações corretamente alinhadas do exemplo, melhorou a pr
     }
    ```
 
-   Agora que as declarações inseguras estão corretamente alinhadas, a intenção correta foi prevista com uma **pontuação elevada**.
+   Agora que as expressões inseguras estão corretamente alinhadas, a intenção correta foi prevista com uma **pontuação elevada.**
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>A revisão pode ser substituída ao adicionar mais expressões?
 Pode questionar-se sobre o motivo pelo qual não deve adicionar mais expressões de exemplo. Qual é o objetivo da revisão de expressões de ponto final? Numa aplicação LUIS do mundo real, as expressões de ponto final são provenientes de utilizadores com uma escolha e disposição de palavras que ainda não utilizou. Se tivesse utilizado a mesma escolha e disposição de palavras, a predição original teria uma percentagem mais elevada.

@@ -1,24 +1,14 @@
 ---
 title: Permitir que o criador de laboratório escolha a localização nos Serviços do Laboratório Azure
 description: Este artigo descreve como um administrador de conta de laboratório pode permitir que os criadores de laboratório escolham locais para os seus laboratórios.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
-ms.author: spelluru
-ms.openlocfilehash: 8d11b0fcf57be35d5a47d720a07fa274acc05b35
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899138"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444204"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador do laboratório escolha a localização para o laboratório nos Serviços de Laboratório Azure
 Nos Serviços Azure Lab, um dono de uma conta de laboratório pode permitir que os criadores de laboratório (educadores) escolham um local para o laboratório que criam. Este local pode ser diferente da localização da conta do laboratório. Uma localização é um grupo de regiões de Azure. Por exemplo, a localização dos Estados Unidos é um grupo de regiões como os EUA Orientais, Os Estados Unidos, e assim por diante. 

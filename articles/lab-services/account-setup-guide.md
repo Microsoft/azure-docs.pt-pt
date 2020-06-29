@@ -1,24 +1,14 @@
 ---
 title: Guia de configuração de conta de laboratório acelerado para serviços do Azure Lab
 description: Este guia ajuda os administradores a criar rapidamente uma conta de laboratório para uso dentro da escola.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
-ms.author: spelluru
-ms.openlocfilehash: 218e65eef6131209feaf8b3a5850363cd7941df4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899173"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445428"
 ---
 # <a name="lab-account-setup-guide"></a>Guia de configuração de conta de laboratório
 

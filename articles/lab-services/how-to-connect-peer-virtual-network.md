@@ -1,24 +1,14 @@
 ---
 title: Ligue-se a uma rede de pares nos Serviços Azure Lab [ Microsoft Docs
 description: Saiba como ligar a sua rede de laboratório a outra rede como um par. Por exemplo, ligue a sua organização/rede universitária no local com a rede virtual do Lab em Azure.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: f95bcb42fd23abdbf4462c8b8b50bf34f17f8664
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 20e47113d5c2439c9c8ea355288442b5f41d90ca
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895998"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445836"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ligue a rede do seu laboratório a uma rede virtual de pares nos Serviços Azure Lab
 

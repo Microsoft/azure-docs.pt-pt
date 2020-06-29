@@ -1,23 +1,14 @@
 ---
 title: Como testar a sua app no Azure Microsoft Docs
 description: Aprenda a criar uma partilha de ficheiros num laboratório e monte-a na sua máquina local e numa máquina virtual em laboratório e, em seguida, implemente aplicações de desktop/web para a partilha de ficheiros e teste-as.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
-ms.author: spelluru
-ms.openlocfilehash: 65d7ee23195e69c67d9235aeea9a7a166a3a22c1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 06/26/2020
+ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211549"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476500"
 ---
 # <a name="test-your-app-in-azure"></a>Testar a aplicação no Azure 
 Este artigo fornece passos para testar a sua aplicação em Azure usando a DevTest Labs. Primeiro, cria-se uma partilha de ficheiros dentro de um laboratório e monta-se como uma unidade na sua máquina de desenvolvimento local e um VM dentro de um laboratório. Em seguida, utiliza o Visual Studio 2019 para implementar a sua app na partilha de ficheiros para que possa executar a aplicação no VM em laboratório.  

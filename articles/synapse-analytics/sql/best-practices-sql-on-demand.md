@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b926491ef3fc672626317184fb7ed2760919866
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210512"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476279"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Melhores práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Se possível, pode preparar ficheiros para um melhor desempenho:
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Empurre os wildcards para níveis mais baixos no caminho
 
-Pode utilizar wildcards no seu caminho para [consultar vários ficheiros e pastas](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL lista ficheiros na sua conta de armazenamento, a partir do primeiro * utilizando a API de armazenamento. Elimina ficheiros que não correspondem ao caminho especificado. A redução da lista inicial de ficheiros pode melhorar o desempenho se houver muitos ficheiros que correspondam ao caminho especificado até ao primeiro wildcard.
+Pode utilizar wildcards no seu caminho para [consultar vários ficheiros e pastas](query-data-storage.md#query-multiple-files-or-folders). SQL lista ficheiros na sua conta de armazenamento, a partir do primeiro * utilizando a API de armazenamento. Elimina ficheiros que não correspondem ao caminho especificado. A redução da lista inicial de ficheiros pode melhorar o desempenho se houver muitos ficheiros que correspondam ao caminho especificado até ao primeiro wildcard.
 
 ## <a name="use-appropriate-data-types"></a>Utilize tipos de dados apropriados
 
@@ -113,7 +113,7 @@ FROM
 
 Os dados são muitas vezes organizados em divisórias. Pode instruir o SQL a pedido para consultar determinadas pastas e ficheiros. Ao fazê-lo, reduzirá o número de ficheiros e a quantidade de dados que a consulta necessita para ler e processar. Um bónus adicional é que conseguirá um melhor desempenho.
 
-Para obter mais informações, leia sobre as funções [de nome de ficheiros](develop-storage-files-overview.md#filename-function) e [de filepas](develop-storage-files-overview.md#filepath-function) e consulte os exemplos para [consultar ficheiros específicos](query-specific-files.md).
+Para obter mais informações, leia sobre as funções [de nome de ficheiros](query-data-storage.md#filename-function) e [de filepas](query-data-storage.md#filepath-function) e consulte os exemplos para [consultar ficheiros específicos](query-specific-files.md).
 
 > [!TIP]
 > Elenco sempre os resultados das funções de datata de ficheiro e nome de ficheiros para os tipos de dados apropriados. Se utilizar tipos de dados de caracteres, certifique-se de que utiliza o comprimento adequado.

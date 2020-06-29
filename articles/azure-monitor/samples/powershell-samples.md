@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945261"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413897"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Amostras de PowerShell monitor Azure Monitor
 Este artigo mostra-lhe a amostra de comandos PowerShell para ajudá-lo a aceder às funcionalidades do Azure Monitor.
@@ -220,6 +220,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 As propriedades adicionais do webhook são opcionais. Pode recuperar o conteúdo de um Alerta de Registo de Atividade utilizando `Get-AzActivityLogAlert` .
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerir definições de AutoScale
+
+> [!NOTE] 
+> Para serviços cloud (Microsoft.ClassicCompute), a autoescala suporta um grão de tempo de 5 minutos (PT5M). Para os outros serviços, a autoescala suporta um grão de tempo de mínimo de 1 minuto (PT1M)
+
 Um recurso (uma aplicação Web, VM, Cloud Service ou Virtual Machine Scale set) pode ter apenas uma definição de escala automática configurada para o mesmo.
 No entanto, cada definição de autoescala pode ter vários perfis. Por exemplo, um para um perfil de escala baseado no desempenho e um segundo para um perfil baseado em agenda. Cada perfil pode ter várias regras configuradas nele. Para obter mais informações sobre a Autoscale, consulte [Como autoescalar uma aplicação.](../../cloud-services/cloud-services-how-to-scale-portal.md)
 

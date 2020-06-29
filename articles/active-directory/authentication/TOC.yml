@@ -225,6 +225,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
     - name: Cmdlets do Azure PowerShell
       href: /powershell/azure/overview
+    - name: Beta da API REST do Microsoft Graph
+      href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Restrições e limites do serviço
       href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Recursos

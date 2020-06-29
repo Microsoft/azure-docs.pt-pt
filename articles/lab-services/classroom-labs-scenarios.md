@@ -1,24 +1,14 @@
 ---
 title: Utilizar laboratórios de sala de aula para formações - Azure Lab Services
 description: Este artigo descreve como usar a Azure DevTest Labs para criar laboratórios em Azure para cenários de treino.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
-ms.author: spelluru
-ms.openlocfilehash: cd5a2fb55e1c2ec360d1585155f53b9213a72179
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 582508968609ba53de14b95b71ee75b5fec9ba93
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897391"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445258"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Use laboratórios de sala de aula para treinos
 A Azure Labs Services permite que educadores (professores, professores, formadores ou assistentes de ensino, etc.) criem de forma rápida e fácil um laboratório online para a disponibilização de ambientes de aprendizagem pré-configurados para os formandos. Cada estagiário poderia utilizar ambientes idênticos e isolados para a formação. As políticas podem ser aplicadas para garantir que os ambientes de formação só estejam disponíveis para cada estagiário quando estes necessitem e contenham recursos suficientes - como as máquinas virtuais - necessários para a formação. 

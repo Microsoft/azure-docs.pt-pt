@@ -466,9 +466,9 @@
     - name: HSM Dedicado
       tocHref: /azure/dedicated-hsm/
       topicHref: /azure/dedicated-hsm/
-    - name: Laboratório DevTest
-      tocHref: /azure/devtest-lab/
-      topicHref: /azure/devtest-lab/
+    - name: DevTest Labs
+      tocHref: /azure/devtest-labs/
+      topicHref: /azure/devtest-labs/
     - name: FXT Edge Filer
       tocHref: /azure/fxt-edge-filer/
       topicHref: /azure/fxt-edge-filer/

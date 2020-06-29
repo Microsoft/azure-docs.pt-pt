@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: b74874806585357fe2c7fa2603bfb50751c4d843
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355493"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445513"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
 
@@ -224,12 +224,12 @@ Utilize a política [validada do JWT](https://docs.microsoft.com/azure/api-manag
 
 ## <a name="build-an-application-to-call-the-api"></a>Construir uma aplicação para chamar a API
 
-Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como a aplicação do cliente da amostra para ligar para o `Echo API` protegido pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte [as amostras de código do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code.md).
+Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como a aplicação do cliente da amostra para ligar para o `Echo API` protegido pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte [as amostras de código do Azure Ative Directory](../active-directory/develop/sample-v2-code.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios.md).
+- Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 - Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a API Management.
-- Para obter outras formas de garantir o seu serviço back-end, consulte a [autenticação do Certificado Mútuo.](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-- [Criar uma instância de serviço de Gestão API.](https://docs.microsoft.com/azure/api-management/get-started-create-service-instance)
-- [Gerencie a sua primeira API.](https://docs.microsoft.com/azure/api-management/import-and-publish)
+- Para obter outras formas de garantir o seu serviço back-end, consulte a [autenticação do Certificado Mútuo.](./api-management-howto-mutual-certificates.md)
+- [Criar uma instância de serviço de Gestão API.](./get-started-create-service-instance.md)
+- [Gerencie a sua primeira API.](./import-and-publish.md)

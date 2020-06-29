@@ -1,24 +1,14 @@
 ---
 title: Criar um laboratório de Hacking Ético com serviços de laboratório Azure Microsoft Docs
 description: Aprenda a criar um laboratório usando os Serviços Azure Lab para ensinar hacking ético.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: spelluru
-ms.openlocfilehash: e71efa1c0992a815950d280d4febc9ccdd213936
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899061"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444000"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Crie um laboratório para ensinar aulas de hacking ético 
 Este artigo mostra-lhe como criar uma aula que se centre no lado forense da pirataria ética. Os testes de penetração, uma prática usada pela comunidade de hacking ético, ocorre quando alguém tenta aceder ao sistema ou rede para demonstrar vulnerabilidades que um intruso malicioso pode explorar. 

@@ -5,19 +5,19 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 382849c30c3520bbb208886de5f302f59fdac98b
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374461"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444272"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de colocação de proximidade (Pré-visualização)
 
 > [!Note]
 > Quando utiliza grupos de colocação de proximidade com AKS, a colocação aplica-se apenas aos nós do agente. O nó ao nó e a vagem hospedeira correspondente à latência do casulo é melhorada. A colocação não afeta a colocação do plano de controlo de um cluster.
 
-Ao implementar a sua aplicação no Azure, espalhar instâncias da Máquina Virtual (VM) em regiões ou zonas de disponibilidade cria latência de rede, o que pode afetar o desempenho global da sua aplicação. Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos de computação Azure estão fisicamente localizados perto uns dos outros. Algumas aplicações como jogos, simulações de engenharia e negociação de alta frequência (HFT) requerem baixa latência e tarefas que se completam rapidamente. Para cenários de computação de alto desempenho (HPC), como estes, considere usar [grupos de colocação](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups) de proximidade para as piscinas de nó do seu cluster.
+Ao implementar a sua aplicação no Azure, espalhar instâncias da Máquina Virtual (VM) em regiões ou zonas de disponibilidade cria latência de rede, o que pode afetar o desempenho global da sua aplicação. Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos de computação Azure estão fisicamente localizados perto uns dos outros. Algumas aplicações como jogos, simulações de engenharia e negociação de alta frequência (HFT) requerem baixa latência e tarefas que se completam rapidamente. Para cenários de computação de alto desempenho (HPC), como estes, considere usar [grupos de colocação](../virtual-machines/linux/co-location.md#proximity-placement-groups) de proximidade para as piscinas de nó do seu cluster.
 
 ## <a name="limitations"></a>Limitações
 
@@ -157,7 +157,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: /virtual-machines/windows/co-location.md#proximity-placement-groups/virtual-machines/linux/co-location
+[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add

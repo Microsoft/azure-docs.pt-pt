@@ -1,24 +1,14 @@
 ---
 title: Criar horários para laboratórios de sala de aula nos Serviços Azure Lab Microsoft Docs
 description: Aprenda a criar horários para laboratórios de sala de aula em Azure Lab Services para que os VMs nos laboratórios comecem e fechem numa hora especificada.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
-ms.author: spelluru
-ms.openlocfilehash: 68d608471b347895a170cc6cf83dfb4180c0a488
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895928"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445785"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerir horários para laboratórios de sala de aula em Azure Lab Services 
 Os horários permitem-lhe configurar um laboratório de sala de aula de tal forma que os VMs no laboratório comecem e desliguem automaticamente numa hora especificada. Pode definir um horário único ou um horário recorrente. Os seguintes procedimentos dão-lhe passos para criar e gerir horários para um laboratório de sala de aula: 

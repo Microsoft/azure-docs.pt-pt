@@ -1,23 +1,14 @@
 ---
 title: Falhas no VM e no ambiente da Azure DevTest
 description: Saiba como resolver falhas de máquina virtual (VM) e de criação de ambiente em Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 155a359608cf6d846578306545f5ce0b4003949c
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b7d3f3ad34d8a5bb48607816623c67121d21d78c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895333"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476483"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Falhas na criação de máquinas virtuais (VM) e de criação de ambiente em Azure DevTest Labs
 A DevTest Labs dá-lhe avisos se um nome de máquina é inválido ou se está prestes a violar uma política de laboratório. Às vezes, vês vermelho `X` ao lado do teu VM de laboratório ou estado ambiental que te informa que alguma coisa correu mal.  Este artigo fornece alguns truques que pode usar para encontrar a questão subjacente e, espero, evitar a questão no futuro.

@@ -1,19 +1,19 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f66bb1c271418b02c2548de486793b4474f40c8b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337394"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448744"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:
 
@@ -26,10 +26,10 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
 
 |Regiões  |Número de zonas de disponibilidade que suportam discos ultra  |
 |---------|---------|
-|US Gov - Virginia     |Nenhum         |
-|E.U.A. Centro-Sul     |Nenhum         |
+|US Gov - Virginia     |Nenhuma         |
+|E.U.A. Centro-Sul     |Nenhuma         |
 |E.U.A. Central     |Três zonas         |
-|E.U.A. Oeste     |Nenhum         |
+|E.U.A. Oeste     |Nenhuma         |
 |E.U.A.Oeste 2    |Três zonas         |
 |E.U.A. Leste     |Três zonas         |
 |E.U.A. Leste 2     |Duas zonas         |
@@ -38,6 +38,7 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
 |Europa Ocidental     |Três zonas          |
 |Sul do Reino Unido     |Três zonas          |
 |Leste do Japão     |Duas zonas         |
+|França Central    |Duas zonas        |
 
 
 - São suportados apenas nas seguintes séries VM:

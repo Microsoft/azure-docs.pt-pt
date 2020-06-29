@@ -4,12 +4,12 @@ ms.author: miparker
 ms.date: 06/02/2020
 ms.service: notification-hubs
 ms.topic: include
-ms.openlocfilehash: c919cfce3d868a81f28eb8172314e9639387e933
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: de961aa36d690cf03e42707758bc70e5495f692e
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112064"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448726"
 ---
 ### <a name="validate-package-name-and-permissions"></a>Validar o nome e permissões do pacote
 
@@ -79,6 +79,9 @@ ms.locfileid: "85112064"
             {
                 if (!NotificationsSupported)
                     throw new Exception(GetPlayServicesError());
+
+                if (string.isNullOrWhitespace(Token))
+                    throw new Exception("Unable to resolve token for FCM");
 
                 var installation = new DeviceInstallation
                 {
@@ -238,7 +241,7 @@ ms.locfileid: "85112064"
     }
     ```
 
-1. Substitua o método **OnNewIntent** para ligar para o método **CheckIntentForNotificationActions.**
+1. Substitua o método **OnNewIntent** para chamar o método **ProcessNotificationActions.**
 
     ```csharp
     protected override void OnNewIntent(Intent intent)

@@ -1,24 +1,14 @@
 ---
 title: Use o dashboard para um laboratório de sala de aula nos Serviços de Laboratório Azure Microsoft Docs
 description: Aprenda a usar o dashboard para um laboratório de sala de aula nos Serviços de Laboratório Azure.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
-ms.author: spelluru
-ms.openlocfilehash: 7a4c4adcd83e4a4781767cd3c34216dca2b4d510
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897997"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444323"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Painel para laboratórios de sala de aula
 Este artigo descreve a visão do painel de um laboratório de sala de aula nos Serviços do Laboratório Azure. 

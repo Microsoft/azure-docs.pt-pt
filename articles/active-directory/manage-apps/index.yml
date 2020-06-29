@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação da gestão de aplicações
-summary: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Office 365 e milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
+summary: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Microsoft 365 e a milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
 metadata:
   title: Documentação da gestão de aplicações
-  description: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Office 365 e milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
+  description: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Microsoft 365 e a milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77063477"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339205"
 landingContent:
 - title: Sobre a gestão de aplicações
   linkLists:

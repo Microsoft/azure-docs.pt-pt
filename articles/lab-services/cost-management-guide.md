@@ -1,18 +1,16 @@
 ---
 title: Guia de gestão de custos para serviços do Azure Lab
 description: Entenda as diferentes formas de ver os custos dos Serviços de Laboratório.
-services: lab-services
 author: rbest
 ms.author: rbest
-ms.date: 05/09/2020
+ms.date: 06/26/2020
 ms.topic: article
-ms.service: lab-services
-ms.openlocfilehash: b71ccd55407f24fe672bc3a977a91bf1315e831f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: fbbaf4a3646260fc09467e214b82fd0213415635
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897377"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445309"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gestão de custos para serviços do Azure Lab
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143273"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412588"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3.x da API text Analytics
 
@@ -44,7 +44,7 @@ Se a sua aplicação utilizar a API REST, atualize o seu ponto final de pedido p
 ## <a name="feature-changes"></a>Alterações de recursos
 
 > [!NOTE] 
-> Atualmente, [as categorias de entidades V3](named-entity-types.md) só são devolvidas em texto inglês. A API devolve os resultados da versão 2.1 para pedidos noutros idiomas, desde que sejam suportados na versão 2.1.
+> Atualmente, [as categorias de entidades V3](named-entity-types.md) só são devolvidas em texto inglês e espanhol. A API devolve os resultados da versão 2.1 para pedidos noutros idiomas, desde que sejam suportados na versão 2.1.
 
 Na versão 2.1, a API text Analytics utiliza um ponto final para reconhecimento de entidades nomeadas (NER) e ligação de entidades. A versão 3 fornece deteção de entidades nomeadas expandidas e utiliza pontos finais separados para NER e entidade que ligam pedidos. A partir de v3.1-preview.1, NER pode ainda detetar informações pessoais `pii` e de `phi` saúde. 
 
@@ -103,9 +103,9 @@ Se a sua aplicação utilizar a API REST, atualize o ponto final do pedido para 
 ---
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Referência V2 da API analítica de texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [O que é a API de Análise de Texto](overview.md)
 * [Suporte de idiomas](language-support.md)
-* [Versão do modelo](concepts/model-versioning.md)
+* [Controlo de versões de modelos](concepts/model-versioning.md)

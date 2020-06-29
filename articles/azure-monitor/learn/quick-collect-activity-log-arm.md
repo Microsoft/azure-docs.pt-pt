@@ -1,0 +1,287 @@
+---
+title: Envie o registo de atividade do Azure para log analytics espaço de trabalho usando o modelo de Gestor de Recursos Azure
+description: Utilize modelos ARM para criar um espaço de trabalho log analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure.
+ms.subservice: logs
+ms.topic: quickstart
+author: bwren
+ms.author: bwren
+ms.date: 06/25/2020
+ms.openlocfilehash: b4b8bb991685ce13be89eff26a4442f32cde7206
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85446408"
+---
+# <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-resource-manager-template"></a>Envie o registo de atividade do Azure para log analytics espaço de trabalho usando o modelo de Gestor de Recursos Azure
+O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar modelos ARM para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md) 
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
+
+### <a name="review-the-template"></a>Rever o modelo
+O modelo a seguir cria um espaço de trabalho vazio do Log Analytics. Guarde este modelo como *CreateWorkspace.js.*
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "workspaceName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the workspace."
+          }
+      },
+      "sku": {
+          "type": "string",
+          "allowedValues": [
+            "pergb2018",
+            "Free",
+            "Standalone",
+            "PerNode",
+            "Standard",
+            "Premium"
+            ],
+          "defaultValue": "pergb2018",
+          "metadata": {
+          "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+          }
+        },
+        "location": {
+          "type": "string",
+          "allowedValues": [
+          "australiacentral", 
+          "australiaeast", 
+          "australiasoutheast", 
+          "brazilsouth",
+          "canadacentral", 
+          "centralindia", 
+          "centralus", 
+          "eastasia", 
+          "eastus", 
+          "eastus2", 
+          "francecentral", 
+          "japaneast", 
+          "koreacentral", 
+          "northcentralus", 
+          "northeurope", 
+          "southafricanorth", 
+          "southcentralus", 
+          "southeastasia",
+          "switzerlandnorth",
+          "switzerlandwest",
+          "uksouth", 
+          "ukwest", 
+          "westcentralus", 
+          "westeurope", 
+          "westus", 
+          "westus2" 
+          ],
+          "metadata": {
+              "description": "Specifies the location for the workspace."
+              }
+        },
+        "retentionInDays": {
+          "type": "int",
+          "defaultValue": 120,
+          "metadata": {
+            "description": "Number of days to retain data."
+          }
+        },
+        "resourcePermissions": {
+          "type": "bool",
+          "defaultValue": true,
+          "metadata": {
+            "description": "true to use resource or workspace permissions. false to require workspace permissions."
+          }
+        }
+      },
+      "resources": [
+      {
+          "type": "Microsoft.OperationalInsights/workspaces",
+          "name": "[parameters('workspaceName')]",
+          "apiVersion": "2020-03-01-preview",
+          "location": "[parameters('location')]",
+          "properties": {
+              "sku": {
+                  "name": "[parameters('sku')]"
+              },
+              "retentionInDays": "[parameters('retentionInDays')]",
+              "features": {
+                  "searchVersion": 1,
+                  "legacy": 0,
+                  "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+              }
+          }
+      }
+  ]
+}
+```
+
+### <a name="deploy-the-template"></a>Implementar o modelo
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](/azure-resource-manager/templates/deploy-portal) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+
+# <a name="cli"></a>[CLI](#tab/CLI1)
+
+```azurecli
+az login
+az deployment group create \
+    --name CreateWorkspace \
+    --resource-group my-resource-group \
+    --template-file CreateWorkspace.json \
+    --parameters workspaceName='my-workspace-01' location='eastus'
+
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName my-subscription
+New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile CreateWorkspace.json -workspaceName my-workspace-01 -location eastus
+```
+
+---
+
+### <a name="verify-the-deployment"></a>Verificar a implementação
+Verifique se o espaço de trabalho foi criado utilizando um dos seguintes comandos. Substitua os valores da amostra **do Grupo de Recursos** e do espaço de **trabalhoName** pelos valores acima utilizados.
+
+# <a name="cli"></a>[CLI](#tab/CLI2)
+
+```azurecli
+az monitor log-analytics workspace show --resource-group my-workspace-01 --workspace-name my-resource-group
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
+
+```powershell
+Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-resource-group
+```
+
+---
+
+## <a name="create-diagnostic-setting"></a>Criar definição de diagnóstico
+O modelo a seguir cria uma definição de diagnóstico que envia o registo de Atividade para um espaço de trabalho Log Analytics. Guarde este modelo como *CreateDiagnosticSetting.js.*
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "settingName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+          "type": "Microsoft.Insights/diagnosticSettings",
+          "apiVersion": "2017-05-01-preview",
+          "name": "[parameters('settingName')]",
+          "dependsOn": [],
+          "properties": {
+            "workspaceId": "[parameters('workspaceId')]",
+            "logs": [
+              {
+                "category": "Administrative",
+                "enabled": true
+              },
+              {
+                "category": "Alert",
+                "enabled": true
+              },
+              {
+                "category": "Autoscale",
+                "enabled": true
+              },
+              {
+                "category": "Policy",
+                "enabled": true
+              },
+              {
+                "category": "Recommendation",
+                "enabled": true
+              },
+              {
+                "category": "ResourceHealth",
+                "enabled": true
+              },
+              {
+                "category": "Security",
+                "enabled": true
+              },
+              {
+                "category": "ServiceHealth",
+                "enabled": true
+              }
+            ]
+          }
+        }
+    ]
+}
+```
+
+### <a name="deploy-the-template"></a>Implementar o modelo
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](/azure-resource-manager/templates/deploy-portal) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+
+# <a name="cli"></a>[CLI](#tab/CLI3)
+
+```azurecli
+az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
+
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell3)
+
+```powershell
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+```
+---
+
+### <a name="verify-the-deployment"></a>Verificar a implementação
+Verifique se a definição de diagnóstico foi criada utilizando um dos seguintes comandos. Substitua os valores da amostra para a subscrição e o nome de definição pelos valores acima utilizados.
+
+> [!NOTE]
+> Atualmente, não é possível obter definições de diagnóstico de nível de subscrição utilizando o PowerShell.
+
+```azurecli
+az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-0000-0000-000000000000' --name 'Send Activity log to workspace'
+```
+
+
+
+## <a name="generate-log-data"></a>Gerar dados de registo
+Apenas novas entradas de registo de atividade serão enviadas para o espaço de trabalho Log Analytics, por isso execute algumas ações na sua subscrição que serão registadas, como iniciar ou parar uma máquina virtual ou criar ou modificar outro recurso. Pode ter de esperar alguns minutos para que a definição de diagnóstico seja criada e que os dados sejam inicialmente escritos no espaço de trabalho. Após este atraso, todos os eventos escritos no registo de atividade serão enviados para o espaço de trabalho dentro de alguns segundos.
+
+## <a name="retrieve-data-with-a-log-query"></a>Recuperar dados com uma consulta de registo
+Utilize o portal Azure para utilizar o Log Analytics para obter dados do espaço de trabalho. No portal Azure, procure e, em seguida, selecione **Monitor**. 
+
+![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
+
+Selecione **Registos** no menu **Azure Monitor.** Feche a página **de consultas Exemplo.** Se o âmbito não estiver definido para o espaço de trabalho que criou, clique em **Selecionar o âmbito** e localizá-lo.
+
+![Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
+
+Na janela de consulta, `AzureActivity` escreva e clique em **Executar**. Esta é uma consulta simples que devolve todos os registos na tabela *AzureActivity,* que contém todos os registos enviados a partir do registo de Atividade.
+
+![Consulta simples](media/quick-collect-activity-log/query-01.png)
+
+Expandir um dos registos para ver as suas propriedades detalhadas.
+
+![Expandir propriedades](media/quick-collect-activity-log/expand-properties.png)
+
+Experimente uma consulta mais complexa, como `AzureActivity | summarize count() by CategoryValue` a que dá uma contagem de eventos resumidos por categoria.
+
+![Consulta complexa](media/quick-collect-activity-log/query-02.png)
+
+
+## <a name="next-steps"></a>Passos seguintes
+Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../platform/alerts-log-query.md) de registo e livros de [trabalho.](../platform/workbooks-overview.md) Em seguida, deverá recolher [registos](../platform/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
+
+
+> [!div class="nextstepaction"]
+> [Recolher e analisar registos de recursos com o Azure Monitor](tutorial-resource-logs.md)

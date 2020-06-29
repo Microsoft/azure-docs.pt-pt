@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/20/2020
-  ms.openlocfilehash: 4d7c02891330699978134dbb4d53faef0f16b1e9
-  ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+  ms.date: 06/16/2020
+  ms.openlocfilehash: d3a25af9f7d8e16fbb008fd84aff6e29c57680da
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84204825"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85321956"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -129,9 +129,9 @@ landingContent:
       url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - text: SDK do Azure para .NET (Definições de Política)
       url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-    - text: SDK do Azure para Node (Política)
+    - text: SDK do Azure para JavaScript (Política)
       url: /javascript/api/@azure/arm-policy
-    - text: SDK do Azure para Node (Informações de Política)
+    - text: SDK do Azure para JavaScript (Informações de Política)
       url: /javascript/api/@azure/arm-policyinsights
     - text: SDK do Azure para Python (Política)
       url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy

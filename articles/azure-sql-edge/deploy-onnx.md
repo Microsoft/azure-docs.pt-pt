@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: d2ca4cf57cf9e59477688c8e18cf38d734930082
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: b5cd655aaf9992c6908a7f9287f691fd36d84871
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368095"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476738"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Implementar e fazer previsões com um modelo ONNX em Azure SQL Edge (Pré-visualização)
 
@@ -380,7 +380,7 @@ AS (
         , PTRATIO
         , B
         , LSTAT
-    FROM [onnx].[dbo].[features]
+    FROM [dbo].[features]
     )
 SELECT predict_input.id
     , p.variable1 AS MEDV

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/04/2020
 ms.author: mlearned
-ms.openlocfilehash: 1a5069259e631d1cc33aeebc56164d8407b9ca6c
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 5854f512eb5a85430fbf95499274187a6d66016c
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413591"
+ms.locfileid: "85445275"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -66,7 +66,7 @@ az group create --name myResourceGroup --location westus2
 Em seguida, criar um cluster AKS:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n MyManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
 Uma criação de cluster bem sucedida usando identidades geridas contém esta informação de perfil principal do serviço:
@@ -75,6 +75,22 @@ Uma criação de cluster bem sucedida usando identidades geridas contém esta in
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
+```
+
+Utilize o seguinte comando para consultar a identidade gerida do seu plano de controlo:
+
+```azurecli-interactive
+az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+```
+
+O resultado deve parecer:
+
+```json
+{
+  "principalId": "<object_id>",   
+  "tenantId": "<tenant_id>",      
+  "type": "SystemAssigned"                                 
+}
 ```
 
 > [!NOTE]

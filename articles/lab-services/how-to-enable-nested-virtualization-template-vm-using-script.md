@@ -1,24 +1,14 @@
 ---
 title: Ativar a virtualização aninhada num modelo VM em Azure Lab Services (Script) Microsoft Docs
 description: Aprenda a criar um VM modelo com vários VMs no interior.  Por outras palavras, ative a virtualização aninhada num modelo VM em Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: spelluru
-ms.openlocfilehash: 95b6407463cb0ab4eb436044cc68d8e35bd0b746
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: a45257dffffc98c3f650c5b1753158edd9bfbede
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895921"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445751"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Ativar a virtualização aninhada em uma máquina virtual de modelo em Azure Lab Services usando um script
 

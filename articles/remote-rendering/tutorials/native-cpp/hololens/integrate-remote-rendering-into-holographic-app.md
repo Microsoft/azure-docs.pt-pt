@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 75f041d8ec149c67c82744a87e0812b19a22bcb1
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: fff032d37fa0746695736e0dbdde73c6bcaade4b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508527"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445683"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integrar renderização remota numa app holográfica HoloLens
 
@@ -147,7 +147,6 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
     // 1. One time initialization
     {
         RR::RemoteRenderingInitialization clientInit;
-        memset(&clientInit, 0, sizeof(RR::RemoteRenderingInitialization));
         clientInit.connectionType = RR::ConnectionType::General;
         clientInit.graphicsApi = RR::GraphicsApiType::WmrD3D11;
         clientInit.toolId = "<sample name goes here>"; // <put your sample name here>
@@ -155,7 +154,11 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         clientInit.forward = RR::Axis::Z_Neg;
         clientInit.right = RR::Axis::X;
         clientInit.up = RR::Axis::Y;
-        RR::StartupRemoteRendering(clientInit);
+        if (RR::StartupRemoteRendering(clientInit) != RR::Result::Success)
+        {
+            // something fundamental went wrong with the initialization
+            throw std::exception("Failed to start remote rendering. Invalid client init data.");
+        }
     }
 
 
@@ -191,7 +194,6 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         {
             // create a new session
             RR::RenderingSessionCreationParams init;
-            memset(&init, 0, sizeof(RR::RenderingSessionCreationParams));
             init.MaxLease.minute = 10; // session is leased for 10 minutes
             init.Size = RR::RenderingSessionVmSize::Standard;
             auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);

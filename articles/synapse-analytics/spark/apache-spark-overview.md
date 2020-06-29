@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 1f1a83bce3a8b46bb49bf78917690851390408e0
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194693"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476789"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark em Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark fornece primitivos para a computação de cluster in-memory. Os tra
 
 As piscinas spark em Azure Synapse oferecem um serviço Spark totalmente gerido. Os benefícios de criar uma piscina spark em Synapse Analytics estão listados aqui.
 
-| Funcionalidade | Description |
+| Funcionalidade | Descrição |
 | --- | --- |
 | Rapidez e eficiência |As ocorrências de faíscas começam em aproximadamente 2 minutos por menos de 60 nós e aproximadamente 5 minutos para mais de 60 nós. O caso encerra, por defeito, 5 minutos após o último trabalho executado, a menos que seja mantido vivo por uma ligação de caderno. |
 | Facilidade de criação |Pode criar uma nova piscina Spark em Azure Synapse em minutos utilizando o portal Azure PowerShell ou o Synapse Analytics .NET SDK. Ver [Começar com piscinas Spark no Synapse Analytics.](../quickstart-create-apache-spark-pool-studio.md) |
@@ -60,7 +60,7 @@ O SparkContext pode ligar-se ao gestor do cluster, que aloca recursos através d
 
 O SparkContext executa a função principal do utilizador e executa as várias operações paralelas nos nós. Em seguida, recolhe os resultados das operações. Os nós lêem e escrevem dados de e para o sistema de ficheiros. Os nóns também cache transformaram dados na memória como Conjuntos de Dados Distribuídos Resilientes (RDDs).
 
-O SparkContext liga-se à piscina Spark e é responsável pela conversão de uma aplicação num gráfico direcionado (DAG). O gráfico consiste em tarefas individuais que são executadas dentro de um processo de executor nos nós. Cada aplicação tem os seus próprios processos de executor, que permanecem em funcionamento ao longo da duração de toda a aplicação e executam tarefas em múltiplos threads.
+O SparkContext liga-se à piscina Spark e é responsável pela conversão de uma aplicação num gráfico acíclico direcionado (DAG). O gráfico consiste em tarefas individuais que são executadas dentro de um processo de executor nos nós. Cada aplicação tem os seus próprios processos de executor, que permanecem em funcionamento ao longo da duração de toda a aplicação e executam tarefas em múltiplos threads.
 
 ## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark in Synapse Analytics usa casos
 
