@@ -12,6 +12,12 @@
   items:
     - name: Monitorizar o recurso do Azure
       href: learn/quick-monitor-azure-resource.md
+    - name: Enviar o Registo de atividades para uma área de trabalho
+      items:
+        - name: Portal do Azure
+          href: learn/quick-collect-activity-log-portal.md
+        - name: Modelo ARM
+          href: learn/quick-collect-activity-log-arm.md
     - name: Monitorizar máquinas virtuais
       items:
         - name: VMs do Azure
@@ -455,7 +461,7 @@
             - name: Ações do webhook
               href: platform/alerts-log-webhook.md
             - name: Resolver problemas de alertas de registos
-              href: platform/alert-log-troubleshoot.md
+              href: platform/alerts-troubleshoot-log.md
         - name: Regras de alerta de registo de atividade
           items:
             - name: Alerta num evento de registo de atividades
@@ -506,6 +512,8 @@
           href: platform/api-alerts.md
         - name: Alertas de resolução de problemas
           href: platform/alerts-troubleshoot.md
+        - name: Alertas e mudanças de região
+          href: platform/alerts-resource-move.md
         - name: Gestão de Serviços de TI
           items:
             - name: Conector da Gestão de Serviços de TI
@@ -555,12 +563,12 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
+            - name: Consola ASP.NET
+              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+              href: app/console.md
             - name: Aplicações não HTTP/Aplicações de fundo
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: Consola .NET
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
             - name: Java
               items:
                 - name: Web Apps
