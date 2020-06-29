@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 1720ea31c8f0b15485df194e62e463671d092b26
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 7101d23d4611f4eea9b5a9e2a7f3ba417c9fcb1a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310857"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476126"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -25,7 +25,7 @@ Pode adicionar APIs sem servidor a Azure Static Web Apps através da integraçã
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Extensão de funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código do Estúdio Visual
 - [Extensão do Código do Estúdio Visual do Servidor Ao Vivo.](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-- [Node.js](https://nodejs.org/download/) para executar a app API localmente
+- [Node.js](https://nodejs.org/download/) executar a app API localmente
 
 ## <a name="create-a-git-repository"></a>Criar um repositório de git
 
@@ -178,7 +178,7 @@ Quando implementados para o Azure, os pedidos à API são automaticamente encami
    <body>
      <main>
        <h1>Vanilla JavaScript App</h1>
-       <p>Loading message from the API: <b id="name">...</b></p>
+       <p>Loading content from the API: <b id="name">...</b></p>
      </main>
 
      <script>

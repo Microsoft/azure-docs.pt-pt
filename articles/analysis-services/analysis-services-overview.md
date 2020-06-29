@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 06/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0fb0e9e2611ed882bffa1df62adeb617e7211354
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 58ef7704cda88caebcbe49cf75e9a7fc9ecaebdc
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191975"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413622"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -65,14 +65,13 @@ Este escalão destina-se a aplicações de produção críticas para o negócio,
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
-|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
-|S8v2 <sup> [1](#depr)</sup>   |    640     |    200     |
-|S9v2 <sup> [1](#depr)</sup>    |    1280    |    400     |
+|S8 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>   |    320    |    200     |
+|S9 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup> [1](#naar)</sup>   |    640     |    200     |
+|S9v2 <sup> [1](#naar)</sup>    |    1280    |    400     |
 
-<a name="depr">1</a> - Não disponível em todas as regiões.   
-<a name="rec">2</a> - Este plano é precedido. v2 é recomendado.
-
+<a name="naar">1</a> - Não disponível em todas as regiões.   
+<a name="rec">2</a> - v2 é recomendado.
 
 ## <a name="availability-by-region"></a>Armazenamento por região
 
@@ -86,15 +85,15 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |E.U.A. Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|E.U.A. Leste 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2   |    1    |
+|E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|E.U.A. Oeste     |    S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2   |    2  |
+|E.U.A. Oeste     |    S8, S9, S8v2, S9v2   |    2  |
 |E.U.A. Oeste 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|E.U.A. Oeste 2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2  |    1     |
+|E.U.A. Oeste 2    |    S8, S9, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -104,17 +103,17 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Europa do Norte     |    S8v2, S9v2      |    3     |
 |Sul do Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa Ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa Ocidental    |   S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2  |  1  |
+|Europa Ocidental    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Ásia-Pacífico 
 
 |Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Leste da Austrália     |    S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2    |    1     |
+|Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
 |Austrália Sudeste     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Ásia Sudeste     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2, D1     |   1      |
+|Ásia Sudeste     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades

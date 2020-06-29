@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 5ab0b9abd32ef2e5eb7ea02d6118e387ef753348
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609320"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414368"
 ---
 Para criar um projeto de Estúdio Visual para o desenvolvimento da Universal Windows Platform (UWP), é necessário configurar opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura-alvo, configurar a captura de áudio e instalar o Speech SDK.
 
@@ -70,7 +70,7 @@ Agora selecione a arquitetura da sua plataforma alvo. Na barra de ferramentas Vi
 
 ### <a name="set-up-audio-capture"></a>Configurar a captura de áudio
 
-Em seguida, permita que o projeto capture a entrada de áudio:
+Permitir que o projeto capture a entrada de áudio:
 
 1. No **Solution Explorer,** clique duas vezes **em Package.appxmanifest** para abrir o manifesto de aplicação de pacote.
 

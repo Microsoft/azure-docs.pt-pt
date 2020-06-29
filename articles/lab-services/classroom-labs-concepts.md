@@ -1,24 +1,14 @@
 ---
 title: Conceitos de Laboratórios de Sala de Aula - Azure Lab Services / Microsoft Docs
 description: Aprenda os conceitos básicos dos Serviços de Laboratório, e como pode facilitar a criação e gestão de laboratórios.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898977"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443711"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula
 

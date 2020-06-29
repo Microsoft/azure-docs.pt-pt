@@ -1,27 +1,27 @@
 ---
-title: Quebra do Diretório Ativo Azure muda referência
-description: Conheça as alterações feitas aos protocolos DaD Azure que podem afetar a sua aplicação.
+title: Azure Ative Directory quebrando referência de alterações
+description: Saiba mais sobre as alterações feitas aos protocolos AZure AD que possam ter impacto na sua aplicação.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871531"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477248"
 ---
-# <a name="whats-new-for-authentication"></a>O que há de novo para autenticação?
+# <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação?
 
->Seja notificado sobre as atualizações para esta página. Basta adicionar [este URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) ao leitor de feed RSS.
+>Seja notificado sobre as atualizações desta página. Basta adicionar [este URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) ao seu leitor de feed RSS.
 
 O sistema de autenticação altera e adiciona funcionalidades de forma contínua para melhorar a conformidade com a segurança e as normas. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre os seguintes detalhes:
 
@@ -31,136 +31,136 @@ O sistema de autenticação altera e adiciona funcionalidades de forma contínua
 - Funcionalidade preterida
 
 > [!TIP]
-> Esta página é atualizada regularmente, por isso visite com frequência. Salvo indicação em contrário, estas alterações só são implementadas para pedidos recém-registados.
+> Esta página é atualizada regularmente, por isso visite com frequência. Salvo indicação em contrário, estas alterações só são implementadas para os novos pedidos registados.
 
 ## <a name="upcoming-changes"></a>Próximas alterações
 
-Nenhum agendado neste momento.  Veja abaixo as alterações que estão dentro ou estão a chegar à produção.
+Nenhum programado neste momento.  Veja abaixo as alterações que estão ou estão a chegar à produção.
 
-## <a name="may-2020"></a>maio de 2020
+## <a name="may-2020"></a>Maio de 2020
 
-### <a name="azure-government-endpoints-are-changing"></a>Pontos finais do Governo azure estão a mudar
+### <a name="azure-government-endpoints-are-changing"></a>Os pontos finais do Governo de Azure estão a mudar
 
-**Data de funcionação**: 5 de maio (final de junho de 2020) 
+**Data de edição**: 5 de maio (terminando junho de 2020) 
 
-**Pontos finais impactados**: Todos
+**Pontos finais impactados:** Todos os pontos
 
 **Protocolo impactado**: Todos os fluxos
 
-Em 1 de junho de 2018, a Autoridade Oficial de Diretório Ativo `https://login-us.microsoftonline.com` `https://login.microsoftonline.us`azure (AAD) para o Governo Azure passou de ... Esta alteração também se aplica à Microsoft 365 GCC High e DoD, que a Azure Government AAD também presta serviços. Se possuir uma aplicação dentro de um inquilino do Governo dos `.us` EUA, tem de atualizar a sua aplicação para iniciar sessão de utilizadores no ponto final.  
+Em 1 de junho de 2018, a Autoridade Oficial do Azure Ative Directory (AAD) para o Governo Azure passou de `https://login-us.microsoftonline.com` `https://login.microsoftonline.us` . Esta alteração também se aplicava ao Microsoft 365 GCC High e DoD, que o Azure Government AAD também presta serviços. Se possuir uma aplicação dentro de um inquilino do Governo dos EUA, deve atualizar a sua aplicação para iniciar sômsião no `.us` ponto final.  
 
-A partir de 5 de maio, a Azure AD começará a impor a mudança de ponto final, impedindo`microsoftonline.com`os utilizadores do governo de assinarem em aplicações hospedadas em inquilinos do Governo dos EUA usando o ponto final do público ( ).  As aplicações com impacto `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`começarão a ver um erro. Este erro indica que a aplicação está a tentar assinar um utilizador do Governo dos EUA no ponto final da nuvem pública. Se a sua aplicação estiver num inquilino de nuvem pública e destinar-se a apoiar os utilizadores do Governo dos EUA, terá de atualizar a [sua aplicação para os suportar explicitamente](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Isto pode exigir a criação de um novo registo de aplicações na nuvem do Governo dos EUA. 
+A partir de 5 de maio, a Azure AD começará a impor a mudança de ponto final, impedindo os utilizadores do governo de assinarem em aplicações hospedadas em inquilinos do governo dos EUA usando o ponto final público `microsoftonline.com` .  As aplicações impactadas começarão a ver um `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` erro. Este erro indica que a aplicação está a tentar assinar num utilizador do Governo dos EUA no ponto final da nuvem pública. Se a sua aplicação estiver num inquilino de nuvem pública e tiver a intenção de apoiar utilizadores do Governo dos EUA, terá de [atualizar a sua app para as suportar explicitamente.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) Isto pode exigir a criação de um novo registo de aplicações na nuvem do Governo dos EUA. 
 
-A aplicação desta alteração será feita utilizando um lançamento gradual com base na frequência com que os utilizadores do Governo dos EUA assinam a aplicação - as aplicações que assinam em utilizadores do Governo dos EUA raramente verão a aplicação da lei em primeiro lugar, e as aplicações frequentemente utilizadas pelos utilizadores do Governo dos EUA serão as últimas a aplicar a aplicação da lei. Esperamos que a aplicação seja completa em todas as aplicações em junho de 2020. 
+A aplicação desta mudança será feita utilizando um lançamento gradual baseado na frequência com que os utilizadores do Governo dos EUA assinam a sua assinatura na aplicação - as aplicações que assinam no Governo dos EUA raramente verão a aplicação em primeiro lugar, e as aplicações frequentemente utilizadas pelos utilizadores do Governo dos EUA serão as últimas a ter aplicação da aplicação. Esperamos que a aplicação esteja concluída em todas as aplicações em junho de 2020. 
 
-Para mais detalhes, consulte o post do [governo azure sobre esta migração.](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) 
+Para mais detalhes, consulte o post de blog do [Governo Azure sobre esta migração.](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) 
 
 ## <a name="march-2020"></a>Março de 2020
 
-### <a name="user-passwords-will-be-restricted-to-256-characters"></a>As palavras-passe dos utilizadores serão restritas a 256 caracteres.
+### <a name="user-passwords-will-be-restricted-to-256-characters"></a>As palavras-passe do utilizador serão limitadas a 256 caracteres.
 
-**Data de funcionação**: 13 de março de 2020
+**Data efetiva**: 13 de março de 2020
 
-**Pontos finais impactados**: Todos
+**Pontos finais impactados:** Todos os pontos
 
 **Protocolo impactado**: Todos os fluxos de utilizador.
 
-Os utilizadores com senhas superiores a 256 caracteres que acedam diretamente ao Azure AD (em oposição a um IDP federado como o ADFS) não poderão assinar a partir de 13 de março de 2020, e serão convidados a redefinir a sua palavra-passe em vez disso.  Os administradores podem receber pedidos para ajudar a redefinir a palavra-passe dos utilizadores.
+Os utilizadores com senhas superiores a 256 caracteres que assinem diretamente com a AZure AD (em oposição a um IDP federado como o ADFS) não poderão assinar a partir de 13 de março de 2020 e ser-lhes-á pedido que repor a sua palavra-passe.  Os administradores podem receber pedidos para ajudar a redefinir a palavra-passe dos utilizadores.
 
-O erro no registo será AADSTS 50052: InvalidPasswordExceedsMaxLength
+O erro no sinal nos registos será AADSTS 50052: InvalidPasswordExceedsMaxLength
 
 Mensagem:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-Reparação:
+Remediação:
 
-O utilizador não pode fazer login porque a sua palavra-passe excede o comprimento máximo permitido. Devem contactar o administrador para redefinir a senha. Se o SSPR estiver ativado para o seu inquilino, podem redefinir a sua palavra-passe seguindo o link "Esqueci-me da palavra-passe".
+O utilizador não consegue iniciar sessão porque a sua palavra-passe excede o comprimento máximo permitido. Devem contactar o administrador para redefinir a senha. Se a SSPR estiver ativada para o seu inquilino, podem redefinir a sua palavra-passe seguindo o link "Esqueci-me da sua palavra-passe".
 
 
 
 ## <a name="february-2020"></a>Fevereiro de 2020
 
-### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Fragmentos vazios serão anexados a cada redirecionamento HTTP a partir do ponto final de login.
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Os fragmentos vazios serão anexados a todos os redirecionamentos HTTP do ponto final de início de sessão.
 
-**Data de funcionação**: 8 de fevereiro de 2020
+**Data efetiva**: 8 de fevereiro de 2020
 
 **Pontos finais impactados**: V1.0 e v2.0
 
-**Protocolo impactado**: Os fluxos OAuth e OIDC que utilizam response_type=consulta - isto cobre o fluxo do código de [autorização](v2-oauth2-auth-code-flow.md) em alguns casos, e o [fluxo implícito](v2-oauth2-implicit-grant-flow.md).
+**Protocolo impactado**: Fluxos Oauth e OIDC que utilizam response_type=consulta - isto abrange o fluxo do código de [autorização](v2-oauth2-auth-code-flow.md) em alguns casos, e o [fluxo implícito](v2-oauth2-implicit-grant-flow.md).
 
-Quando uma resposta de autenticação for enviada de login.microsoftonline.com para uma aplicação através de redirecionamento HTTP, o serviço anexará um fragmento vazio ao URL de resposta.  Isto impede uma classe de ataques redirecionados, garantindo que o navegador elimina qualquer fragmento existente no pedido de autenticação.  Nenhuma aplicação deve ter uma dependência deste comportamento.
+Quando uma resposta de autenticação é enviada de login.microsoftonline.com para uma aplicação através de redirecionamento HTTP, o serviço anexará um fragmento vazio ao URL de resposta.  Isto impede uma classe de ataques de redirecionamento, garantindo que o navegador elimina qualquer fragmento existente no pedido de autenticação.  Nenhuma aplicação deve ter uma dependência deste comportamento.
 
 
 ## <a name="august-2019"></a>Agosto de 2019
 
-### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Semântica de formulário post será aplicada mais estritamente - espaços e citações serão ignorados
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Semântica de formulário post será aplicada mais rigorosamente - espaços e citações serão ignorados
 
-**Data de funcionação**: 2 de setembro de 2019
+**Data efetiva**: 2 de setembro de 2019
 
 **Pontos finais impactados**: V1.0 e v2.0
 
-**Protocolo impactado**: Em qualquer lugar o POST é usado ([credenciais de cliente,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)resgate de [código de autorização,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) [ROPC,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) [OBO,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e [refrescamento de resgate simbólico](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protocolo impactado**: Qualquer posto de correio é utilizado[(credenciais de cliente,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) [resgate de código de autorização,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) [ROPC,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) [OBO,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e [resgate de fichas de atualização)](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)
 
-A partir da semana de 9/2, os pedidos de autenticação que utilizem o método POST serão validados utilizando normas HTTP mais rigorosas.  Especificamente, os espaços e as pasções duplas (") deixarão de ser removidos dos valores do formulário de pedido. Estas alterações não deverão quebrar quaisquer clientes existentes, e garantirão que os pedidos enviados para a Azure AD sejam tratados de forma fiável cada vez. No futuro (ver acima) planeamos rejeitar adicionalmente os parâmetros duplicados e ignorar o BOM dentro dos pedidos.
+A partir da semana de 9/2, os pedidos de autenticação que utilizem o método POST serão validados com normas HTTP mais rigorosas.  Especificamente, os espaços e as cotações duplas (") deixarão de ser removidos dos valores do formulário de pedido. Não se espera que estas alterações quebrem os clientes existentes, e garantirão que os pedidos enviados para a Azure AD são manuseados de forma fiável todas as vezes. No futuro (ver acima) planeamos rejeitar adicionalmente duplicar parâmetros e ignorar o BOM dentro dos pedidos.
 
 Exemplo:
 
-Hoje, `?e=    "f"&g=h` é analisado da `?e=f&g=h` mesma forma `e`  ==  `f`que - assim .  Com esta alteração, seria agora analisado de `e`  ==  `    "f"` modo a que - é pouco provável que este seja um argumento válido, e o pedido agora falharia.
+Hoje, `?e=    "f"&g=h` é analisado de forma idêntica como - assim `?e=f&g=h` `e`  ==  `f` .  Com esta alteração, seria agora analisado de modo a que `e`  ==  `    "f"` - este é improvável que seja um argumento válido, e o pedido iria agora falhar.
 
 
 ## <a name="july-2019"></a>Julho de 2019
 
-### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Tokens apenas para aplicações de inquilino único só são emitidos se a aplicação do cliente existir no inquilino de recursos
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Os tokens apenas para aplicações de inquilino único só são emitidos se a app do cliente existir no inquilino de recursos
 
-**Data de funcionação**: 26 de julho de 2019
+**Data de efetivo**: 26 de julho de 2019
 
 **Pontos finais impactados**: [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
-**Protocolo impactado**: [Credenciais de cliente (fichas apenas de aplicações)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocolo impactado**: [Credenciais de Cliente (fichas só para aplicações)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Uma mudança de segurança foi transmitida em direto a 26 de julho que altera a forma como são emitidas fichas apenas de aplicações (através da concessão de credenciais de cliente). Anteriormente, as aplicações eram autorizadas a obter fichas para ligar para qualquer outra app, independentemente da presença no inquilino ou funções consentidos para essa aplicação.  Este comportamento foi atualizado de modo que para os recursos (por vezes chamados APIs web) definidos como um único inquilino (o padrão), a aplicação do cliente deve existir dentro do inquilino de recursos.  Note que o consentimento existente entre o cliente e a API ainda não é necessário, `roles` e as aplicações devem ainda estar a fazer os seus próprios controlos de autorização para garantir que uma reclamação está presente e contém o valor esperado para a API.
+Uma mudança de segurança entrou em direto a 26 de julho que altera a forma como são emitidas fichas só de aplicações (através da concessão de credenciais de cliente). Anteriormente, as aplicações eram autorizadas a obter fichas para ligar para qualquer outra app, independentemente da presença no arrendatário ou funções consentidas para essa aplicação.  Este comportamento foi atualizado de modo que para os recursos (por vezes chamados APIs web) definidos para ser um único inquilino (o padrão), a aplicação do cliente deve existir dentro do inquilino de recursos.  Note que o consentimento existente entre o cliente e a API ainda não é necessário, e as aplicações devem ainda estar a fazer os seus próprios controlos de autorização para garantir que uma `roles` reclamação está presente e contém o valor esperado para a API.
 
 A mensagem de erro para este cenário indica atualmente:
 
 `The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
 
-Para resolver este problema, utilize a experiência Admin Consent para criar o principal do serviço de aplicação do cliente no seu inquilino, ou criá-lo manualmente.  Este requisito garante que o inquilino autorizou o pedido de funcionamento dentro do arrendatário.
+Para remediar este problema, utilize a experiência Admin Consent para criar o principal do serviço de aplicação do cliente no seu inquilino ou criá-lo manualmente.  Este requisito garante que o arrendatário tenha dado autorização ao pedido para operar dentro do arrendatário.
 
 #### <a name="example-request"></a>Pedido de exemplo
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`Neste exemplo, o inquilino de recursos (autoridade) é contoso.com, a `gateway.contoso.com/api` app de recursos é uma aplicação de inquilino único chamada para o inquilino Contoso, e a app do cliente é `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Se a aplicação do cliente tiver um diretor de serviço dentro Contoso.com, este pedido pode continuar.  Se não o fizer, no entanto, o pedido falhará com o erro acima.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`Neste exemplo, o inquilino de recursos (autoridade) é contoso.com, a app de recursos é uma app de inquilino único chamada `gateway.contoso.com/api` para o inquilino Contoso, e a app do cliente é `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se a aplicação do cliente tiver um principal de serviço dentro de Contoso.com, este pedido pode continuar.  No entanto, se não o fizer, o pedido falhará com o erro acima.
 
-Se a aplicação Contoso gateway fosse uma aplicação multi-inquilino, no entanto, o pedido continuaria independentemente da aplicação do cliente ter um diretor de serviço dentro de Contoso.com.
+No entanto, se a aplicação Contoso Gateway fosse uma aplicação multi-arrendatário, então o pedido continuaria independentemente da aplicação do cliente ter um principal de serviço dentro de Contoso.com.
 
-### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Redirecionamento de URIs pode agora conter parâmetros de cadeia de consulta
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Redirecionar URIs pode agora conter parâmetros de cadeia de consulta
 
-**Data de funcionação**: 22 de julho de 2019
+**Data de efetivo**: 22 de julho de 2019
 
 **Pontos finais impactados**: V1.0 e v2.0
 
 **Protocolo impactado**: Todos os fluxos
 
-Por [RFC 6749,](https://tools.ietf.org/html/rfc6749#section-3.1.2)as aplicações Azure AD podem agora registar e utilizar URIs `https://contoso.com/oauth2?idp=microsoft`redirecionais (resposta) com parâmetros de consulta estática (como) para pedidos oAuth 2.0.  As URIs de redirecionamento dinâmico continuam proibidas, uma vez que representam um risco de segurança, e isso não pode ser utilizado para reter informações estatais através de um pedido de autenticação - para isso, utilizar o `state` parâmetro.
+Por [RFC 6749,](https://tools.ietf.org/html/rfc6749#section-3.1.2)as aplicações AD do Azure podem agora registar e utilizar URIs de redirecionamento (resposta) com parâmetros de consulta estática (tais `https://contoso.com/oauth2?idp=microsoft` como) para pedidos de OAuth 2.0.  Os URIs de redirecionamento dinâmico continuam a ser proibidos, uma vez que representam um risco de segurança, o que não pode ser utilizado para reter informações estatais através de um pedido de autenticação - para isso, utilize o `state` parâmetro.
 
-O parâmetro de consulta estática está sujeito a correspondência de cordas para URIs redirecionados como qualquer outra parte do URI redirecionado - se não for registada nenhuma cadeia que corresponda ao redirect_uri descodificado pela URI, então o pedido será rejeitado.  Se o URI for encontrado no registo da aplicação, então toda a cadeia será usada para redirecionar o utilizador, incluindo o parâmetro de consulta estática.
+O parâmetro de consulta estática está sujeito a combinação de cordas para uris de redirecionamento como qualquer outra parte do URI de redirecionamento - se não for registada nenhuma cadeia que corresponda ao redirect_uri descodificado uri, então o pedido será rejeitado.  Se o URI for encontrado no registo da aplicação, então toda a cadeia será usada para redirecionar o utilizador, incluindo o parâmetro de consulta estática.
 
-Note que nesta altura (final de julho de 2019), o registo de aplicações UX no portal Azure ainda bloqueia parâmetros de consulta.  No entanto, pode editar manualmente o manifesto da aplicação para adicionar parâmetros de consulta e testá-lo na sua aplicação.
+Note-se que neste momento (final de julho de 2019), o registo de aplicações UX no portal Azure ainda bloqueia parâmetros de consulta.  No entanto, pode editar manualmente o manifesto da aplicação para adicionar parâmetros de consulta e testá-lo na sua aplicação.
 
 
 ## <a name="march-2019"></a>Março de 2019
 
-### <a name="looping-clients-will-be-interrupted"></a>Clientes em loop serão interrompidos
+### <a name="looping-clients-will-be-interrupted"></a>Os clientes em loop serão interrompidos
 
-**Data de funcionação**: 25 de março de 2019
+**Data efetiva**: 25 de março de 2019
 
 **Pontos finais impactados**: V1.0 e v2.0
 
 **Protocolo impactado**: Todos os fluxos
 
-As aplicações dos clientes podem por vezes portar-se mal, emitindo centenas do mesmo pedido de login durante um curto período de tempo.  Estes pedidos podem ou não ser bem sucedidos, mas todos contribuem para a má experiência do utilizador e para o aumento da carga horária para o IDP, aumentando a latência para todos os utilizadores e reduzindo a disponibilidade do IDP.  Estas aplicações estão a funcionar fora dos limites da utilização normal e devem ser atualizadas para se comportarem corretamente.
+As aplicações do cliente podem por vezes portar-se mal, emitindo centenas do mesmo pedido de login durante um curto período de tempo.  Estes pedidos podem ou não ser bem sucedidos, mas todos contribuem para uma má experiência do utilizador e para o aumento da carga de trabalho para o IDP, aumentando a latência para todos os utilizadores e reduzindo a disponibilidade do IDP.  Estas aplicações estão a funcionar fora dos limites de utilização normal, e devem ser atualizadas para se comportarem corretamente.
 
-Os clientes que emitirem pedidos duplicados `invalid_grant` várias vezes serão enviados um erro: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`.
+Os clientes que emitem pedidos duplicados serão enviados um `invalid_grant` erro: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` .
 
-A maioria dos clientes não precisará de mudar de comportamento para evitar este erro.  Apenas os clientes mal configurados (aqueles sem cache de fichaou ou aqueles que já exibem loops rápidos) serão impactados por este erro.  Os clientes são rastreados por exemplo localmente (via cookie) nos seguintes fatores:
+A maioria dos clientes não precisará de alterar o comportamento para evitar este erro.  Apenas os clientes mal configurados (aqueles que não têm caching simbólico ou aqueles que já exibem loops rápidos) serão impactados por este erro.  Os clientes são rastreados por instância localmente (via cookie) sobre os seguintes fatores:
 
 * Dica do utilizador, se houver
 
@@ -172,30 +172,30 @@ A maioria dos clientes não precisará de mudar de comportamento para evitar est
 
 * Tipo e modo de resposta
 
-As aplicações que fizerem vários pedidos (15+) num `invalid_grant` curto espaço de tempo (5 minutos) receberão um erro explicando que estão a fazer looping.  Os símbolos que estão a ser solicitados têm vida útil suficiente (10 minutos mínimos, 60 minutos por defeito), pelo que os pedidos repetidos durante este período são desnecessários.
+As aplicações que fizerem vários pedidos (15+) num curto espaço de tempo (5 minutos) receberão um `invalid_grant` erro explicando que estão em loop.  As fichas solicitadas têm vidas suficientemente longas (10 minutos no mínimo, 60 minutos por defeito), pelo que os pedidos repetidos ao longo deste período de tempo são desnecessários.
 
-Todas as `invalid_grant` aplicações devem manusear mostrando um pedido interativo, em vez de pedir silenciosamente um símbolo.  Para evitar este erro, os clientes devem certificar-se de que estão a cortar corretamente as fichas que recebem.
+Todas as aplicações devem ser `invalid_grant` tratadas mostrando uma solicitação interativa, em vez de solicitar silenciosamente um token.  Para evitar este erro, os clientes devem garantir que estão a caching corretamente as fichas que recebem.
 
 
 ## <a name="october-2018"></a>Outubro de 2018
 
 ### <a name="authorization-codes-can-no-longer-be-reused"></a>Os códigos de autorização já não podem ser reutilizados
 
-**Data de funcionação**: 15 de novembro de 2018
+**Data efetiva**: 15 de novembro de 2018
 
 **Pontos finais impactados**: V1.0 e v2.0
 
 **Protocolo impactado**: [Fluxo de código](v2-oauth2-auth-code-flow.md)
 
-A partir de 15 de novembro de 2018, a Azure AD deixará de aceitar códigos de autenticação usados anteriormente para apps. Esta mudança de segurança ajuda a alinhar a AD Azure com a especificação OAuth e será aplicada tanto nos pontos finais v1 como v2.
+A partir de 15 de novembro de 2018, o Azure AD deixará de aceitar códigos de autenticação usados anteriormente para apps. Esta mudança de segurança ajuda a alinhar o Azure AD com a especificação OAuth e será aplicada tanto nos pontos finais v1 como v2.
 
-Se a sua aplicação reutilizar códigos de autorização para obter fichas para vários recursos, recomendamos que use o código para obter um token de atualização e, em seguida, use esse token de atualização para adquirir tokens adicionais para outros recursos. Os códigos de autorização só podem ser usados uma vez, mas tokens de atualização podem ser usados várias vezes em vários recursos. Qualquer nova aplicação que tente reutilizar um código de autenticação durante o fluxo de código OAuth terá um erro invalid_grant.
+Se a sua aplicação reutilizar códigos de autorização para obter fichas para vários recursos, recomendamos que use o código para obter um token de atualização e, em seguida, use esse token de atualização para adquirir fichas adicionais para outros recursos. Os códigos de autorização só podem ser usados uma vez, mas os tokens de atualização podem ser usados várias vezes em vários recursos. Qualquer nova aplicação que tente reutilizar um código de autenticação durante o fluxo de código OAuth terá um erro invalid_grant.
 
-Para mais informações sobre fichas de atualização, consulte [Refreshing as fichas](v2-oauth2-auth-code-flow.md#refresh-the-access-token)de acesso .  Se utilizar a ADAL ou a MSAL, esta é tratada pela biblioteca - substitua a segunda instância de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'.
+Para obter mais informações sobre tokens de atualização, consulte [Refresh the access tokens](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Se utilizar a ADAL ou a MSAL, esta é tratada por si pela biblioteca - substitua a segunda instância de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'.
 
 ## <a name="may-2018"></a>Maio de 2018
 
-### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Fichas de identificação não podem ser usadas para o fluxo obo
+### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Fichas de ID não podem ser usadas para o fluxo OBO
 
 **Data**: 1 de maio de 2018
 
@@ -203,11 +203,11 @@ Para mais informações sobre fichas de atualização, consulte [Refreshing as f
 
 **Protocolos impactados**: Fluxo implícito e [em nome do fluxo](v2-oauth2-on-behalf-of-flow.md)
 
-Depois de 1 de maio de 2018, id_tokens não pode ser usado como afirmação num fluxo obo para novas aplicações. Em vez disso, devem ser utilizados fichas de acesso para garantir APIs, mesmo entre um cliente e um nível médio da mesma aplicação. As aplicações registadas antes de 1 de maio de 2018 continuarão a funcionar e poderão trocar id_tokens por um sinal de acesso; no entanto, este padrão não é considerado uma boa prática.
+Depois de 1 de maio de 2018, id_tokens não podem ser usadas como afirmação num fluxo OBO para novas aplicações. Os tokens de acesso devem ser usados em vez de garantir APIs, mesmo entre um cliente e o nível médio da mesma aplicação. As aplicações registadas antes de 1 de maio de 2018 continuarão a funcionar e poderão trocar id_tokens por um token de acesso; no entanto, este padrão não é considerado uma boa prática.
 
 Para contornar esta mudança, pode fazer o seguinte:
 
 1. Crie uma API web para a sua aplicação, com um ou mais âmbitos. Este ponto de entrada explícito permitirá um controlo e segurança mais finos.
-1. No manifesto da sua aplicação, no [portal Azure](https://portal.azure.com) ou no portal de registo de [aplicações,](https://apps.dev.microsoft.com)certifique-se de que a aplicação está autorizada a emitir fichas de acesso através do fluxo implícito. Isto é controlado `oauth2AllowImplicitFlow` através da chave.
-1. Quando o seu pedido de `response_type=id_token`cliente solicita um id_token`response_type=token`via, também solicite um sinal de acesso ( ) para a Web API criada acima. Assim, ao utilizar o ponto final `scope` v2.0, `api://GUID/SCOPE`o parâmetro deve ser semelhante a . No ponto final v1.0, o `resource` parâmetro deve ser a aplicação URI da Web API.
-1. Passe este sinal de acesso para o nível médio no lugar do id_token.
+1. No manifesto da sua aplicação, no [portal Azure](https://portal.azure.com) ou no portal de registo de [aplicações,](https://apps.dev.microsoft.com)garante que a aplicação é permitida a emissão de tokens de acesso através do fluxo implícito. Isto é controlado através da `oauth2AllowImplicitFlow` chave.
+1. Quando a sua aplicação ao cliente solicita uma id_token `response_type=id_token` via, solicite também um token de acesso `response_type=token` para a API web criada acima. Assim, ao utilizar o ponto final v2.0, o `scope` parâmetro deve parecer semelhante a `api://GUID/SCOPE` . No ponto final v1.0, o `resource` parâmetro deve ser a aplicação URI da API web.
+1. Passe este símbolo de acesso para o nível médio no lugar do id_token.

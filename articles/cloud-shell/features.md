@@ -1,6 +1,6 @@
 ---
-title: Características da Casca de Nuvem Azure / Microsoft Docs
-description: Visão geral das características em Azure Cloud Shell
+title: Características da Azure Cloud Shell Microsoft Docs
+description: Visão geral das funcionalidades em Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,75 +14,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610773"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506570"
 ---
-# <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades & ferramentas para Casca de Nuvem Azure
+# <a name="features--tools-for-azure-cloud-shell"></a>Possui ferramentas & para Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell `Ubuntu 16.04 LTS`corre em .
+A Azure Cloud Shell `Ubuntu 16.04 LTS` funciona.
 
 ## <a name="features"></a>Funcionalidades
 
-### <a name="secure-automatic-authentication"></a>Autenticação automática segura
+### <a name="secure-automatic-authentication"></a>Garantir a autenticação automática
 
-Cloud Shell autentica de forma segura e automática o acesso à conta para o Azure CLI e O PowerShell Azure.
+A Cloud Shell autentica de forma segura e automática o acesso à conta para o Azure CLI e para o Azure PowerShell.
 
-### <a name="home-persistence-across-sessions"></a>$HOME persistência em sessões
+### <a name="home-persistence-across-sessions"></a>$HOME persistência em todas as sessões
 
-Para persistir ficheiros em sessões, a Cloud Shell acompanha-o através da anexação de uma partilha de ficheiros Azure no primeiro lançamento.
-Uma vez concluída, a Cloud Shell anexará `$HOME\clouddrive`automaticamente o seu armazenamento (montado como) para todas as sessões futuras.
-Além disso, o seu `$HOME` diretório é persistido como uma .img na sua partilha de Ficheiros Azure.
-Os ficheiros fora do estado da `$HOME` máquina não são persistidos em sessões. Utilize as melhores práticas ao armazenar segredos como chaves SSH. Serviços como [o Azure Key Vault têm tutoriais para configuração.](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites)
+Para persistir ficheiros em todas as sessões, a Cloud Shell acompanha-o através da anexação de uma partilha de ficheiros Azure no primeiro lançamento.
+Uma vez concluída, a Cloud Shell anexará automaticamente o seu armazenamento (montado `$HOME\clouddrive` como) para todas as sessões futuras.
+Além disso, o seu `$HOME` diretório é persistido como um .img na sua parte do Ficheiro Azure.
+Os ficheiros fora e o estado da `$HOME` máquina não são persistidos em todas as sessões. Utilize as melhores práticas ao armazenar segredos como as chaves SSH. Serviços como [o Azure Key Vault têm tutoriais para configuração.](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites)
 
-[Saiba mais sobre ficheiros persistentes na Cloud Shell.](persisting-shell-storage.md)
+[Saiba mais sobre os ficheiros persistentes na Cloud Shell.](persisting-shell-storage.md)
 
-### <a name="azure-drive-azure"></a>Unidade Azure (Azure:)
+### <a name="azure-drive-azure"></a>Unidade azul (Azure:)
 
-PowerShell em Cloud Shell fornece a`Azure:`unidade Azure ( ). Pode mudar para a unidade `cd Azure:` Azure com e `cd  ~`voltar para o seu diretório de casa com .
-A unidade Azure permite uma fácil descoberta e navegação de recursos Azure, tais como Compute, Network, Storage etc. similar esquelético sinuoso à navegação do sistema de ficheiros.
-Pode continuar a utilizar os [conhecidos cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure) para gerir estes recursos, independentemente da unidade em que se encontram.
-Quaisquer alterações feitas aos recursos Azure, quer feitas diretamente no portal Azure, quer através de cmdlets Azure PowerShell, refletem-se na unidade Azure.  Pode correr `dir -Force` para refrescar os seus recursos.
+PowerShell in Cloud Shell fornece a unidade Azure `Azure:` (). Pode mudar para a unidade Azure com `cd Azure:` e voltar para o seu diretório de casa com `cd  ~` .
+A unidade Azure permite uma fácil descoberta e navegação de recursos Azure tais como Computação, Rede, Armazenamento, etc. semelhante à navegação do sistema de ficheiros.
+Pode continuar a utilizar os [conhecidos cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure) para gerir estes recursos, independentemente da unidade em que se encontre.
+Quaisquer alterações feitas aos recursos Azure, efetuadas diretamente no portal Azure ou através de cmdlets Azure PowerShell, refletem-se na unidade Azure.  Pode correr `dir -Force` para refrescar os seus recursos.
 
 ![](media/features-powershell/azure-drive.png)
 
-### <a name="manage-exchange-online"></a>Gerir o Exchange Online
+### <a name="manage-exchange-online"></a>Gerir Troca Online
 
-PowerShell in Cloud Shell contém uma construção privada do módulo Exchange Online.  Corra `Connect-EXOPSSession` para obter os seus cmdlets de troca.
+PowerShell em Cloud Shell contém uma construção privada do módulo Exchange Online.  Corra `Connect-EXOPSSession` para obter os seus cmdlets de troca.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Execute `Get-Command -Module tmp_*`
 > [!NOTE]
-> O nome do `tmp_`módulo deve começar com, se tiver instalado módulos com o mesmo prefixo, os seus cmdlets também serão emergidos. 
+> O nome do módulo deve começar `tmp_` por, se tiver módulos instalados com o mesmo prefixo, os seus cmdlets também serão lançados. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Integração profunda com ferramentas de código aberto
 
-Cloud Shell inclui autenticação pré-configurada para ferramentas de código aberto como Terraform, Ansible e Chef InSpec. Experimente a partir dos passos de exemplo.
+A Cloud Shell inclui a autenticação pré-configurada para ferramentas de código aberto como Terraform, Ansible e Chef InSpec. Experimente a partir dos passos de exemplo.
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Name   |
+|Categoria   |Nome   |
 |---|---|
 |Ferramentas Linux            |bash<br> zsh<br> sh<br> tmux<br> cavar<br>               |
-|Ferramentas Azure            |[ClI clássico azure cli](https://github.com/Azure/azure-cli) e [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Editores de texto           |código (editor da Cloud Shell)<br> vim<br> nano<br> emacs    |
+|Ferramentas azul            |[CLI clássico de Azure E](https://github.com/Azure/azure-cli) [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Editores de texto           |código (editor cloud shell)<br> vim<br> nano<br> emacs    |
 |Controlo de código fonte         |git                    |
 |Ferramentas de compilação            |modelo<br> maven<br> npm<br> pip         |
-|Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Rio Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Bases de Dados              |Cliente MySQL<br> Cliente PostgreSql<br> [utilidade sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |iPython Cliente<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Bases de Dados              |Cliente MySQL<br> Cliente PostgreSql<br> [utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Outro                  |Cliente iPython<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Escritório 365 CLI](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-|Idioma   |Versão   |
+|Linguagem   |Versão   |
 |---|---|
 |.NET Core  |2.2.402       |
 |Ir         |1.9        |
@@ -94,5 +94,5 @@ Cloud Shell inclui autenticação pré-configurada para ferramentas de código a
 ## <a name="next-steps"></a>Passos seguintes
 [Bash em Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell em Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Conheça o Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
-[Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>
+[Saiba mais sobre a Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre a Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

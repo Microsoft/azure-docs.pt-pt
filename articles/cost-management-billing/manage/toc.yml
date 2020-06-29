@@ -121,6 +121,8 @@
       href: troubleshoot-sign-in-issue.md
     - name: Vista de custos empresariais desativada
       href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Conta de faturação não encontrada
+      href: troubleshoot-account-not-found.md
     - name: Contactar o suporte
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Amostras

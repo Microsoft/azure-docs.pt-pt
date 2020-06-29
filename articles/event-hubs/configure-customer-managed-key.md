@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Event Hub
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b92437f69dd5ff01d57d12e8e8e7fdce73cfddc0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314724"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479832"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
@@ -66,7 +66,7 @@ Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida 
 
 
 ## <a name="rotate-your-encryption-keys"></a>Rode as suas chaves de encriptação
-Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure Key Vaults. Para obter mais informações, consulte [Configurar a rotação e a auditoria da chave.](../key-vault/secrets/key-rotation-log-monitoring.md) As datas de ativação e de validade também podem ser definidas para automatizar a rotação da chave. O serviço Event Hubs detetará novas versões chave e começará a usá-las automaticamente.
+Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure Key Vaults. As datas de ativação e de validade também podem ser definidas para automatizar a rotação da chave. O serviço Event Hubs detetará novas versões chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
 Revogar o acesso às chaves de encriptação não vai expurgar os dados dos Centros de Eventos. No entanto, os dados não podem ser acedidos a partir do espaço de nomes do Event Hubs. Pode revogar a chave de encriptação através da política de acesso ou eliminando a chave. Saiba mais sobre as políticas de acesso e a garantia do seu cofre chave do [acesso seguro a um cofre de chaves](../key-vault/general/secure-your-key-vault.md).
@@ -94,7 +94,7 @@ Siga estes passos para ativar os registos para chaves geridas pelo cliente.
 ## <a name="log-schema"></a>Esquema de registo 
 Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que usam o formato descrito na tabela seguinte. 
 
-| Name | Description |
+| Name | Descrição |
 | ---- | ----------- | 
 | Nome de tarefa | Descrição da tarefa que falhou. |
 | ActivityId | Identificação interna que é usada para rastrear. |

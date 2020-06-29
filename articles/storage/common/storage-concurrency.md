@@ -1,55 +1,55 @@
 ---
 title: Gerir a simultaneidade
 titleSuffix: Azure Storage
-description: Aprenda a gerir a moeda para os serviços Blob, Queue, Table e File.
+description: Saiba como gerir a concordância para os serviços Blob, Queue, Table e File.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655942"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504292"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
 
-As aplicações modernas baseadas na Internet normalmente têm vários utilizadores visualizando e atualizando dados simultaneamente. Isto requer que os desenvolvedores de aplicações pensem cuidadosamente sobre como fornecer uma experiência previsível aos seus utilizadores finais, especialmente para cenários em que vários utilizadores possam atualizar os mesmos dados. Existem três principais estratégias de conmoedação de dados que os desenvolvedores normalmente consideram:  
+As aplicações modernas baseadas na Internet normalmente têm vários utilizadores a visualizar e atualizar dados simultaneamente. Isto requer que os desenvolvedores de aplicações pensem cuidadosamente sobre como fornecer uma experiência previsível aos seus utilizadores finais, especialmente para cenários onde vários utilizadores podem atualizar os mesmos dados. Existem três principais estratégias de concuência de dados que os desenvolvedores normalmente consideram:  
 
-1. Concurrency otimista – Uma aplicação que executa uma atualização irá como parte da sua atualização verificar se os dados mudaram desde que a aplicação leu pela última vez esses dados. Por exemplo, se dois utilizadores que visualizam uma página wiki fizerem uma atualização para a mesma página, então a plataforma wiki deve garantir que a segunda atualização não sobrepor a primeira atualização – e que ambos os utilizadores entendam se a sua atualização foi bem sucedida ou não. Esta estratégia é mais frequentemente utilizada em aplicações web.
-2. Concurrency pessimista – Uma aplicação que pretenda realizar uma atualização irá travar um objeto que impeça outros utilizadores de atualizarem os dados até que o bloqueio seja lançado. Por exemplo, num cenário de replicação de dados master/subordinado onde apenas o mestre irá realizar atualizações, o mestre normalmente irá manter um bloqueio exclusivo por um longo período de tempo nos dados para garantir que mais ninguém pode atualizá-lo.
-3. Último escritor vence – Uma abordagem que permite que quaisquer operações de atualização prossigam sem verificar se qualquer outra aplicação atualizou os dados desde que a aplicação leu os dados pela primeira vez. Esta estratégia (ou falta de uma estratégia formal) é geralmente utilizada quando os dados são divididos de modo a que não haja probabilidade de vários utilizadores acederem aos mesmos dados. Também pode ser útil onde fluxos de dados de curta duração estão sendo processados.  
+1. Conúnva otimista – Uma aplicação que executa uma atualização irá verificar se os dados mudaram desde a última leitura da aplicação. Por exemplo, se dois utilizadores que estão a ver uma página wiki fizerem uma atualização para a mesma página, então a plataforma wiki deve garantir que a segunda atualização não substitui a primeira atualização – e que ambos os utilizadores entendam se a sua atualização foi ou não bem sucedida. Esta estratégia é mais utilizada em aplicações web.
+2. Concuncy pessimista – Uma aplicação que pretenda realizar uma atualização irá bloquear um objeto que impede outros utilizadores de atualizarem os dados até que o bloqueio seja lançado. Por exemplo, num cenário de replicação de dados master/subordinado, onde apenas o mestre irá realizar atualizações, o mestre normalmente irá manter um bloqueio exclusivo durante um longo período de tempo nos dados para garantir que mais ninguém o possa atualizar.
+3. Último escritor ganha – Uma abordagem que permite que quaisquer operações de atualização prossigam sem verificar se qualquer outra aplicação atualizou os dados desde que a aplicação leu pela primeira vez os dados. Esta estratégia (ou falta de uma estratégia formal) é geralmente utilizada onde os dados são divididos de forma a não haver probabilidade de vários utilizadores acederem aos mesmos dados. Também pode ser útil onde os fluxos de dados de curta duração estão sendo processados.  
 
-Este artigo fornece uma visão geral de como a plataforma de armazenamento Azure simplifica o desenvolvimento, fornecendo suporte de primeira classe para todas estas três estratégias de conmoedação.  
+Este artigo fornece uma visão geral de como a plataforma de armazenamento Azure simplifica o desenvolvimento, fornecendo suporte de primeira classe para todas estas três estratégias de concuência.  
 
-## <a name="azure-storage-simplifies-cloud-development"></a>Armazenamento Azure simplifica desenvolvimento de nuvem
+## <a name="azure-storage-simplifies-cloud-development"></a>Azure Storage simplifica o desenvolvimento da nuvem
 
-O serviço de armazenamento Azure suporta as três estratégias, embora seja distinto na sua capacidade de fornecer total apoio a uma conmoeda otimista e pessimista, pois foi projetado para abraçar um forte modelo de consistência que garante que quando o serviço de armazenamento compromete uma operação de inserção de dados ou atualização todos os acessos adicionais a esses dados verá a última atualização. As plataformas de armazenamento que utilizam um eventual modelo de consistência têm um desfasamento entre quando uma escrita é realizada por um utilizador e quando os dados atualizados podem ser vistos por outros utilizadores complicando assim o desenvolvimento das aplicações do cliente de forma a evitar que inconsistências afetem os utilizadores finais.  
+O serviço de armazenamento Azure suporta as três estratégias, embora seja distinto na sua capacidade de fornecer apoio total para a concordância otimista e pessimista, pois foi projetado para abraçar um modelo de consistência forte que garante que quando o serviço de Armazenamento compromete uma inserção de dados ou atualizar a operação todos os acessos a esses dados verão a última atualização. As plataformas de armazenamento que utilizam um modelo de consistência eventual têm um desfasamento entre quando uma escrita é realizada por um utilizador e quando os dados atualizados podem ser vistos por outros utilizadores, complicando assim o desenvolvimento de aplicações do cliente de forma a evitar que inconsistências afetem os utilizadores finais.  
 
-Além de selecionar uma estratégia de condivisa apropriada, os desenvolvedores também devem estar cientes de como uma plataforma de armazenamento isola as mudanças – particularmente alterações no mesmo objeto através de transações. O serviço de armazenamento Azure utiliza o isolamento instantâneo para permitir que as operações de leitura ocorram simultaneamente com operações de escrita dentro de uma única divisória. Ao contrário de outros níveis de isolamento, o isolamento instantâneo garante que todas as leituras vêem uma imagem consistente dos dados mesmo quando estão a ocorrer atualizações – essencialmente devolvendo os últimos valores comprometidos enquanto uma transação de atualização está a ser processada.  
+Além de selecionarem uma estratégia de concordância adequada, os desenvolvedores também devem estar cientes de como uma plataforma de armazenamento isola as mudanças – particularmente alterações no mesmo objeto através de transações. O serviço de armazenamento Azure utiliza o isolamento instantâneo para permitir que as operações de leitura ocorram simultaneamente com operações de escrita dentro de uma única divisória. Ao contrário de outros níveis de isolamento, o isolamento instantâneo garante que todas as leituras vêem uma imagem consistente dos dados mesmo quando estão a ocorrer atualizações – essencialmente devolvendo os últimos valores comprometidos enquanto uma transação de atualização está a ser processada.  
 
-## <a name="managing-concurrency-in-blob-storage"></a>Gestão de moedas no armazenamento blob
+## <a name="managing-concurrency-in-blob-storage"></a>Gestão da concordância no armazenamento blob
 
-Pode optar por utilizar modelos de conmoeda otimistas ou pessimistas para gerir o acesso a bolhas e contentores no serviço Blob. Se não especificar explicitamente uma estratégia que escreve pela última vez, as vitórias são o padrão.  
+Pode optar por utilizar modelos de conuncy otimistas ou pessimistas para gerir o acesso a bolhas e contentores no serviço Blob. Se não especificar explicitamente uma estratégia que escreve pela última vez, é o padrão.  
 
-### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Conmoeda otimista para bolhas e contentores
+### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Concordância otimista para bolhas e contentores
 
-O serviço de armazenamento atribui um identificador a todos os objetos armazenados. Este identificador é atualizado sempre que uma operação de atualização é realizada num objeto. O identificador é devolvido ao cliente como parte de uma resposta HTTP GET utilizando o cabeçalho ETag (marca de entidade) que é definido dentro do protocolo HTTP. Um utilizador que realize uma atualização sobre tal objeto pode enviar o ETag original juntamente com um cabeçalho condicional para garantir que uma atualização só ocorrerá se uma determinada condição for satisfeita – neste caso, a condição é um cabeçalho "If-Match", que requer o Serviço de Armazenamento para garantir que o valor do ETag especificado no pedido de atualização é o mesmo que o armazenado no Serviço de Armazenamento.  
+O serviço de armazenamento atribui um identificador a todos os objetos armazenados. Este identificador é atualizado sempre que uma operação de atualização é realizada num objeto. O identificador é devolvido ao cliente como parte de uma resposta HTTP GET utilizando o cabeçalho ETag (etiqueta de entidade) que é definido dentro do protocolo HTTP. Um utilizador que realize uma atualização sobre tal objeto pode enviar o ETag original juntamente com um cabeçalho condicional para garantir que uma atualização só ocorrerá se uma determinada condição tiver sido cumprida – neste caso, a condição é um cabeçalho "If-Match", que requer que o Serviço de Armazenamento garanta que o valor do ETag especificado no pedido de atualização é o mesmo que o armazenado no Serviço de Armazenamento.  
 
 O esboço deste processo é o seguinte:  
 
-1. Recuperar uma bolha do serviço de armazenamento, a resposta inclui um valor http ETag Header que identifica a versão atual do objeto no serviço de armazenamento.
-2. Quando atualizar a bolha, inclua o valor ETag que recebeu no passo 1 no cabeçalho condicional **If-Match** do pedido que envia ao serviço.
-3. O serviço compara o valor ETag no pedido com o valor atual do ETag da bolha.
-4. Se o valor atual do ETag da bolha for uma versão diferente do ETag no cabeçalho condicional **If-Match** no pedido, o serviço devolve um erro de 412 ao cliente. Isto indica ao cliente que outro processo atualizou a bolha desde que o cliente a recuperou.
-5. Se o valor atual do ETag da bolha for a mesma versão do ETag no cabeçalho condicional **If-Match** no pedido, o serviço realiza a operação solicitada e atualiza o valor atual do ETag da bolha para mostrar que criou uma nova versão.  
+1. Recupere uma bolha do serviço de armazenamento, a resposta inclui um valor http ETag Header que identifica a versão atual do objeto no serviço de armazenamento.
+2. Quando atualizar a bolha, inclua o valor ETag que recebeu no passo 1 no cabeçalho condicional **If-Match** do pedido que envia para o serviço.
+3. O serviço compara o valor ETag no pedido com o valor ETag atual da bolha.
+4. Se o valor ETag atual da bolha for uma versão diferente do ETag no cabeçalho condicional **If-Match** no pedido, o serviço devolve um erro 412 ao cliente. Isto indica ao cliente que outro processo atualizou a bolha desde que o cliente o recuperou.
+5. Se o valor ETag atual da bolha for a mesma versão que o ETag no cabeçalho condicional **If-Match** no pedido, o serviço executa a operação solicitada e atualiza o valor ETag atual da bolha para mostrar que criou uma nova versão.  
 
-O seguinte snippet C# (utilizando a Biblioteca de Armazenamento de Clientes 4.2.0) mostra um simples exemplo de como construir uma Condição de **Acesso If-Match** com base no valor ETag que é acedido a partir das propriedades de uma bolha que foi previamente recuperada ou inserida. Em seguida, utiliza o objeto **AccessCondition** quando atualiza a bolha: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** ao pedido. Se outro processo tiver atualizado a bolha, o serviço Blob devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada). Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+O seguinte corte C# (utilizando a Biblioteca de Armazenamento do Cliente 4.2.0) mostra um exemplo simples de como construir uma **Se-Match AccessCondition** com base no valor ETag que é acedido a partir das propriedades de uma bolha que foi previamente recuperada ou inserida. Em seguida, utiliza o objeto **AccessCondition** quando atualiza a bolha: o objeto **AccessCondition** adiciona o **cabeçalho Se-Match** ao pedido. Se outro processo tiver atualizado a bolha, o serviço Blob devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada). Você pode baixar a amostra completa aqui: [Managing Concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -84,54 +84,54 @@ catch (StorageException ex)
 }  
 ```
 
-O Armazenamento Azure também inclui suporte para cabeçalhos condicionais adicionais, tais como **If-Modificado-Since**, **If-Unmodificad-Since** e **If-None-Match,** bem como combinações dos mesmos. Para mais informações, consulte a especificação de [cabeçalhos condicionais para operações](https://msdn.microsoft.com/library/azure/dd179371.aspx)de serviço blob .  
+O Azure Storage também inclui suporte para cabeçalhos condicionais adicionais, tais como **If-Modificado-Since,** **If-Unmodified-Since** e **If-None-Match,** bem como combinações dos mesmos. Para obter mais informações, consulte [especificar cabeçalhos condicional para operações de serviço de bolhas](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
-O quadro seguinte resume as operações de contentores que aceitam cabeçalhos condicionais, tais como **O Se-Match** no pedido e que devolvem um valor ETag na resposta.  
+A tabela seguinte resume as operações do contentor que aceitam cabeçalhos condicional, como **o If-Match** no pedido e que devolvem um valor ETag na resposta.  
 
-| Operação | Valor de Retorna do Recipiente ETag | Aceita cabeçalhos condicional |
+| Operação | Devolução do valor ETag do contentor | Aceita cabeçalhos condicional |
 |:--- |:--- |:--- |
-| Criar recipiente |Sim |Não |
-| Obter propriedades de contentores |Sim |Não |
-| Obter Metadados de Contentores |Sim |Não |
-| Definir metadados de contentores |Sim |Sim |
-| Obter contentor ACL |Sim |Não |
-| Set Container ACL |Sim |Sim (*) |
-| Eliminar Contentor |Não |Sim |
-| Contentor de arrendamento |Sim |Sim |
-| Lista blobs |Não |Não |
+| Criar Recipiente |Yes |No |
+| Obter propriedades de contentores |Yes |No |
+| Obtenha metadados de contentores |Yes |No |
+| Conjunto de metadados de contentores |Sim |Sim |
+| Obter contentor ACL |Yes |No |
+| Conjunto de recipiente ACL |Yes |Sim (*) |
+| Eliminar Contentor |No |Yes |
+| Recipiente de Arrendamento |Sim |Sim |
+| Blobs de lista |Não |Não |
 
-(*) As permissões definidas pela SetContainerACL são em cache e as atualizações destas permissões demoram 30 segundos a propagar-se durante as quais as atualizações do período não são garantidas como consistentes.  
+(*) As permissões definidas pelo SetContainerACL estão em cache e as atualizações a estas permissões demoram 30 segundos a propagar-se durante as quais as atualizações do período não são garantidas como consistentes.  
 
-O quadro seguinte resume as operações blob que aceitam cabeçalhos condicionais como **o If-Match** no pedido e que devolvem um valor ETag na resposta.
+A tabela seguinte resume as operações blob que aceitam cabeçalhos condicional como **o If-Match** no pedido e que devolvem um valor ETag na resposta.
 
-| Operação | Valor de Devoluções ETag | Aceita cabeçalhos condicional |
+| Operação | Valor ETag de retorna | Aceita cabeçalhos condicional |
 |:--- |:--- |:--- |
 | Coloque Blob |Sim |Sim |
 | Obter Blob |Sim |Sim |
 | Get Blob Properties (Obter Propriedades do Blob) |Sim |Sim |
 | Definir propriedades blob |Sim |Sim |
-| Obter Metadados Blob |Sim |Sim |
-| Definir Metadados Blob |Sim |Sim |
-| Arrendamento Blob (*) |Sim |Sim |
+| Obtenha metadados blob |Sim |Sim |
+| Definir metadados blob |Sim |Sim |
+| Bolha de arrendamento (*) |Sim |Sim |
 | Blob de Instantâneo |Sim |Sim |
-| Copy Blob |Sim |Sim (para fonte e bolha de destino) |
-| Abortar copy blob |Não |Não |
-| Eliminar Blob |Não |Sim |
-| Bloquear |Não |Não |
-| Lista de blocos |Sim |Sim |
-| Obter lista de blocos |Sim |Não |
-| Página de colocação |Sim |Sim |
-| Obtenha gamas de páginas |Sim |Sim |
+| Bolha de cópia |Yes |Sim (para a fonte e a bolha de destino) |
+| Abortar Bolha de Cópia |Não |Não |
+| Eliminar Blob |No |Yes |
+| Colocar Bloco |Não |Não |
+| Colocar lista de blocos |Sim |Sim |
+| Obter Lista de Blocos |Yes |No |
+| Colocar página |Sim |Sim |
+| Obter Gamas de Páginas |Sim |Sim |
 
-(*) Lease Blob não muda o ETag numa bolha.  
+(*) O Lease Blob não altera o ETag numa bolha.  
 
-### <a name="pessimistic-concurrency-for-blobs"></a>Conmoeda pessimista para bolhas
+### <a name="pessimistic-concurrency-for-blobs"></a>Concuência pessimista para bolhas
 
-Para bloquear uma bolha para uso exclusivo, pode adquirir um contrato de [arrendamento.](https://msdn.microsoft.com/library/azure/ee691972.aspx) Ao adquirir um contrato de arrendamento, especifice quanto tempo precisa do arrendamento: isto pode ser entre 15 a 60 segundos ou infinito, o que equivale a um bloqueio exclusivo. Você pode renovar um arrendamento finito para estender, e você pode liberar qualquer arrendamento quando você terminar com ele. O serviço Blob lança automaticamente arrendamentos finitos quando expiram.  
+Para bloquear uma bolha para uso exclusivo, pode adquirir um [contrato de arrendamento.](https://msdn.microsoft.com/library/azure/ee691972.aspx) Ao adquirir um contrato de arrendamento, especifique por quanto tempo precisa do arrendamento: este pode ser entre 15 a 60 segundos ou infinito, o que equivale a uma fechadura exclusiva. Você pode renovar um contrato de arrendamento finito para estendê-lo, e você pode liberar qualquer arrendamento quando você terminar com ele. O serviço Blob liberta automaticamente locações finitas quando expiram.  
 
-Os arrendamentos permitem apoiar diferentes estratégias de sincronização, incluindo escrita exclusiva/leitura partilhada, escrita exclusiva/leitura exclusiva e escrita partilhada /leitura exclusiva. Quando existe um contrato de arrendamento, o serviço de armazenamento impõe escritos exclusivos (put, set e eliminação de operações) no entanto, garantir a exclusividade das operações de leitura requer que o desenvolvedor garanta que todas as aplicações de clientes utilizem um ID de locação e que apenas um cliente de cada vez tem um ID de locação válido. Leia as operações que não incluem um resultado de ID de locação em leituras partilhadas.  
+Os arrendamentos permitem apoiar diferentes estratégias de sincronização, incluindo escrita/leitura partilhada exclusiva, escrita exclusiva/leitura exclusiva e leitura partilhada/leitura exclusiva. Quando existe um arrendamento, o serviço de armazenamento executa as escritas exclusivas (colocar, definir e apagar operações), no entanto, garantir a exclusividade das operações de leitura requer que o desenvolvedor garanta que todas as aplicações do cliente utilizem um ID de locação e que apenas um cliente de cada vez tenha uma identificação de locação válida. Leia as operações que não incluem um ID de arrendamento resultam em leituras partilhadas.  
 
-O seguinte C# snippet mostra um exemplo de adquirir um contrato de arrendamento exclusivo por 30 segundos numa bolha, atualizar o conteúdo da bolha e, em seguida, libertar o arrendamento. Se já existe um contrato de arrendamento válido na bolha quando tenta adquirir um novo contrato de arrendamento, o serviço Blob devolve um resultado de situação de conflito "HTTP (409)." O seguinte snippet utiliza um objeto **AccessCondition** para encapsular as informações de locação quando faz um pedido para atualizar a bolha no serviço de armazenamento.  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O seguinte corte C# mostra um exemplo de adquirir um contrato de arrendamento exclusivo por 30 segundos numa bolha, atualizar o conteúdo da bolha e, em seguida, liberar o arrendamento. Se já houver um arrendamento válido na bolha quando tentar adquirir um novo contrato de arrendamento, o serviço Blob devolve um resultado de estado "HTTP (409) Conflict". O seguinte snippet usa um objeto **AccessCondition** para encapsular a informação de locação quando faz um pedido para atualizar a bolha no serviço de armazenamento.  Você pode baixar a amostra completa aqui: [Managing Concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -160,62 +160,62 @@ catch (StorageException ex)
 }  
 ```
 
-Se tentar uma operação de escrita numa bolha alugada sem passar o ID de locação, o pedido falha com um erro de 412. Note que se o contrato expirar antes de ligar para o método **UploadText** mas ainda passar o ID de locação, o pedido também falha com um erro **de 412.** Para obter mais informações sobre a gestão dos prazos de validade do arrendamento e do arrendamento de IDs, consulte a documentação [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST.  
+Se tentar uma operação de escrita numa bolha alugada sem passar a identificação do contrato de arrendamento, o pedido falha com um erro 412. Note que se o contrato de arrendamento expirar antes de ligar para o método **UploadText** mas ainda assim passar o ID do arrendamento, o pedido também falha com um erro **412.** Para obter mais informações sobre a gestão dos prazos de validade do contrato de arrendamento e iDs de locação, consulte a documentação [do Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST.  
 
-As seguintes operações blob podem usar locações para gerir a moeda pessimista:  
+As seguintes operações blob podem utilizar contratos de arrendamento para gerir a concordância pessimista:  
 
 * Coloque Blob
 * Obter Blob
 * Get Blob Properties (Obter Propriedades do Blob)
 * Definir propriedades blob
-* Obter Metadados Blob
-* Definir Metadados Blob
+* Obtenha metadados blob
+* Definir metadados blob
 * Eliminar Blob
-* Bloquear
-* Lista de blocos
-* Obter lista de blocos
-* Página de colocação
-* Obtenha gamas de páginas
-* Snapshot Blob - locação opcional se existe um contrato de arrendamento
-* Copy Blob - locação de identidade necessária se existir um contrato de arrendamento na bolha de destino
-* Abortcopy Blob - locação de identidade necessária se existir um arrendamento infinito na bolha de destino
+* Colocar Bloco
+* Colocar lista de blocos
+* Obter Lista de Blocos
+* Colocar página
+* Obter Gamas de Páginas
+* Snapshot Blob - alugar ID opcional se um contrato de arrendamento existe
+* Copy Blob - ID de locação exigido se existe um arrendamento na bolha de destino
+* Abort Copy Blob - ID de arrendamento necessário se existe um arrendamento infinito na bolha de destino
 * Lease Blob (Blob de Concessão)  
 
-### <a name="pessimistic-concurrency-for-containers"></a>Conmoeda pessimista para contentores
+### <a name="pessimistic-concurrency-for-containers"></a>Concordância pessimista para contentores
 
-As locações em contentores permitem que as mesmas estratégias de sincronização sejam suportadas como em blobs (escrita exclusiva/leitura partilhada, leitura exclusiva/ escrita exclusiva/ leitura exclusiva/leitura exclusiva) no entanto, ao contrário das bolhas, o serviço de armazenamento apenas impõe exclusividade nas operações de exclusão. Para eliminar um contentor com locação ativa, o cliente deve incluir o ID de locação ativa com o pedido de eliminação. Todas as outras operações de contentores têm sucesso num contentor alugado sem incluir o ID de locação, caso em que são operações partilhadas. Se for necessária exclusividade de atualização (colocação ou conjunto) ou de leitura de operações, os desenvolvedores devem garantir que todos os clientes utilizem um ID de locação e que apenas um cliente de cada vez tem um ID de locação válido.  
+As locações em contentores permitem que as mesmas estratégias de sincronização sejam suportadas como nas bolhas (escrita/leitura partilhada exclusiva, leitura exclusiva/leitura exclusiva e leitura partilhada/leitura exclusiva) no entanto, ao contrário de blobs, o serviço de armazenamento apenas impõe exclusividade nas operações de eliminação. Para eliminar um recipiente com um arrendamento ativo, um cliente deve incluir o ID de locação ativa com o pedido de eliminação. Todas as outras operações de contentores são bem sucedidas num contentor alugado sem incluir a identificação do arrendamento, caso em que são operações partilhadas. Se for necessária exclusividade de atualização (colocação ou conjunto) ou operações de leitura, os desenvolvedores devem garantir que todos os clientes utilizem um ID de locação e que apenas um cliente de cada vez tenha um ID de locação válido.  
 
-As seguintes operações de contentores podem utilizar locações para gerir a moeda pessimista:  
+As seguintes operações de contentores podem utilizar locações para gerir a concordância pessimista:  
 
 * Eliminar Contentor
 * Obter propriedades de contentores
-* Obter Metadados de Contentores
-* Definir metadados de contentores
+* Obtenha metadados de contentores
+* Conjunto de metadados de contentores
 * Obter contentor ACL
-* Set Container ACL
-* Contentor de arrendamento  
+* Conjunto de recipiente ACL
+* Recipiente de Arrendamento  
 
 Para obter mais informações, consulte:  
 
 * [Specifying Conditional Headers for Blob Service Operations (Especificar Cabeçalhos Condicionais para Operações do Serviço Blob)](https://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Contentor de arrendamento](https://msdn.microsoft.com/library/azure/jj159103.aspx)
+* [Recipiente de Arrendamento](https://msdn.microsoft.com/library/azure/jj159103.aspx)
 * [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) (Blob de Concessão)
 
-## <a name="managing-concurrency-in-table-storage"></a>Gestão da moeda no armazenamento de mesa
+## <a name="managing-concurrency-in-table-storage"></a>Gestão da concordância no armazenamento de mesa
 
-O serviço Table utiliza cheques de moeda otimistas como o comportamento padrão quando está a trabalhar com entidades, ao contrário do serviço Blob onde deve escolher explicitamente realizar controlos de moeda otimistas. A outra diferença entre a tabela e os serviços Blob é que você só pode gerir o comportamento de condivisa de entidades enquanto com o serviço Blob você pode gerir a conmoeda de ambos os recipientes e bolhas.  
+O serviço Table utiliza verificações de concordância otimistas como o comportamento padrão quando está a trabalhar com entidades, ao contrário do serviço Blob onde deve explicitamente optar por realizar verificações de concordância otimistas. A outra diferença entre a mesa e os serviços Blob é que só pode gerir o comportamento de conuncy das entidades, enquanto que com o serviço Blob pode gerir a concordância de ambos os contentores e bolhas.  
 
-Para utilizar a conmoeda otimista e verificar se outro processo modificou uma entidade desde que a recuperou do serviço de armazenamento de mesa, pode utilizar o valor ETag que recebe quando o serviço de mesa devolve uma entidade. O esboço deste processo é o seguinte:  
+Para utilizar a concordância otimista e para verificar se outro processo modificou uma entidade desde que o recuperou do serviço de armazenamento de mesa, pode utilizar o valor ETag que recebe quando o serviço de mesa devolver uma entidade. O esboço deste processo é o seguinte:  
 
 1. Recuperar uma entidade do serviço de armazenamento de mesa, a resposta inclui um valor ETag que identifica o identificador atual associado a essa entidade no serviço de armazenamento.
-2. Quando atualizar a entidade, inclua o valor ETag que recebeu no passo 1 no cabeçalho obrigatório **se-Match** do pedido que envia para o serviço.
-3. O serviço compara o valor ETag no pedido com o valor atual do ETag da entidade.
-4. Se o valor Atual eTag da entidade for diferente do ETag no cabeçalho obrigatório **if-Match** no pedido, o serviço devolve um erro de 412 ao cliente. Isto indica ao cliente que outro processo atualizou a entidade desde que o cliente o recuperou.
-5. Se o valor Atual do ETag da entidade for o mesmo que o ETag no cabeçalho obrigatório **if-Match** no pedido ou o cabeçalho **If-Match** contiver o caráter wildcard (*), o serviço realiza a operação solicitada e atualiza o valor Atual eTag da entidade para mostrar que foi atualizado.  
+2. Ao atualizar a entidade, inclua o valor ETag que recebeu no passo 1 no cabeçalho **If-Match** obrigatório do pedido que envia para o serviço.
+3. O serviço compara o valor ETag no pedido com o valor ETag atual da entidade.
+4. Se o valor ETag atual da entidade for diferente do ETag no cabeçalho **If-Match** obrigatório no pedido, o serviço devolve um erro 412 ao cliente. Isto indica ao cliente que outro processo atualizou a entidade desde que o cliente o recuperou.
+5. Se o valor ETag atual da entidade for o mesmo que o ETag no cabeçalho **If-Match** obrigatório no pedido ou o cabeçalho **If-Match** contém o caráter wildcard (*), o serviço executa a operação solicitada e atualiza o valor ETag atual da entidade para mostrar que foi atualizado.  
 
-Note que, ao contrário do serviço Blob, o serviço de mesa requer que o cliente inclua um cabeçalho **If-Match** em pedidos de atualização. No entanto, é possível forçar uma atualização incondicional (último escritor ganha estratégia) e contornar as verificações de condivisões se o cliente definir o cabeçalho **If-Match** para o personagem wildcard (*) no pedido.  
+Note que, ao contrário do serviço Blob, o serviço de mesa requer que o cliente inclua um cabeçalho **If-Match** em pedidos de atualização. No entanto, é possível forçar uma atualização incondicional (o último escritor ganha estratégia) e contornar verificações de concordância se o cliente definir o cabeçalho **If-Match** para o personagem wildcard (*) no pedido.  
 
-O seguinte C# snippet mostra uma entidade cliente que foi previamente criada ou recuperada tendo o seu endereço de e-mail atualizado. A operação inicial de inserção ou recuperação armazena o valor ETag no objeto do cliente, e como a amostra utiliza a mesma instância de objeto quando executa a operação de substituição, envia automaticamente o valor ETag de volta para o serviço de mesa, permitindo ao serviço verificar se há violações de moeda. Se outro processo tiver atualizado a entidade no armazenamento de mesa, o serviço devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada).  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O seguinte snippet C# mostra uma entidade do cliente que foi previamente criada ou recuperada tendo o seu endereço de e-mail atualizado. A operação inicial de inserção ou recuperação armazena o valor ETag no objeto do cliente, e como a amostra utiliza a mesma instância do objeto quando executa a operação de substituição, envia automaticamente o valor ETag de volta para o serviço de mesa, permitindo que o serviço verifique se há violações de concordância. Se outro processo tiver atualizado a entidade no armazenamento de mesas, o serviço devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada).  Você pode baixar a amostra completa aqui: [Managing Concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -234,27 +234,27 @@ catch (StorageException ex)
 }  
 ```
 
-Para desativar explicitamente a verificação da moeda, deverá definir a propriedade **ETag** do objeto **do empregado** para "*" antes de executar a operação de substituição.  
+Para desativar explicitamente a verificação de concordância, deverá definir a propriedade **ETag** do objeto **do empregado** para "*" antes de executar a operação de substituição.  
 
 ```csharp
 customer.ETag = "*";  
 ```
 
-O quadro seguinte resume como as operações da entidade de tabela utilizam os valores DoETag:
+O quadro que se segue resume a forma como as operações da entidade de tabela utilizam valores ETag:
 
-| Operação | Valor de Devoluções ETag | Requer cabeçalho de pedido se-Jogo |
+| Operação | Valor ETag de retorna | Requer cabeçalho de pedido if-match |
 |:--- |:--- |:--- |
-| Consultas |Sim |Não |
-| Inserir Entidade |Sim |Não |
+| Entidades de Consulta |Yes |Não |
+| Inserir Entidade |Yes |Não |
 | Entidade de Atualização |Sim |Sim |
 | Entidade de Fusão |Sim |Sim |
-| Excluir Entidade |Não |Sim |
-| Inserir ou substituir entidade |Sim |Não |
-| Entidade de Inserção ou Fusão |Sim |Não |
+| Eliminar Entidade |Não |Yes |
+| Inserir ou Substituir Entidade |Yes |Não |
+| Inserir ou Fundir Entidade |Yes |Não |
 
-Note que as operações de **Inserção ou Substituição de Entidades** e **Inserção ou Fusão** *não* realizam quaisquer controlos de moeda porque não enviam um valor ETag para o serviço de mesa.  
+Note que as operações **de Inserção ou Substituição** de Entidade e **Inserção ou Fusão** *não* efetuam quaisquer verificações de concordância porque não enviam um valor ETag para o serviço de tabela.  
 
-Em geral, os desenvolvedores que utilizam tabelas devem basear-se em conmoedas otimistas no desenvolvimento de aplicações escaláveis. Se for necessário um bloqueio pessimista, uma abordagem que os desenvolvedores podem tomar ao aceder às Tabelas é atribuir uma bolha designada para cada mesa e tentar arrendar a bolha antes de operar na mesa. Esta abordagem requer que a aplicação garanta que todas as vias de acesso aos dados obtenham o arrendamento antes de operarem em cima da mesa. Note também que o tempo mínimo de arrendamento é de 15 segundos, o que requer uma cuidadosa consideração pela escalabilidade.  
+Em geral, os desenvolvedores que utilizam tabelas devem confiar na concordância otimista no desenvolvimento de aplicações escaláveis. Se for necessário um bloqueio pessimista, uma abordagem que os desenvolvedores podem ter ao aceder às Tabelas é atribuir uma bolha designada para cada mesa e tentar arrendar a bolha antes de operar em cima da mesa. Esta abordagem requer a aplicação para garantir que todas as vias de acesso aos dados obtenham o arrendamento antes de operar em cima da mesa. Deve também ter em conta que o tempo mínimo de locação é de 15 segundos, o que requer uma cuidadosa consideração pela escalabilidade.  
 
 Para obter mais informações, consulte:  
 
@@ -262,35 +262,35 @@ Para obter mais informações, consulte:
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Gestão da Concurrency no Serviço de Fila
 
-Um dos cenários em que a moeda é uma preocupação no serviço de fila é onde vários clientes estão a recuperar mensagens de uma fila. Quando uma mensagem é recuperada da fila, a resposta inclui a mensagem e um valor de recibo pop, que é necessário para apagar a mensagem. A mensagem não é automaticamente apagada da fila, mas depois de recuperada, não é visível para outros clientes para o intervalo de tempo especificado pelo parâmetro timeout de visibilidade. Espera-se que o cliente que recupere a mensagem apague a mensagem depois de processada, e antes do tempo especificado pelo elemento TimeNextVisible da resposta, que é calculada com base no valor do parâmetro timeout de visibilidade. O valor do tempo de tempo de visibilidade é adicionado ao momento em que a mensagem é recuperada para determinar o valor do TimeNextVisible.  
+Um dos cenários em que a concordância é uma preocupação no serviço de fila é onde vários clientes estão a recuperar mensagens de uma fila. Quando uma mensagem é recuperada da fila, a resposta inclui a mensagem e um valor de recibo pop, que é necessário para apagar a mensagem. A mensagem não é automaticamente apagada da fila, mas depois de recuperada, não é visível para outros clientes pelo intervalo de tempo especificado pelo parâmetro de visibilidade. Espera-se que o cliente que recupere a mensagem apague a mensagem depois de processada, e antes do tempo especificado pelo elemento TimeNextVisible da resposta, que é calculado com base no valor do parâmetro de visibilidade. O valor do tempo de visibilidade é adicionado ao momento em que a mensagem é recuperada para determinar o valor do TimeNextVisible.  
 
-O serviço de fila não tem suporte para uma conmoeda otimista ou pessimista e, por isso, os clientes que processam mensagens recuperadas de uma fila devem garantir que as mensagens são processadas de forma idempotente. Um último escritor ganha estratégia é usado para operações de atualização como SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage.  
+O serviço de fila não tem suporte para uma concordância otimista ou pessimista e, por isso, os clientes que processam mensagens recuperadas de uma fila devem garantir que as mensagens são processadas de forma idempotente. Uma última estratégia de vitórias é usada para operações de atualização como SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage.  
 
 Para obter mais informações, consulte:  
 
 * [API REST de Serviço de Filas](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Obter Mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
+* [Receber mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
-## <a name="managing-concurrency-in-azure-files"></a>Gestão de moedas em Ficheiros Azure
+## <a name="managing-concurrency-in-azure-files"></a>Gestão da concordância em Ficheiros Azure
 
-O serviço de ficheiros pode ser acedido utilizando dois pontos finais de protocolo diferentes – SMB e REST. O serviço REST não tem apoio para bloqueio suportógico ou bloqueio pessimista e todas as atualizações seguirão uma última estratégia de vitórias de um escritor. Os clientes SMB que montam ações de ficheiros podem alavancar mecanismos de bloqueio do sistema de ficheiros para gerir o acesso a ficheiros partilhados – incluindo a capacidade de realizar bloqueios pessimistas. Quando um cliente SMB abre um ficheiro, especifica tanto o acesso ao ficheiro como o modo de partilha. A definição de uma opção de acesso a ficheiros de "Write" ou "Read/Write" juntamente com um modo de partilha de ficheiros de "Nenhum" resultará em que o ficheiro seja bloqueado por um cliente SMB até que o ficheiro esteja fechado. Se a operação REST for tentada num ficheiro em que um cliente SMB tenha o ficheiro bloqueado, o serviço REST devolverá o código de estado 409 (Conflito) com código de erro SharingViolation.  
+O serviço de ficheiros pode ser acedido utilizando dois pontos finais de protocolo diferentes – SMB e REST. O serviço REST não tem suporte para bloqueio otimista ou bloqueio pessimista e todas as atualizações seguirão uma estratégia de vitórias do último escritor. Os clientes SMB que montam ações de ficheiros podem alavancar mecanismos de bloqueio do sistema de ficheiros para gerir o acesso a ficheiros partilhados – incluindo a capacidade de realizar bloqueios pessimistas. Quando um cliente SMB abre um ficheiro, especifica tanto o modo de acesso ao ficheiro como o modo de partilha. A definição de uma opção de acesso a ficheiros de "Escrever" ou "Ler/Escrever" juntamente com um modo de partilha de ficheiros de "Nenhum" resultará na bloqueio do ficheiro por um cliente SMB até que o ficheiro seja fechado. Se a operação REST for tentada num ficheiro em que um cliente SMB tem o ficheiro bloqueado, o serviço REST devolverá o código de estado 409 (Conflito) com código de erro SharingViolation.  
 
-Quando um cliente SMB abre um ficheiro para eliminação, marca o ficheiro como pendente de exclusão até que todos os outros cabos abertos do cliente SMB nesse ficheiro estejam fechados. Enquanto um ficheiro estiver marcado como exclusão pendente, qualquer operação REST nesse ficheiro devolverá o código de estado 409 (Conflito) com código de erro SMBDeletePending. O código de estado 404 (Não Encontrado) não é devolvido, uma vez que é possível ao cliente SMB remover a bandeira de eliminação pendente antes de fechar o ficheiro. Por outras palavras, o código de estado 404 (Não Encontrado) só é esperado quando o ficheiro tiver sido removido. Note que enquanto um ficheiro estiver num estado de exclusão de SMB pendente, este não será incluído nos resultados dos Ficheiros da Lista. Além disso, note que as operações rest Delete File e REST Delete Diretório são cometidas atomicamente e não resultam num estado de exclusão pendente.  
+Quando um cliente SMB abre um ficheiro para apagar, marca o ficheiro como pendente de exclusão até que todos os outros clientes SMB abram as pegas desse ficheiro. Enquanto um ficheiro estiver marcado como eliminação pendente, qualquer operação REST nesse ficheiro devolverá o código de estado 409 (Conflito) com o código de erro SMBDeletePending. O código de estado 404 (Não Encontrado) não é devolvido, uma vez que é possível ao cliente SMB remover a bandeira de eliminação pendente antes de fechar o ficheiro. Por outras palavras, o código de estado 404 (Não Encontrado) só é esperado quando o ficheiro tiver sido removido. Note que enquanto um ficheiro estiver num estado de exclusão pendente de SMB, este não será incluído nos resultados dos Ficheiros de Lista. Além disso, note que as operações DE EXCLUIR FICHEIRO e REST Delete Diretório são comprometidas atomicamente e não resultam num estado de exclusão pendente.  
 
 Para obter mais informações, consulte:  
 
-* [Gestão de Fechaduras de Ficheiros](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
+* [Gestão de fechaduras de ficheiros](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para a aplicação de amostra completa referenciada neste blog:  
+Para a aplicação completa da amostra referenciada neste blog:  
 
-* [Gerir a Concurrency usando o Armazenamento Azure - Aplicação de amostras](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Gestão da Concurrency utilizando o Azure Storage - Aplicação da amostra](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
-Para mais informações sobre o Armazenamento Azure consulte:  
+Para obter mais informações sobre o Azure Storage consulte:  
 
 * [Página inicial do armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introdução ao Armazenamento do Azure](storage-introduction.md)
-* Armazenamento Começando para [Blob,](../blobs/storage-dotnet-how-to-use-blobs.md) [Mesa,](../../cosmos-db/table-storage-how-to-use-dotnet.md) [Filas](../storage-dotnet-how-to-use-queues.md)e [Arquivos](../storage-dotnet-how-to-use-files.md)
+* Armazenamento Começando para [Blob,](../blobs/storage-dotnet-how-to-use-blobs.md) [Mesa,](../../cosmos-db/table-storage-how-to-use-dotnet.md)Filas e [Ficheiros](../storage-dotnet-how-to-use-queues.md) [Files](../storage-dotnet-how-to-use-files.md)
 * Arquitetura de Armazenamento – [Armazenamento Azure: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
 

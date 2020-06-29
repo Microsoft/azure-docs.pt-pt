@@ -1,5 +1,5 @@
 ---
-title: Evite recargas de página (MSAL.js) / Azure
+title: Evite recargas de página (MSAL.js) Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como evitar recargas de página ao adquirir e renovar tokens silenciosamente utilizando a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js).
 services: active-directory
@@ -7,35 +7,35 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/29/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5eb30f7dcf4b459b0af0bd8de965971fbbe44863
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084950"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477656"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite recargas de página ao adquirir e renovar tokens silenciosamente usando MSAL.js
-A Microsoft Authentication Library for JavaScript (MSAL.js) utiliza elementos ocultos `iframe` para adquirir e renovar tokens silenciosamente em segundo plano. A Azure AD devolve o token ao redirect_uri registado especificado no pedido simbólico (por padrão, esta é a página raiz da aplicação). Uma vez que a resposta é um 302, resulta no HTML correspondente ao `redirect_uri` carregamento na `iframe`. Normalmente, a `redirect_uri` aplicação é a página raiz e isso faz com que seja recarregada.
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite recargas de página ao adquirir e renovar tokens silenciosamente utilizando MSAL.js
+A Microsoft Authentication Library for JavaScript (MSAL.js) utiliza `iframe` elementos ocultos para adquirir e renovar tokens silenciosamente em segundo plano. A Azure AD devolve o símbolo ao redirect_uri registado especificado no pedido simbólico (por padrão, esta é a página raiz da aplicação). Uma vez que a resposta é um 302, resulta no HTML correspondente ao `redirect_uri` carregamento no `iframe` . Normalmente, a aplicação `redirect_uri` é a página raiz e isto faz com que recarregue.
 
-Noutros casos, se navegar para a página raiz da aplicação requer `iframe` autenticação, pode levar a elementos ou `X-Frame-Options: deny` erros aninhados.
+Noutros casos, se navegar na página raiz da aplicação necessitar de autenticação, pode levar a `iframe` elementos aninhados ou `X-Frame-Options: deny` erros.
 
-Uma vez que a MSAL.js não pode descartar os 302 emitidos pela Azure `redirect_uri` AD e `iframe`é obrigado a processar o símbolo devolvido, não pode impedir que o seu carregado no .
+Uma vez que MSAL.js não pode descartar o 302 emitido pela Azure AD e é obrigado a processar o token devolvido, não pode impedir que `redirect_uri` o carregamento seja carregado no `iframe` .
 
-Para evitar a recarga de toda a aplicação ou outros erros causados por isso, siga estas seleções.
+Para evitar que toda a aplicação volte a recarregar ou outros erros causados por isso, por favor siga estas soluções alternativas.
 
 ## <a name="specify-different-html-for-the-iframe"></a>Especificar HTML diferente para o iframe
 
-Coloque `redirect_uri` a propriedade em config numa página simples, que não requer autenticação. Tem de se certificar de `redirect_uri` que corresponde ao registado no portal Azure. Isto não afetará a experiência de login do utilizador, uma vez que o MSAL guarda a página de início quando o utilizador iniciar o processo de login e redireciona de volta para o local exato após o início do login.
+Desafie o `redirect_uri` imóvel em config para uma página simples, que não requer autenticação. Tem de se certificar de que corresponde ao `redirect_uri` registado no portal Azure. Isto não afetará a experiência de login do utilizador, uma vez que o MSAL guarda a página inicial quando o utilizador iniciar o processo de login e redireciona de volta para a localização exata após o início de sessão.
 
-## <a name="initialization-in-your-main-app-file"></a>Inicialização no seu ficheiro principal de aplicação
+## <a name="initialization-in-your-main-app-file"></a>Inicialização no seu ficheiro principal de aplicações
 
-Se a sua aplicação estiver estruturada de modo a existir um ficheiro Javascript central que define a inicialização, encaminhamento e outras coisas `iframe` da aplicação, pode carregar condicionalmente os módulos da sua aplicação com base no facto de a aplicação estar a carregar ou não. Por exemplo:
+Se a sua aplicação estiver estruturada de tal forma que exista um ficheiro Javascript central que define a inicialização, encaminhamento e outras coisas da aplicação, pode carregar condicionalmente os seus módulos de aplicação com base no carregamento ou não da `iframe` app. Por exemplo:
 
 Em AngularJS: app.js
 
@@ -146,4 +146,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [a construção de uma aplicação de uma única página (SPA)](scenario-spa-overview.md) utilizando MSAL.js.
+Saiba mais sobre [a construção de uma aplicação de uma página (SPA)](scenario-spa-overview.md) utilizando MSAL.js.

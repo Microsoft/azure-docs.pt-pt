@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: c2a3b40f5ac79d11e0a80ba31c3bbc10f4e82276
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/28/2020
+ms.openlocfilehash: d39dbc640dc89febc29c7b6c4942da88837c670a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299592"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506604"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copie dados de e para o SQL Server utilizando a Azure Data Factory
 
@@ -40,7 +40,7 @@ Pode copiar dados de uma base de dados do SQL Server para qualquer loja de dados
 
 Especificamente, este conector SQL Server suporta:
 
-- Versões SQL Server 2016, 2014, 2012, 2008 R2, 2008 e 2005.
+- Versão SQL Server 2005 e acima.
 - Copiar dados utilizando a autenticação SQL ou Windows.
 - Como fonte, recuperar dados utilizando uma consulta SQL ou um procedimento armazenado.
 - Como pia, criar automaticamente a tabela de destino, se não existir com base no esquema de origem; anexar dados a uma tabela ou invocar um procedimento armazenado com lógica personalizada durante a cópia. 
@@ -491,7 +491,7 @@ Quando copia dados de e para o SQL Server, os seguintes mapeamentos são usados 
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |

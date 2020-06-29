@@ -1,24 +1,14 @@
 ---
 title: Exemplos de classe nos Serviços Azure Lab ! Microsoft Docs
 description: Fornece alguns tipos de aulas para as quais pode configurar laboratórios usando os Serviços Azure Lab.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
-ms.author: spelluru
-ms.openlocfilehash: 645716e2b87b57172308138ae6189cbc9a54413e
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898984"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443762"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classe - Azure Lab Services
 

@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 79f26d56b79a4622ce99b45f153685f9063b79ad
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904852"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478336"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua app AD Azure
 
@@ -49,7 +49,7 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 
 **Quadro 2: v1.0 e v2.0 conjunto de reclamações opcionais**
 
-| Name                       |  Description   | Tipo token | Tipo de utilizador | Notas  |
+| Name                       |  Descrição   | Tipo token | Tipo de utilizador | Notas  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o utilizador foi autenticado pela última vez. Consulte a especificação openID connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
@@ -79,7 +79,7 @@ Estas reclamações estão sempre incluídas em fichas AD v1.0 Azure, mas não i
 
 **Quadro 3: v2.0 apenas pedidos opcionais**
 
-| Reivindicação JWT     | Name                            | Description                                | Notas |
+| Reivindicação JWT     | Name                            | Descrição                                | Notas |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP do cliente iniciou a sua sessão.   |       |
 | `onprem_sid`  | Identificador de Segurança no Local |                                             |       |
@@ -96,7 +96,7 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 
 **Quadro 4: Valores para configurar reclamações opcionais**
 
-| Nome da propriedade  | Nome de propriedade adicional | Description |
+| Nome da propriedade  | Nome de propriedade adicional | Descrição |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
@@ -185,7 +185,7 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 **Quadro 5: OpcionaisClaims tipo propriedades**
 
-| Name          | Tipo                       | Description                                           |
+| Name          | Tipo                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token JWT ID.     |
 | `accessToken` | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token de acesso JWT. |
@@ -198,7 +198,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 **Quadro 6: Propriedades do tipo OpcionalClaim**
 
-| Name                   | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da reclamação opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A fonte (objeto de diretório) da reclamação. Existem reclamações predefinidas e reclamações definidas pelo utilizador a partir de propriedades de extensão. Se o valor de origem for nulo, o pedido é uma reclamação opcional predefinida. Se o valor de origem for o utilizador, o valor na propriedade do nome é a propriedade de extensão do objeto do utilizador. |

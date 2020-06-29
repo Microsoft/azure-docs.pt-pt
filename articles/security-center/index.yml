@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: f564113f9a2bb92d1591ac0d3512ae460aa8f58d
-  ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+  ms.openlocfilehash: 13a7ca317630a5a1b0606fa0d2e2022f065fbd4d
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/15/2020
-  ms.locfileid: "84783202"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85317172"
 landingContent:
 - title: Sobre o Centro de Segurança
   linkLists:
@@ -30,18 +30,16 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Proteja os seus contentores
-      url: container-security.md
-    - text: Avaliação integrada de vulnerabilidades para VMs
-      url: built-in-vulnerability-assessment.md
-    - text: Rever os esquemas para alertas de segurança
-      url: alerts-schemas.md
-    - text: Automatizar respostas a alertas e recomendações
-      url: workflow-automation.md
-    - text: Exportar alertas e recomendações de segurança
-      url: continuous-export.md
-    - text: Configurar a proteção contra ameaças para o Azure Key Vault
-      url: advanced-threat-protection-key-vault.md
+    - text: Notas de versão do Centro de Segurança
+      url: release-notes.md
+    - text: Segurança de dados avançada para máquinas SQL
+      url: security-center-iaas-advanced-data.md
+    - text: Regras de supressão de alertas
+      url: alerts-suppression-rules.md
+    - text: Descrições completas dos novos controlos de segurança
+      url: secure-score-security-controls.md#security-controls-and-their-recommendations
+    - text: Nova API de classificação de segurança
+      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: Introdução
   linkLists:
   - linkListType: get-started
@@ -64,6 +62,8 @@ landingContent:
       url: tutorial-security-policy.md
     - text: Utilizar as recomendações para melhorar a segurança
       url: security-center-using-recommendations.md
+    - text: Controlar com a API de classificação de segurança
+      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: Migrar ameaças
   linkLists:
   - linkListType: how-to-guide

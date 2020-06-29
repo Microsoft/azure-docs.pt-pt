@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 946b199119ee9e03ec9348c4e180f8e4c9b9a776
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 986b3c3ef5bd3903a764726281b6bd0a25ba76a4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84751870"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506837"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -118,6 +118,9 @@ Após o final deste processo, pode eliminar os itens de backup da consola de ges
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Eliminar itens de backup da consola de gestão MARS
 
+>[!NOTE]
+>Se apagar ou perder a máquina de origem sem parar a cópia de segurança, a próxima cópia de segurança programada falhará. O antigo ponto de recuperação expira de acordo com a política, mas o último ponto de recuperação único é sempre mantido até parar a cópia de segurança e apagar os dados. Pode fazê-lo seguindo os passos [desta secção.](#delete-protected-items-on-premises)
+
 1. Abra a consola de gestão MARS, vá ao painel **de Ações** e selecione **Agendar Backup**.
 2. A partir da página **Modificar ou Parar uma** página de Backup agendada, selecione Parar de usar este horário de backup e eliminar todas as **cópias de segurança armazenadas**. Em seguida, selecione **Seguinte**.
 
@@ -140,6 +143,9 @@ Após o final deste processo, pode eliminar os itens de backup da consola de ges
 Depois de eliminar os itens de backup no local, siga os próximos passos a partir do portal.
 
 ### <a name="delete-backup-items-from-the-mabs-management-console"></a>Eliminar itens de backup da consola de gestão MABS
+
+>[!NOTE]
+>Se apagar ou perder a máquina de origem sem parar a cópia de segurança, a próxima cópia de segurança programada falhará. O antigo ponto de recuperação expira de acordo com a política, mas o último ponto de recuperação único é sempre mantido até parar a cópia de segurança e apagar os dados. Pode fazê-lo seguindo os passos [desta secção.](#delete-protected-items-on-premises)
 
 Existem dois métodos que pode utilizar para eliminar itens de backup da consola de gestão MABS.
 

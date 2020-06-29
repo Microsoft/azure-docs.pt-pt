@@ -11,21 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b78526ea1409f22b000aed8b20db90dfc9d143
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 324737611d2d05411012050fcf7140bee48d35b0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253567"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505839"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começa com a Azure Ative Directory Identity Protection e o Microsoft Graph
 
 Microsoft Graph é o ponto final unificado da Microsoft EPI e a casa das APIs de [Proteção de Identidade do Diretório Ativo Azure.](../active-directory-identityprotection.md) Existem quatro APIs que expõem informações sobre utilizadores arriscados e inscrições. A primeira API, **riskDetection,** permite-lhe consultar o Microsoft Graph para uma lista de deteções de risco ligadas ao utilizador e de acesso e informações associadas sobre a deteção. A segunda API, **riskyUsers,** permite-lhe consultar o Microsoft Graph para obter informações sobre a Proteção de Identidade dos utilizadores detetadas como risco. A terceira API, **signIn,** permite-lhe consultar o Microsoft Graph para obter informações sobre os sign-ins Azure AD com propriedades específicas relacionadas com o estado de risco, detalhes e nível. A quarta API, **identidadeRiskEvents,** permite-lhe consultar o Microsoft Graph para uma lista de deteções de risco e informações [associadas.](../reports-monitoring/concept-risk-events.md) A identidadeRiskEvents API será depreciada a 10 de janeiro de 2020; sugerimos que use o **risco API dedetecções.** Este artigo faz com que se inicie a ligação ao Microsoft Graph e consulta estas APIs. Para uma introdução aprofundada, documentação completa e acesso ao Graph Explorer, consulte o site do [Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específica para estas APIs:
 
-* [API de deteção de risco](/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [aPI de riskyUsers](/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [signIn API](/graph/api/resources/signin?view=graph-rest-beta)
-* [identidadeRiskEvents API](/graph/api/resources/identityriskevent?view=graph-rest-beta) *será depreciada a 10 de janeiro de 2020*
+* [API de deteção de risco](/graph/api/resources/riskdetection?view=graph-rest-v1.0)
+* [aPI de riskyUsers](/graph/api/resources/riskyuser?view=graph-rest-v1.0)
+* [signIn API](/graph/api/resources/signin?view=graph-rest-v1.0)
 
 ## <a name="connect-to-microsoft-graph"></a>Ligue-se ao gráfico da Microsoft
 
@@ -201,7 +200,7 @@ Estas três APIs fornecem uma multiplicidade de oportunidades para recuperar inf
 Com as políticas de risco de inscrição na Proteção de Identidade, pode aplicar condições quando o risco é detetado em tempo real. Mas e as deteções que são descobertas offline? Para entender que deteções ocorreram offline, e assim não teria desencadeado a política de risco de acesso, você pode consultar o risco API dedetecção.
 
 ```
-GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
 ### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Obtenha todos os utilizadores que aprovaram com sucesso um desafio MFA desencadeado pela política de entradas de risco (riskyUsers API)
@@ -209,16 +208,9 @@ GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType 
 Para entender o impacto que as políticas baseadas no risco de proteção de identidade têm na sua organização, você pode consultar todos os utilizadores que passaram com sucesso um desafio MFA desencadeado por uma política de ins- ins de risco. Estas informações podem ajudá-lo a entender quais os utilizadores que a Proteção de Identidade pode ter detetado falsamente como risco e qual dos seus utilizadores legítimos pode estar a realizar ações que a IA considera arriscadas.
 
 ```
-GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
 
-### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Obtenha todos os insus máximos de risco para um utilizador específico (sinalIn API)
-
-Quando acredita que um utilizador pode ter sido comprometido, pode entender melhor o estado do seu risco recuperando todos os seus insus máximos de risco. 
-
-```
-https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
-```
 ## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, acabaste de fazer a tua primeira chamada para o Microsoft Graph!  
@@ -232,4 +224,4 @@ Para obter informações relacionadas, consulte:
 - [Tipos de deteções de risco detetadas pela Azure Ative Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Descrição Geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Raiz do serviço de proteção de identidade Azure Ad](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
+- [Raiz do serviço de proteção de identidade Azure Ad](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)

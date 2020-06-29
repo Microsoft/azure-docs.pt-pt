@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307745"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414288"
 ---
-# <a name="set-up-web-endpoints"></a>Configurar pontos finais web
+# <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
-Neste artigo, aprende a configurar pontos finais web numa aplicação de Comandos Personalizados que lhe permitem fazer pedidos HTTP a partir de uma aplicação do cliente. Completa as seguintes tarefas:
+Neste artigo, você vai aprender como configurar pontos finais web em uma aplicação de Comandos Personalizados que lhe permitem fazer pedidos HTTP a partir de uma aplicação do cliente. Completará as seguintes tarefas:
 
 - Configurar pontos finais web na aplicação Comandos Personalizados
 - Ligue para pontos finais da web na aplicação de Comandos Personalizados

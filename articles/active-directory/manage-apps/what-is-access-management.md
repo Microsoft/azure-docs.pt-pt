@@ -10,16 +10,16 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/16/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee8cf2374d29e7044e817b73a5414865eea206e7
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f49db0455af02449c3bd087d323d9972d18d96f9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84762994"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479730"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a apps
 

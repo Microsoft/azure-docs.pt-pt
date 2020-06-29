@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465597"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413336"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
@@ -25,7 +25,7 @@ ms.locfileid: "84465597"
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
 
-| Idioma              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
+| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Chinês-Simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`também aceitou |
 | Chinês-Tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "84465597"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (apenas v3.1-pré-visualização)
 
-| Idioma              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
+| Linguagem              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
@@ -57,10 +57,10 @@ ms.locfileid: "84465597"
 #### <a name="named-entity-recognition-ner"></a>[Reconhecimento de Entidades Nomeadas (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * Atualmente, o NER v3 apenas suporta a língua inglesa. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
+> * O NER v3 suporta atualmente apenas línguas inglesa e espanhola. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
 > * v2.1 apenas devolve o conjunto completo de entidades disponíveis para as línguas inglesa, chinesa-simplificada, francesa, alemã e espanhola.  As entidades "Pessoa", "Localização" e "Organização" são devolvidas para as outras línguas apoiadas.
 
-| Idioma               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
+| Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
 | Checo                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -82,13 +82,13 @@ ms.locfileid: "84465597"
 | Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt`também aceitou |
 | Português (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Russo              |     `ru`      |     ✓      |            |                                 |                    |
-| Espanhol               |     `es`      |     ✓      |            |                                 |                    |
+| Espanhol               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
 #### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
-| Idioma              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
+| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -108,7 +108,7 @@ ms.locfileid: "84465597"
 
 #### <a name="entity-linking"></a>[Ligação de entidades](#tab/entity-linking)
 
-| Idioma | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
+| Linguagem | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
@@ -123,6 +123,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é a API de Análise de Texto?](overview.md)   

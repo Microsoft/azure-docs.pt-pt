@@ -1,17 +1,14 @@
 ---
 title: Azure Lab Services - criar informações de suporte (proprietário de conta de laboratório)
 description: Descreve como um dono de conta de laboratório pode definir informações de contacto de suporte. Os criadores de laboratório e os utilizadores de laboratório podem vê-lo e usá-lo para obter ajuda.
-author: spelluru
-ms.author: spelluru
-ms.date: 05/15/2020
+ms.date: 06/26/2020
 ms.topic: how-to
-ms.service: lab-services
-ms.openlocfilehash: fca414c6220ddf5a8481ee616d669581d14bff83
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895760"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445088"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Configurar informações de suporte (dono de conta de laboratório nos Serviços Azure Lab)
 Este artigo explica como você (como proprietário de uma conta de laboratório) pode especificar informações de suporte que os criadores de laboratório (educadores) e utilizadores de laboratório (estudantes) podem usar para obter ajuda se encontrarem problemas técnicos com a utilização da conta de laboratório ou laboratório. 

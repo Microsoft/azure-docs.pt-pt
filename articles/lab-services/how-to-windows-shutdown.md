@@ -1,21 +1,14 @@
 ---
 title: Guia para controlar o comportamento de paragem do Windows nos Serviços Azure Lab Microsoft Docs
 description: Passos para desligar automaticamente uma máquina virtual do Windows e remover o comando de paragem do Windows.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
 ms.topic: article
-ms.date: 3/30/2020
-ms.author: spelluru
-ms.openlocfilehash: 834338a6c695cf5eed9bcccbe31a703080cb4f6d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895809"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445173"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guia para controlar o comportamento de paragem do Windows
 

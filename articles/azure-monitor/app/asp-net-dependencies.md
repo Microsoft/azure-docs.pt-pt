@@ -2,13 +2,13 @@
 title: Rastreio de Dependência em Insights de Aplicações Azure / Microsoft Docs
 description: Monitorize as chamadas de dependência a partir das suas instalações ou da aplicação web microsoft Azure com Insights de Aplicação.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: 759e465a21b421c22a62245536827546acc2d79e
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 06/26/2020
+ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204757"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445224"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreio de dependência em Insights de Aplicação Azure 
 
@@ -95,14 +95,22 @@ Para ASP.NET aplicações Core, é agora obrigado a optar pela coleção de text
 services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
 ```
 
-Para aplicações ASP.NET, a consulta COMPLETA SQL é recolhida com a ajuda de instrumentação de código byte, que requer motor de instrumentação ou utilizando o pacote [NuGet Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) em vez da biblioteca System.Data.SqlClient. São necessários passos adicionais específicos da plataforma, como descrito abaixo.
+Para ASP.NET aplicações, o texto de consulta SQL completo é recolhido com a ajuda de instrumentação de código byte, que requer a utilização do motor de instrumentação ou utilizando o pacote [NuGet Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) em vez da biblioteca System.Data.SqlClient. As etapas específicas da plataforma para permitir a recolha completa de consultas SQL são descritas abaixo:
 
 | Plataforma | Passo(s) Necessário para obter consulta SQL completa |
 | --- | --- |
 | Aplicação Web do Azure |No painel de controlo de aplicações web, [abra a lâmina De Insights de Aplicação](../../azure-monitor/app/azure-web-apps.md) e ative comandos SQL em .NET |
 | Servidor IIS (Azure VM, on-prem, e assim por diante.) | Utilize o pacote [NuGet Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) ou utilize o Módulo PowerShell do Monitor de Estado para [instalar o Motor de Instrumentação](../../azure-monitor/app/status-monitor-v2-api-reference.md) e reiniciar o IIS. |
 | Serviço Cloud do Azure | Adicione [tarefa de arranque para instalar o StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> A sua aplicação deve ser a bordo da ApplicationInsights SDK no momento de construção, instalando pacotes NuGet para [aplicações ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) ou [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Utilize o pacote [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet
+| IIS Express | Utilize o pacote [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet.
+
+Além dos passos específicos da plataforma acima, **deve também optar explicitamente para permitir a recolha de comandos SQL** modificando o ficheiro applicationInsights.config com o seguinte:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 Nos casos acima referidos, a forma correta de validar o motor de instrumentação corretamente instalado é através da validação de que a versão SDK recolhida `DependencyTelemetry` é 'rddp'. 'rdddsd' ou 'rddf' indica que as dependências são recolhidas através de chamadas DiagnosticSource ou EventSource e, portanto, a consulta completa do SQL não será capturada.
 

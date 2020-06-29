@@ -1,5 +1,5 @@
 ---
-title: Criar uma identidade de aplicação Azure (PowerShell) / Azure
+title: Criar uma identidade de aplicativo Azure (PowerShell) Rio Azure
 titleSuffix: Microsoft identity platform
 description: Descreve como utilizar o Azure PowerShell para criar uma aplicação do Azure Active Directory e um principal de serviço, e conceder acesso a recursos através do controlo de acesso baseado em funções. Mostra como a autenticar a aplicação com um certificado.
 services: active-directory
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 10/10/2019
+ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 7bd8c3b25c23ba8586e38ec8eb7d1baefaa21633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6204fcefa60d1a627e6e3d4e6b799efd3ee9298b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884193"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505873"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Utilizar o Azure PowerShell para criar um diretor de serviço com um certificado
+# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
 
 Quando tem uma aplicação ou script que precisa de aceder a recursos, pode configurar uma identidade para a aplicação e autenticar a aplicação com as suas próprias credenciais. Esta identidade é conhecida como um principal de serviço. Esta abordagem permite-lhe:
 
@@ -28,7 +28,7 @@ Quando tem uma aplicação ou script que precisa de aceder a recursos, pode conf
 * Utilize um certificado para autenticação ao executar um script automático.
 
 > [!IMPORTANT]
-> Em vez de criar um diretor de serviço, considere usar identidades geridas para recursos Azure para a sua identidade de aplicação. Se o seu código for executado num serviço que suporte identidades geridas e aceda a recursos que suportam a autenticação do Azure Ative Directory (Azure AD), as identidades geridas são uma melhor opção para si. Para saber mais sobre identidades geridas para os recursos do Azure, incluindo quais os serviços que atualmente o apoiam, veja [o que é gerida identidades para os recursos Azure?](../managed-identities-azure-resources/overview.md)
+> Em vez de criar um principal de serviço, considere usar identidades geridas para recursos Azure para a sua identidade de aplicação. Se o seu código funciona num serviço que suporta identidades geridas e acede a recursos que suportam a autenticação do Azure Ative Directory (Azure AD), as identidades geridas são uma opção melhor para si. Para saber mais sobre identidades geridas para os recursos da Azure, incluindo quais os serviços que atualmente o suportam, veja [o que é gerida identidades para os recursos do Azure?](../managed-identities-azure-resources/overview.md)
 
 Este artigo mostra como criar um principal de serviço que faz a autenticação com um certificado. Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -38,18 +38,18 @@ Para este artigo, tem de ter a [versão mais recente](/powershell/azure/install-
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para completar este artigo, deve ter permissões suficientes tanto na subscrição do Azure AD como no Azure. Especificamente, você deve ser capaz de criar uma app no Azure AD, e atribuir o principal de serviço a uma função.
+Para completar este artigo, você deve ter permissões suficientes tanto na sua assinatura AZure AD como Azure. Especificamente, você deve ser capaz de criar uma app no AD Azure, e atribuir o principal do serviço a um papel.
 
-A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](howto-create-service-principal-portal.md#required-permissions).
+A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-## <a name="assign-the-application-to-a-role"></a>Atribuir a candidatura a um papel
-Para aceder aos recursos na sua subscrição, deve atribuir a aplicação a uma função. Decida qual o papel que oferece as permissões certas para a aplicação. Para conhecer as funções disponíveis, consulte [RBAC: Built in Roles](/azure/role-based-access-control/built-in-roles).
+## <a name="assign-the-application-to-a-role"></a>Atribuir a candidatura a uma função
+Para aceder aos recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer as funções disponíveis, consulte [o RBAC: Construído em Papéis.](/azure/role-based-access-control/built-in-roles)
 
-Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação ao papel *do Leitor* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha. Para permitir que a aplicação execute ações como reiniciar, iniciar e parar instâncias, selecione a função *Contributiva.*
+Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação à função *Reader* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha. Para permitir que a aplicação execute ações como reiniciar, iniciar e parar instâncias, selecione a *função Contribuinte.*
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar um principal de serviço com um certificado autoassinado
 
-O exemplo seguinte inclui um cenário simples. Utiliza o [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar um diretor de serviço com um certificado auto-assinado, e utiliza a [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para atribuir a função [de Leitor](/azure/role-based-access-control/built-in-roles#reader) ao diretor de serviço. A atribuição da função está confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+O exemplo seguinte inclui um cenário simples. Utiliza [o New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar um principal de serviço com um certificado auto-assinado e utiliza [a Assinatura New-AzRole](/powershell/module/az.resources/new-azroleassignment) para atribuir o papel de [Leitor](/azure/role-based-access-control/built-in-roles#reader) ao principal do serviço. A atribuição da função está confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > O cmdlet New-SelfSignedCertificate e o módulo PKI não são atualmente suportados no PowerShell Core. 
@@ -68,7 +68,7 @@ Sleep 20
 New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
 ```
 
-O exemplo dorme durante 20 segundos para permitir que o novo diretor de serviço se propague em toda a AD Azure. Se o script não aguardar o tempo suficiente, verá um erro que indica: "{ID} de principal não existe no diretório {DIR-ID}." Para resolver este erro, aguarde um momento e volte a executar o comando **New-AzRoleAssignment.**
+O exemplo dorme durante 20 segundos para permitir que o novo diretor de serviço se propague por toda a Azure AD. Se o script não aguardar o tempo suficiente, verá um erro que indica: "{ID} de principal não existe no diretório {DIR-ID}." Para resolver este erro, aguarde um momento e volte a executar o comando **de New-AzRoleAssignment.**
 
 Pode definir o âmbito de atribuição da função para um grupo de recursos específico, utilizando o parâmetro **ResourceGroupName**. Pode definir o âmbito para um recurso específico, utilizando também os parâmetros **ResourceType** e **ResourceName**. 
 
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer o certificado através do script do PowerShell automatizado
 
-Sempre que iniciar sessão como um principal de serviço, tem de fornecer o ID de inquilino do diretório para a sua aplicação AD. Um inquilino é um caso de Azure AD.
+Sempre que iniciar sessão como um principal de serviço, tem de fornecer o ID de inquilino do diretório para a sua aplicação AD. Um inquilino é um exemplo de Azure AD.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -106,7 +106,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Criar um principal de serviço com um certificado da Autoridade de Certificação
 
-O exemplo seguinte utiliza um certificado emitido por uma Autoridade de Certificação para criar o principal de serviço. A atribuição é confinada à subscrição do Azure especificada. Adiciona o principal de serviço ao papel [do Leitor.](../../role-based-access-control/built-in-roles.md#reader) Se ocorrer um erro durante a atribuição da função, repete a atribuição.
+O exemplo seguinte utiliza um certificado emitido por uma Autoridade de Certificação para criar o principal de serviço. A atribuição é confinada à subscrição do Azure especificada. Adiciona o principal do serviço ao papel [de Leitor.](../../role-based-access-control/built-in-roles.md#reader) Se ocorrer um erro durante a atribuição da função, repete a atribuição.
 
 ```powershell
 Param (
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer o certificado através do script do PowerShell automatizado
-Sempre que iniciar sessão como um principal de serviço, tem de fornecer o ID de inquilino do diretório para a sua aplicação AD. Um inquilino é um caso de Azure AD.
+Sempre que iniciar sessão como um principal de serviço, tem de fornecer o ID de inquilino do diretório para a sua aplicação AD. Um inquilino é um exemplo de Azure AD.
 
 ```powershell
 Param (
@@ -195,7 +195,7 @@ Se precisar de obter o ID da aplicação, utilize:
 
 ## <a name="change-credentials"></a>Alterar credenciais
 
-Para alterar as credenciais de uma aplicação ad, seja por causa de um compromisso de segurança ou de uma caducidade credencial, utilize os cmdlets [Remove-AzADAppCredential](/powershell/module/az.resources/remove-azadappcredential) e [New-AzADAppCredential.](/powershell/module/az.resources/new-azadappcredential)
+Para alterar as credenciais de uma aplicação AD, seja por causa de um compromisso de segurança ou de uma expiração credencial, utilize os cmdlets [Remove-AzADAppCredential](/powershell/module/az.resources/remove-azadappcredential) e [New-AzADAppCredential.](/powershell/module/az.resources/new-azadappcredential)
 
 Para remover todas as credenciais para uma aplicação, utilize:
 
@@ -216,12 +216,12 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 Pode obter os seguintes erros ao criar um principal de serviço:
 
-* **"Authentication_Unauthorized"** ou **"Nenhuma subscrição encontrada no contexto."** - Vê este erro quando a sua conta não tem [as permissões necessárias](#required-permissions) no Anúncio de Azure para registar uma aplicação. Normalmente, vê-se este erro quando apenas os utilizadores de administração no seu Diretório Ativo Azure podem registar aplicações, e a sua conta não é administradora. Peça ao seu administrador que o designe para uma função de administrador, ou que permita aos utilizadores registarem aplicações.
+* **"Authentication_Unauthorized"** ou **"Nenhuma subscrição encontrada no contexto."** - Vê este erro quando a sua conta não tem as [permissões necessárias](#required-permissions) no AD Azure para registar uma aplicação. Normalmente, vê-se este erro quando apenas os utilizadores administrativos do seu Diretório Azure Ative podem registar aplicações, e a sua conta não é administradora. Peça ao seu administrador para atribuí-lo a uma função de administrador ou para permitir que os utilizadores registem aplicações.
 
-* A sua conta **"não tem autorização para realizar a ação 'Microsoft.Authorization/roleAssignments/write' sobre o âmbito '/subscrições/{guid}'."** - Vê este erro quando a sua conta não tem permissões suficientes para atribuir uma função a uma identidade. Peça ao administrador da sua subscrição para adicioná-lo à função Administrador de Acesso dos Utilizadores.
+* A sua conta **"não tem autorização para executar ações 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."** - Vê este erro quando a sua conta não tem permissões suficientes para atribuir uma função a uma identidade. Peça ao administrador da sua subscrição para adicioná-lo à função Administrador de Acesso dos Utilizadores.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Para obter uma explicação mais detalhada de principais de serviço e de aplicações, veja [Objetos de Aplicações e Objetos de Principais de Serviço](app-objects-and-service-principals.md).
-* Para mais informações sobre a autenticação da AD Azure, consulte Cenários de [Autenticação para AD Azure](authentication-scenarios.md).
+* Para obter mais informações sobre a autenticação Azure AD, consulte [Cenários de Autenticação para Azure AD](authentication-scenarios.md).

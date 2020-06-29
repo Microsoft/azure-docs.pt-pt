@@ -1,18 +1,16 @@
 ---
 title: Como criar um laboratório com um recurso partilhado Serviços de Laboratório Azure
 description: Saiba como criar um laboratório que exija um recurso partilhado entre os alunos.
-services: lab-services
 author: emaher
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/05/2020
+ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: c8e8c99b40eb2d84d001076186a254988377361d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 9cb5698f95aa220208fb02a35a52ff5363a173ac
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895942"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443371"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Como criar um laboratório com um recurso partilhado nos Serviços de Laboratório Azure
 

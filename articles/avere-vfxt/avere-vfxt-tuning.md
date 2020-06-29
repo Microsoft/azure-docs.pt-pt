@@ -1,54 +1,54 @@
 ---
-title: Avere vFXT afinação de cluster - Azure
-description: Visão geral das configurações personalizadas para otimizar o desempenho em Avere vFXT para Azure
+title: Afinação do cluster Avere vFXT - Azure
+description: Visão geral das definições personalizadas para otimizar o desempenho em Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152940"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505295"
 ---
 # <a name="cluster-tuning"></a>Otimização do cluster
 
-A maioria dos clusters vFXT pode beneficiar de configurações de desempenho personalizadas. Estas definições ajudam o cluster a funcionar melhor com o seu fluxo de trabalho, conjunto de dados e ferramentas específicas.
+A maioria dos clusters vFXT pode beneficiar de configurações de desempenho personalizadas. Estas definições ajudam o cluster a trabalhar melhor com o seu fluxo de trabalho particular, conjunto de dados e ferramentas.
 
-Esta personalização deve ser feita com a ajuda de um representante de suporte, pois pode envolver a configuração de funcionalidades que não estão disponíveis no Painel de Controlo de Avere.
+Esta personalização deve ser feita com a ajuda de um representante de suporte, pois pode envolver funcionalidades configurantes que não estão disponíveis no Painel de Controlo de Avere.
 
 Esta secção descreve algumas das afinações personalizadas que podem ser feitas.
 
 ## <a name="general-optimizations"></a>Otimizações gerais
 
-Estas alterações podem ser recomendadas com base em qualidades de conjunto de dados ou estilo de fluxo de trabalho.
+Estas alterações podem ser recomendadas com base nas qualidades do conjunto de dados ou no estilo de fluxo de trabalho.
 
 * Se a carga de trabalho for pesada, aumente o tamanho da cache de escrita a partir do seu padrão de 20%.
-* Se o conjunto de dados envolver muitos pequenos ficheiros, aumente o limite de contagem de ficheiros do conjunto cache.
-* Se o trabalho envolver a cópia ou a deslocação de dados entre dois repositórios, ajuste o número de fios utilizados para a movimentação de dados:
+* Se o conjunto de dados envolver muitos ficheiros pequenos, aumente o limite de contagem de ficheiros da cache de cluster.
+* Se o trabalho envolver a cópia ou a movimentação de dados entre dois repositórios, ajuste o número de fios utilizados para os dados em movimento:
   * Para aumentar a velocidade, pode aumentar o número de fios paralelos utilizados.
-  * Se o volume de armazenamento traseiro estiver a ficar sobrecarregado, poderá ter de diminuir o número de fios paralelos utilizados.
-* Se o cluster caches dados para um ficheiro principal que utiliza OS NFSv4 ACLs, ative o modo de acesso para simplificar a autorização de ficheiro para determinados clientes.
+  * Se o volume de armazenamento de back-end estiver a ficar sobrecarregado, poderá ser necessário diminuir o número de fios paralelos utilizados.
+* Se o cluster caches dados para um ficheiro principal que utiliza NFSv4 ACLs, permitir o cache do modo de acesso para simplificar a autorização de ficheiros para determinados clientes.
 
-## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Otimizações de cloud NAS ou cloud gateway
+## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Otimizações cloud NAS ou cloud gateway
 
-Num cenário de nas nuvem ou gateway, o cluster vFXT fornece acesso ao estilo NAS a um recipiente de nuvem. Para tirar partido de velocidades de dados mais elevadas entre o cluster vFXT e o armazenamento em nuvem, o seu representante pode recomendar a alteração das definições para empurrar os dados de forma mais agressiva para o volume de armazenamento a partir da cache. Por exemplo:
+Num cenário de NAS ou gateway em nuvem, o cluster vFXT proporciona acesso ao estilo NAS a um recipiente de nuvem. Para tirar partido de velocidades de dados mais elevadas entre o cluster vFXT e o armazenamento em nuvem, o seu representante pode recomendar a alteração das definições para empurrar mais agressivamente os dados para o volume de armazenamento a partir da cache. Por exemplo:
 
-* Aumentar o número de ligações de TCP entre o cluster e o recipiente de armazenamento
+* Aumentar o número de ligações TCP entre o cluster e o contentor de armazenamento
 
-## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Cloud bursting ou otimizações híbridas WAN
+## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Otimizações de WAN em nuvem ou híbridas
 
-Num cenário de rebentamento de nuvens ou cenário de otimização de WAN de armazenamento híbrido, o cluster vFXT proporciona integração entre o armazenamento de hardware em nuvem e no local. Estas alterações podem ser úteis:
+Num cenário de explosão em nuvem ou cenário de otimização de armazenamento híbrido WAN, o cluster vFXT proporciona integração entre o armazenamento de hardware na nuvem e no local. Estas alterações podem ser úteis:
 
-* Aumentar o número de ligações TCP permitidas entre o cluster e o filer central
-* Ativar a definição de otimização WAN para o filer de núcleo remoto (Esta definição pode ser utilizada para um filer remoto no local ou um filer de núcleo de nuvem numa região azure diferente.)
-* Aumentar o tamanho do tampão da tomada TCP<sup>*</sup>
-* Ativar a definição "sempre para a frente" para reduzir ficheiros com cache redundante<sup>*</sup>
+* Aumentar o número de ligações TCP permitidas entre o cluster e o ficheiro principal
+* Ativar a definição de otimização WAN para o ficheiro de núcleo remoto (Esta definição pode ser usada para um ficheiro remoto no local ou para um ficheiro de núcleo de nuvem numa região de Azure diferente.)
+* Aumente o tamanho do tampão da tomada TCP<sup>*</sup>
+* Ative a definição "sempre para a frente" para reduzir os ficheiros em cache redundante<sup>*</sup>
 
-<sup>*</sup>Estes ajustes podem não se aplicar a todos os sistemas, dependendo da carga de trabalho e das necessidades de desempenho.
+<sup>*</sup>Estes ajustes podem não se aplicar a todos os sistemas, dependendo das necessidades de carga de trabalho e de desempenho.
 
-## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ajude a otimizar o seu Avere vFXT para o Azure
+## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ajude a otimizar o seu Avere vFXT para Azure
 
-Para contactar a equipa de suporte sobre estas otimizações, utilize o procedimento descrito no [Get help with your system](avere-vfxt-open-ticket.md).
+Para contactar o pessoal de apoio sobre estas otimizações, utilize o procedimento descrito no [Get help with your system](avere-vfxt-open-ticket.md).

@@ -9,22 +9,26 @@ ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 2d7991a00bedf49147b7a6015b5a5e0ce8892ac3
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424138"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479866"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Route Blob eventos de armazenamento para o ponto final web usando o modelo de gestor de recursos Azure
+# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Route Blob eventos de armazenamento para o ponto final web usando um modelo ARM
 
-O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você usa um **modelo de Gestor de Recursos Azure** para criar uma conta de armazenamento Blob, subscrever eventos para esse armazenamento de bolhas, e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
+O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma conta de armazenamento Blob, subscrever eventos para esse armazenamento de bolhas, e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ### <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
@@ -39,21 +43,19 @@ Antes de subscrever aos eventos do armazenamento de Blobs, vamos criar o ponto f
 
    ![Ver novo site](./media/blob-event-quickstart-portal/view-site.png)
 
-## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Criar uma conta de armazenamento com uma subscrição de Grade de Eventos
+## <a name="review-the-template"></a>Rever o modelo
 
-### <a name="review-the-template"></a>Rever o modelo
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
-
-[!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
 
 Dois recursos Azure são definidos no modelo:
 
 * [**Microsoft.Storage/storageAstas:**](/azure/templates/microsoft.storage/storageaccounts)criar uma conta de Armazenamento Azure.
-* [**Microsoft.EventGrid/systemTopics:**](/azure/templates/microsoft.eventgrid/systemtopics)crie um tópico de sistema com o nome especificado para a conta de armazenamento. 
+* [**Microsoft.EventGrid/systemTopics:**](/azure/templates/microsoft.eventgrid/systemtopics)crie um tópico de sistema com o nome especificado para a conta de armazenamento.
 * [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): crie uma subscrição da Azure Event Grid para o tópico do sistema.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione o seguinte link para iniciar seduca e abra um modelo. O modelo cria um cofre chave e um segredo.
 
@@ -65,7 +67,7 @@ Dois recursos Azure são definidos no modelo:
   O portal Azure é usado aqui para implementar o modelo. Também pode utilizar a Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
-> Você pode encontrar mais amostras de modelo de Azure Event Grid [aqui.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid)
+> Você pode encontrar mais amostras de modelo de Azure Event Grid [aqui.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid&pageNumber=1&sort=Popular)
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
@@ -92,5 +94,5 @@ Para obter mais informações sobre os modelos do Gestor de Recursos Azure, cons
 
 * [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager)
 * [Definir recursos em modelos de Gestor de Recursos Azure](/azure/templates/)
-* [Modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
+* [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
 * [Modelos de grelha de eventos Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
