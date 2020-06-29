@@ -4,15 +4,15 @@ description: ficheiro de inclusão
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 76af1084626944d8399edd2c7ec5dec92e25f3ed
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378420"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506055"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
@@ -21,9 +21,17 @@ A quantidade de capacidade disponível pode variar em função do tamanho, regi�
 
 ## <a name="eviction-policy"></a>Política de despejo
 
-Os VMs podem ser despejados com base na capacidade ou no preço máximo que definiu. Para máquinas virtuais, a política de despejo está definida para *Deallocate* que move os seus VMs despejados para o estado de paragem, permitindo-lhe recolocar os VMs despejados mais tarde. No entanto, a realocação de VMs spot dependerá da disponibilidade da capacidade spot. Os VMs deallocados contarão com a sua quota vCPU spot e você será cobrado pelos seus discos subjacentes. 
+Os VMs podem ser despejados com base na capacidade ou no preço máximo que definiu. Ao criar um Spot VM, pode definir a política de despejo para *Deallocate* (padrão) ou *Eliminar*. 
 
-Os utilizadores podem optar por receber notificações in-VM através de [Eventos Agendados Azure.](../articles/virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estiverem a ser despejados e terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
+A política *deallocate* move o seu VM para o estado de paragem, permitindo-lhe recolocá-lo mais tarde. No entanto, não há garantias de que a dotação seja bem sucedida. Os VMs translocados contarão com a sua quota e serão cobrados custos de armazenamento para os discos subjacentes. 
+
+Se quiser que o seu VM seja apagado quando for despejado, pode definir a política de despejo para *eliminar*. Os VMs despejados são eliminados juntamente com os seus discos subjacentes, pelo que não continuará a ser cobrado pelo armazenamento. 
+
+> [!NOTE]
+>
+> O portal não suporta atualmente `Delete` como opção de despejo, só pode definir `Delete` usando PowerShell, CLI e modelos.
+
+Pode optar por receber notificações in-VM através de [Eventos Agendados Azure.](../articles/virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estiverem a ser despejados e terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
 
 
 | Opção | Resultado |
@@ -36,6 +44,7 @@ Os utilizadores podem optar por receber notificações in-VM através de [Evento
 | Após o despejo, o preço do VM volta a ser < o preço máximo. | O VM não será reiniciada automaticamente. Você pode reiniciar o VM por si mesmo, e será cobrado pelo preço atual. |
 | Se o preço máximo for definido para`-1` | O VM não será despejado por razões de preços. O preço máximo será o preço atual, até ao preço dos VM padrão. Nunca será cobrado acima do preço normal.| 
 | Alterar o preço máximo | Tens de negociar com o VM para alterar o preço máximo. Deallocate o VM, definir um novo preço máximo, em seguida, atualizar o VM. |
+
 
 ## <a name="limitations"></a>Limitações
 

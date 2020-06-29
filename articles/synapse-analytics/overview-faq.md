@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e0f1caf77f0e898b13045e2c840d93f42a5569fc
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609153"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484048"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização de espaços de trabalho) frequentemente perguntas
 
@@ -48,6 +48,10 @@ R: A Azure Synapse tem as seguintes capacidades:
 R: Azure Synapse Analytics é uma evolução do Azure SQL Data Warehouse numa plataforma de análise, que inclui o pool SQL como solução de armazém de dados. Esta plataforma combina a exploração de dados, ingestão, transformação, preparação e uma camada de analítica de serviço.
 
 ## <a name="use-cases"></a>Casos de utilização
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>P: Como posso mudar o nome de um artefacto publicado (conjunto de dados, caderno, script sql e assim por diante) em Azure Synapse?
+
+R: Para renomear um ficheiro de artefactos publicados, primeiro clonar o ficheiro e mudar o nome do novo ficheiro para o nome que preferir. Terá de atualizar manualmente todas as referências do artefacto ao novo nome do ficheiro e eliminar o antigo.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>Q: O que é um bom caso de uso para piscina Sinaapse SQL
 

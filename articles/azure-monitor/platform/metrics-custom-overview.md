@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299830"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506978"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
@@ -74,7 +74,7 @@ Cada ponto de dados enviado ao Monitor Azure deve ser marcado com uma marca de t
 ### <a name="namespace"></a>Espaço de Nomes
 Os espaços de nome são uma forma de categorizar ou agrupar métricas semelhantes em conjunto. Ao utilizar espaços de nome, pode alcançar o isolamento entre grupos de métricas que podem recolher diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um espaço de nome chamado **contosomemorymetrics** que rastreia métricas de uso de memória que perfilam a sua aplicação. Outro espaço de nome chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de utilizadores na sua aplicação.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 **O** nome é o nome da métrica que está a ser reportada. Normalmente, o nome é descritivo o suficiente para ajudar a identificar o que é medido. Um exemplo é uma métrica que mede o número de bytes de memória usados num determinado VM. Pode ter um nome métrico como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -189,28 +189,28 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Região do Azure |Prefixo do ponto final regional|
 |---|---|
 | **EUA e Canadá** | |
-|E.U.A. Centro-Oeste | https: \/ /westcentralus.monitoring.azure.com/ |
-|E.U.A.Oeste 2       | https: \/ /westus2.monitoring.azure.com/ |
+|E.U.A. Centro-Oeste | https: \/ /westcentralus.monitoring.azure.com |
+|E.U.A.Oeste 2       | https: \/ /westus2.monitoring.azure.com |
 |E.U.A. Centro-Norte | https: \/ /northcentralus.monitoring.azure.com
-|E.U.A. Centro-Sul| https: \/ /southcentralus.monitoring.azure.com/ |
+|E.U.A. Centro-Sul| https: \/ /southcentralus.monitoring.azure.com |
 |E.U.A. Central      | https: \/ /centralus.monitoring.azure.com |
-|Canadá Central | https: \/ /canadacentral.monitoring.azure.comc
-|E.U.A. Leste| https: \/ /eastus.monitoring.azure.com/ |
-|E.U.A. Leste 2 | https: \/ /eastus2.monitoring.azure.com/
+|Canadá Central | https: \/ /canadacentral.monitoring.azure.com |
+|E.U.A. Leste| https: \/ /eastus.monitoring.azure.com |
+|E.U.A. Leste 2 | https: \/ /eastus2.monitoring.azure.com |
 | **Europa** | |
-|Europa do Norte    | https: \/ /northeurope.monitoring.azure.com/ |
-|Europa Ocidental     | https: \/ /westeurope.monitoring.azure.com/ |
+|Europa do Norte    | https: \/ /northeurope.monitoring.azure.com |
+|Europa Ocidental     | https: \/ /westeurope.monitoring.azure.com |
 |Sul do Reino Unido | https: \/ /uksouth.monitoring.azure.com
 |França Central | https: \/ /francecentral.monitoring.azure.com |
 | **África** | |
-|África do Sul Norte | https: \/ /southafricanorth.monitoring.azure.com
+|África do Sul Norte | https: \/ /southafricanorth.monitoring.azure.com |
 | **Ásia** | |
-|Índia Central | https: \/ /centralindia.monitoring.azure.com
-|Leste da Austrália | https: \/ /australiaeast.monitoring.azure.com
-|Leste do Japão | https: \/ /japaneast.monitoring.azure.com
+|Índia Central | https: \/ /centralindia.monitoring.azure.com |
+|Leste da Austrália | https: \/ /australiaeast.monitoring.azure.com |
+|Leste do Japão | https: \/ /japaneast.monitoring.azure.com |
 |Ásia Sudeste  | https: \/ /southeastasia.monitoring.azure.com |
-|Ásia Leste | https: \/ /eastasia.monitoring.azure.com
-|Coreia do Sul Central   | https: \/ /koreacentral.monitoring.azure.com
+|Ásia Leste | https: \/ /eastasia.monitoring.azure.com |
+|Coreia do Sul Central   | https: \/ /koreacentral.monitoring.azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Retenção de latência e armazenamento
 
@@ -223,7 +223,7 @@ O Azure Monitor impõe os seguintes limites de utilização em métricas persona
 
 |Categoria|Limite|
 |---|---|
-|Séries/subscrições/regiões de tempo ativo|50 000|
+|Séries/subscrições/regiões de tempo ativo|50.000|
 |Chaves de dimensão por métrica|10|
 |Comprimento de corda para espaços de nome métrico, nomes métricos, teclas de dimensão e valores de dimensão|256 caracteres|
 
@@ -231,7 +231,7 @@ Uma série de tempo ativa é definida como qualquer combinação única de métr
 
 ## <a name="next-steps"></a>Passos seguintes
 Utilize métricas personalizadas de diferentes serviços: 
- - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjuntos de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas Virtuais Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina virtual Linux usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)

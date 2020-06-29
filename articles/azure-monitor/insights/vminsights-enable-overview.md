@@ -5,23 +5,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/29/2020
-ms.openlocfilehash: 87d8b26110eba647975de577e9d7b5b0ed138266
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84423977"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507080"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
 
-Este artigo fornece uma visão geral das opções disponíveis para permitir que o Azure Monitor para VMs nas suas máquinas virtuais monitorize a saúde e o desempenho. Descubra as dependências de aplicações que funcionam em máquinas virtuais Azure (VMs) e conjuntos de escala de máquinas virtuais, VMs no local ou VMs hospedados em outro ambiente de nuvem.  
+Este artigo fornece uma visão geral das opções disponíveis para permitir ao Monitor Azure para os VM monitorizar a saúde e o desempenho dos seguintes:
+
+- Máquinas virtuais do Azure 
+- Conjuntos de dimensionamento de máquinas virtuais do Azure
+- Máquinas virtuais híbridas ligadas ao Arco Azure
+- Máquinas virtuais no local
+- Máquinas virtuais hospedadas em outro ambiente de nuvem.  
 
 Para configurar o Azure Monitor para VMs:
 
-* Ativar um único Azure VM ou uma balança de máquina virtual definida selecionando **Insights** diretamente a partir do conjunto de escala de VM ou de máquina virtual.
-* Ativar dois ou mais VMs Azure e conjuntos de balanças de máquinas virtuais utilizando a Política Azure. Este método garante que, nos conjuntos de VM e de escala existentes e novos, as dependências necessárias sejam instaladas e devidamente configuradas. VMs e conjuntos de escala não conformes são relatados, para que você possa decidir se ativar e remediar.
-* Ativar dois ou mais VMs Azure ou conjuntos de balanças de máquinas virtuais através de uma subscrição ou grupo de recursos especificados utilizando o PowerShell.
+* Ativar uma única máquina Azure VM, Azure VMSS ou Azure Arc selecionando **Insights** diretamente do seu menu no portal Azure.
+* Ativar várias máquinas Azure VMSS, Azure VMSS ou Azure Arc utilizando a Política Azure. Este método garante que, nos conjuntos de VM e de escala existentes e novos, as dependências necessárias sejam instaladas e devidamente configuradas. VMs e conjuntos de escala não conformes são relatados, para que você possa decidir se ativar e remediar.
+* Ativar várias VMs Azure, VMs Azure Arc, Azure VMSS ou Azure Arc através de uma subscrição ou grupo de recursos especificados utilizando o PowerShell.
 * Ativar o Azure Monitor para VMs para monitorizar VMs ou computadores físicos alojados na sua rede corporativa ou noutro ambiente em nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,6 +49,7 @@ O Azure Monitor for VMs suporta um espaço de trabalho Log Analytics nas seguint
 - E.U.A. Leste 2
 - E.U.A. Central
 - E.U.A. Centro-Norte
+- Gov Az dos EUA
 - Gov Va dos EUA
 - Canadá Central
 - Sul do Reino Unido
@@ -67,15 +74,13 @@ Se não tiver um espaço de trabalho log analytics, pode criar um utilizando um 
 
 Também pode criar um espaço de trabalho enquanto está a permitir a monitorização de um único Azure VM ou escala de máquina virtual definida no portal Azure.
 
-Para configurar um cenário em escala que utilize modelos de Azure Policy, Azure PowerShell ou Azure Resource Manager, no seu espaço de trabalho Log Analytics:
-
-* Instale as soluções *ServiceMap* e *InfrastructureInsights.* Pode concluir esta instalação utilizando um modelo de Gestor de Recursos Azure fornecido. Ou no **separador Get Started** no portal Azure, selecione **Configure Workspace**.
-* Configure o espaço de trabalho Log Analytics para recolher contadores de desempenho.
-
-Para configurar o seu espaço de trabalho para o cenário em escala, utilize um dos seguintes métodos:
+Para configurar um cenário em escala que utilize modelos Azure PowerShell ou Azure Resource Manager, tem de instalar a solução *VMInsights.* Pode fazê-lo com um dos seguintes métodos:
 
 * Utilize [a Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * Na página Azure Monitor for VMs [**Policy Coverage,**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) selecione **Configure Workspace**. 
+
+### <a name="azure-arc-machines"></a>Máquinas Azure Arc
+O Azure Monitor para VMs está disponível para servidores ativados aZure Arc em regiões onde o serviço de extensão Arc está disponível. Os utilizadores devem estar a executar a versão 0.9 ou superior ao do Arc Agent para ativar o Monitor Azure para VMs nos seus servidores ativados pelo Arco.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -166,7 +171,7 @@ Num ambiente híbrido, pode descarregar e instalar manualmente o agente Dependen
 
 A tabela seguinte descreve as fontes ligadas que a funcionalidade Map suporta num ambiente híbrido.
 
-| Origem ligada | Suportado | Description |
+| Origem ligada | Suportado | Descrição |
 |:--|:--|:--|
 | Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../../azure-monitor/platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
 | Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../../azure-monitor/platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
@@ -189,12 +194,12 @@ Para obter mais informações sobre como controlar o acesso a um espaço de trab
 
 Ativar o Monitor Azure para VMs utilizando um dos métodos descritos neste quadro:
 
-| Estado de implantação | Método | Description |
+| Estado de implantação | Método | Descrição |
 |------------------|--------|-------------|
-| Único VM azul ou conjunto de balança de máquina virtual | [Ativar a partir do VM](vminsights-enable-single-vm.md) | Pode ativar um único Azure VM selecionando **Insights** diretamente a partir do conjunto de escala de VM ou de máquina virtual. |
-| VMs múltiplos azure ou conjuntos de escala de máquina virtual | [Ativar através da Política Azure](vminsights-enable-at-scale-policy.md) | Pode ativar vários VMs Azure utilizando a Política Azure e definições de política disponíveis. |
-| VMs múltiplos azure ou conjuntos de escala de máquina virtual | [Ativar através dos modelos Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Pode ativar vários VMs Azure ou conjuntos de balanças de máquinas virtuais através de um grupo de subscrição ou recursos especificados utilizando modelos Azure PowerShell ou Azure Resource Manager. |
-| Nuvem híbrida | [Permitir o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Pode implementar em VMs ou computadores físicos que estejam hospedados no seu datacenter ou em outros ambientes em nuvem. |
+| Single Azure VM, Azure VMSS ou Azure Arc machine | [Ativar a partir do portal](vminsights-enable-single-vm.md) | Selecione **Insights** diretamente do menu no portal Azure. |
+| Múltipla VM azul, VMSS Azure ou máquina Azure Arc | [Ativar através da Política Azure](vminsights-enable-at-scale-policy.md) | Utilize a Política Azure para ativar automaticamente quando um VM ou VMSS é criado. |
+| | [Ativar através dos modelos Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Utilize modelos Azure PowerShell ou Azure Resource Manager para permitir vários Azure VM, Azure Arc VM ou Azure VMSS através de um grupo de subscrição ou recursos especificados por . |
+| Nuvem híbrida | [Permitir o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Implemente em VMs ou computadores físicos que estejam hospedados no seu datacenter ou em outros ambientes em nuvem. |
 
 ## <a name="management-packs"></a>Pacotes de gestão
 

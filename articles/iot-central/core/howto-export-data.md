@@ -4,16 +4,16 @@ description: Como exportar dados da sua aplicação Azure IoT Central para Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: f23a91a278b81c1583d88db2ede265ba2ad2d415
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414232"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483929"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportar dados de IoT para destinos em Azure
 
@@ -82,11 +82,9 @@ Agora que tem um destino para exportar dados, siga estes passos para configurar 
     > [!Tip]
     > Se não vir **a exportação de Dados** no painel esquerdo, então não tem permissões para configurar a exportação de dados na sua app. Fale com um administrador para configurar a exportação de dados.
 
-3. Selecione o botão **+ Novo** no superior direito. Escolha um dos **Azure Event Hubs,** **Azure Service Bus**ou **armazenamento Azure Blob** como destino da sua exportação. O número máximo de exportações por pedido é de cinco.
+3. Selecione o botão **+ Novo.** Escolha um dos **Azure Blob Storage,** **Azure Event Hubs,** **Azure Service Bus Queue**ou **Azure Service Bus Topic** como destino da sua exportação. O número máximo de exportações por pedido é de cinco.
 
-    ![Criar novas exportações de dados](media/howto-export-data/new-export-definition.png)
-
-4. Na caixa de listas drop-down, selecione o seu espaço de **nomes Desatárses de Eventos,** **Espaço de nomes**de **Serviços, Espaço de nome da conta de armazenamento**ou **introduza uma cadeia de ligação**.
+4. Insira um nome para a exportação. Na caixa de lista de drop-down, selecione o seu **espaço de nome**ou **introduza uma cadeia de ligação**.
 
     - Só vê contas de armazenamento, espaços de nomes de Event Hubs e espaços de nomes de Service Bus na mesma subscrição que a sua aplicação IoT Central. Se pretender exportar para um destino fora desta subscrição, escolha Introduzir uma cadeia de **ligação** e ver o passo 6.
     - Para aplicações criadas usando o plano de preços gratuitos, a única forma de configurar a exportação de dados é através de uma cadeia de conexão. As aplicações no plano de preços gratuitos não têm uma subscrição associada do Azure.
@@ -108,7 +106,7 @@ Agora que tem um destino para exportar dados, siga estes passos para configurar 
           1. Em **Definições**, selecione **teclas de acesso**
           2. Copie a cadeia de ligação key1 ou a cadeia de ligação key2
 
-    Cole na corda de ligação. Digite o nome do caso ou do recipiente, tendo em conta que este é sensível a casos.
+    Cole na corda de ligação. Digite o caso ou **o nome do recipiente,** tendo em conta que este é sensível a casos.
 
 7. Em **Dados para exportar,** escolha os tipos de dados para exportar, fixando o tipo para **On**.
 
@@ -754,4 +752,4 @@ Para **os modelos do Dispositivo,** diferenças notáveis entre o antigo formato
 Agora que sabe exportar os seus dados para a Azure Event Hubs, Azure Service Bus e Azure Blob, continue para o próximo passo:
 
 > [!div class="nextstepaction"]
-> [Como criar webhooks](./howto-create-webhooks.md)
+> [Como executar análises personalizadas com Databricks](./howto-create-custom-analytics.md)

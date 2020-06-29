@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/10/2020
-ms.openlocfilehash: 00c60a0ff20c67b63b2ca93f9e5997e78a283f26
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.date: 6/26/2020
+ms.openlocfilehash: 2b5da354e8e8b49e40e7d960e368aad8067de659
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667595"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506706"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -334,7 +334,7 @@ Mais precisamente, a conta de cálculo neste exemplo é calculada da seguinte fo
 |Intervalo de tempo|vCores usados a cada segundo|GB usado a cada segundo|Dimensão computacional faturada|vCore segundos faturados ao longo do intervalo de tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores usados|4 vCores * 3600 segundos = 14400 vCore segundos|
-|1:00-2:00|1|12|Memória usada|12 GB * 1/3 * 3600 segundos = 14400 vCore segundos|
+|1:00-2:00|1|12|Memória utilizada|12 GB * 1/3 * 3600 segundos = 14400 vCore segundos|
 |2:00-8:00|0|0|Memória min a provisionada|3 GB * 1/3 * 21600 segundos = 21600 vCore segundos|
 |8:00-24:00|0|0|Sem cálculo faturado durante a pausa|0 vCore segundos|
 |Total de segundos vCore faturados ao longo de 24 horas||||50400 vCore segundos|
@@ -347,9 +347,9 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, e US Gov Central (Iowa).
+O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

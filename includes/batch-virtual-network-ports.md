@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: cb35021ad7e4d735a7dd521e39e4fe5fd102ae01
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888369"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506615"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -38,16 +38,14 @@ Os requisitos adicionais de VNet diferem, consoante o conjunto do Batch está na
 
 **ID de sub-rede** - quando especificar a sub-rede com as APIs do Batch, utilize o *identificador de recurso* da sub-rede. O identificador da sub-rede tem o formato:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}`
 
 **Permissões** - verifique se as suas políticas de segurança ou bloqueios na subscrição ou no grupo de recursos da VNet restringem as permissões de um utilizador para gerir a VNet.
 
 **Recursos de rede adicionais** - o Batch aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a VNet.
 
 > [!IMPORTANT]
->Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui: um grupo de segurança de rede (NSG), um endereço IP público e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para conjuntos grandes, poderá ter de pedir um aumento de quota para um ou mais destes recursos.
+> Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui: um grupo de segurança de rede (NSG), um endereço IP público e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para conjuntos grandes, poderá ter de pedir um aumento de quota para um ou mais destes recursos.
 
 #### <a name="network-security-groups-batch-default"></a>Grupos de segurança de rede: Predefinição do Batch
 
@@ -59,11 +57,11 @@ A sub-rede tem de permitir comunicação de entrada a partir do serviço Batch p
 * Tráfego de saída em qualquer porta para a Internet. As regras de NSG ao nível da sub-rede podem corrigir esta situação (veja abaixo).
 
 > [!IMPORTANT]
-> Tenha cuidado se modificar ou adicionar regras de entrada ou saída em NSGs configurados pelo Batch. Se a comunicação com os nós de computação na sub-rede especificada for recusada por um NSG, o serviço Batch define o estado dos nós de computação como **inutilizável**. Além disso, não devem ser aplicados bloqueios de recursos a nenhum recurso criado pelo Batch, pois podem impedir a limpeza dos recursos como resultado de ações iniciadas pelo utilizador, como a eliminação de um conjunto.
+> Tenha cuidado se modificar ou adicionar regras de entrada ou saída em NSGs configurados em Lote. Se a comunicação aos nós computacional na sub-rede especificada for negada por um NSG, o serviço Batch definirá o estado dos nós computacional para **inutilizáveis**. Além disso, não devem ser aplicados bloqueios de recursos a qualquer recurso criado pelo Batch, uma vez que isso pode impedir a limpeza de recursos como resultado de ações iniciadas pelo utilizador, tais como a eliminação de uma piscina.
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Grupos de segurança de rede: Especificar regras ao nível da sub-rede
 
-Não é necessário especificar NSGs ao nível da sub-rede da rede virtual porque o Batch configura os seus próprios NSGs (veja acima). Se tiver um NSG associado à sub-rede onde os nós de computação do Batch estão implementados ou se pretender aplicar regras de NSG personalizadas para substituir as predefinições aplicadas, tem de configurar este NSG com, pelo menos, as regras de segurança de entrada e saída, conforme mostrado nas tabelas seguintes.
+Não é preciso especificar NSGs ao nível da sub-rede de rede virtual, porque o Batch configura os seus próprios NSGs (ver acima). Se tiver um NSG associado à sub-rede onde os nós computativos batch são implantados, ou se quiser aplicar regras NSG personalizadas para anular os predefinidos aplicados, deve configurar este NSG com, pelo menos, as regras de segurança de entrada e saída indicadas nas seguintes tabelas.
 
 Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se tiver de permitir acesso remoto aos nós de computação fora das origens. Se precisar de suporte para tarefas de multi-instâncias com determinados runtimes MPI, poderá ter de ativar as regras da porta 22 no Linux. Não é estritamente obrigatório permitir o tráfego nestas portas para que os nós de computação do conjunto podem ser utilizáveis.
 
@@ -75,7 +73,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 | IPs de origem do utilizador para aceder remotamente aos nós de computação e/ou à sub-rede dos nós de computação para tarefas de multi-instâncias em Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Permitir |
 
 > [!WARNING]
-> Os endereços IP do serviço Batch podem ser alterados ao longo do tempo. Assim, é vivamente recomendado utilizar a etiqueta de serviço `BatchNodeManagement` (ou a variante regional) para as regras do NSG. Não é recomendado povoar diretamente as regras do NSG com os endereços IP do serviço Batch.
+> Os endereços IP do serviço Batch podem ser alterados ao longo do tempo. Por isso, é altamente recomendado utilizar a etiqueta de `BatchNodeManagement` serviço (ou variante regional) para as regras NSG. Evite povoar as regras NSG com endereços IP de serviço de lote específicos.
 
 **Regras de segurança de saída**
 
@@ -89,9 +87,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 
 **ID de sub-rede** - quando especificar a sub-rede com as APIs do Batch, utilize o *identificador de recurso* da sub-rede. O identificador da sub-rede tem o formato:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
 **Permissões**  - O principal de serviço `Microsoft Azure Batch` tem de ter a função de Controlo de Acesso Baseado em Funções (RBAC) `Classic Virtual Machine Contributor` na VNet especificada.
 
@@ -99,9 +95,9 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 
 A sub-rede tem de permitir comunicação de entrada a partir do serviço Batch para conseguir agendar tarefas nos nós de computação e comunicação de saída para comunicar com o Armazenamento do Azure ou outros recursos.
 
-Não é necessário especificar um NSG, porque o Batch configura a comunicação de entrada apenas a partir dos endereços IP do Batch para os nós do conjunto. No entanto, se a sub-rede especificada tiver NSGs associados e/ou uma firewall, configure as regras de segurança de entrada e saída conforme mostrado nas tabelas seguintes. Se a comunicação com os nós de computação na sub-rede especificada for recusada por um NSG, o serviço Batch define o estado dos nós de computação como **inutilizável**.
+Não é necessário especificar um NSG, porque o Batch configura a comunicação de entrada apenas a partir dos endereços IP do Batch para os nós do conjunto. No entanto, se a sub-rede especificada tiver NSGs associados e/ou uma firewall, configure as regras de segurança de entrada e saída conforme mostrado nas tabelas seguintes. Se a comunicação aos nós computacional na sub-rede especificada for negada por um NSG, o serviço Batch define o estado dos nós de computação para **inutilizáveis**.
 
-Configure o tráfego de entrada na porta 3389 para Windows se tiver de permitir acesso RDP aos nós do conjunto. Não é necessário para os nós do conjunto serem utilizáveis.
+Configure o tráfego de entrada na porta 3389 para Windows se tiver de permitir acesso RDP aos nós do conjunto. Isto não é necessário para que os nós da piscina sejam utilizáveis.
 
 **Regras de segurança de entrada**
 

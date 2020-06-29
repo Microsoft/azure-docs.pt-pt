@@ -1,25 +1,14 @@
 ---
 title: Adicione um VM a um laboratório em Azure DevTest Labs Microsoft Docs
 description: Saiba como adicionar uma máquina virtual a um laboratório em Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
-ms.author: spelluru
-ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: a872fdaa3d7d5b2cf5aff17ea15d07604dc287b3
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898739"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483963"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicione um VM a um laboratório em Azure DevTest Labs
 Se já [criou o seu primeiro VM,](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)provavelmente fê-lo a partir de uma imagem de [mercado](devtest-lab-configure-marketplace-images.md)pré-carregada. Agora, se quiser adicionar VMs subsequentes ao seu laboratório, também pode escolher uma *base* que seja uma [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial acompanha-o através do portal Azure para adicionar um VM a um laboratório em DevTest Labs.

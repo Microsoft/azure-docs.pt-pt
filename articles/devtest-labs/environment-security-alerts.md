@@ -1,22 +1,14 @@
 ---
 title: Alertas de segurança para ambientes em Azure DevTest Labs
 description: Este artigo mostra-lhe como visualizar alertas de segurança para um ambiente em DevTest Labs e tomar as medidas apropriadas.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: fbac5a2fab91cdac8ebf626e324f12f209cfade5
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 9eea06066cfca5f67d920456f16e2eb7893dce39
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898403"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483980"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alertas de segurança para ambientes em Azure DevTest Labs
 Como utilizador de laboratório, pode agora ver alertas do Centro de Segurança Azure para os seus ambientes de laboratório. O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, tal como soluções de proteção de ponto final e firewall, para detetar ameaças reais e reduzir os falsos positivos. Uma lista de alertas de segurança prioritários é apresentada no Centro de Segurança juntamente com as informações necessárias para investigar rapidamente o problema e fornecer recomendações sobre como remediar um ataque. [Saiba mais sobre alertas de segurança no Azure Security Center](../security-center//security-center-alerts-overview.md).  

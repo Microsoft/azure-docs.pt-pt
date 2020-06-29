@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d32e4100d00a4ecff9f8bd5017d8bc5ab74105e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 38228e7080cb0bdead2f2b3490729702d923ae36
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752438"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504904"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -175,7 +175,7 @@ Na página de **listagem da Oferta,** define os detalhes da oferta, tais como no
 
 ### <a name="marketplace-details"></a>Detalhes do mercado
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo é preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente. O nome:
 
@@ -191,7 +191,7 @@ Forneça uma breve descrição da sua oferta, a ser exibida nos resultados da pe
 
 Forneça uma descrição mais longa da sua oferta, a ser exibida nos resultados da pesquisa do Azure Marketplace. Pode conter até 256 caracteres.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -221,7 +221,7 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de apoio.
 
 Forneça informações de contacto para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
 
-- Name
+- Nome
 - E-mail
 - Telefone
 
@@ -229,7 +229,7 @@ Forneça informações de contacto para os parceiros da Microsoft utilizarem qua
 
 Forneça informações de contacto para que a Microsoft possa utilizar quando houver problemas com a sua oferta, incluindo problemas com a certificação. Esta informação não está listada no Azure Marketplace.
 
-- Name
+- Nome
 - E-mail
 - Telefone
 
@@ -400,10 +400,14 @@ Pode desenhar cada plano para ser visível para todos ou apenas para um público
 
 **Público privado**: Torne o seu plano visível apenas para um público pré-selecionado. Depois de publicado como um plano privado, pode atualizar o público ou mudá-lo para público. Depois de tornar um plano público, deve permanecer público. Não pode ser mudado para um plano privado.
 
-**Público restrito (IDs de subscrição Azure)**: Atribua ao público que terá acesso a este plano privado utilizando IDs de subscrição Azure. Opcionalmente, inclua uma descrição de cada ID de subscrição Azure que designou. Adicione até 10 IDs de subscrição manualmente ou até 20.000 IDs se estiver a importar uma folha de cálculo CSV. Os IDs de subscrição Azure são representados como GUIDs, e todas as letras devem ser minúsculas.
-
 > [!NOTE]
 > Um público privado ou restrito é diferente do público de pré-visualização que definiu no painel **de pré-visualização.** Um público de pré-visualização pode aceder à sua oferta _antes_ de ser publicada ao vivo no Azure Marketplace. Embora a escolha do público privado se aplique apenas a um plano específico, o público de pré-visualização pode ver todos os planos privados e públicos para fins de validação.
+
+**Público restrito (IDs de subscrição Azure)**: Atribua ao público que terá acesso a este plano privado utilizando IDs de subscrição Azure. Opcionalmente, inclua uma descrição de cada ID de subscrição Azure que designou. Adicione até 10 IDs de subscrição manualmente ou até 20.000 IDs se estiver a importar uma folha de cálculo CSV. Os IDs de subscrição Azure são representados como GUIDs, e todas as letras devem ser minúsculas.
+
+>[!Note]
+>As ofertas privadas não são suportadas com subscrições Azure estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
+
 
 #### <a name="hide-a-plan"></a>Esconder um plano
 
@@ -526,7 +530,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 4. Termos e condições
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
-7. Description
+7. Descrição
 8. Ligações úteis
 9. Screenshots/vídeos
 
@@ -557,8 +561,8 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
-1. Name
-2. Description
+1. Nome
+2. Descrição
 3. Ligações úteis
 4. Screenshots/vídeos
 

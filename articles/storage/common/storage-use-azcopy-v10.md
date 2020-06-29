@@ -3,16 +3,16 @@ title: Copiar ou mover dados para o Azure Storage utilizando a AzCopy v10 Micros
 description: O AzCopy é um utilitário de linha de comando que pode usar para copiar dados para, a partir ou entre contas de armazenamento. Este artigo ajuda-o a descarregar a AzCopy, ligar-se à sua conta de armazenamento e, em seguida, transferir ficheiros.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2cff9a427cf395414c5b0778f51f4587c8578478
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340917"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504479"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 

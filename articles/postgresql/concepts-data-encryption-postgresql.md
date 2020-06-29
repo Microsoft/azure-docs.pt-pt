@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e4811b1b892fb04400b5a96450db14a260532003
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 3eb429c4981cbc548c7d68c788008b841ff5d33e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488839"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484082"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -143,6 +143,15 @@ Para a Base de Dados Azure para PostgreSQL, o suporte para encriptação de dado
     > - Para validar se o seu servidor a provisionado suportar até 16TB, pode ir à lâmina de nível de preços no portal e ver o tamanho máximo de armazenamento suportado pelo seu servidor provisionado. Se conseguir mover o slider até 4TB, o seu servidor poderá não suportar a encriptação com as teclas geridas pelo cliente. No entanto, os dados são encriptados usando sempre as teclas geridas pelo serviço. Por favor, contacte AskAzureDBforPostgreSQL@service.microsoft.com se tiver alguma pergunta.
 
 * A encriptação só é suportada com a chave criptográfica RSA 2048.
+
+## <a name="infrastructure-double-encryption"></a>Infraestrutura Dupla encriptação
+A Azure Database for PostgreSQL utiliza encriptação de armazenamento [de dados em repouso](concepts-security.md#at-rest) para dados usando as chaves geridas da Microsoft. Os dados, incluindo cópias de segurança, são encriptados no disco e esta encriptação está sempre acesa e não pode ser desativada. A encriptação utiliza o módulo criptográfico validado FIPS 140-2 e uma cifra AES de 256 bits para a encriptação de armazenamento Azure. 
+
+A encriptação dupla de infraestrutura adiciona uma segunda camada de encriptação usando um módulo criptográfico validado FIPS 140-2 e um algoritmo de encriptação diferente que dá camada adicional de proteção para os seus dados em repouso. A chave utilizada na infraestrutura A encriptação dupla também é gerida pelo serviço. Isto não está *ligado* por padrão, uma vez que terá impacto no desempenho devido à camada adicional de encriptação. 
+
+   > [!NOTE]
+   > - Esta funcionalidade ainda não se encontra disponível globalmente. 
+   > - O suporte para esta funcionalidade está limitado aos níveis de preços otimizados para **fins gerais** e **memória.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

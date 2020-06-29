@@ -1,23 +1,14 @@
 ---
 title: Ligue ambientes à vnet de um laboratório em Azure DevTest Labs Microsoft Docs
 description: Saiba como ligar um ambiente (como o cluster de Tecidos de Serviço) à rede virtual do seu laboratório em Azure DevTest Labs
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: spelluru
-ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 31f924a4b6d7cbe1b6f71c7e34d43fd9c135bac9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897216"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483776"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Ligue um ambiente à rede virtual do seu laboratório em Azure DevTest Labs
 A Azure DevTest Labs facilita a criação de VMs num laboratório com [rede embutida.](devtest-lab-configure-vnet.md) Tem uma grande flexibilidade com a capacidade de [criar ambientes multi-VM.](devtest-lab-test-env.md) Este artigo mostra-lhe como ligar VMs num ambiente à rede virtual de laboratório. Um dos cenários em que utiliza esta funcionalidade é a criação de uma aplicação de nível N com um nível de dados SQL Server que está ligado ao VNet de laboratório permitindo testar VMs no laboratório para aceder a ela.  

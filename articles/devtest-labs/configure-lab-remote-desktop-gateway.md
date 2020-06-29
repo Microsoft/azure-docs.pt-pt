@@ -1,23 +1,14 @@
 ---
 title: Configure um laboratório para usar o Gateway de Desktop Remoto em Azure DevTest Labs
 description: Aprenda a configurar um laboratório em Azure DevTest Labs com uma porta de entrada remota para garantir acesso seguro aos VMs de laboratório sem ter de expor a porta RDP.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899306"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483844"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure o seu laboratório em Azure DevTest Labs para usar um gateway remoto
 Em Azure DevTest Labs, pode configurar uma porta de entrada remota para o seu laboratório para garantir um acesso seguro às máquinas virtuais de laboratório (VMs) sem ter de expor a porta RDP. O laboratório fornece um lugar central para os utilizadores do laboratório verem e conectarem-se a todas as máquinas virtuais a que têm acesso. O botão **Ligar** na página **Máquina Virtual** cria um ficheiro RDP específico para máquinas que pode abrir para ligar à máquina. Pode personalizar e proteger ainda mais a ligação RDP ligando o seu laboratório a um gateway remoto de secretária. 

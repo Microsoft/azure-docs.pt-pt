@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246888"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504325"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -67,7 +67,7 @@ Para resolver falhas de descoberta do vCenter, adicione o servidor vCenter às d
 - Abra o Internet Explorer no conteúdo do utilizador do sistema executando a seguinte linha de comando psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Adicione as definições de procuração no IE e reinicie o serviço tmanssvc.
 - Para configurar as definições de procuração dra, executar cd C:\Program Files\Microsoft Azure Site Recovery Provider
-- Em seguida, execute DRCONFIGURATOR. EXE /configuração /AddBypassUrls [adicionar endereço IP/FQDN do servidor vCenter fornecido durante **o Configure vCenter Server/vSphere ESXi passo** do servidor de [configuração](vmware-azure-deploy-configuration-server.md#configure-settings)]
+- Em seguida, execute DRCONFIGURATOR.EXE /configuração /AddBypassUrls [adicionar endereço IP/FQDN do servidor vCenter fornecido durante **o Configure vCenter Server/vSphere ESXi passo** do servidor de [configuração](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Alterar o endereço IP do servidor de configuração
 
@@ -99,7 +99,7 @@ Executar o seguinte comando na máquina de origem:
 
 Definição | Detalhes
 --- | ---
-Utilização | UnifiedAgentConfigurator.exe /CSEndPoint <endereço IP do servidor de configuração \> /PassphraseFilePath <via de ficheiro de palavras-passe\>
+Utilização | UnifiedAgentConfigurator.exe /CSEndPoint <endereço IP do servidor de configuração \> /PassphraseFilePath <caminho de ficheiro de palavra-passe\>
 Registos de configuração do agente | Localizado em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 /PassphraseFilePath |  Obrigatório. A localização da frase. Utilize qualquer unc válido ou caminho de arquivo local.
@@ -173,7 +173,7 @@ Para identificar o problema, navegue para C:\ProgramData\ASRSetupLogs\CX_TP_Inst
     2018-06-28 14:38:12.971   Rolling back the install changes.
     2018-06-28 14:38:12.971   Upgrade has failed.
 
-Para resolver a questão:
+Para resolver o problema:
 
 Parar manualmente os seguintes serviços:
 
@@ -193,7 +193,7 @@ Tem permissões insuficientes para criar uma aplicação no Azure Ative Director
 Para resolver o problema, inscreva-se no portal Azure e faça um dos seguintes:
 
 - Solicite a função de Desenvolvedor de Aplicações na AAD. Para obter mais informações sobre a função de Desenvolvedor de aplicações, consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verifique se o Utilizador pode criar a bandeira da **aplicação** está definido como *verdadeiro* no AAD. Para mais informações, consulte [Como: Utilize o portal para criar uma aplicação AD AZure e um responsável de serviços que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+- Verifique se o Utilizador pode criar a bandeira da **aplicação** está definido como *verdadeiro* no AAD. Para mais informações, consulte [Como: Utilize o portal para criar uma aplicação AD AZure e um responsável de serviços que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>O servidor de processo/Alvo Principal não consegue comunicar com o servidor de configuração 
 
@@ -216,7 +216,7 @@ Se encontrar vestígios semelhantes aos seguintes nos registos do agente MT, o A
  
 Este erro pode ser encontrado quando outras aplicações também estão a utilizar a porta 443 ou devido a uma definição de firewall que bloqueia a porta.
 
-Para resolver a questão:
+Para resolver o problema:
 
 - Verifique se a porta 443 não está bloqueada pela sua firewall.
 - Se a porta não for acessível devido a outra aplicação que utiliza essa porta, pare e desinstale a aplicação.
@@ -228,7 +228,7 @@ Para resolver a questão:
 
 Este erro pode ocorrer quando existem várias entradas UUID no servidor de configuração múltipla (CS) na base de dados. O problema ocorre frequentemente quando clona o servidor de configuração VM.
 
-Para resolver a questão:
+Para resolver o problema:
 
 1. Remova o CS VM velho/velho do vCenter. Para obter mais informações, consulte [Remover servidores e desativar a proteção.](site-recovery-manage-registration-and-protection.md)
 2. Inscreva-se no servidor de configuração VM e ligue-se à base de dados MySQL svsdb1. 
@@ -251,7 +251,7 @@ Depois de introduzir o nome de utilizador e palavra-passe corretos no servidor d
 
 Este problema pode ocorrer quando o tempo do sistema está incorreto.
 
-Para resolver a questão:
+Para resolver o problema:
 
 Descreva a hora correta no computador e redoça a placa. 
  

@@ -1,23 +1,14 @@
 ---
 title: Como eliminar e exportar dados pessoais da Azure DevTest Labs
 description: Saiba como apagar e exportar dados pessoais do serviço Azure DevLast Labs para suportar as suas obrigações ao abrigo do Regulamento Geral de Proteção de Dados (RGPD).
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: b59a799b2e2211ee8fd473de2e26a26148777502
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898088"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483521"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou eliminar dados pessoais da Azure DevTest Labs
 Este artigo fornece passos para a eliminação e exportação de dados pessoais do serviço Azure DevTest Labs. 
@@ -160,7 +151,7 @@ Agora vamos olhar mais de perto os dados exportados. Como mencionado anteriormen
 
 O **virtualmachines.csv** contém as seguintes colunas de dados:
 
-| Nome da coluna | Description |
+| Nome da coluna | Descrição |
 | ----------- | ----------- | 
 | SubscriptionId | O identificador de assinatura em que o laboratório existe. |
 | LabUId | Identificador GUID único para o laboratório. |
@@ -188,7 +179,7 @@ O **virtualmachines.csv** contém as seguintes colunas de dados:
 
 As colunas de dados contidas na **disks.csv** estão listadas abaixo:
 
-| Nome da coluna | Description | 
+| Nome da coluna | Descrição | 
 | ----------- | ----------- | 
 | SubscriptionId | ID da assinatura que contém o laboratório |
 | LabUId | GUID para o laboratório |

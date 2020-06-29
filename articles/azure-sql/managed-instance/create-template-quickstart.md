@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 7765788e9bd0803cd806ef0980991429dbe30af9
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413846"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506644"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Quickstart: Criar uma instância gerida Azure SQL usando um modelo ARM
 
-Este quickstart foca-se no processo de implantação de um modelo ARM para criar um Azure SQL Managed Instance e vNet. [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) é uma base de dados de nuvem inteligente, totalmente gerida e escalável, com quase 100% de paridade de funcionalidades com o motor de base de dados SQL Server.
+Este quickstart foca-se no processo de implantação de um modelo de Gestor de Recursos Azure (modelo ARM) para criar um Azure SQL Managed Instance e vNet. [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) é uma base de dados de nuvem inteligente, totalmente gerida e escalável, com quase 100% de paridade de funcionalidades com o motor de base de dados SQL Server.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 

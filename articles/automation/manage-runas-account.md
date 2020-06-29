@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d854c8815ff6acd54036e023b35c3b3ac2c56cf
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 66fb5741a5ed1af9e7edf002485c959f9f2fc82f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85444527"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507267"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
 
@@ -63,14 +63,14 @@ Para criar ou atualizar uma conta Run As, tem de ter privilégios e permissões 
 
 |Tarefa|Cmdlet  |Permissões Mínimas  |Onde define as permissões|
 |---|---------|---------|---|
-|Criar aplicação Azure Ad|[Aplicação New-AzAD](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Função de Desenvolvedor de Aplicações<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Registos de Aplicações |
-|Adicione uma credencial à aplicação.|[Novo-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Registos de Aplicações|
-|Criar e obter um diretor de serviço AZure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Registos de Aplicações|
+|Criar aplicação Azure Ad|[Aplicação New-AzAD](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Função de Desenvolvedor de Aplicações<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registos de Aplicações |
+|Adicione uma credencial à aplicação.|[Novo-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registos de Aplicações|
+|Criar e obter um diretor de serviço AZure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registos de Aplicações|
 |Atribuir ou obter o papel RBAC para o principal especificado|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrador de acesso ao utilizador ou proprietário, ou tenha as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Subscrições > > \<subscription name\> - Controlo de Acesso (IAM)|
 |Criar ou remover um certificado de Automação|[Novo AzAutomationCertificato](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remover-AzAutomationCertificato](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate)     | Contribuinte no grupo de recursos         |Grupo de recursos de conta de automação|
 |Criar ou remover uma ligação de Automação|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection)</br>[Remover-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection)|Contribuinte no grupo de recursos |Grupo de recursos de conta de automação|
 
-<sup>1</sup> Os utilizadores não administrador do seu inquilino AZure AD podem [registar aplicações AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se os Utilizadores do inquilino AZURE **AD puderem registar** a opção de aplicações na página de definições do Utilizador está definida como **Sim**. Se a definição de registo de pedido for **Nº,** o utilizador que executa esta ação deve ser definido nesta tabela.
+<sup>1</sup> Os utilizadores não administrador do seu inquilino AZure AD podem [registar aplicações AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) se os Utilizadores do inquilino AZURE **AD puderem registar** a opção de aplicações na página de definições do Utilizador está definida como **Sim**. Se a definição de registo de pedido for **Nº,** o utilizador que executa esta ação deve ser definido nesta tabela.
 
 Se não for membro da instância ative do Diretório da subscrição antes de ser adicionado ao papel de Administrador Global da subscrição, é adicionado como convidado. Nesta situação, recebe um `You do not have permissions to create…` aviso na página **'Adicionar Conta Dem automação'.**
 

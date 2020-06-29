@@ -5,17 +5,17 @@ description: Saiba como criar uma política de acesso armazenada utilizando a bi
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5b56851929cafa7d5fd1266e4500056de5329919
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: f4a0d69f3687f0dcc174a2d8a1275a2bf55d9ecf
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974420"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504394"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Criar uma política de acesso armazenada com .NET
 

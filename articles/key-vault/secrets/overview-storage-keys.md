@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 1a39a8e4d09da1f9ec8721c2ea89672e7bfc096a
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118547"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508508"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 
@@ -125,11 +125,11 @@ Depois de a operação ter sido executado com sucesso, copie a saída.
 "se=2020-01-01&sp=***"
 ```
 
-Esta saída será passada para o `--template-id` parâmetro no passo seguinte.
+Esta saída será passada para o `--template-uri` parâmetro no passo seguinte.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso partilhado
 
-Utilize o azure CLI [az keyvault de armazenamento sas-definição criar](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) comando, passando a saída do passo anterior para o `--template-id` parâmetro, para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao `-n` parâmetro.
+Utilize o azure CLI [az keyvault de armazenamento sas-definição criar](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) comando, passando a saída do passo anterior para o `--template-uri` parâmetro, para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao `-n` parâmetro.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
