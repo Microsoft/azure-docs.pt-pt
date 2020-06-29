@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 25f0e0f15a299ef8b946b3d5fa0eb3eddc2272c2
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508625"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510868"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -49,7 +49,16 @@ Nesse caso, é melhor dizer ao indexante para ignorar os erros. Faça isso defin
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Dica 4: Olhar para documentos enriquecidos sob o capot 
+> [!NOTE]
+> Como boas práticas, definir os maxFailedItems, maxFailedItemsPerBatch para 0 para cargas de trabalho de produção
+
+## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Dica 4: Use sessões de Debug para identificar e resolver problemas com o seu skillset 
+
+A Debug Sessions é uma editora visual que trabalha com uma habilidade existente no portal Azure. Numa sessão de depuração pode identificar e resolver erros, validar alterações e comprometer alterações a uma habilidade de produção no pipeline de enriquecimento de IA. Esta é uma funcionalidade de pré-visualização [leia a documentação.](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) Para obter mais informações sobre conceitos e começar, consulte as [sessões de Debug.](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+
+As sessões de depuração funcionam num único documento são uma ótima maneira de construir iterativamente oleodutos de enriquecimento mais complexos.
+
+## <a name="tip-5-looking-at-enriched-documents-under-the-hood"></a>Dica 5: Olhar para documentos enriquecidos sob o capot 
 Os documentos enriquecidos são estruturas temporárias criadas durante o enriquecimento e, em seguida, eliminadas quando o processamento está completo.
 
 Para capturar um instantâneo do documento melhorado criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador captura automaticamente para o campo uma representação da cadeia de todos os melhoramentos desse documento.
@@ -77,11 +86,7 @@ Adicione um ```enriched``` campo como parte da sua definição de índice para f
 }
 ```
 
-### <a name="debug-sessions"></a>Sessões de depuração
-
-A Debug Sessions é uma editora visual que trabalha com uma habilidade existente no portal Azure. Numa sessão de depuração pode identificar e resolver erros, validar alterações e impulsionar alterações a uma habilidade de produção no pipeline de enriquecimento de IA. Esta é uma funcionalidade de pré-visualização e o acesso é concedido caso a caso. [Leia a documentação](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) e saiba como se candidatar ao acesso.
-
-## <a name="tip-5-expected-content-fails-to-appear"></a>Dica 5: O conteúdo esperado não aparece
+## <a name="tip-6-expected-content-fails-to-appear"></a>Dica 6: O conteúdo esperado não aparece
 
 O conteúdo em falta pode ser o resultado de documentos que foram retirados durante a indexação. Os níveis gratuitos e básicos têm limites baixos no tamanho do documento. Qualquer ficheiro que exceda o limite é retirado durante a indexação. Pode verificar se há documentos deixados no portal Azure. No painel de instrumentos de pesquisa, clique duas vezes no azulejo indexantes. Reveja o rácio de documentos bem sucedidos indexados. Se não for 100%, pode clicar na razão para obter mais detalhes. 
 
@@ -89,7 +94,7 @@ Se o problema estiver relacionado com o tamanho do ficheiro, poderá ver um erro
 
 Uma segunda razão para o facto não aparecer pode estar relacionada com erros de mapeamento de entrada/saída. Por exemplo, um nome-alvo de saída é "People", mas o nome do campo de índice é "pessoas" minúsculas. O sistema poderia devolver 201 mensagens de sucesso para todo o oleoduto, por isso pensa que a indexação foi bem sucedida, quando na verdade um campo está vazio. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Dica 6: Prolongar o processamento para além do tempo máximo de funcionaamento (janela de 24 horas)
+## <a name="tip-7-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Dica 7: Prolongar o processamento para além do tempo máximo de funcionaamento (janela de 24 horas)
 
 A análise de imagem é computacionalmente intensiva para casos mesmo simples, por isso quando as imagens são especialmente grandes ou complexas, os tempos de processamento podem exceder o tempo máximo permitido. 
 
@@ -102,7 +107,7 @@ Para os indexantes programados, a indexação retoma o calendário no último bo
 
 Para a indexação baseada no portal (como descrito no arranque rápido), escolher a opção indexante "run once" limita o processamento para 1 hora ( `"maxRunTime": "PT1H"` ). É melhor estender a janela de processamento para algo mais longo.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Dica 7: Aumentar a produção de indexação
+## <a name="tip-8-increase-indexing-throughput"></a>Dica 8: Aumentar a produção de indexação
 
 Para [uma indexação paralela,](search-howto-large-index.md)coloque os seus dados em vários recipientes ou várias pastas virtuais dentro do mesmo recipiente. Em seguida, crie vários pares de recursos de dados e indexantes. Todos os indexantes podem usar o mesmo skillset e escrever no mesmo índice de pesquisa alvo, por isso a sua aplicação de pesquisa não precisa de estar ciente desta partição.
 Para obter mais informações, consulte [Indexar grandes conjuntos de dados.](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)

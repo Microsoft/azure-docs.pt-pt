@@ -191,8 +191,12 @@
               displayName: 'ux, input, cors, html, css'
             - name: Personalizar idioma
               href: custom-policy-localization.md
-            - name: E-mail personalizado
-              href: custom-email.md
+            - name: Verificação personalizada do e-mail
+              items:
+                - name: Mailjet
+                  href: custom-email-mailjet.md
+                - name: SendGrid
+                  href: custom-email-sendgrid.md
               displayName: verification
             - name: Desativar a verificação do e-mail
               href: custom-policy-disable-email-verification.md
@@ -373,6 +377,8 @@
           href: partner-trusona.md
         - name: Twilio
           href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
     - name: Utilizar b2clogin.com
       items:
         - name: Descrição geral do b2clogin.com

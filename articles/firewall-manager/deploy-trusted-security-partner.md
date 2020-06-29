@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: e06f8e3adaedbc8847aacba0ca4ad9c6a172c9b7
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 91cf453247bfe4fa689df34bdf6b585ac72686aa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791695"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509062"
 ---
 # <a name="deploy-a-security-partner-provider-preview"></a>Implementar um fornecedor de parceiros de segurança (pré-visualização)
 
@@ -81,9 +81,9 @@ Para configurar túneis para o VPN Gateway do seu hub virtual, os fornecedores d
 
 1. Criar o diretor de serviço Azure Ative Directory (AD): Pode saltar o URL de redirecionamento. 
 
-   [How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Adicione direitos de acesso e âmbito para o principal serviço.
-   [How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > Pode limitar o acesso apenas ao seu grupo de recursos para um maior controlo granular.

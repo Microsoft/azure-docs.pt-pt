@@ -3,16 +3,16 @@ title: Utilize os Serviços de Domínio Azure AD para autorizar o acesso aos dad
 description: Saiba como ativar a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) para Ficheiros Azure através dos Serviços de Domínio do Diretório Ativo Azure. As suas máquinas virtuais (VMs) associadas a domínios podem então aceder às partilhas de ficheiros Azure utilizando credenciais AD do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 26c48c84521946ff748ca960b8060cc973640eb3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888411"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510391"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 

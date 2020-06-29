@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
-ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b27cf605c978e15d81a43db3371a71b0ccc48c8d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712076"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508925"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager para visualizar e gerir volumes
 ## <a name="overview"></a>Descrição geral
@@ -91,9 +91,9 @@ Utilize o seguinte procedimento para visualizar informações sobre volumes loca
    
     ![Configure as colunas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Coluna de resultados | Description |
+   | Coluna de resultados | Descrição |
    |:--- |:--- |
-   |  Name |A coluna **Nome** contém a letra de unidade atribuída a cada volume descoberto. |
+   |  Nome |A coluna **Nome** contém a letra de unidade atribuída a cada volume descoberto. |
    |  Dispositivo |A coluna **dispositivo** contém o endereço IP do dispositivo ligado ao computador anfitrião. |
    |  Nome do volume do dispositivo |A coluna **Nome do Volume** do Dispositivo contém o nome do volume do dispositivo ao qual pertence o volume selecionado. Este é o nome de volume definido no portal Azure para esse volume específico. |
    |  Caminhos de acesso |A coluna **Caminhos de Acesso** apresenta o caminho de acesso ao volume. Esta é a letra de acionamento ou ponto de montagem em que o volume está acessível no computador anfitrião. |

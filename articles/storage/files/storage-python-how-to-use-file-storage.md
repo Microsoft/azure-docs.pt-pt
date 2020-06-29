@@ -3,17 +3,17 @@ title: Desenvolver para Azure Files com Python Microsoft Docs
 description: Saiba como desenvolver aplicações e serviços Python que utilizem ficheiros Azure para armazenar dados de ficheiros.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: tracking-python
-ms.openlocfilehash: d04b158761d501d4a79d91fe551670b57f9847f3
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678720"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509647"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Programar para os Ficheiros do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -177,7 +177,7 @@ Uma parte que contenha instantâneos não pode ser eliminada a menos que todas a
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a manipular ficheiros Azure com Python, siga estes links para saber mais.
 
 * [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)

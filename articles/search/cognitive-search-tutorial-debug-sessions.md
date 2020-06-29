@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886817"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510993"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e comprometer alterações na sua habilidade
 
 Neste artigo, você usará o portal Azure para aceder às sessões de Debug para reparar problemas com o skillset fornecido. O skillset tem alguns erros que precisam de ser resolvidos. Este tutorial irá levá-lo através de uma sessão de depurar para identificar e resolver problemas com entradas e saídas de habilidades.
 
 > [!Important]
-> O suporte de sessões de Debug para Azure Cognitive Search está disponível [mediante pedido](https://aka.ms/DebugSessions) como pré-visualização de acesso limitado. As funcionalidades de pré-visualização são fornecidas sem um contrato de nível de serviço, e não são recomendadas para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As sessões de depuração são uma funcionalidade de pré-visualização fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Assim que tiver acesso à pré-visualização, poderá aceder e utilizar sessões de Debug para o seu serviço utilizando o portal Azure.
->   
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

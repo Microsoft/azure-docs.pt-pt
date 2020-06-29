@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: d325b65b01ea13cfcb141d28343d94866d9e05e2
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6c658053afcaff99249e5d20ca2dc5a14037470b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84751540"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510844"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de Debug em Pesquisa Cognitiva Azure
 
 A Debug Sessions é uma editora visual que trabalha com uma habilidade existente no portal Azure. Numa sessão de depuração pode identificar e resolver erros, validar alterações e impulsionar alterações a uma habilidade de produção no pipeline de enriquecimento de IA.
 
 > [!Important]
-> O suporte de sessões de Debug para Azure Cognitive Search está disponível [mediante pedido](https://aka.ms/DebugSessions) como pré-visualização de acesso limitado. As funcionalidades de pré-visualização são fornecidas sem um contrato de nível de serviço, e não são recomendadas para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As sessões de depuração são uma funcionalidade de pré-visualização fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Assim que tiver acesso à pré-visualização, poderá aceder e utilizar sessões de Debug para o serviço utilizando o portal Azure.
 
 ## <a name="using-debug-sessions"></a>Usando sessões de depuro
 
@@ -86,6 +85,10 @@ O painel **da Estrutura de Dados Enriquecido** mostra os enriquecimentos do docu
 ## <a name="errorswarnings"></a>Erros/Avisos
 
 Esta janela exibe todos os erros e avisos que o skillset produz à medida que é executado contra o documento na sessão de depurar.
+
+## <a name="limitations"></a>Limitações
+
+Os sesis de depurg funcionam com todas as fontes de dados geralmente disponíveis amd a maioria das fontes de dados de pré-visualização. A API de MongoDB (pré-visualização) e a API de Cassandra (preview) da Cosmos DB não são atualmente suportadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,15 +4,15 @@ description: Saiba como atribuir permissões a uma identidade de Serviços de Do
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 09fc8e506cd2f0e9ee95eed64d3f61b58f3602de
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207911"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510631"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de partilha a uma identidade
 

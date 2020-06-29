@@ -8,6 +8,12 @@
       href: azure-portal-quickstart-center.md
     - name: Dispositivos e browsers suportados
       href: azure-portal-supported-browsers-devices.md
+- name: Guias de Início Rápido
+  items:
+    - name: Criar uma VM no portal
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: Criar um dashboard - modelo ARM
+      href: quick-create-template.md
 - name: Conceitos
   items:
     - name: Partilhar dashboards com o controlo de acesso baseado em funções

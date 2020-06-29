@@ -3,16 +3,16 @@ title: Ativar e criar grandes partilhas de ficheiros - Azure Files
 description: Neste artigo, aprende-se a ativar e a criar grandes partilhas de ficheiros.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 16a183776bebad2fd365c3182ae64ea54befe41d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219086"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510734"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
 

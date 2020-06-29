@@ -3,16 +3,16 @@ title: Gerir servidores registados com Azure File Sync Microsoft Docs
 description: Saiba como registar e desagregá-lo num Servidor do Windows com um Serviço de Sincronização de Sincronização de Sincronização de Ficheiros de Ficheiros Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1972ecc249e44bb99e4e9c903a7e097e8d304938
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253890"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509511"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Fá-lo transformando os seus Servidores Windows numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.

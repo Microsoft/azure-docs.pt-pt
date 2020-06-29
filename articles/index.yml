@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 7e444b27d701b3b7ff143a404c4210f9123767b4
-  ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+  ms.openlocfilehash: 5f9dbc120b301100364da61f7d8c19fa58beb5c9
+  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/25/2020
-  ms.locfileid: "85362531"
+  ms.lasthandoff: 06/27/2020
+  ms.locfileid: "85482926"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -68,7 +68,7 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     - analytics
-    url: azure-databricks/index.yml
+    url: /azure/databricks/index.yml
   - title: Azure Machine Learning
     summary: Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -1042,12 +1042,12 @@ productDirectory:
     - media
     url: media-services/latest/index.yml
   - title: Data Box
-    summary: Aplicações e soluções para transferência de dados para computação edge e do Azure
+    summary: Aplicações e soluções de transferência de dados para o Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
     azureCategories:
     - migration
     - storage
-    url: databox-family/index.md
+    url: databox/index.yml
   - title: Spatial Anchors (Pré-visualização)
     summary: Crie experiências de realidade mista com perceção espacial e para vários utilizadores
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg

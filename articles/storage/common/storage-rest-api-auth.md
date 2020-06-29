@@ -5,17 +5,17 @@ description: Utilize a API A API do Azure Storage REST para fazer um pedido de a
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: ee37745b35071893ff504c56a4a6883b589f1d0e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84804628"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509188"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Ligue para as operações da API com autorização de Chave Partilhada
 

@@ -3,16 +3,16 @@ title: Criar uma partilha de ficheiros Azure premium
 description: Neste artigo, aprende-se a criar uma partilha de ficheiros Azure premium.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 271acdb968bf5bbec3632bbc1f6def854196cd8e
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629337"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509987"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar uma partilha de ficheiros Azure premium
 As ações de ficheiros premium são oferecidas em meios de armazenamento de discos de estado sólido (SSD) e são úteis para cargas de trabalho intensivas em IO, incluindo bases de dados de hospedagem e computação de alto desempenho (HPC). As ações de ficheiro premium estão hospedadas numa conta de armazenamento para fins especiais, chamada de conta FileStorage. As ações de ficheiros premium são projetadas para aplicações de alto desempenho e escala empresarial, proporcionando consistente baixa latência, alta IOPS e altas ações de produção.
@@ -209,7 +209,7 @@ Para remover o grupo de recursos e os respetivos recursos associados, incluindo 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou uma parte de ficheiro premium. Para saber o desempenho que esta conta oferece, continue para a secção de desempenho do guia de planeamento.
 

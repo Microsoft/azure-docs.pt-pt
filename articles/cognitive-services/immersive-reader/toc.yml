@@ -29,9 +29,15 @@
       href: how-to-customize-launch-button.md
     - name: Colocar o token de autenticação em cache
       href: how-to-cache-token.md
+    - name: Configurar a funcionalidade Ler em Voz Alta
+      href: how-to-configure-read-aloud.md
+    - name: Configurar a tradução
+      href: how-to-configure-translation.md
+    - name: Armazenar as preferências do utilizador
+      href: how-to-store-user-preferences.md
 - name: Referência
   items:
-    - name: Referência do SDK
+    - name: SDK JavaScript
       href: reference.md
 - name: Recursos
   items:

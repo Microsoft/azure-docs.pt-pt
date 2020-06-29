@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 1cb7674dce24d696fd54f3d48074398dc484c01c
-  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+  ms.openlocfilehash: c02de94050b538307b26f93ed5323acfaacb0e2a
+  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/01/2020
-  ms.locfileid: "84267057"
+  ms.lasthandoff: 06/27/2020
+  ms.locfileid: "85483878"
 landingContent:
 - title: Sobre a Leitura Avançada
   linkLists:
@@ -61,6 +61,12 @@ landingContent:
       url: how-to-customize-launch-button.md
     - text: Colocar o token de autenticação em cache
       url: how-to-cache-token.md
+    - text: Configurar a funcionalidade Ler em Voz Alta
+      url: how-to-configure-read-aloud.md
+    - text: Configurar a tradução
+      url: how-to-configure-translation.md
+    - text: Armazenar as preferências do utilizador
+      url: how-to-store-user-preferences.md
   - linkListType: reference
     links:
     - text: SDK JavaScript

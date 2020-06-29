@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe89f932bcf7aa22657a3fcabddd015df4b9913d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 65c2e3dbe7cb99c9b7c6e1a84178fd28d5013a69
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486676"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507947"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o seu recurso-alvo se desloca para uma região de Azure diferente
 
@@ -32,6 +32,7 @@ Há duas razões principais pelas quais as suas regras podem deixar de funcionar
 Quando move um recurso, o seu ID de recursos muda na maioria dos casos. Nos bastidores, o sistema replica o recurso na nova região antes de o eliminar da região antiga. Este processo requer que existam dois recursos e, portanto, dois IDs de recursos diferentes existem simultaneamente por um pequeno período de tempo. Uma vez que os IDs de recursos devem ser únicos, um novo ID deve ser criado durante o processo. 
 
 **Como é que a movimentação do recurso afeta as regras existentes?**
+
 As regras de alerta e as regras de ação têm um âmbito de recursos a que se aplicam. O âmbito pode ser uma subscrição completa, um grupo de recursos, ou um ou mais recursos específicos.
 Por exemplo, aqui está uma regra com um âmbito com dois recursos (duas máquinas virtuais):
 
@@ -101,8 +102,12 @@ Se **apenas alguns** dos recursos no âmbito se deslocaram, é necessário retir
 2. Modifique o âmbito. Se necessário, divida em duas regras (relevantes para alguns casos de alertas métricos, como referido acima).
 3. Reimplantar a regra ([alertas métricos, alertas](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2) [de registo de atividade, regras](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert)de [ação).](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)
 
-### <a name="changing-the-scope-of-a-rule-using-azure-cli"></a>Alterar o âmbito de uma regra utilizando o Azure CLI
+### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Alterar o âmbito de uma regra utilizando o Azure CLI
 
 1.  Obtenha a regra existente[(alertas métricos, alertas](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show) [de registo de atividade).](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)
 2.  Atualizar o âmbito de regras diretamente[(alertas métricos,](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update) [alertas de registo de atividade)](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope)
 3.  Se necessário, divida em duas regras (relevantes para alguns casos de alertas métricos, como referido acima).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba a resolução de outros problemas com [notificações de alerta,](alerts-troubleshoot.md) [alertas métricos](alerts-troubleshoot-metric.md)e alertas de [registo.](alerts-troubleshoot-log.md) 
