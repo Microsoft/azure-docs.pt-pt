@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694812"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513723"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Problemas de resolução de problemas Problemas de implementação de dispositivos StorSimple
 ## <a name="overview"></a>Descrição geral

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: bbac6eade634ffcfdc47ae3d22b32e0bd429b7c6
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704378"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513179"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instale a Atualização 5 no seu dispositivo StorSimple
 
@@ -76,19 +76,19 @@ O método hotfix envolve os três passos seguintes:
 
 Tem de descarregar e instalar os seguintes hotfixes na ordem prescrita e nas pastas sugeridas:
 
-| Encomenda | KB | Description | Tipo de atualização | Hora de Instalação |Instalar na pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de Instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Atualização de software<br> Descarregue tanto _HcsSoftwareUpdate.exe_ como _CisMSDAgent.exe_ |Normal <br></br>Não-disruptivo |~ 25 minutos |FirstOrderUpdate|
 
 Se atualizar a partir de um dispositivo em execução Update 4, só precisa de instalar as atualizações cumulativas do SISTEMA como atualizações de segunda ordem.
 
-| Encomenda | KB | Description | Tipo de atualização | Hora de Instalação |Instalar na pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de Instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Pacote de atualizações cumulativas do OS <br> Baixar versão R2 do Windows Server 2012 |Normal <br></br>Não-disruptivo |- |Segunda Encomenda|
 
 Se instalar a partir de um dispositivo em execução a Atualização 3 ou mais cedo, instale o seguinte para além das atualizações cumulativas.
 
-| Encomenda | KB | Description | Tipo de atualização | Hora de Instalação |Instalar na pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de Instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Atualizações de condução e firmware LSI <br> Atualização de firmware USM (versão 3.38) |Normal <br></br>Não-disruptivo |~ 3 horas <br> (inclui 2A. + 2B. + 2C.)|Segunda Encomenda|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacote de atualizações de segurança do SO <br> Baixar versão R2 do Windows Server 2012 |Normal <br></br>Não-disruptivo |- |Segunda Encomenda|
@@ -97,7 +97,7 @@ Se instalar a partir de um dispositivo em execução a Atualização 3 ou mais c
 
 Pode também ser necessário instalar atualizações de firmware de disco em cima de todas as atualizações apresentadas nas tabelas anteriores. Pode verificar se necessita das atualizações do firmware do disco executando o `Get-HcsFirmwareVersion` cmdlet. Se estiver a executar estas versões de firmware: `XMGJ` , , , , `XGEG` `KZ50` `F6C2` `VR08` `N003` `0107` então não precisa de instalar estas atualizações.
 
-| Encomenda | KB | Description | Tipo de atualização | Hora de Instalação | Instalar na pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de Instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware de disco |Manutenção <br></br>Disruptivo |~ 30 minutos | Terceiro Acordo |
 

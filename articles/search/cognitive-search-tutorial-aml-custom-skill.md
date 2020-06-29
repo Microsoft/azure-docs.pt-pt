@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740368"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513808"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Construa e implemente uma habilidade personalizada com a Azure Machine Learning 
 
-Neste tutorial, você usará o [conjunto de dados de avaliações do hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuídos sob a licença Creative Commons CC [BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) usando Azure Machine Learning para extrair sentimento baseado em aspetos das avaliações. Isto permite que a atribuição de sentimentos positivos e negativos no âmbito da mesma revisão seja corretamente atribuída a entidades identificadas como pessoal, sala, lobby ou piscina.
+Neste tutorial, você usará o [conjunto de dados de avaliações do hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuídos sob a licença Creative Commons CC [BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) usando Azure Machine Learning para extrair sentimento baseado em aspetos das avaliações. Isto permite que a atribuição de sentimentos positivos e negativos no âmbito da mesma revisão seja corretamente atribuída a entidades identificadas como pessoal, sala, lobby ou piscina.
 
-Para treinar o modelo de sentimento baseado em aspetos, você estará usando o [repositório de receitas nlp.](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa) O modelo será então implantado como ponto final num cluster Azure Kubernetes. Uma vez implementado, o modelo é adicionado ao oleoduto de enriquecimento como uma habilidade personalizada para ser utilizado pelo serviço de Pesquisa Cognitiva.
+Para treinar o modelo de sentimento baseado em aspetos em Azure Machine Learning, você estará usando o [repositório de receitas nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). O modelo será então implantado como ponto final num cluster Azure Kubernetes. Uma vez implantado, o ponto final é adicionado ao gasoduto de enriquecimento como uma habilidade AML para utilização pelo serviço de Pesquisa Cognitiva.
 
 Há dois conjuntos de dados fornecidos. Se desejar treinar o modelo por si mesmo, o ficheiro hotel_reviews_1000.csv é necessário. Prefere saltar o passo do treino? Descarregue o hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Criar um exemplo de Pesquisa Cognitiva Azure
-> * Criar um espaço de trabalho para aprendizagem de máquinas Azure
+> * Criar um espaço de trabalho Azure Machine Learning (o serviço de pesquisa e espaço de trabalho devem estar na mesma subscrição)
 > * Treine e implemente um modelo para um cluster Azure Kubernetes
 > * Ligue um gasoduto de enriquecimento de IA ao modelo implantado
 > * Ingerir saída do modelo implementado como uma habilidade personalizada
@@ -84,8 +84,8 @@ No portal, vá ao Skillset e selecione o link Skillset Definition (JSON). O port
 
 Copie o modelo skillset da janela e cole-o na definição de skillset à esquerda. Editar o modelo para fornecer os valores em falta para:
 
-* Name
-* Description
+* Nome
+* Descrição
 * Contexto
 * Nome e fonte de 'entradas'
 * Nome e nome de destino 'outputs'

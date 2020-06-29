@@ -3,15 +3,15 @@ title: Atualizar alvos de armazenamento Azure HPC Cache
 description: Como editar alvos de armazenamento Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9bce4ec383b8ac7efaa9b00237044424ffb58fc0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344259"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513844"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -68,7 +68,7 @@ A página de detalhes para um alvo de armazenamento Blob permite modificar o cam
 
 Quando terminar, clique **em OK** para atualizar o alvo de armazenamento ou clique em **Cancelar** para descartar alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia [Os alvos de armazenamento](hpc-cache-add-storage.md) para saber mais sobre estas opções.
 * Leia [Plano do espaço de nome agregado](hpc-cache-namespace.md) para mais dicas sobre a utilização de caminhos virtuais.

@@ -3,15 +3,15 @@ title: Crie bilhete de suporte ou caso para série StorSimple 8000
 description: Saiba como registar o pedido de suporte e inicie uma sessão de suporte no seu dispositivo da série StorSimple 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706975"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514252"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 

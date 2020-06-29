@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 05/29/2020
-ms.openlocfilehash: 8566b5d1d1beb87ccf7cd2b25f536732bb8d1f8e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 907579d44575de56f95e0828c3313d0d1682b29c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298062"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513900"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Azure SQL Caso Gerido através da Azure Data Factory
 
@@ -126,7 +126,7 @@ Para utilizar uma autenticação simbólica de aplicação Azure AD baseada em s
 
 1. Siga os passos para [Provisionar um administrador do Azure Ative Directory para a sua Instância Gerida](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Crie uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) a partir do portal Azure. Tome nota do nome da aplicação e dos seguintes valores que definem o serviço ligado:
+2. [Crie uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) a partir do portal Azure. Tome nota do nome da aplicação e dos seguintes valores que definem o serviço ligado:
 
     - ID da Aplicação
     - Chave de aplicação
@@ -571,7 +571,7 @@ Quando os dados são copiados de e para a SQL Managed Instance, os seguintes map
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |

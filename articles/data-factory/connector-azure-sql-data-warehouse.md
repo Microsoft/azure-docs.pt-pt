@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 872cab4575b143dea057fe7fd070b433f8d54eb9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4bf0acdc774bc41d0bc80c944560f41789584c03
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220323"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513913"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) utilizando a Azure Data Factory
 
@@ -129,9 +129,9 @@ Para diferentes tipos de autenticação, consulte as seguintes secções sobre p
 
 Para utilizar a autenticação de fichas Azure AD baseadas em serviços, siga estes passos:
 
-1. **[Crie uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** a partir do portal Azure. Tome nota do nome da aplicação e dos seguintes valores que definem o serviço ligado:
+1. **[Crie uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** a partir do portal Azure. Tome nota do nome da aplicação e dos seguintes valores que definem o serviço ligado:
 
-   - ID da aplicação
+   - ID da Aplicação
    - Chave de aplicação
    - ID do inquilino
 
@@ -748,7 +748,7 @@ Quando copia dados de ou para Azure Synapse Analytics, os seguintes mapeamentos 
 | binary                                | Byte[]                         |
 | bit                                   | Booleano                        |
 | char                                  | String, Char[]                 |
-| data                                  | DateTime                       |
+| date                                  | DateTime                       |
 | Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | Datatimeoff                        | Início de execução de tempo de data                 |

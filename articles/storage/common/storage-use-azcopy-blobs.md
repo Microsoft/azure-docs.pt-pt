@@ -3,17 +3,17 @@ title: Transfira dados para ou a partir do armazenamento da Azure Blob utilizand
 description: Este artigo contém uma coleção de comandos de exemplo AzCopy que o ajudam a criar contentores, copiar ficheiros e sincronizar diretórios entre sistemas de ficheiros locais e contentores.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: da5eafbdffccc8175b5248ce7b9456d26adf97a2
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817551"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513780"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Dados de transferência com armazenamento AzCopy e Blob
 

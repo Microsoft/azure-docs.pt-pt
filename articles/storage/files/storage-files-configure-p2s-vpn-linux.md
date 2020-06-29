@@ -3,16 +3,16 @@ title: Configure uma VPN ponto-a-local (P2S) no Linux para utilização com Fich
 description: Como configurar uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 41feacf180bbe21fdd3d04cabaaf3e3fbaacd20e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355476"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515297"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
 Pode utilizar uma ligação VPN Ponto-a-Local (P2S) para montar as suas ações de ficheiroS Azure sobre SMB de fora de Azure, sem abrir a porta 445. Uma ligação VPN ponto-a-local é uma ligação VPN entre Azure e um cliente individual. Para utilizar uma ligação P2S VPN com ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se ligar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN Site-to-Site (S2S) em vez de uma ligação Ponto-a-Local para cada cliente. Para saber mais, consulte [configurar uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).

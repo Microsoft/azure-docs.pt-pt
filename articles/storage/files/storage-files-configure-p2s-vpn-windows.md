@@ -1,39 +1,39 @@
 ---
-title: Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure / Microsoft Docs
-description: Como configurar uma VPN Ponto-a-Local (P2S) no Windows para utilização com ficheiros Azure
+title: Configure uma VPN ponto-a-local (P2S) no Windows para utilização com Ficheiros Azure Microsoft Docs
+description: Como configurar uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da49d1c94584393bfef066d61c1caf360b249c3b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81273482"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515326"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure
-Pode utilizar uma ligação VPN Point-to-Site (P2S) para montar as suas ações de ficheiro Azure sobre SMB de fora do Azure, sem abrir a porta 445. Uma ligação VPN Ponto-a-Local é uma ligação VPN entre o Azure e um cliente individual. Para utilizar uma ligação P2S VPN com Ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se conectar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN site-to-site (S2S) em vez de uma ligação Ponto-a-Site para cada cliente. Para saber mais, consulte [Configure uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
+Pode utilizar uma ligação VPN Ponto-a-Local (P2S) para montar as suas ações de ficheiroS Azure sobre SMB de fora de Azure, sem abrir a porta 445. Uma ligação VPN ponto-a-local é uma ligação VPN entre Azure e um cliente individual. Para utilizar uma ligação P2S VPN com ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se ligar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN Site-to-Site (S2S) em vez de uma ligação Ponto-a-Local para cada cliente. Para saber mais, consulte [configurar uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
 
-Recomendamos vivamente que leia [considerações de Networking para acesso direto](storage-files-networking-overview.md) ao ficheiro Azure antes de continuar com este artigo para uma discussão completa das opções de networking disponíveis para Ficheiros Azure.
+Recomendamos vivamente que leia [considerações de Networking para acesso direto à partilha de ficheiros Azure](storage-files-networking-overview.md) antes de continuar com este artigo para uma discussão completa das opções de networking disponíveis para ficheiros Azure.
 
-O artigo detalha os passos para configurar uma VPN ponto-a-site no Windows (cliente windows e Windows Server) para montar as partilhas de ficheiros Azure diretamente no local. Se procura encaminhar o tráfego de Sincronização de Ficheiros Azure através de uma VPN, consulte [configurar as definições](storage-sync-files-firewall-and-proxy.md)de proxy e firewall do Ficheiro Azure .
+O artigo detalha os passos para configurar uma VPN ponto-a-local no Windows (cliente Windows e Windows Server) para montar ações de ficheiros Azure diretamente no local. Se procura encaminhar o tráfego de Azure File Sync por uma VPN, consulte [as configurações de configuração do proxy e firewall do Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- A versão mais recente do módulo Azure PowerShell. Para obter mais informações sobre como instalar o Azure PowerShell, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps) e selecionar o seu sistema operativo. Se preferir utilizar o Azure CLI no Windows, pode, no entanto, as instruções abaixo são apresentadas para o Azure PowerShell.
+- A versão mais recente do módulo Azure PowerShell. Para obter mais informações sobre como instalar o Azure PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e selecione o seu sistema operativo. Se preferir utilizar o CLI Azure no Windows, pode, no entanto, as instruções abaixo são apresentadas para Azure PowerShell.
 
-- Uma partilha de ficheiros Azure que gostaria de montar no local. As ações de ficheiros Azure são implantadas dentro de contas de armazenamento, que são construções de gestão que representam um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes de blob ou filas. Pode saber mais sobre como implementar ações de ficheiros Azure e contas de armazenamento em [Create a Azure file share](storage-how-to-create-file-share.md).
+- Uma partilha de ficheiros Azure que gostaria de montar no local. As ações de ficheiros Azure são implantadas dentro de contas de armazenamento, que são construções de gestão que representam um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes blob ou filas. Pode saber mais sobre como implementar ações de ficheiros Azure e contas de armazenamento na [Create a azure file share](storage-how-to-create-file-share.md).
 
-- Um ponto final privado para a conta de armazenamento que contém a partilha de ficheiros Azure que pretende montar no local. Para saber mais sobre como criar um ponto final privado, consulte [configurar pontos finais](storage-files-networking-endpoints.md?tabs=azure-powershell)da rede Azure Files . 
+- Um ponto final privado para a conta de armazenamento que contém a partilha de ficheiros Azure que pretende montar no local. Para saber mais sobre como criar um ponto final privado, consulte [os pontos finais da rede De Configuração Azure Files](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
 ## <a name="deploy-a-virtual-network"></a>Implementar uma rede virtual
-Para aceder à sua partilha de ficheiros Azure e outros recursos Azure a partir de instalações através de uma VPN Ponto-a-Site, tem de criar uma rede virtual, ou VNet. A ligação VPN P2S que irá criar automaticamente é uma ponte entre a sua máquina Windows no local e esta rede virtual Azure.
+Para aceder à sua partilha de ficheiros Azure e outros recursos Azure a partir de instalações através de uma VPN Ponto-a-Local, tem de criar uma rede virtual, ou VNet. A ligação P2S VPN que irá criar automaticamente é uma ponte entre a sua máquina Windows no local e esta rede virtual Azure.
 
-O seguinte PowerShell criará uma rede virtual Azure com três subredes: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e uma para o seu portal de rede virtual que fornece o serviço VPN. 
+O seguinte PowerShell criará uma rede virtual Azure com três sub-redes: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e outro para o seu gateway de rede virtual que fornece o serviço VPN. 
 
-Lembre-se `<region>` `<resource-group>`de `<desired-vnet-name>` substituir, e com os valores apropriados para o seu ambiente.
+Lembre-se de substituir `<region>` , e com os `<resource-group>` `<desired-vnet-name>` valores apropriados para o seu ambiente.
 
 ```PowerShell
 $region = "<region>"
@@ -78,8 +78,8 @@ $gatewaySubnet = $virtualNetwork.Subnets | `
     Where-Object { $_.Name -eq "GatewaySubnet" }
 ```
 
-## <a name="create-root-certificate-for-vpn-authentication"></a>Criar certificado raiz para autenticação VPN
-Para que as ligações VPN das suas máquinas Windows no local sejam autenticadas para aceder à sua rede virtual, tem de criar dois certificados: um certificado de raiz, que será fornecido ao portal da máquina virtual, e um certificado de cliente, que será assinado com o certificado raiz. O seguinte PowerShell cria o certificado raiz; o certificado de cliente será criado após a criação do portal de rede virtual Azure com informações a partir do gateway. 
+## <a name="create-root-certificate-for-vpn-authentication"></a>Criar certificado de raiz para autenticação VPN
+Para que as ligações VPN das suas máquinas Windows sejam autenticadas para aceder à sua rede virtual, deve criar dois certificados: um certificado de raiz, que será fornecido ao porta de entrada da máquina virtual, e um certificado de cliente, que será assinado com o certificado raiz. O seguinte PowerShell cria o certificado de raiz; o certificado de cliente será criado após a criação do gateway de rede virtual Azure com informações a partir do gateway. 
 
 ```PowerShell
 $rootcertname = "CN=P2SRootCert"
@@ -126,12 +126,12 @@ foreach($line in $rawRootCertificate) {
 ```
 
 ## <a name="deploy-virtual-network-gateway"></a>Implementar gateway de rede virtual
-O portal de rede virtual Azure é o serviço a que as suas máquinas Windows no local se ligarão. A implementação deste serviço requer dois componentes básicos: um IP público que identificará a porta de entrada para os seus clientes onde quer que estejam no mundo e um certificado de raiz que criou anteriormente que será usado para autenticar os seus clientes.
+O gateway de rede virtual Azure é o serviço ao qual as suas máquinas Windows no local se irão ligar. A implementação deste serviço requer dois componentes básicos: um IP público que identificará a porta de entrada para os seus clientes onde quer que estejam no mundo e um certificado de raiz que criou anteriormente que será usado para autenticar os seus clientes.
 
-Lembre-se `<desired-vpn-name-here>` de substituir pelo nome que gostaria por estes recursos.
+Lembre-se de substituir `<desired-vpn-name-here>` pelo nome que gostaria por estes recursos.
 
 > [!Note]  
-> A implementação do portal de rede virtual Azure pode demorar até 45 minutos. Enquanto este recurso está a ser implantado, este script PowerShell bloqueará a implementação a ser concluída. Isto era esperado.
+> A implantação do gateway de rede virtual Azure pode demorar até 45 minutos. Enquanto este recurso estiver a ser implementado, este script PowerShell bloqueará para a implementação ser concluída. Isto era esperado.
 
 ```PowerShell
 $vpnName = "<desired-vpn-name-here>" 
@@ -167,7 +167,7 @@ $vpn = New-AzVirtualNetworkGateway `
 ```
 
 ## <a name="create-client-certificate"></a>Criar certificado de cliente
-O certificado de cliente é criado com o URI do portal de rede virtual. Este certificado é assinado com o certificado de raiz que criou anteriormente.
+O certificado de cliente é criado com o URI do gateway de rede virtual. Este certificado é assinado com o certificado de raiz que criou anteriormente.
 
 ```PowerShell
 $clientcertpassword = "1234"
@@ -212,9 +212,9 @@ Export-PfxCertificate `
 ```
 
 ## <a name="configure-the-vpn-client"></a>Configure o cliente VPN
-O portal de rede virtual Azure criará um pacote transferível com ficheiros de configuração necessários para inicializar a ligação VPN na sua máquina Windows no local. Configuraremos a ligação VPN utilizando a funcionalidade [Always On VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) do Windows 10/Windows Server 2016+. Este pacote também contém pacotes executáveis que configurarão o legado do cliente VPN do Windows, se assim o desejar. Este guia utiliza sempre em VPN em vez do legado do cliente VPN do Windows, uma vez que o cliente Always On VPN permite que os utilizadores finais se conectem/desliguem do Azure VPN sem ter permissões de administrador para a sua máquina. 
+O gateway de rede virtual Azure criará um pacote transferível com ficheiros de configuração necessários para inicializar a ligação VPN na sua máquina Windows no local. Configuraremos a ligação VPN utilizando a funcionalidade [Always On VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) do Windows 10/Windows Server 2016+. Este pacote também contém pacotes executáveis que configurarão o legado cliente Windows VPN, se assim o desejar. Este guia utiliza always on VPN em vez do legado cliente Windows VPN como o cliente Always On VPN permite que os utilizadores finais conectem/desconectem da VPN Azure sem ter permissões de administrador para a sua máquina. 
 
-O seguinte script irá instalar o certificado de cliente necessário para autenticação contra o gateway de rede virtual, descarregar e instalar o pacote VPN. Lembre-se `<computer1>` `<computer2>` de substituir e com os computadores desejados. Pode executar este script em quantas máquinas desejar, adicionando `$sessions` mais sessões powerShell à matriz. A sua conta de utilização deve ser administradora em cada uma destas máquinas. Se uma destas máquinas for a máquina local de onde está a executar o guião, tem de executar o guião a partir de uma sessão elevada da PowerShell. 
+O seguinte script instalará o certificado de cliente necessário para autenticação contra o gateway de rede virtual, o download e instalará o pacote VPN. Lembre-se de substituir `<computer1>` e `<computer2>` pelos computadores desejados. Pode executar este script em todas as máquinas que desejar, adicionando mais sessões PowerShell à `$sessions` matriz. A sua conta de utilização deve ser um administrador em cada uma destas máquinas. Se uma destas máquinas for a máquina local a partir da qual está a executar o script, tem de executar o guião a partir de uma sessão elevada do PowerShell. 
 
 ```PowerShell
 $sessions = [System.Management.Automation.Runspaces.PSSession[]]@()
@@ -291,8 +291,8 @@ foreach ($session in $sessions) {
 Remove-Item -Path $vpnTemp -Recurse
 ```
 
-## <a name="mount-azure-file-share"></a>Partilha de ficheiros do Monte Azure
-Agora que criou o seu VPN Point-to-Site, pode usá-lo para montar a partilha de ficheiros Azure nos computadores que configura através do PowerShell. O exemplo seguinte montará a parte, listará o diretório raiz da parte para provar que a parte está efetivamente montada, e o desmontar a parte. Infelizmente, não é possível montar a parte persistentemente sobre o remo powerShell. Para montar persistentemente, consulte Utilize uma partilha de [ficheiros Azure com o Windows](storage-how-to-use-files-windows.md). 
+## <a name="mount-azure-file-share"></a>Partilha de ficheiros mount Azure
+Agora que configurar a sua VPN Ponto-a-Local, pode usá-lo para montar a partilha de ficheiros Azure nos computadores que configura através do PowerShell. O exemplo seguinte montará a partilha, listará o diretório de raiz da ação para provar que a parte está realmente montada, e a parte desmontada. Infelizmente, não é possível montar a parte persistentemente sobre a remoting PowerShell. Para montar persistentemente, consulte [Utilize uma partilha de ficheiros Azure com o Windows](storage-how-to-use-files-windows.md). 
 
 ```PowerShell
 $myShareToMount = "<file-share>"
@@ -336,7 +336,7 @@ Invoke-Command `
     }
 ```
 
-## <a name="see-also"></a>Consulte também
-- [Considerações de networking para acesso direto a partilha de ficheiros Azure](storage-files-networking-overview.md)
+## <a name="see-also"></a>Ver também
+- [Considerações de networking para acesso direto de partilha de ficheiros Azure](storage-files-networking-overview.md)
 - [Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-linux.md)
 - [Configure uma VPN site-to-site (S2S) para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md)

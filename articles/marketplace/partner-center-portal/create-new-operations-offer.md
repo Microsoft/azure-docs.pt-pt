@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 6a062723394b9a5187b72cabf449cdc17b2bbbcd
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: b938e514be163789d8a8fc25327f5dabe49ce4c3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373493"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515797"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -148,9 +148,9 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 7. Política de privacidade
 8. Nome da oferta
 9. Screenshots/vídeos
-10. Description
+10. Descrição
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -158,7 +158,7 @@ O nome que introduzir aqui será mostrado aos clientes como o título da sua lis
 
 Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser usada em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -397,7 +397,7 @@ Se é a sua primeira vez publicando esta oferta, você pode:
     - **Incompleto** – A secção tem erros que precisam de ser corrigidos ou exigem mais informações a serem fornecidas. Volte para a secção(s) e atualize-a.
     - **Completo** – A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
-- Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para que você reveja e aprove. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público (ou se uma oferta privada, para o público privado).
+- Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para que você reveja e aprove. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
 ## <a name="next-step"></a>Passo seguinte
 

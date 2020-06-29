@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 7101d23d4611f4eea9b5a9e2a7f3ba417c9fcb1a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: e3cb45ee2cfa299a482391d59359b40baea0feb5
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476126"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517342"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -156,7 +156,7 @@ O Código do Estúdio Visual integra-se com [as Ferramentas Core do Azure Functi
 
 ### <a name="call-the-api-from-the-application"></a>Ligue para a API a partir da aplicação
 
-Quando implementados para o Azure, os pedidos à API são automaticamente encaminhados para a app Funções para pedidos enviados para a `api` rota. Trabalhando localmente, tem que configurar as definições de aplicação para pedidos de procuração para a API local.
+Quando implementados para o Azure, os pedidos à API são automaticamente encaminhados para a app Funções para pedidos enviados para a `api` rota. Trabalhando localmente, você tem que configurar as configurações de aplicação para pedidos de procuração para a API local.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 

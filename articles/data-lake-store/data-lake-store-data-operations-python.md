@@ -4,16 +4,16 @@ description: Saiba como usar o Python SDK para trabalhar com o sistema de fichei
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: tracking-python
-ms.openlocfilehash: 564de3a38d4f3d2c50d49e570986f2d025a11457
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6c3fb3dff0fdb9fb6d92b8138f12f09dcdf3eb04
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560479"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515642"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de sistema de ficheiros em Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]

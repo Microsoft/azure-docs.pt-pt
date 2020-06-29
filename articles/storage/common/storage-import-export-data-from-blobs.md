@@ -4,16 +4,16 @@ description: Saiba como criar empregos de exportação no portal Azure para tran
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8605fb3c43e625d86fd4d4008ddc49b0e29c8d44
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509479"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513504"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -155,7 +155,7 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 
     Os parâmetros são descritos no quadro seguinte:
 
-    |Parâmetro de linha de comando|Description|  
+    |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|  
     |**/sn:**|Necessário. O nome do armazém é responsável pelo trabalho de exportação.|  
@@ -209,15 +209,15 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Description |
+   | Seletor | Caminho da Bolha | Descrição |
    | --- | --- | --- |
    | Começa com |/ |Exporta todas as bolhas na conta de armazenamento |
    | Começa com |/$root/ |Exporta todas as bolhas no recipiente raiz |
    | Começa com |/livro |Exporta todas as bolhas em qualquer recipiente que comece com **livro** de prefixos |
    | Começa com |/música/ |Exporta todas as bolhas na **música** de contentores |
    | Começa com |/música/amor |Exporta todas as bolhas na **música** de recipiente que começam com **amor** prefixo |
-   | Igual a |$root/logo.bmp |Exportações **blob logo.bmp** no recipiente raiz |
-   | Igual a |videos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
+   | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
+   | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
 ## <a name="next-steps"></a>Passos seguintes
 

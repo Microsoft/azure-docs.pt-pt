@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253941"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513267"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 * *Base de Dados Azure SQL*. Pode utilizar a base de dados como arquivo de dados *sink*. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte a [base de dados Criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * *Estúdio Visual*. A passagem por este artigo utiliza o Visual Studio 2019.
 * *[Azure SDK para .NET](/dotnet/azure/dotnet-tools)*.
-* *Aplicação Azure Ative Directory*. Se não tiver uma aplicação de Diretório Ativo Azure, consulte a secção [de aplicação de Diretório Ativo Azure](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) de [Como: Utilizar o portal para criar uma aplicação AD Azure](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para utilização em etapas posteriores: **ID de aplicação (cliente),** **chave de autenticação**e **ID do Diretório (inquilino).** Atribua o pedido à **função Contribuinte** seguindo as instruções do mesmo artigo.
+* *Aplicação Azure Ative Directory*. Se não tiver uma aplicação de Diretório Ativo Azure, consulte a secção [de aplicação de Diretório Ativo Azure](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) de [Como: Utilizar o portal para criar uma aplicação AD Azure](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para utilização em etapas posteriores: **ID de aplicação (cliente),** **chave de autenticação**e **ID do Diretório (inquilino).** Atribua o pedido à **função Contribuinte** seguindo as instruções do mesmo artigo.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 

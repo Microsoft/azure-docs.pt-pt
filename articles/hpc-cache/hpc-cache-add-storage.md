@@ -3,15 +3,15 @@ title: Adicione armazenamento a uma Cache Azure HPC
 description: Como definir alvos de armazenamento para que o seu Cache Azure HPC possa utilizar o seu sistema NFS no local ou recipientes Azure Blob para armazenamento de ficheiros a longo prazo
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: 442c9897c5f02e9ed9cbcda96b6a540b9201f428
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434117"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513884"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -153,9 +153,9 @@ Esta tabela resume as diferenças do modelo de utilização:
 
 | Modelo de utilização | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
 | ---- | ---- | ---- | ---- |
-| Leia escritos pesados e pouco frequentes | Leitura | Nunca | Nenhum |
+| Leia escritos pesados e pouco frequentes | Leitura | Nunca | Nenhuma |
 | Mais de 15% escreve | Leitura/escrita | Nunca | Uma hora |
-| Os clientes contornam a cache | Leitura | 30 segundos | Nenhum |
+| Os clientes contornam a cache | Leitura | 30 segundos | Nenhuma |
 
 ## <a name="next-steps"></a>Passos seguintes
 

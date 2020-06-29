@@ -3,15 +3,15 @@ title: Ver e gerir alertas para o dispositivo da série StorSimple 8000
 description: Descreve as condições de alerta e a gravidade do StorSimple, como configurar notificações de alerta e como utilizar o serviço StorSimple Device Manager para gerir alertas.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4956c511f67fc5929eef2e39797cbe93b5b1d73e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711940"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515513"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir alertas StorSimple
 
@@ -219,7 +219,12 @@ Se a conectividade em nuvem falhar no seu dispositivo de produção StorSimple, 
 |:--- |:--- |:--- |
 | A criação do pacote de apoio falhou. |StorSimple não conseguiu gerar o pacote. |Recandidutar esta operação. Se o problema persistir, contacte o Microsoft Support. Depois de ter resolvido o problema, limpe este alerta na página de alertas. |
 
+### <a name="enclosure-environment-alerts"></a>Alertas ambientais do recinto
+
+| Texto de alerta | Evento | Mais informações / ações recomendadas |
+|:--- |:--- |:--- |
+| Componente de hardware O sensor de temperatura ambiente reporta o estado falhado.  | Tipo de recinto: Recinto principal | Este alerta é acionado quando a temperatura ambiente exterior em torno de StorSimple está acima de um alcance aceitável. Verifique a temperatura exterior ambiente ou o fluxo de ar da ventilação cacífa no centro de dados. Quando a temperatura volta ao normal, o alerta é automaticamente apagado após algum tempo decorrido. Se o problema persistir, contacte o suporte da Microsoft.   |
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [erros StorSimple e problemas de implementação do dispositivo de resolução de problemas](storsimple-8000-troubleshoot-deployment.md).
-

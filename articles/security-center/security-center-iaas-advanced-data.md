@@ -1,6 +1,6 @@
 ---
-title: Segurança avançada de dados para o IaaS no Centro de Segurança Azure Microsoft Docs
-description: Saiba como permitir a segurança avançada de dados para máquinas SQL no Azure Security Center.
+title: Segurança avançada do Azure Security Center para máquinas SQL (Pré-visualização)
+description: Saiba como permitir a segurança avançada de dados para máquinas SQL no Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: 1c269ad13072ae4dcff9caba892ccc0643647e5c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 673524f08ecae28fb6f2e18f3c0c7230cf102b06
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254232"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513476"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Segurança avançada de dados para máquinas SQL (Pré-visualização)
 

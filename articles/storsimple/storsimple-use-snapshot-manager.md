@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 6a94a533dbc31e2f2d4ddb5d1985c77da8b29032
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476976"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513738"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utilize interface de utilizador StorSimple Snapshot Manager para gerir trabalhos de backup e catálogo de backup
 

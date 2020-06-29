@@ -4,16 +4,16 @@ description: Explica como ligar um novo dispositivo StorSimple, ligar um disposi
 author: alkohli
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2906c947e24bf5053760e9b83429ae7c6ecd3f4
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170125"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515265"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ligue ou desligue o seu dispositivo da série StorSimple 8000
 
@@ -165,6 +165,6 @@ Depois de aceder ao Windows PowerShell para StorSimple ou o portal Azure, siga o
 > [!NOTE]
 > Os cabos SAS utilizados para ligar o invólucro EBOD ao recinto primário só devem ser removidos depois de o sistema ser desligado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) se tiver problemas ao ligar ou desligar um dispositivo StorSimple.
 

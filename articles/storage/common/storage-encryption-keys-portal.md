@@ -10,12 +10,12 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 30ef840e254355e7db34c626f482d86246e6a738
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 4af70a4e2a698bd280c8c41018bc5aaa1bfa27f8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805392"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512545"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o portal Azure
 
@@ -32,7 +32,7 @@ Para saber como ativar estas propriedades num cofre de chaves existente, consult
 - [Como utilizar o soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
 - [Como utilizar o soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
 
-Apenas as teclas RSA e RSA-HSM de 2048 são suportadas com encriptação de Armazenamento Azure. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
 

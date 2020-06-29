@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 30e3f901d9feca07902e20c87f4fbf5b6979a11b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: fbaa10ec8a0b48d40644bb90144d89f53ab52563
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299488"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513532"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Quickstart: Criar um recurso de Serviços Cognitivos usando um modelo ARM
 
-Utilize este artigo para criar e implantar um recurso de Serviços Cognitivos, utilizando um modelo Azure Resource Manager (ARM). Este recurso multi-serviço permite-lhe:
+Utilize este artigo para criar e implantar um recurso de Serviços Cognitivos, utilizando um modelo de Gestor de Recursos Azure (modelo ARM). Este recurso multi-serviço permite-lhe:
 * Aceda a vários Serviços Cognitivos Azure com uma única chave e ponto final.
 * Consolidar faturação dos serviços que utiliza.
 
@@ -51,7 +51,7 @@ No modelo, está definido um recurso do Azure:
 
 2. Introduza os seguintes valores.
     
-    |Valor  |Description  |
+    |Valor  |Descrição  |
     |---------|---------|
     | **Subscrição** | Selecione uma subscrição do Azure. |
     | **Grupo de recursos** | **Selecione Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK**. |

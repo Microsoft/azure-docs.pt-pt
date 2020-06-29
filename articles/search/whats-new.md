@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 34aeda7534c15b51b9759b696caaf3fcfac88659
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 086e3cf71012f168851df1c85b19689294fe6302
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317700"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515722"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -23,11 +23,11 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 ### <a name="june-2020"></a>Junho de 2020
 
-+ [Azure Machine Learning (AML) (pré-visualização)](cognitive-search-aml-skill.md) é uma habilidade cognitiva usada durante a indexação que envolve um modelo de Aprendizagem automática Azure. Através da habilidade, você pode integrar uma máquina personalizada previamente treinada e implantada em um oleoduto de enriquecimento de IA. [Inscreva-se para solicitar acesso.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u) Quando estiver pronto para adicionar uma habilidade AML, use o modelo AML no editor Skillset no portal Azure. Para obter orientação, começa com [este tutorial.](cognitive-search-tutorial-aml-custom-skill.md)
+A azure Machine Learning é um novo tipo de habilidade para integrar um ponto final inferencing da Azure Machine Learning. A experiência do portal suporta a descoberta e integração do seu ponto final de Aprendizagem de Máquinas Azure dentro de um skillset de Pesquisa Cognitiva. A descoberta requer que os seus serviços de Pesquisa Cognitiva e Azure ML sejam implantados na mesma subscrição. Começa com [este tutorial.](cognitive-search-tutorial-aml-custom-skill.md)
 
 ### <a name="may-2020-microsoft-build"></a>Maio de 2020 (Microsoft Build)
 
-+ O recurso [de sessões de Debug](cognitive-search-debug-session.md) está agora em pré-visualização. [Inscreva-se para solicitar acesso.](https://aka.ms/DebugSessions) As sessões de Debug fornecem uma interface baseada no portal para investigar e resolver problemas com um skillset. As correções criadas na sessão de depurar podem ser guardadas para as habilidades de produção. Começa com [este tutorial.](cognitive-search-tutorial-debug-sessions.md)
++ O recurso [de sessões de Debug](cognitive-search-debug-session.md) está agora em pré-visualização. As sessões de Debug fornecem uma interface baseada no portal para investigar e resolver problemas com um skillset. As correções criadas na sessão de depurar podem ser guardadas para as habilidades de produção. Começa com [este tutorial.](cognitive-search-tutorial-debug-sessions.md)
 
 + As melhorias de segurança incluem a capacidade de [configurar um ponto final de pesquisa privado (pré-visualização)](service-create-private-endpoint.md) que é inacessível na internet pública. Também pode [configurar as regras de IP para suporte a firewall (pré-visualização)](service-configure-firewall.md).
 

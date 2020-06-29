@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6ddf3db422a192b82b8d67e8e532a9ae0030d6f7
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 0a247626566a4b0156d879954bf6734d248f01d8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212530"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513514"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Criar uma aplicação Power BI para o Microsoft AppSource
 
@@ -111,7 +111,7 @@ Opcionalmente, selecione até duas indústrias e duas verticais sob cada indúst
 | Distribuição | *Atacado<br>Envio de encomendas e pacotes |
 | Education | *Ensino <br> Superior* Ensino Básico e Secundário / K-12<br>*Bibliotecas e Museus |
 | Serviços Financeiros | *Mercados Bancários <br> e De Capitais* Seguro |
-| Administração Pública | *Defesa e Inteligência (costumava chamar-se <br> Segurança Nacional e Pública)* Segurança Pública e Justiça<br>*Governo Civil |
+| Governo | *Defesa e Inteligência (costumava chamar-se <br> Segurança Nacional e Pública)* Segurança Pública e Justiça<br>*Governo Civil |
 | Cuidados de saúde (costumava chamar-se Saúde) | *Pagador de <br> Saúde* Provedor de Saúde<br>*Farmacêutica |
 | Fabrico e Recursos (usado para ser chamado de Fabricação) | *Química e Agroquímica <br> * Fabrico discreto<br>*Energia |
 | Retalho e Bens de Consumo (costumava ser chamado de Retalho) | *Bens <br> de Consumo* Retalhistas |
@@ -136,7 +136,7 @@ Os clientes devem aceitar estes termos antes de poderem experimentar a sua ofert
 
 Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante.
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
 Selecione o idioma no qual a sua oferta será listada. Atualmente, **inglês (Estados Unidos)** é a única opção disponível.
 
@@ -160,10 +160,10 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 7. Política de privacidade
 8. Nome da oferta
 9. Resumo
-10. Description
+10. Descrição
 11. Screenshots/vídeos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -177,7 +177,7 @@ O nome:
 
 Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -270,4 +270,4 @@ Na página de comentários pode:
 
 Para submeter a oferta de publicação, **selecione Publicar**.
 
-Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público (ou se uma oferta privada, para um público privado), vá ao Partner Center e selecione **Go-live**.
+Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.

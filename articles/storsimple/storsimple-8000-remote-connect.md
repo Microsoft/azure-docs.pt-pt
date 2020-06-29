@@ -3,81 +3,81 @@ title: Ligue-se remotamente ao seu dispositivo StorSimple
 description: Explica como configurar o seu dispositivo para gestão remota e como ligar-se ao Windows PowerShell para StorSimple via HTTP ou HTTPS.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58d61df932da06e32bb4c8f21a3a296b185f02d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298996"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514569"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Ligue-se remotamente ao seu dispositivo da série StorSimple 8000
 
 ## <a name="overview"></a>Descrição geral
 
-Pode ligar-se remotamente ao seu dispositivo através do Windows PowerShell. Quando se liga desta forma, não se vê um menu. (Só se vê um menu se utilizar a consola em série do dispositivo para se ligar.) Com o remo do Windows PowerShell, liga-se a um espaço de execução específico. Também pode especificar a linguagem de exibição.
+Pode ligar-se remotamente ao seu dispositivo através do Windows PowerShell. Quando se liga desta forma, não se vê um menu. (Só se vê um menu se utilizar a consola em série no dispositivo para ligar.) Com o remoting do Windows PowerShell, liga-se a um espaço de funcionação específico. Também pode especificar o idioma de exibição.
 
-Para obter mais informações sobre a utilização do Windows PowerShell para gerir o seu dispositivo, vá utilizar o [Windows PowerShell para o StorSimple para administrar o seu dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
+Para obter mais informações sobre a utilização do Windows PowerShell para gerir o seu dispositivo, vá ao [Windows PowerShell para storSimple para administrar o seu dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 
-Este tutorial explica como configurar o seu dispositivo para gestão remota e, em seguida, como ligar ao Windows PowerShell para storSimple. Pode utilizar HTTP ou HTTPS para ligar remotamente através do Windows PowerShell. No entanto, quando estiver a decidir como ligar-se ao Windows PowerShell para o StorSimple, considere as seguintes informações:
+Este tutorial explica como configurar o seu dispositivo para gestão remota e, em seguida, como ligar-se ao Windows PowerShell para storSimple. Pode utilizar HTTP ou HTTPS para ligar remotamente através do Windows PowerShell. No entanto, quando estiver a decidir como ligar-se ao Windows PowerShell para storSimple, considere as seguintes informações:
 
-* A ligação direta à consola em série do dispositivo é segura, mas ligar-se à consola em série sobre os interruptores de rede não é. Tenha cuidado com o risco de segurança ao ligar-se à consola série do dispositivo sobre os interruptores de rede.
-* Ligar-se através de uma sessão HTTP pode oferecer mais segurança do que ligar através da consola em série através da rede. Embora este não seja o método mais seguro, é aceitável em redes fidedignas.
+* A ligação direta à consola em série do dispositivo é segura, mas a ligação à consola em série sobre os interruptores de rede não é. Tenha cuidado com o risco de segurança ao ligar-se à consola em série do dispositivo sobre os interruptores de rede.
+* A ligação através de uma sessão HTTP pode oferecer mais segurança do que ligar através da consola em série através da rede. Embora este não seja o método mais seguro, é aceitável em redes fidedignas.
 * Ligar através de uma sessão HTTPS com um certificado auto-assinado é a opção mais segura e recomendada.
 
-Pode ligar-se remotamente à interface Windows PowerShell. No entanto, o acesso remoto ao seu dispositivo StorSimple através da interface Windows PowerShell não está ativado por defeito. Primeiro, tem de ativar a gestão remota do dispositivo e, em seguida, no cliente que é utilizado para aceder ao seu dispositivo.
+Pode ligar-se remotamente à interface Windows PowerShell. No entanto, o acesso remoto ao seu dispositivo StorSimple através da interface Windows PowerShell não é ativado por padrão. Primeiro deve ativar a gestão remota do dispositivo e, em seguida, no cliente que é utilizado para aceder ao seu dispositivo.
 
-Os passos descritos neste artigo foram realizados num sistema de anfitriões que executa o Windows Server 2012 R2.
+Os passos descritos neste artigo foram realizados num sistema de anfitrião que executa o Windows Server 2012 R2.
 
 ## <a name="connect-through-http"></a>Conecte-se através de HTTP
 
-A ligação ao Windows PowerShell para o StorSimple através de uma sessão HTTP oferece mais segurança do que ligar através da consola em série do seu dispositivo StorSimple. Embora este não seja o método mais seguro, é aceitável em redes fidedignas.
+A ligação ao Windows PowerShell para StorSimple através de uma sessão HTTP oferece mais segurança do que a ligação através da consola em série do seu dispositivo StorSimple. Embora este não seja o método mais seguro, é aceitável em redes fidedignas.
 
-Pode utilizar o portal Azure ou a consola em série para configurar a gestão remota. Selecione entre os seguintes procedimentos:
+Pode utilizar o portal Azure ou a consola em série para configurar a gestão remota. Selecione dos seguintes procedimentos:
 
-* Utilize o portal Azure para permitir a gestão remota sobre http
+* Utilize o portal Azure para permitir a gestão remota em HTTP
 * [Utilize a consola em série para permitir a gestão remota em HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
 Depois de ativar a gestão remota, utilize o seguinte procedimento para preparar o cliente para uma ligação remota.
 
-* [Prepare o cliente para uma ligação remota](#prepare-the-client-for-remote-connection)
+* [Preparar o cliente para a ligação remota](#prepare-the-client-for-remote-connection)
 
-### <a name="use-the-azure-portal-to-enable-remote-management-over-http"></a>Utilize o portal Azure para permitir a gestão remota sobre http
+### <a name="use-the-azure-portal-to-enable-remote-management-over-http"></a>Utilize o portal Azure para permitir a gestão remota em HTTP
 
 Execute os seguintes passos no portal Azure para permitir a gestão remota em HTTP.
 
 #### <a name="to-enable-remote-management-through-the-azure-portal"></a>Para permitir a gestão remota através do portal Azure
 
-1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende configurar para uma gestão remota. Vá às **definições do dispositivo > Security**.
-2. Na lâmina de **definições** de Segurança, clique em **Gestão Remota**.
-3. Na lâmina de **gestão remota,** coloque a ativação da **gestão remota** até **sim**.
-4. Pode agora optar por ligar através de HTTP. (O predefinido é ligar-se ao HTTPS.) Certifique-se de que http é selecionado.
+1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende configurar para uma gestão remota. Aceda às **definições do Dispositivo > Segurança**.
+2. Na lâmina de **definições de segurança,** clique em **Gestão Remota**.
+3. Na lâmina **de gestão remota,** desatabilizar a **gestão remota** para **sim**.
+4. Pode agora optar por ligar através de HTTP. (O padrão é ligar sobre HTTPS.) Certifique-se de que HTTP está selecionado.
    
    > [!NOTE]
    > A ligação através de HTTP é aceitável apenas em redes fidedignas.
    
-5. Clique em **Guardar** e quando solicitado para confirmação, selecione **Sim**.
+5. Clique **em Guardar** e quando solicitado para confirmação, selecione **Sim**.
 
 ### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Utilize a consola em série para permitir a gestão remota em HTTP
-Execute os seguintes passos na consola em série do dispositivo para permitir a gestão remota.
+Execute os seguintes passos na consola em série do dispositivo para permitir uma gestão remota.
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Para permitir a gestão remota através da consola em série do dispositivo
-1. No menu de consola em série, selecione a opção 1. Para obter mais informações sobre a utilização da consola em série no dispositivo, vá a [Connect to Windows PowerShell para StorSimple via consola de série do dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. No momento, escreva:`Enable-HcsRemoteManagement –AllowHttp`
+1. No menu da consola em série, selecione a opção 1. Para obter mais informações sobre a utilização da consola em série no dispositivo, vá [ao Connect to Windows PowerShell para StorSimple via consola em série do dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. Na solicitação, escreva:`Enable-HcsRemoteManagement –AllowHttp`
 3. É notificado sobre as vulnerabilidades de segurança da utilização do HTTP para se ligar ao dispositivo. Quando solicitado, confirme digitando **Y**.
-4. Verifique se http está ativado escrevendo:`Get-HcsSystem`
-5. Verifique se o campo **RemoteManagementMode** mostra **HttpsAndHttpEnabled**. A seguinte ilustração mostra estas configurações em PuTTY.
+4. Verifique se HTTP está ativado digitando:`Get-HcsSystem`
+5. Verifique se o campo **RemoteManagementMode** mostra **HttpsAndHttpEnabled**. A seguinte ilustração mostra estas definições em PuTTY.
    
-     ![Serial HTTPS e HTTP habilitados](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+     ![HTTPS em série e HTTP habilitado](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-### <a name="prepare-the-client-for-remote-connection"></a>Prepare o cliente para uma ligação remota
+### <a name="prepare-the-client-for-remote-connection"></a>Preparar o cliente para a ligação remota
 Execute os seguintes passos no cliente para permitir a gestão remota.
 
-#### <a name="to-prepare-the-client-for-remote-connection"></a>Para preparar o cliente para uma ligação remota
-1. Inicie uma sessão do Windows PowerShell como administrador. Se utilizar um cliente do Windows 10, por padrão, o serviço de Gestão Remota do Windows está definido manualmente. Pode ter de iniciar o serviço digitando:
+#### <a name="to-prepare-the-client-for-remote-connection"></a>Para preparar o cliente para a ligação remota
+1. Inicie uma sessão Do Windows PowerShell como administrador. Se utilizar um cliente Windows 10, por predefinição, o serviço de Gestão Remota do Windows está definido para manual. Poderá ser necessário iniciar o serviço digitando:
 
     `Start-Service WinRM`
     
@@ -96,69 +96,69 @@ Execute os seguintes passos no cliente para permitir a gestão remota.
     
 4. Na caixa de diálogo que aparece:
    
-   1. Digite o nome do utilizador neste formato: *device_ip\SSAdmin*.
-   2. Digite a palavra-passe do administrador do dispositivo que foi definida quando o dispositivo foi configurado com o assistente de configuração. A palavra-passe padrão é *Password1*.
-5. Inicie uma sessão do Windows PowerShell no dispositivo digitando este comando:
+   1. Digite o nome de utilizador neste formato: *device_ip\SSAdmin*.
+   2. Digite a palavra-passe do administrador do dispositivo que foi definida quando o dispositivo foi configurado com o assistente de configuração. A palavra-passe predefinida é *Palavra-passe1*.
+5. Inicie uma sessão Do Windows PowerShell no dispositivo digitando este comando:
    
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
    
    > [!NOTE]
-   > Para criar uma sessão do Windows PowerShell para utilização `–Port` com o dispositivo virtual StorSimple, acomode o parâmetro e especifique a porta pública que configuraem em Remoting para o StorSimple Virtual Appliance.
+   > Para criar uma sessão Windows PowerShell para utilização com o dispositivo virtual StorSimple, apedte o `–Port` parâmetro e especifique a porta pública que configuraste em Remoting para O Aparelho Virtual StorSimple.
    
    
-Neste ponto, deverá ter uma sessão remota ativa do Windows PowerShell para o dispositivo.
+Neste momento, deverá ter uma sessão de PowerShell remota ativa para o dispositivo.
    
-![PowerShell remoing usando HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+![PowerShell remoting usando HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
-## <a name="connect-through-https"></a>Conecte-se através de HTTPS
+## <a name="connect-through-https"></a>Conecte-se através do HTTPS
 
-Ligar-se ao Windows PowerShell para StorSimple através de uma sessão HTTPS é o método mais seguro e recomendado de ligação remota ao seu dispositivo Microsoft Azure StorSimple. Os seguintes procedimentos explicam como configurar a consola em série e os computadores clientes para que possa utilizar https para ligar ao Windows PowerShell para storSimple.
+Ligar ao Windows PowerShell para storSimple através de uma sessão HTTPS é o método mais seguro e recomendado de ligação remota ao seu dispositivo Microsoft Azure StorSimple. Os seguintes procedimentos explicam como configurar a consola em série e os computadores clientes para que possa utilizar HTTPS para ligar ao Windows PowerShell para storSimple.
 
-Pode utilizar o portal Azure ou a consola em série para configurar a gestão remota. Selecione entre os seguintes procedimentos:
+Pode utilizar o portal Azure ou a consola em série para configurar a gestão remota. Selecione dos seguintes procedimentos:
 
-* Utilize o portal Azure para permitir a gestão remota sobre HTTPS
-* [Utilize a consola em série para permitir a gestão remota sobre HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
+* Utilize o portal Azure para permitir a gestão remota em HTTPS
+* [Utilize a consola em série para permitir a gestão remota em HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
-Depois de ativar a gestão remota, utilize os seguintes procedimentos para preparar o hospedeiro para uma gestão remota e ligue-se ao dispositivo a partir do hospedeiro remoto.
+Depois de ativar a gestão remota, utilize os seguintes procedimentos para preparar o anfitrião para uma gestão remota e ligar-se ao dispositivo a partir do anfitrião remoto.
 
-* [Prepare o anfitrião para gestão remota](#prepare-the-host-for-remote-management)
-* [Ligue-se ao dispositivo a partir do hospedeiro remoto](#connect-to-the-device-from-the-remote-host)
+* [Prepare o anfitrião para a gestão remota](#prepare-the-host-for-remote-management)
+* [Ligue-se ao dispositivo a partir do anfitrião remoto](#connect-to-the-device-from-the-remote-host)
 
-### <a name="use-the-azure-portal-to-enable-remote-management-over-https"></a>Utilize o portal Azure para permitir a gestão remota sobre HTTPS
+### <a name="use-the-azure-portal-to-enable-remote-management-over-https"></a>Utilize o portal Azure para permitir a gestão remota em HTTPS
 
-Execute os seguintes passos no portal Azure para permitir a gestão remota em HTTPS.
+Execute os seguintes passos no portal Azure para permitir a gestão remota sobre HTTPS.
 
-#### <a name="to-enable-remote-management-over-https-from-the-azure-portal"></a>Para permitir a gestão remota sobre HTTPS do portal Azure
+#### <a name="to-enable-remote-management-over-https-from-the-azure-portal"></a>Para permitir a gestão remota sobre HTTPS a partir do portal Azure
 
-1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende configurar para uma gestão remota. Vá às **definições do dispositivo > Security**.
-2. Na lâmina de **definições** de Segurança, clique em **Gestão Remota**.
+1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende configurar para uma gestão remota. Aceda às **definições do Dispositivo > Segurança**.
+2. Na lâmina de **definições de segurança,** clique em **Gestão Remota**.
 3. Defina **Ativar Gestão Remota** como **Sim**.
-4. Agora pode optar por ligar-se usando HTTPS. (O predefinido é ligar-se ao HTTPS.) Certifique-se de que https é selecionado.
-5. Clique... e, em seguida, clique em descarregar certificado de **gestão remota**. Especifique uma localização para guardar este ficheiro. Tem de instalar este certificado no cliente ou no computador anfitrião que utilizará para se ligar ao dispositivo.
-6. Clique em **Guardar** e, em **seguida,** clique em Sim quando solicitado para confirmação.
+4. Agora pode optar por ligar através do HTTPS. (O padrão é ligar sobre HTTPS.) Certifique-se de que HTTPS está selecionado.
+5. Clique... e, em seguida, clique em **Baixar Certificado de Gestão Remota**. Especifique uma localização para guardar este ficheiro. Tem de instalar este certificado no cliente ou no computador anfitrião que utilizará para se ligar ao dispositivo.
+6. Clique **em Guardar** e, em seguida, clique em **Sim** quando solicitado para confirmação.
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Utilize a consola em série para permitir a gestão remota sobre HTTPS
+### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Utilize a consola em série para permitir a gestão remota em HTTPS
 
-Execute os seguintes passos na consola em série do dispositivo para permitir a gestão remota.
+Execute os seguintes passos na consola em série do dispositivo para permitir uma gestão remota.
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Para permitir a gestão remota através da consola em série do dispositivo
-1. No menu de consola em série, selecione a opção 1. Para obter mais informações sobre a utilização da consola em série no dispositivo, vá a [Connect to Windows PowerShell para StorSimple via consola de série do dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. No momento, escreva:
+1. No menu da consola em série, selecione a opção 1. Para obter mais informações sobre a utilização da consola em série no dispositivo, vá [ao Connect to Windows PowerShell para StorSimple via consola em série do dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. Na solicitação, escreva:
    
      `Enable-HcsRemoteManagement`
    
     Isto deve ativar HTTPS no seu dispositivo.
-3. Verifique se https foi ativado por dactilografia: 
+3. Verifique se https foi ativado digitando: 
    
      `Get-HcsSystem`
    
-    Certifique-se de que o campo **RemoteManagementMode** mostra **HttpsEnabled**. A seguinte ilustração mostra estas configurações em PuTTY.
+    Certifique-se de que o campo **RemoteManagementMode** mostra **httpsEnabled**. A seguinte ilustração mostra estas definições em PuTTY.
    
-     ![Serial HTTPS ativado](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. A partir `Get-HcsSystem`da saída de , copie o número de série do dispositivo e guarde-o para posterior utilização.
+     ![HTTPS em série ativado](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+4. A partir da saída `Get-HcsSystem` de , copie o número de série do dispositivo e guarde-o para posterior utilização.
    
    > [!NOTE]
-   > O número de série mapeia o nome NC no certificado.
+   > O número de série mapeia o nome CN no certificado.
    
 5. Obtenha um certificado de gestão remota digitando: 
    
@@ -167,52 +167,52 @@ Execute os seguintes passos na consola em série do dispositivo para permitir a 
     Aparecerá um certificado semelhante ao seguinte.
    
     ![Obtenha certificado de gestão remota](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
-6. Copie as informações no certificado do **certificado -----BEGIN CERTIFICATE-----** para **-----END CERTIFICATE-----** num editor de texto como o Notepad, e guarde-as como um ficheiro .cer. (Irá copiar este ficheiro para o seu anfitrião remoto quando preparar o hospedeiro.)
+6. Copie as informações no certificado a partir de **-----BEGIN CERTIFICATE-----** **para -----END CERTIFICATE-----** num editor de texto como o Notepad, e guarde-as como um ficheiro .cer. (Copiará este ficheiro para o seu anfitrião remoto quando preparar o anfitrião.)
    
    > [!NOTE]
-   > Para gerar um novo `Set-HcsRemoteManagementCert` certificado, use o cmdlet.
+   > Para gerar um novo certificado, utilize o `Set-HcsRemoteManagementCert` cmdlet.
    
-### <a name="prepare-the-host-for-remote-management"></a>Prepare o anfitrião para gestão remota
+### <a name="prepare-the-host-for-remote-management"></a>Prepare o anfitrião para a gestão remota
 
-Para preparar o computador hospedeiro para uma ligação remota que utilize uma sessão HTTPS, execute os seguintes procedimentos:
+Para preparar o computador anfitrião para uma ligação remota que utilize uma sessão HTTPS, execute os seguintes procedimentos:
 
-* [Importar o ficheiro .cer para o armazém raiz do cliente ou do anfitrião remoto](#to-import-the-certificate-on-the-remote-host).
-* [Adicione os números de série do dispositivo ao ficheiro dos anfitriões no seu hospedeiro remoto](#to-add-device-serial-numbers-to-the-remote-host).
+* [Importe o ficheiro .cer na loja raiz do cliente ou anfitrião remoto](#to-import-the-certificate-on-the-remote-host).
+* [Adicione os números de série do dispositivo ao ficheiro hostis no seu anfitrião remoto](#to-add-device-serial-numbers-to-the-remote-host).
 
-Cada um dos procedimentos anteriores é descrito abaixo.
+Cada um dos procedimentos anteriores, é descrito abaixo.
 
-#### <a name="to-import-the-certificate-on-the-remote-host"></a>Para importar o certificado no hospedeiro remoto
-1. Clique no ficheiro .cer e selecione **Instalar o certificado**. Isto começa o Certificado De Importar Feiticeiro.
+#### <a name="to-import-the-certificate-on-the-remote-host"></a>Para importar o certificado no anfitrião remoto
+1. Clique com o botão direito no ficheiro .cer e selecione **o certificado de instalação**. Isto inicia o Certificado De Importação De Feiticeiro.
    
-    ![Certificado Importador Assistente 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. Para **armazenar a localização,** selecione **Local Machine**, e, em seguida, clique em **Seguinte**.
-3. Selecione **Coloque todos os certificados na seguinte loja**e, em seguida, clique em **Navegar**. Navegue até à loja de raízes do seu anfitrião remoto e, em seguida, clique em **Next**.
+    ![Certificado Import Wizard 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
+2. Para **localizar a Loja**, selecione Máquina **Local**e, em seguida, clique em **Seguinte**.
+3. Selecione **Coloque todos os certificados na seguinte loja**e, em seguida, clique em **procurar**. Navegue até à loja de raiz do seu anfitrião remoto e, em seguida, clique em **Seguinte**.
    
-    ![Certificado Importador Assistente 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Clique em **Concluir**. Uma mensagem que lhe diz que a importação foi bem sucedida aparece.
+    ![Certificado Import Wizard 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
+4. Clique em **Concluir**. Uma mensagem que diz que a importação foi bem sucedida aparece.
    
-    ![Certificado Importador Assistente 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
+    ![Certificado Import Wizard 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
-#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para adicionar números de série do dispositivo ao hospedeiro remoto
-1. Inicie o Bloco de Notas como administrador e, em seguida, abra o ficheiro dos anfitriões localizado no \Windows\System32\Drivers\etc.
-2. Adicione as seguintes três entradas ao ficheiro dos anfitriões: **endereço DATA 0 IP,** **Endereço IP fixo 0**, e endereço IP fixo do **controlador 1**.
-3. Introduza o número de série do dispositivo que guardou anteriormente. Mapeie isto para o endereço IP, como mostrado na imagem seguinte. Para o Controlador 0 e controlador 1, anexar o **Controlador0** e **o Controlador1** no final do número de série (nome NC).
+#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para adicionar números de série do dispositivo ao anfitrião remoto
+1. Inicie o Notepad como administrador e, em seguida, abra o ficheiro hostis localizado em \Windows\System32\Drivers\etc.
+2. Adicione as seguintes três entradas no ficheiro dos anfitriões: **endereço IP DATA 0**, **Endereço IP Fixo do Controlador 0**e Endereço IP Fixo do **Controlador 1**.
+3. Introduza o número de série do dispositivo que guardou anteriormente. Mapeeia isto para o endereço IP como mostrado na imagem seguinte. Para o Controlador 0 e o Controlador 1, o controlador de apêndice **0** e **o Controlador1** no final do número de série (nome CN).
    
-    ![Adicionar nome CN ao arquivo de anfitriões](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![Adicionar nome CN ao ficheiro de anfitriões](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 4. Guarde o ficheiro dos anfitriões.
 
-### <a name="connect-to-the-device-from-the-remote-host"></a>Ligue-se ao dispositivo a partir do hospedeiro remoto
+### <a name="connect-to-the-device-from-the-remote-host"></a>Ligue-se ao dispositivo a partir do anfitrião remoto
 
-Utilize o Windows PowerShell e o TLS para introduzir uma sessão SSAdmin no seu dispositivo a partir de um anfitrião ou cliente remoto. A sessão SSAdmin mapeia a opção 1 no menu de consola seleção em [série](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) do seu dispositivo.
+Utilize o Windows PowerShell e o TLS para introduzir uma sessão SSAdmin no seu dispositivo a partir de um anfitrião ou cliente remoto. O SSAdmin mapeia a opção 1 no menu [de consola em série](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) do seu dispositivo.
 
-Execute o seguinte procedimento no computador a partir do qual pretende efetuar a ligação remota do Windows PowerShell.
+Execute o seguinte procedimento no computador a partir do qual pretende efetuar a ligação remota Do Windows PowerShell.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Para introduzir uma sessão SSAdmin no dispositivo utilizando o Windows PowerShell e tLS
-1. Inicie uma sessão do Windows PowerShell como administrador. Se utilizar um cliente do Windows 10, por padrão, o serviço de Gestão Remota do Windows está definido manualmente. Pode ter de iniciar o serviço digitando:
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Para entrar numa sessão SSAdmin no dispositivo utilizando o Windows PowerShell e o TLS
+1. Inicie uma sessão Do Windows PowerShell como administrador. Se utilizar um cliente Windows 10, por predefinição, o serviço de Gestão Remota do Windows está definido para manual. Poderá ser necessário iniciar o serviço digitando:
 
     `Start-Service WinRM`
 
-2. Adicione o endereço IP do dispositivo aos anfitriões de confiança do cliente digitando:
+2. Adicione o endereço IP do dispositivo aos anfitriões fidedignos do cliente digitando:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
@@ -223,18 +223,18 @@ Execute o seguinte procedimento no computador a partir do qual pretende efetuar 
    
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
    
-    Sempre que <*IP do dispositivo-alvo*> é o endereço IP do DATA 0 para o seu dispositivo; por exemplo, **10.126.173.90,** como mostrado na imagem anterior do ficheiro dos anfitriões. Além disso, forneça a palavra-passe do administrador para o seu dispositivo.
-4. Criar uma sessão digitando:
+    Quando <*IP do dispositivo-alvo*> é o endereço IP dos DADOS 0 para o seu dispositivo; por exemplo, **10.126.173.90** como mostrado na imagem anterior do ficheiro dos anfitriões. Além disso, forneça a palavra-passe do administrador para o seu dispositivo.
+4. Crie uma sessão digitando:
    
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
-    Para o parâmetro -ComputerName no cmdlet, forneça o número de série <*do dispositivo-alvo*>. Este número de série foi mapeado para o endereço IP de DATA 0 no ficheiro dos anfitriões no seu anfitrião remoto; por exemplo, **SHX0991003G44MT,** como mostrado na imagem seguinte.
+    Para o parâmetro -ComputerName no cmdlet, forneça o número de série <*do dispositivo alvo*>. Este número de série foi mapeado para o endereço IP de DATA 0 no ficheiro hostis no seu anfitrião remoto; por exemplo, **SHX0991003G44MT,** como mostrado na imagem seguinte.
 5. Escreva:
    
      `Enter-PSSession $session`
-6. Terá de esperar alguns minutos e, em seguida, estará ligado ao seu dispositivo via HTTPS através de TLS. Vê uma mensagem que indica que está ligado ao seu dispositivo.
+6. Terá de esperar alguns minutos e, em seguida, será ligado ao seu dispositivo através de HTTPS sobre TLS. Vê uma mensagem que indica que está ligado ao seu dispositivo.
    
-    ![PowerShell remoing usando HTTPS e TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![PowerShell remoting usando HTTPS e TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

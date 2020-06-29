@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 1755d6808183887ca428f227272c3923d4bae21f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 3195fd9e367caed352cb4f9881573740399851e4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213856"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513561"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -39,7 +39,7 @@ Reveja os seguintes recursos enquanto prepara a sua oferta de candidatura a Azur
 * Guias de Início Rápido:
 
     * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/)
-    * [Modelos gitHub Azure Quickstart](https://github.com/azure/azure-quickstart-templates)
+    * [Guia de boas práticas de modelos de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publicar a definição da aplicação](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Implementar a aplicação do catálogo de serviços](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
@@ -181,7 +181,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Description
+8. Descrição
 9. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
@@ -195,7 +195,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 3. Ligações úteis
 4. Capturas de ecrã
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -207,7 +207,7 @@ Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descriç
 
 Forneça uma descrição mais longa da sua oferta, até 256 caracteres. Esta descrição pode ser utilizada nos resultados da pesquisa.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -426,10 +426,14 @@ Pode configurar cada plano para ser visível para todos ou apenas para um públi
 
 Selecione **Este é um plano privado** para tornar o seu plano privado e visível apenas para o público restrito à sua escolha. Uma vez publicado como um plano privado, pode atualizar o público ou optar por disponibilizar o plano a todos. Uma vez publicado um plano como visível para todos, deve permanecer visível para todos; não pode ser reconfigurado como um plano privado.
 
+>[!Note]
+>Um público privado ou restrito é diferente do público de pré-visualização que definiu no **separador Pré-visualização.** Um público de pré-visualização pode aceder à sua oferta _antes_ da sua publicação ao vivo no mercado. Embora a escolha do público privado se aplique apenas a um plano específico, o público de pré-visualização pode ver todos os planos (privados ou não) para fins de validação.
+
 Se tornar o plano privado, insira um **ID de assinatura Azure** e a sua descrição. Cada um é um público que terá acesso a este plano privado. O acesso é atribuído utilizando iDs de subscrição Azure com a opção de incluir uma descrição de cada ID de subscrição Azure atribuído. Adicione até 10 iDs de subscrição de clientes individualmente, ou 20.000 importando um ficheiro CSV. Os IDs de assinatura Azure são representados como GUIDs e as letras devem ser minúsculas.
 
 >[!Note]
->Um público privado ou restrito é diferente do público de pré-visualização que definiu no **separador Pré-visualização.** Um público de pré-visualização pode aceder à sua oferta _antes_ da sua publicação ao vivo no mercado. Embora a escolha do público privado se aplique apenas a um plano específico, o público de pré-visualização pode ver todos os planos (privados ou não) para fins de validação.
+>As ofertas privadas não são suportadas com subscrições Azure estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
+
 
 ### <a name="technical-configuration"></a>Configuração técnica 
 

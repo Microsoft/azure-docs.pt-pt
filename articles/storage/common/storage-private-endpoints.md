@@ -5,17 +5,17 @@ description: Visão geral dos pontos finais privados para acesso seguro a contas
 services: storage
 author: santoshc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2f79e257eb61cebe000ed9ab831a4da4a5748132
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267839"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513286"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -79,7 +79,7 @@ Quando resolve o URL do ponto final de armazenamento de fora do VNet com o ponto
 
 Para o exemplo ilustrado acima, os registos de recursos DNS para a conta de armazenamento 'StorageAccountA', quando resolvidos fora do VNet que alberga o ponto final privado, serão:
 
-| Name                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -89,7 +89,7 @@ Como mencionado anteriormente, pode negar ou controlar o acesso a clientes fora 
 
 Os registos de recursos DNS para StorageAccountA, quando resolvidos por um cliente no VNet que hospeda o ponto final privado, serão:
 
-| Name                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |

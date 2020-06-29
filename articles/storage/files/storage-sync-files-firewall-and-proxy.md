@@ -3,16 +3,16 @@ title: Azure File Sync no local firewall e configurações de procuração / Mic
 description: Configuração da rede Azure File Sync nas instalações
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 415dc4f5609b912163be42605277a33ebcfda589
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466192"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515292"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização de vários locais e funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de cloud Azure.
@@ -61,7 +61,7 @@ Para configurar as definições de procuração em toda a máquina, siga os pass
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Adicione a secção <system.net> na secção machine.config (abaixo da secção <system.serviceModel>  Altere 127.0.01:8888 para o endereço IP e porta para o servidor proxy. 
+   - Adicione a secção <system.net> nos ficheiros machine.config (abaixo da secção <system.serviceModel>).  Altere 127.0.01:8888 para o endereço IP e porta para o servidor proxy. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -266,7 +266,7 @@ if ($found) {
 Em seguida, pode utilizar os intervalos de endereço IP `$ipAddressRanges` para atualizar a sua firewall. Consulte o site do seu firewall/sistema de aparelhos para obter informações sobre como atualizar a sua firewall.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Conectividade da rede de teste para pontos finais de serviço
-Uma vez registado um servidor no serviço Azure File Sync, o cmdlet de codção e serverRegistration.exe pode ser utilizado para testar comunicações com todos os pontos finais (URLs) específicos deste servidor. Este cmdlet pode ajudar a resolver problemas quando a comunicação incompleta impede o servidor de funcionar plenamente com o Azure File Sync e pode ser usado para afinar configurações de procuração e firewall.
+Uma vez registado um servidor no serviço Azure File Sync, o cmdlet e ServerRegistration.exe de teste de Teste-ArmazenamentoSecíbrio pode ser utilizado para testar comunicações com todos os pontos finais (URLs) específicos deste servidor. Este cmdlet pode ajudar a resolver problemas quando a comunicação incompleta impede o servidor de funcionar plenamente com o Azure File Sync e pode ser usado para afinar configurações de procuração e firewall.
 
 Para executar o teste de conectividade da rede, instale a versão 9.1 ou posterior do agente Azure File Sync e execute os seguintes comandos PowerShell:
 ```powershell
@@ -279,7 +279,7 @@ As listas anteriores deste documento contêm o URLs Azure File Sync atualmente c
 
 A criação de regras de firewall de restrição de domínios pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e poderão até mudar com o tempo. Verifique este artigo periodicamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

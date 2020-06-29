@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711702"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514621"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utilize o serviço StorSimple Device Manager para monitorizar os componentes e o estado do hardware
 
@@ -79,7 +79,7 @@ Execute os seguintes passos para visualizar o estado de hardware de um component
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para o recinto primário do dispositivo StorSimple
 A tabela que se segue descreve os componentes físicos e lógicos contidos no recinto primário (presentes em 8100 e 8600) do seu dispositivo StorSimple no local.
 
-| Componente | Módulo | Tipo | Localização | Unidade substituível de campo (FRU)? | Description |
+| Componente | Módulo | Tipo | Localização | Unidade substituível de campo (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Yes |Uma linha é apresentada para cada uma das unidades SSD ou HDD no recinto primário. |
 | Sensor de temperatura ambiente |Recinto |Físico |Partilhado |No |Mede a temperatura dentro do chassis. |
@@ -120,7 +120,7 @@ A tabela que se segue descreve os componentes físicos e lógicos contidos no re
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para o recinto EBOD do dispositivo StorSimple
 O quadro que se segue descreve os componentes físicos e lógicos contidos no recinto EBOD (apenas presente no modelo 8600) do seu dispositivo StorSimple no local.
 
-| Componente | Módulo | Tipo | Localização | O FRU? | Description |
+| Componente | Módulo | Tipo | Localização | O FRU? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Yes |Uma linha é apresentada para cada uma das unidades HDD na parte da frente do recinto EBOD. |
 | Sensor de temperatura ambiente |Recinto |Físico |Partilhado |No |Mede a temperatura dentro do chassis. |

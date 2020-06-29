@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253465"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513317"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -54,7 +54,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para obter uma lista das regiões de Azure em que a Data Factory está atualmente disponível, consulte [os Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/) As lojas de dados e os cálculos podem estar noutras regiões. As lojas incluem Azure Storage e Azure SQL Database. Os cálculos incluem HDInsight, que a Data Factory utiliza.
 
-Crie uma aplicação como descrito na [Criação de uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Atribua o pedido à **função Contribuinte** seguindo as instruções no mesmo artigo. Você precisará de vários valores para partes posteriores deste tutorial, tais como **ID de aplicação (cliente)** e **ID de Diretório (inquilino).**
+Crie uma aplicação como descrito na [Criação de uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Atribua o pedido à **função Contribuinte** seguindo as instruções no mesmo artigo. Você precisará de vários valores para partes posteriores deste tutorial, tais como **ID de aplicação (cliente)** e **ID de Diretório (inquilino).**
 
 ### <a name="create-a-blob-table"></a>Criar uma mesa de bolhas
 

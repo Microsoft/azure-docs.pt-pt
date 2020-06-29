@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/19/2019
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: bb7ffb06bb0cffeefae87ada665e2c123213186a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4fb623a77fc97fea1584451b73eef930c725f8a1
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218654"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517427"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registo de Contentores Azure com o Centro de Segurança
 
@@ -27,7 +27,7 @@ Se estiver no nível padrão do Centro de Segurança Azure, pode adicionar o pac
 
 Sempre que uma imagem é empurrada para o seu registo, o Centro de Segurança digitaliza automaticamente essa imagem. Para ativar a digitalização de uma imagem, empurre-a para o seu repositório.
 
-Quando a varredura termina (normalmente após aproximadamente 10 minutos, mas pode levar até 48h), os resultados estão disponíveis em recomendações do Centro de Segurança como esta:
+Quando a varredura termina (normalmente após aproximadamente 10 minutos, mas pode ser até 40 minutos), os resultados estão disponíveis como recomendações do Centro de Segurança como esta:
 
 [![Amostra da recomendação do Centro de Segurança Azure sobre vulnerabilidades descobertas numa imagem hospedada do Registo de Contentores Azure (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

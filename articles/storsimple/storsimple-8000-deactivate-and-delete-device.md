@@ -8,17 +8,17 @@ manager: timlt
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: c25955c87899291c599d7055e7213dad955c6816
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634186"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514031"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desativar e eliminar um dispositivo StorSimple
 
@@ -116,7 +116,7 @@ A desativação resulta nas seguintes ações:
 
 Depois de desativar o aparelho em nuvem, pode eliminá-lo da lista de dispositivos. Selecione o dispositivo desativado, clique à direita e, em seguida, clique em **Eliminar**. O StorSimple notifica-o assim que o dispositivo for eliminado e a lista de atualizações dos dispositivos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para restaurar o dispositivo desativado para as falhas de fábrica, vá [para redefinir o dispositivo para as definições predefinidos da fábrica](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Para assistência técnica, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).

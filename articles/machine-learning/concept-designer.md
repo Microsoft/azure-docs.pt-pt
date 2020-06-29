@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 11/12/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7dcd2015a669d9640f4163e6decc96689bb4ca7b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167065"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517385"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -81,7 +81,8 @@ Um módulo é um algoritmo que pode utilizar nos seus dados. O designer tem vár
 
 Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando seleciona um módulo na tela, os parâmetros do módulo são apresentados no painel Propriedades à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo. Pode definir os recursos de computação para módulos individuais no designer. 
 
-![Propriedades do módulo](./media/concept-designer/properties.png)
+:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propriedades do módulo":::
+
 
 Para alguma ajuda na navegação através da biblioteca de algoritmos de machine learning disponíveis, consulte [algoritmo & visão geral de referência do módulo](algorithm-module-reference/module-reference.md). Para ajudar a escolher um algoritmo, consulte a Folha de Batota do [Algoritmo de Aprendizagem de Máquinas Azure.](algorithm-cheat-sheet.md)
 
@@ -97,7 +98,7 @@ Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline
 
 Os alvos computacional estão ligados ao seu [espaço de trabalho Azure Machine Learning](concept-workspace.md). Gere os seus alvos de computação no seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para realizar inferenculação em tempo real, tem de implantar um gasoduto como ponto final em **tempo real**. O ponto final em tempo real cria uma interface entre uma aplicação externa e o seu modelo de pontuação. Uma chamada para um ponto final em tempo real devolve os resultados da previsão à aplicação em tempo real. Para fazer uma chamada para um ponto final em tempo real, você passa a chave API que foi criada quando implementou o ponto final. O ponto final é baseado no REST, uma escolha popular de arquitetura para projetos de programação web.
 
@@ -134,7 +135,7 @@ Pode converter experiências de interface visual existentes e serviços web em o
 [!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda os fundamentos da análise preditiva e machine learning com [tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar as amostras de [designers existentes](samples-designer.md) para as adaptar às suas necessidades.

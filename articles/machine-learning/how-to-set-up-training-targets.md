@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: aa11f7e964f66d0a345e25f307127d75838f872f
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718721"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515814"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar metas de computação para a formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ A Azure Machine Learning tem um suporte variado em diferentes alvos de computaç
 
 
 > [!NOTE]
-> O Azure Machine Learning Compute pode ser criado como um recurso persistente ou criado dinamicamente quando solicita uma execução. A criação baseada em execução remove o alvo do cálculo após o treino estar completo, por isso não é possível reutilizar os alvos de computação criados desta forma.
+> Os clusters Azure Machine Learning Compute podem ser criados como um recurso persistente ou criados dinamicamente quando solicita uma execução. A criação baseada em execução remove o alvo do cálculo após o treino estar completo, por isso não é possível reutilizar os alvos de computação criados desta forma.
 
 ## <a name="whats-a-run-configuration"></a>O que é uma configuração de execução?
 
@@ -76,7 +76,8 @@ Enquanto os gasodutos ML podem formar modelos, também podem preparar dados ante
 Utilize as secções abaixo para configurar estes alvos de cálculo:
 
 * [Computador local](#local)
-* [Computação do Azure Machine Learning](#amlcompute)
+* [Aglomerado de computação Azure Machine Learning](#amlcompute)
+* [Exemplo de computação de aprendizagem automática Azure](#instance)
 * [Máquinas virtuais remotas](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,9 +92,9 @@ Utilize as secções abaixo para configurar estes alvos de cálculo:
 
 Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter a corrida de treino.](#submit)
 
-### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Computação do Azure Machine Learning
+### <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Aglomerado de computação Azure Machine Learning
 
-Azure Machine Learning Compute é uma infraestrutura de computação gerida que permite ao utilizador criar facilmente um único ou multi-nó compute. O cálculo é criado dentro da sua região do espaço de trabalho como um recurso que pode ser partilhado com outros utilizadores no seu espaço de trabalho. O cálculo aumenta automaticamente quando um trabalho é submetido e pode ser colocado numa Rede Virtual Azure. O cálculo executa num ambiente contentorizado e embala as dependências do seu modelo num [recipiente Docker.](https://www.docker.com/why-docker)
+O cluster compute Azure Machine Learning é uma infraestrutura de computação gerida que permite criar facilmente um único ou multi-nó compute. O cálculo é criado dentro da sua região do espaço de trabalho como um recurso que pode ser partilhado com outros utilizadores no seu espaço de trabalho. O cálculo aumenta automaticamente quando um trabalho é submetido e pode ser colocado numa Rede Virtual Azure. O cálculo executa num ambiente contentorizado e embala as dependências do seu modelo num [recipiente Docker.](https://www.docker.com/why-docker)
 
 Você pode usar Azure Machine Learning Compute para distribuir o processo de treino através de um conjunto de nós de cálculo CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de VM que incluem GPUs, consulte [os tamanhos de máquinas virtuais otimizadas pela GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 
 
@@ -123,6 +124,41 @@ O Azure Machine Learning Compute pode ser reutilizado através de corridas. O c�
 1. **Configuração**: Crie uma configuração de execução para o alvo de computação persistente.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+
+Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter a corrida de treino.](#submit)
+
+
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Exemplo de computação de aprendizagem automática Azure
+
+[A azure Machine Learning compute instance](concept-compute-instance.md) é uma infraestrutura de computação gerida que permite criar facilmente um único VM. O cálculo é criado dentro da sua região do espaço de trabalho, mas ao contrário de um cluster de cálculo, um caso não pode ser partilhado com outros utilizadores no seu espaço de trabalho. Também o caso não diminui automaticamente.  Tem de parar o recurso para evitar cargas em curso.
+
+Uma instância computacional pode executar vários trabalhos em paralelo e tem uma fila de emprego. 
+
+As instâncias computacional podem executar empregos de forma segura num [ambiente de rede virtual,](how-to-enable-virtual-network.md#compute-instance)sem exigir que as empresas abram portas SSH. O trabalho executa num ambiente contentorizado e embala as dependências do seu modelo num contentor Docker. 
+
+1. **Criar e anexar:** 
+    
+    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb?name=create_instance)]
+
+1. **Configuração**: Criar uma configuração de execução.
+    
+    ```python
+    
+    from azureml.core import ScriptRunConfig
+    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+    
+    src = ScriptRunConfig(source_directory='', script='train.py')
+    
+    # Set compute target to the one created in previous step
+    src.run_config.target = instance
+    
+    # Set environment
+    src.run_config.environment = myenv
+     
+    run = experiment.submit(config=src)
+    ```
+
+Para obter mais comandos úteis para a instância compute, consulte o portátil [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este caderno também está disponível na pasta **Amostras** do estúdio em *treino/treino-on-computeinstance*.
 
 Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter a corrida de treino.](#submit)
 

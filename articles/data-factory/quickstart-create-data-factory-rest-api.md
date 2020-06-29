@@ -13,14 +13,14 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: b50217a3a8aeda03996183bf1dc82a0be1f485ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 357026bbe17650464716282608bc316c5d4b055e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419107"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514874"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Quickstart: Criar uma fábrica de dados Azure e um oleoduto utilizando a API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Quickstart: Criar uma fábrica de dados Azure e oleoduto utilizando a API REST
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -32,21 +32,21 @@ O Azure Data Factory é um serviço de integração de dados baseado na cloud qu
 
 Este início rápido descreve como utilizar a API REST para criar uma fábrica de dados do Azure. O pipeline nesta fábrica de dados copia dados de uma localização para outra localização num armazenamento de blobs do Azure.
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Assinatura Azure.** Se não tiver uma subscrição, pode criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta de Armazenamento Azure.** Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
+* **Assinatura Azure**. Se não tiver uma subscrição, pode criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* **Conta de Armazenamento Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
 * Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar ao Armazenamento de Blobs do Azure, criar contentores de blobs, carregar o ficheiro de entrada e verificar o ficheiro de saída.
-* Instale **o Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps). Este início rápido utiliza o PowerShell para invocar chamadas à API REST.
-* **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que utiliza em etapas posteriores: ID da **aplicação,** **clientSecrets,** e ID do **inquilino**. Atribua a aplicação à função "**Contribuidor**".
+* Instalar **a Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps). Este início rápido utiliza o PowerShell para invocar chamadas à API REST.
+* **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores que utiliza em etapas posteriores: **ID de aplicação,** **clienteSecrets**e **ID do inquilino.** Atribua a aplicação à função "**Contribuidor**".
 
 ## <a name="set-global-variables"></a>Definir variáveis globais
 
-1. Lançamento **PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
+1. **Launch PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
 
     Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
 
@@ -58,7 +58,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
     ```powershell
     Get-AzSubscription
     ```
-    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
+    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **a SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -194,7 +194,7 @@ Segue-se o resultado do exemplo:
 
 Defina um conjunto de dados que represente os dados a copiar de uma origem para um sink. Neste exemplo, cria-se dois conjuntos de dados: InputDataset e OutputDataset. Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior. O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs (adftutorial), a pasta (input) e o ficheiro (emp.txt) que contêm os dados de origem. O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs (adftutorial), a pasta (output) e o ficheiro para o qual os dados vão ser copiados.
 
-**Criar InputDataset**
+**Criar Conjunto de Dados de Entrada**
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/InputDataset?api-version=${apiVersion}"
@@ -248,7 +248,7 @@ Segue-se o resultado do exemplo:
     "etag":"07011c57-0000-0100-0000-5d6e14b40000"
 }
 ```
-**Criar Dataset de Saída**
+**Criar Conjunto de Dados de Saída**
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/OutputDataset?api-version=${apiVersion}"
@@ -385,7 +385,7 @@ Segue-se o resultado do exemplo:
 
 Neste passo, defina os valores dos parâmetros **inputPath** e **outputPath** especificados no pipeline com os valores reais dos caminhos dos blobs de origem e de sink e acione uma execução de pipeline. O ID da execução de pipeline devolvido no corpo da resposta é utilizado em monitorizações da API posteriores.
 
-Substitua o valor do **inputPath** e **do outputPath** pela sua fonte e afunde o caminho blob para copiar dados de e para antes de guardar o ficheiro.
+Substitua o valor do **inputPath** e **outputPath** pelo seu caminho de origem e bolha de sumidouro para copiar dados de e para antes de guardar o ficheiro.
 
 
 ```powershell
@@ -493,7 +493,7 @@ Segue-se o resultado do exemplo:
     ```
 ## <a name="verify-the-output"></a>Verificar a saída
 
-Utilize o explorador de armazenamento Azure para verificar se o ficheiro é copiado para "outputPath" a partir de "inputPath", conforme especificado ao criar uma execução de gasoduto.
+Utilize o explorador de armazenamento Azure para verificar se o ficheiro é copiado para "outputPath" a partir de "inputPath", conforme especificado ao criar uma execução de pipeline.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Pode limpar os recursos que criou no Guia de Introdução de duas formas. Pode eliminar o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), que inclui todos os recursos no grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas a fábrica de dados que criou neste tutorial.

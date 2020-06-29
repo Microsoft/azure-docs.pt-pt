@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 64d987ff01e596eefa98e8086788546c465e2d83
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195398"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515015"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de Armazenamento Azure para outra região
 
@@ -113,9 +113,9 @@ Para implementar o modelo utilizando o portal Azure:
 
 5. Selecione **Crie o seu próprio modelo no editor**.
 
-6. Selecione **o ficheiro De carga**e, em seguida, siga as instruções para carregar o ficheiro **modelo.json** que descarregou na última secção.
+6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js**no** ficheiro que descarregou na última secção.
 
-7. No ficheiro **modelo.json,** nomeie a conta de armazenamento alvo definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
+7. No **template.jsno** ficheiro, nomeie a conta de armazenamento alvo, definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -143,7 +143,7 @@ Para implementar o modelo utilizando o portal Azure:
 
 Para implementar o modelo utilizando o PowerShell:
 
-1. No ficheiro **modelo.json,** nomeie a conta de armazenamento alvo definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
+1. No **template.jsno** ficheiro, nomeie a conta de armazenamento alvo, definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ Para implementar o modelo utilizando o PowerShell:
     },
     ``` 
 
-2. Editar a propriedade de **localização** no ficheiro **modelo.json** para a região alvo. Este exemplo define a região-alvo para `eastus` .
+2. Editar a propriedade de **localização** no **template.jsem** arquivo para a região alvo. Este exemplo define a região-alvo para `eastus` .
 
     ```json
     "resources": [{
@@ -182,7 +182,7 @@ Implemente o modelo para criar uma nova conta de armazenamento na região alvo.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Guarde o ficheiro **modelo.json.**
+1. Guarde o **template.jsarquivado.**
 
 2. Insira ou selecione os valores da propriedade:
 

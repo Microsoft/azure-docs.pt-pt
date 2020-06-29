@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: cd0c8961cff15385249222986e5fb90ee75e3559
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: f7f0a466f288031474b100f42c9ba41aafb9ff9a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887334"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515540"
 ---
 # <a name="create-an-azure-container-offer"></a>Criar uma oferta de recipienteS Azure
 
@@ -126,7 +126,7 @@ Esta página permite definir os detalhes da oferta que são exibidos no mercado 
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase"Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -144,7 +144,7 @@ Uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de compri
 
 Uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -238,9 +238,6 @@ Especifique o seu público de pré-visualização usando GUIDs de subscrição A
 > Pode encontrar o seu ID de subscrição Azure na página de Subscrições no portal Azure.
 
 Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou carregando um ficheiro CSV (até 100). Ao adicionar estes IDs de subscrição, você determina quem pode pré-visualizar a sua oferta antes de ser publicada ao vivo. Se a sua oferta já estiver ao vivo, pode escolher um público de pré-visualização para testar alterações ou atualizações da sua oferta.
-
-> [!NOTE]
-> O público de pré-visualização difere de uma audiência privada. Um público **de pré-visualização** pode ver e confirmar todos os planos de oferta antes de serem ao vivo no mercado, incluindo aqueles que serão publicados apenas para um público **privado** (definido no separador Disponibilidade).
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -396,7 +393,7 @@ Para submeter a oferta de publicação, **selecione Publicar**.
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação.
 
-Para publicar a sua oferta ao público (ou se uma oferta privada, para um público privado), vá ao Partner Center e selecione **Go-live**.
+Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
 ## <a name="next-step"></a>Passo seguinte
 

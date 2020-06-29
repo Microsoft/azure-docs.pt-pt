@@ -1,71 +1,71 @@
 ---
-title: Opções de transferência de dados azure para grandes conjuntos de dados com largura de banda baixa ou sem rede Microsoft Docs
-description: Saiba como escolher uma solução Azure para transferência de dados quando se limitou a não ter largura de banda de rede no seu ambiente e planeia transferir grandes conjuntos de dados.
+title: Opções de transferência de dados Azure para grandes conjuntos de dados com largura de banda baixa ou sem rede Microsoft Docs
+description: Saiba como escolher uma solução Azure para transferência de dados quando se limitou a nenhuma largura de banda de rede no seu ambiente e está a planear transferir grandes conjuntos de dados.
 services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: be1f74dcccc654dbdd0a743d1da2da89071045f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cad76677464ba4895141e53ea45b98f55cc2f655
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253140"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515750"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Data transfer for large datasets with low or no network bandwidth (Transferência de dados para conjuntos de dados grandes com pouca ou nenhuma largura de banda de rede)
  
-Este artigo fornece uma visão geral das soluções de transferência de dados quando se limita a nenhuma largura de banda da rede no seu ambiente e está a planear transferir grandes conjuntos de dados. O artigo também descreve as opções recomendadas de transferência de dados e a respetiva matriz de capacidade para este cenário.
+Este artigo fornece uma visão geral das soluções de transferência de dados quando se limitou a nenhuma largura de banda de rede no seu ambiente e está a planear transferir grandes conjuntos de dados. O artigo também descreve as opções recomendadas de transferência de dados e a respetiva matriz de capacidade chave para este cenário.
 
-Para compreender uma visão geral de todas as opções de transferência de dados disponíveis, vá escolher uma solução de transferência de [dados Azure.](storage-choose-data-transfer-solution.md)
+Para compreender uma visão geral de todas as opções de transferência de dados disponíveis, vá escolher [uma solução de transferência de dados Azure](storage-choose-data-transfer-solution.md).
 
 ## <a name="offline-transfer-or-network-transfer"></a>Transferência offline ou transferência de rede
 
-Grandes conjuntos de dados implicam que você tem poucos TBs a poucos PBs de dados. Limitou-se a não ter largura de banda de rede, a sua rede é lenta, ou não é fiável. Além disso:
+Grandes conjuntos de dados implicam que você tem poucas TBs para poucos PBs de dados. Limitou-se a nenhuma largura de banda de rede, a sua rede é lenta, ou não é fiável. Além disso:
 
 - Está limitado pelos custos de transferência de rede dos seus Fornecedores de Serviços de Internet (ISPs).
 - As políticas de segurança ou organizacionais não permitem ligações de saída quando se trata de dados sensíveis.
 
-Em todos os casos acima referidos, utilize um dispositivo físico para fazer uma transferência única de dados em massa. Escolha entre Data Box Disk, Data Box, Data Box Dispositivos pesados fornecidos pela Microsoft, ou Import/Export usando os seus próprios discos.
+Em todos os casos acima, utilize um dispositivo físico para fazer uma transferência de dados a granel uma única vez. Escolha entre o Disco caixa de dados, a caixa de dados, os dispositivos pesados da caixa de dados fornecidos pela Microsoft, ou importe/exporte utilizando os seus próprios discos.
 
-Para confirmar se um dispositivo físico é a opção certa, utilize a tabela seguinte. Mostra o tempo previsto para a transferência de dados de rede, para várias larguras de banda disponíveis (assumindo uma utilização de 90%). Se a transferência de rede for projetada como demasiado lenta, deverá utilizar um dispositivo físico.  
+Para confirmar se um dispositivo físico é a opção certa, utilize a tabela seguinte. Mostra o tempo previsto para a transferência de dados de rede, para várias larguras de banda disponíveis (assumindo uma utilização de 90%). Se se prevê que a transferência de rede seja demasiado lenta, deve utilizar um dispositivo físico.  
 
 ![Transferência de rede ou transferência offline](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
 ## <a name="recommended-options"></a>Opções recomendadas
 
-As opções disponíveis neste cenário são dispositivos para transferência offline da Caixa de Dados Azure ou Importação/Exportação Azure.
+As opções disponíveis neste cenário são dispositivos para transferência offline Azure Data Box ou Azure Import/Export.
 
-- **Família Azure Data Box para transferências offline** – Utilize dispositivos de dispositivos Data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando estiver limitado pelo tempo, disponibilidade da rede ou custos. Copie os dados no local utilizando ferramentas como a Robocopy. Dependendo do tamanho dos dados destinados à transferência, pode escolher entre Data Box Disk, Data Box ou Data Box Heavy.
-- **Azure Import/Export** – Use o serviço de importação/exportação Azure enviando as suas próprias unidades de disco para importar com segurança grandes quantidades de dados para o armazenamento da Blob Azure e ficheiros Azure. Este serviço também pode ser usado para transferir dados do armazenamento azure Blob para unidades de disco e enviar para os seus locais no local.
+- **Família Azure Data Box para transferências offline** – Utilize dispositivos de dispositivos Data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando estiver limitado pelo tempo, disponibilidade da rede ou custos. Copie os dados no local utilizando ferramentas como robocopia. Dependendo do tamanho dos dados destinados à transferência, pode escolher entre o Disco caixa de dados, a caixa de dados ou a caixa de dados pesada.
+- **Azure Import/Export** – Use o serviço Azure Import/Export enviando as suas próprias unidades de disco para importar de forma segura grandes quantidades de dados para o armazenamento e arquivos Azure Blob. Este serviço também pode ser usado para transferir dados do armazenamento Azure Blob para unidades de discos e enviar para os seus sites no local.
 
-## <a name="comparison-of-key-capabilities"></a>Comparação de capacidades-chave
+## <a name="comparison-of-key-capabilities"></a>Comparação das capacidades-chave
 
-A tabela que se segue resume as diferenças nas capacidades-chave.
+A tabela seguinte resume as diferenças nas capacidades-chave.
 
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Importação/Exportação                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Tamanho dos dados                        |    Até 35 TBs                 |    Até 80 TBs por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
 |    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
-|    Fator de forma                      |    5 SSDs por encomenda             |    1 X 50 libras. dispositivo do tamanho de um ambiente de trabalho por encomenda    |    1 X ~500 lbs. grande dispositivo por ordem    |    Até 10 HDDs/SSDs por encomenda        |
+|    Fator de forma                      |    5 SSDs por encomenda             |    1 X 50-lbs. dispositivo do tamanho de desktop por ordem    |    1 X ~500-lbs. grande dispositivo por ordem    |    Até 10 HDDs/SSDs por encomenda        |
 |    Tempo inicial de configuração               |    Baixa <br>(15 minutos)            |    Baixo a moderado <br> (<30 minutos)               |    Moderado<br>(1-2 horas)               |    Moderado a difícil<br>(variável) |
-|    Enviar dados para O Azure               |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
-|    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
+|    Enviar dados para a Azure               |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
+|    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Yes                                 |
 |    Encriptação                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
-|    Hardware                         |     Microsoft fornecido          |    Microsoft fornecido                            |    Microsoft fornecido                    |    Cliente fornecido                   |
+|    Hardware                         |     Microsoft fornecida          |    Microsoft fornecida                            |    Microsoft fornecida                    |    Cliente fornecido                   |
 |    Interface de rede                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Integração de parceiros              |    Alguns                         |    [Alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alguns                                |
-|    Shipping                         |    A Microsoft geriu            |    A Microsoft geriu                             |    A Microsoft geriu                     |    Cliente gerido                    |
-| Utilizar quando os dados se movem         |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Além das fronteiras geográficas, por exemplo, EUA para a UE|
+|    Shipping                         |    Microsoft gerido            |    Microsoft gerido                             |    Microsoft gerido                     |    Gerido pelo cliente                    |
+| Use quando os dados se movem         |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Além das fronteiras geográficas, por exemplo, eua à UE|
 |    Preços                          |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Entender como
+- Compreender como
 
-    - [Transferir dados com disco](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal)de caixa de dados .
-    - [Transferir dados com Caixa](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)de Dados.
-    - [Transferir dados com importação/exportação.](/azure/storage/common/storage-import-export-data-to-blobs)
+    - [Transferir dados com o disco da caixa de dados.](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal)
+    - [Transferir dados com a Caixa de Dados.](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
+    - [Dados de transferência com Importação/Exportação.](/azure/storage/common/storage-import-export-data-to-blobs)

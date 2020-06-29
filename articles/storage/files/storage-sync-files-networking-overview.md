@@ -3,16 +3,16 @@ title: Considerações de networking de ArquivoS Azure Microsoft Docs
 description: Uma visão geral das opções de networking para Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95fb967fa33a581096df65c3ed77e575aa3f6268
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466749"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512561"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerações de networking de arquivo azure
 Pode ligar-se a uma partilha de ficheiros Azure de duas formas:
@@ -170,6 +170,6 @@ As ligações efetuadas do agente Azure File Sync à sua partilha de ficheiros A
 
 Para obter mais informações sobre encriptação em trânsito, consulte [a necessidade de transferência segura no armazenamento Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)

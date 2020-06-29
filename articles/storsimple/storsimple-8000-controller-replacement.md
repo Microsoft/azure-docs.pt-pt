@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704340"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514075"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substitua um módulo controlador no seu dispositivo StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -90,7 +90,7 @@ Complete os seguintes passos se um dos controladores do seu dispositivo Microsof
    
     **Figura 1** Back of StorSimple dispositivo
    
-   | Etiqueta | Description |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -231,7 +231,7 @@ Se este LED estiver a piscar, o controlador está ativo e o outro controlador es
 
 **Figura 8** Parte de trás do recinto primário com portas de dados e LEDs de monitorização
 
-| Etiqueta | Description |
+| Etiqueta | Descrição |
 |:--- |:--- |
 | 1-6 |DADOS 0 – 5 portas de rede |
 | 7 |LED azul |

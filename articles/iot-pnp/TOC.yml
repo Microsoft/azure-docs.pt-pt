@@ -19,7 +19,7 @@
           href: quickstart-connect-pnp-device-c-linux.md
         - name: C Windows
           href: quickstart-connect-pnp-device-c-windows.md
-        - name: 'C#'
+        - name: C#
           href: quickstart-connect-pnp-device-csharp.md
         - name: Java
           href: quickstart-connect-pnp-device-java.md
@@ -29,7 +29,7 @@
       href: ../iot-central/core/tutorial-connect-pnp-device.md
     - name: Ligar-se a um dispositivo na sua solução
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstart-connect-pnp-device-solution-csharp.md
         - name: Java
           href: quickstart-connect-pnp-device-solution-java.md
@@ -83,6 +83,10 @@
           href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
         - name: Gerar um token de segurança REST
           href: howto-generate-sas-token.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda
@@ -108,6 +112,6 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do Dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

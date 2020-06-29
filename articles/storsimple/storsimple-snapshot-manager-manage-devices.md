@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: ab9f34995cea0dee39fa002f0472298a31b9a48e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694846"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513980"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -31,9 +31,9 @@ Pode utilizar nós no painel StorSimple Snapshot Manager **Scope** para verifica
 
 Dependendo das seleções **de Visualização,** o painel **de resultados** mostra as seguintes informações sobre cada dispositivo. (Para obter mais informações sobre a configuração de uma vista, [aceda](storsimple-use-snapshot-manager.md#view-menu)ao menu Ver .
 
-| Coluna de resultados | Description |
+| Coluna de resultados | Descrição |
 |:--- |:--- |
-| Name |O nome do dispositivo configurado no portal clássico do Azure |
+| Nome |O nome do dispositivo configurado no portal clássico do Azure |
 | Modelo |O número de modelo do dispositivo |
 | Versão |A versão do software instalado no dispositivo |
 | Estado |Se o dispositivo está disponível |

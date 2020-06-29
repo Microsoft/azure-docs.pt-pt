@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 307fe6cd287d7a58435f745cd066be8308293267
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362113"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514236"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão com um modelo de Gestor de Recursos Azure
 
@@ -40,7 +40,7 @@ Antes de implementar a ferramenta de gestão, precisará de um utilizador do Azu
 
 - Desativar a autenticação multi-factor Azure (MFA)
 - Tenha permissão para criar recursos na sua subscrição Azure
-- Tenha permissão para criar uma aplicação AD Azure. Siga estes passos para verificar se o seu utilizador tem as permissões necessárias seguindo as instruções nas [permissões Requeridas](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Tenha permissão para criar uma aplicação AD Azure. Siga estes passos para verificar se o seu utilizador tem as permissões necessárias seguindo as instruções nas [permissões Requeridas](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Depois de implementar e configurar a ferramenta de gestão, recomendamos que peça a um utilizador que lance a UI de gestão para se certificar de que tudo funciona. O utilizador que lançar o UI de gestão deve ter uma atribuição de função que lhes permite ver ou editar o inquilino virtual do Windows Desktop.
 

@@ -1,6 +1,6 @@
 ---
-title: Criação e configuração de um cofre chave para encriptação de disco azure com AD Azure (versão anterior)
-description: Este artigo fornece pré-requisitos para a utilização da encriptação do disco Microsoft Azure para VMs IaaS.
+title: Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)
+description: Este artigo fornece pré-requisitos para a utilização da Encriptação do Disco Azure do Microsoft para iaaS VMs.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,96 +8,96 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ec46a1d2c7fca231b5cf6b045b634af50ee12a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe3040bee56507fe40ce748d3e9e51b06eaa0213
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459836"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512890"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criação e configuração de um cofre chave para encriptação de disco azure com AD Azure (versão anterior)
+# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)
 
-**O novo lançamento da Encriptação do Disco Azure elimina a exigência de fornecer um parâmetro de aplicação Azure AD para permitir a encriptação do disco VM. Com o novo lançamento, já não é necessário fornecer credenciais de AD Azure durante a fase de encriptação ativa. Todos os novos VMs devem ser encriptados sem os parâmetros da aplicação Azure AD utilizando o novo lançamento. Para visualizar instruções para ativar a encriptação do disco VM utilizando a nova versão, consulte a [Encriptação do Disco Azure](disk-encryption-overview.md). Os VMs que já estavam encriptados com parâmetros de aplicação Azure AD ainda são suportados e devem continuar a ser mantidos com a sintaxe AAD.**
+**A nova versão da Encriptação do Disco Azure elimina o requisito para fornecer um parâmetro de aplicação AD Azure para permitir a encriptação do disco VM. Com a nova versão, já não é obrigado a fornecer credenciais AZure AD durante o passo de encriptação ativa. Todos os novos VMs devem ser encriptados sem os parâmetros da aplicação AD Azure utilizando a nova versão. Para visualizar instruções para ativar a encriptação do disco VM utilizando a nova versão, consulte [Azure Disk Encryption](disk-encryption-overview.md). Os VMs que já estavam encriptados com os parâmetros da aplicação AD Azure ainda são suportados e devem continuar a ser mantidos com a sintaxe AAD.**
 
-A Encriptação azure Disk usa o Cofre de Chave Azure para controlar e gerir chaves e segredos de encriptação do disco.  Para mais informações sobre os cofres chave, consulte [Start start with Azure Key Vault](../../key-vault/key-vault-get-started.md) e Secure your key [vault](../../key-vault/general/secure-your-key-vault.md). 
+A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves e segredos de encriptação de discos.  Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../../key-vault/key-vault-get-started.md) e Proteger o cofre da [chave.](../../key-vault/general/secure-your-key-vault.md) 
 
-Criar e configurar um cofre chave para utilização com encriptação de disco azure com AD Azure (versão anterior) envolve três passos:
+Criar e configurar um cofre chave para uso com encriptação de disco Azure com Azure AD (versão anterior) envolve três passos:
 
 1. Criar um cofre de chaves. 
-2. Criar uma aplicação e diretor de serviço azure AD.
+2. Crie um azure AD application and service principal.
 3. Definir a política de acesso do cofre de chaves para a aplicação Azure AD.
 4. Definir as políticas avançadas de acesso do cofre de chaves.
  
-Também pode, se desejar, gerar ou importar uma chave de encriptação (KEK).
+Pode também, se desejar, gerar ou importar uma chave de encriptação chave (KEK).
 
-Consulte o principal [Criar e configurar um cofre chave para](disk-encryption-key-vault.md) o artigo de encriptação do disco Azure para obter passos sobre como instalar [ferramentas e ligar-se ao Azure](disk-encryption-key-vault.md#install-tools-and-connect-to-azure).
+Consulte o principal Criando e configurando um cofre chave para o artigo [de encriptação do disco Azure](disk-encryption-key-vault.md) para etapas sobre como [instalar ferramentas e ligar ao Azure](disk-encryption-key-vault.md#install-tools-and-connect-to-azure).
 
 > [!Note]
-> Os passos neste artigo são automatizados no [pré-requisito de encriptação](https://github.com/ejarvi/ade-cli-getting-started) do disco Azure e na [encriptação do disco Azure pré-requisitos do script PowerShell](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
+> Os passos deste artigo são automatizados na encriptação do [disco Azure pré-requisitos do script CLI](https://github.com/ejarvi/ade-cli-getting-started) e da encriptação do [disco Azure pré-requisitos do script PowerShell](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
 
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves 
-A Encriptação azure Disk está integrada com o [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do cofre chave. Pode criar um cofre de chave ou utilizar um existente para encriptação de disco azure. Para mais informações sobre os cofres chave, consulte [Start start with Azure Key Vault](../../key-vault/key-vault-get-started.md) e Secure your key [vault](../../key-vault/general/secure-your-key-vault.md). Pode utilizar um modelo de Gestor de Recursos, Azure PowerShell ou o Azure CLI para criar um cofre chave. 
+A Azure Disk Encryption está integrada com [o Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do cofre chave. Pode criar um cofre de chaves ou utilizar um existente para encriptação de disco Azure. Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../../key-vault/key-vault-get-started.md) e Proteger o cofre da [chave.](../../key-vault/general/secure-your-key-vault.md) Pode utilizar um modelo de Gestor de Recursos, Azure PowerShell ou o CLI Azure para criar um cofre de chaves. 
 
 
 >[!WARNING]
->Para garantir que os segredos de encriptação não ultrapassem os limites regionais, a Encriptação do Disco Azure precisa que o Cofre chave e os VMs sejam co-localizados na mesma região. Crie e use um Cofre chave que esteja na mesma região que o VM para ser encriptado. 
+>Para garantir que os segredos de encriptação não ultrapassem os limites regionais, a Encriptação do Disco Azure precisa que o Cofre-Chave e os VMs sejam co-localizados na mesma região. Crie e use um Cofre-Chave que esteja na mesma região que o VM para ser encriptado. 
 
 
-### <a name="create-a-key-vault-with-powershell"></a><a name="bkmk_KVPSH"></a>Crie um cofre chave com powerShell
+### <a name="create-a-key-vault-with-powershell"></a><a name="bkmk_KVPSH"></a>Criar um cofre com PowerShell
 
-Pode criar um cofre chave com o Azure PowerShell utilizando o cmdlet [New-AzKeyVault.](/powershell/module/az.keyvault/New-azKeyVault) Para obter cmdlets adicionais para key vault, consulte [Az.KeyVault](/powershell/module/az.keyvault/). 
+Pode criar um cofre com Azure PowerShell utilizando o cmdlet [New-AzKeyVault.](/powershell/module/az.keyvault/New-azKeyVault) Para obter mais cmdlets para Key Vault, consulte [Az.KeyVault](/powershell/module/az.keyvault/). 
 
-1. Crie um novo grupo de recursos, se necessário, com o [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para listar as localizações do centro de dados, utilize [o Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
+1. Criar um novo grupo de recursos, se necessário, com [o New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para listar as localizações do data center, utilize [o Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-1. Crie um novo cofre-chave usando [o New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+1. Criar um novo cofre de chaves usando [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. Note o **Nome do Cofre,** **Nome do Grupo de Recursos,** ID de **Recursos,** **Cofre URI,** e o ID do **Objeto** que são devolvidos para posterior utilização quando encriptar os discos. 
+4. Note o **Nome**do Cofre , **Nome do Grupo de Recursos,** **ID de recurso,** **Cofre URI**e o **ID** do objeto que são devolvidos para posterior utilização quando encriptar os discos. 
 
 
-### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a>Crie um cofre chave com Azure CLI
-Você pode gerir o seu cofre chave com o Azure CLI usando os comandos [az keyvault.](/cli/azure/keyvault#commands) Para criar um cofre chave, use [az keyvault criar](/cli/azure/keyvault#az-keyvault-create).
+### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a>Crie um cofre com Azure CLI
+Pode gerir o seu cofre com o Azure CLI utilizando os comandos [az keyvault.](/cli/azure/keyvault#commands) Para criar um cofre chave, use [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
-1. Criar um novo grupo de recursos, se necessário, com o [grupo Az criar](/cli/azure/group#az-group-create). Para listar locais, utilize [alistamentos da conta az](/cli/azure/account#az-account-list) 
+1. Criar um novo grupo de recursos, se necessário, com [a criação do grupo AZ](/cli/azure/group#az-group-create). Para listar locais, use [as localizações da lista de conta az](/cli/azure/account#az-account-list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. Crie um novo cofre de chaves usando a criação de [keyvault az](/cli/azure/keyvault#az-keyvault-create).
+3. Crie um novo cofre de chaves utilizando [a criação de keyvault az](/cli/azure/keyvault#az-keyvault-create).
     
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. Note o **Nome do Cofre** (nome), Nome do Grupo de **Recursos,** **ID de Recursos** (ID), Cofre **URI,** e o ID do **Objeto** que são devolvidos para uso posteriormente. 
+4. Note o Nome do **Cofre** (nome), **Nome do Grupo de Recursos,** **ID de recurso** (ID), Cofre **URI,** e o **ID** do objeto que são devolvidos para utilização posterior. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a>Crie um cofre chave com um modelo de Gestor de Recursos
 
-Pode criar um cofre chave utilizando o [modelo de Gestor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)de Recursos .
+Pode criar um cofre de chaves utilizando o [modelo de Gestor de Recursos.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
-1. No modelo de arranque rápido azure, clique em **Implementar para Azure**.
-2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, nome key vault, ID do objeto, termos legais e acordo, e, em seguida, clique em **Comprar**. 
-
-
-## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a>Criar uma app e diretor de serviço da Azure AD 
-Quando precisa de encriptação para ser ativada num VM em funcionamento em Azure, a Encriptação do Disco Azure gera e escreve as chaves de encriptação do seu cofre chave. Gerir chaves de encriptação no seu cofre de chaves requer autenticação Azure AD. Crie uma aplicação Azure AD para o efeito. Para efeitos de autenticação, pode utilizar a autenticação baseada em segredo do cliente ou a [autenticação Azure AD baseada em certificadode cliente.](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
+2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, nome do Cofre chave, ID do objeto, termos legais e acordo, e, em seguida, clique em **Comprar**. 
 
 
-### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-powershell"></a><a name="bkmk_ADappPSH"></a>Criar uma app e diretor de serviço azure AD com a Azure PowerShell 
-Para executar os seguintes comandos, obtenha e utilize o [módulo PowerShell AD Azure](/powershell/azure/active-directory/install-adv2). 
+## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a>Crie uma app AD AD E um diretor de serviços 
+Quando precisa de encriptação para ser ativado num VM em execução em Azure, a Encriptação do Disco Azure gera e escreve as chaves de encriptação do cofre da chave. A gestão das chaves de encriptação no cofre requer autenticação AZure AD. Crie uma aplicação AD AZure para este fim. Para efeitos de autenticação, pode utilizar a autenticação [AZure AD baseada em clientes ou o certificado de cliente AZure AD.](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)
 
-1. Utilize o cmdlet PowerShell de [Aplicação PowerShell new-AzADApplication](/powershell/module/az.resources/new-azadapplication) para criar uma aplicação Azure AD. MyApplicationHomePage e myApplicationUri podem ser os valores que desejar.
+
+### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-powershell"></a><a name="bkmk_ADappPSH"></a>Crie uma app AD AD E um diretor de serviço com a Azure PowerShell 
+Para executar os seguintes comandos, obtenha e utilize o [módulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). 
+
+1. Utilize o cmdlet PowerShell [new-AzADApplication](/powershell/module/az.resources/new-azadapplication) para criar uma aplicação AD Azure. MyApplicationHomePage e o MyApplicationUri podem ser os valores que desejar.
 
      ```azurepowershell
      $aadClientSecret = "My AAD client secret"
@@ -106,41 +106,41 @@ Para executar os seguintes comandos, obtenha e utilize o [módulo PowerShell AD 
      $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
      ```
 
-3. O $azureAdApplication.ApplicationId é o Cliente ID da AD Azure e o $aadClientSecret é o segredo do cliente que utilizará mais tarde para ativar a Encriptação do Disco Azure. Proteja o segredo do cliente Azure AD adequadamente. Correr `$azureAdApplication.ApplicationId` irá mostrar-lhe o ApplicationID.
+3. O $azureAdApplication.ApplicationId é o Azure AD ClientID e o $aadClientSecret é o segredo do cliente que usará mais tarde para ativar a encriptação do disco Azure. Proteja o segredo do cliente Azure AD adequadamente. A execução `$azureAdApplication.ApplicationId` irá mostrar-lhe o ApplicationID.
 
 
-### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-cli"></a><a name="bkmk_ADappCLI"></a>Criar uma app e diretor de serviço azure AD com o Azure CLI
+### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-cli"></a><a name="bkmk_ADappCLI"></a>Crie uma app AD AD E um diretor de serviço com a Azure CLI
 
-Pode gerir os seus principais de serviço com o Azure CLI utilizando os comandos [az ad sp.](/cli/azure/ad/sp) Para mais informações, consulte [Criar um serviço Azure principal.](/cli/azure/create-an-azure-service-principal-azure-cli)
+Pode gerir os seus principais serviços com o Azure CLI utilizando os comandos [ad sp az.](/cli/azure/ad/sp) Para mais informações, consulte [Criar um responsável de serviço Azure.](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-1. Crie um novo diretor de serviço.
+1. Criar um novo diretor de serviço.
      
      ```azurecli-interactive
      az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --skip-assignment 
      ```
-3.  O appId devolvido é o Id de Cliente Azure AD usado em outros comandos. É também o SPN que vais usar para a política de definição de cofre az keyvault. A palavra-passe é o segredo do cliente que deve usar mais tarde para ativar a Encriptação do Disco Azure. Proteja o segredo do cliente Azure AD adequadamente.
+3.  O appId devolvido é o Azure AD ClientID usado em outros comandos. É também o SPN que você vai usar para a política de set-set az keyvault. A palavra-passe é o segredo do cliente que deve utilizar mais tarde para ativar a Encriptação do Disco Azure. Proteja o segredo do cliente Azure AD adequadamente.
  
-### <a name="set-up-an-azure-ad-app-and-service-principal-though-the-azure-portal"></a><a name="bkmk_ADappRM"></a>Criar uma app e diretor de serviço da Azure AD embora o portal Azure
-Utilize os passos do [portal Use para criar uma aplicação e diretoria de serviço sinuoso azure ative que possa aceder](../../active-directory/develop/howto-create-service-principal-portal.md) ao artigo de recursos para criar uma aplicação Azure AD. Cada passo listado abaixo irá levá-lo diretamente para a secção de artigos para completar. 
+### <a name="set-up-an-azure-ad-app-and-service-principal-though-the-azure-portal"></a><a name="bkmk_ADappRM"></a>Crie uma app AD AD E um diretor de serviços, embora o portal Azure
+Utilize os passos do [portal Usar para criar uma aplicação e um chefe de serviço do Azure Ative Que possa aceder](../../active-directory/develop/howto-create-service-principal-portal.md) a um artigo de recursos para criar uma aplicação AD Azure. Cada passo listado abaixo irá levá-lo diretamente para a secção de artigos para completar. 
 
-1. [Verifique as permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
-2. [Criar uma aplicação azure ative diretório](../../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
-     - Pode utilizar qualquer url de nome e inscrição que queira quando criar a aplicação.
-3. [Obtenha o ID da aplicação e a chave de autenticação](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
+1. [Verificar as permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
+2. [Criar uma aplicação de Diretório Ativo Azure](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 
+     - Pode utilizar qualquer nome e URL de inscrição que queira ao criar a aplicação.
+3. [Obtenha o ID da aplicação e a chave de autenticação.](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 
      - A chave de autenticação é o segredo do cliente e é usada como AadClientSecret para Set-AzVMDiskEncryptionExtension. 
-        - A chave de autenticação é utilizada pela aplicação como credencial para iniciar sessão no Azure AD. No portal Azure, este segredo chama-se chaves, mas não tem qualquer relação com cofres chave. Proteja este segredo apropriadamente. 
-     - O ID da aplicação será usado mais tarde como AadClientId para Set-AzVMDiskEncryptionExtension E como o Nome principal do serviço para Set-AzKeyVaultAccessPolicy. 
+        - A chave de autenticação é utilizada pela aplicação como credencial para iniciar sessão no Azure AD. No portal Azure, este segredo chama-se chaves, mas não tem relação com cofres chave. Proteja este segredo apropriadamente. 
+     - O ID da aplicação será usado mais tarde como AadClientId para Set-AzVMDiskEncryptionExtension e como o ServicePrincipalName para Set-AzKeyVaultAccessPolicy. 
 
-## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a>Desdefinir a política de acesso ao cofre chave para a aplicação Azure AD
-Para escrever segredos de encriptação para um cofre de chaves especificado, a Encriptação do Disco Azure precisa do ID do cliente e do cliente Secreto da aplicação De Diretório Ativo Azure que tem permissões para escrever segredos para o Cofre chave. 
+## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a>Desconfiem da política de acesso ao cofre chave para a aplicação AD Azure
+Para escrever segredos de encriptação para um cofre de chaves especificado, a Encriptação do Disco Azure necessita do ID do Cliente e do Segredo de Cliente da aplicação Azure Ative Directory que tem permissões para escrever segredos para o Cofre de Chaves. 
 
 > [!NOTE]
-> A Encriptação do Disco Azure requer que configure as seguintes políticas de acesso à sua aplicação de cliente Azure AD: _WrapKey_ e _set_ permissions.
+> A Azure Disk Encryption requer que configuure as seguintes políticas de acesso à sua aplicação de cliente AZure AD: _Permissões WrapKey_ e _set._
 
-### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a>Desdefinir a política de acesso ao cofre chave para a app Azure AD com azure PowerShell
-A sua aplicação Azure AD precisa de direitos para aceder às chaves ou segredos do cofre. Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder permissões à aplicação, utilizando o ID do cliente (que foi gerado quando a aplicação foi registada) como o valor do parâmetro _do "ServicePrincipalName"._ Para saber mais, consulte o blog post [Azure Key Vault - Step by Step](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a>Desconfiem da política de acesso ao cofre da chave para a aplicação AD Azure com a Azure PowerShell
+A sua aplicação AZure AD precisa de direitos para aceder às chaves ou segredos no cofre. Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder permissões à aplicação, utilizando o ID do cliente (que foi gerado quando a aplicação foi registada) como o valor do parâmetro _-ServicePrincipalName._ Para saber mais, consulte o blog post [Azure Key Vault - Step by Step](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
 
-1. Detete a política de acesso ao cofre chave para a aplicação AD com powerShell.
+1. Desa estade a política de acesso ao cofre de chaves para a aplicação AD com o PowerShell.
 
      ```azurepowershell
      $keyVaultName = 'MySecureVault'
@@ -149,8 +149,8 @@ A sua aplicação Azure AD precisa de direitos para aceder às chaves ou segredo
      Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
      ```
 
-### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a>Desdefinir a política de acesso ao cofre chave para a app Azure AD com o Azure CLI
-Use a política de definição de [az keyvault](/cli/azure/keyvault#az-keyvault-set-policy) para definir a política de acesso. Para mais informações, consulte Gerir o [Cofre da Chave utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a>Desconfiem da política de acesso ao cofre da chave para a app Azure AD com o Azure CLI
+Utilize a política de definição de [keyvault az](/cli/azure/keyvault#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [Manage Key Vault utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Dê ao diretor de serviço que criou através do Azure CLI acesso para obter segredos e embrulhar chaves com o seguinte comando:
  
@@ -158,90 +158,90 @@ Dê ao diretor de serviço que criou através do Azure CLI acesso para obter seg
      az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
      ```
 
-### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a>Desdefinir a política de acesso ao cofre chave para a app Azure AD com o portal
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a>Desconfiem da política de acesso ao cofre chave para a app AZure AD com o portal
 
-1. Abra o grupo de recursos com o seu cofre chave.
-2. Selecione o seu cofre de chaves, vá para **as Políticas**de Acesso e clique em **Adicionar novo**.
-3. Em **'Selecionar principal',** procure a aplicação Azure AD que criou e selecione-a. 
-4. Para **obter permissões chave,** verifique **a chave de embrulho** em **operações criptográficas**.
-5. Para **obter permissões secretas,** consulte **o Conjunto de Operações** **de Gestão Secreta**.
-6. Clique em **OK** para salvar a política de acesso. 
+1. Abra o grupo de recursos com o cofre da chave.
+2. Selecione o cofre da chave, vá às **Políticas de Acesso**e, em seguida, clique em Adicionar **novo**.
+3. Em **Select principal,** procure a aplicação AD Azure que criou e selecione-a. 
+4. Para **obter permissões de chave**, verifique a chave de **embrulho** em **operações criptográficas**.
+5. Para **permissões secretas**, verifique **set** under **Secret Management Operations**.
+6. Clique **em OK** para guardar a política de acesso. 
 
-![Operações criptográficas do Cofre chave Azure - Chave de Embrulho](./media/disk-encryption/keyvault-portal-fig3.png)
+![Operações criptográficas do Cofre de Chaves Azure - Chave de embrulho](./media/disk-encryption/keyvault-portal-fig3.png)
 
-![Permissões secretas do cofre de chaves azure - Conjunto](./media/disk-encryption/keyvault-portal-fig3b.png)
+![Permissões secretas do cofre da chave Azure - Conjunto](./media/disk-encryption/keyvault-portal-fig3b.png)
 
-## <a name="set-key-vault-advanced-access-policies"></a><a name="bkmk_KVper"></a>Definir políticas de acesso avançado do cofre chave
-A plataforma Azure precisa de acesso às chaves de encriptação ou segredos no seu cofre chave para disponibilizá-las ao VM para iniciar e desencriptar os volumes. Ativar a encriptação do disco no cofre da chave ou as implementações falharão.  
+## <a name="set-key-vault-advanced-access-policies"></a><a name="bkmk_KVper"></a>Definir políticas de acesso avançado de cofre de chaves
+A plataforma Azure precisa de acesso às chaves de encriptação ou segredos no seu cofre chave para os disponibilizar ao VM para iniciar e desencriptar os volumes. Ativar a encriptação do disco no cofre de teclas ou as implementações falharão.  
 
-### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a><a name="bkmk_KVperPSH"></a>Definir políticas de acesso avançado do cofre chave com a Azure PowerShell
- Utilize o cofre chave PowerShell cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para ativar a encriptação do disco para o cofre da chave.
+### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a><a name="bkmk_KVperPSH"></a>Definir políticas de acesso avançada de cofre de chaves com Azure PowerShell
+ Utilize o cofre powerShell cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para ativar a encriptação do disco para o cofre da chave.
 
-  - **Ativar o Cofre de Chaves para encriptação de disco:** Ativada ForDiskEncryption é necessária para encriptação do Disco Azure.
+  - **Ativar o Cofre da Chave para encriptação do disco:** EnablediskEncryption é necessário para encriptação do Disco Azure.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
-  - **Ativar o cofre chave para a implantação, se necessário:** Permite ao fornecedor de recursos Microsoft.Compute recuperar segredos deste cofre chave quando este cofre chave é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
+  - **Ativar o cofre da chave para a implantação, se necessário:** Permite que o fornecedor de recursos Microsoft.Compute recupere segredos a partir deste cofre chave quando este cofre chave é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
-  - **Ativar o cofre de chaves para a implementação do modelo, se necessário:** Permite ao Gestor de Recursos Azure obter segredos deste cofre chave quando este cofre chave é referenciado numa implementação de modelo.
+  - **Ativar o cofre da chave para a implementação do modelo, se necessário:** Permite ao Azure Resource Manager obter segredos a partir deste cofre chave quando este cofre de chaves é referenciado numa implementação de modelo.
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
-### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a><a name="bkmk_KVperCLI"></a>Definir as políticas de acesso avançados do cofre chave utilizando o Azure CLI
-Utilize a [atualização do keyvault az](/cli/azure/keyvault#az-keyvault-update) para ativar a encriptação do disco para o cofre da chave. 
+### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a><a name="bkmk_KVperCLI"></a>Definir políticas de acesso avançado de cofre de chaves usando o CLI Azure
+Utilize [a atualização do keyvault az](/cli/azure/keyvault#az-keyvault-update) para ativar a encriptação do disco para o cofre da chave. 
 
- - **Ativar o Cofre de Chaves para encriptação de disco:** É necessária encriptação ativa da encriptação do disco. 
+ - **Ativar o Cofre da Chave para encriptação do disco:** É necessária encriptação ativada para o disco. 
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **Ativar o cofre chave para a implantação, se necessário:** Permita que as Máquinas Virtuais recuperem certificados armazenados como segredos do cofre.
+ - **Ativar o cofre da chave para a implantação, se necessário:** Permitir que as Máquinas Virtuais recuperem certificados armazenados como segredos do cofre.
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Ativar o cofre de chaves para a implementação do modelo, se necessário:** Permita que o Gestor de Recursos recupere segredos do cofre.
+ - **Ativar o cofre da chave para a implementação do modelo, se necessário:** Permita ao Gestor de Recursos recuperar segredos do cofre.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
 
 
-### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a>Definir políticas de acesso avançado do cofre chave através do portal Azure
+### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a>Definir as políticas avançadas de acesso do cofre de chaves através do portal Azure
 
-1. Selecione o seu cofre de chaves, vá às Políticas de **Acesso**e **Clique para mostrar políticas de acesso avançadas**.
-2. Selecione a caixa rotulada **Ativar o acesso à encriptação do disco Azure para encriptação de volume**.
-3. Selecione **Ativar o acesso a Máquinas Virtuais Azure para implementação** e/ou ativar o acesso ao Gestor de Recursos **Azure para implementação**do modelo, se necessário. 
+1. Selecione o seu keyvault, vá às **Políticas de Acesso**e clique para mostrar políticas de acesso **avançadas.**
+2. Selecione a caixa com a etiqueta **Ativar o acesso à Encriptação do Disco Azure para encriptação de volume**.
+3. **Selecione Permitir o acesso a Máquinas Virtuais Azure para implantação** e/ou Permitir o Acesso ao Gestor de Recursos **Azure para a implementação do modelo,** se necessário. 
 4. Clique em **Guardar**.
 
-![Políticas de acesso avançados do cofre azure](./media/disk-encryption/keyvault-portal-fig4.png)
+![Azure key vault políticas avançadas de acesso](./media/disk-encryption/keyvault-portal-fig4.png)
 
 
-## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a>Configurar uma chave de encriptação (opcional)
-Se quiser utilizar uma chave de encriptação (KEK) para uma camada adicional de segurança para chaves de encriptação, adicione um KEK ao seu cofre chave. Utilize o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de encriptação no cofre da chave. Também pode importar um KEK da sua gestão chave HSM no local. Para mais informações, consulte [a Documentação do Cofre de Chaves](../../key-vault/keys/hsm-protected-keys.md). Quando uma chave de encriptação é especificada, a Encriptação do Disco Azure usa essa chave para embrulhar os segredos de encriptação antes de escrever para key vault. 
+## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a>Configurar uma chave de encriptação chave (opcional)
+Se pretender utilizar uma chave de encriptação (KEK) para uma camada adicional de segurança para chaves de encriptação, adicione um KEK ao seu cofre de chaves. Utilize o [cmdlet Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de encriptação chave no cofre da chave. Também pode importar um KEK da sua gestão de chaves no local HSM. Para obter mais informações, consulte [a Documentação do Cofre-Chave](../../key-vault/keys/hsm-protected-keys.md). Quando uma chave de encriptação chave é especificada, a Encriptação do Disco Azure usa essa chave para embrulhar os segredos de encriptação antes de escrever para Key Vault. 
 
-* Ao gerar teclas, utilize um tipo de tecla RSA. A encriptação do disco azure ainda não suporta a utilização de teclas Elípticas Curve.
+* Ao gerar teclas, utilize um tipo de chave RSA. A encriptação do disco Azure ainda não suporta a utilização de teclas elípticas da curva.
 
-* O seu segredo de cofre e URLs KEK devem ser versões. O Azure impõe esta restrição à versão. Para segredo válido e URLs KEK, consulte os seguintes exemplos:
+* O seu segredo chave do cofre e OS URLs KEK devem ser versados. A Azure impõe esta restrição de versão. Para obter URLs secretos e KEK válidos, consulte os seguintes exemplos:
 
   * Exemplo de um URL secreto válido:*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * Exemplo de um URL KEK válido:*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-* A encriptação do disco azure não suporta especificar os números de porta como parte dos segredos do cofre chave e URLs KEK. Por exemplo, de URLs de cofre sem suporte e suportados, consulte os seguintes exemplos:
+* A encriptação do disco Azure não suporta especificar números de porta como parte de segredos chave do cofre e URLs KEK. Por exemplo, os URLs de cofre de chaves não suportados e suportados, consulte os seguintes exemplos:
 
-  * URL inaceitável do cofre chave*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL aceitável do cofre de chaves:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL de cofre de chaves inaceitável*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL de cofre de chaves aceitável:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a>Configurar uma chave de encriptação com o Azure PowerShell 
-Antes de utilizar o script PowerShell, deve estar familiarizado com os pré-requisitos de encriptação do disco Azure para compreender os passos do script. O script da amostra pode precisar de alterações para o seu ambiente. Este script cria todos os pré-requisitos de encriptação do disco Azure e encripta um VM IaaS existente, envolvendo a chave de encriptação do disco utilizando uma chave de encriptação chave. 
+### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a>Configurar uma chave de encriptação chave com a Azure PowerShell 
+Antes de utilizar o script PowerShell, deve estar familiarizado com os pré-requisitos de Encriptação do Disco Azure para entender os passos no script. O script da amostra pode precisar de alterações para o seu ambiente. Este script cria todos os pré-requisitos de encriptação do disco Azure e encripta um IaaS VM existente, envolvendo a chave de encriptação do disco utilizando uma chave de encriptação chave. 
 
  ```powershell
  # Step 1: Create a new resource group and key vault in the same location.
@@ -288,8 +288,8 @@ Antes de utilizar o script PowerShell, deve estar familiarizado com os pré-requ
      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
-## <a name="certificate-based-authentication-optional"></a><a name="bkmk_Cert"></a>Autenticação baseada em certificado (opcional)
-Se quiser usar a autenticação do certificado, pode enviar um para o seu cofre de chaves e implantá-lo para o cliente. Antes de utilizar o script PowerShell, deve estar familiarizado com os pré-requisitos de encriptação do disco Azure para compreender os passos do script. O script da amostra pode precisar de alterações para o seu ambiente.
+## <a name="certificate-based-authentication-optional"></a><a name="bkmk_Cert"></a>Autenticação baseada em certificados (opcional)
+Se quiser utilizar a autenticação de certificados, pode enviar um para o cofre e implantá-lo para o cliente. Antes de utilizar o script PowerShell, deve estar familiarizado com os pré-requisitos de Encriptação do Disco Azure para entender os passos no script. O script da amostra pode precisar de alterações para o seu ambiente.
 
      
  ```powershell
@@ -367,12 +367,12 @@ Se quiser usar a autenticação do certificado, pode enviar um para o seu cofre 
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
 
-## <a name="certificate-based-authentication-and-a-kek-optional"></a><a name="bkmk_CertKEK"></a>Autenticação baseada em certificado e kek (opcional)
+## <a name="certificate-based-authentication-and-a-kek-optional"></a><a name="bkmk_CertKEK"></a>Autenticação baseada em certificados e um KEK (opcional)
 
-Se quiser utilizar a autenticação do certificado e embrulhar a chave de encriptação com um KEK, pode utilizar o script abaixo como exemplo. Antes de utilizar o script PowerShell, deve estar familiarizado com todos os pré-requisitos anteriores de encriptação do disco Azure para compreender os passos do script. O script da amostra pode precisar de alterações para o seu ambiente.
+Se quiser utilizar a autenticação do certificado e embrulhar a chave de encriptação com um KEK, pode usar o script abaixo como exemplo. Antes de utilizar o script PowerShell, deve estar familiarizado com todos os pré-requisitos anteriores de Encriptação do Disco Azure para entender os passos no script. O script da amostra pode precisar de alterações para o seu ambiente.
 
 > [!IMPORTANT]
-> A autenticação baseada em certificados Azure AD não é atualmente suportada em VMs Linux.
+> A autenticação baseada em certificados AD AZure não é atualmente suportada em VMs Linux.
 
 
 
@@ -462,4 +462,4 @@ Se quiser utilizar a autenticação do certificado e embrulhar a chave de encrip
  
 ## <a name="next-steps"></a>Passos seguintes
 
-[Ativar encriptação de disco Azure com AD Azure em VMs Linux (versão anterior)](disk-encryption-linux-aad.md)
+[Ativar encriptação do disco Azure com Azure AD em VMs Linux (versão anterior)](disk-encryption-linux-aad.md)

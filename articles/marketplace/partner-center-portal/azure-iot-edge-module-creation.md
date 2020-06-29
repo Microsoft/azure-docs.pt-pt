@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9129eb905bbdc7d9be24f403f3b3bf318d6d6a6f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 088639674a3f3a15d33f73fd6f602b3cf1313a65
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211375"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512658"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace
 
@@ -126,7 +126,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -144,7 +144,7 @@ Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres 
 
 Forneça uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -224,9 +224,9 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Name
+6. Nome
 7. Resumo
-8. Description
+8. Descrição
 9. Ligações úteis
 10. Screenshots/vídeos
 
@@ -246,8 +246,8 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
-1. Name
-2. Description
+1. Nome
+2. Descrição
 3. Ligações úteis
 4. Capturas de ecrã
 
@@ -276,9 +276,6 @@ Especifique o seu público de pré-visualização usando GUIDs de subscrição A
 > Pode encontrar o seu ID de subscrição Azure na página de Subscrições no portal Azure.
 
 Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou carregando um ficheiro CSV (até 100). Ao adicionar estes IDs de subscrição, define quem pode pré-visualizar a sua oferta antes de ser publicada ao vivo. Se a sua oferta já estiver ao vivo, pode definir um público de pré-visualização para testar alterações ou atualizações à sua oferta.
-
-> [!NOTE]
-> O público de pré-visualização difere de uma audiência privada. Um público **de pré-visualização** pode ver e confirmar todos os planos de oferta antes de serem ao vivo no mercado, incluindo aqueles que serão publicados apenas para um público **privado** (definido no separador Disponibilidade).
 
 **Selecione Guardar o rascunho** antes de avançar para a secção seguinte, Planview.
 
@@ -479,7 +476,7 @@ Na página de comentários pode ver o estado da publicação:
 
 Para submeter a oferta de publicação, **selecione Publicar**.
 
-Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público (ou se uma oferta privada, para um público privado), vá ao Partner Center e selecione **Go-live**.
+Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

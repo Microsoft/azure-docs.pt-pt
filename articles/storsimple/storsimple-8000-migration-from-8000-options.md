@@ -4,15 +4,15 @@ description: Fornece uma visão geral das opções para migrar dados da série S
 services: storsimple
 author: priestlg
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: v-grpr
-ms.openlocfilehash: 5e4aa492567f3357867a3a3f385e8339ada093e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 39c78e1dc579f74207ba828f2f6a49ad44dd4a43
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608942"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514713"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opções para migrar dados da série StorSimple 8000
 
@@ -109,6 +109,6 @@ R. Ao utilizar o Azure File Sync, podem ser aplicadas as taxas de subscrição d
 
 R. O tempo para migrar dados depende da quantidade dos dados e da opção de upgrade selecionada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Migrar dados de uma série StorSimple 8000 para Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)

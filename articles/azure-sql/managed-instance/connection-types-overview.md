@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 153f338a49a24d1cb9eb71c068effcfd20bd2ffe
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706312"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517325"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Tipos de conexão Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,11 @@ No tipo de ligação proxy, a sessão TCP é estabelecida usando o gateway e tod
 
 ![proxy.png](./media/connection-types-overview/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Script para alterar definições do tipo de ligação usando PowerShell
+## <a name="changing-connection-type"></a>Alteração do tipo de ligação
+
+- **Utilização do Portal:** Para alterar o Tipo de Ligação utilizando o portal Azure, abra a página 'Rede Virtual' e utilize a definição **do tipo de Ligação** para alterar o tipo de ligação e guardar as alterações.
+
+- **Script para alterar definições do tipo de ligação usando PowerShell:**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

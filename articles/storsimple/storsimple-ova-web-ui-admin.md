@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84699027"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513043"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utilize o UI Web para administrar o seu StorSimple Virtual Array
 ![fluxo de processo de configuração](./media/storsimple-ova-web-ui-admin/manage4.png)

@@ -3,12 +3,12 @@ title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
 ms.date: 03/30/2020
 ms.topic: how-to
-ms.openlocfilehash: b07531794c0b7d22dad7043ad69078d801fe44e7
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5bb299f85074675b1d02943ee623394a7deff000
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634103"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515783"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -44,7 +44,7 @@ Por se trata de um amplo nível de acesso, recomendamos que atribua esta funçã
 
 - [Crie uma nova conta principal](../../active-directory/develop/howto-create-service-principal-portal.md) de serviço para ser utilizada apenas para esta função, em vez de atribuir esta função a um principal de serviço existente utilizado para outra automatização.
 - Certifique-se de que este diretor de serviço não tem acesso a quaisquer recursos delegados do cliente.
-- [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [armazená-lo de forma segura no Cofre da Chave Azure](../../key-vault/general/best-practices.md).
+- [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [armazená-lo de forma segura no Cofre da Chave Azure](../../key-vault/general/best-practices.md).
 - Limitar os utilizadores que tenham acesso a agir em nome do diretor de serviço.
 
 Utilize um dos seguintes métodos para fazer as atribuições de âmbito de raiz.
@@ -156,7 +156,7 @@ else
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como embarcar clientes na [gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).

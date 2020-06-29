@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5a500ef44170f23c8acdf752393389a4af06a798
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214184"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513406"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão com o PowerShell
 
@@ -40,7 +40,7 @@ Os seguintes navegadores são compatíveis com a ferramenta de gestão:
 Antes de implementar a ferramenta de gestão, precisará de um utilizador do Azure Ative Directory (Azure AD) para criar um registo de aplicações e implementar a UI de gestão. Este utilizador deve:
 
 - Tenha permissão para criar recursos na sua subscrição Azure
-- Tenha permissão para criar uma aplicação AD Azure. Siga estes passos para verificar se o seu utilizador tem as permissões necessárias seguindo as instruções nas [permissões Requeridas](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Tenha permissão para criar uma aplicação AD Azure. Siga estes passos para verificar se o seu utilizador tem as permissões necessárias seguindo as instruções nas [permissões Requeridas](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Depois de implementar e configurar a ferramenta de gestão, recomendamos que peça a um utilizador que lance a UI de gestão para se certificar de que tudo funciona. O utilizador que lançar o UI de gestão deve ter uma atribuição de função que lhes permite ver ou editar o inquilino virtual do Windows Desktop.
 

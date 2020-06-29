@@ -3,18 +3,18 @@ title: Configurar pontos finais da rede Azure File Sync Microsoft Docs
 description: Uma visão geral das opções de networking para Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e62f093c46b4acc4380f43419a2af0f30e9eb540
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 68d2b864b0e825756fbcd8e43fee3d6289c77c36
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466743"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512858"
 ---
-# <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos finais da rede Azure File Sync
+# <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos finais de rede do Azure File Sync
 A Azure Files e Azure File Sync fornecem dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
 - Pontos finais públicos, que têm um endereço IP público e podem ser acedidos a partir de qualquer parte do mundo.
 - Pontos finais privados, que existem dentro de uma rede virtual e têm um endereço IP privado a partir do espaço de endereço dessa rede virtual.
@@ -621,6 +621,6 @@ az resource update \
 ```
 ---
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
