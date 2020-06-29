@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 06/26/2020
 ms.author: alzam
-ms.openlocfilehash: b717e4f5f91e22ea3aef818e15be1c93ca06b4f4
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: bf507ff75d88ac4c549233e50a44ea60ab212886
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750466"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482994"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Configurar um cliente VPN para ligações de protocolo P2S OpenVPN: autenticação do Azure Active Directory)
 
@@ -206,6 +206,26 @@ Pode modificar o ficheiro XML de ** \<includeroutes> \<route> \<destination> \<m
     <includeroutes>
         <route>
             <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+    </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a>Como direciono todo o tráfego para o túnel VPN (túnel de força)?
+
+Pode modificar o ficheiro XML de ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** perfil descarregado e adicionar as tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <includeroutes>
+        <route>
+            <destination>0.0.0.0</destination><mask>1</mask>
+        </route>
+        <route>
+            <destination>128.0.0.0</destination><mask>1</mask>
         </route>
     </includeroutes>
     

@@ -1,30 +1,30 @@
 ---
-title: Fornecer um proxy httpClient & (MSAL.NET) [ Azure
+title: Fornecer um proxy httpClient & (MSAL.NET) Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba fornecer o seu próprio HttpClient e proxy para ligar ao Azure AD utilizando a Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba se fornece o seu próprio HttpClient e procuração para ligar ao AD Azure utilizando a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/23/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: dbf08e23b2bc1f657363f69df55763437e6c8a90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e13c4ed472535d2c02734949bf72a5ed42108e7d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76695058"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477333"
 ---
-# <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>Fornecendo o seu próprio HttpClient e procuração usando MSAL.NET
-Ao [inicializar uma aplicação de cliente público,](msal-net-initializing-client-applications.md)pode utilizar o para fornecer o `.WithHttpClientFactory method` seu próprio HttpClient.  Fornecer o seu próprio HttpClient permite cenários avançados como o controlo de grãos finos de um proxy HTTP, personalizando os cabeçalhos do agente de utilizador, ou forçando a MSAL a usar um HttpClient específico (por exemplo, em ASP.NET aplicações web/APIs do Core).
+# <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>Fornecendo o seu próprio HttpClient e proxy usando MSAL.NET
+Ao [rubricar uma aplicação de cliente público,](msal-net-initializing-client-applications.md)pode utilizar `.WithHttpClientFactory method` o para fornecer o seu próprio HttpClient.  Fornecer o seu próprio HttpClient permite cenários avançados como o controlo de um proxy HTTP, personalizando cabeçalhos de agente de utilizador, ou forçando a MSAL a usar um HttpClient específico (por exemplo, em ASP.NET core web apps/APIs).
 
-## <a name="initialize-with-httpclientfactory"></a>Inicializar com httpClientFactory
-O exemplo seguinte mostra `HttpClientFactory` criar uma e, em seguida, inicializar uma aplicação de cliente público com ele:
+## <a name="initialize-with-httpclientfactory"></a>Inicializar com HttpClientFactory
+O exemplo a seguir mostra para criar uma `HttpClientFactory` e, em seguida, inicializar uma aplicação de cliente público com ele:
 
 ```csharp
 IMsalHttpClientFactory httpClientFactory = new MyHttpClientFactory();
@@ -35,4 +35,4 @@ var pca = PublicClientApplicationBuilder.Create(MsalTestConstants.ClientId)
 ```
 
 ## <a name="httpclient-and-xamarin-ios"></a>HttpClient e Xamarin iOS
-Ao utilizar o xamarin iOS, `HttpClient` recomenda-se criar `NSURLSession`um que utilize explicitamente o manipulador baseado no iOS 7 e mais recente. MSAL.NET cria automaticamente `HttpClient` um `NSURLSessionHandler` que utiliza para iOS 7 e mais recente. Para mais informações, leia a [documentação do Xamarin iOS para httpClient](/xamarin/cross-platform/macios/http-stack).
+Ao utilizar o Xamarin iOS, recomenda-se criar um `HttpClient` que utilize explicitamente o `NSURLSession` manipulador baseado para iOS 7 e mais recente. MSAL.NET cria automaticamente um `HttpClient` que utiliza `NSURLSessionHandler` para iOS 7 e mais recente. Para mais informações, leia a documentação do [Xamarin iOS para HttpClient](/xamarin/cross-platform/macios/http-stack).

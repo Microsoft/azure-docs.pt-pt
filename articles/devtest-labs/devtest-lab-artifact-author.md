@@ -1,25 +1,14 @@
 ---
 title: Crie artefactos personalizados para a sua máquina virtual DevTest Labs Microsoft Docs
 description: Aprenda a autorar os seus próprios artefactos para usar com a Azure DevTest Labs.
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
-ms.author: spelluru
-ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: f33b6da3354dc3caf9376f249b802d324aa3148c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896600"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482960"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Crie artefactos personalizados para a sua máquina virtual DevTest Labs
 
@@ -53,7 +42,7 @@ O exemplo a seguir mostra as secções que compõem a estrutura básica de um fi
       }
     }
 
-| Nome do elemento | Necessário? | Description |
+| Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
 | $schema |No |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudá-lo a testar a validade do ficheiro de definição. |
 | título |Yes |O nome do artefacto exposto no laboratório. |
@@ -76,7 +65,7 @@ Para definir parâmetros, utilize a seguinte estrutura:
       }
     }
 
-| Nome do elemento | Necessário? | Description |
+| Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
 | tipo |Yes |Tipo de valor do parâmetro. Consulte a seguinte lista para os tipos permitidos. |
 | displayName |Yes |Nome do parâmetro que é apresentado a um utilizador em laboratório. |

@@ -1,24 +1,14 @@
 ---
 title: Gerir políticas de laboratório em Azure DevTest Labs Microsoft Docs
 description: Aprenda a definir políticas de laboratório como tamanhos de VM, VMs máximos por utilizador e automatização de encerramento.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
-ms.author: spelluru
-ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896803"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483402"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório em Azure DevTest Labs
 

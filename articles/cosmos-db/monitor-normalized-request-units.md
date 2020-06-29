@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 05/10/2020
-ms.openlocfilehash: 7a7428d3445d1d5846618bfd84c47121dc9a4bc1
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/25/2020
+ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262757"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482909"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Como monitorizar RU/s normalizados para um contentor Azure Cosmos ou uma conta
 
 O Azure Monitor for Azure Cosmos DB fornece uma visão métrica para monitorizar a sua conta e criar dashboards. As métricas DB do Azure Cosmos são recolhidas por padrão, esta funcionalidade não requer que você ative ou configure nada explicitamente.
 
-A métrica **de consumo RU normalizada** é usada para ver quão bem saturadas são as réplicas no que diz respeito ao consumo de unidades de pedido em todas as gamas de chaves de partição. Azure Cosmos DB distribui a produção igualmente em todas as divisórias físicas. Esta métrica fornece uma visão por segundo da utilização máxima de produção dentro de um conjunto de réplicas. Ao utilizar esta métrica, se vir uma elevada percentagem de utilização das unidades de pedido, deverá aumentar a produção para atender às necessidades da sua carga de trabalho.
+A métrica **de consumo RU normalizada** é usada para ver quão bem saturadas são as réplicas no que diz respeito ao consumo de unidades de pedido em todas as gamas de chaves de partição. Azure Cosmos DB distribui a produção igualmente em todas as divisórias físicas. Esta métrica fornece uma visão por segundo da utilização máxima de produção dentro de um conjunto de réplicas. Utilize esta métrica para calcular a utilização do RU/s através de divisórias para um determinado recipiente. Ao utilizar esta métrica, se vir uma elevada percentagem de utilização das unidades de pedido, deverá aumentar a produção para atender às necessidades da sua carga de trabalho.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>O que esperar e fazer quando RU/s normalizado é maior
 

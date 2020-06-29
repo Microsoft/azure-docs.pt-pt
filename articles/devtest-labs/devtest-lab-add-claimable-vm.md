@@ -1,25 +1,14 @@
 ---
 title: Criar e gerir VMs reclamais em Azure DevTest Labs Microsoft Docs
 description: Saiba como adicionar uma máquina virtual reclamada a um laboratório em Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: f671e66e-9630-4e30-a131-a6bad9ed9c11
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
-ms.author: spelluru
-ms.openlocfilehash: 988e07c03cb8081e3e6014e626d5fcf7a254a8dd
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895550"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481311"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reclamais em Azure DevTest Labs
 Adiciona-se um VM reclamado a um laboratório de forma semelhante à forma como [adiciona um VM padrão](devtest-lab-add-vm.md) – a partir de uma *base* que é ou uma [imagem personalizada,](devtest-lab-create-template.md) [fórmula](devtest-lab-manage-formulas.md)ou imagem [do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial acompanha-o através do portal Azure para adicionar um VM reclamado a um laboratório em DevTest Labs, e mostra os processos que um utilizador segue para reivindicar e desclamar o VM.

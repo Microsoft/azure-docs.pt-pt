@@ -1,23 +1,14 @@
 ---
 title: Implementar ambientes de modelos aninhados em Azure DevTest Labs
 description: Aprenda a implementar modelos de Gestor de Recursos Azure aninhados para fornecer ambientes com Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 39002e286fafd4f813333a14ed86256a517897e9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897034"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481345"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar modelos aninhados do Gestor de Recursos Azure para ambientes de teste
 Uma implementação aninhada permite-lhe executar outros modelos do Gestor de Recursos Azure dentro de um modelo principal de Gestor de Recursos. Permite-lhe decompor a sua implantação num conjunto de modelos específicos e direcionados. Proporciona benefícios em termos de teste, reutilização e legibilidade. O artigo [Utilizando modelos ligados ao implementar recursos Azure](../azure-resource-manager/templates/linked-templates.md) fornece uma boa visão geral desta solução com várias amostras de código. Este artigo fornece um exemplo específico da Azure DevTest Labs. 

@@ -1,24 +1,14 @@
 ---
 title: Integração da Azure DevTest Labs e DevOps Microsoft Docs
 description: Aprenda a usar laboratórios da Azure DevTest Labs dentro de um pipeline de integração contínua (CI)/ entrega contínua (CD) em ambiente empresarial.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
-ms.author: spelluru
-ms.openlocfilehash: db9e338891a4e8bab9f9b36482815542ae348ec2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896929"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481073"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integração da Azure DevTest Labs e Azure DevOps
 DevOps é uma metodologia de desenvolvimento de software que integra o desenvolvimento de software (Dev) com operações (Ops) para um sistema. Este sistema pode fornecer novas funcionalidades, atualizações e correções em alinhamento com os objetivos do negócio. Esta metodologia abrange tudo, desde a conceção de novas funcionalidades baseadas em objetivos, padrões de utilização e feedback do cliente; para corrigir, recuperar e endurecer o sistema quando ocorrem problemas. Um componente facilmente identificado desta metodologia é o gasoduto de integração contínua (CI)/ entrega contínua (CD). Um oleoduto CI/CD retira informações, códigos e recursos de um compromisso através de uma série de passos que incluem construção, teste e implantação, para produzir o sistema. Este artigo centra-se em diferentes formas de utilizar eficazmente laboratórios dentro de um oleoduto num ambiente empresarial. 

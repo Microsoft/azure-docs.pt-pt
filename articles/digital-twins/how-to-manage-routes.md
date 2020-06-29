@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5049e875c3b8047b99e3256c7bbac60d0af822bb
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: d6ecc2ddab7bc0fa739989e9cfdc2645cc1ccb27
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392272"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476908"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerir pontos finais e rotas em Azure Digital Twins
 
@@ -25,7 +25,10 @@ Os tipos de pontos finais suportados incluem:
 
 Para obter mais informações sobre os diferentes pontos finais, consulte [Escolha entre os serviços de mensagens Azure.](https://docs.microsoft.com/azure/event-grid/compare-messaging-services)
 
-Os pontos finais e as rotas são geridos com os [**APIs do EventRoutes,**](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md).
+Os pontos finais e as rotas são geridos com os [**APIs do EventRoutes,**](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Também podem ser geridos através do [portal Azure.](https://portal.azure.com)
+
+> [!NOTE]
+> A gestão das rotas de eventos através do portal Azure está atualmente disponível apenas para utilizadores do Azure em contas de domínio corporativo. Se estiver a utilizar uma conta pessoal [da Microsoft (MSA),](https://account.microsoft.com/account/Account)utilize as APIs ou CLI das Gémeas Digitais Azure para gerir as rotas dos eventos, conforme descrito neste artigo.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto final para a Azure Digital Twins
 
@@ -140,7 +143,7 @@ Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/E
 
 Aqui estão os filtros de rota suportados.
 
-| Nome do filtro | Description | Esquema de filtro | Valores suportados | 
+| Nome do filtro | Descrição | Esquema de filtro | Valores suportados | 
 | --- | --- | --- | --- |
 | Tipo | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui através da sua instância digital gémea | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Origem | Nome da instância Azure Digital Twins | `"filter" : "source = '<hostname>'"`|  **Para notificações:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|

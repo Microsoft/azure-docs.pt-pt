@@ -1,24 +1,14 @@
 ---
 title: Entregar uma prova de conceito - Azure DevTest Labs Microsoft Docs
 description: Aprenda a entregar uma prova de conceito para que a Azure DevTest Labs possa ser incorporada com sucesso num ambiente empresarial.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: tanmayeekamath
-manager: femila
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: takamath
-ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/2/2020
+ms.openlocfilehash: b0178d412154de556f25ab71bb30eed7be5e9ba6
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897181"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481362"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entregar uma prova de conceito 
 

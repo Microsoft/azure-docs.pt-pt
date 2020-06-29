@@ -1,26 +1,16 @@
 ---
-title: Sobre o Azure Lab Services | Microsoft Docs
-description: Saiba como o Lab Services pode tornar mais fácil criar, gerir e proteger laboratórios com máquinas virtuais que podem ser utilizadas pelos programadores, técnicos de teste, educadores, estudantes, entre outros.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services vs. Azure DevTest Labs
+description: Compare a Azure DevTest Labs e a Azure Lab Services.
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: a1e42a415e99bfaec1c48204efdaacd178005705
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899673"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480087"
 ---
-# <a name="an-introduction-to-azure-lab-services"></a>Introdução ao Azure Lab Services
+# <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Compare Azure DevTest Labs e Azure Lab Services
 Existem dois serviços em Azure que lhe permitem configurar ambientes de laboratório na nuvem. 
 
 - **Azure DevTest Labs** - Este serviço permite-lhe configurar rapidamente um ambiente para a sua equipa (por exemplo: ambiente de desenvolvimento ou ambiente de teste na nuvem). O proprietário do laboratório cria um laboratório, aprovisiona máquinas virtuais do Linux ou Windows, instala as ferramentas e o software necessário e disponibiliza-os aos utilizadores do laboratório. Os utilizadores de laboratório ligam-se a máquinas virtuais (VMs) em laboratório, e usam-nas para o seu trabalho diário, projetos de curto prazo. Quando os utilizadores começam a utilizar recursos no laboratório, o administrador do laboratório pode analisar os custos e utilização em múltiplos laboratórios e definir políticas abrangentes para otimizar os custos da equipa ou organização.

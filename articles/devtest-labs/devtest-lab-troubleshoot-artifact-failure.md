@@ -1,25 +1,14 @@
 ---
 title: Diagnosticar falhas de artefactos numa máquina virtual Azure DevTest Labs
 description: A DevTest Labs fornece informações que pode usar para diagnosticar uma falha de artefactos. Este artigo mostra-lhe como resolver falhas de artefactos.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 0b5a7f24cef01b4cd4cbdab898265e233525820e
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898690"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480818"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefactos no laboratório 
 Depois de ter criado um artefacto, pode verificar se conseguiu ou falhou. Os registos de artefactos nos Laboratórios Azure DevTest fornecem informações que pode usar para diagnosticar uma falha de artefacto. Tem algumas opções para visualizar as informações de registo de artefactos para um Windows VM:

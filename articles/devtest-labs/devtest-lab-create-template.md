@@ -1,25 +1,14 @@
 ---
 title: Crie uma imagem personalizada da Azure DevTest Labs a partir de um ficheiro VHD Microsoft Docs
 description: Saiba como criar uma imagem personalizada em Azure DevTest Labs a partir de um ficheiro VHD usando o portal Azure
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: b795bc61-7c28-40e6-82fc-96d629ee0568
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
-ms.author: spelluru
-ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ba627421a43a8e4e7f193ad96da09da8934d028c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896992"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481277"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Crie uma imagem personalizada a partir de um ficheiro VHD
 

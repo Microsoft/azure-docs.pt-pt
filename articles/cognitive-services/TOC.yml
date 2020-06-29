@@ -36,6 +36,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Autenticar pedidos nos Serviços Cognitivos
       href: authentication.md
+    - name: Linha de base de segurança
+      href: security-baseline.md
 - name: Suporte de contentor
   items:
     - name: Suporte de contentor

@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/26/2020
 ms.author: dsindona
-ms.openlocfilehash: ff38749145de3ea2d80cb0ca850ce3428bc1b386
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 093348d8eeb5d83831ec0bedd8c542f1a2d5a064
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484932"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482603"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
 
@@ -33,7 +33,7 @@ As ofertas no mercado devem cumprir as nossas políticas e termos. Atualizamos e
 
 * [Azure Marketplace terms](https://docs.microsoft.com/legal/marketplace/terms) (Termos do Azure Marketplace)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Visite a página de [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
 

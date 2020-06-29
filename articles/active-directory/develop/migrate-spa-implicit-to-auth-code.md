@@ -1,36 +1,36 @@
 ---
 title: Migrar a aplicação de uma página única DoIgRão implícito ao fluxo de código de autorização Rio Azure
 titleSuffix: Microsoft identity platform
-description: Como atualizar um Spa JavaScript utilizando o MSAL.js 1.x e o fluxo implícito de subvenção para MSAL.js 2.x e o fluxo de código de autorização com suporte PKCE e CORS.
+description: Como atualizar um Spa JavaScript utilizando MSAL.js 1.x e o fluxo implícito de concessão para MSAL.js 2.x e o fluxo de código de autorização com suporte PKCE e CORS.
 services: active-directory
 author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/01/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 6af203759cca830a6adcf9f70436d42f3d983da4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 8115f8e767d1bdcbacb74e90606526c98b0820f7
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84301042"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479543"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar uma aplicação de página única JavaScript de subvenção implícita para fluxo de código de auth
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem mudar antes da disponibilidade geral (GA).
 
-A Microsoft Authentication Library for JavaScript (MSAL.js) v2.0 traz suporte para o fluxo de código de autorização com PKCE e CORS para aplicações de uma única página na plataforma de identidade da Microsoft. Siga os passos nas secções abaixo para migrar a sua aplicação MSAL.js 1.x utilizando a subvenção implícita para MSAL.js 2.0+ (doravante *2.x)* e o fluxo de código auth.
+A Microsoft Authentication Library for JavaScript (MSAL.js) v2.0 traz suporte para o fluxo de código de autorização com PKCE e CORS para aplicações de uma única página na plataforma de identidade da Microsoft. Siga os passos nas secções abaixo para migrar a sua aplicação MSAL.js 1.x utilizando a concessão implícita para MSAL.js 2.0+ (doravante *2.x)* e o fluxo de código de auth.
 
 MSAL.js 2.x melhora em MSAL.js 1.x, suportando o fluxo de código de autorização no navegador em vez do fluxo de concessão implícito. MSAL.js 2.x **NÃO** suporta o fluxo implícito.
 
 ## <a name="migration-steps"></a>Passos de migração
 
-Para atualizar a sua aplicação para MSAL.js 2.x e o fluxo de código auth, existem três passos primários:
+Para atualizar a sua aplicação para MSAL.js 2.x e o fluxo de código de auth, existem três passos primários:
 
 1. Mude o seu registo de [aplicações](#switch-redirect-uris-to-spa-platform) redirecionando URI(s) da plataforma **Web** para a plataforma **de aplicações de página única.**
 1. Atualize o seu [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x**.
@@ -40,7 +40,7 @@ As seguintes secções descrevem cada passo em detalhes adicionais.
 
 ## <a name="switch-redirect-uris-to-spa-platform"></a>Altere uris redirecionando para plataforma SPA
 
-Se quiser continuar a utilizar o registo de aplicações existente para as suas aplicações, utilize o portal Azure para atualizar os URIs redirecionados do registo para a plataforma SPA. Ao fazê-lo, permite o fluxo de código de autorização com suporte A PKCE e CORS para aplicações que utilizem o registo (ainda é necessário atualizar o código da sua aplicação para MSAL.js v2.x).
+Se quiser continuar a utilizar o registo de aplicações existente para as suas aplicações, utilize o portal Azure para atualizar os URIs redirecionados do registo para a plataforma SPA. Ao fazê-lo, permite o fluxo de código de autorização com suporte A PKCE e CORS para aplicações que utilizam o registo (ainda é necessário atualizar o código da sua aplicação para MSAL.js v2.x).
 
 Siga estes passos para registos de aplicações que estão atualmente configurados com URIs de redirecionamento de plataforma **Web:**
 

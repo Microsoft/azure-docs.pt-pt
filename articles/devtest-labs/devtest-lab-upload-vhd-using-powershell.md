@@ -1,25 +1,14 @@
 ---
 title: Faça upload do ficheiro VHD para Azure DevTest Labs usando PowerShell Microsoft Docs
 description: Este artigo fornece uma passagem que mostra como carregar um ficheiro VHD para Azure DevTest Labs usando PowerShell.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ff8ee15f35765027db1407f05c108739bd97433e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898641"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480784"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o PowerShell
 

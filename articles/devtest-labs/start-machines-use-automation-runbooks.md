@@ -1,23 +1,14 @@
 ---
 title: Iniciar máquinas usando livros de automação em Azure DevTest Labs
 description: Aprenda a iniciar máquinas virtuais num laboratório em Azure DevTest Labs utilizando os runbooks da Azure Automation.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: df6d7943a5344b4288dfe369dcce9087b894984f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 72ce964b451fb6bcd1e93d75e6ae674c7608d63a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895326"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481906"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Inicie máquinas virtuais em laboratório para usar os runbooks da Azure Automation
 A funcionalidade de [arranque automático](devtest-lab-set-lab-policy.md#set-autostart) da DevTest Labs permite-lhe configurar VMs para iniciar automaticamente num determinado momento. No entanto, esta funcionalidade não suporta máquinas para iniciar uma ordem específica. Há vários cenários em que este tipo de automatização seria útil.  Um dos cenários é onde um VM jumpbox dentro de um laboratório precisa ser iniciado primeiro, antes dos outros VMs, uma vez que o Jumpbox é usado como ponto de acesso aos outros VMs.  Este artigo mostra-lhe como configurar uma conta Azure Automation com um livro de execução PowerShell que executa um script. O script usa tags em VMs no laboratório para permitir que você controle a ordem de arranque sem ter que alterar o script.

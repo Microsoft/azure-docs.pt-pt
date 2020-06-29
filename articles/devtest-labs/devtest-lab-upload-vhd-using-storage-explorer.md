@@ -1,25 +1,14 @@
 ---
 title: Faça upload do ficheiro VHD para Azure DevTest Labs usando o Storage Explorer
 description: Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ccdf27488147bc4840d1e505ba2761bf328d6a32
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898585"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480767"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
 

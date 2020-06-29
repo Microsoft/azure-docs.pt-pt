@@ -1,5 +1,5 @@
 ---
-title: Solicitar reclamações personalizadas (MSAL iOS/macOS) / Azure
+title: Solicitar reclamações personalizadas (MSAL iOS/macOS) Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como solicitar reclamações personalizadas.
 services: active-directory
@@ -8,32 +8,32 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883101"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477197"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas utilizando MSAL para iOS e macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas usando MSAL para iOS e macOS
 
-O OpenID Connect permite-lhe solicitar opcionalmente a devolução de reclamações individuais do Ponto final do UserInfo e/ou no Id Token. Um pedido de reclamações é representado como um objeto JSON que contém uma lista de reclamações solicitadas. Consulte [o OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) para obter mais detalhes.
+O OpenID Connect permite-lhe solicitar opcionalmente a devolução de reclamações individuais do Ponto Final do UserInfo e/ou no Token ID. Um pedido de reclamação é representado como um objeto JSON que contém uma lista de reclamações solicitadas. Consulte [o OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) para obter mais detalhes.
 
-A Microsoft Authentication Library (MSAL) para iOS e macOS permite solicitar reclamações específicas em cenários de aquisição interativos e silenciosos. Fá-lo através `claimsRequest` do parâmetro.
+A Microsoft Authentication Library (MSAL) para iOS e macOS permite solicitar reclamações específicas em cenários de aquisição de token interativos e silenciosos. Fá-lo através do `claimsRequest` parâmetro.
 
 Há vários cenários em que isto é necessário. Por exemplo:
 
 - Solicitando reclamações fora do padrão definido para a sua aplicação.
-- Solicitando combinações específicas das alegações padrão que não podem ser especificadas utilizando âmbitos para a sua aplicação. Por exemplo, se um token de acesso for rejeitado devido a reclamações em falta, o pedido pode solicitar as reclamações em falta usando mSAL.
+- Solicitando combinações específicas das reclamações padrão que não podem ser especificadas usando âmbitos para a sua aplicação. Por exemplo, se um token de acesso for rejeitado por falta de reclamações, o pedido pode solicitar os pedidos em falta usando o MSAL.
 
 > [!NOTE]
-> A MSAL ignora a cache de acesso a qualquer que seja especificado um pedido de reclamações. É importante apenas `claimsRequest` fornecer parâmetro quando são necessárias reclamações adicionais `claimsRequest` (em oposição a fornecer sempre o mesmo parâmetro em cada chamada da API MSAL).
+> A MSAL contorna a cache do token de acesso sempre que um pedido de reclamação é especificado. É importante apenas fornecer `claimsRequest` parâmetro quando são necessárias reclamações adicionais (em vez de fornecer sempre o mesmo `claimsRequest` parâmetro em cada chamada de API MSAL).
 
-`claimsRequest`pode ser especificado em `MSALSilentTokenParameters` e: `MSALInteractiveTokenParameters`
+`claimsRequest`pode ser especificado `MSALSilentTokenParameters` `MSALInteractiveTokenParameters` em:
 
 ```objc
 /*!
@@ -49,7 +49,7 @@ Há vários cenários em que isto é necessário. Por exemplo:
 
 @end
 ```
-`MSALClaimsRequest`pode ser construído a partir de uma representação NSString do pedido de reclamações da JSON. 
+`MSALClaimsRequest`pode ser construído a partir de uma representação NSString do pedido de Reclamações JSON. 
 
 Objetivo C:
 
@@ -58,7 +58,7 @@ NSError *claimsError = nil;
 MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
 
-Swift:
+Rápido:
 
 ```swift
 var requestError: NSError? = nil
@@ -68,7 +68,7 @@ let request = MSALClaimsRequest(jsonString: "{\"id_token\":{\"auth_time\":{\"ess
 
 
 
-Também pode ser modificado solicitando reclamações específicas adicionais:
+Pode igualmente ser modificado solicitando reclamações específicas adicionais:
 
 Objetivo C:
 
@@ -80,7 +80,7 @@ individualClaimRequest.additionalInfo.value = @"myvalue";
 [request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
 ```
 
-Swift:
+Rápido:
 
 ```swift
 let individualClaimRequest = MSALIndividualClaimRequest(name: "custom-claim")
@@ -98,7 +98,7 @@ do {
 
 
 
-`MSALClaimsRequest`devem então ser fixados nos parâmetros simbólicos e fornecidos a uma das aquisições de token sancionadas da MSAL:
+`MSALClaimsRequest`devem então ser definidos nos parâmetros simbólicos e fornecidos a uma das APIs de aquisição de tokens DAM:
 
 Objetivo C:
 
@@ -113,7 +113,7 @@ parameters.claimsRequest = request;
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
 
-Swift:
+Rápido:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -130,4 +130,4 @@ application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação
+Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

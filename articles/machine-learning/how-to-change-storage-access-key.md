@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 911fa7d509e756f482b2deefad11e35f9cb5ec01
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117952"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483317"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "85117952"
 Saiba como alterar as teclas de acesso para as contas de Armazenamento Azure utilizadas pela Azure Machine Learning. O Azure Machine Learning pode usar contas de armazenamento para armazenar dados ou modelos treinados.
 
 Por razões de segurança, poderá ter de alterar as chaves de acesso para uma conta de Armazenamento Azure. Ao regenerar a chave de acesso, o Azure Machine Learning deve ser atualizado para utilizar a nova chave. O Azure Machine Learning pode estar a usar a conta de armazenamento tanto para o armazenamento do modelo como para uma loja de dados.
+
+> [!IMPORTANT]
+> As credenciais registradas com datas são guardadas no seu Cofre chave Azure associado ao espaço de trabalho. Se tiver uma eliminação suave ativada para o seu Cofre de Chaves, [certifique-se](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) de seguir este artigo para atualizar as credenciais. Não registar a datastore e reregistrá-la com o mesmo nome falhará.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310023893d25a484cf05dac00628c632a4421edb
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719035"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482620"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>Tutorial: Azure Ative Directory integração única (SSO) com SmartKargo
 
@@ -83,22 +83,18 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/`
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/`
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real em URL,URL de resposta e identificador. Contacte [a equipa de suporte do Cliente SmartKargo](https://www.smartkargo.com/company/contact-2/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, URL de resposta e identificador. Contacte [a equipa de suporte do Cliente SmartKargo](https://www.smartkargo.com/company/contact-2/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na secção **Certificado de Assinatura SAML,** clique em Editar o botão **Editar** para abrir o diálogo **do Certificado de Assinatura SAML.**
+1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
-    ![Editar certificado de assinatura SAML](common/edit-certificate.png)
-
-1. Na secção **Certificado de Assinatura SAML,** copie o **Valor de Impressão Digital** e guarde-o no seu computador.
-
-    ![Valor da impressão digital do polegar da cópia](common/copy-thumbprint.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
 1. Na secção **Configurar SmartKargo,** copie os URL(s) apropriados com base no seu requisito.
 
@@ -136,7 +132,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-smartkargo-sso"></a>Configurar SmartKargo SSO
 
-Para configurar um único sinal no lado **SmartKargo,** é necessário enviar o **Valor de Impressão Thumbprint** e URLs copiados apropriados do portal Azure para a equipa de suporte da [plataforma SmartKargo.](https://www.smartkargo.com/company/contact-2/) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **SmartKargo,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de suporte da [plataforma SmartKargo](https://www.smartkargo.com/company/contact-2/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-smartkargo-test-user"></a>Criar utilizador de teste SmartKargo
 

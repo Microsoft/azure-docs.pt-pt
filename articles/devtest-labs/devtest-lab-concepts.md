@@ -1,25 +1,14 @@
 ---
 title: Conceitos de DevTest Labs Microsoft Docs
 description: Aprenda os conceitos básicos da DevTest Labs, e como pode facilitar a criação, gestão e monitorização de máquinas virtuais Azure
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896383"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482756"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
 ## <a name="overview"></a>Descrição geral

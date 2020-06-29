@@ -1,25 +1,14 @@
 ---
 title: Gerir fórmulas em Azure DevTest Labs para criar VMs Microsoft Docs
 description: Este artigo ilustra como criar uma fórmula a partir de uma base (imagem personalizada, imagem de marketplace ou outra fórmula) ou um VM existente.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 7d4bf2631a39d6d1385e0369692cc0895b2966d7
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0a254d306ad2417c500571df4b8f2d852d21e7ae
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897706"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480410"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas Azure DevTest Labs
 

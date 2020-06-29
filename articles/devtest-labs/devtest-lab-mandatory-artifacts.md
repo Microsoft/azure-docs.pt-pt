@@ -1,24 +1,14 @@
 ---
 title: Especifique artefactos obrigatórios para o seu Azure DevTest Labs Microsoft Docs
 description: Saiba como especificar artefactos obrigatórios que precisam de ser instalados antes de instalar quaisquer artefactos selecionados pelo utilizador em máquinas virtuais (VMs) em laboratório.
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: spelluru
-ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897559"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480308"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especifique artefactos obrigatórios para o seu laboratório em Azure DevTest Labs
 Como proprietário de um laboratório, pode especificar artefactos obrigatórios que são aplicados a todas as máquinas criadas no laboratório. Imagine um cenário em que quer que cada máquina do seu laboratório esteja ligada à sua rede corporativa. Neste caso, cada utilizador de laboratório teria de adicionar um artefacto de união de domínio durante a criação de máquinas virtuais para garantir que a sua máquina está ligada ao domínio corporativo. Por outras palavras, os utilizadores de laboratório teriam essencialmente de recriar uma máquina caso se esquecessem de aplicar artefactos obrigatórios na sua máquina. Como dono de laboratório, fazes com que o domínio se junte ao artefacto como artefacto obrigatório no teu laboratório. Este passo garante que cada máquina está ligada à rede corporativa e poupa tempo e esforço aos utilizadores do laboratório.

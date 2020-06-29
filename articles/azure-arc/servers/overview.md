@@ -9,14 +9,14 @@ ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: c9e69e221dc21baae96ab814cb9fb0b65ce98126
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449486"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482195"
 ---
-# <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (pré-visualização)
+# <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (pré-visualização)?
 
 O Azure Arc para servidores (pré-visualização) permite-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem, à semelhança da forma como gere as máquinas virtuais nativas do Azure. Quando uma máquina híbrida está ligada ao Azure, torna-se uma máquina conectada e é tratada como um recurso em Azure. Cada máquina conectada tem um ID de recurso, é gerida como parte de um grupo de recursos dentro de uma subscrição, e beneficia de construções padrão do Azure, tais como Azure Policy e aplicação de tags.
 
@@ -48,6 +48,6 @@ Na maioria dos casos, a localização selecionada quando cria o script de instal
 
 O agente 'Máquina Conectada' envia uma mensagem de batimento cardíaco regular ao serviço a cada 5 minutos. Se o serviço deixar de receber estas mensagens de batimento cardíaco de uma máquina, essa máquina é considerada offline e o estado será automaticamente alterado para **Desligado** no portal dentro de 15 a 30 minutos. Ao receber uma mensagem de batimento cardíaco subsequente do agente Da Máquina Conectada, o seu estado será automaticamente alterado para **Connected**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Antes de avaliar ou permitir que o Arc para servidores (pré-visualização) em várias máquinas híbridas, reveja o artigo de visão geral do [agente da Máquina Conectada](agent-overview.md) para entender o que é necessário, detalhes técnicos sobre o agente e métodos de implementação.

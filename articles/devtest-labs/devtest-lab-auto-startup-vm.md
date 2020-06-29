@@ -1,24 +1,14 @@
 ---
 title: Configurar configurações de arranque automático para um VM em Azure DevTest Labs Microsoft Docs
 description: Aprenda a configurar configurações de arranque automático para VMs em laboratório. Esta definição permite que os VMs no laboratório sejam automaticamente iniciados num horário.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: spelluru
-ms.openlocfilehash: 95f810ba16f358c5aabc35e26294cdb3f8c3cca0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896474"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482790"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Máquinas virtuais de laboratório de startups automáticas  
 A Azure DevTest Labs permite configurar máquinas virtuais no seu laboratório para serem automaticamente iniciadas e encerradas com base num horário. Para obter informações sobre configurar as definições de autoshutdown, consulte [as políticas de autoshutdown para um laboratório em Azure DevTest Labs](devtest-lab-auto-shutdown.md). 

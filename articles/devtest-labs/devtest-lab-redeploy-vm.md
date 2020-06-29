@@ -1,25 +1,14 @@
 ---
 title: Recolocar um VM num laboratório em Azure DevTest Labs Microsoft Docs
 description: Aprenda a recolocar uma máquina virtual (passe de um nó Azure para outro) em Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: spelluru
-ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: da0edf13adaa0d7ecd84ee2c190f376c19b398db
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898725"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480240"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Recolocar um VM num laboratório em Azure DevTest Labs
 Se não conseguir ligar-se a uma máquina virtual (VM) num laboratório através de uma ligação remota de ambiente de trabalho, relofectu o VM e tente ligá-lo novamente. Quando se recoloca um VM, a DevTest Labs move o VM do nó em que está a correr para um novo nó dentro da infraestrutura Azure. Em seguida, inicia o VM mantendo todas as suas opções de configuração e recursos associados. Esta funcionalidade poupa-lhe o tempo gasto na resolução de problemas da sua ligação remota ao ambiente de trabalho ou acesso a VMs baseados no Windows no laboratório. 

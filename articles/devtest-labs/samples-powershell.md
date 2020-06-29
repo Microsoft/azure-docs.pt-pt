@@ -1,23 +1,14 @@
 ---
 title: Amostras Azure PowerShell para Serviços de Laboratório Azure Microsoft Docs
 description: Azure PowerShell Samples - Scripts para ajudá-lo a gerir laboratórios em Azure Lab Services
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 44050ab9367572a8160f6e268781478ca3313419
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: d94074acdd4aeef87f322f8e7a9734e5da9a1c32
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897830"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483232"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Amostras Azure PowerShell para Serviços de Laboratório Azure
 

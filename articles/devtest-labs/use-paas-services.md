@@ -1,23 +1,14 @@
 ---
 title: Utilizar serviços plataforma-as-a-service (PaaS) em Azure DevTest Labs
 description: Saiba como utilizar os serviços Plataforma-as-a-Service (Pass) em Azure DevTest Labs.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895298"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478744"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utilizar serviços plataforma-as-a-service (PaaS) em Azure DevTest Labs
 O PaaS é suportado nos Laboratórios DevTest através da funcionalidade ambiente. Ambientes em DevTest Labs são suportados por modelos pré-configurados do Gestor de Recursos Azure num repositório de Git. Os ambientes podem conter recursos paaS e IaaS. Permitem criar sistemas complexos que podem incluir recursos Azure, como máquinas virtuais, bases de dados, redes virtuais e aplicações Web, que são personalizadas para trabalhar em conjunto. Estes modelos permitem uma implementação consistente e uma melhor gestão dos ambientes utilizando o controlo do código fonte. 

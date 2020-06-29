@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2020
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 3fcf19ffdce57051e86d6e4bab37d719c91a8a1f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206633"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482858"
 ---
 # <a name="synapse-sql-recommendations"></a>Recomendações do SQL da Sinapse
 
@@ -70,3 +70,7 @@ Quando se tem um grande conjunto de trabalho, pode experimentar uma baixa percen
 ## <a name="tempdb-contention"></a>Contenção temporária
 
 O desempenho da consulta pode degradar-se quando há uma alta contenção temporária.  A contenção temporária pode ocorrer através de tabelas temporárias definidas pelo utilizador ou quando há uma grande quantidade de movimento de dados. Para este cenário, pode escalar para mais alocação temporária e [configurar classes de recursos e gestão de carga de trabalho](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) para fornecer mais memória às suas consultas. 
+
+## <a name="data-loading-misconfiguration"></a>Confirmação errada de carregamento de dados
+
+Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) 

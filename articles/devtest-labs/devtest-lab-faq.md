@@ -1,25 +1,14 @@
 ---
 title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: c5e5437db480646275a8bbe34e1a64c005a32a16
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895557"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481668"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre a Azure DevTest Labs.
@@ -348,7 +337,7 @@ As seguintes publicações de blog oferecem orientação e informações sobre a
 
 Para outras cadeiras de ferramentas de integração contínua (CI)/entrega contínua (CD), pode alcançar os mesmos cenários através da implementação de [modelos de Gestor de Recursos Azure,](https://azure.microsoft.com/resources/templates/) utilizando [cmdlets Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para a DevTest Labs](https://aka.ms/dtlrestapis) para se integrar com a sua ferramenta.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para o meu ambiente DevTest Labs vs. usando uma rede virtual existente?
 Se os seus VMs precisarem de interagir com a infraestrutura existente, então considere usar uma rede virtual existente dentro do seu ambiente DevTest Labs. Se utilizar o ExpressRoute, poderá querer minimizar a quantidade de VNets / Subnets para que não fragmente o espaço de endereço IP que é atribuído para utilização nas subscrições.

@@ -1,25 +1,14 @@
 ---
 title: Conceder permissões de utilizadores a políticas específicas de laboratório Microsoft Docs
 description: Saiba como conceder permissões de utilizadores a políticas específicas de laboratório em Laboratórios DevTest com base nas necessidades de cada utilizador
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
-ms.author: spelluru
-ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: de9510ec77c009bad293ce5435eba8d20fd7e667
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895340"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481753"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizadores a políticas específicas de laboratório
 ## <a name="overview"></a>Descrição geral

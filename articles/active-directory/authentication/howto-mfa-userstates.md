@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ea97d7a2aa5fdc18d11e952eafe65b167b3397
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483929"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476840"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar o Multi-Factor Authentication do Azure por utilizador para garantir eventos de início de sessão seguros
 
@@ -39,8 +39,8 @@ As contas de utilizador na Autenticação Multi-Factor Azure têm os seguintes t
 | Estado | Descrição | Aplicações não-navegador afetadas | Aplicativos de navegador afetados | Autenticação moderna afetada |
 |:---:| --- |:---:|:--:|:--:|
 | Desativado | O estado predefinido para um novo utilizador não inscrito na Autenticação Multi-Factor Azure. | Não | Não | Não |
-| Ativado | O utilizador foi inscrito na Autenticação Multi-Factor Azure, mas ainda não se registou. Recebem um pedido para se registarem da próxima vez que assinarem. | Não.  Continuam a trabalhar até que o processo de registo esteja concluído. | Yes. Após o termo da sessão, é necessário o registo de autenticação multi-factor Azure.| Yes. Após o termo do token de acesso, é necessário o registo de autenticação multi-factor Azure. |
-| Imposto | O utilizador foi inscrito e concluiu o processo de registo da Autenticação Multi-Factor Azure. | Yes. As aplicações requerem senhas de aplicação. | Yes. A autenticação multi-factor Azure é necessária no início de sessão. | Yes. A autenticação multi-factor Azure é necessária no início de sessão. |
+| Ativado | O utilizador foi inscrito na Autenticação Multi-Factor Azure, mas não registou métodos de autenticação. Recebem um pedido para se registarem da próxima vez que assinarem. | Não.  Continuam a trabalhar até que o processo de registo esteja concluído. | Sim. Após o termo da sessão, é necessário o registo de autenticação multi-factor Azure.| Sim. Após o termo do token de acesso, é necessário o registo de autenticação multi-factor Azure. |
+| Imposto | O utilizador foi inscrito e concluiu o processo de registo da Autenticação Multi-Factor Azure. | Sim. As aplicações requerem senhas de aplicação. | Sim. A autenticação multi-factor Azure é necessária no início de sessão. | Sim. A autenticação multi-factor Azure é necessária no início de sessão. |
 
 O estado de um utilizador reflete se um administrador os inscreveu na Autenticação Multi-Factor Azure e se completaram o processo de registo.
 
@@ -181,7 +181,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 >
 > Se o MFA for re-activado num objeto de utilizador que já tenha dados de registo, como telefone ou e-mail, então os administradores precisam de ter esse utilizador a re-registar MFA através do portal Azure ou powerShell. Se o utilizador não se re-registar, o seu estado de MFA não transita de *Enabled* para *Enforcado* na UI de gestão de MFA.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar as definições de autenticação multi-factor Azure, como IPs fidedignos, mensagens de voz personalizadas e alertas de fraude, consulte [as definições de autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md). Para gerir as definições do utilizador para autenticação multi-factor Azure, consulte [gerir as definições do utilizador com autenticação multi-factor Azure](howto-mfa-userdevicesettings.md).
 

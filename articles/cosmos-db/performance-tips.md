@@ -4,14 +4,14 @@ description: Aprenda opções de configuração do cliente para melhorar o desem
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 06/26/2020
 ms.author: sngun
-ms.openlocfilehash: 67354ca5b9dc7b553b8aa40183b504542d4c08b4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 6b1adca1bf3482a6ce44bb5b1aec7d62ac8bd5a8
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392391"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483096"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB e .NET SDK v2
 
@@ -230,7 +230,7 @@ A política de indexação DB do Azure Cosmos também permite especificar quais 
 var collection = new DocumentCollection { Id = "excludedPathCollection" };
 collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
 collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);
 ```
 
 Para obter mais informações, consulte [as políticas de indexação de DB do Azure Cosmos](index-policy.md).

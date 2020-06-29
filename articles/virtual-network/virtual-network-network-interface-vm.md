@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 68f8a7086dd164c102e42c99bb8d6ba22b71ad6f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710988"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480138"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Add network interfaces to or remove network interfaces from virtual machines (Adicionar interfaces de rede ou remover interfaces de rede de máquinas virtuais)
 
@@ -151,7 +151,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 - A eliminação de um VM não elimina as interfaces de rede que lhe estão ligadas. Quando elimina um VM, as interfaces de rede são separadas do VM. Pode adicionar essas interfaces de rede a diferentes VMs ou eliminá-las.
 
-- Tal como acontece com o IPv6, não é possível anexar uma interface de rede com uma rede acelerada ativada a um VM depois de a criar. Além disso, para tirar partido da rede acelerada, também deve completar os passos dentro do sistema operativo VM. Saiba mais sobre networking acelerado e outros constrangimentos ao usá-lo, para máquinas virtuais [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux.](create-vm-accelerated-networking-cli.md)
+- Alcançar o desempenho ideal documentado requer uma rede acelerada. Em alguns casos, deve ativar explicitamente a rede acelerada para máquinas virtuais [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux.](create-vm-accelerated-networking-cli.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

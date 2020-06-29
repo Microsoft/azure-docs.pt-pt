@@ -1,25 +1,14 @@
 ---
 title: Configure e use ambientes públicos em Azure DevTest Labs Microsoft Docs
 description: Este artigo descreve como configurar e usar ambientes públicos (modelos de Gestor de Recursos Azure em um git repo) em Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 127a6986e04cf90f69b2a8ec70b90b877e534708
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 61cabdb296c3fff75137c7ce7e87652241fd2926
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896285"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482671"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configure e use ambientes públicos em Azure DevTest Labs
 A Azure DevTest Labs tem um [repositório público de modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que pode usar para criar ambientes sem ter de se ligar a uma fonte externa do GitHub por si mesmo. Este repositório inclui modelos frequentemente usados, tais como Azure Web Apps, Service Fabric Cluster e desenvolvimento SharePoint Farm ambiente. Esta característica é semelhante ao repositório público de artefactos que está incluído para todos os laboratórios que você cria. O repositório de ambiente permite-lhe começar rapidamente com modelos de ambiente pré-autoria com parâmetros mínimos de entrada para lhe proporcionar uma experiência de início suave para os recursos do PaaS dentro de laboratórios. 

@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 9b2368cdd3fbd2699cb3579d922d81ad66efdc91
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558596"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479254"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto de aplicação Azure Ative Directory
 

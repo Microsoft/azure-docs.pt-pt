@@ -1,25 +1,14 @@
 ---
 title: Integre a Azure DevTest Labs nos seus Pipelines Azure
 description: Saiba como integrar a Azure DevTest Labs no seu pipelineS Azure e gasoduto de entrega
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: a26df85e-2a00-462b-aac1-dd3539532569
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 9604da5252254120ac7bd3fca3f0cc97324aef92
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897692"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480580"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integre a Azure DevTest Labs no seu pipeline Azure Pipelines CI/CD
 

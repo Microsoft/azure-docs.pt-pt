@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f020abd4d207a49068ccffb9bb7f57b88bc87df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206398"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480444"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL on demand (pré-visualização) em Azure Synapse Analytics 
 
@@ -89,21 +89,21 @@ SQL on demand não tem armazenamento local, apenas objetos de metadados são arm
 
 De forma a permitir uma experiência suave para a consulta em vigor de dados que residem em ficheiros em data lake, o SQL on demand alarga a função [openrowset](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) existente, adicionando as seguintes capacidades:
 
-[Consultar vários ficheiros ou pastas](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Consultar vários ficheiros ou pastas](query-data-storage.md#query-multiple-files-or-folders)
 
-[Formato de ficheiro PARQUET](develop-storage-files-overview.md#parquet-file-format)
+[Formato de ficheiro PARQUET](query-data-storage.md#query-parquet-files)
 
-[Opções adicionais para trabalhar com textolimitado (exterminador de campo, exterminador de linha, char de fuga)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Opções adicionais para trabalhar com textolimitado (exterminador de campo, exterminador de linha, char de fuga)](query-data-storage.md#query-csv-files)
 
-[Leia um subconjunto de colunas escolhido](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Leia um subconjunto de colunas escolhido](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Inferência do esquema](develop-storage-files-overview.md#schema-inference)
+[Inferência do esquema](query-data-storage.md#schema-inference)
 
-[função de nome de arquivo](develop-storage-files-overview.md#filename-function)
+[função de nome de arquivo](query-data-storage.md#filename-function)
 
-[função de filepa](develop-storage-files-overview.md#filepath-function)
+[função de filepa](query-data-storage.md#filepath-function)
 
-[Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## <a name="security"></a>Segurança
 

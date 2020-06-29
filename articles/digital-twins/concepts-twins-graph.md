@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c4bbc3510cc273504d7c97287d3aeb1948db2eb2
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c4cdfc35d39be827109c56a16d68f6e51b56ef43
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390674"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483351"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -95,7 +95,7 @@ Os dados digitais de gémeos e de relacionamento são armazenados no formato JSO
 
 Quando representado como um objeto JSON, um gémeo digital apresentará os seguintes campos:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
 | `$conformance` | Um enum que contém o estado de conformidade deste gémeo digital *(conformante,* *não-conformante,* *desconhecido)* |
@@ -124,7 +124,6 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
   "component": {
     "TableOccupancy": 1,
     "$metadata": {
-      "$model": "dtmi:com:contoso:Table;1",
       "TableOccupancy": {
         "desiredValue": 1,
         "desiredVersion": 3,
@@ -161,9 +160,9 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 
 Quando representado como um objeto JSON, uma relação de um gémeo digital mostrará os seguintes campos:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
-| `$edgeId` | Uma cadeia fornecida pelo utilizador que representa o ID desta borda de relacionamento. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `edgeId` é única no contexto da instância Azure Digital Twins. |
+| `$relationshipId` | Uma cadeia fornecida pelo utilizador que representa a identificação desta relação. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `relationshipId` é única no contexto da instância Azure Digital Twins. |
 | `$sourceId` | O ID da fonte digital twin |
 | `$targetId` | A ID do gémeo digital alvo |
 | `$relationshipName` | O nome da relação |
@@ -173,9 +172,10 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 
 ```json
 {
-  "$edgeId": "Edge-01",
+  "$relationshipId": "relationship-01",
+  "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationship": "contains",
+  "$relationshipName": "contains",
   "$targetId": "Cafe",
   "startDate": "2020-02-04"
 }

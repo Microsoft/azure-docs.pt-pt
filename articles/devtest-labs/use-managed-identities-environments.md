@@ -1,22 +1,14 @@
 ---
 title: Use identidades geridas pela Azure para criar ambientes na DevTest Labs Microsoft Docs
 description: Aprenda a usar identidades geridas em Azure para implantar ambientes num laboratório em Azure DevTest Labs.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: spelluru
-ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895312"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478880"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Use identidades geridas pela Azure para implantar ambientes num laboratório 
 Como dono de laboratório, pode usar uma identidade gerida para implantar ambientes num laboratório. Esta funcionalidade é útil em cenários onde o ambiente contém ou tem referências a recursos Azure, tais como cofres-chave, galerias de imagem partilhadas e redes externas ao grupo de recursos do ambiente. Permite a criação de ambientes de caixas de areia que não se limitam ao grupo de recursos desse ambiente.

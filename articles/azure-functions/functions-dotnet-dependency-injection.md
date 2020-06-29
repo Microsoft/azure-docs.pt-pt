@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: df26a6815a3dde27559f2f55038bdccadd78ea0b
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195520"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482144"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -36,11 +36,8 @@ Para registar serviços, crie um método para configurar e adicionar componentes
 Para registar o método, adicione o `FunctionsStartup` atributo de montagem que especifica o tipo de nome utilizado durante o arranque.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -52,7 +49,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -61,6 +58,8 @@ namespace MyNamespace
     }
 }
 ```
+
+Este exemplo utiliza o pacote [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registar um `HttpClient` no arranque.
 
 ### <a name="caveats"></a>Ressalvas
 
@@ -72,48 +71,47 @@ Uma série de etapas de registo executadas antes e depois do tempo de execução
 
 ## <a name="use-injected-dependencies"></a>Utilize dependências injetadas
 
-A injeção de construtor é utilizada para disponibilizar as suas dependências numa função. A utilização de injeção de construtor requer que não utilize classes estáticas.
+A injeção de construtor é utilizada para disponibilizar as suas dependências numa função. A utilização de injeção de construtor requer que não utilize classes estáticas para serviços injetados ou para as suas classes de funções.
 
-A amostra a seguir demonstra como as `IMyService` `HttpClient` dependências são injetadas numa função acionada por HTTP. Este exemplo utiliza o pacote [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registar um `HttpClient` no arranque.
+A amostra a seguir demonstra como as `IMyService` `HttpClient` dependências são injetadas numa função acionada por HTTP.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+Este exemplo utiliza o pacote [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registar um `HttpClient` no arranque.
 
 ## <a name="service-lifetimes"></a>Vida útil
 
@@ -127,7 +125,9 @@ Veja ou descarregue uma [amostra de diferentes vidas de serviço](https://aka.ms
 
 ## <a name="logging-services"></a>Serviços de registo
 
-Se precisar do seu próprio fornecedor de registo, registe um tipo personalizado como `ILoggerProvider` exemplo. O Application Insights é adicionado automaticamente pelas Funções Azure.
+Se precisar do seu próprio fornecedor de registo, registe um tipo personalizado como uma instância de [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) , que está disponível através do pacote [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) NuGet.
+
+O Application Insights é adicionado automaticamente pelas Funções Azure.
 
 > [!WARNING]
 > - Não adicione `AddApplicationInsightsTelemetry()` à recolha de serviços uma vez que regista serviços que entram em conflito com os serviços prestados pelo meio ambiente.
@@ -135,7 +135,9 @@ Se precisar do seu próprio fornecedor de registo, registe um tipo personalizado
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger <T> e ILoggerFactory
 
-O hospedeiro injetará `ILogger<T>` e `ILoggerFactory` serviços em construtores.  No entanto, por padrão, estes novos filtros de registo serão filtrados para fora dos registos de funções.  Terá de modificar o `host.json` ficheiro para optar por filtros e categorias adicionais.  A amostra que se segue demonstra a adição de um `ILogger<HttpTrigger>` com troncos que serão expostos pelo hospedeiro.
+O hospedeiro injeta `ILogger<T>` e `ILoggerFactory` serviços em construtores.  No entanto, por predefinição, estes novos filtros de registo são filtrados fora dos registos de funções.  É necessário modificar o `host.json` ficheiro para optar por filtros e categorias adicionais.
+
+O exemplo a seguir demonstra como adicionar um `ILogger<HttpTrigger>` com troncos expostos ao hospedeiro.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +162,7 @@ namespace MyNamespace
 }
 ```
 
-E um `host.json` ficheiro que adiciona o filtro de registo.
+O ficheiro de exemplo a seguir `host.json` adiciona o filtro de registo.
 
 ```json
 {
@@ -251,7 +253,7 @@ public class HttpTrigger
 Consulte o [padrão de Opções em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) para obter mais detalhes sobre o trabalho com opções.
 
 > [!WARNING]
-> Evite tentar ler valores de ficheiros como *local.settings.json* ou *appsettings.{ ambiente}.json* no plano de consumo. Os valores lidos a partir destes ficheiros relacionados com as ligações de gatilho não estão disponíveis como escalas de aplicação porque a infraestrutura de hospedagem não tem acesso à informação de configuração, uma vez que o controlador de escala cria novas instâncias da app.
+> Evite tentar ler valores de ficheiros como *local.settings.js* ou *appseting.{ ambiente}.json* no plano de consumo. Os valores lidos a partir destes ficheiros relacionados com as ligações de gatilho não estão disponíveis como escalas de aplicação porque a infraestrutura de hospedagem não tem acesso à informação de configuração, uma vez que o controlador de escala cria novas instâncias da app.
 
 ## <a name="next-steps"></a>Passos seguintes
 

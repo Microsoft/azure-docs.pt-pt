@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a0d98a2c58e7629f988d0d3e8015355ba414c07a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85201146"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482535"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (anteriormente SQL DW) Perguntas frequentes
 
@@ -56,10 +56,6 @@ R. Consulte a nossa página de [limites de capacidade](sql-data-warehouse-servic
 P. Porque é que a minha escala/pausa/currículo está a demorar tanto tempo?
 
 R. Vários fatores podem influenciar o tempo para operações de gestão de computação. Um caso comum para operações de longa duração é o revés transacional. Quando uma operação de escala ou pausa é iniciada, todas as sessões de entrada são bloqueadas e as consultas são drenadas. Para deixar o sistema num estado estável, as transações devem ser revoadas antes de uma operação poder iniciar-se. Quanto maior for o número e maior o tamanho do registo das transações, mais tempo a operação ficará parada, restaurando o sistema para um estado estável.
-
-P: Como posso mudar o nome de um artefacto publicado (conjunto de dados, caderno, script sql e assim por diante) em Azure Synapse?
-
-R: Para renomear um ficheiro de artefactos publicados, primeiro clonar o ficheiro e mudar o nome do novo ficheiro para o nome que preferir. Terá de atualizar manualmente todas as referências do artefacto ao novo nome do ficheiro e eliminar o antigo.
 
 ## <a name="user-support"></a>Suporte de utilizador
 

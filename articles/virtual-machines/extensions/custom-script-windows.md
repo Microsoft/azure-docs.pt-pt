@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220964"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478489"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -66,6 +66,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de firewall
 * A extensão de Script personalizado não suporta de forma nativa servidores proxy, no entanto pode utilizar uma ferramenta de transferência de ficheiros que suporta servidores proxy dentro do seu script, como *Curl*
 * Tenha em atenção as localizações de diretório não predefinidas de que os scripts ou comandos possam depender. Tenha uma lógica para lidar com esta situação.
 * A extensão do script personalizado será executada sob a conta do Sistema Local
+* Se pretender utilizar as propriedades *de ArmazenamentoSeMe* e *armazenamentoCocountKey,* estas propriedades devem ser collocadas em *instalações protegidas*.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -122,7 +123,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |
 | tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |

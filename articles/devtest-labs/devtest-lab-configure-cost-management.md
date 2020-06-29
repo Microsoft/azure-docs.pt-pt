@@ -1,25 +1,14 @@
 ---
 title: Veja a tendência mensal estimada de custos de laboratório na Azure DevTest Labs
 description: Este artigo fornece informações sobre como rastrear o custo do seu laboratório (tabela mensal estimada de tendência de custos) em Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 1f46fdc5-d917-46e3-a1ea-f6dd41212ba4
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: ff4c6861fdd25c62ba4547c3f859640320291df9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896439"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482773"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Custos de pista associados a um laboratório em Azure DevTest Labs
 Este artigo fornece informações sobre como rastrear o custo do seu laboratório. Mostra como ver a tendência de custos estimada para o mês civil em curso para o laboratório. O artigo também mostra como visualizar o custo mensal por recurso no laboratório.

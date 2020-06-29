@@ -1,25 +1,14 @@
 ---
 title: Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
 description: Saiba como anexar ou desprender um disco de dados a uma máquina virtual em Azure DevTest Labs
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2020
-ms.author: spelluru
-ms.openlocfilehash: 3f18425408e6526904db85eae1c3a4db41d11a58
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 164c2335f0aadc08a447dd61e259786d5bfb104d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896586"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482977"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
 [A Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas a discos de dados de máquinas virtuais. Um utilizador anexa um novo disco de dados a um VM, especifica o tipo e tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados pode então ser desligado do VM e recolocado mais tarde no mesmo VM, ou ligado a um VM diferente que pertence ao mesmo utilizador.

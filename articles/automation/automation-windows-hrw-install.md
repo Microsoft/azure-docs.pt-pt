@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6141440cdb5b232145417c6051cb340e806f9352
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: b98a5a25ed0aa97a8fa187a9bb1a8075f550d7ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338014"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482399"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -187,16 +187,16 @@ Import-Module .\HybridRegistration.psd1
 Agora, executar o `Add-HybridRunbookWorker` cmdlet utilizando a seguinte sintaxe.
 
 ```powershell-interactive
-Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
+Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 ```
 
-Pode obter as informações necessárias para os parâmetros `EndPoint` e a partir da página `Token` **Chaves** na sua conta Dem automação. Selecione **Teclas** na secção **de definições** de conta a partir do lado esquerdo da página.
+Pode obter as informações necessárias para os parâmetros `Url` e a partir da página `Key` **Chaves** na sua conta Dem automação. Selecione **Teclas** na secção **de definições** de conta a partir do lado esquerdo da página.
 
 ![Gerir página Chaves](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* Para o `EndPoint` parâmetro, copie o valor para **URL**.
+* Para o `Url` parâmetro, copie o valor para **URL**.
 
-* Para o `Token` parâmetro, copie o valor **da chave de acesso primário**.
+* Para o `Key` parâmetro, copie o valor **da chave de acesso primário**.
 
 * Para o `GroupName` parâmetro, utilize o nome do grupo híbrido Runbook Worker. Se este grupo já existir na conta Automation, a máquina atual é-lhe adicionada. Se este grupo não existe, é adicionado.
 
@@ -219,7 +219,7 @@ Os módulos instalados devem estar num local referenciado pela `PSModulePath` va
 3. Abra uma sessão PowerShell no modo Administrador e execute o seguinte comando com o seu URL e valores de chave de acesso primário. Utilize o `Verbose` parâmetro para um registo detalhado do processo de remoção. Para remover máquinas velhas do seu grupo Operário Híbrido, utilize o `machineName` parâmetro opcional.
 
 ```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <primaryAccessKey> -machineName <computerName>
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 
 ## <a name="remove-a-hybrid-worker-group"></a>Remove a Hybrid Worker group (Remover um grupo de Função de Trabalho Híbrida)

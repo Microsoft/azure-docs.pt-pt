@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099669"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479798"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Tutorial: Azure Ative Directy integração única (SSO) com IBM Digital Business Automation on Cloud
 
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, preencha os valores manualmente de acordo com o seu requisito.
 
     > [!Note]
-    > Os clientes podem obter o ficheiro de metadados para a sua subscrição cloud da [equipa DBAoC DevOps](mailto:supportbpmoncloud@us.ibm.com).
+    > Os clientes podem obter o ficheiro de metadados para a sua subscrição cloud da equipa de suporte do [IBM Digital Business Automation na Cloud Client](mailto:supportbpmoncloud@us.ibm.com).
 
 1. Se não tiver **um ficheiro de metadados do Fornecedor de Serviços,** na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 

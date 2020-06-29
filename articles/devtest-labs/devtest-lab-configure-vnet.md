@@ -1,25 +1,14 @@
 ---
 title: Configure uma rede virtual em Azure DevTest Labs Microsoft Docs
 description: Aprenda a configurar uma rede virtual e sub-rede existentes, e use-as num VM com Azure DevTest Labs
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
-ms.author: spelluru
-ms.openlocfilehash: 6cf3d2f82c98a3caab47ff48a600316747932b72
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896278"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482654"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual em Azure DevTest Labs
 Como explicado no artigo [Adicionar um VM a um laboratório](devtest-lab-add-vm.md), quando criar um VM em um laboratório, você pode especificar uma rede virtual configurada. Por exemplo, poderá ter de aceder aos recursos da sua rede a partir dos seus VMs utilizando a rede virtual configurada com o ExpressRoute ou a VPN site-to-site.

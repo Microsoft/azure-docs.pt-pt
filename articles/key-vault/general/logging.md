@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2ac68f1cab6958c0fc79fa6518c61417e75c0a70
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211398"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480614"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -95,7 +95,7 @@ No [tutorial de início,](../secrets/quick-create-cli.md)o nome do cofre chave e
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Ativar a exploração usando a Azure Powershell
+## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Ativar o registo utilizando o Azure PowerShell
 
 Para ativar o registo do Key Vault, utilizaremos o **cmdlet Set-AzDiagnosticSetting,** juntamente com as variáveis que criamos para a nova conta de armazenamento e o cofre-chave. Também definiremos a bandeira **ativada** para **$true** e definiremos a categoria para **AuditEvent** (a única categoria para a extração de Cofre de Chaves):
 
@@ -263,7 +263,7 @@ Os blobs individuais são armazenadas como texto, formatados como um blob JSON. 
 
 A tabela que se segue lista os nomes e descrições do campo:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | **tempo** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
@@ -317,7 +317,7 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **SecretList** |[Lista os segredos num cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Lista as versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utilizar os registos do Azure Monitor
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utilize registos do Monitor Azure
 
 Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os registos Key Vault **AuditEvent.** Nos registos do Azure Monitor, utiliza consultas de registo para analisar dados e obter a informação de que necessita. 
 
@@ -330,5 +330,3 @@ Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consul
 Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](developers-guide.md).
 
 Para obter uma lista de Azure PowerShell 1.0 cmdlets para Azure Key Vault, consulte [as cmdlets do Cofre da Chave Azure](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
-
-Para obter um tutorial sobre a rotação da chave e a auditoria de registo com o Azure Key Vault, consulte [Configurar o Cofre de Chaves com rotação e auditoria de teclas de ponta a ponta](../secrets/key-rotation-log-monitoring.md).

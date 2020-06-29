@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3b194755e96e8b8dec2bd0325417950ffe96241c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339323"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482416"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configure MediusFlow para o provisionamento automático do utilizador
 
@@ -56,10 +56,10 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 Comece por permitir o acesso do login AD Azure e da funcionalidade de configuração AD Azure dentro do MediusFlow, realizando os seguintes passos:
 
 #### <a name="user-login"></a>Login do utilizador
-Para, ativar o fluxo de login para o Microsoft 365/Azure AD consulte [este] https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) (artigo.
+Para ativar o fluxo de login para o Microsoft 365/Azure AD consulte [este] https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) (artigo.
 
 #### <a name="user-transfer-configuration"></a>Configuração de transferência de utilizadores
-Para, ativar o portal de configuração dos utilizadores para o provisionamento a partir da Azure AD, consulte [este](
+Para ativar o portal de configuração dos utilizadores para o provisionamento a partir de Azure AD consulte [este](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artigo.
 
 #### <a name="configure-user-provisioning"></a>Configurar o aprovisionamento de utilizadores

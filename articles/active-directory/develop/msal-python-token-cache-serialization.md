@@ -7,18 +7,18 @@ author: rayluo
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 9bdfc3be7194c13123250f83d6f0e19a884597ca
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 57efe11f0c44d7dfe6d35f2e56d512d6e2e2fa98
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558612"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479288"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialização de cache de ficha personalizada em MSAL para Python
 

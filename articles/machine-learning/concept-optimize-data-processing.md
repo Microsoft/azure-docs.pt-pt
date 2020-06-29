@@ -9,13 +9,13 @@ ms.author: sgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 507b03266e70ae082872890c9d5cddb50fdeb703
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719991"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481889"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com a Azure Machine Learning
 
@@ -51,7 +51,7 @@ Para vários CPUs virtuais, vCPU, tenha em mente que deseja que uma divisória s
 
 Se não conseguir adicionar mais RAM à sua máquina, pode aplicar as seguintes técnicas para ajudar a minimizar as cargas de trabalho do CPU e otimizar os tempos de processamento. Estas recomendações dizem respeito a sistemas únicos e distribuídos.
 
-Técnica | Description
+Técnica | Descrição
 ----|----
 Compressão | Utilize uma representação diferente para os seus dados, de uma forma que use menos memória e não tenha um impacto significativo nos resultados do seu cálculo.<br><br>*Exemplo:* Em vez de armazenar entradas como uma corda com cerca de 10 bytes ou mais por entrada, guarde-as como um booleano, Verdadeiro ou Falso, que pode armazenar em 1 byte.
 Chunking | Carregue os dados na memória em subconjuntos (pedaços), processe os dados um subconjunto de cada vez, ou vários subconjuntos em paralelo. Este método funciona melhor se precisar de processar todos os dados, mas não precisa de carregar todos os dados na memória de uma só vez. <br><br>*Exemplo:* Em vez de processar um ano inteiro de dados de uma vez, carregue e processe os dados um mês de cada vez.
@@ -61,9 +61,10 @@ Indexação | Aplique e use um índice, um resumo que lhe diz onde encontrar os 
 
 Se as recomendações anteriores não forem suficientes, e não conseguires uma máquina virtual que se adapte aos teus dados, podes, 
 
-* Utilize uma estrutura como `Spark` ou para processar os `Dask` dados 'fora da memória'. Nesta opção, o dataframe é carregado na partição RAM por partição e processado, com o resultado final a ser recolhido no final. 
+* Utilize uma estrutura como `Spark` ou para processar os `Dask` dados 'fora da memória'. Nesta opção, o dataframe é carregado na partição RAM por partição e processado, com o resultado final a ser recolhido no final.  
 
 * Dimensione para um cluster usando uma estrutura distribuída. Nesta opção, as cargas de processamento de dados são divididas e processadas em vários CPUs que funcionam em paralelo, com o resultado final recolhido no final.
+
 
 ### <a name="recommended-distributed-frameworks"></a>Quadros distribuídos recomendados
 
@@ -75,6 +76,8 @@ Se está familiarizado com`Pandas`| `Modin`ou `Dask` dataframe
 Se preferir`Spark` | `PySpark`
 Para dados inferiores a 1 GB | `Pandas`localmente **ou** um remoto Azure Machine Learning caso
 Para dados maiores que 10 GB| Mude-se para um cluster usando `Ray` `Dask` , ou`Spark`
+
+Você pode criar `Dask` clusters em Azure ML compute cluster com o pacote [dask-cloudprovider.](https://cloudprovider.dask.org/en/latest/#azure) Ou pode correr `Dask` localmente numa instância computacional.
 
 ## <a name="next-steps"></a>Passos seguintes
 
