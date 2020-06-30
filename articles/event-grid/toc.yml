@@ -180,9 +180,11 @@
           href: geo-disaster-recovery.md
     - name: Segurança
       items:
-        - name: Autenticação
+        - name: Autenticar entrega de eventos para processadores de eventos
           href: security-authentication.md
-        - name: Autorização
+        - name: Autenticar clientes de publicação
+          href: security-authenticate-publishing-clients.md
+        - name: Autorizar o acesso a recursos do Event Grid
           href: security-authorization.md
         - name: Segurança da rede
           href: network-security.md
@@ -202,6 +204,8 @@
           href: create-view-manage-system-topics-cli.md
         - name: Modelo Azure Resource Manager
           href: create-view-manage-system-topics-arm.md
+    - name: Obter chaves de acesso para tópicos ou domínios
+      href: get-access-keys.md
     - name: Publicar em tópico personalizado
       href: post-to-custom-topic.md
     - name: Subscrever eventos Auth0
