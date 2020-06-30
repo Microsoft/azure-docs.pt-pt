@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790539"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517638"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -107,8 +107,8 @@ Pode visualizar os dados para entender o conjunto de dados que utilizará.
 1. No painel de detalhes do módulo à direita da tela, selecione **Outputs + log**.
 
 1. Selecione o ícone do gráfico para visualizar os dados.
-
-    ![Ver os dados](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texto alt aqui.":::
 
 1. Selecione as diferentes colunas na janela de dados para visualizar informações sobre cada uma delas.
 
@@ -180,8 +180,8 @@ O seu conjunto de dados ainda tem valores em falta depois de remover a coluna **
 1. No painel de detalhes do módulo à direita da tela, selecione a caixa **de comentários** e *introduza Remover as linhas de valor em falta*. 
 
     O seu oleoduto deve agora ser parecido com isto:
-    
-    ![Selecione coluna](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Selecione coluna":::
 
 ## <a name="train-a-machine-learning-model"></a>Treine um modelo de aprendizagem automática
 
@@ -229,7 +229,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     > [!IMPORTANT]
     > Certifique-se de que as portas de saída esquerda de **Dados Divididos** se ligam ao **Modelo de Comboio.** A porta esquerda contém o conjunto de treino. A porta direita contém o conjunto de teste.
 
-    ![Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo linear de regressão liga-se à porta esquerda do módulo Modelo de Comboio e o módulo de dados divididos liga-se à porta direita do Modelo de Comboio](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo linear de regressão liga-se à porta esquerda do módulo Modelo de Comboio e o módulo de Dados Divididos liga-se à porta direita do Modelo de Comboio.":::
 
 1. Selecione o módulo **Modelo de Comboio.**
 
@@ -244,7 +244,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     O seu oleoduto deve ser assim:
 
-    ![Screenshot mostrando a configuração correta do pipeline depois de adicionar o módulo Modelo de Comboio.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline depois de adicionar o módulo Modelo de Comboio.":::
 
 ### <a name="add-the-score-model-module"></a>Adicione o módulo Modelo de Pontuação
 
@@ -264,7 +264,7 @@ Utilize o módulo **Modelo avaliar** para avaliar o quão bem o seu modelo obtev
 
     O oleoduto final deve ser mais ou menos assim:
 
-    ![Screenshot mostrando a configuração correta do pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o oleoduto
 
@@ -295,7 +295,7 @@ Após a execução concluída, pode ver os resultados do percurso do gasoduto. P
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
-    ![Screenshot da visualização de saída realçando a coluna Marcador](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot da visualização de saída realçando a coluna Marcador":::
 
 ### <a name="evaluate-models"></a>Avaliar modelos
 

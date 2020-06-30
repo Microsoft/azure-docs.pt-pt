@@ -3,12 +3,12 @@ title: Controlos de amostra de amostra de tamanho do DoD Impact Level 4
 description: Controlo do mapeamento da amostra de planta do DoD Impact Level 4. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 3da2450b935d33ccb5b6b5d23bde6333540a79e6
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168986"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517274"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 4
 
@@ -415,7 +415,7 @@ A Advanced Threat Protection for Azure Storage deteta tentativas incomuns e pote
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo da planta DoD Impact Level 4, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 
@@ -423,7 +423,7 @@ Agora que reviu o mapeamento de controlo da planta DoD Impact Level 4, visite os
 > [Projeto do DoD Impact Level 4 - Visão geral](./index.md) 
 >  [Projeto do DoD Impact Level 4 - Implementar etapas](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
