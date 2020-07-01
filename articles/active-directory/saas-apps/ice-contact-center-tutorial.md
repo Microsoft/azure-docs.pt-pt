@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com ice Contact Center [ Azure Ative Diretório) integração com ice Contact Center [ Centro de Contacto de Gelo] Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Ice Contact Center.
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com ice Contact Center / Microsoft Docs'
+description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Ice Contact Center.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,153 +15,153 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f53b3f8dd2a324e4eb3e4b6c073de478bff97a3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 37f06bbc91fef0f0d8c1c646082bd95452c7e518
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666085"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605904"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o Ice Contact Center
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com ice Contact Center
 
-Neste tutorial, você vai aprender a integrar o Centro de Contacto de Gelo com o Azure Ative Directory (Azure AD). Quando integrar o Centro de Contacto de Gelo com a AD Azure, pode:
+Neste tutorial, você vai aprender a integrar o Ice Contact Center com o Azure Ative Directory (Azure AD). Quando integrar o Centro de Contacto de Gelo com Azure AD, pode:
 
 * Controlo em Azure AD que tem acesso ao Centro de Contacto de Gelo.
-* Ative que os seus utilizadores sejam automaticamente inscritos no Ice Contact Center com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Ative os seus utilizadores a serem automaticamente inscritos no Ice Contact Center com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Ice Contact Center single sign-on (SSO) enabled subscrição.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* subscrição ativada pelo Ice Contact Center (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Ice Contact Center suporta **SP** iniciado SSO
-* Assim que configurar o Ice Contact Center, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
+* Ice Contact Center suporta **SSO** iniciado SP
+* Assim que configurar o Ice Contact Center, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-ice-contact-center-from-the-gallery"></a>Adicionar centro de contacto de gelo a partir da galeria
+## <a name="adding-ice-contact-center-from-the-gallery"></a>Adicionar centro de contacto de gelo da galeria
 
-Para configurar a integração do Ice Contact Center em Azure AD, é necessário adicionar o Ice Contact Center da galeria à sua lista de aplicações geridas do SaaS.
+Para configurar a integração do Ice Contact Center em Azure AD, é necessário adicionar o Ice Contact Center da galeria à sua lista de aplicações geridas pelo SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No Add da secção **galeria,** digite **ice Contact Center** na caixa de pesquisa.
-1. Selecione **ice Contact Center** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **da galeria,** escreva o **Centro de Contacto de Gelo** na caixa de pesquisa.
+1. Selecione **ice Contact Center** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ice-contact-center"></a>Configure e teste Azure AD único sinal para centro de contacto de gelo
+## <a name="configure-and-test-azure-ad-single-sign-on-for-ice-contact-center"></a>Configurar e testar Azure AD único sinal de inscrição para o Centro de Contacto de Gelo
 
-Configure e teste Azure AD SSO com ice Contact Center utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Ice Contact Center.
+Configure e teste Azure AD SSO com ice Contact Center usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Ice Contact Center.
 
-Para configurar e testar o Azure AD SSO com o Centro de Contacto de Gelo, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o Ice Contact Center, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
-    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. Configure o Centro de Contacto de **[Gelo SSO](#configure-ice-contact-center-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    1. **[Crie o utilizador](#create-ice-contact-center-test-user)** do teste do Ice Contact Center - para ter uma contrapartida de B.Simon no Ice Contact Center que esteja ligada à representação do utilizador da AD Azure.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o Ice Contact Center SSO](#configure-ice-contact-center-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Crie o utilizador](#create-ice-contact-center-test-user)** de teste ice Contact Center - para ter uma contraparte de B.Simon no Ice Contact Center que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações do Centro de **Contacto de Gelo,** encontre a secção **Gerir** e selecione um **único sinal.**
-1. Na página **de método de inscrição, selecione** **SAML**.
-1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **ice Contact Center,** encontre a secção **Gerir** e selecione um único sinal **de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
+1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<TENANT>.iceuc.com/iceManager`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<TENANT>.iceuc.com/iceManager`
 
-    b. Na caixa de texto **identificador (Id** da entidade), digite um URL utilizando um dos seguintes padrões:
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando um dos seguintes padrões:
 
-    | | |
-    |-|-|
-    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+        ```https
+        https://<TENANT>-imrpool.icescape365.com:PORT/identity
+        https://<TENANT>-imrpool.icescape.com:PORT/identity
+        https://<TENANT>-imrpool.iceuc.com:PORT/identity
+        ```
 
-    c. Na caixa de texto **URL de resposta,** escreva um URL utilizando um dos seguintes padrões:
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
-    | | |
-    |-|-|
-    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+        ```https
+        https://<TENANT>-imrpool.icescape365.com:PORT/identity
+        https://<TENANT>-imrpool.icescape.com:PORT/identity
+        https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL, Identifier e URL de Resposta real. [Contacte](mailto:support@computer-talk.com) a equipa de suporte do Cliente do Ice Contact Center para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [ice Contact Center Client support team](mailto:support@computer-talk.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### Create an Azure AD test user
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
-1. Selecione **Novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
-   1. Clique em **Criar**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### Assign the Azure AD test user
 
-Nesta secção, permitirá que b.Simon utilize um único sinal de Azure, concedendo acesso ao Ice Contact Center.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ice Contact Center.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione **ice Contact Center**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **ice Contact Center**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
-1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## <a name="configure-ice-contact-center-sso"></a>Configure ice Contact Center SSO
+## Configure ice Contact Center SSO
 
-Para configurar um único sinal no lado do Centro de Contacto de **Gelo,** você precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipa de suporte do Centro de [Contacto de Gelo](mailto:support@computer-talk.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+To configure single sign-on on **ice Contact Center** side, you need to send the **App Federation Metadata Url** to [ice Contact Center support team](mailto:support@computer-talk.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### <a name="create-ice-contact-center-test-user"></a>Criar o utilizador de teste do Centro de Contacto de Gelo
+### Create ice Contact Center test user
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon no Centro de Contacto de Gelo. Trabalhe com a equipa de suporte do [Ice Contact Center](mailto:support@computer-talk.com) para adicionar os utilizadores na plataforma ice Contact Center. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+In this section, you create a user called Britta Simon in ice Contact Center. Work with [ice Contact Center support team](mailto:support@computer-talk.com) to add the users in the ice Contact Center platform. Users must be created and activated before you use single sign-on.
 
-## <a name="test-sso"></a>Teste SSO 
+## Test SSO 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Quando clicar no azulejo do Centro de Contacto de Gelo no Painel de Acesso, deverá ser automaticamente inscrito no Centro de Contacto de Gelo para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+When you click the ice Contact Center tile in the Access Panel, you should be automatically signed in to the ice Contact Center for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## Additional resources
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o Centro de Contacto de Gelo com a AD Azure](https://aad.portal.azure.com/)
+- [Try ice Contact Center with Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Centro de Contacto de Gelo com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect ice Contact Center with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d82c3b4b3abe475c1c1f87aafcf02a01d4cab9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f7c1b34329e93789c4093c74038759d5e26957e6
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605333"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608760"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-jira"></a>Tutorial: Azure Ative Directy integração única (SSO) com easySSO para Jira
 
@@ -101,13 +101,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a EasySSO para a aplicação Jira espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  |  Atributo de origem|
-    | ---------------| --------------- | --------- |
-    | urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-    | urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
-    | urn:oid:2.5.4.4 | | utilizador.sobrenome |
-    | urn:oid:2.5.4.42 | | user.givenname |
+    | Name | Atributo de origem|
+    | ---------------| --------- |
+    | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn:oid:2.5.4.4 | utilizador.sobrenome |
+    | urn:oid:2.5.4.42 | user.givenname |
     
     Caso os utilizadores da Azure AD tenham **configurado o nome sAMAccountName,** teria de mapear **a urna:oid:0.9.2342.19200300.100.1.1 para** o atributo **sAMAccountName.**
     

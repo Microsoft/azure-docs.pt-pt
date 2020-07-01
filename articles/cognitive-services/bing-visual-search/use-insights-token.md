@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: tracking-python
-ms.openlocfilehash: ac704ff7213b08072debf9d56da10a74e8315c68
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 733eec452501a829d0162b91aca9ece191d68914
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607041"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611429"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Use um token insights para obter insights para uma imagem
 
-A API de Pesquisa Visual do Bing devolve informações sobre a imagem fornecida. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, veja [o que é a API de Pesquisa Visual Bing?](overview.md) Este artigo demonstra usar um símbolo de insights. Por exemplo, que demonstrem como fazer o upload de uma imagem para obter insights, consulte os quickstarts[(C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [Node.js](quickstarts/nodejs.md)  |  [Python).](quickstarts/python.md)
+A API de Pesquisa Visual do Bing devolve informações sobre a imagem fornecida. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, veja [o que é a API de Pesquisa Visual Bing?](overview.md) Este artigo demonstra usar um símbolo de insights. Por exemplo, que demonstrem como carregar uma imagem para obter insights, consulte os quickstarts[(C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [Node.js](quickstarts/nodejs.md)  |  [Python).](quickstarts/python.md)
 
 Se enviar Bing Visual Search um token de imagem ou URL, os seguintes mostram os dados do formulário que deve incluir no corpo do POST. Os dados do formulário devem incluir o `Content-Disposition` cabeçalho, e deve definir o seu `name` parâmetro para "knowledgeRequest". Para mais detalhes sobre o `imageInfo` objeto, consulte o pedido:
 
@@ -59,14 +59,15 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Por exemplo, que usam o token insights, ver [C#](#use-with-c)  |  [Java](#use-with-java)  |  [Node.js](#use-with-nodejs)  |  [Python](#use-with-python).
+Por exemplo, que usam o token insights, consulte [C#](#use-with-c)  |  [Java](#use-with-java)  |  [Node.js](#use-with-nodejs)  |  [Python](#use-with-python).
 
 ## <a name="use-with-c"></a>Uso com C #
 
 ### <a name="c-prerequisites"></a>C# pré-requisitos
 
-- Qualquer versão do [Visual Studio 2019](https://www.visualstudio.com/downloads/) para que este código seja em funcionamento no Windows.
-- Uma subscrição do Azure. Para este arranque rápido, pode utilizar uma chave de subscrição [de teste gratuito](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Qualquer versão do [Visual Studio 2019](https://www.visualstudio.com/downloads/) para que este código seja em funcionamento no Windows.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
@@ -238,8 +239,10 @@ namespace VisualSearchInsightsToken
 
 ### <a name="java-prerequisites"></a>Pré-requisitos de Java
 
-- Tem de usar [o JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar este código. Você pode usar um Java IDE se você tem um favorito, mas um editor de texto será suficiente.
-- Para este arranque rápido, pode utilizar uma chave de subscrição [de teste gratuito](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar este código. Você pode usar um Java IDE se você tem um favorito, mas um editor de texto será suficiente.
+
 
 ## <a name="run-the-java-application"></a>Executar a aplicação Java
 
@@ -352,8 +355,9 @@ public class InsightsToken {
 
 ### <a name="nodejs-prerequisites"></a>Node.js pré-requisitos
 
-- Deve ter [Node.js 6](https://nodejs.org/en/download/) para executar este código.
-- Para este arranque rápido, pode utilizar uma chave de subscrição [de teste gratuito](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Deve ter [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
 ## <a name="run-the-javascript-application"></a>Executar a aplicação JavaScript
 
@@ -416,8 +420,9 @@ function requestCallback(err, res, body) {
 
 ### <a name="python-prerequisites"></a>Pré-requisitos de Python
 
-- Deve ter [Python 3](https://www.python.org/) para executar este código.
-- Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Deve ter [Python 3](https://www.python.org/) para executar este código.
 
 ## <a name="run-the-python-application"></a>Executar a aplicação Python
 
@@ -475,10 +480,9 @@ if __name__ == '__main__':
     main()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma aplicação web de pesquisa visual de uma página](tutorial-bing-visual-search-single-page-app.md)  
 [O que é a API de Pesquisa Visual do Bing?](overview.md)  
 [Experimentar os Serviços Cognitivos](https://aka.ms/bingvisualsearchtryforfree)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Imagens - Pesquisa Visual](https://aka.ms/bingvisualsearchreferencedoc)

@@ -3,20 +3,25 @@ title: Envie o registo de atividade do Azure para log analytics espaço de traba
 description: Utilize modelos ARM para criar um espaço de trabalho log analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure.
 ms.subservice: logs
 ms.topic: quickstart
+ms.custom: subject-armqs
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: ed2a18f4d7e9784566036a598098a015d3050dbd
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ce7c8df0fcea66d21ba2640ba26213a49efcb1c0
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563548"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601654"
 ---
-# <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-resource-manager-template"></a>Envie o registo de atividade do Azure para log analytics espaço de trabalho usando o modelo de Gestor de Recursos Azure
-O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar modelos ARM para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md) 
+# <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM
+O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar os modelos do Gestor de Recursos Azure (modelos ARM) para criar um espaço de trabalho do Log Analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md)
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
@@ -25,100 +30,104 @@ O modelo a seguir cria um espaço de trabalho vazio do Log Analytics. Guarde est
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "workspaceName": {
-          "type": "string",
-          "metadata": {
-            "description": "Name of the workspace."
-          }
-      },
-      "sku": {
-          "type": "string",
-          "allowedValues": [
-            "pergb2018",
-            "Free",
-            "Standalone",
-            "PerNode",
-            "Standard",
-            "Premium"
-            ],
-          "defaultValue": "pergb2018",
-          "metadata": {
-          "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-          }
-        },
-        "location": {
-          "type": "string",
-          "allowedValues": [
-          "australiacentral", 
-          "australiaeast", 
-          "australiasoutheast", 
-          "brazilsouth",
-          "canadacentral", 
-          "centralindia", 
-          "centralus", 
-          "eastasia", 
-          "eastus", 
-          "eastus2", 
-          "francecentral", 
-          "japaneast", 
-          "koreacentral", 
-          "northcentralus", 
-          "northeurope", 
-          "southafricanorth", 
-          "southcentralus", 
-          "southeastasia",
-          "switzerlandnorth",
-          "switzerlandwest",
-          "uksouth", 
-          "ukwest", 
-          "westcentralus", 
-          "westeurope", 
-          "westus", 
-          "westus2" 
-          ],
-          "metadata": {
-              "description": "Specifies the location for the workspace."
-              }
-        },
-        "retentionInDays": {
-          "type": "int",
-          "defaultValue": 120,
-          "metadata": {
-            "description": "Number of days to retain data."
-          }
-        },
-        "resourcePermissions": {
-          "type": "bool",
-          "defaultValue": true,
-          "metadata": {
-            "description": "true to use resource or workspace permissions. false to require workspace permissions."
-          }
+    "workspaceName": {
+      "type": "string",
+        "metadata": {
+          "description": "Name of the workspace."
         }
-      },
-      "resources": [
-      {
-          "type": "Microsoft.OperationalInsights/workspaces",
-          "name": "[parameters('workspaceName')]",
-          "apiVersion": "2020-03-01-preview",
-          "location": "[parameters('location')]",
-          "properties": {
-              "sku": {
-                  "name": "[parameters('sku')]"
-              },
-              "retentionInDays": "[parameters('retentionInDays')]",
-              "features": {
-                  "searchVersion": 1,
-                  "legacy": 0,
-                  "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
-              }
-          }
+    },
+    "sku": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
+    },
+    "location": {
+      "type": "string",
+      "allowedValues": [
+        "australiacentral",
+        "australiaeast",
+        "australiasoutheast",
+        "brazilsouth",
+        "canadacentral",
+        "centralindia",
+        "centralus",
+        "eastasia",
+        "eastus",
+        "eastus2",
+        "francecentral",
+        "japaneast",
+        "koreacentral",
+        "northcentralus",
+        "northeurope",
+        "southafricanorth",
+        "southcentralus",
+        "southeastasia",
+        "switzerlandnorth",
+        "switzerlandwest",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westeurope",
+        "westus",
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location for the workspace."
+      }
+    },
+    "retentionInDays": {
+      "type": "int",
+      "defaultValue": 120,
+      "metadata": {
+        "description": "Number of days to retain data."
+      }
+    },
+    "resourcePermissions": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "true to use resource or workspace permissions. false to require workspace permissions."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2020-03-01-preview",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "sku": {
+          "name": "[parameters('sku')]"
+        },
+        "retentionInDays": "[parameters('retentionInDays')]",
+        "features": {
+          "searchVersion": 1,
+          "legacy": 0,
+          "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+        }
+      }
+    }
   ]
 }
 ```
+
+Este modelo define um recurso:
+
+- [Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/workspaces)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
@@ -145,7 +154,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ---
 
-### <a name="verify-the-deployment"></a>Verificar a implementação
+### <a name="validate-the-deployment"></a>Validar a implementação
 Verifique se o espaço de trabalho foi criado utilizando um dos seguintes comandos. Substitua os valores da amostra **do Grupo de Recursos** e do espaço de **trabalhoName** pelos valores acima utilizados.
 
 # <a name="cli"></a>[CLI](#tab/CLI2)
@@ -163,67 +172,73 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 ---
 
 ## <a name="create-diagnostic-setting"></a>Criar definição de diagnóstico
+
+### <a name="review-the-template"></a>Rever o modelo
 O modelo a seguir cria uma definição de diagnóstico que envia o registo de Atividade para um espaço de trabalho Log Analytics. Guarde este modelo como *CreateDiagnosticSetting.js.*
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "settingName": {
-            "type": "String"
-        },
-        "workspaceId": {
-            "type": "String"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "settingName": {
+        "type": "String"
     },
-    "resources": [
-        {
-          "type": "Microsoft.Insights/diagnosticSettings",
-          "apiVersion": "2017-05-01-preview",
-          "name": "[parameters('settingName')]",
-          "dependsOn": [],
-          "properties": {
-            "workspaceId": "[parameters('workspaceId')]",
-            "logs": [
-              {
-                "category": "Administrative",
-                "enabled": true
-              },
-              {
-                "category": "Alert",
-                "enabled": true
-              },
-              {
-                "category": "Autoscale",
-                "enabled": true
-              },
-              {
-                "category": "Policy",
-                "enabled": true
-              },
-              {
-                "category": "Recommendation",
-                "enabled": true
-              },
-              {
-                "category": "ResourceHealth",
-                "enabled": true
-              },
-              {
-                "category": "Security",
-                "enabled": true
-              },
-              {
-                "category": "ServiceHealth",
-                "enabled": true
-              }
-            ]
+    "workspaceId": {
+        "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "apiVersion": "2017-05-01-preview",
+      "name": "[parameters('settingName')]",
+      "dependsOn": [],
+      "properties": {
+        "workspaceId": "[parameters('workspaceId')]",
+        "logs": [
+          {
+          "category": "Administrative",
+          "enabled": true
+          },
+          {
+          "category": "Alert",
+          "enabled": true
+          },
+          {
+          "category": "Autoscale",
+          "enabled": true
+          },
+          {
+          "category": "Policy",
+          "enabled": true
+          },
+          {
+          "category": "Recommendation",
+          "enabled": true
+          },
+          {
+          "category": "ResourceHealth",
+          "enabled": true
+          },
+          {
+          "category": "Security",
+          "enabled": true
+          },
+          {
+          "category": "ServiceHealth",
+          "enabled": true
           }
-        }
-    ]
+        ]
+      }
+    }
+  ]
 }
 ```
+
+Este modelo define um recurso:
+
+- [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](/azure-resource-manager/templates/deploy-portal) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
@@ -242,7 +257,7 @@ New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -Tem
 ```
 ---
 
-### <a name="verify-the-deployment"></a>Verificar a implementação
+### <a name="validate-the-deployment"></a>Validar a implementação
 Verifique se a definição de diagnóstico foi criada utilizando um dos seguintes comandos. Substitua os valores da amostra para a subscrição e o nome de definição pelos valores acima utilizados.
 
 > [!NOTE]

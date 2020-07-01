@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com Blink / Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Blink.
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com Blink / Microsoft Docs'
+description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Blink.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,169 +16,168 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c87fe6dce4fa35eaed4ab43d6dcbffeae32e27f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79538d2855ad3ef344543f9148baf5953e84d1d9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69626048"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607923"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com Blink
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutorial: Azure Ative Directory integração única (SSO) com Blink
 
-Neste tutorial, aprenderá a integrar blink com o Azure Ative Directory (Azure AD). Quando integrar o Blink com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar Blink com Azure Ative Directory (Azure AD). Quando integrar o Blink com AZure AD, pode:
 
 * Controlo em Azure AD que tem acesso a Blink.
-* Ative que os seus utilizadores sejam automaticamente inscritos no Blink com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Ativar os seus utilizadores para serem automaticamente inscritos para blink com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Blink single sign-on (SSO) enabled subscrição.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Blink única inscrição (SSO) ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Blink suporta **SP** iniciado SSO
-* Blink suporta aprovisionamento de utilizadores **justo no tempo**
+* Blink suporta **SSO** iniciado SP
+* Suportes intermitentes **Just In Time** o provisionamento do utilizador
 
-## <a name="adding-blink-from-the-gallery"></a>Adicionando Blink da galeria
+## <a name="adding-blink-from-the-gallery"></a>Adicionar blink da galeria
 
-Para configurar a integração do Blink no Azure AD, precisa de adicionar Blink da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração do Blink no AD Azure, é necessário adicionar blink da galeria à sua lista de aplicações geridas pelo SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No Add da secção **galeria,** digite **blink** na caixa de pesquisa.
-1. Selecione **Blink** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **da galeria,** **digite blink** na caixa de pesquisa.
+1. Selecione **Blink** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-blink"></a>Configure e teste Azure AD único sign-on para Blink
+## <a name="configure-and-test-azure-ad-single-sign-on-for-blink"></a>Configurar e testar Azure AD único sinal para Blink
 
-Configure e teste Azure AD SSO com Blink utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Blink.
+Configure e teste Azure AD SSO com Blink usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Blink.
 
 Para configurar e testar o Azure AD SSO com blink, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
-    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. **[Configure Blink SSO](#configure-blink-sso)** - para configurar as definições de início de sessão individuais no lado da aplicação.
-    1. **[Crie](#create-blink-test-user)** um utilizador de teste Blink - para ter uma contraparte de B.Simon em Blink que esteja ligada à representação azure AD do utilizador.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o Blink SSO](#configure-blink-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+    1. **[Create Blink test user](#create-blink-test-user)** - para ter uma contraparte de B.Simon em Blink que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Blink,** encontre a secção **Gerir** e selecione **um único sinal.**
-1. Na página **de método de inscrição, selecione** **SAML**.
-1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Blink,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
+1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. No **Sign on URL** text box, digite um URL utilizando um dos seguintes padrões:
+    a. Na caixa de texto **URL, digite** um URL utilizando um dos seguintes padrões:
     
-    | | |
-    |-|-|
-    | `https://app.joinblink.com`|
-    | `https://<SUBDOMAIN>.joinblink.com`|
-    | | |
+        ```https
+        https://app.joinblink.com
+        https://<SUBDOMAIN>.joinblink.com
+        ```
 
-    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://api.joinblink.com/saml/o-<TENANTID>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://api.joinblink.com/saml/o-<TENANTID>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte do [Cliente Blink](https://help.joinblink.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Blink](https://help.joinblink.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. A aplicação Blink Meetings espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique no ícone **Editar** para abrir o diálogo de Atributos do Utilizador.
+1. A aplicação Blink Meetings espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
     ![image](common/edit-attribute.png)
 
-1. Além de acima, a aplicação Blink Meetings espera que poucos atributos sejam retransmitidos na resposta SAML. Na secção Reivindicações do Utilizador no diálogo de Atributos do Utilizador, execute os seguintes passos para adicionar atributo token SAML, conforme indicado no quadro abaixo:
+1. Além de acima, a aplicação Blink Meetings espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção 'Reclamações de Utilizador' no diálogo 'Atributos do Utilizador', execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo fonte|
+    | Name | Atributo de origem|
     | ---------------|  --------- |
     |   first_name    | user.givenname |
     |   second_name    | utilizador.sobrenome |
-    |   e-mail       | utilizador.mail |
+    |   e-mail       | user.mail |
     | | |
 
-    a. Clique **Em adicionar nova alegação** para abrir o diálogo de reclamações do utilizador **Gerir.**
+    a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    b. Na caixa de texto **Name,** digite o nome do atributo mostrado para essa linha.
+    b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
-    c. Deixe o espaço de **nome em** branco.
+    c. Deixe o **Espaço Namespace** em branco.
 
-    d. Selecione Origem como **Atributo**.
+    d. Selecione Fonte como **Atributo**.
 
-    e. Na lista de **atributos Fonte,** digite o valor do atributo mostrado para essa linha.
+    e. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
     f. Clique em **Guardar**.
 
-1. Na configuração de um único sign-on com a página **SAML,** na secção certificado de **assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
-1. Na secção **'Piscar' de configuração,** copie os URL(s) adequados com base no seu requisito.
+1. Na secção **Configurar Blink,** copie os URL(s) apropriados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso ao Blink.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Blink.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione **Blink**.
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, **selecione Blink**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+    ![O link do utilizador adicionar](common/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-blink-sso"></a>Configure Blink SSO
+## <a name="configure-blink-sso"></a>Configure piscar SSO
 
-Para configurar um único sinal no lado **Blink,** você precisa enviar o descarregamento de **Metadados da Federação XML** e URLs copiados apropriados do portal Azure para [blink equipa](https://help.joinblink.com)de suporte . Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **blink,** é necessário enviar os **Metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte Blink](https://help.joinblink.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-blink-test-user"></a>Criar o utilizador de teste Blink
+### <a name="create-blink-test-user"></a>Criar utilizador de teste Blink
 
-Nesta secção, um utilizador chamado Britta Simon é criado em Blink. O blink suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Blink, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado em Blink. O blink suporta o provisionamento do utilizador just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir em Blink, um novo é criado após a autenticação.
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Blink no Painel de Acesso, deve ser automaticamente inscrito no Piscar para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo blink no Painel de Acesso, deverá ser automaticamente inscrito no Blink para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente slack com Azure AD](https://aad.portal.azure.com/)
+- [Experimente Slack com Azure AD](https://aad.portal.azure.com/)

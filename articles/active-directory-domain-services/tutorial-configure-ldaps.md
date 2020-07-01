@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 60248d1326d872734a49a93a689625cf2603f929
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733947"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601705"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -22,7 +22,7 @@ Para comunicar com o seu domínio gerido Azure Ative Directory Domain Services (
 
 Este tutorial mostra-lhe como configurar LDAPS para um domínio gerido AZure AD DS.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um certificado digital para uso com Azure AD DS
@@ -230,7 +230,7 @@ Com acesso LDAP seguro ativado através da internet, atualize a zona DNS para qu
 
 ![Ver o endereço IP externo LDAP seguro para o seu domínio gerido no portal Azure](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configure o seu fornecedor externo de DNS para criar um registo de anfitrião, como *ldaps,* para resolver este endereço IP externo. Para testar localmente na sua máquina primeiro, pode criar uma entrada no ficheiro anfitriões do Windows. Para editar com sucesso o ficheiro dos anfitriões na sua máquina local, abra o *Notepad* como administrador e, em seguida, abra o ficheiro *C:\Windows\System32\drivers\etc*
+Configure o seu fornecedor externo de DNS para criar um registo de anfitrião, como *ldaps,* para resolver este endereço IP externo. Para testar localmente na sua máquina primeiro, pode criar uma entrada no ficheiro anfitriões do Windows. Para editar com sucesso o ficheiro dos anfitriões na sua máquina local, abra o *Notepad* como administrador e, em seguida, abra o ficheiro *C:\Windows\System32\drivers\etc\hosts*
 
 O seguinte exemplo de entrada de DNS, quer com o seu fornecedor externo de DNS, quer no ficheiro de anfitriões locais, resolve o tráfego de *ldaps.aaddscontoso.com* para o endereço IP externo de *168.62.205.103*:
 

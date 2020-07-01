@@ -3,19 +3,19 @@ title: Segurança
 titleSuffix: Azure Cognitive Services
 description: Conheça as várias considerações de segurança para o uso dos Serviços Cognitivos.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 06/30/2020
+ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608456"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611412"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -205,12 +205,12 @@ O Lockbox do cliente está disponível para este Serviço Cognitivo:
 
 Para a compreensão da linguagem, os engenheiros da Microsoft não acederão a quaisquer dados do cliente no SKU E0. Para solicitar a capacidade de utilização do E0 SKU, preencha e envie o [Formulário de Pedido de Serviço LUIS.](https://aka.ms/cogsvc-cmk) Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização do E0 SKU com LUIS, terá de criar um novo recurso de Compreensão linguística a partir do portal Azure e selecionar o E0 como O Nível de Preços. Os utilizadores não poderão fazer upgrade do F0 para o novo E0 SKU.
 
-O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto, os dados do cliente podem ser armazenados utilizando BYOS, permitindo-lhe obter controlos de dados semelhantes ao [Lockbox do Cliente.](../security/fundamentals/customer-lockbox-overview.md) Tenha em mente que os dados do serviço de fala permanecem e são processados na região onde o recurso Discurso foi criado. Isto aplica-se a quaisquer dados em repouso e dados em trânsito. Ao utilizar funcionalidades de personalização, como Discurso Personalizado e Voz Personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região onde residem os seus recursos DE SERVIÇO BYOS (se utilizados) e serviço de fala.
+O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto, os dados do cliente podem ser armazenados utilizando BYOS ("Bring Your Own Storage"), permitindo-lhe obter controlos de dados semelhantes ao [Lockbox do Cliente.](../security/fundamentals/customer-lockbox-overview.md) Tenha em mente que os dados do serviço de fala permanecem e são processados na região onde o recurso Discurso foi criado. Isto aplica-se a quaisquer dados em repouso e dados em trânsito. Ao utilizar funcionalidades de personalização, como Discurso Personalizado e Voz Personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região onde residem os seus recursos DE SERVIÇO BYOS (se utilizados) e serviço de fala.
 
 > [!IMPORTANT]
 > A Microsoft **não** utiliza os dados dos clientes para melhorar os seus modelos De Discurso. Além disso, se a sessão de registo de pontos finais for desativada e não forem utilizadas personalizações, não são armazenados dados do cliente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore os vários [Serviços Cognitivos](welcome.md)
 * Saiba mais sobre [redes virtuais de serviços cognitivos](cognitive-services-virtual-networks.md)

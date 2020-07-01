@@ -17,6 +17,7 @@
         - name: Portal do Azure
           href: learn/quick-collect-activity-log-portal.md
         - name: Modelo ARM
+          displayName: Resource Manager
           href: learn/quick-collect-activity-log-arm.md
     - name: Monitorizar máquinas virtuais
       items:
