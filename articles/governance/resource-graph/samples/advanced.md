@@ -3,12 +3,12 @@ title: Exemplos de consultas avançadas
 description: Use o Gráfico de Recursos Azure para executar algumas consultas avançadas, incluindo trabalhar com colunas, listar etiquetas usadas e combinar recursos com expressões regulares.
 ms.date: 06/18/2020
 ms.topic: sample
-ms.openlocfilehash: 454692ab650752738700e5303e9092b23489514b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: ce949eb9f718f8526ef189993d7004db152d5e22
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323032"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565636"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Amostras avançadas de consulta de gráficos de recursos
 
@@ -375,7 +375,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Listar todas as extensões instaladas numa máquina virtual
 
 Em primeiro lugar, esta consulta `extend` utiliza-se no tipo de recurso de máquinas virtuais para obter o ID em maiúsculas `toupper()` () o ID, obter o nome e o tipo do sistema operativo e obter o tamanho da máquina virtual.
-Obter a identificação de recursos em maiúsão é uma boa maneira de se preparar para se juntar a outra propriedade. Em seguida, a consulta usa `join` com **tipo** como _esquerdino_ para obter extensões de máquina virtual, combinando uma maiúscuz superior `substring` do ID de extensão. A parte do ID antes de "/extensões" \<ExtensionName\> é o mesmo formato que o ID das máquinas virtuais, por isso usamos esta propriedade para o `join` . `summarize`é então usado `make_list` com o nome da extensão da máquina virtual para combinar o nome de cada extensão onde _id,_ _OSName,_ _OSType_, e _VMSize_ são os mesmos em uma única propriedade de matriz. Por último, `order by` nós, o _baixo sifo_ com **asc.** Por desarm, `order by` está a descer.
+Obter a identificação de recursos em maiúsão é uma boa maneira de se preparar para se juntar a outra propriedade. Em seguida, a consulta usa `join` com **tipo** como _esquerdino_ para obter extensões de máquina virtual, combinando uma maiúscuz superior `substring` do ID de extensão. A parte do ID antes de "/extensões" \<ExtensionName\> é o mesmo formato que o ID das máquinas virtuais, por isso usamos esta propriedade para o `join` . `summarize`é então usado `make_list` com o nome da extensão da máquina virtual para combinar o nome de cada extensão onde _id,_ _OSName,_ _OSType_, e _VMSize_ são os mesmos em uma única propriedade de matriz. Por último, `order by` nós, o _baixo sifo_ com **asc.** Por defeito, `order by` está a descer.
 
 ```kusto
 Resources

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659922"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557058"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Quickstart: Implementar a amostra de Unidade para desktop
 
@@ -38,7 +38,7 @@ Apenas aplicações de ambiente de trabalho planas são atualmente suportadas no
 1. Selecione **Player** à esquerda.
 1. Selecione o separador **de definições da Plataforma Universal do Windows.**
 1. Expandir as **Definições XR**.
-1. Desative **a realidade virtual suportada.**
+1. Desativar **a realidade virtual suportada**.\
     ![definições de jogador](./media/unity-disable-xr.png)
 1. Acima *de Definições XR*, expandir **configurações de publicação**.
 1. Nas **Famílias de Dispositivos Suportados,** **certifique-se de que o ambiente de trabalho** está verificado.
@@ -49,13 +49,13 @@ Apenas aplicações de ambiente de trabalho planas são atualmente suportadas no
 1. *Alterar plataforma* para plataforma **universal windows** **(PC Standalone** também é suportado mas não usado aqui, ver [limitações da plataforma](../reference/limits.md#platform-limitations)).
 1. Definir *o dispositivo-alvo* para **PC**.
 1. Definir *Arquitetura* para **x86**.
-1. Definir *Tipo de Construção* para **Projeto D3D**.
+1. Definir *Tipo de Construção* para **Projeto D3D**.\
   ![Configurações de construção](./media/unity-build-settings-pc.png)
 1. Selecione **Switch para plataforma**.
 1. Ao premir **Build** (ou 'Build And Run'), será solicitado que selecione alguma pasta onde a solução deve ser armazenada.
 1. Abra o **Quickstart.sln** gerado com o Visual Studio.
 1. Altere a configuração para **Release** e **x86**.
-1. Mude o modo de depuração para **Máquina Local**.
+1. Mude o modo de depuração para **Máquina Local**.\
   ![Configuração de solução](./media/unity-deploy-config-pc.png)
 1. Construa a solução (F7).
 
@@ -69,7 +69,7 @@ Inicie o Debugger no Visual Studio (F5). Irá implantar automaticamente a aplica
 A aplicação da amostra deve ser lançada e, em seguida, iniciar uma nova sessão. Passado algum tempo, a sessão está pronta e o modelo renderizado remotamente aparecerá à sua frente.
 Se quiser lançar a amostra uma segunda vez mais tarde, também pode encontrá-la no menu Iniciar agora.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo quickstart, vamos dar uma olhada na conversão de um modelo personalizado.
 

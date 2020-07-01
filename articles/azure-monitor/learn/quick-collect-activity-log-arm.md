@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: b4b8bb991685ce13be89eff26a4442f32cde7206
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: ed2a18f4d7e9784566036a598098a015d3050dbd
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446408"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563548"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-resource-manager-template"></a>Envie o registo de atividade do Azure para log analytics espaço de trabalho usando o modelo de Gestor de Recursos Azure
 O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar modelos ARM para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md) 
@@ -121,7 +121,7 @@ O modelo a seguir cria um espaço de trabalho vazio do Log Analytics. Guarde est
 ```
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
-Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](/azure-resource-manager/templates/deploy-portal) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI1)
 
@@ -278,6 +278,24 @@ Experimente uma consulta mais complexa, como `AzureActivity | summarize count() 
 
 ![Consulta complexa](media/quick-collect-activity-log/query-02.png)
 
+## <a name="clean-up-resources"></a>Limpar recursos
+Se planeia continuar a trabalhar com os rápidos e tutoriais subsequentes, talvez queira deixar estes recursos no lugar. Quando já não for necessário, elimine o grupo de recursos, que elimina a regra de alerta e os recursos conexos. Para eliminar o grupo de recursos utilizando a Azure CLI ou a Azure PowerShell
+
+
+ 
+# <a name="cli"></a>[CLI](#tab/CLI3)
+
+```azurecli
+az group delete --name my-resource-group
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell3)
+
+```powershell
+Remove-AzResourceGroup -Name my-resource-group
+```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../platform/alerts-log-query.md) de registo e livros de [trabalho.](../platform/workbooks-overview.md) Em seguida, deverá recolher [registos](../platform/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.

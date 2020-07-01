@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300577"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565512"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Renderiza um modelo com Unidade
 
 Este quickstart cobre como executar uma amostra de Unidade que torna um modelo incorporado remotamente, usando o serviço de renderização remota (ARR) do Azure.
 
-Não entraremos em detalhes sobre a própria ARR API ou como criar um novo projeto de Unidade. Estes tópicos são abordados no [Tutorial: Criação de um projeto de Unidade de raiz.](../tutorials/unity/project-setup.md)
+Não entraremos em detalhes sobre a própria ARR API ou como criar um novo projeto de Unidade. Estes tópicos são abordados no [Tutorial: Visualização remota de modelos renderizados.](../tutorials/unity/view-remote-models/view-remote-models.md)
 
 Neste arranque rápido aprenderá a:
 > [!div class="checklist"]

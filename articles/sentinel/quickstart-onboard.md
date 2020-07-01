@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: A bordo em Azure Sentinel'
-description: Saiba como recolher dados em Azure Sentinel seguindo este documento Quickstart.
+description: Neste quickstart, aprenda a embarcar a Azure Sentinel, permitindo primeiro o Sentinel e, em seguida, ligue fontes de dados.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a07ba26128d1d4689e820ec8e300ca9420c3c2d2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367092"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564539"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
 

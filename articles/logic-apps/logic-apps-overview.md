@@ -3,16 +3,16 @@ title: Automatizar tarefas para integração empresarial
 description: Saiba mais sobre automatizar fluxos de trabalho que integram apps, dados, serviços e sistemas com código mínimo para integração empresarial utilizando apps Azure Logic.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659609"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563813"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral - O que é Azure Logic Apps?
 
@@ -32,7 +32,7 @@ Para construir soluções de integração empresarial com apps Azure Logic, pode
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>Como funciona o Logic Apps? 
+## <a name="how-do-logic-apps-work"></a>Como funcionam as aplicações lógicas? 
 
 Cada fluxo de trabalho de aplicação lógica começa com um acionador, que é acionado quando um evento específico ocorre ou quando novos dados disponíveis cumprem critérios específicos. Muitos gatilhos fornecidos pelos conectores em Aplicações Lógicas incluem capacidades básicas de agendamento para que possa configurar a regularidade com que as suas cargas de trabalho funcionam. Para agendamentos mais complexos ou recorrências avançadas, pode utilizar um gatilho de Recorrência como primeiro passo em qualquer fluxo de trabalho. Saiba mais sobre [fluxos de trabalho baseados em horários.](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
 
@@ -42,7 +42,7 @@ Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da
 
 Pode criar as aplicações lógicas visualmente com o Estruturador de Aplicações Lógicas, que se encontra disponível no portal do Azure através do browser e no Visual Studio. Para aplicações lógicas mais personalizadas, pode criar ou editar as definições das aplicações lógicas em JavaScript Object Notation (JSON), ao trabalhar no editor "vista de código". Também pode utilizar comandos do Azure PowerShell e modelos do Azure Resource Manager para tarefas selecionadas. O Logic apps é implementado e executado na cloud no Azure. Para uma introdução mais detalhada, veja este vídeo: [Utilização do Azure Enterprise Integration Services para executar aplicações cloud à escala](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
-## <a name="why-use-logic-apps"></a>Porquê utilizar o Logic Apps?
+## <a name="why-use-logic-apps"></a>Porquê usar aplicativos lógicos?
 
 Com a passagem das empresas para o mundo digital, as aplicações lógicas ajudam-no a ligar sistemas legados e modernos e de vanguarda, de forma mais fácil e rapidamente, ao disponibilizar APIs pré-criadas como conectores geridos pela Microsoft. Dessa forma, poder concentrar-se na lógica de negócio e na funcionalidade das suas aplicações. Não tem de se preocupar com a criação, alojamento, dimensionamento, gestão, manutenção e monitorização das aplicações. O Logic Apps trata destas questões por si. Além disso, paga apenas o que utilizar, com base num [modelo de preços](../logic-apps/logic-apps-pricing.md) de consumo.
 
@@ -150,7 +150,7 @@ O Logic Apps é um dos muitos serviços alojados no Microsoft Azure. Por isso, a
 
 Se tiver uma subscrição do Azure, experimente este [início rápido para criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md), que monitoriza o novo conteúdo num site através de um feed RSS e envia um e-mail quando aparecer novo conteúdo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Verificar o tráfego com uma aplicação lógica baseada numa agenda](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 * Saiba mais sobre as [soluções sem servidor com o Azure](../logic-apps/logic-apps-serverless-overview.md)

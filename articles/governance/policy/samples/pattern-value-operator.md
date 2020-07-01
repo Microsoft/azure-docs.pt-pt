@@ -1,25 +1,25 @@
 ---
 title: 'Padrão: O operador de valor numa definição de política'
-description: Este padrão de Política Azure fornece um exemplo de como utilizar o operador de valor numa definição de política.
-ms.date: 01/31/2020
+description: Este padrão de Política Azure fornece um exemplo de como usar o operador de valor numa definição de política.
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: ace7b7cd4a765cdb8c7aa764b52b180c60508ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e246e3a5e2517fa80626081227070bcb2f967784
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172787"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565660"
 ---
-# <a name="azure-policy-pattern-the-value-operator"></a>Padrão de política azure: o operador de valor
+# <a name="azure-policy-pattern-the-value-operator"></a>Padrão de política Azure: o operador de valor
 
-O operador de [valor](../concepts/definition-structure.md#value) avalia [parâmetros,](../concepts/definition-structure.md#parameters) [funções de modelo suportado,](../concepts/definition-structure.md#policy-functions)ou literais a um valor fornecido para uma determinada [condição.](../concepts/definition-structure.md#conditions)
+O operador de [valor](../concepts/definition-structure.md#value) avalia [parâmetros,](../concepts/definition-structure.md#parameters) [funções de modelo suportadas,](../concepts/definition-structure.md#policy-functions)ou literais a um valor fornecido para uma determinada [condição](../concepts/definition-structure.md#conditions).
 
 > [!WARNING]
-> Se o resultado de uma _função_ de modelo for um erro, a avaliação da política falha. Uma avaliação falhada é um **negação**implícito. Para mais informações, consulte [evitar falhas](../concepts/definition-structure.md#avoiding-template-failures)no modelo .
+> Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação**implícita. Para obter mais informações, consulte [evitar falhas no modelo](../concepts/definition-structure.md#avoiding-template-failures).
 
-## <a name="sample-policy-definition"></a>Definição de política de amostras
+## <a name="sample-policy-definition"></a>Definição de política de amostra
 
-Esta definição de política adiciona ou substitui a etiqueta especificada no **nome** do parâmetro _(string_) nos recursos e herda o valor para **tagName** do grupo de recursos em que o recurso se encontra. Esta avaliação acontece quando o recurso é criado ou atualizado. Como efeito [modificado,](../concepts/effects.md#modify) a reparação pode ser efetuada sobre os recursos existentes através de uma tarefa de [reparação](../how-to/remediate-resources.md).
+Esta definição de política adiciona ou substitui a etiqueta especificada no conjunto de **parâmetrosName** _(string_) sobre os recursos e herda o valor para o nome de **tagName** do grupo de recursos em que o recurso se encontra. Esta avaliação acontece quando o recurso é criado ou atualizado. Como efeito [de modificação,](../concepts/effects.md#modify) a reparação pode ser executada sobre os recursos existentes através de uma [tarefa de reparação](../how-to/remediate-resources.md).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json":::
 
@@ -27,12 +27,12 @@ Esta definição de política adiciona ou substitui a etiqueta especificada no *
 
 :::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json" range="20-30" highlight="7,8":::
 
-O operador de **valor** é utilizado dentro da **políticaRule.if** block dentro **de propriedades**. Neste exemplo, o [operador lógico](../concepts/definition-structure.md#logical-operators) **é** utilizado para afirmar que ambas as declarações condicionais devem ser verdadeiras para o efeito, **modificar,** ter lugar.
+O operador de **valor** é utilizado dentro da **apóliceRule.se** bloquear dentro de **propriedades**. Neste exemplo, o [operador lógico](../concepts/definition-structure.md#logical-operators) **allOf** é utilizado para afirmar que ambas as declarações condicionais devem ser verdadeiras para o efeito, **modificar,** a ocorrer.
 
-**valor** avalia o resultado do recurso de função do [modeloGroup()](../../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) à condição **não igual a** um valor em branco. Se o nome da etiqueta fornecido no **tagName** no grupo de recursos-mãe existir, o condicional avalia-o de verdade.
+**valor** avalia o resultado do grupo de recursos de função do modelo [à](../../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) condição **não Equals** de um valor em branco. Se o nome da etiqueta fornecido no **nome de tagname** do grupo de recursos-mãe existir, o condicional avalia a verdade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja outros [padrões e definições incorporadas.](./index.md)
+- Reveja [outros padrões e definições incorporadas.](./index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).

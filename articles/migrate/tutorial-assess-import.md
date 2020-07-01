@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d9300d3bbc5e6432e16f7656c7b4764df9b759cb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342651"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558579"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -32,7 +32,7 @@ Esteja atento a estes pontos:
 - Pode enviar informações do servidor para a Avaliação do Servidor várias vezes utilizando o CSV.
 - Recolher informações sobre aplicações é útil na avaliação do seu ambiente no local para a migração. No entanto, a Avaliação do Servidor não realiza atualmente uma avaliação ao nível da aplicação ou tem em conta as aplicações ao criar uma avaliação.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
 > * Preencha um ficheiro CSV com informações do servidor.
@@ -66,7 +66,7 @@ Para criar um novo projeto Azure Migrate:
 
 4. Para **começar,** **selecione Adicionar ferramentas.**
 5. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
-6. No **PROJECT DETAILS**, especifique o nome do projeto e a geografia em que pretende criar o projeto. Para obter mais informações:
+6. Nos **detalhes do Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Para obter mais informações:
 
     - Reveja as regiões suportadas em [clouds públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e do [Azure Government](migrate-support-matrix.md#supported-geographies-azure-government).
     - Pode selecionar qualquer região de destino ao executar uma migração.
@@ -179,10 +179,21 @@ Para verificar se os servidores aparecem no portal Azure após a descoberta:
 
 Pode criar dois tipos de avaliações utilizando a Avaliação do Servidor.
 
-**Tipo de avaliação** | **Detalhes** | **Dados**
+
+**Tipo de Avaliação** | **Detalhes**
+--- | --- 
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. (concepts-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+### <a name="sizing-criteria"></a>Critérios de dimensionamento
+
+A Avaliação do Servidor fornece duas opções de critérios de dimensionamento:
+
+**Critérios de dimensionamento** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações com base em valores de dados de desempenho especificados. | **Tamanho VM recomendado**: Com base em dados de cpu e utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido standard ou premium)**: Com base na entrada/saída por segundo (IOPS) e na produção dos discos no local.
-**Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho VM recomendado**: Com base no tamanho do servidor especificado.<br/><br> **Tipo de disco recomendado**: Com base na definição do tipo de armazenamento que seleciona para a avaliação.
+**Baseado no desempenho** | Avaliações que fazem recomendações com base em dados de desempenho recolhidos | **Avaliação Azure VM**: A recomendação do tamanho de VM baseia-se em dados de cpu e utilização da memória.<br/><br/> A recomendação do tipo de disco (hdd/SSD padrão ou discos geridos por prémios) baseia-se no IOPS e na produção dos discos no local.<br/><br/> **Avaliação da Solução Azure VMware (AVS):** A recomendação dos nós AVS baseia-se em dados de CPU e utilização da memória.
+**As-is in-ins** | Avaliações que não usam dados de desempenho para fazer recomendações. | **Avaliação Azure VM**: A recomendação do tamanho de VM baseia-se no tamanho VM no local<br/><br> O tipo de disco recomendado baseia-se no que seleciona na definição do tipo de armazenamento para a avaliação.<br/><br/> **Avaliação da Solução Azure VMware (AVS):** A recomendação dos nós AVS baseia-se no tamanho VM no local.
+
 
 Para fazer uma avaliação:
 
@@ -191,24 +202,31 @@ Para fazer uma avaliação:
 
     ![Avaliar](./media/tutorial-assess-physical/assess.png)
 
-3. Nos **servidores avaliação, especifique**um nome para a avaliação.
+3. Nos **servidores avaliação**, especifique o nome de avaliação e selecione o tipo **de avaliação** como *Azure VM* se pretender realizar avaliações Azure VM ou *Azure VMware Solution (AVS)* se pretender realizar avaliações AVS.
+
+    ![Avaliação Básicos](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
 4. Na **fonte Discovery**, selecione **Machines adicionados através da importação para Azure Migrate**.
+
 5. Selecione **Ver tudo** para rever as propriedades da avaliação.
 
     ![Propriedades de avaliação](./media/tutorial-assess-physical/view-all.png)
 
-6. Em **Select ou criar um grupo**, selecione Create **New**, e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
+6. Clique **ao lado** de **Selecionar máquinas para avaliar**. Em **Select ou criar um grupo**, selecione Create **New**, e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
 7. No **Adicionar máquinas ao grupo,** selecione servidores para adicionar ao grupo.
-8. Selecione **Criar avaliação** para criar o grupo e, em seguida, executar a avaliação.
+8. Clique **ao lado** do Review + crie **avaliação** para rever os detalhes da avaliação.
+9. Clique **em Criar avaliação** para criar o grupo e, em seguida, executar a avaliação.
 
     ![Criar uma avaliação](./media/tutorial-assess-physical/assessment-create.png)
 
 9. Após a avaliação ser criada, veja-a nos **Servidores**  >  **Azure Migrate: Avaliações de Avaliação do Servidor**  >  **Assessments**.
 10. Selecione **a avaliação de exportação** para descarregá-lo como um ficheiro Microsoft Excel.
 
-## <a name="review-an-assessment"></a>Rever uma avaliação
+Para saber mais detalhes sobre a avaliação **da Solução VMware Azure VMware (AVS),** consulte [aqui](how-to-create-azure-vmware-solution-assessment.md). 
 
-Uma avaliação descreve:
+## <a name="review-an-azure-vm-assessment"></a>Reveja uma avaliação de Azure VM
+
+Uma avaliação de Azure VM descreve:
 
 - **Prontidão azul**: Se os servidores são adequados para a migração para Azure.
 - **Estimativa mensal dos custos**: Estimativa mensal dos custos de cálculo e armazenamento para a execução dos servidores em Azure.
@@ -406,7 +424,7 @@ Os nomes do sistema operativo fornecidos no CSV devem coincidir ou conter os nom
    :::column-end:::
 :::row-end:::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

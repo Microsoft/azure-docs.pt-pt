@@ -13,6 +13,7 @@
     - name: Criar uma VM no portal
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
     - name: Criar um dashboard - modelo ARM
+      displayName: Resource Manager
       href: quick-create-template.md
 - name: Conceitos
   items:

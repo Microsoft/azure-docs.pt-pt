@@ -1,24 +1,21 @@
 ---
-title: Criar uma loja de conhecimento (pré-visualização) no portal Azure
+title: Criar uma loja de conhecimento no portal Azure
 titleSuffix: Azure Cognitive Search
-description: Utilize o assistente de dados Import para criar uma loja de conhecimentos utilizada para o conteúdo enriquecido persistente. Conecte-se a uma loja de conhecimentos para análise de outras apps ou envie conteúdo enriquecido para processos a jusante. Esta funcionalidade encontra-se atualmente em visualização pública.
+description: Utilize o assistente de dados Import para criar uma loja de conhecimentos utilizada para o conteúdo enriquecido persistente. Conecte-se a uma loja de conhecimentos para análise de outras apps ou envie conteúdo enriquecido para processos a jusante.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 06ddb50173299bbb99518921d1589d2f15b0aa88
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/30/2020
+ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488686"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565302"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Quickstart: Criar uma loja de conhecimentos Azure Cognitive Search no portal Azure
-
-> [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Complementares de Utilização.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
 
 A loja de conhecimento é uma característica da Azure Cognitive Search que persiste na saída de um pipeline de processamento de conteúdos para análises subsequentes ou processamento a jusante. 
 
@@ -43,7 +40,7 @@ Antes de começar, deve ter o seguinte:
 
 Nos passos seguintes, instale um recipiente blob no Azure Storage para armazenar ficheiros de conteúdo heterogéneo.
 
-1. [Baixar HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Estes dados são dados de revisão do hotel guardados num ficheiro CSV (originários de Kaggle.com) e contém 19 peças de feedback do cliente sobre um único hotel. 
+1. [Descarregue HotelReviews_Free.csv. ](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D) Estes dados são dados de revisão do hotel guardados num ficheiro CSV (originários de Kaggle.com) e contém 19 peças de feedback do cliente sobre um único hotel. 
 
 1. [Crie uma conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na sua subscrição atual. Você usará o armazenamento Azure para que tanto o conteúdo bruto seja importado, como a loja de conhecimento que é o resultado final.
 
@@ -93,7 +90,7 @@ Está agora pronto para avançar com o assistente **de dados de Importação.**
 
 Neste passo de feiticeiro, você vai criar um skillset com enriquecimentos cognitivos de habilidades. Os dados de origem consistem em avaliações de clientes em vários idiomas. As competências relevantes para este conjunto de dados incluem a extração de frases-chave, a deteção de sentimentos e a tradução de texto. Posteriormente, estes enriquecimentos serão "projetados" numa loja de conhecimento como mesas Azure.
 
-1. Expandir **Serviços Cognitivos anexados**. **Os enriquecimentos gratuitos (enriquecimentos limitados)** são selecionados por padrão. Você pode usar este recurso porque o número de registos em HotelReviews-Free.csv é de 19 e este recurso gratuito permite até 20 transações por dia.
+1. Expandir **Serviços Cognitivos anexados**. **Os enriquecimentos gratuitos (enriquecimentos limitados)** são selecionados por padrão. Pode utilizar este recurso porque o número de registos em HotelReviews-Free.csv é de 19 e este recurso gratuito permite até 20 transações por dia.
 
 1. Expandir **Adicione os enriquecimentos.**
 

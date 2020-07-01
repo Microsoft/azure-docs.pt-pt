@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 39550c3da7a5ed129e26dec3d33f19c65d76cdfa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509428"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560527"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Amostras de Azure CLI para Azure Cosmos DB Core (SQL) API
 
 A tabela seguinte inclui links para provar scripts Azure CLI para Azure Cosmos DB Core (SQL) API. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [Referência Azure CLI](/cli/azure/cosmosdb). Para amostras de Azure CLI para outras APIs Azure Cosmos DB ver, [Cassandra API,](cli-samples-cassandra.md) [MongoDB API,](cli-samples-mongodb.md) [Gremlin API,](cli-samples-gremlin.md)e [Tabela API](cli-samples-table.md). Todas as amostras de scriptS Azure Cosmos DB CLI podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tarefa | Description |
 |---|---|
 | [Criar uma conta, base de dados e contentor Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB, base de dados e contentor Azure Cosmos para API SQL (Core). |
 | [Alteração de produção](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s numa base de dados e num contentor.|

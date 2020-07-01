@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414045"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560797"
 ---
 # <a name="read-text-from-images-and-documents"></a>Ler texto a partir de imagens e documentos
 
@@ -24,12 +24,11 @@ A Visão Computacional inclui novas capacidades de reconhecimento de caracteres 
 
 ## <a name="read-api"></a>Ler API 
 
-[A API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Leitura da Visão de Computador é a mais recente tecnologia OCR da Microsoft que extrai texto impresso, texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF. Está otimizado para extrair texto de imagens em estado selvagem, imagens com ruído visual, documentos PDF que são digitais ou digitalizados, e imagens pesadas de texto. Suporta texto impresso e manuscrito (inglês) e línguas mistas na mesma imagem ou documento. A lista completa de idiomas suportados pode ser encontrada na página [de suporte idioma para visão](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) de computador.
-
+[A API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Leitura da Visão de Computador é a mais recente tecnologia OCR da Microsoft que extrai texto impresso (sete idiomas), texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto silvestre e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito (apenas em inglês) na mesma imagem ou documento. A lista completa de idiomas suportados pode ser encontrada na página [de suporte idioma para visão](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) de computador.
 
 ### <a name="how-it-works"></a>Como funciona
 
-A [API de Leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) é assíncrono. O primeiro passo é chamar a operação Ler. A operação Ler requer uma imagem ou documento PDF à medida que a entrada e devolve um ID de operação. 
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) suporta documentos pesados de texto até 2000 páginas e, portanto, executa assíncrono. O primeiro passo é chamar a operação Ler. A operação Ler requer uma imagem ou documento PDF à medida que a entrada e devolve um ID de operação. 
 
 O segundo passo é convocar a operação [Get Results.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) Esta operação requer a operação ID que foi criada pela operação Ler. Em seguida, devolve o conteúdo de texto extraído da sua imagem ou documento sob a forma de JSON. A resposta JSON mantém os agrupamentos de linha originais de palavras reconhecidas. Inclui as linhas de texto extraídas e as suas coordenadas de caixa de delimitação. Cada linha de texto inclui todas as palavras extraídas com as suas coordenadas e uma pontuação de confiança.
 
@@ -90,7 +89,7 @@ A leitura também está disponível como um recipiente Docker (pré-visualizaç�
 
 ## <a name="ocr-api"></a>OCR API
 
-A [API da OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) utiliza um modelo de reconhecimento mais antigo. Suporta apenas imagens individuais, não PDFs, e devolve uma resposta imediata. Suporta [mais línguas](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) do que ler API.
+A [API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) utiliza um modelo de reconhecimento mais antigo, suporta apenas imagens e executa de forma sincronizada, regressando imediatamente com o texto detetado. Suporta [mais línguas](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) do que ler API.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,14 +8,14 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/24/2020
-ms.openlocfilehash: 988b26b319c706b97edfbd3545a525b7d685d7f1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368299"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562537"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço de Pesquisa Cognitiva Azure no portal
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
 A Azure Cognitive Search é um recurso autónomo usado para ligar uma experiência de pesquisa em aplicações personalizadas. A Cognitive Search integra-se facilmente com outros serviços Azure, com aplicações em servidores de rede ou com software a correr noutras plataformas da nuvem.
 
@@ -27,11 +27,11 @@ Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com
 
 ## <a name="before-you-start"></a>Antes de começar
 
-As seguintes propriedades de serviço são fixadas durante o tempo de vida do serviço. A alteração de qualquer uma destas propriedades mais tarde exigirá um novo serviço:
+As seguintes propriedades de serviço são fixadas durante o tempo de vida do serviço e mudá-las requer um novo serviço. Ao criar um serviço, pense em como irá usá-lo:
 
-* name
-* nível (Grátis, Básico, Padrão)
-* região (escolha um local que tenha serviços relacionados, tais como Serviços Cognitivos ou serviços de dados)
+* nome (rever [estas sugestões](#name-the-service) para nomes de serviços)
+* nível (Livre, Básico, Padrão [afeta a faturação](search-sku-tier.md) e estabelece um limite ascendente de capacidade)
+* região (escolha um local que tenha serviços relacionados. Para a integração com os Serviços Cognitivos ou Azure Machine Learning, os serviços de co-localização na mesma região são um requisito)
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 

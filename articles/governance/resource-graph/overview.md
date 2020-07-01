@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do Azure Resource Graph
 description: Compreenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 055bb0be75de4d5f6a5a27c5fb3b218fda8777d7
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167269"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565690"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -52,8 +52,7 @@ Agora que tem uma melhor compreensão do que é o Azure Resource Graph, vamos me
 
 É importante entender que a linguagem de consulta do Azure Resource Graph é baseada na [linguagem de consulta Kusto](/azure/data-explorer/data-explorer-overview) usada pelo Azure Data Explorer.
 
-Em primeiro lugar, para obter detalhes sobre operações e funções que podem ser utilizadas com o Azure Resource Graph, veja [Linguagem de consulta do Resource Graph](./concepts/query-language.md).
-Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).
+Em primeiro lugar, para obter detalhes sobre operações e funções que podem ser utilizadas com o Azure Resource Graph, veja [Linguagem de consulta do Resource Graph](./concepts/query-language.md). Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Permissões no Azure Resource Graph
 
@@ -62,8 +61,7 @@ Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Control
 > [!NOTE]
 > O Gráfico de Recursos utiliza as subscrições disponíveis para um principal durante o início de sessão. Para ver os recursos de uma nova subscrição adicionadas durante uma sessão ativa, o diretor deve atualizar o contexto. Esta ação acontece automaticamente quando se inicia e volta a entrar.
 
-A Azure CLI e Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar diretamente a API REST, a lista de subscrições é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando liga para [grupos de recursos - Liste](/rest/api/resources/resourcegroups/list) \- que obtém grupos de recursos a que tem acesso sem qualquer indicação de que o resultado pode ser parcial.
-Se não houver subscrições na lista de subscrições a que o utilizador tem os direitos adequados, a resposta é uma _403_ (Proibida).
+A Azure CLI e Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar diretamente a API REST, a lista de subscrições é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando liga para [grupos de recursos - Liste](/rest/api/resources/resourcegroups/list) \- que obtém grupos de recursos a que tem acesso sem qualquer indicação de que o resultado pode ser parcial. Se não houver subscrições na lista de subscrições a que o utilizador tem os direitos adequados, a resposta é uma _403_ (Proibida).
 
 ## <a name="throttling"></a>Limitação
 
@@ -88,7 +86,7 @@ O Resource Graph suporta Azure CLI, Azure PowerShell, Azure SDK para Python, e m
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](./concepts/query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](./samples/starter.md).

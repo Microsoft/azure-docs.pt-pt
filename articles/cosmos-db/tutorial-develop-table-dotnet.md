@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: d85176ee092011d7c697856921f911da6a5e235a
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118921"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561691"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
 
@@ -255,7 +255,7 @@ Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**
  }
 ```
 
-### <a name="get-an-entity-from-a-partition"></a>Obter uma entidade de uma partição
+## <a name="get-an-entity-from-a-partition"></a>Obter uma entidade de uma partição
 
 Pode obter a entidade a partir de uma partição utilizando o método Recuperar sob a classe [TableOperation.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) O exemplo de código a seguir obtém a chave de partição, o e-mail e o número de telefone de uma entidade cliente. Este exemplo também imprime as unidades de pedido consumidas para consulta da entidade. Para consultar uma entidade, apencha o seguinte código para **SamplesUtils.cs** ficheiro: 
 

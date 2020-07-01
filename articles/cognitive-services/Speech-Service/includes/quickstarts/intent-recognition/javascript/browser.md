@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 4ebd0b7b02036ca9aed6848ee261d32245ba4973
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 904144b044a0a0223d4807372407b5ce0b9f127b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979696"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85570130"
 ---
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 ```html
     <!DOCTYPE html>
@@ -28,7 +28,7 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 ```
 ## <a name="add-ui-elements"></a>Adicionar elementos UI
 
-Agora vamos adicionar alguns UI básicos para caixas de entrada, referenciar o JavaScript do Speech SDK, e pegar um sinal de autorização se disponível.
+Agora vamos adicionar alguns UI básicos para caixas de entrada, referenciar o JavaScript do SDK do Discurso e obter um token de autorização se disponível.
 
 ```html  
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
@@ -132,12 +132,12 @@ Agora vamos adicionar alguns UI básicos para caixas de entrada, referenciar o J
   </script>
 ```
  
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
 Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código no `startRecognizeOnceAsyncButton.addEventListener()` método.
 
 > [!NOTE]
-> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
+> O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 
 ```JavaScript
@@ -159,25 +159,25 @@ Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma co
 
 ## <a name="create-an-audio-configuration"></a>Criar uma configuração áudio
 
-Agora, tens de criar um `AudioConfig` objeto que aponte para o teu devic3. Insira este código no método, logo abaixo da `startIntentRecognizeAsyncButton.addEventListener()` configuração do Discurso.
+Agora, tens de criar um `AudioConfig` objeto que aponte para o teu dispositivo de entrada. Insira este código no `startIntentRecognizeAsyncButton.addEventListener()` método, logo abaixo da configuração do Discurso.
 
 ```JavaScript
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
 ```
 
-## <a name="initialize-a-intentrecognizer"></a>Inicializar um IntençãoRecogniser
+## <a name="initialize-a-intentrecognizer"></a>Inicializar um IntentRecognizer
 
-Agora, vamos criar o `IntentRecognizer` objeto usando os e `SpeechConfig` `AudioConfig` objetos criados mais cedo. Insira este código no `startIntentRecognizeAsyncButton.addEventListener()` método.
+Agora, vamos criar o `IntentRecognizer` objeto usando os `SpeechConfig` `AudioConfig` objetos e objetos criados anteriormente. Insira este código no `startIntentRecognizeAsyncButton.addEventListener()` método.
 
 ```JavaScript
         recognizer = new SpeechSDK.IntentRecognizer(speechConfig, audioConfig);
 ```
 
-## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções LanguageUnderstanding
+## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções De LínguaUnderstanding
 
-Precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenções e adicionar as intenções que quer que seja reconhecida. Vamos usar as intenções do domínio pré-construído para a domótica.
+Precisa associar um `LanguageUnderstandingModel` ao reconhecimento de intenções e adicionar as intenções que deseja reconhecidas. Vamos usar as intenções do domínio pré-construído para a domótica.
 
-Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que substitui o seu ID da `"YourLanguageUnderstandingAppId"` aplicação LUIS. 
+Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que substitui `"YourLanguageUnderstandingAppId"` pelo seu ID de aplicação LUIS. 
 
 ```JavaScript
         if (appId.value !== "" && appId.value !== "YOUR_LANGUAGE_UNDERSTANDING_APP_ID") {
@@ -188,7 +188,7 @@ Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que subs
 ```
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-Pelo `IntentRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
+Pelo `IntentRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço de Discurso saber que está a enviar uma única frase para reconhecimento, e que uma vez que a frase é identificada para parar de reconhecer a fala.
 
 Insira este código abaixo da adição do modelo:
 
@@ -271,15 +271,15 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Criar e executar o exemplo localmente
 
-Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o com o seu browser favorito. Apresentará um SIMPLES GUI que lhe permitirá introduzir a sua chave LUIS, [região LUIS](../../../../regions.md)e ID de aplicação LUIS. Uma vez introduzidos esses campos, pode clicar no botão apropriado para desencadear um reconhecimento utilizando o microfone.
+Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o com o seu browser favorito. Apresentará um gui simples que lhe permitirá introduzir a sua chave LUIS, [região LUIS,](../../../../regions.md)e ID de aplicação LUIS. Uma vez introduzidos estes campos, pode clicar no botão apropriado para acionar um reconhecimento utilizando o microfone.
 
 > [!NOTE]
 > Este método não funciona no navegador Safari.
-> No Safari, a página web da amostra precisa de ser hospedada num servidor web; O Safari não permite que websites carregados a partir de um ficheiro local utilizem o microfone.
+> No Safari, a página web da amostra precisa de ser hospedada num servidor web; O Safari não permite que sites carregados a partir de um ficheiro local utilizem o microfone.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo através de um servidor Web
 
-Para lançar a sua aplicação, abra o seu navegador web favorito e aponte-o para o URL público em que hospeda a pasta, insira a sua [região LUIS,](../../../../regions.md) bem como o SEU ID de Aplicação LUIS, e desencadeie um reconhecimento usando o microfone. Se configurado, adquirirá um símbolo da sua fonte simbólica e começará a reconhecer comandos falados.
+Para lançar a sua aplicação, abra o seu navegador web favorito e aponte-o para o URL público em que hospeda a pasta, insira a sua [região LUIS,](../../../../regions.md) bem como o seu ID de aplicação LUIS, e desencadeie um reconhecimento usando o microfone. Se configurado, adquirirá um símbolo da sua fonte simbólica e começará a reconhecer comandos falados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

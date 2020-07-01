@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 36e85ccf4c145b6881670cb95f5e84ec177ce2a5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8c6456074e29efe47819e4f31235d957bde81cfb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262927"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560621"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Amostras de CLI Azure para Azure Cosmos DB Table API
 
 A tabela seguinte inclui links para provar scripts Azure CLI para Azure Cosmos DB Table API. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [Referência Azure CLI](/cli/azure/cosmosdb). Todas as amostras de scriptS Azure Cosmos DB CLI podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tarefa | Description |
 |---|---|
 | [Criar uma conta e tabela Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos e tabela para API de tabela. |
 | [Alteração de produção](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s em uma mesa.|

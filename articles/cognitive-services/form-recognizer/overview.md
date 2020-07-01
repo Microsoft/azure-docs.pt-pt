@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 241d91a8c8670c32461684ed964b6fc0fd7c1672
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206415"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563245"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -81,7 +81,7 @@ Você usará as seguintes APIs para treinar modelos e extrair dados estruturados
 | **Analisar Recibo** |Analise um único documento de receção para extrair informações chave e outro texto de receção.|
 | **Ver layout** |Analise o layout de um formulário para extrair texto e estrutura de mesa.|
 
-Explore a [documentação de referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
+Explore a [documentação de referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 ### <a name="custom-model"></a>Modelo personalizado
@@ -104,4 +104,4 @@ Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm).
+Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).

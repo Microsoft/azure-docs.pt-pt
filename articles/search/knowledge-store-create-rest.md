@@ -1,24 +1,21 @@
 ---
-title: Criar uma loja de conhecimento (pré-visualização) utilizando REST
+title: Criar uma loja de conhecimento usando REST
 titleSuffix: Azure Cognitive Search
-description: Utilize a API REST e o Carteiro para criar uma loja de conhecimentos de Pesquisa Cognitiva Azure para enriquecimentos persistentes a partir de um oleoduto de enriquecimento de IA. Esta funcionalidade encontra-se atualmente em visualização pública.
+description: Utilize a API REST e o Carteiro para criar uma loja de conhecimentos de Pesquisa Cognitiva Azure para enriquecimentos persistentes a partir de um oleoduto de enriquecimento de IA.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: f030fc81ab33ecd0531040662346e1ed44f5d17c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: f496413cf1a5175cee65bce46a2f7f6260d5451d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263029"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565217"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
-
-> [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte ao portal limitado e nenhum suporte .NET SDK.
 
 Uma loja de conhecimento contém saída de um oleoduto de enriquecimento de pesquisa cognitiva Azure para análise posterior ou outro processamento a jusante. Um pipeline enriquecido com IA aceita ficheiros de imagem ou ficheiros de texto não estruturados, indexa-os utilizando a Azure Cognitive Search, aplica enriquecimentos de IA dos Serviços Cognitivos (como análise de imagem e processamento de linguagem natural), e depois guarda os resultados para uma loja de conhecimento no Azure Storage. Pode utilizar ferramentas como o Power BI ou o Storage Explorer no portal Azure para explorar a loja de conhecimento.
 
@@ -81,7 +78,7 @@ Para obter o valor `admin-key` para , vá ao serviço de Pesquisa Cognitiva Azur
 | Variável    | Onde obtê-lo |
 |-------------|-----------------|
 | `admin-key` | Na página **Chaves** do serviço de Pesquisa Cognitiva Azure.  |
-| `api-version` | Sair como **2019-05-06-Preview**. |
+| `api-version` | Sair como **2020-06-30**. |
 | `datasource-name` | Saia como **hotel-reviews-ds**. | 
 | `indexer-name` | Saia como **hotel-reviews-ixr**. | 
 | `index-name` | Saia como **hotel-reviews-ix**. | 

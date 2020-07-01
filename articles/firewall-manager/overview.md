@@ -1,24 +1,22 @@
 ---
-title: O que é a pré-visualização do Azure Firewall Manager?
+title: O que é o Azure Firewall Manager?
 description: Saiba mais sobre as funcionalidades do Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792167"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563747"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>O que é a pré-visualização do Azure Firewall Manager?
+# <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-A Azure Firewall Manager Preview é um serviço de gestão de segurança que fornece política de segurança central e gestão de rotas para perímetros de segurança baseados na nuvem. 
+O Azure Firewall Manager é um serviço de gestão de segurança que fornece política de segurança central e gestão de rotas para perímetros de segurança baseados na nuvem. 
 
 O Gestor de Firewall pode fornecer gestão de segurança para dois tipos de arquitetura de rede:
 
@@ -33,9 +31,9 @@ Para uma comparação detalhada das arquiteturas *de rede virtual segura* e *hub
 
 ![gestor de firewall](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Funcionalidades de pré-visualização do Azure Firewall Manager
+## <a name="azure-firewall-manager-features"></a>Funcionalidades do Azure Firewall Manager
 
-A Azure Firewall Manager Preview oferece as seguintes funcionalidades:
+O Azure Firewall Manager oferece as seguintes funcionalidades:
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Implantação e configuração central da Firewall Azure
 
@@ -43,7 +41,7 @@ Pode implantar e configurar centralmente vários casos de Firewall Azure que abr
 
 ### <a name="hierarchical-policies-global-and-local"></a>Políticas hierárquicas (globais e locais)
 
-Pode utilizar o Azure Firewall Manager Preview para gerir centralmente as políticas do Azure Firewall em vários centros virtuais protegidos. As suas equipas centrais de TI podem autorizar políticas globais de firewall para impor a política de firewall da organização entre as equipas. As políticas de firewall da autoria local permitem um modelo de self-service DevOps para uma melhor agilidade.
+Você pode usar O Azure Firewall Manager para gerir centralmente as políticas do Azure Firewall em vários centros virtuais protegidos. As suas equipas centrais de TI podem autorizar políticas globais de firewall para impor a política de firewall da organização entre as equipas. As políticas de firewall da autoria local permitem um modelo de self-service DevOps para uma melhor agilidade.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integrado com segurança de terceiros para segurança avançada
 
@@ -60,7 +58,7 @@ Esta funcionalidade está disponível apenas com implementações de hub virtual
 
    Aproveite a conectividade Azure e a distribuição global para adicionar facilmente filtragem de terceiros para os cenários da Internet.
 
-Para obter mais informações sobre fornecedores de segurança fidedignos, veja [o que são parceiros de segurança fidedignos do Azure Firewall Manager (pré-visualização)?](trusted-security-partners.md)
+Para obter mais informações sobre os fornecedores de parceiros de segurança, consulte [quais são os fornecedores de parceiros de segurança do Azure Firewall Manager?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Gestão de rotas centralizadas
 
@@ -76,20 +74,17 @@ As políticas de firewall do Azure podem ser usadas em todas as regiões. Por ex
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-A Azure Firewall Manager Preview tem os seguintes problemas conhecidos:
+O Azure Firewall Manager tem os seguintes problemas conhecidos:
 
 |Problema  |Description  |Mitigação  |
 |---------|---------|---------|
-|Limitações de filtragem de terceiros.|A filtragem de tráfego V2I com fornecedores de terceiros não é suportada com Azure Firewall B2V e V2V.|A investigar|
 |A divisão do tráfego não está atualmente suportada.|O Escritório 365 e a Divisão de Tráfego Público de Azure não são atualmente apoiados. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
 |Um centro virtual seguro por região.|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
 |As políticas de base devem estar na mesma região que a política local.|Crie todas as suas políticas locais na mesma região que a política de base. Pode ainda aplicar uma política criada numa região num centro seguro de outra região.|A investigar|
 |Comunicação inter-hub não funcionando com Secured Virtual Hub|A comunicação secured Virtual Hub para Secured Virtual Hub ainda não está suportada.|A investigar|
 |Todos os Hubs Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Hubs WAN Virtuais hoje em dia.|Crie várias WANs virtuais para permitir a criação de Hubs Virtuais Seguros em diferentes grupos de recursos.|
-|Os grupos IP não são apoiados na Política de Firewall.|Os grupos IP estão em pré-visualização pública e atualmente apenas suportados com as regras tradicionais de firewall.|Correção em progresso.
-|As assinaturas cloud Solution Provider (CSP) não suportadas.|Atualmente, [as assinaturas da CSP](https://azure.microsoft.com/offers/ms-azr-0145p/) não são suportadas.|A investigar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Rever [visão geral de visualização do Azure Firewall Manager](deployment-overview.md)
+- Rever [visão geral do Azure Firewall Manager](deployment-overview.md)
 - Saiba mais sobre [os Centros Virtuais Seguros.](secured-virtual-hub.md)

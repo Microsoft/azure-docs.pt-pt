@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Criar um índice de pesquisa no Carteiro usando APIs REST'
+title: 'Quickstart: Criar um índice de pesquisa no Carteiro usando AS REST'
 titleSuffix: Azure Cognitive Search
-description: Neste rest API quickstart, aprenda a chamar as APIs de PESQUISA Cognitiva Azure usando o Carteiro e dados e definições de amostra.
+description: Neste rest API quickstart, aprenda a chamar as APIs de pesquisa cognitiva Azure usando carteiro e dados e definições de amostra.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
@@ -9,88 +9,88 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c68c813c9c9ecdcb7c7b75102940aa1f1a57b4f0
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121645"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562164"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva azure no carteiro usando APIs REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure no Carteiro usando APIs REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C #](search-create-index-dotnet.md)
+> * [C#](search-create-index-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Uma das formas mais fáceis de explorar as APIs de [pesquisa cognitiva azure](https://docs.microsoft.com/rest/api/searchservice) é usar o Carteiro ou outra ferramenta de teste web para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
+Uma das formas mais fáceis de explorar as APIs de [Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice) é usar o Carteiro ou outra ferramenta de teste web para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
 
-Este artigo explica como formular pedidos interactivamente. Em alternativa, pode [descarregar e importar uma coleção de Carteiros](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) para utilizar pedidos predefinidos.
+Este artigo explica como formular pedidos interativamente. Em alternativa, pode [descarregar e importar uma coleção de Carteiros](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) para usar pedidos predefinidos.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 São necessários os seguintes serviços e ferramentas para este arranque rápido. 
 
-+ [A aplicação](https://www.getpostman.com/) de desktop postman é usada para o envio de pedidos para a Pesquisa Cognitiva Azure.
++ [A aplicação de desktop do Carteiro](https://www.getpostman.com/) é usada para enviar pedidos para a Azure Cognitive Search.
 
 + [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obtenha uma chave e URL
 
-As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, por isso, se você adicionar Pesquisa Cognitiva Azure à sua subscrição, siga estes passos para obter as informações necessárias:
+As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, por isso, se adicionar Azure Cognitive Search à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
+1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
+![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
-Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
+Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="connect-to-azure-cognitive-search"></a>Ligue-se à Pesquisa Cognitiva Azure
 
-Nesta secção, utilize a sua ferramenta web de eleição para configurar ligações à Pesquisa Cognitiva Azure. Cada ferramenta persiste na informação do cabeçalho de pedido para a sessão, o que significa que só tem de introduzir a chave api-key e o Tipo de Conteúdo uma vez.
+Nesta secção, utilize a sua ferramenta web de eleição para configurar ligações à Azure Cognitive Search. Cada ferramenta persiste em solicitar informações de cabeçalho para a sessão, o que significa que só tem de introduzir a tecla api e o Tipo de Conteúdo uma vez.
 
-Para qualquer uma das ferramentas, é necessário escolher um comando (GET, POST, PUT, e assim por diante), fornecer um ponto final url, e para algumas tarefas, fornecer JSON no corpo do pedido. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) por um valor válido. Adicione `$select=name` para devolver apenas o nome de cada índice. 
+Para qualquer uma das ferramentas, é necessário escolher um comando (GET, POST, PUT, etc.), fornecer um ponto final URL, e para algumas tarefas, fornecer JSON no corpo do pedido. Substitua o nome do serviço de pesquisa (NOME DO SERVIÇO DE BUSCA) por um valor válido. Adicione `$select=name` para devolver apenas o nome de cada índice. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name
 
-Repare no prefixo HTTPS, no nome do serviço, no nome de um objeto (neste caso, na recolha de índices) e na [versão api.](search-api-versions.md) A versão api é uma cadeia retâmtal necessária e especificada quanto `?api-version=2019-05-06` à versão atual. As versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
+Note o prefixo HTTPS, o nome do serviço, o nome de um objeto (neste caso, a coleção de índices) e a [versão api.](search-api-versions.md) A versão api é uma corda minúscula necessária especificada como `?api-version=2020-06-30` para a versão atual. As versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
 
-A composição do cabeçalho de pedido inclui dois elementos, tipo de conteúdo, além da chave api usada para autenticar a Pesquisa Cognitiva Azure. Substitua a chave API do administrador (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por um valor válido. 
+A composição do cabeçalho de pedido inclui dois elementos, tipo de conteúdo, mais a chave api utilizada para autenticar a Azure Cognitive Search. Substitua a tecla API de administração (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por um valor válido. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-No Carteiro, formular um pedido que se pareça com a seguinte imagem. Escolha **GET** como verbo, forneça o URL e clique em **Enviar**. Este comando liga-se à Pesquisa Cognitiva Azure, lê a recolha de índices e devolve o código de estado HTTP 200 numa ligação bem sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
+No Carteiro, formula um pedido que se parece com a seguinte imagem. Escolha **GET** como o verbo, forneça o URL e clique em **Enviar.** Este comando liga-se à Azure Cognitive Search, lê a recolha de índices e devolve o código de estado HTTP 200 numa ligação bem sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
 
-![URL de pedido de carteiro e cabeçalho](media/search-get-started-postman/postman-url.png "URL de pedido de carteiro e cabeçalho")
+![Carteiro solicita URL e cabeçalho](media/search-get-started-postman/postman-url.png "Carteiro solicita URL e cabeçalho")
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-Na Pesquisa Cognitiva Azure, normalmente cria-se o índice antes de o carregar com dados. A [API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index) é utilizada para esta tarefa. 
+Na Pesquisa Cognitiva Azure, normalmente cria o índice antes de o carregar com dados. A [API De Criar Índices](https://docs.microsoft.com/rest/api/searchservice/create-index) É utilizada para esta tarefa. 
 
-O URL é estendido `hotels` para incluir o nome do índice.
+O URL é estendido para incluir o nome do `hotels` índice.
 
-Para fazer isto no Carteiro:
+Para fazer isso no Carteiro:
 
 1. Mude o verbo para **PUT**.
 
-2. Copiar neste `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`URL .
+2. Copiar neste `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30` URL.
 
-3. Fornecer a definição de índice (código de cópia pronto é fornecido abaixo) no corpo do pedido.
+3. Forneça a definição de índice (o código pronto para cópia é fornecido abaixo) no corpo do pedido.
 
 4. Clique em **Enviar**.
 
-![Documento Index JSON no órgão de pedido](media/search-get-started-postman/postman-request.png "Documento Index JSON no órgão de pedido")
+![Documento JSON do índice no organismo de pedido](media/search-get-started-postman/postman-request.png "Documento JSON do índice no organismo de pedido")
 
 ### <a name="index-definition"></a>Definição do índice
 
-A coleção de campos define a estrutura documental. Cada documento deve ter estes campos, e cada campo deve ter um tipo de dados. Os campos de cadeia são utilizados em pesquisas em texto completo, pelo que pode transmitir os dados numéricos como cadeias se quiser que esse conteúdo seja pesquisável.
+A recolha de campos define a estrutura documental. Cada documento deve ter estes campos, e cada campo deve ter um tipo de dados. Os campos de cadeia são utilizados em pesquisas em texto completo, pelo que pode transmitir os dados numéricos como cadeias se quiser que esse conteúdo seja pesquisável.
 
 Os atributos no campo determinam a ação permitida. As APIs REST permitem muitas ações, por predefinição. Por exemplo, todas as cadeias são pesquisáveis, recuperáveis, filtráveis e facetáveis por predefinição. Muitas vezes, só tens de definir atributos quando precisas de desligar um comportamento.
 
@@ -124,25 +124,25 @@ Quando submete este pedido, deverá receber uma resposta HTTP 201, que indica qu
 > [!TIP]
 > Se obtiver HTTP 504, certifique-se de que o URL especifica HTTPS. Se vir HTTP 400 ou 404, verifique o corpo do pedido para verificar que não ocorreram erros ao copiar-colar. Um HTTP 403 normalmente indica um problema com a chave de API (uma chave inválida ou um problema de sintaxe com a forma como a chave de API é especificada).
 
-## <a name="2---load-documents"></a>2 - Carregar documentos
+## <a name="2---load-documents"></a>2 - Documentos de carga
 
-A criação e o preenchimento do índice são dois passos distintos. Na Pesquisa Cognitiva Azure, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. A [API de Adicionar, Atualização ou Eliminar Documentos REST](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é utilizada para esta tarefa. 
+A criação e o preenchimento do índice são dois passos distintos. Na Pesquisa Cognitiva Azure, o índice contém todos os dados pesmáveis, que pode fornecer como documentos JSON. A [AAPI de Adicionar, Atualizar ou Eliminar Documentos REST](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) É utilizada para esta tarefa. 
 
-O URL é estendido `docs` para `index` incluir as coleções e o funcionamento.
+O URL é estendido para incluir as `docs` coleções e `index` o funcionamento.
 
-Para fazer isto no Carteiro:
+Para fazer isso no Carteiro:
 
 1. Altere o verbo para **POST**.
 
-2. Copiar neste `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`URL .
+2. Copiar neste `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30` URL.
 
-3. Forneça os documentos JSON (código pronto para cópia saem) no corpo do pedido.
+3. Forneça os documentos JSON (código pronto para cópias em baixo) no corpo do pedido.
 
 4. Clique em **Enviar**.
 
-![Documentos da JSON no órgão de pedido](media/search-get-started-postman/postman-docs.png "Documentos da JSON no órgão de pedido")
+![Documentos JSON no organismo de pedido](media/search-get-started-postman/postman-docs.png "Documentos JSON no organismo de pedido")
 
-### <a name="json-documents-to-load-into-the-index"></a>Documentos da JSON para carregar no índice
+### <a name="json-documents-to-load-into-the-index"></a>Documentos JSON para carregar no índice
 
 O Corpo do Pedido contém quatro documentos que devem ser adicionados ao índice dos hotéis.
 
@@ -239,66 +239,66 @@ Se obtiver um 207, pelo menos um documento falhou ao carregar. Se obtiver um 404
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Agora que um índice e documentos estão carregados, pode emitir consultas contra eles usando documentos de [pesquisa REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Agora que um índice e documentos estão carregados, pode emitir consultas contra eles usando [documentos de pesquisa REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-O URL é estendido para incluir uma expressão de consulta, especificada através do operador de pesquisa.
+O URL é estendido para incluir uma expressão de consulta, especificada usando o operador de pesquisa.
 
-Para fazer isto no Carteiro:
+Para fazer isso no Carteiro:
 
 1. Mude o verbo para **GET**.
 
-2. Copiar neste `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`URL .
+2. Copiar neste `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30` URL.
 
 3. Clique em **Enviar**.
 
-Esta consulta é vazia e devolve uma contagem dos documentos nos resultados da pesquisa. O pedido e a resposta devem ser semelhantes aos seguintes screenshot para o Carteiro depois de clicar em **Enviar**. O código de estado deve ser 200.
+Esta consulta é um vazio e devolve uma contagem dos documentos nos resultados da pesquisa. O pedido e a resposta devem ser semelhantes à imagem seguinte para Carteiro depois de clicar em **Enviar**. O código de estado deve ser 200.
 
  ![GET com cadeia de pesquisa no URL](media/search-get-started-postman/postman-query.png "GET com cadeia de pesquisa no URL")
 
-Experimente outros exemplos de consulta para sentir a sintaxe. Pode fazer uma pesquisa de cordas, verbatim $filter consultas, limitar o conjunto de resultados, pesquisar para campos específicos, e muito mais.
+Experimente outros exemplos de consulta para sentir a sintaxe. Você pode fazer uma pesquisa de cordas, perguntas verbatim $filter, limitar os resultados definidos, estender a pesquisa para campos específicos, e muito mais.
 
 Troque o URL atual com os abaixo, clicando **Enviar** cada vez para ver os resultados.
 
 ```
 # Query example 1 - Search on restaurant and wifi
 # Return only the HotelName, Description, and Tags fields
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2020-06-30
 
 # Query example 2 - Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2020-06-30
 
 # Query example 3 - Take the top two results, and show only HotelName and Category in the results
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2020-06-30
 
 # Query example 4 - Sort by a specific field (Address/City) in ascending order
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2020-06-30
 ```
 
 ## <a name="get-index-properties"></a>Obtenha propriedades de índice
-Também pode usar [estatísticas get](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) para consultar as contagens de documentos e o tamanho do índice: 
+Também pode utilizar [Obter Estatísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) para consultar as contagens de documentos e o tamanho do índice: 
 
 ```
-https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
 ```
 
-Adicionar `/stats` ao seu URL devolve informações do índice. No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
+Adicionar `/stats` ao seu URL retorna informações de índice. No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
 
- ![Obtenha informações sobre índices](media/search-get-started-postman/postman-system-query.png "Obtenha informações sobre índices")
+ ![Obtenha informações de índice](media/search-get-started-postman/postman-system-query.png "Obtenha informações de índice")
 
-Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` separador do caminho URL da corda de consulta, enquanto & separa cada par de 'name=value' na corda de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
+Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` caminho de URL separa o caminho do URL da cadeia de consulta, enquanto & separa cada par 'name=value' na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
+Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 
-Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para se manter abaixo do limite. 
+Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que sabe executar tarefas fundamentais, pode avançar com a API adicional do REST a solicitar funcionalidades mais avançadas, como os indexadores ou a [criação de um pipeline](cognitive-search-tutorial-blob.md)de pesquisa cognitiva . Para o seu próximo passo, recomendamos o seguinte link:
+Agora que sabe executar tarefas principais, pode avançar com pedidos adicionais de API rest para funcionalidades mais avançadas, como indexadores ou [configuração de um pipeline de pesquisa cognitiva](cognitive-search-tutorial-blob.md). Para o seu próximo passo, recomendamos o seguinte link:
 
 > [!div class="nextstepaction"]
-> [TUTORDE REST: Index e pesquisa de dados semi-estruturados (bolhas JSON) em Pesquisa Cognitiva Azure](search-semi-structured-data.md)
+> [REST Tutorial: Índice e pesquisa de dados semi-estruturados (bolhas JSON) em Pesquisa Cognitiva Azure](search-semi-structured-data.md)

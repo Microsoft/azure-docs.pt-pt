@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5d947c9f3f5aedd419662936c7007fc45a57b087
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 751fa9daabaaef05abb5df8229e84975b87cffc1
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262995"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563837"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Amostras Azure PowerShell para Azure Cosmos DB - Tabela API
 
@@ -20,7 +20,7 @@ A tabela seguinte inclui links para provar scripts Azure PowerShell para Azure C
 > [!NOTE]
 > As amostras usam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Por favor, verifique se há atualizações `Az.CosmosDB` regularmente.
 
-| | |
+|Tarefa | Description |
 |---|---|
 |[Criar uma conta e tabela](scripts/powershell/table/ps-table-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta e tabela Azure Cosmos. |
 |[Listar ou obter tabelas](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista ou arranja mesas. |

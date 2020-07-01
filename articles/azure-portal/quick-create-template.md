@@ -7,20 +7,27 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: bd68778eb3f0ca9c2af456cdb88cdcc9fe5862dc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85393902"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560491"
 ---
-# <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um dashboard no portal Azure utilizando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Quickstart: Criar um dashboard no portal Azure utilizando um modelo ARM
 
-Um dashboard no portal Azure é uma visão focada e organizada dos seus recursos em nuvem. Este quickstart foca-se no processo de implantação de um modelo de Gestor de Recursos para criar um dashboard. O painel de instrumentos mostra o desempenho de uma máquina virtual (VM), bem como algumas informações estáticas e ligações.
+Um dashboard no portal Azure é uma visão focada e organizada dos seus recursos em nuvem. Este quickstart foca-se no processo de implantação de um modelo de Gestor de Recursos Azure (modelo ARM) para criar um dashboard. O painel de instrumentos mostra o desempenho de uma máquina virtual (VM), bem como algumas informações estáticas e ligações.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Um VM existente.
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -63,7 +70,7 @@ O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](htt
 
 1. Selecione ou introduza os seguintes valores e, em seguida, selecione **Rever + criar**.
 
-    ![Modelo de gestor de recursos, criar dashboard, implementar portal](media/quick-create-template/create-dashboard-using-template-portal.png)
+    ![Modelo ARM, criar dashboard, implementar portal](media/quick-create-template/create-dashboard-using-template-portal.png)
 
     A menos que seja especificado, utilize os valores predefinidos para criar o painel de instrumentos.
 
@@ -75,7 +82,7 @@ O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](htt
 
 1. Selecione **Criar** ou **Comprar**. Depois de o painel ter sido implantado com sucesso, recebe uma notificação:
 
-    ![Modelo de Gestor de Recursos, criar dashboard, implementar notificação do portal](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![Modelo ARM, criar dashboard, implementar notificação do portal](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 O portal Azure foi usado para implantar o modelo. Além do portal do Azure, também pode utilizar o Azure PowerShell, a CLI do Azure e a API REST. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-powershell.md).
 

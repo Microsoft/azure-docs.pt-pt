@@ -7,7 +7,11 @@
 - name: Guias de Início Rápido
   items:
     - name: Configurar alertas para eventos de estado de funcionamento do serviço
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Portal do Azure
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: Modelo ARM
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Conceitos
   items:
     - name: Página de estado do Azure

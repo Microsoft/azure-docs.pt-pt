@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695254"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557532"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: Table API
 
@@ -32,7 +32,7 @@ As aplicações escritas para o armazenamento de Tabelas do Azure podem migrar p
 ## <a name="table-offerings"></a>Ofertas de Tabelas
 Se utilizar atualmente o armazenamento de Tabelas do Azure, beneficia das vantagens seguintes se mudar para a API de Tabelas do Azure Cosmos DB:
 
-| | Armazenamento de Tabelas do Azure | API de Tabelas do Azure Cosmos DB |
+| Funcionalidade | Armazenamento de Tabelas do Azure | API de Tabelas do Azure Cosmos DB |
 | --- | --- | --- |
 | Latência | Rápida, mas sem limites superiores. | Latência milissegundo de um dígito para leituras e escritas, apoiada com <10 ms latência para leituras e escritos no percentil 99, em qualquer escala, em qualquer lugar do mundo. |
 | Débito | Modelo de débito variável. As tabelas têm um limite de escalabilidade de 20 000 operações/s. | Altamente dimensionável, com [débito reservado dedicado por tabela](request-units.md), com suporte dos SLAs. As contas não têm limite superior relativamente ao débito e suportam mais de dez milhões de operações/s por tabela. |

@@ -4,12 +4,12 @@ description: Conheça o serviço Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d90c40447dc4928a34332685aea728b13c3775b1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 41fcf1c4a9a59ad0cea89c8b44374cef6444558e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771262"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564119"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -20,7 +20,7 @@ A Azure Migrate fornece um hub centralizado para avaliar e migrar para Azure nos
 - **Plataforma de migração unificada**: um único portal para iniciar, correr e acompanhar a sua migração para Azure.
 - **Gama de ferramentas**: Uma gama de ferramentas para avaliação e migração. As ferramentas Azure Migrate incluem a Avaliação do Servidor e Azure Migrate: Migração do servidor. A Azure Migrate também se integra com outros serviços e ferramentas Azure, e com ofertas independentes de fornecedores de software (ISV).
 - **Avaliação e migração**: No centro Azure Migrate, pode avaliar e migrar:
-    - **Servidores**: Avalie os servidores no local e emigre-os para máquinas virtuais Azure.
+    - **Servidores**: Avalie os servidores no local e emigre-os para máquinas virtuais Azure ou Solução VMware Azure (AVS) (Preview).
     - **Bases de dados**: Avaliar bases de dados no local e migrar para a Base de Dados Azure SQL ou para a SQL Managed Instance.
     - **Aplicações web**: Avaliar aplicações web no local e migrar para o Azure App Service utilizando o Assistente de Migração do Serviço de Aplicações Azure.
     - **Ambientes de trabalho virtuais**: Avalie a infraestrutura virtual de ambiente de trabalho (VDI) no local e emigre-a para o Windows Virtual Desktop em Azure.
@@ -60,12 +60,12 @@ A Azure Migrate integra-se com várias ofertas ISV.
 
 ## <a name="azure-migrate-server-assessment-tool"></a>Azure Migrate: Ferramenta de avaliação do servidor
 
-A ferramenta Azure Migrate: Ferramenta de avaliação do servidor descobre e avalia no local VMware VMs, VMs hiper-V e servidores físicos para migração para Azure.
+A ferramenta Azure Migrate: Ferramenta de avaliação do servidor descobre e avalia no local VMware VMs, VMs hiper-V e servidores físicos para migração para Azure. 
 
 Aqui está o que a ferramenta faz:
 
 - **Prontidão azul**: Avaliar se as máquinas no local estão prontas para a migração para Azure.
-- **Dimensionamento azul**: Estima o tamanho dos VMs Azure após a migração.
+- **Dimensionamento azul**: Estima o tamanho dos VMs Azure ou o número de nós Azure VMware após a migração.
 - **Estimativa de custos Azure**: Estimativas de custos para a execução de servidores no local em Azure.
 - **Análise de dependência**: Identifica as dependências dos servidores cruzados e estratégias de otimização para mover servidores interdependentes para o Azure. Saiba mais sobre a Avaliação do Servidor com [a análise da dependência.](concepts-dependency-visualization.md)
 

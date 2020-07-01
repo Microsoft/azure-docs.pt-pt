@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 04bbfe3ee38c5ce37c36ab2f85467ce68e7335be
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 093d8cdd97f28a419788070e674d80aad595f46a
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262978"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556314"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Amostras de Azure CLI para Azure Cosmos DB Cassandra API
 
 A tabela seguinte inclui links para provar scripts Azure CLI para Azure Cosmos DB Cassandra API. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [Referência Azure CLI](/cli/azure/cosmosdb). Todas as amostras de scriptS Azure Cosmos DB CLI podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tarefa | Description |
 |---|---|
 | [Criar uma conta Azure Cosmos, espaço-chave e tabela](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos, espaço-chave e tabela para a API de Cassandra. |
 | [Alteração de produção](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s em um espaço e tabela de chaves.|

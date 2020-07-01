@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 7898fcf9b149f50f8478576d18cd3c3b984eb937
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: ad87c7e3517aad8a611c711773c5e1cc99b24f88
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209101"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562874"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -38,16 +38,16 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="new-features"></a>Novas funcionalidades
 * **Suporte SDK para reconhecimento de formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir um SDK de pré-visualização para o lançamento do Reconhecimento de Formulários v2.0 (pré-visualização). Use os links abaixo para começar com o seu idioma de eleição: 
-   * [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
    * [SDK Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
-   * [SDK Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
    * [SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
 
   O novo SDK suporta todas as funcionalidades da API v2.0 REST para o Reconhecimento de Formulários. Por exemplo, pode treinar um modelo com ou sem etiquetas e extrair texto, pares de valor chave e tabelas dos seus formulários, extrair dados de recibos com o serviço de recibos pré-construídos e extrair texto e tabelas com o serviço de layout dos seus documentos. Pode partilhar o seu feedback sobre os SDKs através do [formulário SDK Feedback](https://aka.ms/FR_SDK_v1_feedback).
  
 * **Modelo personalizado de cópia** Agora pode copiar modelos entre regiões e subscrições utilizando a nova funcionalidade Copy Custom Model. Antes de invocar a API do Modelo Personalizado de Cópia, tem primeiro de obter autorização para copiar para o recurso-alvo, chamando a operação de Autorização de Cópia contra o ponto final do recurso-alvo.
-   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/CopyCustomFormModelAuthorization) REPOUSO API
-   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/CopyCustomFormModel) REPOUSO API 
+   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REPOUSO API
+   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REPOUSO API 
 
 ### <a name="security-improvements"></a>Melhoramentos de segurança
 
@@ -137,4 +137,4 @@ As respostas JSON para todas as chamadas da API têm novos formatos. Algumas cha
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm).
+Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).

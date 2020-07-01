@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 2829f451b90a20c5ad399796b0485c6e533bbb23
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488771"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562276"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de Pesquisa Cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a p�
 
    ![Comando do Explorador de pesquisa](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. A partir da queda do **Índice,** escolha *hotéis-índice de amostra.* Clique no dropdown da **versão API,** para ver quais AS APIs REST estão disponíveis. Para as consultas abaixo, utilize a versão geralmente disponível (2019-05-06).
+2. A partir da queda do **Índice,** escolha *hotéis-índice de amostra.* Clique no dropdown da **versão API,** para ver quais AS APIs REST estão disponíveis. Para as consultas abaixo, utilize a versão geralmente disponível (2020-06-30).
 
    ![Comandos de índice e de API](media/search-get-started-portal/search-explorer-changeindex.png)
 

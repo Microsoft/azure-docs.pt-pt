@@ -1,5 +1,5 @@
 ---
-title: Use Azure Table storage or Azure Cosmos DB Table API from Node.js
+title: Utilize o armazenamento da mesa Azure ou a API da tabela Azure Cosmos dB a partir de Node.js
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 35435bd318596ffd0a46e5d272565358c092bc03
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76771087"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562696"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,16 +41,19 @@ Para utilizar o Armazenamento do Azure ou o Azure Cosmos DB, necessita do Azure 
 1. Utilize uma interface de linha de comandos, como o **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix) e navegue para a pasta onde criou a aplicação.
 2. Escreva **npm install azure-storage** na janela de comandos. Os resultados do comando são semelhantes ao seguinte exemplo.
 
-       azure-storage@0.5.0 node_modules\azure-storage
-       +-- extend@1.2.1
-       +-- xmlbuilder@0.4.3
-       +-- mime@1.2.11
-       +-- node-uuid@1.4.3
-       +-- validator@3.22.2
-       +-- underscore@1.4.4
-       +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-       +-- xml2js@0.2.7 (sax@0.5.2)
-       +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```bash
+    azure-storage@0.5.0 node_modules\azure-storage
+    +-- extend@1.2.1
+    +-- xmlbuilder@0.4.3
+    +-- mime@1.2.11
+    +-- node-uuid@1.4.3
+    +-- validator@3.22.2
+    +-- underscore@1.4.4
+    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+    +-- xml2js@0.2.7 (sax@0.5.2)
+    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```
+
 3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules**. Nessa pasta, encontrará o pacote **azure-storage**, que contém as bibliotecas de que precisa para aceder ao armazenamento.
 
 ### <a name="import-the-package"></a>Importar o pacote
@@ -68,7 +71,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação do Azure Cosmos DB
-Para adicionar uma ligação ao Azure Cosmos DB, crie um objeto **TableService** e especifique o nome da conta, a chave primária e o ponto final. Pode copiar estes valores a partir da **Definição** > **De Conexão String** no portal Azure para a sua conta Cosmos DB. Por exemplo:
+Para adicionar uma ligação ao Azure Cosmos DB, crie um objeto **TableService** e especifique o nome da conta, a chave primária e o ponto final. Pode copiar estes **valores**a partir da Cadeia de Ligação de Definições  >  **Connection String** no portal Azure para a sua conta Cosmos DB. Por exemplo:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -94,7 +97,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 `result.created` é `true` se for criada uma nova tabela e `false` se a tabela já existir. `response` contém informações sobre o pedido.
 
 ### <a name="filters"></a>Filtros
-Pode aplicar a filtragem opcional a operações executadas utilizando **TableService**. As operações de filtragem podem incluir a exploração madeireira, as tentativas automáticas, etc. Os filtros são objetos que implementam um método com a assinatura:
+Pode aplicar a filtragem opcional a operações executadas utilizando **TableService**. As operações de filtragem podem incluir registos, retrórias automáticas, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
@@ -136,8 +139,6 @@ var task = {
 
 > [!NOTE]
 > Há também um campo **Timestamp** para cada registo, que é definido pelo Azure quando uma entidade é inserida ou atualizada.
->
->
 
 Também pode utilizar **entityGenerator** para criar entidades. O exemplo seguinte cria a mesma entidade de tarefa utilizando **entityGenerator**.
 
@@ -173,8 +174,6 @@ Resposta de exemplo:
 > Por predefinição, **insertEntity** não devolve a entidade inserida como parte das informações de `response`. Se planear efetuar outras operações nesta entidade ou se pretender colocar em cache as informações, pode ser útil devolvê-la como parte de `result`. Pode fazê-lo ao ativar **echoContent** da seguinte forma:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
->
->
 
 ## <a name="update-an-entity"></a>Atualizar uma entidade
 Existem vários métodos disponíveis para atualizar uma entidade existente:
@@ -365,7 +364,7 @@ dc.table.queryEntities(tableName,
 
 Se inspecionar o objeto `continuationToken`, encontrará propriedades como `nextPartitionKey`, `nextRowKey` e `targetLocation`, que podem ser utilizadas para iterar todos os resultados.
 
-Também pode `top` usar `continuationToken` juntamente com o tamanho da página. 
+Também pode usar `top` para definir o tamanho da `continuationToken` página. 
 
 ## <a name="work-with-shared-access-signatures"></a>Trabalhar com assinaturas de acesso partilhado
 As assinaturas de acesso partilhado (SAS) são uma forma segura de fornecer acesso granular às tabelas sem fornecer o nome ou a chaves da sua conta de Armazenamento. As SAS são frequentemente utilizadas para fornecer acesso limitado aos seus dados, tal como permitir que uma aplicação móvel consulte registos.
@@ -394,7 +393,7 @@ var host = tableSvc.host;
 
 Tenha em atenção que também tem de fornecer as informações do host, dado que é necessário quando o titular da SAS tenta aceder à tabela.
 
-A aplicação cliente utiliza então a SAS com **TableServiceWithSAS** para executar operações na tabela. O exemplo seguinte liga-se à tabela e executa uma consulta. Consulte o acesso limitado aos recursos de Armazenamento Azure utilizando o artigo de [assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md) para o formato do tableSAS. 
+A aplicação cliente utiliza então a SAS com **TableServiceWithSAS** para executar operações na tabela. O exemplo seguinte liga-se à tabela e executa uma consulta. Consulte o Grant acesso limitado aos recursos de Armazenamento Azure utilizando o artigo [assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md) para o formato do tableSAS. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

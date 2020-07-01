@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 64cb864b50f44f70bb9ceccc9983641970116cc7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261448"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559022"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Blobs índice JSON do Azure Storage usando REST
 
@@ -112,13 +112,13 @@ Em Cabeçalhos, desconfie "Content-type" `application/json` e desaver-se `api-ke
 
   ![Carteiro solicita URL e cabeçalho](media/search-get-started-postman/postman-url.png "Carteiro solicita URL e cabeçalho")
 
-Os URIs devem especificar uma versão api e cada chamada deve devolver um **201 Criado**. A versão api geralmente disponível para a utilização de matrizes JSON é `2019-05-06` .
+Os URIs devem especificar uma versão api e cada chamada deve devolver um **201 Criado**. A versão api geralmente disponível para a utilização de matrizes JSON é `2020-06-30` .
 
 ## <a name="3---create-a-data-source"></a>3 - Criar uma fonte de dados
 
 A [API create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) cria um objeto de Pesquisa Cognitiva Azure que especifica quais os dados a indexar.
 
-1. Desaponte o ponto final desta chamada para `https://[service name].search.windows.net/datasources?api-version=2019-05-06` . Substitua `[service name]` pelo nome do seu serviço de pesquisa. 
+1. Desaponte o ponto final desta chamada para `https://[service name].search.windows.net/datasources?api-version=2020-06-30` . Substitua `[service name]` pelo nome do seu serviço de pesquisa. 
 
 1. Copie o seguinte JSON para o corpo de pedido.
 
@@ -161,7 +161,7 @@ A [API create Data Source](https://docs.microsoft.com/rest/api/searchservice/cre
     
 A segunda chamada é [Criar API índice,](https://docs.microsoft.com/rest/api/searchservice/create-index)criando um índice de Pesquisa Cognitiva Azure que armazena todos os dados pes pesjáveis. Um índice especifica todos os parâmetros e os respetivos atributos.
 
-1. Desaponte o ponto final desta chamada para `https://[service name].search.windows.net/indexes?api-version=2019-05-06` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
+1. Desaponte o ponto final desta chamada para `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
 1. Copie o seguinte JSON para o corpo de pedido.
 
@@ -236,7 +236,7 @@ A segunda chamada é [Criar API índice,](https://docs.microsoft.com/rest/api/se
 
 Um indexante conecta-se à fonte de dados, importa dados para o índice de pesquisa alvo, e fornece opcionalmente um calendário para automatizar a atualização de dados. A API REST é [Criar Indexer.](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-1. Desa estada o URI para esta chamada para `https://[service name].search.windows.net/indexers?api-version=2019-05-06` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
+1. Desa estada o URI para esta chamada para `https://[service name].search.windows.net/indexers?api-version=2020-06-30` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
 1. Copie o seguinte JSON para o corpo de pedido.
 
@@ -281,7 +281,7 @@ Pode começar a procurar assim que o primeiro documento estiver carregado.
 
 1. Mude o verbo para **GET**.
 
-1. Desa estada o URI para esta chamada para `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
+1. Desa estada o URI para esta chamada para `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
 1. Envie o pedido. Esta é uma consulta de pesquisa completa de texto não especificada que devolve todos os campos marcados como recuperáveis no índice, juntamente com uma contagem de documentos. A resposta deve ser semelhante a:
 
@@ -313,7 +313,7 @@ Pode começar a procurar assim que o primeiro documento estiver carregado.
             . . . 
     ```
 
-1. Adicione o `$select` parâmetro de consulta para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true` .  Para esta consulta, 100 documentos coincidem, mas por padrão, a Azure Cognitive Search apenas devolve 50 nos resultados.
+1. Adicione o `$select` parâmetro de consulta para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  Para esta consulta, 100 documentos coincidem, mas por padrão, a Azure Cognitive Search apenas devolve 50 nos resultados.
 
    ![Consulta parametrizada](media/search-semi-structured-data/lastquery.png "Consulta paramterizada")
 
@@ -333,7 +333,7 @@ Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática p
 Pode utilizar o portal para eliminar índices, indexadores e fontes de dados. Ou use **DELETE** e forneça URLs a cada objeto. O seguinte comando elimina um indexante.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 O código de estado 204 é devolvido após uma eliminação com êxito.

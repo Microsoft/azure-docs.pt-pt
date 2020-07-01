@@ -1,19 +1,18 @@
 ---
-title: Novos anúncios de recurso
-titleSuffix: Azure Cognitive Search
+title: Novidades na Pesquisa Cognitiva Azure
 description: Anúncios de funcionalidades novas e melhoradas, incluindo um nome de serviço de Azure Search to Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 086e3cf71012f168851df1c85b19689294fe6302
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/30/2020
+ms.openlocfilehash: bca6cbe2a605131083536b3e709943fe2353f38f
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515722"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565078"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -23,23 +22,33 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 ### <a name="june-2020"></a>Junho de 2020
 
-A azure Machine Learning é um novo tipo de habilidade para integrar um ponto final inferencing da Azure Machine Learning. A experiência do portal suporta a descoberta e integração do seu ponto final de Aprendizagem de Máquinas Azure dentro de um skillset de Pesquisa Cognitiva. A descoberta requer que os seus serviços de Pesquisa Cognitiva e Azure ML sejam implantados na mesma subscrição. Começa com [este tutorial.](cognitive-search-tutorial-aml-custom-skill.md)
++ [A loja de conhecimento](knowledge-store-concept-intro.md) está agora geralmente disponível.
+
++ [Serviço de Pesquisa REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) é a nova versão estável das APIs REST. Além da loja de conhecimento, esta versão geralmente disponível inclui melhorias para pesquisa de relevância e pontuação.
+
++ O novo algoritmo de classificação de relevância é agora [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) para qualquer novo serviço que crie. Para os serviços existentes, pode optar pela definição da propriedade em `similarity` campos de índice. Esta propriedade está geralmente disponível.
+
++ O novo indexante `executionEnvironment` pode ser explicitamente definido para `private` . Esta capacidade suporta o acesso do indexante a dados externos sobre pontos finais privados, e geralmente está disponível.
+
++ [Azure Machine Learning (AML)](cognitive-search-aml-skill.md) é um novo tipo de habilidade para integrar um ponto final inferencing da Azure Machine Learning. A experiência do portal suporta a descoberta e integração do seu ponto final de Aprendizagem de Máquinas Azure dentro de um skillset de Pesquisa Cognitiva. A descoberta requer que os seus serviços de Pesquisa Cognitiva e Azure ML sejam implantados na mesma subscrição. Esta habilidade está geralmente disponível. Começa com [este tutorial.](cognitive-search-tutorial-aml-custom-skill.md)
 
 ### <a name="may-2020-microsoft-build"></a>Maio de 2020 (Microsoft Build)
 
 + O recurso [de sessões de Debug](cognitive-search-debug-session.md) está agora em pré-visualização. As sessões de Debug fornecem uma interface baseada no portal para investigar e resolver problemas com um skillset. As correções criadas na sessão de depurar podem ser guardadas para as habilidades de produção. Começa com [este tutorial.](cognitive-search-tutorial-debug-sessions.md)
 
-+ As melhorias de segurança incluem a capacidade de [configurar um ponto final de pesquisa privado (pré-visualização)](service-create-private-endpoint.md) que é inacessível na internet pública. Também pode [configurar as regras de IP para suporte a firewall (pré-visualização)](service-configure-firewall.md).
++ Proteja um ponto final do serviço de pesquisa da internet pública [configurando as regras IP para suporte de firewall in-bound](service-configure-firewall.md) ou aproveitando [o Azure Private Link para um ponto final de pesquisa privado](service-create-private-endpoint.md). Ambas as capacidades estão geralmente disponíveis.
 
 + Utilize uma [identidade gerida pelo sistema (pré-visualização)](search-howto-managed-identities-data-sources.md) para configurar uma ligação a uma fonte de dados Azure para indexação. Aplica-se a [indexadores](search-indexer-overview.md) que ingerem conteúdo de fontes de dados Azure, tais como Azure SQL Database, Azure Cosmos DB e Azure Storage.
 
-+ Altere a base para a forma como as pontuações de pesquisa são calculadas, de por fragmento para todos os fragmentos, utilizando os parâmetros de consulta [ScoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) e sessionId.
++ Altere a base para a forma como as pontuações de pesquisa são calculadas, de por fragmento para todos os fragmentos, utilizando [o sessionId](index-similarity-and-scoring.md) e os parâmetros de consulta [scoringStatistics=global.](index-similarity-and-scoring.md#scoring-statistics) Estes parâmetros estão geralmente disponíveis.
+
++ Adicione um parâmetro de consulta [de característicasMode (pré-visualização)](index-similarity-and-scoring.md#featuresMode-param) para expandir uma pontuação de relevância para mostrar mais detalhes: por pontuação de semelhança de campo, por frequência de período de campo, e por número de campo de fichas únicas correspondidas. Pode consumir estes pontos de dados em algoritmos de pontuação personalizados. Para obter uma amostra que demonstre esta capacidade, consulte [Adicionar machine learning (LearnToRank) para procurar relevância](https://github.com/Azure-Samples/search-ranking-tutorial).
 
 ### <a name="march-2020"></a>Março de 2020
 
 + [A exclusão suave de blob nativo (pré-visualização)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) significa que o indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação.
 
-+ A Nova API de Gestão Estável [(2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) já está disponível. 
++ A Nova API de Gestão Estável [(2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) está agora disponível em geral. 
 
 ### <a name="february-2020"></a>Fevereiro de 2020
 
@@ -49,13 +58,11 @@ A azure Machine Learning é um novo tipo de habilidade para integrar um ponto fi
 
 ### <a name="january-2020"></a>Janeiro de 2020
 
-+ [As chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) estão agora geralmente disponíveis. Se estiver a utilizar o REST, pode aceder à funcionalidade utilizando `api-version=2019-05-06` . Para o código gerido, o pacote correto ainda é [a pré-visualização da versão 8.0 net SDK,](search-dotnet-sdk-migration-version-9.md) mesmo que a funcionalidade esteja fora de pré-visualização. 
++ [As chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) estão agora geralmente disponíveis. Se estiver a utilizar o REST, pode aceder à funcionalidade utilizando `api-version=2019-05-06` ou posteriormente. Para o código gerido, o pacote correto ainda é [a pré-visualização da versão 8.0 net SDK,](search-dotnet-sdk-migration-version-9.md) mesmo que a funcionalidade esteja fora de pré-visualização. 
 
 + O acesso privado a um serviço de pesquisa está disponível através de dois mecanismos, ambos atualmente em pré-visualização:
 
   + Pode restringir o acesso a endereços IP específicos utilizando a API Management REST `api-version=2019-10-01-Preview` para criar o serviço. A API de pré-visualização tem novas propriedades **IpRule** e **NetworkRuleSet** na [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Esta funcionalidade de pré-visualização está disponível em regiões selecionadas. Para mais informações, consulte [Como utilizar a API Management REST](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
-
-  + Atualmente disponível através de uma pré-visualização de acesso limitado, pode disponibilizar um serviço de Pesquisa Azure que suporte o Azure Private Endpoint para ligações de clientes na mesma rede virtual. Para obter mais informações, consulte [Criar um Ponto Final Privado para obter uma ligação segura](service-create-private-endpoint.md).
 
 ### <a name="december-2019"></a>Dezembro de 2019
 

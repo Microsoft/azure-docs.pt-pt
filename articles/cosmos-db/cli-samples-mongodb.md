@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 88b795b52955a6bd323e7a900c0cd62dab1dd2d4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 7536a2e3fc32aeb330aad52625a5946e856d6646
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262944"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556039"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-mongodb-api"></a>Amostras de Azure CLI para Azure Cosmos DB MongoDB API
 
@@ -21,7 +21,7 @@ A tabela seguinte inclui links para provar scripts Azure CLI para Azure Cosmos D
 > [!NOTE]
 > Atualmente só é possível criar a versão 3.2 (isto é, contas que utilizam o ponto final no formato `*.documents.azure.com` ) da API da Azure Cosmos DB para as contas MongoDB utilizando modelos powerShell, CLI e Resource Manager. Para criar a versão 3.6 das contas, utilize o portal Azure.
 
-| |  |
+|Tarefa | Description |
 |---|---|
 | [Criar uma conta, base de dados e recolha Azure Cosmos](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB, base de dados e recolha da API da AZure Cosmos. |
 | [Alteração de produção](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s numa base de dados e recolha.|

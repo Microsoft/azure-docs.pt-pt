@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 73af4c28b5963564f45af7e038b02f7e70d11c4a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2f90746448460d168d5fa4751af1f407d217f8ed
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609901"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562137"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Python usando cadernos Jupyter
 
@@ -69,7 +69,7 @@ Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-   api_version = '?api-version=2019-05-06'
+   api_version = '?api-version=2020-06-30'
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
@@ -320,7 +320,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como simplificação, este quickstart usa uma versão abreviada do índice Hotels. Pode criar a versão completa para experimentar consultas mais interessantes. Para obter a versão completa e todos os 50 documentos, execute o assistente **de dados De importação,** selecionando *a amostra de hotéis* a partir das fontes de dados de amostra incorporadas.
 

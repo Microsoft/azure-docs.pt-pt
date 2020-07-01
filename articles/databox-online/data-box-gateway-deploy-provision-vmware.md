@@ -8,18 +8,18 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561650"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564201"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Gateway de caixa de dados Azure provision ioda em VMware
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provision Azure Data Box Gateway em VMware
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial descreve como fornecer um Data Box Gateway num sistema de anfitriões que executa VMware ESXi 6.0, 6.5 ou 6.7. 
+Este tutorial descreve como providenciar um Gateway de Caixa de Dados num sistema de anfitriões que executa VMware ESXi 6.0, 6.5 ou 6.7. 
 
 Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir. 
 
@@ -30,12 +30,12 @@ Neste tutorial, ficará a saber como:
 > * Aprovisionar um dispositivo virtual no VMware
 > * Iniciar o dispositivo virtual e obter o endereço IP
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os pré-requisitos para fornecer um dispositivo virtual num sistema de anfitriões que executa VMware ESXi 6.0, 6.5 ou 6.7 são os seguintes.
+Os pré-requisitos para o fornecimento de um dispositivo virtual num sistema de anfitriões que executa vMware ESXi 6.0, 6.5 ou 6.7, são os seguintes.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Para o recurso do Data Box Gateway
 
@@ -51,7 +51,7 @@ Antes de começar, certifique-se de que:
 
 Antes de implementar um dispositivo virtual, certifique-se de que:
 
-* Tem acesso a um sistema de anfitriões que executa VMware (ESXi 6.0, 6.5 ou 6.7) que pode ser utilizado para fornecer um dispositivo.
+* Tem acesso a um sistema de anfitriões em execução de VMware (ESXi 6.0, 6.5 ou 6.7) que pode ser utilizado para uma provisão de um dispositivo.
 * O sistema anfitrião tem capacidade para dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
 
   * Um mínimo de 4 núcleos.
@@ -71,7 +71,7 @@ Antes de começar:
 
 Para criar um dispositivo virtual, precisa:
 
-* Acesso a um sistema de anfitriões em execução VMware ESXi Server 6.0, 6.5 ou 6.7. O sistema anfitrião tem capacidade para dedicar os recursos seguintes ao seu dispositivo virtual:
+* Acesso a um sistema de anfitriões que executa o VMware ESXi Server 6.0, 6.5 ou 6.7. O sistema anfitrião tem capacidade para dedicar os recursos seguintes ao seu dispositivo virtual:
  
   * Um mínimo de 4 processadores virtuais.
   * Pelos menos 8 GB de RAM. 
@@ -87,7 +87,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 
 1. Copie a imagem do dispositivo virtual no seu sistema. Transferiu esta imagem virtual (dois ficheiros) através do portal do Azure. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
 
-2. Inscreva-se no servidor ESXi através de `https://<IP address of the ESXi server>`um browser neste URL: . Tem de ter privilégios de administrador para criar uma máquina virtual.
+2. Inscreva-se no servidor ESXi através de um browser neste URL: `https://<IP address of the ESXi server>` . Tem de ter privilégios de administrador para criar uma máquina virtual.
 
    ![Página de início de sessão](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -102,7 +102,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
    
 5. Clique com o botão direito do rato e selecione **Browse Datastore** (Procurar arquivo de dados).
 
-   ![Navegue na loja de dados](./media/data-box-gateway-deploy-provision-vmware/image3.png)
+   ![Procurar loja de dados](./media/data-box-gateway-deploy-provision-vmware/image3.png)
 
 6. É apresentada a janela **Datastore Browser** (Browser de arquivos de dados).
 
@@ -130,35 +130,35 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
     ![Criar ou registar VM](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
 13. É apresentada o ecrã **New Virtual Machine** (Nova máquina virtual). Em Select creation type (Selecionar tipo de criação), escolha **Create a new virtual machine** (Criar uma nova máquina virtual) e clique em **Next** (Seguinte).
-    ![Selecione página do tipo de criação](./media/data-box-gateway-deploy-provision-vmware/image10.png)
+    ![Selecione a página do tipo de criação](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
 14. Na página **Select a Name and OS Name and Location** (Selecionar um nome, nome de SO e localização), especifique o **Nome** da sua máquina virtual. Este nome deve corresponder ao nome da pasta (melhor prática recomendada) que especificou anteriormente no Passo 7. Em **Guest OS family** (Família do SO convidado), escolha Windows, e em **Guest OS version** (Versão do SO convidado), escolha Microsoft Windows Server 2016 (64-bit). Clique em **Seguinte**.
 
-    ![Selecione uma página de nome e localização de nome e osso](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+    ![Selecione um nome e nome e página de localização do nome e do oss](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
 15. Na página **Select storage** (Selecionar armazenamento), selecione o arquivo de dados que pretende utilizar para aprovisionar a VM. Clique em **Seguinte**.
 
-    ![Selecione página de armazenamento](./media/data-box-gateway-deploy-provision-vmware/image12.png)
+    ![Selecione a página de armazenamento](./media/data-box-gateway-deploy-provision-vmware/image12.png)
 16. Na página **Customize settings** (Personalizado definições), defina **CPU** como 4, **Memory** (Memória) como 8192 MB (ou mair) e **Hard disk 1** (Disco rígido 1) como 2 TB (ou mais). Escolha **Disco rígido SCSI** para adicionar. Neste caso, foi LSI Logic SAS. **Os discos IDE estáticos não são suportados.** O **Disco rígido 1** é o disco virtual de dados. Tenha em atenção que não pode encolher o disco depois de aprovisionado. Tentar encolher o disco resulta numa perda de todos os dados locais do dispositivo. 
 
-    ![Personalizar página de configurações](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    ![Personalizar página de definições](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
     Na mesma página, clique em **Add hard disk** (Adicionar disco rígido) e selecione **Existing hard disk** (Disco rígido existente). Selecione o ficheiro VMDK no arquivo de dados. Esta ação adicionará um disco de SO. 
 
-     ! Personalizar página de configurações[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Personalizar página de definições](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Desloque a página para baixo até ver **New hard disk** (Novo disco rígido) e expanda-o para ver as definições. Defina **Virtual Device Node** (Nó de dispositivo virtual) como **IDE controller 0** (Controlador IDE 0).
 
-     ![Personalizar página de configurações](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Personalizar página de definições](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-17. (Opcional) *Execute este passo apenas se estiver a executar VMware ESXi Server 6.7*. Na página personalizar as **definições,** clique em **opções VM**. Vá às **opções de Arranque > Firmware** e mude-o para **BIOS**. Por predefinição, o valor é definido para eFI. Clique em **Seguinte**.
+17. (Opcional) *Execute este passo apenas se estiver a executar VMware ESXi Server 6.7*. Na página **De Configurações De Personalização,** clique nas **opções VM**. Vá às **opções Boot > Firmware** e altere-o para **BIOS**. Por predefinição, o valor é definido para EFI. Clique em **Seguinte**.
 
-    ![Personalize a página de definições se executar VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![Personalizar a página de definições se executar VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
 18. Na página **Ready to Complete** (Pronto para concluir), reveja todas as definições associadas à nova máquina virtual. Verifique se a CPU é 4, a memória é 8192 MB, a interface de rede é 1 e o Disco rígido 2 tem o Controlador IDE 0. Clique em **Concluir**.
    
-    ![Pronto para](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![completar página Pronto para Completar página](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Página pronta para completar ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+     ![ A página Pronta para Concluir](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 A sua máquina virtual está agora aprovisionada. Verá uma notificação para o efeito e a nova máquina virtual é adicionada à lista de VMs.
 
@@ -176,7 +176,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 #### <a name="to-start-the-virtual-device"></a>Para iniciar o dispositivo virtual
 1. Inicie o dispositivo virtual. No painel da direita, selecione o seu dispositivo na lista de VMs e clique com o botão direito do rato para abrir o menu de contexto. Selecione **Power** (Alimentação) e, em seguida, selecione **Power on** (Ligar). Esta ação deve ligar a máquina virtual. Pode ver o estado no painel inferior do cliente Web.
 
-    ![Potência no dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image19.png)
+    ![Alimentação no dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
 2. Mais uma vez, selecione a sua VM. Clique com o botão direito do rato e selecione **Console** (Consola) e, em seguida, selecione **Open in a new window** (Abrir numa nova janela).
 
@@ -184,13 +184,13 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
 3. A consola da máquina virtual abre numa nova janela. 
 
-    ![Consola de dispositivovirtual](./media/data-box-gateway-deploy-provision-vmware/image21.png)
+    ![Consola de dispositivos virtuais](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
 4. Quando o dispositivo estiver em execução, aponte o cursor e clique no separador na parte central superior da janela da consola. Selecione **Guest OS (SO convidado) > Send keys (Enviar chaves) > Ctrl+Alt+Delete**. Esta ação irá desbloquear a VM.
 
    ![Desbloqueie o dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
-5. Indique a palavra-passe para iniciar sessão na máquina. A palavra-passe padrão é *Password1*.
+5. Indique a palavra-passe para iniciar sessão na máquina. A palavra-passe predefinida é *Palavra-passe1*.
 
    ![Introduza a palavra-passe do dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
@@ -204,14 +204,14 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
 9. Depois de a configuração inicial estar concluída e o dispositivo iniciado, verá o texto da faixa do dispositivo. Tome nota do endereço IP e do URL apresentado no texto da faixa para gerir o dispositivo. Vai utilizar este endereço IP para ligar à IU da Web do seu dispositivo virtual e concluir a configuração local e a ativação.
 
-   ![Texto de banner e URL de ligação para dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   ![URL de texto e ligação banner para dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
 Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa (apresentado abaixo). Terá de modificar a configuração do dispositivo de modo a que tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração em [verificar se o sistema anfitrião cumpre os requisitos mínimos do dispositivo virtual](#check-the-host-system).
 
-Se enfrentar qualquer outro erro durante a configuração inicial utilizando o UI web local, consulte os seguintes fluxos de trabalho:
+Se enfrentar qualquer outro erro durante a configuração inicial utilizando a UI web local, consulte os seguintes fluxos de trabalho:
 
-- [Ecorra em testes de diagnóstico para resolver problemas na configuração da UI](data-box-gateway-troubleshoot.md#run-diagnostics)web .
-- [Gere o pacote de registo e ver ficheiros de registo](data-box-gateway-troubleshoot.md#collect-support-package).
+- [Executar testes de diagnóstico para resolver problemas na configuração da UI web](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Gerei o pacote de registo e visualiza os ficheiros de registo](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Passos seguintes
 

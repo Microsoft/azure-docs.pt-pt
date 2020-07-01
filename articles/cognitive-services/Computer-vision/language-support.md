@@ -1,7 +1,7 @@
 ---
-title: Suporte linguístico - Visão Computacional
+title: Suporte linguístico - Visão computacional
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece uma lista de línguas naturais suportadas pelas funcionalidades da Visão Computacional; OCR, Reconhecer Texto e Ler.
+description: Este artigo fornece uma lista de línguas naturais suportadas por funcionalidades de Visão Computacional; OCR, Reconhecer Texto e Ler.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589198"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560179"
 ---
-# <a name="language-support-for-computer-vision"></a>Suporte linguístico para visão computacional
+# <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
-Algumas funcionalidades da Visão Computacional suportam múltiplas línguas; quaisquer características não mencionadas aqui apenas suportam inglês.
+Algumas funcionalidades da Visão Computacional suportam vários idiomas; quaisquer funcionalidades não mencionadas aqui apenas suportam inglês.
 
-## <a name="text-recognition"></a>Reconhecimento de texto
+## <a name="text-detection-ocr"></a>Deteção de texto (OCR)
 
-A Visão Computacional pode reconhecer texto em muitas línguas. As APIs oCR e Read não exigem que especifique um código de idioma. Consulte [reconhecer texto impresso e manuscrito](concept-recognizing-text.md) para obter mais informações sobre esta funcionalidade e as vantagens de cada API.
+A Visão Computacional pode detetar texto em muitas línguas. As APIs de Leitura e OCR não exigem que especifique um código linguístico. Consulte [o texto de imagens e documentos](concept-recognizing-text.md) para obter mais informações sobre esta funcionalidade e as vantagens de cada API.
 
 |Linguagem| Código do idioma | OCR API | Ler API |
 |:-----|:----:|:-----:|:---:|
@@ -56,9 +56,9 @@ A Visão Computacional pode reconhecer texto em muitas línguas. As APIs oCR e R
 
 ## <a name="image-analysis"></a>Análise de imagem
 
-Algumas ações da [Análise -](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) APi de imagem podem devolver resultados em outras línguas, especificadas com o parâmetro de `language` consulta. Outras ações devolvem resultados em inglês, independentemente da língua especificada, e outras lançam uma exceção para línguas não apoiadas. As ações são especificadas com os `visualFeatures` parâmetros e `details` consultas; consulte a [visão geral](home.md) para uma lista de todas as ações que pode fazer com a análise de imagem.
+Algumas ações da [Análise - API de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pode devolver resultados em outras línguas, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do que é especificado, e outras lançam uma exceção para línguas não apoiadas. As ações são especificadas com os `visualFeatures` parâmetros e `details` consultas; consulte a [Visão Geral](home.md) para uma lista de todas as ações que pode fazer com a análise de imagem.
 
-|Linguagem | Código do idioma | Categorias | Etiquetas | Descrição | Adulto | Marcas | Cor | Rostos | Tipo de imagem | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código do idioma | Categorias | Etiquetas | Description | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -68,7 +68,7 @@ Algumas ações da [Análise -](https://westus.dev.cognitive.microsoft.com/docs/
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Começar a usar as funcionalidades de Visão computacional mencionadas neste guia.
+Começa a utilizar as funcionalidades de Visão de Computador mencionadas neste guia.
 
-* [Analisar uma imagem local (REST)](./quickstarts/csharp-analyze.md)
-* [Extrair texto impresso (REST)](./quickstarts/csharp-print-text.md)
+* [Analise uma imagem local (REST)](./quickstarts/csharp-analyze.md)
+* [Extrato de texto impresso (REST)](./quickstarts/csharp-print-text.md)

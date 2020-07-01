@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687927"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563009"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure
 
@@ -29,7 +29,7 @@ Neste tutorial, ficará a saber como:
 > * Ligue um site VPN a um hub
 > * Ligar uma VNet a um hub
 > * Descarregue um ficheiro de configuração
-> * Ver a WAN Virtual
+> * Configure o seu gateway VPN
 
 > [!NOTE]
 > Se tiver muitos sites, teria de utilizar, normalmente, um [parceiro de WAN Virtual](https://aka.ms/virtualwan) para criar esta configuração. Contudo, pode criá-la sozinho se se sentir à vontade com o trabalho em rede e souber configurar o seu próprio dispositivo VPN.
@@ -75,7 +75,7 @@ Um hub é uma rede virtual que pode conter gateways para a funcionalidade site-t
 
 ## <a name="create-a-site"></a><a name="site"></a>Criar um site
 
-Está agora pronto para criar os sites correspondentes às suas localizações físicas. Crie tantos sites qantos necessários para corresponder às suas localizações físicas. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Pode criar até 1000 sites por Centro Virtual num WAN Virtual. Se tivesse vários centros, poderia criar 1000 por cada um desses centros. Se tiver um dispositivo CPE (link insert) parceiro Virtual WAN (link insert), verifique com eles para saber mais sobre a sua automatização para o Azure. Normalmente, a automatização implica uma simples experiência de clique para exportar informações de sucursais em larga escala para azul e estabelecer conectividade do CPE para o gateway Azure Virtual WAN VPN. Para mais informações, consulte [a orientação da Automação da Azure para os parceiros CPE.](virtual-wan-configure-automation-providers.md)
+Está agora pronto para criar os sites correspondentes às suas localizações físicas. Crie tantos sites qantos necessários para corresponder às suas localizações físicas. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Pode criar até 1000 sites por Centro Virtual num WAN Virtual. Se tivesse vários centros, poderia criar 1000 por cada um desses centros. Se tiver um dispositivo CPE (link insert) parceiro Virtual WAN (link insert), verifique com eles para saber mais sobre a sua automatização para o Azure. Normalmente, a automatização implica uma simples experiência de clique para exportar informações de sucursais em larga escala para o Azure e estabelecer conectividade do CPE para o gateway Azure Virtual WAN VPN. Para mais informações, consulte [a orientação da Automação da Azure para os parceiros CPE.](virtual-wan-configure-automation-providers.md)
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -251,11 +251,20 @@ Se precisar de instruções para configurar o dispositivo, pode utilizar as inst
 * Um novo WAN virtual pode suportar tanto o IKEv1 como o IKEv2.
 * O WAN virtual pode utilizar dispositivos VPN baseados em políticas e por rotas e instruções do dispositivo.
 
-## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Ver a WAN Virtual
+## <a name="configure-your-vpn-gateway"></a><a name="gateway-config"></a>Configure o seu gateway VPN
 
-1. Navegue para a WAN virtual.
-2. Na página **'Visão Geral',** cada ponto no mapa representa um hub. Pairar sobre qualquer ponto para ver o resumo da saúde do centro, estado de conexão e bytes dentro e fora.
-3. Na secção Hubs e conexões, pode ver o estado do hub, sites VPN, etc. Pode clicar num nome de hub específico e navegar no Site VPN para obter mais detalhes.
+Pode visualizar e configurar as definições de gateway VPN a qualquer momento selecionando **Ver/Configurar**.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Ver configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+Na página **Editar VPN Gateway,** pode ver as seguintes definições:
+
+* Endereço IP público VPN Gateway (atribuído por Azure)
+* Endereço IP privado VPN Gateway (atribuído por Azure)
+* Endereço IP BGP padrão VPN Gateway (atribuído por Azure)
+* Opção de configuração para Endereço IP BGP personalizado: Este campo está reservado para APIPA (Endereço IP Privado Automático). Azure suporta O IP BGP nos intervalos 169.254.21.* e 169.254.22.*
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

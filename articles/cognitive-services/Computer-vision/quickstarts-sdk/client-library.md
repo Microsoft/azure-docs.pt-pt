@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b76c986007a5df017bbadab62de239b319230ab5
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c08b733a3ecfaa3ce6204654cf01c1bac6f8bb20
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609969"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560201"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Da Visão de Computador
 
-Começa com a biblioteca de clientes da Visão De Computador. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A Computer Vision dá-lhe acesso a algoritmos avançados para processar imagens e devolver informações
+Começa com a biblioteca de clientes da Visão De Computador. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A Computer Vision fornece-lhe acesso a algoritmos avançados para processar imagens e devolver informações.
 
 Utilize a biblioteca do cliente da Visão De Computador para:
 

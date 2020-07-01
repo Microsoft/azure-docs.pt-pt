@@ -4,12 +4,12 @@ description: Saiba mais sobre as novidades e novidades recentes no serviço Azur
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052333"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556929"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -17,13 +17,14 @@ ms.locfileid: "85052333"
 
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
+- As avaliações para migração de VMware VMs para [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) são agora suportadas. [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
 - Suporte para múltiplas credenciais no aparelho para a descoberta do servidor físico.
 - Suporte para permitir o login do Azure a partir de um aparelho para inquilino onde a restrição do inquilino tenha sido configurada.
 - Novas versões de aparelhoS Azure Migrate, conforme listado abaixo.
 
 ### <a name="azure-public-cloud"></a>Nuvem pública azul
 
-**Cenário** | **Transferir** | **SHA256**
+**Cenário** | **Transferência** | **SHA256**
 --- | --- | ---
 Hiper-V (8,93 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
 VMware (10,9 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6b6ce7402b79f234bc0fe69663d
@@ -32,7 +33,7 @@ Físico (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?link
 
 ### <a name="azure-government"></a>Azure Government
 
-**Cenário** | **Transferir** | **SHA256**
+**Cenário** | **Transferência** | **SHA256**
 --- | --- | ---
 Hiper-V (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae4689408e43ab55ff397b77200b92121972e683f9aa3
 VMware (63.1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d582038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
