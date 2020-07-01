@@ -26,7 +26,7 @@
     - name: Criar fábrica de dados - Modelo do Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Segurança - Ativar a Encriptação de Chaves Geridas pelo Cliente
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
     - name: Criar fluxo de dados
       href: data-flow-create.md
 - name: Tutoriais
@@ -576,7 +576,7 @@
         - name: Identidade gerida do Data Factory
           href: data-factory-service-identity.md
         - name: Encriptação de chaves geridas pelo cliente
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: Monitorizar e gerir
       items:
         - name: Monitorizar visualmente

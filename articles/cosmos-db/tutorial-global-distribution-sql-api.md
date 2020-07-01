@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: d50217bed3850f0e9021dda4bf1b577d006839d1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 52a76e685a9db58870c9a18b419ef725f559a969
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674487"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553008"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configurar a distribuição global da Azure Cosmos DB utilizando a API SQL
 
@@ -104,7 +104,6 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 O seguinte código mostra como definir locais preferenciais utilizando o Python SDK:
 
 ```python
-
 connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
 client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
@@ -130,14 +129,13 @@ O seguinte código mostra como definir locais preferenciais utilizando o Java SD
 --- 
 
 ## <a name="rest"></a>REST
-Depois de uma conta de base de dados ter sido disponibilizada em várias regiões, os clientes podem consultar a respetiva disponibilidade ao efetuar um pedido GET no URI seguinte.
-
-    https://{databaseaccount}.documents.azure.com/
+Uma vez disponibilizada uma conta de base de dados em várias regiões, os clientes podem consultar a sua disponibilidade através da realização de um pedido GET sobre este URI`https://{databaseaccount}.documents.azure.com/`
 
 O serviço devolverá uma lista de regiões e os URIs de ponto final correspondentes do Azure Cosmos DB para as réplicas. A região de escrita atual será indicada na resposta. Em seguida, o cliente pode selecionar o ponto final adequado para obter todos os pedidos da API REST da seguinte forma.
 
 Resposta de exemplo
 
+```json
     {
         "_dbs": "//dbs/",
         "media": "//media/",
@@ -167,7 +165,7 @@ Resposta de exemplo
         "_ts": 0,
         "_etag": null
     }
-
+```
 
 * Todos os pedidos PUT, POST e DELETE têm de ir para o URI de escrita indicado
 * Todos os GETs e outros pedidos apenas de leitura (por exemplo, consultas) podem ir para qualquer ponto final da escolha do cliente
@@ -178,7 +176,7 @@ Se a região de escrita mudar após a fase inicial de descoberta do cliente, as 
 
 Já está, isto conclui este tutorial. Pode saber como gerir a consistência da sua conta replicada globalmente ao ler [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). Para obter mais informações sobre como funciona a replicação de base de dados global no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 

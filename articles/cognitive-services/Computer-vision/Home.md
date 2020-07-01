@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 90c2068021f1e9a173f37bdf1098edda10ab3d8d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413472"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554389"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -34,7 +34,7 @@ A Visão Computacional pode alimentar muitos cenários de gestão de ativos digi
 
 Pode analisar imagens para fornecer insights sobre as suas características e características visuais. Todas as funcionalidades da tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
 
-| Ação | Descrição |
+| Ação | Description |
 | ------ | ----------- |
 |**[Etiquetar elementos visuais](concept-tagging-images.md)**|Identificar e marcar características visuais numa imagem, a partir de um conjunto de milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as etiquetas são ambíguas ou não são de conhecimento comum, a resposta da API fornece dicas para clarificar o contexto da etiqueta. A identificação não se limita ao motivo principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o cenário (interior ou exterior), mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.|
 |**[Detetar objetos](concept-object-detection.md)**| A deteção de objetos é semelhante à marcação, mas a API devolve as coordenadas da caixa de limitação para cada tag aplicada. Por exemplo, se uma imagem contiver um cão, gato e pessoa, a operação Detect listará esses objetos juntamente com as suas coordenadas na imagem. Pode utilizar esta funcionalidade para processar mais relações entre os objetos numa imagem. Também lhe permite saber quando há vários casos da mesma etiqueta numa imagem.|
@@ -48,11 +48,9 @@ Pode analisar imagens para fornecer insights sobre as suas características e ca
 |**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Visão Computacional gera primeiro uma miniatura de alta qualidade e depois analisa os objetos dentro da imagem para determinar a *área de interesse*. A Visão Computacional, em seguida, planta a imagem para se adaptar às exigências da área de interesse. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, consoante as suas necessidades.|
 |**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analise o conteúdo de uma imagem para devolver as coordenadas da *área de interesse.* Em vez de cortar a imagem e gerar uma miniatura, a Visão Computacional devolve as coordenadas da caixa de delimitação da região, para que a aplicação de chamada possa modificar a imagem original conforme desejado.|
 
-## <a name="extract-text-from-images"></a>Extrair texto de imagens
+## <a name="detect-text-from-images"></a>Detetar texto a partir de imagens
 
-Pode utilizar a API [de Leitura de](concept-recognizing-text.md#read-api) Visão de Computador para extrair texto impresso e manuscrito de imagens para um fluxo de caracteres legível por máquina. A API de Leitura utiliza os modelos mais recentes e trabalha com texto em diversas superfícies e fundos, tais como recibos, cartazes, cartões de visita, cartas e quadros brancos. Atualmente funciona para sete línguas diferentes (ver [suporte linguístico).](./language-support.md)
-
-Também pode utilizar a API de [reconhecimento de caracteres óticos (OCR)](concept-recognizing-text.md) para extrair texto impresso em várias línguas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. OCR suporta 25 línguas e deteta automaticamente a linguagem do texto reconhecido.
+Pode utilizar a [APIs](concept-recognizing-text.md) API de deteção de texto de visão de computador para extrair texto impresso e manuscrito de imagens para um fluxo de caracteres legível por máquina. A API de Leitura utiliza os modelos mais recentes e trabalha com texto em diversas superfícies e fundos, tais como recibos, cartazes, cartões de visita, cartas e quadros brancos. As duas APIs de deteção de texto suportam a extração de texto impresso em [várias línguas.](./language-support.md)
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 

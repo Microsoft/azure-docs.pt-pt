@@ -4,19 +4,19 @@ description: Descreve como avaliar vMware VMware no local para migração para A
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 7fcfa698b0a7e96a117b9d9663869bbec0e0079e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771313"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85550871"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs VMware com Avaliação do Servidor
 
 Este artigo mostra-lhe como avaliar no local máquinas virtuais VMware (VMs), utilizando a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMware VMs para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMware VMs para Azure. Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
 > * Crie um aparelho Azure Migrate que funciona no local para avaliar os VM.
@@ -42,25 +42,25 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Crie um novo projeto Azure Migrate da seguinte forma:
 
 1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
-1. Em **Serviços**, selecione **Azure Migrate**.
-1. Em **Visão Geral**, em **Discover, avaliar e migrar servidores,** selecione **Avaliar e migrar servidores**.
+2. Em **Serviços**, selecione **Azure Migrate**.
+3. Em **Visão Geral**, em **Discover, avaliar e migrar servidores,** selecione **Avaliar e migrar servidores**.
 
    ![Botão para avaliar e migrar servidores](./media/tutorial-assess-vmware/assess-migrate.png)
 
-1. Em **Iniciar,** **selecione Adicionar ferramentas**.
-1. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.     
-1. Em **Detalhes do Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
+4. Em **Iniciar,** **selecione Adicionar ferramentas**.
+5. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.     
+6. Em **Detalhes do Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
    ![Caixas para nome e região do projeto](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Selecione **Seguinte**.
-1. Na **ferramenta de avaliação Select**, selecione **Azure Migrate: Avaliação do servidor**Em  >  **seguida**.
+7. Selecione **Seguinte**.
+8. Na **ferramenta de avaliação Select**, selecione **Azure Migrate: Avaliação do servidor**Em  >  **seguida**.
 
    ![Seleção para a ferramenta de avaliação do servidor](./media/tutorial-assess-vmware/assessment-tool.png)
 
-1. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por agora** > **Seguinte**.
-1. Em **Rever + adicionar ferramentas,** rever as definições e selecionar **Ferramentas Adicionar**.
-1. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado. Será encaminhado para a página do projeto. Se não vir o projeto, poderá aceder ao mesmo em **Servidores** no dashboard do Azure Migrate.
+9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por agora** > **Seguinte**.
+10. Em **Rever + adicionar ferramentas,** rever as definições e selecionar **Ferramentas Adicionar**.
+11. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado. Será encaminhado para a página do projeto. Se não vir o projeto, poderá aceder ao mesmo em **Servidores** no dashboard do Azure Migrate.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o aparelho Azure Migrate
 
@@ -75,8 +75,8 @@ Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Server A
 ### <a name="download-the-ova-template"></a>Descarregue o modelo OVA
 
 1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
-1. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMWare vSphere hypervisor**
-1. Selecione **Baixar** para descarregar o ficheiro do modelo OVA.
+2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMWare vSphere hypervisor**
+3. Selecione **Baixar** para descarregar o ficheiro do modelo OVA.
 
    ![Seleções para descarregar um ficheiro OVA](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -95,13 +95,13 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
 
     - Para a nuvem pública de Azure:
     
-        **Algoritmo** | **Transferir** | **SHA256**
+        **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
         VMware (10,9 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6b6ce7402b79f234bc0fe69663d
 
     - Para o Governo de Azure:
     
-        **Algoritmo** | **Transferir** | **SHA256**
+        **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
         VMware (63.1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d582038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
 
@@ -114,13 +114,13 @@ Importe o ficheiro descarregado e crie um VM:
 
    ![Comando do menu para implantar um modelo OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-1. No Assistente de Modelo de OVF de implementação > **Fonte**, especifique a localização do ficheiro OVA.
-1. No **Nome** e **Localização**, especifique um nome amigável para o VM. Selecione o objeto de inventário no qual o VM será hospedado.
-1. No **Host/Cluster**, especifique o hospedeiro ou o cluster em que o VM irá funcionar.
-1. No **Armazenamento**, especifique o destino de armazenamento para o VM.
-1. Em **Formato do Disco**, especifique o tipo e o tamanho do disco.
-1. No **Mapeamento de Rede,** especifique a rede à qual o VM se ligará. A rede necessita de conectividade com a Internet para enviar metadados para a Avaliação do Servidor Migratório Azure.
-1. Reveja e confirme as definições e, em seguida, **selecione Terminar**.
+2. No Assistente de Modelo de OVF de implementação > **Fonte**, especifique a localização do ficheiro OVA.
+3. No **Nome** e **Localização**, especifique um nome amigável para o VM. Selecione o objeto de inventário no qual o VM será hospedado.
+4. No **Host/Cluster**, especifique o hospedeiro ou o cluster em que o VM irá funcionar.
+5. No **Armazenamento**, especifique o destino de armazenamento para o VM.
+6. Em **Formato do Disco**, especifique o tipo e o tamanho do disco.
+7. No **Mapeamento de Rede,** especifique a rede à qual o VM se ligará. A rede necessita de conectividade com a Internet para enviar metadados para a Avaliação do Servidor Migratório Azure.
+8. Reveja e confirme as definições e, em seguida, **selecione Terminar**.
 
 ## <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
@@ -134,8 +134,8 @@ Coloque o aparelho pela primeira vez.
 > Se configurar o aparelho utilizando um [script PowerShell](deploy-appliance-script.md) em vez do OVA descarregado, os dois primeiros passos deste procedimento não são relevantes.
 
 1. Na consola vSphere Client, clique com o botão direito no VM e, em seguida, selecione **Open Console**.
-1. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
-1. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
+3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho selecionando o atalho da aplicação.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
@@ -153,13 +153,13 @@ Coloque o aparelho pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
 1. Selecione **Iniciar sessão**. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-1. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
+2. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
    
    O s-in com um PIN não é suportado.
-1. Depois de iniciar sins com sucesso, volte para a aplicação web.
-1. Selecione a subscrição em que o projeto Azure Migrate foi criado e, em seguida, selecione o projeto.
-1. Especifique um nome para o aparelho. O nome deve ser alfanumérico com 14 caracteres ou menos.
-1. Selecione **Registar**.
+3. Depois de iniciar sins com sucesso, volte para a aplicação web.
+4. Selecione a subscrição em que o projeto Azure Migrate foi criado e, em seguida, selecione o projeto.
+5. Especifique um nome para o aparelho. O nome deve ser alfanumérico com 14 caracteres ou menos.
+6. Selecione **Registar**.
 
 
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
@@ -191,39 +191,53 @@ A descoberta funciona da seguinte forma:
 Após a descoberta, pode verificar se os VMs aparecem no portal Azure:
 
 1. Abra o painel Azure Migrate.
-1. Em **Azure Migrate - Servidores**  >  **Azure Migrate: Avaliação**do servidor , selecione o ícone que exibe a contagem para **servidores descobertos**.
+2. Em **Azure Migrate - Servidores**  >  **Azure Migrate: Avaliação**do servidor , selecione o ícone que exibe a contagem para **servidores descobertos**.
 
 ## <a name="set-up-an-assessment"></a>Configurar uma avaliação
 
 Pode criar dois tipos de avaliações utilizando a Avaliação do Servidor Azure Migrate:
 
-**Avaliação** | **Detalhes** | **Dados**
+**Tipo de Avaliação** | **Detalhes**
+--- | --- 
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+A Avaliação do Servidor fornece duas opções de critérios de dimensionamento:
+
+**Critérios de dimensionamento** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações com base em dados de desempenho recolhidos | **Tamanho VM recomendado**: Com base em dados de CPU e utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido standard ou premium)**: Baseado no IOPS e na produção dos discos no local.
-**Como no local** | Avaliações baseadas no dimensionamento das instalações | **Tamanho VM recomendado**: Com base no tamanho VM no local.<br/><br> **Tipo de disco recomendado**: Com base na definição do tipo de armazenamento que seleciona para a avaliação.
+**Baseado no desempenho** | Avaliações que fazem recomendações com base em dados de desempenho recolhidos | **Avaliação Azure VM**: A recomendação do tamanho de VM baseia-se em dados de cpu e utilização da memória.<br/><br/> A recomendação do tipo de disco (hdd/SSD padrão ou discos geridos por prémios) baseia-se no IOPS e na produção dos discos no local.<br/><br/> **Avaliação da Solução Azure VMware (AVS):** A recomendação dos nós AVS baseia-se em dados de CPU e utilização da memória.
+**As-is in-ins** | Avaliações que não usam dados de desempenho para fazer recomendações. | **Avaliação Azure VM**: A recomendação do tamanho de VM baseia-se no tamanho VM no local<br/><br> O tipo de disco recomendado baseia-se no que seleciona na definição do tipo de armazenamento para a avaliação.<br/><br/> **Avaliação da Solução Azure VMware (AVS):** A recomendação dos nós AVS baseia-se no tamanho VM no local.
 
 ## <a name="run-an-assessment"></a>Executar uma avaliação
 
-E executar uma avaliação da seguinte forma:
+Executar uma *avaliação Azure VM* da seguinte forma:
 
 1. Reveja as [melhores práticas](best-practices-assessment.md) para criar avaliações.
-1. No separador **Servidores,** no **Azure Migrate: Telha de Avaliação** do Servidor, selecione **Avaliar**.
+2. No separador **Servidores,** no **Azure Migrate: Telha de Avaliação** do Servidor, selecione **Avaliar**.
 
    ![Localização do botão Avaliar](./media/tutorial-assess-vmware/assess.png)
 
-1. Nos **servidores avaliação, especifique**um nome para a avaliação.
-1. Selecione **Ver tudo**e, em seguida, reveja as propriedades de avaliação.
+3. Nos **servidores avaliação**, selecione o tipo de avaliação como "Azure VM", selecione a fonte de descoberta e especifique o nome de avaliação.
+
+    ![Avaliação Básicos](./media/tutorial-assess-vmware/assess-servers-azurevm.png)
+ 
+4. Selecione **Ver tudo**e, em seguida, reveja as propriedades de avaliação.
 
    ![Propriedades de avaliação](./media/tutorial-assess-vmware/view-all.png)
 
-1. Em **Select ou criar um grupo**, selecione Create **New**, e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
-1. No **Adicionar máquinas ao grupo,** selecione VMs para adicionar ao grupo.
-1. Selecione **Create Assessment** para criar o grupo e executar a avaliação.
+5. Clique **ao lado** de **Selecionar máquinas para avaliar**. Em **Select ou criar um grupo**, selecione Create **New**, e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
+6. No **Adicionar máquinas ao grupo,** selecione VMs para adicionar ao grupo.
+7. Clique **ao lado** do Review + crie **avaliação** para rever os detalhes da avaliação.
+8. Selecione **Create Assessment** para criar o grupo e executar a avaliação.
 
    ![Avaliar servidores](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. Após a avaliação ser criada, veja-a nos **Servidores**  >  **Azure Migrate: Avaliações de Avaliação do Servidor**  >  **Assessments**.
-1. Selecione **a avaliação de exportação** para descarregá-lo como um ficheiro Excel.
+8. Após a avaliação ser criada, veja-a nos **Servidores**  >  **Azure Migrate: Avaliações de Avaliação do Servidor**  >  **Assessments**.
+9. Selecione **a avaliação de exportação** para descarregá-lo como um ficheiro Excel.
+
+Se pretender fazer uma **avaliação da Solução VMware (AVS) do Azure VMware,** siga os passos [aqui](how-to-create-azure-vmware-solution-assessment.md)mencionados.
+
 
 ## <a name="review-an-assessment"></a>Rever uma avaliação
 
@@ -236,20 +250,20 @@ Uma avaliação descreve:
 Para visualizar uma avaliação:
 
 1. Nos **objetivos de migração**  >  **Servidores**, selecione **Avaliações** em **Azure Migrate: Avaliação do servidor**.
-1. Em **Avaliações,** selecione uma avaliação para abri-la.
+2. Em **Avaliações,** selecione uma avaliação para abri-la.
 
    ![Resumo da avaliação](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Rever prontidão Azure
 
 1. Em **Azure prontidão**, verifique se os VMs estão prontos para a migração para Azure.
-1. Reveja o estado de VM:
+2. Reveja o estado de VM:
     - **Pronto para Azure**: Usado quando a Azure Migrate recomenda uma estimativa de tamanho VM e custos para os VMs na avaliação.
     - **Pronto com condições**: Apresenta problemas e sugeriu remediação.
     - **Não está pronto para o Azure**: Apresenta problemas e sugeriu a reparação.
     - **Prontidão desconhecida**: Usado quando a Azure Migrate não consegue avaliar a prontidão devido a problemas de disponibilidade de dados.
 
-1. Selecione um estado **de prontidão Azure.** Pode ver detalhes de prontidão em VM. Também pode perfurar para ver detalhes do VM, incluindo configurações de computação, armazenamento e rede.
+3. Selecione um estado **de prontidão Azure.** Pode ver detalhes de prontidão em VM. Também pode perfurar para ver detalhes do VM, incluindo configurações de computação, armazenamento e rede.
 
 ### <a name="review-cost-details"></a>Rever detalhes de custos
 

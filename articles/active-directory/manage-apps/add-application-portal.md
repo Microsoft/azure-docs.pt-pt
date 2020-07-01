@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b89ab7e44bc71fa442f332cbba35af450f7d5155
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 4ddf754bb48bf588451f2eea595e8d1036d20b3e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760665"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85555276"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar uma aplicação ao seu inquilino do Azure Active Directory
 
@@ -97,7 +97,7 @@ Para editar as propriedades da aplicação:
 
    - Comportamento para utilizadores **atribuídos**:
 
-       | Definições da propriedades da aplicação | | | Experiência para utilizadores atribuídos | |
+       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores atribuídos | Experiência para utilizadores atribuídos |
        |---|---|---|---|---|
        | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores atribuídos podem iniciar sessão? | Os utilizadores atribuídos podem ver a aplicação?* |
        | sim | sim | sim | sim | sim  |
@@ -111,7 +111,7 @@ Para editar as propriedades da aplicação:
 
    - Comportamento para utilizadores **não atribuídos**:
 
-       | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
+       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores não atribuídos | Experiência para utilizadores não atribuídos |
        |---|---|---|---|---|
        | Habilitado para os utilizadores fazerem o s.a.? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
        | sim | sim | sim | não  | não   |

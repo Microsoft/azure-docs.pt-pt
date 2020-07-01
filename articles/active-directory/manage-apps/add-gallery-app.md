@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2002414836dcb77a09f633f30ec0fcbb7981de
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 77b1794f5dde4d7e346e45c2da5d24195d69b50e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760529"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85555189"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicione uma aplicação de galeria à sua organização AZure AD
 
@@ -67,7 +67,7 @@ O Azure Ative Directory (Azure AD) tem uma galeria que contém milhares de aplic
 
       Comportamento para utilizadores **atribuídos**:
 
-       | Definições da propriedades da aplicação | | | Experiência para utilizadores atribuídos | |
+       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores atribuídos | Experiência para utilizadores atribuídos |
        |---|---|---|---|---|
        | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores atribuídos podem iniciar sessão? | Os utilizadores atribuídos podem ver a aplicação?* |
        | sim | sim | sim | sim | sim  |

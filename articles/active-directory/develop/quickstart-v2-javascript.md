@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322826"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554024"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -73,7 +73,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
 
 > [!div renderon="docs"]
-> Para executar o projeto com um servidor web utilizando o Node.js, [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
+> Para executar o projeto com um servidor web utilizando Node.js, [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
 > [!div renderon="portal"]
 > Executar o projeto com um servidor web usando Node.js
@@ -84,7 +84,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configurar a sua aplicação JavaScript
 >
-> Na pasta *JavaScriptSPA,* edite *authConfig.js,* e desconte o `clientID` , e os `authority` `redirectUri` valores em baixo `msalConfig` .
+> Na pasta *JavaScriptSPA,* edite *authConfig.js*, e desaprote o `clientID` , e os `authority` `redirectUri` valores em `msalConfig` .
 >
 > ```javascript
 >
@@ -126,7 +126,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 > [!div renderon="docs"]
 >
-> Em seguida, ainda na mesma pasta, edite o ficheiro *graphConfig.js* para definir o `graphMeEndpoint` e para o `graphMeEndpoint` `apiConfig` objeto.
+> Em seguida, ainda na mesma pasta, edite *graphConfig.js* ficheiro para definir o `graphMeEndpoint` e para o `graphMeEndpoint` `apiConfig` objeto.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
@@ -148,7 +148,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 >
 > #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
 
-Executar o projeto com um servidor web utilizando [Node.js](https://nodejs.org/en/download/):
+Executar o projeto com um servidor web utilizando [Node.js: ](https://nodejs.org/en/download/)
 
 1. Para iniciar o servidor, executar o seguinte comando a partir do diretório do projeto:
     ```batch
@@ -169,15 +169,15 @@ Depois de o navegador carregar a aplicação, selecione **Iniciar sção**. A pr
 
 ### <a name="msaljs"></a>msal.js
 
-A biblioteca MSAL assina nos utilizadores e solicita os tokens que são usados para aceder a uma API que está protegida pela plataforma de identidade da Microsoft. O ficheiro índice *quickstart.html* contém uma referência à biblioteca:
+A biblioteca MSAL assina nos utilizadores e solicita os tokens que são usados para aceder a uma API que está protegida pela plataforma de identidade da Microsoft. O ficheiro *index.html* de arranque rápido contém uma referência à biblioteca:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
 ```
 > [!TIP]
-> Pode substituir a versão anterior pela versão mais recente lançada nos [lançamentos do MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+> Pode substituir a versão anterior pela versão mais recente lançada em [MSAL.js versões](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-Alternativamente, se tiver Node.js instalados, pode descarregar a versão mais recente através do Node.js Package Manager (npm):
+Em alternativa, se tiver Node.js instalado, pode descarregar a versão mais recente através do Node.js Package Manager (npm):
 
 ```batch
 npm install msal
@@ -204,7 +204,7 @@ O código quickstart também mostra como inicializar a biblioteca MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Onde  |  |
+> |Onde  | Description |
 > |---------|---------|
 > |`clientId`     | Identificação de aplicação da aplicação registada no portal Azure.|
 > |`authority`    | (Opcional) O URL de autoridade que suporta tipos de conta, conforme descrito anteriormente na secção de configuração. A autoridade por defeito `https://login.microsoftonline.com/common` é. |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Onde  |  |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | (Opcional) Contém âmbitos que estão a ser solicitados para o consentimento do utilizador no momento de início de sedu. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ). |
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Onde  |  |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | Contém âmbitos a serem solicitados para serem devolvidos no token de acesso para a API. Por exemplo, `[ "mail.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ).|
 
@@ -295,7 +295,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 > [!NOTE]
 > Este quickstart utiliza os e métodos com o `loginRedirect` Microsoft Internet `acquireTokenRedirect` Explorer, devido a um problema [conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado com o manuseamento de janelas popup pelo Internet Explorer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um guia passo a passo mais detalhado sobre a construção do pedido para este arranque rápido, consulte:
 
@@ -305,4 +305,4 @@ Para um guia passo a passo mais detalhado sobre a construção do pedido para es
 Para consultar o repo MSAL para obter documentação, PERGUNTAS Frequentes, questões e muito mais, consulte:
 
 > [!div class="nextstepaction"]
-> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)

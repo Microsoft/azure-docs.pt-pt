@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 50b6244e5db6f812d1f9e3d23ea5fa88ea3bebea
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456815"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554134"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 Neste quickstart, você usa uma amostra de código para saber como uma aplicação web core ASP.NET pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -79,7 +79,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 > #### <a name="step-3-run-your-visual-studio-project"></a>Passo 3: Executar o seu projeto Visual Studio
 > 1. Extrair o ficheiro zip para uma pasta local dentro da pasta raiz - por exemplo, **C:\Azure-Samples**
 > 1. Abra a solução no Estúdio Visual
-> 1. Edite o ficheiro **appsettings.json.** Encontre `ClientId` e atualize o valor da `ClientId` **aplicação (cliente)** valor de ID da aplicação que registou.
+> 1. Edite as **appsettings.jsno** ficheiro. Encontre `ClientId` e atualize o valor da `ClientId` **aplicação (cliente)** valor de ID da aplicação que registou.
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -145,7 +145,7 @@ O método `AddAuthentication` configura o serviço para adicionar autenticação
 
 A linha que contém `.AddAzureAd` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sação usando o ponto final da plataforma de identidade da Microsoft.
 
-> |Onde  |  |
+> |Onde | Description |
 > |---------|---------|
 > | ClientId  | Identificação de candidatura (cliente) a partir da aplicação registada no portal Azure. |
 > | Autoridade | O ponto final STS para o utilizador autenticar. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu ID do seu inquilino, ou *comum* para uma referência ao ponto final comum (usado para aplicações multi-inquilinos) |
@@ -175,7 +175,7 @@ Pode proteger um controlador ou métodos de controlador utilizando o `[Authorize
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o repo GitHub para este tutorial ASP.NET Core para obter mais informações, incluindo instruções sobre como adicionar autenticação a uma nova aplicação core web ASP.NET, como ligar para o Microsoft Graph, e outras APIs da Microsoft, como ligar para as suas próprias APIs, como adicionar autorização, como assinar nos utilizadores em nuvens nacionais, ou com identidades sociais e muito mais :
 

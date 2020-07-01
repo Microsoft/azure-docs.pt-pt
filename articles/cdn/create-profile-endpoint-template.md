@@ -9,44 +9,48 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: bdb30fed4dadef84fe012c11893661b8d9d70325
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 39f10ed627320527a7a34fec52d540739f36e9ce
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483045"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554434"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---resource-manager-template"></a>Quickstart: Criar um perfil e ponto final do Azure CDN - Modelo de Gestor de Recursos
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Quickstart: Criar um perfil de CDN azul e ponto final - modelo ARM
 
-Inicie com a Azure CDN utilizando um modelo de gestor de recursos Azure.  Este modelo implementa um perfil e um ponto final.
+Inicie-se com a Rede de Entrega de Conteúdos Azure (CDN) utilizando um modelo de Gestor de Recursos Azure (modelo ARM). O modelo implementa um perfil e um ponto final.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-cdn-profile-and-endpoint"></a>Criar perfil cdn e ponto final
+## <a name="review-the-template"></a>Rever o modelo
+
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cdn-with-custom-origin/).
 
 Este modelo está configurado para criar um:
 
 * Perfil
 * Ponto Final
 
-### <a name="review-the-template"></a>Rever o modelo
-
-O modelo usado neste quickstart é de [modelos Azure Quickstart](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json)
-
-:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="46-117":::
-
+:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="45-117":::
 
 No modelo, está definido um recurso do Azure:
 
-**Microsoft.Cdn**
-
 * **[Microsoft.Cdn/perfis](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-**CLI do Azure**
+### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. eastus): " location
@@ -62,7 +66,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-**Azure PowerShell**
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -74,7 +78,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Portal do Azure**
+### <a name="portal"></a>Portal
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
@@ -92,7 +96,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-**CLI do Azure**
+### <a name="azure-cli"></a>CLI do Azure
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
@@ -101,7 +105,7 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
     --name myResourceGroupCDN
 ```
 
-**Azure PowerShell**
+### <a name="powershell"></a>PowerShell
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
@@ -109,7 +113,7 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name myResourceGroupCDN
 ```
 
-**Portal do Azure**
+### <a name="portal"></a>Portal
 
 Quando já não for necessário, elimine o grupo de recursos, o perfil cdn e todos os recursos relacionados. Selecione o grupo de recursos **myResourceGroupCDN** que contém o perfil e o ponto final do CDN e, em seguida, selecione **Delete**.
 
