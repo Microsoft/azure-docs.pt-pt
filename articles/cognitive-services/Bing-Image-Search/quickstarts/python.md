@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, tracking-python
-ms.openlocfilehash: c913e6a8f1acf6603fad7a0b93758e5a7678f9a5
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f818030f5fa7c562b4041543cb702d9673648dee
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609204"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603337"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Quickstart: Procure imagens usando a API e Python de pesquisa de imagem Bing
 
@@ -145,13 +145,12 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
 * [O que é a API de Pesquisa de Imagens do Bing?](../overview.md)  
-* [Detalhes de preços para as APIs de pesquisa de Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [Obtenha uma chave de acesso gratuito aos Serviços Cognitivos.](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api) 
-* [Documentação dos Serviços Cognitivos da Azure.](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Imagem Pesquisa referência API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Detalhes dos preços das APIs de pesquisa de Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+* [Documentação dos Serviços Cognitivos da Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

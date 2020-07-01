@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: d50eafd8464a315cb4e619a0c34b6a173d6ca638
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362198"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602793"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página
 
@@ -43,8 +43,10 @@ A página do tutorial é completamente independente. Não utiliza arquiteturas, 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa de Bing. Se não os tiver, pode usar uma [chave de teste](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma chave [Bing Maps básica.](https://www.microsoft.com/maps/create-a-bing-maps-key)
+Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa de Bing. Se não tiver isto, terá de criá-los:
 
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 
 ## <a name="app-components"></a>Componentes da aplicação
 Tal como qualquer aplicação Web de página única, esta aplicação de tutorial tem três partes:
@@ -107,7 +109,7 @@ A imagem abaixo mostra a caixa de texto da consulta e as opções que definem a 
 
 O formulário HTML inclui elementos com os nomes abaixo:
 
-|Elemento|Descrição|
+|Elemento|Description|
 |-|-|
 | `where` | Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa. |
 | `query` | O campo de texto no qual introduzir os termos da pesquisa. |
@@ -321,7 +323,7 @@ function renderResults(items) {
 ```
 A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São:
 
-|Relação|Descrição|
+|Relação|Description|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|

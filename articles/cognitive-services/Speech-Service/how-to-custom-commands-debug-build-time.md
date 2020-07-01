@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307740"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604697"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Depurar erros ao autorizar uma aplicação de Comandos Personalizados
 
@@ -26,7 +26,7 @@ Os Comandos Personalizados também criam uma aplicação no [LUIS](https://www.l
 
 [O LUIS limita 500 aplicações por recurso de autoria.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits) A criação da aplicação LUIS poderá falhar se estiver a utilizar um recurso de autoria que já tenha 500 aplicações. 
 
-Certifique-se de que o recurso de autoria LUIS selecionado tem menos de 500. Caso contrário, pode recorrer a um novo recurso de autoria LUIS, mudar para outro, ou tentar limpar as suas aplicações LUIS.  
+Certifique-se de que o recurso de autoria LUIS selecionado tem menos de 500 aplicações. Caso contrário, pode criar um novo recurso de autoria LUIS, mudar para outro, ou tentar limpar as suas aplicações LUIS.  
 
 ## <a name="errors-when-deleting-an-application"></a>Erros ao apagar uma aplicação
 ### <a name="cant-delete-luis-application"></a>Não pode apagar a aplicação LUIS
@@ -48,8 +48,8 @@ Não é permitido apagar um parâmetro quando este está a ser utilizado. Por fa
 Não está autorizado a eliminar um Ponto Final web quando este estiver a ser utilizado. Por favor, remova qualquer ação **call Web Endpoint** que utilize este Web Endpoint antes de remover um Ponto Final web.
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar uma aplicação
-### <a name="build-in-intents"></a>Construir em intenções
-LUIS tem build-in Sim/Sem intenções. Tendo frases de amostra com apenas "sim", "não" falharia no treino. 
+### <a name="built-in-intents"></a>Intenções incorporadas
+LUIS tem intençãos incorporadas Sim/Sem intenções. Tendo frases de amostra com apenas "sim", "não" falharia no treino. 
 
 | Palavra-chave | Variações | 
 | ------- | --------- | 
@@ -72,7 +72,7 @@ Um ou mais parâmetros são usados nas frases da amostra, mas não definidos.
 ### <a name="training-takes-too-long"></a>O treino demora muito tempo.
 O treino DO LUIS destina-se a aprender rapidamente com menos exemplos. Não adicione muitas frases de exemplo. 
 
-Se tiver muitas frases de exemplo são semelhantes, defina um parâmetro, abstrate-as num padrão e adicione-as a Frases exemplo.
+Se tiver muitas frases de exemplo semelhantes, defina um parâmetro, abstrate-as num padrão e adicione-as a Frases exemplo.
 
 Por exemplo, pode definir um parâmetro {veículo} para as frases de exemplo abaixo, e apenas adicionar "Reserve um {veículo}" a Frases exemplo.
 

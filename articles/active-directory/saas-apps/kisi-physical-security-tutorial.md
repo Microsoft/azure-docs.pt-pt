@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd85042d30be0bb37de590fe9b011948b9acf0db
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361375"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605037"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Segurança Física de Kisi
 
@@ -102,11 +102,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Kisi Physical Security espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome |  |  Atributo de origem|
-    | ---------------| --------------- | --------- |
-    | FirstName | | user.givenname |
-    | LastName | | utilizador.sobrenome |
-    | E-mail | | user.userprincipalname |
+    | Name | Atributo de origem|
+    | ---------------| --------- |
+    | FirstName | user.givenname |
+    | LastName | utilizador.sobrenome |
+    | E-mail | user.userprincipalname |
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 

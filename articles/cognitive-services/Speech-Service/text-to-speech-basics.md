@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 2bba1536c9d0990eb771f62d27b852ae1eb3b45c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ddcfeaad70e6552f94f9c87b6e9cf24ed15bfba8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604620"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611476"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Aprenda os fundamentos da síntese da fala
 
@@ -29,8 +29,8 @@ Neste artigo, você aprende padrões de design comuns para fazer síntese de tex
 * Usando vozes neurais
 
 > [!TIP]
-> Se ainda não tiveste oportunidade de completar um dos nossos quickstarts, encorajamo-lo a dar um pontapé nos pneus e a tentar o reconhecimento da fala por ti mesmo.
-> * [Reconhecer voz a partir de um microfone](quickstarts/text-to-speech.md)
+> Se ainda não teve oportunidade de completar um dos nossos quickstarts, encorajamo-lo a chutar os pneus e a tentar mandar sms para falar por si mesmo.
+> * [Sintetizar a voz num altifalante](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
@@ -56,7 +56,7 @@ Neste artigo, você aprende padrões de design comuns para fazer síntese de tex
 [!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução à Voz Personalizada](how-to-custom-voice.md)
 * [Melhorar a sintetização com SSML](speech-synthesis-markup.md)

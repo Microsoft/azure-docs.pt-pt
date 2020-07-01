@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: fcd3ab3cce74aa0ef021427904077c364de1f493
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c821df0e7cb00c73899a2694dd0b2eb6823b1d9e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606280"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611201"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Quickstart: Envie uma consulta para a API de Pesquisa de Negócios Locais de Bing em Python
 
@@ -26,8 +26,9 @@ Este exemplo de aplicação obtém dados de resposta local da API para uma consu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * [Pitão](https://www.python.org/) 2.x ou 3.x.
-* Uma [conta API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa de Bing. Para este arranque rápido, o [julgamento livre](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente. Guarde a chave API fornecida quando ativar o seu teste gratuito. Para mais informações, consulte [preços dos serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 
 ## <a name="run-the-complete-application"></a>Executar a aplicação completa
 
@@ -67,7 +68,7 @@ print (json.dumps(json.loads(result), indent=4))
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Pesquisa de negócios locais Java quickstart](local-search-java-quickstart.md)
 - [Pesquisa de negócios locais C# quickstart](local-quickstart.md)
-- [Node.js quickstart de pesquisa de negócios locais](local-search-node-quickstart.md)
+- [Pesquisa de negócios local Node.js arranque rápido](local-search-node-quickstart.md)

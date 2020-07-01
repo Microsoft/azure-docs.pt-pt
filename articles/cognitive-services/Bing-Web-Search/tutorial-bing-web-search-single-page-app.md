@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943883"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603592"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
 
@@ -30,15 +30,16 @@ Esta aplicação de exemplo pode:
 > * Gerir chaves de subscrição
 > * Processar erros
 
-Para utilizar esta aplicação, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) para obter uma chave de subscrição.
+Para utilizar esta aplicação, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Eis o que precisa para executar a aplicação:
 
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+
 * Node.js 8 ou posterior
-* Uma chave de subscrição para a API de Pesquisa bing. Se não tiver um, [crie um recurso Bing Search v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Também pode usar uma chave de [ensaio.](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-## <a name="get-the-source-code-and-install-dependencies"></a>Obter o código fonte e instalar dependências
 
 O primeiro passo é clonar o repositório com o código fonte da aplicação de exemplo.
 
@@ -127,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-O parâmetro `SafeSearch` pode ser definido para `strict`, `moderate` ou `off`. A predefinição da Pesquisa na Web do Bing é `moderate`. Este formulário utiliza uma caixa de `strict` verificação, que tem dois estados: ou `moderate`.
+O parâmetro `SafeSearch` pode ser definido para `strict`, `moderate` ou `off`. A predefinição da Pesquisa na Web do Bing é `moderate`. Este formulário utiliza uma caixa de verificação, que tem dois estados: `strict` ou `moderate` .
 
 Se alguma das caixas de verificação **Promote** (Promover) estiver selecionada, o parâmetro `answerCount` será adicionado à consulta. Ao utilizar o parâmetro `promote`, é necessário o parâmetro `answerCount`. Neste fragmento, o valor está definido para `9` para devolver todos os tipos de resultados disponíveis.
 > [!NOTE]

@@ -2,14 +2,14 @@
 title: Alterações no ponto final de previsão na API V3
 description: O ponto final de previsão de consulta V3 APIs mudou. Utilize este guia para entender como migrar para as APIs de ponto final da versão 3.
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338197"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610885"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final de previsão para V3
 
@@ -57,7 +57,7 @@ Se não souber que nenhuma das suas aplicações ou integrações do seu cliente
 
 ## <a name="not-supported"></a>Não suportado
 
-### <a name="bing-spell-check"></a>Verificação de Ortografia do Bing
+### <a name="bing-spell-check"></a>Verificação Ortográfica do Bing
 
 Esta API não é suportada no ponto final de previsão V3 - continue a utilizar o ponto final de previsão da API V2 para correções ortográficas. Se precisar de correção ortográfica durante a utilização da API V3, mande o pedido do cliente ligar para a API [de Verificação ortográfica de Bing e](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) alterar o texto para a ortografia correta, antes de enviar o texto para a API LUIS.
 
@@ -86,17 +86,7 @@ Se quiser consultar por versão, primeiro tem de [publicar via API](https://west
 
 ### <a name="query-string-changes"></a>Alterações nas cordas de consulta
 
-A API V3 tem diferentes parâmetros de cadeia de consulta.
-
-|Nome de param|Tipo|Versão|Predefinição|Objetivo|
-|--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Faça a consulta no ficheiro de registo. O valor predefinido é falso.|
-|`query`|string|Apenas V3|Sem predefinição - é necessário no pedido GET|**Em V2,** a expressão a prever está no `q` parâmetro. <br><br>**Em V3,** a funcionalidade é passada no `query` parâmetro.|
-|`show-all-intents`|boolean|Apenas V3|false|Devolva todas as intenções com a pontuação correspondente no objeto **de previsão.intenções.** As intenções são devolvidas como objetos num `intents` objeto principal. Isto permite o acesso programático sem necessidade de encontrar a intenção numa matriz: `prediction.intents.give` . Em V2, estes foram devolvidos numa matriz. |
-|`verbose`|boolean|V2 & V3|false|**Em V2,** quando definido como verdadeiro, todas as intenções previstas foram devolvidas. Se precisar de todas as intenções previstas, use o param V3 de `show-all-intents` .<br><br>**Na V3,** este parâmetro apenas fornece detalhes de metadados de entidades da previsão da entidade.  |
-|`timezoneOffset`|string|V2|-|Timezone aplicado às entidades datav2.|
-|`datetimeReference`|string|V3|-|[Timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datav2. Substitui `timezoneOffset` a V2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>Corpo V3 POST
 
