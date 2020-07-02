@@ -8,7 +8,7 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Executar a sua primeira consulta - portal do Azure
+    - name: Executar a sua primeira consulta - Portal
       displayName: 'portal, resource, graph, explorer'
       href: ./first-query-portal.md
     - name: Executar a sua primeira consulta - CLI do Azure
@@ -26,6 +26,9 @@
     - name: Executar a sua primeira consulta - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Criar uma consulta partilhada - CLI do Azure
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: Implementar uma consulta partilhada - modelo ARM
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md

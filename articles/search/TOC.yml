@@ -1,13 +1,13 @@
 - name: Documentação da Pesquisa Cognitiva do Azure
   href: index.yml
 - name: Descrição geral
+  expanded: true
   items:
     - name: O que é a Pesquisa Cognitiva do Azure?
       href: search-what-is-azure-search.md
     - name: Novidades
       href: whats-new.md
 - name: Guias de Início Rápido
-  expanded: true
   items:
     - name: Portal
       items:
@@ -85,7 +85,7 @@
     - name: Amostras de Python
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: Exemplos REST
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
+      href: 'https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search'
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
@@ -388,10 +388,10 @@
           href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: REST
       items:
-        - name: Pesquisa 2019-05-06
+        - name: Pesquisa 2020-06-30
           href: /rest/api/searchservice
-        - name: Pesquisa 2019-05-06-Preview
-          href: /rest/api/searchservice/index-2019-05-06-preview
+        - name: Pesquisa 2020-06-30-Preview
+          href: /rest/api/searchservice/index-preview
         - name: Gestão 2020-03-13
           href: /rest/api/searchmanagement
         - name: Gestão 2019-10-01-Preview

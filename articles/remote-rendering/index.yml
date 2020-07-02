@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
-  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/16/2020
-  ms.locfileid: "84808937"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565432"
 landingContent:
 - title: Acerca do Azure Remote Rendering
   linkLists:
@@ -60,11 +60,19 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: configurar um projeto de raiz'
-      url: tutorials/unity/project-setup.md
-    - text: 'Unity: trabalhar com entidades remotas'
-      url: tutorials/unity/working-with-remote-entities.md
-    - text: 'Unity: Alterar o ambiente e os materiais'
-      url: tutorials/unity/changing-environment-and-materials.md
+    - text: Descrição geral
+      url: tutorials/unity/tutorial-landing.md
+    - text: Ver um modelo composto remotamente
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: Carregar modelos personalizados
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: Manipular modelos
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: Refinar materiais, iluminação e efeitos
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Proteger o Azure Remote Rendering e o armazenamento de modelos
+      url: tutorials/unity/security/security.md
+    - text: Criar uma aplicação do Azure Remote Rendering pronta para comercialização
+      url: tutorials/unity/commercial-ready/commercial-ready.md
     - text: 'C++ Nativo: integrar o Remote Rendering numa Aplicação do HoloLens Holográfico'
       url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

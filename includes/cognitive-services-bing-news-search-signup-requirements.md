@@ -4,24 +4,20 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: eeecea99072ff1e113e44c9991d40784db447216
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cf09408958241ea0885fedb49874a5fb49fec3e5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869285"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805811"
 ---
 ## <a name="create-an-azure-resource"></a>Criar um recurso Azure
 
-Comece a utilizar a API bing news search criando um dos seguintes recursos Azure:
+Comece a utilizar a API de Pesquisa de Notícias Bing, criando um dos seguintes recursos Azure:
 
-[Recurso experimental](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Não é necessária nenhuma subscrição azure.
-   * Válido por sete dias, de graça. Depois de se inscrever, uma chave de teste e ponto final estão disponíveis no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
-
-[Recurso Bing Search v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)
+[Bing Search v7 recurso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)
    * Disponível através do portal Azure até eliminar o recurso.
-   * Utilize o nível de preços gratuitos para experimentar o serviço e atualize mais tarde para um nível pago para produção.
+   * Use o nível de preços gratuitos para experimentar o serviço e atualize mais tarde para um nível pago para produção.
 
 [Recurso multi-serviço](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
    * Disponível através do portal Azure até eliminar o recurso.  

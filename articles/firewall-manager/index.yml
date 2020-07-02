@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 10/10/2019
-  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bf7474f1519fbd94be3de8daa15a43775a6a6a0a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73508674"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85561435"
 landingContent:
 - title: Saiba mais sobre o Azure Firewall Manager
   linkLists:
@@ -31,15 +31,15 @@ landingContent:
     links:
     - text: O que é um hub virtual seguro?
       url: secured-virtual-hub.md
-- title: Parceiros de segurança fidedignos
+- title: Fornecedores de parceiros de segurança
   linkLists:
   - linkListType: concept
     links:
-    - text: O que são parceiros de segurança fidedignos (pré-visualização)?
+    - text: O que são fornecedores de parceiros de segurança?
       url: trusted-security-partners.md
   - linkListType: how-to-guide
     links:
-    - text: Implementar um parceiro de segurança fidedigno (pré-visualização)
+    - text: Implementar um fornecedor de parceiros de segurança
       url: deploy-trusted-security-partner.md
 - title: Proteger a rede na cloud do Azure
   linkLists:

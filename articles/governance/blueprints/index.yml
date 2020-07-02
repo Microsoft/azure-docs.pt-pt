@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/01/2019
-  ms.openlocfilehash: 525d09dcd12c19ded3e13b38a56290f7816a26a7
-  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+  ms.date: 06/29/2020
+  ms.openlocfilehash: 77959798ea5ab2369402f7e0a1ac8e7b530adc27
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84609068"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85550212"
 landingContent:
 - title: Acerca do Azure Blueprints
   linkLists:
@@ -35,13 +35,13 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar um novo esquema (portal)
+    - text: Criar um novo esquema (Portal)
       url: ./create-blueprint-portal.md
-    - text: Criar um novo esquema (PowerShell)
-      url: ./create-blueprint-powershell.md
     - text: Criar um novo esquema (CLI Azure)
       url: ./create-blueprint-azurecli.md
-    - text: Criar um novo esquema (API REST)
+    - text: Criar um novo esquema - (Azure PowerShell)
+      url: ./create-blueprint-powershell.md
+    - text: Criar um novo esquema (REST)
       url: ./create-blueprint-rest-api.md
   - linkListType: tutorial
     links:
@@ -99,9 +99,11 @@ landingContent:
       url: ./reference/blueprint-functions.md
     - text: Módulo do PowerShell (PSGallery)
       url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: CLI do Azure
+      url: /cli/azure/ext/blueprint/blueprint
     - text: Azure PowerShell
       url: /powershell/module/az.blueprint/#blueprint
-    - text: API REST
-      url: /rest/api/blueprints/
-    - text: .NET
+    - text: SDK do Azure para .NET
       url: /dotnet/api/overview/azure/blueprints/management
+    - text: REST
+      url: /rest/api/blueprints/

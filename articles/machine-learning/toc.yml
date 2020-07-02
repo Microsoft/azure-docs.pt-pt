@@ -172,6 +172,9 @@
               href: how-to-change-storage-access-key.md
             - name: Utilizar o Azure Firewall
               href: how-to-access-azureml-behind-firewall.md
+            - name: Codificação segura
+              href: concept-secure-code-best-practice.md
+              displayName: security threat
         - name: Configurar autenticação
           displayName: 'authentication, auth, oauth'
           href: how-to-setup-authentication.md
@@ -314,6 +317,8 @@
             - name: Explicar modelos de ML automatizados
               displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
               href: how-to-machine-learning-interpretability-automl.md
+        - name: Avaliar e mitigar a equidade do modelo
+          href: how-to-machine-learning-fairness-aml.md
         - name: Utilizar o Key Vault durante a preparação
           displayName: secrets keyvault
           href: how-to-use-secrets-in-runs.md

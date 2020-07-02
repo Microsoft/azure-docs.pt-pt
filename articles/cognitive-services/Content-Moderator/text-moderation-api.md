@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561030"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800096"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
 
@@ -36,13 +36,15 @@ A resposta do serviço inclui as seguintes informações:
 
 Se a API detetar quaisquer termos profanos em qualquer uma das [línguas suportadas,](Text-Moderation-API-Languages.md)esses termos estão incluídos na resposta. A resposta também contém a sua localização `Index` () no texto original. Na `ListId` amostra seguinte, jSON refere-se aos termos encontrados em [listas de prazos personalizados,](try-terms-list-api.md) se disponível.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > Para o parâmetro do **idioma,** `eng` atribua-o ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
@@ -55,18 +57,20 @@ A funcionalidade de **classificação** de texto assistida por máquinas do Mode
 
 O seguinte extrato no extrato JSON mostra uma saída de exemplo:
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### <a name="explanation"></a>Explicação
 
@@ -127,11 +131,11 @@ O exemplo a seguir mostra uma resposta da amostra:
 
 Suponha que o texto de entrada é (o 'lzay' e 'f0x' são intencionais):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> O qu!ck brown f0x salta sobre o cão lzay.
 
 Se pedir uma correção automática, a resposta contém a versão corrigida do texto:
 
-    The quick brown fox jumps over the lazy dog.
+> A raposa castanha rápida salta por cima do cão preguiçoso.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Criar e gerir as suas listas de termos personalizados
 
@@ -143,13 +147,15 @@ Embora o padrão, a lista global de termos funcione muito bem para a maioria dos
 
 O exemplo a seguir mostra o ID da lista correspondente:
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 O Moderador de Conteúdo fornece uma [API de Lista de Prazos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações para gerir listas de prazos personalizados. Comece com a [Consola API Listas de Prazos](try-terms-list-api.md) e utilize as amostras de código REST API. Confira também as [Listas de Prazos .NET quickstart](term-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e C#.
 

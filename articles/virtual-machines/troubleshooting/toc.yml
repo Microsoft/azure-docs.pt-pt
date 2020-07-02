@@ -103,6 +103,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: A VM não responde ao aplicar a política de segurança
           href: unresponsive-vm-apply-security-policy.md
+        - name: Erro de paragem do Windows - Estado Sem Memória
+          href: troubleshoot-windows-stop-error.md
 - name: Não consigo ligar à minha VM
   items:
     - name: RDP
