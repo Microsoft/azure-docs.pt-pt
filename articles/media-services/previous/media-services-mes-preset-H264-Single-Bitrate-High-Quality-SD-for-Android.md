@@ -1,6 +1,6 @@
 ---
-title: H264 Single Bitrate High Quality SD for Android [ Single Bitrate High Quality SD for Android ] Microsoft Docs
-description: O tópico dá uma visão geral do **H264 Single Bitrate High Quality SD para** o pré-definido de tarefa seleto android.
+title: H264 Single Bitrate High Quality SD para Android Microsoft Docs
+description: O tópico apresenta uma visão geral do **SD de alta qualidade de Bitrate Single Bitrate H264 para** a predefinição da tarefa Android.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 217c4874f0375aeb4d80162af1b8453a3f7f625f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61463519"
 ---
 # <a name="h264-single-bitrate-high-quality-sd-for-android"></a>H264 Taxa de Bits Única de Alta Qualidade SD para Android
-`Media Encoder Standard`define um conjunto de predefinições de codificação que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato pretende codificar o seu ficheiro de mídia. Ou, pode criar os seus próprios presets baseados em JSON ou XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, passaria o predefinido personalizado para o codificador. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte predefinições de tarefa para Media [Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico `H264 Single Bitrate High Quality SD for Android` mostra o predefinido no formato XML e JSON.  
+ Este tópico mostra a `H264 Single Bitrate High Quality SD for Android` predefinição no formato XML e JSON.  
   
- Este preset produz um único ficheiro MP4 com uma bitrate de 500 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, bitrate, taxa de amostragem, etc. deste predefinido, examine o XML ou JSON definidos abaixo. Para explicações sobre o que cada elemento nestas predefinições significa, e os valores válidos para cada elemento, consulte o tópico [de esquema sema media Encoder Standard.](media-services-mes-schema.md)  
+ Esta predefinição produz um único ficheiro MP4 com um bitrate de 500 kbps, e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, o bitrate, a taxa de amostragem, etc. desta predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que significa cada elemento nestas predefinições e os valores válidos para cada elemento, consulte o tópico [de esquema padrão Media Encoder.](media-services-mes-schema.md)  
   
  XML  
   

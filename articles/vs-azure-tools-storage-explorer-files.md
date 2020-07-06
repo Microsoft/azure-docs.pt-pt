@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60456855"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
@@ -207,11 +207,11 @@ Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de fic
 
         ![Adição ficheiros](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. Selecione **Upload**.
+        c. Selecione **Carregar**.
 
     - **Carregar uma pasta para uma partilha de ficheiros**
         
-        a. Na barra de ferramentas do painel principal, **selecione Upload** **e,** em seguida, carregue a pasta a partir do menu suspenso.
+        a. Na barra de ferramentas do painel principal, **selecione Carregar**e, em seguida, carregar a **pasta** a partir do menu suspenso.
 
         ![Menu Carregar pasta](media/vs-azure-tools-storage-explorer-files/image20.png)
 
@@ -219,7 +219,7 @@ Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de fic
 
         c. Opcionalmente, especifique uma pasta de destino no qual os conteúdos da pasta selecionada serão carregados. Se a pasta de destino não existir, será criada.
 
-        d. Selecione **Upload**.
+        d. Selecione **Carregar**.
 
     - **Transferir um ficheiro para o seu computador local**
         

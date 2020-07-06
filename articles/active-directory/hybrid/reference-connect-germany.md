@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62f0d82a543c0ae4e629eda3bca18b0a06322f2c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60381254"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect no Microsoft Cloud Alemanha - Pré-visualização Pública
@@ -38,7 +38,7 @@ Atualmente, muitos dos cenários no [Microsoft Cloud Alemanha](https://azure.mic
 * Quando inicia sessão no seu diretório do Azure AD, tem de utilizar uma conta no domínio onmicrosoft.de.
 
  
-## <a name="download"></a>Transferência
+## <a name="download"></a>Download
 Pode transferir o Azure AD Connect a partir do painel do Azure AD Connect no portal.  Utilize as instruções abaixo para localizar o painel do Azure AD Connect.
 
 ### <a name="the-azure-ad-connect-blade"></a>O Painel do Azure AD Connect
@@ -64,5 +64,5 @@ A tabela seguinte descreve as funcionalidades apresentadas no painel.
 Para instalar o Azure AD Connect, pode utilizar a documentação [aqui](how-to-connect-install-roadmap.md).
 
 ## <a name="advanced-features-and-additional-information"></a>Funcionalidades avançadas e Informações Adicionais
-Para obter informações adicionais sobre configurações personalizadas ou configurações avançadas, vá à Integração das [suas identidades no local com o Diretório Ativo Azure](whatis-hybrid-identity.md). Esta página fornece informações e hiperligações para orientações adicionais.
+Para obter informações adicionais sobre configurações personalizadas ou configurações avançadas, aceda à [Integração das suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md). Esta página fornece informações e hiperligações para orientações adicionais.
 

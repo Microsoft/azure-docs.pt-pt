@@ -15,88 +15,88 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60457271"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Explorador de Armazenamento
 
-## <a name="screen-readers"></a>Leitores de Tela
+## <a name="screen-readers"></a>Leitores de tela
 
-O Storage Explorer suporta a utilização de um leitor de ecrãs no Windows e Mac. Recomenda-se aos leitores de ecrã seguintes para cada plataforma:
+O Storage Explorer suporta a utilização de um leitor de ecrã no Windows e mac. Recomenda-se para cada plataforma os seguintes leitores de ecrã:
 
-Plataforma | Leitor de ecrã
+Plataforma | Leitor de tela
 ---------|--------------
 Windows  | NVDA
 Mac      | Voice Over
 Linux    | (os leitores de ecrã não são suportados no Linux)
 
-Se tiver um problema de acessibilidade ao utilizar o Storage Explorer, por favor [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+Se tiver um problema de acessibilidade ao utilizar o Storage Explorer, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="zoom"></a>Zoom
 
-Pode tornar o texto no Storage Explorer maior através do zooming. Para ampliar, clique em **Zoom In** no menu Ajuda. Também pode utilizar o menu Ajuda para ampliar e redefinir o nível de zoom para o nível padrão.
+Pode tornar o texto no Storage Explorer maior através do zooming. Para ampliar, clique no **Zoom In** no menu Ajuda. Também pode utilizar o menu Ajuda para ampliar e redefinir o nível de zoom de volta ao nível predefinido.
 
 ![Opções de zoom no menu de ajuda][0]
 
-A regulação de zoom aumenta o tamanho da maioria dos elementos ui. Recomenda-se também ativar grandes configurações de texto e zoom para o seu SISTEMA para garantir que todos os elementos uI estão devidamente dimensionados.
+A definição de zoom aumenta o tamanho da maioria dos elementos de UI. Recomenda-se também ativar grandes definições de texto e zoom para o seu SO para garantir que todos os elementos de UI estão devidamente dimensionados.
 
-## <a name="high-contrast-themes"></a>Temas de Alto Contraste
+## <a name="high-contrast-themes"></a>Temas de alto contraste
 
-O Storage Explorer tem dois temas de alto contraste, **Luz de Alto Contraste** e Alta Contraste **Escuro.** Pode alterar o seu tema selecionando no menu Ajuda > Temas.
+O Storage Explorer tem dois temas de alto contraste, **High Contrast Light** e High Contrast **Dark.** Pode alterar o seu tema selecionando no menu "Temas > Ajuda".
 
-![Menu sub temático de temas][1]
+![Menu sub temas][1]
 
-A definição temática muda a cor da maioria dos elementos ui. Recomenda-se também ativar o tema de alto contraste correspondente do seu OS para garantir que todos os elementos ui estão devidamente coloridos.
+A definição do tema altera a cor da maioria dos elementos de UI. Recomenda-se também ativar o tema de alto contraste correspondente do seu SO para garantir que todos os elementos de UI estão devidamente coloridos.
 
-## <a name="shortcut-keys"></a>Teclas de atalho
+## <a name="shortcut-keys"></a>Chaves de atalho
 
-### <a name="window-commands"></a>Comandos da Janela
+### <a name="window-commands"></a>Comandos de janela
 
 Comando       | Atalho de teclado
 --------------|--------------------
-Nova Janela    | **Controlo+Shift+N**
+Nova Janela    | **Control+Shift+N**
 Editor Próximo  | **Controlo+F4**
-Saída          | **Controlo+Shift+W**
+Saída          | **Control+Shift+W**
 
 ### <a name="navigation-commands"></a>Comandos de Navegação
 
 Comando                | Atalho de teclado
 -----------------------|----------------------
 Foco Próximo Painel       | **F6**
-Painel anterior de foco   | **Turno+F6**
+Foco Painel Anterior   | **Shift+F6**
 Explorador               | **Control+Shift+E**
 Gestão de Contas     | **Control+Shift+A**
-Barra lateral de toggle        | **Controlo+B**
+Barra lateral toggle        | **Controlo+B**
 Registo de Atividades           | **Control+Shift+L**
-Ações e Propriedades | **Controlo+Shift+P**
-Editor Atual         | **Control+Home**
+Ações e Propriedades | **Control+Shift+P**
+Editor atual         | **Control+Home**
 Próximo Editor            | **Control+Page Down**
-Editor Anterior        | **Control+Page Up**
+Editor anterior        | **Control+Page Up**
 
-### <a name="zoom-commands"></a>Comandos de Zoom
+### <a name="zoom-commands"></a>Comandos zoom
 
 Comando  | Atalho de teclado
 ---------|------------------
-Zoom dentro  | **Controlo+=**
+Zoom In  | **Controlo+=**
 Zoom out | **Controlo+-**
 
-### <a name="blob-and-file-share-editor-commands"></a>Comandos do Editor blob e file share
+### <a name="blob-and-file-share-editor-commands"></a>Comandos editores de blob e de partilha de ficheiros
 
 Comando | Atalho de teclado
 --------|--------------------
-Anterior    | **Seta alt+esquerda**
-a frente | **Seta alt+direita**
+Voltar    | **Seta Alt+Esquerda**
+a frente | **Seta Alt+Direita**
 Cima      | **Seta Alt+Up**
 
-### <a name="editor-commands"></a>Comandos do Editor
+### <a name="editor-commands"></a>Comandos editoriais
 
 Comando | Atalho de teclado
 --------|------------------
 Copiar    | **Controlo+C**
-Cortar     | **Controlo+X**
+Cortar     | **Control+X**
 Colar   | **Controlo+V**
 Atualizar  | **Controlo+R**
 
@@ -104,7 +104,7 @@ Atualizar  | **Controlo+R**
 
 Comando                | Atalho de teclado
 -----------------------|------------------
-Ferramentas de desenvolvimento de alternância | **F12**
+Ferramentas de desenvolvedor toggle | **F12**
 Recarregar                 | **Alt+Control+R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png

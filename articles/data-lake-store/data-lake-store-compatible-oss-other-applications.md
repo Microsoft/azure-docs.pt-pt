@@ -1,6 +1,6 @@
 ---
-title: Aplicações de big data compatíveis com Data Lake Storage Gen1 [ Microsoft Docs
-description: Lista de aplicações de código aberto que trabalham com o Azure Data Lake Storage Gen1 (anteriormente conhecido como Azure Data Lake Store)
+title: Aplicações de big data compatíveis com data lake storage Gen1 Microsoft Docs
+description: Lista de aplicações de código aberto que funcionam com a Azure Data Lake Storage Gen1 (anteriormente conhecida como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60878890"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Aplicações Open Source Big Data que funcionam com Azure Data Lake Storage Gen1
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Este artigo lista as aplicações de big data de código aberto que trabalham com o Azure Data Lake Storage Gen1. Para as aplicações no quadro abaixo, apenas são suportadas as versões disponíveis com a distribuição listada. Para obter informações sobre quais as versões destas aplicações disponíveis com o HDInsight, consulte [a versão do componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
+Este artigo lista as aplicações de big data de código aberto que funcionam com a Azure Data Lake Storage Gen1. Para as aplicações na tabela abaixo, apenas as versões disponíveis com a distribuição listada são suportadas. Para obter informações sobre as versões destas aplicações disponíveis com HDInsight, consulte [a versão do componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 | Open Source Software | Distribuição |
 | --- | --- |
@@ -31,13 +31,13 @@ Este artigo lista as aplicações de big data de código aberto que trabalham co
 | [Colmeia Apache](https://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Mahout](https://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
-| [Apache Pig/Pig Latino](https://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
+| [Apache Porco/Porco Latino](https://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Oozie](https://oozie.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Zookeeper](https://zookeeper.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Tez](https://tez.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4, 3.5 e 3.6 |
 
 
-## <a name="see-also"></a>Consulte também
-* [Visão geral do Armazenamento de Lagos De Dados Azure Gen1](data-lake-store-overview.md)
+## <a name="see-also"></a>Ver também
+* [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

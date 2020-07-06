@@ -1,6 +1,6 @@
 ---
-title: Reveja o relatório de estimativa de custos de recuperação de custos do Site Azure para a recuperação de desastres de VMs Hiper-V para Azure. Microsoft Docs
-description: Este artigo descreve como rever o relatório de estimativa de custos gerou o Planejador de Implantação de Recuperação de Sítios Azure para recuperação de desastres hyper-V para Azure.
+title: Reveja o relatório de estimativa de custos do Planeamento de Recuperação do Local Azure para a recuperação de hiper-VMs para Azure. Microsoft Docs
+description: Este artigo descreve como rever o relatório de estimativa de custos gerado o Azure Site Recovery Planner para a recuperação de desastres hiper-V para Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60947229"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
@@ -56,7 +56,7 @@ A primeira secção mostra o custo global de DR por componentes e o custo de DR 
 
 **Rede**: custo do ExpressRoute e da rede de VPNs para as necessidades de DR. 
 
-Licença de **Recuperação do Site Azure**: O custo da licença de recuperação do site para todos os VMs compatíveis. Caso tenha introduzido manualmente uma VM na tabela de análise detalhada de custos, o custo da licença do Site Recovery também é incluído para essa VM.
+**Licença de recuperação do local**: O custo da licença de recuperação do local para todos os VMs compatíveis. Caso tenha introduzido manualmente uma VM na tabela de análise detalhada de custos, o custo da licença do Site Recovery também é incluído para essa VM.
 
 ### <a name="overall-dr-costs-by-states"></a>Custos globais de DR por estados
 O custo total da DR é categorizado com base em dois estados diferentes, replicação e exploração de DR.
@@ -94,7 +94,7 @@ Esta tabela mostra o número de VMs do Windows e não Windows e o custo de compu
 
 **Moeda**: a moeda na qual o relatório é gerado.
 
-**Duração do custo:** Pode visualizar todos os custos durante o mês ou durante todo o ano. 
+**Duração do custo**: Pode ver todos os custos durante o mês ou durante todo o ano. 
 
 ## <a name="detailed-cost-analysis-table"></a>Tabela de análise detalhada de custos
 ![Análise detalhada de custos](media/hyper-v-azure-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png)
@@ -119,7 +119,7 @@ Para adicionar VMs manualmente:
 
     f. **Duração de cada exploração de DR (Dias)**
 
-    g. **Tipo de SO**
+    exemplo, **Tipo de SO**
 
     h. **Redundância de dados**
 
@@ -157,7 +157,7 @@ Para adicionar VMs manualmente:
 
 **Custo total de Exploração de DR (média)**: o custo de computação e armazenamento para as explorações de DR.
 
-Custo da licença de recuperação do **site Azure**: O custo da licença de recuperação do site.
+**Custo da licença de recuperação do site Azure**: O custo da licença de recuperação do site.
 
 ## <a name="supported-target-regions"></a>Regiões de destino suportadas
 O Planeador de Implementações do Site Recovery fornece a estimativa de custos para as seguintes regiões do Azure. Se a sua região não estiver listada aqui, pode utilizar qualquer uma das regiões seguintes cujos preços estejam mais próximos da sua região:
@@ -167,13 +167,13 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas suportadas
 O Planeador de Implementações do Site Recovery pode gerar o relatório de custos com qualquer uma das moedas seguintes.
 
-|Moeda|Nome||Moeda|Nome||Moeda|Nome|
+|Moeda|Name||Moeda|Name||Moeda|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileiro (R$)|
 |CAD|Dólar canadiano ($)||CHF|Franco suíço (chf)||DKK|Coroa dinamarquesa (kr)|
 |EUR|Euro (€)||GBP|Libra britânica (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rupia da Indonésia (Rp)||INR|Rupia indiana ())||JPY|Iene japonês (≤)|
-|KRW|Coreano ganhou ()||MXN|Peso mexicano (MX$)||MYR|Ringgit malaio (RM$)|
+|IDR|Rupia da Indonésia (Rp)||INR|Rupia indiana (₹)||JPY|Iene japonês (≤)|
+|KRW|Coreano venceu (₩)||MXN|Peso mexicano (MX$)||MYR|Ringgit malaio (RM$)|
 |NOK|Coroa norueguesa (kr)||NZD|Dólar da Nova Zelândia ($)||RUB|Rublo russo (руб)|
 |SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar de Taiwan (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar norte-americano ($)||ZAR|Rand da África do Sul (R)|

@@ -1,5 +1,5 @@
 ---
-title: Scale ASP.NET Core SignalR com SinalEiro Azure
+title: Escala ASP.NET sinal de núcleo com sinaleiro Azure
 description: Uma descrição geral da utilização do serviço Azure SignalR para dimensionar aplicações do SignalR do ASP.NET Core.
 author: sffamily
 ms.service: signalr
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 8a4012d204b6dafa1233e4ce3d878590120be47d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60640230"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Dimensionar aplicações do SignalR do ASP.NET Core com o Azure SignalR Service
@@ -37,7 +37,7 @@ Outro motivo poderá ser o facto de que talvez não tenha necessidade de realmen
 
 ## <a name="how-does-it-scale"></a>Como é dimensionado?
 
-É comum escalar o SignalR com O Servidor SQL, Azure Service Bus ou Azure Cache para Redis. O Azure SignalR Service lida com a abordagem de dimensionamento por si. O desempenho e o custo são comparáveis a estas abordagens, sem a complexidade de ter de lidar com estes outros serviços. Tudo o que tem de fazer é atualizar a contagem de unidades do seu serviço. Cada unidade suporta até 1000 ligações de cliente.
+É comum escalar o SignalR com SQL Server, Azure Service Bus ou Azure Cache para Redis. O Azure SignalR Service lida com a abordagem de dimensionamento por si. O desempenho e o custo são comparáveis a estas abordagens, sem a complexidade de ter de lidar com estes outros serviços. Tudo o que tem de fazer é atualizar a contagem de unidades do seu serviço. Cada unidade suporta até 1000 ligações de cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

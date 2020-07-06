@@ -1,6 +1,6 @@
 ---
-title: Monitor Job Progress usando .NET
-description: Aprenda a usar o código de manipulador de eventos para acompanhar o progresso do trabalho e enviar atualizações de estado. A amostra de código está escrita em C# e utiliza o Media Services SDK para .NET.
+title: Monitorar o Progresso do Trabalho usando .NET
+description: Saiba como usar o código do manipulador de eventos para acompanhar o progresso do trabalho e enviar atualizações de estado. A amostra de código está escrita em C# e utiliza o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64867103"
 ---
-# <a name="monitor-job-progress-using-net"></a>Monitor Job Progress usando .NET 
+# <a name="monitor-job-progress-using-net"></a>Monitorar o Progresso do Trabalho usando .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode verificar o progresso definindo um manipulador de eventos StateChanged (conforme descrito neste tópico) ou utilizando o armazenamento de fila Azure para monitorizar as notificações de emprego dos Media Services (conforme descrito [neste](media-services-dotnet-check-job-progress-with-queues.md) tópico).
+Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode verificar o progresso definindo um manipulador de eventos StateChanged (conforme descrito neste tópico) ou usando o armazenamento da Fila Azure para monitorizar as notificações de emprego dos Media Services (conforme descrito [neste](media-services-dotnet-check-job-progress-with-queues.md) tópico).
 
-## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definir StateChanged handler de eventos para monitorizar o progresso do trabalho
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definir o manipulador de eventos StateChanged para monitorizar o progresso do trabalho
 
-O exemplo de código que se segue define o manipulador de eventos StateChanged. Este manipulador de eventos acompanha o progresso do trabalho e fornece o estado atualizado, dependendo do estado. O código também define o método LogJobStop. Este método de ajuda regista detalhes de erro.
+O seguinte exemplo de código define o manipulador de eventos StateChanged. Este responsável pelo evento acompanha o progresso do trabalho e fornece o estado atualizado, dependendo do estado. O código também define o método LogJobStop. Este método de ajuda regista detalhes de erro.
 
 ```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
