@@ -9,7 +9,6 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
 ms.locfileid: "85833243"
