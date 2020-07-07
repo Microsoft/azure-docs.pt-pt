@@ -6,12 +6,11 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 227e60486f0a6712b0d29de47983bad737481bd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800550"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028238"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Use o Emulador Azure Cosmos para desenvolvimento local e testes
 
@@ -64,9 +63,11 @@ Pode descarregar e instalar o Emulador Azure Cosmos a partir do [Microsoft Downl
 
 Para iniciar o Emulador Azure Cosmos, selecione o botão Iniciar ou prima a tecla Windows. Comece a escrever **Azure Cosmos Emulator**e selecione o emulador da lista de aplicações.
 
-![Selecione o botão Iniciar ou prima a tecla Windows, comece a digitar **Azure Cosmos Emulator**** e selecione o emulador da lista de aplicações](./media/local-emulator/database-local-emulator-start.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Selecione o botão Iniciar ou prima a tecla Windows, comece a digitar o Emulador Azure Cosmos e selecione o emulador da lista de aplicações":::
 
-Quando o emulador estiver em execução, verá um ícone na área de notificação da barra de tarefas do Windows. ![Azure Cosmos DB notificação de barra de tarefa local](./media/local-emulator/database-local-emulator-taskbar.png)
+Quando o emulador estiver em execução, verá um ícone na área de notificação da barra de tarefas do Windows. 
+
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB notificação de barra de tarefa local":::
 
 O Emulador Azure Cosmos por defeito funciona na máquina local ("localhost") ouvindo na porta 8081.
 
@@ -222,7 +223,7 @@ As linguagens .NET e o runtime utilizam o Arquivo de Certificados do Windows par
 
 Para obter um certificado a utilizar com linguagens e runtimes que não se integram com o Arquivo de Certificados do Windows, terá de exportá-lo com o Gestor de Certificados do Windows. Pode iniciá-lo executando certlm.msc ou seguir as instruções passo a passo na [Exportação dos Certificados emuladores Azure Cosmos](./local-emulator-export-ssl-certificates.md). Assim que o gestor de certificados estiver em execução, abra os Certificados Pessoais, conforme mostrado abaixo, e exporte o certificado com o nome amigável "DocumentDBEmulatorCertificate" como um ficheiro X.509 codificado com BASE-64 (.cer).
 
-![Certificado de emulador local Azure Cosmos DB TLS/SSL](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="Certificado de emulador local Azure Cosmos DB TLS/SSL":::
 
 O certificado X.509 pode ser importado para o arquivo de certificados do Java, seguindo as instruções em [Adicionar um Certificado ao Arquivo de Certificados de AC do Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Uma vez que o certificado é importado para a loja de certificados, os clientes da API da SQL e da Azure Cosmos DB para a MongoDB poderão ligar-se ao Emulator Azure Cosmos.
 
@@ -470,7 +471,7 @@ Se estiver a trabalhar no Linux, relés .NET no OpenSSL para fazer a validação
    update-ca-certificates
    ```
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
 Utilize os seguintes passos se estiver a trabalhar no Mac:
 
@@ -528,7 +529,7 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 3. Na lista de aplicações, desloque para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e, em seguida, confirme e clique em **Desinstalar** novamente.
 4. Quando a aplicação estiver desinstalada, navegue para `%LOCALAPPDATA%\CosmosDBEmulator` e elimine a pasta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a utilizar o emulador local para desenvolvimento local gratuito. Pode agora avançar para o próximo tutorial e aprender a exportar certificados emuladores TLS/SSL.
 

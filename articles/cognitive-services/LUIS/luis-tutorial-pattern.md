@@ -1,20 +1,19 @@
 ---
 title: 'Tutorial: Padrões - LUIS'
-description: Use padrões para aumentar a intenção e a previsão da entidade, ao mesmo tempo que fornece menos declarações de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
+description: Use padrões para aumentar a intenção e a previsão da entidade, ao mesmo tempo que fornece menos palavras de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592921"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039505"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos de expressão de modelo comum para melhorar as previsões
+# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos comuns de expressão de modelo de padrão para melhorar as previsões
 
-Neste tutorial, use padrões para aumentar a intenção e a previsão da entidade, o que lhe permite fornecer menos declarações de exemplo. O padrão é uma expressão de modelo atribuída a uma intenção, que contém sintaxe para identificar entidades e texto ignorável.
+Neste tutorial, use padrões para aumentar a intenção e a previsão da entidade, o que lhe permite fornecer menos palavras de exemplo. O padrão é uma expressão de modelo atribuída a uma intenção, que contém sintaxe para identificar entidades e texto ignorável.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar um padrão
@@ -24,41 +23,39 @@ Neste tutorial, use padrões para aumentar a intenção e a previsão da entidad
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="utterances-in-intent-and-pattern"></a>Expressões em intenção e padrão
+## <a name="utterances-in-intent-and-pattern"></a>Expressões na intenção e padrão
 
 Existem dois tipos de expressões armazenadas na app LUIS:
 
-* Declarações exemplo na Intenção
-* Declarações de modelo no Padrão
+* Palavras de exemplo na Intenção
+* Expressões de modelo no padrão
 
-Adicionar expressões de modelo como padrão permite-lhe fornecer menos declarações de exemplo em geral a uma intenção.
+Adicionar expressões de modelo como um padrão permite-lhe fornecer menos palavras de exemplo em geral a uma intenção.
 
-Um padrão é aplicado como uma combinação de correspondência de texto e aprendizagem automática.  A expressão do modelo no padrão, juntamente com as declarações de exemplo na intenção, dão a LUIS uma melhor compreensão do que as expressões se encaixam na intenção.
+Um padrão é aplicado como uma combinação de correspondência de texto e machine learning.  A expressão do modelo no padrão, juntamente com as expressões de exemplo na intenção, dão a LUIS uma melhor compreensão do que as expressões se encaixam na intenção.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>App de exemplo de importação e clone para nova versão
 
 Utilize os passos seguintes:
 
-1.  Descarregue e guarde o [ficheiro JSON](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)da aplicação .
+1.  Faça o download e guarde o ficheiro JSON da [aplicação.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true)
 
-1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
-1. Importe o JSON numa nova app para o [portal LUIS.](https://www.luis.ai) Na página **My Apps,** selecione **+ Nova aplicação para conversação**e, em seguida, selecione **Import as JSON**. Selecione o ficheiro que descarregou no passo anterior.
-
-1. A partir da secção **Gerir,** no separador **Versões,** selecione a versão ativa e, em seguida, selecione **Clone**. Diga o nome da versão `patterns` clonada. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Importe o JSON numa nova app para o [portal LUIS.](https://www.luis.ai) Na página **My Apps,** selecione **+ novo aplicativo para conversação,** em seguida, selecione **Import as JSON**. Selecione o ficheiro que descarregou no passo anterior, nomeie a aplicação, `Patterns tutorial` .
 
 ## <a name="create-new-intents-and-their-utterances"></a>Criar novas intenções e as respetivas expressões
 
-As duas intenções encontram os relatórios diretos do gerente ou do gerente, com base no texto de expressão. A dificuldade é que as duas intenções _significam_ coisas diferentes, mas a maioria das palavras são as mesmas. Só a palavra ordem é diferente. Para que a intenção fosse corretamente prevista, teria de ter muitos exemplos.
+As duas intenções encontram os relatórios diretos do gestor ou do gestor, com base no texto de expressão. A dificuldade é que as duas intenções _significam_ coisas diferentes, mas a maioria das palavras são as mesmas. Só a ordem de palavras é diferente. Para que a intenção fosse corretamente prevista, teria de ter muitos exemplos.
 
-1. Selecione **Construir** a partir da barra de navegação.
+1. **Selecione Construir** a partir da barra de navegação.
 
-1. Na página **Intenções,** selecione **+ Crie** para criar uma nova intenção.
+1. Na página **Intenções,** selecione **+ Criar** para criar uma nova intenção.
 
 1. Introduza `OrgChart-Manager` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
 
     ![Janela de pop-up para criar nova mensagem](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-1. Adicione expressões de exemplo à intenção. Estas declarações não são _exatamente_ iguais, mas têm um padrão que pode ser extraído.
+1. Adicione expressões de exemplo à intenção. Estas expressões não são _exatamente_ iguais, mas têm um padrão que pode ser extraído.
 
     |Expressões de exemplo|
     |--|
@@ -67,8 +64,6 @@ As duas intenções encontram os relatórios diretos do gerente ou do gerente, c
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Não se preocupe se a entidade keyPhrase tiver o nome nas expressões da intenção em vez de na entidade Employee. Ambas são previstas corretamente no painel de Teste e no ponto final.
 
 1. Selecione **Intenções** no painel de navegação esquerdo.
 
@@ -100,7 +95,7 @@ As duas intenções encontram os relatórios diretos do gerente ou do gerente, c
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?` .
+1. Vá até ao final do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?` .
 
     ```json
     {
@@ -109,50 +104,50 @@ As duas intenções encontram os relatórios diretos do gerente ou do gerente, c
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +166,9 @@ As duas intenções encontram os relatórios diretos do gerente ou do gerente, c
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,40 +185,36 @@ As duas intenções encontram os relatórios diretos do gerente ou do gerente, c
     }
     ```
 
-As pontuações das duas principais intenções são próximas, mas a maior intenção não é significativamente alta (mais de 60%) e não está longe o suficiente acima da pontuação da próxima intenção.
+A intenção correta estava prevista, `OrgChart-Manager` mas a pontuação não é superior a 70% e não está longe o suficiente acima da intenção mais alta. Utilize padrões para tornar a classificação da intenção correta significativamente mais alta em percentagem e mais distante da classificação mais alta seguinte.
 
-Como o treino do LUIS não é exatamente o mesmo de cada vez (há um pouco de variação), estas duas primeiras pontuações podem inverter no próximo ciclo de treino. O resultado é a possibilidade de ser devolvida a intenção errada.
-
-Utilize padrões para tornar a classificação da intenção correta significativamente mais alta em percentagem e mais distante da classificação mais alta seguinte.
-
-Deixe esta segunda janela do browser aberta. Vai utilizá-la mais à frente no tutorial.
+Deixe esta segunda janela do browser aberta. Vai usá-lo de novo mais tarde no tutorial.
 
 ## <a name="template-utterances"></a>Expressões de modelo
-Devido à natureza do domínio do recurso humano, existem algumas formas comuns de perguntar sobre as relações dos colaboradores nas organizações. Por exemplo:
+Devido à natureza do domínio do tema dos Recursos Humanos, existem algumas formas comuns de perguntar sobre as relações dos colaboradores nas organizações. Por exemplo:
 
 |Expressões|
 |--|
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-Estas expressões são demasiado parecidas para determinar a exclusividade contextual de cada sem fornecer muitos exemplos de expressão. Ao adicionar um padrão a uma intenção, o LUIS aprende padrões de expressões comuns para uma intenção sem fornecer muitos exemplos de expressões.
+Estas expressões estão muito próximas para determinar a singularidade contextual de cada um sem fornecer _muitos_ exemplos de expressão. Ao adicionar um padrão para uma intenção, LUIS aprende padrões de expressão comuns para uma intenção sem a necessidade de fornecer muitos mais exemplos de expressão.
 
 Alguns exemplos de expressões de modelo para esta intenção incluem:
 
 |Exemplos de expressões de modelo|significado da sintaxe|
 |--|--|
-|`Who does {Employee} report to[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
-|`Who reports to {Employee}[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|permutável`{EmployeeListEntity}`<br>ignorar`[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|permutável`{EmployeeListEntity}`<br>ignorar`[?]`|
 
-A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe opcional, `[?]` marca palavras ou [pontuação](luis-reference-application-settings.md#punctuation-normalization) que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
+A sintaxe `{EmployeeListEntity}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe opcional, `[?]` marca palavras, ou [pontuação](luis-reference-application-settings.md#punctuation-normalization) que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
 
 Embora a sintaxe pareça uma expressão regular, não é uma expressão regular. Apenas é suportada a sintaxe das chavetas, `{}`, e dos parênteses retos, `[]`. Podem ser aninhadas até dois níveis.
 
-Para que um padrão seja comparado a uma expressão, _primeiro_ as entidades dentro da expressão têm de corresponder às entidades na expressão do modelo. Isto significa que as entidades têm de ter exemplos suficientes, por exemplo, expressões com um elevado grau de previsão antes de os padrões com entidades serem bem sucedidos. No entanto, o modelo não ajuda a prever as entidades, apenas as intenções.
+Para que um padrão seja igualado a uma expressão, _primeiro_ as entidades dentro da expressão têm de corresponder às entidades na expressão do modelo. Isto significa que as entidades têm de ter exemplos suficientes em declarações de exemplo com um elevado grau de previsão antes que os padrões com as entidades sejam bem sucedidos. No entanto, o modelo não ajuda a prever as entidades, apenas as intenções.
 
 **Embora os padrões permitam que forneça menos expressões de exemplo, se as entidades não forem detetadas, o padrão não corresponde.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicione os padrões para a intenção orgchart-manager
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicione os padrões para a intenção orgChart-Manager
 
 1. Selecione **Build** (Criar) no menu superior.
 
@@ -233,35 +224,35 @@ Para que um padrão seja comparado a uma expressão, _primeiro_ as entidades den
 
     |Expressões de modelo|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    Estas declarações de modelo incluem a entidade **empregado** com a notação de suporte encaracolado.
+    Estas expressões de modelo incluem a entidade **EmployeeListEntity** com a notação de suporte encaracolado.
 
-1. Enquanto ainda está na página Padrões, selecione a intenção **OrgChart-Reports** e, em seguida, introduza as seguintes expressões do modelo:
+1. Enquanto ainda está na página Padrões, selecione a intenção **orgChart-Reports** e, em seguida, insira as seguintes expressões de modelo:
 
     |Expressões de modelo|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Ponto final de consulta quando são utilizados padrões
 
-Agora que os padrões são adicionados à app, treinam, publicam e consultam a app no ponto final da previsão.
+Agora que os padrões são adicionados à app, treine, publique e questione a app no ponto final de tempo de previsão.
 
-1. Selecione **Comboio**. Depois de concluído o treino, **selecione Publicar** e selecione a ranhura **de Produção** e, em seguida, selecione **Done**.
+1. Selecione **Comboio**. Após a conclusão do treino, **selecione Publicar** e selecione a ranhura **de Produção** e, em seguida, selecione **Fazer**.
 
-1. Depois de a publicação estar concluída, mude os separadores do navegador de volta para o separador URL do ponto final.
+1. Após a publicação estar concluída, altere os separadores do navegador de volta para o separador URL do ponto final.
 
-1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por:`Who is the boss of Jill Jones?`
+1. Vá até ao final do URL na barra de endereços e verifique se a sua consulta ainda é `Who is the boss of Jill Jones?` submetida a URL para uma nova previsão.
 
     ```json
     {
@@ -270,50 +261,50 @@ Agora que os padrões são adicionados à app, treinam, publicam e consultam a a
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +323,9 @@ Agora que os padrões são adicionados à app, treinam, publicam e consultam a a
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,11 +342,11 @@ Agora que os padrões são adicionados à app, treinam, publicam e consultam a a
     }
     ```
 
-A previsão das intenções é agora significativamente mais confiante e a pontuação da próxima maior intenção é significativamente menor. Estas duas intenções não vão virar-se quando treinam.
+A previsão de intenção é agora significativamente mais confiante e a próxima pontuação mais alta é muito baixa. Estas duas intenções não vão virar-se quando treinam.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabalhar com texto opcional e entidades pré-criadas
 
-As expressões de modelo de padrão anteriores neste tutorial tinham alguns exemplos de texto opcional, como a utilização da letra s, `'s` e do ponto de interrogação, `?`. Suponha que precisa permitir datas atuais e futuras no texto de expressão.
+As expressões de modelo de padrão anteriores neste tutorial tinham alguns exemplos de texto opcional, como a utilização da letra s, `'s` e do ponto de interrogação, `?`. Suponha que você precisa permitir datas atuais e futuras no texto de expressão.
 
 As expressões de exemplo são:
 
@@ -366,26 +357,27 @@ As expressões de exemplo são:
 |OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Note que os dois últimos exemplos da tabela utilizam quase o mesmo texto, exceto `in` para e `on` .
+Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Note que os dois últimos exemplos da tabela utilizam quase o mesmo texto, exceto `in` e `on` .
 
-Declarações de modelo de exemplo que permitem esta informação opcional:
+Palavras de modelo de exemplo que permitem esta informação opcional:
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este texto opcional seja fácil de adicionar à expressão de modelo e possa ser aninhado até ao segundo nível, `[[]]`, e incluir entidades ou texto.
 
 
-**Pergunta: Por que todas as `w` letras, a primeira letra em cada expressão de modelo, minúscula? Não deveriam ser opcionalmente superiores ou inferiores?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
+**Pergunta: Por que todas as `w` letras, a primeira letra em cada modelo, minúscula? Não deveriam ser opcionalmente maiúsculas ou minúsculas?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
 
 **Pergunta: Porque é que o número pré-criado não faz parte da expressão do modelo se 3 de março é previsto como número `3` e como data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.
 
-**Pergunta: E as expressões mal formuladas, como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [agrupar e ou](#use-the-or-operator-and-groups) os verbo-tenses para combinar estas expressões.
+**Pergunta: E as expressões mal formuladas, como `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [agrupar e ou](#use-the-or-operator-and-groups) o verbo-tenses para combinar estas expressões.
 
-**Lembre-se: as entidades são encontradas em primeiro lugar e, em seguida, é feita a correspondência do padrão.**
+> [!CAUTION]
+> **Lembre-se: as entidades são encontradas em primeiro lugar e, em seguida, é feita a correspondência do padrão.**
 
 ### <a name="add-new-pattern-template-utterances"></a>Adicionar novas expressões de modelo do padrão
 
@@ -393,17 +385,17 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
 
     |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
     |--|--|
-    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
-2. Selecione **Treinar** na barra de navegação para treinar a aplicação.
+2. Selecione **Train** na barra de navegação para treinar a aplicação.
 
-3. Depois de concluído o treino, selecione **Teste** na parte superior do painel para abrir o painel de testes.
+3. Após o treino estar concluído, selecione **Teste** na parte superior do painel para abrir o painel de testes.
 
 4. Introduza várias expressões de teste para verificar se o padrão é correspondido e a classificação da intenção é significativamente alta.
 
-    Depois de introduzir a primeira expressão, selecione **Inspect** (Inspecionar) sob o resultado, para que possa ver todos os resultados da predição. Cada expressão deve ter a intenção **orgChart-Manager** e extrair os valores para as entidades de Empregado e dataV2.
+    Depois de introduzir a primeira expressão, selecione **Inspect** (Inspecionar) sob o resultado, para que possa ver todos os resultados da predição. Cada expressão deve ter a intenção **orgChart-Manager** e extrair os valores para as `EmployeeListEntity` entidades e `datetimeV2` entidades.
 
     |Expressão|
     |--|
@@ -414,45 +406,48 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
     |`Who will be Jill Jones manager next Month`|
     |`Who will be Jill Jones manager in a month?`|
 
-Todas estas expressões encontraram as entidades dentro. Por isso, correspondem ao mesmo padrão e têm uma classificação de predição alta. Adicionou alguns padrões que combinarão com muitas variações de expressões. Não precisava de adicionar nenhum exemplo na intenção de ter o modelo a funcionar no padrão.
+Todas estas expressões encontraram as entidades dentro. Por isso, correspondem ao mesmo padrão e têm uma classificação de predição alta. Adicionou alguns padrões que combinam com muitas variações de expressões. Não precisava de adicionar quaisquer palavras de exemplo na intenção de ter o modelo a funcionar no padrão.
 
 Esta utilização de padrões fornecidos:
-* Pontuações de previsão mais altas
-* Com o mesmo exemplo pronunciações na intenção
-* Com apenas algumas proclamações de modelo bem construídas no padrão
+* Notas de previsão mais altas
+* Com o mesmo exemplo declarações na intenção
+* Com apenas algumas expressões de modelo bem construídas no padrão
 
 ### <a name="use-the-or-operator-and-groups"></a>Utilize o operador e grupos de OR
 
-Várias das proclamações anteriores do modelo são muito próximas. Utilize a sintaxe do **grupo** `()` e do **OR** para reduzir `|` as expressões do modelo.
+Várias das expressões anteriores do modelo são muito próximas. Utilize o **grupo** `()` e a sintaxe **OR** para reduzir `|` as expressões do modelo.
 
-Os seguintes 2 padrões podem combinar-se num único padrão usando o grupo e a `()` `|` sintaxe DE.
+Os dois padrões seguintes podem combinar-se num único padrão usando o grupo `()` e `|` a sintaxe OR.
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |--|--|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 A nova expressão do modelo será:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-Isto usa um **grupo** em torno do verbo necessário e opcional `in` e com um `on` **ou** tubo entre eles.
+Isto utiliza um **grupo** em torno do verbo necessário e do opcional `in` e com um `on` **ou** tubo entre eles.
 
-1. Na página **Padrões,** selecione o filtro **OrgChart-Manager.** Reduza a lista procurando `manager` por.
+> [!NOTE]
+> Quando utilizar o símbolo _OR_ , `|` (tubo), certifique-se de separar o símbolo do tubo com um espaço antes e depois dele no modelo de exemplo.
 
-1. Mantenha uma versão da expressão do modelo (para editar no próximo passo) e elimine as outras variações.
+1. Na página **Padrões,** selecione o filtro **OrgChart-Manager.** Reduza a lista `manager` procurando.
+
+1. Mantenha uma versão da expressão do modelo (para editar no passo seguinte) e elimine as outras variações.
 
 1. Altere a expressão de modelo para: 
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
-2. Selecione **Treinar** na barra de navegação para treinar a aplicação.
+2. Selecione **Train** na barra de navegação para treinar a aplicação.
 
-3. Depois de concluído o treino, selecione **Teste** na parte superior do painel para abrir o painel de testes.
+3. Após o treino estar concluído, selecione **Teste** na parte superior do painel para abrir o painel de testes.
 
     Utilize o painel de teste para testar versões da expressão:
 
-    |Expressões para entrar no painel de teste|
+    |Declarações para entrar no painel de teste|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
@@ -461,30 +456,30 @@ Isto usa um **grupo** em torno do verbo necessário e opcional `in` e com um `on
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-Ao utilizar mais sintaxe de padrão, reduz o número de declarações de modelo que tem de manter na sua aplicação, ao mesmo tempo que tem uma pontuação de previsão elevada.
+Ao utilizar mais sintaxe de padrão, reduz o número de palavras de modelo que tem de manter na sua aplicação, enquanto ainda tem uma pontuação de previsão elevada.
 
-### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Use as âncoras de início e final de expressão
+### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Use as âncoras de início e fim da expressão
 
-A sintaxe padrão fornece sintaxe de âncora de início e fim de um cuidador, `^` . As âncoras de expressão inicial e final podem ser usadas em conjunto para visar uma expressão muito específica e possivelmente literal ou usadas separadamente para visar as intenções.
+A sintaxe padrão proporciona sintaxe de âncora de início e fim de um cuidado, `^` . As âncoras de início e fim podem ser usadas em conjunto para atingir expressões muito específicas e possivelmente literais ou usadas separadamente para visar as intenções.
 
-## <a name="using-patternany-entity"></a>Usando O Padrão.qualquer entidade
+## <a name="using-patternany-entity"></a>Usando o Padrão.qualquer entidade
 
 [!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
-### <a name="add-example-utterances-with-patternany"></a>Adicione pronunciações de exemplo com Padrão.qualquer
+### <a name="add-example-utterances-with-patternany"></a>Adicione palavras de exemplo com Padrão.qualquer
 
 1. Selecione **Compilar** no painel de navegação superior e, em seguida, selecione **Intenções** no painel de navegação esquerdo.
 
 1. Selecione **FindForm** na lista de intenções.
 
-1. Adicione algumas declarações de exemplo. O texto que deve ser previsto como Padrão.qualquer é em **texto arrojado**. O nome de formulário é difícil de determinar a partir das outras palavras à sua volta na expressão. O Padrão.qualquer ajudará marcando os limites da entidade.
+1. Adicione algumas palavras de exemplo. O texto que deve ser previsto como um Padrão.qualquer um está em **texto arrojado**. O nome da forma é difícil de determinar a partir das outras palavras que o rodeiam na expressão. O Padrão.qualquer um ajudará marcando os limites da entidade.
 
-    |Expressão de exemplo|Nome de formulário|
+    |Expressão de exemplo|Nome do formulário|
     |--|--|
     |Onde está o formulário **O que fazer quando um incêndio deflagra no laboratório** e quem precisa de iniciar sessão depois de eu o ler?|O que fazer quando um incêndio deflagra no Laboratório
-    |Onde está **Pedir transferência do colaborador que é novo na empresa** no servidor?|Pedido de deslocalização de empregado novo para a empresa|
+    |Onde está **Pedir transferência do colaborador que é novo na empresa** no servidor?|Pedido de deslocalização de funcionário novo para a empresa|
     |Quem é o autor de “**Pedidos relacionados com saúde e bem-estar no campus principal**” e qual é a versão mais atual?|Pedidos de saúde e bem-estar no campus principal|
-    |Estou à procura do formulário com o nome “**Pedidos de mudança de escritório, incluindo os recursos físicos**”. |Pedido de movimentação de escritório, incluindo bens físicos|
+    |Estou à procura do formulário com o nome “**Pedidos de mudança de escritório, incluindo os recursos físicos**”. |Pedido de mudança de escritório, incluindo bens físicos|
 
     Sem uma entidade Pattern.any, o LUIS teria dificuldade em compreender onde termina o título do formulário, devido a muitas variações de nomes do formulário.
 
@@ -493,7 +488,7 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 
 1. Selecione **Entidades** no painel de navegação esquerdo.
 
-1. Selecione **+ Criar,** introduza o `FormName` nome, e selecione **Pattern.qualquer como** o tipo. Selecione **Criar**.
+1. Selecione **+ Criar,** insira o nome `FormName` e selecione **Padrão.qualquer** como o tipo. Selecione **Criar**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Adicionar um padrão que utiliza o Pattern.any
 
@@ -531,13 +526,13 @@ Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, 
 
 ## <a name="what-did-this-tutorial-accomplish"></a>O que este tutorial conseguiu?
 
-Este tutorial acrescentou padrões para ajudar luis a prever a intenção com uma pontuação significativamente mais alta sem ter que adicionar mais declarações de exemplo. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
+Este tutorial acrescentou padrões para ajudar LUIS a prever a intenção com uma pontuação significativamente maior sem ter que adicionar mais palavras de exemplo. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 > [!div class="nextstepaction"]

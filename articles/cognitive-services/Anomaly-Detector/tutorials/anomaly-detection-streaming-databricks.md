@@ -11,12 +11,11 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918935"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027851"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks
 
@@ -41,7 +40,7 @@ Este tutorial abrange as seguintes tarefas:
 
 > [!Note]
 > * Este tutorial introduz uma abordagem para implementar a arquitetura de [solução](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para a API do Detetor de Anomalias.
-> * Este tutorial não pode ser concluído com um teste gratuito para a API do Detetor de Anomalias ou para a Azure Databricks. 
+> * Este tutorial não pode ser preenchido com uma subscrição gratuita `F0` para o Detetor de AnomaliaS API ou Azure Databricks. 
 
 Crie uma [subscrição Azure](https://azure.microsoft.com/free/) se não tiver uma.
 
@@ -161,7 +160,7 @@ Neste tutorial, você usa as APIs do [Detetor de Anomalias de Serviços Cognitiv
 
 4. Na caixa de diálogo **Criar**, forneça os valores seguintes:
 
-    |Valor |Description  |
+    |Valor |Descrição  |
     |---------|---------|
     |Name     | Um nome para o recurso do Detetor de Anomalias.        |
     |Subscrição     | A subscrição do Azure a que o recurso será associado.        |
@@ -688,7 +687,7 @@ Depois de executar o tutorial, pode terminar o cluster. Para tal, no espaço de 
 
 Se não encerrar manualmente o cluster, este para automaticamente, desde que tenha selecionado a **caixa de verificação Terminate after \_ \_ minutes of inactivity** enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Avance para o próximo tutorial para aprender a chamar a API do Detetor de Anomalias e visualizar anomalias usando o ambiente de trabalho Power BI. 
 

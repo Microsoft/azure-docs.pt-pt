@@ -7,20 +7,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ac7af2f4500f6702dcacad546b0985e41159dc6e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734678"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024932"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
 Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a junção de domínio, política de grupo, autenticação de LDAP, Kerberos/NTLM que é totalmente compatível com o Windows Server Ative Directory. Com um domínio gerido AD DS Azure, pode fornecer funcionalidades de junção de domínio e gestão a máquinas virtuais (VMs) em Azure. Este tutorial mostra-lhe como criar um VM do Servidor do Windows e, em seguida, junte-o a um domínio gerido.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um VM do Servidor do Windows
@@ -72,7 +71,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
     | Nome de utilizador             | Introduza um nome de utilizador para a conta de administrador local para criar no VM, como *azureuser* |
     | Palavra-passe             | Introduza e confirme, uma senha segura para o administrador local criar no VM. Não especifique as credenciais de uma conta de utilizador de domínio. |
 
-1. Por padrão, os VMs criados em Azure são acessíveis a partir da Internet usando RDP. Quando o RDP está ativado, é provável que ocorra um sinal automatizado em ataques, o que pode desativar contas com nomes comuns, como *administração* ou *administrador,* devido a múltiplos sinais sucessivos falhados nas tentativas.
+1. Por padrão, os VMs criados em Azure são acessíveis a partir da Internet usando RDP. Quando o RDP está ativado, é provável que ocorram ataques de sing-in automatizados, o que pode desativar contas com nomes comuns, como *administração* ou *administrador,* devido a múltiplas tentativas de inscrição sucessivas falhadas.
 
     O PDR só deve ser ativado quando necessário, e limitado a um conjunto de intervalos de IP autorizados. Esta configuração ajuda a melhorar a segurança do VM e reduz a área para um potencial ataque. Ou, crie e use um anfitrião Azure Bastion que permita o acesso apenas através do portal Azure sobre TLS. No próximo passo deste tutorial, você usa um anfitrião Azure Bastion para ligar de forma segura ao VM.
 
@@ -110,7 +109,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
 
 1. Leva alguns segundos para criar a sub-rede. Uma vez criado, selecione o *X* para fechar a janela da sub-rede.
 1. De volta ao painel **de networking** para criar um VM, escolha a sub-rede que criou a partir do menu suspenso, como *a gestão*. Mais uma vez, certifique-se de que escolhe a sub-rede correta e não implanta o seu VM na mesma sub-rede que o seu domínio gerido.
-1. Para **IP público**, selecione *Nenhum* do menu suspenso, pois utiliza O Azure Bastion para se ligar à gestão e não precisa de um endereço IP público atribuído.
+1. Para **IP público**, selecione *Nenhum* do menu suspenso. Ao utilizar o Azure Bastion neste tutorial para se ligar à gestão, não precisa de um endereço IP público atribuído ao VM.
 1. Deixe as outras opções como valores predefinidos e, em seguida, **selecione Gestão**.
 1. Desema **esta semana, desemarr os diagnósticos** *da*Bota . Deixe as outras opções como valores predefinidos e, em seguida, selecione **Review + create**.
 1. Reveja as definições de VM e, em seguida, **selecione Criar**.
@@ -121,7 +120,7 @@ Leva alguns minutos para criar o VM. O portal Azure mostra o estado da implanta�
 
 ## <a name="connect-to-the-windows-server-vm"></a>Ligue-se ao VM do Servidor do Windows
 
-Para ligar de forma segura aos seus VMs, utilize um anfitrião Azure Bastion. Com o Azure Bastion, um hospedeiro gerido é implantado na sua rede virtual e fornece ligações RDP ou SSH baseadas na Web a VMs. Não são necessários endereços IP públicos para os VMs, e não é necessário abrir regras de grupo de segurança de rede para tráfego remoto externo. Você se conecta a VMs usando o portal Azure a partir do seu navegador web.
+Para ligar de forma segura aos seus VMs, utilize um anfitrião Azure Bastion. Com o Azure Bastion, um hospedeiro gerido é implantado na sua rede virtual e fornece ligações RDP ou SSH baseadas na Web a VMs. Não são necessários endereços IP públicos para os VMs, e não é necessário abrir regras de grupo de segurança de rede para tráfego remoto externo. Você se conecta a VMs usando o portal Azure a partir do seu navegador web. Se necessário, [crie um anfitrião Azure Bastion][azure-bastion].
 
 Para utilizar um anfitrião bastonário para ligar ao seu VM, complete os seguintes passos:
 
@@ -152,7 +151,9 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando Azure Bas
 
     ![Especifique o domínio gerido para aderir](./media/join-windows-vm/join-domain.png)
 
-1. Introduza credenciais de domínio para se juntar ao domínio. Use as credenciais para um utilizador que faz parte do domínio gerido. A conta deve fazer parte do domínio gerido ou inquilino Azure AD - contas de diretórios externos associados ao seu inquilino AD AZure não podem autenticar corretamente durante o processo de junção de domínio. As credenciais de conta podem ser especificadas de uma das seguintes formas:
+1. Introduza credenciais de domínio para se juntar ao domínio. Fornecer credenciais para um utilizador que faz parte do domínio gerido. A conta deve fazer parte do domínio gerido ou inquilino Azure AD - contas de diretórios externos associados ao seu inquilino AD AZure não podem autenticar corretamente durante o processo de junção de domínio.
+
+    As credenciais de conta podem ser especificadas de uma das seguintes formas:
 
     * **Formato UPN** (recomendado) - Introduza o sufixo do nome principal do utilizador (UPN) para a conta do utilizador, tal como configurado em Azure AD. Por exemplo, o sufixo UPN do *utilizador contosoadmin* seria `contosoadmin@aaddscontoso.onmicrosoft.com` . Existem alguns casos de uso comuns em que o formato UPN pode ser usado de forma fiável para iniciar sposição no domínio em vez do formato *SAMAccountName:*
         * Se o prefixo UPN de um utilizador for longo, como *o deehasareallylongname,* o *SAMAccountName* pode ser autogerido.
@@ -180,7 +181,7 @@ Uma vez reiniciado o VM do Servidor do Windows, quaisquer políticas aplicadas n
 
 No próximo tutorial, utiliza este VM do Windows Server para instalar as ferramentas de gestão que lhe permitem administrar o domínio gerido. Se não quiser continuar nesta série tutorial, reveja os seguintes passos de limpeza para [eliminar o VM](#delete-the-vm). Caso contrário, [continue para o próximo tutorial.](#next-steps)
 
-### <a name="un-join-the-vm-from-the-managed-domain"></a>Desacompra-se ao VM do domínio gerido
+### <a name="unjoin-the-vm-from-the-managed-domain"></a>Unjoin the VM from the managed domain
 
 Para remover o VM do domínio gerido, siga novamente os passos para [juntar o VM a um domínio](#join-the-vm-to-the-managed-domain). Em vez de aderir ao domínio gerido, opte por se juntar a um grupo de trabalho, como o *GRUPO DE TRABALHO*predefinido . Depois de o VM ter sido reiniciado, o objeto do computador é removido do domínio gerido.
 
@@ -220,7 +221,7 @@ Depois de experimentar cada um destes passos de resolução de problemas, tente 
 * Certifique-se de que a conta de utilizador que especifica pertence ao domínio gerido.
 * Confirme que a conta faz parte do domínio gerido ou inquilino da AD Azure. As contas de diretórios externos associados ao seu inquilino AZure AD não podem autenticar corretamente durante o processo de junção de domínios.
 * Tente utilizar o formato UPN para especificar credenciais, tais como `contosoadmin@aaddscontoso.onmicrosoft.com` . Se houver muitos utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo, o *SAMAccountName* para a sua conta pode ser autogerido. Nestes casos, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
-* Verifique se [ativou a sincronização de palavras-passe][password-sync] no seu domínio gerido. Sem este passo de configuração, os hashes de palavra-passe necessários não estarão presentes no domínio gerido para autenticar corretamente o seu sinal na tentativa.
+* Verifique se [ativou a sincronização de palavras-passe][password-sync] no seu domínio gerido. Sem este passo de configuração, os hashes de senha necessários não estarão presentes no domínio gerido para autenticar corretamente a sua tentativa de entrada.
 * Aguarde a conclusão da sincronização da palavra-passe. Quando a palavra-passe de uma conta de utilizador é alterada, uma sincronização automática de fundo a partir do Azure AD atualiza a palavra-passe em Azure AD DS. Leva algum tempo para que a palavra-passe esteja disponível para uso de união de domínio.
 
 ## <a name="next-steps"></a>Passos seguintes

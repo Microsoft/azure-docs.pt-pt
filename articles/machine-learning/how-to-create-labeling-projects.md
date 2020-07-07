@@ -5,14 +5,14 @@ description: Aprenda a criar e executar projetos de rotulagem para marcar dados 
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0870f389e366a9249e98d60a51aa7fdd40238ea0
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374513"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025187"
 ---
 # <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Criar um projeto de rotulagem de dados (pré-visualização) e rótulos de exportação 
 
@@ -217,7 +217,7 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

@@ -5,15 +5,15 @@ description: Transforme os seus cadernos experimentais de aprendizagem automáti
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 25ff9bdb2c4ec1b3367c522c497fad9cfb0ba588
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: eabd4ceced77e90646169d80d08338c81af96e2f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558316"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025646"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experiências ml para produzir código Python
 
@@ -521,7 +521,7 @@ def test_train_model():
     np.testing.assert_almost_equal(preds, [9.93939393939394, 9.03030303030303])
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que entende como se converter de uma experiência para código de produção, consulte os seguintes links para mais informações e próximos passos:
 

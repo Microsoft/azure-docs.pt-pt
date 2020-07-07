@@ -3,12 +3,11 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você elabora uma definição de política personalizada para a Azure Policy para impor regras de negócio personalizadas sobre os seus recursos Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: bff5596049a141f06f5c189f2e5673efed1ed6bf
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
-ms.translationtype: MT
+ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970829"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044622"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -66,7 +65,7 @@ A [extensão do Código VS](../how-to/extension-for-vscode.md#search-for-and-vie
 
 ### <a name="arm-templates"></a>Modelos de ARM
 
-Existem várias formas de olhar para um [modelo de Gestor de Recursos](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que você está procurando gerir.
+Existem várias formas de olhar para um [modelo de Gestor de Recursos](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que inclui a propriedade que você está procurando gerir.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente no portal
 
@@ -476,7 +475,7 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Determinou o efeito de usar
 > - Compôs a definição de política
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, use a sua definição de política personalizada para criar e atribuir uma política:
 

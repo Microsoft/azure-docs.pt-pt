@@ -11,12 +11,11 @@ ms.author: tracych
 author: tracychms
 ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: ae79a4f7264224f29db4ede0944ae079130b6394
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362616"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023382"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados utilizando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -112,9 +111,6 @@ Pode alterar este passo para apontar para o seu recipiente de bolhas, fornecendo
 from azureml.core import Datastore
 from azureml.core import Workspace
 
-# Load workspace authorization details from config.json
-ws = Workspace.from_config()
-
 mnist_blob = Datastore.register_azure_blob_container(ws, 
                       datastore_name="mnist_datastore", 
                       container_name="sampledata", 
@@ -140,8 +136,6 @@ Para obter mais informações sobre conjuntos de dados de aprendizagem automáti
 
 ```python
 from azureml.core.dataset import Dataset
-
-mnist_ds_name = 'mnist_sample_data'
 
 path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
@@ -218,6 +212,7 @@ O script *deve conter* duas funções:
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
+%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -311,12 +306,14 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 Pode especificar `mini_batch_size` , , e como , para `node_count` `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` que, quando reenviar uma corrida de gasoduto, possa afinar os valores dos parâmetros. Neste exemplo, utiliza o PipelineParameter `mini_batch_size` e `Process_count_per_node` altera estes valores quando voltar a apresentar uma execução posterior. 
 
+Este exemplo pressupõe que está a usar o `digit_identification.py` guião que foi discutido anteriormente. Se utilizar o seu próprio script, altere os `source_directory` parâmetros e `entry_script` os parâmetros em conformidade.
+
 ```python
 from azureml.pipeline.core import PipelineParameter
 from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
-    source_directory=scripts_folder,
+    source_directory='.',
     entry_script="digit_identification.py",
     mini_batch_size=PipelineParameter(name="batch_size_param", default_value="5"),
     error_threshold=10,
@@ -384,9 +381,8 @@ pipeline_run.wait_for_completion(show_output=True)
 Uma vez que fez as entradas e várias configurações como `PipelineParameter` , pode reenviar uma inferência de lote executada com uma entrada de conjunto de dados diferente e afinar os parâmetros sem ter que criar um pipeline inteiramente novo. Utilizará a mesma loja de dados, mas utilizará apenas uma única imagem como entradas de dados.
 
 ```python
-path_on_datastore = mnist_data.path('mnist/0.png')
+path_on_datastore = mnist_blob.path('mnist/0.png')
 single_image_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
-single_image_ds._ensure_saved(ws)
 
 pipeline_run_2 = experiment.submit(pipeline, 
                                    pipeline_parameters={"mnist_param": single_image_ds, 
@@ -397,7 +393,7 @@ pipeline_run_2 = experiment.submit(pipeline,
 pipeline_run_2.wait_for_completion(show_output=True)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ver este processo de trabalho de ponta a ponta, experimente o [caderno de inferência](https://aka.ms/batch-inference-notebooks)do lote . 
 

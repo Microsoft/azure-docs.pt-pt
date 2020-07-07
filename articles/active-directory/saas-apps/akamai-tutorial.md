@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fef2d7e3afb0cdda3c3c3e2506b39ba542e0760
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
-ms.translationtype: MT
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956887"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026836"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
 
@@ -40,7 +39,7 @@ A imagem abaixo descreve, onde a Akamai EAA se enquadra no cenário mais amplo d
 
 ### <a name="key-authentication-scenarios"></a>Principais cenários de autenticação
 
-Para além do suporte de integração nativa do Azure Ative Directory para protocolos modernos de autenticação como Open ID Connect, SAML e WS-Fed, a Akamai EAA alarga o acesso seguro a aplicações de autenticação baseadas em legados para acesso interno e externo com Azure AD, permitindo cenários modernos (por exemplo, acesso sem palavra-passe) a estas aplicações. Isto inclui:
+Para além do suporte de integração nativa do Azure Ative Directory para protocolos modernos de autenticação como Open ID Connect, SAML e WS-Fed, a Akamai EAA alarga o acesso seguro a aplicações de autenticação baseadas em legados para acesso interno e externo com Azure AD, permitindo cenários modernos (por exemplo, acesso sem palavra-passe) a estas aplicações. O que está incluído:
 
 * Aplicativos de autenticação baseados em cabeçalho
 * Ambiente de Trabalho Remoto
@@ -79,7 +78,7 @@ A Aplicação Akamai EAA é configurada individualmente no Portal AD Azure. A Ad
 
 • Pode definir políticas individuais de CA
 
-• Todas as aplicações estão representadas no Painel 0365 waffle e myApps.microsoft.com.
+• Todas as aplicações estão representadas no Painel de Waffles e myApps.microsoft.com O365.
 
 **Contras:**
 

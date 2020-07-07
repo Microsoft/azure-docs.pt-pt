@@ -1,109 +1,108 @@
 ---
-title: Implementar amostras de plantas de plantas do NHS do Reino Unido &
-description: Desloque as etapas para as amostras de plantas do NHNh do Reino Unido, incluindo detalhes do parâmetro de artefacto sinuoso.
+title: Implementar amostras de plantas do NHS do Reino Unido & do Reino Unido
+description: Implementar etapas para as amostras de plantas do NHS do Reino Unido e do Reino Unido, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 7fa78eab463c9a3202b2ec08e1952e275e51b20d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005593"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037176"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implementar as amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 
-Para implantar as amostras de plantas do NHS oficial do Reino Unido e do Reino Unido, devem ser tomadas as seguintes medidas:
+Para a colocação das amostras de projeto oficial do Reino Unido e do Nhs do Reino Unido, devem ser tomadas as seguintes medidas:
 
 > [!div class="checklist"]
 > - Criar uma nova planta a partir da amostra
-> - Marque a sua cópia da amostra como **Publicado**
-> - Atribuir a sua cópia da planta a uma subscrição existente
+> - Marque a sua cópia da amostra como **Publicada**
+> - Atribua a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
+## <a name="create-blueprint-from-sample"></a>Criar planta a partir de amostra
 
 Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu ambiente usando a amostra como entrada.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. A partir da página **iniciar** à esquerda, selecione o botão **Criar** _uma planta_.
+1. A partir da página **'Iniciar'** à esquerda, selecione o botão **Criar** _uma plantação_.
 
-1. Encontre a amostra de plantas **do NHS** **oficial** ou do Reino Unido sob _outras amostras_ e selecione **Utilize esta amostra**.
+1. Encontre a amostra de planta oficial do **Reino Unido** ou do NHS do Reino **Unido** em _outras amostras_ e selecione **Utilize esta amostra.**
 
-1. Introduza os _Fundamentos_ da amostra de plantas:
+1. Introduza os _fundamentos_ da amostra da planta:
 
-   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de plantas.
-   - **Localização da definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
+   - **Nome da planta**: Forneça um nome para a sua cópia da amostra de planta.
+   - **Localização de definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione o separador _Artefactos_ na parte superior da página ou **Seguinte: Artefactos** na parte inferior da página.
+1. Selecione o _separador Artefactos_ na parte superior da página ou **seguinte: Artefactos** na parte inferior da página.
 
-1. Reveja a lista de artefactos que compõem a amostra da planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. Selecione **Guardar Rascunho** quando terminar de rever a amostra de plantas.
+1. Reveja a lista de artefactos que compõem a amostra de planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. **Selecione Save Draft** quando terminar de rever a amostra de planta.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia da amostra
+## <a name="publish-the-sample-copy"></a>Publique a cópia da amostra
 
-A sua cópia da amostra de plantas foi agora criada no seu ambiente. É criado em modo **Draft** e deve ser **publicado** antes de ser atribuído e implantado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la do padrão.
+A sua cópia da amostra foi agora criada no seu ambiente. É criado no modo **Draft** e deve ser **publicado** antes de poder ser atribuído e implementado. A cópia da amostra de planta pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la do padrão.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
+1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de planta e, em seguida, selecione-a.
 
-1. Selecione **Publicar a planta** no topo da página. Na nova página à direita, forneça uma **Versão** para a sua cópia da amostra de plantas. Esta propriedade é útil para se fizer uma modificação mais tarde. Forneça notas de **mudança** como "Primeira versão publicada a partir da amostra de plantas do NHS do Reino Unido." Em seguida, **selecione Publicar** na parte inferior da página.
+1. **Selecione Publicar** a planta no topo da página. Na nova página à direita, forneça uma **versão** para a sua cópia da amostra de planta. Esta propriedade é útil para se você fizer uma modificação mais tarde. Fornecer **notas de mudança** como "Primeira versão publicada a partir da amostra de plantas do UK OFFICIAL ou UK NHS.". Em seguida, **selecione Publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia da amostra
 
-Uma vez que a cópia da amostra de plantas tenha sido **publicada**com sucesso, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de plantas única.
+Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de planta única.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
+1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de planta e, em seguida, selecione-a.
 
-1. Selecione **a planta de atribuição** na parte superior da página de definição de planta.
+1. Selecione Atribuir a **planta** no topo da página de definição de planta.
 
-1. Fornecer os valores do parâmetro para a atribuição do projeto:
+1. Fornecer os valores dos parâmetros para a atribuição do projeto:
 
    - Noções básicas
 
-     - **Assinaturas**: Selecione uma ou mais das subscrições que estão no grupo de gestão para a qual guardou a sua cópia da amostra de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada utilização dos parâmetros introduzidos.
-     - **Nome de atribuição**: O nome é pré-povoado para si com base no nome da planta.
-       Mude conforme necessário ou saia como está.
-     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
-     - Versão de **definição**de planta : Escolha uma versão **publicada** da sua cópia da amostra de plantas.
+     - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, será criada uma atribuição para cada um utilizando os parâmetros introduzidos.
+     - **Nome da atribuição**: O nome é pré-povoado para si com base no nome da planta.
+       Mude o que for necessário ou saia como for.
+     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para recursos Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
+     - **Versão de definição de planta**: Escolha uma versão **publicada** da sua cópia da amostra de planta.
 
    - Atribuição de bloqueio
 
-     Selecione a definição de bloqueio da planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Selecione a definição de bloqueio de planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe o sistema predefinido _atribuído_ à opção de identidade gerida.
+     Deixe a opção de identidade gerida _por defeito atribuída._
 
-   - Parâmetros de artefacto
+   - Parâmetros de artefactos
 
-     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte a [tabela de parâmetros do Artefacto](#artifact-parameters-table).
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos,](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte [a tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. O destacamento demora cerca de uma hora. Para verificar o estado da implantação, abra a atribuição da planta.
+1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. A implantação leva cerca de uma hora. Para verificar o estado de implantação, abra a atribuição do projeto.
 
 > [!WARNING]
-> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **isentos de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para estimar o custo dos recursos de funcionamento implantados por esta amostra de plantas.
+> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **livres de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo de funcionamento dos recursos utilizados por esta amostra de planta.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefactos
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefacto
 
-A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
+A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
 Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|Iniciativa blueprint para o NHS oficial do Reino Unido ou do Reino Unido|Atribuição de política |Tipos de recursos para auditar registos de diagnóstico (Política: Iniciativa blueprint para o NHS OFICIAL do Reino Unido ou do Reino Unido) |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico estiver ativada.  Para valores aceitáveis, consulte [serviços suportados, schemas e categorias para registos](../../../../azure-monitor/platform/diagnostic-logs-schema.md)de diagnóstico azure . |
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Sistema \[\]Linux OS para adicionar ao âmbito (Política: Pré-visualização : Implementar O Agente de Análise de Registos para VMs Linux) |(Opcional) O valor predefinido não é _nenhum._ Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Opcional: Lista de imagens VM que têm suportado \[o\]Windows OS para adicionar ao âmbito (Política: Pré-visualização : Implementar O Agente de Análise de Registos para VMs do Windows) |(Opcional) O valor predefinido não é _nenhum._ Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Iniciativa de blueprint para UK OFFICIAL ou UK NHS|Atribuição de política |Tipos de recursos para auditar registos de diagnóstico (Policy: Blueprint initiative for UK OFFICIAL ou UK NHS) |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico estiver ativada.  Para obter valores aceitáveis, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito (Política: \[ Pré-visualização \] : Implementar Agente de Análise de Registo para VMs Linux) |(Opcional) O valor predefinido não é _nenhum._ Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito (Política: \[ Pré-visualização \] : Implementar Agente de Análise de Registo para VMs do Windows) |(Opcional) O valor predefinido não é _nenhum._ Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que reviu os passos para implementar as amostras de plantas do NHS oficial do Reino Unido e do Reino Unido, visite os seguintes artigos para saber sobre a visão geral e o mapeamento de controlo:
+Agora que reviu os passos para implementar as amostras de plantas do NHS do Reino Unido e do Reino Unido, visite os seguintes artigos para saber mais sobre a visão geral e controlar o mapeamento:
 
 > [!div class="nextstepaction"]
-> [Plantas do NHS](./index.md)
-> do Reino Unido - Visão geral do[UK OFFICIAL e uk NHS blueprints - Control mapping](./control-mapping.md)
+> [Plantas do NHS oficial do Reino Unido e do Reino Unido - Visão geral](./index.md) 
+>  [Plantas do NHS oficial do Reino Unido e do Reino Unido - Controlo de mapeamento](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

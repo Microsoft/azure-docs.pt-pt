@@ -7,22 +7,21 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733420"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024609"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar um VM de gestão para configurar e administrar um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
 Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a junção de domínio, a política de grupo, a autenticação LDAP e a autenticação Kerberos/NTLM que é totalmente compatível com o Windows Server Ative Directory. Administra este domínio gerido utilizando as mesmas Ferramentas de Administração de ServidorEs Remotos (RSAT) que com um domínio de Serviços de Domínio de Diretório Ativo no local. Como o Azure AD DS é um serviço gerido, existem algumas tarefas administrativas que não pode executar, como a utilização do protocolo de ambiente de trabalho remoto (RDP) para ligar aos controladores de domínio.
 
-Este tutorial mostra-lhe como criar um VM do Windows Server em Azure e instalar as ferramentas necessárias para administrar um domínio gerido por Ad DS Azure.
+Este tutorial mostra-lhe como configurar um VM do Servidor do Windows em Azure e instalar as ferramentas necessárias para administrar um domínio gerido pelo Azure AD DS.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Compreender as tarefas administrativas disponíveis num domínio gerido
@@ -75,7 +74,7 @@ O domínio gerido está bloqueado, por isso não tem privilégios para fazer cer
 
 ## <a name="sign-in-to-the-windows-server-vm"></a>Iniciar serção no Windows Server VM
 
-No tutorial anterior, foi criado um VM do Windows Server e aderido ao domínio gerido. Vamos usar o VM para instalar as ferramentas de gestão. Se necessário, [siga os passos do tutorial para criar e juntar um VM do Windows Server a um domínio gerido][create-join-windows-vm].
+No tutorial anterior, foi criado um VM do Windows Server e aderido ao domínio gerido. Utilize este VM para instalar as ferramentas de gestão. Se necessário, [siga os passos do tutorial para criar e juntar um VM do Windows Server a um domínio gerido][create-join-windows-vm].
 
 > [!NOTE]
 > Neste tutorial, utiliza-se um VM do Windows Server em Azure que se junta ao domínio gerido. Também pode utilizar um cliente Windows, como o Windows 10, que se junta ao domínio gerido.
@@ -97,7 +96,7 @@ Se necessário, permita que o seu navegador da Web abra pop-ups para a ligação
 
 ## <a name="install-active-directory-administrative-tools"></a>Instalar ferramentas administrativas do Diretório Ativo
 
-Os domínios geridos são geridos utilizando as mesmas ferramentas administrativas que os ambientes AD DS no local, tais como o Ative Directory Administrative Center (ADAC) ou o AD PowerShell. Estas ferramentas podem ser instaladas como parte da funcionalidade Ferramentas de Administração de Servidor Remoto (RSAT) no Windows Server e nos computadores clientes. Os membros do grupo *de administradores AAD DC* podem então administrar domínios geridos remotamente usando estas ferramentas administrativas de AD a partir de um computador que é associado ao domínio gerido.
+Utiliza as mesmas ferramentas administrativas num domínio gerido como ambientes AD DS no local, como o Ative Directory Administrative Center (ADAC) ou o AD PowerShell. Estas ferramentas podem ser instaladas como parte da funcionalidade Ferramentas de Administração de Servidor Remoto (RSAT) no Windows Server e nos computadores clientes. Os membros do grupo *de administradores AAD DC* podem então administrar domínios geridos remotamente usando estas ferramentas administrativas de AD a partir de um computador que é associado ao domínio gerido.
 
 Para instalar as ferramentas da Administração do Diretório Ativo num VM ligado ao domínio, complete os seguintes passos:
 
@@ -125,7 +124,7 @@ Com as ferramentas administrativas instaladas, vamos ver como usá-las para admi
     ![Lista de Ferramentas Administrativas instaladas no servidor](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Selecione **Ative Directory Administrative Center**.
-1. Para explorar o domínio gerido, escolha o nome de domínio no painel esquerdo, como *aaddscontoso.com*. Dois contentores chamados *AADDC Computers* e *AADDC Users* estão no topo da lista.
+1. Para explorar o domínio gerido, escolha o nome de domínio no painel esquerdo, como *aaddscontoso*. Dois contentores chamados *AADDC Computers* e *AADDC Users* estão no topo da lista.
 
     ![Listar os contentores disponíveis parte do domínio gerido](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +134,7 @@ Com as ferramentas administrativas instaladas, vamos ver como usá-las para admi
 
     ![Veja a lista de utilizadores de domínio Azure AD DS no Ative Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. Para ver os computadores que estão unidos ao domínio gerido, selecione o contentor **AADDC Computers.** Está listada uma entrada para a atual máquina virtual, como *o myVM.* As contas do computador de todos os computadores que se unem ao domínio gerido são armazenadas neste contentor *de Computadores AADDC.*
+1. Para ver os computadores que estão unidos ao domínio gerido, selecione o contentor **AADDC Computers.** Está listada uma entrada para a atual máquina virtual, como *o myVM.* As contas do computador de todos os dispositivos que se unem ao domínio gerido são armazenadas neste contentor *de Computadores AADDC.*
 
 Estão disponíveis ações do Common Ative Directory Administrative Center, tais como a reposição de uma palavra-passe da conta de utilizador ou a gestão da adesão ao grupo. Estas ações apenas funcionam para utilizadores e grupos criados diretamente no domínio gerido. A informação de identidade apenas sincroniza *de* Azure AD a Azure AD DS. Não há nenhuma escrita de Azure AD DS para Azure AD. Não é possível alterar palavras-passe ou membros geridos do grupo para utilizadores sincronizados a partir do Azure AD e ter essas alterações sincronizadas.
 
@@ -150,7 +149,7 @@ Neste tutorial, ficou a saber como:
 > * Instale as ferramentas administrativas do Ative Directory num VM do Servidor do Windows
 > * Utilize o Ative Directory Administrative Center para executar tarefas comuns
 
-Para interagir com segurança com o seu domínio gerido, ative o Protocolo de Acesso ao Diretório Leve (LDAPS).
+Para interagir com segurança com o seu domínio gerido a partir de outras aplicações, ative um Protocolo de Acesso leve (LDAPS).
 
 > [!div class="nextstepaction"]
 > [Configure lDAP seguro seguro para o seu domínio gerido](tutorial-configure-ldaps.md)

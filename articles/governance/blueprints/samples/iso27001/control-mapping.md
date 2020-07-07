@@ -3,12 +3,11 @@ title: Controlos de amostras de plantas ISO 27001
 description: Controlo do mapeamento da amostra de planta ISO 27001. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 1f4998a84d7079b55e2668a43b7e7359429d54d8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 013a871b52a9e81d7051c3b148c258cecc139070
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919198"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044673"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controlo da amostra de planta ISO 27001
 
@@ -28,7 +27,7 @@ Ter apenas um proprietário de assinatura Azure não permite despedimento admini
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificação da informação
 
-O serviço de Avaliação de [Vulnerabilidades SQL](/azure/sql-database/sql-vulnerability-assessment) da Azure pode ajudá-lo a descobrir dados sensíveis armazenados nas suas bases de dados e inclui recomendações para classificar esses dados. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) à auditoria de que as vulnerabilidades identificadas durante a avaliação da vulnerabilidade SQL são remediadas.
+O serviço de Avaliação de [Vulnerabilidades SQL](../../../../azure-sql/database/sql-vulnerability-assessment.md) da Azure pode ajudá-lo a descobrir dados sensíveis armazenados nas suas bases de dados e inclui recomendações para classificar esses dados. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) à auditoria de que as vulnerabilidades identificadas durante a avaliação da vulnerabilidade SQL são remediadas.
 
 - \[Pré-visualização \] : Monitor SQL avaliação de vulnerabilidade resulta no Azure Security Center
 
@@ -200,7 +199,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Auditoria que permite apenas ligações seguras à sua Cache Redis
 - Transferência segura de auditoria para contas de armazenamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu o mapeamento de controlo da planta ISO 27001, visite os seguintes artigos para aprender sobre a arquitetura e como implementar esta amostra:
 

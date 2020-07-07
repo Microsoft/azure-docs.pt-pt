@@ -8,12 +8,11 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: d29f97bf421804fb234ce8d86c66c12b01854681
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 6dcfdc63946bcc2a9ffe4c5c767e81ca3b32107b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85113807"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025289"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Construa uma aplicação web Java usando Azure Cosmos DB e a API SQL
 
@@ -90,7 +89,7 @@ Para criar a aplicação JSP:
 
 1. Se definir um tempo de execução de destino no passo 2, pode clicar em **Projeto** e, em seguida, em **Executar** para executar localmente a sua aplicação de JSP:
 
-  ![Olá, Mundo – Tutorial de Aplicações Java](./media/sql-api-java-application/image12.png)
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Olá, Mundo – Tutorial de Aplicações Java":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Instale o SQL Java SDK
 
@@ -248,7 +247,7 @@ Todos os exemplos deste tutorial estão incluídos no projeto [todo](https://git
 
 1. Para implementar o seu projeto num site da Azure, consulte [o Passo 6. Implemente a sua aplicação para web sites Azure](#Deploy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Construir uma aplicação node.js com a Azure Cosmos DB](sql-api-nodejs-application.md)

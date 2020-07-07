@@ -7,12 +7,11 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bf200a8c7da6910f9d844c9b72e926e8103df6bc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391796"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027888"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs de Gémeos Digitais Azure
 
@@ -285,6 +284,7 @@ Adicione uma nova `using` declaração no topo, pois necessitará do serializer 
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Em seguida, adicione o seguinte código ao fim do `Main` método para criar e inicializar três gémeos digitais com base neste modelo.
@@ -315,7 +315,7 @@ Note que não se comete nenhum erro quando os gémeos são criados pela segunda 
 
 Em seguida, pode criar **relações** entre os gémeos que criou, para ligá-los a um **gráfico gémeo.** [Os gráficos gémeos](concepts-twins-graph.md) são usados para representar todo o seu ambiente.
 
-Para ser capaz de criar relacionamentos, adicione uma `using` declaração para o tipo de base de relacionamento no SDK:
+Para ser capaz de criar relacionamentos, adicione uma `using` declaração para o tipo de base de relacionamento no SDK:ignore isto se já adicionado.
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -553,7 +553,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de projeto que criou na sua máquina local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma aplicação de cliente de consola .NET de raiz. Escreveu código para esta aplicação de clientes para realizar as ações básicas numa instância Azure Digital Twins.
 

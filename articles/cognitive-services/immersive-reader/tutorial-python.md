@@ -4,23 +4,22 @@ titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você vai criar uma aplicação Python que lança o Leitor Imersivo.
 services: cognitive-services
 author: dylankil
-manager: nitinme
+manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.custom: tracking-python
-ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.openlocfilehash: ea9e6e1f06bacd28a4e9894039de824c3a5b4af4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609136"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044945"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Lançar o Leitor Imersivo usando o projeto de amostra python
 
-Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e como implementa técnicas comprovadas para melhorar a compreensão da leitura para os alunos de línguas, leitores emergentes e alunos com diferenças de aprendizagem. Este tutorial abrange como criar uma aplicação web Python que lança o Leitor Imersivo. Neste tutorial, vai aprender a:
+Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e como implementa técnicas comprovadas para melhorar a compreensão da leitura para os alunos de línguas, leitores emergentes e alunos com diferenças de aprendizagem. Este tutorial abrange como criar uma aplicação web Python que lança o Leitor Imersivo. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma aplicação web Python com Pip, Flask, Jinja e virtualenv usando um projeto de amostra
@@ -217,7 +216,7 @@ sudo nano /etc/paths
 - Vá para a parte inferior do ficheiro e insira o caminho que pretende adicionar como o último item da lista, por `PATH=$PATH:/usr/local/bin` exemplo.
 - Acerte o control-x para desistir.
 - Introduza `Y` para salvar o tampão modificado.
-- Já está. Para testá-lo, na nova janela do Terminal, escreva: `echo $PATH` .
+- Já está! Para testá-lo, na nova janela do Terminal, escreva: `echo $PATH` .
 
 Instale o Balão.
 

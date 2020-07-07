@@ -4,12 +4,11 @@ description: Saiba como preparar máquinas no local para migração com a Azure 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341329"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044163"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar máquinas no local para migração para Azure
 
@@ -59,7 +58,7 @@ Verifique os sistemas operativos suportados para a migração:
 
 Rever quais URLs e portos são acedidos durante a migração.
 
-**Cenário** | **Detalhes** |  **URLs** | **Portas**
+**Cenário** | **Detalhes** |  **URLs** | **Portos**
 --- | --- | --- | ---
 **VMware migração sem agente** | Utiliza o [aparelho Azure Migrate](migrate-appliance-architecture.md) para migração. Nada está instalado em VMware VMs. | Reveja a nuvem pública e [os URLs governamentais necessários](migrate-appliance.md#url-access) para a descoberta, avaliação e migração com o aparelho. | [Reveja](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) os requisitos portuários para a migração sem agentes.
 **Migração baseada em agentes VMware** | Utiliza o [aparelho de replicação](migrate-replication-appliance.md) para a migração. O agente de serviço de mobilidade está instalado em VMs. | Reveja a [nuvem pública](migrate-replication-appliance.md#url-access) e os URLs [do Governo Azure](migrate-replication-appliance.md#azure-government-url-access) que o aparelho de replicação precisa de aceder. | [Reveja](migrate-replication-appliance.md#port-access) as portas utilizadas durante a migração baseada em agentes.
@@ -94,7 +93,7 @@ Por predefinição, os VMs Azure são atribuídos drive D para usar como armazen
 
 - Esta atribuição de unidade faz com que todas as outras atribuições de unidade de armazenamento anexadas incrementem por uma letra.
 - Por exemplo, se a sua instalação no local utilizar um disco de dados que está designado para conduzir D para instalações de aplicações, a atribuição para este impulso de unidade incrementa para conduzir E depois de migrar o VM para Azure. 
-- Para evitar esta atribuição automática, e para garantir que a Azure atribui a próxima carta de condução gratuita ao seu volume temporário, desagure a política da rede de área de armazenamento (SAN) para **OnlineAll:
+- Para evitar esta atribuição automática, e para garantir que a Azure atribui a próxima carta de condução gratuita ao seu volume temporário, dedibra a política da rede de área de armazenamento (SAN) ao **OnlineAll:**
 
 Configure esta definição manualmente da seguinte forma:
 
@@ -171,7 +170,7 @@ Após a migração, complete estes passos sobre os VMs Azure que são criados:
 3. Verifique [os diagnósticos](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) de arranque para ver o VM.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Decida qual o método que pretende utilizar para [migrar VMware VMs](server-migrate-overview.md) para Azure, ou começar a migrar [Hiper-VMs](tutorial-migrate-hyper-v.md) ou [servidores físicos ou VMs virtualizados ou em nuvem](tutorial-migrate-physical-virtual-machines.md).
 

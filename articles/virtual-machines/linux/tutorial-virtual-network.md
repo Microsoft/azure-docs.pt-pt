@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar e gerir redes virtuais Azure para VMs Linux
+title: Tutorial - Criar e gerir redes virtuais Azure para Os VMs Linux
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir redes virtuais do Azure para máquinas virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5527fbfc05eb5aadf5c5775fb9987a88d5ba81bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 8e5c03876de8ca078c6e89b8ca101602e4e4cf52
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460448"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045744"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -32,13 +31,13 @@ As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de 
 > * Proteger o tráfego de rede
 > * Criar uma VM de back-end
 
-Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="vm-networking-overview"></a>Descrição geral do funcionamento em rede de VMs
 
-As redes virtuais do Azure permitem ligações de rede seguras entre as máquinas virtuais, a Internet e outros serviços do Azure, como a Base de Dados SQL do Azure. As redes virtuais são divididas em segmentos lógicos, chamados sub-redes. As sub-redes são utilizadas para controlar o fluxo de rede e como limite de segurança. Ao implementar uma VM, incluem, geralmente, uma interface de rede virtual, que é ligada a uma sub-rede.
+As redes virtuais Azure permitem ligações de rede seguras entre máquinas virtuais, internet e outros serviços Azure, como a Base de Dados Azure SQL. As redes virtuais são divididas em segmentos lógicos, chamados sub-redes. As sub-redes são utilizadas para controlar o fluxo de rede e como limite de segurança. Ao implementar uma VM, incluem, geralmente, uma interface de rede virtual, que é ligada a uma sub-rede.
 
 À medida que concluir o tutorial, são criados os seguintes recursos de rede virtual:
 
@@ -58,7 +57,7 @@ As redes virtuais do Azure permitem ligações de rede seguras entre as máquina
 
 Neste tutorial, é criada uma rede virtual individual com duas sub-redes. Uma sub-rede de front-end para alojar uma aplicação Web e uma sub-rede de back-end para alojar um servidor de bases de dados.
 
-Antes de poder criar uma rede virtual, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myRGNetwork* na localização oriental.
+Antes de poder criar uma rede virtual, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myRGNetwork* na localização leste.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -289,7 +288,7 @@ A VM de back-end só é acessível na porta *22* e na porta *3306* a partir da s
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. Aprendeu a:
 
@@ -303,4 +302,4 @@ Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtu
 Avance para o tutorial seguinte para aprender a proteger os dados nas máquinas virtuais com o Azure Backup. 
 
 > [!div class="nextstepaction"]
-> [Back up Máquinas virtuais Linux em Azure](./tutorial-backup-vms.md)
+> [Apoiar máquinas virtuais Linux em Azure](./tutorial-backup-vms.md)

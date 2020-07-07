@@ -3,12 +3,11 @@ title: 'Tutorial: extrair dados estruturados com entidade de aprendizagem autom�
 description: Extrair dados estruturados a partir de uma expressão utilizando a entidade de aprendizagem automática. Para aumentar a precisão da extração, adicione subentidades com características.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611021"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045608"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados da expressão do utilizador com entidades de aprendizagem automática em Compreensão linguística (LUIS)
 
@@ -108,13 +107,13 @@ Adicionar uma lista de tamanhos conhecidos que a aplicação do cliente reconhec
 
 1. Selecione **Entidades** do menu esquerdo e, em seguida, selecione **+ Criar**.
 
-1. Desaver o nome da entidade de `SizeListentity` modo a que seja fácil de identificar quando comparado com o criado na secção `SizePhraselist` anterior.
+1. Desaver o nome da entidade como `SizeListentity` e desaver o Tipo de **Lista** de modo a que seja fácil de identificar quando comparado com o `SizePhraselist` criado na secção anterior.
 
 1. Adicione os tamanhos que a aplicação do cliente espera: `Small` `Medium` , , `Large` `XLarge` e, em seguida, adicionar sinónimos para cada um. Os sinónimos devem ser os termos que um utilizador introduz no chat bot. A entidade é extraída com uma entidade de lista quando corresponde exatamente ao valor normalizado ou aos sinónimos.
 
     |Valor normalizado|Sinónimos|
     |--|--|
-    |Small|sm, sml, minúsculo, menor|
+    |Pequeno|sm, sml, minúsculo, menor|
     |Médio|md, mdm, regular, média, meio|
     |Grande|lg, lrg, grande|
     |XLarge|xl, maior, gigante|
@@ -302,7 +301,7 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal LUIS](luis-interactive-test.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, a aplicação utiliza uma entidade de aprendizagem automática para encontrar a intenção da expressão de um utilizador e extrair detalhes dessa expressão. A utilização da entidade de aprendizagem automática permite-lhe decompor os detalhes da entidade.
 

@@ -5,12 +5,11 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 2bc160418df7cb2d68f474da541f8f81ebb819fc
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250337"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054768"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar ficheiros BACPAC SQL com modelos ARM
 
@@ -112,8 +111,8 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
 
     Existem dois recursos definidos no modelo:
 
-   * `Microsoft.Sql/servers`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Veja a [referência de modelo](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. Veja a [referência de modelo](/azure/templates/microsoft.sql/servers/databases).
 
         É útil obter alguma compreensão básica do modelo antes de personalizá-lo.
 1. Selecione **File**  >  **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome *azuredeploy.jsligado*.
@@ -194,7 +193,7 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
 
         ![Modelo com extensão de base de dados SQL](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        Para compreender a definição do recurso, veja a [referência de extensão de Base de Dados SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Seguem alguns elementos importantes:
+        Para compreender a definição do recurso, veja a [referência de extensão de Base de Dados SQL](/azure/templates/microsoft.sql/servers/databases/extensions). Seguem alguns elementos importantes:
 
         * **depende:** O recurso de extensão deve ser criado após a criação da base de dados.
         * **StorageKeyType**: Especifique o tipo da chave de armazenamento a utilizar. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
@@ -254,7 +253,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 1. Selecione o nome do grupo de recursos. Verá um total de seis recursos no grupo de recursos.
 1. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, implementou um servidor e uma base de dados e importou um ficheiro BACPAC. Para aprender a resolver problemas na implementação do modelo, consulte:
 

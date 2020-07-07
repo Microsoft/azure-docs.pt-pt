@@ -1,17 +1,16 @@
 ---
-title: Obtenha o grupo de recursos gerido & redimensionar VMs - Azure PowerShell
-description: Fornece o script de amostra Azure PowerShell que obtém um grupo de recursos gerido para uma Aplicação Gerida Azure. O guião redimensiona os VMs.
+title: Obtenha grupo de recursos geridos & redimensionar VMs - Azure PowerShell
+description: Fornece o script da amostra Azure PowerShell que obtém um grupo de recursos gerido para uma aplicação gerida Azure. O guião redimensiona os VMs.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 695023f4700370cbe5e9b345f513e38d1cf1fc0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 602aaeb67ca081ebac71ca1d6d24a2de3c020603
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650185"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055992"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Obtenha recursos num grupo de recursos geridos e redimensione VMs com PowerShell
 
@@ -32,12 +31,12 @@ Este script utiliza os seguintes comandos para implementar a aplicação gerida.
 
 | Comando | Notas |
 |---|---|
-| [Get-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/get-azmanagedapplication) | Lista as aplicações geridas. Forneça o nome do grupo de recursos para focar os resultados. |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Lista os recursos. Forneça um grupo de recursos e um tipo de recurso para concentrar o resultado. |
-| [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) | Atualize um tamanho de máquina virtual. |
+| [Get-AzManagedApplication](/powershell/module/az.resources/get-azmanagedapplication) | Lista as aplicações geridas. Forneça o nome do grupo de recursos para focar os resultados. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Lista os recursos. Forneça um grupo de recursos e um tipo de recurso para focar o resultado. |
+| [Update-AzVM](/powershell/module/az.compute/update-azvm) | Atualize um tamanho de máquina virtual. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).

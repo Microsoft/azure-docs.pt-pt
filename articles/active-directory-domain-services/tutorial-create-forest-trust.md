@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733675"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024677"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services (pré-visualização)
 
@@ -23,7 +22,7 @@ Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou tem 
 
 ![Diagrama de confiança florestal de Azure AD DS para as AD DS no local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure o DNS num ambiente AD DS no local para apoiar a conectividade Azure AD DS
@@ -45,7 +44,9 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie e configuure um domínio gerido por Azure Ative Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Certifique-se de que cria um domínio gerido utilizando uma floresta *de recursos.* A opção predefinitiva cria uma floresta *de utilizadores.* Apenas as florestas de recursos podem criar fidedignidades para ambientes DS AD on-prem. Também precisa de utilizar um mínimo de *Enterprise* SKU para o seu domínio gerido. Se necessário, [mude o SKU para um domínio gerido][howto-change-sku].
+    > Certifique-se de que cria um domínio gerido utilizando uma floresta *de recursos.* A opção predefinitiva cria uma floresta *de utilizadores.* Apenas as florestas de recursos podem criar fidedignidades para ambientes DS AD on-prem.
+    >
+    > Também precisa de utilizar um mínimo de *Enterprise* SKU para o seu domínio gerido. Se necessário, [mude o SKU para um domínio gerido][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -69,10 +70,10 @@ Antes de configurar uma confiança florestal em Azure AD DS, certifique-se de qu
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurar DNS no domínio do local
 
-Para resolver corretamente o domínio gerido a partir do ambiente no local, poderá ser necessário adicionar reencaminhadores aos servidores DNS existentes. Se não tiver configurado o ambiente no local para comunicar com o domínio gerido, complete os seguintes passos a partir de uma estação de trabalho de gestão para o domínio AD DS no local:
+Para resolver corretamente o domínio gerido a partir do ambiente no local, poderá ser necessário adicionar reencaminhadores aos servidores DNS existentes. Se ainda não configurar o ambiente no local para comunicar com o domínio gerido, complete os seguintes passos a partir de uma estação de trabalho de gestão para o domínio AD DS no local:
 
 1. Selecione **Iniciar / Ferramentas Administrativas / DNS**
-1. Servidor DNS de seleção direita, como *myAD01*, selecione **Properties**
+1. Selecione o servidor DNS, como *o myAD01,* em seguida, selecione **Propriedades**
 1. Escolha **forwarders**e, em seguida, **edite** para adicionar reencaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerido, tais como *10.0.2.4* e *10.0.2.5*.
 
@@ -83,9 +84,9 @@ O domínio AD DS no local precisa de uma confiança florestal para o domínio ge
 Para configurar a confiança de entrada no domínio AD DS no local, complete os seguintes passos de uma estação de trabalho de gestão para o domínio DS AD no local:
 
 1. Selecione **Iniciar / Ferramentas Administrativas / Domínios e Fidedignidades do Diretório Ativo**
-1. Domínio selecionado à direita, como *onprem.contoso.com,* selecione **Properties**
+1. Domínio de seleção à direita, como *onprem.contoso.com,* em seguida, selecione **Propriedades**
 1. Escolha o separador **Trusts,** em seguida, **New Trust**
-1. Insira o nome no nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Seguinte**
+1. Introduza o nome para nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Next**
 1. Selecione a opção de criar um **fundo florestal,** em seguida, para criar uma **única maneira: confiança de entrada.**
 1. Opte por criar a confiança **apenas**para este domínio . No passo seguinte, cria-se a confiança no portal Azure para o domínio gerido.
 1. Opte por utilizar a **autenticação em toda**a Floresta, em seguida, insira e confirme uma senha de confiança. Esta mesma palavra-passe também é inserida no portal Azure na secção seguinte.
@@ -94,7 +95,7 @@ Para configurar a confiança de entrada no domínio AD DS no local, complete os 
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar a confiança florestal de saída em Azure AD DS
 
-Com o domínio DS AD no local configurado para resolver o domínio gerido e uma confiança florestal de entrada criada, criou agora a confiança florestal de saída. Esta confiança florestal de saída completa a relação de confiança entre o domínio DS AD no local e o domínio gerido.
+Com o domínio AD DS no local configurado para resolver o domínio gerido e uma confiança florestal de entrada criada, agora criar a confiança florestal de saída. Esta confiança florestal de saída completa a relação de confiança entre o domínio DS AD no local e o domínio gerido.
 
 Para criar a confiança de saída para o domínio gerido no portal Azure, complete os seguintes passos:
 
@@ -124,7 +125,7 @@ Os seguintes cenários comuns permitem validar que a confiança florestal autent
 
 ### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Autenticação do utilizador no local da floresta de recursos Azure AD DS
 
-Deverá ter a máquina virtual do Windows Server associada ao domínio de recursos Azure AD DS. Utilize esta máquina virtual para testar o utilizador no local que pode autenticar numa máquina virtual.
+Deverá ter a máquina virtual do Windows Server unida ao domínio gerido. Utilize esta máquina virtual para testar o utilizador no local que pode autenticar numa máquina virtual. Se necessário, [crie um VM do Windows e junte-o ao domínio gerido][join-windows-vm].
 
 1. Ligue-se ao Windows Server VM aderido à floresta de recursos Azure AD DS utilizando [O Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e as suas credenciais de administrador AD DS Azure.
 1. Abra um pedido de comando e utilize o `whoami` comando para mostrar o nome distinto do utilizador atualmente autenticado:
@@ -167,7 +168,7 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos Azu
 1. Digite *Utilizadores de Domínio* na **Introdução dos nomes do objeto para selecionar a** caixa. Selecione **Verificar Nomes**, forneça credenciais para o Diretório Ativo no local e, em seguida, selecione **OK**.
 
     > [!NOTE]
-    > Tens de fornecer credenciais porque a relação de confiança é apenas uma maneira. Isto significa que os utilizadores do Azure AD DS não podem aceder a recursos ou procurar utilizadores ou grupos no domínio confiável (no local).
+    > Tens de fornecer credenciais porque a relação de confiança é apenas uma maneira. Isto significa que os utilizadores do domínio gerido AZure AD não podem aceder a recursos ou procurar utilizadores ou grupos no domínio confiável (no local).
 
 1. O grupo de **Utilizadores** de Domínio saindo do seu Diretório Ativo no local deve ser membro do grupo **FileServerAccess.** Selecione **OK** para salvar o grupo e feche a janela.
 
@@ -216,3 +217,4 @@ Para obter mais informações conceptuais sobre os tipos de floresta em [How do 
 [howto-change-sku]: change-sku.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [expressroute]: ../expressroute/expressroute-introduction.md
+[join-windows-vm]: join-windows-vm.md

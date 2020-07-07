@@ -3,12 +3,11 @@ title: Descrição geral do exemplo de esquema NIST SP 800-53 R4
 description: Descrição geral do exemplo de esquema NIST SP 800-53 R4. Este exemplo de esquema ajuda os clientes a avaliar controlos NIST SP 800-53 R4 específicos.
 ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: e7ad29904b87a20f59d2867d277d806331614461
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 20ea6e81746a07db85a00a0881744340b2a24d1f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740350"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042667"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Amostra de planta NIST SP 800-53 R4
 
@@ -18,7 +17,7 @@ O exemplo de esquema NIST SP 800-53 R4 fornece proteções de governação com o
 
 O [mapeamento de controlo de política Azure](../../policy/samples/nist-sp-800-53-r4.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no NIST SP 800-53 R4. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementar
+## <a name="deploy"></a>Implementação
 
 Para implantar a amostra de planta Azure Blueprints NIST SP 800-53 R4, devem ser tomadas as seguintes medidas:
 
@@ -99,10 +98,10 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
 A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Description|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
-|\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala de VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
@@ -119,7 +118,7 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |Implementar definições de diagnóstico para grupos de segurança de rede|Atribuição de política|Prefixo de conta de armazenamento para diagnósticos de grupos de segurança de rede|Este prefixo será combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada.|
 |Implementar definições de diagnóstico para grupos de segurança de rede|Atribuição de política|Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupos de segurança de rede (deve existir)|O grupo de recursos em que a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

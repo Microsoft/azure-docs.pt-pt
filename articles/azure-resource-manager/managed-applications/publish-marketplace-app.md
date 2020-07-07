@@ -1,18 +1,17 @@
 ---
-title: Aplicativos geridos no Marketplace
+title: Aplicativos geridos no Mercado
 description: Descreve as aplicações geridas do Azure disponíveis através do Marketplace.
 author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79473001"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054496"
 ---
-# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicar aplicações geridas pela Azure no Marketplace
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicar aplicações geridas pela Azure no Mercado
 
 Os fornecedores podem utilizar as aplicações geridas do Azure para disponibilizar as suas soluções a todos os clientes do Azure Marketplace. Esses fornecedores podem incluir fornecedores de serviços geridos (MSPs), fabricantes independentes de software (ISVs) e integradores de sistemas (SIs). As aplicações geridas reduzem os custos gerais de manutenção para os clientes. Os fornecedores vendem infraestruturas e software através do marketplace. Podem anexar serviços e suporte operacional às aplicações geridas. Para obter mais informações, veja [Descrição geral das aplicações geridas](overview.md).
 
@@ -22,9 +21,9 @@ Este artigo explica como pode publicar uma aplicação no marketplace e torná-l
 
 Para concluir este artigo, pecisa de ter o ficheiro .zip para a definição da aplicação gerida. Para obter mais informações, veja [Criar uma aplicação do catálogo de serviços](publish-service-catalog-app.md).
 
-Há vários pré-requisitos de negócio. São:
+Existem vários pré-requisitos de negócio. São:
 
-* A sua empresa ou a sua subsidiária devem estar localizadas num país/região onde as vendas são apoiadas pelo mercado.
+* A sua empresa ou subsidiária deve estar localizada num país/região onde as vendas sejam apoiadas pelo mercado.
 * O produto tem de estar licenciado de forma a ser compatível com os modelos de faturação suportados pelo marketplace.
 * Disponibilizar suporte técnico para os clientes de forma comercialmente razoável. O suporte pode ser gratuito, pago ou através da comunidade.
 * Licencie o software e quaisquer dependências de software de terceiros.
@@ -32,7 +31,7 @@ Há vários pré-requisitos de negócio. São:
 * Aceite os termos das Políticas de Participação e do Contrato de Publicação do Azure Marketplace.
 * Aceite cumprir Termos de Utilização, a Declaração de Privacidade da Microsoft e o Contrato do Programa Microsoft Azure Certified.
 
-Também deve ter uma conta no Mercado. Para criar uma conta, consulte [como criar uma conta de Marketplace Comercial no Partner Center](../../marketplace/partner-center-portal/create-account.md).
+Também deve ter uma conta marketplace. Para criar uma conta, consulte [como criar uma conta de Mercado Comercial no Partner Center.](../../marketplace/partner-center-portal/create-account.md)
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicação do Azure
 
@@ -44,7 +43,7 @@ A oferta de uma aplicação gerida corresponde a uma classe de oferta de produto
 
 1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-1. No painel de navegação à esquerda, selecione + Nova oferta De **Aplicações** > **Azure**.
+1. No painel de navegação à esquerda, selecione **+ Novas**  >  **aplicações Azure.**
 
 1. Na vista **Editor**, verá os formulários necessários. Cada formulário é descrito mais à frente neste artigo.
 
@@ -70,7 +69,7 @@ Um SKU é a unidade de compra mais pequena de uma oferta. Pode utilizar um SKU n
 
 Um SKU aparece na oferta principal no marketplace. É apresentado como a sua própria entidade de compra no portal do Azure.
 
-1. Selecione **SKUs** > **New SKU**.
+1. Selecione **SKUs**  >  **New SKU**.
 
 1. Introduza o **ID do SKU**. O ID do SKU é um identificador exclusivo do SKU numa oferta. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen e está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado. Pode ter vários SKUs numa oferta. Precisa de um SKU para cada imagem que queira publicar.
 
@@ -91,12 +90,12 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
 
    * **Versão**: Introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
    * **Ficheiro de pacote(.zip)**: Este pacote contém dois ficheiros necessários comprimidos num pacote .zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
-   * **ID do inquilino**: A identificação do inquilino para a conta ter acesso.
-   * Ativar o **Acesso JIT**: Selecione **Sim** para ativar o controlo de [acesso just-in-time](request-just-in-time-access.md) para a conta. Quando ativado, solicita o acesso à conta do consumidor por um período de tempo determinado. Para exigir que os consumidores da sua aplicação gerida concedam à sua conta acesso permanente, selecione **Nº**.
-   * **Personalizar as ações permitidas ao cliente?**: Selecione **Sim** para especificar quais as ações que os consumidores podem executar nos recursos geridos.
-   * **Ações permitidas**ao cliente : Se selecionar **Sim** para a definição anterior, pode especificar quais as ações permitidas aos consumidores utilizando [as atribuições de negação dos recursos Azure](../../role-based-access-control/deny-assignments.md).
+   * **Identificação do inquilino**: A identificação do inquilino para a conta para ter acesso.
+   * **Ativar o Acesso JIT**: Selecione **Sim** para ativar o [controlo de acesso just-in-time](request-just-in-time-access.md) para a conta. Quando ativado, solicita o acesso à conta do consumidor por um período de tempo especificado. Para exigir que os consumidores da sua aplicação gerida concedam acesso permanente à sua conta, selecione **Nº**.
+   * **Personalizar as ações permitidas para o cliente?**: Selecione **Sim** para especificar que ações os consumidores podem realizar nos recursos geridos.
+   * **Ações permitidas ao cliente**: Se selecionar **Sim** para a definição anterior, pode especificar quais as ações permitidas aos consumidores utilizando [atribuições de negação para recursos Azure](../../role-based-access-control/deny-assignments.md).
 
-     Para as ações disponíveis, consulte as operações de fornecedor de recursos do Gestor de [Recursos do Azure.](../../role-based-access-control/resource-provider-operations.md) Por exemplo, permitir que os consumidores `Microsoft.Compute/virtualMachines/restart/action` reiniciem as máquinas virtuais, adicione às ações permitidas. A `*/read` ação é automaticamente permitida para que não seja necessário incluir essa definição.
+     Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas. A `*/read` ação é automaticamente permitida para que não seja necessário incluir essa definição.
    * **PrincipalId**: esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, grupo de utilizadores ou aplicação com acesso concedido aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
    * **Definição de Função**: esta propriedade é uma lista de todas as funções de Controlo de Acesso Baseado em Funções (RBAC) incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
    * **Definições de Política**: Aplicar uma [Azure Policy](../../governance/policy/overview.md) à sua aplicação gerida para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../../governance/policy/samples/index.md).
@@ -170,8 +169,8 @@ Preencha o formulário de **Suporte** com contactos de suporte da sua empresa. E
 
 Depois de preencher todas as secções, selecione **Publicar** para iniciar o processo que disponibiliza a oferta aos clientes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter informações sobre o que acontece depois de clicar em **Publicar,** consulte a oferta de [aplicação Do Publish Azure](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* Para obter informações sobre o que acontece depois de clicar em **Publicar,** consulte [a oferta de aplicação da Publish Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar e publicar uma aplicação gerida do Catálogo de Serviços](publish-service-catalog-app.md).

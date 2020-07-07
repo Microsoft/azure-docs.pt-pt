@@ -3,12 +3,11 @@ title: Implementar amostra de planta alta da FedRAMP
 description: Implementar etapas para a amostra de planta da FedRAMP High, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 96b033c153789b3edbfb6a197981fe3d56f12076
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
-ms.translationtype: MT
+ms.openlocfilehash: c4b2915222bc2d1772a2772c719d5d6cc4b59657
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517139"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044809"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementar a amostra de planta alta fedRAMP
 
@@ -91,10 +90,10 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
 A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Description|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
-|\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala de VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
@@ -134,7 +133,7 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de política|Backup geo-redundante a longo prazo deve ser ativado para bases de dados Azure SQL|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os passos para implementar a amostra de planta da FedRAMP High, visite os seguintes artigos para saber sobre o mapa de plantas e controlo:
 

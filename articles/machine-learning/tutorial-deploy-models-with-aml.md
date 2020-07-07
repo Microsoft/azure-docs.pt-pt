@@ -10,42 +10,41 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5d064b0953d8d6e9089dcfa765ff29bb97088f34
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801115"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025680"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem em instâncias de contentores azure
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem em Instâncias de Contentores Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), preparou os modelos de machine learning e registou um modelo na sua área de trabalho na cloud.  Agora está pronto para implementar o modelo como um serviço web. Um serviço web é uma imagem, neste caso uma imagem do Docker. Encapsula a lógica de pontuação e o próprio modelo. 
 
-Nesta parte do tutorial, utiliza-se o Azure Machine Learning para as seguintes tarefas:
+Nesta parte do tutorial, utiliza-se a Azure Machine Learning para as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Instale o seu ambiente de teste.
+> * Configurar o seu ambiente de testes.
 > * Recupere o modelo do seu espaço de trabalho.
-> * Desloque o modelo para instâncias de contentores.
+> * Desloque o modelo para as instâncias do contentor.
 > * Teste o modelo implantado.
 
-As Instâncias de Contentores são uma ótima solução para testar e compreender o fluxo de trabalho. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, veja [como implementar e onde.](how-to-deploy-and-where.md)
+As instâncias de contentores são uma ótima solução para testar e compreender o fluxo de trabalho. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, consulte [como implementar e onde.](how-to-deploy-and-where.md)
 
 >[!NOTE]
-> O código neste artigo foi testado com a versão 1.0.83 do Azure Machine Learning SDK.
+> O código deste artigo foi testado com a versão 1.0.83 do Azure Machine Learning SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar o caderno, complete primeiro o model training em [Tutorial (parte 1): Treine um modelo](tutorial-train-models-with-aml.md)de classificação de imagem .   Em seguida, abra o notebook *img-classification-part2-deploy.ipynb* nos seus *tutoriais clonados/pasta de dados mnist-de classificação de imagem.*
+Para executar o caderno, primeiro complete o modelo de formação em [Tutorial (parte 1): Treine um modelo de classificação de imagem.](tutorial-train-models-with-aml.md)   Em seguida, abra o caderno *img-classification-part2-deploy.ipynb* na sua pasta *de tutoriais clonados/classificação de imagem-mnist-data.*
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se desejar usá-lo no seu próprio [ambiente local.](how-to-configure-environment.md#local)  Certifique-se de `matplotlib` que `scikit-learn` instalou e no seu ambiente. 
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se desejar usá-lo no seu próprio [ambiente local.](how-to-configure-environment.md#local)  Certifique-se de que instalou `matplotlib` e `scikit-learn` no seu ambiente. 
 
 > [!Important]
 > O resto deste artigo contém o mesmo conteúdo que se vê no caderno.  
 >
-> Mude para o caderno Jupyter agora se quiser ler enquanto executa o código.
-> Para executar uma única célula de código num caderno, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
+> Mude agora para o caderno Jupyter se quiser ler enquanto executar o código.
+> Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
 ## <a name="set-up-the-environment"></a><a name="start"></a>Configurar o ambiente
 
@@ -128,10 +127,10 @@ Tempo estimado para completar: **cerca de 2-5 minutos**
 
 Configure a imagem e implemente. O código abaixo realiza estes passos:
 
-1. Crie objetos ambientais contendo dependências`tutorial-env`necessárias pelo modelo utilizando o ambiente ( ) salvo durante o treino.
-1. Criar uma configuração de inferência necessária para implementar o modelo como um serviço web utilizando:
+1. Criar objetos ambientais que contenham dependências necessárias pelo modelo utilizando o ambiente ( ) salvo durante o `tutorial-env` treino.
+1. Criar configuração de inferência necessária para implementar o modelo como um serviço web utilizando:
    * O ficheiro de classificação (`score.py`)
-   * objeto ambiental criado em passo anterior
+   * objeto de ambiente criado em passo anterior
 1. Desloque o modelo para o recipiente ACI.
 1. Obtenha o ponto final HTTP do serviço Web.
 
@@ -170,8 +169,8 @@ print(service.scoring_uri)
 ## <a name="test-the-model"></a>Testar o modelo
 
 
-### <a name="download-test-data"></a>Descarregue dados de teste
-Descarregue os dados do teste para o **./data/** diretório
+### <a name="download-test-data"></a>Baixar dados de teste
+Faça o download dos dados do teste para o **./data/diretório**
 
 
 ```python
@@ -235,20 +234,21 @@ print('Overall accuracy:', np.average(y_hat == y_test))
 
 A saída mostra a matriz de confusão:
 
-    [[ 960    0    1    2    1    5    6    3    1    1]
-     [   0 1112    3    1    0    1    5    1   12    0]
-     [   9    8  920   20   10    4   10   11   37    3]
-     [   4    0   17  921    2   21    4   12   20    9]
-     [   1    2    5    3  915    0   10    2    6   38]
-     [  10    2    0   41   10  770   17    7   28    7]
-     [   9    3    7    2    6   20  907    1    3    0]
-     [   2    7   22    5    8    1    1  950    5   27]
-     [  10   15    5   21   15   27    7   11  851   12]
-     [   7    8    2   13   32   13    0   24   12  898]]
-    Overall accuracy: 0.9204
-   
+```output
+[[ 960    0    1    2    1    5    6    3    1    1]
+ [   0 1112    3    1    0    1    5    1   12    0]
+ [   9    8  920   20   10    4   10   11   37    3]
+ [   4    0   17  921    2   21    4   12   20    9]
+ [   1    2    5    3  915    0   10    2    6   38]
+ [  10    2    0   41   10  770   17    7   28    7]
+ [   9    3    7    2    6   20  907    1    3    0]
+ [   2    7   22    5    8    1    1  950    5   27]
+ [  10   15    5   21   15   27    7   11  851   12]
+ [   7    8    2   13   32   13    0   24   12  898]]
+Overall accuracy: 0.9204
+```
 
-Utilize `matplotlib` para apresentar a matriz de confusão como um gráfico. Neste gráfico, o eixo X representa os valores reais e o Y os valores previstos. A cor em cada grelha representa a taxa de erros. Quanto mais clara for a cor, mais alta é a taxa de erros. Por exemplo, muitos 5 foram mal classificados como 3. Então você vê uma grelha brilhante em (5,3).
+Utilize `matplotlib` para apresentar a matriz de confusão como um gráfico. Neste gráfico, o eixo X representa os valores reais e o Y os valores previstos. A cor em cada grelha representa a taxa de erros. Quanto mais clara for a cor, mais alta é a taxa de erros. Por exemplo, muitos 5 foram mal classificados como 3. Assim, vê-se uma grelha brilhante em (5,3).
 
 ```python
 # normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
@@ -344,7 +344,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para manter o grupo de recursos e espaço de trabalho para outros tutoriais e exploração, você pode eliminar apenas a implementação de Instâncias de Contentores usando esta chamada API:
+Para manter o grupo de recursos e o espaço de trabalho para outros tutoriais e exploração, pode eliminar apenas a implantação de Instâncias de Contentores utilizando esta chamada API:
 
 ```python
 service.delete()
@@ -353,10 +353,10 @@ service.delete()
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-+ Conheça todas as opções de [implementação para O Machine Learning Azure.](how-to-deploy-and-where.md)
++ Saiba mais sobre todas as opções de [implementação para Azure Machine Learning](how-to-deploy-and-where.md).
 + Saiba como [criar clientes para o serviço web.](how-to-consume-web-service.md)
-+  [Faça previsões sobre grandes quantidades de dados](how-to-use-parallel-run-step.md) assincronicamente.
-+ Monitorize os seus modelos de Aprendizagem automática Azure com Insights de [Aplicação](how-to-enable-app-insights.md).
-+ Experimente o tutorial de seleção automática de [algoritmos.](tutorial-auto-train-models.md) 
++  [Faça previsões sobre grandes quantidades de dados](how-to-use-parallel-run-step.md) assíncroneamente.
++ Monitorize os seus modelos de aprendizagem automática Azure com [Insights de Aplicação](how-to-enable-app-insights.md).
++ Experimente o tutorial [de seleção automática de algoritmos.](tutorial-auto-train-models.md) 

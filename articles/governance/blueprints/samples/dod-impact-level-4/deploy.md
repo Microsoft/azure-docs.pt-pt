@@ -3,12 +3,11 @@ title: Amostra de planta do DoD Impact Level 4
 description: Implementar etapas para a amostra de planta do DoD Impact Level 4, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 2dc6c4ae70ce18a75f277495665ed5afdce2713c
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
-ms.translationtype: MT
+ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800414"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044979"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementar a amostra de planta do DoD Impact Level 4
 
@@ -91,7 +90,7 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
 A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Description|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Localizações permitidas|Atribuição de Política|Localizações Permitidas|Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos. Utilize para impor os requisitos de conformidade geográfica.|
 |Locais permitidos para grupos de recursos|Atribuição de Política |Localizações Permitidas|Esta política permite-lhe restringir as localizações em que a sua organização pode criar grupos de recursos. Utilize para impor os requisitos de conformidade geográfica.|
@@ -109,7 +108,7 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |Implementar agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:\[\]|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|Membros a serem incluídos no grupo local administradores|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|Membros que devem ser excluídos no grupo local de administradores|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
-|\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|Backup geo-redundante a longo prazo deve ser ativado para bases de dados Azure SQL|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
@@ -128,9 +127,9 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|As atualizações do sistema em conjuntos de escala de máquinas virtuais devem ser instaladas|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|MFA deve ser ativado em contas com permissões de leitura na sua subscrição|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
-|\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|MFA deve ser ativado em contas com permissões de escrita na sua subscrição|As informações sobre os efeitos da política podem ser encontradas em [Compreender efeitos da política de Azure](.. /.. /.. /política/conceitos/efeitos.
+|\[Pré-visualização \] : DoD Impact Level 4|Atribuição de política|MFA deve ser ativado em contas com permissões de escrita na sua subscrição|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os passos para implementar a amostra de planta do DoD Impact Level 4, visite os seguintes artigos para saber sobre a planta e o mapeamento de controlo:
 

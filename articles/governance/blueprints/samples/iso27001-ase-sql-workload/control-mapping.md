@@ -3,12 +3,11 @@ title: Iso 27001 CONTROLOs de amostra de amostra de carga de carga DE TRABALHO I
 description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e RBAC.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6311d5090c884c70bded7fcf754bc968a5b47b32
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 518c6b86ac658273d428a328b433b35d667d7056
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918603"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044758"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
 
@@ -28,7 +27,7 @@ Ter apenas um proprietário de assinatura Azure não permite despedimento admini
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificação da informação
 
-O serviço de Avaliação de [Vulnerabilidades SQL](/azure/sql-database/sql-vulnerability-assessment) da Azure pode ajudá-lo a descobrir dados sensíveis armazenados nas suas bases de dados e inclui recomendações para classificar esses dados. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) à auditoria de que as vulnerabilidades identificadas durante a avaliação da vulnerabilidade SQL são remediadas.
+O serviço de Avaliação de [Vulnerabilidades SQL](../../../../azure-sql/database/sql-vulnerability-assessment.md) da Azure pode ajudá-lo a descobrir dados sensíveis armazenados nas suas bases de dados e inclui recomendações para classificar esses dados. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) à auditoria de que as vulnerabilidades identificadas durante a avaliação da vulnerabilidade SQL são remediadas.
 
 - \[Pré-visualização \] : Monitor SQL avaliação de vulnerabilidade resulta no Azure Security Center
 
@@ -200,7 +199,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Auditoria que permite apenas ligações seguras à sua Cache Redis
 - Transferência segura de auditoria para contas de armazenamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu o mapeamento de controlo da amostra de projeto de projeto de projeto de carga de trabalho do Serviço de Aplicações ISO 27001/ SQL Database, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
 

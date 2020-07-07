@@ -7,18 +7,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 60248d1326d872734a49a93a689625cf2603f929
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601705"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024864"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
-Para comunicar com o seu domínio gerido Azure Ative Directory Domain Services (Azure AD DS), é utilizado o Protocolo de Acesso ao Diretório Leve (LDAP). Por padrão, o tráfego LDAP não é encriptado, o que é uma preocupação de segurança para muitos ambientes. Com o Azure AD DS, pode configurar o domínio gerido para utilizar o Protocolo de Acesso ao Diretório Leve (LDAPS). Quando utilizar LDAP seguro, o tráfego é encriptado. Secure LDAP também é conhecido como LDAP sobre Camada de Tomadas Seguras (SSL) / Segurança da Camada de Transporte (TLS).
+Para comunicar com o seu domínio gerido Azure Ative Directory Domain Services (Azure AD DS), é utilizado o Protocolo de Acesso ao Diretório Leve (LDAP). Por padrão, o tráfego LDAP não é encriptado, o que é uma preocupação de segurança para muitos ambientes.
+
+Com o Azure AD DS, pode configurar o domínio gerido para utilizar o Protocolo de Acesso ao Diretório Leve (LDAPS). Quando utilizar LDAP seguro, o tráfego é encriptado. Secure LDAP também é conhecido como LDAP sobre Camada de Tomadas Seguras (SSL) / Segurança da Camada de Transporte (TLS).
 
 Este tutorial mostra-lhe como configurar LDAPS para um domínio gerido AZure AD DS.
 
@@ -68,7 +69,11 @@ O certificado que solicitar ou criar deve satisfazer os seguintes requisitos. O 
 * **Utilização chave** - O certificado deve ser configurado para *assinaturas digitais* e *ciframento de chaves*.
 * **Finalidade do certificado** - O certificado deve ser válido para a autenticação do servidor TLS.
 
-Existem várias ferramentas disponíveis para criar certificado auto-assinado como OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet etc. Neste tutorial, vamos criar um certificado auto-assinado para LDAP seguro usando o [cmdlet New-SelfSignedCertificate.][New-SelfSignedCertificate] Abra uma janela PowerShell como **Administrador** e execute os seguintes comandos. Substitua a variável *$dnsName* pelo nome DNS utilizado pelo seu próprio domínio gerido, como *aaddscontoso.com:*
+Existem várias ferramentas disponíveis para criar certificado auto-assinado como OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet, etc.
+
+Neste tutorial, vamos criar um certificado auto-assinado para LDAP seguro usando o [cmdlet New-SelfSignedCertificate.][New-SelfSignedCertificate]
+
+Abra uma janela PowerShell como **Administrador** e execute os seguintes comandos. Substitua a variável *$dnsName* pelo nome DNS utilizado pelo seu próprio domínio gerido, como *aaddscontoso.com:*
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +113,9 @@ Para utilizar lDAP seguro, o tráfego de rede é encriptado utilizando infraestr
     * Esta chave pública é usada para *encriptar* o tráfego LDAP seguro. A chave pública pode ser distribuída para computadores clientes.
     * Certificados sem a chave privada usam o *. Formato* de ficheiro CER.
 
-Estas duas chaves, as chaves *privadas* e *públicas,* certificam-se de que apenas os computadores apropriados podem comunicar com sucesso uns com os outros. Se utilizar uma AC pública ou uma empresa CA, é-lhe emitido um certificado que inclui a chave privada e pode ser aplicado a um domínio gerido. A chave pública já deve ser conhecida e fidedigna pelos computadores dos clientes. Neste tutorial, criou um certificado auto-assinado com a chave privada, pelo que precisa de exportar as componentes privadas e públicas apropriadas.
+Estas duas chaves, as chaves *privadas* e *públicas,* certificam-se de que apenas os computadores apropriados podem comunicar com sucesso uns com os outros. Se utilizar uma AC pública ou uma empresa CA, é-lhe emitido um certificado que inclui a chave privada e pode ser aplicado a um domínio gerido. A chave pública já deve ser conhecida e fidedigna pelos computadores dos clientes.
+
+Neste tutorial, criou um certificado auto-assinado com a chave privada, pelo que precisa de exportar as componentes privadas e públicas apropriadas.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Exportar um certificado para Azure AD DS
 
@@ -148,7 +155,9 @@ Antes de utilizar o certificado digital criado no passo anterior com o seu domí
 
 ### <a name="export-a-certificate-for-client-computers"></a>Exportar um certificado para computadores clientes
 
-Os computadores clientes devem confiar no emitente do certificado LDAP seguro para poderem ligar-se com sucesso ao domínio gerido utilizando LDAPS. Os computadores clientes precisam de um certificado para encriptar com sucesso dados que são desencriptados pela Azure AD DS. Se utilizar um CA público, o computador deve confiar automaticamente nestes emitentes de certificados e ter um certificado correspondente. Neste tutorial utiliza-se um certificado auto-assinado e gerou um certificado que inclui a chave privada no passo anterior. Agora vamos exportar e, em seguida, instalar o certificado auto-assinado na loja de certificados fidedigna no computador cliente:
+Os computadores clientes devem confiar no emitente do certificado LDAP seguro para poderem ligar-se com sucesso ao domínio gerido utilizando LDAPS. Os computadores clientes precisam de um certificado para encriptar com sucesso dados que são desencriptados pela Azure AD DS. Se utilizar um CA público, o computador deve confiar automaticamente nestes emitentes de certificados e ter um certificado correspondente.
+
+Neste tutorial utiliza-se um certificado auto-assinado e gerou um certificado que inclui a chave privada no passo anterior. Agora vamos exportar e, em seguida, instalar o certificado auto-assinado na loja de certificados fidedigna no computador cliente:
 
 1. Volte para o MMC for *Certificates (Computador Local) > loja de Certificados pessoais >.* O certificado auto-assinado criado num passo anterior é apresentado, como *aaddscontoso.com*. Selecione à direita este certificado e, em seguida, escolha **Todas as Tarefas > Exportar...**
 1. No **Certificado De Exportação de Assistente**, selecione **Seguinte**.
@@ -186,7 +195,10 @@ Com um certificado digital criado e exportado que inclui a chave privada, e o co
 
 1. Selecione o ícone da pasta ao lado **de . Ficheiro PFX com certificado LDAP seguro**. Navegue pelo caminho do *. Ficheiro PFX,* em seguida, selecione o certificado criado num passo anterior que inclui a chave privada.
 
-    Como indicado na secção anterior sobre os requisitos de certificado, não pode utilizar um certificado de um CA público com o domínio *padrão .onmicrosoft.com.* A Microsoft é dona do domínio *.onmicrosoft.com,* por isso um CA público não emitirá um certificado. Certifique-se de que o seu certificado está no formato apropriado. Caso contrário, a plataforma Azure gera erros de validação de certificados quando ativa o LDAP seguro.
+    > [!IMPORTANT]
+    > Como indicado na secção anterior sobre os requisitos de certificado, não pode utilizar um certificado de um CA público com o domínio *padrão .onmicrosoft.com.* A Microsoft é dona do domínio *.onmicrosoft.com,* por isso um CA público não emitirá um certificado.
+    >
+    > Certifique-se de que o seu certificado está no formato apropriado. Caso contrário, a plataforma Azure gera erros de validação de certificados quando ativa o LDAP seguro.
 
 1. Introduza a **Palavra-passe para desencriptar . Ficheiro PFX** definido numa etapa anterior quando o certificado foi exportado para *um . Ficheiro PFX.*
 1. **Selecione Guardar** para ativar o LDAP seguro.
@@ -195,7 +207,9 @@ Com um certificado digital criado e exportado que inclui a chave privada, e o co
 
 É apresentada uma notificação de que o LDAP seguro está a ser configurado para o domínio gerido. Não é possível modificar outras definições para o domínio gerido até que esta operação esteja concluída.
 
-Demora alguns minutos a ativar o LDAP seguro para o seu domínio gerido. Se o certificado LDAP seguro que fornece não corresponder aos critérios exigidos, a ação para permitir a segurança do LDAP para o domínio gerido falha. Algumas razões comuns para a falha são se o nome de domínio estiver incorreto, ou se o certificado expirar em breve ou já tiver expirado. Pode recriar o certificado com parâmetros válidos e, em seguida, ativar lDAP seguro utilizando este certificado atualizado.
+Demora alguns minutos a ativar o LDAP seguro para o seu domínio gerido. Se o certificado LDAP seguro que fornece não corresponder aos critérios exigidos, a ação para permitir a segurança do LDAP para o domínio gerido falha.
+
+Algumas razões comuns para a falha são se o nome de domínio estiver incorreto, ou se o certificado expirar em breve ou já tiver expirado. Pode recriar o certificado com parâmetros válidos e, em seguida, ativar lDAP seguro utilizando este certificado atualizado.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueie o acesso seguro do LDAP através da internet
 
@@ -204,7 +218,7 @@ Quando ativa o acesso seguro do LDAP através da internet ao seu domínio gerido
 Vamos criar uma regra para permitir o acesso lDAP seguro de entrada sobre a porta TCP 636 a partir de um conjunto especificado de endereços IP especificados. Uma regra *denyAll* padrão com uma prioridade inferior aplica-se a todos os outros tráfegos de entrada a partir da internet, pelo que apenas os endereços especificados podem chegar ao seu domínio gerido usando LDAP seguro.
 
 1. No portal Azure, selecione *grupos de recursos* na navegação do lado esquerdo.
-1. Escolha o seu grupo de recursos, como *o myResourceGroup,* e, em seguida, selecione o seu grupo de segurança de rede, como *aaads-nsg*.
+1. Escolha o seu grupo de recursos, como *o myResourceGroup,* selecione o seu grupo de segurança de rede, como *aaads-nsg*.
 1. A lista das regras de segurança existentes de entrada e saída são apresentadas. No lado esquerdo das janelas do grupo de segurança da rede, escolha **Definições > regras de segurança de entrada**.
 1. **Selecione Adicionar,** em seguida, crie uma regra para permitir a porta *TCP* *636*. Para uma melhor segurança, escolha a fonte como *Endereços IP* e, em seguida, especifique o seu próprio endereço IP válido ou alcance para a sua organização.
 
@@ -269,7 +283,7 @@ Para consultar diretamente um recipiente específico, a partir do menu **View > 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 
 1. Na sua máquina local, abra *o Bloco de Notas* como administrador
-1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc*
+1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc\anfitriões*
 1. Apague a linha para o registo que adicionou, tal como`168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Passos seguintes

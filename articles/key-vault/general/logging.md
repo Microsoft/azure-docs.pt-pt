@@ -10,12 +10,11 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2ac68f1cab6958c0fc79fa6518c61417e75c0a70
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
-ms.translationtype: MT
+ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480614"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043007"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -105,15 +104,17 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 A saída é assim:
 
-    StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
-    ServiceBusRuleId   :
-    StorageAccountName :
-        Logs
-        Enabled           : True
-        Category          : AuditEvent
-        RetentionPolicy
-        Enabled : False
-        Days    : 0
+```output
+StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccountContosoKeyVaultLogs
+ServiceBusRuleId   :
+StorageAccountName :
+    Logs
+    Enabled           : True
+    Category          : AuditEvent
+    RetentionPolicy
+    Enabled : False
+    Days    : 0
+```
 
 Esta saída confirma que o registo está agora ativado para o cofre da chave e guarda informações na sua conta de armazenamento.
 
@@ -323,7 +324,7 @@ Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os 
 
 Para obter mais informações, incluindo como configurar isto, consulte a [solução Azure Key Vault nos registos do Azure Monitor](../../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se precisar de migrar da antiga solução Key Vault que foi oferecida durante a pré-visualização dos registos do Azure Monitor, onde primeiro encaminhou os seus registos para uma conta de armazenamento Azure e configuraram os registos do Monitor Azure para ler a partir daí.
 
-## <a name="next-steps"></a><a id="next"></a>Passos seguintes
+## <a name="next-steps"></a><a id="next"></a>Próximos passos
 
 Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consulte [Use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
 

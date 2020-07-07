@@ -7,22 +7,23 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733811"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024779"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar a rede virtual para um domínio gerido por Azure Ative Directory Domain Services
 
-Para fornecer conectividade aos utilizadores e aplicações, um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS) é implantado numa sub-rede de rede virtual Azure. Esta sub-rede de rede virtual só deve ser utilizada para os recursos de domínio geridos fornecidos pela plataforma Azure. À medida que crias os teus próprios VMs e aplicações, elas não devem ser implantadas na mesma sub-rede de rede virtual. Em vez disso, deve criar e implementar as suas aplicações numa sub-rede de rede virtual separada, ou numa rede virtual separada que seja espreitada pela rede virtual Azure AD DS.
+Para fornecer conectividade aos utilizadores e aplicações, um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS) é implantado numa sub-rede de rede virtual Azure. Esta sub-rede de rede virtual só deve ser utilizada para os recursos de domínio geridos fornecidos pela plataforma Azure.
+
+Quando crias os teus próprios VMs e aplicações, elas não devem ser implantadas na mesma sub-rede de rede virtual. Em vez disso, deve criar e implementar as suas aplicações numa sub-rede de rede virtual separada, ou numa rede virtual separada que seja espreitada pela rede virtual Azure AD DS.
 
 Este tutorial mostra-lhe como criar e configurar uma sub-rede de rede virtual dedicada ou como espreitar uma rede diferente para a rede virtual gerida pelo Azure AD DS.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Compreenda as opções de conectividade de rede virtual para recursos unidos pelo domínio ao Azure AD DS
@@ -39,7 +40,7 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um inquilino do Azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou um diretório apenas na nuvem.
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
-* Você precisa de privilégios *de administrador global* no seu inquilino AZure AD para ativar Azure AD DS.
+* Você precisa de privilégios *de administrador global* no seu inquilino AZure AD para configurar Azure AD DS.
 * Precisa de privilégios *colaboradores* na sua subscrição Azure para criar os recursos Azure AD DS necessários.
 * Um domínio de domínio do Azure Ative Directory Services gerido ativo e configurado no seu inquilino AZure AD.
     * Se necessário, o primeiro tutorial cria e configura um domínio gerido pelos [Serviços de Domínio do Diretório Ativo Azure][create-azure-ad-ds-instance].
@@ -54,16 +55,20 @@ No tutorial anterior, foi criado um domínio gerido que utilizou algumas opçõe
 
 Quando cria e executa VMs que precisam de utilizar o domínio gerido, a conectividade da rede precisa de ser fornecida. Esta conectividade de rede pode ser fornecida de uma das seguintes formas:
 
-* Crie uma sub-rede de rede virtual adicional na rede virtual gerida por defeito. Esta sub-rede adicional é onde cria e liga os seus VMs.
+* Crie uma sub-rede de rede virtual adicional na rede virtual do domínio gerido. Esta sub-rede adicional é onde cria e liga os seus VMs.
     * Uma vez que os VMs fazem parte da mesma rede virtual, podem executar automaticamente a resolução de nomes e comunicar com os controladores de domínio Azure AD DS.
 * Configurar a rede virtual Azure olhando da rede virtual do domínio gerido para uma ou mais redes virtuais separadas. Estas redes virtuais separadas são onde cria e conecta os seus VMs.
-    * Ao configurar o espreitamento da rede virtual, deve também configurar as definições de DNS para utilizar a resolução de nomes de volta para os controladores de domínio Azure AD DS.
+    * Quando configurar o espreitamento da rede virtual, também deve configurar as definições de DNS para utilizar a resolução de nomes de volta para os controladores de domínio Azure AD DS.
 
-Normalmente, só se usa uma destas opções de conectividade de rede. A escolha é muitas vezes a forma como deseja gerir os seus recursos Azure. Se quiser gerir O AZure AD DS e VMs conectados como um grupo de recursos, pode criar uma sub-rede de rede virtual adicional para VMs. Se quiser separar a gestão do Azure AD DS e, em seguida, quaisquer VMs conectados, pode utilizar o espreitamento de rede virtual. Também pode optar por utilizar o espreitamento de rede virtual para fornecer conectividade aos VM existentes no seu ambiente Azure que estão ligados a uma rede virtual existente.
+Normalmente, só se usa uma destas opções de conectividade de rede. A escolha é muitas vezes a forma como deseja gerir os seus recursos Azure.
+
+* Se quiser gerir O AZure AD DS e VMs conectados como um grupo de recursos, pode criar uma sub-rede de rede virtual adicional para VMs.
+* Se quiser separar a gestão do Azure AD DS e, em seguida, quaisquer VMs conectados, pode utilizar o espreitamento de rede virtual.
+    * Também pode optar por utilizar o espreitamento de rede virtual para fornecer conectividade aos VM existentes no seu ambiente Azure que estão ligados a uma rede virtual existente.
 
 Neste tutorial, basta configurar uma destas opções de conectividade de rede virtual.
 
-Para obter mais informações sobre como planear e configurar a rede virtual, consulte [considerações de networking para serviços de domínio do diretório ativo Azure][considerações de rede].
+Para obter mais informações sobre como planear e configurar a rede virtual, consulte [considerações de networking para os Serviços de Domínio do Diretório Ativo Azure][network-considerations].
 
 ## <a name="create-a-virtual-network-subnet"></a>Criar uma sub-rede de rede virtual
 
@@ -95,7 +100,9 @@ Quando criar um VM que precisa de utilizar o domínio gerido, certifique-se de q
 
 Pode ter uma rede virtual Azure existente para VMs ou pretender manter a sua rede virtual de domínio gerido separada. Para utilizar o domínio gerido, os VMs noutras redes virtuais precisam de uma forma de comunicar com os controladores de domínio Azure AD DS. Esta conectividade pode ser fornecida usando o olhar da rede virtual Azure.
 
-Com o azure virtual network peering, duas redes virtuais estão conectadas entre si, sem a necessidade de um dispositivo de rede privada virtual (VPN). O espreitamento em rede permite-lhe ligar rapidamente redes virtuais e definir fluxos de tráfego através do seu ambiente Azure. Para obter mais informações sobre o seu espreitamento, consulte [a visão geral da rede virtual Azure][peering-overview].
+Com o azure virtual network peering, duas redes virtuais estão conectadas entre si, sem a necessidade de um dispositivo de rede privada virtual (VPN). O espreitamento em rede permite-lhe ligar rapidamente redes virtuais e definir fluxos de tráfego através do seu ambiente Azure.
+
+Para obter mais informações sobre o seu espreitamento, consulte [a visão geral da rede virtual Azure][peering-overview].
 
 Para espreitar uma rede virtual para a rede virtual de domínio gerido, complete os seguintes passos:
 
@@ -159,3 +166,4 @@ Para ver este domínio gerido em ação, crie e junte uma máquina virtual ao do
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: cd71789d6c2fb54007f3d6623ba8d14f98383b5a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126390"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027652"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Shopify Plus
 
@@ -139,11 +138,31 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-shopify-plus-sso"></a>Configurar shopify plus SSO
 
-Para configurar um único sign-on no lado **Shopify Plus,** você precisa enviar o **url de metadados da Federação de Aplicações** para a [equipa de suporte Shopify Plus](mailto:plus-user-management@shopify.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para ver os passos completos, consulte a [documentação do Shopify sobre a criação de integrações SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Para configurar um único sinal no lado **do Shopify Plus,** copie o URL de **metadados da Federação** de Aplicações do Azure Ative Directory. Em seguida, inicie sessão na [administração](https://shopify.plus) da organização e vá para a Segurança **dos Utilizadores.**  >  **Security** Selecione **Configurar configuração**e, em seguida, cole o URL de metadados da Federação de Aplicações na secção **URL de metadados do fornecedor de identidade.** **Selecione Adicionar** para completar este passo.
 
 ### <a name="create-shopify-plus-test-user"></a>Criar utilizador de teste Shopify Plus
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Shopify Plus. Trabalhe com a [equipa de suporte Shopify Plus](mailto:plus-user-management@shopify.com) para adicionar os utilizadores na plataforma Shopify Plus. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Shopify Plus. Volte à secção **de Utilizadores** e adicione um utilizador introduzindo os seus e-mails e permissões. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+
+### <a name="enforce-saml-authentication"></a>Impor a autenticação SAML
+
+> [!NOTE]
+> Recomendamos testar a integração utilizando utilizadores individuais antes de aplicar amplamente.
+
+Utilizadores individuais:
+1. Aceda a uma página individual de um utilizador no Shopify Plus com um domínio de e-mail gerido pela Azure AD e verificado no Shopify Plus.
+1. Na secção de autenticação SAML, selecione **Editar,** selecione **Required**e, em seguida, selecione **Guardar**.
+1. Teste que este utilizador pode iniciar sed com sucesso através dos fluxos iniciados pelo idP e iniciados por SP.
+
+Para todos os utilizadores sob um domínio de e-mail:
+1. Volte para a página **de Segurança.**
+1. Selecione **Requerido** para a sua definição de autenticação SAML. Isto aplica SAML para todos os utilizadores com esse domínio de e-mail em Shopify Plus.
+1. Selecione **Guardar**.
+
+> [!IMPORTANT]
+> Ativar o SAML para todos os utilizadores sob um domínio de e-mail afeta todos os utilizadores que utilizam esta aplicação. Os utilizadores não poderão iniciar sôms usando a sua página de sins de sôs-in regular. Só poderão aceder à aplicação através do Azure Ative Directory. O Shopify não fornece um URL de pré-in de backup no qual os utilizadores podem iniciar sôms, utilizando o seu nome de utilizador normal e senha. Pode contactar o Shopify Support para desligar o SAML, se necessário.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -155,7 +174,7 @@ Quando clicar no azulejo Shopify Plus no Painel de Acesso, deverá ser automatic
 
 - [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

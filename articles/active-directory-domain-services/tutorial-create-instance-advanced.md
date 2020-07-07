@@ -7,14 +7,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 355a1c36ea810dc569f0ad2847244c398e0a2d6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 78eef9c84bb7610b067855b22a3fa0f51bf08253
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733692"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024796"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Criar e configurar um Azure Ative Directory Domain Services gerido domínio com opções de configuração avançadas
 
@@ -22,7 +21,7 @@ Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domíni
 
 Pode [criar um domínio gerido utilizando opções de configuração predefinidos][tutorial-create-instance] para networking e sincronização, ou definir manualmente estas definições. Este tutorial mostra-lhe como definir essas opções avançadas de configuração para criar e configurar um domínio gerido AZure AD DS utilizando o portal Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar configurar DNS e configurações de rede virtuais para um domínio gerido
@@ -90,14 +89,17 @@ Complete os campos na janela *Basics* do portal Azure para criar um domínio ger
 1. Introduza um **nome de domínio DNS** para o seu domínio gerido, tendo em conta os pontos anteriores.
 1. Escolha a **Localização** Azure em que o domínio gerido deve ser criado. Se escolher uma região que suporte Zonas de Disponibilidade, os recursos Azure AD DS são distribuídos por zonas para redundância adicional.
 
-    As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas.
-
-    Não há nada que possa configurar para que o Azure AD DS seja distribuído por zonas. A plataforma Azure lida automaticamente com a distribuição de recursos na zona. Para mais informações e para ver a disponibilidade da região, consulte [quais são as Zonas de Disponibilidade em Azure?][availability-zones]
+    > [!TIP]
+    > As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas.
+    >
+    > Não há nada que possa configurar para que o Azure AD DS seja distribuído por zonas. A plataforma Azure lida automaticamente com a distribuição de recursos na zona. Para mais informações e para ver a disponibilidade da região, consulte [quais são as Zonas de Disponibilidade em Azure?][availability-zones]
 
 1. O **SKU** determina o desempenho, a frequência de backup e o número máximo de fundos florestais que pode criar. Pode alterar o SKU após a criação do domínio gerido se as exigências ou requisitos do seu negócio mudarem. Para mais informações, consulte [os conceitos Azure AD DS SKU.][concepts-sku]
 
     Para este tutorial, selecione o *Standard* SKU.
-1. Uma *floresta* é uma construção lógica usada pelos Serviços de Domínio do Diretório Ativo para agrupar um ou mais domínios. Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos a partir de Azure AD, incluindo quaisquer contas de utilizador criadas em um ambiente AD DS no local. Uma floresta *de recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. As florestas de recursos estão atualmente em pré-visualização. Para obter mais informações sobre as florestas *de recursos,* incluindo por que você pode usar uma e como criar fidedignidades florestais com domínios AD DS no local, consulte a visão geral das [florestas de recursos AD DS AD.][resource-forests]
+1. Uma *floresta* é uma construção lógica usada pelos Serviços de Domínio do Diretório Ativo para agrupar um ou mais domínios. Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos a partir de Azure AD, incluindo quaisquer contas de utilizador criadas em um ambiente AD DS no local.
+
+    Uma floresta *de recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. As florestas de recursos estão atualmente em pré-visualização. Para obter mais informações sobre as florestas *de recursos,* incluindo por que você pode usar uma e como criar fidedignidades florestais com domínios AD DS no local, consulte a visão geral das [florestas de recursos AD DS AD.][resource-forests]
 
     Para este tutorial, opte por criar uma floresta *de utilizadores.*
 
@@ -139,7 +141,10 @@ Complete os campos na janela *da rede* da seguinte forma:
 
 Um grupo administrativo especial chamado *AAD DC Administrators* é utilizado para a gestão do domínio Azure AD DS. Aos membros deste grupo são concedidas permissões administrativas em VMs que se unem ao domínio gerido. Em VMs ligados ao domínio, este grupo é adicionado ao grupo de administradores locais. Os membros deste grupo também podem utilizar o Remote Desktop para se ligarem remotamente aos VMs ligados ao domínio.
 
-Não tem permissões *de Administrador de Domínio* ou Administrador *Empresarial* num domínio gerido utilizando DS AD Azure. Estas permissões são reservadas pelo serviço e não são disponibilizadas aos utilizadores dentro do arrendatário. Em vez disso, o grupo *de administradores da AAD DC* permite-lhe realizar algumas operações privilegiadas. Estas operações incluem pertencer ao grupo de administração em VMs unidos pelo domínio, e configurar a Política de Grupo.
+> [!IMPORTANT]
+> Não tem permissões *de Administrador de Domínio* ou Administrador *Empresarial* num domínio gerido utilizando DS AD Azure. Estas permissões são reservadas pelo serviço e não são disponibilizadas aos utilizadores dentro do arrendatário.
+>
+> Em vez disso, o grupo *de administradores da AAD DC* permite-lhe realizar algumas operações privilegiadas. Estas operações incluem pertencer ao grupo de administração em VMs unidos pelo domínio, e configurar a Política de Grupo.
 
 O assistente cria automaticamente o grupo *de administradores AAD DC* no seu diretório AD Azure. Se tiver um grupo existente com este nome no seu diretório AD Azure, o assistente seleciona este grupo. Pode optar opcionalmente por adicionar utilizadores adicionais a este grupo *de Administradores AAD DC* durante o processo de implementação. Estes passos podem ser concluídos mais tarde.
 
@@ -163,7 +168,7 @@ O Azure AD DS permite sincronizar *todos os* utilizadores e grupos disponíveis 
 
 ## <a name="deploy-the-managed-domain"></a>Implementar o domínio gerido
 
-Na página **Resumo** do assistente, reveja as definições de configuração para o domínio gerido. Pode voltar a qualquer passo do assistente para fazer alterações. Para recolocar um domínio gerido para um inquilino AD Azure diferente de forma consistente usando estas opções de configuração, também pode **descarregar um modelo para automatização**.
+Na página **Resumo** do assistente, reveja as definições de configuração para o seu domínio gerido. Pode voltar a qualquer passo do assistente para fazer alterações. Para recolocar um domínio gerido para um inquilino AD Azure diferente de forma consistente usando estas opções de configuração, também pode **descarregar um modelo para automatização**.
 
 1. Para criar o domínio gerido, selecione **Criar**. É apresentada uma nota segundo a qual determinadas opções de configuração, como o nome DNS ou a rede virtual, não podem ser alteradas uma vez que o Azure AD DS gerido foi criado. Para continuar, selecione **OK**.
 1. O processo de provisionamento do seu domínio gerido pode demorar até uma hora. Uma notificação é apresentada no portal que mostra o progresso da sua implementação Azure AD DS. Selecione a notificação para ver progressos detalhados para a implantação.
@@ -178,15 +183,16 @@ Na página **Resumo** do assistente, reveja as definições de configuração pa
 
     ![Estado dos Serviços de Domínio uma vez a provisionado com sucesso](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-O domínio gerido está associado ao seu inquilino AZure AD. Durante o processo de provisionamento, a Azure AD DS cria duas aplicações empresariais denominadas *Serviços de Controlador de Domínio* e *AzureActiveDirectorDomainControllerServices* no inquilino AZure AD. Estas Aplicações Empresariais são necessárias para atender o seu domínio gerido. Não apague estas aplicações.
+> [!IMPORTANT]
+> O domínio gerido está associado ao seu inquilino AZure AD. Durante o processo de provisionamento, a Azure AD DS cria duas aplicações empresariais denominadas *Serviços de Controlador de Domínio* e *AzureActiveDirectorDomainControllerServices* no inquilino AZure AD. Estas Aplicações Empresariais são necessárias para atender o seu domínio gerido. Não apague estas aplicações.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Atualizar as definições de DNS para a Azure Virtual Network
 
-Com o Azure AD DS implementado com sucesso, agora configurar a rede virtual para permitir que outros VMs e aplicações conectados utilizem o domínio gerido. Para fornecer esta conectividade, atualize as definições do servidor DNS para a sua rede virtual para apontar para os dois endereços IP onde o Azure AD DS é implantado.
+Com o Azure AD DS implementado com sucesso, agora configurar a rede virtual para permitir que outros VMs e aplicações conectados utilizem o domínio gerido. Para fornecer esta conectividade, atualize as definições do servidor DNS para a sua rede virtual para apontar para os dois endereços IP onde o domínio gerido é implantado.
 
 1. O **separador 'Visão Geral'** para o seu domínio gerido mostra alguns **passos de configuração necessários**. O primeiro passo de configuração é atualizar as definições do servidor DNS para a sua rede virtual. Uma vez configuradas corretamente as definições de DNS, este passo deixa de ser apresentado.
 
-    Os endereços listados são os controladores de domínio para utilização na rede virtual. Neste exemplo, estes endereços são *10.1.0.4* e *10.1.0.5*. Mais tarde, pode encontrar estes endereços IP no separador **Propriedades.**
+    Os endereços listados são os controladores de domínio para utilização na rede virtual. Neste exemplo, estes endereços são *10.0.1.4* e *10.0.1.5*. Mais tarde, pode encontrar estes endereços IP no separador **Propriedades.**
 
     ![Configurar as definições de DNS para a sua rede virtual com os endereços IP dos Serviços ip dos Serviços de Domínio Azure AD](./media/tutorial-create-instance-advanced/configure-dns.png)
 
@@ -200,9 +206,17 @@ Com o Azure AD DS implementado com sucesso, agora configurar a rede virtual para
 Para autenticar os utilizadores no domínio gerido, o Azure AD DS necessita de hashes de senha num formato adequado para a autenticação do NT LAN Manager (NTLM) e da autenticação Kerberos. O Azure AD não gera ou armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos até ativar o Azure AD DS para o seu inquilino. Por razões de segurança, a Azure AD também não armazena quaisquer credenciais de senha em formato de texto claro. Portanto, o Azure AD não pode gerar automaticamente estes hashes de palavra-passe NTLM ou Kerberos com base nas credenciais existentes dos utilizadores.
 
 > [!NOTE]
-> Uma vez configurados de forma adequada, os hashes de palavra-passe utilizáveis são armazenados no domínio gerido. Se eliminar o domínio gerido, qualquer hashes de palavra-passe armazenados nesse ponto também são eliminados. As informações de credenciais sincronizadas no Azure AD não podem ser reutilizadas se mais tarde criar um domínio gerido - tem de reconfigurar a sincronização do hash da palavra-passe para armazenar novamente o hashes da palavra-passe. VMs ou utilizadores previamente unidos ao domínio não poderão autenticar imediatamente - A Azure AD precisa gerar e armazenar as hashes de palavra-passe no novo domínio gerido. Para obter mais informações, consulte [o processo de sincronização de haxixe password para Azure AD DS e Azure AD Connect][password-hash-sync-process].
+> Uma vez configurados de forma adequada, os hashes de palavra-passe utilizáveis são armazenados no domínio gerido. Se eliminar o domínio gerido, qualquer hashes de palavra-passe armazenados nesse ponto também são eliminados.
+>
+> As informações de credenciais sincronizadas no Azure AD não podem ser reutilizadas se mais tarde criar um domínio gerido - tem de reconfigurar a sincronização do hash da palavra-passe para armazenar novamente o hashes da palavra-passe. VMs ou utilizadores previamente unidos ao domínio não poderão autenticar imediatamente - A Azure AD precisa gerar e armazenar as hashes de palavra-passe no novo domínio gerido.
+>
+> Para obter mais informações, consulte [o processo de sincronização de haxixe password para Azure AD DS e Azure AD Connect][password-hash-sync-process].
 
-Os passos para gerar e armazenar estes hashes de palavra-passe são diferentes para contas de utilizador criadas apenas na nuvem criadas em AZure AD versus contas de utilizador que são sincronizadas a partir do seu diretório no local usando o Azure AD Connect. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Estas contas de utilizador não são sincronizadas a partir de um diretório no local. Neste tutorial, vamos trabalhar com uma conta básica de utilizador apenas em nuvem. Para obter mais informações sobre os passos adicionais necessários para utilizar o Azure AD Connect, consulte [os hashes de palavra-passe sincronizados para contas de utilizador sincronizadas desde o AD no local até ao seu domínio gerido.][on-prem-sync]
+Os passos para gerar e armazenar estes hashes de palavra-passe são diferentes para contas de utilizador criadas apenas na nuvem criadas em AZure AD versus contas de utilizador que são sincronizadas a partir do seu diretório no local usando o Azure AD Connect.
+
+Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Estas contas de utilizador não são sincronizadas a partir de um diretório no local.
+
+Neste tutorial, vamos trabalhar com uma conta básica de utilizador apenas em nuvem. Para obter mais informações sobre os passos adicionais necessários para utilizar o Azure AD Connect, consulte [os hashes de palavra-passe sincronizados para contas de utilizador sincronizadas desde o AD no local até ao seu domínio gerido.][on-prem-sync]
 
 > [!TIP]
 > Se o seu inquilino AZURE AD tiver uma combinação de utilizadores e utilizadores apenas na nuvem a partir do seu AD no local, você precisa completar ambos os conjuntos de passos.
@@ -247,7 +261,7 @@ Para ver este domínio gerido em ação, crie e junte uma máquina virtual ao do
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md

@@ -1,17 +1,16 @@
 ---
 title: Amostra de script Azure PowerShell - Implementar uma aplicação gerida
-description: Fornece a amostra de script da amostra Azure PowerShell que implementa uma definição de aplicação gerida para a subscrição.
+description: Fornece amostra de amostra Azure PowerShell que implementa uma definição de aplicação gerida para a subscrição.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: a2687e9c943df8454ff42a17f44866dcdb7f4730
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650171"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055890"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Implementar uma aplicação gerida para um catálogo de serviços com a PowerShell
 
@@ -33,10 +32,10 @@ Este script utiliza o seguinte comando para implementar a aplicação gerida. Ca
 
 | Comando | Notas |
 |---|---|
-| [Aplicação Nova-AzManaged](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Criar uma aplicação gerida. Dê o ID de definição e os parâmetros para o modelo. |
+| [New-AzManagedApplication](/powershell/module/az.resources/new-azmanagedapplication) | Criar uma aplicação gerida. Dê o ID de definição e os parâmetros para o modelo. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).
