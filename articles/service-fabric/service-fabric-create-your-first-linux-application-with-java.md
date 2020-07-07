@@ -1,13 +1,13 @@
 ---
-title: Criar uma aplicação java de função Azure Service Fabric no Linux
+title: Crie um Azure Service Fabric fiável aplicação Java em Linux
 description: Saiba como criar e implementar uma aplicação Java Reliable Actors do Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193569"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
@@ -208,18 +208,18 @@ Após a implementação da aplicação, abra um browser e navegue até [Service 
 Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Tecido de Serviço. Ao fazê-lo, os seus serviços De atores fiáveis comunicam com as APIs de tempo de execução do Tecido de Serviço subjacentes. Para saber mais, consulte [a Configure uma aplicação De serviços fiáveis para executar em clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Ao fazê-lo, os seus serviços De atores fidedignos comunicam com as APIs de execução do tecido de serviço subjacente. Para saber mais, consulte [configurar uma aplicação Reliable Services para executar em clusters Linux.](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
 Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lhes envie mensagens. O modelo de ator inclui um script de teste simples, que pode utilizar para interagir com o serviço de ator.
 
 > [!Note]
-> O cliente de teste usa a classe ActorProxy para comunicar com os atores, que deve funcionar dentro do mesmo cluster que o serviço do ator ou partilhar o mesmo espaço de endereço IP.  Pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  Para comunicar com os atores num aglomerado remoto, no entanto, você deve implementar uma porta de entrada no cluster que lida com a comunicação externa com os atores.
+> O cliente de teste usa a classe ActorProxy para comunicar com os atores, que devem funcionar dentro do mesmo cluster que o serviço de ator ou partilhar o mesmo espaço de endereço IP.  Pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  No entanto, para comunicar com os atores num aglomerado remoto, é necessário implantar uma porta de entrada no cluster que lida com a comunicação externa com os atores.
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.  O script de teste chama o método `setCountAsync()` no ator para incrementar um contador, chama o método `getCountAsync()` no ator para obter o valor do novo contador e apresenta esse valor à consola.
 
-   No caso de MAC OS X, é necessário copiar a pasta HelloWorldTestClient para algum local dentro do contentor, executando os seguintes comandos adicionais.    
+   No caso de MAC OS X, é necessário copiar a pasta HelloWorldTestClient para a localização dentro do contentor, executando os seguintes comandos adicionais.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -232,7 +232,7 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
     watch -n 1 ./testclient.sh
     ```
 
-2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  As alterações no estado de serviço são então replicadas para as réplicas secundárias, correndo nos nós 0 e 1 na imagem abaixo.
+2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  As alterações no estado de serviço são então replicadas para as réplicas secundárias, funcionando nos nós 0 e 1 na imagem abaixo.
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 

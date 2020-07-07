@@ -1,5 +1,5 @@
 ---
-title: Publicar conteúdo no portal Azure Microsoft Docs
+title: Publicar conteúdo no portal Azure / Microsoft Docs
 description: Este tutorial acompanha-o através dos passos de publicação do seu conteúdo no portal Azure.
 services: media-services
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176826"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no portal Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [DESCANSE](media-services-rest-deliver-streaming-content.md)
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para mais detalhes, consulte [o teste gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
+> Para concluir este tutorial, precisa de uma conta do Azure. Para mais detalhes, consulte [o julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
 > 
 > 
 
@@ -56,21 +56,21 @@ Os URLs de assinatura de acesso partilhado têm o formato seguinte:
 
     {blob container name}/{asset name}/{file name}/{shared access signature}
 
-Para mais informações, consulte a visão geral do [conteúdo.](media-services-deliver-content-overview.md)
+Para mais informações, consulte a [visão geral do conteúdo de entrega.](media-services-deliver-content-overview.md)
 
 > [!NOTE]
 > Os localizadores que foram criados no portal do Azure antes de março de 2015 têm uma data de expiração de dois anos.  
 > 
 > 
 
-Para atualizar uma data de validade de um localizador, a utilização pode utilizar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de validade num localizador, a utilização pode utilizar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando atualiza a data de expiração de um localizador de assinatura de acesso partilhado, o URL é alterado.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para utilizar o portal para publicar um elemento
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione**Ativos**de **Definições** > . Selecione o elemento que pretende publicar.
+2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende publicar.
 3. Selecione o botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.
@@ -90,7 +90,7 @@ São aplicáveis algumas considerações:
 
 * Confirme que o vídeo foi publicado.
 * O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](https://aka.ms/azuremediaplayer).
-* O ponto final de streaming a partir do qual está a transmitir deve estar a funcionar.  
+* O ponto final de streaming a partir do qual está a ser transmitido deve estar a ser transmitido.  
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

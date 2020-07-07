@@ -1,6 +1,6 @@
 ---
 title: Segurança da camada de transporte em Azure HDInsight
-description: A segurança da camada de transporte (TLS) e a camada de tomadas seguras (SSL) são protocolos criptográficos que fornecem segurança de comunicações sobre uma rede informática.
+description: A segurança da camada de transporte (TLS) e a camada de tomadas seguras (SSL) são protocolos criptográficos que proporcionam segurança de comunicações sobre uma rede de computador.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: b74ca75b26d4d98c79091683f428eb39e5827665
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82183505"
 ---
 # <a name="transport-layer-security-in-azure-hdinsight"></a>Segurança da camada de transporte em Azure HDInsight
 
-As ligações ao cluster HDInsight através `https://CLUSTERNAME.azurehdinsight.net` do ponto final do cluster público são proxidas através de nós de gateway cluster. Estas ligações são protegidas usando um protocolo chamado TLS. A aplicação de versões mais elevadas de TLS nos gateways melhora a segurança destas ligações. Para obter mais informações sobre o porquê de utilizar versões mais recentes de TLS, consulte [A resolução do Problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+As ligações ao cluster HDInsight através do ponto final do cluster público `https://CLUSTERNAME.azurehdinsight.net` são proxiedas através de nós de gateway de cluster. Estas ligações são seguras usando um protocolo chamado TLS. A aplicação de versões mais altas do TLS nos gateways melhora a segurança destas ligações. Para obter mais informações sobre o porquê de utilizar versões mais recentes do TLS, consulte [resolver o Problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 
-Por padrão, os clusters Azure HDInsight aceitam ligações TLS 1.2 em pontos finais HTTPS públicos e versões mais antigas para retrocompatibilidade. Pode controlar a versão TLS mínima suportada nos nós de gateway durante a criação do cluster utilizando o portal Azure ou um modelo de Gestor de Recursos. Para o portal, selecione a versão TLS do separador **de rede Security +** durante a criação do cluster. Para um modelo de Gestor de Recursos no momento de implantação, utilize a propriedade **minSupportedTlsVersion.** Para um modelo de amostra, consulte o [modelo mínimo TLS 1.2 Quickstart HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Este imóvel suporta três valores: "1.0", "1.1" e "1.2", que correspondem a TLS 1.0+, TLS 1.1+ e TLS 1.2+, respectivamente.
+Por padrão, os clusters Azure HDInsight aceitam ligações TLS 1.2 nos pontos finais HTTPS públicos e versões mais antigas para retrocompatibilidade. Pode controlar a versão mínima TLS suportada nos nós de gateway durante a criação do cluster utilizando o portal Azure ou um modelo de Gestor de Recursos. Para o portal, selecione a versão TLS do **separador Segurança + rede** durante a criação do cluster. Para um modelo de Gestor de Recursos no tempo de implementação, utilize a propriedade **minSupportedTlsVersion.** Para obter um modelo de amostra, consulte [o modelo mínimo de TLS 1.2 Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Este imóvel suporta três valores: "1.0", "1.1" e "1.2", que correspondem a TLS 1.0+, TLS 1.1+ e TLS 1.2+ respectivamente.
 
 > [!IMPORTANT]
-> A partir de 30 de junho de 2020, o Azure HDInsight aplicará versões TLS 1.2 ou posteriores para todas as ligações HTTPS. Recomendamos que garanta que todos os seus clientes estão prontos para lidar com versões TLS 1.2 ou posteriores. Para mais informações, consulte [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
+> A partir de 30 de junho de 2020, o Azure HDInsight irá impor versões TLS 1.2 ou posteriores para todas as ligações HTTPS. Recomendamos que garanta que todos os seus clientes estão prontos para lidar com as versões TLS 1.2 ou posteriores. Para obter mais informações, consulte [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Planeie uma rede virtual para o Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
-* [Crie redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
-* [Grupos de segurança](../virtual-network/security-overview.md)da rede.
+* [Planeie uma rede virtual para a Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
+* [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
+* [Grupos de segurança de rede](../virtual-network/security-overview.md).

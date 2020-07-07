@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight Criar um cluster - dicionário de erros
-description: Aprenda a resolver erros que ocorrem ao criar clusters Azure HDInsight
+title: Azure HDInsight Criar um cluster - dicionário de erro
+description: Saiba como resolver erros que ocorrem ao criar clusters Azure HDInsight
 author: karkrish
 ms.author: v-todmc
 ms.reviewer: hrasheed
@@ -9,74 +9,74 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186639"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Erros de criação de cluster
 
-Este artigo descreve resoluções para erros que pode encontrar ao criar clusters.
+Este artigo descreve resoluções a erros que poderá encontrar ao criar clusters.
 
 > [!NOTE]
 > Os três primeiros erros descritos neste artigo são erros de validação. Podem ocorrer quando um produto Azure HDInsight utiliza a classe **CsmDocument_2_0.**
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: ImplementaçãoDocument 'CsmDocument_2_0' falhou na validação
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
 
 ### <a name="error"></a>Erro
 
-"A localização da Ação de\<Script\>não pode ser acedida URI: SCRIPT ACTION URL "
+"O local de ação do script não pode ser acedido URI: \<SCRIPT ACTION URL\> "
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"O servidor remoto devolveu um erro: (404) Não encontrado."
+"O servidor remoto devolveu um erro: (404) Não Encontrado."
 
 ### <a name="cause"></a>Causa
 
-O serviço HDInsight não pode aceder ao URL de ação de script que forneceu como parte do pedido create cluster. O serviço recebe a mensagem de erro anterior quando tenta aceder à ação do script.
+O serviço HDInsight não pode aceder ao URL de ação do script que forneceu como parte do pedido do Create Cluster. O serviço recebe a mensagem de erro anterior quando tenta aceder à ação do script.
 
 ### <a name="resolution"></a>Resolução
 
-- Para um URL HTTP ou HTTPS, verifique o URL tentando ir até ele a partir de uma janela de navegador incógnita.
+- Para um URL HTTP ou HTTPS, verifique o URL tentando ir até ele a partir de uma janela do navegador incógnita.
 - Para um URL WASB, certifique-se de que o script existe na conta de armazenamento que você dá no pedido. Certifique-se também de que a chave de armazenamento desta conta de armazenamento está correta.
 - Para um URL ADLS, certifique-se de que o script existe na conta de armazenamento.
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: ImplementaçãoDocument 'CsmDocument_2_0' falhou na validação
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
 
 ### <a name="error"></a>Erro
 
-"A localização da Ação de \<\>Script não pode ser acedida a URI: SCRIPT_ACTION_URL"
+"O local de ação do script não pode ser acedido URI: \<SCRIPT_ACTION_URL\> "
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"O script \<dado URI SCRIPT_URI\> está no ADLS, mas este cluster não tem nenhum diretor de armazenamento de dados de lagos"
+"O dado script URI \<SCRIPT_URI\> está em ADLS, mas este cluster não tem diretor de armazenamento de lago de dados"
 
 ### <a name="cause"></a>Causa
 
-O serviço HDInsight não pode aceder ao URL de ação de script que forneceu como parte do pedido create cluster. O serviço recebe a mensagem de erro anterior quando tenta aceder à ação do script.
+O serviço HDInsight não pode aceder ao URL de ação do script que forneceu como parte do pedido do Create Cluster. O serviço recebe a mensagem de erro anterior quando tenta aceder à ação do script.
 
 ### <a name="resolution"></a>Resolução
 
-Adicione a conta de armazenamento de lagos de dados azure correspondente ao cluster. Adicione também o principal de serviço que acede à conta Data Lake Storage Gen 1 ao cluster.
+Adicione a correspondente conta Azure Data Lake Storage Gen 1 ao cluster. Adicione também o principal de serviço que acede à conta de Armazenamento de Data Lake Gen 1 ao cluster.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: ImplementaçãoDocument 'CsmDocument_2_0' falhou na validação
+## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
 
 ### <a name="error"></a>Erro
 
-"Tamanho VM\<\>' CUSTOMER_SPECIFIED_VM_SIZE ' fornecido no pedido é inválido ou não suportado para papel '\<ROLE\>'. Os valores \<\>válidos são: VALID_VM_SIZE_FOR_ROLE ."
+"Tamanho \<CUSTOMER_SPECIFIED_VM_SIZE\> VM' fornecido no pedido é inválido ou não apoiado para o papel \<ROLE\> '. Valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\> ."
 
 ### <a name="cause"></a>Causa
 
-O tamanho virtual da máquina que especificou não é permitido para o papel. Este erro pode ocorrer porque o valor do tamanho do VM não funciona como esperado ou não é adequado para o papel do computador.
+O tamanho da máquina virtual que especificou não é permitido para o papel. Este erro pode ocorrer porque o valor do tamanho VM não funciona como esperado ou não é adequado para o papel do computador.
 
 ### <a name="resolution"></a>Resolução
 
-A mensagem de erro lista os valores válidos para o tamanho VM. Selecione um destes valores e tente novamente o pedido de Criar Cluster.
+A mensagem de erro lista os valores válidos para o tamanho VM. Selecione um destes valores e relemisça o pedido de Criar Cluster.
 
 ---
 
@@ -84,7 +84,7 @@ A mensagem de erro lista os valores válidos para o tamanho VM. Selecione um des
 
 ### <a name="error"></a>Erro
 
-"O VirtualNetworkId não é válido. VirtualNetworkId\<'\>USER_VIRTUALNETWORKID '*'
+"A VirtualNetworkId não é válida. VirtualNetworkId \<USER_VIRTUALNETWORKID\> ' '*'
 
 ### <a name="cause"></a>Causa
 
@@ -92,31 +92,31 @@ O valor **VirtualNetworkId** que especificou durante a criação do cluster não
 
 ### <a name="resolution"></a>Resolução
 
-Certifique-se de que os valores **virtualNetworkId** e subnet estão no formato correto. Para obter o valor **VirtualNetworkId:**
+Certifique-se de que os valores **virtualNetworkId** e sub-redes estão no formato correto. Para obter o valor **VirtualNetworkId:**
 
 1. Aceda ao portal do Azure.
 1. Selecione a sua rede virtual.
 1. Selecione o item do menu **Propriedades.** O valor da propriedade **ResourceID** é o valor **VirtualNetworkId.**
 
-Aqui está um exemplo de uma identificação virtual da rede:
+Aqui está um exemplo de um ID de rede virtual:
 
 "/subscrições/c15fd9b8-e2b8-1d4e-aa85-2e668040233b/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
 
 ---
 
-## <a name="error-code-customizationfailederrorcode"></a>Código de erro: CustomizationFailedErrorCode
+## <a name="error-code-customizationfailederrorcode"></a>Código de erro: PersonalizaçãoFailedErrorCode
 
 ### <a name="error"></a>Erro
 
-"A implementação do cluster falhou devido a um erro na ação do script personalizado. Ações \<Falhadas:\>SCRIPT_NAME , Por favor, vá à Ambari UI para desinbugifar ainda mais o fracasso."
+"A implementação do cluster falhou devido a um erro na ação personalizada do script. Ações falhadas: \<SCRIPT_NAME\> , por favor, vá à UI Ambari para depurar ainda mais o fracasso."
 
 ### <a name="cause"></a>Causa
 
-O script personalizado que forneceu durante o pedido create cluster é executado após o cluster ser implementado com sucesso. Este código de erro indica que surgiu um \<\>erro durante a execução do script personalizado denominado SCRIPT_NAME .
+O script personalizado que forneceu durante o pedido do Agrupamento de Criação é executado após o cluster ser implementado com sucesso. Este código de erro indica que surgiu um erro durante a execução do script personalizado denominado \<SCRIPT_NAME\> .
 
 ### <a name="resolution"></a>Resolução
 
-Como o script é o seu script personalizado, recomendamos que se desloque o problema e refaça o script se necessário. Para resolver a falha do script, examine os registos na pasta /var/lib/ambari-agent/* Ou abra a página **operações** na UI Ambari e, em seguida, selecione a operação **run_customscriptaction** para visualizar os detalhes do erro.
+Como o script é o seu script personalizado, recomendamos que resolva o problema e refaça o script se necessário. Para resolver problemas na falha do script, examine os registos na pasta /var/lib/ambari-agent/* . Ou abrir a página **Operações** na UI Ambari e, em seguida, selecionar a **operação run_customscriptaction** para ver os detalhes de erro.
 
 ---
 
@@ -124,36 +124,36 @@ Como o script é o seu script personalizado, recomendamos que se desloque o prob
 
 ### <a name="error"></a>Erro
 
-"A \<\> \<versão de schema\> META_STORE_TYPE \<\> Metastore METASTORE_MAJOR_VERSION na \<base\>de dados DATABASE_NAME é incompatível com a versão cluster CLUSTER_VERSION"
+"A \<META_STORE_TYPE\> versão do esquema de Metastore na base de \<METASTORE_MAJOR_VERSION\> dados é \<DATABASE_NAME\> incompatível com a versão do \<CLUSTER_VERSION\> cluster"
 
 ### <a name="cause"></a>Causa
 
-A metaloja personalizada é incompatível com a versão de cluster HDInsight selecionada. Atualmente, os clusters HDInsight 4.0 suportam apenas a versão Metastore 3.0 e posteriormente, enquanto os clusters HDInsight 3.6 não suportam a versão 3.0 e posterior da Metastore.
+A metástasia personalizada é incompatível com a versão de cluster HDInsight selecionada. Atualmente, os clusters HDInsight 4.0 suportam apenas a versão 3.0 da Metastore e posterior, enquanto os clusters HDInsight 3.6 não suportam a versão 3.0 da Metastore e posterior.
 
 ### <a name="resolution"></a>Resolução
 
-Utilize apenas versões Metastore que a sua versão de cluster HDInsight suporta. Se não especificar uma metaloja personalizada, o HDInsight cria internamente uma metaloja e, em seguida, elimina-a após a eliminação do cluster.
+Utilize apenas versões Metastore que a sua versão hdInsight cluster suporta. Se não especificar uma meta-loja personalizada, o HDInsight cria internamente uma meta-loja e, em seguida, elimina-a após a eliminação do cluster.
 
 ---
 
-## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Código de erro: FailedToConnectWithClusterErrorCode 
+## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Código de erro: Falha noConnectWithClusterErrorCode 
 
 ### <a name="error"></a>Erro
 
-"Incapaz de ligar ao ponto final de gestão de clusters para realizar operação de escala. Verifique se as regras de segurança da rede não estão a bloquear o acesso externo ao cluster e que a UI do gestor de cluster (Ambari) pode ser acedida com sucesso."
+"Incapaz de ligar ao ponto final de gestão do cluster para realizar uma operação de escala. Verifique se as regras de segurança da rede não estão a bloquear o acesso externo ao cluster e que o gestor de clusters (Ambari) UI pode ser acedido com sucesso."
 
 ### <a name="cause"></a>Causa
 
-Uma regra de firewall no seu grupo de segurança de rede (NSG) está bloqueando a comunicação de cluster com serviços críticos de saúde e gestão azure.
+Uma regra de firewall no seu grupo de segurança de rede (NSG) está bloqueando a comunicação do cluster com serviços críticos de saúde e gestão de Azure.
 
 ### <a name="resolution"></a>Resolução
 
 Se planeia utilizar grupos de segurança de rede para controlar o tráfego da rede, tome as seguintes ações antes de instalar o HDInsight:
 
-- Identifique a região azure que pretende utilizar para o HDInsight.
-- Identifique os endereços IP exigidos pelo HDInsight. Para obter mais informações, veja [Endereços IP de gestão do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
-  - Crie ou modifique os grupos de segurança da rede para a subnet a que planeia instalar o HDInsight.
-  - Para os grupos de segurança da rede, permita o tráfego de entrada no porto 443 a partir dos endereços IP. Esta configuração garante que os serviços de gestão HDInsight podem chegar ao cluster de fora da rede virtual.
+- Identifique a região de Azure que pretende utilizar para o HDInsight.
+- Identifique os endereços IP exigidos por HDInsight. Para obter mais informações, veja [Endereços IP de gestão do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+  - Crie ou modifique os grupos de segurança da rede para a sub-rede em que planeia instalar o HDInsight.
+  - Para os grupos de segurança da rede, permita o tráfego de entrada na porta 443 a partir dos endereços IP. Esta configuração garante que os serviços de gestão HDInsight podem chegar ao cluster de fora da rede virtual.
 
 ---
 
@@ -161,20 +161,20 @@ Se planeia utilizar grupos de segurança de rede para controlar o tráfego da re
 
 ### <a name="error"></a>Erro
 
-"A Identidade Gerida não tem permissões na conta de armazenamento. Verifique se a função 'Storage Blob Data Owner' está atribuída à Identidade Gerida para a conta de armazenamento. Armazenamento: \</subscrições/\> ID de\< subscrição\> /recursosGroups/ Resource Group Name /providers/Microsoft.StorageAccounts/ \<Storage \<Accountname\> \>, Identidade\< Gerida: /subscrições/ Id de subscrição /recursosGroups/ / / Nome\> /fornecedores de grupo de recursos/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
+"A Identidade Gerida não tem permissões na conta de armazenamento. Verifique se a função 'Proprietário de dados de armazenamento blob' está atribuída à Identidade Gerida para a conta de armazenamento. Armazenamento: /subscrições/ \<Subscription ID\> /recursosGroups/ \< Resource Group Name\> /fornecedores/Microsoft.Storage/storageAcounts/ \<Storage Account Name\> , Identidade Gerida: /subscrições/ \<Subscription ID\> /grupos de recursos/ \< Resource Group Name\> / /fornecedores/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> "
 
 ### <a name="cause"></a>Causa
 
-Não forneceu as permissões necessárias para gerir a identidade. A identidade gerida atribuída ao utilizador não tem a função de Contribuinte de Armazenamento Blob na conta de armazenamento do Lago De dados Azure Gen2.
+Não forneceu as permissões necessárias para gerir a identidade. A identidade gerida atribuída pelo utilizador não tem o papel de Contribuinte de Armazenamento blob na conta de armazenamento de Azure Data Lake Gen2.
 
 ### <a name="resolution"></a>Resolução
 
 1. Abra o portal do Azure.
 1. Vá para a sua conta de armazenamento.
-1. Procure sob controlo de **acesso (IAM)**.
-1. Certifique-se de que o utilizador tem a função de Colaborador de Dados blob de armazenamento ou a função de Proprietário de Dados blob de armazenamento que lhes é atribuída.
+1. Procure no **Controlo de Acesso (IAM)**.
+1. Certifique-se de que o utilizador tem a função de Contribuinte de Dados blob de armazenamento ou a função de Proprietário de Dados blob de armazenamento que lhes foi atribuída.
 
-Para mais informações, consulte [Configurar permissões para a identidade gerida na conta Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Para obter mais informações, consulte [configurar permissões para a identidade gerida na conta da Data Lake Storage Gen2.](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ---
 
@@ -182,72 +182,72 @@ Para mais informações, consulte [Configurar permissões para a identidade geri
 
 ### <a name="error"></a>Erro
 
-"As regras de segurança do Grupo\<de\>Segurança da Rede\> /subscrições/ SubscriçãoID/recursosGroups/<Nome\<do Grupo\> de Recursos padrão/fornecedores/Microsoft.Network/networkSecurityGroups/ Network Security\<Group Name configurado com subnet /subscrições/ SubscriçãoID\>\>/resourceGroups/\<\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name /subnets/ Subnet Name\> não permite a entrada e/ou saída de rede necessárias. Para mais informações, visite [Plan a plana uma rede virtual para O Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), ou suporte de contato."
+"As regras de segurança no Grupo de Segurança da Rede /subscrições/ \<SubscriptionID\> /resourceGroups/<Nome do Grupo de Recursos \> predefinidos/fornecedores/provedores/Microsoft.Network/networkSecurityGroups/ \<Network Security Group Name\> configurados com sub-rede /subscrições/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/ \<Virtual Network Name\> /subnets/ \<Subnet Name\> não permite a conectividade de entrada e/ou saída requerida. Para mais informações, visite [o Plano de Uma rede virtual para Azure HDInsight,](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)ou suporte de contato."
 
 ### <a name="cause"></a>Causa
 
-Se os grupos de segurança da rede ou as rotas definidas pelo utilizador (UDRs) controlarem o tráfego de entrada para o seu cluster HDInsight, certifique-se de que o seu cluster pode comunicar com serviços críticos de saúde e gestão azure.
+Se grupos de segurança de rede ou rotas definidas pelo utilizador (UDRs) controlarem o tráfego de entrada para o seu cluster HDInsight, certifique-se de que o seu cluster pode comunicar com serviços críticos de saúde e gestão da Azure.
 
 ### <a name="resolution"></a>Resolução
 
 Se planeia utilizar grupos de segurança de rede para controlar o tráfego da rede, tome as seguintes ações antes de instalar o HDInsight:
 
-- Identifique a região azure que pretende utilizar para o HDInsight e crie uma lista segura dos endereços IP para a sua região. Para mais informações, consulte serviços de [saúde e gestão: Regiões específicas.](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions)
-- Identifique os endereços IP que o HDInsight necessita. Para mais informações, consulte os endereços IP de [gestão hDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
-- Crie ou modifique os grupos de segurança da rede para a subnet a que planeia instalar o HDInsight. Para os grupos de segurança da rede, permita o tráfego de entrada no porto 443 a partir dos endereços IP. Esta configuração garante que os serviços de gestão HDInsight podem chegar ao cluster de fora da rede virtual.
+- Identifique a região Azure que pretende utilizar para o HDInsight e crie uma lista segura dos endereços IP para a sua região. Para mais informações, consulte [serviços de saúde e gestão: Regiões específicas.](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions)
+- Identifique os endereços IP que o HDInsight requer. Para obter mais informações, consulte [os endereços IP de gestão hdInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Crie ou modifique os grupos de segurança da rede para a sub-rede em que planeia instalar o HDInsight. Para os grupos de segurança da rede, permita o tráfego de entrada na porta 443 a partir dos endereços IP. Esta configuração garante que os serviços de gestão HDInsight podem chegar ao cluster de fora da rede virtual.
 
 ---
 
-## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Código de erro: A configuração do cluster não instalou componentes num ou mais hospedeiros
+## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Código de erro: A configuração do cluster falhou na instalação de componentes num ou mais anfitriões
 
 ### <a name="error"></a>Erro
 
-"A configuração do cluster não instalou componentes num ou mais hospedeiros. Por favor, tente novamente o seu pedido.
+"A configuração do cluster não conseguiu instalar componentes num ou mais anfitriões. Por favor, re-tentar o seu pedido.
 
 ### <a name="cause"></a>Causa 
 
-Tipicamente, este erro é gerado quando há um problema transitório ou uma paragem azure.
+Normalmente, este erro é gerado quando há um problema transitório ou uma paragem do Azure.
 
 ### <a name="resolution"></a>Resolução
 
-Verifique a página de estado do [Azure](https://status.azure.com) para obter quaisquer interrupções do Azure que possam afetar a implementação do cluster. Se não houver interrupções, retente a implantação do cluster.
+Verifique a página [de estado do Azure](https://status.azure.com) para obter quaisquer falhas de Azure que possam afetar a implementação do cluster. Se não houver interrupções, recandiduça a implantação do cluster.
 
 ---
 
-## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Error Code: FailedToConnectWithClusterErrorCode
+## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Código de erro: Falha noConnectWithClusterErrorCode
 
 ### <a name="error"></a>Erro
 
-Incapaz de ligar ao ponto final da gestão do cluster. Por favor, tente mais tarde.
+Incapaz de ligar ao ponto final de gestão do cluster. Por favor, reda o novo tempo mais tarde.
 
 ### <a name="cause"></a>Causa
 
-O HDInsight Service não pode ligar-se ao seu cluster ao tentar criar o cluster
+O Serviço HDInsight não pode ligar-se ao seu cluster quando tenta criar o cluster
 
 ### <a name="resolution"></a>Resolução
 
-Se estiver a utilizar o grupo de segurança de rede VNet (NSGs) e as rotas definidas pelo utilizador (UDRs), certifique-se de que o seu cluster pode comunicar com os serviços de gestão HDInsight. Para obter informações adicionais consulte os endereços IP de [gestão HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+Se estiver a utilizar o grupo de segurança de rede VNet personalizado (NSGs) e as rotas definidas pelo utilizador (UDRs), certifique-se de que o seu cluster pode comunicar com os serviços de gestão hdInsight. Para obter informações adicionais consulte [endereços IP de gestão hdInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Error Code: As implementações falharam devido<Resource URI>a violação de políticas: 'Recurso' ' foi proibido pela política. Identificadores de política: '{"policyAssignment":{"name":""id":"/providers/Microsoft.Management/managementGroups/<Policy Name> <Management Group Name> providers/Microsoft.Authorization/policyAssignments/<Policy Name>"},"policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: As implementações falharam devido à violação da política: 'Recurso' <Resource URI> foi proibido pela política. Identificadores de política: <Policy Name> "[{"policyAssignment":{"name":"""""""""id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/ <Management Group Name> <Policy Name> "}"policyDefinition":<Policy Definition>
 
 ### <a name="cause"></a>Causa
 
-As políticas azure baseadas em subscrições podem negar a criação de endereços IP públicos. A criação do cluster do HDInsight requer dois IPs públicos.
+As políticas Azure baseadas em subscrições podem negar a criação de endereços IP públicos. A criação do cluster do HDInsight requer dois IPs públicos.
 
 As seguintes políticas geralmente impactam a criação de clusters:
 
 * Políticas que impedem a criação de endereços IP ou equilibradores de carga dentro da subscrição.
 * Política que impede a criação de contas de armazenamento.
-* Política que impede a apagamento de recursos de rede, tais como endereços IP ou Balanceadores de Carga.
+* Política que impede a eliminação de recursos de rede, tais como endereços IP ou equilibradores de carga.
 
 ### <a name="resolution"></a>Resolução
 
-Eliminar ou desativar a atribuição de política azure baseada em subscrição enquanto cria o Cluster HDInsight.
+Elimine ou desative a atribuição da Política Azure baseada em subscrições enquanto cria o HdInsight Cluster.
 
 ---
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre erros de resolução de problemas na criação de clusters, consulte falhas de criação de [cluster saturadas com o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
+Para obter mais informações sobre erros de resolução de problemas na criação de [clusters, consulte falhas de criação de clusters de resolução de problemas com Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).

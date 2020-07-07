@@ -1,36 +1,36 @@
 ---
 title: Criar um volume estático para cápsulas no Serviço Azure Kubernetes (AKS)
-description: Aprenda a criar manualmente um volume com discos Azure para utilização com uma cápsula no Serviço Azure Kubernetes (AKS)
+description: Saiba como criar manualmente um volume com discos Azure para utilização com uma cápsula no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 32e9da592d4c8f3997d5b1844065bf550d7d7d48
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207518"
 ---
-# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Crie e use manualmente um volume com discos Azure no Serviço Azure Kubernetes (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com discos Azure no Serviço Azure Kubernetes (AKS)
 
-As aplicações baseadas em contentores precisam frequentemente de aceder e persistir dados num volume externo de dados. Se uma única cápsula necessitar de acesso ao armazenamento, pode utilizar discos Azure para apresentar um volume nativo para utilização da aplicação. Este artigo mostra-lhe como criar manualmente um disco Azure e fixá-lo a uma cápsula em AKS.
+As aplicações baseadas em contentores precisam frequentemente de aceder e persistir dados num volume de dados externo. Se uma única cápsula precisar de acesso ao armazenamento, pode utilizar discos Azure para apresentar um volume nativo para uso de aplicações. Este artigo mostra-lhe como criar manualmente um disco Azure e anexá-lo a uma cápsula em AKS.
 
 > [!NOTE]
 > Um disco Azure só pode ser montado numa única cápsula de cada vez. Se precisar de partilhar um volume persistente em várias cápsulas, utilize [ficheiros Azure][azure-files-volume].
 
-Para obter mais informações sobre os volumes kubernetes, consulte as opções de [armazenamento para aplicações em AKS][concepts-storage].
+Para obter mais informações sobre volumes kubernetes, consulte [as opções de Armazenamento para aplicações em AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
+Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Criar um disco Azure
 
-Quando cria um disco Azure para utilização com AKS, pode criar o recurso do disco no grupo de recursos do **nó.** Esta abordagem permite ao cluster AKS aceder e gerir o recurso do disco. Se, em vez disso, criar o disco num grupo de recursos separado, deve conceder ao `Contributor` serviço do Serviço Azure Kubernetes (AKS) o papel para o grupo de recursos do disco. Em alternativa, pode utilizar o sistema de identidade gerida atribuída para permissões em vez do diretor de serviço. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md).
+Quando criar um disco Azure para utilização com AKS, pode criar o recurso de disco no grupo de recursos **do nó.** Esta abordagem permite ao cluster AKS aceder e gerir o recurso de disco. Se, em vez disso, criar o disco num grupo de recursos separados, deverá conceder ao diretor de serviço do Serviço Azure Kubernetes (AKS) para o seu cluster o `Contributor` papel no grupo de recursos do disco. Em alternativa, pode utilizar o sistema atribuído à identidade gerida para permissões em vez do principal serviço. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
 
-Para este artigo, crie o disco no grupo de recursos do nó. Primeiro, obtenha o nome do grupo de recursos com `--query nodeResourceGroup` o comando [az aks mostrar][az-aks-show] e adicionar o parâmetro de consulta. O exemplo seguinte obtém o grupo de recursos do nó para o nome de cluster AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
+Para este artigo, crie o disco no grupo de recursos do nó. Primeiro, obtenha o nome do grupo de recursos com o comando [az aks show][az-aks-show] e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo a seguir obtém o grupo de recursos de nó para o nome de cluster AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -38,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Agora crie um disco utilizando o [disco az criar][az-disk-create] comando. Especifique o nome do grupo de recursos do nó obtido no comando anterior e, em seguida, um nome para o recurso do disco, como *myAKSDisk*. O exemplo seguinte cria um disco de *20*GiB, e produz a identificação do disco uma vez criada. Se precisar de criar um disco para utilização `--os-type windows` com os recipientes do Windows Server, adicione o parâmetro para formatar corretamente o disco.
+Agora crie um disco utilizando o [comando de criação de disco az.][az-disk-create] Especificar o nome do grupo de recursos de nó obtido no comando anterior e, em seguida, um nome para o recurso de disco, como *o myAKSDisk*. O exemplo a seguir cria um disco *de 20*GiB e produz o ID do disco uma vez criado. Se precisar de criar um disco para utilização com recipientes do Windows Server, adicione o `--os-type windows` parâmetro para formatar corretamente o disco.
 
 ```azurecli-interactive
 az disk create \
@@ -49,17 +49,17 @@ az disk create \
 ```
 
 > [!NOTE]
-> Os discos azure são faturados pela SKU para um tamanho específico. Estes SKUs variam de 32GiB para discos S4 ou P4 até 32TiB para discos S80 ou P80 (em pré-visualização). O desempenho de entrada e IOPS de um disco gerido premium depende tanto do SKU como do tamanho da instância dos nós no cluster AKS. Ver [Preços e Desempenho de Discos Geridos][managed-disk-pricing-performance].
+> Os discos Azure são faturados pela SKU por um tamanho específico. Estes SKUs variam de 32GiB para discos S4 ou P4 a 32TiB para discos S80 ou P80 (em pré-visualização). O desempenho de produção e IOPS de um disco gerido Premium depende tanto do SKU como do tamanho dos nós no cluster AKS. Ver [Preços e Desempenho dos Discos Geridos][managed-disk-pricing-performance].
 
-O ID do recurso do disco é apresentado uma vez que o comando tenha sido concluído com sucesso, como mostra a seguinte saída de exemplo. Este ID do disco é usado para montar o disco no próximo passo.
+O ID do recurso do disco é apresentado uma vez que o comando tenha sido concluído com sucesso, como mostrado na saída do exemplo seguinte. Este ID do disco é utilizado para montar o disco no passo seguinte.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-## <a name="mount-disk-as-volume"></a>Monte disco como volume
+## <a name="mount-disk-as-volume"></a>Monte o disco como volume
 
-Para montar o disco Azure na sua cápsula, configure o volume `azure-disk-pod.yaml` na especificação do recipiente. Crie um novo ficheiro com o seguinte conteúdo. Atualização `diskName` com o nome do disco criado `diskURI` no passo anterior, e com o ID do disco mostrado na saída do disco criar comando. Se desejar, atualize o `mountPath`, que é o caminho onde o disco Azure é montado na vagem. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
+Para montar o disco Azure na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-disk-pod.yaml` o seguinte conteúdo. Atualize `diskName` com o nome do disco criado no passo anterior, e com o `diskURI` ID do disco mostrado na saída do disco criar comando. Se desejar, atualize o `mountPath` , que é o caminho onde o disco Azure é montado na vagem. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
 
 ```yaml
 apiVersion: v1
@@ -88,13 +88,13 @@ spec:
           diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-Use `kubectl` o comando para criar a cápsula.
+Use o `kubectl` comando para criar a cápsula.
 
 ```console
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Agora tem uma cápsula de corrida com `/mnt/azure`um disco Azure montado em . Pode utilizar `kubectl describe pod mypod` para verificar se o disco está montado com sucesso. A saída de exemplo condensado seguinte mostra o volume montado no recipiente:
+Tem agora uma cápsula de corrida com um disco Azure montado em `/mnt/azure` . Pode utilizar `kubectl describe pod mypod` para verificar se o disco está montado com sucesso. A seguinte saída de exemplo condensada mostra o volume montado no recipiente:
 
 ```
 [...]
@@ -125,7 +125,7 @@ Events:
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 
-Para obter mais informações sobre os clusters AKS interaja com discos Azure, consulte o [plugin Kubernetes para Discos Azure][kubernetes-disks].
+Para obter mais informações sobre os clusters AKS interagem com discos Azure, consulte o [plugin Kubernetes para Discos Azure][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md

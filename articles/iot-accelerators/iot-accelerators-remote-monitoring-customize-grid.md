@@ -1,6 +1,6 @@
 ---
-title: Adicione uma grelha à solução de monitorização remota UI - Azure [ Microsoft Docs
-description: Este artigo mostra-lhe como adicionar um novo gid numa página na UI web de aceleração da solução de monitorização remota.
+title: Adicione uma grelha à solução de Monitorização Remota UI - Azure / Microsoft Docs
+description: Este artigo mostra-lhe como adicionar um novo gid numa página na UI do acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,24 +9,24 @@ services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186293"
 ---
-# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma grelha personalizada ao uI web de solução de monitorização remota
+# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma grelha personalizada à UI do acelerador de solução de monitorização remota
 
-Este artigo mostra-lhe como adicionar uma nova grelha numa página na UI web de aceleração da solução de monitorização remota. O artigo descreve:
+Este artigo mostra-lhe como adicionar uma nova grelha numa página na UI do acelerador de solução de monitorização remota. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
-- Como adicionar uma nova grelha a uma página na Web UI.
+- Como adicionar uma nova grelha a uma página na UI web.
 
-A grelha de exemplo neste artigo mostra os dados do serviço que o Add um serviço personalizado ao acelerador de [soluções de monitorização remota UI](iot-accelerators-remote-monitoring-customize-service.md) como o artigo mostra como adicionar.
+A grelha de exemplo neste artigo exibe os dados do serviço que o Add um serviço personalizado ao artigo [web UI](iot-accelerators-remote-monitoring-customize-service.md) como adicionar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
+Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
@@ -35,26 +35,26 @@ Para completar os passos neste guia de como orientar, precisa do seguinte softwa
 
 Deve completar os passos nos seguintes artigos antes de continuar:
 
-- [Adicione uma página personalizada ao uI web de aceleração da solução de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adicione um serviço personalizado ao uI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adicione uma página personalizada à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md).
+- [Adicione um serviço personalizado à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-service.md)
 
 ## <a name="add-a-grid"></a>Adicionar uma grelha
 
-Para adicionar uma grelha ao UI web, é necessário adicionar os ficheiros de origem que definem a grelha e modificar alguns ficheiros existentes para sensibilizar a Web UI para o novo componente.
+Para adicionar uma grelha à UI web, é necessário adicionar os ficheiros de origem que definem a grelha e modificar alguns ficheiros existentes para sensibilizar a UI web para o novo componente.
 
 ### <a name="add-the-new-files-that-define-the-grid"></a>Adicione os novos ficheiros que definem a grelha
 
-Para começar, a pasta **src/walkthrough/components/pages/pageWithGrid/exampleGrid** contém os ficheiros que definem uma grelha:
+Para começar, a pasta **src/walkthrough/componentes/pages/pageWithGrid/exemploGrid** contém os ficheiros que definem uma grelha:
 
-**exemploSGrid.js**
+**exampleGrid.js**
 
 [!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
 
-**exemploSGridConfig.js**
+**exampleGridConfig.js**
 
 [!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
 
-Copie a pasta **src/walkthrough/components/pages/pageWithGrid/exampleGrid** para o **src/componentes/páginas/exemplo.**
+Copie a pasta **src/walkthrough/componentes/pages/pageWithGrid/exemploGrid** para a pasta **src/componentes/páginas/exemplo.**
 
 ### <a name="add-the-grid-to-the-page"></a>Adicione a grelha à página
 
@@ -174,25 +174,25 @@ describe('BasicPage Component', () => {
 });
 ```
 
-## <a name="test-the-grid"></a>Testar a grelha
+## <a name="test-the-grid"></a>Teste a grelha
 
-Se a UI web ainda não estiver a funcionar localmente, execute o seguinte comando na raiz da sua cópia local do repositório:
+Se a UI web ainda não estiver a funcionar localmente, executa o seguinte comando na raiz da sua cópia local do repositório:
 
 ```cmd/sh
 npm start
 ```
 
-O comando anterior executa `http://localhost:3000/dashboard`a UI localmente em . Navegue na página **Exemplo** para ver os dados de visualização da grelha do serviço.
+O comando anterior dirige a UI localmente em `http://localhost:3000/dashboard` . Navegue na página **Exemplo** para ver os dados do ecrã da grelha a partir do serviço.
 
 ## <a name="select-rows"></a>Selecione linhas
 
 Existem duas opções para permitir que um utilizador selecione linhas na grelha:
 
-### <a name="hard-select-rows"></a>Linhas de seleção difícil
+### <a name="hard-select-rows"></a>Linhas duras selecionadas
 
-Se um utilizador precisar de agir em várias linhas ao mesmo tempo, utilize caixas de verificação nas linhas:
+Se um utilizador precisar de agir em várias linhas ao mesmo tempo, utilize caixas de verificação em linhas:
 
-1. Ativar a seleção dura das linhas adicionando uma **colunacolumn** às **colunasDefs** fornecidas à grelha. **checkboxColumn** é definido em **/src/componentes/shared/pcsGrid/pcsGrid.js**:
+1. Ativar a seleção dura das linhas adicionando uma **caixa de verificaçãoColumn** às **colunasSDefs** fornecidos à grelha. **checkboxColumn** é definido em **/src/components/shared/pcsGrid/pcsGrid.js**:
 
     ```js
     this.columnDefs = [
@@ -202,7 +202,7 @@ Se um utilizador precisar de agir em várias linhas ao mesmo tempo, utilize caix
     ];
     ```
 
-1. Para aceder aos itens selecionados, obtém uma referência à grelha interna API:
+1. Para aceder aos itens selecionados, obtém uma referência à API da rede interna:
 
     ```js
     onGridReady = gridReadyEvent => {
@@ -214,7 +214,7 @@ Se um utilizador precisar de agir em várias linhas ao mesmo tempo, utilize caix
     };
     ```
 
-1. Forneça botões de contexto à página quando uma linha na grelha for selecionada de forma dura:
+1. Fornecer botões de contexto à página quando uma linha na grelha for selecionada duramente:
 
     ```js
     this.contextBtns = [
@@ -234,7 +234,7 @@ Se um utilizador precisar de agir em várias linhas ao mesmo tempo, utilize caix
     }
     ```
 
-1. Quando um botão de contexto estiver clicado, faça com que os itens selecionados para fazer o seu trabalho em:
+1. Quando um botão de contexto é clicado, obtenha os itens selecionados para fazer o seu trabalho em:
 
     ```js
     doSomething = () => {
@@ -243,11 +243,11 @@ Se um utilizador precisar de agir em várias linhas ao mesmo tempo, utilize caix
     };
     ```
 
-### <a name="soft-select-rows"></a>Linhas selecionadas suavemente
+### <a name="soft-select-rows"></a>Linhas de seleção suave
 
-Se o utilizador necessitar apenas de agir numa única linha, configure um link de seleção suave para uma ou mais colunas nas **colunasDefs**.
+Se o utilizador apenas precisar de agir numa única linha, configurar um link de seleção suave para uma ou mais colunas nas **colunasDeefs**.
 
-1. Por **exemplo,GridConfig.js,** adicione **SoftSelectLinkRenderer** como a **célulaRendererFramework** para uma **colunaDef**.
+1. Em **exampleGridConfig.js**, adicione **SoftSelectLinkRenderer** como **o cellRendererFramework** para uma **colunaDef**.
 
     ```js
     export const exampleColumnDefs = {
@@ -260,7 +260,7 @@ Se o utilizador necessitar apenas de agir numa única linha, configure um link d
     };
     ```
 
-1. Quando um link de seleção suave é clicado, ativa o evento **onSoftSelectChange.** Execute qualquer ação que seja desejada para essa linha, como abrir um voo de detalhes. Este exemplo simplesmente escreve para a consola:
+1. Quando um link de seleção suave é clicado, ativa o evento **onSoftSelectChange.** Execute qualquer ação desejada para essa linha, como abrir um flyout de detalhes. Este exemplo simplesmente escreve para a consola:
 
     ```js
     onSoftSelectChange = (rowId, rowData) => {
@@ -279,8 +279,8 @@ Se o utilizador necessitar apenas de agir numa única linha, configure um link d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na UI web no acelerador de soluções de Monitorização Remota.
+Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na UI web no acelerador de solução de Monitorização Remota.
 
-Agora que definiu uma grelha, o próximo passo é adicionar um flyout personalizado ao acelerador de [soluções de monitorização remota UI](iot-accelerators-remote-monitoring-customize-flyout.md) que apresenta na página exemplo.
+Agora que definiu uma grelha, o próximo passo é [adicionar um flyout personalizado à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-flyout.md) que aparece na página de exemplo.
 
-Para obter informações mais conceptuais sobre o acelerador de soluções de monitorização remota, consulte [a arquitetura de Monitorização Remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceptuais sobre o acelerador de solução de monitorização remota, consulte [a arquitetura de monitorização remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)

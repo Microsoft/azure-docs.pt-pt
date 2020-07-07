@@ -1,6 +1,6 @@
 ---
-title: Adicione um painel à solução de monitorização remota UI - Azure [ Microsoft Docs
-description: Este artigo mostra-lhe como adicionar um novo painel ao painel no acelerador de solução de monitorização remota UI.
+title: Adicione um painel à solução de monitorização remota UI - Azure / Microsoft Docs
+description: Este artigo mostra-lhe como adicionar um novo painel ao painel no sistema de monitorização remota uI do acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,31 +9,31 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187233"
 ---
-# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um painel personalizado ao painel no UI web de solução de monitorização remota
+# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um painel personalizado ao painel no painel de instrumentos na UI do acelerador de solução de monitorização remota
 
-Este artigo mostra-lhe como adicionar um novo painel a uma página de painel na UI web de solução de monitorização remota. O artigo descreve:
+Este artigo mostra-lhe como adicionar um novo painel numa página de dashboard na UI do acelerador de solução de monitorização remota. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
-- Como adicionar um novo painel a uma página de painel na UI web.
+- Como adicionar um novo painel a uma página de dashboard na UI web.
 
-O painel de exemplo neste artigo apresenta na página do painel existente.
+O painel de exemplo deste artigo apresenta-se na página do painel de instrumentos existente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
+Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Deve completar os passos na página Personalizada do acelerador de [soluções de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md) antes de continuar.
+Deve completar os passos na página Adicionar uma página personalizada ao artigo de UI do [acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md) antes de continuar.
 
 ## <a name="add-a-panel"></a>Adicionar um painel
 
@@ -41,15 +41,15 @@ Para adicionar um painel à UI web, é necessário adicionar os ficheiros de ori
 
 ### <a name="add-the-new-files-that-define-the-panel"></a>Adicione os novos ficheiros que definem o painel
 
-Para começar, o **src/walkthrough/componentes/pages/dashboard/panels/examplePanel** contém os ficheiros que definem um painel, incluindo:
+Para começar, a **src/walkthrough/componentes/pages/dashboard/panel/exemploPanel** contém os ficheiros que definem um painel, incluindo:
 
-**exemploPainel.js**
+**examplePanel.js**
 
 [!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
-Copie a pasta **src/walkthrough/components/pages/dashboard/panel/examplePanel** para a pasta **src/components/pages/dashboard/panel.**
+Copie a pasta **src/walkthrough/components/pages/dashboard/panel/exemploPanel** para a pasta **src/componentes/pages/dashboard/panels.**
 
-Adicione a seguinte exportação ao ficheiro **src/walkthrough/components/pages/dashboard/panels/index.js:**
+Adicione a seguinte exportação para o **src/walkthrough/componentes/pages/dashboard/panels/index.js** ficheiro:
 
 ```js
 export * from './examplePanel';
@@ -82,18 +82,18 @@ Adicione a seguinte definição de célula à grelha no conteúdo da página:
           </Cell>
 ```
 
-## <a name="test-the-flyout"></a>Teste o voo para fora
+## <a name="test-the-flyout"></a>Teste o flyout
 
-Se a UI web ainda não estiver a funcionar localmente, execute o seguinte comando na raiz da sua cópia local do repositório:
+Se a UI web ainda não estiver a funcionar localmente, executa o seguinte comando na raiz da sua cópia local do repositório:
 
 ```cmd/sh
 npm start
 ```
 
-O comando anterior executa `http://localhost:3000/dashboard`a UI localmente em . Navegue na página **do Dashboard** para ver o novo painel.
+O comando anterior dirige a UI localmente em `http://localhost:3000/dashboard` . Navegue na página **dashboard** para ver o novo painel.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar dashboards na UI web no acelerador de soluções de monitorização remota.
+Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar dashboards na UI web no acelerador de solução de monitorização remota.
 
-Para obter informações mais conceptuais sobre o acelerador de soluções de monitorização remota, consulte [a arquitetura de Monitorização Remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceptuais sobre o acelerador de solução de monitorização remota, consulte [a arquitetura de monitorização remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)

@@ -1,28 +1,28 @@
 ---
-title: Gerir o Backup de partilha de ficheiros Azure com a Rest API
-description: Aprenda a usar a REST API para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
+title: Gerir a Azure File partilhar backup com a Rest API
+description: Saiba como utilizar a REST API para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184916"
 ---
-# <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir o Backup de partilha de ficheiros Azure com a REST API
+# <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir a Azure File partilhar backup com a REST API
 
-Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiro supérno do Azure que são apoiadas por [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiros Azure que são apoiadas pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
 ## <a name="monitor-jobs"></a>Monitorizar trabalhos
 
-O serviço de backup Azure desencadeia trabalhos que funcionam em segundo plano. Isto inclui cenários como desencadear backup, restaurar operações e desativar o backup. Estes trabalhos podem ser rastreados usando as suas identificações.
+O serviço Azure Backup desencadeia empregos que funcionam em segundo plano. Isto inclui cenários como desencadear backup, restaurar operações e desativar o backup. Estes trabalhos podem ser rastreados usando as suas identificações.
 
-### <a name="fetch-job-information-from-operations"></a>Buscar informações sobre o emprego das operações
+### <a name="fetch-job-information-from-operations"></a>Recolher informações sobre o trabalho das operações
 
-Uma operação como o dedisparomento de cópia de segurança irá sempre devolver um ID de trabalho na resposta.
+Uma operação como o detonamento de backup irá sempre devolver um trabalhoID na resposta.
 
-Por exemplo, a resposta final de uma operação de [backup de gatilho REST API](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) é a seguinte:
+Por exemplo, a resposta final de uma operação [de backup de backup de gatilho REST API](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) é a seguinte:
 
 ```json
 {
@@ -40,13 +40,13 @@ Por exemplo, a resposta final de uma operação de [backup de gatilho REST API](
 
 O trabalho de backup de partilha de ficheiros Azure é identificado pelo campo **jobId** e pode ser rastreado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando um pedido GET.
 
-### <a name="tracking-the-job"></a>Rastreando o trabalho
+### <a name="tracking-the-job"></a>A acompanhar o trabalho
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-O {jobName} é o "jobId" acima mencionado. A resposta é sempre "200 OK" com o campo de **estado** indicando o estado do trabalho. Uma vez "Concluído" ou "CompletedWithWarnings", a secção **ExtendedInfo** revela mais detalhes sobre o trabalho.
+O {jobName} é o "jobId" mencionado acima. A resposta é sempre "200 OK" com o campo **de status** indicando o estado do trabalho. Uma vez que é "Concluído" ou "Concluído com Os Avisos", a secção **Alargada alargada** revela mais detalhes sobre o trabalho.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'
@@ -54,9 +54,9 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>Resposta
 
-Nome  | Tipo  |  Descrição
+Name  | Tipo  |  Description
 --- | --- | ----
-200 OK |  Recurso de Emprego  | OK
+200 OK |  JobResource  | OK
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -109,11 +109,11 @@ HTTP/1.1" 200
 }
 ```
 
-## <a name="modify-policy"></a>Modificar a política
+## <a name="modify-policy"></a>Alterar a política
 
-Para alterar a política com a qual a partilha de ficheiros está protegida, pode utilizar o mesmo formato que permitir a proteção. Basta fornecer a nova identificação política na política de pedido e apresentar o pedido.
+Para alterar a política com a qual a partilha de ficheiros está protegida, pode utilizar o mesmo formato que permitir a proteção. Basta fornecer a nova identificação de política na política de pedido e apresentar o pedido.
 
-Por exemplo: Para alterar a política de proteção do *testshare* do *horário 1* para o *horário2*, fornecer o *id de agenda2* no organismo de pedido.
+Por exemplo: Para alterar a política de proteção do *testshare* do *horário1* para o *horário2,* forneça o *ID do horário2* no organismo de pedido.
 
 ```json
 {
@@ -127,7 +127,7 @@ Por exemplo: Para alterar a política de proteção do *testshare* do *horário 
 
 ## <a name="stop-protection-but-retain-existing-data"></a>Parar a proteção, mas reter os dados existentes
 
-Pode remover a proteção numa partilha de ficheiros protegida, mas reter os dados já apoiados. Para isso, remova a política no organismo de pedido utilizado para[permitir a cópia de segurança](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) e submeter o pedido. Uma vez removida a associação com a política, os backups já não são desencadeados e não são criados novos pontos de recuperação.
+Pode remover a proteção numa partilha de ficheiros protegida, mas reter os dados já removidos. Para tal, remova a política no órgão de pedido que utilizou para[permitir a cópia de segurança](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) e submeter o pedido. Uma vez que a associação com a política é removida, os backups já não são desencadeados e não são criados novos pontos de recuperação.
 
 ```json
 {
@@ -142,7 +142,7 @@ Pode remover a proteção numa partilha de ficheiros protegida, mas reter os dad
 
 ### <a name="sample-response"></a>Resposta de amostra
 
-Parar a proteção para uma partilha de ficheiros é uma operação assíncrona. A operação cria outra operação que precisa de ser rastreada. Devolve duas respostas: 202 (Aceite) quando outra operação é criada, e 200 quando essa operação estiver concluída.
+Parar a proteção de uma partilha de ficheiros é uma operação assíncronea. A operação cria outra operação que precisa de ser rastreada. Devolve duas respostas: 202 (Aceite) quando outra operação é criada, e 200 quando essa operação termina.
 
 Cabeçalho de resposta quando a operação é aceite com sucesso:
 
@@ -166,7 +166,7 @@ msrest.http_logger :     'Azure-AsyncOperation': 'https://management.azure.com/S
 'Content-Length': '0'
 ```
 
-Em seguida, rastreie a operação resultante utilizando o cabeçalho de localização ou o cabeçalho da Operação Azure-Asynccom um comando GET:
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou cabeçalho Azure-AsyncOperation com um comando GET:
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
@@ -188,17 +188,17 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 }
 ```
 
-## <a name="stop-protection-and-delete-data"></a>Parar a proteção e eliminar dados
+## <a name="stop-protection-and-delete-data"></a>Parar a proteção e apagar dados
 
-Para remover a proteção numa partilha de ficheiros protegida e eliminar também os dados de cópia de segurança, execute uma operação de eliminação conforme descrito [aqui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Para remover a proteção de uma partilha de ficheiros protegida e eliminar os dados de cópia de segurança também, execute uma operação de eliminação conforme detalhado [aqui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Os parâmetros {containerName} e {protectedItemName} são como [definidos aqui](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
+Os parâmetros {containerName} e {protectedItemName} são definidos [aqui](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
 
-O exemplo seguinte desencadeia uma operação para parar a proteção da partilha de ficheiros de *teste* protegida com *cofre azurefiles*.
+O exemplo a seguir desencadeia uma operação para impedir a proteção da partilha de ficheiros *de testshare* protegida com *azurefilesvault*.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/protectedItems/azurefileshare;testshare?api-version=2016-12-01
@@ -206,9 +206,9 @@ DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f4
 
 ### <a name="responses"></a>Respostas
 
-Eliminar a proteção é uma operação assíncrona. A operação cria outra operação que precisa de ser rastreada separadamente.
+Eliminar proteção é uma operação assíncronea. A operação cria outra operação que precisa de ser rastreada separadamente.
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada e 204 (NoContent) quando essa operação estiver concluída.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Aprenda a [resolver problemas ao configurar backup para ações do Ficheiro Azure](troubleshoot-azure-files.md).
+* Saiba como [resolver problemas enquanto configura a cópia de segurança para ações do Ficheiro Azure](troubleshoot-azure-files.md).

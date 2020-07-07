@@ -1,39 +1,39 @@
 ---
 title: Encriptação de dados - Azure CLI - Base de Dados Azure para MySQL
-description: Aprenda a configurar e gerir a encriptação de dados para a sua Base de Dados Azure para mySQL utilizando o Azure CLI.
+description: Saiba como configurar e gerir a encriptação de dados para a sua Base de Dados Azure para o MySQL utilizando o CLI Azure.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185834"
 ---
-# <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Encriptação de dados para Base de Dados Azure para MySQL utilizando o Azure CLI
+# <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para MySQL utilizando o Azure CLI
 
-Aprenda a utilizar o Azure CLI para configurar e gerir a encriptação de dados para a sua Base de Dados Azure para o MySQL.
+Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados para a sua Base de Dados Azure para o MySQL.
 
-## <a name="prerequisites-for-azure-cli"></a>Pré-requisitos para o Azure CLI
+## <a name="prerequisites-for-azure-cli"></a>Pré-requisitos para O Azure CLI
 
-* Você deve ter uma assinatura Azure e ser um administrador nessa subscrição.
-* Crie um cofre chave e uma chave para usar para uma chave gerida pelo cliente. Também ative a proteção da purga e a eliminação suave no cofre da chave.
+* Você deve ter uma subscrição Azure e ser um administrador nessa subscrição.
+* Crie um cofre chave e uma chave para usar para uma chave gerida pelo cliente. Também permita a proteção da purga e a eliminação suave no cofre da chave.
 
     ```azurecli-interactive
     az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
     ```
 
-* No cofre azure criado, crie a chave que será usada para a encriptação de dados da Base de Dados Azure para MySQL.
+* No Azure Key Vault criado, crie a chave que será usada para a encriptação de dados da Base de Dados Azure para o MySQL.
 
     ```azurecli-interactive
     az keyvault key create --name <key_name> -p software --vault-name <vault_name>
     ```
 
-* Para utilizar um cofre chave existente, deve ter as seguintes propriedades para usar como chave gerida pelo cliente:
-  * [Eliminação suave](../key-vault/general/overview-soft-delete.md)
+* Para utilizar um cofre-chave existente, deve ter as seguintes propriedades para utilizar como chave gerida pelo cliente:
+  * [Eliminação recuperável](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -45,12 +45,12 @@ Aprenda a utilizar o Azure CLI para configurar e gerir a encriptação de dados 
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
-* A chave deve ter os seguintes atributos a utilizar como chave gerida pelo cliente:
+* A chave deve ter os seguintes atributos para usar como chave gerida pelo cliente:
   * Sem data de validade
   * Não incapacitado
-  * Executar **executar executar,** **embrulhar,** **desembrulhar** operações
+  * Executar **obter,** **embrulhar,** **desembrulhar** operações
 
-## <a name="set-the-right-permissions-for-key-operations"></a>Detete as permissões certas para operações-chave
+## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões certas para operações chave
 
 1. Existem duas formas de obter a identidade gerida para a sua Base de Dados Azure para o MySQL.
 
@@ -66,15 +66,15 @@ Aprenda a utilizar o Azure CLI para configurar e gerir a encriptação de dados 
     az mysql server update --name  <server name>  -g <resource_group> --assign-identity
     ```
 
-2. Detete as **permissões chave** (**Get,** **Wrap,** **Desembrulhar)** para o **principal,** que é o nome do servidor MySQL.
+2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal**, que é o nome do servidor MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
     ```
 
-## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Definir encriptação de dados para base de dados Azure para MySQL
+## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Definir encriptação de dados para Azure Database para MySQL
 
-1. Ativar a encriptação de dados para a Base de Dados Azure para MySQL utilizando a chave criada no Cofre chave Azure.
+1. Ativar a encriptação de dados para a Base de Dados Azure para o MySQL utilizando a chave criada no Cofre da Chave Azure.
 
     ```azurecli-interactive
     az mysql server key create –name  <server name>  -g <resource_group> --kid <key url>
@@ -82,24 +82,24 @@ Aprenda a utilizar o Azure CLI para configurar e gerir a encriptação de dados 
 
     Url chave:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
-## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilização da encriptação de Dados para restaurar ou replicar servidores
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilização da encriptação de dados para restaurar ou replicar servidores
 
-Depois de a Base de Dados Azure para MySQL ser encriptada com a chave gerida por um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é encriptada. Pode fazer esta nova cópia através de uma operação local ou geo-restauro, ou através de uma operação de réplica (local/região transversal). Assim, para um servidor MySQL encriptado, pode utilizar os seguintes passos para criar um servidor restaurado encriptado.
+Depois de a Azure Database for MySQL ser encriptada com a chave gerida de um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é encriptada. Pode fazer esta nova cópia através de uma operação local ou de geo-restauro, ou através de uma operação de réplica (local/cross-region). Assim, para um servidor MySQL encriptado, pode usar os seguintes passos para criar um servidor restaurado encriptado.
 
-### <a name="creating-a-restoredreplica-server"></a>Criação de um servidor restaurado/réplica
+### <a name="creating-a-restoredreplica-server"></a>Criação de um servidor restaurado/replicado
 
-  *  [Criar um servidor de restauro](howto-restore-server-cli.md) 
+  *  [Criar um servidor de restauração](howto-restore-server-cli.md) 
   *  [Criar um servidor de réplica de leitura](howto-read-replicas-cli.md) 
 
-### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Uma vez restaurado o servidor, revalida a encriptação de dados do servidor restaurado
+### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Uma vez restaurado o servidor, revalidar a encriptação de dados do servidor restaurado
 
     ```azurecli-interactive
     az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
     ```
 
-## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-mysql"></a>Capacidade adicional para a chave que está a ser utilizada para a Base de Dados Azure para mySQL
+## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-mysql"></a>Capacidade adicional para a chave que está a ser utilizada para a Base de Dados Azure para o MySQL
 
-### <a name="get-the-key-used"></a>Obter a chave usada
+### <a name="get-the-key-used"></a>Use a chave
 
     ```azurecli-interactive
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
@@ -107,7 +107,7 @@ Depois de a Base de Dados Azure para MySQL ser encriptada com a chave gerida por
 
     Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
-### <a name="list-the-key-used"></a>Lista rindo a chave utilizada
+### <a name="list-the-key-used"></a>Listar a chave usada
 
     ```azurecli-interactive
     az mysql server key list --name  <server name>  -g <resource_group>
@@ -119,22 +119,22 @@ Depois de a Base de Dados Azure para MySQL ser encriptada com a chave gerida por
     az mysql server key delete -g <resource_group> --kid <key url> 
     ```
 
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Usando um modelo de Gestor de Recursos Azure para ativar a encriptação de dados
+## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Usando um modelo de Gestor de Recursos Azure para permitir encriptação de dados
 
-Além do portal Azure, também pode ativar a encriptação de dados na sua Base de Dados Azure para o servidor MySQL utilizando modelos do Gestor de Recursos Azure para servidores novos e existentes.
+Além do portal Azure, também pode ativar a encriptação de dados na sua Base de Dados Azure para o servidor MySQL utilizando modelos de Gestor de Recursos Azure para servidores novos e existentes.
 
 ### <a name="for-a-new-server"></a>Para um novo servidor
 
-Utilize um dos modelos pré-criados do Gestor de Recursos Azure para fornecer o servidor com encriptação de dados ativado: [Exemplo com encriptação de dados](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption)
+Utilize um dos modelos pré-criados do Gestor de Recursos Azure para doer o servidor com encriptação de dados ativada: [Exemplo com encriptação de dados](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption)
 
-Este modelo do Gestor de Recursos Azure cria uma Base de Dados Azure para o servidor MySQL e utiliza o **KeyVault** e **key** pass como parâmetros para permitir a encriptação de dados no servidor.
+Este modelo de Gestor de Recursos Azure cria uma Base de Dados Azure para o servidor MySQL e utiliza o **KeyVault** e **a Chave** passados como parâmetros para permitir a encriptação de dados no servidor.
 
 ### <a name="for-an-existing-server"></a>Para um servidor existente
-Além disso, pode utilizar modelos do Gestor de Recursos Do Azure para ativar a encriptação de dados na base de dados azure existente para servidores MySQL.
+Além disso, pode utilizar os modelos do Gestor de Recursos Azure para permitir a encriptação de dados na base de dados Azure existente para servidores MySQL.
 
-* Passe a identificação de recursos da chave azure key `Uri` vault que copiou anteriormente sob a propriedade no objeto de propriedades.
+* Passe o ID de recursos da chave Azure Key Vault que copiou anteriormente sob a `Uri` propriedade no objeto de propriedades.
 
-* Utilize a *pré-visualização 2020-01-01* como versão API.
+* Utilize *a pré-visualização 2020-01 como* versão API.
 
 ```json
 {
@@ -246,4 +246,4 @@ Além disso, pode utilizar modelos do Gestor de Recursos Do Azure para ativar a 
 
 ## <a name="next-steps"></a>Passos seguintes
 
- Para saber mais sobre encriptação de dados, consulte a Base de [Dados Azure para encriptação de dados MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).
+ Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados do MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).
