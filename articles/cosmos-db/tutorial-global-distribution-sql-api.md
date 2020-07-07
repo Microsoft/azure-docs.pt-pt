@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 52a76e685a9db58870c9a18b419ef725f559a969
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851607"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configurar a distribuição global da Azure Cosmos DB utilizando a API SQL
 
@@ -129,6 +129,7 @@ O seguinte código mostra como definir locais preferenciais utilizando o Java SD
 --- 
 
 ## <a name="rest"></a>REST
+
 Uma vez disponibilizada uma conta de base de dados em várias regiões, os clientes podem consultar a sua disponibilidade através da realização de um pedido GET sobre este URI`https://{databaseaccount}.documents.azure.com/`
 
 O serviço devolverá uma lista de regiões e os URIs de ponto final correspondentes do Azure Cosmos DB para as réplicas. A região de escrita atual será indicada na resposta. Em seguida, o cliente pode selecionar o ponto final adequado para obter todos os pedidos da API REST da seguinte forma.
@@ -136,35 +137,35 @@ O serviço devolverá uma lista de regiões e os URIs de ponto final corresponde
 Resposta de exemplo
 
 ```json
-    {
-        "_dbs": "//dbs/",
-        "media": "//media/",
-        "writableLocations": [
-            {
-                "Name": "West US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
-            }
-        ],
-        "readableLocations": [
-            {
-                "Name": "East US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
-            }
-        ],
-        "MaxMediaStorageUsageInMB": 2048,
-        "MediaStorageUsageInMB": 0,
-        "ConsistencyPolicy": {
-            "defaultConsistencyLevel": "Session",
-            "maxStalenessPrefix": 100,
-            "maxIntervalInSeconds": 5
-        },
-        "addresses": "//addresses/",
-        "id": "globaldbexample",
-        "_rid": "globaldbexample.documents.azure.com",
-        "_self": "",
-        "_ts": 0,
-        "_etag": null
-    }
+{
+    "_dbs": "//dbs/",
+    "media": "//media/",
+    "writableLocations": [
+        {
+            "Name": "West US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
+        }
+    ],
+    "readableLocations": [
+        {
+            "Name": "East US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
+        }
+    ],
+    "MaxMediaStorageUsageInMB": 2048,
+    "MediaStorageUsageInMB": 0,
+    "ConsistencyPolicy": {
+        "defaultConsistencyLevel": "Session",
+        "maxStalenessPrefix": 100,
+        "maxIntervalInSeconds": 5
+    },
+    "addresses": "//addresses/",
+    "id": "globaldbexample",
+    "_rid": "globaldbexample.documents.azure.com",
+    "_self": "",
+    "_ts": 0,
+    "_etag": null
+}
 ```
 
 * Todos os pedidos PUT, POST e DELETE têm de ir para o URI de escrita indicado

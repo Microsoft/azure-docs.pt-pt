@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851257"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API
 
@@ -26,7 +26,7 @@ O tutorial mostra como transformar a API para que a mesma não revele informaç�
 
 Este tutorial também mostra como é fácil adicionar proteção à sua API de back-end através da configuração do limite de taxas com a Gestão de API do Azure. Por exemplo, poderá limitar um número de chamadas à API para que não seja sobreutilizada pelos programadores. Para obter mais informações, veja [Políticas de Gestão de API](api-management-policies.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -82,8 +82,10 @@ A resposta original deve ter o seguinte aspeto:
 
 7. Modifique o seu **\<outbound>** código para ficar assim:
 
-       <set-header name="X-Powered-By" exists-action="delete" />
-       <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
+   <set-header name="X-Powered-By" exists-action="delete" />
+   <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
 
    ![Políticas](./media/transform-api/set-policy.png)
 
@@ -129,31 +131,35 @@ Esta secção mostra como adicionar proteção à API de back-end através da co
 6.  Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
 7.  Modifique o seu código **limite de taxa por chave** (no **\<inbound\>** elemento) para o seguinte código:
 
-        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
+    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
 
 ## <a name="test-the-transformations"></a>Testar as transformações
 
 Neste momento, se examinar o código no editor de código, as suas políticas serão semelhantes ao seguinte:
 
-    <policies>
-        <inbound>
-            <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-            <base />
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <set-header name="X-Powered-By" exists-action="delete" />
-            <set-header name="X-AspNet-Version" exists-action="delete" />
-            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
-            <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
-            <base />
-        </outbound>
-        <on-error>
-            <base />
-        </on-error>
-    </policies>
+   ```
+   <policies>
+      <inbound>
+        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+        <base />
+      </inbound>
+      <backend>
+        <base />
+      </backend>
+      <outbound>
+        <set-header name="X-Powered-By" exists-action="delete" />
+        <set-header name="X-AspNet-Version" exists-action="delete" />
+        <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
+        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+        <base />
+      </outbound>
+      <on-error>
+        <base />
+      </on-error>
+   </policies>
+   ```
 
 O resto desta secção testa as transformações de política que definiu neste artigo.
 

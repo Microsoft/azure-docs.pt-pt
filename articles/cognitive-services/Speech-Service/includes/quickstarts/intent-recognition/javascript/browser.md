@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 904144b044a0a0223d4807372407b5ce0b9f127b
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: 13f641c2e5baf02cd7f6f200a5b1965ea9a44c55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570130"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838960"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 

@@ -1,60 +1,60 @@
 ---
 title: Inscreva-se na Pré-visualização de Cadernos Azure
-description: Assine rapidamente os Cadernos Azure Preview e detete um ID do utilizador, o que lhe dá a capacidade de aceder a projetos guardados e partilhar cadernos com outros.
+description: Assine rapidamente o Azure Notebooks Preview e descreva um ID do utilizador, o que lhe dá a capacidade de aceder a projetos guardados e partilhar cadernos com outros.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75647021"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830422"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Quickstart: Inicie sessão e detete teime um ID do utilizador para pré-visualização de cadernos Azure
-
-Embora possa sempre ver os Cadernos Azure sem se inscrever, tem de se inscrever para executar cadernos, aceder a projetos e cadernos guardados e partilhar os seus cadernos com outros.
+# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Quickstart: Inicie e descreva um ID de utilizador para pré-visualização de cadernos Azure
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
+Embora possa sempre ver Os Cadernos Azure sem iniciar sessão, tem de iniciar sessão para executar cadernos, aceder a projetos e cadernos guardados e partilhar os seus cadernos com outros.
+
 ## <a name="sign-in"></a>Iniciar sessão
 
-1. Selecione **Iniciar sessão** na parte superior direita do [notebooks.azure.com](https://notebooks.azure.com/).
+1. Selecione **Iniciar sômis** no direito superior da [notebooks.azure.com](https://notebooks.azure.com/).
 
-    ![Localização do comando de entrada em cadernos Azure](media/accounts/sign-in-command.png)
+    ![Localização do comando de inscrição nos cadernos Azure](media/accounts/sign-in-command.png)
 
-1. Quando solicitado, insira o endereço de e-mail de uma Conta Microsoft ou uma conta de trabalho ou escola e selecione **Next**. Os tipos de conta são descritos na [sua conta de utilizador para os Cadernos Azure](azure-notebooks-user-account.md). Se não tiver uma Conta Microsoft, ou desejar fazer uma para utilização especificamente com cadernos Azure, selecione **Criar uma:**
+1. Quando solicitado, insira o endereço de e-mail de uma Conta Microsoft ou de uma conta de trabalho ou escola e selecione **Next**. Os tipos de conta são descritos na [sua conta de utilizador para os Cadernos Azure](azure-notebooks-user-account.md). Se não tiver uma Conta Microsoft, ou desejar fazer uma para uso especificamente com os Blocos de Notas Azure, selecione **Create one**:
 
-    ![Criar novo comando de conta microsoft em solicitação de sessão](media/accounts/create-new-microsoft-account.png)
+    ![Criar novo comando de conta microsoft em pedido de sessão](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > Se tentar criar uma nova conta com um endereço de e-mail que já tenha uma conta associada à si, poderá ver a mensagem: "Não se pode inscrever aqui com um endereço de e-mail de trabalho ou escola. Use um e-mail pessoal, como gmail ou Yahoo!, ou obtenha um novo e-mail do Outlook." Nesse caso, tente iniciar sessão com o endereço de e-mail de trabalho sem criar uma nova conta.
+    > Se tentar criar uma nova conta com um endereço de e-mail que já tenha uma conta associada a ela, poderá ver a mensagem: "Não pode inscrever-se aqui com um endereço de e-mail de trabalho ou escola. Use um e-mail pessoal, como o Gmail ou o Yahoo!, ou obtenha um novo e-mail do Outlook." Nesse caso, tente iniciar sessão com o endereço de e-mail de trabalho sem criar uma nova conta.
 
 1. Quando lhe for pedido, introduza a palavra-passe.
 
-1. Se estiver a inscrever-se pela primeira vez, os Cadernos Azure pedem permissão para aceder à sua conta. Selecione **Sim** para continuar:
+1. Se estiver a iniciar sessão pela primeira vez, o Azure Notebooks pede permissão para aceder à sua conta. Selecione **Sim** para continuar:
 
-    ![Permissões de conta prontas](media/accounts/account-permission-prompt.png)
+    ![Pedido de permissões de conta](media/accounts/account-permission-prompt.png)
 
 ## <a name="set-a-user-id"></a>Definir um ID do utilizador
 
-1. Ao iniciar o início do início, é-lhe atribuído um ID de utilizador temporário como "anon-idrca3". Sempre que tiver uma identificação de utilizador que comece com "anon-", os Cadernos Azure solicitam-lhe que crie uma identificação própria. O seu ID de utilizador é utilizado em qualquer URL que obtenha para partilhar os seus projetos e cadernos, por isso escolha algo que seja único e significativo para si.
+1. Ao iniciar o primeiro sinal, é-lhe atribuída uma identificação temporária de utilizador como "anon-idrca3". Sempre que tiver um ID do utilizador que comece com "anon-", os Cadernos Azure solicitam-lhe que crie um ID próprio. O seu ID de utilizador é utilizado em qualquer URL que obtenha para partilhar os seus projetos e cadernos, por isso escolha algo que seja único e significativo para si.
 
-    ![Solicitação para introduzir um ID de utilizador para Cadernos Azure](media/accounts/create-user-id.png)
+    ![Solicitação para introduzir um ID do utilizador para cadernos Azure](media/accounts/create-user-id.png)
 
-    Se selecionar **No Thanks,** os Cadernos Azure continuam a pedir-lhe uma identificação do utilizador sempre que iniciar sessão. O ID do utilizador também pode ser definido a qualquer momento no [seu perfil de utilizador](azure-notebooks-user-profile.md).
+    Se selecionar **No Thanks**, os Azure Notebooks continuam a solicitar-lhe um ID do utilizador sempre que iniciar sedu. O seu ID do utilizador também pode ser definido a qualquer momento no seu [perfil de utilizador.](azure-notebooks-user-profile.md)
 
-1. Depois de iniciar sessão com sucesso, os Cadernos Azure navegam na sua página de perfil público, na qual pode selecionar Informações de **Perfil de Edição** para preencher o resto das suas informações (para mais informações, consulte [o seu perfil e ID](azure-notebooks-user-profile.md)do utilizador ):
+1. Depois de iniciar sessão com sucesso, o Azure Notebooks navega para a sua página de perfil público, na qual pode selecionar **Informações de Perfil** de Edição para preencher o resto das suas informações (para mais informações, consulte [o seu perfil e iD do utilizador):](azure-notebooks-user-profile.md)
 
-    ![Vista inicial de uma página de perfil de Cadernos Azure](media/accounts/profile-page-new.png)
+    ![Vista inicial de uma página de perfil de Azure Notebooks](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> Se vir a mensagem, "O ID do utilizador já está a ser utilizado", experimente um ID diferente. Os IDs dos utilizadores são únicos em todas as contas do Azure Notebooks, e os Cadernos Azure também reservam certas iDs de utilizador, como as marcas microsoft.
+> Se vir a mensagem, "O ID do utilizador já está a ser utilizado", experimente um ID diferente. Os IDs do utilizador são únicos em todas as contas de Azure Notebooks, e os Azure Notebooks também reservam certos IDs de utilizador, como as marcas da Microsoft.
 
 ## <a name="sign-out"></a>Terminar sessão
 
-Para assinar, selecione o seu nome de utilizador no canto superior direito da página e, em seguida, selecione **'Sign out':**
+Para iniciar sedida, selecione o seu nome de utilizador na parte superior direita da página e, em seguida, **selecione Iniciar**:
 
-![Localização do comando de inscrição nos cadernos do Azure](media/accounts/sign-out-command.png)
+![Localização do comando de sinalização em Cadernos Azure](media/accounts/sign-out-command.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

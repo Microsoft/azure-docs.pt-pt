@@ -3,32 +3,32 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 19aa7b839b1c673451f51524a9461aba8222c0d2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: bc5c5bf6a6baf32a74413272334fe6070b0a7a5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980411"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85839040"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
+> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="create-a-new-js-file"></a>Criar um novo ficheiro JS
 
-O primeiro passo é certificar-se de que tem o seu projeto aberto no seu editor favorito.
+O primeiro passo é garantir que o seu projeto está aberto no seu editor favorito.
 
-Ligue para o seu índice de ficheiros.js.
+Ligue para o seu arquivo index.js.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 ```JavaScript
 const https = require("https");
@@ -55,8 +55,8 @@ SpeechToTextBasePath = "/api/speechtotext/v2.0/";
 
 ## <a name="json-wrappers"></a>Invólucros JSON
 
-À medida que a API do REST aceita pedidos em formato JSON e também devolve resultados em JSON.
-Para tornar os pedidos e respostas mais fáceis de entender, declararemos algumas classes para serializar/desserializar o JSON.
+Como a API rest aceita pedidos em formato JSON e também retorno resulta em JSON.
+Para tornar os pedidos e respostas mais fáceis de entender, declararemos algumas aulas para usar para serializar/deserizar o JSON.
 
 
 ```JavaScript
@@ -88,7 +88,7 @@ class TranscriptionDefinition {
 ```
 
 ## <a name="create-an-initial-transcription-request"></a>Crie um pedido inicial de transcrição.
-Em seguida, vamos gerar o pedido de transcrição.
+Em seguida, geraremos o pedido de transcrição.
 
 ```JavaScript
 const ts = {
@@ -120,9 +120,9 @@ const startOptions = {
 ```
 
 ## <a name="send-the-transcription-request"></a>Envie o pedido de transcrição.
-Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
+Agora publicamos o pedido ao serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta apenas indicará se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde irá armazenar o estado de transcrição.
 
-Então chamaremos um método `CheckTranscriptionStatus` para verificar o estado e, eventualmente, imprimir os resultados. Implementaremos a `CheckTranscriptionStatus` seguir.
+Depois, vamos chamar um método `CheckTranscriptionStatus` para verificar o estado e eventualmente imprimir os resultados. Vamos implementar a `CheckTranscriptionStatus` seguir.
 
 ```JavaScript
 const request = https.request(startOptions, (response) => {
@@ -148,13 +148,13 @@ request.end();
 ```
 
 ## <a name="check-the-requests-status"></a>Verifique o estado dos pedidos
-Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
+Uma vez que o serviço processa a transcrição assíncroneamente, precisamos de sondar o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido publicou. Quando recuperarmos o conteúdo, desserializámo-lo numa das nossas aulas de ajuda para facilitar a interação.
+Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido foi publicado. Quando recuperarmos o conteúdo, deserizamo-lo numa das nossas aulas de ajudante para facilitar a interação.
 
-Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir. 
+Aqui está o código de sondagens com exibição de estado para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir. 
 
-`CheckTranscriptionStatus`toma o URL de estado do pedido de transcrição e vota-o a cada 5 segundos até indicar sucesso ou erro. Em seguida, liga `PrintResults` para imprimir os resultados da transcrição. Implementaremos a `PrintResults` seguir.
+`CheckTranscriptionStatus`toma o URL de estado do pedido de transcrição e sonda-o a cada 5 segundos até que indique sucesso ou erro. Em seguida, chama `PrintResults` para imprimir os resultados da transcrição. Vamos implementar a `PrintResults` seguir.
 ```csharp
 function CheckTranscriptionStatus(statusUrl) {
     transcription = null;
@@ -211,8 +211,8 @@ function CheckTranscriptionStatus(statusUrl) {
 ```
 
 ## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
-Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado. Aqui fazemos um pedido para baixar esses resultados em um arquivo temporário antes de lê-los e desserializá-los.
-Uma vez carregados os resultados, podemos imprimi-los à consola. 
+Uma vez que o serviço tenha concluído com sucesso a transcrição, os resultados serão armazenados em outro Url que podemos obter da resposta de estado. Aqui fazemos um pedido para descarregar esses resultados em um ficheiro temporário antes de lê-los e desseecializá-los.
+Assim que os resultados estiverem carregados, podemos imprimi-los à consola. 
 
 ```JavaScript
 function PrintResults(resultUrl)
@@ -421,9 +421,9 @@ request.end();
 
 ## <a name="run-your-app"></a>Executar a aplicação
 
-Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço Speech.
 
-**Inicie a sua aplicação** - Executar índice de nó.js.
+**Inicie a sua aplicação** - Executar index.js de nó.
 
 ## <a name="next-steps"></a>Passos seguintes
 

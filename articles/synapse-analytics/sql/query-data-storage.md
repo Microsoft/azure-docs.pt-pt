@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 72db484814c0ecf0ab6bb70d12ab088e1ce44ef5
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: e9a90ab7100ae9757f59c80bb8f4738772482f56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85478574"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833660"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre o que é vs. o que não é suportado atualme
 - [Desenvolva o acesso](develop-storage-files-overview.md) ao armazenamento onde pode aprender a usar a [função Externa](develop-tables-external-tables.md) e [OPENROWSET](develop-openrowset.md) para ler dados a partir do armazenamento.
 - [Controle o acesso](develop-storage-files-storage-access-control.md) ao armazenamento onde pode aprender a permitir que o Sinaapse SQL aceda ao armazenamento usando a autenticação SAS ou identidade gerida do espaço de trabalho.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para suportar uma experiência suave para a consulta em vigor de dados localizados em ficheiros de armazenamento Azure, o SQL on-demand utiliza a função [OPENROWSET](develop-openrowset.md) com capacidades adicionais:
 
@@ -46,7 +46,7 @@ Para consultar os dados de origem do Parquet, utilize o FORMATO = 'PARQUET'
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
@@ -58,7 +58,7 @@ Para consultar os dados de origem do Parquet, utilize o FORMATO = 'CSV'. Pode es
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', TYPE = 'CSV', PARSER_VERSION='2.0') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
 WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
@@ -81,7 +81,7 @@ Para especificar as colunas que pretende ler, pode fornecer uma cláusula opcion
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (
       C1 int, 
       C2 varchar(20),
@@ -101,7 +101,7 @@ Ao omitir a cláusula WITH da `OPENROWSET` declaração, pode instruir o serviç
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
 Certifique-se de que [os tipos de dados inferidos adequados](best-practices-sql-on-demand.md#check-inferred-data-types) são utilizados para um desempenho ótimo. 
@@ -118,7 +118,7 @@ Aplicam-se as seguintes regras:
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', TYPE = 'PARQUET' ) as rows
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', FORMAT = 'PARQUET' ) as rows
 ```
 
 Consulte [as pastas de consulta e vários ficheiros](query-folders-multiple-csv-files.md) para obter exemplos de utilização.
@@ -248,7 +248,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 - Amostra de arquivos Parquet com colunas aninhadas
 - Livros em formato JSON
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /csv/                                                        | Pasta-mãe para dados em formato CSV                         |
 | /csv/população/<br />/csv/população-unix/<br />/csv/população unix-hdr/<br />/csv/população-unix-hdr-escape<br />/csv/população-unix-hdr-citado | Pastas com ficheiros de dados da População em diferentes formatos CSV. |

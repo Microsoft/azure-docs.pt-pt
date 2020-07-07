@@ -11,6 +11,7 @@
         - name: Portal do Azure
           href: alerts-activity-log-service-notifications-portal.md
         - name: Modelo ARM
+          displayName: Resource Manager
           href: alerts-activity-log-service-notifications-arm.md
 - name: Conceitos
   items:

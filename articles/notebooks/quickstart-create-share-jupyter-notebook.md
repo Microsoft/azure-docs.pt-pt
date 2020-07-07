@@ -4,14 +4,16 @@ description: Crie e execute rapidamente um caderno Jupyter na Pré-visualizaçã
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561080"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832105"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Criar e partilhar um caderno em Pré-visualização de Cadernos Azure
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Neste quickstart, você cria e executou um caderno Jupyter em Azure Notebooks, em seguida, partilhe esse caderno com outros. O Jupyter permite-lhe combinar facilmente texto markdown, código executável, dados persistentes, gráficos e visualizações numa tela sharable, o caderno. O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação.
 
@@ -19,8 +21,6 @@ Neste quickstart, você cria e executou um caderno Jupyter em Azure Notebooks, e
 Nenhum.
 
 ## <a name="create-a-new-project-and-notebook"></a>Criar um novo projeto e caderno
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Vá ao [site Azure https://notebooks.azure.com) Notebooks (](https://notebooks.azure.com) e inscreva-se. Para mais detalhes, consulte [Quickstart - Inicie súm em Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 

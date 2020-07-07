@@ -5,14 +5,14 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ebb402da5a647d20b669442c05c47a0f1c627471
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 819fdec23d00929db34942434f66a6ffa5d4a1d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559932"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833745"
 ---
-# <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função em Azure usando o Código do Estúdio Visual
+# <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função no Azure com o Visual Studio Code
 
 ::: zone pivot="programming-language-csharp"  
 Neste artigo, utiliza o Código do Estúdio Visual para criar uma função baseada na biblioteca de classe C# que responda aos pedidos HTTP. Depois de testar o código localmente, implemente-o para o ambiente sem servidor das Funções Azure. 
@@ -50,11 +50,11 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node.js,](https://nodejs.org/)exigido pelo Windows para npm. Apenas [versões LTS e De Manutenção LTS](https://nodejs.org/about/releases/). Utilize o `node --version` comando para verificar a sua versão.
++ [Node.js](https://nodejs.org/), exigido pelo Windows para a npm. Apenas [versões LTS e De Manutenção LTS](https://nodejs.org/about/releases/). Utilize o `node --version` comando para verificar a sua versão.
     Não é necessário para o desenvolvimento local em macOS e Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js, Versões](https://nodejs.org/)LTS ativas e de manutenção (10.14.1 recomendado). Utilize o `node --version` comando para verificar a sua versão.
++ [Node.js](https://nodejs.org/), Versões LTS ativas e de manutenção (10.14.1 recomendado). Utilize o `node --version` comando para verificar a sua versão.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Azure Functions (x64).
@@ -172,7 +172,9 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
 1. Cole este URL para o pedido HTTP na barra de endereços do seu navegador, adicione o `name` string de consulta quanto ao final deste URL `?name=Functions` e, em seguida, execute o pedido. O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+    ```http
+    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
+    ```
         
     O exemplo a seguir mostra a resposta no navegador ao pedido remoto GET devolvido pela função: 
 

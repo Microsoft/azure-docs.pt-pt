@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Utilizar a API Streams do Apache Kafka - Azure HDInsight '
-description: Tutorial - Aprenda a usar a Apache Kafka Streams API com Kafka no HDInsight. Esta API permite-lhe executar o processamento de fluxos entre tópicos do Kafka.
+description: Tutorial - Saiba como usar a API Apache Kafka Streams com Kafka em HDInsight. Esta API permite-lhe executar o processamento de fluxos entre tópicos do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0174c40a0fada0f78cc8d52f5c45b991c3851da0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850559"
 ---
-# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Use Apache Kafka streams API em Azure HDInsight
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Use Apache Kafka streams API in Azure HDInsight
 
-Aprenda a criar uma aplicação que usa a Apache Kafka Streams API e execute-a com Kafka no HDInsight.
+Saiba como criar uma aplicação que utilize a API Apache Kafka Streams e execute-a com a Kafka em HDInsight.
 
 A aplicação utilizada neste tutorial é uma contagem de palavras de transmissão em fluxo. Lê os dados do texto de um tópico do Kafka, extrai palavras individuais e, em seguida, armazena as palavras e as contagens noutro tópico.
 
-O processamento de fluxo de Kafka é muitas vezes feito usando Apache Spark ou Apache Storm. A versão Kafka 1.1.0 (em HDInsight 3.5 e 3.6) introduziu a API kafka Streams. Esta API permite-lhe transformar fluxos de dados entre tópicos de entrada e de saída. Em alguns casos, esta pode ser uma alternativa à criação de uma solução de transmissão em fluxo no Spark ou no Storm.
+O processamento de fluxo de Kafka é frequentemente feito usando Apache Spark ou Apache Storm. A versão Kafka 1.1.0 (em HDInsight 3.5 e 3.6) introduziu a API kafka Streams. Esta API permite-lhe transformar fluxos de dados entre tópicos de entrada e de saída. Em alguns casos, esta pode ser uma alternativa à criação de uma solução de transmissão em fluxo no Spark ou no Storm.
 
 Para obter mais informações sobre as Transmissões em Fluxo do Kafka, veja a documentação [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introdução às Transmissões em Fluxo) em Apache.org.
 
@@ -35,19 +35,19 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Kafka no HDInsight 3.6. Para aprender a criar um cluster Kafka no HDInsight, consulte o Início com Apache Kafka no documento [HDInsight.](apache-kafka-get-started.md)
+* Um cluster do Kafka no HDInsight 3.6. Para aprender a criar um kafka no cluster HDInsight, consulte o Start with Apache Kafka no documento [HDInsight.](apache-kafka-get-started.md)
 
 * Complete os passos no documento [Apache Kafka Consumer and Producer API.](apache-kafka-producer-consumer-api.md) Os passos neste documento utilizam a aplicação de exemplo e os tópicos que criou neste tutorial.
 
 * [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks) ou equivalente, como OpenJDK.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado](https://maven.apache.org/install.html) de acordo com Apache.  Maven é um sistema de construção de projetos para projetos Java.
+* [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
-* Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-A aplicação de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)exemplo `Streaming` está localizada no subdiretório. A aplicação é composta por dois ficheiros:
+A aplicação de exemplo está localizada [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) em, no `Streaming` subdiretório. A aplicação é composta por dois ficheiros:
 
 * `pom.xml`: este ficheiro define as dependências do projeto, a versão de Java e os métodos de empacotamento.
 * `Stream.java`: este ficheiro implementa a lógica de transmissão em fluxo.
@@ -72,7 +72,7 @@ Seguem-se os aspetos importantes a compreender em relação ao ficheiro `pom.xml
 * Plug-ins: os plug-ins de Maven proporcionam diversas funcionalidades. Neste projeto, são utilizados os seguintes plug-ins:
 
     * `maven-compiler-plugin`: utilizado para definir a versão de Java utilizada pelo projeto para a versão 8. O HDInsight 3.6 requer o Java 8.
-    * `maven-shade-plugin`: Usado para gerar um jarro uber que contém esta aplicação, e quaisquer dependências. Também é usado para definir o ponto de entrada da aplicação, para que você possa executar diretamente o ficheiro Jar sem ter que especificar a classe principal.
+    * `maven-shade-plugin`: Usado para gerar um frasco uber que contém esta aplicação, e quaisquer dependências. Também é usado para definir o ponto de entrada da aplicação, para que você possa executar diretamente o ficheiro Jar sem ter que especificar a classe principal.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -131,7 +131,7 @@ public class Stream
 
 Para compilar e implementar o projeto no cluster do Kafka no HDInsight, siga os passos abaixo:
 
-1. Detete o seu diretório `hdinsight-kafka-java-get-started-master\Streaming` atual para a localização do diretório e, em seguida, use o seguinte comando para criar um pacote de frascos:
+1. Desa estale o seu diretório atual para a localização do `hdinsight-kafka-java-get-started-master\Streaming` diretório e, em seguida, use o seguinte comando para criar um pacote de frascos:
 
     ```cmd
     mvn clean package
@@ -139,7 +139,7 @@ Para compilar e implementar o projeto no cluster do Kafka no HDInsight, siga os 
 
     Este comando cria o pacote em `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-2. Substitua `sshuser` pelo utilizador SSH do seu cluster e `clustername` pelo nome do seu cluster. Utilize o seguinte comando `kafka-streaming-1.0-SNAPSHOT.jar` para copiar o ficheiro para o seu cluster HDInsight. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
+2. Substitua `sshuser` pelo utilizador SSH do seu cluster e `clustername` pelo nome do seu cluster. Utilize o seguinte comando para copiar o `kafka-streaming-1.0-SNAPSHOT.jar` ficheiro para o seu cluster HDInsight. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
 
     ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
@@ -147,34 +147,34 @@ Para compilar e implementar o projeto no cluster do Kafka no HDInsight, siga os 
 
 ## <a name="create-apache-kafka-topics"></a>Criar tópicos Apache Kafka
 
-1. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Abra uma ligação SSH ao cluster, entrando no seguinte comando. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
+1. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Abra uma ligação SSH ao cluster, introduzindo o seguinte comando. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
 
     ```bash
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Instale [jq,](https://stedolan.github.io/jq/)um processador JSON de linha de comando. A partir da ligação SSH `jq`aberta, introduza o seguinte comando para instalar:
+2. Instale [o JQ](https://stedolan.github.io/jq/), um processador JSON de linha de comando. A partir da ligação SSH aberta, insira o seguinte comando para `jq` instalar:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Configurar a variável de senha. Substitua-a `PASSWORD` pela senha de login do cluster e introduza o comando:
+3. Configurar a variável de senha. `PASSWORD`Substitua-se pela palavra-passe de login do cluster e, em seguida, introduza o comando:
 
     ```bash
     export password='PASSWORD'
     ```
 
-4. Extrair corretamente o nome do cluster. O invólucro real do nome do cluster pode ser diferente do que se espera, dependendo de como o cluster foi criado. Este comando obterá o invólucro real, e depois armazená-lo-á numa variável. Introduza o seguinte comando:
+4. Extrair o nome do cluster corretamente arquivado. O invólucro real do nome do cluster pode ser diferente do que se espera, dependendo da forma como o cluster foi criado. Este comando obterá o invólucro real e, em seguida, armazená-lo-á numa variável. Introduza o seguinte comando:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
 
     > [!Note]  
-    > Se está a fazer este processo de fora do cluster, há um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em maiúsculas do portal Azure. Em seguida, substitua `<clustername>` o nome do cluster `export clusterName='<clustername>'`no seguinte comando e execute-o: .  
+    > Se você está fazendo este processo de fora do cluster, há um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em minúsculas a partir do portal Azure. Em seguida, substitua o nome do cluster pelo `<clustername>` seguinte comando e execute-o: `export clusterName='<clustername>'` .  
 
-5. Para obter os anfitriões do corretor Kafka e os anfitriões do Zoológico Apache, use os seguintes comandos. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
+5. Para obter os anfitriões corretores Kafka e os anfitriões do Apache Zookeeper, use os seguintes comandos. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
@@ -183,7 +183,7 @@ Para compilar e implementar o projeto no cluster do Kafka no HDInsight, siga os 
     ```
 
     > [!Note]  
-    > Estes comandos requerem acesso a Ambari. Se o seu cluster estiver por trás de um NSG, execute estes comandos a partir de uma máquina que possa aceder a Ambari.
+    > Estes comandos requerem acesso a Ambari. Se o seu cluster estiver por trás de um NSG, execute estes comandos a partir de uma máquina que pode aceder a Ambari.
 
 6. Para criar os tópicos que a operação de transmissão em fluxo vai utilizar, utilize os seguintes comandos:
 
@@ -232,19 +232,21 @@ Para compilar e implementar o projeto no cluster do Kafka no HDInsight, siga os 
 
     O resultado é semelhante ao seguinte texto:
 
-        dwarfs  13635
-        ago     13664
-        snow    13636
-        dwarfs  13636
-        ago     13665
-        a       13803
-        ago     13666
-        a       13804
-        ago     13667
-        ago     13668
-        jumped  13640
-        jumped  13641
-   
+    ```output
+    dwarfs  13635
+    ago     13664
+    snow    13636
+    dwarfs  13636
+    ago     13665
+    a       13803
+    ago     13666
+    a       13804
+    ago     13667
+    ago     13668
+    jumped  13640
+    jumped  13641
+    ```
+
     O parâmetro `--from-beginning` configura o consumidor para começar no início dos registos armazenados no tópico. A contagem aumenta sempre que for encontrada uma palavra, de modo que o tópico contém múltiplas entradas para cada palavra, com uma contagem progressiva.
 
 4. Utilize __Ctrl + C__ para sair do produtor. Continue a utilizar __Ctrl + C__ para sair da aplicação e do consumidor.
@@ -270,7 +272,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste documento, aprendeu a usar a Apache Kafka Streams API com Kafka no HDInsight. Use o seguinte para saber mais sobre trabalhar com Kafka.
+Neste documento, aprendeu a usar a API Apache Kafka Streams com Kafka em HDInsight. Use o seguinte para saber mais sobre trabalhar com Kafka.
 
 > [!div class="nextstepaction"]
 > [Analisar registos do Apache Kafka](apache-kafka-log-analytics-operations-management.md)

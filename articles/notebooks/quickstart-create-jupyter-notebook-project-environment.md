@@ -4,18 +4,18 @@ description: Crie um novo projeto no Azure Notebooks Preview que esteja configur
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559737"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832904"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Quickstart: Criar um projeto com um ambiente personalizado em Azure Notebooks Preview
 
-Um projeto em Azure Notebooks é uma coleção de ficheiros, como cadernos, ficheiros de dados, documentação, imagens, e assim por diante, juntamente com um ambiente que pode ser configurado com comandos de configuração específicos. Ao definir o ambiente com o projeto, quem clona o projeto na sua própria conta Azure Notebooks tem toda a informação de que precisa para recriar o ambiente necessário.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Um projeto em Azure Notebooks é uma coleção de ficheiros, como cadernos, ficheiros de dados, documentação, imagens, e assim por diante, juntamente com um ambiente que pode ser configurado com comandos de configuração específicos. Ao definir o ambiente com o projeto, quem clona o projeto na sua própria conta Azure Notebooks tem toda a informação de que precisa para recriar o ambiente necessário.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
@@ -54,7 +54,7 @@ Um projeto em Azure Notebooks é uma coleção de ficheiros, como cadernos, fich
 
    | Operação | Description |
    | --- | --- |
-   | Requisitos.txt | Os projetos python definem as suas dependências num ficheiro requirements.txt. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto e selecione também a versão Python no drop-down adicional que aparece. Se necessário, **selecione Cancelar** para voltar ao projeto, carregar ou criar o ficheiro, em seguida, voltar ao separador **Ambiente Definições**de Projeto e criar um novo  >  **Environment** passo. Com este passo no lugar, executar um caderno no projeto corre automaticamente`pip install -r <file>` |
+   | Requirements.txt | Os projetos python definem as suas dependências num ficheiro requirements.txt. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto e selecione também a versão Python no drop-down adicional que aparece. Se necessário, **selecione Cancelar** para voltar ao projeto, carregar ou criar o ficheiro, em seguida, voltar ao separador **Ambiente Definições**de Projeto e criar um novo  >  **Environment** passo. Com este passo no lugar, executar um caderno no projeto corre automaticamente`pip install -r <file>` |
    | Script de concha | Utilize para indicar um script de concha de bash (normalmente um ficheiro com a extensão *.sh)* que contém quaisquer comandos que deseje executar para inicializar o ambiente. |
    | Ambiente.yml | Um projeto Python que usa conda para gerir um ambiente usa um ficheiro *environments.yml* para descrever dependências. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto. |
 
@@ -73,4 +73,4 @@ Um projeto em Azure Notebooks é uma coleção de ficheiros, como cadernos, fich
 > [Gerir e configurar projetos em Cadernos Azure](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar uma corrida a um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0f1caf77f0e898b13045e2c840d93f42a5569fc
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85484048"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807881"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização de espaços de trabalho) frequentemente perguntas
 

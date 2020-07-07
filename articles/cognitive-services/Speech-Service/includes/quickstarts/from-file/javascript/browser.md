@@ -3,25 +3,25 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: b5bdbb76a822f8b6d5134da819828b3dee518165
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: bb30eb13d91981ad18f69afabcca8015c50d699b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806418"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838994"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso azure speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de discurso azul<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md)
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 ```html
     <!DOCTYPE html>
@@ -36,7 +36,7 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 ```
 ## <a name="add-ui-elements"></a>Adicionar elementos UI
 
-Agora vamos adicionar alguns UI básicos para caixas de entrada, referenciar o JavaScript do Speech SDK, e pegar um sinal de autorização se disponível.
+Agora vamos adicionar alguns UI básicos para caixas de entrada, referenciar o JavaScript do SDK do Discurso e obter um token de autorização se disponível.
 
 ```html  
   <div id="content" style="display:none">
@@ -139,12 +139,12 @@ Agora vamos adicionar alguns UI básicos para caixas de entrada, referenciar o J
   </script>
 ```
  
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
 Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código no `startRecognizeOnceAsyncButton.addEventListener()` método.
 
 > [!NOTE]
-> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
+> O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 
 ```JavaScript
@@ -165,15 +165,15 @@ Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma co
 
 ## <a name="create-an-audio-configuration"></a>Criar uma configuração áudio
 
-Agora, tens de criar um `AudioConfig` objeto que aponte para o teu ficheiro áudio. Insira este código no método, logo abaixo da `startRecognizeOnceAsyncButton.addEventListener()` configuração do Discurso.
+Agora, tens de criar um `AudioConfig` objeto que aponte para o teu ficheiro áudio. Insira este código no `startRecognizeOnceAsyncButton.addEventListener()` método, logo abaixo da configuração do Discurso.
 
 ```JavaScript
-        var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
+        var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
 ```
 
-## <a name="initialize-a-speechrecognizer"></a>Inicializar um Reconhecedor de Discursos
+## <a name="initialize-a-speechrecognizer"></a>Inicializar um SpeechRecognizer
 
-Agora, vamos criar o `SpeechRecognizer` objeto usando os e `SpeechConfig` `AudioConfig` objetos criados mais cedo. Insira este código no `startRecognizeOnceAsyncButton.addEventListener()` método.
+Agora, vamos criar o `SpeechRecognizer` objeto usando os `SpeechConfig` `AudioConfig` objetos e objetos criados anteriormente. Insira este código no `startRecognizeOnceAsyncButton.addEventListener()` método.
 
 ```JavaScript
         recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
@@ -181,7 +181,7 @@ Agora, vamos criar o `SpeechRecognizer` objeto usando os e `SpeechConfig` `Audio
 
 ## <a name="recognize-a-phrase"></a>Reconhecer uma frase
 
-Pelo `SpeechRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
+Pelo `SpeechRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço de Discurso saber que está a enviar uma única frase para reconhecimento, e que uma vez que a frase é identificada para parar de reconhecer a fala.
 
 ```JavaScript
 recognizer.recognizeOnceAsync(
@@ -242,7 +242,7 @@ Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o 
 
 > [!NOTE]
 > Este método não funciona no navegador Safari.
-> No Safari, a página web da amostra precisa de ser hospedada num servidor web; O Safari não permite que websites carregados a partir de um ficheiro local utilizem o microfone.
+> No Safari, a página web da amostra precisa de ser hospedada num servidor web; O Safari não permite que sites carregados a partir de um ficheiro local utilizem o microfone.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo através de um servidor Web
 

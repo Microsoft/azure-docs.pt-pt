@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: c25de9a41678af7391fc271b1dc3413c332ce8b6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830354"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Utilização de URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
 
@@ -40,10 +40,12 @@ Os URIs de redirecionamento precisam de ser diferentes para cada aplicação iOS
 
 Tendo em conta o seguinte registo de candidatura no portal Azure:
 
-    Client ID: ABCDE-12345 (this is a single client ID)
-    RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
+* ID do cliente: `ABCDE-12345` (este é um ID de cliente único)
+* RedirectUris: `msauth.com.contoso.app1://auth` `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
 
-App1 usa redirecionamento `msauth.com.contoso.app1://auth` App2 usa `msauth.com.contoso.app2://auth` usos da App3`msauth.com.contoso.app1://auth`
+A App1 usa redirecionamento `msauth.com.contoso.app1://auth` .\
+App2 usa `msauth.com.contoso.app2://auth` .\
+A App3 `msauth.com.contoso.app1://auth` utiliza.
 
 ### <a name="migrating-from-adal-to-msal"></a>Migração de ADAL para MSAL
 
@@ -70,7 +72,6 @@ Ao migrar o código que utilizou a Biblioteca de Autenticação AD Azure (ADAL) 
         </dict>
     </array>
     ```
-    
 
 A MSAL verificará se o seu redireccionamento URI regista corretamente e devolve um erro se não estiver.
     

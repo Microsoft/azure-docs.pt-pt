@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração de Diretório Sonárgico Azure com a Skyhigh Networks [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Skyhigh Networks.
+title: 'Tutorial: Integração do Azure Ative Directory com a Configuração SSO do MVISION Cloud AD Microsoft Docs'
+description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Configuração SSO AD SSO da MVISION Cloud Azure.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,138 +11,108 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 92f3f101807171e71d40171dfa2bd3f006363ae0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a519ab6558db95ecf86b7595dbbb13a970460043
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090377"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806861"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutorial: Integração de Diretório Ativo Azure com a Skyhigh Networks
+# <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integrar a configuração SSO AD AD AD da MVISION com diretório ativo Azure
 
-Neste tutorial, aprende-se a integrar a Skyhigh Networks com o Azure Ative Directory (Azure AD).
-Integrar redes Skyhigh com AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar a configuração SSO AD AD da MVISION Cloud com O Diretório Ativo Azure (Azure AD). Quando integrar a configuração SSO AD AD AD da Cloud Cloud com AD Azure, pode:
 
-* Você pode controlar em Azure AD que tem acesso a Skyhigh Networks.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Skyhigh Networks (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Control em Azure AD que tem acesso à Configuração SSO AD AD Azure da Cloud Cloud.
+* Ativar os seus utilizadores a serem automaticamente inscritos na Configuração SSO AD AD AZure da Cloud Cloud com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a Skyhigh Networks, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Subscrição ativada por um único sinal da Skyhigh Networks
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode ter um mês de teste gratuito [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* MVISION Cloud Azure AD SSO Configuração única de sso ativada subscrição .
+
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Skyhigh Networks suporta **SP e IDP** iniciadoS SSO
+* MVISION Cloud Ad SSO Configuração suporta SSO iniciado **SP e IDP**
+* Assim que configurar o Dropbox, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-skyhigh-networks-from-the-gallery"></a>Adicionando Skyhigh Networks da galeria
+## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Adicionar configuração SSO AD AD AD da MVISION Cloud Ad da galeria
 
-Para configurar a integração da Skyhigh Networks em Azure AD, você precisa adicionar Skyhigh Networks da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração da Configuração SSO AD AD AD da MVISION Cloud Azure em Ad AD, é necessário adicionar a configuração SSO AD AD AD da galeria à sua lista de aplicações geridas para o SaaS.
 
-**Para adicionar skyhigh Networks da galeria, execute os seguintes passos:**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite MVISION Cloud Azure AD SSO Configuração** na caixa de pesquisa.
+1. Selecione **MVISION Cloud Ad SSO Configuração do** painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com AXURE AD SSO Configuração MVISION Cloud AD usando um utilizador de teste chamado **Britta Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado na Configuração SSO AD AD Azure da MVISION Cloud.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar O Azure AD SSO com a configuração SSO AD AD AdSO da MVISION Cloud, complete os seguintes blocos de construção:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+1. **[Configuração SSO de configuração SSO MVISION Cloud Azure AD SSO](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+    1. Crie o utilizador de **[teste de configuração SSO MVISION Cloud Azure AD](#create-mvision-cloud-azure-ad-sso-configuration-test-user)** - para ter uma contraparte de Britta Simon na Configuração SSO AD AD Azure da MVISION Que esteja ligada à representação AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, digite **Skyhigh Networks,** selecione **Skyhigh Networks** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Datadog,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-     ![Skyhigh Networks na lista de resultados](common/search-new-app.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configura e testa o único sign-on azure ad com a Skyhigh Networks com base num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado nas Redes Skyhigh.
-
-Para configurar e testar o único sinal de Azure AD com a Skyhigh Networks, é necessário completar os seguintes blocos de construção:
-
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único das redes Skyhigh](#configure-skyhigh-networks-single-sign-on)** Networks - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create Skyhigh Networks test user](#create-skyhigh-networks-test-user)** - para ter uma contrapartida da Britta Simon na Skyhigh Networks que está ligada à representação do utilizador da AD Azure.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
-
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
-
-Para configurar o único sign-on azure ad com a Skyhigh Networks, execute os seguintes passos:
-
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações da **Skyhigh Networks,** selecione **single sign-on**.
-
-    ![Configurar um único link de sinalização](common/select-sso.png)
-
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
-
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
-
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
-
-4. Na secção **Basic SAML Configuration,** Se desejar configurar a aplicação no modo iniciado **idp,** execute os seguintes passos:
-
-    ![Skyhigh Networks Domínio e URLs informações únicas de inscrição](common/idp-intiated.png)
+4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
-5. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
+5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Skyhigh Networks Domínio e URLs informações únicas de inscrição](common/metadata-upload-additional-signon.png)
+    ![MVISION Cloud Azure AD SSO Configuration Domain e URLs informações únicas de sing-on](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte ao [cliente da Skyhigh Networks](mailto:support@skyhighnetworks.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a equipa de [suporte do cliente de configuração MVISION Cloud Azure AD SSO](mailto:support@skyhighnetworks.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de descarregamento do Certificado](common/certificatebase64.png)
+    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-7. Na secção **Configurar redes skyhigh,** copie os URL(s) apropriados de acordo com o seu requisito.
+7. Na secção **de Configuração MVISION Cloud Azure AD SSO,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
 
-    b. Identificador Azure AD
-
-    c. Logout URL
-
-### <a name="configure-skyhigh-networks-single-sign-on"></a>Configure Skyhigh Networks Single Sign-On
-
-Para configurar um único sinal no lado da **Skyhigh Networks,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte skyhigh Networks](mailto:support@skyhighnetworks.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
 2. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -150,57 +120,67 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+    ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entrar **BrittaSimon.**
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No tipo de campo de **nome do utilizador****brittasimon@yourcompanydomain.extension**  
+    b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Skyhigh Networks.
+Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso à Configuração SSO AD AD AD da MVISION Cloud.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Skyhigh Networks**.
+1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações**, em seguida, selecione **MVISION Cloud AD SSO Configuração**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Skyhigh Networks**.
+2. Na lista de aplicações, selecione **MVISION Cloud Azure AD SSO Configuração**.
 
-    ![A ligação Skyhigh Networks na lista de Aplicações](common/all-applications.png)
+    ![O link de configuração SSO AD AD AD da MVISION na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+    ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-skyhigh-networks-test-user"></a>Criar o utilizador de teste Skyhigh Networks
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon na Skyhigh Networks. Trabalhe com a equipa de suporte da [Skyhigh Networks](mailto:support@skyhighnetworks.com) para adicionar os utilizadores na plataforma Skyhigh Networks. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+## <a name="configure-mvision-cloud-azure-ad-sso-configuration-sso"></a>Configuração SSO de configuração de SSO de nuvem MVISION
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+Para configurar um único sign-on no lado de **configuração MVISION Cloud Azure AD SSO,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de suporte de [configuração MVISION Cloud Azure AD SSO](mailto:support@skyhighnetworks.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Skyhigh Networks no Painel de Acesso, deve ser automaticamente inscrito nas Redes Skyhigh para as quais configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Criar utilizador de teste de configuração SSO AD SSO do MVISION Cloud Azure
+
+Nesta secção, cria um utilizador chamado B.Simon na Configuração SSO AD AD Ad da MVISION Cloud. Trabalhe com a [equipa de suporte de configuração MVISION Cloud Ad SSO](mailto:support@skyhighnetworks.com) para adicionar os utilizadores na plataforma de configuração SSO AD AD Adure da MVISION Cloud. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+
+### <a name="test-sso"></a>Teste SSO 
+
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+
+Quando clicar no azulejo de configuração SSO MVISION Cloud Azure AD no Painel de Acesso, deverá ser automaticamente inscrito na Configuração SSO AD AD Adure MVISION cloud para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente a configuração SSO AD AD AD da MVISION cloud com Azure AD](https://aad.portal.azure.com/)
+
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

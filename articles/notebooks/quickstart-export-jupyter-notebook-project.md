@@ -3,14 +3,16 @@ title: Exporte um projeto de caderno Jupyter a partir da Pré-visualização de 
 description: Exporte rapidamente um projeto de caderno Jupyter.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 31e32a6ebb39429078c7c6747bc6b10f177699ac
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802724"
+ms.locfileid: "85832037"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Quickstart: Export a Jupyter notebook project in Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Neste quickstart, você irá baixar um projeto Azure Notebooks para ser usado em outras soluções de cadernos Jupyter. 
 
@@ -18,8 +20,6 @@ Neste quickstart, você irá baixar um projeto Azure Notebooks para ser usado em
 Um projeto de Cadernos Azure existente.
 
 ## <a name="export-an-azure-notebooks-project"></a>Exportar um projeto de Cadernos Azure
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para mais detalhes, consulte [Quickstart - Inicie súm em Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -38,24 +38,14 @@ Depois de descarregar os seus ficheiros do projeto, pode usá-los com outras sol
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
 
-## <a name="download-the-requirements-file-used-by-azure-notebooks"></a>Descarregue o ficheiro de requisitos utilizado pelos Cadernos Azure
+## <a name="create-an-environment-for-notebooks"></a>Criar um ambiente para cadernos
 
-Se quiser criar um ambiente que corresponda ao da Pré-visualização dos Cadernos Azure, pode utilizar o ficheiro **AzureNotebooksRequirements.txt** fornecido no GitHub.
+Se quiser criar um ambiente que corresponda ao da Pré-visualização dos Cadernos Azure, pode utilizar o ficheiro de script fornecido no GitHub.
 
-1. Navegue para o [repositório de Cadernos Azure GitHub](https://github.com/microsoft/AzureNotebooks) ou pode [aceder diretamente ao ficheiro.](https://aka.ms/aznbrequirementstxt)
-1. Descarregue o ficheiro **AzureNotebooksRequirements.txt** que contém as dependências de pacotes para o ambiente Azure Notebooks. 
-1. A partir de um pedido de comando, navegue até ao diretório que pretende utilizar para os seus projetos e utilize o ficheiro de requisitos para instalar os pacotes apropriados.
+1. Navegue para o [repositório de Cadernos Azure GitHub](https://github.com/microsoft/AzureNotebooks) ou [aceda diretamente à pasta do ambiente.](https://aka.ms/aznbrequirementstxt)
+1. A partir de um pedido de comando, navegue até ao diretório que pretende utilizar para os seus projetos.
+1. Descarregue o conteúdo da pasta ambiente e siga as instruções README para instalar as dependências do pacote Azure Notebooks.
 
-    > [!Note]
-    > Embora não seja necessário, geralmente você gostaria de criar um novo ambiente virtual para a instalação de pacotes, como mostrado abaixo.
-
-    ```bash
-    cd your-project-dir
-    python -m venv .venv
-    python -m pip install -r AzureNotebooksRequirements.txt
-    ```
-
-Para obter mais informações sobre os ficheiros de requisitos, consulte os [pip docs]( https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
 ## <a name="use-notebooks-in-visual-studio-code"></a>Use cadernos no código do estúdio visual
 
@@ -65,7 +55,7 @@ Para obter mais informações sobre os ficheiros de requisitos, consulte os [pip
 
 Depois de [descarregar](#export-an-azure-notebooks-project) os seus ficheiros de projeto, pode usá-los com código VS. Para obter orientações utilizando o Código VS com cadernos Jupyter, consulte os [cadernos de trabalho com o Jupyter em código de estúdio visual](https://code.visualstudio.com/docs/python/jupyter-support) e ciência de dados em tutoriais do Código do Estúdio [Visual.](https://code.visualstudio.com/docs/python/data-science-tutorial)
 
-Também pode utilizar os requisitos de [Azure Notebooks](#download-the-requirements-file-used-by-azure-notebooks) com Código de Estúdio Visual para criar um ambiente que corresponda à pré-visualização dos Cadernos Azure.
+Também pode utilizar o [script ambiente Azure Notebooks](#create-an-environment-for-notebooks) com Visual Studio Code para criar um ambiente que corresponda à pré-visualização dos Cadernos Azure.
 
 ## <a name="use-notebooks-in-visual-studio-codespaces"></a>Use cadernos em espaços de código do estúdio visual
 
@@ -107,3 +97,11 @@ O GitHub fornece uma forma gratuita e apoiada por controlo de fontes para armaze
 1. [Descarregue](#export-an-azure-notebooks-project) os seus ficheiros de projeto.
 1. [Crie um repositório GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para armazenar os seus cadernos. 
 1. [Adicione os seus ficheiros](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) ao repositório.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Saiba mais sobre Python no Código do Estúdio Visual](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Saiba mais sobre Azure Machine Learning e Jupyter Notebooks](../machine-learning/how-to-run-jupyter-notebooks.md)
+- [Saiba mais sobre o Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Saiba mais sobre os Serviços Azure Lab](https://azure.microsoft.com/services/lab-services/)
+- [Saiba mais sobre o GitHub](https://help.github.com/github/getting-started-with-github/)

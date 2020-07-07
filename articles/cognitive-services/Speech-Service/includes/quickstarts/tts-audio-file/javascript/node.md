@@ -3,27 +3,27 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 244bd6c270b5845039c1a5cc4d1322cb928a5aa3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.author: trbye
+ms.openlocfilehash: 19c054b72f7aa2ed6108d076a48856919a01462d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806447"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838838"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso azure speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de discurso azul<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md)
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto. Crie um ficheiro index.js e adicione este código.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto. Crie um ficheiro index.js e adicione este código.
 
-Certifique-se de preencher os seus valores `subscriptionKey` `servcieRegion` para, e `filename` .
+Certifique-se de preencher os seus valores para `subscriptionKey` `servcieRegion` , e `filename` .
 
 ```JavaScript
 (function() {
@@ -47,7 +47,7 @@ Certifique-se de preencher os seus valores `subscriptionKey` `servcieRegion` par
 ```
 ## <a name="load-the-file-into-an-pullaudiooutputstream"></a>Carregue o ficheiro num PullAudioOutputStream
 
-Para nodeJS, o Speech SDK não suporta de forma nativa o acesso dos ficheiros diretamente, por isso vamos abrir o ficheiro e escrever-lhe usando um `PullAudioOutputStream` .
+Para o NodeJS, o Speech SDK não suporta de forma nativa o acesso ao ficheiro diretamente, por isso vamos abrir o ficheiro e escrever-lhe usando um `PullAudioOutputStream` .
 
 
 ```JavaScript
@@ -62,12 +62,12 @@ Para nodeJS, o Speech SDK não suporta de forma nativa o acesso dos ficheiros di
   });
 ```
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Antes de poder inicializar um `SpeechSynthesizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código a seguir.
+Antes de poder inicializar um `SpeechSynthesizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código em seguida.
 
 > [!NOTE]
-> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
+> O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
  ```JavaScript
    // now create the audio-config pointing to our stream and
@@ -88,18 +88,18 @@ Agora, tens de criar um `AudioConfig` objeto que aponte para o `PullAudioOutputS
 
 ## <a name="initialize-a-speechsynthesizer"></a>Inicializar um SpeechSynthesizer
 
-Agora, vamos criar o `SpeechSynthesizer` objeto usando os e `SpeechConfig` `AudioConfig` objetos criados mais cedo.
+Agora, vamos criar o `SpeechSynthesizer` objeto usando os `SpeechConfig` `AudioConfig` objetos e objetos criados anteriormente.
 
 ```JavaScript
   // create the speech synthesizer.
   var synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
   
 ```
-## <a name="recognize-a-phrase-and-display-results"></a>Reconhecer uma frase e exibir resultados
+## <a name="recognize-a-phrase-and-display-results"></a>Reconhecer uma frase e mostrar resultados
 
-Pelo `SpeechSynthesizer` objeto, vais chamar o `speakTextAsync()` método. Este método permite ao serviço da Fala saber que está a enviar texto para síntese.
+Pelo `SpeechSynthesizer` objeto, vais chamar o `speakTextAsync()` método. Este método permite ao serviço de Fala saber que está a enviar texto para síntese.
 
-Também escreveremos o resultado devolvido, ou quaisquer erros, à consola e, finalmente, fecharemos o sintetizador.
+Também escreveremos o resultado devolvido, ou quaisquer erros, para a consola e finalmente fecharemos o sintetizador.
 ```JavaScript
  // we are done with the setup
   var text = "Hello World"

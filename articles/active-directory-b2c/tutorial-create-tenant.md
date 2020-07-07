@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b445d1e795cfb34452f48bfb5ed375f6a284e1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806855"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -51,8 +51,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Na página **Criar um diretório,** insira o seguinte:
 
-   - **Nome da organização** - Insira o nome da sua organização.
-   - **Nome de domínio inicial** - Introduza um nome de domínio. Por predefinição, este nome é anexado a *.onmicrosoft.com*. Pode alterá-lo mais tarde adicionando um nome de domínio que a sua organização já utiliza, como "contoso.com".
+   - **Nome da organização** - Insira um nome para o seu inquilino Azure AD B2C.
+   - **Nome de domínio inicial** - Introduza um nome de domínio para o seu inquilino Azure AD B2C.
    - **País ou região** - Selecione o seu país ou região da lista. Esta seleção não pode ser mudada mais tarde.
    - **Subscrição** - Selecione a sua subscrição da lista.
    - **Grupo de recursos** - Selecione um grupo de recursos que contenha o inquilino. Ou **selecione Criar novo,** insira um **Nome** para o grupo de recursos, selecione a **localização**do grupo de Recursos e, em seguida, selecione **OK**.

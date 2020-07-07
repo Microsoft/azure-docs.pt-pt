@@ -3,15 +3,17 @@ author: joshuapartlow
 ms.author: joshuapa
 ms.service: azure-notebooks
 ms.topic: include
-ms.date: 01/02/2020
-ms.openlocfilehash: 6a5dc6fd0007711654d2b5c2e66493688d341bfc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 07/01/2020
+ms.openlocfilehash: c866ebac9701f31dbdafab87cdda6fc26edcf88c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830315"
 ---
 > [!IMPORTANT]
-> Os Cadernos Azure estão atualmente em pré-visualização pública.
+> No dia 29 de setembro, o site de pré-visualização pública Azure Notebooks será retirado e substituído por serviços integrados do Visual Studio, Azure e GitHub.
+> [Saiba mais](https://aka.ms/aznb-notebooks-at-msft/) sobre as suas opções e as nossas experiências de outros cadernos da Microsoft.
+>
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

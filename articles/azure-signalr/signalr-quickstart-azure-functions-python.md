@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: tracking-python
-ms.openlocfilehash: 4078edcadf3985e3b4dd392f726ca2e8d171b8b1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d77faf8cf4f859c0ef933d28119bd024ace86ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559065"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832496"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço SignalR usando Python
 
@@ -73,7 +73,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Em **local.settings.json**, cole a cadeia de ligação no valor da definição **AzureSignalRConnectionString**. Guarde o ficheiro.
 
-1. As funções python são organizadas em pastas. Em cada pasta encontram-se dois ficheiros: *função.json* define as encadernações que são utilizadas na função, e * \_ \_ init \_ \_ .py* é o corpo da função. Existem duas funções acionadas por HTTP nesta aplicação de funções:
+1. As funções python são organizadas em pastas. Em cada pasta encontram-se dois ficheiros: *function.jsdefine* as encadernações que são utilizadas na função, e * \_ \_ init \_ \_ .py* é o corpo da função. Existem duas funções acionadas por HTTP nesta aplicação de funções:
 
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.
@@ -101,4 +101,4 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 Neste arranque rápido, você construiu e executou uma aplicação sem servidor em tempo real no Código VS. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
 
 > [!div class="nextstepaction"]
-> [Implementar as Funções do Azure com o VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)
+> [Implementar as Funções do Azure com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

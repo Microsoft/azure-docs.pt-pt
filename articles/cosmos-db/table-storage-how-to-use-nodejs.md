@@ -8,18 +8,18 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 35435bd318596ffd0a46e5d272565358c092bc03
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1f0541cd3ae7cf2c78d3cd2bf6844fed930e7968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562696"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833152"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo mostra como executar cenários comuns utilizando o serviço Armazenamento de tabelas do Azure ou o Azure Cosmos DB numa aplicação Node.js.
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
@@ -75,10 +75,10 @@ Para adicionar uma ligação ao Azure Cosmos DB, crie um objeto **TableService**
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+```
 
 ## <a name="create-a-table"></a>Criar uma tabela
-O código seguinte cria um objeto **TableService** e utiliza-o para criar uma nova tabela. 
+O código seguinte cria um objeto **TableService** e utiliza-o para criar uma nova tabela.
 
 ```javascript
 var tableSvc = azure.createTableService();
@@ -364,7 +364,7 @@ dc.table.queryEntities(tableName,
 
 Se inspecionar o objeto `continuationToken`, encontrará propriedades como `nextPartitionKey`, `nextRowKey` e `targetLocation`, que podem ser utilizadas para iterar todos os resultados.
 
-Também pode usar `top` para definir o tamanho da `continuationToken` página. 
+Também pode usar `top` para definir o tamanho da `continuationToken` página.
 
 ## <a name="work-with-shared-access-signatures"></a>Trabalhar com assinaturas de acesso partilhado
 As assinaturas de acesso partilhado (SAS) são uma forma segura de fornecer acesso granular às tabelas sem fornecer o nome ou a chaves da sua conta de Armazenamento. As SAS são frequentemente utilizadas para fornecer acesso limitado aos seus dados, tal como permitir que uma aplicação móvel consulte registos.
@@ -393,7 +393,7 @@ var host = tableSvc.host;
 
 Tenha em atenção que também tem de fornecer as informações do host, dado que é necessário quando o titular da SAS tenta aceder à tabela.
 
-A aplicação cliente utiliza então a SAS com **TableServiceWithSAS** para executar operações na tabela. O exemplo seguinte liga-se à tabela e executa uma consulta. Consulte o Grant acesso limitado aos recursos de Armazenamento Azure utilizando o artigo [assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md) para o formato do tableSAS. 
+A aplicação cliente utiliza então a SAS com **TableServiceWithSAS** para executar operações na tabela. O exemplo seguinte liga-se à tabela e executa uma consulta. Consulte o Grant acesso limitado aos recursos de Armazenamento Azure utilizando o artigo [assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md) para o formato do tableSAS.
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -458,6 +458,6 @@ Para obter mais informações, consulte os seguintes recursos.
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * Repositório do [Azure Storage SDK para Node.js](https://github.com/Azure/azure-storage-node) no GitHub.
-* [Programadores do Azure para Node.js](https://docs.microsoft.com/azure/javascript/)
+* [Programadores do Azure para Node.js](https://docs.microsoft.com/azure/developer/javascript/)
 * [Criar uma aplicação Web Node.js no Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Criar e implementar uma aplicação Node.js num Serviço Cloud do Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (utilizando o Windows PowerShell)

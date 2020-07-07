@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: c60f9df87930519684c6c29b1194624342b11528
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851737"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Uma distribuição [de Python](https://www.python.org/downloads/) instalada para testes locais.
 * O pacote [Azure.](https://pypi.org/project/azure/) `pip`
-* O [conjunto de dados da íris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
+* O [conjunto de dadosiris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte [a conta De criar um Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e ligar contas batch a contas de armazenamento.
 * Uma conta da Azure Data Factory. Consulte [Criar uma fábrica de dados](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) para obter mais informações sobre como criar uma fábrica de dados através do portal Azure.
 * [Explorador de Lote](https://azure.github.io/BatchExplorer/).
@@ -116,27 +116,27 @@ Nesta secção, irá criar e validar um oleoduto utilizando o seu script Python.
 1. Na caixa **Recursos de Fábrica,** selecione o botão + (mais) e, em seguida, selecione **Pipeline**
 1. No separador **Geral,** definir o nome do oleoduto como "Run Python"
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![No separador Geral, definir o nome do oleoduto como "Run Python"](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. Na caixa **de Atividades,** expandir o **Serviço de Lote.** Arraste a atividade personalizada da caixa de **ferramentas Das Atividades** para a superfície do designer de gasodutos.
 1. No separador **Geral,** especifique **testPipeline** para nome
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![No separador Geral, especifique testPipeline para nome](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. No **separador Azure Batch,** adicione a **Conta lote** criada nos passos anteriores e **a ligação de teste** para garantir que é bem sucedida
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![No separador Azure Batch, adicione a Conta lote que foi criada nos passos anteriores e, em seguida, testar a ligação](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. No separador **Definições,** introduza o comando `python main.py` .
 1. Para o **Serviço Ligado a Recursos,** adicione a conta de armazenamento que foi criada nos passos anteriores. Teste a ligação para se certificar de que é bem sucedida.
 1. No Caminho da **Pasta,** selecione o nome do recipiente de **armazenamento Azure Blob** que contém a escrita Python e as entradas associadas. Isto irá transferir os ficheiros selecionados do contentor para os casos do nó de piscina antes da execução do script Python.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![No Caminho da Pasta, selecione o nome do recipiente de armazenamento Azure Blob](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Clique em **Validar** na barra de ferramentas do pipeline acima da tela, para validar as definições do pipeline. Confirme que o pipeline foi confirmado com êxito. Para fechar a saída da validação, selecione o botão &gt;&gt; (seta para a direita).
 1. Clique em **Debug** para testar o oleoduto e certifique-se de que funciona com precisão.
 1. Clique em **Publicar** para publicar o pipeline.
 1. Clique **em Trigger** para executar o script Python como parte de um processo de lote.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![Clique em Trigger para executar o script Python como parte de um processo de lote](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>Monitorize os ficheiros de registo
 

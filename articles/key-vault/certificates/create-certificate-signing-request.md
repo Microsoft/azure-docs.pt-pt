@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849485"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
-O Azure Key Vault suporta criar o pedido de assinatura de certificado com o par de chaves público-privado e obtê-lo assinado por qualquer Autoridade de Certificados à sua escolha. Pode ser uma empresa interna ca ou ca público externo. Um pedido de assinatura de certificado (também CSR ou pedido de certificação) é uma mensagem enviada pelo utilizador a uma autoridade de certificados (CA) a fim de solicitar a emissão de um certificado digital.
+O Azure Key Vault suporta o armazenamento de certificados digitais emitidos por qualquer Autoridade de Certificados à sua escolha no seu cofre principal. Apoia a criação do pedido de assinatura de certificado com o par chave público-privado que pode ser assinado por qualquer Autoridade de Certificados escolhida. Pode ser uma empresa interna ca ou ca público externo. Um pedido de assinatura de certificado (também CSR ou pedido de certificação) é uma mensagem enviada pelo utilizador a uma autoridade de certificados (CA) a fim de solicitar a emissão de um certificado digital.
 
 Para obter informações mais gerais sobre certificados, consulte [os certificados de cofre chave Azure.](/azure/key-vault/certificates/about-certificates)
 

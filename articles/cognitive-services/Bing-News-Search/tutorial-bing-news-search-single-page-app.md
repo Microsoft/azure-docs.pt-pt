@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9721a00ef1f0df056b3300ababfee0d0d29bbddc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85602793"
+ms.locfileid: "85801279"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página
 
@@ -409,15 +409,18 @@ Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bin
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Em seguida, altere o ponto de terminação Bing Web Search no ficheiro HTML para:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy do CORS com o comando seguinte:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 

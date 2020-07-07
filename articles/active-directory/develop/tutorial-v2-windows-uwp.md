@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade da Microsoft UWP a começar Rio Azure
+title: Começa com a plataforma de identidade da Microsoft UWP Rio Azure
 description: Como as aplicações da Universal Windows Platform (UWP) podem chamar uma API que requer acesso a tokens pelo ponto final da plataforma de identidade da Microsoft.
 services: active-directory
 author: jmprieur
@@ -11,32 +11,32 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbdeb1b2987188a23e71726f54db84b12d060b27
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386470"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807626"
 ---
-# <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Ligue para a Microsoft Graph API a partir de uma aplicação universal da Plataforma Windows (XAML)
+# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (XAML)
 
 > [!div renderon="docs"]
 
-Este guia explica como uma aplicação nativa da Universal Windows Platform (UWP) pode solicitar um token de acesso. A aplicação chama então a Microsoft Graph API. O guia aplica-se também a outras APIs que requerem acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
+Este guia explica como uma aplicação nativa da Universal Windows Platform (UWP) pode solicitar um token de acesso. A aplicação chama então a API do Gráfico microsoft. O guia aplica-se também a outras APIs que requerem acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
 
 No final deste guia, a sua aplicação chama uma API protegida utilizando contas pessoais. Exemplos são outlook.com, live.com, e outros. A sua aplicação também chama contas de trabalho e escola de qualquer empresa ou organização que tenha diretório Azure Ative (Azure AD).
 
 >[!NOTE]
-> Este guia requer o desenvolvimento do Visual Studio com a Plataforma Universal Windows instalada. Consulte [configurar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) para obter instruções para descarregar e configurar o Visual Studio para desenvolver aplicações da Plataforma Universal Windows.
+> Este guia requer o desenvolvimento do Visual Studio com a Plataforma Universal Windows instalada. Para obter instruções para descarregar e configurar o Visual Studio para desenvolver aplicações da Plataforma Universal Windows, consulte [a configuração](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
-> Se for novo na plataforma de identidade da Microsoft, recomendamos que comece com [a Chamada API do Microsoft Graph API a partir de um quickstart de aplicação universal Windows Platform (UWP).](quickstart-v2-uwp.md)
+> Se for novo na plataforma de identidade da Microsoft, comece com [a Chamada API do Microsoft Graph API a partir de um quickstart de aplicação universal Windows Platform (UWP).](quickstart-v2-uwp.md)
 
 ## <a name="how-this-guide-works"></a>Como funciona este guia
 
 ![Mostra como funciona a app de amostras gerada por este tutorial](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
 
-Este guia cria uma aplicação UWP de amostra que consulta a Microsoft Graph API. Para este cenário, é adicionado um token aos pedidos HTTP utilizando o cabeçalho de Autorização. A Microsoft Authentication Library (MSAL) lida com aquisições e renovações simbólicas.
+Este guia cria uma aplicação UWP de amostra que consulta a API do Gráfico microsoft. Para este cenário, é adicionado um token aos pedidos HTTP utilizando o cabeçalho de Autorização. A Microsoft Authentication Library lida com aquisições e renovações simbólicas.
 
 ## <a name="nuget-packages"></a>Pacotes NuGet
 
@@ -49,12 +49,12 @@ Este guia utiliza o seguinte pacote NuGet:
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
-Esta secção fornece instruções passo a passo para integrar uma aplicação Do Windows Desktop .NET (XAML) com o Sign-In com a Microsoft. Em seguida, a aplicação pode consultar APIs web que requerem um token, como Microsoft Graph API.
+Esta secção fornece instruções passo a passo para integrar uma aplicação Do Windows Desktop .NET (XAML) com o início de sposição com a Microsoft. Em seguida, a aplicação pode consultar APIs web que requerem um token, como a Microsoft Graph API.
 
-Este guia cria uma aplicação que exibe um botão que consulta a API do gráfico e um botão para assinar. Também exibe caixas de texto que contêm os resultados das chamadas.
+Este guia cria uma aplicação que exibe um botão que consulta a API do Microsoft Graph e um botão para assinar. Também exibe caixas de texto que contêm os resultados das chamadas.
 
 > [!NOTE]
-> Deseja descarregar o projeto visual studio desta amostra em vez de o criar? [Faça o download de um projeto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) e salte para o passo de registo da [aplicação](#register-your-application "passo de registo de pedidos") para configurar a amostra de código antes de ser executada.
+> Deseja descarregar o projeto visual studio desta amostra em vez de o criar? [Faça o download de um projeto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)e salte para o passo de registo da [aplicação](#register-your-application "passo de registo de pedidos") para configurar a amostra de código antes de ser executada.
 
 ### <a name="create-your-application"></a>Crie a sua aplicação
 
@@ -76,7 +76,7 @@ Este guia cria uma aplicação que exibe um botão que consulta a API do gráfic
     ```
 
    > [!NOTE]
-   > O primeiro comando instala a [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET adquire, caches e atualiza fichas de utilizador que acedem a APIs que estão protegidas pela plataforma de identidade da Microsoft. O segundo comando instala [a Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para autenticar pedidos no Microsoft Graph e fazer chamadas para o serviço.   
+   > O primeiro comando instala a [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET adquire, caches e atualiza fichas de utilizador que acedem a APIs que estão protegidas pela plataforma de identidade da Microsoft. O segundo comando instala [a Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para autenticar pedidos no Microsoft Graph e fazer chamadas para o serviço.
 
 ### <a name="create-your-applications-ui"></a>Crie uI da sua aplicação
 
@@ -97,9 +97,9 @@ O Visual Studio cria *o MainPage.xaml* como parte do seu modelo de projeto. Abra
 </Grid>
 ```
 
-### <a name="use-msal-to-get-a-token-for-microsoft-graph-api"></a>Use o MSAL para obter um token para Microsoft Graph API
+### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Utilize a Microsoft Authentication Library para obter um token para a API do Gráfico microsoft
 
-Esta secção mostra como usar o MSAL para obter um token para a Microsoft Graph API. Faça alterações no ficheiro *MainPage.xaml.cs.*
+Esta secção mostra como usar a Microsoft Authentication Library para obter um token para a API do Gráfico microsoft. Faça alterações no ficheiro *MainPage.xaml.cs.*
 
 1. Em *MainPage.xaml.cs*, adicione as seguintes referências:
 
@@ -145,7 +145,7 @@ Esta secção mostra como usar o MSAL para obter um token para a Microsoft Graph
         {
             try
             {
-                // Sign in user using MSAL and obtain an access token for Micrososft Graph
+                // Sign in user using MSAL and obtain an access token for Microsoft Graph
                 GraphServiceClient graphClient = await SignInAndInitializeGraphServiceClient(scopes);
 
                 // Call the /me endpoint of Graph
@@ -219,9 +219,9 @@ O `AcquireTokenInteractive` método resulta numa janela que leva os utilizadores
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-O `AcquireTokenSilent` método lida com aquisições e renovações simbólicas sem qualquer interação do utilizador. Depois de `AcquireTokenInteractive` correr pela primeira vez e solicitar ao utilizador credenciais, utilize o método para solicitar `AcquireTokenSilent` fichas para chamadas posteriores. Este método adquire fichas silenciosamente. MSAL lida com cache simbólico e renovação.
+O `AcquireTokenSilent` método lida com aquisições e renovações simbólicas sem qualquer interação do utilizador. Depois de `AcquireTokenInteractive` correr pela primeira vez e solicitar ao utilizador credenciais, utilize o método para solicitar `AcquireTokenSilent` fichas para chamadas posteriores. Este método adquire fichas silenciosamente. A Microsoft Authentication Library trata da cache e da renovação do símbolo.
 
-Eventualmente, o `AcquireTokenSilent` método falha. As razões para a falha incluem um utilizador que assinou ou alterou a sua palavra-passe noutro dispositivo. Quando a MSAL deteta que o problema requer uma ação interativa, abre uma `MsalUiRequiredException` exceção. A sua aplicação pode lidar com esta exceção de duas formas:
+Eventualmente, o `AcquireTokenSilent` método falha. As razões para a falha incluem um utilizador que assinou ou alterou a sua palavra-passe noutro dispositivo. Quando a Microsoft Authentication Library deteta que o problema requer uma ação interativa, abre uma `MsalUiRequiredException` exceção. A sua aplicação pode lidar com esta exceção de duas formas:
 
 * A sua candidatura liga `AcquireTokenInteractive` imediatamente. Esta chamada resulta em levar o utilizador a iniciar sinsumento. Normalmente, utilize esta abordagem para aplicações online onde não há conteúdo offline disponível para o utilizador. A amostra gerada por esta configuração guiada segue o padrão. Vê-lo em ação da primeira vez que faz a amostra.
 
@@ -291,9 +291,9 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 #### <a name="more-information-about-signing-out"></a>Mais informações sobre a assinatura<a name="more-information-on-sign-out"></a>
 
-O `SignOutButton_Click` método remove o utilizador da cache do utilizador MSAL. Este método diz eficazmente à MSAL para esquecer o utilizador atual. Um pedido futuro para adquirir um símbolo só tem sucesso se for interativo.
+O `SignOutButton_Click` método remove o utilizador da cache do utilizador da Microsoft Authentication Library. Este método diz eficazmente à Microsoft Authentication Library para esquecer o utilizador atual. Um pedido futuro para adquirir um símbolo só tem sucesso se for interativo.
 
-A aplicação nesta amostra suporta um único utilizador. A MSAL suporta cenários em que o utilizador pode iniciar scontabilidade em mais de uma conta. Um exemplo é uma aplicação de e-mail onde um utilizador tem várias contas.
+A aplicação nesta amostra suporta um único utilizador. A Microsoft Authentication Library suporta cenários em que o utilizador pode iniciar sposição em mais de uma conta. Um exemplo é uma aplicação de e-mail onde um utilizador tem várias contas.
 
 ### <a name="display-basic-token-information"></a>Mostrar informações básicas de token
 
@@ -316,7 +316,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>Mais informações<a name="more-information-1"></a>
 
-Os tokens de ID adquiridos através do **OpenID Connect** também contêm um pequeno subconjunto de informação pertinente ao utilizador. `DisplayBasicTokenInfo`exibe informações básicas contidas no token. Esta informação inclui o nome de exibição do utilizador e o ID. Também inclui a data de validade do token e a cadeia que representa o próprio símbolo de acesso. Se selecionar várias vezes o botão **API do Gráfico de Chamada Microsoft,** verá que o mesmo token foi reutilizado para pedidos posteriores. Também pode ver a data de validade estendida quando a MSAL decidir que é hora de renovar o token.
+Os tokens de ID adquiridos através do **OpenID Connect** também contêm um pequeno subconjunto de informação pertinente ao utilizador. `DisplayBasicTokenInfo`exibe informações básicas contidas no token. Esta informação inclui o nome de exibição do utilizador e o ID. Também inclui a data de validade do token e a cadeia que representa o próprio símbolo de acesso. Se selecionar várias vezes o botão **API do Gráfico de Chamada Microsoft,** verá que o mesmo token foi reutilizado para pedidos posteriores. Também pode ver a data de validade estendida quando a Microsoft Authentication Library decidir que é hora de renovar o token.
 
 ### <a name="display-message"></a>Mensagem de exibição
 
@@ -342,37 +342,37 @@ Agora tem de registar a sua candidatura:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione as inscrições da **App Azure Ative**  >  **Directory**.
-1. Selecione **Novo registo**. Introduza um nome significativo da aplicação que será apresentado aos utilizadores da aplicação, por exemplo *UWP-App-call-MSGraph*.
-1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**- selecione **Register** para continuar.
+1. Selecione **Novo registo**. Introduza um nome significativo da aplicação que será apresentado aos utilizadores da aplicação, por exemplo, *UWP-App-call-MSGraph*.
+1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**. Em seguida, **selecione Registar-se** para continuar.
 1. Na página geral, encontre o valor **de ID da Aplicação (cliente)** e copie-o. Volte ao Visual Studio, abra *MainPage.xaml.cs,* e substitua o valor `ClientId` deste valor.
 
 Configure a autenticação para a sua aplicação:
 
 1. De volta ao [portal Azure](https://portal.azure.com), em **Manage**, selecione **Autenticação**.
-1. Na secção **de redirecionamento de**  |  **URIs sugeridas para clientes públicos (mobile, desktop)** verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Na secção **de redirecionamento de**  |  **URIs sugeridas para clientes públicos (mobile, desktop)** verifique https://login.microsoftonline.com/common/oauth2/nativeclient .
 1. Selecione **Guardar**.
 
 Configure permissões API para a sua aplicação:
 
 1. Em **Gestão**, selecione **permissões API**.
-1. **Selecione Adicionar uma permissão** e, em seguida, certifique-se de que selecionou **APIs da Microsoft**.
+1. **Selecione Adicionar uma permissão**e, em seguida, certifique-se de que selecionou **APIs da Microsoft**.
 1. Selecione **Microsoft Graph**.
-1. Selecione **permissões delegadas**, procure *por Utilizador.Leia* e verifique se **o Utilizador.Read** está selecionado.
+1. Selecione **permissões delegadas**, procure por *User.Read*, e verifique se **o Utilizador.Read** está selecionado.
 1. Se escolho alguma alteração, **selecione Adicionar permissões** para as guardar.
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>Permitir a autenticação integrada nos domínios federados (opcional)
 
-Para ativar a Autenticação Integrada do Windows quando é utilizada com um domínio AD Azure federado, o manifesto de aplicação deve permitir capacidades adicionais. Volte para a sua aplicação no Estúdio Visual.
+Para ativar a autenticação integrada do Windows quando é utilizado com um domínio AD Azure federado, o manifesto de aplicação deve permitir capacidades adicionais. Volte para a sua aplicação no Estúdio Visual.
 
 1. *Open Package.appxmanifest*.
-1. Selecione **Capabilites** e ative as seguintes definições:
+1. Selecione **Capacidades**e ative as seguintes definições:
 
    * **Autenticação da Empresa**
    * **Redes Privadas (Servidor & cliente)**
    * **Certificados de Utilizador Partilhados**
 
 > [!IMPORTANT]
-> [A autenticação integrada do Windows](https://aka.ms/msal-net-iwa) não está configurada por padrão para esta amostra. As aplicações que `Enterprise Authentication` solicitam ou `Shared User Certificates` têm capacidades requerem um nível mais elevado de verificação pela Windows Store. Além disso, nem todos os desenvolvedores querem realizar o nível mais elevado de verificação. Ativar esta definição apenas se necessitar de autenticação integrada do Windows com um domínio AD Azure federado.
+> [A autenticação integrada](https://aka.ms/msal-net-iwa) do Windows não está configurada por padrão para esta amostra. As aplicações que `Enterprise Authentication` solicitam ou `Shared User Certificates` têm capacidades requerem um nível mais elevado de verificação pela Windows Store. Além disso, nem todos os desenvolvedores querem realizar o nível mais elevado de verificação. Ativar esta definição apenas se necessitar de autenticação Integrada do Windows com um domínio AD Azure federado.
 
 ## <a name="alternate-approach-to-using-withdefaultredirecturi"></a>Abordagem alternativa à utilização do WithDefaultRedirectURI()
 
@@ -430,24 +430,24 @@ Na amostra atual, o `WithRedirectUri("https://login.microsoftonline.com/common/o
   
     ```
 
-    Executar a aplicação e, em seguida, copiar o valor de quando o ponto de `redirectUri` rutura é atingido. O valor deve ser semelhante ao seguinte:  
+    Executar a aplicação e, em seguida, copiar o valor de quando o ponto de `redirectUri` rutura é atingido. O valor deve ser semelhante ao seguinte valor:  
     `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
     Em seguida, pode remover a linha de código porque é necessário apenas uma vez, para obter o valor. 
 
-3. No portal de registo de aplicações, adicione o valor devolvido em **RedirectUri** na lâmina **de autenticação.**
+3. No portal de registo de aplicações, adicione o valor devolvido em **RedirectUri** no painel **de autenticação.**
    
 ## <a name="test-your-code"></a>Teste o seu código
 
-Para testar a sua aplicação, selecione F5 para executar o seu projeto no Visual Studio. A sua janela principal aparece:
+Para testar a sua aplicação, selecione a chave **F5** para executar o seu projeto no Visual Studio. A sua janela principal aparece:
 
 ![Interface de utilizador da aplicação](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
 
-Quando estiver pronto para testar, selecione **Ligue para a Microsoft Graph API**. Em seguida, utilize uma conta organizacional AD AZure ou uma conta Microsoft, como live.com ou outlook.com, para iniciar scontabilidade. A primeira vez que um utilizador executa isto, a aplicação apresenta uma janela a pedir ao utilizador para iniciar sposição.
+Quando estiver pronto para testar, selecione **Ligue para a Microsoft Graph API**. Em seguida, utilize uma conta organizacional AD AZure ou uma conta Microsoft, como live.com ou outlook.com, para iniciar scontabilidade. A primeira vez que um utilizador executa este teste, a aplicação apresenta uma janela a pedir ao utilizador para iniciar sposição.
 
 ### <a name="consent"></a>Consent (Consentimento)
 
-Na primeira vez que iniciar sê-lo, é-lhe apresentado um ecrã de consentimento semelhante ao seguinte. Selecione **Sim** para explicitamente consentir o acesso:
+Na primeira vez que iniciar sôs a sua aplicação, um ecrã de consentimento aparece semelhante à seguinte imagem. Selecione **Sim** para explicitamente consentir o acesso:
 
 ![Ecrã de consentimento de acesso](./media/tutorial-v2-windows-uwp/consentscreen-vs2019.png)
 
@@ -462,11 +462,11 @@ Você também vê informações básicas sobre o símbolo adquirido via `Acquire
 |Propriedade  |Formato  |Description |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |O nome de utilizador que identifica o utilizador.|
-|`Token Expires` |`DateTime` |O tempo em que o símbolo expira. A MSAL prolonga a data de validade renovando o token se necessário.|
+|`Token Expires` |`DateTime` |O tempo em que o símbolo expira. A Microsoft Authentication Library prolonga a data de validade renovando o token conforme necessário.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas
 
-A Microsoft Graph API requer o `user.read` âmbito de leitura do perfil de um utilizador. Este âmbito é adicionado por padrão em todas as aplicações registadas no Portal de Registo de Candidaturas. Outras APIs para o Microsoft Graph e APIs personalizados para o seu servidor de back-end podem necessitar de âmbitos adicionais. Por exemplo, a Microsoft Graph API requer o `Calendars.Read` âmbito de aplicação para listar os calendários do utilizador.
+A API do Microsoft Graph requer o `user.read` âmbito de leitura do perfil de um utilizador. Este âmbito é adicionado por padrão em todas as aplicações registadas no Portal de Registo de Candidaturas. Outras APIs para o Microsoft Graph e APIs personalizados para o seu servidor de back-end podem necessitar de âmbitos adicionais. Por exemplo, a API do Gráfico microsoft requer o `Calendars.Read` âmbito para listar os calendários do utilizador.
 
 Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a `Calendars.Read` permissão delegada à informação de registo de pedidos. Em seguida, adicione o `Calendars.Read` âmbito à `acquireTokenSilent` chamada.
 
@@ -479,20 +479,20 @@ Para aceder aos calendários do utilizador no contexto de uma aplicação, adici
 
 Recebe uma das seguintes mensagens de erro quando faz sedudas na sua aplicação num domínio AD federado:
 
-* Nenhum certificado de cliente válido encontrado no pedido.
-* Não há certificados válidos encontrados na loja de certificados do utilizador.
-* Tente novamente escolher um método de autenticação diferente.
+* "Nenhum certificado de cliente válido encontrado no pedido."
+* "Não há certificados válidos encontrados na loja de certificados do utilizador."
+* "Tente de novo escolher um método de autenticação diferente."
 
-Causa: As capacidades de empresa e certificado não estão ativadas.
+**Causa:** As capacidades de empresarial e certificado não estão ativadas.
 
-Solução: Siga os passos em [Permitir a autenticação integrada nos domínios federados (opcional)](#enable-integrated-authentication-on-federated-domains-optional).
+**Solução:** Siga os passos em [Permitir a autenticação integrada nos domínios federados (opcional)](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problema 2
 
-Permite a [autenticação integrada em domínios federados](#enable-integrated-authentication-on-federated-domains-optional) e tenta utilizar o Windows Hello num computador Windows 10 para iniciar sação num ambiente com a autenticação multi-factor configurada. A lista de certificados é apresentada. No entanto, se optar por utilizar o pin, a janela PIN nunca é apresentada.
+Permite a [autenticação integrada em domínios federados](#enable-integrated-authentication-on-federated-domains-optional) e tenta utilizar o Windows Hello num computador Windows 10 para iniciar sação num ambiente com autenticação multifactor configurada. A lista de certificados aparece. Se optar por utilizar o pin, a janela PIN nunca aparece.
 
-Causa: Este problema é uma limitação conhecida do corretor de autenticação web em aplicações UWP que funcionam no ambiente de trabalho do Windows 10. Funciona bem no Windows 10 Mobile.
+**Causa:** Este problema é uma limitação conhecida do corretor de autenticação web em aplicações UWP que funcionam nos desktops do Windows 10. Funciona bem no Windows 10 Mobile.
 
-Solução: Selecione **Iniciar solução com outras opções**. Em seguida, **selecione Iniciar sômata com um nome de utilizador e senha**. **Selecione Forneça a sua palavra-passe**. Em seguida, passe pelo processo de autenticação do telefone.
+**Solução alternativa:** Selecione **Iniciar sção com outras opções**. Em seguida, **selecione Iniciar sômata com um nome de utilizador e senha**. **Selecione Forneça a sua palavra-passe**. Em seguida, passe pelo processo de autenticação do telefone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

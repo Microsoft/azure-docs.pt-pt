@@ -1,77 +1,77 @@
 ---
-title: Clone um caderno Jupyter do GitHub com pré-visualização de cadernos Azure
-description: Clone rapidamente um caderno Jupyter de um repositório GitHub e execute-o na sua conta Decadernos Azure.
+title: Clone um caderno Jupyter de GitHub com pré-visualização de cadernos Azure
+description: Clone rapidamente um caderno Jupyter de um repositório GitHub e execute-o na sua conta de Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064602"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833091"
 ---
-# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Clone um caderno em Pré-visualização de cadernos Azure
+# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Clone um caderno em Azure Notebooks Preview
 
-Neste arranque rápido, você copia um caderno Jupyter armazenado no GitHub para uma conta Azure Notebooks. 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Os repositórios GitHub fornecem armazenamento e controlo de versão para os cadernos Jupyter. Os colaboradores mantêm cópias locais dos repositórios, e executam os cadernos dessas cópias. A clonagem de um caderno Jupyter do GitHub na sua conta Decadernos Azure cria uma cópia independente do caderno. As alterações são armazenadas apenas na sua conta Deporporlistas Azure, e não afetam o repositório original do GitHub. 
+Neste arranque rápido, você copia um portátil Jupyter armazenado no GitHub para uma conta de Azure Notebooks. 
 
-Como o seu clone de Cadernos Azure está na nuvem, pode partilhá-lo com colaboradores, que não precisam de fazer cópias locais ou ter o Jupyter instalado nos seus computadores. Também pode clonar um caderno simplesmente como ponto de partida para um projeto próprio, ou para obter ficheiros de dados. 
+Os repositórios gitHub fornecem armazenamento e controlo de versão para cadernos Jupyter. Os colaboradores mantêm cópias locais dos repositórios e executam os cadernos dessas cópias. Clonar um caderno Jupyter do GitHub na sua conta Azure Notebooks cria uma cópia independente do caderno. As alterações são armazenadas apenas na sua conta de Azure Notebooks e não afetam o repositório original do GitHub. 
+
+Como o seu clone de Azure Notebooks está na nuvem, pode partilhá-lo com colaboradores, que não precisam de fazer cópias locais ou ter o Jupyter instalado nos seus computadores. Também pode clonar um caderno simplesmente como ponto de partida para um projeto próprio, ou para obter ficheiros de dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Nenhum.
 
-## <a name="clone-azure-cognitive-services-notebooks"></a>Cadernos dos Serviços Cognitivos Clone Azure
+## <a name="clone-azure-cognitive-services-notebooks"></a>Cadernos dos Serviços Cognitivos clones da Azure
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para mais detalhes, consulte [Quickstart - Inicie súm em Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
-1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para mais detalhes, consulte [Quickstart - Inscreva-se nos Cadernos Azure](quickstart-sign-in-azure-notebooks.md).
+1. Na sua página de perfil público, selecione **Os Meus Projetos** no topo da página:
 
-1. Na sua página de perfil público, selecione **My Projects** no topo da página:
+    ![O meu link de projetos no topo da janela do navegador](media/quickstarts/my-projects-link.png)
 
-    ![My Projects link no topo da janela do navegador](media/quickstarts/my-projects-link.png)
+1. Na página **My Projects,** selecione o botão de seta para cima (atalho de teclado: U; o botão aparece como **Upload GitHub Repo** quando a janela do navegador é larga o suficiente):
 
-1. Na página **My Projects,** selecione o botão de seta up (atalho de teclado: U; o botão aparece como **Upload GitHub Repo** quando a janela do navegador é suficientemente larga):
+    ![Upload GitHub Repo comando na página My Projects](media/quickstarts/upload-github-repo-command.png)
 
-    ![Carregue o comando GitHub Repo na página my projects](media/quickstarts/upload-github-repo-command.png)
+1. No **Repositório De Upload GitHub** que aparece, introduz ou define os seguintes detalhes e, em seguida, selecione **Import**:
 
-1. No **Repositório Upload GitHub** que aparece, introduza ou detetete os seguintes detalhes e, em seguida, selecione **Import:**
+   - **Repositório GitHub**: Microsoft/cognitive-services-notebooks (este nome clona os cadernos Jupyter para Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) ).
+   - **Clone recursivamente**: (limpo)
+   - **Nome do projeto**: Cognitive Services Clone
+   - **ID do projeto**: cognitive-services-clone
+   - **Público:**(limpo)
 
-   - **Repositório GitHub**: Microsoft/cognitive-services-notebooks (este nome clona os cadernos [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)Jupyter para Serviços Cognitivos Azure em ).
-   - **Clone recursivamente:**(ilibado)
-   - **Nome**do projeto : Clone de Serviços Cognitivos
-   - **Id do projeto**: cognitivo-serviços-clone
-   - **Público**: (ilibado)
-
-     ![Upload GitHub Repo popup para recolher informações repo](media/quickstarts/upload-github-repo-popup.png)
+     ![Upload GitHub Repo popup para recolher informações de repo](media/quickstarts/upload-github-repo-popup.png)
 
 1. Seja paciente enquanto o processo termina; clonagem de um repositório pode levar alguns minutos.
 
-1. Uma vez terminada a clonagem, os Cadernos Azure leva-o ao novo projeto onde pode ver as cópias de todos os ficheiros.
+1. Uma vez terminada a clonagem, a Azure Notebooks leva-o ao novo projeto onde pode ver as cópias de todos os ficheiros.
 
     [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Partilhar um caderno
 
-1. Para partilhar a sua cópia do projeto clonado, utilize o controlo **de partilha** ou obtenha um link, obtenha código HTML ou Markdown que contenha o link, ou crie uma mensagem de e-mail com o link:
+1. Para partilhar a sua cópia do projeto clonado, utilize o controlo **partilhar** ou obtenha um link, obtenha o código HTML ou Markdown que contenha o link ou crie uma mensagem de correio eletrónico com o link:
 
-    ![Comando de partilha de projeto](media/quickstarts/share-project-command.png)
+    ![Comando de partilha de projetos](media/quickstarts/share-project-command.png)
 
-1. Como abriste a opção **do Público** ao clonar o projeto, o clone é privado. Para tornar a sua cópia pública, selecione **Definições**de Projeto, detete a opção **do projeto Público** no popup e, em seguida, selecione **Guardar**.
+1. Como limpou a opção **pública** ao clonar o projeto, o clone é privado. Para tornar a sua cópia pública, selecione **Definições de Projeto,** defina a opção **de projeto Público** no pop-up e, em seguida, selecione **Save**.
 
-1. Selecione um caderno no projeto para executá-lo. Cada caderno no repositório dos Serviços Cognitivos Azure, por exemplo, é o seu próprio Quickstart independente. A imagem abaixo mostra o resultado da utilização do caderno BingImageSearchAPI, depois de adicionar uma chave de subscrição de API de Serviços Cognitivos e alterar o termo de pesquisa "filhotes" para "coelhinhos":
+1. Selecione um caderno no projeto para executá-lo. Cada caderno do repositório de Serviços Cognitivos Azure, por exemplo, é o seu próprio Quickstart autossuficiente. A imagem abaixo mostra o resultado da utilização do caderno BingImageSearchAPI, depois de adicionar uma chave de subscrição de API de Serviços Cognitivos e alterar o termo de pesquisa "filhotes" para "coelhinhos":
 
-    ![Caderno jupyter em execução clonado do GitHub](media/quickstarts/clone-notebook-result.png)
+    ![Caderno jupyter gerido do GitHub](media/quickstarts/clone-notebook-result.png)
 
-1. Quando terminar de executar o caderno, selecione **File** > **Close e pare** para fechar o caderno e a janela do seu navegador.
+1. Quando terminar de executar o portátil, selecione **'Arquivar's**  >  **Close e pare** para fechar o portátil e a janela do navegador.
 
-1. Para partilhar um portátil individual no projeto, clique no caderno e selecione **link Copy** (atalho de teclado: y):
+1. Para partilhar um caderno individual no projeto, clique com o botão direito no bloco de notas e selecione **Copy link** (atalho de teclado: y):
 
-    ![Comando de menu de contexto para copiar um link para um caderno individual](media/quickstarts/copy-link-to-individual-notebook.png)
+    ![Comando do menu de contexto para copiar um link para um caderno individual](media/quickstarts/copy-link-to-individual-notebook.png)
 
-1. Para editar ficheiros que não os cadernos, clique no ficheiro no projeto e selecione **o ficheiro Editar** (atalho do teclado: i). A ação predefinida, **Executar** (atalho do teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
+1. Para editar ficheiros que não os cadernos, clique com o botão direito no ficheiro do projeto e selecione editar o **ficheiro Editar** (atalho de teclado: i). A ação predefinida, **Executar** (atalho de teclado: r), só mostra o conteúdo do ficheiro e não permite a edição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e execute um caderno jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

@@ -7,25 +7,28 @@ ms.custom: subject-armqs
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: ce7c8df0fcea66d21ba2640ba26213a49efcb1c0
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 26e8c40c35b130510f1bf8ae1456cb15907b345c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601654"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851929"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM
+
 O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar os modelos do Gestor de Recursos Azure (modelos ARM) para criar um espaço de trabalho do Log Analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md)
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Para executar os comandos a partir do seu computador local, instale o Azure CLI ou os módulos Azure PowerShell. Para obter mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli) e [instalar a Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
 ### <a name="review-the-template"></a>Rever o modelo
+
 O modelo a seguir cria um espaço de trabalho vazio do Log Analytics. Guarde este modelo como *CreateWorkspace.js.*
 
 ```json
@@ -130,9 +133,10 @@ Este modelo define um recurso:
 - [Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/workspaces)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
+
 Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
 
-# <a name="cli"></a>[CLI](#tab/CLI1)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az login
@@ -144,7 +148,7 @@ az deployment group create \
 
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 Connect-AzAccount
@@ -155,15 +159,16 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 ---
 
 ### <a name="validate-the-deployment"></a>Validar a implementação
+
 Verifique se o espaço de trabalho foi criado utilizando um dos seguintes comandos. Substitua os valores da amostra **do Grupo de Recursos** e do espaço de **trabalhoName** pelos valores acima utilizados.
 
-# <a name="cli"></a>[CLI](#tab/CLI2)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az monitor log-analytics workspace show --resource-group my-workspace-01 --workspace-name my-resource-group
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-resource-group
@@ -174,6 +179,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 ## <a name="create-diagnostic-setting"></a>Criar definição de diagnóstico
 
 ### <a name="review-the-template"></a>Rever o modelo
+
 O modelo a seguir cria uma definição de diagnóstico que envia o registo de Atividade para um espaço de trabalho Log Analytics. Guarde este modelo como *CreateDiagnosticSetting.js.*
 
 ```json
@@ -241,16 +247,17 @@ Este modelo define um recurso:
 - [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
-Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](/azure-resource-manager/templates/deploy-portal) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
 
-# <a name="cli"></a>[CLI](#tab/CLI3)
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
 
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell3)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
@@ -258,6 +265,7 @@ New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -Tem
 ---
 
 ### <a name="validate-the-deployment"></a>Validar a implementação
+
 Verifique se a definição de diagnóstico foi criada utilizando um dos seguintes comandos. Substitua os valores da amostra para a subscrição e o nome de definição pelos valores acima utilizados.
 
 > [!NOTE]
@@ -267,13 +275,13 @@ Verifique se a definição de diagnóstico foi criada utilizando um dos seguinte
 az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-0000-0000-000000000000' --name 'Send Activity log to workspace'
 ```
 
-
-
 ## <a name="generate-log-data"></a>Gerar dados de registo
+
 Apenas novas entradas de registo de atividade serão enviadas para o espaço de trabalho Log Analytics, por isso execute algumas ações na sua subscrição que serão registadas, como iniciar ou parar uma máquina virtual ou criar ou modificar outro recurso. Pode ter de esperar alguns minutos para que a definição de diagnóstico seja criada e que os dados sejam inicialmente escritos no espaço de trabalho. Após este atraso, todos os eventos escritos no registo de atividade serão enviados para o espaço de trabalho dentro de alguns segundos.
 
 ## <a name="retrieve-data-with-a-log-query"></a>Recuperar dados com uma consulta de registo
-Utilize o portal Azure para utilizar o Log Analytics para obter dados do espaço de trabalho. No portal Azure, procure e, em seguida, selecione **Monitor**. 
+
+Utilize o portal Azure para utilizar o Log Analytics para obter dados do espaço de trabalho. No portal Azure, procure e, em seguida, selecione **Monitor**.
 
 ![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
@@ -294,17 +302,16 @@ Experimente uma consulta mais complexa, como `AzureActivity | summarize count() 
 ![Consulta complexa](media/quick-collect-activity-log/query-02.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
+
 Se planeia continuar a trabalhar com os rápidos e tutoriais subsequentes, talvez queira deixar estes recursos no lugar. Quando já não for necessário, elimine o grupo de recursos, que elimina a regra de alerta e os recursos conexos. Para eliminar o grupo de recursos utilizando a Azure CLI ou a Azure PowerShell
 
-
- 
-# <a name="cli"></a>[CLI](#tab/CLI3)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az group delete --name my-resource-group
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell3)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 Remove-AzResourceGroup -Name my-resource-group
@@ -313,8 +320,8 @@ Remove-AzResourceGroup -Name my-resource-group
 ---
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../platform/alerts-log-query.md) de registo e livros de [trabalho.](../platform/workbooks-overview.md) Em seguida, deverá recolher [registos](../platform/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
 
+Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../platform/alerts-log-query.md) de registo e livros de [trabalho.](../platform/workbooks-overview.md) Em seguida, deverá recolher [registos](../platform/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
 
 > [!div class="nextstepaction"]
 > [Recolher e analisar registos de recursos com o Azure Monitor](tutorial-resource-logs.md)

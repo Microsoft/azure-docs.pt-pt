@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 68d1e4e7fdf50ef3ec228b7e7ca4e620a47afb05
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d41c018e07f792fd0af4027229449d8352aa6c55
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849990"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
 
@@ -38,14 +38,14 @@ Este artigo pressupõe que já assinou a subscrição do Azure do Visual Studio 
 
 ## <a name="download-the-function-app-settings"></a>Descarregue as definições da aplicação de funções
 
-No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o ficheiro local.settings.json. 
+No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o local.settings.jsno ficheiro. 
 
 1. Pressione a tecla F1 para abrir a paleta de comando, em seguida, procure e execute o comando `Azure Functions: Download Remote Settings....` . 
 
 1. Escolha a aplicação de função criada no artigo anterior. Selecione **Sim a todos** para substituir as definições locais existentes. 
 
     > [!IMPORTANT]  
-    > Como contém segredos, o ficheiro local.settings.json nunca é publicado e é excluído do controlo de origem.
+    > Como contém segredos, o local.settings.jsem ficheiro nunca é publicado, e é excluído do controlo de origem.
 
 1. Copie o valor `AzureWebJobsStorage` , que é a chave para o valor da cadeia de ligação de conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.
 
@@ -57,7 +57,7 @@ Como está a utilizar uma ligação de saída de armazenamento de fila, tem de t
 
 O seu projeto foi configurado para utilizar [pacotes de extensão,](functions-bindings-register.md#extension-bundles)que instala automaticamente um conjunto de pacotes de extensão predefinidos. 
 
-A utilização de pacotes de extensão é ativada no ficheiro host.json na raiz do projeto, que aparece da seguinte forma:
+A utilização de pacotes de extensão é ativada no host.jsficheiro na raiz do projeto, que aparece da seguinte forma:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -68,7 +68,7 @@ A utilização de pacotes de extensão é ativada no ficheiro host.json na raiz 
 Com exceção dos gatilhos HTTP e timer, as ligações são implementadas como pacotes de extensão. Executar o seguinte [comando de pacote de dotnet](/dotnet/core/tools/dotnet-add-package) na janela Terminal para adicionar o pacote de extensão de Armazenamento ao seu projeto.
 
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ```
 
 ::: zone-end
@@ -77,7 +77,7 @@ Agora, pode adicionar a ligação de saída de armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-Em Funções, cada tipo de encadernação requer `direction` `type` um, e um único `name` a ser definido no ficheiro function.json. A forma como define estes atributos depende do idioma da sua aplicação de função.
+Em Funções, cada tipo de encadernação requer `direction` `type` um, e um único `name` a ser definido no function.jsem arquivo. A forma como define estes atributos depende do idioma da sua aplicação de função.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 

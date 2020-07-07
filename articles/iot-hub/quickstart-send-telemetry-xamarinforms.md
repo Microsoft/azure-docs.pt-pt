@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Enviar telemetria para o Hub IoT do Azure | Microsoft Docs'
-description: Neste quickstart, você executou uma aplicação de Xamarin Forms de amostra para enviar telemetria simulada para um hub IoT e para ler telemetria do hub IoT para processamento na nuvem.
+description: Neste quickstart, você executou uma aplicação de Xamarin.Forms para enviar telemetria simulada para um hub IoT e para ler telemetria a partir do hub IoT para processamento na nuvem.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -10,21 +10,21 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 05/20/2020
-ms.openlocfilehash: d2292a65ef25f6450d6810b50366daa622b92bc8
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.date: 07/01/2020
+ms.openlocfilehash: 4178ee38ca179f179824a13130121b997f4f5f14
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802742"
+ms.locfileid: "85807826"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarin-forms"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT (Formas Xamarin)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarinforms"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT (Xamarin.Forms)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste artigo, vai enviar telemetria a partir de uma aplicação de dispositivo simulado para o Hub IoT. Em seguida, pode ver os dados de uma aplicação de back-end.
 
-Este artigo utiliza uma aplicação pré-escrita de Formulários Xamarin para enviar a telemetria e um utilitário CLI para ler a telemetria do IoT Hub.
+Este artigo utiliza uma aplicação pré-escrita de Xamarin.Forms para enviar a telemetria e um utilitário CLI para ler a telemetria do IoT Hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 - Transferir o código de exemplo a partir dos [exemplos do Azure](https://github.com/Azure-Samples/azure-iot-samples-xamarin/archive/master.zip)
 
-- A mais recente versão do [Visual Studio 2019](https://visualstudio.microsoft.com/) ou [Visual Studio para Mac](https://visualstudio.microsoft.com/) com ferramentas Xamarin Forms instaladas. Este quickstart foi testado com Visual Studio 16.6.0.
+- A versão mais recente do [Visual Studio 2019](https://visualstudio.microsoft.com/) ou [Visual Studio para Mac](https://visualstudio.microsoft.com/) com ferramentas Xamarin.Forms instaladas. Este quickstart foi testado com Visual Studio 16.6.0.
 
 - Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste arranque rápido utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -116,7 +116,7 @@ A imagem que se segue mostra o tipo de telemetria que se vê na janela do termin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, você montou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub a partir de uma aplicação Xamarin Forms, e leu a telemetria a partir do centro. 
+Neste quickstart, você montou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub a partir de uma aplicação Xamarin.Forms, e leu a telemetria a partir do centro. 
 
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 

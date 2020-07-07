@@ -4,20 +4,20 @@ description: Aprenda a criar e executar um caderno Jupyter em Azure Notebooks Pr
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561757"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834136"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um caderno Jupyter com Python
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Este tutorial acompanha-o através do processo de utilização de Cadernos Azure para criar um notebook Jupyter completo que demonstra uma simples regressão linear. No decorrer deste tutorial, você se familiariza com o UI do bloco de notas Jupyter, que inclui a criação de diferentes células, células de execução, e apresentando o caderno como uma apresentação de diapositivos.
 
 O caderno completo pode ser encontrado em [Amostras de Cadernos GitHub - Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um caderno vazio para que você possa experimentar criá-lo passo a passo.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Neste tutorial, ficará a saber como:
 
@@ -51,18 +51,18 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-the-data-file"></a>Criar o ficheiro de dados
 
-O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do seu projeto denominado *cricket_chirps.csv*. Pode criar este ficheiro copiando-o a partir de [Amostras de Cadernos GitHub - Azure,](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)ou introduzindo os dados diretamente. As seguintes secções descrevem ambas as abordagens.
+O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do seu projeto chamado *cricket_chirps.csv*. Pode criar este ficheiro copiando-o a partir de [Amostras de Cadernos GitHub - Azure,](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)ou introduzindo os dados diretamente. As seguintes secções descrevem ambas as abordagens.
 
 ### <a name="upload-the-data-file"></a>Faça o upload do ficheiro de dados
 
 1. No painel de instrumentos do seu projeto em Azure Notebooks, **selecione Upload**  >  **From URL**
-1. No popup, introduza o seguinte URL em URL de ficheiro e *cricket_chirps.csv* em **Nome de Ficheiro,** selecione **'Fazer'**( **S)"**
+1. No popup, introduza o seguinte URL em **URL de ficheiro** e *cricket_chirps.csv* no Nome **de Ficheiro,** selecione **'Fazer'**
 
     ```url
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. O *ficheiro cricket_chirps.csv* deve agora aparecer na lista de ficheiros do seu projeto:
+1. O *ficheirocricket_chirps.csv* deve agora constar da lista de ficheiros do seu projeto:
 
     ![Arquivo CSV recentemente criado mostrando na lista de ficheiros do projeto](media/tutorial/csv-file-in-project.png)
 
@@ -70,7 +70,7 @@ O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do
 
 1. No painel de instrumentos do seu projeto em Azure Notebooks, **selecione + Novo**Ficheiro Em  >  **Branco**
 1. Um campo aparece na lista de ficheiros do projeto. Introduza *cricket_chirps.csv* e prima Enter.
-1. Clique à direita *cricket_chirps.csv* e selecione **Editar File**.
+1. *Clique*cricket_chirps.csvà direita e selecione **Editar File**.
 1. No editor que aparece, insira os seguintes dados:
 
     ```csv
@@ -112,7 +112,7 @@ Dentro de um caderno, pode sempre usar comandos como `!pip install` numa célula
 1. No painel de instrumentos do projeto, selecione **Definições de Projeto**.
 1. No popup que aparece, selecione o **separador Ambiente** e, em seguida, selecione **+Adicionar**.
 1. No primeiro controlo de queda (a operação) em **Etapas de Configuração do Ambiente,** escolha **Requirements.txt**.
-1. No segundo controlo de entrega (o nome do ficheiro), escolha *os requisitos.txt* (o ficheiro que criou).
+1. No segundo controlo de entrega (o nome do ficheiro), escolha *requirements.txt* (o ficheiro que criou).
 1. No terceiro controlo de drop-down (a versão Python), escolha **a Versão Python 3.6**.
 1. Selecione **Guardar**.
 
@@ -127,7 +127,7 @@ Com o ficheiro de dados pronto e o conjunto de ambiente do projeto, pode agora c
 1. No painel de instrumentos do projeto, selecione **+**  >  **Novo Caderno.**
 1. No pop-up, insira *o Exemplo linear de regressão - Cricket Chirps.ipynb* para o nome do **item,** escolha **Python 3.6** para o idioma e, em seguida, selecione **New**.
 1. Depois de aparecer o novo caderno na lista de ficheiros, selecione-o para iniciar o portátil. Um novo separador de navegador abre automaticamente.
-1. Como tem um ficheiro *requisito.txt* nas definições ambientais, vê a mensagem: "À espera que o seu recipiente termine de ser preparado." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no caderno; não é possível executar células de código, no entanto, até que o ambiente seja totalmente configurado.
+1. Como tem um ficheiro *requirements.txt* nas definições ambientais, vê a mensagem: "À espera que o seu contentor termine de ser preparado." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no caderno; não é possível executar células de código, no entanto, até que o ambiente seja totalmente configurado.
 1. O caderno abre na interface Jupyter com uma única célula de código vazia como padrão.
 
     [![Vista inicial de um novo caderno em Cadernos Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
