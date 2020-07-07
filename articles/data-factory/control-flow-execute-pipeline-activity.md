@@ -1,6 +1,6 @@
 ---
-title: Executar atividade de gasoduto na fábrica de dados azure
-description: Saiba como pode utilizar a Atividade do Gasoduto executar para invocar um oleoduto data factory a partir de outro pipeline data Factory.
+title: Executar atividade de gasoduto na Fábrica de Dados Azure
+description: Saiba como pode utilizar a Atividade do Gasoduto executar para invocar um oleoduto data factory a partir de outro oleoduto data factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415286"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade do pipeline na Fábrica de Dados Azure
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade de pipeline na Fábrica de Dados Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -26,7 +26,7 @@ A atividade Executar Pipeline permite que um pipeline do Data Factory invoque ou
 
 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -62,23 +62,23 @@ A atividade Executar Pipeline permite que um pipeline do Data Factory invoque ou
 }
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade do gasoduto de execução. | String | Sim
-tipo | Deve ser definido para: **ExecutarPipeline**. | String | Sim
-oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência de gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade de nome de referência especifica o nome do pipeline de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros a serem passados para o oleoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | Não
-waitOnCompletion | Define se a execução da atividade aguarda que a execução do gasoduto dependente termine. A predefinição é falso. | Booleano | Não
+name | Nome da atividade do gasoduto de execução. | String | Yes
+tipo | Deve ser definido para: **ExecutePipeline**. | String | Yes
+oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Yes
+parâmetros | Parâmetros a passar para o gasoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | No
+esperaCompletion | Define se a execução da atividade aguarda o fim da execução do gasoduto dependente. A predefinição é falso. | Booleano | No
 
 ## <a name="sample"></a>Sample
 Este cenário tem dois oleodutos:
 
-- **Pipeline principal** - Este gasoduto tem uma atividade execute pipeline que chama o gasoduto invocado. O gasoduto principal leva `masterSourceBlobContainer`dois `masterSinkBlobContainer`parâmetros: .
-- **Pipeline invocado** - Este pipeline tem uma atividade de Cópia que copia dados de uma fonte de Blob Azure para a pia de Azure Blob. O gasoduto invocado leva `sourceBlobContainer`dois `sinkBlobContainer`parâmetros: .
+- **Oleoduto principal** - Este gasoduto tem uma atividade do Pipeline Execut que chama o gasoduto invocado. O oleoduto principal tem dois parâmetros: `masterSourceBlobContainer` `masterSinkBlobContainer` . .
+- **Pipeline invocado** - Este gasoduto tem uma atividade copy que copia dados de uma fonte Azure Blob para a pia Azure Blob. O gasoduto invocado requer dois parâmetros: `sourceBlobContainer` `sinkBlobContainer` . .
 
-### <a name="master-pipeline-definition"></a>Definição de pipeline principal
+### <a name="master-pipeline-definition"></a>Definição de gasoduto principal
 
 ```json
 {
@@ -220,9 +220,9 @@ Este cenário tem dois oleodutos:
 }
 ```
 
-### <a name="running-the-pipeline"></a>Correndo o oleoduto
+### <a name="running-the-pipeline"></a>A executar o oleoduto
 
-Para executar o pipeline principal neste exemplo, são passados os seguintes valores para os parâmetros masterSourceBlobContainer e masterSinkBlobContainer: 
+Para executar o oleoduto principal neste exemplo, são passados os seguintes valores para os parâmetros masterSourceBlobContainer e masterSinkBlobContainer: 
 
 ```json
 {
@@ -231,7 +231,7 @@ Para executar o pipeline principal neste exemplo, são passados os seguintes val
 }
 ```
 
-O principal gasoduto encaminha estes valores para o gasoduto invocado, como mostra o seguinte exemplo: 
+O gasoduto principal encaminha estes valores para o gasoduto invocado, como mostra o seguinte exemplo: 
 
 ```json
 {

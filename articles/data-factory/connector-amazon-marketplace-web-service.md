@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do AWS Marketplace
-description: Saiba como copiar dados do Amazon Marketplace Web Service para suportar lojas de dados de sink, utilizando uma atividade de cópia num pipeline azure Data Factory.
+description: Saiba como copiar dados do Amazon Marketplace Web Service para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,51 +12,51 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 4620ef5b6a72afbe86b0ace33328a769eab31e5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418274"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar dados do Amazon Marketplace Web Service utilizando a Azure Data Factory
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar dados do Amazon Marketplace Web Service usando a Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados do Amazon Marketplace Web Service. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Azure Data Factory para copiar dados do Amazon Marketplace Web Service. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector Amazon Marketplace Web Service é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados do Amazon Marketplace Web Service para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados do Amazon Marketplace Web Service para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não necessita de instalar manualmente qualquer controlador utilizando este conector.
+A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Amazon Marketplace Web Service.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector Do Serviço Web Amazon Marketplace.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
 As seguintes propriedades são suportadas para o serviço ligado ao Amazon Marketplace Web Service:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AmazonMWS** | Sim |
-| endpoint | O ponto final do servidor Amazon MWS, (isto é, mws.amazonservices.com)  | Sim |
-| marketplaceID | O ID do Mercado Amazon de onde pretende recuperar dados. Para obter dados de várias IDs do Marketplace, separe-os com uma vírem (`,`). (isto é, A2EUQ1WTGCTBG2)  | Sim |
-| sellerID | A identidade do vendedor da Amazon.  | Sim |
-| mwsAuthToken | O símbolo de autenticação MWS da Amazon. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
-| acessoKeyId | O ID da chave de acesso usado para aceder a dados.  | Sim |
-| segredoChave | A chave secreta usada para aceder a dados. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é true.  | Não |
-| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do TLS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **AmazonMWS** | Yes |
+| endpoint | O ponto final do servidor Amazon MWS(isto é, mws.amazonservices.com)  | Yes |
+| marketplaceID | O ID do Amazon Marketplace de onde pretende obter dados. Para obter dados de vários IDs do Marketplace, separe-os com uma vírgula ( `,` ). (isto é, A2EUQ1WTGCTBG2)  | Yes |
+| sellerID | A identificação do vendedor da Amazon.  | Yes |
+| mwsAuthToken | O símbolo de autenticação amazon MWS. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| accessKeyId | O ID da chave de acesso usado para aceder aos dados.  | Yes |
+| SecretKey | A chave secreta usada para aceder aos dados. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo:**
 
@@ -85,14 +85,14 @@ As seguintes propriedades são suportadas para o serviço ligado ao Amazon Marke
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados do Amazon Marketplace Web Service.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo Conjunto de Dados do Amazon Marketplace Web Service.
 
-Para copiar dados do Amazon Marketplace Web Service, delineie a propriedade tipo do conjunto de dados para **a AmazonMWSObject**. As seguintes propriedades são suportadas:
+Para copiar dados do Amazon Marketplace Web Service, defina a propriedade tipo do conjunto de dados para **o AmazonMWSObject**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonMWSObject** | Sim |
-| tableName | Nome da mesa. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonMWSObject** | Yes |
+| tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -114,15 +114,15 @@ Para copiar dados do Amazon Marketplace Web Service, delineie a propriedade tipo
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte do Amazon Marketplace Web Service.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte do Amazon Marketplace Web Service.
 
 ### <a name="amazon-mws-as-source"></a>Amazon MWS como fonte
 
-Para copiar dados do Amazon Marketplace Web Service, delineie o tipo de origem na atividade de cópia para **o AmazonMWSSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
+Para copiar dados do Amazon Marketplace Web Service, decreva o tipo de origem na atividade de cópia para o **AmazonMWSSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AmazonMWSSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AmazonMWSSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -159,7 +159,7 @@ Para copiar dados do Amazon Marketplace Web Service, delineie o tipo de origem n
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

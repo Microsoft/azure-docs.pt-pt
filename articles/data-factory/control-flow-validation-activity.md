@@ -1,6 +1,6 @@
 ---
-title: Atividade de validação na Fábrica de Dados Azure
-description: A atividade de validação não prossegue a execução do gasoduto até validar o conjunto de dados anexo com determinados critérios que o utilizador especifica.
+title: Atividade de validação na Azure Data Factory
+description: A atividade de Validação não continua a executar o gasoduto até validar o conjunto de dados anexado com determinados critérios que o utilizador especifica.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417934"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação na Fábrica de Dados Azure
+# <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Pode utilizar uma Validação num oleoduto para garantir que o gasoduto só continua a ser executado depois de ter validado a referência do conjunto de dados anexado, que satisfaz os critérios especificados, ou que o prazo foi atingido.
+Pode utilizar uma Validação num oleoduto para garantir que o gasoduto só continua a execução uma vez que tenha validado a referência de conjunto de dados anexado, que satisfaça os critérios especificados, ou que o tempo limite tenha sido atingido.
 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 
@@ -58,20 +58,20 @@ Pode utilizar uma Validação num oleoduto para garantir que o gasoduto só cont
 ```
 
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade de 'Validação' | String | Sim |
-tipo | Deve ser definido para **validação**. | String | Sim |
-conjunto de dados | A atividade bloqueará a execução até que tenha validado esta referência do conjunto de dados e que satisfaça os critérios especificados, ou tenha sido atingido o prazo. O conjunto de dados fornecido deve apoiar a propriedade "MinimumSize" ou "ChildItems". | Referência de conjunto de dados | Sim |
-tempo limite | Especifica o tempo limite para a execução da atividade. Se não for especificado qualquer valor, o valor por defeito é de 7 dias ("7.00:00:00"). O formato é d.hh:mm:ss | String | Não |
-sono | Um atraso em segundos entre tentativas de validação. Se não for especificado qualquer valor, o valor por defeito é de 10 segundos. | Número inteiro | Não |
-criançaItems | Verifique se a pasta tem itens infantis. Pode ser definido como verdadeiro : Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor do tempo for atingido.-falso: Valide que a pasta existe e que está vazia. Bloqueia até que a pasta esteja vazia ou até que o valor do tempo for atingido. Se não for especificado qualquer valor, a atividade bloqueará até que a pasta exista ou até que o prazo seja atingido. | Booleano | Não |
-mínimoTamanho | Tamanho mínimo de um ficheiro em bytes. Se não for especificado qualquer valor, o valor por defeito é de 0 bytes | Número inteiro | Não |
+name | Nome da atividade de 'Validação' | String | Yes |
+tipo | Deve ser definido para **validação.** | String | Yes |
+conjunto de dados | A atividade bloqueará a execução até que tenha validado esta referência de conjunto de dados e que satisfaça os critérios especificados, ou o tempo limite tenha sido atingido. O conjunto de dados fornecido deve suportar a propriedade "MinimumSize" ou "ChildItems". | Referência do conjunto de dados | Yes |
+tempo limite | Especifica o tempo limite para a execução da atividade. Se não for especificado qualquer valor, o valor predefinido é de 7 dias ("7.00:00:00"). O formato é d.hh:mm:ss | String | No |
+sono | Um atraso em segundos entre tentativas de validação. Se não for especificado qualquer valor, o valor predefinido é de 10 segundos. | Número inteiro | No |
+childItems | Verifique se a pasta tem objetos de criança. Pode ser definido como verdadeiro : Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor do tempo limite seja atingido.-falso: Valide que a pasta existe e que está vazia. Bloqueia até que a pasta esteja vazia ou até que o valor do tempo limite seja atingido. Se não for especificado qualquer valor, a atividade bloqueará até que a pasta exista ou até que o tempo limite seja atingido. | Booleano | No |
+tamanho mínimo | Tamanho mínimo de um ficheiro em bytes. Se nenhum valor for especificado, o valor predefinido é 0 bytes | Número inteiro | Não |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)

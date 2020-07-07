@@ -1,6 +1,6 @@
 ---
 title: Transforme dados usando o script U-SQL
-description: Aprenda a processar ou transformar dados executando scripts U-SQL no serviço de computação Azure Data Lake Analytics.
+description: Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
 ms.author: abnarain
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 427b7fff7b8f76412d7bd9d63aeb64583637779c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418971"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
@@ -26,40 +26,40 @@ ms.locfileid: "81418971"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Um oleoduto numa fábrica de dados azure processa dados em serviços de armazenamento ligados utilizando serviços de cálculo ligados. Contém uma sequência de atividades em que cada atividade realiza uma operação de processamento específica. Este artigo descreve a **Atividade U-SQL** do Data Lake Analytics que executa um script **U-SQL** num serviço ligado à computação **Azure Data Lake Analytics.** 
+Um oleoduto numa fábrica de dados da Azure processa dados em serviços de armazenamento ligados utilizando serviços de computação ligados. Contém uma sequência de atividades em que cada atividade realiza uma operação de processamento específica. Este artigo descreve a **Atividade U-SQL do Data Lake Analytics** que executa um script **U-SQL** num serviço de computação **Azure Data Lake Analytics.** 
 
-Crie uma conta Azure Data Lake Analytics antes de criar um pipeline com uma Atividade U-SQL do Data Lake Analytics. Para saber mais sobre o Azure Data Lake Analytics, consulte [Start start with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Crie uma conta Azure Data Lake Analytics antes de criar um oleoduto com uma Atividade U-SQL do Data Lake Analytics. Para saber mais sobre a Azure Data Lake Analytics, consulte [Começar com a Azure Data Lake Analytics.](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Serviço ligado ao Lago de Dados Azure Analytics
-Cria um serviço ligado ao **Azure Data Lake Analytics** para ligar um serviço de computação Azure Data Lake Analytics a uma fábrica de dados Azure. A atividade de Data Lake Analytics U-SQL no pipeline refere-se a este serviço ligado. 
+## <a name="azure-data-lake-analytics-linked-service"></a>Serviço ligado a Azure Data Lake Analytics
+Você cria um serviço **Azure Data Lake Analytics** ligado para ligar um serviço de computação Azure Data Lake Analytics a uma fábrica de dados Azure. A atividade U-SQL do Data Lake Analytics no oleoduto refere-se a este serviço ligado. 
 
-O quadro seguinte apresenta descrições para as propriedades genéricas utilizadas na definição JSON. 
+A tabela a seguir fornece descrições para as propriedades genéricas utilizadas na definição JSON. 
 
 | Propriedade                 | Descrição                              | Necessário                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade do tipo deve ser definida para: **AzureDataLakeAnalytics**. | Sim                                      |
-| **nome da conta**          | Nome da conta azure Data Lake Analytics.  | Sim                                      |
-| **dadosLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Não                                       |
-| **subscriptionId**       | ID de subscrição azure                    | Não                                       |
-| **resourceGroupName**    | Nome do grupo de recursos do Azure                | Não                                       |
+| **tipo**                 | A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. | Yes                                      |
+| **accountName**          | Nome da conta Azure Data Lake Analytics.  | Yes                                      |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | No                                       |
+| **subscriçãoId**       | ID de assinatura Azure                    | No                                       |
+| **resourceGroupName**    | Nome do grupo de recursos do Azure                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
-O serviço ligado ao Azure Data Lake Analytics requer uma autenticação principal de serviço para se ligar ao serviço Azure Data Lake Analytics. Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe o acesso tanto ao Data Lake Analytics como à Data Lake Store que utiliza. Para obter passos detalhados, consulte a [autenticação serviço-a-serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores, que utiliza para definir o serviço vinculado:
+O serviço Azure Data Lake Analytics está ligado a uma autenticação principal do serviço para se ligar ao serviço Azure Data Lake Analytics. Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe o acesso tanto ao Data Lake Analytics como à Data Lake Store que utiliza. Para etapas detalhadas, consulte [a autenticação do Serviço ao Serviço.](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
 
 * ID da aplicação
 * Chave de aplicação 
 * ID do inquilino
 
-Conceda a permissão principal do serviço ao seu Azure Data Lake Anatlyics utilizando o Assistente de [Utilizador Add](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
+Conceder permissão principal do serviço aos seus Azure Data Lake Anatlyics utilizando o [Add User Wizard](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Utilize a autenticação principal do serviço especificando as seguintes propriedades:
 
 | Propriedade                | Descrição                              | Necessário |
 | :---------------------- | :--------------------------------------- | :------- |
-| **serviçoPrincipalId**  | Especifique a identificação do cliente do pedido.     | Sim      |
-| **serviçoPrincipalKey** | Especifique a chave da aplicação.           | Sim      |
-| **inquilino**              | Especifique as informações do arrendatário (nome de domínio ou ID do inquilino) sob a qual reside a sua candidatura. Pode recuperá-lo pairando sobre o rato no canto superior direito do portal Azure. | Sim      |
+| **servicePrincipalId**  | Especifique a identificação do cliente da aplicação.     | Yes      |
+| **servicePrincipalKey** | Especifique a chave da aplicação.           | Yes      |
+| **tenant**              | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Pode recuperá-lo pairando sobre o rato no canto superior direito do portal Azure. | Yes      |
 
 **Exemplo: Autenticação principal do serviço**
 ```json
@@ -87,10 +87,10 @@ Utilize a autenticação principal do serviço especificando as seguintes propri
 }
 ```
 
-Para saber mais sobre o serviço ligado, consulte [os serviços ligados à Compute.](compute-linked-services.md)
+Para saber mais sobre o serviço ligado, consulte [os serviços ligados ao Compute.](compute-linked-services.md)
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Atividade de U-SQL do Data Lake Analytics
-O seguinte snippet JSON define um oleoduto com uma Atividade U-SQL do Data Lake Analytics. A definição de atividade tem uma referência ao serviço ligado ao Azure Data Lake Analytics que criou anteriormente. Para executar um script De Data Lake Analytics U-SQL, data Factory submete o script especificado para o Data Lake Analytics, e as inputs e saídas necessárias são definidas no script para Data Lake Analytics para obter e saída. 
+O seguinte snippet JSON define um oleoduto com uma Atividade U-SQL do Data Lake Analytics. A definição de atividade tem uma referência ao serviço ligado Azure Data Lake Analytics que criou anteriormente. Para executar um script U-SQL do Data Lake Analytics, a Data Factory submete o script especificado para o Data Lake Analytics, e as entradas e saídas necessárias são definidas no script para data lake analytics para obter e obter. 
 
 ```json
 {
@@ -117,25 +117,25 @@ O seguinte snippet JSON define um oleoduto com uma Atividade U-SQL do Data Lake 
 }
 ```
 
-A tabela seguinte descreve nomes e descrições de propriedades específicas desta atividade. 
+A tabela seguinte descreve nomes e descrições de propriedades específicas a esta atividade. 
 
 | Propriedade            | Descrição                              | Necessário |
 | :------------------ | :--------------------------------------- | :------- |
-| nome                | Nome da atividade no oleoduto     | Sim      |
-| descrição         | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo                | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
-| linkedServiceName   | Serviço Ligado ao Azure Data Lake Analytics. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md)  |Sim       |
-| scriptPath          | Caminho para pasta que contém o script U-SQL. O nome do ficheiro é sensível a casos. | Sim      |
-| scriptLinkedService | Serviço ligado que liga a **Azure Data Lake Store** ou **O Armazenamento Azure** que contém o script para a fábrica de dados | Sim      |
-| degreeOfParallelismo | O número máximo de nós usado simultaneamente para gerir o trabalho. | Não       |
-| prioridade            | Determina quais os postos de trabalho que estão em fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não       |
-| parâmetros          | Parâmetros para passar para o script U-SQL.    | Não       |
-| versão tempo de execução      | Versão de tempo de execução do motor U-SQL para usar. | Não       |
-| compilaçãoMode     | <p>Modo de compilação de U-SQL. Deve ser um desses valores: **Semântico:** Apenas efetuar verificações semânticas e verificações de sanidade necessárias, **Full:** Execute a compilação completa, incluindo verificação de sintaxe, otimização, geração de códigos, etc., **SingleBox:** Execute a compilação completa, com definição targetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | Não |
+| name                | Nome da atividade no oleoduto     | Yes      |
+| descrição         | Texto descrevendo o que a atividade faz.  | No       |
+| tipo                | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Yes      |
+| linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Yes       |
+| scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do ficheiro é sensível a casos. | Yes      |
+| scriptLinkedService | Serviço ligado que liga a **Azure Data Lake Store** ou **Azure Storage** que contém o script para a fábrica de dados | Yes      |
+| graus DeParallelismo | O número máximo de nós usados simultaneamente para gerir o trabalho. | No       |
+| prioridade            | Determina quais os trabalhos de todos os que estão na fila que devem ser selecionados para serem executados primeiro. Quanto menor for o número, maior é a prioridade. | No       |
+| parâmetros          | Parâmetros para passar para o script U-SQL.    | No       |
+| execuçãoVersão      | Versão de tempo de execução do motor U-SQL para utilizar. | No       |
+| compilaçãoMode     | <p>Modo de compilação de U-SQL. Deve ser um destes valores: **Semântico:** Apenas efetue verificações semânticas e verificações de sanidade necessárias, **Full:** Realize a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** Execute a compilação completa, com a definição targetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | No |
 
-Consulte [SearchLogProcessing.txt](#sample-u-sql-script) para obter a definição de script. 
+Consulte [SearchLogProcessing.txt](#sample-u-sql-script) para a definição do script. 
 
-## <a name="sample-u-sql-script"></a>Exemplo de script U-SQL
+## <a name="sample-u-sql-script"></a>Guião U-SQL de amostra
 
 ```
 @searchlog =
@@ -164,12 +164,12 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-No exemplo do script acima, a entrada e saída para o script é definida ** \@dentro** e ** \@fora** dos parâmetros. Os valores para ** \@** os parâmetros dentro e ** \@fora** do script U-SQL são passados dinamicamente pela Data Factory utilizando a secção de 'parâmetros'. 
+No exemplo do script acima, a entrada e saída do script é definida ** \@ dentro** e ** \@ fora** dos parâmetros. Os valores para parâmetros ** \@ de entrada** e ** \@ saída** no script U-SQL são aprovados dinamicamente pela Data Factory utilizando a secção "parâmetros". 
 
-Pode especificar outras propriedades, como o degreeOfParallelismo e prioridade também na definição do seu pipeline para os trabalhos que funcionam no serviço Azure Data Lake Analytics.
+Você pode especificar outras propriedades, como o grauOfParallelismo e prioridade também na sua definição de pipeline para os trabalhos que funcionam no serviço Azure Data Lake Analytics.
 
 ## <a name="dynamic-parameters"></a>Parâmetros dinâmicos
-Na definição do gasoduto da amostra, os parâmetros dentro e fora são atribuídos com valores codificados. 
+Na definição do gasoduto de amostra, os parâmetros de entrada e saída são atribuídos com valores codificados. 
 
 ```json
 "parameters": {
@@ -178,7 +178,7 @@ Na definição do gasoduto da amostra, os parâmetros dentro e fora são atribu�
 }
 ```
 
-É possível utilizar parâmetros dinâmicos. Por exemplo: 
+Em vez disso, é possível utilizar parâmetros dinâmicos. Por exemplo: 
 
 ```json
 "parameters": {
@@ -187,15 +187,15 @@ Na definição do gasoduto da amostra, os parâmetros dentro e fora são atribu�
 }
 ```
 
-Neste caso, os ficheiros de entrada são ainda recolhidos a partir da pasta /datalake/input e os ficheiros de saída são gerados na pasta /datalake/output. Os nomes dos ficheiros são dinâmicos com base na hora de início da janela que está a ser passada quando o gasoduto é acionado.  
+Neste caso, os ficheiros de entrada ainda são recolhidos a partir da pasta /datalake/entrada e os ficheiros de saída são gerados na pasta /datalake/output. Os nomes dos ficheiros são dinâmicos com base na hora de início da janela ser passada quando o gasoduto é acionado.  
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
+Veja os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade da colmeia](transform-data-using-hadoop-hive.md)
-* [Atividade de porco](transform-data-using-hadoop-pig.md)
-* [MapReduzir a atividade](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de streaming de hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade do porco](transform-data-using-hadoop-pig.md)
+* [Atividade mapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Atividade de execução de lote de aprendizagem automática](transform-data-using-machine-learning.md)
