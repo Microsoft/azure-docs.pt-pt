@@ -1,47 +1,47 @@
 ---
-title: Proteção avançada de ameaças - Portal Azure - Base de Dados Azure para MariaDB
-description: A Proteção contra ameaças deteta atividades anómalas na base de dados que indicam potenciais ameaças à segurança na base de dados.
+title: Proteção Avançada de Ameaças - Portal Azure - Base de Dados Azure para MariaDB
+description: A Proteção de Ameaças deteta atividades anómalas de bases de dados que indiquem potenciais ameaças à segurança na base de dados.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530143"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção avançada de ameaças para base de dados Azure para MariaDB
+# <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção Avançada de Ameaças para Base de Dados de Azure para MariaDB
 
-Advanced Threat Protection for Azure Database for MariaDB deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados.
+A Advanced Threat Protection for Azure Database for MariaDB deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
-A Advanced Threat Protection faz parte da oferta avançada de segurança de dados, que é um pacote unificado para capacidades de segurança avançadas. A Proteção Avançada de Ameaças pode ser acedida e gerida através do [portal Azure.](https://portal.azure.com)
+A Advanced Threat Protection faz parte da oferta avançada de Segurança de Dados, que é um pacote unificado para capacidades avançadas de segurança. A Advanced Threat Protection pode ser acedida e gerida através do [portal Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> A Proteção Avançada de Ameaças está em pré-visualização pública. Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para MariaDB está implantada para servidores otimizados para Fins Gerais e Memória.
+> A Proteção Avançada de Ameaças está em visualização pública. Esta funcionalidade encontra-se disponível em todas as regiões do Azure onde a Base de Dados Azure para MariaDB é implantada para servidores otimizados para fins gerais e memória.
 
 > [!NOTE]
-> A funcionalidade de Proteção contra Ameaças **Avançadas não** está disponível nas seguintes regiões do governo azure e das nuvens soberanas: EUA Gov Texas, US Gov Arizona, US Gov Iowa, EUA, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha Norte, China Leste, China East 2. Visite [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para a disponibilidade geral do produto.
+> A funcionalidade de Proteção de Ameaças **Avançadas não** está disponível nas seguintes regiões de nuvens governamentais e soberanas: EUA Gov Texas, EUA Gov Arizona, US Gov Iowa, EUA, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Visite [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral de produtos.
 
 ## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças
-1. Lance o portal [https://portal.azure.com](https://portal.azure.com)Azure em .
-2. Navegue para a página de configuração da Base de Dados Azure para o servidor MariaDB que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (Pré-visualização)**.
-3. Na página de configuração de **Proteção de Ameaças Avançadas (Pré-visualização):**
+1. Lançar o portal Azure em [https://portal.azure.com](https://portal.azure.com) .
+2. Navegue para a página de configuração da Base de Dados Azure para o servidor MariaDB que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (Preview)**.
+3. Na página de configuração **da Proteção de Ameaças Avançadas (Pré-visualização):**
 
-   - Ativar a Proteção avançada de ameaças no servidor.
-   - Em **Definições Avançadas de Proteção contra Ameaças,** nos **alertas enviar para** caixa de texto, forneça a lista de e-mails para receber alertas de segurança após a deteção de atividades anómalas na base de dados.
+   - Ativar a Proteção Avançada de Ameaças no servidor.
+   - Nas **Definições avançadas de proteção contra ameaças,** nos **alertas enviar para a** caixa de texto, forneça a lista de e-mails para receber alertas de segurança após a deteção de atividades de base de dados anómalas.
   
    ![Configurar a deteção de ameaças](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 
-## <a name="explore-anomalous-database-activities"></a>Explore atividades anómalas de base de dados
+## <a name="explore-anomalous-database-activities"></a>Explore atividades anómalas de bases de dados
 
-Recebe uma notificação por e-mail após a deteção de atividades anómalas na base de dados. O e-mail fornece informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anómalas, nome da base de dados, nome do servidor, nome da aplicação e a hora do evento. Além disso, o e-mail fornece informações sobre possíveis causas e ações recomendadas para investigar e mitigar a ameaça potencial para a base de dados.
+Você recebe uma notificação por e-mail após a deteção de atividades de base de dados anómalas. O e-mail fornece informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anómalas, nome da base de dados, nome do servidor, nome da aplicação e hora do evento. Além disso, o e-mail fornece informações sobre possíveis causas e ações recomendadas para investigar e mitigar a potencial ameaça à base de dados.
  
-1. Clique no link de **alertas recentes no** e-mail para lançar o portal Azure e mostrar a página de alertas do Centro de Segurança Azure, que fornece uma visão geral das ameaças ativas detetadas na base de dados SQL.
+1. Clique no link **de alertas recentes** do Ver no e-mail para lançar o portal Azure e mostrar a página de alertas do Azure Security Center, que fornece uma visão geral das ameaças ativas detetadas na base de dados SQL.
     
-    ![Relatório de atividadeanómala](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+    ![Relatório de atividades anómalas](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
 
     Ver ameaças ativas:
 
@@ -53,14 +53,14 @@ Recebe uma notificação por e-mail após a deteção de atividades anómalas na
 
 ## <a name="explore-threat-detection-alerts"></a>Explore alertas de deteção de ameaças
 
-A Deteção de Ameaças de Base de Dados SQL integra os seus alertas com o [Azure Security Center](https://azure.microsoft.com/services/security-center/). Um sql vivo de deteção de ameaças dentro da base de dados e lâminas ATP SQL no portal Azure rastreia o estado das ameaças ativas.
+A Deteção de Ameaças de Base de Dados SQL integra os seus alertas com [o Azure Security Center](https://azure.microsoft.com/services/security-center/). Uma telha de deteção de ameaças SQL viva dentro da base de dados e lâminas ATP SQL no portal Azure rastreia o estado de ameaças ativas.
 
-Clique em alerta de **deteção** de ameaças para lançar a página de alertas do Azure Security Center e obter uma visão geral das ameaças sQL ativas detetadas na base de dados.
+Clique **em alerta de deteção de ameaças** para lançar a página de alertas do Azure Security Center e obter uma visão geral das ameaças de SQL ativas detetadas na base de dados.
 
    ![Alerta de deteção de ameaças](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
    
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [o Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para mais informações sobre preços, consulte a Base de [Dados Azure para a página de Preços MariaDB](https://azure.microsoft.com/pricing/details/mariadb/)  
+* Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços da MariaDB](https://azure.microsoft.com/pricing/details/mariadb/)  
