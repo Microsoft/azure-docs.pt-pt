@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117085"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964809"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Compor uma cena do Blender com o Batch Explorer
 
@@ -27,9 +27,9 @@ Neste tutorial, ficará a saber como:
 
 Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch no modelo de faturação de pagamento por utilização. O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que fornece um crédito monetário.
 
-Precisa de uma conta do Azure Batch com uma conta de armazenamento associada.  Veja um dos artigos de Início Rápido do Batch, como o [artigo da CLI](https://docs.microsoft.com/azure/batch/quick-create-cli), para criar uma conta do Batch.
+Precisa de uma conta do Azure Batch com uma conta de armazenamento associada.  Veja um dos artigos de Início Rápido do Batch, como o [artigo da CLI](./quick-create-cli.md), para criar uma conta do Batch.
 
-Para o tamanho de VM e o número de VMs especificados neste tutorial, é necessária uma quota de núcleos de baixa prioridade de, pelo menos, 50 núcleos; a quota predefinida pode ser utilizada, mas terá de ser utilizada uma VM com um tamanho inferior, o que significa que as imagens demoram mais tempo a ser compostas. O processo para pedir uma quota de núcleos maior está detalhado [neste artigo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+Para o tamanho de VM e o número de VMs especificados neste tutorial, é necessária uma quota de núcleos de baixa prioridade de, pelo menos, 50 núcleos; a quota predefinida pode ser utilizada, mas terá de ser utilizada uma VM com um tamanho inferior, o que significa que as imagens demoram mais tempo a ser compostas. O processo para pedir uma quota de núcleos maior está detalhado [neste artigo](./batch-quota-limit.md).
 
 Por fim, o [Batch Explorer](https://azure.github.io/BatchExplorer/) tem de estar instalado; está disponível para Windows, OSX e Linux. É opcional, mas se o [Blender](https://www.blender.org/download/) for instalado, o ficheiro de modelo de exemplo pode ser visto.
 
@@ -139,4 +139,4 @@ Após a conclusão de todas as tarefas, o trabalho é marcado como concluído: !
 ## <a name="next-steps"></a>Passos seguintes
 * Na secção “Gallery” (“Galeria”), explore as aplicações de composição disponíveis através do Batch Explorer.
 * Há vários modelos disponíveis para cada aplicação, que vão aumentar ao longo do tempo.  Por exemplo, para os modelos do Blender, existe um que divide uma imagem em mosaicos, pelo que é possível compor partes de uma imagem em paralelo.
-* Para obter uma descrição completa das capacidades de composição, veja o conjunto de artigos [aqui](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* Para obter uma descrição completa das capacidades de composição, veja o conjunto de artigos [aqui](./batch-rendering-service.md).

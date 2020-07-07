@@ -1,5 +1,5 @@
 ---
-title: Integração do Cofre-Chave com a DigiCert Certificate Authority
+title: Integrar o Key Vault com a Autoridade de Certificação DigiCert
 description: Como integrar o Cofre-Chave com a DigiCert Certificate Authority
 services: key-vault
 author: msmbaldwin
@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d6cb8d386efbcdaf053f0740d955b249c0e636b4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84908242"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964503"
 ---
-# <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integração do Cofre-Chave com a DigiCert Certificate Authority
+# <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
 O Azure Key Vault permite-lhe facilmente provisões, gestão e implementação de certificados digitais para a sua rede e para permitir comunicações seguras para aplicações. Um certificado digital é uma credencial electrónica para estabelecer provas de identidade numa transação electrónica. 
 
@@ -57,7 +57,7 @@ Depois de recolher informações acima da conta DigiCert CertCentral, pode agora
  ![Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  No ecrã **da Create a Certificate A Autoridade** escolhe os seguintes valores:
     -   **Nome**: Adicione um nome emitente identificável. Exemplo DigicertCA
-    -   **Forneça**: Selecione DigiCert do menu.
+    -   **Provedor**: Selecione DigiCert do menu.
     -   **ID de conta**: Insira o seu ID de ContaCentral DigiCert Cert
     -   **Senha de conta**: Introduza a chave API gerada na sua Conta Centro de Cert Cert DigiCert
     -   **ID da organização**: Enter OrgID recolhido a partir da ContaCentral DigiCert 

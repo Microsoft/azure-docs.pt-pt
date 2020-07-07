@@ -1,22 +1,22 @@
 ---
-title: 'Padrão: Implementar recursos com uma definição de política'
-description: Este padrão de Política Azure fornece um exemplo de como mobilizar recursos com uma definição de política.
+title: 'Padrão: Mobilizar recursos com definição de política'
+description: Este padrão de Política Azure fornece um exemplo de como implantar recursos com uma definição de política.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172675"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970863"
 ---
-# <a name="azure-policy-pattern-deploy-resources"></a>Padrão de política azure: recursos de implantação
+# <a name="azure-policy-pattern-deploy-resources"></a>Padrão de Política Azure: mobilizar recursos
 
-O efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists) permite implementar um modelo de Gestor de [Recursos Azure](../../../azure-resource-manager/templates/overview.md) ao criar ou atualizar um recurso que não seja compatível. Esta abordagem pode ser preferível à utilização do efeito [de negação,](../concepts/effects.md#deny) uma vez que permite que os recursos continuem a ser criados, mas assegura que as alterações são feitas para os tornar conformes.
+O efeito [implementarIfNotExists](../concepts/effects.md#deployifnotexists) permite implementar um [modelo de Gestor de Recursos Azure](../../../azure-resource-manager/templates/overview.md) (modelo ARM) ao criar ou atualizar um recurso que não esteja em conformidade. Esta abordagem pode ser preferível à utilização do efeito [de negação,](../concepts/effects.md#deny) uma vez que permite que os recursos continuem a ser criados, mas garante que as alterações são feitas para os tornar conformes.
 
-## <a name="sample-policy-definition"></a>Definição de política de amostras
+## <a name="sample-policy-definition"></a>Definição de política de amostra
 
-Esta definição **field** de política utiliza `type` o operador de campo para avaliar o recurso criado ou atualizado. Quando esse recurso é um _Microsoft.Network/virtualNetworks,_ a política procura um observador de rede na localização do novo recurso ou atualizado. Se não estiver localizado um observador de rede correspondente, o modelo do Gestor de Recursos é implementado para criar o recurso em falta.
+Esta definição de política utiliza o operador de **campo** para avaliar o `type` recurso criado ou atualizado. Quando este recurso é um _Microsoft.Network/virtualNetworks,_ a política procura um observador de rede na localização do novo recurso ou atualizado. Se um observador de rede correspondente não estiver localizado, o modelo ARM é implantado para criar o recurso em falta.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
@@ -26,17 +26,17 @@ Esta definição **field** de política utiliza `type` o operador de campo para 
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
-O bloco **properties.policyRule.then.details** diz à Política Azure o que procurar relacionado com o recurso criado ou atualizado nas **propriedades.policyRule.if** block. Neste exemplo, um observador de rede na rede de **recursos WatcherRG** deve existir com **campo** `location` igual à localização do novo recurso ou atualizado. A `field()` utilização da função permite à **existênciaCondição** aceder `location` a propriedades no novo recurso ou atualizado, especificamente na propriedade.
+O bloco **properties.policyRule.then.details** diz à Azure Policy o que procurar relacionado com o recurso criado ou atualizado no **properties.policyRule.if** block. Neste exemplo, um observador de rede na rede de **recursosWatcherRG** deve existir com **um campo** igual `location` à localização do novo recurso ou atualizado. A `field()` utilização da função permite a **existênciaCondição** para aceder a propriedades no recurso novo ou atualizado, especificamente o `location` imóvel.
 
 #### <a name="roledefinitionids"></a>roleDefinitionIds
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="24-26":::
 
-A propriedade de _array_ **roleDefinitionIds** nas **propriedades.policyRule.then.details** block indica a definição de política quais os direitos que a identidade gerida precisa para implementar o modelo de Gestor de Recursos incluído. Este imóvel deve ser definido para incluir funções que tenham as permissões necessárias pela implantação do modelo, mas deve usar o conceito de "princípio de menor privilégio" e apenas ter as operações necessárias e nada mais.
+O **papelDefinitionIds** _matriz_ propriedade no bloco **properties.policyRule.then.details** diz a definição de política que os direitos da identidade gerida precisam para implementar o modelo de Gestor de Recursos incluído. Esta propriedade deve ser definida para incluir papéis que tenham as permissões necessárias pela implementação do modelo, mas deve usar o conceito de "princípio de menor privilégio" e apenas ter as operações necessárias e nada mais.
 
 #### <a name="deployment-template"></a>Modelo de implementação
 
-A parte de **implantação** da definição de política tem um bloco de **propriedades** que define os três componentes principais:
+A parte de **implantação** da definição de política tem um bloco **de propriedades** que define os três componentes principais:
 
 - **modo** - Esta propriedade define o modo de [implementação](../../../azure-resource-manager/templates/deployment-modes.md) do modelo.
 
@@ -44,12 +44,12 @@ A parte de **implantação** da definição de política tem um bloco de **propr
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
-- **parâmetros** - Esta propriedade define parâmetros que são fornecidos ao **modelo**. Os nomes do parâmetro devem coincidir com o que são definidos no **modelo**. Neste exemplo, o parâmetro é nomeado **local** para combinar. O valor **location** da `field()` localização volta a utilizar a função para obter o valor do recurso avaliado, que é a rede virtual na **políticaRule.if** block.
+- **parâmetros** - Esta propriedade define parâmetros que são fornecidos ao **modelo**. Os nomes dos parâmetros devem corresponder ao que são definidos no **modelo.** Neste exemplo, o parâmetro é nomeado **local** para combinar. O valor da **localização** volta a utilizar `field()` a função para obter o valor do recurso avaliado, que é a rede virtual no **policyRule.if** block.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja outros [padrões e definições incorporadas.](./index.md)
+- Reveja [outros padrões e definições incorporadas.](./index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).

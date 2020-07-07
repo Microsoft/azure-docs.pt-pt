@@ -1,6 +1,6 @@
 ---
 title: Use SCP com Apache Hadoop em Azure HDInsight
-description: Este documento fornece informações sobre a ligação ao HDInsight utilizando os comandos SSH e SCP.
+description: Este documento fornece informações sobre a ligação ao HDInsight utilizando os comandos ssh e scp.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 559746a817442602c76ba91f12c195be1d7f3cc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188434"
 ---
 # <a name="use-scp-with-apache-hadoop-in-azure-hdinsight"></a>Use SCP com Apache Hadoop em Azure HDInsight
@@ -42,7 +42,7 @@ Utilize `scp` quando tiver de carregar um recurso para utilização a partir de 
 Para obter informações sobre o carregamento de dados diretamente para o armazenamento compatível com HDFS, consulte os seguintes documentos:
 
 * [HDInsight com o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md).
-* [HDInsight usando o armazenamento](hdinsight-hadoop-use-data-lake-store.md)do lago De dados Azure .
+* [HDInsight usando Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

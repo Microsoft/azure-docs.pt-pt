@@ -1,14 +1,14 @@
 ---
 title: Exemplo do Script da CLI do Azure - Adicionar uma Aplicação no Batch
-description: Este script de amostra demonstra como adicionar uma aplicação para uso com um pool De Lote Azure ou uma tarefa.
+description: Este script de amostra demonstra como adicionar uma aplicação para uso com um pool Azure Batch ou uma tarefa.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 792af55be17551d1635b6821456c6e8e53e9daea
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 305b6473b4fa149c378e01229b4ad3eea2dbaef4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681929"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964095"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemplo da CLI: Adicionar uma aplicação a uma conta do Azure Batch
 
@@ -46,6 +46,6 @@ Cada comando na tabela liga à documentação específica do comando.
 | [az batch application set](/cli/azure/batch/application#az-batch-application-set) | Atualiza as propriedades de uma aplicação.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).

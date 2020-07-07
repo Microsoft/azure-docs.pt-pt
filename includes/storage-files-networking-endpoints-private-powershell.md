@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 1c8ccc1e1ee8c8c1b1a1e27443d27b2140a91649
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465018"
 ---
 Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à sub-rede de rede virtual à qual pretende adicionar o ponto final privado. `<storage-account-resource-group-name>`Substitua, , , , e `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>` `<vnet-subnet-name>` abaixo:

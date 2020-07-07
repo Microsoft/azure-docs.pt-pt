@@ -1,9 +1,9 @@
 ---
-title: Como enviar notificações agendadas / Microsoft Docs
+title: Como enviar notificações agendadas Microsoft Docs
 description: Este tópico descreve a utilização de Notificações Agendadas com Centros de Notificação Azure.
 services: notification-hubs
 documentationcenter: .net
-keywords: notificações push,push notification,agendando notificações push
+keywords: notificações push,notificações push,agendando notificações push
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,19 +18,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71213013"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Como: Enviar notificações agendadas
 
-Se tiver um cenário em que pretenda enviar uma notificação em algum momento no futuro, mas não tenha uma maneira fácil de acordar o seu código de back-end para enviar a notificação. Os centros de notificação de nível standard suportam uma funcionalidade que lhe permite agendar notificações até sete dias no futuro.
+Se tiver um cenário em que pretende enviar uma notificação em algum momento no futuro, mas não tem uma maneira fácil de acordar o seu código de back-end para enviar a notificação. Os centros de notificação de nível padrão suportam uma funcionalidade que lhe permite agendar notificações até sete dias no futuro.
 
 
 ## <a name="schedule-your-notifications"></a>Agende as suas notificações
-Ao enviar uma notificação, basta utilizar a [ `ScheduledNotification` classe](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) no SDK dos Centros de Notificação, como mostra o seguinte exemplo:
+Ao enviar uma notificação, basta utilizar a [ `ScheduledNotification` classe](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) nos Centros de Notificação SDK, como mostrado no seguinte exemplo:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
@@ -38,19 +38,19 @@ var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2
 ```
 
 ## <a name="cancel-scheduled-notifications"></a>Cancelar notificações programadas
-Além disso, pode cancelar uma notificação previamente agendada através da sua notificaçãoId:
+Além disso, pode cancelar uma notificação previamente agendada utilizando o seu notificationId:
 
 ```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
-Não existem limites para o número de notificações programadas que pode enviar.
+Não existem limites para o número de notificações agendadas que pode enviar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja os tutoriais seguintes:
 
- - [Notificações push a todos os dispositivos registados](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+ - [Notificações push para todos os dispositivos registados](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
  - [Enviar notificações push para dispositivos específicos](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [Push localized notifications](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md) (Enviar notificações localizadas)
  - [Enviar notificações push para utilizadores específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 

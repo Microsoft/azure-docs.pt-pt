@@ -1,5 +1,5 @@
 ---
-title: VMs azure alta disponibilidade para SAP NetWeaver no guia SLES multi-SID [ Microsoft Docs
+title: Azure VMs alta disponibilidade para SAP NetWeaver no guia SLES multi-SID Microsoft Docs
 description: Guia de alta disponibilidade multi-SID para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80350064"
 ---
-# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP guia multi-SID
+# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP multi-SID guide
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -56,74 +56,74 @@ ms.locfileid: "80350064"
 
 Este artigo descreve como implementar vários sistemas SAP NetWeaver ou S4HANA altamente disponíveis (isto é, multi-SID) num cluster de dois nós em VMs Azure com SUSE Linux Enterprise Server para aplicações SAP.  
 
-Nas configurações de exemplo, comandos de instalação etc. três sistemas SAP NetWeaver 7.50 são implantados num único aglomerado de alta disponibilidade de dois nós. Os Sistemas SAP São:
-* **NW1**: Ascs exemplo número **00** e nome de hospedeiro virtual **msnw1ascs;** Ers exemplo **número 02** e nome de anfitrião virtual **msnw1ers**.  
-* **NW2**: Exemplo ASCS número **10** e **msnw2ascs**de nome de anfitrião virtual; Ers exemplo número **12** e nome de anfitrião virtual **msnw2ers**.  
-* **NW3**: Exemplo ASCS número **20** e nome de anfitrião virtual **msnw3ascs;** Ers exemplo número **22** e nome de anfitrião virtual **msnw3ers**.  
+Nas configurações de exemplo, os comandos de instalação, etc. três sistemas SAP NetWeaver 7.50 são implantados num único cluster de alta disponibilidade de dois nós. Os SIDs dos sistemas SAP são:
+* **NW1**: Instância ASCS número **00** e nome de anfitrião virtual **msnw1ascs;** ERS instância número **02** e nome de anfitrião virtual **msnw1ers**.  
+* **NW2**: Instância ASCS número **10** e nome de anfitrião virtual **msnw2ascs;** ERS instância número **12** e nome de anfitrião virtual **msnw2ers**.  
+* **NW3**: Instância ASCS número **20** e nome de anfitrião virtual **msnw3ascs;** ERS instância número **22** e nome de anfitrião virtual **msnw3ers**.  
 
-O artigo não cobre a camada de base de dados e a implantação das ações da SAP NFS. Nos exemplos deste artigo, estamos a usar nomes virtuais nw2-nfs para as ações nw2 NFS e NW3-nfs para as ações da NW3 NFS, assumindo que o cluster NFS foi implantado.  
+O artigo não cobre a camada de base de dados e a implantação das ações sap NFS. Nos exemplos deste artigo, estamos a usar nomes virtuais nw2-nfs para as ações NW2 NFS e nw3-nfs para as ações NW3 NFS, assumindo que o cluster NFS foi implantado.  
 
-Antes de começar, consulte primeiro as seguintes Notas E papéis SAP:
+Antes de começar, consulte primeiro as seguintes notas e documentos SAP:
 
 * Nota SAP [1928533,][1928533]que tem:
-  * Lista de tamanhos De VM Azure que são suportados para a implementação de software SAP
-  * Informações importantes sobre a capacidade para tamanhos de VM Azure
-  * Software SAP suportado e sistema operativo (OS) e combinações de bases de dados
-  * Versão necessária do kernel SAP para Windows e Linux no Microsoft Azure
+  * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
+  * Informações importantes sobre a capacidade dos tamanhos Azure VM
+  * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados
+  * Versão kernel SAP necessária para Windows e Linux no Microsoft Azure
 
-* O SAP Note [2015553][2015553] lista os pré-requisitos para implementações de software SAP suportadas pela SAP em Azure.
-* SAP Nota [2205917][2205917] recomendou definições de OS para SUSE Linux Enterprise Server para Aplicações SAP
-* SAP Nota [1944799][1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para Aplicações SAP
-* O SAP Note [2178632][2178632] tem informações detalhadas sobre todas as métricas de monitorização reportadas para o SAP em Azure.
-* O SAP Note [2191498][2191498] tem a versão necessária do Agente anfitrião SAP para o Linux em Azure.
-* SAP Nota [2243692][2243692] tem informações sobre licenciamento SAP em Linux em Azure.
-* SAP Note [1984787][1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
-* A Nota [SAP 1999351][1999351] tem informações adicionais de resolução de problemas para a extensão de monitorização avançada do Azure para sAP.
-* [A SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) exigiu todas as notas SAP para linux.
-* [Planeamento e implementação de Máquinas Virtuais Azure para SAP em Linux][planning-guide]
-* [Implantação de Máquinas Virtuais Azure para SAP em Linux][deployment-guide]
-* [Implantação de DBMS de Máquinas Virtuais Azure para SAP em Linux][dbms-guide]
-* [Guias de boas práticas SUSE SAP HA][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar a Replicação do Sistema Netweaver HA e SAP HANA no local. Utilize estes guias como base geral. Fornecem informações muito mais detalhadas.
-* [Extensão de alta disponibilidade sUSE 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
-* [Guia de cluster multi-SID para SLES 12 e SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
-* [Aplicações NetApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
-## <a name="overview"></a>Descrição geral
+* O SAP Note [2015553][2015553] lista pré-requisitos para implementações de software SAP suportadas pelo SAP em Azure.
+* SAP Nota [2205917][2205917] recomendou definições de SO para SUSE Linux Enterprise Server para aplicações SAP
+* SAP Nota [1944799][1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para aplicações SAP
+* A Nota [SAP 2178632][2178632] tem informações detalhadas sobre todas as métricas de monitorização reportadas para o SAP em Azure.
+* Sap Note [2191498][2191498] tem a versão necessária do Agente anfitrião SAP para Linux em Azure.
+* Sap Nota [2243692][2243692] tem informações sobre o licenciamento SAP em Linux em Azure.
+* Sap Note [1984787][1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
+* Sap Nota [1999351][1999351] tem informações adicionais de resolução de problemas para a extensão de monitorização melhorada de Azure para o SAP.
+* [A SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
+* [Azure Virtual Machines planejamento e implementação para SAP em Linux][planning-guide]
+* [Implementação de Máquinas Virtuais Azure para SAP em Linux][deployment-guide]
+* [Azure Virtual Machines DBMS implantação para SAP em Linux][dbms-guide]
+* [Guias de boas práticas SUSE SAP HA][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar a replicação do sistema Netweaver HA e SAP HANA no local. Utilize estes guias como base geral. Fornecem informações muito mais detalhadas.
+* [SUSE Extensão de Alta Disponibilidade 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
+* [Guia de cluster suse multi-SID para SLES 12 e SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
+* [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
+## <a name="overview"></a>Descrição Geral
 
-As máquinas virtuais, que participam no cluster, devem ser dimensionadas para poderem executar todos os recursos, caso ocorra falhas. Cada SID SAP pode falhar sobre-independente si no cluster de alta disponibilidade multi-SID.  Se utilizar a esgrima SBD, os dispositivos SBD podem ser partilhados entre vários clusters.  
+As máquinas virtuais, que participam no cluster, devem ser dimensionadas para poderem executar todos os recursos, caso ocorram falhas. Cada SAP SID pode falhar independentemente uns dos outros no cluster de alta disponibilidade multi-SID.  Se utilizar esgrima SBD, os dispositivos SBD podem ser partilhados entre vários clusters.  
 
-Para alcançar uma elevada disponibilidade, a SAP NetWeaver requer ações nfs altamente disponíveis. Neste exemplo, assumimos que as ações Do SAP NFS estão alojadas num servidor de [ficheiros NFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)altamente disponível, que pode ser utilizado por vários sistemas SAP. Ou as ações são implantadas em [volumes NFS de Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+Para obter uma elevada disponibilidade, o SAP NetWeaver requer ações NFS altamente disponíveis. Neste exemplo, assumimos que as ações do SAP NFS estão hospedadas num [servidor de ficheiros NFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)altamente disponível , que pode ser utilizado por vários sistemas SAP. Ou as ações são implantadas nos [volumes NFS dos Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
-![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> O suporte para o agrupamento multi-SID do SAP ASCS/ERS com o SUSE Linux como sistema operativo convidado em VMs Azure está limitado a **cinco** SIDs SAP no mesmo cluster. Cada novo SID aumenta a complexidade. Não é **suportada**uma mistura de SAP Enqueue Replication Server 1 e Enqueue Replication Server 2 no mesmo cluster . O clustering multi-SID descreve a instalação de múltiplas instâncias SAP ASCS/ERS com diferentes SIDs num cluster Pacemaker. Atualmente, o clustering multi-SID é suportado apenas para ASCS/ERS.  
+> O suporte para o agrupamento multi-SID do SAP ASCS/ERS com o SUSE Linux como sistema operativo convidado em VMs Azure está limitado a **cinco** SIDs SAP no mesmo cluster. Cada novo SID aumenta a complexidade. Não é **suportada**uma mistura de Servidor de Replicação de Enqueue SAP 1 e Do Servidor de Replicação enqueue 2 no mesmo cluster . O agrupamento multi-SID descreve a instalação de múltiplos casos SAP ASCS/ERS com diferentes SIDs num cluster pacemaker. Atualmente, o clustering multi-SID só é suportado para ASCS/ERS.  
 
 > [!TIP]
-> O agrupamento multi-SID do SAP ASCS/ERS é uma solução com maior complexidade. É mais complexo de implementar. Envolve também um maior esforço administrativo, na execução de atividades de manutenção (como remendos de Os). Antes de iniciar a implementação real, tenha tempo para planear cuidadosamente a implementação e todos os componentes envolvidos como VMs, suportes NFS, VIPs, configurações de equilíbrio de carga e assim por diante.  
+> O agrupamento multi-SID do SAP ASCS/ERS é uma solução com maior complexidade. É mais complexo de implementar. Envolve também um maior esforço administrativo, na execução de atividades de manutenção (como remendos de SO). Antes de iniciar a implementação real, desloque-se para planear cuidadosamente a implementação e todos os componentes envolvidos como VMs, suportes NFS, VIPs, configurações do balançador de carga e assim por diante.  
 
-O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP HANA utilizam o nome de anfitrião virtual e os endereços IP virtuais. No Azure, é necessário utilizar um endereço IP virtual. Recomendamos a utilização do [equilíbrio de carga Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal).  
+O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP HANA utilizam o nome de anfitrião virtual e endereços IP virtuais. No Azure, é necessário um equilibrador de carga para utilizar um endereço IP virtual. Recomendamos a utilização [do balanceador de carga standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal).  
 
-A lista que se segue mostra a configuração do (A)SCS e do equilibrador de carga ERS para este exemplo de cluster multi-SID com três sistemas SAP. Você precisará de IP frontend separado, sondas de saúde e regras de equilíbrio de carga para cada ascs e ERS por exemplo para cada um dos SIDs. Atribuir todos os VMs, que fazem parte do cluster ASCS/ASCS para uma piscina de backend.  
+A lista a seguir mostra a configuração do balançador de carga (A)SCS e ERS para este exemplo de cluster multi-SID com três sistemas SAP. Você precisará de IP frontend separado, sondas de saúde e regras de equilíbrio de carga para cada instância ASCS e ERS para cada um dos SIDs. Atribua todos os VMs, que fazem parte do cluster ASCS/ASCS a uma piscina de backend.  
 
-### <a name="ascs"></a>A SCS
+### <a name="ascs"></a>a (A) SCS
 
 * Configuração frontend
   * Endereço IP para NW1: 10.3.1.14
   * Endereço IP para NW2: 10.3.1.16
   * Endereço IP para NW3: 10.3.1.13
-* Portas de Sonda
-  * Porto 620<strong>&lt;&gt;nr</strong>, portanto, para portas de sonda NW1, NW2 e NW3 620**00**, 620**10** e 620**20**
+* Portas de sonda
+  * Porto 620<strong> &lt; nr &gt; </strong>, portanto para as portas de sonda NW1, NW2 e NW3 620**00**, 620**10** e 620**20**
 * Regras de equilíbrio de carga - 
 * criar um para cada instância, isto é, NW1/ASCS, NW2/ASCS e NW3/ASCS.
-  * Se utilizar o Balancer de Carga Padrão, selecione **portas HA**
-  * Se utilizar o Equilíbrio de Carga Básico, crie regras de equilíbrio de carga para as seguintes portas
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se utilizar o Balanceador de Carga Padrão, selecione **portas HA**
+  * Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 36<strong> &lt; nr &gt; </strong> TCP
+    * 39<strong> &lt; nr &gt; </strong> TCP
+    * 81<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -131,67 +131,67 @@ A lista que se segue mostra a configuração do (A)SCS e do equilibrador de carg
   * Endereço IP para NW1 10.3.1.15
   * Endereço IP para NW2 10.3.1.17
   * Endereço IP para NW3 10.3.1.19
-* Porta sonda
-  * Porto 621<strong>&lt;&gt;nr</strong>, portanto, para portas de sonda NW1, NW2 e N# 621**02**, 621**12** e 621**22**
+* Porto de Sonda
+  * Porta 621<strong> &lt; nr &gt; </strong>, portanto para as portas de sonda NW1, NW2 e N# 621**02**, 621**12** e 621**22**
 * Regras de equilíbrio de carga - crie uma para cada instância, isto é, NW1/ERS, NW2/ERS e NW3/ERS.
-  * Se utilizar o Balancer de Carga Padrão, selecione **portas HA**
-  * Se utilizar o Equilíbrio de Carga Básico, crie regras de equilíbrio de carga para as seguintes portas
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se utilizar o Balanceador de Carga Padrão, selecione **portas HA**
+  * Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 33<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Configuração de backend
-  * Ligado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
+  * Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
 
 
 > [!Note]
-> Quando os VMs sem endereços IP públicos forem colocados no conjunto de backend do interno (sem endereço IP público) O equilíbrio de carga Standard Azure não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para mais detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Não permita os carimbos de tempo da TCP em VMs Azure colocados atrás do Equilíbrio de Carga Azure. Permitir os selos temporais da TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte as sondas de [saúde load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ## <a name="sap-nfs-shares"></a>Ações da SAP NFS
 
-A SAP NetWeaver requer armazenamento partilhado para o transporte, diretório de perfis, e assim por diante. Para um sistema SAP altamente disponível, é importante ter ações nfs altamente disponíveis. Você precisará decidir sobre a arquitetura para as suas ações Da SAP NFS. Uma opção é construir [um cluster NFS altamente disponível em VMs Azure no SUSE Linux Enterprise Server,][nfs-ha]que pode ser partilhado entre vários sistemas SAP. 
+O SAP NetWeaver requer armazenamento partilhado para o transporte, diretório de perfis, e assim por diante. Para um sistema SAP altamente disponível, é importante ter ações NFS altamente disponíveis. Terá de decidir sobre a arquitetura para as suas ações SAP NFS. Uma opção é construir [um cluster NFS altamente disponível em VMs Azure no SUSE Linux Enterprise Server][nfs-ha], que pode ser partilhado entre vários sistemas SAP. 
 
-Outra opção é implementar as ações em [volumes NFS de Ficheiros Azure NetApp.](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)  Com ficheiros Azure NetApp, obterá uma alta disponibilidade incorporada para as ações da SAP NFS.
+Outra opção é implementar as ações nos [volumes NFS dos Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Com os Ficheiros Azure NetApp, obterá alta disponibilidade para as ações SAP NFS.
 
 ## <a name="deploy-the-first-sap-system-in-the-cluster"></a>Implementar o primeiro sistema SAP no cluster
 
-Agora que decidiu a arquitetura para as ações da SAP NFS, implemente o primeiro sistema SAP no cluster, seguindo a documentação correspondente.
+Agora que decidiu sobre a arquitetura para as ações sap NFS, implemente o primeiro sistema SAP no cluster, seguindo a documentação correspondente.
 
-* Se utilizar um servidor NFS altamente disponível, siga a [alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
-* Se utilizar volumes NFS de Ficheiros Azure NetApp, siga [a alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* Se utilizar o servidor NFS altamente disponível, siga [a alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
+* Se utilizar volumes NFS de Ficheiros Azure NetApp, siga [alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 
-Os documentos acima indicados irão guiá-lo através das etapas para preparar as infraestruturas necessárias, construir o cluster, preparar o SISTEMA para executar a aplicação SAP.  
+Os documentos acima mencionados irão guiá-lo através dos passos para preparar as infraestruturas necessárias, construir o cluster, preparar o SO para executar a aplicação SAP.  
 
 > [!TIP]
-> Teste sempre a falha sobre a funcionalidade do cluster, depois de implementado o primeiro sistema, antes de adicionar os SIDs SAP adicionais ao cluster. Dessa forma saberá que a funcionalidade do cluster funciona, antes de adicionar a complexidade de sistemas SAP adicionais ao cluster.   
+> Teste sempre a falha sobre a funcionalidade do cluster, depois de o primeiro sistema ser implantado, antes de adicionar os SIDs SAP adicionais ao cluster. Desta forma saberá que a funcionalidade do cluster funciona, antes de adicionar a complexidade de sistemas SAP adicionais ao cluster.   
 
 ## <a name="deploy-additional-sap-systems-in-the-cluster"></a>Implementar sistemas SAP adicionais no cluster
 
-Neste exemplo, assumimos que o sistema **NW1** já estava implantado no cluster. Mostraremos como implantar nos sistemas SAP do cluster **NW2** e **NW3**. 
+Neste exemplo, assumimos que o sistema **NW1** já estava implantado no cluster. Mostraremos como implantar nos sistemas DE SAP de cluster **NW2** e **NW3**. 
 
-Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
+Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicáveis ao nó 2.
 
 ### <a name="prerequisites"></a>Pré-requisitos 
 
 > [!IMPORTANT]
-> Antes de seguir as instruções para a instalação de sistemas SAP adicionais no cluster, siga as instruções para implantar o primeiro sistema SAP no cluster, uma vez que existem passos que só são necessários durante a primeira implementação do sistema.  
+> Antes de seguir as instruções para colocar sistemas SAP adicionais no cluster, siga as instruções para implantar o primeiro sistema SAP no cluster, uma vez que existem passos que só são necessários durante a primeira implantação do sistema.  
 
 Esta documentação pressupõe que:
-* O cluster Pacemaker já está configurado e em execução.  
-* Pelo menos um sistema SAP (instância ASCS/ERS) já está implantado e está em execução no cluster.  
-* O cluster falha na funcionalidade foi testado.  
-* As ações da NFS para todos os sistemas SAP estão implantadas.  
+* O cluster Pacemaker já está configurado e a funcionar.  
+* Pelo menos um sistema SAP (instância ASCS/ERS) já está implantado e está a funcionar no cluster.  
+* O cluster falha sobre a funcionalidade foi testado.  
+* As ações da NFS para todos os sistemas SAP são implantadas.  
 
-### <a name="prepare-for-sap-netweaver-installation"></a>Prepare-se para a instalação SAP NetWeaver
+### <a name="prepare-for-sap-netweaver-installation"></a>Preparar para instalação SAP NetWeaver
 
-1. Adicione a configuração para o sistema recém-implantado (isto é, **NW2,** **NW3**) ao existente Equilíbrio de Carga Azure, seguindo as instruções Desdobrar o Equilíbrio de [Carga Azure manualmente através](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal)do portal Azure . Ajuste os endereços IP, portas de sonda de saúde, regras de equilíbrio de carga para a sua configuração.  
+1. Adicione a configuração para o sistema recém-implantado (isto é, **NW2**, **NW3**) ao equilibrador de carga Azure existente, seguindo as instruções Implementar manualmente o [Balançador de Carga Azure através do portal Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal). Ajuste os endereços IP, portas de sonda de saúde, regras de equilíbrio de carga para a sua configuração.  
 
-2. **[A]** Configurar a resolução de nomes para os sistemas SAP adicionais. Pode utilizar o servidor DNS ou modificar `/etc/hosts` em todos os nós. Este exemplo mostra como `/etc/hosts` usar o ficheiro.  Adapte os endereços IP e os nomes do anfitrião para o seu ambiente. 
+2. **[A]** Configurar a resolução de nomes para os sistemas SAP adicionais. Pode utilizar o servidor DNS ou modificar `/etc/hosts` todos os nós. Este exemplo mostra como utilizar o `/etc/hosts` ficheiro.  Adapte os endereços IP e os nomes dos anfitriões ao seu ambiente. 
 
     ```
     sudo vi /etc/hosts
@@ -209,7 +209,7 @@ Esta documentação pressupõe que:
     10.3.1.32 nw3-nfs
    ```
 
-3. **[A]** Crie os diretórios partilhados para os sistemas **nw2** e **NW3** sAP adicionais que está a implementar para o cluster. 
+3. **[A]** Crie os diretórios partilhados para os sistemas **ADICIONAIS NW2** e **NW3** SAP que está a implantar no cluster. 
 
     ```
     sudo mkdir -p /sapmnt/NW2
@@ -232,27 +232,27 @@ Esta documentação pressupõe que:
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A]** Configure `autofs` para montar os sistemas de ficheiros /usr/sap/SID/SYS para os sistemas sAP adicionais que está a implantar para o cluster. Neste exemplo **NW2** e **NW3**.  
+4. **[A]** Configurar `autofs` para montar os sistemas de ficheiros /sapmnt/SID e /usr/seiva/SID/SYS para os sistemas SAP adicionais que está a implantar no cluster. Neste exemplo **NW2** e **NW3**.  
 
-   Atualize `/etc/auto.direct` o ficheiro com os sistemas de ficheiros para os sistemas SAP adicionais que está a implementar para o cluster.  
+   Atualize o ficheiro `/etc/auto.direct` com os sistemas de ficheiros para os sistemas SAP adicionais que está a implementar no cluster.  
 
    * Se utilizar o servidor de ficheiros NFS, siga as instruções [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#prepare-for-sap-netweaver-installation)
    * Se utilizar ficheiros Azure NetApp, siga as instruções [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#prepare-for-sap-netweaver-installation) 
 
-   Terá de reiniciar `autofs` o serviço para montar as novas ações.  
+   Terá de reiniciar o `autofs` serviço para montar as novas ações adicionadas.  
 
-### <a name="install-ascs--ers"></a>Instalar ASCS/ERS
+### <a name="install-ascs--ers"></a>Instalar ASCS / ERS
 
-1. Crie os recursos de cluster de IP e sonda de saúde virtuais para a instância ASCS do sistema SAP adicional que está a implementar para o cluster. O exemplo mostrado aqui é para **NW2** e **NW3** ASCS, usando um servidor NFS altamente disponível.  
+1. Crie os recursos virtuais de IP e sonda de saúde para a instância ASCS do sistema SAP adicional que está a implementar no cluster. O exemplo mostrado aqui é para **NW2** e **NW3** ASCS, usando servidor NFS altamente disponível.  
 
    > [!IMPORTANT]
-   > Testes recentes revelaram situações, em que o netcat deixa de responder aos pedidos devido a atrasos e à sua limitação de manuseamento apenas uma ligação. O recurso netcat para de ouvir os pedidos do balanceador de carga Azure e o IP flutuante fica indisponível.  
-   > Para os aglomerados Pacemaker existentes, recomendamos no passado substituir o netcat por socat. Atualmente recomendamos a utilização de um agente de recursos azure-lb, que faz parte dos agentes de recursos do pacote, com os seguintes requisitos de versão de pacote:
+   > Testes recentes revelaram situações, em que o netcat deixa de responder aos pedidos devido a atrasos e à sua limitação de manuseamento de apenas uma ligação. O recurso netcat deixa de ouvir os pedidos do balançador Azure Load e o IP flutuante fica indisponível.  
+   > Para os aglomerados pacemaker existentes, recomendamos no passado a substituição do netcat por socat. Atualmente recomendamos a utilização de um agente de recursos azure-lb, que faz parte dos agentes de recursos do pacote, com os seguintes requisitos de versão pacote:
    > - Para o SLES 12 SP4/SP5, a versão deve ser pelo menos agentes de recursos-4.3.018.a7fb5035-3.30.1.  
-   > - Para o SLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
+   > - Para sLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
    >
-   > Note que a alteração exigirá um breve tempo de inatividade.  
-   > Para os clusters Pacemaker existentes, se a configuração já foi alterada para utilizar o socat conforme descrito no Endurecimento de Deteção de Equilíbrio [de Carga azure,](https://www.suse.com/support/kb/doc/?id=7024128)não há necessidade de mudar imediatamente para o agente de recursos azure-lb.
+   > Note que a mudança requer breves tempos de inatividade.  
+   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Endurecimento de Deteção de Equilíbrio de Carga Azure,](https://www.suse.com/support/kb/doc/?id=7024128)não existe qualquer necessidade de mudar imediatamente para o agente de recursos azure-lb.
 
     ```
       sudo crm configure primitive fs_NW2_ASCS Filesystem device='nw2-nfs:/NW2/ASCS' directory='/usr/sap/NW2/ASCS10' fstype='nfs4' \
@@ -284,21 +284,21 @@ Esta documentação pressupõe que:
         meta resource-stickiness=3000
     ```
 
-   À medida que criaos os recursos, podem ser atribuídos a diferentes recursos de cluster. Quando os agrupar, migrarão para um dos nós do agrupamento. Certifique-se de que o estado do cluster está ok e que todos os recursos estão iniciados. Não é importante em que nó dos recursos estão a funcionar.
+   À medida que cria os recursos, podem ser atribuídos a diferentes recursos de cluster. Quando os agrupares, migrarão para um dos nós do aglomerado. Certifique-se de que o estado do cluster está bem e que todos os recursos são iniciados. Não é importante em que nó os recursos estão a funcionar.
 
-2. **[1]** Instalar asCS SAP NetWeaver  
+2. **[1]** Instalar OSCS SAP NetWeaver  
 
-   Instale o SAP NetWeaver ASCS como raiz, utilizando um nome de anfitrião virtual que mapeie para o endereço IP da configuração frontal do equilíbrio de carga para o ASCS. Por exemplo, para o sistema **NW2**, o nome de anfitrião virtual é <b>msnw2ascs</b>, <b>10.3.1.16</b> e o número de exemplo que usou para a sonda do equilibrista de carga, por exemplo <b>10</b>. para o sistema **NW3**, o nome de anfitrião virtual é <b>msnw3ascs</b>, <b>10.3.1.13</b> e o número de exemplo que usou para a sonda do equilibrista de carga, por exemplo <b>20</b>.
+   Instale o ASCS SAP NetWeaver como raiz, utilizando um nome de anfitrião virtual que mapeia para o endereço IP da configuração frontal do balançador de carga para o ASCS. Por exemplo, para o sistema **NW2**, o nome de hospedeiro virtual é <b>msnw2ascs</b>, <b>10.3.1.16</b> e o número de exemplo que usou para a sonda do equilibrador de carga, por exemplo <b>10</b>. para o sistema **NW3**, o nome de hospedeiro virtual é <b>msnw3ascs</b>, <b>10.3.1.13</b> e o número de instância que usou para a sonda do equilibrador de carga, por exemplo <b>20</b>.
 
-   Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst. Pode utilizar SAPINST_USE_HOSTNAME de parâmetros para instalar o SAP, utilizando o nome de hospedeiro virtual.  
+   Pode utilizar o parâmetro de seiva SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador não-raiz se conecte ao sapinst. Pode utilizar SAPINST_USE_HOSTNAME de parâmetros para instalar o SAP, utilizando o nome de anfitrião virtual.  
 
      ```
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Se a instalação não criar uma subpasta em /usr/seap/**SID**/ASCS**Instance#**, tente configurar o proprietário para **sid**adm e agrupar para sapsys da instância ASCS# e retentar.**Instance#**
+   Se a instalação não criar uma sub-dobradeira em /usr/seiva/**SID**/ASCS**Instance#**, tente configurar o proprietário para **sid**adm e grupo para sapsys da**ASCS Instance#** e re-tentar.
 
-3. **[1]** Criar um IP virtual e recursos de cluster de sonda de saúde para a instância DEERS do sistema SAP adicional que está a implementar para o cluster. O exemplo mostrado aqui é para **NW2** e **NW3** ERS, usando o servidor NFS altamente disponível. 
+3. **[1]** Crie um cluster virtual de IP e sonda de saúde para a instância ERS do sistema SAP adicional que está a implantar no cluster. O exemplo mostrado aqui é para **NW2** e **NW3** ERS, usando servidor NFS altamente disponível. 
 
    ```
     sudo crm configure primitive fs_NW2_ERS Filesystem device='nw2-nfs:/NW2/ASCSERS' directory='/usr/sap/NW2/ERS12' fstype='nfs4' \
@@ -328,9 +328,9 @@ Esta documentação pressupõe que:
     sudo crm configure group g-NW3_ERS fs_NW3_ERS nc_NW3_ERS vip_NW3_ERS
    ```
 
-   À medida que crias os recursos, eles podem ser atribuídos a diferentes nós de cluster. Quando os agrupar, migrarão para um dos nós do agrupamento. Certifique-se de que o estado do cluster está ok e que todos os recursos estão iniciados.  
+   À medida que cria os recursos, podem ser atribuídos a diferentes nós de cluster. Quando os agrupares, migrarão para um dos nós do aglomerado. Certifique-se de que o estado do cluster está bem e que todos os recursos são iniciados.  
 
-   Em seguida, certifique-se de que os recursos do recém-criado grupo ERS, estão em execução no nó cluster, em frente ao nó de cluster onde foi instalado o ascs por exemplo para o mesmo sistema SAP.  Por exemplo, se o NW2 ASCS foi `slesmsscl1`instalado, certifique-se `slesmsscl2`de que o grupo NW2 ERS está a funcionar .  Pode migrar o grupo NW2 `slesmsscl2` ERS para executar o seguinte comando: 
+   Em seguida, certifique-se de que os recursos do recém-criado grupo ERS, estão a funcionar no nó de cluster, em frente ao nó de cluster onde foi instalada a instância ASCS para o mesmo sistema SAP.  Por exemplo, se o ASCS NW2 foi `slesmsscl1` instalado, certifique-se de que o grupo NW2 ERS está em funcionamento `slesmsscl2` .  Pode migrar o grupo NW2 ERS para `slesmsscl2` executar o seguinte comando: 
 
     ```
       crm resource migrate g-NW2_ERS slesmsscl2 force
@@ -338,27 +338,27 @@ Esta documentação pressupõe que:
 
 4. **[2]** Instalar SAP NetWeaver ERS
 
-   Instale o SAP NetWeaver ERS como raiz no outro nó, utilizando um nome de anfitrião virtual que mapeie para o endereço IP da configuração frontal do equilíbrio de carga para o ERS. Por exemplo, para o sistema **NW2**, o nome de hospedeiro virtual será <b>msnw2ers</b>, <b>10.3.1.17</b> e o número de exemplo que usou para a sonda do equilibrador de carga, por exemplo <b>12</b>. Para o sistema **NW3**, o nome de hospedeiro virtual <b>msnw3ers</b>, <b>10.3.1.19</b> e o número de instância que usou para a sonda do equilibrador de carga, por exemplo <b>22</b>. 
+   Instale o SAP NetWeaver ERS como raiz no outro nó, utilizando um nome de anfitrião virtual que mapeia para o endereço IP da configuração frontal do balançador de carga para o ERS. Por exemplo, para o sistema **NW2**, o nome de anfitrião virtual será <b>msnw2ers</b>, <b>10.3.1.17</b> e o número de exemplo que usou para a sonda do equilibrador de carga, por exemplo <b>12</b>. Para o sistema **NW3**, o nome de anfitrião virtual <b>msnw3ers</b>, <b>10.3.1.19</b> e o número de instância que usou para a sonda do esquilibrador de carga, por exemplo <b>22</b>. 
 
-   Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst. Pode utilizar SAPINST_USE_HOSTNAME de parâmetros para instalar o SAP, utilizando o nome de hospedeiro virtual.  
+   Pode utilizar o parâmetro de seiva SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador não-raiz se conecte ao sapinst. Pode utilizar SAPINST_USE_HOSTNAME de parâmetros para instalar o SAP, utilizando o nome de anfitrião virtual.  
 
     ```
      sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
     ```
 
    > [!NOTE]
-   > Utilize SWPM SP 20 PL 05 ou superior. Versões inferiores não fixam corretamente as permissões e a instalação falhará.
+   > Utilize SWPM SP 20 PL 05 ou superior. As versões inferiores não definem corretamente as permissões e a instalação falhará.
 
-   Se a instalação não criar uma subpasta em /usr/seap/**NW2**/ERS**Instance#**, tente colocar o proprietário na **sid**adm e no grupo para sapsys da pasta ERS**Instance#** e retentar.
+   Se a instalação não criar uma sub-dobragem em /usr/seiva/**NW2**/ERS**Instance#**, tente configurar o proprietário **para**sid adm e o grupo para sapsys da pasta ERS**Instance#** e re-tentar.
 
-   Se fosse necessário migrar o grupo ERS do sistema SAP recentemente implantado para um nó de cluster diferente, não se esqueça de remover a restrição de localização para o grupo ERS. Pode remover a restrição executando o seguinte comando (o exemplo é dado para os sistemas SAP **NW2** e **NW3**).  
+   Se foi necessário migrar o grupo ERS do recém-implantado sistema SAP para um nó de cluster diferente, não se esqueça de remover a restrição de localização para o grupo ERS. Pode remover a restrição executando o seguinte comando (o exemplo é dado para os sistemas SAP **NW2** e **NW3).**  
 
     ```
       crm resource unmigrate g-NW2_ERS
       crm resource unmigrate g-NW3_ERS
     ```
 
-5. **[1]** Adaptar os perfis de instância ASCS/SCS e ERS para os sistemas SAP recentemente instalados. O exemplo abaixo mostrado é para NW2. Terá de adaptar os perfis ASCS/SCS e ERS para todas as instâncias SAP adicionadas ao cluster.  
+5. **[1]** Adaptar os perfis de instância ASCS/SCS e ERS para o ou os sistemas SAP recentemente instalados. O exemplo apresentado abaixo é para NW2. Terá de adaptar os perfis ASCS/SCS e ERS para todos os casos SAP adicionados ao cluster.  
  
  * Perfil ASCS/SCS
 
@@ -394,7 +394,7 @@ Esta documentação pressupõe que:
    # Autostart = 1
    ```
 
-6. **[A]** Configure os utilizadores SAP para o sistema SAP recentemente implantado, neste exemplo **NW2** e **NW3**. 
+6. **[A]** Configure os utilizadores SAP para o sistema SAP recém-implantado, neste exemplo **NW2** e **NW3**. 
 
    ```
    # Add sidadm to the haclient group
@@ -402,9 +402,9 @@ Esta documentação pressupõe que:
    sudo usermod -aG haclient nw3adm
    ```
 
-7. Adicione os serviços ASCS e ERS SAP para `sapservice` o sistema SAP recentemente instalado no ficheiro. O exemplo abaixo indicado é para os sistemas SAP **NW2** e **NW3**.  
+7. Adicione os serviços ASCS e ERS SAP para o sistema SAP recém-instalado no `sapservice` ficheiro. O exemplo apresentado abaixo é para os sistemas SAP **NW2** e **NW3**.  
 
-   Adicione a entrada de serviço ASCS ao segundo nó e copie a entrada de serviço ERS no primeiro nó. Execute os comandos de cada sistema SAP no nó, onde foi instalado o ascs do sistema SAP.  
+   Adicione a entrada de serviço ASCS no segundo nó e copie a entrada de serviço ERS no primeiro nó. Execute os comandos de cada sistema SAP no nó, onde foi instalado o exemplo ASCS para o sistema SAP.  
 
     ```
      # Execute the following commands on slesmsscl1,assuming the NW2 ASCS instance was installed on slesmsscl1
@@ -417,7 +417,7 @@ Esta documentação pressupõe que:
 
 8. **[1]** Criar os recursos de cluster SAP para o sistema SAP recentemente instalado. 
 
-   Se utilizar a arquitetura enqueue server 1 (ENSA1), defina os recursos para os sistemas SAP **NW2** e **NW3** da seguinte forma:
+   Se utilizar a arquitetura do servidor 1 do enqueue (ENSA1), defina os recursos para os sistemas SAP **NW2** e **NW3** da seguinte forma:
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -464,8 +464,8 @@ Esta documentação pressupõe que:
      sudo crm configure property maintenance-mode="false"
     ```
 
-   O SAP introduziu suporte para o servidor de fila 2, incluindo replicação, a partir de SAP NW 7.52. A partir da Plataforma ABAP 1809, o servidor enfila 2 é instalado por padrão. Consulte a nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) para obter suporte ao servidor 2.
-   Se utilizar a arquitetura enqueue server 2[(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)defina os recursos para os sistemas SAP **NW2** e **NW3** da seguinte forma:
+   A SAP introduziu suporte para o servidor 2, incluindo a replicação, a partir de SAP NW 7.52. A partir da Plataforma ABAP 1809, o servidor 2 do enqueue é instalado por padrão. Consulte a nota [SAP 2630416](https://launchpad.support.sap.com/#/notes/2630416) para obter suporte ao servidor 2.
+   Se utilizar a arquitetura do servidor 2 do enqueue[(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)defina os recursos para os sistemas SAP **NW2** e **NW3** da seguinte forma:
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -508,10 +508,10 @@ Esta documentação pressupõe que:
      sudo crm configure property maintenance-mode="false"
     ```
 
-   Se estiver a atualizar a partir de uma versão mais antiga e a mudar para o servidor de fila 2, consulte a nota [SAP 2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+   Se estiver a atualizar a partir de uma versão mais antiga e a mudar para o servidor 2, consulte a nota [SAP 2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
-   Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante em que nó dos recursos estão a funcionar.
-   O exemplo seguinte mostra o estado dos recursos de cluster, depois de os sistemas SAP **NW2** e **NW3** terem sido adicionados ao cluster. 
+   Certifique-se de que o estado do cluster está bem e que todos os recursos são iniciados. Não é importante em que nó os recursos estão a funcionar.
+   O exemplo a seguir mostra o estado dos recursos de cluster, depois dos sistemas SAP **NW2** e **NW3** terem sido adicionados ao cluster. 
 
     ```
      sudo crm_mon -r
@@ -553,32 +553,32 @@ Esta documentação pressupõe que:
     #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     ```
 
-   A imagem que se segue mostra como seriam os recursos no HA Web Konsole (Falcão), com os recursos para o sistema SAP **NW2** expandidos.  
+   A imagem que se segue mostra como seriam os recursos no HA Web Konsole (Hawk), com os recursos para o sistema SAP **NW2** expandidos.  
 
-   [![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk-detail.png#lightbox)
+   [![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk-detail.png#lightbox)
 
-### <a name="proceed-with-the-sap-installation"></a>Prossiga com a instalação SAP 
+### <a name="proceed-with-the-sap-installation"></a>Proceda à instalação SAP 
 
 Complete a sua instalação SAP por:
 
-* [Preparação dos seus servidores de aplicação SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#2d6008b0-685d-426c-b59e-6cd281fd45d7)
+* [Preparando os seus servidores de aplicações SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#2d6008b0-685d-426c-b59e-6cd281fd45d7)
 * [Instalação de uma instância DBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#install-database)
-* [Instalação de um servidor de aplicação SAP primário](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#sap-netweaver-application-server-installation)
-* Instalação de um ou mais casos adicionais de aplicações SAP
+* [Instalação de um servidor de aplicação PRINCIPAL SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#sap-netweaver-application-server-installation)
+* Instalação de uma ou mais instâncias adicionais de aplicação SAP
 
-## <a name="test-the-multi-sid-cluster-setup"></a>Testar a configuração do cluster multi-SID
+## <a name="test-the-multi-sid-cluster-setup"></a>Teste a configuração do cluster multi-SID
 
-Os seguintes ensaios são um subconjunto dos casos de teste nas melhores práticas guias de SUSE. Estão incluídos para sua conveniência. Para a lista completa dos testes de cluster, consulte a seguinte documentação:
+Os seguintes testes são um subconjunto dos casos de teste nos guias de boas práticas da SUSE. Estão incluídos para sua conveniência. Para a lista completa dos testes de agrupamento, consulte a seguinte documentação:
 
-* Se utilizar um servidor NFS altamente disponível, siga a [alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
-* Se utilizar volumes NFS de Ficheiros Azure NetApp, siga [a alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* Se utilizar o servidor NFS altamente disponível, siga [a alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
+* Se utilizar volumes NFS de Ficheiros Azure NetApp, siga [alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 
-Leia sempre os guias de boas práticas da SUSE e efetue todos os testes adicionais que possam ter sido adicionados.  
-Os testes apresentados estão num cluster de dois nós, multi-SID com três sistemas SAP instalados.  
+Leia sempre os guias de boas práticas SUSE e realize todos os testes adicionais que possam ter sido adicionados.  
+Os testes apresentados estão num cluster multi-SID de dois nó, com três sistemas SAP instalados.  
 
 1. Teste HAGetFailoverConfig e HACheckFailoverConfig
 
-   Execute os seguintes comandos como <sapsid>administrador no nó onde a instância ASCS está atualmente em execução. Se os comandos falharem com FAIL: Memória insuficiente, pode ser causada por traços no seu nome de anfitrião. Esta é uma questão conhecida e será corrigida pela SUSE no pacote de conector de sáb-suse-cluster.
+   Executar os seguintes comandos como <sapsid> adm no nó onde a instância ASCS está atualmente em execução. Se os comandos falharem com FAIL: Memória insuficiente, pode ser causado por traços no seu nome de hospedeiro. Trata-se de um problema conhecido e será corrigido pela SUSE no pacote de conector de fragmentos de sap-suse.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig
@@ -643,7 +643,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
    ```
 
 2. Migrar manualmente a instância ASCS. O exemplo mostra a migração da instância ASCS para o sistema SAP NW2.  
-   Estado de recurso, antes de iniciar o teste:
+   Estado dos recursos, antes de iniciar o teste:
    ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
@@ -679,7 +679,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Executar os seguintes comandos como raiz para migrar a instância NW2 ASCS.
+   Executar os seguintes comandos como raiz para migrar a instância ASCS NW2.
 
    ```
     crm resource migrate rsc_sap_NW2_ASCS10 force
@@ -692,7 +692,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
     crm resource cleanup rsc_sap_NW2_ERS12
    ```
 
-   Estado de recurso após o teste:
+   Estado de recursos após o teste:
 
    ```
     Full list of resources:
@@ -731,7 +731,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
 
 1. Teste HAFailoverToNode. O teste aqui apresentado mostra a migração da instância ASCS para o sistema SAP NW2.  
 
-   Estado de recurso antes de iniciar o teste:
+   Estado dos recursos antes de iniciar o teste:
 
    ```
     Full list of resources:
@@ -768,7 +768,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Executar os seguintes comandos como **nw2**adm para migrar a instância NW2 ASCS.
+   Executar os seguintes comandos como **adm nw2**para migrar a instância NW2 ASCS.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""
@@ -781,7 +781,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
    #INFO: Removed migration constraints for rsc_sap_NW2_ASCS10
    ```
 
-   Estado de recurso após o teste:
+   Estado de recursos após o teste:
 
    ```
     Full list of resources:
@@ -818,9 +818,9 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-1. Simular a queda do nó
+1. Simular queda de nó
 
-   Estado de recurso antes de iniciar o teste:
+   Estado dos recursos antes de iniciar o teste:
 
    ```
     Full list of resources:
@@ -857,13 +857,13 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Executar o seguinte comando como raiz no nó onde pelo menos uma instância ASCS está em execução. Neste exemplo, executamos o `slesmsscl2`comando em onde estão a decorrer os casos ASCS para a NW1 e a NW3.  
+   Executar o seguinte comando como raiz no nó onde pelo menos uma instância ASCS está em execução. Neste exemplo, executamos o comando em `slesmsscl2` , onde estão a decorrer os casos ascs para NW1 e NW3.  
 
    ```
     slesmsscl2:~ # echo b > /proc/sysrq-trigger
    ```
 
-   Se utilizar o SBD, o Pacemaker não deve iniciar automaticamente o nó morto. O estado após o nó ser reiniciado deve ser assim.
+   Se utilizar o SBD, o Pacemaker não deve iniciar automaticamente o nó morto. O estado após o nó recomeçar deve ser assim.
 
    ```
     Online: [ slesmsscl1 ]
@@ -926,7 +926,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
    slesmsscl2:~ # crm resource cleanup rsc_sap_NW3_ERS22
    ```
 
-   Estado de recurso após o teste:
+   Estado de recursos após o teste:
 
    ```
     Full list of resources:
@@ -965,7 +965,7 @@ Os testes apresentados estão num cluster de dois nós, multi-SID com três sist
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
-* [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
-* [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
-* Para aprender como estabelecer alta disponibilidade e plano para a recuperação de desastres de SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]
+* [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
+* [Implantação de máquinas virtuais Azure para SAP][deployment-guide]
+* [Implantação DBMS de máquinas virtuais Azure para SAP][dbms-guide]
+* Para aprender a estabelecer uma elevada disponibilidade e plano para a recuperação de desastres da SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]

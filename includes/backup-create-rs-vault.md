@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 2509bdae01fc9de5511dcd67eb95bf0d13d5cf39
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391162"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970535"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -59,3 +59,6 @@ Para criar um cofre dos Serviços de Recuperação, siga estes passos.
     Pode levar algum tempo a criar o cofre dos Serviços de Recuperação. Monitorize as notificações de estado na área **de Notificações** no canto superior direito do portal. Depois do seu cofre ser criado, está visível na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Refresh**.
 
      ![Refresque a lista de cofres de reserva](./media/backup-create-rs-vault/refresh-button.png)
+
+>[!IMPORTANT]
+> Recomendamos vivamente que reveja as definições predefinidos para **o tipo de replicação de armazenamento** e as **definições de segurança** antes de configurar cópias de segurança no cofre. Para mais informações, consulte a secção [de redundância de Armazenamento definido.](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy)

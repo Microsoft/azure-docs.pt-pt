@@ -3,16 +3,16 @@ title: 'Quickstart: Criar uma planta com REST API'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando a API REST.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: 51fe927f1ee60f18cff7907e9e641c89acd751e2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563297"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971203"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Definir e Atribuir uma Planta Azure com REST API
 
-Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
+Aprender a criar e atribuir plantas permite que a definição de padrões comuns desenvolva configurações reutilizáveis e rapidamente implantáveis com base em modelos de Gestor de Recursos Azure (modelos ARM), política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Substitua `{subscriptionId}` na variável **$restUri** acima para obter informa�
 
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
-O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
+O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, adicionaremos um grupo de recursos, um modelo ARM, e uma atribuição de papel no grupo de recursos.
 
 > [!NOTE]
 > Ao utilizar a API REST, o objeto _esquema_ é criado em primeiro lugar. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
@@ -200,7 +200,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione um modelo no grupo de recursos. O **Corpo do Pedido** para um modelo do Resource Manager inclui o componente JSON normal do modelo e define o grupo de recursos de destino com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros de esquema são disponibilizados ao modelo através da definição de **properties.parameters** e, dentro do modelo JSON, esse par chave-valor é utilizado para injetar o valor. Os nomes dos parâmetros de esquema e modelo podem ser os mesmos, mas foram diferenciados para ilustrar como cada um deles passa do esquema para o artefacto de modelo.
+1. Adicione um modelo no grupo de recursos. O **Grupo de Pedidos** para um modelo ARM inclui o componente JSON normal do modelo e define o grupo de recursos-alvo com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros de esquema são disponibilizados ao modelo através da definição de **properties.parameters** e, dentro do modelo JSON, esse par chave-valor é utilizado para injetar o valor. Os nomes dos parâmetros de esquema e modelo podem ser os mesmos, mas foram diferenciados para ilustrar como cada um deles passa do esquema para o artefacto de modelo.
 
    - URI da API REST
 

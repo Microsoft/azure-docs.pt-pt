@@ -3,12 +3,12 @@ title: 'Quickstart: Criar um centro de eventos com o grupo de consumidores - Azu
 description: 'Quickstart: Criar um espaço de nomes de Centros de Eventos com um centro de eventos e um grupo de consumidores usando modelos de Gestor de Recursos Azure'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8a1ad9a2b2ce7a8e9e5911cca18b297378a966bd
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6ddf17030da8b0ff50f10938221b9c1dba08084d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315647"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964299"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um centro de eventos utilizando um modelo de Gestor de Recursos Azure
 
@@ -94,7 +94,7 @@ Neste artigo, você criou um espaço de nomes de Event Hubs, e um centro de even
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)
