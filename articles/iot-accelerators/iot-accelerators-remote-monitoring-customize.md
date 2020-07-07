@@ -1,6 +1,6 @@
 ---
-title: Personalize a solução de monitorização remota UI - Azure [ Microsoft Docs
-description: Este artigo fornece informações sobre como pode aceder ao código fonte para o acelerador de soluções de Monitorização Remota UI e fazer algumas personalizações.
+title: Personalizar a solução de Monitorização Remota UI - Azure / Microsoft Docs
+description: Este artigo fornece informações sobre como pode aceder ao código fonte para o UI acelerador de solução de monitorização remota e fazer algumas personalizações.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,62 +9,62 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68608001"
 ---
-# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalize o acelerador de soluções de monitorização remota
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalize o acelerador de solução de monitorização remota
 
-Este artigo fornece informações sobre como pode aceder ao código fonte e personalizar o acelerador de soluções de Monitorização Remota UI.
+Este artigo fornece informações sobre como pode aceder ao código fonte e personalizar a UI do acelerador de solução de monitorização remota.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-a-local-development-environment-for-the-ui"></a>Prepare um ambiente de desenvolvimento local para a UI
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparar um ambiente de desenvolvimento local para a UI
 
-O código UI da solução de monitorização remota é implementado utilizando a estrutura React.js. Pode encontrar o código fonte no [repositório azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub.
+O código UI do acelerador de solução de monitorização remota é implementado utilizando a estrutura React.js. Pode encontrar o código fonte no [repositório azure-iot-pcs-monitor-remote-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub.
 
-Para fazer alterações na UI, pode executar uma cópia local. Para completar ações como a recuperação da telemetria, a cópia local liga-se a um exemplo implantado da solução.
+Para fazer alterações na UI, pode executar uma cópia localmente. Para completar ações como a recuperação da telemetria, a cópia local conecta-se a uma instância implementada da solução.
 
-Os seguintes passos delineiam o processo para criar um ambiente local para o desenvolvimento da UI:
+Os seguintes passos descrevem o processo de criação de um ambiente local para o desenvolvimento da UI:
 
-1. Implemente uma instância **básica** do acelerador de solução utilizando o **CLI pcs.** Tome nota do nome da sua implantação e das credenciais que forneceu para a máquina virtual. Para mais informações, consulte [A utilização do CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
+1. Implementar uma instância **básica** do acelerador de solução utilizando o **CLI dos computadores.** Tome nota do nome da sua implantação e das credenciais que forneceu para a máquina virtual. Para obter mais informações, consulte [implementar utilizando o CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Para permitir o acesso ao SSH à máquina virtual que acolhe os microserviços na sua solução, utilize o portal Azure ou a Azure Cloud Shell. Por exemplo:
+1. Para permitir o acesso do SSH à máquina virtual que acolhe os microserviços na sua solução, utilize o portal Azure ou o Azure Cloud Shell. Por exemplo:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Só permite o acesso sSH durante o teste e desenvolvimento. Se ativar o SSH, [deve desativá-lo assim que terminar de o utilizar](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Apenas permitir o acesso ao SSH durante o teste e o desenvolvimento. Se ativar o SSH, [deve desativá-lo assim que terminar de o utilizar.](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines)
 
-1. Utilize o portal Azure ou a Azure Cloud Shell para encontrar o nome e endereço IP público da sua máquina virtual. Por exemplo:
+1. Utilize o portal Azure ou o Azure Cloud Shell para encontrar o nome e o endereço IP público da sua máquina virtual. Por exemplo:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. Utilize o SSH para se ligar à sua máquina virtual. Utilize o endereço IP do passo anterior e as credenciais que forneceu quando executou **os PCs** para implementar a solução. O `ssh` comando está disponível na Casca de Nuvem Azure.
+1. Utilize o SSH para ligar à sua máquina virtual. Utilize o endereço IP a partir do passo anterior e as credenciais que forneceu quando executou **pcs** para implementar a solução. O `ssh` comando está disponível na Azure Cloud Shell.
 
-1. Para permitir que o UX local se conecte, execute os seguintes comandos na concha da batida na máquina virtual:
+1. Para permitir a ligação do UX local, corram os seguintes comandos na casca de choque na máquina virtual:
 
     ```sh
     cd /app
     sudo ./start.sh --unsafe
     ```
 
-1. Depois de ver o comando completo e o site começar, pode desligar-se da máquina virtual.
+1. Depois de ver o comando completo e o web site começar, pode desligar-se da máquina virtual.
 
-1. Na sua cópia local do [repositório azure-iot-pcs-remote-monitoring-webui,](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) edite o ficheiro **.env** para adicionar o URL da sua solução implementada:
+1. Na sua cópia local do [repositório azure-iot-pcs-monitoring-webui,](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) edite o ficheiro **.env** para adicionar o URL da sua solução implementada:
 
     ```config
     NODE_PATH = src/
     REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
     ```
 
-1. Num pedido de comando, navegue `azure-iot-pcs-remote-monitoring-webui` para a sua cópia local da pasta.
+1. A um pedido de comando, navegue para a sua cópia local da `azure-iot-pcs-remote-monitoring-webui` pasta.
 
 1. Para instalar as bibliotecas necessárias e executar a UI localmente, executar os seguintes comandos:
 
@@ -73,16 +73,16 @@ Os seguintes passos delineiam o processo para criar um ambiente local para o des
     npm start
     ```
 
-1. O comando anterior executa a\/UI localmente em http: /localhost:3000/dashboard. Pode editar o código enquanto o site está em execução e vê-lo atualizar dinamicamente.
+1. O comando anterior executa a UI localmente em http: \/ /localhost:3000/dashboard. Pode editar o código enquanto o site está em execução e vê-lo atualizado dinamicamente.
 
 ## <a name="customize-the-layout"></a>Personalize o layout
 
-Cada página da solução de Monitorização Remota é composta por um conjunto de *controlos, referidos como painéis* no código fonte. A página **do Dashboard** é composta por cinco painéis: Visão geral, mapa, alertas, telemetria e Análise. Pode encontrar o código fonte que define cada página e os seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub. Por exemplo, o código que define a página **do Dashboard,** o seu layout e os painéis na página estão localizados no [src/componentes/páginas/pasta do painel.](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard)
+Cada página na solução de Monitorização Remota é composta por um conjunto de *controlos, referidos* como painéis no código fonte. A página **dashboard** é composta por cinco painéis: Visão geral, Mapa, Alertas, Telemetria e Analytics. Pode encontrar o código fonte que define cada página e os seus painéis no [repositório gitHub de monitorização remota do pcs-remote-monitoring-webui.](https://github.com/Azure/pcs-remote-monitoring-webui) Por exemplo, o código que define a página **do Dashboard,** o seu layout e os painéis na página estão localizados na pasta [src/componentes/páginas/dashboard.](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard)
 
-Como os painéis gerem o seu próprio layout e dimensionamento, você pode facilmente modificar o layout de uma página. Faça as seguintes alterações ao `src/components/pages/dashboard/dashboard.js` elemento **PageContent** no ficheiro para:
+Como os painéis gerem o seu próprio layout e dimensionamento, você pode facilmente modificar o layout de uma página. Faça as seguintes alterações ao elemento **PageContent** no `src/components/pages/dashboard/dashboard.js` ficheiro para:
 
-* Troque as posições dos painéis de mapas e telemetria.
-* Mude as larguras relativas do mapa e dos painéis de análise.
+* Troque as posições do mapa e dos painéis de telemetria.
+* Altere as larguras relativas do mapa e dos painéis de análise.
 
 ```javascript
 <PageContent className="dashboard-container">
@@ -154,7 +154,7 @@ Como os painéis gerem o seu próprio layout e dimensionamento, você pode facil
 
 ![Alterar o layout do painel](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
-Também pode adicionar várias instâncias do mesmo painel, ou várias versões se [duplicar e personalizar um painel.](#duplicate-and-customize-an-existing-control) O exemplo que se segue mostra como adicionar duas instâncias do painel de telemetria. Para efazer estas `src/components/pages/dashboard/dashboard.js` alterações, edite o ficheiro:
+Também pode adicionar várias instâncias do mesmo painel, ou várias versões se [duplicar e personalizar um painel](#duplicate-and-customize-an-existing-control). O exemplo a seguir mostra como adicionar duas instâncias do painel de telemetria. Para esporar estas alterações, edite o `src/components/pages/dashboard/dashboard.js` ficheiro:
 
 ```javascript
 <PageContent className="dashboard-container">
@@ -235,29 +235,29 @@ Também pode adicionar várias instâncias do mesmo painel, ou várias versões 
 </PageContent>
 ```
 
-Em seguida, pode ver uma telemetria diferente em cada painel:
+Em seguida, pode ver diferentes telemetrias em cada painel:
 
-![Múltiplos painéis de telemetria](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
+![Vários painéis de telemetria](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
 
 ## <a name="duplicate-and-customize-an-existing-control"></a>Duplicar e personalizar um controlo existente
 
-Os seguintes passos descrevem como duplicar um painel existente, modificá-lo e, em seguida, utilizar a versão modificada. Os passos utilizam o painel de **alertas** como exemplo:
+Os passos a seguir descrevem como duplicar um painel existente, modificá-lo e, em seguida, utilizar a versão modificada. Os passos utilizam o painel **de alertas** como exemplo:
 
-1. Na sua cópia local do repositório, faça uma cópia `src/components/pages/dashboard/panels` da pasta de **alertas** na pasta. Diga o nome da nova cópia **cust_alerts.**
+1. Na sua cópia local do repositório, faça uma cópia da pasta **de alertas** na `src/components/pages/dashboard/panels` pasta. Diga o nome da nova cópia **cust_alerts**.
 
-1. No ficheiro **alertsPanel.js** na pasta **cust_alerts,** editar o nome da classe para ser **CustAlertsPanel:**
+1. No ficheiro **alertsPanel.js** na pasta **cust_alerts,** edite o nome da classe para ser **CustAlertsPanel:**
 
     ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
-1. Adicione a seguinte `src/components/pages/dashboard/panels/index.js` linha ao ficheiro:
+1. Adicione a seguinte linha ao `src/components/pages/dashboard/panels/index.js` ficheiro:
 
     ```javascript
     export * from './cust_alerts';
     ```
 
-1. `alertsPanel` Substitua-o `src/components/pages/dashboard/dashboard.js` no `CustAlertsPanel` ficheiro:
+1. `alertsPanel` `CustAlertsPanel` Substitua-o no `src/components/pages/dashboard/dashboard.js` ficheiro:
 
     ```javascript
     import {
@@ -281,11 +281,11 @@ Os seguintes passos descrevem como duplicar um painel existente, modificá-lo e,
     </Cell>
     ```
 
-Substituiu o painel de **alertas originais** por uma cópia chamada **CustAlerts.** Esta cópia é a mesma que a original. Agora pode modificar a cópia. Por exemplo, para alterar a encomenda da coluna no painel de **alertas:**
+Substituiu agora o painel de **alertas originais** por uma cópia chamada **CustAlerts.** Esta cópia é a mesma que a original. Agora pode modificar a cópia. Por exemplo, para alterar a ordem da coluna no painel **de alertas:**
 
 1. Abra o ficheiro `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js`.
 
-1. Modificar as definições da coluna, tal como mostrado no seguinte código:
+1. Modificar as definições da coluna tal como mostrado no seguinte corte de código:
 
     ```javascript
     this.columnDefs = [
@@ -304,13 +304,13 @@ Substituiu o painel de **alertas originais** por uma cópia chamada **CustAlerts
 
 A imagem que se segue mostra a nova versão do painel de **alertas:**
 
-![painel alertaatualizado](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
+![painel de alertas atualizado](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
 
 ## <a name="customize-the-telemetry-chart"></a>Personalize o gráfico de telemetria
 
-Os ficheiros `src/components/pages/dashboard/panels/telemtry` da pasta definem o gráfico de telemetria na página **do Dashboard.** A UI recupera a telemetria da solução traseira do `src/services/telemetryService.js` ficheiro. Os seguintes passos mostram-lhe como alterar o período de tempo apresentado na tabela de telemetria de 15 a 5 minutos:
+Os ficheiros da `src/components/pages/dashboard/panels/telemtry` pasta definem o gráfico de telemetria na página **do Painel de Instrumentos.** A UI recupera a telemetria a partir da extremidade traseira da solução no `src/services/telemetryService.js` ficheiro. Os seguintes passos mostram-lhe como alterar o período de tempo exibido na tabela de telemetria de 15 para 5 minutos:
 
-1. No `src/services/telemetryService.js` ficheiro, localize a função chamada **getTelemettryByDeviceIdP15M**. Faça uma cópia desta função e modifique a cópia da seguinte forma:
+1. No `src/services/telemetryService.js` ficheiro, localize a função chamada **getTelemetryByDeviceIdP15M**. Faça uma cópia desta função e modifique a cópia da seguinte forma:
 
     ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
@@ -323,7 +323,7 @@ Os ficheiros `src/components/pages/dashboard/panels/telemtry` da pasta definem o
     }
     ```
 
-1. Para utilizar esta nova função para preencher `src/components/pages/dashboard/dashboard.js` o gráfico de telemetria, abra o ficheiro. Localize a linha que inicializa o fluxo de telemetria e modifique-a da seguinte forma:
+1. Para utilizar esta nova função para povoar o gráfico de telemetria, abra o `src/components/pages/dashboard/dashboard.js` ficheiro. Localize a linha que inicializa o fluxo de telemetria e modifique-a da seguinte forma:
 
     ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
@@ -335,9 +335,9 @@ O gráfico de telemetria mostra agora os cinco minutos de dados de telemetria:
 
 ## <a name="add-a-new-kpi"></a>Adicione um novo KPI
 
-A página **do Dashboard** apresenta KPIs no painel **Analytics.** Estes KP's são `src/components/pages/dashboard/dashboard.js` calculados no ficheiro. Os KP's são `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` prestados pelo ficheiro. Os seguintes passos descrevem como calcular e renderizar um novo valor KPI na página **do Dashboard.** O exemplo mostrado é adicionar uma nova variação percentual nos alertas de alerta KPI:
+A página **dashboard** apresenta KPI's no painel **Analytics.** Estes KPI's são calculados no `src/components/pages/dashboard/dashboard.js` ficheiro. Os KPI's são renderizados pelo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` ficheiro. Os seguintes passos descrevem como calcular e renderizar um novo valor KPI na página **dashboard.** O exemplo mostrado é adicionar uma nova variação percentual nos alertas de aviso KPI:
 
-1. Abra o ficheiro `src/components/pages/dashboard/dashboard.js`. Modifique o objeto **inicial do Estado** para incluir uma propriedade **warningAlertsChange** da seguinte forma:
+1. Abra o ficheiro `src/components/pages/dashboard/dashboard.js`. Modifique o objeto **InicialState** para incluir uma propriedade **de AdvertênciaAlertsChange** da seguinte forma:
 
     ```javascript
     const initialState = {
@@ -357,7 +357,7 @@ A página **do Dashboard** apresenta KPIs no painel **Analytics.** Estes KP's s�
     };
     ```
 
-1. Modificar o objeto **actualAlertsStats** para incluir **totalWarningCount** como uma propriedade:
+1. Modifique o objeto **atual DeertsStats** para incluir **o TotalWarningCount** como uma propriedade:
 
     ```javascript
     return {
@@ -400,7 +400,7 @@ A página **do Dashboard** apresenta KPIs no painel **Analytics.** Estes KP's s�
     });
     ```
 
-1. Incluir o novo **avisoAlertsChange** KPI nos dados estatais utilizados para renderizar a UI:
+1. Inclua o novo **avisoAlertsChange** KPI nos dados estatais utilizados para tornar a UI:
 
     ```javascript
     const {
@@ -419,7 +419,7 @@ A página **do Dashboard** apresenta KPIs no painel **Analytics.** Estes KP's s�
     } = this.state;
     ```
 
-1. Atualizar os dados transmitidos ao painel kPIs:
+1. Atualizar os dados transmitidos ao painel KPI's:
 
     ```javascript
     <AnalyticsPanel
@@ -435,7 +435,7 @@ A página **do Dashboard** apresenta KPIs no painel **Analytics.** Estes KP's s�
       t={t} />
     ```
 
-Já terminou as alterações `src/components/pages/dashboard/dashboard.js` no ficheiro. Os seguintes passos descrevem `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` as alterações a fazer no ficheiro para exibir o novo KPI:
+Já terminou as alterações no `src/components/pages/dashboard/dashboard.js` ficheiro. Os seguintes passos descrevem as alterações a fazer no `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` ficheiro para exibir o novo KPI:
 
 1. Modificar a seguinte linha de código para recuperar o novo valor KPI da seguinte forma:
 
@@ -443,7 +443,7 @@ Já terminou as alterações `src/components/pages/dashboard/dashboard.js` no fi
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
-1. Modifique a marcação para exibir o novo valor KPI da seguinte forma:
+1. Modifique a marcação para mostrar o novo valor KPI da seguinte forma:
 
     ```javascript
     <div className="analytics-cell">
@@ -469,13 +469,13 @@ Já terminou as alterações `src/components/pages/dashboard/dashboard.js` no fi
     </div>
     ```
 
-A página **do Dashboard** apresenta agora o novo valor KPI:
+A página **dashboard** apresenta agora o novo valor KPI:
 
-![KPI aviso](./media/iot-accelerators-remote-monitoring-customize/new-kpi.png)
+![Aviso KPI](./media/iot-accelerators-remote-monitoring-customize/new-kpi.png)
 
 ## <a name="customize-the-map"></a>Personalize o mapa
 
-Consulte a página de [mapa Personalizar](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) no GitHub para obter detalhes dos componentes do mapa na solução.
+Consulte a página do [mapa Personalizar](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) no GitHub para obter detalhes sobre os componentes do mapa na solução.
 
 <!--
 ### Connect an external visualization tool
@@ -486,23 +486,23 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ## <a name="other-customization-options"></a>Outras opções de personalização
 
-Para modificar ainda mais a camada de apresentação e visualização na solução de Monitorização Remota, pode editar o código. Os repositórios gitHub relevantes são:
+Para modificar ainda mais a camada de apresentação e visualizações na solução de Monitorização Remota, pode editar o código. Os repositórios gitHub relevantes são:
 
-* [O microserviço de configuração para Soluções Azure IoT (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
-* [O microserviço de configuração para Soluções Azure IoT (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
-* [UI de monitorização remota do PCS Azure IoT](https://github.com/Azure/pcs-remote-monitoring-webui)
+* [O microserviço de configuração para Azure IoT Solutions (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [O microserviço de configuração para Azure IoT Solutions (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
+* [Azure IoT PCS Monitorização Remota Web UI](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a UI web no acelerador de soluções de Monitorização Remota. Para saber mais sobre personalizar a UI, consulte os seguintes artigos:
+Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a UI web no acelerador de solução de Monitorização Remota. Para saber mais sobre a personalização da UI, consulte os seguintes artigos:
 
-* [Adicione uma página personalizada ao uI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md)
-* [Adicione um serviço personalizado ao uI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-service.md)
-* [Adicione uma grelha personalizada ao uI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-grid.md)
-* [Adicione um flyout personalizado ao UI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-flyout.md)
-* [Adicione um painel personalizado ao painel no UI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-panel.md)
+* [Adicione uma página personalizada à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md)
+* [Adicione um serviço personalizado à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-service.md)
+* [Adicione uma grelha personalizada à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Adicione um flyout personalizado à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Adicione um painel personalizado ao painel no painel de instrumentos na UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Para obter informações mais conceptuais sobre o acelerador de soluções de monitorização remota, consulte [a arquitetura de Monitorização Remota](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceptuais sobre o acelerador de solução de monitorização remota, consulte [a arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Para obter mais informações sobre a personalização dos microserviços da solução de monitorização remota, consulte [Personalizar e reutilizar um microserviço](iot-accelerators-microservices-example.md).
+Para obter mais informações sobre a personalização dos microserviços de solução de monitorização remota, consulte [Personalizar e redistribuir um microserviço.](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

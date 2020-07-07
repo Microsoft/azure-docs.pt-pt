@@ -1,6 +1,6 @@
 ---
-title: Subclipe um vídeo ao codificar com a Azure Media Services
-description: Este tópico descreve como subclipe um vídeo ao codificar com a Azure Media Services usando .NET SDK
+title: Subclip um vídeo ao codificar com a Azure Media Services
+description: Este tópico descreve como subclip um vídeo ao codificar com a Azure Media Services usando .NET SDK
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67305218"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclipe um vídeo ao codificar com os Media Services - .NET
+# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclip um vídeo ao codificar com os Media Services - .NET
 
-Pode cortar ou subclipe um vídeo ao codificar-o com um [Job](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando os predefinições [BuiltInStandardEncoderPreset,](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou os predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)
+Pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)
 
-O exemplo c# seguinte cria um trabalho que apara um vídeo num Ativo ao submeter um trabalho de codificação. 
+O exemplo C# a seguir cria um trabalho que apara um vídeo num Ativo à medida que apresenta um trabalho de codificação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar os passos descritos neste tópico, tem de:
 
 - [Criar uma conta Azure Media Services](create-account-cli-how-to.md)
-- Criar uma Transformação e um Ativo de entrada e saída. Pode ver como criar um Transform e entrada e output Assets no [Upload, codificar e transmitir vídeos usando o tutorial .NET.](stream-files-tutorial-with-api.md)
+- Criar uma Transformação e uma entrada e saída Ativos. Pode ver como criar um Transform e inserir e produzir Ativos no [Upload, codificar e transmitir vídeos usando o tutorial .NET.](stream-files-tutorial-with-api.md)
 - Reveja o tópico do [conceito de codificação.](encoding-concept.md)
 
 ## <a name="example"></a>Exemplo

@@ -1,6 +1,6 @@
 ---
 title: Copiar bolhas de uma conta de armazenamento num ativo da Azure Media Services Microsoft Docs
-description: Este tópico mostra como copiar uma bolha existente num Ativo de Serviços de Media. O exemplo utiliza as extensões Azure Media Services .NET SDK.
+description: Este tópico mostra como copiar uma bolha existente num Ativo de Serviços de Mídia. O exemplo utiliza extensões Azure Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,45 +14,45 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67068900"
 ---
-# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar bolhas existentes num Ativo de Serviços de Media
+# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar bolhas existentes num Ativo de Serviços de Mídia
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Este artigo mostra como copiar bolhas de uma conta de armazenamento para um novo ativo da Azure Media Services (AMS) utilizando as [extensões Azure Media Services .NET SDK](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+Este artigo mostra como copiar bolhas de uma conta de armazenamento num novo ativo Azure Media Services (AMS) utilizando [extensões Azure Media Services .NET SDK](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-Não deve tentar alterar o conteúdo dos contentores blob que foram gerados pelos Media Services sem utilizar APIs do Serviço de Media.
+Não deve tentar alterar o conteúdo dos recipientes blob que foram gerados pelos Media Services sem utilizar ASP do Serviço de Comunicação Social.
 
 Os métodos de extensão funcionam com:
 
-- Ativos regulares.
+- Bens regulares.
 - Ativos de arquivo ao vivo (formato FragBlob).
-- Ativos de origem e destino pertencentes a diferentes contas de Serviços de Media (mesmo em diferentes centros de dados). No entanto, pode haver acusações incorridas ao fazê-lo. Para obter mais informações sobre preços, consulte [Transferências de Dados](https://azure.microsoft.com/pricing/#header-11).
+- Ativos de origem e destino pertencentes a diferentes contas de Serviços de Mídia (mesmo em diferentes centros de dados). No entanto, pode haver acusações por fazê-lo. Para obter mais informações sobre preços, consulte [Transferências de Dados.](https://azure.microsoft.com/pricing/#header-11)
 
 O artigo mostra duas amostras de código:
 
-1. Copiar bolhas de um ativo numa conta AMS para um novo ativo numa outra conta DA.
-2. Copie as bolhas de alguma conta de armazenamento num novo ativo numa conta AMS.
+1. Copiar bolhas de um ativo numa conta AMS para um novo ativo em outra conta AMS.
+2. Copiar bolhas de alguma conta de armazenamento para um novo ativo numa conta AMS.
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copiar bolhas entre duas contas AMS  
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Duas contas de Serviços de Media. Veja o artigo Como Criar uma Conta de [Serviços de Media](media-services-portal-create-account.md).
+Duas contas dos Serviços de Comunicação Social. Consulte o artigo [Como Criar uma Conta de Serviços de Mídia.](media-services-portal-create-account.md)
 
 ### <a name="download-sample"></a>Transferir exemplo
-Pode seguir os passos deste artigo ou pode descarregar uma amostra que contenha o código descrito neste artigo a partir [daqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+Pode seguir os passos deste artigo ou pode descarregar uma amostra que contenha o código descrito neste artigo a partir [daqui.](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)
 
 ### <a name="set-up-your-project"></a>Configurar o seu projeto
 
-1. Instale o seu ambiente de desenvolvimento conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md). 
-2. Adicione a secção de appsSettings ao ficheiro .config e atualize os valores com base nas suas contas de Serviços de Media, na conta de armazenamento de destino e no ID do ativo de origem.  
+1. Configurar o seu ambiente de desenvolvimento como descrito no [desenvolvimento dos Serviços de Mídia com .NET](media-services-dotnet-how-to-use.md). 
+2. Adicione a secção de configurações de aplicativos ao ficheiro .config e atualize os valores baseados nas suas contas de Serviços de Mídia, na conta de armazenamento de destino e na identificação do ativo de origem.  
 
 ```xml
 <appSettings>
@@ -76,9 +76,9 @@ Pode seguir os passos deste artigo ou pode descarregar uma amostra que contenha 
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Copiar bolhas de um ativo numa conta AMS num ativo numa outra conta AMS
+### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Copiar bolhas de um ativo numa conta AMS em um ativo em outra conta AMS
 
-O código seguinte utiliza o método **extension IAsset.Copy** para copiar todos os ficheiros do ativo de origem para o ativo de destino utilizando uma única extensão.
+O código a seguir utiliza o método extensão **IAsset.Copy** para copiar todos os ficheiros do ativo de origem no ativo de destino utilizando uma única extensão.
 
 ```csharp
 using System;
@@ -162,13 +162,13 @@ namespace CopyExistingBlobsIntoAsset
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta de armazenamento da qual pretende copiar bolhas.
+- Uma conta de Armazenamento a partir da qual pretende copiar bolhas.
 - Uma conta AMS na qual quer copiar bolhas.
 
 ### <a name="set-up-your-project"></a>Configurar o seu projeto
 
-1. Instale o seu ambiente de desenvolvimento conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md). 
-2. Adicione a secção de definições de aplicações ao ficheiro .config e atualize os valores com base nas suas contas AMS de armazenamento de origem e destino.
+1. Configurar o seu ambiente de desenvolvimento como descrito no [desenvolvimento dos Serviços de Mídia com .NET](media-services-dotnet-how-to-use.md). 
+2. Adicione a secção de configurações de aplicativos ao ficheiro .config e atualize os valores com base no armazenamento de origem e nas contas AMS de destino.
 
 ```xml
 <appSettings>
@@ -185,9 +185,9 @@ namespace CopyExistingBlobsIntoAsset
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Copiar bolhas de alguma conta de armazenamento em um novo ativo numa conta AMS
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Copiar bolhas de alguma conta de armazenamento em um novo ativo em uma conta AMS
 
-O código seguinte copia bolhas de uma conta de armazenamento para um ativo dos Serviços de Media. 
+O código que se segue copia as bolhas de uma conta de armazenamento num ativo dos Serviços de Comunicação Social. 
 
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.

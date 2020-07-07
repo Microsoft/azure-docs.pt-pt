@@ -1,6 +1,6 @@
 ---
-title: Recuperação geo-desastre na Grelha de Eventos de Azure Microsoft Docs
-description: Descreve como a Azure Event Grid suporta automaticamente a recuperação de geodesastres (GeoDR).
+title: Recuperação de desastres geo na Grelha de Eventos de Azure Microsoft Docs
+description: Descreve como a Azure Event Grid suporta automaticamente a recuperação de geo desastres (GeoDR).
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,33 +8,33 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: spelluru
 ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66307321"
 ---
-# <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperação de desastregeográfico do lado do servidor na Grelha de Eventos De Azure
-A Event Grid tem agora uma recuperação automática de geo-desastres (GeoDR) de meta-dados não só para novos, mas para todos os domínios, tópicos e subscrições de eventos existentes. Se toda uma região do Azure cair, a Rede de Eventos já terá todos os metadados de infraestrutura relacionados com eventos sincronizados com uma região emparelhada. Os teus novos eventos voltarão a fluir sem nenhuma intervenção tua. 
+# <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperação de desastres geo-side do servidor na Grelha de Eventos Azure
+A Event Grid tem agora uma recuperação automática de geo-desastres (GeoDR) de meta-dados não só para novos, mas para todos os domínios, tópicos e subscrições de eventos existentes. Se toda uma região do Azure cair, a Event Grid já terá todos os seus metadados de infraestrutura relacionados com eventos sincronizados numa região emparelhada. Os seus novos eventos voltarão a fluir sem intervenção tua. 
 
 A recuperação de desastres é medida com duas métricas:
 
-- Objetivo do Ponto de [Recuperação (RPO):](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective)as atas ou horas de dados que podem ser perdidos.
-- Objetivo do Tempo de [Recuperação (RTO):](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective)as atas de horas de serviço podem estar em baixo.
+- [Objetivo do Ponto de Recuperação (RPO):](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective)as atas ou horas de dados que podem ser perdidos.
+- Objetivo do tempo de [recuperação (RTO):](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective)as atas de horas em que o serviço pode estar em baixo.
 
-O failover automático da Rede de Eventos tem RPOs e RTOs diferentes para os seus metadados (subscrições de eventos, etc.) e dados (eventos). Se precisar de especificações diferentes das seguintes, ainda pode implementar o seu próprio cliente falha ao utilizar os apis de [saúde tópicos.](custom-disaster-recovery.md)
+A falha automática da Event Grid tem diferentes RPOs e RTOs para os seus metadados (subscrições de eventos, etc.) e dados (eventos). Se precisar de especificações diferentes das seguintes, ainda pode implementar o seu próprio fracasso do lado do [cliente sobre a utilização do tópico health apis](custom-disaster-recovery.md).
 
 ## <a name="recovery-point-objective-rpo"></a>Objetivo de ponto de recuperação (RPO)
-- **RPO de metadados:** zero minutos. Sempre que um recurso é criado em Event Grid, é instantaneamente replicado em regiões. Quando ocorre uma falha, não se perdem metadados.
-- **RPO**de dados : Se o seu sistema estiver saudável e apanhado no tráfego existente no momento da falha regional, o RPO para eventos é de cerca de 5 minutos.
+- **Metadados RPO:** zero minutos. Sempre que um recurso é criado em Event Grid, é replicado instantaneamente em regiões. Quando ocorre uma falha, não se perdem metadados.
+- **Dados RPO**: Se o seu sistema estiver saudável e estiver a ser apanhado no tráfego existente no momento da falha regional, o RPO para eventos é de cerca de 5 minutos.
 
 ## <a name="recovery-time-objective-rto"></a>Objetivo de tempo de recuperação (RTO)
-- **Metadados RTO**: Embora geralmente aconteça muito mais rapidamente, dentro de 60 minutos, a Rede de Eventos começará a aceitar a criação/atualização/exclusão de chamadas para tópicos e subscrições.
-- **Data RTO**: Tal como os metadados, geralmente acontece muito mais rapidamente, no entanto, dentro de 60 minutos, a Rede de Eventos começará a aceitar um novo tráfego após uma falha regional.
+- **Metadados RTO**: Embora geralmente aconteça muito mais rapidamente, dentro de 60 minutos, a Grade de Evento começará a aceitar chamadas de criar/atualizar/eliminar chamadas para tópicos e subscrições.
+- **Dados RTO**: Tal como os metadados, geralmente acontece muito mais rapidamente, no entanto, dentro de 60 minutos, a Grade de Eventos começará a aceitar novo tráfego após uma falha regional.
 
 > [!NOTE]
-> O custo dos metadados GeoDR na Grelha de Eventos é: $0.
+> O custo para os metadados GeoDR na Grelha de Eventos é: $0.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-If you want to implement you own client-side failover logic, see [# Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md)
+Se quiser implementar a sua própria lógica de failover do lado do cliente, consulte [# Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos](custom-disaster-recovery.md)

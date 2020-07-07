@@ -1,6 +1,6 @@
 ---
-title: Personalize a solução Connected Factory - Azure [ Microsoft Docs
-description: Uma descrição de como personalizar o comportamento do acelerador de soluções Connected Factory.
+title: Personalize a solução De Fábrica Conectada - Azure / Microsoft Docs
+description: Uma descrição de como personalizar o comportamento do acelerador de solução Connected Factory.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,70 +10,70 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67080489"
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalize como a solução Connected Factory exibe dados dos seus servidores OPC UA
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalize como a solução De Fábrica Conectada exibe dados dos seus servidores OPC UA
 
-A solução Connected Factory agrega e exibe dados dos servidores OPC UA ligados à solução. Pode navegar e enviar comandos para os servidores DaUA oPC na sua solução. Para mais informações sobre o OPC UA, consulte as FAQ da [Fábrica Conectada](iot-accelerators-faq-cf.md).
+A solução Connected Factory agrega e exibe dados dos servidores OPC UA ligados à solução. Pode navegar e enviar comandos para os servidores UA OPC na sua solução. Para obter mais informações sobre a OPC UA, consulte as [FAQ de fábrica conectadas.](iot-accelerators-faq-cf.md)
 
-Exemplos de dados agregados na solução incluem a Eficiência Geral do Equipamento (OEE) e indicadores de desempenho chave (KPIIs) que pode ver no painel de instrumentos nos níveis de fábrica, linha e estação. A seguinte imagem mostra os valores de OEE e KPI para a estação de **montagem,** na **linha de produção 1,** na fábrica de **Munique:**
+Exemplos de dados agregados na solução incluem a Eficiência Global do Equipamento (OEE) e os Principais Indicadores de Desempenho (KPI's) que pode ver no painel de instrumentos nos níveis de fábrica, linha e estação. A imagem que se segue mostra os valores OEE e KPI para a estação **de montagem,** na **linha de produção 1**, na fábrica **de Munique:**
 
-![Exemplo dos valores de OEE e KPI na solução][img-oee-kpi]
+![Exemplo dos valores OEE e KPI na solução][img-oee-kpi]
 
-A solução permite-lhe visualizar informações detalhadas a partir de itens de dados específicos dos servidores da OPC UA, chamados *estações*. A seguinte imagem mostra parcelas do número de artigos fabricados a partir de uma estação específica:
+A solução permite-lhe visualizar informações detalhadas a partir de itens de dados específicos dos servidores da UA OPC, chamados *estações*. A imagem que se segue mostra parcelas do número de artigos fabricados a partir de uma estação específica:
 
 ![Parcelas de número de artigos fabricados][img-manufactured-items]
 
-Se clicar num dos gráficos, pode explorar ainda mais os dados utilizando insights da Série de Tempo (TSI):
+Se clicar num dos gráficos, pode explorar os dados mais adiante utilizando o Time Series Insights (TSI):
 
-![Explore dados usando insights da série temporal][img-tsi]
+![Explore dados usando insights de séries de tempo][img-tsi]
 
 Este artigo descreve:
 
-- Como os dados são disponibilizados para as várias opiniões da solução.
+- Como os dados são disponibilizados para os vários pontos de vista da solução.
 - Como pode personalizar a forma como a solução exibe os dados.
 
 ## <a name="data-sources"></a>Origens de dados
 
-A solução Connected Factory apresenta dados dos servidores OPC UA ligados à solução. A instalação padrão inclui vários servidores OPC UA executando uma simulação de fábrica. Pode adicionar os seus próprios servidores OPC UA que [se ligam através de um gateway][lnk-connect-cf] à sua solução.
+A solução Connected Factory exibe dados dos servidores OPC UA ligados à solução. A instalação predefinitiva inclui vários servidores OPC UA executando uma simulação de fábrica. Pode adicionar os seus próprios servidores OPC UA que [conectem através de um gateway][lnk-connect-cf] à sua solução.
 
-Pode navegar nos itens de dados que um servidor OPC UA ligado pode enviar para a sua solução no painel de instrumentos:
+Pode navegar nos dados que um servidor OPC UA conectado pode enviar para a sua solução no painel de instrumentos:
 
-1. Escolha o **Browser** para navegar para a vista de **servidor OPC UA Select:**
+1. Escolha **o Navegador** para navegar para a vista do servidor **OPC UA:**
 
-    ![Navegue para a vista de servidor oPC UA][img-select-server]
+    ![Navegue para a vista do servidor OPC UA][img-select-server]
 
-1. Selecione um servidor e clique em **Ligar**. Clique em **Proceder** quando aparecer o aviso de segurança.
+1. Selecione um servidor e clique em **Connect**. Clique **em Proceder** quando o aviso de segurança aparecer.
 
     > [!NOTE]
-    > Este aviso só aparece uma vez para cada servidor e estabelece uma relação de confiança entre o painel de soluções e o servidor.
+    > Este aviso só aparece uma vez para cada servidor e estabelece uma relação de confiança entre o painel de solução e o servidor.
 
-1. Agora pode navegar nos itens de dados que o servidor pode enviar para a solução. Os itens que estão a ser enviados para a solução têm uma marca de verificação:
+1. Pode agora navegar nos dados que o servidor pode enviar para a solução. Os itens que estão a ser enviados para a solução têm uma marca de verificação:
 
-    ![Itens publicados][img-published]
+    ![Artigos publicados][img-published]
 
-1. Se for *administrador* na solução, pode optar por publicar um item de dados para o disponibilizar na solução Connected Factory. Como Administrador, também pode alterar o valor dos itens de dados e dos métodos de chamada no servidor OPC UA.
+1. Se for *administrador* na solução, pode optar por publicar um item de dados para o disponibilizar na solução De Fábrica Conectada. Como Administrador, também pode alterar o valor dos itens de dados e dos métodos de chamada no servidor OPC UA.
 
 ## <a name="map-the-data"></a>Mapear os dados
 
-A solução Connected Factory mapeia e agrega os itens de dados publicados do servidor OPC UA para as várias vistas da solução. A solução Connected Factory implanta-se na sua conta Azure quando fornecer a solução. Um ficheiro JSON na solução Visual Studio Connected Factory armazena esta informação de mapeamento. Pode visualizar e modificar este ficheiro de configuração JSON na solução Connected Factory Visual Studio. Pode recolocar a solução depois de fazer uma mudança.
+A solução Connected Factory mapeia e agrega os itens de dados publicados do servidor OPC UA às várias visões da solução. A solução Connected Factory implanta-se na sua conta Azure quando fornece a solução. Um ficheiro JSON na solução Visual Studio Connected Factory armazena esta informação de mapeamento. Pode visualizar e modificar este ficheiro de configuração JSON na solução Connected Factory Visual Studio. Pode recolocar a solução depois de fazer uma alteração.
 
 Pode utilizar o ficheiro de configuração para:
 
 - Editar as fábricas simuladas existentes, linhas de produção e estações.
-- Mapeie dados de servidores UA reais da OPC que se conecta à solução.
+- Mapeia dados de servidores OPC UA reais que se conectam à solução.
 
-Para obter mais informações sobre mapeamento e agregação dos dados para satisfazer os seus requisitos específicos, consulte [como configurar o acelerador ](iot-accelerators-connected-factory-configure.md)de soluções Connected Factory .
+Para obter mais informações sobre o mapeamento e agregação dos dados para satisfazer os seus requisitos específicos, consulte [Como configurar o acelerador de solução De Fábrica Conectada ](iot-accelerators-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Implementar as alterações
 
-Quando terminar de fazer alterações no ficheiro **ContosoTopologyDescription.json,** tem de recolocar a solução Connected Factory na sua conta Azure.
+Quando terminar de efetuar alterações **naContosoTopologyDescription.jsno** ficheiro, tem de recolocar a solução De Fábrica Conectada na sua conta Azure.
 
-O repositório de **fábrica azure-iot-connected-connected** inclui um script **build.ps1** PowerShell que você pode usar para reconstruir e implementar a solução.
+O repositório **de fábrica ligado a azul-iot** inclui um script **powerShellbuild.ps1** que pode usar para reconstruir e implementar a solução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

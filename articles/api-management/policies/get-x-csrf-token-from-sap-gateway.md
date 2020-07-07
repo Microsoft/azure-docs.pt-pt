@@ -1,6 +1,6 @@
 ---
-title: Amostra de política de gestão da API Azure - Implementar o padrão X-CSRF Microsoft Docs
-description: Amostra de política de gestão da API Azure - Demonstra como implementar o padrão X-CSRF usado por muitas APIs. Este exemplo é específico do Gateway SAP.
+title: Amostra de política de gestão da API Azure - Implementar padrão X-CSRF / Microsoft Docs
+description: Amostra de política de gestão AZure API - Demonstra como implementar o padrão X-CSRF utilizado por muitas APIs. Este exemplo é específico do Gateway SAP.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 14ea9113bf5712d6ffce356d02abb7224c21771a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70067728"
 ---
 # <a name="implement-x-csrf-pattern"></a>Implementar o padrão X-CSRF
 
-Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como implementar o padrão X-CSRF usado por muitas APIs. Este exemplo é específico do Gateway SAP. Para definir ou editar um código de política, siga os passos descritos no [set ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [amostras políticas.](../policy-samples.md)
+Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como implementar o padrão X-CSRF usado por muitas APIs. Este exemplo é específico do Gateway SAP. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-samples.md)
 
 ## <a name="policy"></a>Política
 
-Cola o código no bloco **de entrada.**
+Cole o código no bloco **de entrada.**
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Get X-CSRF token from SAP gateway using send request.policy.xml)]
 
@@ -34,5 +34,5 @@ Cola o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Amostras políticas](../policy-samples.md)
++ [Amostras de política](../policy-samples.md)
 
