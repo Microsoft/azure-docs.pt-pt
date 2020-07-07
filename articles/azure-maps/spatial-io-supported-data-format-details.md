@@ -1,5 +1,5 @@
 ---
-title: Detalhes do formato de dados suportados / Microsoft Azure Maps
+title: Dados suportados em formato de dados Microsoft Azure Maps
 description: Saiba como os dados espaciais delimitados são analisados no módulo IO espacial.
 author: philmea
 ms.author: philmea
@@ -9,37 +9,37 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334087"
 ---
-# <a name="supported-data-format-details"></a>Detalhes do formato de dados suportados
+# <a name="supported-data-format-details"></a>Detalhes do formato de dados suportado
 
-Este artigo fornece detalhes sobre o suporte de leitura e escrita para todas as tags XML e tipos de geometria de texto bem conhecidos. Também detalha como os dados espaciais delimitados são analisados no módulo IO espacial.
+Este artigo fornece detalhes sobre o suporte de leitura e escrita para todas as tags XML e tipos de geometria de texto bem conhecido. Também detalha como os dados espaciais delimitados são analisados no módulo IO espacial.
 
-## <a name="supported-xml-namespaces"></a>Espaços de nome SxMl suportados
+## <a name="supported-xml-namespaces"></a>Espaços de nomes XML suportados
 
-O módulo IO espacial suporta as etiquetas XML dos seguintes espaços de nome.
+O módulo IO espacial suporta tags XML a partir dos seguintes espaços de nome.
 
-| Prefixo espaço de nome | Espaço de nome URI   | Notas                                                                    |
+| Prefixo do espaço de nome | URI de espaço de nome   | Notas                                                                    |
 |:------------------|:-----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
-| `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Leia apenas suporte em ficheiros GeoRSS.           |
+| `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Leia apenas o suporte nos ficheiros GeoRSS.           |
 | `georss`         | `http://www.georss.org/georss`  |                                                |
-| `geourl`         | `http://geourl.org/rss/module/` | Leia apenas suporte em ficheiros GeoRSS.                       |
+| `geourl`         | `http://geourl.org/rss/module/` | Leia apenas o suporte nos ficheiros GeoRSS.                       |
 | `gml`            | `http://www.opengis.net/gml`    |                                                        |
 | `gpx`            | `http://www.topografix.com/GPX/1/1` |                                                   |
-| `gpxx`           | `http://www.garmin.com/xmlschemas/GpxExtensions/v3` | Leia apenas suporte em ficheiros GPX. Parses e usa displayColor. Todas as outras propriedades adicionadas para moldar metadados. |
+| `gpxx`           | `http://www.garmin.com/xmlschemas/GpxExtensions/v3` | Leia apenas suporte em ficheiros GPX. Parses e utiliza DisplayColor. Todas as outras propriedades adicionadas para moldar metadados. |
 | `gpx_style`      | `http://www.topografix.com/GPX/gpx_style/0/2`      | Suportado em ficheiros GPX. Usa a cor da linha. |
 | `gx`             | `http://www.google.com/kml/ext/2.2` |                                                      |
 | `kml`            | `http://www.opengis.net/kml/2.2`    |                                                      |
-| `rss`            |                                 | Leia apenas. GeoRSS escreve usando o formato Atom.              |
+| `rss`            |                                 | Leia apenas. GeoRSS escreve usando o formato Átomo.              |
 
 ## <a name="supported-xml-elements"></a>Elementos XML suportados
 
-O módulo IO espacial suporta os seguintes elementos XML. Quaisquer etiquetas XML que não sejam suportadas serão convertidas num objeto JSON. Em seguida, cada etiqueta será adicionada `properties` como uma propriedade no campo da forma ou camada dos pais.
+O módulo IO espacial suporta os seguintes elementos XML. Quaisquer tags XML que não sejam suportadas serão convertidas num objeto JSON. Em seguida, cada tag será adicionada como uma propriedade no `properties` campo da forma ou camada do progenitor.
 
 ### <a name="kml-elements"></a>Elementos KML
 
@@ -52,28 +52,28 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `atom:author`        | sim     | sim     |                                                                                                                            |
 | `atom:link`          | sim     | sim     |                                                                                                                            |
 | `atom:name`          | sim     | sim     |                                                                                                                            |
-| `BalloonStyle`       | parcial | parcial | `displayMode`não é apoiado. Convertido em `PopupTemplate`um . Para escrever, `popupTemplate` adicione uma propriedade como propriedade da funcionalidade para a qual pretende escrevê-la. |
+| `BalloonStyle`       | parcial | parcial | `displayMode`não é apoiado. Convertido para `PopupTemplate` um . Para escrever, adicione um `popupTemplate` imóvel como propriedade da funcionalidade para a qual pretende escrevê-lo. |
 | `begin`              | sim     | sim     |                                                                                                                            |
-| `color`              | sim     | sim     | Inclui `#AABBGGRR` `#BBGGRR`e . Analisado em uma cadeia de cores CSS                                                           |
+| `color`              | sim     | sim     | Inclui `#AABBGGRR` e `#BBGGRR` . Analisado numa cadeia de cores CSS                                                           |
 | `colorMode`          | sim     | não      |                                                                                                                            |
 | `coordinates`        | sim     | sim     |                                                                                                                            |
 | `Data`               | sim     | sim     |                                                                                                                            |
 | `description`        | sim     | sim     |                                                                                                                            |
 | `displayName`        | sim     | sim     |                                                                                                                            |
 | `Document`           | sim     | sim     |                                                                                                                            |
-| `drawOrder`          | parcial | não      | Leia para sobreposições no chão e costumava separa-las. 
+| `drawOrder`          | parcial | não      | Leia as sobreposições no chão e costumava serdená-las. 
 | `east`               | sim     | sim     |                                                                                                                            |
 | `end`                | sim     | sim     |                                                                                                                            |
-| `ExtendedData`       | sim     | sim     | Suporta substituições `Data`não `SimpleData` `Schema`digitadas, ou, `$[dataName]`e entidades do formulário.                      |
-| `extrude`            | parcial | parcial | Apenas apoiado para polígonos. A multigeometria que tem polígonos de diferentes alturas será dividida em características individuais. Os estilos de linha não são suportados. Os polígonos com uma altitude de 0 serão renderizados como um polígono plano. Ao ler, a altitude da primeira coordenada no anel exterior será adicionada como uma propriedade de altura do polígono. Em seguida, a altitude da primeira coordenada será usada para renderizar o polígono no mapa. |
+| `ExtendedData`       | sim     | sim     | Suporta substituições não escritas `Data` `SimpleData` ou `Schema` entidades do `$[dataName]` formulário.                      |
+| `extrude`            | parcial | parcial | Só suportado para polígonos. MultiGeometry que têm polígonos de diferentes alturas será dividida em características individuais. Os estilos de linha não são suportados. Polígonos com uma altitude de 0 serão renderizados como um polígono plano. Ao ler, a altitude da primeira coordenada no anel exterior será adicionada como uma propriedade de altura do polígono. Em seguida, a altitude da primeira coordenada será usada para tornar o polígono no mapa. |
 | `fill`               | sim     | sim     |                                                                                                                            |
 | `Folder`             | sim     | sim     |                                                                                                                            |
 | `GroundOverlay`      | sim     | sim     | `color`não é apoiado                                                                                                   |
-| `heading`            | parcial | não      | Analisado, mas não prestado `SimpleDataLayer`por. Só escreve se os dados forem armazenados na propriedade da forma.                 |
-| `hotSpot`            | sim     | parcial | Só escreve se os dados forem armazenados na propriedade da forma. As unidades são saídas apenas como "pixels".                         |
+| `heading`            | parcial | não      | Analisado, mas não prestado por `SimpleDataLayer` . Só escreve se os dados forem armazenados na propriedade da forma.                 |
+| `hotSpot`            | sim     | parcial | Só escreve se os dados forem armazenados na propriedade da forma. As unidades são outputadas apenas como "pixels".                         |
 | `href`               | sim     | sim     |                                                                                                                            |
-| `Icon`               | parcial | parcial | Analisado, mas não prestado `SimpleDataLayer`por. Apenas escreve a propriedade do ícone da forma se contiver um dados URI. Só `href` é apoiado. |
-| `IconStyle`          | parcial | parcial | `icon`, `heading` `colorMode`, `hotspots` e os valores são analisados, mas não são prestados por`SimpleDataLayer`         |
+| `Icon`               | parcial | parcial | Analisado, mas não prestado por `SimpleDataLayer` . Só escreve a propriedade do ícone da forma se contiver um dado URI. Só `href` é apoiado. |
+| `IconStyle`          | parcial | parcial | `icon`, `heading` `colorMode` e `hotspots` os valores são analisados, mas não são renderizados por`SimpleDataLayer`         |
 | `innerBoundaryIs`    | sim     | sim     |                                                                                                                            |
 | `kml`                | sim     | sim     |                                                                                                                            |
 | `LabelStyle`         | não      | não      |                                                                                                                            |
@@ -82,24 +82,24 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `LinearRing`         | sim     | sim     |                                                                                                                            |
 | `LineString`         | sim     | sim     |                                                                                                                            |
 | `LineStyle`          | sim     | sim     | `colorMode`não é apoiado.                                                                                         |
-| `Link`               | sim     | não      | Apenas `href` a propriedade é suportada para links de rede.                                                                   |
+| `Link`               | sim     | não      | Apenas a `href` propriedade é suportada para links de rede.                                                                   |
 | `MultiGeometry`      | parcial | parcial | Pode ser dividido em características individuais quando lido.                                                                     |
 | `name`               | sim     | sim     |                                                                                                                            |
-| `NetworkLink`        | sim     | não      | Os links têm de estar no mesmo domínio que o documento.                                                                  |
+| `NetworkLink`        | sim     | não      | As ligações têm de estar no mesmo domínio que o documento.                                                                  |
 | `NetworkLinkControl` | não      | não      |                                                                                                                            |
 | `north`              | sim     | sim     |                                                                                                                            |
 | `open`               | sim     | sim     |                                                                                                                            |
 | `outerBoundaryIs`    | sim     | sim     |                                                                                                                            |
 | `outline`            | sim     | sim     |                                                                                                                            |
 | `overlayXY`          | não      | não      |                                                                                                                            |
-| `Pair`               | parcial | não      | Só `normal` o estilo `StyleMap` em um é suportado. `highlight`não é apoiado.                                   |
+| `Pair`               | parcial | não      | Só o `normal` estilo num `StyleMap` é suportado. `highlight`não é apoiado.                                   |
 | `phoneNumber`        | sim     | sim     |                                                                                                                            |
 | `PhotoOverlay`       | não      | não      |                                                                                                                            |
 | `Placemark`          | sim     | sim     |                                                                                                                            |
 | `Point`              | sim     | sim     |                                                                                                                            |
 | `Polygon`            | sim     | sim     |                                                                                                                            |
 | `PolyStyle`          | sim     | sim     |                                                                                                                            |
-| `Region`             | parcial | parcial | `LatLongBox`é suportado a nível de documento.                                                                      |
+| `Region`             | parcial | parcial | `LatLongBox`é apoiado ao nível do documento.                                                                      |
 | `rotation`           | não      | não      |                                                                                                                            |
 | `rotationXY`         | não      | não      |                                                                                                                            |
 | `scale`              | não      | não      |                                                                                                                            |
@@ -114,14 +114,14 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `Snippet`            | parcial | parcial | `maxLines`atributo é ignorado.                                                                                  |
 | `south`              | sim     | sim     |                                                                                                                            |
 | `Style`              | sim     | sim     |                                                                                                                            |
-| `StyleMap`           | parcial | não      | Apenas o estilo `StyleMap` normal em um é suportado.                                                                        |
-| `styleUrl`           | parcial | sim     | URLs de estilo externo não são suportados.                                                                         |
-| `text`               | sim     | sim     | A `$[geDirections]` substituição não é suportada                                                                          |
+| `StyleMap`           | parcial | não      | Apenas o estilo normal num `StyleMap` é suportado.                                                                        |
+| `styleUrl`           | parcial | sim     | UrLs de estilo externo não são suportados.                                                                         |
+| `text`               | sim     | sim     | Substituição `$[geDirections]` de não é suportado                                                                          |
 | `textColor`          | sim     | sim     |                                                                                                                            |
 | `TimeSpan`           | sim     | sim     |                                                                                                                            |
 | `TimeStamp`          | sim     | sim     |                                                                                                                            |
 | `value`              | sim     | sim     |                                                                                                                            |
-| `viewRefreshMode`    | parcial | não      |  Se apontar para um serviço WMS, então apenas `onStop` é suportado para sobreposições terrestres. Anexar-se-á `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` ao URL e atualizará à medida que o mapa se move.  |
+| `viewRefreshMode`    | parcial | não      |  Se apontar para um serviço WMS, só `onStop` é suportado para sobreposições no solo. Irá anexar `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` o URL e atualizar à medida que o mapa se move.  |
 | `visibility`         | sim     | sim     |                                                                                                                            |
 | `west`               | sim     | sim     |                                                                                                                            |
 | `when`               | sim     | sim     |                                                                                                                            |
@@ -153,10 +153,10 @@ O módulo IO espacial suporta os seguintes elementos GeoRSS.
 | `atom:title`             | sim     | sim   |                                                                                                |
 | `atom:updated`           | sim     | sim   |                                                                                                |
 | `atom:uri`               | sim     | sim   |                                                                                                |
-| `geo:lat`                | sim     | não    | Escrito como `georss:point`um .                                                                   |
-| `geo:lon`                | sim     | não    | Escrito como `georss:point`um .                                                                   |
-| `geo:long`               | sim     | não    | Escrito como `georss:point`um .                                                                   |
-| `georss:box`             | sim     | não    | Ler como um polígono e dado uma `subType` propriedade de "Retangle"                                |
+| `geo:lat`                | sim     | não    | Escrito como `georss:point` um .                                                                   |
+| `geo:lon`                | sim     | não    | Escrito como `georss:point` um .                                                                   |
+| `geo:long`               | sim     | não    | Escrito como `georss:point` um .                                                                   |
+| `georss:box`             | sim     | não    | Leia como um polígono e dado uma `subType` propriedade de "Retângulo"                                |
 | `georss:circle`          | sim     | sim   |                                                                                                |
 | `georss:elev`            | sim     | sim   |                                                                                                |
 | `georss:featurename`     | sim     | sim   |                                                                                                |
@@ -168,34 +168,34 @@ O módulo IO espacial suporta os seguintes elementos GeoRSS.
 | `georss:radius`          | sim     | sim   |                                                                                                |
 | `georss:relationshiptag` | sim     | sim   |                                                                                                |
 | `georss:where`           | sim     | sim   |                                                                                                |
-| `geourl:latitude`        | sim     | não    | Escrito como `georss:point`um .                                                                   |
-| `geourl:longitude`       | sim     | não    | Escrito como `georss:point`um .                                                                   |
-| `position`               | sim     | não    | Alguns feeds XML embrulharão a GML com `georss:where` uma etiqueta de posição em vez de embrulhá-la com uma etiqueta. Lerá esta etiqueta, mas `georss:where` escreverá usando uma etiqueta. |
+| `geourl:latitude`        | sim     | não    | Escrito como `georss:point` um .                                                                   |
+| `geourl:longitude`       | sim     | não    | Escrito como `georss:point` um .                                                                   |
+| `position`               | sim     | não    | Alguns feeds XML embrulham GML com uma etiqueta de posição em vez de embrulhá-lo com uma `georss:where` etiqueta. Vai ler esta etiqueta, mas vai escrever usando uma `georss:where` etiqueta. |
 | `rss`                    | sim     | não    | GeoRSS escrito em formato ATOM.                                                                 |
-| `rss:author`             | sim     | parcial | Escrito como `atom:author`um .                                                                 |
-| `rss:category`           | sim     | parcial | Escrito como `atom:category`um .                                                               |
+| `rss:author`             | sim     | parcial | Escrito como `atom:author` um.                                                                 |
+| `rss:category`           | sim     | parcial | Escrito como `atom:category` um.                                                               |
 | `rss:channel`            | sim     | não    |                                                                                                |
 | `rss:cloud`              | sim     | não    |                                                                                                |
 | `rss:comments`           | sim     | não    |                                                                                                |
-| `rss:copyright`          | sim     | parcial | Escrito como `atom:rights` se a forma já `rights` `properties` não tem uma propriedade.       |
-| `rss:description`        | sim     | parcial | Escrito como `atom:content` se a forma já `content` `properties` não tem uma propriedade.      |
+| `rss:copyright`          | sim     | parcial | Escrito como um `atom:rights` se a forma já não tem uma `rights` `properties` propriedade.       |
+| `rss:description`        | sim     | parcial | Escrito como um `atom:content` se a forma já não tem uma `content` `properties` propriedade.      |
 | `rss:docs`               | sim     | não    |                                                                                                |
 | `rss:enclosure`          | sim     | não    |                                                                                                |
 | `rss:generator`          | sim     | não    |                                                                                                |
-| `rss:guid`               | sim     | parcial | Escrito como `atom:id` se a forma já `id` `properties` não tem uma propriedade.         |
-| `rss:image`              | sim     | parcial | Escrito como `atom:logo` se a forma já `logo` `properties` não tem uma propriedade.      |
-| `rss:item`               | sim     | parcial | Escrito como `atom:entry`um .                                                                  |
+| `rss:guid`               | sim     | parcial | Escrito como um `atom:id` se a forma já não tem uma `id` `properties` propriedade.         |
+| `rss:image`              | sim     | parcial | Escrito como um `atom:logo` se a forma já não tem uma `logo` `properties` propriedade.      |
+| `rss:item`               | sim     | parcial | Escrito como `atom:entry` um.                                                                  |
 | `rss:language`           | sim     | não    |                                                                                                |
-| `rss:lastBuildDate`      | sim     | parcial | Escrito como `atom:updated` se a forma já `updated` `properties` não tem uma propriedade.     |
-| `rss:link`               | sim     | parcial | Escrito como `atom:link`um .                                                                   |
-| `rss:managingEditor`     | sim     | parcial | Escrito como `atom:contributor`um .                                                            |
-| `rss:pubDate`            | sim     | parcial | Escrito como `atom:published` se a forma já `published` `properties` não tem uma propriedade.  |
+| `rss:lastBuildDate`      | sim     | parcial | Escrito como um `atom:updated` se a forma já não tem uma `updated` `properties` propriedade.     |
+| `rss:link`               | sim     | parcial | Escrito como `atom:link` um.                                                                   |
+| `rss:managingEditor`     | sim     | parcial | Escrito como `atom:contributor` um.                                                            |
+| `rss:pubDate`            | sim     | parcial | Escrito como um `atom:published` se a forma já não tem uma `published` `properties` propriedade.  |
 | `rss:rating`             | sim     | não    |                                                                                                |
 | `rss:skipDays`           | sim     | não    |                                                                                                |
 | `rss:skipHours`          | sim     | não    |                                                                                                |
-| `rss:source`             | sim     | parcial | Escrito como `atom:source` um `atom:link`contendo um .                                       |
+| `rss:source`             | sim     | parcial | Escrito como um `atom:source` contendo um `atom:link` .                                       |
 | `rss:textInput`          | sim     | não    |                                                                                                |
-| `rss:title`              | sim     | parcial | Escrito como `atom:title`um .                                                                  |
+| `rss:title`              | sim     | parcial | Escrito como `atom:title` um.                                                                  |
 | `rss:ttl`                | sim     | não    |                                                                                                |
 | `rss:webMaster`          | sim     | não    |                                                                                                |
 
@@ -205,10 +205,10 @@ O módulo IO espacial suporta os seguintes elementos GML.
 
 | Nome do Elemento            | Leitura | Escrita | Notas                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
-| `gml:coordinates`       | sim  | não    | Escrito como. `gml:posList`                                                              |
+| `gml:coordinates`       | sim  | não    | Escrito como `gml:posList` .                                                              |
 | `gml:curveMember`       | sim  | não    |                                                                                        |
 | `gml:curveMembers`      | sim  | não    |                                                                                        |
-| `gml:Box`               | sim  | não    | Escrito como. `gml:Envelope`                                                             |
+| `gml:Box`               | sim  | não    | Escrito como `gml:Envelope` .                                                             |
 | `gml:description`       | sim  | sim   |                                                                                        |
 | `gml:Envelope`          | sim  | sim   |                                                                                        |
 | `gml:exterior`          | sim  | sim   |                                                                                        |
@@ -219,20 +219,20 @@ O módulo IO espacial suporta os seguintes elementos GML.
 | `gml:geometryMember`    | sim  | sim   |                                                                                        |
 | `gml:geometryMembers`   | sim  | sim   |                                                                                        |
 | `gml:identifier`        | sim  | sim   |                                                                                        |
-| `gml:innerBoundaryIs`   | sim  | não    | Escrito usando `gml.interior`.                                                          |
+| `gml:innerBoundaryIs`   | sim  | não    | Utilização escrita `gml.interior` .                                                          |
 | `gml:interior`          | sim  | sim   |                                                                                        |
 | `gml:LinearRing`        | sim  | sim   |                                                                                        |
 | `gml:LineString`        | sim  | sim   |                                                                                        |
 | `gml:lineStringMember`  | sim  | sim   |                                                                                        |
 | `gml:lineStringMembers` | sim  | não    |                                                                                        |
-| `gml:MultiCurve`        | sim  | não    | Só `gml:LineString` lê membros. Escrito como`gml.MultiLineString`                  |
-| `gml:MultiGeometry`     | parcial  | parcial   | Apenas lido como FeatureCollection.                                              |
+| `gml:MultiCurve`        | sim  | não    | Só lê `gml:LineString` membros. Escrito como`gml.MultiLineString`                  |
+| `gml:MultiGeometry`     | parcial  | parcial   | Só é lido como uma FuncionalidadeCollection.                                              |
 | `gml:MultiLineString`   | sim  | sim   |                                                                                        |
 | `gml:MultiPoint`        | sim  | sim   |                                                                                        |
 | `gml:MultiPolygon`      | sim  | sim   |                                                                                        |
-| `gml:MultiSurface`      | sim  | não    | Só `gml:Polygon` lê membros. Escrito como`gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | sim  | não    | Só lê `gml:Polygon` membros. Escrito como`gml.MultiPolygon`                        |
 | `gml:name`              | sim  | sim   |                                                                                        |
-| `gml:outerBoundaryIs`   | sim  | não    | Escrito usando `gml.exterior`.                                                          |
+| `gml:outerBoundaryIs`   | sim  | não    | Utilização escrita `gml.exterior` .                                                          |
 | `gml:Point`             | sim  | sim   |                                                                                        |
 | `gml:pointMember`       | sim  | sim   |                                                                                        |
 | `gml:pointMembers`      | sim  | não    |                                                                                        |
@@ -245,10 +245,10 @@ O módulo IO espacial suporta os seguintes elementos GML.
 
 #### <a name="additional-notes"></a>notas adicionais
 
-- Os elementos membros serão procurados por uma geometria que possa ser enterrada dentro de elementos infantis. Esta operação de pesquisa é necessária, pois muitos formatos XML que se estendem a partir de GML não podem colocar uma geometria como uma criança direta de um elemento membro.
-- `srsName`é parcialmente suportado para as coordenadas WGS84 e os seguintes códigos:[EPSG:4326](https://epsg.io/4326)), e web Mercator[(EPSG:3857](https://epsg.io/3857) ou um dos seus códigos alternativos. Qualquer outro sistema de coordenadas será analisado como WGS84 como está.
-- Salvo especificação ao ler um feed XML, a ordem do eixo é determinada com base em sugestões no feed XML. É dada uma preferência pela ordem do eixo "latitude, longitude".
-- A menos que seja especificado um espaço de nome GML personalizado para as propriedades ao escrever para um ficheiro GML, não serão adicionadas informações adicionais sobre propriedades.
+- Os elementos dos membros serão procurados por uma geometria que possa ser enterrada dentro de elementos infantis. Esta operação de pesquisa é necessária, uma vez que muitos formatos XML que se estendem a partir de GML podem não colocar uma geometria como uma criança direta de um elemento membro.
+- `srsName`é parcialmente suportado para coordenadas WGS84 e os seguintes códigos:[EPSG:4326](https://epsg.io/4326)), e web Mercator[(EPSG:3857](https://epsg.io/3857) ou um dos seus códigos alternativos. Qualquer outro sistema de coordenadas será analisado como WGS84 como está.
+- A menos que seja especificado ao ler um feed XML, a ordem do eixo é determinada com base em sugestões na alimentação XML. É dada preferência pela ordem do eixo "latitude, longitude".
+- A menos que um espaço de nome GML personalizado seja especificado para as propriedades ao escrever para um ficheiro GML, não serão adicionadas informações adicionais sobre a propriedade.
 
 ### <a name="gpx-elements"></a>Elementos GPX
 
@@ -258,13 +258,13 @@ O módulo IO espacial suporta os seguintes elementos GPX.
 |--------------------------|---------|---------|---------------------------------------------------------------------------------------------|
 | `gpx:ageofdgpsdata`      | sim     | sim     |                                                                                             |
 | `gpx:author`             | sim     | sim     |                                                                                             |
-| `gpx:bounds`             | sim     | sim     | Convertido em Rect Local quando lido.                                                    |
+| `gpx:bounds`             | sim     | sim     | Convertido em LocalRect quando lido.                                                    |
 | `gpx:cmt`                | sim     | sim     |                                                                                             |
 | `gpx:copyright`          | sim     | sim     |                                                                                             |
 | `gpx:desc`               | sim     | sim     | Copiado para uma propriedade de descrição quando lido para alinhar com outros formatos XML.               |
 | `gpx:dgpsid`             | sim     | sim     |                                                                                             |
 | `gpx:ele`                | sim     | sim     |                                                                                             |
-| `gpx:extensions`         | parcial | parcial | Quando lido, a informação do estilo é extraída. Todas as outras extensões serão achatadas num simples objeto JSON. Apenas a informação do estilo de forma está escrita. |
+| `gpx:extensions`         | parcial | parcial | Quando lidas, a informação de estilo é extraída. Todas as outras extensões serão achatadas num simples objeto JSON. Apenas a informação sobre o estilo de forma está escrita. |
 | `gpx:geoidheight`        | sim     | sim     |                                                                                             |
 | `gpx:gpx`                | sim     | sim     |                                                                                             |
 | `gpx:hdop`               | sim     | sim     |                                                                                             |
@@ -287,13 +287,13 @@ O módulo IO espacial suporta os seguintes elementos GPX.
 | `gpx:vdop`               | sim     | sim     |                                                                                             |
 | `gpx:wpt`                | sim     | sim     |                                                                                             |
 | `gpx_style:color`        | sim     | sim     |                                                                                             |
-| `gpx_style:line`         | parcial | parcial | `color``width` `lineCap` , `opacity`são apoiados.                                           |
+| `gpx_style:line`         | parcial | parcial | `color`São `opacity` `width` `lineCap` apoiados.                                           |
 | `gpx_style:opacity`      | sim     | sim     |                                                                                             |
 | `gpx_style:width`        | sim     | sim     |                                                                                             |
-| `gpxx:DisplayColor`      | sim     | não      | Usado para especificar a cor de uma forma. Ao escrever, `gpx_style:line` a cor será usada.  |
-| `gpxx:RouteExtension`    | parcial | não      | Todas as propriedades `properties`são lidas em . Só `DisplayColor` é usado.                     |
-| `gpxx:TrackExtension`    | parcial | não      | Todas as propriedades `properties`são lidas em . Só `DisplayColor` é usado.                     |
-| `gpxx:WaypointExtension` | parcial | não      | Todas as propriedades `properties`são lidas em . Só `DisplayColor` é usado.                     |
+| `gpxx:DisplayColor`      | sim     | não      | Usado para especificar a cor de uma forma. Ao escrever, `gpx_style:line` a cor será usada em vez disso.  |
+| `gpxx:RouteExtension`    | parcial | não      | Todas as propriedades são `properties` lidas. Só `DisplayColor` é usado.                     |
+| `gpxx:TrackExtension`    | parcial | não      | Todas as propriedades são `properties` lidas. Só `DisplayColor` é usado.                     |
+| `gpxx:WaypointExtension` | parcial | não      | Todas as propriedades são `properties` lidas. Só `DisplayColor` é usado.                     |
 | `gpx:keywords`           | sim     | sim     |                                                                                             |
 | `gpx:fix`                | sim     | sim     |                                                                                             |
 
@@ -302,9 +302,9 @@ O módulo IO espacial suporta os seguintes elementos GPX.
 Ao escrever;
 
 - Os MultiPoints serão divididos em pontos de passagem individuais.
-- Polígonos e MultiPolgões serão escritos como faixas. 
+- Polígonos e MultiPolígonos serão escritos como faixas. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Tipos de geometria de texto bem conhecidos
+## <a name="supported-well-known-text-geometry-types"></a>Tipos de geometria de texto bem conhecidos suportados
 
 | Tipo de geometria | Leitura | Escrita |
 |--------------|:----:|:-----:|
@@ -312,42 +312,42 @@ Ao escrever;
 | PONTO Z | x | x | 
 | PONTO M | x | x<sup>[2]</sup> |
 | PONTO ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| CORDA DE LINHA | x | x |
-| LINHACORD Z | x | x | 
-| LINHACORD M | x | x<sup>[2]</sup> |
-| LINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| POLÍGONO | x | x |
-| POLYGON Z | x | x |
-| POLYGON M | x | x<sup>[2]</sup> |
-| POLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| PONTO MULTIPONTO | x | x |
-| MULTIPOINT Z | x | x | 
-| MULTIPOINT M | x | x<sup>[2]</sup> |
+| LINESTRING | x | x |
+| LINESTRING Z | x | x | 
+| LINESTRING M | x | x<sup>[2]</sup> |
+| LINHA ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POLIGÃO | x | x |
+| POLIGON Z | x | x |
+| POLIGON M | x | x<sup>[2]</sup> |
+| POLÍGONO ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| MULTIPONTO | x | x |
+| MULTIPONTO Z | x | x | 
+| MULTIPONTO M | x | x<sup>[2]</sup> |
 | POMULTIPOINTINT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| CADEIA MULTILINE | x | x |
+| MULTILINESTRING | x | x |
 | MULTILINESTRING Z | x | x | 
 | MULTILINESTRING M | x | x<sup>[2]</sup> |
 | MULTILINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| MultiPOLIGON | x | x |
+| MULTIPLÍGONo | x | x |
 | MULTIPOLYGON Z | x | x | 
 | MULTIPOLYGON M | x | x<sup>[2]</sup> |
 | MULTIPOLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| GEOMETRIACOLEÇÃO | x | x |
-| GEOMETRIACOLEÇÃO Z | x | x | 
-| GEOMETRIACOLEÇÃO M | x | x<sup>[2]</sup> | 
+| GEOMETRIACOLLECTION | x | x |
+| GEOMETRIACOLLECTION Z | x | x | 
+| GEOMETRIACOLLECTION M | x | x<sup>[2]</sup> | 
 | GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x | 
 
-\[1\] Apenas o parâmetro Z é capturado e adicionado como um terceiro valor no valor de posição.
+\[1 \] Apenas o parâmetro Z é capturado e adicionado como um terceiro valor no valor de Posição.
 
-\[O\] parâmetro de 2 M não foi capturado.
+\[O parâmetro de 2 \] M não é capturado.
 
 ## <a name="delimited-spatial-data-support"></a>Suporte de dados espaciais delimitado
 
-Dados espaciais delimitados, tais como ficheiros de valor separados pela vírlém (CSV), muitas vezes têm colunas que contêm dados espaciais. Por exemplo, pode haver colunas que contenham informação sobre latitude e longitude. No formato de Texto Bem Conhecido, pode haver uma coluna que contém dados de geometria espacial.
+Dados espaciais delimitados, tais como ficheiros de valor separados por vírgula (CSV), têm frequentemente colunas que contêm dados espaciais. Por exemplo, pode haver colunas que contenham informações de latitude e longitude. No formato Text Bem Conhecido, pode haver uma coluna que contém dados de geometria espacial.
 
 ### <a name="spatial-data-column-detection"></a>Deteção de colunas de dados espaciais
 
-Ao ler um ficheiro delimitado que contenha dados espaciais, o cabeçalho será analisado para determinar quais as colunas que contêm campos de localização. Se o cabeçalho contiver informações do tipo, será utilizado para lançar os valores celulares para o tipo apropriado. Se não for especificado um cabeçalho, a primeira linha será analisada e usada para gerar um cabeçalho. Ao analisar a primeira linha, é executado um cheque para combinar nomes de colunas com os seguintes nomes de uma forma insensível. A ordem dos nomes é a prioridade, no caso de existirem dois ou mais nomes num ficheiro.
+Ao ler um ficheiro delimitado que contenha dados espaciais, o cabeçalho será analisado para determinar quais colunas contêm campos de localização. Se o cabeçalho contiver informações do tipo, será utilizado para lançar os valores celulares ao tipo apropriado. Se não for especificado um cabeçalho, a primeira linha será analisada e utilizada para gerar um cabeçalho. Ao analisar a primeira linha, é executado um cheque para combinar os nomes das colunas com os seguintes nomes de uma forma caso-insensível. A ordem dos nomes é a prioridade, caso existam dois ou mais nomes num ficheiro.
 
 #### <a name="latitude"></a>Latitude
 
@@ -385,11 +385,11 @@ Ao ler um ficheiro delimitado que contenha dados espaciais, o cabeçalho será a
 
 #### <a name="geography"></a>Geografia
 
-A primeira linha de dados será digitalizada para cordas que estão em formato de Texto bem conhecido. 
+A primeira linha de dados será digitalizada para cadeias que estejam em formato Text bem conhecido. 
 
 ### <a name="delimited-data-column-types"></a>Tipos de colunas de dados delimitadas
 
-Ao digitalizar a linha do cabeçalho, qualquer informação do tipo que esteja no nome da coluna será extraída e usada para lançar as células nessa coluna. Aqui está um exemplo de um nome de coluna que tem um valor de tipo: "Nome de coluna (nome de letra)". Os seguintes nomes de tipo de caso insensível são suportados:
+Ao digitalizar a linha do cabeçalho, qualquer tipo de informação que esteja no nome da coluna será extraído e utilizado para lançar as células nessa coluna. Aqui está um exemplo de um nome de coluna que tem um valor de tipo: "Nome de coluna (nome de nome de tipo)". São suportados os seguintes nomes de tipo insensível:
 
 #### <a name="numbers"></a>Números
 
@@ -425,7 +425,7 @@ Ao digitalizar a linha do cabeçalho, qualquer informação do tipo que esteja n
 - texto
 - string
 
-Se nenhuma informação do tipo puder ser extraída do cabeçalho, e a opção dinâmica de dactilografia estiver ativada durante a leitura, então cada célula será analisada individualmente para determinar qual o tipo de dados que é mais adequado para ser lançado como.
+Se nenhuma informação do tipo puder ser extraída do cabeçalho, e a opção de dactilografia dinâmica estiver ativada durante a leitura, cada célula será analisada individualmente para determinar que tipo de dados é mais adequado para ser lançado como.
 
 ## <a name="next-steps"></a>Passos seguintes
 

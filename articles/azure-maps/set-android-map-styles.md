@@ -1,6 +1,6 @@
 ---
-title: Detete um estilo de mapa usando o Azure Maps Android SDK. Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre as funcionalidades relacionadas com o estilo Do Microsoft Azure Maps para o Android SDK.
+title: Desconfiem de um estilo de mapa usando o Azure Maps Android SDK. Microsoft Azure Maps
+description: Neste artigo, você vai aprender sobre as funcionalidades relacionadas com o estilo do Microsoft Azure Maps para o Android SDK.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334359"
 ---
-# <a name="set-map-style-using-azure-maps-android-sdk"></a>Definir o estilo do mapa usando O Android SDK do Azure Maps
+# <a name="set-map-style-using-azure-maps-android-sdk"></a>Definir estilo de mapa usando Azure Maps Android SDK
 
-Este artigo mostra-lhe duas formas de definir os estilos de mapa usando o Azure Maps Android SDK. O Azure Maps tem seis estilos de mapas diferentes para escolher. Para obter mais informações sobre estilos de mapas suportados, consulte [os estilos de mapas suportados no Azure Maps.](./supported-map-styles.md)
+Este artigo mostra-lhe duas maneiras de definir estilos de mapa usando o Azure Maps Android SDK. O Azure Maps tem seis diferentes estilos de mapas para escolher. Para obter mais informações sobre estilos de mapa suportados, consulte [os estilos de mapa suportados no Azure Maps.](./supported-map-styles.md)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar o processo neste artigo, é necessário instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para completar o processo neste artigo, precisa instalar [o Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
 
-## <a name="set-map-style-in-the-layout"></a>Definir o estilo do mapa no layout
+## <a name="set-map-style-in-the-layout"></a>Definir estilo de mapa no layout
 
-Pode definir um estilo de mapa no ficheiro de layout para a sua aula de atividade. Editar **res > layout > activity_main.xml,** para que se pareça com o abaixo:
+Pode definir um estilo de mapa no ficheiro de layout para a sua aula de atividade. Editar **res > layout > activity_main.xml**, por isso parece o de baixo:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,9 +57,9 @@ O `mapcontrol_style` atributo acima define o estilo do mapa para **grayscale_dar
 
 ![estilo-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
 
-## <a name="set-map-style-in-the-activity-class"></a>Definir o estilo do mapa na classe de atividade
+## <a name="set-map-style-in-the-activity-class"></a>Definir estilo de mapa na classe de atividade
 
-O estilo do mapa pode ser definido na classe de atividade. Copie o seguinte código no método **onCreate()** da sua `MainActivity.java` classe. Este código definirá o estilo do mapa para **satellite_road_labels**.
+O estilo do mapa pode ser definido na classe de atividade. Copie o seguinte corte de código no método **onCreate()** da sua `MainActivity.java` classe. Este código definirá o estilo do mapa para **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {
@@ -73,4 +73,4 @@ mapControl.onReady(map -> {
 
 <center>
 
-![estilo-satélite-rótulos de estrada](./media/set-android-map-styles/satellite-road-labels.png)</center>
+![rótulos de estrada de satélite de estilo](./media/set-android-map-styles/satellite-road-labels.png)</center>

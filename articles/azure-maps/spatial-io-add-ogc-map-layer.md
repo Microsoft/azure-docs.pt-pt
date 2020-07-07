@@ -1,6 +1,6 @@
 ---
 title: Adicione uma camada de mapa do Consórcio Geoespacial Aberto (OGC) Microsoft Azure Maps
-description: Aprenda a sobrepor uma camada de mapa oGC no mapa e como usar as diferentes opções na classe OgcMapLayer.
+description: Saiba como sobrepor uma camada de mapa OGC no mapa e como usar as diferentes opções na classe OgcMapLayer.
 author: philmea
 ms.author: philmea
 ms.date: 03/02/2020
@@ -9,71 +9,71 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334290"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Adicione uma camada de mapa do Consórcio Geoespacial Aberto (OGC)
 
-A `atlas.layer.OgcMapLayer` classe pode sobrepor imagens de Web Map Services (WMS) e web map tile Services (WMTS) no mapa. WMS é um protocolo padrão desenvolvido pela OGC para servir imagens de mapas georeferenciadas através da internet. A georreferenciação da imagem são os processos de associar uma imagem a uma localização geográfica. WMTS é também um protocolo padrão desenvolvido pela OGC. É projetado para servir azulejos de mapa pré-renderizados e georeferenciados.
+A `atlas.layer.OgcMapLayer` classe pode sobrepor imagens de Web Map Services (WMS) e imagens de Serviços de Azulejos do Mapa Web (WMTS) no mapa. WMS é um protocolo padrão desenvolvido pela OGC para servir imagens de mapas georreferenciadas através da internet. Georeferencing de imagem são os processos de associar uma imagem a uma localização geográfica. O WMTS é também um protocolo padrão desenvolvido pela OGC. É projetado para servir azulejos de mapa pré-renderizados e georreferenciados.
 
-As seguintes secções delineiam as funcionalidades `OgcMapLayer` do serviço de mapas web que são suportadas pela classe.
+As secções seguintes descrevem as funcionalidades do serviço de mapa web que são suportadas pela `OgcMapLayer` classe.
 
 **Serviço de mapas web (WMS)**
 
-- Versões suportadas: `1.0.0`, `1.1.0`, `1.1.1`e`1.3.0`
-- O serviço deve `EPSG:3857` suportar o sistema de projeção ou lidar com as projeções.
-- O GetFeatureInfo requer o `EPSG:4326` serviço para suportar ou lidar com as reprojecções. 
+- Versões apoiadas: `1.0.0` `1.1.0` , `1.1.1` e`1.3.0`
+- O serviço deve suportar o `EPSG:3857` sistema de projeção ou lidar com reprojecções.
+- O GetFeatureInfo requer o serviço para suportar `EPSG:4326` ou lidar com reprojecções. 
 - Operações apoiadas:
 
     | | |
     | :-- | :-- |
-    | Capacidades Get | Recupera metadados sobre o serviço com as capacidades suportadas |
+    | ObterCapabilidades | Recupera metadados sobre o serviço com as capacidades suportadas |
     | GetMap | Recupera uma imagem de mapa para uma região especificada |
-    | GetFeatureInfo | Recupera `feature_info`, que contém dados subjacentes sobre a funcionalidade |
+    | GetFeatureInfo | Recupera `feature_info` , que contém dados subjacentes sobre a funcionalidade |
 
 **Serviço de azulejos do mapa web (WMTS)**
 
 - Versões suportadas:`1.0.0`
-- Os azulejos devem `TileWidth == TileHeight`ser quadrados, de tal forma que.
-- CRS suportado: `EPSG:3857` ou`GoogleMapsCompatible` 
-- O identificador TileMatrix deve ser um valor inteiro que corresponda a um nível de zoom no mapa. Num mapa azul, o nível de `"0"` `"22"`zoom é um valor entre e . Portanto, `"0"` é apoiado, `"00"` mas não é apoiado.
+- Os azulejos devem ser quadrados, de tal forma `TileWidth == TileHeight` que.
+- SIR apoiado: `EPSG:3857` ou`GoogleMapsCompatible` 
+- O identificador TileMatrix deve ser um valor inteiro que corresponda a um nível de zoom no mapa. Num mapa azul, o nível de zoom é um valor entre `"0"` e `"22"` . Então, `"0"` é apoiado, mas `"00"` não é apoiado.
 - Operações apoiadas:
 
     | | |
     | :-- | :-- |
-    | Capacidades Get | Recupera as operações e funcionalidades suportadas |
-    | Rio GetTile | Recupera imagens para um azulejo particular |
+    | ObterCapabilidades | Recupera as operações e funcionalidades suportadas |
+    | GetTile | Recupera imagens para um determinado azulejo |
 
-## <a name="overlay-an-ogc-map-layer"></a>Sobreponha uma camada de mapa ogc
+## <a name="overlay-an-ogc-map-layer"></a>Sobreponha uma camada de mapa OGC
 
-Pode `url` ser o URL base para o serviço ou um URL completo com a consulta para obter as capacidades do serviço. Dependendo dos detalhes fornecidos, o cliente WFS poderá experimentar vários formatos DE URL padrão para determinar como aceder inicialmente ao serviço.
+`url`Pode ser o URL base para o serviço ou um URL completo com a consulta para obter as capacidades do serviço. Dependendo dos detalhes fornecidos, o cliente WFS pode tentar vários formatos url padrão para determinar como aceder inicialmente ao serviço.
 
-O código que se segue mostra como sobrepor uma camada de mapa oGC no mapa.
+O código que se segue mostra como sobrepor uma camada de mapa OGC no mapa.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Exemplo de camada de mapa ogc' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja o exemplo da camada do Mapa<a href='https://codepen.io/azuremaps'>@azuremaps</a>Pen <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC</a> por Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Exemplo da camada do mapa do OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja o exemplo da camada do mapa pen <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC</a> por Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="ogc-map-layer-options"></a>Opções de camada de mapa oGC
+## <a name="ogc-map-layer-options"></a>Opções de camada de mapa OGC
 
-A amostra abaixo demonstra as diferentes opções de camada de mapa oGC. Pode clicar no botão de caneta de código no canto superior direito para editar a caneta de código.
+A amostra abaixo demonstra as diferentes opções de camada de mapa OGC. Pode clicar no botão de caneta de código no canto superior direito para editar a caneta de código.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de mapa oGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>opções</a> de camada de<a href='https://codepen.io/azuremaps'>@azuremaps</a>gráfico Pen OGC por Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de camada de mapa OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as opções de <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>camada de mapa pen OGC</a> por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="ogc-web-map-service-explorer"></a>Explorador de serviço de mapa web da OGC
+## <a name="ogc-web-map-service-explorer"></a>Explorador de serviço de mapa web OGC
 
-A seguinte ferramenta sobrepõe imagens dos Serviços de Mapas Web (WMS) e Web Map Tile Services (WMTS) como camadas. Pode selecionar quais as camadas do serviço que são renderizadas no mapa. Também pode ver as lendas associadas para estas camadas.
+A ferramenta que se segue sobrepõe as imagens dos Serviços de Mapa Web (WMS) e web Map Tile Services (WMTS) como camadas. Pode selecionar quais as camadas do serviço que são renderizadas no mapa. Você também pode ver as lendas associadas para estas camadas.
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='Explorador de serviço de mapa web da OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o explorador do Serviço de Mapas<a href='https://codepen.io/azuremaps'>@azuremaps</a>Web Pen <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC</a> pela Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='750' style='width: 100%;' scrolling='no' title='Explorador de serviço de mapa web OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o explorador do <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Serviço de Mapas Web</a> Pen OGC por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Também pode especificar as definições do mapa para utilizar um serviço de procuração. O serviço proxy permite-lhe carregar recursos que estão hospedados em domínios que não têm CORS habilitado.
@@ -91,10 +91,10 @@ Saiba mais sobre as aulas e métodos utilizados neste artigo:
 Consulte os seguintes artigos, que contêm amostras de código que pode adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Ligue-se a um serviço WFS](spatial-io-connect-wfs-service.md)
+> [Ligar a um serviço WFS](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [Alavancar operações de núcleo](spatial-io-core-operations.md)
+> [Tirar partido de operações principais](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Detalhes do formato de dados suportados](spatial-io-supported-data-format-details.md)
+> [Detalhes do formato de dados suportado](spatial-io-supported-data-format-details.md)

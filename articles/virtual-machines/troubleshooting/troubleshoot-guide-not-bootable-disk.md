@@ -1,6 +1,6 @@
 ---
-title: Erro de arranque – "isto não é um disco sabotável"
-description: Este artigo fornece passos para resolver problemas em que o disco não é saqueado numa Máquina Virtual Azure
+title: Erro de arranque – "isto não é um disco de arranque"
+description: Este artigo fornece passos para resolver problemas em que o disco não é bootable em uma Máquina Virtual Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -15,114 +15,114 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80300982"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Erro de arranque – Este não é um disco bootable
 
-Este artigo fornece passos para resolver problemas em que o disco não é saqueado numa Máquina Virtual Azure (VM).
+Este artigo fornece passos para resolver problemas em que o disco não é bootable numa Máquina Virtual Azure (VM).
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando utilizar os [diagnósticos do Boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem apresenta um aviso com a mensagem "Este não é um disco de arranque. Por favor, insira um floppy sinuoso e pressione qualquer tecla para tentar novamente...'.
+Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem exibe uma solicitação com a mensagem "Isto não é um disco de arranque. Por favor, insira uma floppy bootable e pressione qualquer tecla para tentar novamente...'.
 
    Figura 1
 
-   ![A figura 1 mostra a mensagem *"Este não é um disco saqueável. Por favor, insira um floppy sinuoso e pressione qualquer tecla para tentar novamente..."*](media/troubleshoot-guide-not-bootable-disk/1.jpg)
+   ![A figura 1 mostra a mensagem *"Este não é um disco de arranque. Por favor, insira um floppy bootable e pressione qualquer tecla para tentar novamente..."*](media/troubleshoot-guide-not-bootable-disk/1.jpg)
 
 ## <a name="cause"></a>Causa
 
-Esta mensagem de erro significa que o processo de arranque do SISTEMA operativo não conseguiu localizar uma partição do sistema ativo. Este erro também pode significar que há uma referência em falta na loja De dados de configuração de arranque (BCD), impedindo-a de localizar a divisória do Windows.
+Esta mensagem de erro significa que o processo de arranque do SISTEMA não conseguiu localizar uma divisória do sistema ativo. Este erro também pode significar que há uma referência em falta na loja De Dados de Configuração de Arranque (BCD), impedindo-a de localizar a partição do Windows.
 
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
 
-1. Criar e aceder a um VM de reparação.
-2. Detete o estado da partilha para ativo.
+1. Criar e Aceder a um VM de reparação.
+2. Desajei o estado de partição para ativo.
 3. Fixe a partição do disco.
-4. **Recomendado**: Antes de reconstruir o VM, ative a recolha de consolas em série e de despejo de memória.
+4. **Recomendado:** Antes de reconstruir o VM, ative a recolha da consola em série e do despejo de memória.
 5. Reconstruir o VM original.
 
    > [!NOTE]
-   > Ao encontrar este erro de arranque, o Os convidado não está operacional. Vais estar a resolver problemas em modo offline para resolver este problema.
+   > Ao encontrar este erro de arranque, o SO convidado não está operacional. Vai resolver problemas em modo offline para resolver este problema.
 
-### <a name="create-and-access-a-repair-vm"></a>Criar e aceder a um VM de reparação
+### <a name="create-and-access-a-repair-vm"></a>Criar e Aceder a um VM de reparação
 
 1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
-2. Utilizando a ligação remota de ambiente de trabalho ao VM de reparação.
+2. Utilizando ligação de ambiente de trabalho remoto, ligue-se ao VM de reparação.
 
-### <a name="set-partition-status-to-active"></a>Definir o estado da partilha para ativo
+### <a name="set-partition-status-to-active"></a>Definir o estado de partição para ativo
 
-Os VMs da geração 1 devem primeiro verificar se a partição de SO, que detém a loja BCD, está marcada como *ativa*. Se tiver um VM da Geração 2, avance para [fixar a Partição do Disco,](#fix-the-disk-partition)uma vez que a bandeira de *Status* foi depreciada na geração posterior.
+Os VMs da geração 1 devem verificar primeiro se a partição de SO, que detém a loja BCD, está marcada como *ativa.* Se tiveres uma Geração 2 VM, antecipa-te à [Correção da Partição do Disco,](#fix-the-disk-partition)já que a bandeira do *Status* foi depreciada na geração posterior.
 
-1. Abra um pedido de comando elevado *(cmd.exe)*.
-2. Introduza *a peça de disco* para lançar a ferramenta DISKPART.
-3. Introduza *o disco da lista* para listar os discos no sistema e identificar o VHD osso anexado.
-4. Assim que estiver localizado o VHD osso em anexo, introduza o *disco sel #* para selecionar o disco.  Consulte a Figura 2, onde o disco 1 é o VHD osso anexado.
+1. Abra uma solicitação de comando elevada *(cmd.exe)*.
+2. Introduza a *parte do disco* para lançar a ferramenta DISKPART.
+3. Introduza o *disco de lista* para listar os discos do sistema e identifique o OS VHD anexado.
+4. Uma vez localizado o OS VHD anexado, *introduza o disco sel #* para selecionar o disco.  Consulte a Figura 2, onde o Disco 1 é o VHD do OS anexado.
 
    Figura 2
 
-   ![A figura 2 mostra a janela *DISKPART* mostrando a saída do comando do disco da lista, disco 0 e disco 1 exibido na tabela.  Também mostra a saída do comando do disco de el 1, o disco 1 é o disco selecionado](media/troubleshoot-guide-not-bootable-disk/2.jpg)
+   ![A figura 2 mostra a janela *DISKPART* que mostra a saída do comando do disco de lista, disco 0 e disco 1 apresentados na tabela.  Também mostra a saída do comando sel disco 1, O Disco 1 é o disco selecionado](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. Uma vez selecionado o disco, introduza a *divisória da lista* para listar as divisórias do disco selecionado.
-6. Uma vez identificada a partição da bota, introduza a *partição* de sel # para selecionar a partição.  Normalmente, a partição de botas terá cerca de 350 MB de tamanho.  Consulte a Figura 3, onde a partição 1 é a partição da bota.
+5. Uma vez selecionado o disco, introduza *a partição* da lista para listar as divisórias do disco selecionado.
+6. Assim que a partição da bota for identificada, *insira a partição sel #* para selecionar a partição.  Normalmente, a partição de botas terá cerca de 350 MB de tamanho.  Consulte a Figura 3, onde a partição 1 é a divisória de arranque.
 
    Figura 3
 
-   ![A figura 3 mostra a janela *DISKPART* com a saída do comando de partição *lista*lista*. Partição 1 e Partição 2 estão expostos na tabela. Também mostra a saída do comando *sel divisória 1** quando a partição 1 é o disco selecionado.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
+   ![A figura 3 mostra a janela *DISKPART* com a saída do comando *list partition*. A partição 1 e a partição 2 são apresentadas na tabela. Também mostra a saída do comando de divisão *sel 1*, quando a partição 1 é o disco selecionado.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
 
-7. Introduza a 'partição de detalhes' para verificar o estado da partição. Consulte a Figura 4, onde a partição está *ativa: Não,* ou figura 5, onde a partição é 'Ativa: Sim'.
+7. Introduza a "partição detalhada" para verificar o estado da partição. Ver Figura 4, onde a partição está *Ativa: Não,* ou Figura 5, onde a partição é 'Ative: Sim'.
 
    Figura 4
 
-   ![A figura 4 mostra a janela *DISKPART* com a saída do comando *detail partition**, quando a partição 1 está definida para *Ativo: Não*](media/troubleshoot-guide-not-bootable-disk/4.jpg)
+   ![A figura 4 mostra a janela *DISKPART* com a saída do comando de partição *detalhe*, quando a Partição 1 está definida para *Ative: No*](media/troubleshoot-guide-not-bootable-disk/4.jpg)
 
    Figura 5
 
-   ![A figura 5 mostra a janela *DISKPART* com a saída do comando de partição *detalhe*, quando a partição 1 está definida para *Ativo: Sim*.](media/troubleshoot-guide-not-bootable-disk/5.jpg)
+   ![A figura 5 mostra a janela *DISKPART* com a saída do comando de partição *detalhe*, quando a Partição 1 está definida para *Ative: Yes*.](media/troubleshoot-guide-not-bootable-disk/5.jpg)
 
-8. Se a divisória não estiver **ativa,** introduza *ativamente* para alterar a bandeira *Ativa.*
-9. Verifique se a alteração de estado foi feita corretamente escrevendo a *partição*de detalhes .
+8. Se a partição não estiver **Ativa,** entre *ativa* para alterar a bandeira *Ative.*
+9. Verifique se a alteração de estado foi feita corretamente digitando *a partição de pormenores*.
 
    Figura 6
 
-   ![A figura 6 mostra a janela da parte do disco com a saída do comando *detail partition** quando a partição 1 está definida para *Ativo: Sim*](media/troubleshoot-guide-not-bootable-disk/6.jpg)
+   ![A figura 6 mostra a janela da parte do disco com a saída do comando de partição *detalhe*, quando a Partição 1 está definida para *Ativo: Sim*](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
 10. Introduza a *saída* para fechar a ferramenta DISKPART e guarde as alterações de configuração.
 
-### <a name="fix-the-disk-partition"></a>Fixar a Partição do Disco
+### <a name="fix-the-disk-partition"></a>Fixar a partição do disco
 
-1. Abra um pedido de comando elevado (cmd.exe).
-2. Utilize o seguinte comando para executar *CHKDSK* no disco ou erros:
+1. Abra uma solicitação de comando elevada (cmd.exe).
+2. Utilize o seguinte comando para executar *CHKDSK* no(s) disco(s) e corrigir erros:
 
    `chkdsk <DRIVE LETTER>: /f`
 
-   A adição da opção de comando '/f' corrigirá quaisquer erros no disco. Certifique-se <DRIVE LETTER> de que substitui com a letra do VHD osso anexado.
+   A adição da opção de comando '/f' corrigirá quaisquer erros no disco. Certifique-se de que substitui <DRIVE LETTER> a letra do OS VHD anexado.
 
 ### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Recomendado: Antes de reconstruir o VM, ative a recolha de consolas em série e de despejo de memória
 
-Para permitir a recolha de despejo de memória e consola em série, execute o seguinte script:
+Para ativar a recolha de despejo de memória e a Consola em Série, execute o seguinte script:
 
-1. Abra uma sessão de solicitação de comando elevada (Corra como administrador).
+1. Abra uma sessão de solicitação de comando elevada (Executar como administrador).
 2. Execute os seguintes comandos:
 
-   Ativar a consola em série
+   Ativar consola em série
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-3. Verifique se o espaço livre no disco OS é tanto quanto o tamanho da memória (RAM) no VM.
+3. Verifique se o espaço livre no disco de so é tanto quanto o tamanho da memória (RAM) no VM.
 
-   Se não houver espaço suficiente no disco OS, deverá alterar o local onde será criado o ficheiro de despejo de memória e encaminhá-lo para qualquer disco de dados ligado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua "%SystemRoot%" pela letra de unidade (por exemplo, "F:") do disco de dados nos comandos abaixo.
+   Se não houver espaço suficiente no disco oss, deve alterar o local onde o ficheiro de despejo de memória será criado e encaminhá-lo para qualquer disco de dados ligado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua "%SystemRoot%" pela letra de unidade (por exemplo, "F:") do disco de dados nos comandos abaixo.
 
-#### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para ativar o despejo de OS
+#### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para permitir o despejo de OS
 
-**Disco operativo osso avariado**de carga:
+**Carregar disco de OS quebrado:**
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -142,10 +142,10 @@ Para permitir a recolha de despejo de memória e consola em série, execute o se
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Descarregar disco operativo quebrado:**
+**Descarregar disco de SO quebrado:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
-### <a name="rebuild-the-original-vm"></a>Reconstruir o VM original
+### <a name="rebuild-the-original-vm"></a>Reconstruir o VM Original
 
 Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar o VM.

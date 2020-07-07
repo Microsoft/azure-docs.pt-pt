@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure PowerShell - Encaminha o tráfego através de um aparelho virtual da rede
+title: Amostra de script Azure PowerShell - Tráfego de rota através de um aparelho virtual de rede
 description: Exemplo de script do Azure PowerShell - encaminhar o tráfego através de uma aplicação virtual de rede de firewall.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 98509399c1f4bd66640152e8a9cb02cf396a1b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80521480"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Encaminhar o tráfego através de uma aplicação virtual de rede
@@ -47,15 +47,15 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual de front-end do Azure. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual de front-end do Azure. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Crias as sub-redes de back-end e DMZ. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público para aceder ao VM a partir da Internet. |
-| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Cria uma interface de rede virtual e ativa o reencaminhamento de IP para a mesma. |
-| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Cria um grupo de segurança de rede (NSG). |
+| [Novo AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Cria uma interface de rede virtual e ativa o reencaminhamento de IP para a mesma. |
+| [Grupo deSegurança New-AzNetwork](/powershell/module/az.network/new-aznetworksecuritygroup) | Cria um grupo de segurança de rede (NSG). |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Cria regras de NSG que permitem as portas HTTP e HTTPS de entrada para a VM. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)| Associa os NSGs e as tabelas de rotas às sub-redes. |
-| [Nova AzRouteTable](/powershell/module/az.network/new-azroutetable)| Cria uma tabela de rotas para todas as rotas. |
-| [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)| Cria rotas para encaminhar o tráfego entre as subredes e a Internet através do VM. |
+| [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)| Cria uma tabela de rotas para todas as rotas. |
+| [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)| Cria rotas para encaminhar o tráfego entre sub-redes e a Internet através do VM. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm) | Cria uma máquina virtual e anexa o NIC à mesma. Este comando também especifica a imagem da máquina virtual a utilizar e as credenciais administrativas. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)  | Elimina um grupo de recursos e todos os recursos contidos no mesmo. |
 

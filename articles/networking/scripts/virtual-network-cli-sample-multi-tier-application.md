@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure CLI - Criar uma rede para aplicações de vários níveis
+title: Amostra de script Azure CLI - Criar uma rede para aplicações multi-camadas
 description: Exemplo de script da CLI do Azure - Criar uma rede virtual para aplicações de várias camadas.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 97e26eaed72bc15ebc46a893d269b05484d8a064
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80521544"
 ---
-# <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicações de vários níveis
+# <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicações multi-camadas
 
 Este script de exemplo cria uma rede virtual com as sub-redes de front-end e back-end. O tráfego para a sub-rede do front-end está limitado a HTTP e SSH, enquanto o tráfego para a sub-rede de back-end está limitado a MySQL, porta 3306. Depois de executar o script, tem duas máquinas virtuais, uma em cada sub-rede nas quais pode implementar software MySQL e o servidor Web.
 
@@ -61,4 +61,4 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Amostras adicionais de script cli em rede podem ser encontradas na documentação de visão geral de [rede Azure](../cli-samples.md)
+Amostras adicionais de script CLI em rede podem ser encontradas na documentação da [visão geral da rede Azure](../cli-samples.md)

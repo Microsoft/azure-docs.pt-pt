@@ -1,6 +1,6 @@
 ---
-title: Reagir aos eventos de mapa usando a Grelha de Eventos [ Microsoft Azure Maps
-description: Neste artigo, aprenderá a reagir aos eventos do Microsoft Azure Maps utilizando a Event Grid.
+title: Reagir aos eventos de mapa usando a Grade de Eventos Microsoft Azure Maps
+description: Neste artigo, você aprenderá a reagir aos eventos do Microsoft Azure Maps usando a Grade de Eventos.
 author: philmea
 ms.author: philmea
 ms.date: 02/08/2019
@@ -10,35 +10,35 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335723"
 ---
-# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reaja aos eventos do Azure Maps usando a Grelha de Eventos 
+# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir aos eventos do Azure Maps utilizando a Grade de Eventos 
 
-O Azure Maps integra-se com a Azure Event Grid, para que os utilizadores possam enviar notificações de eventos para outros serviços e desencadear processos a jusante. O objetivo deste artigo é ajudá-lo a configurar as suas aplicações de negócio para ouvir eventos do Azure Maps. Isto permite que os utilizadores reajam a eventos críticos de forma fiável, escalável e segura. Por exemplo, os utilizadores podem construir uma aplicação para atualizar uma base de dados, criar um bilhete e entregar uma notificação por e-mail, sempre que um dispositivo entra numa geovete.
+O Azure Maps integra-se com a Azure Event Grid, para que os utilizadores possam enviar notificações de eventos para outros serviços e desencadear processos a jusante. O objetivo deste artigo é ajudá-lo a configurar as suas aplicações de negócio para ouvir os eventos do Azure Maps. Isto permite que os utilizadores reajam a eventos críticos de forma fiável, escalável e segura. Por exemplo, os utilizadores podem construir uma aplicação para atualizar uma base de dados, criar um bilhete e entregar uma notificação por e-mail, sempre que um dispositivo introduz uma geofence.
 
-A Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido, que utiliza um modelo de subscrição de publicações. A Event Grid tem suporte integrado para serviços Azure como [Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [Aplicações Lógicas Azure.](https://docs.microsoft.com/azure/azure-functions/functions-overview) Pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Event Grid suporta, consulte [Uma introdução à Grelha de Eventos Azure](https://docs.microsoft.com/azure/event-grid/overview).
+A azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido, que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [Azure Logic Apps.](https://docs.microsoft.com/azure/azure-functions/functions-overview) Pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
 
 ![Modelo funcional da Grelha de Eventos Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
 
 
-## <a name="azure-maps-events-types"></a>Tipos de eventos do Azure Maps
+## <a name="azure-maps-events-types"></a>Tipos de eventos Azure Maps
 
-A grelha do evento utiliza subscrições de [eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para direcionar mensagens de eventos para assinantes. Uma conta Azure Maps emite os seguintes tipos de eventos: 
+A grelha de eventos utiliza [subscrições de eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para encaminhar mensagens de evento para assinantes. Uma conta Azure Maps emite os seguintes tipos de eventos: 
 
-| Tipo de evento | Descrição |
+| Tipo de evento | Description |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Levantadas quando as coordenadas recebidas mudaram de fora de uma dada geoveda para dentro |
-| Microsoft.Maps.GeofenceExited | Levantadas quando recebidas coordenadas mudaram de dentro de uma dada geocerca para fora |
-| Microsoft.Maps.GeofenceResult | Levantada cada vez que uma consulta de geofencing devolve um resultado, independentemente do estado |
+| Microsoft.Maps.GeofenceEntered | Levantado quando as coordenadas recebidas mudaram de fora de uma dada geofência para dentro |
+| Microsoft.Maps.GeofenceExited | Levantado quando as coordenadas recebidas mudaram de dentro de uma dada geofência para fora |
+| Microsoft.Maps.GeofenceResult | Levantado cada vez que uma consulta geofencing devolve um resultado, independentemente do estado |
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-O exemplo que se segue mostra o esquema para geofenceResult:
+O exemplo a seguir mostra o esquema de GeofenceResult:
 
 ```JSON
 {   
@@ -78,15 +78,15 @@ O exemplo que se segue mostra o esquema para geofenceResult:
 
 ## <a name="tips-for-consuming-events"></a>Dicas para consumir eventos
 
-As aplicações que lidam com eventos geovetos do Azure Maps devem seguir algumas práticas recomendadas:
+As aplicações que lidam com eventos de geofência do Azure Maps devem seguir algumas práticas recomendadas:
 
-* Configure várias subscrições para direcionar eventos para o mesmo manipulador de eventos. É importante não assumir que os eventos são de uma fonte em particular. Verifique sempre o tópico da mensagem para garantir que a mensagem veio da fonte que espera.
-* Utilize `X-Correlation-id` o campo no cabeçalho de resposta para perceber se a sua informação sobre objetos está atualizada. As mensagens podem chegar fora de ordem ou depois de um atraso.
-* Quando um pedido GET ou POST na API Geofence é `EnterAndExit`chamado com o parâmetro de modo definido para , então um evento de entrada ou saída é gerado para cada geometria na geovete para a qual o estado mudou em relação à chamada anterior da Geofence API.
+* Configure várias subscrições para encaminhar eventos para o mesmo manipulador de eventos. É importante não assumir que os eventos são de uma fonte particular. Verifique sempre o tópico da mensagem para garantir que a mensagem veio da fonte que espera.
+* Utilize o `X-Correlation-id` campo no cabeçalho de resposta para perceber se as suas informações sobre objetos estão atualizadas. As mensagens podem chegar fora de ordem ou após um atraso.
+* Quando um pedido GET ou POST na API de Geofence é chamado com o parâmetro de modo definido para `EnterAndExit` , então um evento de Entrada ou Saída é gerado para cada geometria na geofência para a qual o estado mudou a partir da chamada anterior da API de Geofence.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como usar geofencing para controlar operações num estaleiro de construção, consulte:
+Para saber mais sobre como usar geofencing para controlar operações em um estaleiro de construção, consulte:
 
 > [!div class="nextstepaction"] 
-> [Criar uma geoveda através do Azure Maps](tutorial-geofence.md)
+> [Configurar uma geofence utilizando mapas Azure](tutorial-geofence.md)

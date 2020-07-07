@@ -1,6 +1,6 @@
 ---
-title: Extensão VM do cofre de chaves Azure para windows
-description: Implemente um agente que realize uma atualização automática dos segredos do Cofre chave em máquinas virtuais utilizando uma extensão virtual da máquina.
+title: Extensão VM do cofre da chave Azure para windows
+description: Implemente um agente que executa a atualização automática dos segredos do Key Vault em máquinas virtuais utilizando uma extensão de máquina virtual.
 services: virtual-machines-windows
 author: msmbaldwin
 tags: keyvault
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410742"
 ---
-# <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Cofre chave para Windows
+# <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual key Vault para Windows
 
-A extensão VM do Cofre Chave fornece uma atualização automática de certificados armazenados num cofre de chaves Azure. Especificamente, a extensão monitoriza uma lista de certificados observados armazenados em cofres-chave e, ao detetar uma alteração, recupera e instala os certificados correspondentes. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão VM do Cofre chave para windows. 
+A extensão Key Vault VM fornece uma atualização automática dos certificados armazenados num cofre de chaves Azure. Especificamente, a extensão monitoriza uma lista de certificados observados armazenados em cofres-chave e, ao detetar uma alteração, recupera e instala os certificados correspondentes. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão VM do Cofre chave para windows. 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão VM do Cofre Chave suporta versões abaixo do Windows:
+A extensão VM do Cofre-Chave suporta versões abaixo do Windows:
 
 - Windows Server 2019
 - Windows Server 2016
@@ -29,12 +29,12 @@ A extensão VM do Cofre Chave suporta versões abaixo do Windows:
 
 ### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado suportado
 
-- PKCS #12
+- #12 PKCS
 - PEM
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão não requer configurações protegidas - todas as suas configurações são consideradas informações públicas. A extensão requer uma lista de certificados monitorizados, frequência de votação e o certificado de destino. Mais concretamente:  
+O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A extensão não requer configurações protegidas - todas as suas configurações são consideradas informações públicas. A extensão requer uma lista de certificados monitorizados, frequência de sondagens e a loja de certificados de destino. Mais concretamente:  
 
 ```json
     {
@@ -65,31 +65,31 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 ```
 
 > [!NOTE]
-> Os seus certificados observados URLs `https://myVaultName.vault.azure.net/secrets/myCertName`devem ser do formulário .
+> Os seus certificados observados URLs devem ser do formulário `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Isto porque `/secrets` o caminho devolve o certificado completo, `/certificates` incluindo a chave privada, enquanto o caminho não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de cofre chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isto porque o `/secrets` caminho devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de Cofre Chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
 | sondagensIntervalInS | 3600 | string |
-| certificateStoreName | MY | string |
-| linkOnRenovação | false | boolean |
-| certificateStoreLocation  | Máquina Local | string |
-| necessárioInitialSync | true | boolean |
+| certificadoStoreName | MY | string |
+| linkOnRenewal | false | boolean |
+| certificaStoreLocalização  | Barata local | string |
+| requerinitialSync | true | boolean |
 | certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelos. 
+As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem atualização de envio pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de balanças de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelos. 
 
-A configuração JSON para uma extensão virtual da máquina deve ser `"resources": []` aninhada dentro do fragmento de recurso `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` virtual da máquina do modelo, especificamente o objeto para o modelo de máquina virtual e no caso de uma escala de máquina virtual colocada sob objeto.
+A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e em caso de escala de máquina virtual definida sob `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
 
 ```json
     {
@@ -120,7 +120,7 @@ A configuração JSON para uma extensão virtual da máquina deve ser `"resource
 
 ## <a name="azure-powershell-deployment"></a>Implantação Azure PowerShell
 
-O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre chave para uma máquina virtual existente ou um conjunto de escala de máquina virtual. 
+O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre de Chaves a uma máquina virtual ou conjunto de balanças de máquinas virtuais existentes. 
 
 * Para implantar a extensão num VM:
     
@@ -164,9 +164,9 @@ O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre cha
     
     ```
 
-## <a name="azure-cli-deployment"></a>Implantação Azure CLI
+## <a name="azure-cli-deployment"></a>Implantação do Azure CLI
 
-O Azure CLI pode ser utilizado para implantar a extensão VM do Cofre chave para uma máquina virtual existente ou conjunto de escala de máquina virtual. 
+O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves a uma máquina virtual ou conjunto de balanças de máquinas virtuais existentes. 
  
 * Para implantar a extensão num VM:
     
@@ -190,17 +190,17 @@ O Azure CLI pode ser utilizado para implantar a extensão VM do Cofre chave para
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-Tenha em atenção as seguintes restrições/requisitos:
-- Restrições do cofre chave:
+Por favor, esteja ciente das seguintes restrições/requisitos:
+- Restrições do Cofre chave:
   - Deve existir no momento da implantação 
-  - A Política de Acesso ao Cofre chave está definida para identidade VM/VMSS usando MSI
+  - A política de acesso ao cofre de chaves está definida para a identidade VM/VMSS usando o MSI
 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure PowerShell.
+Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure PowerShell.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell
@@ -221,4 +221,4 @@ A saída de execução de extensão é registada no seguinte ficheiro:
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
