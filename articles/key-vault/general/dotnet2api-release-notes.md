@@ -1,6 +1,6 @@
 ---
-title: Cofre chave .NET 2.x Notas de lançamento da API Microsoft Docs
-description: Os desenvolvedores .NET usarão esta API para codificar o Cofre de Chaves Azure
+title: Key Vault .NET 2.x Notas de lançamento da API/ Microsoft Docs
+description: Os desenvolvedores .NET usarão esta API para codificar para Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,36 +11,36 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431920"
 ---
-# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Cofre chave Azure .NET 2.0 - Notas de lançamento e guia de migração
-As seguintes informações ajudam a migrar para a versão 2.0 da biblioteca Azure Key Vault para C# e .NET.  As aplicações escritas para versões anteriores precisam de ser atualizadas para suportar a versão mais recente.  Estas alterações são necessárias para suportar totalmente novas e melhoradas **funcionalidades,** tais como certificados Key Vault .
+# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Cofre da Chave Azure .NET 2.0 - Guia de Lançamento e Migração
+As seguintes informações ajudam a migrar para a versão 2.0 da biblioteca Azure Key Vault para C# e .NET.  As aplicações escritas para versões anteriores precisam de ser atualizadas para suportar a versão mais recente.  Estas alterações são necessárias para suportar plenamente novas funcionalidades e **melhores,** tais como certificados Key Vault .
 
-## <a name="key-vault-certificates"></a>Certificados de cofre chave
+## <a name="key-vault-certificates"></a>Certificados key Vault
 
 Os certificados Key Vault gerem certificados x509 e suportam os seguintes comportamentos:  
 
-* Crie certificados através de um processo de criação do Cofre Chave ou de importação de certificadoexistente. Isto inclui certificados gerados pela Autoridade de Certificados (CA) auto-assinados e certificados gerados pela Autoridade de Certificados (AC).
-* Armazenar e gerir de forma segura o armazenamento de certificadox509 sem interação utilizando material chave privado.  
+* Crie certificados através de um processo de criação do Cofre-Chave ou importe o certificado existente. Isto inclui certificados gerados pela Autoridade auto-assinada e pela Autoridade de Certificados (CA).
+* Armazenar e gerir de forma segura o armazenamento de certificados x509 sem interação utilizando material chave privado.  
 * Defina políticas que direcionem o Key Vault para gerir o ciclo de vida do certificado.  
-* Forneça informações de contacto para eventos de ciclo de vida, tais como avisos de validade e notificações de renovação.  
-* Renovar automaticamente os certificados com emitentes selecionados (parceiro key Vault X509 fornecedores de certificados e autoridades de certificados).* Certificado de suporte de fontes alternativas (não-parceiro) fornece e as autoridades de certificados (não suporta a renovação automática).  
+* Fornecer informações de contacto para eventos de ciclo de vida, tais como avisos de expiração e notificações de renovação.  
+* Renovam automaticamente os certificados com emitentes selecionados (os fornecedores de certificados X509 parceiros do Key Vault e as autoridades de certificados).* Certificado de apoio de entidades alternativas (não parceiras) fornece e certifica as autoridades (não suporta a renovação automática).  
 
-## <a name="net-support"></a>suporte .NET
+## <a name="net-support"></a>.SUPORTE NET
 
 * **.NET 4.0** não é suportado pela versão 2.0 da biblioteca Azure Key Vault .NET
 * **.NET Framework 4.5.2** é suportado pela versão 2.0 da biblioteca Azure Key Vault .NET
-* **.NET Standard 1.4** é suportado pela versão 2.0 da biblioteca Azure Key Vault .NET
+* **.NET O Standard 1.4** é suportado pela versão 2.0 da biblioteca Azure Key Vault .NET
 
 ## <a name="namespaces"></a>Espaços de nomes
 
 * O espaço de nome para **modelos** é alterado de **Microsoft.Azure.KeyVault** para **Microsoft.Azure.KeyVault.Models**.
-* O **Microsoft.Azure.KeyVault.Espaço** de nome interno foi abandonado.
-* Os seguintes espaços de nome sdk de dependência sdk Azure têm 
+* O **microsoft.Azure.KeyVault.Internal** namespace é abandonado.
+* Os seguintes espaços de nomes Azure SDK dependências têm 
 
     - **Hyak.Common** é agora **Microsoft.Rest**.
     - **Hyak.Common.Internals** é agora **Microsoft.Rest.Serialization**.
@@ -49,23 +49,23 @@ Os certificados Key Vault gerem certificados x509 e suportam os seguintes compor
 
 * *Segredo* alterado para *SecretBundle*
 * *Dicionário* alterado para *IDictionary*
-* *Lista\<T>, string []* mudou para *\<IList T>*
+* *Lista, \<T> string []* alterado para *IList \<T> *
 * *NextList* alterado para *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de retorno
 
-* **KeyList** e **SecretList** devolvem agora *o IPage\<T>* em vez de *ListKeysResponseMessage*
-* O **BackupKeyAsync** gerado devolve agora *o BackupKeyResult,* que contém *valor* (blob de reserva). Anteriormente, o método foi embrulhado e devolvido apenas o valor.
+* **KeyList** e **SecretList** agora devolve * \<T> IPage* em vez de *ListKeysResponseMessage*
+* O **BackupKeyAsync** gerado agora devolve *BackupKeyResult*, que contém *Valor* (blob de backup). Anteriormente, o método foi embrulhado e devolvido apenas o valor.
 
 ## <a name="exceptions"></a>Exceções
 
 * *KeyVaultClientException* é alterado para *KeyVaultErrorException*
-* O erro de serviço mudou de *exceção. Erro* à *exceção. Corpo.Error.Message*.
-* Removeu informações adicionais da mensagem de erro para **[JsonExtensionData]**.
+* O erro de serviço mudou de *exceção. Erro* à *exceção. Body.Error.Message*.
+* Removido informações adicionais da mensagem de erro para **[JsonExtensionData]**.
 
 ## <a name="constructors"></a>Construtores
 
-* Em vez de aceitar um *HttpClient* como argumento de construtor, o construtor apenas aceita *httpClientHandler* ou *DelegatingHandler[]*.
+* Em vez de aceitar um *HttpClient* como argumento de construtor, o construtor apenas aceita *HttpClientHandler* ou *DelegatingHandler[]*.
 
 ## <a name="downloaded-packages"></a>Pacotes descarregados
 
@@ -82,7 +82,7 @@ Quando um cliente processa uma dependência do Cofre chave, os seguintes pacotes
 * `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
 * `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
-### <a name="current-package-list"></a>Lista de pacotes atual
+### <a name="current-package-list"></a>Lista de pacotes atuais
 
 * `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
 * `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
@@ -90,18 +90,18 @@ Quando um cliente processa uma dependência do Cofre chave, os seguintes pacotes
 
 ## <a name="class-changes"></a>Mudanças de classe
 
-* A classe **UnixEpoch** foi removida.
+* A aula **unixEpoch** foi removida.
 * A classe **Base64UrlConverter** é renomeada para **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Outras alterações
 
-* Foi adicionado suporte para a configuração da política de retry da operação KV sobre falhas transitórias foi adicionado a esta versão da API.
+* O suporte para a configuração da política de reorientação da operação KV em falhas transitórias foi adicionado a esta versão da API.
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
 * Para as operações que devolveram um *cofre,* o tipo de retorno era uma classe que continha uma propriedade **vault.** O tipo de retorno é agora *Vault.*
-* *PermissõesToKeys* e *PermissionsToSecrets* são agora *Permissões.Keys* e *Permissões.Segredos*
-* Certos tipos de retorno alterações aplicam-se também ao plano de controlo.
+* *PermissõesToKeys* e *PermissõesToSecrets* são agora *Permissões.Chaves* e *Permissões.Segredos*
+* Certos tipos de devolução aplicam-se também ao plano de controlo.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 

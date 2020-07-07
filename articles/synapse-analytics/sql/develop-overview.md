@@ -1,6 +1,6 @@
 ---
-title: Recursos para desenvolver funcionalidades SYnapse SQL
-description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para Synapse SQL.
+title: Recursos para o desenvolvimento de funcionalidades Sinaapse SQL
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o Sinapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429021"
 ---
-# <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para funcionalidades SYnapse SQL em Azure Synapse Analytics
-Neste artigo, você encontrará uma lista de recursos para o pool SQL e funções sQL on-demand (pré-visualização) da Synapse SQL. Os artigos recomendados são divididos em duas secções: Decisões-chave de design e técnicas de desenvolvimento e codificação.
+# <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para características do SQL da Sinapse no Azure Synapse Analytics
+Neste artigo, você encontrará uma lista de recursos para piscina SQL e sql on-demand (pré-visualização) funções de Synapse SQL. Os artigos recomendados dividem-se em duas secções: decisões de conceção chave e técnicas de desenvolvimento e codificação.
 
-O objetivo destes artigos é ajudá-lo a desenvolver a abordagem técnica ideal para os componentes SQL synapse dentro da Synapse Analytics.
+O objetivo destes artigos é ajudá-lo a desenvolver a abordagem técnica ideal para os componentes Sinapse SQL dentro da Synapse Analytics.
 
-## <a name="key-design-decisions"></a>Decisões-chave de design
-Os artigos abaixo destacam conceitos e decisões de design para o desenvolvimento synapse SQL:
+## <a name="key-design-decisions"></a>Principais decisões de design
+Os artigos abaixo destacam conceitos e decisões de design para o desenvolvimento do SQL da Sinapse:
 
 |                                                          |   Conjunto de SQL   | SQL a pedido |
 | -----------------------------------------------------    | ---- | ---- |
-| [Ligações](connect-overview.md)                    | Sim | Sim |
-| [Classes de recursos e conmoeda](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
-| [Transações](develop-transactions.md)              | Sim | Não |
-| [Esquemas definidos pelo utilizador](develop-user-defined-schemas.md) | Sim | Sim |
-| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Sim | Não |
-| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Sim | Não |
-| [Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Sim | Não |
-| [Estatísticas](develop-tables-statistics.md)            | Sim | Sim |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Sim | Não |
-| [Tabelas externas](develop-tables-external-tables.md) | Sim | Sim |
-| [CETAS](develop-tables-cetas.md)                     | Sim | Sim |
+| [Ligações](connect-overview.md)                    | Yes | Sim |
+| [Classes de recursos e concuência](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | Não |
+| [Transações](develop-transactions.md)              | Yes | Não |
+| [Esquemas definidos pelo utilizador](develop-user-defined-schemas.md) | Yes | Sim |
+| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | Não |
+| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | Não |
+| [Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | Não |
+| [Estatísticas](develop-tables-statistics.md)            | Yes | Sim |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Yes | Não |
+| [Tabelas externas](develop-tables-external-tables.md) | Yes | Sim |
+| [CETAS](develop-tables-cetas.md)                     | Yes | Sim |
 
 
 ## <a name="recommendations"></a>Recomendações
@@ -46,15 +46,15 @@ Abaixo encontrará artigos essenciais que enfatizam técnicas específicas de co
 
 |                                            | Conjunto de SQL | SQL a pedido |
 | ------------------------------------------ | ------------------ | ----------------------- |
-| [Procedimentos armazenados](develop-stored-procedures.md)  | Sim                | Não                      |
-| [Etiquetas](develop-label.md)                           | Sim                | Não                      |
-| [Vistas](develop-views.md)                             | Sim                | Sim                     |
-| [Tabelas temporárias](develop-tables-temporary.md)       | Sim                | Sim                     |
-| [Dynamic SQL](develop-dynamic-sql.md)                 | Sim                | Sim                     |
-| [Executar ciclos](develop-loops.md)                         | Sim                | Sim                     |
-| [Agrupar por opções](develop-group-by-options.md)       | Sim                | Não                      |
-| [Atribuição de variáveis](develop-variable-assignment.md) | Sim                | Sim                     |
+| [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | Não                      |
+| [Etiquetas](develop-label.md)                           | Yes                | Não                      |
+| [Vistas](develop-views.md)                             | Yes                | Sim                     |
+| [Tabelas temporárias](develop-tables-temporary.md)       | Yes                | Sim                     |
+| [Dynamic SQL](develop-dynamic-sql.md)                 | Yes                | Sim                     |
+| [Executar ciclos](develop-loops.md)                         | Yes                | Sim                     |
+| [Agrupar por opções](develop-group-by-options.md)       | Yes                | Não                      |
+| [Atribuição de variáveis](develop-variable-assignment.md) | Yes                | Sim                     |
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações de referência, consulte [as declarações t-SQL do pool SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+## <a name="next-steps"></a>Próximos passos
+Para obter mais informações de referência, consulte [as declarações T-SQL da piscina SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

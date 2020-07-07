@@ -1,6 +1,6 @@
 ---
-title: Encriptação de disco azure em uma rede isolada
-description: Este artigo fornece dicas de resolução de problemas para encriptação do disco Microsoft Azure para VMs Linux.
+title: Encriptação do disco Azure numa rede isolada
+description: Este artigo fornece dicas de resolução de problemas para a Encriptação do Disco Azure da Microsoft para Os VMs Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -9,47 +9,47 @@ ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460125"
 ---
-# <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação de disco azure em uma rede isolada
+# <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação do disco Azure numa rede isolada
 
-Quando a conectividade é restringida por uma firewall, requisito de procuração ou configurações de grupo de segurança de rede (NSG), a capacidade da extensão para executar as tarefas necessárias pode ser interrompida. Esta perturbação pode resultar em mensagens de estado como "Estado de extensão não disponível no VM".
+Quando a conectividade é restringida por uma definição de firewall, proxy ou grupo de segurança de rede (NSG), a capacidade da extensão para executar as tarefas necessárias pode ser interrompida. Esta perturbação pode resultar em mensagens de estado tais como "O estado de extensão não disponível no VM."
 
 ## <a name="package-management"></a>Gestão de pacotes
 
-A encriptação do disco azure depende de uma série de componentes, que são normalmente instalados como parte da ativação ADE se ainda não estiverem presentes. Quando atrás de uma firewall ou isoladas da Internet, estas embalagens devem ser pré-instaladas ou disponíveis localmente.
+A encriptação do disco Azure depende de uma série de componentes, que são normalmente instalados como parte do habilibilamento ADE se ainda não estiverem presentes. Quando atrás de uma firewall ou isoladas da Internet, estas embalagens devem ser pré-instaladas ou disponíveis localmente.
 
-Aqui estão os pacotes necessários para cada distribuição. Para obter uma lista completa de distros e tipos de volume [suportados, consulte VMs suportados e sistemas operativos](disk-encryption-overview.md#supported-vms-and-operating-systems).
+Aqui estão os pacotes necessários para cada distribuição. Para obter uma lista completa de distros suportados e tipos de volume, consulte [VMs e sistemas operativos suportados.](disk-encryption-overview.md#supported-vms-and-operating-systems)
 
 - **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps
-- **CentOS 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup,cryptsetup-reencrypt, pyparted, procps-ng, util-linux
-- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuide, at, cryptsetup-reencrypt, pyparted, python-six
-- **RedHat 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
-- **RedHat 6.8**: lsscsi, psmisc, lvm2, uuide, at, patch, cryptsetup-reencrypt
-- **aberturaSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, criptosetup
+- **CentOS 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencript, pyparted, procps-ng, util-linux
+- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencript, pyparted, python-six
+- **RedHat 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencript, procps-ng, util-linux
+- **RedHat 6.8**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencript
+- **openSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, criptsetup
 
-No Red Hat, quando é necessário um proxy, deve certificar-se de que o gestor de subscrição e o yum estão configurados corretamente. Para mais informações, consulte Como resolver problemas de [subscrição-manager e problemas de yum](https://access.redhat.com/solutions/189533).  
+No Red Hat, quando é necessário um representante, deve certificar-se de que o gestor de subscrição e o yum estão corretamente configurados. Para obter mais informações, consulte [Como resolver problemas de subscrição e problemas com yum](https://access.redhat.com/solutions/189533).  
 
-Quando as embalagens são instaladas manualmente, também devem ser atualizadas manualmente à medida que novas versões forem lançadas.
+Quando as embalagens são instaladas manualmente, também devem ser atualizadas manualmente à medida que as novas versões são lançadas.
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
-Quaisquer definições do grupo de segurança da rede que são aplicadas devem ainda permitir que o ponto final cumpra os pré-requisitos de configuração da rede documentadopara a encriptação do disco.  Ver Encriptação do [Disco Azure: Requisitos de networking](disk-encryption-overview.md#networking-requirements)
+Quaisquer definições de grupo de segurança de rede que sejam aplicadas devem ainda permitir que o ponto final cumpra os pré-requisitos de configuração de rede documentados para encriptação do disco.  Ver [Encriptação do Disco Azure: Requisitos de rede](disk-encryption-overview.md#networking-requirements)
 
-## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Encriptação de disco azure com AD Azure (versão anterior)
+## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Encriptação do disco Azure com Azure AD (versão anterior)
 
-Se utilizar encriptação de [disco azure com AD Azure (versão anterior),](disk-encryption-overview-aad.md)a Biblioteca de [Diretórios Ativos Azure](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) terá de ser instalada manualmente para todos os distros (além das embalagens adequadas para o distro, tal como [listado acima).](#package-management)
+Se utilizar [a Encriptação do Disco Azure com Azure AD (versão anterior),](disk-encryption-overview-aad.md)a [Biblioteca do Diretório Ativo Azure](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) terá de ser instalada manualmente para todos os distros (para além dos pacotes adequados ao distro, conforme [listado acima).](#package-management)
 
-Quando a encriptação está a ser ativada com [credenciais De AD Azure,](disk-encryption-linux-aad.md)o VM alvo deve permitir a conectividade tanto aos pontos finais do Diretório Ativo Azure como aos pontos finais do Cofre chave. Os pontos finais de autenticação do Diretório Ativo Azure atuais são mantidos nas secções 56 e 59 do [Office 365 URLs e](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentação de endereços IP. As instruções do cofre chave são fornecidas na documentação sobre como aceder ao [Cofre chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
+Quando a encriptação estiver a ser ativada com [credenciais AD AZure,](disk-encryption-linux-aad.md)o VM alvo deve permitir a conectividade tanto para os pontos finais do Azure Ative Directory como para os pontos finais do Key Vault. Os pontos finais de autenticação do Azure Ative Directory são mantidos nas secções 56 e 59 da documentação [dos intervalos de iurdões e endereços IP do Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) As instruções do Cofre chave são fornecidas na documentação sobre como aceder ao [cofre da chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
 
-### <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure 
+### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 
-A máquina virtual deve poder aceder ao ponto final do [serviço de metadados de instância](instance-metadata-service.md) `169.254.169.254`seletiva, que utiliza um endereço IP não resaída conhecido ( ) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego local http para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded-For) não são suportadas.
+A máquina virtual deve poder aceder ao ponto final do [serviço Azure Instance Metadata,](instance-metadata-service.md) que utiliza um conhecido endereço IP não roteível `169.254.169.254` ( ) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego HTTP local para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded)não são suportadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais passos para a resolução de problemas de encriptação do [disco Azure](disk-encryption-troubleshooting.md)
-- [Encriptação de dados azure em repouso](../../security/fundamentals/encryption-atrest.md)
+- Ver mais passos para a [resolução de problemas de encriptação do disco Azure](disk-encryption-troubleshooting.md)
+- [Encriptação de dados Azure em repouso](../../security/fundamentals/encryption-atrest.md)

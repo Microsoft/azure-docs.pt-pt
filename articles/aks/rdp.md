@@ -1,36 +1,36 @@
 ---
-title: RPC para os nós do Servidor do Windows AKS
+title: Nódoa de servidor do Windows RDP para AKS
 titleSuffix: Azure Kubernetes Service
-description: Saiba como criar uma ligação RDP com os nós do Windows Server do Serviço Azure Kubernetes (AKS) para tarefas de resolução de problemas e manutenção.
+description: Saiba como criar uma ligação RDP com os nós do Cluster Windows Server (AKS) do Azure Kubernetes para tarefas de resolução de problemas e manutenção.
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
 ms.openlocfilehash: ed849ec928cc09cd0e8911929c4abc6ae54b1536
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208045"
 ---
-# <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conecte-se com os nódos os nódos do Windows Server do Serviço RDP ao Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
+# <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Ligue-se com os nós do Serviço de Azure Kubernetes (AKS) do cluster Windows Server para manutenção ou resolução de problemas
 
-Ao longo do ciclo de vida do seu cluster Azure Kubernetes Service (AKS), poderá ter de aceder a um nó aks Windows Server. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode aceder aos nós do Servidor do Windows AKS utilizando RDP. Em alternativa, se pretender utilizar o SSH para aceder aos nós do AKS Windows Server e tiver acesso ao mesmo par de chaves que foi utilizado durante a criação do cluster, pode seguir os passos em SSH até aos nós de cluster do [Serviço Azure Kubernetes (AKS).][ssh-steps] Para fins de segurança, os nós aks não estão expostos à internet.
+Durante todo o ciclo de vida do seu cluster Azure Kubernetes Service (AKS), poderá ter de aceder a um nó AKS Windows Server. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode aceder aos nós do Servidor AKS Windows utilizando RDP. Em alternativa, se pretender utilizar o SSH para aceder aos nós do Servidor AKS Windows e tiver acesso ao mesmo papel-chave que foi utilizado durante a criação do cluster, pode seguir os passos em [SSH para os nós de cluster Azure Kubernetes Service (AKS).][ssh-steps] Por razões de segurança, os nós AKS não estão expostos à internet.
 
 Este artigo mostra-lhe como criar uma ligação RDP com um nó AKS usando os seus endereços IP privados.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo assume que tem um cluster AKS existente com um nó do Windows Server. Se precisar de um cluster AKS, consulte o artigo sobre a criação de [um cluster AKS com um recipiente Windows utilizando o Azure CLI][aks-windows-cli]. Precisa do nome de utilizador do administrador do Windows e da palavra-passe para o nó do Windows Server que pretende resolver problemas. Também precisa de um cliente RDP, como [o Microsoft Remote Desktop][rdp-mac].
+Este artigo pressupõe que você tem um cluster AKS existente com um nó do Windows Server. Se precisar de um cluster AKS, consulte o artigo sobre a [criação de um cluster AKS com um recipiente Windows utilizando o Azure CLI][aks-windows-cli]. Precisa do nome de utilizador do administrador do Windows e da palavra-passe para o nó do Servidor do Windows que pretende resolver problemas. Também precisa de um cliente RDP, como [o Microsoft Remote Desktop.][rdp-mac]
 
-Também precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
-## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Desloque uma máquina virtual para a mesma sub-rede que o seu cluster
+## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Implemente uma máquina virtual na mesma sub-rede que o seu cluster
 
-Os nós do Windows Server do seu cluster AKS não têm endereços IP acessíveis externamente. Para fazer uma ligação RDP, pode implementar uma máquina virtual com um endereço IP acessível ao público para a mesma subnet que os seus nós do Windows Server.
+Os nós do Windows Server do seu cluster AKS não têm endereços IP acessíveis externamente. Para escoar uma ligação RDP, pode implantar uma máquina virtual com um endereço IP acessível ao público na mesma sub-rede que os nós do Windows Server.
 
-O exemplo seguinte cria uma máquina virtual chamada *myVM* no grupo de recursos *myResourceGroup.*
+O exemplo a seguir cria uma máquina virtual chamada *myVM* no grupo de recursos *myResourceGroup.*
 
-Primeiro, obtenha a sub-rede usada pela sua piscina de nó do Windows Server. Para obter a identificação da sub-rede, precisa do nome da sub-rede. Para obter o nome da subnet, precisa do nome da rede. Obtenha o nome vnet consultando o seu cluster para a sua lista de redes. Para consultar o aglomerado, precisa do nome. Você pode obter todos estes executando o seguinte na Casca de Nuvem Azure:
+Em primeiro lugar, obtenha a sub-rede utilizada pelo seu conjunto de nós do Windows Server. Para obter o id da sub-rede, precisa do nome da sub-rede. Para obter o nome da sub-rede, precisa do nome do vnet. Obtenha o nome vnet consultando o seu cluster para a sua lista de redes. Para consultar o agrupamento, precisa do nome. Você pode obter tudo isto executando o seguinte na Azure Cloud Shell:
 
 ```azurecli-interactive
 CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
@@ -39,7 +39,7 @@ SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME 
 SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
 ```
 
-Agora que tem o SUBNET_ID, faça o seguinte comando na mesma janela Azure Cloud Shell para criar o VM:
+Agora que tem o SUBNET_ID, erja o seguinte comando na mesma janela Azure Cloud Shell para criar o VM:
 
 ```azurecli-interactive
 az vm create \
@@ -52,23 +52,23 @@ az vm create \
     --query publicIpAddress -o tsv
 ```
 
-A saída de exemplo que se segue mostra que o VM foi criado com sucesso e exibe o endereço IP público da máquina virtual.
+A saída de exemplo a seguir mostra que o VM foi criado com sucesso e exibe o endereço IP público da máquina virtual.
 
 ```console
 13.62.204.18
 ```
 
-Grave o endereço IP público da máquina virtual. Utilizará este endereço num passo posterior.
+Grave o endereço IP público da máquina virtual. Utilizará este endereço mais tarde.
 
 ## <a name="allow-access-to-the-virtual-machine"></a>Permitir o acesso à máquina virtual
 
-As subredes aks node pool estão protegidas com NSGs (Network Security Groups) por padrão. Para ter acesso à máquina virtual, terá acesso habilitado no NSG.
+As subestanets de piscina de nó AKS estão protegidas por padrão com NSGs (Grupos de Segurança de Rede) por padrão. Para ter acesso à máquina virtual, terá de ativar o acesso no NSG.
 
 > [!NOTE]
-> Os NSGs são controlados pelo serviço AKS. Qualquer alteração que fizer ao NSG será substituída a qualquer momento pelo plano de controlo.
+> Os NSGs são controlados pelo serviço AKS. Qualquer alteração que fizer ao NSG será substituída a qualquer momento pelo avião de controlo.
 >
 
-Em primeiro lugar, obtenha o grupo de recursos e o nome NSG do NSG para adicionar a regra a:
+Em primeiro lugar, obtenha o grupo de recursos e o nome nsg do nsg para adicionar a regra a:
 
 ```azurecli-interactive
 CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
@@ -83,25 +83,25 @@ az network nsg rule create --name tempRDPAccess --resource-group $CLUSTER_RG --n
 
 ## <a name="get-the-node-address"></a>Obtenha o endereço do nó
 
-Para gerir um cluster Kubernetes, você usa [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Se utilizar a Azure `kubectl` Cloud Shell, já está instalada. Para `kubectl` instalar localmente, utilize o comando [az aks install-cli:][az-aks-install-cli]
+Para gerir um cluster Kubernetes, você usa [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, `kubectl` já está instalada. Para instalar `kubectl` localmente, utilize o comando [az aks instalar-cli:][az-aks-install-cli]
     
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando descarrega credenciais e confunde o ClI Kubernetes para usá-las.
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando descarrega credenciais e configura o CLI de Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Enumerar o endereço IP interno dos nós do Windows Server utilizando o comando [do kubectl get:][kubectl-get]
+Listar o endereço IP interno dos nosmos do Servidor do Windows utilizando o comando [kubectl get:][kubectl-get]
 
 ```console
 kubectl get nodes -o wide
 ```
 
-A saída de exemplo seguinte mostra os endereços IP internos de todos os nós do cluster, incluindo os nós do Windows Server.
+A saída do exemplo segue mostra os endereços IP internos de todos os nós do cluster, incluindo os nós do Servidor do Windows.
 
 ```console
 $ kubectl get nodes -o wide
@@ -110,7 +110,7 @@ aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4 
 aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
 ```
 
-Grave o endereço IP interno do nó do Windows Server que deseja resolver problemas. Utilizará este endereço num passo posterior.
+Grave o endereço IP interno do nó do Servidor do Windows que deseja resolver problemas. Utilizará este endereço mais tarde.
 
 ## <a name="connect-to-the-virtual-machine-and-node"></a>Ligue-se à máquina virtual e ao nó
 
@@ -118,19 +118,19 @@ Ligue-se ao endereço IP público da máquina virtual que criou anteriormente ut
 
 ![Imagem de ligação à máquina virtual usando um cliente RDP](media/rdp/vm-rdp.png)
 
-Depois de ter ligado à sua máquina virtual, ligue-se ao *endereço IP interno* do nó do Windows Server, deseja ndo problemas utilizando um cliente RDP dentro da sua máquina virtual.
+Depois de ter ligado à sua máquina virtual, ligue-se ao *endereço IP interno* do nó do Servidor do Windows que pretende resolver problemas utilizando um cliente RDP dentro da sua máquina virtual.
 
 ![Imagem de ligação ao nó do Servidor do Windows utilizando um cliente RDP](media/rdp/node-rdp.png)
 
-Está agora ligado ao nó do Windows Server.
+Está agora ligado ao nó do Servidor do Windows.
 
 ![Imagem da janela cmd no nó do Servidor do Windows](media/rdp/node-session.png)
 
-Agora pode executar quaisquer comandos de resolução de problemas na janela *cmd.* Uma vez que os nós do Windows Server utilizam o Windows Server Core, não existe um GUI completo ou outras ferramentas GUI quando se conecta a um nó do Windows Server sobre RDP.
+Pode agora executar quaisquer comandos de resolução de problemas na janela *cmd.* Uma vez que os nós do Windows Server utilizam o Núcleo do Servidor do Windows, não existe uma ferramenta GUI completa ou outras ferramentas GUI quando se liga a um nó do Servidor do Windows sobre RDP.
 
-## <a name="remove-rdp-access"></a>Remover o acesso rdp
+## <a name="remove-rdp-access"></a>Remover acesso RDP
 
-Quando terminar, saia da ligação RDP ao nó do Windows Server e, em seguida, saia da sessão RDP para a máquina virtual. Depois de sair de ambas as sessões de RDP, elimine a máquina virtual com o comando [az vm eliminar:][az-vm-delete]
+Quando terminar, saia da ligação RDP ao nó do Servidor do Windows e, em seguida, saia da sessão RDP para a máquina virtual. Depois de sair das duas sessões RDP, elimine a máquina virtual com o comando [az vm delete:][az-vm-delete]
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
@@ -149,7 +149,7 @@ az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --n
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de dados adicionais de resolução de problemas, pode ver os registos de [nó mestre kubernetes][view-master-logs] ou [o Monitor Azure][azure-monitor-containers].
+Se precisar de dados adicionais de resolução de [problemas, pode ver os registos de nódoseiros mestres de Kubernetes][view-master-logs] ou [o Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

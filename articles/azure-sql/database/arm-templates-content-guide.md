@@ -1,9 +1,8 @@
 ---
-title: Modelos do Azure Resource Manager
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Modelos de Gestor de Recursos Azure - Azure SQL Database & SQL Managed Instance
 description: Utilize modelos de Gestor de Recursos Azure para criar e configurar a Base de Dados Azure SQL e a Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,23 +11,23 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718806"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983644"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos de gestor de recursos Azure para Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Os modelos do Gestor de Recursos Azure permitem-lhe definir a sua infraestrutura como código e implementar as suas soluções para a nuvem Azure para Azure SQL Database e Azure SQL Managed Instance.
+Os modelos do Azure Resource Manager permitem definir a infraestrutura como código e implementar as soluções na cloud do Azure para a Base de Dados SQL e o Azure SQL Managed Instance.
 
 ## <a name="azure-sql-database"></a>[Base de Dados SQL do Azure](#tab/single-database)
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Database.
 
-| |  |
+|Ligação |Description|
 |---|---|
 | [Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única base de dados na Base de Dados Azure SQL e configura as regras de firewall IP de nível do servidor. |
 | [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor para a Base de Dados Azure SQL. |
@@ -47,7 +46,7 @@ A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azu
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Managed Instance.
 
-| |  |
+|Ligação|Description|
 |---|---|
 | [SQL Managed Instance em um novo VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Este modelo de Gestor de Recursos Azure cria uma nova rede virtual Azure configurada e gerido na rede virtual. |
 | [Ambiente de rede para sql caso gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementação criará uma rede virtual Azure configurada com duas sub-redes, uma que será dedicada às suas instâncias geridas e outra onde poderá colocar outros recursos (por exemplo, VMs, ambientes de Serviço de Aplicações, etc.). Este modelo criará um ambiente de networking devidamente configurado onde pode implementar casos geridos. |

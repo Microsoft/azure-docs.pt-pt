@@ -3,16 +3,16 @@ title: 'Quickstart: Criar uma planta com Azure CLI'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o Azure CLI.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613669"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969673"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
 
-Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
+Aprender a criar e atribuir plantas permite que a definição de padrões comuns desenvolva configurações reutilizáveis e rapidamente implantáveis com base em modelos de Gestor de Recursos Azure (modelos ARM), política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,14 +46,14 @@ Esta extensão funciona onde quer que a CLI do Azure possa ser utilizada, inclui
 
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
-O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
+O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, adicionaremos um grupo de recursos, um modelo ARM, e uma atribuição de papel no grupo de recursos.
 
 > [!NOTE]
 > Ao utilizar o Azure CLI, o objeto _de planta_ é criado primeiro. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
 
 1. Crie o objeto _esquema_ inicial. O parâmetro **dos parâmetros** requer um ficheiro JSON que inclui todos os parâmetros de nível da planta. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
-   - Ficheiro JSON - blueprintparms.json
+   - Ficheiro JSON - blueprintparms.jsem
 
      ```json
      {
@@ -115,7 +115,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      ```
 
      > [!NOTE]
-     > Utilize o nome de ficheiro _blueprint.json_ ao importar as definições da sua planta.
+     > Utilize o nome de ficheiro _blueprint.jsquando_ importar as definições do seu projeto.
      > Este nome de ficheiro é usado quando se chama [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
 
      O objeto blueprint é criado na subscrição padrão por padrão por padrão. Para especificar o grupo de gestão, utilize **o grupo de gestão de parâmetros**. Para especificar a subscrição, utilize **a subscrição do**parâmetro .
@@ -141,7 +141,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 1. Adicione a atribuição de política no momento da subscrição. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
-   - Arquivo JSON - artefactos\policyTags.json
+   - Ficheiro JSON - artifacts\policyTags.jsem
 
      ```json
      {
@@ -168,7 +168,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
-   - Ficheiro JSON - artefactos\policyStorageTags.json
+   - Ficheiro JSON - artifacts\policyStorageTags.jsem
 
      ```json
      {
@@ -193,9 +193,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Adicione um modelo no grupo de recursos. O parâmetro **do modelo** para um modelo de gestor de recursos inclui os componentes JSON normais do modelo. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros da planta estão disponíveis para o modelo usando **parâmetros** e dentro do modelo JSON que o par de valores-chave é usado para injetar o valor. Os nomes de parâmetros da planta e do modelo podem ser os mesmos.
+1. Adicione um modelo no grupo de recursos. O parâmetro **do modelo** para um modelo ARM inclui os componentes JSON normais do modelo. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros da planta estão disponíveis para o modelo usando **parâmetros** e dentro do modelo JSON que o par de valores-chave é usado para injetar o valor. Os nomes de parâmetros da planta e do modelo podem ser os mesmos.
 
-   - JSON Azure Resource Manager arquivo de modelo - artefactos\templateStorage.json
+   - Arquivo de modelo JSON ARM - artifacts\templateStorage.jsem
 
      ```json
      {
@@ -249,7 +249,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      }
      ```
 
-   - JSON Azure Resource Manager arquivo de parâmetro de modelo - artefactos\templateStorageParams.json
+   - Arquivo de parâmetro de modelo JSON ARM - artifacts\templateStorageParams.jsem
 
      ```json
      {
@@ -303,7 +303,7 @@ Uma vez que uma planta é publicada usando o CLI Azure, é atribuível a uma sub
 
 1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os **parâmetros dos contribuintes** e **proprietários** requerem uma série de objectIds dos principais para ser concedido a atribuição de funções, use [a Azure Ative Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) para recolher os objectIds para uso nos **parâmetros** para os seus próprios utilizadores, grupos ou principais serviços.
 
-   - Ficheiro JSON - blueprintAssignment.json
+   - Ficheiro JSON - blueprintAssignment.jsem
 
      ```json
      {
@@ -371,7 +371,7 @@ Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita
 az blueprint assignment delete --name 'assignMyBlueprint'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o Azure CLI. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

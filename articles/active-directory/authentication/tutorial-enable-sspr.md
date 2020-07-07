@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de9abcca8d5b02b58bd5d4550dcb100a90853f7f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505975"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983154"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -79,6 +79,7 @@ Quando os utilizadores precisam de desbloquear a sua conta ou redefinir a sua pa
     * *E-mail*
     * *Número de telemóvel*
     * *Telefone do emprego*
+    * *Questões de segurança*
 
 1. Para aplicar os métodos de autenticação, **selecione Guardar**.
 

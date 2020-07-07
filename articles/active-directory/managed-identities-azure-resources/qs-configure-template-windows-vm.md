@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85609032"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurar identidades geridas para recursos Azure num VM Azure usando modelos

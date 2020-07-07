@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c180b303fc1437f9f0f1763406760545d808c7a5
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 91c48772ae50fd34e822c947687c0366e1d179cc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605720"
+ms.locfileid: "85798787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integração do Azure Ative Directory com o Infor Retail – Information Management
 
@@ -108,10 +108,10 @@ Para configurar o Azure AD um único sign-on com a Infor Retail – Information 
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<company name>.mingle.infor.com
-        http://<company name>.mingledev.infor.com
-        ```
+    ```http
+    https://<company name>.mingle.infor.com
+    http://<company name>.mingledev.infor.com
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<company name>.mingle.infor.com/sp/ACS.saml2`
 

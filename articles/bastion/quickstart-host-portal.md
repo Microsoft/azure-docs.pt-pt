@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
 ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743988"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Quickstart: Ligue-se a uma máquina virtual usando um endereço IP privado e Azure Bastion
