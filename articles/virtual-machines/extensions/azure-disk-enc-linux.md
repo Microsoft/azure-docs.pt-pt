@@ -1,6 +1,6 @@
 ---
-title: Encriptação de disco azure para Linux
-description: Implementa encriptação de disco Azure para Linux para uma máquina virtual utilizando uma extensão virtual da máquina.
+title: Encriptação do disco Azure para Linux
+description: Implementa encriptação de disco Azure para Linux para uma máquina virtual usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ejarvi
@@ -14,38 +14,38 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066925"
 ---
-# <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Encriptação de disco azure para Linux (Microsoft.Azure.Security.AzureDiskCryptonForLinux)
+# <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Encriptação do disco Azure para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-A encriptação do disco Azure aproveita o subsistema dm-crypt em Linux para fornecer encriptação completa do disco em [distribuições selecionadas do Azure Linux](https://aka.ms/adelinux).  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de disco.
+A Azure Disk Encryption aproveita o subsistema dm-crypt em Linux para fornecer encriptação completa do disco nas [distribuições selecionadas do Azure Linux](https://aka.ms/adelinux).  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter uma lista completa de pré-requisitos, consulte a [Encriptação do Disco Azure para VMs Linux,](../linux/disk-encryption-overview.md)especificamente as seguintes secções:
+Para obter uma lista completa de pré-requisitos, consulte [a encriptação do disco Azure para Os VMs Linux,](../linux/disk-encryption-overview.md)especificamente as seguintes secções:
 
 - [VMs e sistemas operativos suportados](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisitos adicionais de VM](../linux/disk-encryption-overview.md#additional-vm-requirements)
-- [Requisitos de networking](../linux/disk-encryption-overview.md#networking-requirements)
+- [Requisitos de rede](../linux/disk-encryption-overview.md#networking-requirements)
 - [Requisitos de armazenamento de chaves de encriptação](../linux/disk-encryption-overview.md#encryption-key-storage-requirements)
 
-## <a name="extension-schema"></a>Extensão Schema
+## <a name="extension-schema"></a>Esquema de extensão
 
-Existem duas versões de esquema de extensão para encriptação de disco azure (ADE):
-- v1.1 - Um novo esquema recomendado que não utiliza propriedades de Diretório Ativo Azure (AAD).
-- v0.1 - Um esquema mais antigo que requer propriedades de Diretório Ativo Azure (AAD). 
+Existem duas versões de esquema de extensão para encriptação do disco Azure (ADE):
+- v1.1 - Um esquema recomendado mais recente que não utiliza propriedades do Azure Ative Directory (AAD).
+- v0.1 - Um esquema mais antigo que requer propriedades do Azure Ative Directory (AAD). 
 
-Para selecionar um esquema de `typeHandlerVersion` destino, a propriedade deve ser definida igual à versão do esquema que pretende utilizar.
+Para selecionar um esquema de destino, a `typeHandlerVersion` propriedade tem de ser definida igual à versão do esquema que pretende utilizar.
 
 ### <a name="schema-v11-no-aad-recommended"></a>Schema v1.1: Sem AAD (recomendado)
 
-O esquema v1.1 é recomendado e não requer propriedades de Azure Ative Directory (AAD).
+O esquema v1.1 é recomendado e não requer propriedades do Azure Ative Directory (AAD).
 
 ```json
 {
@@ -76,9 +76,9 @@ O esquema v1.1 é recomendado e não requer propriedades de Azure Ative Director
 
 ### <a name="schema-v01-with-aad"></a>Schema v0.1: com AAD 
 
-O esquema 0.1 requer `AADClientID` e `AADClientSecret` `AADClientCertificate`ou.
+O esquema 0.1 requer `AADClientID` e qualquer um ou `AADClientSecret` `AADClientCertificate` .
 
-Utilizando: `AADClientSecret`
+`AADClientSecret`Utilização:
 
 ```json
 {
@@ -108,7 +108,7 @@ Utilizando: `AADClientSecret`
 }
 ```
 
-Utilizando: `AADClientCertificate`
+`AADClientCertificate`Utilização:
 
 ```json
 {
@@ -141,53 +141,53 @@ Utilizando: `AADClientCertificate`
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.Security | string |
-| tipo | AzureDiskCryptonForLinux | string |
+| tipo | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 1.1, 0.1 | int |
-| (0.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxx | guid | 
+| (0.1 esquema) AADClientID | xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxx | guid | 
 | (0.1 esquema) AADClientSecret | palavra-passe | string |
-| (0.1 esquema) Certificado aADClient | impressão de polegar | string |
+| (0.1 esquema) Certificado de AADClient | impressão digital | string |
 | (opcional) (0.1 esquema) Frase-passe | palavra-passe | string |
-| DiskFormatQuery | {"dev_path","nome":"""file_system"} | Dicionário JSON |
-| Operação de encriptação | EnableEncryption, EnableEncryptionFormatAll | string | 
-| (opcional - rSA-OAEP padrão) Algoritmo de Encriptação de Chaves | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
+| DiskFormatQuery | {"dev_path":"""nome":"""file_system":""} | Dicionário JSON |
+| EncriptaçãoOperação | EnableEncryption, EnableEncryptionFormatAll | string | 
+| (opcional - padrão RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyVaultURL | url | string |
-| KeyvaultResourceid | url | string |
+| KeyVaultResourceId | url | string |
 | (opcional) KeyEncryptionKeyURL | url | string |
 | (opcional) KekVaultResourceId | url | string |
 | (opcional) SequênciaVersão | uniqueidentifier | string |
-| VolumeType | S, Dados, Todos | string |
+| VolumeType | OS, Dados, Todos | string |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Para um exemplo de implantação do modelo com base em esquema v1.1, consulte o Modelo De Arranque Rápido [Azure 201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+Para um exemplo de implementação do modelo com base no esquema v1.1, consulte o Modelo Azure Quickstart [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
 
-Para um exemplo de implantação do modelo com base em esquema v0.1, consulte o Modelo De Arranque Rápido [Azure 201-encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
+Para um exemplo de implementação do modelo com base no esquema v0.1, consulte o Modelo Azure Quickstart [201-encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 >[!WARNING]
-> - Se já utilizou anteriormente a Encriptação do Disco Azure com a AD Azure para encriptar um VM, tem de continuar a utilizar esta opção para encriptar o seu VM.
-> - Ao encriptar os volumes de Sistema sO, o VM deve ser considerado indisponível. Recomendamos vivamente que evite os logins do SSH enquanto a encriptação está em andamento para evitar problemas que bloqueiem quaisquer ficheiros abertos que precisem de ser acedidos durante o processo de encriptação. Para verificar o progresso, utilize o [comando Get-AzVMDiskCryptOnStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell ou o comando CLI de [encriptação vm.](/cli/azure/vm/encryption#az-vm-encryption-show) Espera-se que este processo derea algumas horas para um volume de 30GB de OS, além de tempo adicional para encriptar volumes de dados. O tempo de encriptação do volume de dados será proporcional ao tamanho e quantidade dos volumes de dados, a menos que o formato de encriptação seja utilizado. 
-> - A encriptação incapacitante nos VMs linux é suportada apenas para volumes de dados. Não é suportado em dados ou volumes de OS se o volume de S tiver sido encriptado. 
+> - Se já utilizou a Encriptação do Disco Azure com AZure AD para encriptar um VM, deve continuar a utilizar esta opção para encriptar o seu VM.
+> - Ao encriptar os volumes linux OS, o VM deve ser considerado indisponível. Recomendamos vivamente evitar logins SSH enquanto a encriptação está em andamento para evitar problemas que bloqueiem quaisquer ficheiros abertos que precisem de ser acedidos durante o processo de encriptação. Para verificar o progresso, utilize o [comandante Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell ou o comando CLI [do programa de encriptação vm.](/cli/azure/vm/encryption#az-vm-encryption-show) Espera-se que este processo despente-se em algumas horas para um volume de SO de 30GB, mais tempo adicional para encriptar volumes de dados. O tempo de encriptação do volume de dados será proporcional ao tamanho e quantidade dos volumes de dados, a menos que o formato de encriptação seja utilizado. 
+> - A encriptação incapacitante nos VMs Linux é suportada apenas para volumes de dados. Não é suportado em dados ou volumes de SO se o volume de SO tiver sido encriptado. 
 
 >[!NOTE]
-> Também `VolumeType` se o parâmetro estiver definido para Todos, os discos de dados só serão encriptados se estiverem corretamente montados.
+> Além disso, se o `VolumeType` parâmetro for definido para All, os discos de dados só serão encriptados se estiverem corretamente montados.
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Para resolução de problemas, consulte o guia de resolução de problemas da [Encriptação do Disco Azure](../linux/disk-encryption-troubleshooting.md).
+Para a resolução de problemas, consulte o [guia de resolução de problemas de encriptação do disco Azure](../linux/disk-encryption-troubleshooting.md).
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). 
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). 
 
-Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao [suporte azure](https://azure.microsoft.com/support/options/) e selecione Suporte. Para obter informações sobre a utilização do Suporte Azure, leia as FAQ de suporte do [Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre extensões VM, consulte [extensões e funcionalidades da máquina virtual para Linux](features-linux.md).
-* Para obter mais informações sobre a encriptação do disco Azure para o Linux, consulte [as máquinas virtuais Linux](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines).
+* Para obter mais informações sobre extensões VM, consulte [extensões e funcionalidades de máquina virtual para Linux.](features-linux.md)
+* Para obter mais informações sobre a encriptação do disco Azure para Linux, consulte [as máquinas virtuais Linux](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines).

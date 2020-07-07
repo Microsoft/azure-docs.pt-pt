@@ -1,6 +1,6 @@
 ---
-title: Gere segurança para aceder ao ioT Plug e play Preview repositório / Microsoft Docs
-description: Gere uma assinatura de acesso partilhado para usar quando aceder a um repositório do modelo IoT Plug e Play Preview programáticamente.
+title: Gerei o token de segurança para aceder ao repositório IoT Plug e Play Preview Microsoft Docs
+description: Gere um token de assinatura de acesso partilhado para usar quando aceder a um repositório de modelo ioT plug e play preview programático.
 author: Philmea
 ms.author: philmea
 ms.date: 12/27/2019
@@ -9,15 +9,15 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: f008627317588467d731ccc03aec7738f58e46e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159205"
 ---
 # <a name="generate-sas-token"></a>Gerar ficha SAS
 
-Este guia de como orientar mostra como gerar programáticamente uma assinatura de acesso partilhado (SAS) para usar com as APIs repositórios do modelo IoT Plug e Play Preview.
+Este guia de como fazer mostra-lhe como gerar programáticamente um sinal de assinatura de acesso partilhado (SAS) para usar com as APIs do repositório do modelo IoT Plug e Play Preview.
 
 ## <a name="python"></a>Python
 
@@ -46,7 +46,7 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
 
 ## <a name="c"></a>C\#
 
-O seguinte corte mostra-lhe como gerar um token SAS utilizando C:\#
+O seguinte corte mostra-lhe como gerar um token SAS usando C \# :
 
 ```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
@@ -72,7 +72,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 }
 ```
 
-## <a name="use-the-sas-token"></a>Use o símbolo SAS
+## <a name="use-the-sas-token"></a>Use o token SAS
 
 Depois de gerar um token SAS, pode usá-lo para fazer um pedido HTTP POST. Por exemplo:
 
@@ -80,8 +80,8 @@ Depois de gerar um token SAS, pode usá-lo para fazer um pedido HTTP POST. Por e
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
-Se você dá a um cliente um token SAS, o cliente não tem a chave principal do recurso, e não pode reverter o hash para obtê-lo. Um token SAS dá-lhe controlo sobre o que o cliente pode aceder, e por quanto tempo. Quando se muda a chave primária da política, quaisquer tokens SAS criados a partir dela são invalidados.
+Se você der a um cliente um sinal SAS, o cliente não tem a chave primária do recurso, e não pode reverter o haxixe para obtê-lo. Um token SAS dá-lhe controlo sobre o que o cliente pode aceder, e por quanto tempo. Quando se altera a chave principal da política, quaisquer fichas SAS criadas a partir dela são invalidadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a gerar fichas de segurança para usar para aceder aos repositórios do modelo IoT Plug e Play Preview, um próximo passo sugerido é aprender mais no guia de [modelação IoT Plug e Play Preview.](concepts-developer-guide.md)
+Agora que aprendeu a gerar fichas de segurança para usar para aceder aos repositórios do modelo IoT Plug e Play Preview, um passo sugerido é aprender mais no guia de [modelação IoT Plug e Play Preview.](concepts-developer-guide.md)

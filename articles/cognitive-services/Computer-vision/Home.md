@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3e1c67ee91298b9e8d0c3c427988c9966771aeaa
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920568"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -48,9 +48,9 @@ Pode analisar imagens para fornecer insights sobre as suas características e ca
 |**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Visão Computacional gera primeiro uma miniatura de alta qualidade e depois analisa os objetos dentro da imagem para determinar a *área de interesse*. A Visão Computacional, em seguida, planta a imagem para se adaptar às exigências da área de interesse. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, consoante as suas necessidades.|
 |**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analise o conteúdo de uma imagem para devolver as coordenadas da *área de interesse.* Em vez de cortar a imagem e gerar uma miniatura, a Visão Computacional devolve as coordenadas da caixa de delimitação da região, para que a aplicação de chamada possa modificar a imagem original conforme desejado.|
 
-## <a name="detect-text-from-images"></a>Detetar texto a partir de imagens
+## <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
 
-Pode utilizar a [APIs](concept-recognizing-text.md) API de deteção de texto de visão de computador para extrair texto impresso e manuscrito de imagens para um fluxo de caracteres legível por máquina. A API de Leitura utiliza os modelos mais recentes e trabalha com texto em diversas superfícies e fundos, tais como recibos, cartazes, cartões de visita, cartas e quadros brancos. As duas APIs de deteção de texto suportam a extração de texto impresso em [várias línguas.](./language-support.md)
+A Visão Computacional inclui capacidades [de reconhecimento de caracteres óticos (OCR).](concept-recognizing-text.md) Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito a partir de imagens e documentos. Utiliza os modelos mais recentes e trabalha com texto em várias superfícies e fundos. Estes recibos incluem, cartazes, cartões de visita, cartas e quadros. As duas APIs OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md)
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 

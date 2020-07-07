@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4b6331977cc2237801b84647e4edeb5d789cb9e8
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: c251b70d1988be82821f1e133151dae1ac6d1bc9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921293"
 ---
-# <a name="accessing-external-storage-in-synapse-sql"></a>Acesso ao armazenamento externo em Synapse SQL
+# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Acesso ao armazenamento externo em Synapse SQL (a pedido)
 
-Este documento descreve como pode o utilizador ler dados dos ficheiros armazenados no Azure Storage em Synapse SQL (on-demand e pool). Os utilizadores têm as seguintes opções de acesso ao armazenamento:
+Este documento descreve como pode o utilizador ler dados dos ficheiros armazenados no Azure Storage em Synapse SQL (a pedido). Os utilizadores têm as seguintes opções de acesso ao armazenamento:
 
 - [Função OPENROWSET](develop-openrowset.md) que permite consultas ad-hoc sobre os ficheiros no Azure Storage.
 - [Tabela externa](develop-tables-external-tables.md) que é uma estrutura de dados predefinida construída em cima de conjunto de ficheiros externos.
@@ -65,9 +65,9 @@ O OPENROWSET permite ao utilizador consultar os ficheiros colocados em alguma fo
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'file/path/*.csv',
+ OPENROWSET(BULK 'file/path/*.parquet',
  DATASOURCE = MyAzureInvoices,
- FORMAT= 'csv') as rows
+ FORMAT= 'parquet') as rows
 ```
 
 O utilizador de energia com permissão de BASE DE DADOS de CONTROLO teria de criar credencial SCOPED DE BASE DE DADOS que será utilizada para aceder ao armazenamento e fonte de dados externa que especifica o URL da fonte de dados e da credencial que deve ser utilizada:
@@ -142,8 +142,8 @@ FROM dbo.DimProductsExternal
 ```
 
 O chamador deve ter as seguintes permissões para ler dados:
-- Selecione permissão ON tabela externa
-- REFERÊNCIAS BASE DE DADOS SCOPED PERMISSÃO DE CREDENCIAL SE FONTE DE DADOS TIVER CREDENCIAL
+- `SELECT`permissão ON tabela externa
+- `REFERENCES DATABASE SCOPED CREDENTIAL`permissão se `DATA SOURCE` tiver`CREDENTIAL`
 
 ## <a name="permissions"></a>Permissões
 
@@ -151,13 +151,13 @@ As seguintes listas de tabelas requeriam permissões para as operações acima e
 
 | Consulta | Permissões obrigatórias|
 | --- | --- |
-| OPENROWSET (BULK) sem fonte de dados | ADMINISTRAR O login ADMIN SQL a GRANEL deve ter REFERÊNCIAS CREDENCIAIS:: \<URL> para armazenamento protegido por SAS |
-| OPENROWSET (GRANEL) com fonte de dados sem credencial | ADMINISTRAR ADMIN A GRANEL |
-| OPENROWSET (GRANEL) com fonte de dados com credencial | ADMINISTRAÇÃO DE REFERÊNCIAS A GRANEL BASE DE DADOS DE CREDENCIAIS SCOPED |
-| CRIAR FONTE DE DADOS EXTERNA | ALTERAR QUALQUER REFERÊNCIA DE DADOS EXTERNAS BASE DE DADOS CREDENCIAL |
-| CRIAR TABELA EXTERNA | CRIAR TABELA, ALTERAR QUALQUER ESQUEMA, ALTERAR QUALQUER FORMATO DE FICHEIRO EXTERNO, ALTERAR QUALQUER FONTE DE DADOS EXTERNO |
-| SELECIONE A PARTIR DA TABELA EXTERNA | SELECIONE TABELA |
-| CETAS | PARA CRIAR TABELA - CRIE TABELA ALTERE QUALQUER ESQUEMA ALTERE QUALQUER FONTE DE DADOS+ALTERE QUALQUER FORMATO DE FICHEIRO EXTERNO. Para ler dados: OPERAÇÕES ADMIN A GRANEL+REFERÊNCIAS CREDENTIAL ou TABELA Seleta por cada tabela/visualização/função em consulta + permissão R/W no armazenamento |
+| OPENROWSET (BULK) sem fonte de dados | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` ou o login SQL deve ter REFERÊNCIAS CREDENTIAL:: para armazenamento protegido por \<URL> SAS |
+| OPENROWSET (GRANEL) com fonte de dados sem credencial | `ADMINISTER BULK ADMIN``ADMINISTER DATABASE BULK ADMIN`ou, |
+| OPENROWSET (GRANEL) com fonte de dados com credencial | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` ou`REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CRIAR FONTE DE DADOS EXTERNA | `ALTER ANY EXTERNAL DATA SOURCE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CRIAR TABELA EXTERNA | `CREATE TABLE`, `ALTER ANY SCHEMA` `ALTER ANY EXTERNAL FILE FORMAT` e`ALTER ANY EXTERNAL DATA SOURCE` |
+| SELECIONE A PARTIR DA TABELA EXTERNA | `SELECT TABLE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CETAS | Para criar mesa - `CREATE TABLE` , , , e `ALTER ANY SCHEMA` `ALTER ANY DATA SOURCE` `ALTER ANY EXTERNAL FILE FORMAT` . Para ler dados: `ADMIN BULK OPERATIONS` ou `REFERENCES CREDENTIAL` por cada `SELECT TABLE` tabela/visualização/função em consulta + permissão R/W no armazenamento |
 
 ## <a name="next-steps"></a>Passos seguintes
 

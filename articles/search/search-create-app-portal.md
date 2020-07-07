@@ -1,23 +1,25 @@
 ---
-title: Criar uma app de pesquisa no portal Azure
+title: Criar uma app de demonstração no portal Azure
 titleSuffix: Azure Cognitive Search
-description: Execute o assistente de aplicação Create (pré-visualização) para gerar páginas HTML e script para uma aplicação web operacional. A página inclui uma barra de pesquisa, área de resultados, barra lateral e suporte de cabeça de tipo.
+description: Execute o assistente de demo Create (pré-visualização) para gerar páginas HTML e script para uma aplicação web operacional. A página inclui uma barra de pesquisa, área de resultados, barra lateral e suporte de cabeça de tipo.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488176"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955697"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de pesquisa no portal (Azure Cognitive Search)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de demonstração no portal (Azure Cognitive Search)
 
-Utilize o assistente de **aplicação de pesquisa** do portal Azure para gerar uma aplicação web de estilo "localhost" que funciona num navegador. Dependendo da sua configuração, a aplicação gerada está operacional na primeira utilização, com uma ligação ao vivo a um índice remoto. Uma aplicação predefinitiva pode incluir uma barra de pesquisa, área de resultados, filtros de barra lateral e suporte de tipa.
+Utilize o assistente de **demo** do portal Azure para gerar uma aplicação web de estilo "localhost" que funciona num navegador. Dependendo da sua configuração, a aplicação gerada está operacional na primeira utilização, com uma ligação apenas de leitura ao vivo a um índice remoto. Uma aplicação predefinitiva pode incluir uma barra de pesquisa, área de resultados, filtros de barra lateral e suporte de tipa.
+
+A app de demonstração pode ajudá-lo a visualizar como um índice irá funcionar numa aplicação de clientes, mas não se destina a cenários de produção. As aplicações do cliente devem incluir segurança, manipulação de erros e lógica de hospedagem que a página HTML gerada não fornece. Quando estiver pronto para criar uma aplicação para clientes, consulte [criar a sua primeira aplicação de pesquisa utilizando o .NET SDK](tutorial-csharp-create-first-app.md) para os próximos passos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +47,7 @@ Quando o índice estiver pronto a ser utilizado, passe para o próximo passo.
 
 1. Escolha *o índice de amostra realestate-us da* lista de índices existentes.
 
-1. Na página de índice, no topo, selecione **Criar app de pesquisa (pré-visualização)** para iniciar o assistente.
+1. Na página de índice, no topo, selecione **Criar app de demonstração (pré-visualização)** para iniciar o assistente.
 
 1. Na primeira página de assistente, selecione **Ativar a partilha de recursos de origem cruzada (CORS)** para adicionar suporte CORS à definição de índice. Este passo é opcional, mas a sua aplicação web local não se ligará ao índice remoto sem ele.
 
@@ -85,7 +87,7 @@ A imagem que se segue mostra opções no assistente, justtaposa com uma página 
 
 ## <a name="create-download-and-execute"></a>Criar, transferir e executar
 
-1. Selecione **Criar um aplicativo de pesquisa** para gerar o ficheiro HTML.
+1. Selecione **Criar uma aplicação de demonstração** para gerar o ficheiro HTML.
 
 1. Quando solicitado, selecione **Descarregue a sua aplicação** para descarregar o ficheiro.
 

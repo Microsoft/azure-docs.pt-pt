@@ -1,24 +1,24 @@
 ---
-title: Como corrigir manualmente os problemas de sincronização do ServiceNow
-description: Redefinir a ligação ao ServiceNow para que os alertas no Microsoft Azure possam voltar a ligar para o ServiceNow
+title: Como corrigir manualmente problemas de sincronização do ServiceNow
+description: Reinicie a ligação ao ServiceNow para que os alertas no Microsoft Azure possam voltar a ligar para o ServiceNow
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
 ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81313674"
 ---
-# <a name="how-to-manually-fix-servicenow-sync-problems"></a>Como corrigir manualmente os problemas de sincronização do ServiceNow
+# <a name="how-to-manually-fix-servicenow-sync-problems"></a>Como corrigir manualmente problemas de sincronização do ServiceNow
 
-O Azure Monitor pode ligar-se a fornecedores de gestão de serviços de TI (ITSM) de terceiros. ServiceNow é um desses fornecedores.
+O Azure Monitor pode ligar-se a fornecedores de gestão de serviços de TI de terceiros (ITSM). O ServiceNow é um desses fornecedores.
 
-Por razões de segurança, poderá necessitar de atualizar o símbolo de autenticação utilizado para a sua ligação com o ServiceNow.
-Utilize o seguinte processo de sincronização para reativar a ligação e refrescar o símbolo:
+Por razões de segurança, poderá necessitar de atualizar o token de autenticação utilizado para a sua ligação com o ServiceNow.
+Utilize o seguinte processo de sincronização para reativar a ligação e refrescar o token:
 
 
 1. Procure a solução no banner de pesquisa superior e, em seguida, selecione as soluções relevantes
@@ -35,10 +35,10 @@ Utilize o seguinte processo de sincronização para reativar a ligação e refre
     ![Nova ligação](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
 
 1. Selecione cada conector da lista. 
-    1. Clique no nome Do Conector para configurá-lo
-    1. Eliminar quaisquer conectores que já não estão a ser utilizados
+    1. Clique no nome do Conector para o configurar
+    1. Eliminar quaisquer conectores que já não sejam utilizados
 
-    1. Atualize os campos de acordo com [estas definições](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections) com base no tipo de parceiro
+    1. Atualizar os campos de acordo com [estas definições](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections) com base no tipo de parceiro
 
     1. Clique em sincronização
 
@@ -52,4 +52,4 @@ f.    Reveja as notificações para ver se o processo terminou com sucesso
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre ligações de gestão de [serviços de TI](itsmc-connections.md)
+Saiba mais sobre [conexões de gestão de serviços de TI](itsmc-connections.md)

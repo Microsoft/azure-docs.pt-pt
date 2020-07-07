@@ -8,12 +8,12 @@ ms.date: 06/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 58ef7704cda88caebcbe49cf75e9a7fc9ecaebdc
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: f1e70c5b7eb4efdde1bfc20b1ec3e058bfa5b054
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918955"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -132,19 +132,21 @@ Tal como com alterar o escalão, pode aumentar horizontalmente as réplicas de c
 
 ## <a name="pricing"></a>Preços
 
-O custo total depende de diversos fatores; por exemplo, a região escolhida, o escalão, as réplicas de consultas e se foi interrompido/retomado. Utilize a calculadora de [Preços de Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) para determinar os preços normais para a sua região. Esta ferramenta calcula os preços de uma instância de servidor único para uma região. Tenha em atenção que as réplicas de consultas são faturadas com a mesma tarifa do servidor. 
+O custo total depende de uma série de fatores. Por exemplo, a sua região escolhida, tier, réplicas de consulta e pausa/currículo. Utilize a calculadora de [Preços de Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) para determinar os preços normais para a sua região. Esta ferramenta calcula os preços de uma instância de servidor único para uma região. Tenha em atenção que as réplicas de consultas são faturadas com a mesma tarifa do servidor. 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Baseado no SQL Server Analysis Services
 
 O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). As divisórias, perspetivas, segurança ao nível da linha, relações biducionais e traduções são todas \* apoiadas. Os modelos multidimensionais e o PowerPivot para o SharePoint *não são* suportados nos Serviços de Análise Azure.
 
-Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte principal do serviço Azure, as operações de atualização sem supervisão utilizando a PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do seu modelo estão sempre atualizados. 
+Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. 
 
-O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. Conjuntos de dados extremamente grandes em únicos sql server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Oracle, e Teradata fontes de dados são suportadas. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Existem também algumas restrições, tais como tipos limitados de fonte de dados, limitações de fórmula DAX, e algumas funcionalidades avançadas de modelação de dados não são suportadas. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte principal do serviço Azure, operações de atualização sem supervisão utilizando PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do seu modelo estão sempre atualizados. 
+
+O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. Conjuntos de dados extremamente grandes em únicos sql server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), Oracle, e Teradata fontes de dados são suportadas. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Existem também algumas restrições, tais como tipos limitados de fonte de dados, limitações de fórmula DAX, e algumas funcionalidades avançadas de modelação de dados não são suportadas. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* A disponibilidade das funcionalidades varia consoante o escalão.
 
-## <a name="supported-data-sources"></a>Origens de dados suportadas
+## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas)
 
 Os modelos em tabela no Azure Analysis Services suportam uma grande variedade de origens de dados, desde ficheiros de texto simples a Macrodados no Azure Data Lake Store. Para saber mais, veja [Data sources supported in Azure Analysis Services](analysis-services-datasource.md) (Origens de dados suportadas no Azure Analysis Services).
 
@@ -244,7 +246,7 @@ Como os modelos tabulares nos Serviços de Análise Azure são praticamente os m
 
 ### <a name="contribute"></a>Contribua!
 
-A documentação do Analysis Services, como este artigo, é de livre acesso. Para saber mais sobre como pode contribuir, consulte o guia de colaboradores do [Docs.](https://docs.microsoft.com/contribute/) 
+Documentação dos Serviços de Análise, como este artigo, é fonte aberta. Para saber mais sobre como pode contribuir, consulte o guia de colaboradores do [Docs.](https://docs.microsoft.com/contribute/) 
 
 A documentação do Azure Analysis Services também utiliza os [Problemas do GitHub](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Pode fornecer feedback sobre o produto ou a documentação. Utilize a opção **Comentários** na parte inferior de um artigo. As questões do GitHub não estão ativadas para a documentação dos Serviços de Análise Partilhada. 
 

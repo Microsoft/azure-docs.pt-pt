@@ -1,6 +1,6 @@
 ---
-title: Co-venda de códigos de país e região [ Mercado Azure
-description: Utilize estes códigos de duas letras país/região ao fornecer informações de contacto na página de Co-venda da sua oferta.
+title: Co-vender códigos de país e de região Mercado Azure
+description: Utilize estes códigos de país/região de duas letras ao fornecer informações de contacto na página de Co-venda da sua oferta.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,27 +8,27 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80277061"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Co-venda de códigos de país e região
+# <a name="co-sell-country-and-region-codes"></a>Co-vender códigos de país e de região
 
-Utilize estes códigos de duas letras país/região ao fornecer informações de [contacto na página de Co-venda da sua oferta](commercial-marketplace-co-sell.md).
+Utilize estes códigos de país/região de duas letras ao [fornecer informações de contacto na página de co-venda da sua oferta.](commercial-marketplace-co-sell.md)
 
-Se o contacto cobrir todos os Países/Regiões, utilize o código de três letras "OOO".
+Se o contacto abranger todos os Países/Regiões, utilize o código de três letras "OOO".
 
-Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códigos de letra separados por uma vírvia (por exemplo, insira "EUA, CA, FR" sem aspas).
+Se um contacto abranger mais de um País/Região, insira cada um dos dois códigos de letra separados por uma vírgula (por exemplo, insira "US, CA, FR" sem aspas).
 
-## <a name="countryregion-table"></a>Tabela País/Região
+## <a name="countryregion-table"></a>Tabela país/região
 
 |   Nome país/região               |   ISO-2   |
 |-------------------------------------|-----------|
-| Contactos globais                     | Ooo       |
+| Contactos globais                     | OOO       |
 | Afeganistão                         | AF        |
-| Ilhas Åland                       | Machado        |
+| Ilhas Åland                       | AX        |
 | Albânia                             | AL        |
 | Argélia                             | DZ        |
 | Samoa Americana                      | AS        |
@@ -44,7 +44,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Azerbaijão                          | AZ        |
 | Baamas                             | BS        |
 | Barém                             | BH        |
-| Bangladeche                          | BD        |
+| Bangladesh                          | BD        |
 | Barbados                            | BB        |
 | Bielorrússia                             | BY        |
 | Bélgica                             | BE        |
@@ -53,7 +53,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Bermudas                             | BM        |
 | Butão                              | BT        |
 | Bolívia                             | BO        |
-| Bonaire                             | BQ        |
+| Rio Bonaire                             | BQ        |
 | Bósnia e Herzegovina              | BA        |
 | Botsuana                            | BW        |
 | Ilha Bouvet                       | BV        |
@@ -85,7 +85,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Costa do Marfim (Côte d’Ivoire)                       | CI        |
 | Croácia                             | HR        |
 | Cuba                                | CU        |
-| Curaçau                             | CW        |
+| Curaçao                             | CW        |
 | Chipre                              | CY        |
 | Dinamarca                             | DK        |
 | Jibuti                            | DJ        |
@@ -93,7 +93,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | República Dominicana                  | DO        |
 | Equador                             | EC        |
 | Egito                               | EG        |
-| El Salvador                         | SV        |
+| Salvador                         | SV        |
 | Guiné Equatorial                   | GQ        |
 | Eritreia                             | ER        |
 | Estónia                             | EE        |
@@ -125,7 +125,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Haiti                               | HT        |
 | Ilha Heard e Ilhas McDonald   | HM        |
 | Honduras                            | HN        |
-| RAE de Hong Kong                       | HK        |
+| R.A.E. de Hong Kong                       | HK        |
 | Hungria                             | HU        |
 | Islândia                             | IS        |
 | Índia                               | IN        |
@@ -142,9 +142,9 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Jordânia                              | JO        |
 | Cazaquistão                          | KZ        |
 | Quénia                               | KE        |
-| Kiribati                            | KI        |
+| Quiribáti                            | KI        |
 | Coreia (Sul)                       | KR        |
-| Kuwait                              | KW        |
+| Koweit                              | KW        |
 | Quirguistão                          | KG        |
 | Laos                                | LA        |
 | Letónia                              | LV        |
@@ -152,12 +152,12 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Lesoto                             | LS        |
 | Libéria                             | LR        |
 | Líbia                               | LY        |
-| Liechtenstein                       | LI        |
+| Listenstaine                       | LI        |
 | Lituânia                           | LT        |
 | Luxemburgo                          | LU        |
 | RAE de Macau                           | MO        |
 | Madagáscar                          | MG        |
-| Malawi                              | MW        |
+| Maláui                              | MW        |
 | Malásia                            | MY        |
 | Maldivas                            | MV        |
 | Mali                                | ML        |
@@ -165,7 +165,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Ilhas Marshall                    | MH        |
 | Martinica                          | MQ        |
 | Mauritânia                          | MR        |
-| Maurícia                           | MU        |
+| Maurícias                           | MU        |
 | Maiote                             | YT        |
 | México                              | MX        |
 | Micronésia                          | FM        |
@@ -176,7 +176,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Montserrate                          | MS        |
 | Marrocos                             | MA        |
 | Moçambique                          | MZ        |
-| Myanmar                             | MM        |
+| Mianmar                             | MM        |
 | Namíbia                             | ND        |
 | Nauru                               | NR        |
 | Nepal                               | NP        |
@@ -214,7 +214,7 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | São Cristóvão e Neves               | KN        |
 | Santa Lúcia                         | LC        |
 | São Martinho (Saint Martin)                        | MF        |
-| São Pierre e Miquelon           | PM        |
+| São Pedro e Miquelon           | PM        |
 | São Vicente e Granadinas    | VC        |
 | Samoa                               | WS        |
 | São Marino                          | SM        |
@@ -231,24 +231,24 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Ilhas Salomão                     | SB        |
 | Somália                             | SO        |
 | África do Sul                        | ZA        |
-| Ilhas Sandwich do Sul e do Sul | GS    |
+| Ilhas da Geórgia do Sul e Sandwich do Sul | GS    |
 | Sudão do Sul                         | SS        |
 | Espanha                               | ES        |
-| Sri Lanka                           | LK        |
+| Sri Lanca                           | LK        |
 | Santa Helena, Ascensão, Tristão da Cunha | SH     |
 | Sudão                               | SD        |
 | Suriname                            | SR        |
-| Rio Svalbard                            | Rio SJ        |
+| Svalbard                            | SJ        |
 | Suécia                              | SE        |
 | Suíça                         | CH        |
 | Síria                               | SY        |
 | Taiwan                              | TW        |
-| Tajiquistão                          | Rio TJ        |
+| Tajiquistão                          | TJ        |
 | Tanzânia                            | TZ        |
 | Tailândia                            | TH        |
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
-| Toquelau                             | Rio TK        |
+| Toquelau                             | TK        |
 | Tonga                               | Para        |
 | Trindade e Tobago                 | TT        |
 | Tunísia                             | TN        |
@@ -260,21 +260,21 @@ Se um contacto cobrir mais de um País/Região, introduza cada um dos dois códi
 | Ucrânia                             | UA        |
 | Emirados Árabes Unidos                | AE        |
 | Reino Unido                      | GB        |
-| Estados Unidos                       | EUA        |
+| Estados Unidos da América                       | EUA        |
 | Uruguai                             | UY        |
-| Ilhas Periféricas dos EUA               | UM        |
+| Ilhas Menores Distantes dos EUA               | UM        |
 | Ilhas Virgens Americanas                 | VI        |
-| Uzbequistão                          | UZ        |
+| Usbequistão                          | UZ        |
 | Vanuatu                             | VU        |
 | Cidade do Vaticano                        | VA        |
 | Venezuela                           | VE        |
 | Vietname                             | VN        |
 | Wallis e Futuna                   | WF        |
-| Iémen                               | Ye        |
+| Iémen                               | YE        |
 | Zâmbia                              | ZM        |
 | Zimbabué                            | ZW        |
 |   |   |   |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça a [opção de co-venda no Partner Center](./commercial-marketplace-co-sell.md).
+- Saiba mais sobre a [opção de co-venda no Partner Center.](./commercial-marketplace-co-sell.md)

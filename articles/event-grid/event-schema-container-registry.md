@@ -1,6 +1,6 @@
 ---
-title: Registo de contentores azure como fonte da Rede de Eventos
-description: Descreve as propriedades que estão fornecidas para eventos de registo de contentores com grelha de eventos Azure
+title: Registo de contentores Azure como fonte de grelha de evento
+description: Descreve as propriedades que são fornecidas para eventos de registo de contentores com Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393352"
 ---
-# <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores azure como fonte da Rede de Eventos
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores Azure como fonte de grelha de evento
 
-Este artigo fornece as propriedades e esquemas para eventos de registo de contentores.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
+Este artigo fornece as propriedades e esquemas para eventos de registo de contentores.Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
@@ -25,16 +25,16 @@ Este artigo fornece as propriedades e esquemas para eventos de registo de conten
 
 O Registo de Contentores Azure emite os seguintes tipos de eventos:
 
-| Tipo de evento | Descrição |
+| Tipo de evento | Description |
 | ---------- | ----------- |
-| Microsoft.ContainerRegistry.ImagePushed | Levantada quando uma imagem é empurrada. |
-| Microsoft.ContainerRegistry.ImageDeleted | Levantada quando uma imagem é apagada. |
-| Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico helm é empurrado. |
-| Microsoft.ContainerRegistry.ChartDeleted | Levantado quando um gráfico helm é apagado. |
+| Microsoft.ContainerRegistry.ImagePushed | Levantado quando uma imagem é empurrada. |
+| Microsoft.ContainerRegistry.ImageDeleted | Levantado quando uma imagem é apagada. |
+| Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico de helm é empurrado. |
+| Microsoft.ContainerRegistry.ChartDeleted | Levantado quando um gráfico helm é eliminado. |
 
-### <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Exemplo evento
 
-O exemplo que se segue mostra o esquema de um evento empurrado por imagem: 
+O exemplo a seguir mostra o esquema de um evento empurrado por uma imagem: 
 
 ```json
 [{
@@ -97,7 +97,7 @@ O esquema para um evento apagado de imagem é semelhante:
 }]
 ```
 
-O esquema para um evento empurrado por gráficos é semelhante ao esquema para um evento filmado, mas não inclui um objeto de pedido:
+O esquema para um evento empurrado para gráfico é semelhante ao esquema para um evento pressionado por imagens, mas não inclui um objeto de pedido:
 
 ```json
 [{
@@ -125,7 +125,7 @@ O esquema para um evento empurrado por gráficos é semelhante ao esquema para u
 }]
 ```
 
-O esquema para um evento eliminado por gráfico é semelhante ao esquema para um evento apagado de imagem, mas não inclui um objeto de pedido:
+O esquema de um evento eliminado é semelhante ao esquema de um evento apagado com imagem, mas não inclui um objeto de pedido:
 
 ```json
 [{
@@ -157,57 +157,57 @@ O esquema para um evento eliminado por gráfico é semelhante ao esquema para um
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento de armazenamento blob. |
+| dados | objeto | Dados do evento de armazenamento de bolhas. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | ID | string | A identificação do evento. |
-| carimbo de data/hora | string | O momento em que ocorreu o evento. |
-| action | string | A ação que engloba o evento previsto. |
+| carimbo de data/hora | string | A hora em que o evento ocorreu. |
+| action | string | A ação que engloba o evento fornecido. |
 | alvo | objeto | O alvo do evento. |
 | pedido | objeto | O pedido que gerou o evento. |
 
-O objeto-alvo tem as seguintes propriedades:
+O objeto alvo tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | mediaType | string | O tipo MIME do objeto referenciado. |
-| size | número inteiro | O número de bytes do conteúdo. O mesmo que o campo length. |
-| digest | string | A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API. |
-| length | número inteiro | O número de bytes do conteúdo. O mesmo que o campo size. |
+| size | número inteiro | O número de bytes do conteúdo. O mesmo que o campo De Comprimento. |
+| digest | string | A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2. |
+| length | número inteiro | O número de bytes do conteúdo. O mesmo que o campo Size. |
 | repositório | string | O nome do repositório. |
 | etiqueta | string | O nome da etiqueta. |
-| nome | string | O nome da ficha. |
+| name | string | O nome da carta. |
 | versão | string | A versão do gráfico. |
 
 O objeto de pedido tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | ID | string | A identificação do pedido que iniciou o evento. |
-| addr | string | O nome IP ou anfitrião e, possivelmente, o porto da ligação ao cliente que iniciou o evento. Este valor é o RemoteAddr a partir do pedido de http padrão. |
-| anfitrião | string | O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião http nos pedidos de entrada. |
+| addr | string | O nome IP ou anfitrião e possivelmente o porto da ligação ao cliente que iniciou o evento. Este valor é o RemoteAddr do pedido http padrão. |
+| anfitrião | string | O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião http em pedidos de entrada. |
 | método | string | O método de pedido que gerou o evento. |
-| useragent | string | O cabeçalho do agente utilizador do pedido. |
+| useragent | string | O cabeçalho do agente de utilizador do pedido. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
 |Título |Descrição  |
 |---------|---------|
-| [Quickstart: envie eventos de registo de contentores](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de registo de contentores. |
+| [Quickstart: enviar eventos de registo de contentores](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de registo de contentores. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

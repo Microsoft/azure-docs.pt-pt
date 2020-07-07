@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 068af40ed42d0211eed6e1a315016bb8ecc40d05
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84872558"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954218"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Adicione dados aos registos de auditoria utilizando cabeçalhos HTTP personalizados
 
@@ -36,7 +36,7 @@ Pode utilizar cabeçalhos personalizados para capturar vários tipos de informa�
 > [!IMPORTANT]
 > Esteja ciente de que as informações enviadas em cabeçalhos personalizados são armazenadas num sistema de registo interno da Microsoft durante 30 dias após estarem disponíveis no Azure Log Monitoring. Recomendamos encriptar qualquer informação antes de adicioná-la a cabeçalhos personalizados. Não deve passar nenhuma informação phi através de cabeçalhos de cliente.
 
-Deve utilizar a seguinte convenção de nomeação para os seus cabeçalhos HTTP: X-MS-AZUREFHIR-AUDIT-AUDIT-NAME \<>.
+Deve utilizar a seguinte convenção de nomeação para os seus cabeçalhos HTTP: X-MS-AZUREFHIR-AUDIT-AUDIT- \<name> .
 
 Estes cabeçalhos HTTP estão incluídos num saco de propriedade que é adicionado ao registo. Por exemplo:
 
@@ -63,7 +63,7 @@ Quando adicionados ao registo, os valores são combinados com uma lista delimita
  
 Pode adicionar um máximo de 10 cabeçalhos únicos (repetições do mesmo cabeçalho com valores diferentes são contadas apenas como um). O comprimento máximo total do valor para um cabeçalho é de 2048 caracteres.
 
-Se estiver a usar a biblioteca API do cliente Firely C#, o código é mais ou menos assim:
+Se estiver a usar a biblioteca API do cliente Firefly C#, o código é mais ou menos assim:
 
 ```C#
 FhirClient client;
