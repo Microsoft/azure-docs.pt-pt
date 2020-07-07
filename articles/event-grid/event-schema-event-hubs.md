@@ -1,6 +1,6 @@
 ---
-title: Hubs de eventos azure como fonte da Grelha de Eventos
-description: Descreve as propriedades que estão previstas para eventos de hubs de eventos com a Azure Event Grid
+title: Hubs de eventos Azure como fonte de grade de eventos
+description: Descreve as propriedades que são fornecidas para eventos de centros de eventos com Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393344"
 ---
-# <a name="azure-event-hubs-as-an-event-grid-source"></a>Hubs de eventos azure como fonte da Grelha de Eventos
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs como fonte de grade de eventos
 
-Este artigo fornece as propriedades e esquemas para eventos de hubs de eventos.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
+Este artigo fornece as propriedades e esquema para eventos de centros de eventos.Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Os Hubs de Eventos emitem o tipo de evento **Microsoft.EventHub.CaptureFileCreated** quando um ficheiro de captura é criado.
+O Event Hubs emite o tipo de evento **Microsoft.EventHub.CaptureFileCreated** quando um ficheiro de captura é criado.
 
-### <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Exemplo evento
 
-Este evento de amostra mostra o esquema de um evento de hubs de eventos criado quando a funcionalidade de captura armazena um ficheiro: 
+Este evento de amostra mostra o esquema de um evento de centros de eventos criado quando a funcionalidade de captura armazena um ficheiro: 
 
 ```json
 [
@@ -57,28 +57,28 @@ Este evento de amostra mostra o esquema de um evento de hubs de eventos criado q
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento hub. |
+| dados | objeto | Dados do evento hub event. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | fileUrl | string | O caminho para o ficheiro de captura. |
-| arquivoType | string | O tipo de ficheiro do ficheiro de captura. |
-| partiçãoId | string | A identificação do caco. |
+| fileType | string | O tipo de ficheiro do ficheiro de captura. |
+| partitionId | string | A identificação do fragmento. |
 | tamanhoInBytes | número inteiro | O tamanho do ficheiro. |
-| eventoCount | número inteiro | O número de eventos no ficheiro. |
-| primeiroSequenceNumber | número inteiro | O menor número de sequência da fila. |
-| últimoSequenceNumber | número inteiro | O último número de sequência da fila. |
+| eventosoconta | número inteiro | O número de eventos no arquivo. |
+| firstSequenceNumber | número inteiro | O menor número de sequência da fila. |
+| lastSequenceNumber | número inteiro | O último número de sequência da fila. |
 | firstEnqueueTime | string | A primeira vez da fila. |
 | lastEnqueueTime | string | A última vez da fila. |
 
@@ -86,10 +86,10 @@ O objeto de dados tem as seguintes propriedades:
 
 |Título  |Descrição  |
 |---------|---------|
-| [Tutorial: transmitir big data em um armazém de dados](event-grid-event-hubs-integration.md) | Quando o Event Hubs cria um ficheiro Capture, a Rede de Eventos envia um evento para uma aplicação de função. A aplicação recupera o ficheiro Capture e migra dados para um armazém de dados. |
+| [Tutorial: transmitir big data para um armazém de dados](event-grid-event-hubs-integration.md) | Quando o Event Hubs cria um ficheiro Capture, o Event Grid envia um evento para uma aplicação de função. A aplicação recupera o ficheiro Captura e migra dados para um armazém de dados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
-* Para obter informações sobre o tratamento de eventos de centros de eventos, consulte [o Stream big data num armazém de dados](event-grid-event-hubs-integration.md).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).
+* Para obter informações sobre como lidar com eventos de centros de eventos, consulte [o Stream big data num armazém de dados.](event-grid-event-hubs-integration.md)

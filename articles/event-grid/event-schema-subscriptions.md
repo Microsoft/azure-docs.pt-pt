@@ -1,6 +1,6 @@
 ---
-title: Assinatura Azure como fonte da Grelha de Eventos
-description: Descreve as propriedades que estão previstas para eventos de subscrição com a Azure Event Grid
+title: Azure subscrição como fonte de Grade de Eventos
+description: Descreve as propriedades que são fornecidas para eventos de subscrição com Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,25 +8,25 @@ ms.topic: reference
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393217"
 ---
-# <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura Azure como fonte da Grelha de Eventos
+# <a name="azure-subscription-as-an-event-grid-source"></a>Subscrição do Azure como fonte de Grade de Eventos
 
-Este artigo fornece as propriedades e esquemas para eventos de subscrição azure.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
+Este artigo fornece as propriedades e esquema para eventos de subscrição Azure.Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md).
 
-As assinaturas azure e os grupos de recursos emitem os mesmos tipos de eventos. Os tipos de eventos estão relacionados com alterações ou ações de recursos. A principal diferença é que os grupos de recursos emitem eventos para recursos dentro do grupo de recursos, e as subscrições do Azure emitem eventos de recursos em toda a subscrição.
+As subscrições azure e os grupos de recursos emitem os mesmos tipos de eventos. Os tipos de eventos estão relacionados com alterações de recursos ou ações. A principal diferença é que os grupos de recursos emitem eventos para recursos dentro do grupo de recursos, e as subscrições da Azure emitem eventos para recursos em toda a subscrição.
 
-Os eventos de recursos são criados para operações `management.azure.com`PUT, PATCH, POST e DELETE que são enviadas para . As operações get não criam eventos. As operações enviadas `myaccount.blob.core.windows.net`para o avião de dados (como) não criam eventos. Os eventos de ação fornecem dados de eventos para operações como a listagem das chaves para um recurso.
+Os eventos de recursos são criados para as operações PUT, PATCH, POST e DELETE que são enviadas para `management.azure.com` . As operações get não criam eventos. As operações enviadas para o plano de dados `myaccount.blob.core.windows.net` (como) não criam eventos. Os eventos de ação fornecem dados de eventos para operações como a listagem das chaves para um recurso.
 
-Ao subscrever eventos para uma subscrição do Azure, o seu ponto final recebe todos os eventos para essa subscrição. Os eventos podem incluir eventos que você quer ver, como atualizar uma máquina virtual, mas também eventos que talvez não sejam importantes para você, como escrever uma nova entrada no histórico de implementação. Você pode receber todos os eventos no seu ponto final e escrever código que processa os eventos que você quer lidar. Ou, pode definir um filtro ao criar a subscrição do evento.
+Quando subscreve eventos para uma subscrição do Azure, o seu ponto final recebe todos os eventos para essa subscrição. Os eventos podem incluir eventos que você deseja ver, como atualizar uma máquina virtual, mas também eventos que talvez não sejam importantes para si, como escrever uma nova entrada na história da implementação. Pode receber todos os eventos no seu ponto final e escrever código que processa os eventos que pretende lidar. Ou, pode configurar um filtro ao criar a subscrição do evento.
 
-Para lidar programáticamente com os eventos, `operationName` pode classificar eventos olhando para o valor. Por exemplo, o seu ponto final do evento `Microsoft.Compute/virtualMachines/write` só `Microsoft.Storage/storageAccounts/write`pode processar eventos para operações iguais ou .
+Para lidar programaticamente com eventos, pode classificar eventos olhando para o `operationName` valor. Por exemplo, o seu ponto final do evento só pode processar eventos para operações iguais `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write` .
 
-O assunto do evento é a identificação de recursos do recurso que é o alvo da operação. Para filtrar eventos para um recurso, forneça esse ID de recurso ao criar a subscrição do evento. Para filtrar por um tipo de recurso, utilize um valor no seguinte formato:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+O assunto do evento é o ID de recursos do recurso que é o alvo da operação. Para filtrar eventos para um recurso, forneça esse ID de recurso ao criar a subscrição do evento. Para filtrar por um tipo de recurso, utilize um valor em seguinte formato:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
@@ -35,21 +35,21 @@ O assunto do evento é a identificação de recursos do recurso que é o alvo da
 
 As subscrições do Azure emitem eventos de gestão do Azure Resource Manager, como quando um VM é criado ou uma conta de armazenamento é eliminada.
 
-| Tipo de evento | Descrição |
+| Tipo de evento | Description |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceActionCancel | Levantada saem quando a ação sobre os recursos é cancelada. |
-| Microsoft.Resources.ResourceActionFailure | Levantada quando a ação sobre os recursos falha. |
-| Microsoft.Resources.ResourceActionSuccess | Levantada quando a ação sobre os recursos é bem sucedida. |
-| Microsoft.Resources.ResourceDeleteCancel | Levantada quando a eliminação da operação é cancelada. Este evento acontece quando uma implantação do modelo é cancelada. |
-| Microsoft.Resources.ResourceDeleteFailure | Levantada sabotada quando a eliminação da operação falha. |
-| Microsoft.Resources.ResourceDeleteSuccess | Levantada quando a eliminação da operação é bem sucedida. |
-| Microsoft.Resources.ResourceWriteCancel | Levantada quando a operação de criação ou atualização é cancelada. |
-| Microsoft.Resources.ResourceWriteFailure | O funcionamento da criação ou atualização falha. |
-| Microsoft.Resources.ResourceWriteSuccess | Criada quando a operação de criação ou atualização é bem sucedida. |
+| Microsoft.Resources.ResourceActionCancel | Levantado quando a ação sobre o recurso é cancelada. |
+| Microsoft.Resources.ResourceActionFailure | Levantado quando a ação sobre o recurso falha. |
+| Microsoft.Resources.ResourceActionSuccess | Levantado quando a ação sobre os recursos é bem sucedida. |
+| Microsoft.Resources.ResourceDeleteCancel | Levantado quando a operação de eliminação é cancelada. Este evento acontece quando uma implementação do modelo é cancelada. |
+| Microsoft.Resources.ResourceDeleteFailure | Levantado quando a operação de eliminação falha. |
+| Microsoft.Resources.ResourceDeleteSuccess | Levantado quando a operação de eliminação tiver sucesso. |
+| Microsoft.Resources.ResourceWriteCancel | Levantado quando a operação de criação ou atualização é cancelada. |
+| Microsoft.Resources.ResourceWriteFailure | Levantado quando a operação de criação ou atualização falha. |
+| Microsoft.Resources.ResourceWriteSuccess | Levantado quando a operação de criação ou atualização for bem sucedida. |
 
-### <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Exemplo evento
 
-O exemplo seguinte mostra o esquema para um evento **ResourceWriteSuccess.** O mesmo esquema é utilizado para **eventos ResourceWriteFailure** e `eventType` **ResourceWriteCancel** com valores diferentes para .
+O exemplo a seguir mostra o esquema de um evento **ResourceWriteSuccess.** O mesmo esquema é utilizado para **eventos ResourceWriteFailure** e **ResourceWriteCancel** com valores diferentes para `eventType` .
 
 ```json
 [{
@@ -109,7 +109,7 @@ O exemplo seguinte mostra o esquema para um evento **ResourceWriteSuccess.** O m
 }]
 ```
 
-O exemplo seguinte mostra o esquema para um evento **ResourceDeleteSuccess.** O mesmo esquema é utilizado para **eventos DeexcluseDeEeeeeos** com **valores** diferentes para `eventType`.
+O exemplo a seguir mostra o esquema de um evento **ResourceDeleteSuccess.** O mesmo esquema é utilizado para **eventos ResourceDeleteFailure** e **ResourceDeleteCancel** com valores diferentes para `eventType` .
 
 ```json
 [{
@@ -175,7 +175,7 @@ O exemplo seguinte mostra o esquema para um evento **ResourceDeleteSuccess.** O 
 }]
 ```
 
-O exemplo que se segue mostra o esquema para um evento **ResourceActionSuccess.** O mesmo esquema é utilizado para **eventos ResourceActionFailure** e `eventType` **ResourceActionCancel** com valores diferentes para .
+O exemplo a seguir mostra o esquema para um evento **ResourceActionSuccess.** O mesmo esquema é utilizado para **eventos ResourceAcilure** e **ResourceActionCancel** com valores diferentes para `eventType` .
 
 ```json
 [{   
@@ -235,41 +235,41 @@ O exemplo que se segue mostra o esquema para um evento **ResourceActionSuccess.*
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é reelegível. O Event Grid fornece este valor. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento de subscrição. |
+| dados | objeto | Dados do evento de subscrição. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | autorização | objeto | A autorização solicitada para a operação. |
-| reivindicações | objeto | As propriedades das reclamações. Para mais informações, consulte a [especificação jWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | string | Uma identidade de operação para resolução de problemas. |
-| httpRequest | objeto | Os detalhes da operação. Este objeto só é incluído quando atualizar um recurso existente ou apagar um recurso. |
-| recursosFornecedor | string | O fornecedor de recursos para a operação. |
+| sinistros | objeto | As propriedades das reclamações. Para mais informações, consulte [a especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | string | Uma operação de identificação para resolução de problemas. |
+| httpRequest | objeto | Os detalhes da operação. Este objeto só está incluído na atualização de um recurso existente ou na eliminação de um recurso. |
+| recursoProvider | string | O fornecedor de recursos para a operação. |
 | recursosUri | string | O URI do recurso na operação. |
-| operationName | string | A operação que foi levada. |
+| operationName | string | A operação que foi feita. |
 | status | string | O estado da operação. |
-| subscriptionId | string | A identificação de subscrição do recurso. |
+| subscriptionId | string | A identificação de assinatura do recurso. |
 | inquilinoId | string | A identificação do inquilino do recurso. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
 |Título |Descrição  |
 |---------|---------|
-| [Tutorial: Automação Azure com Grelha de Eventos e Equipas da Microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envie um evento. O evento despoleta um livro de automação que marca a máquina virtual e despoleta uma mensagem que é enviada para um canal da Microsoft Teams. |
+| [Tutorial: Azure Automation com Grade de Eventos e Equipas microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento aciona um runbook Automation que marca a máquina virtual e despoleta uma mensagem que é enviada para um canal microsoft Teams. |
 | [Como: subscrever eventos através do portal](subscribe-through-portal.md) | Utilize o portal para subscrever eventos para uma subscrição do Azure. |
-| [Azure CLI: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-cli-azure-subscription.md) |Sample script que cria uma subscrição de Event Grid para uma subscrição Azure e envia eventos para um WebHook. |
-| [PowerShell: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-powershell-azure-subscription.md)| Sample script que cria uma subscrição de Event Grid para uma subscrição Azure e envia eventos para um WebHook. |
+| [Azure CLI: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-cli-azure-subscription.md) |O script de amostra que cria uma subscrição de Grade de Eventos para uma subscrição do Azure e envia eventos para um WebHook. |
+| [PowerShell: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-powershell-azure-subscription.md)| O script de amostra que cria uma subscrição de Grade de Eventos para uma subscrição do Azure e envia eventos para um WebHook. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

@@ -1,6 +1,6 @@
 ---
-title: Apache Hadoop & Visual Studio Data Lake Tools - Azure HDInsight
-description: Aprenda a instalar e utilizar ferramentas data lake para estúdio visual. Utilize a ferramenta para ligar aos clusters Apache Hadoop no Azure HDInsight e, em seguida, executar consultas da Hive.
+title: Apache Hadoop & Ferramentas do Lago de Dados do Estúdio Visual - Azure HDInsight
+description: Saiba como instalar e utilizar ferramentas do Data Lake para o Estúdio Visual. Utilize a ferramenta para ligar aos clusters Apache Hadoop em Azure HDInsight e, em seguida, executar consultas de Colmeia.
 keywords: ferramentas do hadoop,consulta do hive,visual studio, visual studio hadoop
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,75 +10,75 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 7504826f267d717f30c5e88621578412c744e5f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383514"
 ---
-# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Use ferramentas de data lake para estúdio visual para conectar-se ao Azure HDInsight e executar consultas apache hive
+# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Use ferramentas do Data Lake para o Estúdio Visual ligar-se ao Azure HDInsight e executar consultas de Hive Apache
 
-Saiba como utilizar o Microsoft Azure Data Lake e stream Analytics Tools para estúdio visual (Data Lake Tools). Utilize a ferramenta para ligar aos [clusters Apache Hadoop no Azure HDInsight](apache-hadoop-introduction.md) e submeter consultas da Hive.  
+Saiba como utilizar o Microsoft Azure Data Lake e stream Analytics Tools for Visual Studio (Data Lake Tools). Utilize a ferramenta para ligar aos [clusters Apache Hadoop em Azure HDInsight](apache-hadoop-introduction.md) e submeter consultas de Hive.  
 
-Para obter mais informações sobre a utilização do HDInsight, consulte [Iniciar-se com hDInsight](apache-hadoop-linux-tutorial-get-started.md).  
+Para obter mais informações sobre a utilização de HDInsight, consulte [Começar com HDInsight](apache-hadoop-linux-tutorial-get-started.md).  
 
-Para obter mais informações sobre a ligação à Tempestade Apache, consulte [Desenvolver topoologias C# para a Tempestade Apache utilizando as ferramentas data lake](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Para obter mais informações sobre a ligação à Tempestade Apache, consulte [as topologias de Desenvolvimento C# para a Tempestade Apache utilizando as ferramentas data lake](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 Pode utilizar o Data Lake Tools para Visual Studio para aceder ao Azure Data Lake Analytics e ao HDInsight. Para obter informações sobre o Data Lake Tools, veja [Desenvolver scripts U-SQL com o Data Lake Tools para Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este artigo e utilizar ferramentas data lake para estúdio visual, você precisa dos seguintes itens:
+Para completar este artigo e utilizar ferramentas do Data Lake para o Estúdio Visual, precisa dos seguintes itens:
 
-* Um cluster do Azure HDInsight. Para criar um cluster HDInsight, consulte [Começar por utilizar o Apache Hadoop em Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Para executar consultas interativas da Apache Hive, você precisa de um cluster [de consulta interativa HDInsight.](../interactive-query/apache-interactive-query-get-started.md)  
+* Um cluster do Azure HDInsight. Para criar um cluster HDInsight, consulte [Começar a usar Apache Hadoop em Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Para executar consultas interativas de Hive Apache, você precisa de um cluster [de consulta interativa HDInsight.](../interactive-query/apache-interactive-query-get-started.md)  
 
-* [Estúdio Visual.](https://visualstudio.microsoft.com/downloads/) A [edição visual do Estúdio Comunitário](https://visualstudio.microsoft.com/vs/community/) é gratuita. As instruções aqui mostradas são para [o Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/).
+* [Estúdio Visual](https://visualstudio.microsoft.com/downloads/). A [edição da Comunidade Visual Studio](https://visualstudio.microsoft.com/vs/community/) é gratuita. As instruções aqui apresentadas são para [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Instalar as Ferramentas do Data Lake para Visual Studio  
 
-Siga as instruções adequadas para instalar ferramentas data lake para a sua versão do Estúdio Visual:
+Siga as instruções apropriadas para instalar ferramentas do Data Lake para a sua versão do Visual Studio:
 
-* Para o Visual Studio 2017 ou para o Visual Studio 2019:
+* Para Visual Studio 2017 ou Visual Studio 2019:
 
-    Durante a instalação do Estúdio Visual, certifique-se de que inclui a carga de trabalho de **desenvolvimento do Azure** ou a carga de trabalho de **armazenamento e processamento de dados.**  
+    Durante a instalação do Visual Studio, certifique-se de que inclui a carga de trabalho de **desenvolvimento do Azure** ou a carga de trabalho **de armazenamento e processamento de dados.**  
 
-    Para as instalações do Estúdio Visual existentes, vá à barra de menus IDE e selecione **Tools** > **Get Tools and Features** para abrir o Instalador de Estúdios Visuais. No separador **Workloads,** selecione pelo menos a carga de trabalho de **desenvolvimento do Azure** (em **Web & Cloud).** Ou selecione a carga de trabalho de **armazenamento e processamento** de dados (em Outros Conjuntos de **Ferramentas).**
+    Para as instalações existentes do Visual Studio, vá à barra de menus IDE e selecione **Tools**Get Tools and Features para abrir o  >  **Get Tools and Features** Instalador de Estúdio Visual. No **separador Workloads,** selecione pelo menos a carga de trabalho de **desenvolvimento do Azure** (em **Cloud web &).** Ou selecione a carga **de trabalho de armazenamento e processamento de dados** (em **outros conjuntos de ferramentas).**
 
   ![Seleção de carga de trabalho, Instalador de Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
-* Para o Estúdio Visual 2015:
+* Para Visual Studio 2015:
 
-    [Descarregue as ferramentas do Lago de Dados.](https://www.microsoft.com/download/details.aspx?id=49504) Escolha a versão do Data Lake Tools que corresponde à sua versão do Visual Studio.
+    [Descarregue ferramentas do Data Lake.](https://www.microsoft.com/download/details.aspx?id=49504) Escolha a versão do Data Lake Tools que corresponde à sua versão do Visual Studio.
 
-## <a name="update-data-lake-tools-for-visual-studio"></a>Atualizar ferramentas do Lago de Dados para Estúdio Visual  
+## <a name="update-data-lake-tools-for-visual-studio"></a>Atualizar ferramentas do lago de dados para estúdio visual  
 
-Em seguida, certifique-se de atualizar data lake tools para a versão mais recente.
+Em seguida, certifique-se de atualizar Data Lake Tools para a versão mais recente.
 
 1. Abra o Visual Studio.
 
-2. Na janela **Iniciar,** selecione **Continue sem código**.
+2. Na janela **Iniciar,** **selecione Continue sem código**.
 
-3. Na barra de menus Do Estúdio Visual IDE, escolha **extensões** > de gestão de**extensões**.
+3. Na barra de menus Visual Studio IDE, escolha **extensões**  >  **de gestão de extensões**.
 
-4. Na caixa de diálogo **'Gerir extensões',** expanda o nó de **Atualizações.**
+4. Na caixa de diálogo **'Gestão de Extensões',** expanda o nó **de atualizações.**
 
-5. Se a lista de atualizações disponíveis incluir o Lago de **Dados Azure e as Ferramentas Analíticas stream,** selecione-o. Em seguida, selecione o botão **Atualizar.** Depois da caixa de diálogo **Descarregamento e Instalação** aparecer e desaparecer, o Estúdio Visual adiciona a extensão do Lago de **Dados Azure e as Ferramentas Analíticas Stream** à programação da atualização.
+5. Se a lista de atualizações disponíveis incluir **Azure Data Lake e Stream Analytic Tools,** selecione-a. Em seguida, selecione o botão **'Actualizar'.** Depois de a caixa de diálogo **de descarregamento e instalação** aparecer e desaparecer, o Visual Studio adiciona a extensão do **Lago de Dados Azure e das Ferramentas Analíticas stream** à programação de atualização.
 
-6. Feche todas as janelas do Estúdio Visual. Aparece a caixa de diálogo do **instalador VSIX.**
+6. Feche todas as janelas do Estúdio Visual. Aparece a caixa de diálogo **vsix installer.**
 
-7. Selecione **Licença** para ler os termos da licença e, em seguida, selecione **Fechar** para voltar à caixa de diálogo do **Instalador VSIX.**
+7. Selecione **Licença** para ler os termos da licença e, em seguida, selecione **Close** to return to the **VSIX Installer dialog.**
 
-8. Selecione **Modificar**. Começa a instalação da atualização de extensão. Passado algum tempo, a caixa de diálogo muda para mostrar que está feito a fazer modificações. Selecione **Fechar**e, em seguida, reiniciar o Estúdio Visual para completar a instalação.
+8. Selecione **Modificar**. Inicia-se a instalação da atualização de extensão. Passado algum tempo, a caixa de diálogo muda para mostrar que está feita a fazer modificações. Selecione **Close**e, em seguida, reinicie o Visual Studio para completar a instalação.
 
 > [!NOTE]  
 > Pode utilizar apenas o Data Lake Tools versão 2.3.0.0 ou posterior para ligar a clusters da Consulta Interativa e executar consultas interativas do Hive.
 
 ## <a name="connect-to-azure-subscriptions"></a>Ligar a subscrições do Azure
 
-Você pode usar Data Lake Tools para Estúdio Visual para conectar-se aos seus clusters HDInsight, fazer algumas operações básicas de gestão, e executar consultas da Hive.
+Você pode usar ferramentas do Data Lake para o Estúdio Visual para conectar-se aos seus clusters HDInsight, fazer algumas operações básicas de gestão e executar consultas de Hive.
 
 > [!NOTE]  
-> Para obter informações sobre a ligação a um cluster genérico de Hadoop, consulte como escrever e submeter consultas da [Hive usando o Visual Studio](https://blogs.msdn.microsoft.com/xiaoyong/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio/).
+> Para obter informações sobre a ligação a um cluster genérico de Hadoop, consulte [Como escrever e submeter consultas de Hive usando o Visual Studio](https://blogs.msdn.microsoft.com/xiaoyong/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio/).
 
 ### <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
 
@@ -86,111 +86,111 @@ Para ligar à sua subscrição do Azure:
 
 1. Abra o Visual Studio.
 
-2. Na janela **Iniciar,** selecione **Continue sem código**.
+2. Na janela **Iniciar,** **selecione Continue sem código**.
 
-3. Na barra de menuI IDE, escolha **Ver** > **Server Explorer**.
+3. Na barra de menus IDE, escolha **Ver**  >  **Explorador do Servidor**.
 
-4. No **Server Explorer,** clique no **Azure,** selecione **Connect to Microsoft Azure Subscription**, e complete o processo de autenticação. A partir do **Server Explorer,** expanda **o Azure** > **HDInsight** para ver uma lista de clusters HDInsight existentes.
+4. No **Server Explorer**, click direito **Azure**, selecione Connect to Microsoft **Azure Subscription**e complete o processo de autenticação. A partir do **Server Explorer,** expanda **o Azure**  >  **HDInsight** para ver uma lista de clusters HDInsight existentes.
 
-5. Se não tiver clusters, crie um utilizando o portal Azure, O PowerShell ou o HDInsight SDK. Para mais informações, consulte [Configurar clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+5. Se não tiver nenhum cluster, crie um utilizando o portal Azure PowerShell ou o HDInsight SDK. Para obter mais informações, consulte [Configurar clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-   ![Lista de clusterS HDInsight, Server Explorer, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
+   ![Lista de clusters HDInsight, Explorador de Servidores, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
-6. Expanda um cluster do HDInsight. O cluster contém nós para bases de **dados da Colmeia.** Além disso, uma conta de armazenamento por defeito, quaisquer contas de armazenamento adicionais ligadas, e **registo de serviço hadoop**. Pode expandir ainda mais as entidades.
+6. Expanda um cluster do HDInsight. O cluster contém nós para **bases de dados de colmeias.** Além disso, uma conta de armazenamento padrão, quaisquer contas de armazenamento adicionais ligadas e **Registo de Serviço Hadoop**. Pode expandir ainda mais as entidades.
 
 Depois de se ligar à sua subscrição do Azure, pode fazer as tarefas seguintes.
 
-### <a name="connect-to-azure-from-visual-studio"></a>Ligue-se ao Azure do Estúdio Visual
+### <a name="connect-to-azure-from-visual-studio"></a>Ligue-se ao Azure do Visual Studio
 
 Ligar-se ao portal do Azure a partir do Visual Studio:
 
-1. No **Server Explorer,** expanda **o Azure** > **HDInsight** e selecione o seu cluster.
+1. No **Server Explorer,** expanda **o Azure**  >  **HDInsight** e selecione o seu cluster.
 
-2. Clique à direita num cluster HDInsight e selecione **Manage Cluster no portal Azure**.
+2. Clique com o botão direito num cluster HDInsight e **selecione Gerir o Cluster no portal Azure**.
 
-### <a name="offer-questions-and-feedback-from-visual-studio"></a>Oferecer perguntas e feedback do Estúdio Visual
+### <a name="offer-questions-and-feedback-from-visual-studio"></a>Oferecer perguntas e feedback do Visual Studio
 
-Para fazer perguntas e, ou fornecer feedback do Estúdio Visual:
+Para fazer perguntas e, ou fornecer feedback do Visual Studio:
 
-1. Do Server Explorer, escolha **Azure** > **HDInsight**.
+1. A partir do Server Explorer, escolha **Azure**  >  **HDInsight**.
 
-2. Clique no **HDInsight** e selecione o **MSDN Forum** para fazer perguntas ou **dar feedback** para dar feedback.
+2. Clique com o botão direito **hdInsight** e selecione ou **o MSDN Forum** para fazer perguntas ou **dar feedback** para dar feedback.
 
-## <a name="link-to-or-edit-a-cluster"></a>Link para ou editar um cluster
+## <a name="link-to-or-edit-a-cluster"></a>Ligue ou edite um cluster
 
 > [!NOTE]
-> Atualmente, o único tipo de cluster HDInsight a que pode ligar é um tipo de Colmeia.
+> Atualmente, o único tipo de cluster HDInsight a que se pode ligar é um tipo de Colmeia.
 
 Para ligar um cluster HDInsight:
 
-1. Clique no **HDInsight**e, em seguida, selecione **Link a HDInsight Cluster** para exibir a caixa de diálogo do Cluster **HDInsight.**
+1. Clique com o botão direito **HDInsight**e, em seguida, selecione **Link a HDInsight Cluster** para exibir a caixa de diálogo Do Cluster **HDInsight.**
 
-2. Introduza um Url `https://CLUSTERNAME.azurehdinsight.net`de **Ligação** no formulário . O **Nome do Cluster** preenche automaticamente a parte do nome do cluster do seu URL quando se vai para outro campo. Em seguida, introduza um **nome de utilizador** e **palavra-passe,** e selecione **Seguinte**.
+2. Introduza um **Url de ligação** no formulário `https://CLUSTERNAME.azurehdinsight.net` . O **Nome cluster** preenche automaticamente a parte do nome do cluster do seu URL quando vai para outro campo. Em **seguida, introduza** um nome de utilizador e **palavra-passe**e selecione **Seguinte**.
 
-    ![Link a cluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
+    ![Link um cluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-3. Selecione **Concluir**. Se a ligação do cluster for bem sucedida, o cluster é listado sob o nó **HDInsight.**
+3. Selecione **Concluir**. Se a ligação do cluster for bem sucedida, o cluster é então listado sob o nó **HDInsight.**
 
-Para atualizar um cluster ligado, clique no cluster e **selecione Editar**. Em seguida, pode atualizar a informação do cluster.
+Para atualizar um cluster ligado, clique com o botão direito no cluster e selecione **Editar**. Em seguida, pode atualizar a informação do cluster.
 
-![Editar um cluster ligado, HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
+![Editar um cluster ligado, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
 ## <a name="explore-linked-resources"></a>Explorar recursos ligados
 
 No Explorador de Servidores, pode ver a conta do Storage predefinida e quaisquer contas do Storage ligadas. Se expandir a conta do Storage predefinida, pode ver os contentores incluídos na mesma. A conta do Storage predefinida e o contentor predefinido estão marcados.
 
-![Ferramentas data lake para estúdio visual ligados recursos no Server Explorer](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
+![Ferramentas do Lago de Dados para Estúdio Visual ligaram recursos no Explorador de Servidor](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
 
-Clique num recipiente e selecione **Ver Recipiente** para ver o conteúdo do recipiente. Depois de abrir um recipiente, pode utilizar os botões da barra de ferramentas para **atualizar** a lista de conteúdos, **carregar Blob,** **Eliminar bolhas selecionadas,** **Open Blob**e descarregar (**Save As**) bolhas selecionadas.
+Clique com o botão direito num recipiente e selecione **Ver O Recipiente** para ver o conteúdo do recipiente. Depois de abrir um recipiente, pode utilizar os botões da barra de ferramentas para **refrescar** a lista de conteúdos, **carregar blobs,** **eliminar bolhas selecionadas,** **Abrir Blob,** e baixar **(Save As**) blobs selecionados.
 
-![Lista de contentores e operações de blob, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
+![Lista de contentores e operações de blob, cluster HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
 
-## <a name="run-interactive-apache-hive-queries"></a>Executar consultas interativas da Colmeia Apache
+## <a name="run-interactive-apache-hive-queries"></a>Executar consultas interativas de Colmeia Apache
 
-O [Apache Hive](https://hive.apache.org) é uma infraestrutura de armazém de dados que está incorporada no Hadoop. O Hive é utilizado para resumo de dados, consultas e análises. Pode utilizar o Data Lake Tools para Visual Studio para executar consultas do Hive a partir do Visual Studio. Para mais informações sobre a Hive, consulte [o que é Apache Hive e HiveQL no Azure HDInsight?](hdinsight-use-hive.md)
+O [Apache Hive](https://hive.apache.org) é uma infraestrutura de armazém de dados que está incorporada no Hadoop. O Hive é utilizado para resumo de dados, consultas e análises. Pode utilizar o Data Lake Tools para Visual Studio para executar consultas do Hive a partir do Visual Studio. Para mais informações sobre a Colmeia, veja [o que é Apache Hive e HiveQL em Azure HDInsight?](hdinsight-use-hive.md)
 
-[Consulta interativa em Azure HDInsight](../interactive-query/apache-interactive-query-get-started.md) usa [Hive em LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) na Apache Hive 2.1. A Consulta Interativa traz interatividade a consultas complexas e ao estilo de armazém de dados em conjuntos de dados grandes e armazenados. Executar consultas de Hive em Consulta Interativa é muito mais rápido do que os trabalhos tradicionais de lote da Hive. 
+[A Consulta Interativa em Azure HDInsight](../interactive-query/apache-interactive-query-get-started.md) utiliza [a Colmeia em LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) em Apache Hive 2.1. A Consulta Interativa traz interatividade a consultas complexas, estilo armazém de dados, em conjuntos de dados grandes e armazenados. Executar consultas de Colmeia em Consulta Interativa é muito mais rápido do que os trabalhos tradicionais do lote de Colmeia. 
 
 > [!NOTE]  
 > Pode executar consultas interativas do Hive apenas quando ligar a um cluster do [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md).
 
-Você também pode usar Data Lake Tools para Estúdio Visual para ver o que está dentro de um trabalho de Colmeia. O Data Lake Tools para Visual Studio recolhe e analisa os registos do Yarn de determinadas tarefas do Hive.
+Também pode usar ferramentas do Data Lake para o Visual Studio para ver o que está dentro de um trabalho de Colmeia. O Data Lake Tools para Visual Studio recolhe e analisa os registos do Yarn de determinadas tarefas do Hive.
 
-Do **Server Explorer,** escolha **o Azure** > **HDInsight** e selecione o seu cluster.  Este nó é o ponto de partida no **Server Explorer** para as secções a seguir.
+A partir do **Server Explorer,** escolha **Azure**  >  **HDInsight** e selecione o seu cluster.  Este nó é o ponto de partida no **Server Explorer** para as secções a seguir.
 
 ### <a name="view-hivesampletable"></a>Veja hivesampletable
 
-Todos os clusters HDInsight têm uma `hivesampletable`tabela de colmeia de amostra padrão chamada .  
+Todos os clusters HDInsight têm uma amostra padrão da tabela Hive chamada `hivesampletable` .  
 
-Do seu cluster, escolha **hive Databases** > **padrão** > **hivesampletable**.
+A partir do seu cluster, escolha **bases de dados**de hive  >  **padrão**  >  **padrão hivesmpletable**.
 
-* Para ver `hivesampletable` o esquema:
+* Para ver o `hivesampletable` esquema:
 
-    Expandir **a colmeia.** Os nomes e `hivesampletable` tipos de dados das colunas são mostrados.
+    Expandir **o hivesmpletable**. Os nomes e tipos de dados das `hivesampletable` colunas são mostrados.
 
-* Para ver `hivesampletable` os dados:
+* Para ver os `hivesampletable` dados:
 
-    Clique na **colmeia**do clique direito, e selecione **Ver Top 100 Rows**. A lista de 100 resultados aparece na **Tabela da Colmeia:** janela colmeia. Esta ação equivale a executar a seguinte consulta da Hive utilizando o condutor hive ODBC:
+    Clique à direita **para sermopletable**e selecione **Ver Top 100 Rows**. A lista de 100 resultados aparece na Tabela de Colmeia: janela **hivesampletable.** Esta ação equivale a executar a seguinte consulta de Hive utilizando o condutor hive ODBC:
 
     `SELECT * FROM hivesampletable LIMIT 100`
 
-    Pode personalizar a contagem de linhas alterando o **número de linhas;** pode escolher 50, 100, 200 ou 1000 filas da lista de lançamentos.
+    Pode personalizar a contagem de linha alterando **o Número de linhas;** pode escolher 50, 100, 200 ou 1000 filas da lista de desistentes.
 
 ### <a name="create-hive-tables"></a>Criar tabelas do Hive
 
-Para criar uma tabela do Hive, pode utilizar a GUI ou utilizar consultas do Hive. Para obter informações sobre a utilização de consultas da Hive, consulte Criar e executar consultas da [Hive.](#create-and-run-hive-queries)
+Para criar uma tabela do Hive, pode utilizar a GUI ou utilizar consultas do Hive. Para obter informações sobre a utilização de consultas de Colmeia, consulte [Criar e executar consultas de Colmeia.](#create-and-run-hive-queries)
 
-1. Do seu cluster, escolha o > **padrão**de bases de dados da **Hive**.
+1. A partir do seu cluster, escolha o padrão **das Bases de Dados da Colmeia**  >  **default**.
 
-2. Predefinido **default**do clique à direita , e selecione **Criar Tabela**.
+2. Clique no **botão direito predefinido**e selecione **Criar Tabela**.
 
 3. Configure a tabela.
 
-4. Selecione o botão **Criar Tabela** para submeter o trabalho, o que cria a nova tabela Hive.
+4. Selecione o botão **'Criar Tabela'** para submeter o trabalho, que cria a nova tabela Hive.
 
     ![Criar janela de mesa, Hive, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png)
 
-### <a name="create-and-run-hive-queries"></a>Criar e executar consultas da Hive
+### <a name="create-and-run-hive-queries"></a>Criar e executar consultas de Colmeia
 
 Tem duas opções para criar e executar consultas do Hive:
 
@@ -201,11 +201,11 @@ Tem duas opções para criar e executar consultas do Hive:
 
 Para criar e executar uma consulta ad-hoc:
 
-1. Clique no cluster onde pretende executar a consulta e selecione **Escrever uma Consulta**de Colmeia .  
+1. Clique com o botão direito no cluster onde pretende executar a consulta e **selecione Escreva uma Consulta de Colmeia**.  
 
-2. Insira uma consulta da Colmeia.
+2. Insira uma consulta de Colmeia.
 
-    O editor do Hive suporta IntelliSense. O Data Lake Tools para Visual Studio suportam o carregamento de metadados remotos durante a edição do script do Hive. Por exemplo, se `SELECT * FROM`escrever, o IntelliSense lista todos os nomes de tabela sugeridos. Quando é especificado um nome de tabela, o IntelliSense lista os nomes das colunas. As ferramentas suportam quase todas as instruções DML do Hive, subconsultas e os UDFs incorporados.
+    O editor do Hive suporta IntelliSense. O Data Lake Tools para Visual Studio suportam o carregamento de metadados remotos durante a edição do script do Hive. Por exemplo, se `SELECT * FROM` escrever, o IntelliSense lista todos os nomes de tabelas sugeridos. Quando é especificado um nome de tabela, o IntelliSense lista os nomes das colunas. As ferramentas suportam quase todas as instruções DML do Hive, subconsultas e os UDFs incorporados.
 
     ![IntelliSense exemplo 1, Consulta ad-hoc da Hive, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-table-names.png)
 
@@ -227,32 +227,32 @@ Para criar e executar uma consulta ad-hoc:
 
     * **Interativo**  
 
-        Na primeira lista de lançamentos, escolha **Interactive**, e, em seguida, selecione **Executar**.
+        Na primeira lista de drop-down, escolha **Interactive**e, em seguida, selecione **Executar**.
 
         ![Modo interativo, consulta ad-hoc da Hive, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **Batch**  
 
-        Na primeira lista de entregas, escolha **Batch**, e, em seguida, selecione **Enviar**. Ou selecione o ícone drop-down ao lado de **Enviar** e escolha **Avançado**.
+        Na primeira lista de drop-down, escolha **Batch**e, em seguida, selecione **Enviar por isso**. Ou selecione o ícone drop-down ao lado de **Submeter** e escolher **Advanced**.
 
         ![Modo lote, consulta ad-hoc da Hive, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
 
-        Se selecionar a opção de submissão avançada, aparece a caixa de diálogo **Do Script Enviar.** Configure o Nome de **Trabalho,** **Argumentos,** **Configurações Adicionais**e **Diretório** de Estado para o script.
+        Se selecionar a opção de submissão avançada, aparece a caixa de diálogo **'Enviar script'.** Configure o **Nome do Trabalho,** **Argumentos,** **Configurações Adicionais**e **Diretório de Estado** para o script.
 
-        ![Envie caixa de diálogo script, consulta ad-hoc da Hive, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png)
+        ![Envie a caixa de diálogo script, consulta ad-hoc da Hive, cluster HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png)
 
       > [!NOTE]  
-      > Não pode submeter lotes a aglomerados de consultas interativas.  Deve utilizar o modo interativo.
+      > Não pode enviar lotes para agrupamentos de consultas interativos.  Deve utilizar o modo interativo.
 
 #### <a name="create-a-hive-application"></a>Criar uma aplicação do Hive
 
 Para criar e executar uma solução do Hive:
 
-1. A partir da barra de menus, escolha **File** > **New** > **Project**.
+1. A partir da barra de menu, escolha **File**  >  **New**  >  **Project**.
 
-2. Na **Janela Criar uma nova** janela de projeto, selecione a caixa de pesquisa e escreva **Hive**. Em seguida, escolha **a Aplicação Hive** e selecione **Next**.
+2. Na **janela criar uma nova** janela de projeto, selecione a caixa de pesquisa e **digite Hive**. Em seguida, escolha **a Aplicação Hive** e selecione **Seguinte**.
 
-3. Na **configuração** da sua nova janela de projeto, introduza um **nome de Projeto,** selecione ou crie a **Localização**do projeto , e, em seguida, selecione **Criar**.
+3. Na janela **Configure** a sua nova janela do projeto, insira um **nome de Projeto,** selecione ou crie a **Localização**do projeto e, em seguida, selecione **Criar**.
 
     ![Nova aplicação Hive, Configure a sua nova janela de projeto, HDInsight Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png)
 
@@ -260,49 +260,49 @@ Para criar e executar uma solução do Hive:
 
 ### <a name="view-job-summary-and-output"></a>Ver resumo de trabalho e saída
 
-O resumo do trabalho varia ligeiramente entre **o modo Lote** e **Interativo.**
+O resumo do trabalho varia ligeiramente entre o modo **Batch** e o modo **Interativo.**
 
-![Janelas de resumo de trabalho da colmeia, lote e modo interativo, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png)
+![Janelas de resumo de trabalho de colmeia, modo lote e interativo, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png)
 
-Utilize o ícone **Refresh** para atualizar o estado até que o estado do trabalho mude para **Terminado**.  
+Utilize o ícone **Refresh** para atualizar o estado até que o estado do trabalho mude para **terminado**.  
 
-* Para obter os detalhes de trabalho do modo **Batch,** selecione os links na parte inferior para ver a Consulta de **Trabalho,** Saída de **Trabalho,** ou **Registo de Trabalho,** ou para **ver registos**de fios .
+* Para os detalhes do trabalho no modo **Batch,** selecione os links na parte inferior para ver a Consulta de **Trabalho,** Saída de **Emprego**ou **Log de Trabalho,** ou para Ver **Registos de Fios**.
 
-* Para obter os detalhes do trabalho do modo **Interativo,** consulte as vidraças **de saída output** e **HiveServer2.**
+* Para obter os detalhes do trabalho do modo **Interactive,** consulte os painéis **de saída Output** e **HiveServer2.**
 
-    ![Saída interativa de trabalho da Hive, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png)
+    ![Produção de emprego interativo de Hive, cluster HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png)
 
 ### <a name="view-job-graph"></a>Ver gráfico de trabalho
 
-Atualmente, os gráficos de trabalho são apenas mostrados para trabalhos de Colmeia que usam Tez como motor de execução.  Para obter informações sobre a habilitação de Tez, veja [o que é Apache Hive e HiveQL no Azure HDInsight?](hdinsight-use-hive.md)  Ver também, [Use Apache Tez em vez de Map Reduce](../hdinsight-hadoop-optimize-hive-query.md#use-apache-tez-instead-of-map-reduce).  
+Atualmente, os gráficos de trabalho só são mostrados para trabalhos de Colmeia que usam Tez como motor de execução.  Para obter informações sobre como ativar o Tez, veja [o que é Apache Hive e HiveQL em Azure HDInsight?](hdinsight-use-hive.md)  Consulte também, [Use Apache Tez em vez de Map Reduce](../hdinsight-hadoop-optimize-hive-query.md#use-apache-tez-instead-of-map-reduce).  
 
 Para ver todos os operadores dentro do vértice, clique duas vezes nos vértices do gráfico de trabalho. Também pode apontar para um operador específico para ver mais detalhes sobre o operador.
 
-Mesmo que a Tez seja especificada como motor de execução, o gráfico de trabalho pode não aparecer se não for lançada nenhuma aplicação Tez.  Esta situação pode ocorrer porque o trabalho não contém declarações dML. Ou porque as declarações do DML podem regressar sem lançar uma aplicação Tez. Por exemplo, `SELECT * FROM table1` não vai lançar a aplicação Tez.
+Mesmo que o Tez seja especificado como o motor de execução, o gráfico de trabalho pode não aparecer se não for lançada nenhuma aplicação Tez.  Esta situação pode ocorrer porque o trabalho não contém declarações de DML. Ou porque as declarações da DML podem regressar sem lançar uma aplicação Tez. Por exemplo, `SELECT * FROM table1` não vai lançar a aplicação Tez.
 
 ![Gráfico de trabalho da Colmeia Apache, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
 
 ### <a name="view-task-execution-detail"></a>Ver detalhes de execução de tarefas
 
-A partir do gráfico de trabalho, você pode selecionar Detalhes de **Execução de Tarefas** para obter informações estruturadas e visualizadas para trabalhos da Colmeia. Também pode conseguir mais detalhes sobre o trabalho. Se ocorrerem problemas de desempenho, pode utilizar a vista para obter mais detalhes sobre o problema. Por exemplo, pode obter informações sobre como cada tarefa funciona e informações detalhadas sobre cada tarefa (leitura/escrita de dados, horário/início/fim, e muito mais). Utilize as informações para otimizar as configurações da tarefa ou a arquitetura do sistema, com base nas informações visualizadas.
+A partir do gráfico de trabalho, pode selecionar **Detalhes de Execução de Tarefas** para obter informações estruturadas e visualizadas para trabalhos de Colmeia. Também pode obter mais detalhes sobre o emprego. Se ocorrerem problemas de desempenho, pode utilizar a vista para obter mais detalhes sobre o problema. Por exemplo, pode obter informações sobre o funcionamento de cada tarefa e informações detalhadas sobre cada tarefa (leitura/escrita de dados, agendamento/início/fim, entre outras). Utilize as informações para otimizar as configurações da tarefa ou a arquitetura do sistema, com base nas informações visualizadas.
 
-![Janela de vista de execução de tarefas, ferramentas de estúdio visual data lake](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png)
+![Janela de visualização de execução de tarefas, ferramentas de estúdio visual do lago de dados](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png)
 
 ### <a name="view-hive-jobs"></a>Ver tarefas do Hive
 
 Pode ver as consultas da tarefa, a saída da tarefa, os registos da tarefa e os registos Yarn para as tarefas do Hive.
 
-No mais recente lançamento das ferramentas, você pode ver o que está dentro dos seus trabalhos de Colmeia recolhendo e superando os registos de Fios. Um registo Yarn pode ajudar a investigar problemas de desempenho. Para obter mais informações sobre como o HDInsight recolhe registos de fios, consulte os registos de [aplicações do Access Apache Hadoop YARN](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Na versão mais recente das ferramentas, você pode ver o que está dentro dos seus trabalhos de Colmeia, recolhendo e superando troncos de Yarn. Um registo Yarn pode ajudar a investigar problemas de desempenho. Para obter mais informações sobre como o HDInsight recolhe registos de Fios, consulte [os registos de aplicações do Access Apache Hadoop YARN](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 Para ver tarefas do Hive:
 
-1. Clique num cluster HDInsight e selecione **'Ver Empregos'.**
+1. Clique com o botão direito num cluster HDInsight e selecione **Ver Empregos**.
 
-    ![Ver Empregos, Hive Apache, cluster HDInsight, Estúdio Visual](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png)
+    ![Ver Jobs, Apache Hive, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png)
 
     É apresentada uma lista dos trabalhos do Hive executados no cluster.  
 
-2. Selecione uma tarefa. Na janela **Sumária de Trabalho** da Colmeia, selecione um dos seguintes links:
+2. Selecione uma tarefa. Na janela **Hive Job Summary,** selecione um dos seguintes links:
     - **Consulta da Tarefa**
     - **Resultado da Tarefa**
     - **Registo da Tarefa**  
@@ -310,26 +310,26 @@ Para ver tarefas do Hive:
 
 ## <a name="run-apache-pig-scripts"></a>Executar scripts de porco Apache
 
-1. A partir da barra de menus, escolha **File** > **New** > **Project**.
+1. A partir da barra de menu, escolha **File**  >  **New**  >  **Project**.
 
-2. Na janela **Iniciar,** selecione a caixa de pesquisa e introduza **O Porco**. Em seguida, selecione **Aplicação de porco** e selecione **Seguinte**.
+2. Na janela **Iniciar,** selecione a caixa de pesquisa e **introduza o Pig**. Em seguida, selecione **Aplicação do Porco** e selecione **Seguinte**.
 
-3. Na **Configuração** da sua nova janela de projeto, insira um **nome de Projeto,** e selecione ou crie um **Local** para o projeto. Em seguida, selecione **Criar**.
+3. Na **janela Configure a sua nova** janela do projeto, insira um nome de **Projeto,** e selecione ou crie uma **Localização** para o projeto. Em seguida, selecione **Criar**.
 
-4. No painel IDE **Solution Explorer,** clique duas vezes **no Script.pig** para abrir o script.
+4. No painel IDE **Solution Explorer,** clique duas vezes em **Script.pig** para abrir o script.
 
 ## <a name="feedback-and-known-issues"></a>Comentários e problemas conhecidos
 
 * Foi corrigido um problema no qual os resultados que são iniciados com valores nulos não são apresentados. Se estiver bloqueado neste problema, contacte a equipa de suporte.
 
-* O script HQL que o Visual Studio cria está codificado, dependendo da definição da região local do utilizador. O script não é executado corretamente se carregar o script para um cluster como um ficheiro binário.
+* O script HQL que o Visual Studio cria está codificado, dependendo da configuração da região local do utilizador. O script não é executado corretamente se carregar o script para um cluster como um ficheiro binário.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a utilizar o pacote do Data Lake Tools para Visual Studio para ligar a clusters do HDInsight a partir do Visual Studio. Também aprendeu a executar uma consulta do Hive. 
 
 * [Executar consultas do Apache Hive com as ferramentas do Data Lake para Visual Studio](apache-hadoop-use-hive-visual-studio.md)
-* [O que é Apache Hive e HiveQL no Azure HDInsight?](hdinsight-use-hive.md)
+* [O que é Apache Hive e HiveQL em Azure HDInsight?](hdinsight-use-hive.md)
 * [Criar cluster do Apache Hadoop - Modelo](apache-hadoop-linux-tutorial-get-started.md)
-* [Submeta empregos apache Hadoop no HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analise os dados do Twitter usando a Apache Hive e Apache Hadoop no HDInsight](../hdinsight-analyze-twitter-data-linux.md)
+* [Submeta empregos da Apache Hadoop em HDInsight](submit-apache-hadoop-jobs-programmatically.md)
+* [Analise os dados do Twitter usando Apache Hive e Apache Hadoop em HDInsight](../hdinsight-analyze-twitter-data-linux.md)

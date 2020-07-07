@@ -1,6 +1,6 @@
 ---
-title: Achata da transformação no fluxo de dados de mapeamento
-description: Desnormalizar os dados hierárquicos utilizando a transformação achatada
+title: Transformação de achatado no fluxo de dados de mapeamento
+description: Desnormalizar dados hierárquicos usando a transformação do achatado
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -8,23 +8,23 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81413684"
 ---
-# <a name="flatten-transformation-in-mapping-data-flow"></a>Achata da transformação no fluxo de dados de mapeamento
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Transformação de achatado no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use a transformação achatada para tomar valores de matriz dentro de estruturas hierárquicas como jSON e desenrolar-los em linhas individuais. Este processo é conhecido como desnormalização.
+Use a transformação achatada para tomar valores de matriz dentro de estruturas hierárquicas como JSON e desenrolar-los em linhas individuais. Este processo é conhecido como desnormalização.
 
 ## <a name="configuration"></a>Configuração
 
-A transformação do achatamento contém as seguintes definições de configuração
+A transformação do achatado contém as seguintes definições de configuração
 
-![Ajuste de definições](media/data-flow/flatten1.png "Ajuste de definições")
+![Definições de achatado](media/data-flow/flatten1.png "Definições de achatado")
 
 ### <a name="unroll-by"></a>Desenrolar por
 
@@ -32,17 +32,17 @@ Selecione uma matriz para desenrolar. Os dados de saída terão uma linha por it
 
 ### <a name="unroll-root"></a>Raiz de desenrolar
 
-Por padrão, a transformação achatada desenrola uma matriz para o topo da hierarquia em que existe. Pode selecionar opcionalmente uma matriz como raiz de desenrolar. A raiz de desenrolar deve ser uma variedade de objetos complexos que ou são ou contêm o desenrolar por matriz. Se for selecionada uma raiz de desenrolar, os dados de saída conterão pelo menos uma linha por itens na raiz de desenrolar. Se a linha de entrada não tiver quaisquer itens na raiz de desenrolar, será retirada dos dados de saída. Escolher uma raiz de desenrolar irá sempre produzír um número inferior ou igual de linhas do que o comportamento padrão.
+Por defeito, a transformação achatada desenrola uma matriz até ao topo da hierarquia em que existe. Pode selecionar opcionalmente uma matriz como a sua raiz de desenrolar. A raiz de desenrolar deve ser uma matriz de objetos complexos que ou é ou contém o desenrolar por matriz. Se for selecionada uma raiz de desenrolar, os dados de saída conterão pelo menos uma linha por itens na raiz de desenrolar. Se a linha de entrada não tiver itens na raiz de desenrolar, será retirado dos dados de saída. Escolher uma raiz desenrolada irá sempre descodundo um número inferior ou igual de linhas do que o comportamento padrão.
 
-### <a name="flatten-mapping"></a>Mapeamento flatten
+### <a name="flatten-mapping"></a>Mapeamento achatado
 
-Semelhante à transformação selecionada, escolha a projeção da nova estrutura a partir de campos de entrada e a matriz desnormalizada. Se uma matriz desnormalizada for mapeada, a coluna de saída será o mesmo tipo de dados que a matriz. Se o desenrolar por matriz for uma matriz de objetos complexos que contenha subarrays, mapear um item desse subarry irá fora de uma matriz.
+Semelhante à transformação selecionada, escolha a projeção da nova estrutura a partir de campos de entrada e da matriz desnormalizada. Se uma matriz desnormalizada for mapeada, a coluna de saída será o mesmo tipo de dados que a matriz. Se o desenrolar por matriz é uma matriz de objetos complexos que contém subarrays, mapear um item desse subarry irá descoduar uma matriz.
 
 Consulte o separador de inspeção e a pré-visualização de dados para verificar a sua saída de mapeamento.
 
 ## <a name="examples"></a>Exemplos
 
-Consulte o seguinte objeto JSON para os exemplos abaixo da transformação achatada
+Consulte o seguinte objeto JSON para os exemplos abaixo da transformação do achatado
 
 ``` json
 {
@@ -64,11 +64,11 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação achat
 {"name": "Company3", "location": "Kirkland"}
 ```
 
-### <a name="no-unroll-root-with-string-array"></a>Nenhuma raiz de desenrolar com matriz de cordas
+### <a name="no-unroll-root-with-string-array"></a>Sem raiz de rolo com matriz de cordas
 
 | Desenrolar por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens.clientes | Nenhuma | nome <br> cliente = bens.cliente |
+| bens.clientes | Nenhuma | name <br> cliente = bens.cliente |
 
 #### <a name="output"></a>Saída
 
@@ -86,7 +86,7 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação achat
 
 | Desenrolar por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens.orders.shipped.orderItems | Nenhuma | nome <br> orderId = bens.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = bens.orders.shipped.orderItems.itemQty <br> localização = localização |
+| goods.orders.envio.orderItems | Nenhuma | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.hipped.orderItems.itemName <br> itemQty = goods.orders.envio.orderItems.itemQty <br> localização = localização |
 
 #### <a name="output"></a>Saída
 
@@ -103,11 +103,11 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação achat
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
-### <a name="same-root-as-unroll-array"></a>Mesma raiz que unroll array
+### <a name="same-root-as-unroll-array"></a>Mesma raiz que a matriz de desenrolar
 
 | Desenrolar por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens.ordens | bens.ordens | nome <br> bens.orders.shipped.orderItems.itemName <br> bens.clientes <br> localização |
+| bens.encomendas | bens.encomendas | name <br> goods.orders.envio.orderItems.itemName <br> bens.clientes <br> localização |
 
 #### <a name="output"></a>Saída
 
@@ -119,11 +119,11 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação achat
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
-### <a name="unroll-root-with-complex-array"></a>Desenrolar a raiz com matriz complexa
+### <a name="unroll-root-with-complex-array"></a>Unroll raiz com matriz complexa
 
 | Desenrolar por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens.orders.shipped.orderItem | bens.ordens |nome <br> orderId = bens.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = bens.orders.shipped.orderItems.itemQty <br> localização = localização |
+| goods.orders.hipped.orderItem | bens.encomendas |name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.hipped.orderItems.itemName <br> itemQty = goods.orders.envio.orderItems.itemQty <br> localização = localização |
 
 #### <a name="output"></a>Saída
 
@@ -141,7 +141,7 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação achat
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```
 <incomingStream>
@@ -171,5 +171,5 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Utilize a [transformação pivot](data-flow-pivot.md) para girar linhas para colunas.
-* Utilize a [transformação unpivot](data-flow-unpivot.md) para colunas de pivô em linhas.
+* Use a [transformação do pivô](data-flow-pivot.md) para pisar linhas em colunas.
+* Use a [transformação unpivot](data-flow-unpivot.md) para girar colunas em linhas.
