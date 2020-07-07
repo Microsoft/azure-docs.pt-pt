@@ -4,14 +4,13 @@ description: Encontre amostras Azure PowerShell para alguns dos cenários comuns
 tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 03/08/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 51693ad4d233ea180607bc7358a0847e23688099
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254485"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057913"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Amostras powerShell para Serviço de Aplicações Azure
 
@@ -25,6 +24,7 @@ A tabela seguinte inclui ligações aos scripts PowerShell construídos utilizan
 | [Criar uma app e implementar código com FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e envia ficheiros a partir de um diretório local utilizando FTP. |
 | [Crie uma app e implemente código a partir de um repositório local de Git](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e configura o impulso de código a partir de um repositório git local. |
 | [Crie uma app e implemente código para um ambiente de encenação](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações com uma ranhura de implementação para alterações de código de paragem. |
+|  [Crie uma app e exponha a sua app com um Ponto Final Privado](./scripts/powershell-deploy-private-endpoint.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações com um Ponto Final Privado. |
 |**Configurar aplicação**||
 | [Mapear um domínio personalizado para uma aplicação](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações e mapeia um nome de domínio personalizado para ele. |
 | [Ligue um certificado TLS/SSL personalizado a uma aplicação](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações e liga o certificado TLS/SSL de um nome de domínio personalizado à sua. |
