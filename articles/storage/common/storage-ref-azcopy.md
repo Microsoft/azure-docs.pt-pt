@@ -1,6 +1,6 @@
 ---
-title: azcopy [ Microsoft Docs
-description: Este artigo fornece informações de referência para o comando de azcopy.
+title: azcopia / Microsoft Docs
+description: Este artigo fornece informações de referência para o comando da azcopia.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,38 +9,37 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74038095"
 ---
 # <a name="azcopy"></a>azcopy
 
-AZCopy é uma ferramenta de linha de comando que move dados para dentro e para fora do Armazenamento Azure.
+A azCopy é uma ferramenta de linha de comando que move dados para dentro e para fora do Azure Storage.
 
 ## <a name="synopsis"></a>Sinopse
 
-O formato geral dos `azcopy [command] [arguments] --[flag-name]=[flag-value]`comandos é: .
+O formato geral dos comandos é: `azcopy [command] [arguments] --[flag-name]=[flag-value]` .
 
-Para relatar problemas ou para saber [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)mais sobre a ferramenta, consulte .
+Para relatar problemas ou para saber mais sobre a ferramenta, veja [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
 
-## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
+## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Dados de transferência com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
 - [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
-- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
+- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opções
 
-**--cap-mbps uint32**   Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.
+**--cap-mbps uint32**   Reduz a taxa de transferência, em megabits por segundo. A produção momentesa pode variar ligeiramente da tampa. Se esta opção for definida para zero, ou for omitida, a produção não está limitada.
 
-**-h, --ajuda** Ajuda para azcopy
+**-h, -- ajuda** Ajuda para a azcopia
       
-**-tipo de saída**  Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto". ("texto por defeito")
+**--tipo de saída**  Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é 'texto'. ("texto" predefinido)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

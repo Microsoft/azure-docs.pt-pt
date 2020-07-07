@@ -1,6 +1,6 @@
 ---
 title: File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
-description: Aprenda a comparar as linhas de base com a Monitorização da Integridade do Ficheiro no Centro de Segurança Azure.
+description: Saiba como comparar linhas de base com a Monitorização da Integridade do Ficheiro no Centro de Segurança Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,57 +14,56 @@ ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
 ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73664414"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base com a Monitorização d a Integridade dos Ficheiros (FIM)
 
-A Monitorização da Integridade do Ficheiro (FIM) informa-o quando ocorrerem alterações em áreas sensíveis dos seus recursos, para que possa investigar e tratar de atividades não autorizadas. O FIM monitoriza ficheiros Windows, registos windows e ficheiros Linux.
+O Monitor de Integridade do Ficheiro (FIM) informa-o quando ocorrem alterações em áreas sensíveis dos seus recursos, para que possa investigar e tratar de atividades não autorizadas. FIM monitoriza ficheiros Windows, registos windows e ficheiros Linux.
 
-Este tópico explica como ativar o FIM nos ficheiros e registos. Para mais informações sobre o FIM, consulte [a Monitorização da Integridade do Ficheiro no Centro](security-center-file-integrity-monitoring.md)de Segurança Azure .
+Este tópico explica como ativar o FIM nos ficheiros e registos. Para obter mais informações sobre o FIM, consulte [a Monitorização da Integridade do Ficheiro no Centro de Segurança Azure](security-center-file-integrity-monitoring.md).
 
-## <a name="why-use-fim"></a>Por que usar o FIM?
+## <a name="why-use-fim"></a>Porquê usar o FIM?
 
-Sistema operativo, aplicações e configurações associadas controlam o comportamento e o estado de segurança dos seus recursos. Por isso, os atacantes visam os ficheiros que controlam os seus recursos, de forma a ultrapassar o sistema operativo de um recurso e/ou executar atividades sem serem detetados.
+Sistema operativo, aplicações e configurações associadas controlam o comportamento e o estado de segurança dos seus recursos. Por isso, os atacantes direcionam os ficheiros que controlam os seus recursos, de forma a ultrapassar o sistema operativo de um recurso e/ou executar atividades sem serem detetados.
 
-De facto, muitas normas de conformidade regulamentar, tais como o PCI-DSS & ISO 17799, exigem a implementação dos controlos DO.  
+De facto, muitas normas de conformidade regulamentar, como a PCI-DSS & ISO 17799, exigem a implementação dos controlos FIM.  
 
-## <a name="enable-built-in-recursive-registry-checks"></a>Permitir controlos de registo recursivos incorporados
+## <a name="enable-built-in-recursive-registry-checks"></a>Permitir verificações de registos recursivos incorporados
 
-Os incumprimentos da colmeia de registo FIM fornecem uma forma conveniente de monitorizar alterações recursivas dentro das áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para executar em LOCAL_SYSTEM contexto configurando uma execução no arranque ou encerramento.  Para monitorizar alterações deste tipo, ative a verificação incorporada.  
+Os predefinições da colmeia de registo FIM fornecem uma forma conveniente de monitorizar as alterações recursivas nas áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para executar em LOCAL_SYSTEM contexto, configurando uma execução no arranque ou encerramento.  Para monitorizar as alterações deste tipo, ative o controlo incorporado.  
 
 ![Registo](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
-> As verificações recursivas aplicam-se apenas às colmeias de segurança recomendadas e não às vias de registo personalizadas.  
+> Os controlos recursivos aplicam-se apenas às colmeias de segurança recomendadas e não aos caminhos de registo personalizados.  
 
 ## <a name="adding-a-custom-registry-check"></a>Adicionar uma verificação de registo personalizado
 
-As linhas de base do FIM começam por identificar características de um estado conhecido para o sistema operativo e aplicação de suporte.  Para este exemplo, vamos focar-nos nas configurações da política de passwords para o Windows Server 2008 e superior.
+As linhas de base FIM começam por identificar características de um estado de bem-estar conhecido para o sistema operativo e aplicação de suporte.  Para este exemplo, vamos focar-nos nas configurações de política de palavra-passe para o Windows Server 2008 e mais alto.
 
 
-|Nome da Política                 | Definição de Registo|
+|Nome da Política                 | Definição de registo|
 |---------------------------------------|-------------|
-|Controlador de domínio: recusar as alterações de palavra-passe de conta de computador| MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\RefusePasswordChange|
-|Membro de domínio: encriptar digitalmente ou assinar dados de canal seguro (sempre)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\RequiresignOrSeal|
-|Membro de domínio: encriptar digitalmente dados de canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\SealSecureChannel|
-|Membro de domínio: assinar digitalmente dados de canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\SignSecureChannel|
-|Membro de domínio: desativar as alterações de palavra-passe de conta de computador|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\DisablePasswordChange|
-|Membro de domínio: idade máxima de palavra-passe de conta de computador|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\MaximumPasswordAge|
-|Membro de domínio: requerer chave de sessão forte (Windows 2000 ou posterior)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\RequireStrongKey|
-|Segurança da rede: Restringir ntLM: autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\RestrictNTLMInDomain|
-|Segurança de rede: restringir NTLM: adicionar exceções de servidor neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\DCAllowedNTLMServers|
-|Segurança da rede: Restringir ntLM: Autenticação NTLM auditada neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parâmetros\AuditNTLMInDomain|
+|Controlador de domínio: recusar as alterações de palavra-passe de conta de computador| MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\RefusePasswordChange|
+|Membro de domínio: encriptar digitalmente ou assinar dados de canal seguro (sempre)|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\RequireSignOrSeal|
+|Membro de domínio: encriptar digitalmente dados de canal seguro (quando possível)|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\SealSecureChannel|
+|Membro de domínio: assinar digitalmente dados de canal seguro (quando possível)|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\SignSecureChannel|
+|Membro de domínio: desativar as alterações de palavra-passe de conta de computador|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\DisablePasswordS|
+|Membro de domínio: idade máxima de palavra-passe de conta de computador|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\MaximumPasswordAge|
+|Membro de domínio: requerer chave de sessão forte (Windows 2000 ou posterior)|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\RequireStrongKey|
+|Segurança da rede: Restringir a autenticação NTLM neste domínio|MÁQUINA\Sistema\CurrentControlSet\Services \Netlogon\Parâmetros\RestrictNTLMInDomain|
+|Segurança de rede: restringir NTLM: adicionar exceções de servidor neste domínio|MÁQUINA\Sistema\CurrentControlSet\Services \Netlogon\Parâmetros\DCAllowedNTLMServers|
+|Segurança da rede: Restringir NTLM: Autenticação NTLM auditada neste domínio|MÁQUINA\Sistema\CurrentControlSet\Serviços \Netlogon\Parâmetros\AuditNTLMInDomain|
 
 > [!NOTE]
-> Para saber mais sobre as definições de registo suportadas por várias versões do sistema operativo, consulte a folha de cálculo de [referência definições](https://www.microsoft.com/download/confirmation.aspx?id=25250)de definições de políticas do grupo .
+> Para saber mais sobre as definições de registo suportadas por várias versões do sistema operativo, consulte a folha de cálculo de [referência de Definições de Política de Grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Para configurar o FIM para monitorizar as linhas de base do registo:*
+*Para configurar o FIM para monitorizar as linhas de base de registo:*
 
-1. No **Registo do Registo** do Windows para alterar a janela, na caixa de texto da chave do **registo do Windows,** introduza a tecla de registo.
+1. Na janela **'Adicionar registo do Windows' para alterar o rastreio,** na caixa de texto da chave do registo do **Windows,** introduza a tecla de registo.
 
     <code>
 
@@ -73,18 +72,18 @@ As linhas de base do FIM começam por identificar características de um estado 
 
       ![Ativar o FIM num registo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Rastrear alterações nos ficheiros Windows
+## <a name="tracking-changes-to-windows-files"></a>Rastreio de alterações nos ficheiros do Windows
 
-1. No **Ficheiro Adicionar Windows para Alterar A** janela de rastreio, na caixa de texto do caminho de **entrada,** introduza a pasta que contém os ficheiros que pretende rastrear. No exemplo da seguinte figura, a **Aplicação Web Contoso** reside no D:\ conduzir dentro da estrutura da pasta **ContosWebApp.**  
+1. Na janela 'Adicionar ficheiro **do Windows' para alterar o rastreio,** na caixa de texto **do caminho 'Introduzir',** introduza a pasta que contém os ficheiros que pretende rastrear. No exemplo na seguinte figura, a **Contoso Web App** reside no D:\ unidade dentro da estrutura da pasta **ContosWebApp.**  
 1. Crie uma entrada personalizada de ficheiros Windows fornecendo um nome da classe de definição, permitindo a recursão e especificando a pasta superior com um sufixo wildcard (*).
 
     ![Ativar o FIM num ficheiro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
 ## <a name="retrieving-change-data"></a>Recuperação de dados de alteração
 
-Os dados de monitorização da integridade do ficheiro residem dentro do conjunto de tabelas Azure Log Analytics / ConfigurationChange.  
+Os dados de monitorização da integridade do ficheiro residem dentro do conjunto de tabelaS Azure Log Analytics / ConfigurationChange.  
 
- 1. Detete um intervalo de tempo para recuperar um resumo das alterações por recurso.
+ 1. Desaprote um intervalo de tempo para recuperar um resumo das alterações por recurso.
 No exemplo seguinte, estamos a recuperar todas as alterações nos últimos catorze dias nas categorias de registo e ficheiros:
 
     <code>
@@ -99,10 +98,10 @@ No exemplo seguinte, estamos a recuperar todas as alterações nos últimos cato
 
     </code>
 
-1. Para ver detalhes das alterações do registo:
+1. Para ver detalhes das alterações ao registo:
 
-    1. Remover **Ficheiros** da cláusula **onde,** 
-    1. Retire a linha de resumição e substitua-a por uma cláusula de encomenda:
+    1. Remover **ficheiros** da cláusula **de onde,** 
+    1. Retire a linha de resumo e substitua-a por uma cláusula de encomenda:
 
     <code>
 
@@ -116,6 +115,6 @@ No exemplo seguinte, estamos a recuperar todas as alterações nos últimos cato
 
     </code>
 
-Os relatórios podem ser exportados para cSV para arquivo e/ou canalizados para um relatório power BI.  
+Os relatórios podem ser exportados para CSV para arquivo e/ou canalados para um relatório do Power BI.  
 
-![Dados DO FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
+![Dados fim](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

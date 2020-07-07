@@ -1,6 +1,6 @@
 ---
-title: Deprecation da funcionalidade de encriptação de dados de recuperação de sites do Azure [ Microsoft Docs
-description: Detalhes regarig Azure Site Recovery data encryption
+title: Depreciação da funcionalidade de encriptação de dados de recuperação de dados do Azure Site Recovery / Microsoft Docs
+description: Detalhes regarig Azure Site Recovery data encryption feature
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,39 +9,38 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
 ms.openlocfilehash: 5e74466891a5926d8ae8feb3c1c48348ecf3cfe6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74134999"
 ---
-# <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Deprecation da funcionalidade de encriptação de dados de recuperação do site
+# <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Depreciação da funcionalidade de encriptação de dados de recuperação de sítios
 
-Este documento descreve os detalhes de depreciação e a ação de reparação que precisa de tomar se estiver a utilizar a funcionalidade de encriptação de dados de recuperação do site enquanto configura a recuperação de desastres de máquinas virtuais Hyper-V para O Azure. 
+Este documento descreve os detalhes da depreciação e as medidas de reparação que precisa de tomar se estiver a utilizar a funcionalidade de encriptação de dados de Recuperação do Site, enquanto configura a recuperação de desastres de máquinas virtuais Hiper-V para Azure. 
 
-## <a name="deprecation-information"></a>Informação de depreciação
+## <a name="deprecation-information"></a>Informação sobre depreciação
 
 
-A funcionalidade de encriptação de dados de recuperação do site estava disponível para os clientes que protegem os vms Hyper-V para garantir que os dados replicados estavam protegidos contra ameaças à segurança. esta funcionalidade será depreciada até 30 de dezembro de **2019.** Está a ser substituído pela funcionalidade de encriptação mais avançada [em Rest,](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) que utiliza [encriptação](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) do serviço de armazenamento (SSE). Com a SSE, os dados são encriptados antes de persistirem no armazenamento e desencriptados na recuperação, e, após a falha com o Azure, os seus VMs serão executados a partir das contas de armazenamento encriptadas, permitindo um melhor objetivo de tempo de recuperação (RTO).
+A funcionalidade de encriptação de dados de recuperação do site estava disponível para os clientes que protegem os hiper-V vms para garantir que os dados replicados estavam protegidos contra ameaças de segurança. esta funcionalidade será depreciada até **30 de dezembro de 2019**. Está a ser substituído pela funcionalidade [de Encriptação mais](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) avançada em Repouso, que utiliza [encriptação do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). Com a SSE, os dados são encriptados antes de persistirem no armazenamento e desencriptados na recuperação, e, após a falha para o Azure, os seus VMs serão executados a partir das contas de armazenamento encriptadas, permitindo um melhor objetivo de tempo de recuperação (RTO).
 
 Por favor, note que se for um cliente existente usando esta funcionalidade, teria recebido comunicações com os detalhes de depreciação e medidas de reparação. 
 
 
 ## <a name="what-are-the-implications"></a>Quais são as implicações?
 
-Depois de 30 de dezembro de **2019**, quaisquer VMs que ainda utilizem a funcionalidade de encriptação aposentada não serão autorizados a realizar falhas. 
+Depois de **30 de dezembro de 2019**, quaisquer VMs que ainda utilizem a funcionalidade de encriptação reformada não serão autorizados a executar failover. 
 
 ## <a name="required-action"></a>Ação necessária
-Para continuar com as operações de failover bem sucedidas, e as replicações sigam os passos mencionados abaixo:
+Para continuar as operações de failover bem sucedidas e as replicações seguem os passos abaixo mencionados:
 
 Siga estes passos para cada VM: 
 1.  [Desativar a replicação.](https://docs.microsoft.com/azure/site-recovery/site-recovery-manage-registration-and-protection#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)
-2.  Criar uma nova política de [replicação.](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy)
-3.  [Ative a replicação](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) e selecione uma conta de armazenamento com SSE ativada.
+2.  [Criar uma nova política de replicação.](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy)
+3.  [Ativar a replicação](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) e selecionar uma conta de armazenamento com SSE ativada.
 
-Depois de concluir a replicação inicial para contas de armazenamento com SSE ativada, os seus VMs estarão a utilizar encriptação em Repouso com a Recuperação do Site Azure.
+Depois de completar a replicação inicial para contas de armazenamento com SSE ativada, os seus VMs estarão a usar encriptação em repouso com recuperação do site Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
-Planeie executar os passos de reparação e executá-los o mais cedo possível. Caso tenha alguma dúvida sobre esta depreciação, contacte o Microsoft Support. Para ler mais sobre o cenário Hyper-V para Azure, consulte [aqui](hyper-v-vmm-architecture.md).
+## <a name="next-steps"></a>Próximos passos
+Planeie executar os passos de reparação, e executá-los o mais cedo possível. No caso de ter dúvidas sobre esta depreciação, por favor contacte o Microsoft Support. Para ler mais sobre o cenário Hyper-V para Azure, consulte [aqui](hyper-v-vmm-architecture.md).
 

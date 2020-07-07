@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades de solução Connected Factory - Azure / Microsoft Docs
-description: Este artigo descreve uma visão geral das características da solução pré-configurada da Fábrica Conectada, tais como painel de instrumentos de nuvem, regras e alertas.
+title: Características da solução Connected Factory - Azure / Microsoft Docs
+description: Este artigo descreve uma visão geral das características da solução pré-configurada da Fábrica Conectada, como painel de contas, regras e alertas.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,60 +9,59 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820101"
 ---
-# <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é acelerador de soluções IoT da Fábrica Conectada?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é o acelerador de solução IoT da fábrica?
 
-A Connected Factory é uma implementação da arquitetura de referência Azure Industrial IoT da Microsoft, embalada como em solução de código aberto. Pode usá-lo como ponto de partida para um produto comercial. Pode implantar uma versão pré-construída da solução Connected Factory na sua subscrição Azure a partir de aceleradores de [soluções Azure IoT](https://www.azureiotsolutions.com/#solutions/types/CF).
+Connected Factory é uma implementação da arquitetura de referência Azure Industrial IoT da Microsoft, embalada como solução de código aberto. Pode usá-lo como ponto de partida para um produto comercial. Pode implementar uma versão pré-construída da solução Connected Factory na sua subscrição Azure a partir de aceleradores de [solução Azure IoT](https://www.azureiotsolutions.com/#solutions/types/CF).
 
-![Painel de solução de fábrica conectada](./media/iot-accelerators-connected-factory-features/dashboard.png)
+![Painel de solução de fábrica conectado](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
-O código acelerador de soluções Connected Factory [está disponível no GitHub](https://github.com/Azure/azure-iot-connected-factory).
+O código acelerador de solução Connected Factory [está disponível no GitHub](https://github.com/Azure/azure-iot-connected-factory).
 
-A Fábrica Conectada inclui as seguintes funcionalidades:
+A Fábrica Conectada inclui as seguintes características:
 
 ## <a name="industrial-device-interoperability"></a>Interoperabilidade do dispositivo industrial
 
-- Ligue-se a ativos industriais com uma interface OPC UA.
-- Utilize as linhas de produção simuladas (servidores OPC UA em contentores Docker) para ver telemetria ao vivo a partir deles.
-- Navegue no modelo de informação OPC UA dos servidores DaUA oPC a partir de um dashboard em nuvem.
+- Conecte-se a ativos industriais com uma interface OPC UA.
+- Utilize as linhas de produção simuladas (executando servidores OPC UA em contentores Docker) para ver telemetria ao vivo a partir deles.
+- Navegue no modelo de informação UA OPC dos servidores OPC UA a partir de um painel de instrumentos de nuvem.
 
 ## <a name="remote-management"></a>Gestão remota
 
-- Configure os seus ativos da OPC UA a partir do painel de dados da nuvem (métodos de chamada, leia e escreva dados).
-- Publique e não publique dados de telemetria dos seus ativos da OPC UA a partir de um dashboard em nuvem.
+- Configure os seus ativos OPC UA a partir do painel de instrumentos de nuvem (métodos de chamada, leia e escreva dados).
+- Publique e não publique dados de telemetria dos seus ativos da OPC UA a partir de um dashboard de nuvem.
 
-## <a name="cloud-dashboard"></a>Painel de dados de nuvem
+## <a name="cloud-dashboard"></a>Painel de nuvem
 
-- Veja as pré-visualizações de telemetria diretamente num painel de instrumentos de nuvem.
-- Veja as tendências dos dados de telemetria e crie correlações utilizando o dashboard Time Series Insights Explorer.
-- Consulte a eficiência global do equipamento calculado (OEE) e os indicadores de desempenho chave (KPIs) a partir de um painel de instrumentos de nuvem.
+- Ver pré-visualizações de telemetria diretamente num painel de instrumentos de nuvem.
+- Ver tendências nos dados de telemetria e criar correlações utilizando o painel de insights do Time Series Insights Explorer.
+- Consulte indicadores de eficiência geral do equipamento calculados (OEE) e principais indicadores de desempenho (KPI's) a partir de um painel de instrumentos de nuvem.
 - Veja as hierarquias de ativos industriais numa topologia de árvores, bem como num mapa interativo.
-- Veja, reconheça e feche os alertas de um painel de instrumentos de nuvem.
+- Ver, reconhecer e fechar alertas de um painel de instrumentos de nuvem.
 
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-- [A Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) foi construída para armazenar, visualizar e consultar grandes quantidades de dados da série time. A Connected Factory aproveita este serviço.
+- [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) é construído para armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo. A Connected Factory aproveita este serviço.
 - A Connected Factory integra-se com este serviço permitindo-lhe realizar uma análise profunda e em tempo real dos dados do seu dispositivo.
 
 ## <a name="rules-and-alerts"></a>Regras e alertas
 
-[Configure regras baseadas em limiares para alertas](iot-accelerators-connected-factory-configure.md).
+[Configure as regras baseadas em limiares para alertas](iot-accelerators-connected-factory-configure.md).
 
 ## <a name="end-to-end-security"></a>Segurança de ponta a ponta
 
-- Configure permissões de segurança para utilizadores que utilizem controlo de acesso baseado em funções (RBAC).
-- A encriptação de ponta a ponta é implementada utilizando a autenticação OPC UA (utilizando certificados X.509) bem como tokens de segurança.
+- Configure permissões de segurança para utilizadores que utilizem o Controlo de Acesso Baseado em Fun (RBAC).
+- A encriptação de ponta a ponta é implementada utilizando a autenticação OPC UA (utilizando certificados X.509) bem como fichas de segurança.
 
-## <a name="customizability"></a>Personalizabilidade
+## <a name="customizability"></a>Personalização
 
-- Personalize a solução para atender aos requisitos comerciais específicos.
-- Código fonte de solução completo disponível no GitHub. Consulte o repositório de [solução pré-configurada da Fábrica Conectada.](https://github.com/Azure/azure-iot-connected-factory)
+- Personalize a solução para satisfazer requisitos específicos de negócio.
+- Código-fonte de solução completa disponível no GitHub. Consulte o repositório [de solução pré-configurado da Fábrica Conectada.](https://github.com/Azure/azure-iot-connected-factory)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre o acelerador de soluções Connected Factory, consulte o Quickstart Experimente uma solução baseada na nuvem para gerir os [meus dispositivos IoT industriais](quickstart-connected-factory-deploy.md).
+Para saber mais sobre o acelerador de soluções Connected Factory, consulte o Quickstart [Experimente uma solução baseada na nuvem para gerir os meus dispositivos IoT industriais.](quickstart-connected-factory-deploy.md)

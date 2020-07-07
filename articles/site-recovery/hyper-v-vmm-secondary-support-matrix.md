@@ -1,6 +1,6 @@
 ---
-title: Suporte a recuperação de desastres matriciais-Hiper-V para um site secundário de VMM com recuperação do site Azure
-description: Resume o suporte para a replicação de VM Hiper-V em nuvens VMM para um local secundário com recuperação do site Azure.
+title: Suporte a recuperação de desastres matrix-Hiper-V para um site secundário de VMM com recuperação do local de Azure
+description: Resume o suporte para a replicação do Hiper-VM nas nuvens VMM para um local secundário com recuperação do local de Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,81 +8,80 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74132959"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs Hyper-V para um site secundário
 
-Este artigo resume o que é suportado quando utiliza o serviço de recuperação de [sítios Azure](site-recovery-overview.md) para replicar VMs Hiper-V geridos em nuvens de Máquina virtual do System Center (VMM) para um local secundário. Se quiser replicar VMs Hiper-V para Azure, reveja [esta matriz](hyper-v-azure-support-matrix.md)de suporte .
+Este artigo resume o que é suportado quando utiliza o serviço de Recuperação do [Site Azure](site-recovery-overview.md) para replicar VMs Hiper-V geridos em nuvens do System Center Virtual Machine Manager (VMM) para um site secundário. Se pretender replicar Os Hiper-VMs para Azure, [reveja esta matriz de suporte](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
-> Você só pode replicar para um local secundário quando os seus anfitriões Hyper-V são geridos em nuvens VMM.
+> Só é possível replicar para um local secundário quando os seus anfitriões Hiper-V são geridos em nuvens VMM.
 
 
-## <a name="host-servers"></a>Servidores de anfitriões
+## <a name="host-servers"></a>Servidores anfitriões
 
-**Sistema Operativo** | **Detalhes**
+**Sistema operativo** | **Detalhes**
 --- | ---
 Windows Server 2012 R2 | Os servidores devem estar a executar as últimas atualizações.
-Windows Server 2016 |  As nuvens VMM 2016 com uma mistura de anfitriões Do Windows Server 2016 e 2012 R2 não são suportadas atualmente.<br/><br/> As implementações que foram atualizadas do System Center 2012 R2 VMM 2012 R2 para system center 2016 não são suportadas atualmente.
+Windows Server 2016 |  As nuvens VMM 2016 com uma mistura de anfitriões Windows Server 2016 e 2012 R2 não são suportadas atualmente.<br/><br/> As implementações que foram atualizadas do System Center 2012 R2 VMM 2012 R2 para System Center 2016 não são suportadas atualmente.
 
 
-## <a name="replicated-vm-support"></a>Suporte vm replicado
+## <a name="replicated-vm-support"></a>Suporte VM replicado
 
-A tabela que se segue resume o suporte do sistema operativo para máquinas replicadas com a Recuperação do Local. Qualquer carga de trabalho pode estar a funcionar no sistema operativo suportado.
+A tabela seguinte resume o suporte do sistema operativo para máquinas replicadas com a Recuperação do Local. Qualquer carga de trabalho pode estar a funcionar no sistema operativo suportado.
 
 **Versão do Windows** | **Hiper-V (com VMM)**
 --- | ---
-Windows Server 2016 | Qualquer sistema operativo de hóspedes [suportado por Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) no Windows Server 2016 
-Windows Server 2012 R2 | Qualquer sistema operativo de hóspedes [suportado por Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) no Windows Server 2012 R2
+Windows Server 2016 | Qualquer sistema operativo [de hóspedes suportado por Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) no Windows Server 2016 
+Windows Server 2012 R2 | Qualquer sistema operativo [de hóspedes suportado por Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) no Windows Server 2012 R2
 
 ## <a name="linux-machine-storage"></a>Armazenamento de máquinas Linux
 
-Só podem ser replicadas máquinas Linux com o seguinte armazenamento:
+Apenas as máquinas Linux com o seguinte armazenamento podem ser replicadas:
 
 - Sistema de ficheiros (EXT3, ETX4, ReiserFS, XFS).
-- Mapper, dispositivo de software multipath.
+- Dispositivo de software multi-path Mapper.
 - Gestor de volume (LVM2).
 - Os servidores físicos com armazenamento do controlador HP CCISS não são suportados.
 - O sistema de ficheiros ReiserFS é suportado apenas no SUSE Linux Enterprise Server 11 SP3.
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração da rede - Host/Guest VM
 
-**Configuração** | **Apoiado**  
+**Configuração** | **Suportado**  
 --- | --- 
-Anfitrião - Equipa NIC | Sim 
+Anfitrião - EQUIPA NIC | Sim 
 Anfitrião - VLAN | Sim 
 Anfitrião - IPv4 | Sim 
 Anfitrião - IPv6 | Não 
-Guest VM - EQUIPA NIC | Não
-Guest VM - IPv4 | Sim
-Guest VM - IPv6 | Não
+VM convidado - EQUIPA NIC | Não
+VM convidado - IPv4 | Sim
+VM convidado - IPv6 | Não
 VM convidado - Windows/Linux - Endereço IP estático | Sim
 VM convidado - Multi-NIC | Sim
 
 
 ## <a name="storage"></a>Armazenamento
 
-### <a name="host-storage"></a>Armazenamento de hospedeiro
+### <a name="host-storage"></a>Armazenamento de hospedeiros
 
-**Armazenamento (hospedeiro)** | **Apoiado**
+**Armazenamento (hospedeiro)** | **Suportado**
 --- | --- 
 NFS | N/D
 SMB 3.0 |  Sim
 SAN (ISCSI) | Sim
-Multi-caminho (MPIO) | Sim
+Multi-caminhos (MPIO) | Sim
 
-### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidores de hóspedes ou físicos
+### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidores físicos ou de hóspedes
 
-**Configuração** | **Apoiado**
+**Configuração** | **Suportado**
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
 Gen 2 VM | Sim
-Disco de cluster partilhado | Não
+Disco de cluster compartilhado | Não
 Disco encriptado | Não
 UEFI| N/D
 NFS | Não
@@ -91,28 +90,28 @@ RDM | N/D
 Disco > 1 TB | Sim
 Volume com disco listrado > 1 TB<br/><br/> LVM | Sim
 Espaços de Armazenamento | Sim
-Disco de adição/remoção quente | Não
+Disco de adicionar/remover quente | Não
 Excluir o disco | Sim
-Multi-caminho (MPIO) | Sim
+Multi-caminhos (MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Apoiado**
+**Ação** | **Suportado**
 --- | --- 
-Mover cofres através de grupos de recursos (dentro ou através de subscrições) |  Não
-Movimentar armazenamento, rede, VMs Azure através de grupos de recursos (dentro ou em todas as subscrições) | Não
+Mover cofres através de grupos de recursos (dentro ou em todas as subscrições) |  Não
+Mover armazenamento, rede, VMs Azure em grupos de recursos (dentro ou em todas as subscrições) | Não
 
-## <a name="azure-site-recovery-provider"></a>Fornecedor de recuperação de sítios azure
+## <a name="azure-site-recovery-provider"></a>Fornecedor de recuperação do site Azure
 
 O Fornecedor coordena as comunicações entre servidores VMM. 
 
 **Últimas** | **Updates**
 --- | --- 
-5.1.19[(disponível no portal](https://aka.ms/downloaddra) | [Últimas funcionalidades e correções](https://support.microsoft.com/kb/3155002)
+5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Funcionalidades e correções mais recentes](https://support.microsoft.com/kb/3155002)
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Replicar VMs hiper-V em nuvens vmm para um local secundário](tutorial-vmm-to-vmm.md)
+[Replicar VMs hiper-V em nuvens VMM para um local secundário](tutorial-vmm-to-vmm.md)
 

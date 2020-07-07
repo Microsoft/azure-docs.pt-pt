@@ -1,6 +1,6 @@
 ---
-title: Amostra de script Azure CLI - Balance vários websites com o Azure CLI [ Microsoft Docs
-description: Amostra de script Azure CLI - Balance vários websites para a mesma máquina virtual
+title: Amostra de script do Azure CLI - Balancee vários websites com o Azure CLI / Microsoft Docs
+description: Amostra de script Azure CLI - Carregar equilibrar vários websites para a mesma máquina virtual
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,13 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
 ms.openlocfilehash: 568934d6b5ecc2fbb3b6fc6588ecfd48c8306490
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889461"
 ---
-# <a name="load-balance-multiple-websites"></a>Balanço de carga vários websites
+# <a name="load-balance-multiple-websites"></a>Equilibrar vários websites
 
 Esta amostra de script cria uma rede virtual com duas máquinas virtuais (VM) que são membros de um conjunto de disponibilidade. Um balanceador de carga direciona o tráfego de dois endereços IP separados para as duas VMs. Depois de executar o script, pode implementar o software de servidor Web para as VMs e alojar múltiplos sites, cada um com o seu próprio endereço IP.
 
@@ -60,7 +59,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

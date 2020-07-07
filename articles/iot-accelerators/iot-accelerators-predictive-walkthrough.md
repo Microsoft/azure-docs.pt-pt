@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73827418"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Manutenção Preditiva
 
-O acelerador de soluções de Manutenção Preditiva é uma solução ponto a ponto para um cenário de negócio que prevê o momento em que poderá ocorrer uma falha. Pode utilizar, de forma pró-ativa, este acelerador de soluções para atividades como a otimização da manutenção. A solução combina os principais serviços de aceleradores de soluções Azure IoT, como o IoT Hub e um espaço de trabalho [Azure Machine Learning.][lnk-machine-learning] Esta área de trabalho contém um modelo, com base num conjunto de dados de exemplo público, para prever a Vida Útil Remanescente (RUL) de um motor de aeronave. A solução implementa completamente o cenário empresarial IoT como um ponto de partida para que possa planear e implementar uma solução que satisfaça os seus próprios requisitos de negócio.
+O acelerador de soluções de Manutenção Preditiva é uma solução ponto a ponto para um cenário de negócio que prevê o momento em que poderá ocorrer uma falha. Pode utilizar, de forma pró-ativa, este acelerador de soluções para atividades como a otimização da manutenção. A solução combina serviços de aceleradores de solução Azure IoT, como o IoT Hub e um espaço de trabalho [de Aprendizagem automática Azure.][lnk-machine-learning] Esta área de trabalho contém um modelo, com base num conjunto de dados de exemplo público, para prever a Vida Útil Remanescente (RUL) de um motor de aeronave. A solução implementa completamente o cenário empresarial IoT como um ponto de partida para que possa planear e implementar uma solução que satisfaça os seus próprios requisitos de negócio.
 
-O código de aceleração da solução de manutenção preditiva [está disponível no GitHub](https://github.com/Azure/azure-iot-predictive-maintenance).
+O código do acelerador de solução de manutenção preditiva [está disponível no GitHub.](https://github.com/Azure/azure-iot-predictive-maintenance)
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
@@ -31,7 +30,7 @@ Os itens a azul são os serviços do Azure aprovisionados na região em que impl
 
 O item verde é um motor de avião simulado. Pode saber mais sobre estes dispositivos simulados na secção [Dispositivos simulados](#simulated-devices) seguinte.
 
-Os itens cinzentos são componentes que implementam capacidades de *gestão* de dispositivos. A atual versão do acelerador de soluções de Manutenção Preditiva não aprovisiona estes recursos. Para saber mais sobre a gestão do dispositivo, consulte o acelerador de solução de [monitorização remota][lnk-remote-monitoring].
+Os itens cinzentos são componentes que implementam capacidades *de gestão de dispositivos.* A atual versão do acelerador de soluções de Manutenção Preditiva não aprovisiona estes recursos. Para saber mais sobre a gestão do dispositivo, consulte o [acelerador de solução de monitorização remota.][lnk-remote-monitoring]
 
 ## <a name="azure-resources"></a>Recursos do Azure
 
@@ -39,7 +38,7 @@ No Portal do Azure, navegue para o grupo de recursos com o nome da solução que
 
 ![Recursos aceleradores][img-resource-group]
 
-Quando aprovisiona o acelerador de soluções, recebe um e-mail com uma ligação para a área de trabalho do Machine Learning. Também pode navegar para o espaço de trabalho machine learning a partir da página de Aceleradores de [Soluções Microsoft Azure IoT.][lnk-azureiotsolutions] Quando a solução estiver no estado **Pronto**, estará disponível um mosaico nesta página.
+Quando aprovisiona o acelerador de soluções, recebe um e-mail com uma ligação para a área de trabalho do Machine Learning. Também pode navegar para o espaço de trabalho machine learning a partir da página [microsoft Azure IoT Solution Accelerators.][lnk-azureiotsolutions] Quando a solução estiver no estado **Pronto**, estará disponível um mosaico nesta página.
 
 ![Modelo de aprendizagem automática][img-machine-learning]
 
@@ -47,9 +46,9 @@ Quando aprovisiona o acelerador de soluções, recebe um e-mail com uma ligaçã
 
 No acelerador de solução, um dispositivo simulado é um motor de avião. A solução é aprovisionada com dois motores que mapeiam para uma única aeronave. Cada motor emite quatro tipos de telemetria: Sensor 9, Sensor 11, Sensor 14 e Sensor 15, que fornecem os dados necessários para que o modelo do Machine Learning possa calcular a RUL desse motor. Cada dispositivo simulado envia as seguintes mensagens de telemetria ao IoT Hub:
 
-*Ciclo de contagem*. Um ciclo é um voo completo com uma duração entre duas a dez horas. Durante o voo, os dados telemétricos são capturados a cada meia hora.
+*Ciclo de contagem*. Um ciclo é um voo completo com uma duração entre duas e dez horas. Durante o voo, os dados telemétricos são capturados a cada meia hora.
 
-*Telemetria.* Há quatro sensores que registam os atributos do motor. Os sensores são geralmente denominados Sensor 9, Sensor 11, Sensor 14 e Sensor 15. Estes quatro sensores enviam telemetria suficiente para obter resultados úteis do modelo RUL. O modelo utilizado no acelerador de soluções é criado a partir de um conjunto de dados públicos, que inclui dados do sensor do motor. Para obter mais informações sobre a criação do modelo a partir do conjunto de dados original, consulte o artigo [Cortana Intelligence Gallery Predictive Maintenance Template (Modelo de Manutenção Preditiva do Cortana Intelligence Gallery)][lnk-cortana-analytics].
+*Telemetria.* Há quatro sensores que registam atributos do motor. Os sensores são geralmente denominados Sensor 9, Sensor 11, Sensor 14 e Sensor 15. Estes quatro sensores enviam telemetria suficiente para obter resultados úteis do modelo RUL. O modelo utilizado no acelerador de soluções é criado a partir de um conjunto de dados públicos, que inclui dados do sensor do motor. Para obter mais informações sobre a criação do modelo a partir do conjunto de dados original, consulte o artigo [Cortana Intelligence Gallery Predictive Maintenance Template (Modelo de Manutenção Preditiva do Cortana Intelligence Gallery)][lnk-cortana-analytics].
 
 Os dispositivos simulados podem processar os seguintes comandos enviados a partir do hub IoT na solução:
 
@@ -68,21 +67,21 @@ O IoT Hub reconhece o comando do dispositivo.
 * A segunda calcula os valores médios do sensor numa janela deslizante e envia esses dados através do Hub de Eventos a um **processador de eventos**.
 
 ## <a name="event-processor"></a>Processador de eventos
-O **anfitrião do processador de eventos** executa uma Tarefa Web do Azure. O **processador de eventos** obtém os valores médios do sensor para um ciclo concluído. Em seguida, passa esses valores para um modelo treinado que calcula o RUL para um motor. Uma API fornece acesso ao modelo num espaço de trabalho de Machine Learning que faz parte da solução.
+O **anfitrião do processador de eventos** executa uma Tarefa Web do Azure. O **processador de eventos** obtém os valores médios do sensor para um ciclo concluído. Em seguida, passa esses valores para um modelo treinado que calcula o RUL para um motor. Uma API fornece acesso ao modelo num espaço de trabalho machine learning que faz parte da solução.
 
 ## <a name="machine-learning"></a>Machine Learning
 O componente de Machine Learning utiliza um modelo derivado dos dados recolhidos de motores de aeronave reais. Pode navegar para o espaço de trabalho machine learning a partir do azulejo da sua solução na página [azureiotsolutions.com.][lnk-azureiotsolutions] O mosaico está disponível quando a solução está no estado **Pronto**.
 
-O modelo de Machine Learning está disponível como um modelo que mostra como trabalhar com telemetria recolhida através de serviços de acelerador de soluções IoT. A Microsoft construiu um modelo de [regressão][lnk_regression_model] de um motor de avião baseado em<sup>\[dados\]</sup>1 disponíveis publicamente , e orientação passo a passo sobre como usar o modelo.
+O modelo machine learning está disponível como um modelo que mostra como trabalhar com telemetria recolhida através de serviços de acelerador de solução IoT. A Microsoft construiu um modelo de [regressão][lnk_regression_model] de um motor de avião baseado em dados<sup> \[ 1 \] </sup>publicamente disponíveis , e orientação passo a passo sobre como usar o modelo.
 
-O acelerador de soluções de Manutenção Preditiva do Azure IoT utiliza o modelo de regressão criado a partir deste modelo. O modelo é implantado na sua subscrição Azure e disponibilizado através de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste para 4 (de 100 no total) de motores e os fluxos de dados de sensores 4 (de 21 no total). Estes dados são suficientes para fornecer um resultado preciso do modelo treinado.
+O acelerador de soluções de Manutenção Preditiva do Azure IoT utiliza o modelo de regressão criado a partir deste modelo. O modelo é implantado na sua subscrição Azure e disponibilizado através de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste para 4 (de 100 no total) motores e os fluxos de dados de sensores 4 (de 21 no total). Estes dados são suficientes para fornecer um resultado preciso do modelo treinado.
 
-*\[1\] A. Saxena e K. Goebel (2008). "Turbofan Engine Simulation Data set", Repositório de Dadoshttps://c3.nasa.gov/dashlink/resources/139/)do Prognóstico da NASA Ames ( CENTRO de Investigação da NASA Ames, Campo Moffett, CA*
+*\[1 \] A. Saxena e K. Goebel (2008). "Turbofan Engine Degradation Simulation Data set", Repositório de Dados da NASA Ames Prognostics https://c3.nasa.gov/dashlink/resources/139/) (, Centro de Investigação da NASA Ames, Campo Moffett, CA*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que viu os principais componentes do acelerador de soluções de Manutenção Preditiva, deverá personalizá-los.
 
-Também pode explorar algumas das outras funcionalidades dos aceleradores de soluções IoT:
+Também pode explorar algumas das outras características dos aceleradores de solução IoT:
 
 * [Perguntas mais frequentes sobre aceleradores de soluções do IoT][lnk-faq]
 * [Segurança de IoT desde o início][lnk-security-groundup]

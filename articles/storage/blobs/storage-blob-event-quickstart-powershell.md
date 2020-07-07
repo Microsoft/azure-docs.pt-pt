@@ -1,5 +1,5 @@
 ---
-title: Envie eventos de armazenamento Azure Blob para web endpoint - Powershell / Microsoft Docs
+title: Envie eventos de armazenamento Azure Blob para o web endpoint - Powershell Microsoft Docs
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
 author: normesta
 ms.author: normesta
@@ -9,15 +9,14 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68847168"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Eventos de armazenamento de rotas para ponto final web com PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Route storage events to web endpoint with PowerShell
 
-O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, utiliza o Azure PowerShell para subscrever eventos de armazenamento blob, desencadear um evento e ver o resultado. 
+O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você usa a Azure PowerShell para subscrever eventos de armazenamento Blob, desencadear um evento e ver o resultado. 
 
 Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -29,7 +28,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artigo requer que esteja a executar a versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, consulte [Instalar e configurar o PowerShell Azure](/powershell/azure/install-Az-ps).
+Este artigo requer que estejas a executar a versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, consulte [instalar e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -39,7 +38,7 @@ Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` comando e siga a
 Connect-AzAccount
 ```
 
-Este exemplo utiliza **o westus2** e armazena a seleção numa variável para utilização em toda a parte.
+Este exemplo usa **westus2** e armazena a seleção numa variável para uso em toda.
 
 ```powershell
 $location = "westus2"
@@ -49,7 +48,7 @@ $location = "westus2"
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
+Criar um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
 
 O exemplo seguinte cria um grupo de recursos com o nome **gridResourceGroup** na localização **westus2**.  
 
@@ -60,12 +59,12 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Os eventos de armazenamento de blobs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. As contas de armazenamento de **Fins gerais v2** suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma conta de **armazenamento Blob** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como bolhas (objetos) no Armazenamento Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
+Os eventos de armazenamento de blobs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. As contas de armazenamento de **Fins gerais v2** suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma **conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como bolhas (objetos) no Azure Storage. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
-Crie uma conta de armazenamento Blob com replicação LRS utilizando [new-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)e, em seguida, recupere o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento chamada armazenamento de **grades** com armazenamento localmente redundante (LRS). 
+Crie uma conta de armazenamento Blob com replicação LRS utilizando [o New-AzStorageAccount,](/powershell/module/az.storage/New-azStorageAccount)em seguida, recupere o contexto da conta de armazenamento que define a conta de armazenamento a ser utilizada. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento chamada **gridstorage** com armazenamento localmente redundante (LRS). 
 
 > [!NOTE]
-> Os nomes das contas de armazenamento estão num espaço de nome global, pelo que é necessário anexar alguns caracteres aleatórios ao nome fornecido neste script.
+> Os nomes das contas de armazenamento estão num espaço de nome global, pelo que precisa de anexar alguns caracteres aleatórios ao nome fornecido neste script.
 
 ```powershell
 $storageName = "gridstorage"
@@ -103,7 +102,7 @@ Deverá ver o site sem mensagens atualmente apresentadas.
 
 ## <a name="subscribe-to-your-storage-account"></a>Subscrever à sua conta de armazenamento
 
-Subscreva um tópico para dizer ao Event Grid quais os eventos que pretende acompanhar. O exemplo seguinte subscreve a conta de armazenamento que criou e passa o URL da sua aplicação web como ponto final para a notificação do evento. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`.
+Você subscreve um tópico para dizer à Grade de Eventos quais eventos você quer rastrear. O exemplo seguinte subscreve a conta de armazenamento que criou e passa o URL da sua aplicação web como ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
@@ -121,7 +120,7 @@ Verifique a aplicação Web novamente e repare que um evento de validação de s
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento a partir do armazenamento de Blobs
 
-Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Primeiro, vamos criar um recipiente e um objeto. Então, vamos enviar o objeto para o recipiente.
+Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Primeiro, vamos criar um contentor e um objeto. Então, vamos carregar o objeto para o contentor.
 
 ```powershell
 $containerName = "gridcontainer"
@@ -162,13 +161,13 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se pretende continuar a trabalhar com esta conta de armazenamento e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretende continuar, use o seguinte comando para apagar os recursos que criou neste artigo.
+Se pretender continuar a trabalhar com esta conta de armazenamento e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretende continuar, use o seguinte comando para apagar os recursos criados neste artigo.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre os Eventos de armazenamento de Blobs o que o Event Grid pode ajudá-lo a fazer:
 

@@ -1,6 +1,6 @@
 ---
-title: Rever estimativas de custos no Planejador de Implantação de Recuperação de Sítios Azure
-description: Estes artigos descrevem como rever as estimativas de custos no Planejador de Implementação de Recuperação de Sítios Azure para a recuperação de desastres vMware.
+title: Rever estimativas de custos no Azure Site Recovery Deployment Planner
+description: Estes artigos descrevem como rever as estimativas de custos no Azure Site Recovery Planner para a recuperação de desastres VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953331"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Rever estimativas de custos no VMware Deployment Planner 
@@ -19,7 +18,7 @@ ms.locfileid: "73953331"
 O relatório do Planeador de Implementações fornece o resumo da estimativa de custos em folhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise detalhada de custos na folha Estimativa de Custos. Inclui a análise detalhada de custos por VM. 
 
 >[!Note]
->A versão atual da ferramenta de planificador de implantação v2.5 fornece uma estimativa de custos para vMs replicando para Discos Geridos.
+>A versão atual da ferramenta de planificador de implementação v2.5 fornece uma estimativa de custos para vMs replicando para Discos Geridos.
 
 ### <a name="cost-estimation-summary"></a>Resumo da estimativa de custos 
 O gráfico mostra a vista de resumo do custo total estimado da recuperação após desastre (DR) para o Azure da região de destino que escolheu e a moeda que especificou para a geração do relatório.
@@ -101,7 +100,7 @@ Para adicionar VMs manualmente:
 
 * Número de VMs, tamanho de IaaS (a sua seleção)
 * Tipo de Armazenamento (Standard/Premium)
-* Tamanho total de armazenamento vm (GB) da máquina de origem
+* VM tamanho total de armazenamento (GB) da máquina de origem
 * Número de explorações de DR num ano 
 * Duração de cada exploração de DR (Dias) 
 * Tipo de SO
@@ -122,7 +121,7 @@ Para adicionar VMs manualmente:
 
 **Storage type (Tipo de armazenamento)**: o tipo de armazenamento utilizado pela VM. É armazenamento standard ou premium.
 
-Tamanho total de **armazenamento VM (GB)**: O armazenamento total da fonte VM.
+**Tamanho total de armazenamento VM (GB)**: O armazenamento total da origem VM.
 
 **Number of DR-Drills in a year (Número de explorações de DR num ano)**: o número de vezes que executa explorações de DR num ano. Por predefinição, é 4 vezes num ano. Pode modificar o período para VMs específicas ou aplicar o novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). Com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR, é calculado o custo total de Exploração de DR.  
 
@@ -150,7 +149,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas suportadas
 O Planeador de Implementações do Azure Site Recovery pode gerar o relatório de custos com qualquer uma das moedas seguintes.
 
-|Moeda|Nome||Moeda|Nome||Moeda|Nome|
+|Moeda|Name||Moeda|Name||Moeda|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso Argentino ($)||AUD|Dólar Australiano ($)||BRL|Real Brasileiro (R$)|
 |CAD|Dólar Canadiano ($)||CHF|Franco Suíço (chf)||DKK|Coroa Dinamarquesa (kr)|
@@ -161,5 +160,5 @@ O Planeador de Implementações do Azure Site Recovery pode gerar o relatório d
 |SAR|Rial Saudita (SR)||SEK|Coroa Sueca (kr)||TWD|Dólar de Taiwan (NT$)|
 |TRY|Lira Turca (TL)||USD| Dólar Norte-Americano ($)||ZAR|Rand da África do Sul (R)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como proteger [VMs de VMware para o Azure com o Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).

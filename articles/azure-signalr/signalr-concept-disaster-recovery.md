@@ -1,71 +1,70 @@
 ---
-title: Resiliência e recuperação de desastres no Serviço De Sinalização Azure
-description: Uma visão geral sobre como configurar múltiplas instâncias de serviço SignalR para alcançar resiliência e recuperação de desastres
+title: Resiliência e recuperação de desastres no Serviço Azure SignalR
+description: Uma visão geral sobre como configurar várias instâncias de serviço SignalR para alcançar resiliência e recuperação de desastres
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73747645"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação após desastre
 
-A resiliência e a recuperação de desastres são uma necessidade comum para os sistemas online. O Serviço De Sinalização Azure já garante 99,9% de disponibilidade, mas continua a ser um serviço regional.
-A sua instância de serviço está sempre a decorrer numa região e não falha em outra região quando há uma paragem em toda a região.
+A resiliência e a recuperação de desastres são uma necessidade comum de sistemas online. O Serviço Azure SignalR já garante 99,9% de disponibilidade, mas ainda é um serviço regional.
+A sua instância de serviço está sempre a decorrer numa região e não vai falhar para outra região quando há uma paragem em toda a região.
 
 Em vez disso, o nosso serviço SDK fornece uma funcionalidade para suportar várias instâncias de serviço SignalR e mudar automaticamente para outras instâncias quando algumas delas não estão disponíveis.
-Com esta funcionalidade, poderá recuperar quando ocorrer um desastre, mas terá de configurar a topologia do sistema certa sozinho. Vaiaprender a fazê-lo neste documento.
+Com esta funcionalidade, poderás recuperar quando ocorrer um desastre, mas terás de configurar sozinho a topologia do sistema certo. Aprenderá a fazê-lo neste documento.
 
-## <a name="high-available-architecture-for-signalr-service"></a>Arquitetura alta disponível para serviço SignalR
+## <a name="high-available-architecture-for-signalr-service"></a>Alta arquitetura disponível para o serviço SignalR
 
-Para ter resiliência transversal para o serviço SignalR, é necessário configurar várias instâncias de serviço em diferentes regiões. Assim, quando uma região está em baixo, as outras podem ser usadas como reserva.
+Para ter resiliência transversal para o serviço SignalR, é necessário configurar várias instâncias de serviço em diferentes regiões. Assim, quando uma região está em baixo, as outras podem ser usadas como apoio.
 Ao ligar várias instâncias de serviço ao servidor de aplicações, existem duas funções, primárias e secundárias.
-Primário é um caso que está tomando tráfego on-line e secundário é um exemplo totalmente funcional, mas de reserva para primárias.
-Na nossa implementação do SDK, a negociação só devolverá pontos finais primários, pelo que, em caso normal, os clientes apenas se ligam a pontos finais primários.
-Mas quando a instância primária estiver em baixo, a negociação devolverá pontos finais secundários para que o cliente ainda possa fazer ligações.
-A instância primária e o servidor de aplicações estão ligados através de ligações normais do servidor, mas a instância secundária e o servidor de aplicações estão ligados através de um tipo especial de ligação chamado ligação fraca.
+Primária é um caso que está tomando tráfego on-line e secundário é uma instância totalmente funcional, mas backup para o primário.
+Na nossa implementação SDK, o negociação só devolverá os pontos finais primários para que, no caso normal, os clientes apenas se conectem aos pontos finais primários.
+Mas quando a primeira instância estiver em baixo, as negociações devolverão os pontos finais secundários para que o cliente ainda possa fazer ligações.
+As instâncias primárias e o servidor de aplicações estão conectados através de ligações normais do servidor, mas as instâncias secundárias e o servidor de aplicações estão ligados através de um tipo especial de ligação chamado ligação fraca.
 A principal diferença de uma ligação fraca é que não aceita o encaminhamento de ligação ao cliente, porque a instância secundária está localizada noutra região. Encaminhar um cliente para outra região não é uma escolha ideal (aumenta a latência).
 
-Uma instância de serviço pode ter diferentes funções quando se conecta a vários servidores de aplicações.
-Uma configuração típica para o cenário da região transversal é ter dois (ou mais) pares de instâncias de serviço SignalR e servidores de aplicações.
-Dentro de cada servidor de aplicações de pares e o serviço SignalR estão localizados na mesma região, e o serviço SignalR está ligado ao servidor de aplicações como uma função principal.
-Entre cada servidor de aplicações de pares e o serviço SignalR também estão ligados, mas o SignalR torna-se secundário quando se conecta ao servidor noutra região.
+Uma instância de serviço pode ter funções diferentes ao ligar-se a vários servidores de aplicações.
+Uma configuração típica para cenário de região cruzada é ter dois (ou mais) pares de instâncias de serviço SignalR e servidores de aplicações.
+Dentro de cada servidor de aplicativos de pares e o serviço SignalR estão localizados na mesma região, e o serviço SignalR está ligado ao servidor de aplicações como um papel principal.
+Entre cada servidor de aplicativos de pares e serviço SignalR também estão conectados, mas o SignalR torna-se secundário ao ligar-se ao servidor noutra região.
 
-Com esta topologia, a mensagem de um servidor ainda pode ser entregue a todos os clientes, uma vez que todos os servidores de aplicações e instâncias de serviço SignalR estão interligadas.
+Com esta topologia, a mensagem de um servidor ainda pode ser entregue a todos os clientes, uma vez que todos os servidores de aplicações e instâncias de serviço SignalR estão interligados.
 Mas quando um cliente está conectado, é sempre encaminhado para o servidor de aplicações na mesma região para obter a latência ideal da rede.
 
 Abaixo está um diagrama que ilustra tal topologia:
 
 ![topology](media/signalr-concept-disaster-recovery/topology.png)
 
-## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configure servidores de aplicativos com várias instâncias de serviço SignalR
+## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configurar servidores de aplicações com múltiplas instâncias de serviço SignalR
 
-Assim que tiver o serviço SignalR e servidores de aplicações criados em cada região, pode configurar os seus servidores de aplicações para se ligar a todas as instâncias de serviço SignalR.
+Uma vez criados servidores de serviço SignalR e aplicativos em cada região, pode configurar os seus servidores de aplicações para se conectar a todas as instâncias de serviço signalR.
 
 Há duas maneiras de o fazer:
 
 ### <a name="through-config"></a>Através de config
 
-Já deve saber como definir a cadeia de ligação de serviço SignalR através de variáveis ambientais/configurações de aplicações/web.cofig, numa entrada de config chamada `Azure:SignalR:ConnectionString`.
-Se tiver vários pontos finais, pode defini-los em várias entradas de config, cada uma no seguinte formato:
+Já deve saber como definir a cadeia de ligação de serviço SignalR através de variáveis ambientais/definições de aplicação/web.cofig, numa entrada config chamada `Azure:SignalR:ConnectionString` .
+Se tiver vários pontos finais, pode defini-los em múltiplas entradas config, cada uma no seguinte formato:
 
 ```
 Azure:SignalR:ConnectionString:<name>:<role>
 ```
 
-Aqui `<name>` está o nome do `<role>` ponto final e é o seu papel (primário ou secundário).
+Aqui `<name>` está o nome do ponto final e é o seu papel `<role>` (primário ou secundário).
 O nome é opcional, mas será útil se quiser personalizar ainda mais o comportamento de encaminhamento entre vários pontos finais.
 
 ### <a name="through-code"></a>Através do código
 
-Se preferir armazenar as cordas de ligação noutro lugar, também pode lê-las `AddAzureSignalR()` no seu código `MapAzureSignalR()` e usá-las como parâmetros ao ligar (em ASP.NET Core) ou (em ASP.NET).
+Se preferir armazenar as cadeias de ligação em outro lugar, também pode lê-las no seu código e usá-las como parâmetros ao ligar `AddAzureSignalR()` (em ASP.NET Core) ou `MapAzureSignalR()` (em ASP.NET).
 
-Aqui está o código da amostra:
+Aqui está o código de amostra:
 
 ASP.NET Core:
 
@@ -90,49 +89,49 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
 
 Pode configurar várias instâncias primárias ou secundárias. Se houver múltiplas instâncias primárias e/ou secundárias, a negociação devolverá um ponto final na seguinte ordem:
 
-1. Se houver pelo menos uma instância primária on-line, devolva uma instância primária aleatória online.
-2. Se todos os casos primários estiverem em baixo, devolva uma instância secundária secundária aleatória online.
+1. Se houver pelo menos uma instância primária online, devolva uma instância primária aleatória online.
+2. Se todas as instâncias primárias estiverem em baixo, devolva uma instância secundária aleatória online.
 
 ## <a name="failover-sequence-and-best-practice"></a>Sequência de failover e boas práticas
 
-Agora tens a configuração de topologia do sistema certa. Sempre que uma instância de serviço SignalR estiver em baixo, o tráfego on-line será encaminhado para outras instâncias.
-Eis o que acontece quando uma instância primária está em baixo (e recupera passado algum tempo):
+Agora tens a configuração correta da topologia do sistema. Sempre que uma instância de serviço do SignalR estiver em baixo, o tráfego online será encaminhado para outras instâncias.
+Aqui está o que acontece quando uma instância primária está em baixo (e recupera após algum tempo):
 
-1. A instância de serviço principal está em baixo, todas as ligações do servidor nesta instância serão eliminadas.
-2. Todos os servidores ligados a esta instância marcarão como offline, e negociará deixará de devolver este ponto final e começará a devolver o ponto final secundário.
-3. Todas as ligações com clientes neste caso também serão encerradas, os clientes voltarão a ligar-se. Uma vez que os servidores de aplicações agora devolvem o ponto final secundário, os clientes vão ligar-se à instância secundária.
-4. Agora a instância secundária leva todo o tráfego on-line. Todas as mensagens do servidor para os clientes ainda podem ser entregues, uma vez que o secundário está ligado a todos os servidores de aplicações. Mas as mensagens de cliente para servidor são apenas encaminhadas para o servidor de aplicações na mesma região.
-5. Após a ocorrência primária ser recuperada e novamente on-line, o servidor de aplicações restabelecerá as ligações e marcará-as como online. A negociação voltará agora a devolver o ponto final primário de novo para que os novos clientes estejam ligados às primárias. Mas os clientes existentes não serão abandonados e continuarão a ser encaminhados para o secundário até se desligarem.
+1. A instância de serviço principal está em baixo, todas as ligações do servidor neste caso serão retiradas.
+2. Todos os servidores ligados a este caso irão marcá-lo como offline, e o negocial deixará de devolver este ponto final e começará a devolver o ponto final secundário.
+3. Todas as ligações com o cliente neste caso também serão encerradas, os clientes voltarão a ligar-se. Uma vez que os servidores de aplicações regressam agora ao ponto final secundário, os clientes ligar-se-ão a instâncias secundárias.
+4. Agora a segunda instância leva todo o tráfego online. Todas as mensagens do servidor para os clientes ainda podem ser entregues, uma vez que o secundário está ligado a todos os servidores de aplicações. Mas as mensagens de cliente para servidores são apenas encaminhadas para o servidor de aplicações na mesma região.
+5. Após a recuperação e reinter-a-forma, o servidor de aplicações restabelecerá as ligações e marcará-as como online. A negociação vai agora devolver o principal ponto final novamente para que novos clientes estejam ligados de volta ao primário. Mas os clientes existentes não serão abandonados e continuarão a ser encaminhados para secundários até se desligarem.
 
-Os diagramas abaixo ilustram como a falha é feita no serviço SignalR:
+Os diagramas abaixo ilustram como o failover é feito no serviço SignalR:
 
-Fig.1 Antes ![da falha antes da falha](media/signalr-concept-disaster-recovery/before-failover.png)
+Fig.1 Antes de falhar ![ antes do failover](media/signalr-concept-disaster-recovery/before-failover.png)
 
-Fig.2 Após ![falha após falha](media/signalr-concept-disaster-recovery/after-failover.png)
+Fig.2 Após o failover ![ após o failover](media/signalr-concept-disaster-recovery/after-failover.png)
 
-Fig.3 Pouco tempo depois ![de as primárias recuperarem pouco tempo após recuperação primária](media/signalr-concept-disaster-recovery/after-recover.png)
+Fig.3 Pouco tempo após a recuperação primária ![ Pouco tempo após recuperação primária](media/signalr-concept-disaster-recovery/after-recover.png)
 
-Pode ver no caso normal que apenas o servidor primário de aplicações e o serviço SignalR têm tráfego on-line (em azul).
-Após a falha, o servidor secundário de aplicações e o serviço SignalR também se tornam ativos.
-Após o serviço de SignalR primário voltar a funcionar, os novos clientes ligar-se-ão ao SignalR primário. Mas os clientes existentes ainda se ligam ao secundário, pelo que ambos os casos têm tráfego.
-Depois de todos os clientes existentes se desligarem, o seu sistema voltará ao normal (Fig.1).
+Pode ver no caso normal que apenas o servidor de aplicações primárias e o serviço SignalR têm tráfego online (em azul).
+Após o failover, o servidor de aplicações secundárias e o serviço SignalR também ficam ativos.
+Depois do serviço de SinalR primário estar novamente on-line, novos clientes ligar-se-ão ao SignalR primário. Mas os clientes existentes ainda se ligam ao secundário, por isso ambas as instâncias têm tráfego.
+Depois de todos os clientes existentes desligarem-se, o seu sistema voltará ao normal (Fig.1).
 
-Existem dois padrões principais para a implementação de uma arquitetura disponível de região transversal:
+Existem dois padrões principais para a implementação de uma arquitetura transversal de alta disponíveis:
 
-1. O primeiro é ter um par de servidores de aplicações e instância de serviço SignalR tomando todo o tráfego on-line, e ter outro par como uma cópia de segurança (chamada ativa/passiva, ilustrada em Fig.1). 
-2. O outro é ter dois (ou mais) pares de servidores de aplicações e instâncias de serviço SignalR, cada um tomando parte do tráfego on-line e serve de backup para outros pares (chamados ativos/ativos, semelhantes ao Fig.3).
+1. O primeiro é ter um par de servidores de aplicações e uma instância de serviço SignalR tomando todo o tráfego on-line, e ter outro par como uma cópia de segurança (chamada ativa/passiva, ilustrada em Fig.1). 
+2. O outro é ter dois (ou mais) pares de servidores de aplicações e instâncias de serviço SignalR, cada um que participa do tráfego online e serve como backup para outros pares (chamados ativos/ativos, semelhantes ao Fig.3).
 
 O serviço SignalR pode suportar ambos os padrões, a principal diferença é como implementa servidores de aplicações.
-Se os servidores de aplicações estiverem ativos/passivos, o serviço SignalR também será ativo/passivo (uma vez que o servidor principal de aplicações apenas devolve a sua principal instância de serviço SignalR).
-Se os servidores de aplicações estiverem ativos/ativos, o serviço SignalR também estará ativo/ativo (uma vez que todos os servidores de aplicações devolverão as suas próprias instâncias primárias de SignalR, para que todos possam obter tráfego).
+Se os servidores de aplicações estiverem ativos/passivos, o serviço SignalR também será ativo/passivo (uma vez que o servidor de aplicações primárias apenas devolve a sua primeira instância de serviço SignalR).
+Se os servidores de aplicações estiverem ativos/ativos, o serviço SignalR também estará ativo/ativo (uma vez que todos os servidores de aplicações irão devolver as suas próprias instâncias primárias do SignalR, para que todos possam obter tráfego).
 
-Note-se que independentemente dos padrões que escolher utilizar, terá de ligar cada instância de serviço SignalR a um servidor de aplicações como primário.
+Seja notado independentemente dos padrões que escolher utilizar, terá de ligar cada instância de serviço SignalR a um servidor de aplicações como principal.
 
-Também devido à natureza da ligação SignalR (é uma ligação longa), os clientes vão experimentar quedas de ligação quando há um desastre e a falha ocorre.
-Terá de lidar com estes casos ao lado do cliente para torná-lo transparente para os seus clientes finais. Por exemplo, religue a ligação depois de uma ligação estar fechada.
+Também devido à natureza da ligação SignalR (é uma ligação longa), os clientes vão experimentar quedas de conexão quando há um desastre e falha ocorrer.
+Terá de lidar com estes casos ao lado do cliente para torná-lo transparente para os seus clientes finais. Por exemplo, reconecte-se depois de fechado um ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, aprendeu a configurar a sua aplicação para obter resiliência para o serviço SignalR. Para compreender mais detalhes sobre a ligação servidor/cliente e encaminhamento de ligação no serviço SignalR, pode ler [este artigo](signalr-concept-internals.md) para os internos do serviço SignalR.
+Neste artigo, aprendeu a configurar a sua aplicação para obter resiliência para o serviço SignalR. Para obter mais detalhes sobre a ligação servidor/cliente e o encaminhamento de ligação no serviço SignalR, pode ler [este artigo](signalr-concept-internals.md) para os internos do serviço SignalR.
 
-Para cenários de escala, como sharding, que usam várias instâncias em conjunto para lidar com um grande número de ligações, leia [como escalar várias instâncias](signalr-howto-scale-multi-instances.md).
+Para cenários de escala, tais como o fragmento, que utilizam várias instâncias em conjunto para lidar com um grande número de ligações, leia [como escalar várias instâncias](signalr-howto-scale-multi-instances.md).
