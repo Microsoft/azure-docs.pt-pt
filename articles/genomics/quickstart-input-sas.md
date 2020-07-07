@@ -1,5 +1,5 @@
 ---
-title: Fluxo de trabalho utilizando assinaturas de acesso partilhado
+title: Fluxo de trabalho usando assinaturas de acesso compartilhado
 titleSuffix: Microsoft Genomics
 description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics usando assinaturas de acesso partilhado (SAS) em vez de chaves de conta de armazenamento.
 services: genomics
@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72248591"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Submeter um fluxo de trabalho ao Microsoft Genomics com uma SAS em vez de uma chave de conta de armazenamento 
 
-Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics utilizando um ficheiro config.txt que contém assinaturas de [acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics usando um ficheiro config.txt que contém [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. 
 
-Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se submeteu com sucesso um fluxo de trabalho utilizando os dados da amostra fornecidos, está pronto para prosseguir com este artigo. 
+Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido com sucesso um fluxo de trabalho utilizando os dados da amostra fornecidos, está pronto para prosseguir com este artigo. 
 
 ## <a name="what-is-a-sas"></a>O que é uma SAS?
 As [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) disponibilizam acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder acesso a recursos na sua conta de armazenamento sem partilhar as chaves da conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
@@ -53,10 +53,10 @@ O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/st
 
 A SAS para os ficheiros de entrada deve ser confinada ao ficheiro de entrada específico (blob). Para criar um token SAS, siga [estas instruções](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Após criar a SAS, o URL completo com a cadeia de consulta, bem como a cadeia de consulta por si só, são fornecidos e podem ser copiados do ecrã.
 
- ![Explorador de armazenamento Genómica SAS](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de armazenamento Genómica SAS")
+ ![Explorador de Armazenamento Genomics SAS](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de Armazenamento Genomics SAS")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configuração: Criar uma SAS programáticamente
+### <a name="set-up-create-a-sas-programmatically"></a>Configurar: Criar um PROGRAMA SAS programáticamente
 
 Para criar uma SAS com o SDK do Armazenamento do Azure, consulte a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
@@ -66,7 +66,7 @@ Para criar uma SAS sem um SDK, a cadeia de consulta SAS pode ser construída dir
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Adicionar a SAS ao ficheiro config.txt
 Para executar um fluxo de trabalho através do serviço Microsoft Genomics com uma cadeia de consulta SAS, edite o ficheiro config.txt para remover as chaves do ficheiro config.txt. Em seguida, anexe a cadeia de consulta SAS (que começa com um `?`) ao nome do contentor de saída, conforme mostrado. 
 
-![Genómica SAS config](./media/quickstart-input-sas/genomics-sas-config.png "Genómica SAS config")
+![Genomics SAS config](./media/quickstart-input-sas/genomics-sas-config.png "Genomics SAS config")
 
 Utilize o cliente Python do Microsoft Genomics para submeter o seu fluxo de trabalho com o comando seguinte, anexando a cadeia de consulta SAS correspondente a cada um dos nomes dos blobs de entrada:
 
@@ -77,7 +77,7 @@ msgen submit -f [full path to your config file] -b1 [name of your first paired e
 ### <a name="if-adding-the-input-file-names-to-the-configtxt-file"></a>Se estiver a adicionar os nomes dos ficheiros de entrada ao ficheiro config.txt
 Em alternativa, os nomes dos ficheiros de leitura finais emparelhados podem ser adicionados diretamente ao ficheiro config.txt, com os tokens de consulta SAS anexados conforme mostrado:
 
-![Genómica SAS config blobnames](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Genómica SAS config blobnames")
+![Genomics SAS config blobnames](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Genomics SAS config blobnames")
 
 Neste caso, utilize o cliente Python do Microsoft Genomics para submeter o seu fluxo de trabalho com o seguinte comando, omitindo os comandos `-b1` e `-b2`:
 

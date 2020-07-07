@@ -1,51 +1,51 @@
 ---
-title: Inquilinos, funções e utilizadores em cenários do Farol Azure
-description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser utilizados em cenários do Farol Azure.
+title: Inquilinos, papéis e utilizadores em cenários do Farol de Azure
+description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser usados em cenários do Farol Azure.
 ms.date: 04/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144924"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, funções e utilizadores em cenários do Farol Azure
+# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, papéis e utilizadores em cenários do Farol de Azure
 
-Antes de embarcar em clientes para [a gestão de recursos delegados do Azure,](azure-delegated-resource-management.md)é importante entender como funcionam os inquilinos, utilizadores e funções do Azure Ative Directory (Azure AD), bem como como podem ser utilizados em cenários do Farol Azure.
+Antes de embarcar clientes para a [Azure delegada gestão](azure-delegated-resource-management.md)de recursos, é importante entender como os inquilinos, utilizadores e funções da Azure Ative Directory (Azure AD) funcionam, bem como como podem ser usados em cenários do Farol de Azure.
 
-Um *inquilino* é um caso dedicado e de confiança da Azure AD. Normalmente, cada inquilino representa uma única organização. A gestão de recursos delegados da Azure permite a projeção lógica de recursos de um inquilino para outro inquilino. Isto permite que os utilizadores do inquilino gerente (como um pertencente a um prestador de serviços) acedam aos recursos delegados no inquilino de um cliente, ou permitem que [empresas com vários inquilinos centralizem as suas operações de gestão.](enterprise.md)
+Um *inquilino* é um caso dedicado e de confiança da Azure AD. Normalmente, cada inquilino representa uma única organização. A gestão de recursos delegados Azure permite a projeção lógica de recursos de um inquilino para outro inquilino. Isto permite que os utilizadores do inquilino gerente (como um pertencente a um prestador de serviços) acedam a recursos delegados no inquilino de um cliente, ou permitem que [empresas com vários inquilinos centralizem as suas operações de gestão.](enterprise.md)
 
-Para alcançar esta projeção lógica, uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição) no inquilino do cliente deve ser *a bordo* para a gestão de recursos delegados do Azure. Este processo de embarque pode ser feito através de modelos do Gestor de [Recursos Do Azure](../how-to/onboard-customer.md) ou através da publicação de [uma oferta pública ou privada ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
+Para alcançar esta projeção lógica, uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição) no arrendatário do cliente deve ser *a bordo* para a gestão de recursos delegados da Azure. Este processo de embarque pode ser feito [através de modelos Azure Resource Manager](../how-to/onboard-customer.md) ou através da publicação de uma oferta pública ou privada ao [Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 
-Seja qual for o método de embarque que escolher, terá de definir *autorizações.* Cada autorização especifica uma conta de utilizador no inquilino gestor que terá acesso aos recursos delegados, e uma função incorporada que define as permissões que cada um destes utilizadores terá para estes recursos.
+Seja qual for o método de embarque que escolher, terá de definir *autorizações.* Cada autorização especifica uma conta de utilizador no inquilino gerente que terá acesso aos recursos delegados, e uma função incorporada que define as permissões que cada um destes utilizadores terá para estes recursos.
 
-## <a name="role-support-for-azure-delegated-resource-management"></a>Apoio ao papel para a gestão de recursos delegados do Azure
+## <a name="role-support-for-azure-delegated-resource-management"></a>Apoio de função à Azure delegada gestão de recursos
 
-Ao definir uma autorização, cada conta de utilizador deve ser atribuída a uma das [funções incorporadas de controlo de acesso baseados em funções (RBAC).](../../role-based-access-control/built-in-roles.md) As funções personalizadas e as [funções clássicas](../../role-based-access-control/classic-administrators.md) de administrador de subscrição não são suportadas.
+Ao definir uma autorização, cada conta de utilizador deve ser atribuída a uma das [funções de controlo de acesso (RBAC) incorporadas.](../../role-based-access-control/built-in-roles.md) As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
 
-Todas as [funções incorporadas](../../role-based-access-control/built-in-roles.md) são atualmente apoiadas com a gestão de recursos delegados do Azure, com as seguintes exceções:
+Todas as [funções incorporadas](../../role-based-access-control/built-in-roles.md) são atualmente apoiadas com a gestão de recursos delegada da Azure, com as seguintes exceções:
 
-- O papel [de Proprietário](../../role-based-access-control/built-in-roles.md#owner) não é apoiado.
+- A função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) não é suportada.
 - Quaisquer funções incorporadas com permissão [DataActions](../../role-based-access-control/role-definitions.md#dataactions) não são suportadas.
-- O papel integrado do Administrador de Acesso ao [Utilizador](../../role-based-access-control/built-in-roles.md#user-access-administrator) é suportado, mas apenas com o propósito limitado de [atribuir funções a uma identidade gerida no inquilino do cliente.](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant) Não serão aplicadas outras permissões normalmente concedidas por este papel. Se definir um utilizador com esta função, deve também especificar as funções incorporadas que este utilizador pode atribuir a identidades geridas.
+- A função [incorporada do Administrador de Acesso](../../role-based-access-control/built-in-roles.md#user-access-administrator) ao Utilizador é suportada, mas apenas com o final limitado de atribuir [funções a uma identidade gerida no arrendatário do cliente.](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant) Não serão aplicadas outras permissões normalmente concedidas por esta função. Se definir um utilizador com esta função, também deve especificar as funções incorporadas que este utilizador pode atribuir às identidades geridas.
 
 > [!NOTE]
-> Uma vez que uma nova função incorporada aplicável é adicionada ao Azure, pode ser atribuída ao [embarcar num cliente usando modelos](../how-to/onboard-customer.md)de Gestor de Recursos Azure . Pode haver um atraso antes que a função recém-adicionada fique disponível no Cloud Partner Portal ao publicar uma oferta de [serviço gerida.](../how-to/publish-managed-services-offers.md)
+> Uma vez que uma nova função incorporada aplicável é adicionada ao Azure, pode ser atribuída ao [embarcar um cliente usando modelos de Gestor de Recursos Azure](../how-to/onboard-customer.md). Pode haver um atraso antes de o papel recém-adicionado ficar disponível no Cloud Partner Portal ao [publicar uma oferta de serviço gerida](../how-to/publish-managed-services-offers.md).
 
-## <a name="best-practices-for-defining-users-and-roles"></a>Boas práticas para definir utilizadores e funções
+## <a name="best-practices-for-defining-users-and-roles"></a>Melhores práticas para definir utilizadores e funções
 
-Ao criar as suas autorizações, recomendamos as seguintes melhores práticas:
+Ao criar as suas autorizações, recomendamos as seguintes boas práticas:
 
-- Na maioria dos casos, pretende atribuir permissões a um grupo de utilizadores ou prestador de serviços da Azure AD, em vez de uma série de contas individuais de utilizadores. Isto permite adicionar ou remover o acesso a utilizadores individuais sem ter de atualizar e republicar o plano quando os seus requisitos de acesso mudarem.
-- Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho, ajudando a reduzir a possibilidade de erros inadvertidos. Para mais informações, consulte [práticas de segurança recomendadas.](../concepts/recommended-security-practices.md)
-- Inclua um utilizador com a Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que possa [remover o acesso à delegação](../how-to/remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
-- Certifique-se de que qualquer utilizador que precise [de ver a página dos meus clientes no portal Azure](../how-to/view-manage-customers.md) tem a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Leitor).
+- Na maioria dos casos, irá querer atribuir permissões a um grupo de utilizadores ou ao serviço principal da Azure, em vez de uma série de contas individuais de utilizador. Isto permite-lhe adicionar ou remover o acesso a utilizadores individuais sem ter de atualizar e reeditar o plano quando os seus requisitos de acesso mudarem.
+- Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho, ajudando a reduzir a chance de erros inadvertidos. Para mais informações, consulte [práticas de segurança recomendadas.](../concepts/recommended-security-practices.md)
+- Inclua um utilizador com a [Função de Registo de Registo de Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que possa [remover o acesso à delegação](../how-to/remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no arrendatário do cliente.
+- Certifique-se de que qualquer utilizador que precise de ver a [página dos meus clientes no portal Azure](../how-to/view-manage-customers.md) tem a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Reader).
 
 > [!IMPORTANT]
-> Para adicionar permissões a um grupo Azure AD, o **tipo de grupo** deve ser **segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para mais informações, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser a **Segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça as [práticas de segurança recomendadas para a gestão de recursos delegados do Azure.](recommended-security-practices.md)
-- A bordo dos seus clientes para a gestão de recursos delegados do Azure, quer utilizando modelos de [Gestor de Recursos Azure,](../how-to/onboard-customer.md) quer [publicando uma oferta de serviços geridos pelo público ou privado ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
+- Saiba mais [sobre as práticas de segurança recomendadas para a gestão de recursos delegados da Azure.](recommended-security-practices.md)
+- A bordo dos seus clientes para a Azure delegada gestão de recursos, quer [através da utilização de modelos do Azure Resource Manager,](../how-to/onboard-customer.md) quer através [da publicação de uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)

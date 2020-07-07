@@ -1,6 +1,6 @@
 ---
-title: Emigrar Azure SQL Bases de dados para Azure CosmosDB com Fábrica de Dados Azure
-description: Pegue num esquema de base de dados normalizado existente da Base de Dados Azure SQL e emiba para um recipiente desnormalizado Azure CosmosDB com a Azure Data Factory.
+title: Migrar as tabelas de base de dados do Azure SQL para Azure CosmosDB com Azure Data Factory
+description: Pegue um esquema de base de dados normalizado existente a partir da Base de Dados Azure SQL e migra para um recipiente desnormalizado Azure CosmosDB com Azure Data Factory.
 services: data-factory
 author: kromerm
 ms.service: data-factory
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691889"
 ---
-# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar esquema de base de dados normalizado da Base de Dados Azure SQL para o contentor desnormalizado Azure CosmosDB
+# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar esquemas de base de dados normalizados da Base de Dados Azure SQL para o recipiente desnormalizado Azure CosmosDB
 
-Este guia explicará como pegar num esquema de base de dados normalizado existente na Base de Dados Azure SQL e convertê-lo num esquema desnormalizado do Azure CosmosDB para carregar no Azure CosmosDB.
+Este guia explicará como pegar num esquema de base de dados normalizado existente na Base de Dados Azure SQL e convertê-lo num esquema desnormalizado Azure CosmosDB para carregar em Azure CosmosDB.
 
-Os schemas SQL são tipicamente modelados usando a terceira forma normal, resultando em esquemas normalizados que fornecem altos níveis de integridade de dados e menos valores de dados duplicados. As consultas podem juntar entidades através das mesas para leitura. CosmosDB está otimizado para transações super rápidas e consulta dentro de uma recolha ou contentor através de esquemas desnormalizados com dados auto-contidos dentro de um documento.
+Os esquemas SQL são tipicamente modelados usando a terceira forma normal, resultando em esquemas normalizados que fornecem altos níveis de integridade dos dados e menos valores duplicados de dados. As consultas podem juntar entidades através das tabelas para leitura. CosmosDB é otimizado para transações super-rápidas e consulta dentro de uma recolha ou recipiente através de esquemas desnormalizados com dados autossuficientes dentro de um documento.
 
-Utilizando a Azure Data Factory, vamos construir um oleoduto que utiliza um único Fluxo de Dados de Mapeamento para ler a partir de duas tabelas normalizadas da Base de Dados Azure SQL que contêm chaves primárias e estrangeiras como a relação da entidade. A ADF juntar-se-á a essas tabelas num único fluxo utilizando o motor Spark de fluxo de dados, recolherá linhas unidas em matrizes e produzirá documentos individualmente limpos para inserir num novo recipiente Azure CosmosDB.
+Utilizando a Azure Data Factory, construiremos um oleoduto que utiliza um único Fluxo de Dados de Mapeamento para ler a partir de duas tabelas normalizadas da Base de Dados Azure SQL que contêm chaves primárias e estrangeiras como a relação da entidade. A ADF juntará essas tabelas num único fluxo usando o motor de fluxo de dados Spark, recolherá linhas unidas em matrizes e produzirá documentos limpos individuais para inserir num novo recipiente Azure CosmosDB.
 
-Este guia irá construir um novo recipiente na mosca ```SalesOrderHeader``` chamado ```SalesOrderDetail``` "encomendas" que utilizará as e tabelas da base de dados padrão da amostra SQL Server AdventureWorks. Estas tabelas representam transações ```SalesOrderID```de vendas a que se juntam . Cada registo de detalhes único tem ```SalesOrderDetailID```a sua própria chave primária de . A relação entre o ```1:M```cabeceamento e o detalhe é. Vamos juntar-nos ```SalesOrderID``` à ADF e depois enrolar cada registo de detalhes relacionados numa matriz chamada "detalhe".
+Este guia irá construir um novo recipiente na mosca chamado "encomendas" que utilizará as ```SalesOrderHeader``` tabelas e ```SalesOrderDetail``` tabelas a partir da base de dados padrão de amostras SQL Server AdventureWorks. Estas tabelas representam transações de vendas a que se ```SalesOrderID``` juntam. Cada registo de detalhes único tem a sua própria chave primária ```SalesOrderDetailID``` de. A relação entre cabeçalho e detalhe é ```1:M``` . Vamos juntar-nos à ```SalesOrderID``` ADF e depois lançar cada registo de detalhes relacionados numa matriz chamada "detalhe".
 
 A consulta representativa da SQL para este guia é:
 
@@ -48,63 +48,63 @@ O recipiente CosmosDB resultante incorporará a consulta interna num único docu
 
 1. Selecione **+Novo Pipeline** para criar um novo oleoduto.
 
-2. Adicionar uma atividade de fluxo de dados
+2. Adicione uma atividade de fluxo de dados
 
-3. Na atividade de fluxo de dados, selecione Novo fluxo de **dados de mapeamento**.
+3. Na atividade de fluxo de dados, selecione **Novo fluxo de dados de mapeamento**.
 
 4. Vamos construir este gráfico de fluxo de dados abaixo
 
 ![Gráfico de fluxo de dados](media/data-flow/cosmosb1.png)
 
-5. Defina a fonte para "SourceOrderDetails". Para o conjunto de dados, crie um novo conjunto ```SalesOrderDetail``` de dados azure SQL Database que aponte para a tabela.
+5. Defina a fonte para "SourceOrderDetails". Para conjunto de dados, crie um novo conjunto de dados da Base de Dados Azure SQL que aponta para a ```SalesOrderDetail``` tabela.
 
-6. Defina a fonte para "SourceOrderHeader". Para o conjunto de dados, crie um novo conjunto ```SalesOrderHeader``` de dados azure SQL Database que aponte para a tabela.
+6. Defina a fonte para "SourceOrderHeader". Para conjunto de dados, crie um novo conjunto de dados da Base de Dados Azure SQL que aponta para a ```SalesOrderHeader``` tabela.
 
-7. Na fonte superior, adicione uma transformação de Coluna Derivada após "SourceOrderDetails". Chame a nova transformação "TypeCast". Precisamos dar ```UnitPrice``` a volta à coluna e lançá-la para um tipo de dados duplo para cosmosDB. Definir a fórmula ```toDouble(round(UnitPrice,2))```para: .
+7. Na fonte superior, adicione uma transformação da Coluna Derivada após "SourceOrderDetails". Chame a nova transformação de "TypeCast". Precisamos dar a volta à ```UnitPrice``` coluna e lanhá-la para um tipo de dados duplo para cosmosDB. Desa esta medida: ```toDouble(round(UnitPrice,2))``` .
 
-8. Adicione outra coluna derivada e chame-a de "MakeStruct". É aqui que vamos criar uma estrutura hierárquica para manter os valores da tabela de detalhes. Lembre-se, ```M:1``` detalhes são uma relação com cabeçalho. Nomeie ```orderdetailsstruct``` a nova estrutura e crie a hierarquia desta forma, definindo cada subcoluna no nome da coluna de entrada:
+8. Adicione outra coluna derivada e chame-a de "MakeStruct". É aqui que vamos criar uma estrutura hierárquica para manter os valores da tabela de detalhes. Lembre-se, os detalhes são uma ```M:1``` relação com o cabeçalho. Nomeie a nova estrutura ```orderdetailsstruct``` e crie a hierarquia desta forma, definindo cada subcolumn para o nome da coluna de entrada:
 
 ![Criar Estrutura](media/data-flow/cosmosb9.png)
 
-9. Agora, vamos à fonte de cabeçalho de vendas. Adicione uma transformação de Juntar. Para o lado direito, selecione "MakeStruct". Deixe-o definido para ```SalesOrderID``` unir interiore e escolha para ambos os lados da condição de união.
+9. Agora, vamos para a fonte de cabeçalho de vendas. Adicione uma transformação de Join. Para a seleção do lado direito "MakeStruct". Deixe-o definido para a união interior e escolha ```SalesOrderID``` para ambos os lados da condição de junção.
 
-10. Clique no separador 'Pré-visualização de dados' na nova adesão que adicionou para que possa ver os seus resultados até este ponto. Devia ver todas as linhas de cabeçalho juntas às linhas de detalhe. Este é o resultado da formação da junta a ```SalesOrderID```partir do . Em seguida, combinaremos os detalhes das linhas comuns com os detalhes se estruturam e agregamos as linhas comuns.
+10. Clique no separador Desatenção de Dados na nova junção que adicionou para que possa ver os seus resultados até este ponto. Devias ver todas as linhas de cabeçalho juntas com as linhas de pormenor. Este é o resultado da junção que foi formada a partir do ```SalesOrderID``` . Em seguida, combinaremos os detalhes das linhas comuns para os detalhes estruturam e agregaremos as linhas comuns.
 
 ![Associar](media/data-flow/cosmosb4.png)
 
-11. Antes de podermos criar as matrizes para desnormalizar estas linhas, primeiro precisamos remover colunas indesejadas e certificar-nos de que os valores de dados corresponderão aos tipos de dados cosmosDB.
+11. Antes de podermos criar as matrizes para desnormalizar estas linhas, primeiro precisamos remover colunas indesejadas e certificar-nos de que os valores de dados vão corresponder aos tipos de dados do CosmosDB.
 
-12. Adicione uma transformação Select a seguir e detete o mapeamento de campo para se parecer com este:
+12. Adicione uma transformação Select em seguida e desem este conjunto o mapeamento de campo para ficar assim:
 
 ![Esfregão de coluna](media/data-flow/cosmosb5.png)
 
-13. Agora vamos lançar novamente uma coluna ```TotalDue```de moeda, desta vez. Como fizemos acima no passo 7, ```toDouble(round(TotalDue,2))```definir a fórmula para: .
+13. Agora vamos lançar novamente uma coluna de moeda, desta ```TotalDue``` vez. Como fizemos acima no passo 7, definimos a fórmula para: ```toDouble(round(TotalDue,2))``` .
 
-14. Aqui é onde vamos desnormalizar as linhas agrupando-nos pela chave ```SalesOrderID```comum. Adicione uma transformação agregada ```SalesOrderID```e coloque o grupo em .
+14. Aqui é onde vamos desnormalizar as linhas agrupar-nos pela chave ```SalesOrderID``` comum. Adicione uma transformação agregada e coloque o grupo por ```SalesOrderID``` .
 
-15. Na fórmula agregada, adicione uma nova coluna chamada "detalhes" e use esta fórmula ```orderdetailsstruct``` ```collect(orderdetailsstruct)```para recolher os valores na estrutura que criamos anteriormente chamada: .
+15. Na fórmula agregada, adicione uma nova coluna chamada "detalhes" e use esta fórmula para recolher os valores na estrutura que criamos anteriormente ```orderdetailsstruct``` chamados : ```collect(orderdetailsstruct)``` .
 
-16. A transformação agregada só irá passar colunas que fazem parte do agregado ou grupo por fórmulas. Por isso, temos de incluir as colunas do cabeçalho de vendas também. Para isso, adicione um padrão de coluna na mesma transformação agregada. Este padrão incluirá todas as outras colunas na saída:
+16. A transformação agregada só irá fazer parte de colunas agregadas ou agrupas por fórmulas. Por isso, temos de incluir as colunas do cabeçalho de vendas também. Para isso, adicione um padrão de coluna nessa mesma transformação agregada. Este padrão incluirá todas as outras colunas na saída:
 
 ```instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0```
 
-17. Utilize a sintaxe "esta" nas outras propriedades para que ```first()``` mantenhamos os mesmos nomes de colunas e utilizemos a função como agregado:
+17. Utilize a sintaxe "esta" nas outras propriedades para que mantenhamos os mesmos nomes de colunas e utilizemos a ```first()``` função como agregado:
 
 ![Agregação](media/data-flow/cosmosb6.png)
 
-18. Estamos prontos para terminar o fluxo migratório adicionando uma transformação de afundar. Clique em "novo" ao lado do conjunto de dados e adicione um conjunto de dados CosmosDB que aponta para a sua base de dados CosmosDB. Para a coleção, vamos chamá-lo de "encomendas" e não terá esquemas nem documentos porque será criado no ar.
+18. Estamos prontos para terminar o fluxo de migração adicionando uma transformação de sumidouro. Clique em "novo" ao lado do conjunto de dados e adicione um conjunto de dados CosmosDB que aponta para a sua base de dados CosmosDB. Para a coleção, vamos chamá-lo de "encomendas" e não terá esquema nem documentos porque será criado no voo.
 
-19. Em Definições de ```\SalesOrderID``` Sink, Chave de Partição e ação de recolha para "recriar". Certifique-se de que o seu separador de mapeamento é assim:
+19. Nas Definições de Sink, Chave de partição ```\SalesOrderID``` e ação de recolha para "recriar". Certifique-se de que o separador de mapeamento é assim:
 
-![Definições de sumidouro](media/data-flow/cosmosb7.png)
+![Configurações do lavatório](media/data-flow/cosmosb7.png)
 
 20. Clique na pré-visualização de dados para se certificar de que está a ver estas 32 linhas definidas para inserir como novos documentos no seu novo recipiente:
 
-![Definições de sumidouro](media/data-flow/cosmosb8.png)
+![Configurações do lavatório](media/data-flow/cosmosb8.png)
 
-Se tudo estiver bem, está agora pronto para criar um novo oleoduto, adicionar esta atividade de fluxo de dados a esse pipeline e executá-lo. Pode executar a partir de depuração ou de uma execução desencadeada. Após alguns minutos, deverá ter um novo recipiente desnormalizado de encomendas chamado "encomendas" na sua base de dados CosmosDB.
+Se tudo estiver bem, está agora pronto para criar um novo oleoduto, adicione esta atividade de fluxo de dados a esse oleoduto e execute-o. Pode executar a partir de depurado ou uma corrida desencadeada. Após alguns minutos, deverá ter um novo recipiente de encomendas desnormalizado chamado "encomendas" na sua base de dados CosmosDB.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Construa o resto da sua lógica de fluxo de dados utilizando transformações de [fluxos](concepts-data-flow-overview.md)de dados de mapeamento.
-* [Descarregue o modelo](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/SQL%20Orders%20to%20CosmosDB.zip) de pipeline completo para este tutorial e importe o modelo para a sua fábrica.
+* Construa o resto da sua lógica de fluxo de dados utilizando [transformações](concepts-data-flow-overview.md)de fluxos de dados de mapeamento.
+* [Descarregue o modelo de pipeline completo](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/SQL%20Orders%20to%20CosmosDB.zip) para este tutorial e importe o modelo para a sua fábrica.

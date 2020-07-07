@@ -1,20 +1,20 @@
 ---
-title: Conjuntos de escala de máquina seleção azul
+title: Azure escala de máquina virtual define visão geral
 description: Saiba mais informações sobre os conjuntos de dimensionamento de máquinas virtuais e como dimensionar automaticamente as suas aplicações
 author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: ''
-ms.date: 09/26/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 986a2722515ac49aad9e655d1dcef06f5ce2e3dc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7194db473e0171fa3429e3cf6b34c3161493ff23
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856276"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou a uma agenda definida. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -28,7 +28,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
 - **Facilidade em criar e gerir múltiplas VMs**
     - Quando tiver muitas VMs a executar a sua aplicação, é importante manter uma configuração consistente em todo o ambiente. Para um desempenho fiável da sua aplicação, o tamanho das VMs, a configuração de discos e as instalações de aplicações deverão ser iguais em todas as VMs.
     - Com os conjuntos de dimensionamento, todas as instâncias de VMs são criadas a partir da mesma configuração e imagem do SO de base. Esta abordagem permite-lhe facilmente gerir centenas de VMs sem gestão de rede ou tarefas de configuração adicionais.
-    - Os conjuntos de escala suportam a utilização do equilibrador de [carga Azure](../load-balancer/load-balancer-overview.md) para distribuição básica de tráfego camada 4, e [Gateway de aplicação Azure](../application-gateway/application-gateway-introduction.md) para uma distribuição de tráfego mais avançada de camada 7 e terminação TLS.
+    - Os conjuntos de escala suportam a utilização do equilibrador de [carga Azure](../load-balancer/load-balancer-overview.md) para distribuição básica de tráfego em camadas 4, e [gateway de aplicação Azure](../application-gateway/application-gateway-introduction.md) para uma distribuição de tráfego de camadas 7 mais avançada e terminação TLS.
 
 - **Fornece disponibilidade elevada e resiliência de aplicações**
     - Os conjuntos de dimensionamento são utilizados para executar múltiplas instâncias da sua aplicação. Se uma destas instâncias de VM tiver um problema, os clientes continuarão a aceder à sua aplicação através de uma das outras instâncias de VMs com interrupções mínimas.
@@ -39,8 +39,8 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
     - O dimensionamento automático também minimiza o número de instâncias de VM desnecessárias que executam a aplicação quando a procura está reduzida, ao passo que os clientes continuam a receber um nível de desempenho aceitável à medida que a procura aumenta e mais instâncias de VMs são automaticamente adicionadas. Esta capacidade ajuda a reduzir custos e, de forma eficiente, criar recursos do Azure conforme necessário.
 
 - **Funciona em grande escala**
-    - Os conjuntos de dimensionamento suportam até 1000 instâncias de VMs. Se criar e carregar as suas próprias imagens VM personalizadas, o limite é de 600 instâncias VM.
-    - Para obter o melhor desempenho com cargas de trabalho de produção, utilize [discos geridos azure](../virtual-machines/windows/managed-disks-overview.md).
+    - Os conjuntos de dimensionamento suportam até 1000 instâncias de VMs. Se criar e carregar as suas próprias imagens VM personalizadas, o limite é de 600 VM.
+    - Para obter o melhor desempenho com cargas de trabalho de produção, utilize [discos geridos Azure](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Diferenças entre máquinas virtuais e conjuntos de dimensionamento
@@ -57,11 +57,11 @@ Os conjuntos de dimensionamento não têm custos adicionais. Só tem de pagar os
 
 ## <a name="how-to-monitor-your-scale-sets"></a>Como monitorizar os seus conjuntos de escala
 
-Utilize o [Monitor Azure para VMs,](../azure-monitor/insights/vminsights-overview.md)que tem um processo de embarque simples e automatizará a recolha de importantes contadores de CPU, memória, disco e desempenho da rede dos VMs no seu conjunto de escala. Também inclui capacidades de monitorização adicionais e visualizações pré-definidas que o ajudam a focar-se na disponibilidade e desempenho dos seus conjuntos de escala.
+Utilize [o Azure Monitor para VMs,](../azure-monitor/insights/vminsights-overview.md)que tem um processo de embarque simples e automatizará a recolha de importantes contadores de desempenho cpu, memória, disco e rede dos VMs no seu conjunto de escala. Também inclui capacidades de monitorização adicionais e visualizações pré-definidas que o ajudam a concentrar-se na disponibilidade e desempenho dos seus conjuntos de escala.
 
-Ative a monitorização da [aplicação](../azure-monitor/app/azure-vm-vmss-apps.md) de conjunto de escala de máquina virtual com Insights de Aplicação para recolher informações detalhadas sobre a sua aplicação, incluindo visualizações de páginas, pedidos de aplicação e exceções. Verifique ainda a disponibilidade da sua aplicação configurando um [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego do utilizador.
+Habilitar a monitorização da [sua aplicação de conjunto de escala de máquina virtual](../azure-monitor/app/azure-vm-vmss-apps.md) com Application Insights para recolher informações detalhadas sobre a sua aplicação, incluindo visualizações de páginas, pedidos de aplicações e exceções. Verifique ainda a disponibilidade da sua aplicação configurando um [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego do utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para começar, crie o seu primeiro conjunto de dimensionamento de máquinas virtuais no portal do Azure.
 
 > [!div class="nextstepaction"]

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d522d8dd20fb8e1e781f0b13ccdbc4fd98f1727c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ebc3cf8e131efbd8d315942c42325c3720586ae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80321710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85853189"
 ---
 > [!NOTE]
-> Este artigo utiliza a versão mais recente da extensão Azure IoT, chamada `azure-iot`. A versão antiga `azure-iot-cli-ext`chama-se . Só deve ter uma versão instalada de cada vez. Pode utilizar o `az extension list` comando para validar as extensões atualmente instaladas.
+> Este artigo utiliza a versão mais recente da extensão Azure IoT, chamada `azure-iot` . A versão do legado chama-se `azure-cli-iot-ext` . Só deve ter uma versão instalada de cada vez. Pode utilizar o comando `az extension list` para validar as extensões atualmente instaladas.
 >
 > Utilize `az extension remove --name azure-cli-iot-ext` para remover a versão antiga da extensão.
 >
 > Utilize `az extension add --name azure-iot` para adicionar a nova versão da extensão. 
 >
-> Para ver que extensões instalou, utilize. `az extension list`
+> Para ver que extensões instalou, use `az extension list` .
 >

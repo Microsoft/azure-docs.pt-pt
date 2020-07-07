@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas com cluster Apache Spark em Azure HDInsight
-description: Conheça questões relacionadas com os clusters Apache Spark no Azure HDInsight e como trabalhar em torno deles.
+title: Problemas de resolução de problemas com o cluster Apache Spark em Azure HDInsight
+description: Conheça as questões relacionadas com os clusters Apache Spark em Azure HDInsight e como trabalhar em torno deles.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,46 +9,46 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494527"
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Questões conhecidas para cluster Apache Spark no HDInsight
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster Apache Spark em HDInsight
 
-Este documento acompanha todas as questões conhecidas para a pré-visualização pública da HDInsight Spark.  
+Este documento acompanha todos os problemas conhecidos para a pré-visualização pública do HDInsight Spark.  
 
-## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy divulga sessão interativa
-Quando [apache Livy](https://livy.incubator.apache.org/) recomeça (de [Apache Ambari](https://ambari.apache.org/) ou por causa do reinicialização da máquina virtual do headnode 0) com uma sessão interativa ainda viva, uma sessão de trabalho interativa é vazada. Como resultado, novos empregos podem ficar presos no Estado aceite.
+## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy vaza sessão interativa
+Quando [a Apache Livy](https://livy.incubator.apache.org/) recomeçar (de [Apache Ambari](https://ambari.apache.org/) ou por causa do reboot da máquina virtual headnode 0) com uma sessão interativa ainda viva, uma sessão de trabalho interativa é vazada. Como resultado, novos empregos podem ficar presos no Estado Aceite.
 
-**Atenuação:**
+**Mitigação:**
 
 Utilize o seguinte procedimento para contornar a questão:
 
-1. Ssh no nó de cabeça. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Ssh em cabeçanode. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Executar o seguinte comando para encontrar as identificações de aplicação dos trabalhos interativos iniciados através da Livy.
 
         yarn application –list
 
-    Os nomes de emprego padrão serão Livy se os trabalhos foram iniciados com uma sessão interativa da Livy sem nomes explícitos especificados. Para a sessão livy iniciada por [Jupyter Notebook,](https://jupyter.org/)o nome do trabalho começa com `remotesparkmagics_*`.
+    Os nomes de emprego predefinidos serão Livy se os trabalhos forem iniciados com uma sessão interativa livy sem nomes explícitos especificados. Para a sessão Livy iniciada por [Jupyter Notebook,](https://jupyter.org/)o nome do trabalho começa por `remotesparkmagics_*` .
 
-3. Mande o seguinte comando para matar os empregos.
+3. Executar o seguinte comando para matar aqueles trabalhos.
 
         yarn application –kill <Application ID>
 
 Novos empregos começam a funcionar.
 
-## <a name="spark-history-server-not-started"></a>Spark History Server não começou
+## <a name="spark-history-server-not-started"></a>Spark History Server ainda não começou
 O Spark History Server não é iniciado automaticamente após a criação de um cluster.  
 
-**Atenuação:**
+**Mitigação:**
 
-Inicie manualmente o servidor de histórico de Ambari.
+Inicie manualmente o servidor de história de Ambari.
 
-## <a name="permission-issue-in-spark-log-directory"></a>Emissão de permissão no diretório de log Spark
-Hdiuser obtém o seguinte erro ao submeter um trabalho usando spark-submit:
+## <a name="permission-issue-in-spark-log-directory"></a>Emissão de permissão no diretório de registo spark
+hdiuser obtém o seguinte erro ao submeter um trabalho usando spark-submit:
 
 ```
 java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
@@ -56,10 +56,10 @@ java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permissio
 
 E nenhum registo de motorista está escrito.
 
-**Atenuação:**
+**Mitigação:**
 
 1. Adicione hdiuser ao grupo Hadoop.
-2. Forneça 777 permissões em /var/log/faísca após a criação do cluster.
+2. Fornecer 777 permissões em /var/log/faísca após a criação do cluster.
 3. Atualize a localização do registo de faíscas usando Ambari para ser um diretório com 777 permissões.  
 4. Executar spark-submit como sudo.  
 
@@ -67,76 +67,76 @@ E nenhum registo de motorista está escrito.
 
 Os clusters HDInsight Spark não suportam o conector Spark-Phoenix.
 
-**Atenuação:**
+**Mitigação:**
 
-Em vez disso, deve utilizar o conector Spark-HBase. Para obter as instruções, consulte Como utilizar o [conector Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Em vez disso, tem de utilizar o conector Spark-HBase. Para obter as instruções, consulte [como utilizar o conector Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
-## <a name="issues-related-to-jupyter-notebooks"></a>Questões relacionadas com cadernos jupyter
+## <a name="issues-related-to-jupyter-notebooks"></a>Questões relacionadas com cadernos Jupyter
 
 Seguem-se algumas questões conhecidas relacionadas com os cadernos jupyter.
 
-### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Cadernos com caracteres não-ASCII em nomes de ficheiros
+### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Cadernos com caracteres não ASCII em apelidos de ficheiros
 
-Não utilize caracteres não-ASCII em nomes de ficheiros de cadernos Jupyter. Se tentar fazer o upload de um ficheiro através do Jupyter UI, que tem um nome de ficheiro não-ASCII, falha sem qualquer mensagem de erro. Jupyter não permite carregar o ficheiro, mas também não lança um erro visível.
+Não utilize caracteres não ASCII em ficheiros de portátil Jupyter. Se tentar fazer o upload de um ficheiro através do Jupyter UI, que tem um nome de ficheiro não ASCII, falha sem qualquer mensagem de erro. O Jupyter não te deixa carregar o ficheiro, mas também não lança um erro visível.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar cadernos de tamanhos maiores
 
-Pode ver um **`Error loading notebook`** erro quando carrega cadernos de maior dimensão.  
+Pode ver um erro **`Error loading notebook`** quando carregar cadernos com tamanho maior.  
 
-**Atenuação:**
+**Mitigação:**
 
-Se tiver este erro, não significa que os seus dados sejam corruptos ou perdidos.  Os seus cadernos ainda `/var/lib/jupyter`estão em disco e pode entrar no cluster para aceder aos mesmos. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Se cometer este erro, não significa que os seus dados são corruptos ou perdidos.  Os seus cadernos ainda estão no `/var/lib/jupyter` disco, e pode entrar no cluster para aceder aos mesmos. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Uma vez ligado ao cluster utilizando SSH, pode copiar os seus cadernos do seu cluster para a sua máquina local (utilizando SCP ou WinSCP) como cópia de segurança para evitar a perda de quaisquer dados importantes no caderno. Em seguida, você pode então túnel SSH para o seu headnode no porto 8001 para aceder a Jupyter sem passar pelo portal.  A partir daí, pode limpar a saída do seu caderno e reguardá-lo para minimizar o tamanho do caderno.
+Uma vez ligado ao cluster utilizando o SSH, pode copiar os seus cadernos do seu cluster para a sua máquina local (utilizando o SCP ou o WinSCP) como uma cópia de segurança para evitar a perda de quaisquer dados importantes no caderno. Em seguida, pode entrar no túnel SSH na sua cabeçanode no porto 8001 para aceder a Jupyter sem passar pelo portal.  A partir daí, pode limpar a saída do seu caderno e resserí-lo para minimizar o tamanho do caderno.
 
 Para evitar que este erro aconteça no futuro, deve seguir algumas boas práticas:
 
-* É importante manter o tamanho do caderno pequeno. Qualquer saída dos seus trabalhos spark que é enviado de volta para Jupyter é persistiu no caderno.  É uma boa prática com jupyter `.collect()` em geral para evitar correr em grandes RDD's ou dataframes; em vez disso, se quiser espreitar o conteúdo `.take()` de `.sample()` um DDR, considere correr ou para que a sua saída não fique muito grande.
+* É importante manter o tamanho do caderno pequeno. Qualquer produção dos seus trabalhos de Faísca que seja enviada de volta para Jupyter é persistiu no caderno.  É uma boa prática com a Jupyter em geral para evitar correr `.collect()` em grandes rdd's ou dataframes; em vez disso, se quiser espreitar o conteúdo de um RDD, considere correr `.take()` ou para que a sua saída não fique muito `.sample()` grande.
 * Além disso, quando guardar um caderno, limpe todas as células de saída para reduzir o tamanho.
 
-### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Startup inicial do caderno demora mais tempo do que o esperado
+### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Startup inicial de blocos de notas demora mais do que o esperado
 
-A primeira declaração de código no caderno Jupyter usando a magia spark pode demorar mais de um minuto.  
+A primeira declaração de código no caderno do Jupyter usando magia Spark pode demorar mais de um minuto.  
 
 **Explicação:**
 
-Isto acontece porque quando a primeira célula de código é executada. Em segundo plano, esta inicia a configuração da sessão e os contextos Spark, SQL e Hive são definidos. Depois destes contextos serem definidos, a primeira declaração é executada e isso dá a impressão de que a declaração demorou muito tempo a ser completada.
+Isto acontece porque quando a primeira célula de código é executada. No fundo, esta configuração de sessão inicia e os contextos Spark, SQL e Hive são definidos. Depois de definidos estes contextos, a primeira declaração é executada e isso dá a impressão de que a declaração demorou muito tempo a ser concluída.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo livre do caderno jupyter na criação da sessão
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de caderneta jupyter na criação da sessão
 
-Quando o cluster Spark estiver sem recursos, os núcleos Spark e PySpark no caderno Jupyter vão cronometrar para tentar criar a sessão.
+Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no caderno Jupyter vão ficar para tentar criar a sessão.
 
-**Atenuações:**
+**Mitigações:**
 
 1. Liberte alguns recursos no seu cluster Spark por:
 
-   * Parar outros cadernos Spark indo para o menu Close and Halt ou clicando em Shutdown no explorador de cadernos.
-   * Parar outras aplicações spark da ARN.
+   * Parar outros cadernos Spark indo para o menu Close and Halt ou clicando em Desligar no explorador de portátil.
+   * Parar outras aplicações spark da YARN.
 
-2. Reinicie o caderno que estava a tentar ligar. Recursos suficientes devem estar disponíveis para criar uma sessão agora.
+2. Reinicie o caderno que estava a tentar ligar. Recursos suficientes devem estar disponíveis para que crie uma sessão agora.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
 
-* [Apache Spark com BI: Realizar análise interativa de dados utilizando spark in HDInsight com ferramentas BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para analisar a temperatura do edifício utilizando dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para prever resultados da inspeção alimentar](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de log do site usando Apache Spark em HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark com BI: Realizar análise de dados interativas usando Spark in HDInsight com ferramentas BI](apache-spark-use-bi-tools.md)
+* [Faísca Apache com Machine Learning: Use faísca em HDInsight para analisar a temperatura do edifício usando dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Faísca Apache com Machine Learning: Use faísca em HDInsight para prever os resultados da inspeção alimentar](apache-spark-machine-learning-mllib-ipython.md)
+* [Análise de registo do site usando Apache Spark em HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
+* [Executar trabalhos remotamente em um aglomerado Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilize o Plugin de Ferramentas HDInsight para intelliJ IDEA para depurar aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use os cadernos Apache Zeppelin com um cluster Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o portátil Jupyter no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utilize ferramentas HDInsight Plugin para IntelliJ IDEA para depurar as aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

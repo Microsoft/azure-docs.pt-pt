@@ -1,6 +1,6 @@
 ---
-title: Eventos schemas — Azure Event Grid IoT Edge [ Microsoft Docs
-description: Schemas de eventos em Event Grid em IoT Edge.
+title: Esquemas de eventos — Azure Event Grid IoT Edge / Microsoft Docs
+description: Esquemas de eventos em Grade de Eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,28 +10,28 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73242462"
 ---
 # <a name="event-schemas"></a>Esquemas de eventos
 
-O módulo Event Grid aceita e entrega eventos em formato JSON. Existem atualmente três esquemas que são apoiados pela Event Grid: -
+O módulo Event Grid aceita e entrega eventos em formato JSON. Existem atualmente três esquemas que são suportados pela Grade de Eventos: -
 
 * **EventGridSchema**
 * **CustomSchema**
 * **CloudEventSchema**
 
-Pode configurar o esquema a que uma editora deve estar em conformidade durante a criação de tópicos. Se não especificado, não se aplica ao **EventGridSchema**. Eventos que não estejam em conformidade com o esquema esperado serão rejeitados.
+Pode configurar o esquema a que um editor deve estar em conformidade durante a criação de tópicos. Se não for especificado, é padrão para **EventGridSchema**. Eventos que não se conformam com o esquema esperado serão rejeitados.
 
-Os assinantes também podem configurar o esquema no qual querem que os eventos sejam entregues. Se não especificado, o padrão é o esquema do tópico.
+Os subscritores também podem configurar o esquema em que pretendem que os eventos sejam entregues. Se não for especificado, o padrão é o esquema do tópico.
 Atualmente, o esquema de entrega de assinantes tem de corresponder ao esquema de entrada do seu tópico. 
 
-## <a name="eventgrid-schema"></a>Esquema EventGrid
+## <a name="eventgrid-schema"></a>Esquema eventGrid
 
-EventGrid schema consiste num conjunto de propriedades necessárias às qual uma entidade editorial deve estar em conformidade. Cada editora tem de povoar os campos de alto nível.
+O esquema eventGrid consiste num conjunto de propriedades necessárias às quais uma entidade editorial deve estar em conformidade. Cada editor tem que preencher os campos de alto nível.
 
 ```json
 [
@@ -50,20 +50,20 @@ EventGrid schema consiste num conjunto de propriedades necessárias às qual uma
 ]
 ```
 
-### <a name="eventgrid-schema-properties"></a>Propriedades de esquemas EventGrid
+### <a name="eventgrid-schema-properties"></a>Propriedades de esquema EventGrid
 
 Todos os eventos têm os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Necessário | Descrição |
 | -------- | ---- | ----------- |-----------
-| tópico | string | Não | Deve coincidir com o tópico em que é publicado. Event Grid povoa-o com o nome do tópico em que é publicado se não especificado. |
-| Assunto | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Sim | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
-| eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | string | Não | Identificador único para o evento. |
-| data | objeto | Não | Usado para capturar dados de eventos específicos para a entidade editorial. |
-| dataVersion | string | Sim | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | Não | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
+| tópico | cadeia (de carateres) | No | Deve coincidir com o tópico em que é publicado. O Event Grid povoa-o com o nome do tópico sobre o qual é publicado se não for especificado. |
+| Assunto | string | Yes | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Yes | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
+| eventTime | string | Yes | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | cadeia (de carateres) | No | Identificador único para o evento. |
+| dados | objeto | No | Usado para capturar dados de eventos específicos da entidade editorial. |
+| dataVersion | string | Yes | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia (de carateres) | No | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemplo — EventoGrid schema event
 
@@ -83,15 +83,15 @@ Todos os eventos têm os seguintes dados de alto nível:
 ]
 ```
 
-## <a name="customevent-schema"></a>Esquema customEvent
+## <a name="customevent-schema"></a>Esquema de evento personalizado
 
-Em esquemas personalizados, não existem propriedades obrigatórias que sejam aplicadas como o esquema EventGrid. A entidade editorial pode controlar totalmente o esquema do evento. Proporciona a máxima flexibilidade e permite cenários em que já existe um sistema baseado em eventos e gostaria de reutilizar os eventos existentes e/ou não querer ser ligado a um esquema específico.
+No esquema personalizado, não existem propriedades obrigatórias que sejam aplicadas como o esquema EventGrid. A entidade editorial pode controlar totalmente o esquema do evento. Proporciona a máxima flexibilidade e permite cenários em que você tem um sistema baseado em eventos já em vigor e gostaria de reutilizar eventos existentes e/ou não quer ser ligado a um esquema específico.
 
-### <a name="custom-schema-properties"></a>Propriedades de esquemas personalizados
+### <a name="custom-schema-properties"></a>Propriedades de esquema personalizado
 
-Sem propriedades obrigatórias. Cabe à entidade editorial determinar a carga.
+Sem propriedades obrigatórias. Cabe à entidade editorial determinar a carga útil.
 
-### <a name="example--custom-schema-event"></a>Exemplo — Evento Schema Personalizado
+### <a name="example--custom-schema-event"></a>Exemplo — Evento De Schema Personalizado
 
 ```json
 [
@@ -106,13 +106,13 @@ Sem propriedades obrigatórias. Cabe à entidade editorial determinar a carga.
 
 ## <a name="cloudevent-schema"></a>Esquema cloudEvent
 
-Além dos schemas acima, event grid apoia nativamente eventos no [esquema CloudEvents JSON](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents é uma especificação aberta para descrever dados do evento. Simplifica a interoperabilidade fornecendo um esquema comum de eventos para a publicação e consumo de eventos. Faz parte do [CNCF](https://www.cncf.io/) e a versão atualmente disponível é de 1.0-rc1.
+Além dos esquemas acima referidos, a Event Grid suporta de forma nativa eventos no [esquema do CloudEvents JSON.](https://github.com/cloudevents/spec/blob/master/json-format.md) CloudEvents é uma especificação aberta para descrever dados de eventos. Simplifica a interoperabilidade, fornecendo um esquema comum de eventos para a publicação e consumo de eventos. Faz parte do [CNCF](https://www.cncf.io/) e a versão atualmente disponível é 1.0-rc1.
 
-### <a name="cloudevent-schema-properties"></a>Propriedades de esquema sinuoso CloudEvent
+### <a name="cloudevent-schema-properties"></a>Propriedades de esquema CloudEvent
 
 Consulte a [especificação CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) sobre as propriedades obrigatórias do envelope.
 
-### <a name="example--cloud-event"></a>Exemplo - evento em nuvem
+### <a name="example--cloud-event"></a>Exemplo — evento na nuvem
 ```json
 [{
        "id": "1807",
