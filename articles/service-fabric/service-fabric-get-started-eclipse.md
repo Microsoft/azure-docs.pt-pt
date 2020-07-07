@@ -1,15 +1,15 @@
 ---
-title: Plug-in azure service Fabric para Eclipse
-description: Aprenda a começar com o Azure Service Fabric em Java usando o eclipse e o Tecido de Serviço forneceu plug-in.
+title: Plug-in de tecido de serviço Azure para Eclipse
+description: Saiba como começar com o Azure Service Fabric em Java usando o eclipse e o Tecido de Serviço fornecido plug-in.
 author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.openlocfilehash: d37c7be65eb0c03065c095196a6fec39a2509a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193433"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse
@@ -30,12 +30,12 @@ Pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajudar a s
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse, em vez de utilizar um instalador de pacote (`apt` ou `apt-get`). Se o fizer, assegura que obtém a versão mais recente do Eclipse. 
 
 Instale o Eclipse Neon ou posterior a partir do [site do Eclipse](https://www.eclipse.org).  Instale também a versão 2.2.1 ou posterior do Buildship (o plug-in do Service Fabric não é compatível com versões anteriores do Buildship):
--   Para verificar as versões dos componentes instalados, no Eclipse, vá **ajudar** > sobre detalhes de**instalação****do Eclipse** > .
+-   Para verificar as versões dos componentes instalados, em Eclipse, vá a **Help**  >  **About Eclipse**Installation  >  **Details**.
 -   Para atualizar o Buildship, veja [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
--   Para verificar e instalar atualizações para eclipse, vá à **Help** > **Check for Updates**.
+-   Para verificar e instalar atualizações para eclipse, vá ao **Help**  >  **Check for Updates**.
 
-Instale o plug-in de tecido de serviço, em Eclipse, vá **para ajudar a** > **instalar novo software**.
-1. No **Trabalho com** caixa,\/insira https: /dl.microsoft.com/eclipse.
+Instale o plug-in de tecido de serviço, em Eclipse, vá **para ajudar a**instalar novo  >  **software**.
+1. No **Trabalho com** caixa, insira https: \/ /dl.microsoft.com/eclipse.
 2. Clique em **Adicionar**.
 
    ![Plug-in do Service Fabric para Eclipse][sf-eclipse-plugin-install]
@@ -43,12 +43,12 @@ Instale o plug-in de tecido de serviço, em Eclipse, vá **para ajudar a** > **i
 4. Conclua os passos de instalação e aceite os Termos de Licenciamento para Software Microsoft.
   
 Se já tiver o plug-in do Service Fabric instalado, instale a versão mais recente. 
-1. Para verificar se há novidades disponíveis, consulte **a Help** > **About Eclipse** > **Installation Details**. 
+1. Para verificar as atualizações disponíveis, vá a **Help**  >  **About Eclipse**Installation  >  **Details**. 
 2. Na lista de plug-ins instalados, selecione Service Fabric e clique em **Atualizar**. As atualizações disponíveis são instaladas.
 3. Depois de atualizar o plug-in do Service Fabric, atualize também o projeto do Gradle.  Clique com o botão direito do rato em **build.gradle** e, em seguida, selecione **Atualizar**.
 
 > [!NOTE]
-> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, tal poderá dever-se a uma definição do Eclipse. O Eclipse recolhe metadados sobre todas as alterações para atualizar os sites que estão registados na sua instância do Eclipse. Para acelerar o processo de procurar e instalar uma atualização do plug-in do Service Fabric, aceda a **Sites de Software Disponíveis**. Limpe as caixas de verificação de todos os sites, exceto aquela\/que aponta para a localização plug-in do Tecido de Serviço (https: /dl.microsoft.com/eclipse/azure/servicefabric).
+> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, tal poderá dever-se a uma definição do Eclipse. O Eclipse recolhe metadados sobre todas as alterações para atualizar os sites que estão registados na sua instância do Eclipse. Para acelerar o processo de procurar e instalar uma atualização do plug-in do Service Fabric, aceda a **Sites de Software Disponíveis**. Limpe as caixas de verificação para todos os sites, exceto para o que aponta para o local de plug-in do Tecido de Serviço (https: \/ /dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Se o Eclipse não estiver a funcionar conforme esperado no Mac (ou se precisar que utilize o perfil de superutilizador), aceda à pasta **ECLIPSE_INSTALLATION_PATH** e navegue para a subpasta **Eclipse.app/Contents/MacOS**. Abra o Eclipse mediante a execução de `./eclipse`.
@@ -56,7 +56,7 @@ Se já tiver o plug-in do Service Fabric instalado, instale a versão mais recen
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Criar uma aplicação do Service Fabric no Eclipse
 
-1.  Em Eclipse, vá a **File** > **New** > **Other**. Selecione **Service Fabric Project** (Projeto do Service Fabric) e clique em **Next** (Seguinte).
+1.  Em Eclipse, vá para **File**  >  **New**  >  **Other**. Selecione **Service Fabric Project** (Projeto do Service Fabric) e clique em **Next** (Seguinte).
 
     ![Página 1 de Novo Projeto do Service Fabric][create-application/p1]
 
@@ -80,7 +80,7 @@ Se já tiver o plug-in do Service Fabric instalado, instale a versão mais recen
 
     ![Página 6 de Novo Projeto do Service Fabric][create-application/p6]
 
-## <a name="build-a-service-fabric-application-in-eclipse"></a>Construa uma aplicação de Tecido de Serviço em Eclipse
+## <a name="build-a-service-fabric-application-in-eclipse"></a>Construa uma aplicação de tecido de serviço em Eclipse
 
 1.  Clique com o botão direito na aplicação do Service Fabric nova e selecione **Service Fabric**.
 
@@ -93,47 +93,47 @@ Se já tiver o plug-in do Service Fabric instalado, instale a versão mais recen
      
 ## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Implementar uma aplicação de Tecido de Serviço para o cluster local com Eclipse
 
-Depois de ter construído a sua aplicação Service Fabric, siga estes passos para implantá-lo para o cluster local.
+Depois de ter construído a sua aplicação Service Fabric, siga estes passos para a implantar no cluster local.
 
-1. Se ainda não iniciou o cluster local, siga as instruções em [conjunto com um cluster local](./service-fabric-get-started-linux.md#set-up-a-local-cluster) para iniciar o seu cluster local e certifique-se de que está em funcionamento.
-2. Clique à direita na aplicação Service Fabric e, em seguida, selecione **Tecido de Serviço**.
+1. Se ainda não iniciou o agrupamento local, siga as instruções da [Configuração de um cluster local](./service-fabric-get-started-linux.md#set-up-a-local-cluster) para iniciar o seu cluster local e certifique-se de que está a funcionar.
+2. Clique com o botão direito na aplicação 'Service Fabric' e, em seguida, selecione **O Tecido de Serviço**.
 
     ![Menu de clique com o botão direito do rato do Service Fabric][publish/RightClick]
 
-3.  A partir do menu de contexto, clique em **Implementar Aplicação**.
-4.  Pode acompanhar o progresso da operação de implantação na janela consola.
-5.  Para verificar se a sua aplicação está em execução, `http://localhost:19080/Explorer`abra o Service Fabric Explorer no seu cluster local numa janela de navegador . Expanda o nó de **Aplicações** e certifique-se de que a sua aplicação está em execução. 
+3.  A partir do menu de contexto, clique em **Implementar Aplicação.**
+4.  Pode acompanhar o progresso da operação de implantação na janela Consola.
+5.  Para verificar se a sua aplicação está em execução, abra o Service Fabric Explorer no seu cluster local numa janela do `http://localhost:19080/Explorer` navegador. Expanda o nó **aplicações** e certifique-se de que a sua aplicação está em execução. 
 
-Para aprender a desinserma a sua aplicação em Eclipse utilizando o cluster local, consulte o [serviço Debug a Java em Eclipse](./service-fabric-debugging-your-application-java.md).
+Para aprender a depurar a sua aplicação em Eclipse utilizando o cluster local, consulte o [serviço Debug a Java em Eclipse.](./service-fabric-debugging-your-application-java.md)
 
-Também pode implementar a sua aplicação para o cluster local com o comando **de Publicação de Aplicações:**
+Também pode implementar a sua aplicação no cluster local com o comando **'Aplicação de Publicação':**
 
-1. Clique à direita na aplicação Service Fabric e, em seguida, selecione **Tecido de Serviço**.
+1. Clique com o botão direito na aplicação 'Service Fabric' e, em seguida, selecione **O Tecido de Serviço**.
 2. A partir do menu de contexto, clique em **Publicar Aplicação...**.
-3. Na janela **Publicar Aplicação,** escolha **PublishProfiles/Local.json** como perfil-alvo e clique em **Publicar**.
+3. Na janela **'Aplicação de publicação',** escolha **PublishProfiles/Local.jscomo** perfil-alvo e clique em **Publicar**.
 
     ![Caixa de Diálogo Publicar](./media/service-fabric-get-started-eclipse/localjson.png)
 
-    Por predefinição, o perfil editorial Local.json é criado para publicar no cluster local. Para obter mais informações sobre a ligação e os parâmetros de ponto final presentes nos perfis de publicação, consulte a secção seguinte.
+    Por predefinição, o Local.jsno perfil de publicação é configurado para publicar no cluster local. Para obter mais informações sobre os parâmetros de ligação e ponto final presentes nos perfis de publicação, consulte a secção seguinte.
 
-## <a name="publish-your-service-fabric-application-to-azure-with-eclipse"></a>Publique a sua aplicação De Serviço Fabric para Azure com Eclipse
+## <a name="publish-your-service-fabric-application-to-azure-with-eclipse"></a>Publique a sua aplicação de Tecido de Serviço para Azure com Eclipse
 
 Para publicar a sua aplicação na nuvem, siga estes passos:
 
-1. Para publicar a sua aplicação num cluster seguro na nuvem, precisa de um certificado X.509 para usar para comunicar com o seu cluster. Em ambientes de teste e desenvolvimento, o certificado utilizado é frequentemente o certificado de cluster. Em ambientes de produção, o certificado deve ser um certificado de cliente distinto do certificado de cluster. Precisa tanto do certificado como da chave privada. O ficheiro do certificado (e da chave) deve ser formatado com PEM. Pode criar um ficheiro PEM que contenha o certificado e a chave privada a partir de um ficheiro PFX com o seguinte comando aberto:
+1. Para publicar a sua aplicação num cluster seguro na nuvem, precisa de um certificado X.509 para utilizar para comunicar com o seu cluster. Em ambientes de teste e desenvolvimento, o certificado utilizado é frequentemente o certificado de cluster. Em ambientes de produção, o certificado deve ser um certificado de cliente distinto do certificado de cluster. Precisa do certificado e da chave privada. O ficheiro de certificado (e chave) deve ser formatado por PEM. Pode criar um ficheiro PEM que contenha o certificado e a chave privada a partir de um ficheiro PFX com o seguinte comando openssl:
 
     ```bash
     openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
     ```
 
-   Se o ficheiro PFX não estiver `--passin pass:` protegido por palavra-passe, utilize para o último parâmetro.
+   Se o ficheiro PFX não estiver protegido por palavra-passe, utilize `--passin pass:` para o último parâmetro.
 
-2. Abra o ficheiro **Cloud.json** no diretório **PublishProfiles.** Tem de configurar adequadamente as credenciais de fim do cluster e de segurança para o seu cluster.
+2. Abra a **Cloud.jsno** ficheiro no diretório **do PublishProfiles.** Você precisa configurar o ponto final do cluster e credenciais de segurança adequadamente para o seu cluster.
 
-   - O `ConnectionIPOrURL` campo contém o endereço IP ou URL do seu cluster. Note que o valor não contém`https://`o regime DEURL ( ).
-   - Por defeito, `19080`o campo deve ser, a `ConnectionPort` menos que tenha mudado explicitamente esta porta para o seu cluster.
-   - O `ClientKey` campo deve apontar para um ficheiro .pem ou .key formado em PEM ou .key na sua máquina local que contenha a chave privada para o seu cliente ou certificado de cluster.
-   - O `ClientCert` campo deve apontar para um ficheiro .pem ou .crt formato PEM na sua máquina local que contenha os dados do certificado para o seu cliente ou cluster. certificado. 
+   - O `ConnectionIPOrURL` campo contém o endereço IP ou URL do seu cluster. Note que o valor não contém o sistema URL `https://` ().
+   - Por predefinição, o `ConnectionPort` campo deve ser , a menos que tenha mudado `19080` explicitamente esta porta para o seu cluster.
+   - O `ClientKey` campo deve apontar para um ficheiro PEM-formatado em PEM ou .key na sua máquina local que contenha a chave privada para o seu cliente ou certificado de cluster.
+   - O `ClientCert` campo deve apontar para um ficheiro PEM-pem ou .crt na sua máquina local que contenha os dados do certificado para o seu cliente ou cluster. certificado. 
 
      ```bash
      {
@@ -147,31 +147,31 @@ Para publicar a sua aplicação na nuvem, siga estes passos:
      }
      ```
 
-2. Clique à direita na aplicação Service Fabric e, em seguida, selecione **Tecido de Serviço**.
+2. Clique com o botão direito na aplicação 'Service Fabric' e, em seguida, selecione **O Tecido de Serviço**.
 3. A partir do menu de contexto, clique em **Publicar Aplicação...**.
-3. Na janela **Publicar Aplicação,** escolha **PublishProfiles/Cloud.json** como perfil-alvo e clique em **Publicar**.
+3. Na janela **'Aplicação de publicação',** escolha **PublishProfiles/Cloud.jscomo** perfil-alvo e clique em **Publicar**.
 
     ![Cloud da Caixa de diálogo Publicar](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4. Pode acompanhar o progresso da operação de publicação na janela consola.
-5. Para verificar se a sua aplicação está em execução, abra o Service Fabric Explorer no seu cluster Azure numa janela de navegador. Para o exemplo acima, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`este seria: . Expanda o nó de **Aplicações** e certifique-se de que a sua aplicação está em execução. 
+4. Pode acompanhar o progresso da operação de publicação na janela Consola.
+5. Para verificar se a sua aplicação está em execução, abra o Service Fabric Explorer no seu cluster Azure numa janela do navegador. Para o exemplo acima, isto seria: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer` . Expanda o nó **aplicações** e certifique-se de que a sua aplicação está em execução. 
 
 
-Em clusters Linux seguros, se a sua aplicação contiver serviços de serviços fiáveis, também terá de configurar um certificado que os seus serviços podem usar para chamar APIs de tempo de execução do Tecido de Serviço. Para saber mais, consulte [a Configure uma aplicação De serviços fiáveis para executar em clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
+Em clusters Linux seguros, se a sua aplicação contiver serviços de Serviços Fiáveis, também terá de configurar um certificado que os seus serviços podem usar para chamar APIs de execução de Tecidos de Serviço. Para saber mais, consulte [configurar uma aplicação Reliable Services para executar em clusters Linux.](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)
 
-Para uma rápida caminhada sobre como implementar uma aplicação service Fabric Reliable Services escrita em Java para um cluster Linux seguro, consulte [Quickstart: Implemente uma aplicação Java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
+Para uma rápida caminhada sobre como implementar uma aplicação de Serviços Fiáveis de Tecido de Serviços escrito em Java para um cluster Linux seguro, consulte [Quickstart: Implementar uma aplicação Java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
 
-## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Implementar uma aplicação de Tecido de Serviço utilizando configurações de execução do Eclipse
+## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Implementar uma aplicação de Tecido de Serviço utilizando configurações de execução eclipse
 
 Outra forma de implementar a aplicação do Service Fabric é utilizar configurações de execução do Eclipse.
 
-1. Em Eclipse, vá a Executar**Configurações**de **Execução** > .
+1. Em Eclipse, **Run**vá para  >  **configurações de execução.**
 2. Em **Gradle Project** (Projeto Gradle), selecione a configuração de execução **ServiceFabricDeployer**.
-3. No painel certo, no separador Argumentos, certifique-se de que os **parâmetros** **IP,** **porta,** **clientCert**e **clienteKey** estão definidos adequadamente para a sua implantação. Por padrão, os parâmetros estão definidos para se implantarem no cluster local, como na seguinte imagem. Para publicar a sua aplicação no Azure pode modificar os parâmetros para conter os detalhes do ponto final e credenciais de segurança para o seu cluster Azure. Para mais informações, consulte a secção anterior, [publique a sua aplicação Service Fabric para Azure com Eclipse](#publish-your-service-fabric-application-to-azure-with-eclipse).
+3. No painel direito, no separador Argumentos, certifique-se de que os **parâmetros** **ip,** **porta,** **clienteCert**e **clientKey** estão definidos adequadamente para a sua implantação. Por predefinição, os parâmetros são definidos para implantar no cluster local como na imagem seguinte. Para publicar a sua aplicação no Azure pode modificar os parâmetros para conter os detalhes do ponto final e credenciais de segurança para o seu cluster Azure. Para mais informações, consulte a secção anterior, [publique a sua aplicação Service Fabric no Azure com Eclipse.](#publish-your-service-fabric-application-to-azure-with-eclipse)
 
-    ![Diálogo de configuração de execução local](./media/service-fabric-get-started-eclipse/run-config-local.png)
+    ![Executar diálogo de configuração local](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
-5. Certifique-se de que **o Diretório de Trabalho** aponta para a aplicação que pretende implementar. Para alterar a aplicação, clique no botão **Workspace** (Área de Trabalho) e selecione a aplicação que pretende.
+5. Certifique-se de que **o Diretório de Trabalho** aponta para a aplicação que pretende utilizar. Para alterar a aplicação, clique no botão **Workspace** (Área de Trabalho) e selecione a aplicação que pretende.
 6. Clique em **Apply** (Aplicar) e clique em **Run** (Executar).
 
 A sua aplicação é criada e implementada ao fim de alguns momentos. Pode monitorizar o estado da implementação no Service Fabric Explorer.  
@@ -211,7 +211,7 @@ Em primeiro lugar, faça eventuais alterações à aplicação e, em seguida, re
 
 Para atualizar a aplicação com o Eclipse, pode criar um perfil de configuração de execução duplicado. Em seguida, utilize-o para atualizar a sua aplicação, conforme necessário.
 
-1.  Vá para **executar** > configurações de**execução**. No painel do lado esquerdo, clique na seta pequena à esquerdo de **Gradle Project** (Projeto Gradle).
+1.  Ir para **executar**  >  **configurações de execução**. No painel do lado esquerdo, clique na seta pequena à esquerdo de **Gradle Project** (Projeto Gradle).
 2.  Clique com o botão direito do rato em **ServiceFabricDeployer** e selecione **Duplicate** (Duplicado). Introduza um novo nome para esta configuração, como, por exemplo, **ServiceFabricUpgrader**.
 3.  No painel direito, no separador **Arguments** (Argumentos), altere **-Pconfig='deploy'** para **-Pconfig='upgrade'** e clique em **Apply** (Aplicar).
 
@@ -224,9 +224,9 @@ Recentemente, movemos as bibliotecas Java do Service Fabric do SDK Java do Servi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para dar passos rápidos na construção da aplicação de serviço Java Reliable e implantá-la localmente e para o Azure, consulte [Quickstart: Implemente uma aplicação Java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
-- Para aprender a desinpurar uma aplicação Java no seu cluster local, consulte o [serviço Debug a Java em Eclipse](./service-fabric-debugging-your-application-java.md).
-- Para aprender a monitorizar e diagnosticar aplicações de Tecido de Serviço, consulte [o Monitor e diagnosticar serviços numa configuração de desenvolvimento de máquinas locais.](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+- Para obter passos rápidos na construção da aplicação de serviço Java Reliable e implantá-la localmente e para Azure, consulte [Quickstart: Implemente uma aplicação Java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
+- Para aprender a depurar uma aplicação Java no seu cluster local, consulte [o serviço Debug a Java em Eclipse.](./service-fabric-debugging-your-application-java.md)
+- Para aprender a monitorizar e diagnosticar aplicações de Tecido de Serviço, consulte [os serviços de Monitorização e diagnóstico numa configuração local de desenvolvimento de máquinas.](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
 <!-- Images -->
 

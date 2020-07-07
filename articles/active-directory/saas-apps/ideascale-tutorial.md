@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa50257b785af20ea3a351bd5e40885a0c39eba2
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: cee9bb5d3be6bb8fe5defaa91bce766c8a0f5c05
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605785"
+ms.locfileid: "85798971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integração do Azure Ative Directory com IdeaScale
 
@@ -110,10 +110,10 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        http://<companyname>.ideascale.com
-        https://<companyname>.ideascale.com
-        ```
+    ```http
+    http://<companyname>.ideascale.com
+    https://<companyname>.ideascale.com
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente IdeaScale](https://support.ideascale.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

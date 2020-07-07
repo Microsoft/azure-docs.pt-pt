@@ -2,7 +2,8 @@
 title: Automatização de tarefas
 description: Utilize a Automação de Emprego para executar scripts Transact-SQL (T-SQL) através de um conjunto de uma ou mais bases de dados
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220575"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984664"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,7 +44,7 @@ Existem vários cenários em que se pode utilizar a automação de emprego:
   - Crie empregos que reproduzam alterações escontes feitas nas suas bases de dados para outras bases de dados ou recolha de atualizações es feitas em bases de dados remotas e aplique alterações na base de dados.
   - Crie empregos que carreguem dados de ou para as suas bases de dados utilizando serviços de integração de servidores SQL (SSIS).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Estão disponíveis as seguintes tecnologias de agendamento de emprego:
 
@@ -54,8 +55,8 @@ Vale a pena notar algumas diferenças entre o Agente SQL (disponível no local e
 
 | |Tarefas Elásticas |Agente SQL |
 |---------|---------|---------|
-|Âmbito | Qualquer número de bases de dados na Base de Dados Azure SQL e/ou armazéns de dados na mesma nuvem Azure que o agente de trabalho. Os alvos podem estar em diferentes servidores, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual no mesmo caso que o agente SQL. |
-|APIs e Ferramentas suportadas | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
+|**Âmbito** | Qualquer número de bases de dados na Base de Dados Azure SQL e/ou armazéns de dados na mesma nuvem Azure que o agente de trabalho. Os alvos podem estar em diferentes servidores, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual no mesmo caso que o agente SQL. |
+|**APIs e Ferramentas suportadas** | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Tarefas de SQL Agent
 

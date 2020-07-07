@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975e345f4d11ba16b5a74c44645f110110ca8d43
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05a5c405095a3c045a3bf1dd7c62486ffda73825
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607264"
+ms.locfileid: "85798951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Diretório Ativo Azure com o Fieldglass
 
@@ -110,10 +110,10 @@ Para configurar o Azure AD com fieldglass, execute os seguintes passos:
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://www.fieldglass.net/<company name>
-        https://<company name>.fgvms.com/<company name>
-        ```
+    ```http
+    https://www.fieldglass.net/<company name>
+    https://<company name>.fgvms.com/<company name>
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente Fieldglass](https://www.fieldglass.com/customer-support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

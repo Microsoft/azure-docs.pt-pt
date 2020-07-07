@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2639a52fbd1de266bfa9446bf6106952ba8e3573
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 1b282f8e592ffa6b5c8cb36b2f3b2276bdeb0f58
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606125"
+ms.locfileid: "85799144"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hootsuite"></a>Tutorial: Azure Ative Directory integração única (SSO) com Hootsuite
 
@@ -90,10 +90,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     Na caixa de texto **URL de resposta,** digite qualquer um dos URL utilizando o seguinte padrão:
 
-        ```https
-        https://hootsuite.com/member/sso-complete
-        https://hootsuite.com/sso/<ORG_ID>
-        ```
+    ```http
+    https://hootsuite.com/member/sso-complete
+    https://hootsuite.com/sso/<ORG_ID>
+    ```
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 

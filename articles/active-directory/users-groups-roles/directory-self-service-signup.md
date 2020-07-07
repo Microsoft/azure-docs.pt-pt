@@ -16,10 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23d3d287238d2813f7381941dc279851bc3afdd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84728831"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição de self-service para o Azure Ative Directory?

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c07c518b4898f64e7ef726ec173c7e31083dae7d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: df057ec236b32b1a7e7c0e2b089a6df88433e7ba
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605441"
+ms.locfileid: "85799178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integração do Azure Ative Directory com a sua aprendizagem
 
@@ -107,10 +107,10 @@ Para configurar o Azure AD com a sua aprendizagem, execute os seguintes passos:
 
     a. Na caixa de texto **URL, digite** o URL:
     
-        ```https
-        https://www.itslearning.com/index.aspx
-        https://us1.itslearning.com/index.aspx
-        ```
+    ```http
+    https://www.itslearning.com/index.aspx
+    https://us1.itslearning.com/index.aspx
+    ```
 
     b. Na caixa de texto **identifier (Entity ID),** digite o URL:`urn:mace:saml2v2.no:services:com.itslearning`
 

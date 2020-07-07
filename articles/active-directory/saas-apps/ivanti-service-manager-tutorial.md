@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87ceeeb1a712c37bc74e12e910645013d77e8df6
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 32bccdf538b637b7706824b4cf5499bed63af9dc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605396"
+ms.locfileid: "85799161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integração do Diretório Ativo Azure com o Ivanti Service Manager (ISM)
 
@@ -109,11 +109,11 @@ Para configurar o Azure AD com o Ivanti Service Manager (ISM), execute os seguin
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<customer>.saasit.com/
-        https://<customer>.saasiteu.com/
-        https://<customer>.saasitau.com/
-        ```
+    ```http
+    https://<customer>.saasit.com/
+    https://<customer>.saasiteu.com/
+    https://<customer>.saasitau.com/
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 

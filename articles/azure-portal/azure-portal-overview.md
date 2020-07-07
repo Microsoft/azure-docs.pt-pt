@@ -10,10 +10,10 @@ ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763929"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure

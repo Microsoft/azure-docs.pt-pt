@@ -9,10 +9,10 @@ ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 295b9fc842d926d0a8b264ed5200b60ac7bd2261
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465150"
 ---
 Navegue para a conta de armazenamento para a qual gostaria de restringir todo o acesso ao ponto final público. Na tabela de conteúdos para a conta de armazenamento, selecione **Firewalls e redes virtuais**.

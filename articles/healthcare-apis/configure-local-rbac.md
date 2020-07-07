@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
 ms.openlocfilehash: a8c1b36d6a439297dfb0bbcb34efe059349fc5a2
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871911"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurar o RBAC local para fHIR 

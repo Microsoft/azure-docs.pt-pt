@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f87a80d5300b58b9f888d3e485d5e9dbf90c4a80
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 091129d1fbca4141e9841af6a9991d44a6663801
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608690"
+ms.locfileid: "85799195"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)
 
@@ -129,19 +129,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **identifier,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        google.com/a/<yourdomain.com>
-        google.com
-        https://google.com
-        https://google.com/a/<yourdomain.com>
-        ```
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: 
 
-        ```https
-        https://www.google.com
-        https://www.google.com/a/<yourdomain.com>
-        ```
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
 1. Na secção **De Configuração Básica SAML,** se pretender configurar para a **Plataforma Google Cloud** execute os seguintes passos:
 
@@ -149,19 +149,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **identifier,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        google.com/a/<yourdomain.com>
-        google.com
-        https://google.com
-        https://google.com/a/<yourdomain.com>
-        ```
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
     
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: 
     
-        ```https
-        https://www.google.com
-        https://www.google.com/a/<yourdomain.com>
-        ```
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. O Conector Google Cloud (Suíte G) não fornece o valor de ID/Identificador de Entidade na configuração de sinal único, pelo que quando desmarque a opção **de emitente específico** de domínio, o valor do identificador será `google.com` . Se verificar a opção **de emitente específico** de domínio, será `google.com/a/<yourdomainname.com>` . Para verificar/desmarcar a opção **de emitente específico** de domínio, tem de ir à secção **Configure Google Cloud (G Suite) Connector SSO,** que é explicada mais tarde no tutorial. Para mais informações contacte a equipa de [suporte do Cliente do Conector Google Cloud (G Suite).](https://www.google.com/contact/)
