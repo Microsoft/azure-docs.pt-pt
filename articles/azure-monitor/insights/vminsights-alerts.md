@@ -7,41 +7,41 @@ author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
 ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80289605"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Como criar alertas do Monitor Azure para VMs
-[Os alertas no Monitor Azure](../platform/alerts-overview.md) notificam-no proativamente de dados e padrões interessantes nos seus dados de monitorização. O Monitor Azure para VMs não inclui regras de alerta pré-configuradas, mas pode criar o seu próprio com base em dados que recolhe. Este artigo fornece orientações sobre a criação de regras de alerta, incluindo um conjunto de consultas de amostra.
+# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Como criar alertas do Azure Monitor para VMs
+[Os alertas no Azure Monitor](../platform/alerts-overview.md) notificam-no proativamente de dados e padrões interessantes nos seus dados de monitorização. O Azure Monitor para VMs não inclui regras de alerta pré-configuradas, mas pode criar as suas próprias com base nos dados que recolhe. Este artigo fornece orientações sobre a criação de regras de alerta, incluindo um conjunto de consultas de amostra.
 
 
-## <a name="alert-rule-types"></a>Tipos de regra de alerta
-O Azure Monitor tem [diferentes tipos de regras de alerta](../platform/alerts-overview.md#what-you-can-alert-on) com base nos dados utilizados para criar o alerta. Todos os dados recolhidos pelo Azure Monitor para VMs são armazenados em Registos do Monitor Azure que [suportaalertas de registo](../platform/alerts-log.md). Não é possível utilizar atualmente [alertas métricos](../platform/alerts-log.md) com dados de desempenho recolhidos do Monitor Azure para VMs porque os dados não são recolhidos nas Métricas do Monitor Do Azure. Para recolher dados para alertas métricos, instale a [extensão](../platform/diagnostics-extension-overview.md) de diagnóstico para VMs do Windows ou o [agente Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) para vMs Linux para recolher dados de desempenho em Métricas.
+## <a name="alert-rule-types"></a>Tipos de regras de alerta
+O Azure Monitor tem [diferentes tipos de regras de alerta](../platform/alerts-overview.md#what-you-can-alert-on) com base nos dados utilizados para criar o alerta. Todos os dados recolhidos pelo Azure Monitor para VMs são armazenados em Registos monitores Azure que suportam [alertas de registo .](../platform/alerts-log.md) Não é possível utilizar [atualmente alertas métricos](../platform/alerts-log.md) com dados de desempenho recolhidos do Azure Monitor para VMs porque os dados não são recolhidos em Métricas do Monitor Azure. Para recolher dados para alertas métricos, instale a [extensão](../platform/diagnostics-extension-overview.md) de diagnóstico para VMs do Windows ou o [agente Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) para os VMs Linux para recolher dados de desempenho em Métricas.
 
 Existem dois tipos de alertas de registo no Monitor Azure:
 
 - [O número de alertas de resultados](../platform/alerts-unified-log.md#number-of-results-alert-rules) cria um único alerta quando uma consulta devolve pelo menos um número especificado de registos. Estes são ideais para dados não numéricos tais e eventos Windows e Syslog recolhidos pelo [agente Log Analytics](../platform/log-analytics-agent.md) ou para analisar tendências de desempenho em vários computadores.
-- [Os alertas](../platform/alerts-unified-log.md#metric-measurement-alert-rules) de medição métrica criam um alerta separado para cada registo numa consulta que tem um valor superior a um limiar definido na regra de alerta. Estas regras de alerta são ideais para dados de desempenho recolhidos pelo Azure Monitor para VMs, uma vez que podem criar alertas individuais para cada computador.
+- [Os alertas de medição métrica](../platform/alerts-unified-log.md#metric-measurement-alert-rules) criam um alerta separado para cada registo numa consulta que tem um valor que excede um limiar definido na regra de alerta. Estas regras de alerta são ideais para dados de desempenho recolhidos pelo Azure Monitor para VMs, uma vez que podem criar alertas individuais para cada computador.
 
 
-## <a name="alert-rule-walkthrough"></a>Regra de alerta walkthrough
-Esta secção atravessa a criação de uma regra de alerta de medição métrica utilizando dados de desempenho do Monitor Azure para VMs. Pode utilizar este processo básico com uma variedade de consultas de registo para alertar em diferentes contadores de desempenho.
+## <a name="alert-rule-walkthrough"></a>Alerta de passagem da regra
+Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho do Azure Monitor para VMs. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho.
 
-Comece por criar uma nova regra de alerta seguindo o procedimento em [Criar, visualizar e gerir alertas](../platform/alerts-log.md)de registo utilizando o Monitor Azure . Para o **Recurso,** selecione o espaço de trabalho log Analytics que os VMs do Monitor Azure usam na sua subscrição. Uma vez que o recurso-alvo para regras de alerta de registo é sempre um espaço de trabalho de Log Analytics, a consulta de registo deve incluir qualquer filtro para máquinas virtuais específicas ou conjuntos de escala de máquinas virtuais. 
+Comece por criar uma nova regra de alerta seguindo o procedimento em [Criar, ver e gerir alertas de registo usando o Azure Monitor](../platform/alerts-log.md). Para o **Recurso**, selecione o espaço de trabalho Log Analytics que o Azure Monitor VMs utiliza na sua subscrição. Uma vez que o recurso alvo para regras de alerta de registo é sempre um espaço de trabalho Log Analytics, a consulta de registo deve incluir qualquer filtro para máquinas virtuais específicas ou conjuntos de escala de máquinas virtuais. 
 
-Para o **estado** da regra do alerta, utilize uma das consultas na [secção abaixo](#sample-alert-queries) como consulta de **pesquisa**. A consulta deve devolver uma propriedade numérica chamada *AggregatedValue*. Deve resumir os dados por computador para que possa criar um alerta separado para cada máquina virtual que exceda o limiar.
+Para a **condição** da regra de alerta, utilize uma das consultas na [secção abaixo](#sample-alert-queries) como consulta **de pesquisa**. A consulta deve devolver uma propriedade numérica chamada *AggregatedValue*. Deve resumir os dados por computador para que possa criar um alerta separado para cada máquina virtual que exceda o limiar.
 
-Na **lógica de alerta,** selecione **a medição métrica** e, em seguida, forneça um **valor limite**. No **alerta de gatilho baseado em ,** especifique quantas vezes o limiar deve ser ultrapassado antes de ser criado um alerta. Por exemplo, provavelmente não se importa se o processador excede um limiar uma vez e depois volta ao normal, mas importa-se se continua a exceder o limiar ao longo de várias medições consecutivas.
+Na **lógica alerta,** selecione **a medição métrica** e, em seguida, forneça um **valor limiar**. No **Alerta de Gatilho Baseado em ,** especifique quantas vezes o limiar deve ser ultrapassado antes de um alerta ser criado. Por exemplo, provavelmente não se importa se o processador excede um limiar uma vez e depois volta ao normal, mas importa-se se ele continua a exceder o limiar em várias medições consecutivas.
 
-O **Avaliado com base na** secção define a frequência com que a consulta é executada e a janela de tempo para a consulta. No exemplo abaixo apresentado, a consulta será executada a cada 15 minutos e avaliará os valores de desempenho recolhidos ao longo dos 15 minutos anteriores.
+A **avaliação com base na** secção define a frequência com que a consulta é executada e a janela de tempo para a consulta. No exemplo mostrado abaixo, a consulta será executada a cada 15 minutos e avaliará os valores de desempenho recolhidos ao longo dos 15 minutos anteriores.
 
 
 ![Regra de alerta de medição métrica](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## <a name="sample-alert-queries"></a>Consultas de alerta de amostra
-As seguintes consultas podem ser utilizadas com uma regra de alerta de medição métrica utilizando dados de desempenho recolhidos pelo Monitor Azure para VMs. Cada um resume os dados por computador para que seja criado um alerta para cada computador com um valor superior ao limiar.
+As seguintes consultas podem ser utilizadas com uma regra de alerta de medição métrica utilizando dados de desempenho recolhidos pelo Azure Monitor para VMs. Cada um resume os dados por computador de modo a que seja criado um alerta para cada computador com um valor que exceda o limiar.
 
 ### <a name="cpu-utilization"></a>Utilização da CPU
 
@@ -61,7 +61,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
-### <a name="available-memory-in-percentage"></a>Memória Disponível em percentagem
+### <a name="available-memory-in-percentage"></a>Memória disponível em percentagem
 
 ```kusto
 InsightsMetrics 
@@ -72,7 +72,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
-### <a name="logical-disk-used---all-disks-on-each-computer"></a>Disco lógico utilizado - todos os discos em cada computador
+### <a name="logical-disk-used---all-disks-on-each-computer"></a>Disco lógico usado - todos os discos em cada computador
 
 ```kusto
 InsightsMetrics
@@ -81,7 +81,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
-### <a name="logical-disk-used---individual-disks"></a>Disco lógico utilizado - discos individuais
+### <a name="logical-disk-used---individual-disks"></a>Disco lógico usado - discos individuais
 
 ```kusto
 InsightsMetrics
@@ -101,7 +101,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk
 ```
 
-### <a name="logical-disk-data-rate"></a>Taxa de dados lógicas do disco
+### <a name="logical-disk-data-rate"></a>Taxa lógica de dados do disco
 
 ```kusto
 InsightsMetrics
@@ -171,7 +171,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m)
 ```
 
-### <a name="cpu-utilization-for-all-compute-resources-in-a-subscription"></a>Utilização do CPU para todos os recursos do cálculo numa subscrição
+### <a name="cpu-utilization-for-all-compute-resources-in-a-subscription"></a>Utilização do CPU para todos os recursos computacional numa subscrição
 Modifique com o seu ID de subscrição.
 
 ```kusto
@@ -182,7 +182,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
-### <a name="cpu-utilization-for-all-compute-resources-in-a-resource-group"></a>Utilização do CPU para todos os recursos da computação num grupo de recursos
+### <a name="cpu-utilization-for-all-compute-resources-in-a-resource-group"></a>Utilização do CPU para todos os recursos computacional num grupo de recursos
 Modifique com o seu ID de subscrição e grupo de recursos.
 
 ```kusto
@@ -197,5 +197,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [alertas no Monitor Azure.](../platform/alerts-overview.md)
-- Saiba mais sobre consultas de [log utilizando dados do Monitor Azure para VMs](vminsights-log-search.md).
+- Saiba mais sobre [os alertas no Azure Monitor.](../platform/alerts-overview.md)
+- Saiba mais sobre [consultas de registo utilizando dados do Azure Monitor para VMs](vminsights-log-search.md).

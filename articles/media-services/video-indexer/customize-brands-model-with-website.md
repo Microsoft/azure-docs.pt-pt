@@ -1,7 +1,7 @@
 ---
-title: Personalize um modelo de Marcas com o site do Indexer de Vídeo
+title: Personalize um modelo de Marcas com o site do Video Indexer
 titleSuffix: Azure Media Services
-description: Saiba personalizar um modelo de Marcas com o website do Video Indexer.
+description: Saiba como personalizar um modelo de Marcas com o website do Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,96 +11,96 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 81df3897dff13823e4b97e10bc91d3a22b0e1b0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128048"
 ---
-# <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalize um modelo de Marcas com o site do Indexer de Vídeo
+# <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalize um modelo de Marcas com o site do Video Indexer
 
-O Indexer de vídeo suporta a deteção da marca a partir da fala e do texto visual durante a indexação e reindexação de conteúdos de vídeo e áudio. A funcionalidade de deteção da marca identifica menções de produtos, serviços e empresas sugeridas pela base de dados de marcas bing. Por exemplo, se a Microsoft for mencionada em conteúdos de vídeo ou áudio ou se aparecer em texto visual num vídeo, o Video Indexer deteta-o como uma marca no conteúdo.
+O Video Indexer suporta a deteção de marcas a partir de texto sonoro e visual durante a indexação e reindexação de conteúdos de vídeo e áudio. A funcionalidade de deteção de marcas identifica menções de produtos, serviços e empresas sugeridas pela base de dados de marcas da Bing. Por exemplo, se a Microsoft for mencionada em conteúdo sonoro ou vídeo ou se aparecer em texto visual num vídeo, o Video Indexer deteta-o como uma marca no conteúdo.
 
 Um modelo personalizado de Marcas permite-lhe:
 
-- selecione se quiser que o Indexer de Vídeo detete marcas a partir da base de dados das marcas Bing.
-- selecione se quiser que o Indexer de Vídeo exclua certas marcas de serem detetadas (essencialmente criando uma lista de negação de marcas).
-- selecione se quiser que o Indexer de Vídeo inclua marcas que devam fazer parte do seu modelo que podem não estar na base de dados de marcas da Bing (essencialmente criando uma lista de marcas aceites).
+- selecione se quiser que o Video Indexer detete marcas a partir da base de dados de marcas Bing.
+- selecione se quiser que o Video Indexer exclua que certas marcas sejam detetadas (essencialmente criando uma lista de marcas de negação).
+- selecione se quiser que o Video Indexer inclua marcas que devam fazer parte do seu modelo que podem não estar na base de dados de marcas da Bing (essencialmente criando uma lista de marcas aceites).
 
-Para uma visão geral detalhada, consulte esta [visão geral](customize-brands-model-overview.md).
+Para uma visão geral detalhada, consulte esta [visão geral.](customize-brands-model-overview.md)
 
-Pode utilizar o website do Indexer de Vídeo para criar, utilizar e editar modelos personalizados de Marcas detetados num vídeo, conforme descrito neste tópico. Também pode utilizar a API, conforme descrito no [modelo Customize Brands utilizando APIs](customize-brands-model-with-api.md).
+Pode utilizar o website Do Indexer de Vídeo para criar, utilizar e editar modelos de Marcas personalizadas detetados num vídeo, conforme descrito neste tópico. Também pode utilizar a API, como descrito no [modelo Customize Brands usando APIs](customize-brands-model-with-api.md).
 
-## <a name="edit-brands-model-settings"></a>Editar definições de modelo de Marcas
+## <a name="edit-brands-model-settings"></a>Editar configurações de modelos de marcas
 
-Tem a opção de definir se quer ou não que sejam detetadas marcas da base de dados das marcas Bing. Para definir esta opção, precisa editar as definições do seu modelo Marcas. Siga estes passos.
+Tem a opção de definir se quer ou não que as marcas da base de dados das marcas Bing sejam detetadas. Para definir esta opção, precisa de editar as definições do seu modelo Marcas. Siga estes passos.
 
-1. Vá ao site do [Indexer](https://www.videoindexer.ai/) de Vídeo e inscreva-se.
-2. Para personalizar um modelo na sua conta, selecione o botão de **personalização** do modelo Conteúdo no canto superior direito da página.
+1. Vá ao site do [Video Indexer](https://www.videoindexer.ai/) e inscreva-se.
+2. Para personalizar um modelo na sua conta, selecione o botão de **personalização** do modelo Content no canto superior direito da página.
 
-   ![Personalize o modelo de conteúdo no Indexer de Vídeo](./media/content-model-customization/content-model-customization.png)
+   ![Personalizar modelo de conteúdo no Video Indexer](./media/content-model-customization/content-model-customization.png)
 
-3. Para editar marcas, selecione o separador **Marcas.**
+3. Para editar marcas, selecione o **separador Marcas.**
 
-    ![Personalize o modelo de marcas no Indexer de Vídeo](./media/customize-brand-model/customize-brand-model.png)
+    ![Personalizar modelo de marcas no Video Indexer](./media/customize-brand-model/customize-brand-model.png)
 
-4. Consulte as **marcas Show sugeridas pela** opção Bing se quiser que o Indexer de Vídeo detete marcas sugeridas pelo Bing — deixe a opção desmarcada se não o fizer.
+4. Verifique as **marcas Show sugeridas pela** opção Bing se quiser que o Video Indexer detete marcas sugeridas por Bing — deixe a opção desmarcada se não o fizer.
 
 ## <a name="include-brands-in-the-model"></a>Incluir marcas no modelo
 
-A secção **De Marcas Incluir** representa marcas personalizadas que pretende que o Indexer de Vídeo detete, mesmo que não sejam sugeridas pela Bing.  
+A secção **de marcas Incluir** representa marcas personalizadas que você quer que o Video Indexer detete, mesmo que não sejam sugeridas por Bing.  
 
 ### <a name="add-a-brand-to-include-list"></a>Adicione uma marca para incluir a lista
 
 1. Selecione **+ Adicionar marca**.
 
-    ![Personalize o modelo de marcas no Indexer de Vídeo](./media/customize-brand-model/add-brand.png)
+    ![Personalizar modelo de marcas no Video Indexer](./media/customize-brand-model/add-brand.png)
 
     Fornecer um nome (obrigatório), categoria (opcional), descrição (opcional) e URL de referência (opcional).
-    O campo de categoria destina-se a ajudá-lo a marcar as suas marcas. Este campo aparece como as *tags* da marca ao utilizar as APIs do Indexer de Vídeo. Por exemplo, a marca "Azure" pode ser marcada ou categorizada como "Cloud".
+    O campo de categorias destina-se a ajudá-lo a marcar as suas marcas. Este campo aparece como as *tags* da marca ao utilizar as APIs do Indexante de Vídeo. Por exemplo, a marca "Azure" pode ser marcada ou categorizada como "Cloud".
 
-    O campo URL de referência pode ser qualquer site de referência para a marca (como um link para a sua página wikipédia).
+    O campo URL de referência pode ser qualquer website de referência para a marca (como um link para a sua página da Wikipédia).
 
-2. Selecione **Adicionar marca** e verá que a marca foi adicionada à lista de **marcas Incluir.**
+2. **Selecione a marca Add** e verá que a marca foi adicionada à lista de marcas **Incluir.**
 
-### <a name="edit-a-brand-on-the-include-list"></a>Editar uma marca na lista de incluir
+### <a name="edit-a-brand-on-the-include-list"></a>Editar uma marca na lista de incluí-lo
 
-1. Selecione o ícone do lápis ao lado da marca que pretende editar.
+1. Selecione o ícone de lápis ao lado da marca que pretende editar.
 
     Pode atualizar a categoria, descrição ou URL de referência de uma marca. Não se pode mudar o nome de uma marca porque os nomes das marcas são únicos. Se precisar de alterar a marca, elimine toda a marca (ver secção seguinte) e crie uma nova marca com o novo nome.
 
-2. Selecione o botão **'Actualizar'** para atualizar a marca com as novas informações.
+2. Selecione o botão **'Atualização'** para atualizar a marca com as novas informações.
 
-### <a name="delete-a-brand-on-the-include-list"></a>Eliminar uma marca na lista de inclui-se
+### <a name="delete-a-brand-on-the-include-list"></a>Excluir uma marca na lista de incluí-lo
 
 1. Selecione o ícone do lixo ao lado da marca que pretende eliminar.
 2. Selecione **Delete** e a marca deixará de aparecer na sua lista *de marcas Incluir.*
 
 ## <a name="exclude-brands-from-the-model"></a>Excluir marcas do modelo
 
-A secção **excluir marcas** representa as marcas que não quer que o Indexer de Vídeo detete.
+A secção **de marcas Excluir** representa as marcas que não quer que o Video Indexer detete.
 
-### <a name="add-a-brand-to-exclude-list"></a>Adicione uma marca para excluir lista
+### <a name="add-a-brand-to-exclude-list"></a>Adicione uma marca para excluir a lista
 
 1. Selecione **+ Adicionar marca.**
 
     Fornecer um nome (obrigatório), categoria (opcional).
 
-2. Selecione **Adicionar marca** e verá que a marca foi adicionada à lista de *marcas Excluir.*
+2. **Selecione a marca Add** e verá que a marca foi adicionada à lista de marcas *Excluir.*
 
 ### <a name="edit-a-brand-on-the-exclude-list"></a>Editar uma marca na lista de exclusão
 
-1. Selecione o ícone do lápis ao lado da marca que pretende editar.
+1. Selecione o ícone de lápis ao lado da marca que pretende editar.
 
     Só é possível atualizar a categoria de uma marca. Não se pode mudar o nome de uma marca porque os nomes das marcas são únicos. Se precisar de alterar a marca, elimine toda a marca (ver secção seguinte) e crie uma nova marca com o novo nome.
 
-2. Selecione o botão **'Actualizar'** para atualizar a marca com as novas informações.
+2. Selecione o botão **'Atualização'** para atualizar a marca com as novas informações.
 
-### <a name="delete-a-brand-on-the-exclude-list"></a>Eliminar uma marca na lista de exclusão
+### <a name="delete-a-brand-on-the-exclude-list"></a>Excluir uma marca na lista de exclusão
 
 1. Selecione o ícone do lixo ao lado da marca que pretende eliminar.
 2. Selecione **Delete** e a marca deixará de aparecer na sua lista *de marcas Excluir.*
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Personalizar modelo de marcas usando APIs](customize-brands-model-with-api.md)
+[Personalize o modelo de Marcas usando APIs](customize-brands-model-with-api.md)
