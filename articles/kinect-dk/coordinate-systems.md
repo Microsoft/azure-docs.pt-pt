@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, câmara de profundidade, tof, princípios, desempenho, invalidação
 ms.openlocfilehash: 4bb1c3b79862b918870cff786042d9b4c66270d1
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277447"
 ---
 # <a name="azure-kinect-dk-coordinate-systems"></a>Sistemas de coordenadas Azure Kinect DK

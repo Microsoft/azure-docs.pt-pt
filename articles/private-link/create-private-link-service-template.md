@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
 ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817624"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um serviço de ligação privada utilizando um modelo de Gestor de Recursos Azure

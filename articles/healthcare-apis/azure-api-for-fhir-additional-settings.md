@@ -9,10 +9,10 @@ ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
 ms.openlocfilehash: 896d5bafd879ff3ba09bd5b8922cde4cd8345689
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871953"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Definições adicionais para Azure API para FHIR
