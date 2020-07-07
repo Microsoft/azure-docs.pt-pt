@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515343"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configure uma VPN site-to-site para utilização com ficheiros Azure

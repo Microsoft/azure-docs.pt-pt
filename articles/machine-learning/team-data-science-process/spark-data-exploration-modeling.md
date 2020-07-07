@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ms.openlocfilehash: d3761977d3234e19f0df24aec45451b234a569e8
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84332023"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
@@ -707,7 +707,7 @@ Aqui está o código para fazer previsões e traçar a curva ROC.
 
 **SAÍDA:**
 
-![Curva ROC de regressão logística.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
+![Regressão logística ROC curve.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 ### <a name="random-forest-classification"></a>Classificação florestal aleatória
 

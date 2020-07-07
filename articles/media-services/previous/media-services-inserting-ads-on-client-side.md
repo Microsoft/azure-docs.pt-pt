@@ -1,5 +1,5 @@
 ---
-title: Inserir anúncios no lado do cliente [ Microsoft Docs
+title: Inserir anúncios no lado do cliente ! Microsoft Docs
 description: Este artigo demonstra como inserir anúncios nos seus meios de comunicação do lado do cliente.
 services: media-services
 documentationcenter: ''
@@ -15,40 +15,40 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594870"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
 
-Para obter informações sobre legendagem fechada e suporte de anúncios em vídeos de streaming ao vivo, consulte As Normas de [Legendagem Fechada e Desserção](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads)de Anúncios .
+Para obter informações sobre legendas fechadas e suporte a anúncios em vídeos de streaming ao vivo, consulte [as Normas de Legendagem Fechada Suportadas e De Inserção de Anúncios](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 > [!NOTE]
-> O Azure Media Player não suporta anúncios.
+> A Azure Media Player não suporta atualmente anúncios.
 > 
 > 
 
 ## <a name="inserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserir anúncios nos seus meios de comunicação
-A Azure Media Services fornece suporte para a inserção de anúncios através da Plataforma Windows Media: Quadros de Jogadores. As estruturas dos jogadores com suporte a anúncios estão disponíveis para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada quadro do jogador contém um código de amostra que lhe mostra como implementar uma aplicação do jogador. Existem três tipos diferentes de anúncios que pode inserir nos seus meios de comunicação:lista.
+A Azure Media Services fornece suporte para a inserção de anúncios através da Plataforma Windows Media: Quadros de Jogadores. As estruturas dos jogadores com suporte a anúncios estão disponíveis para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura do jogador contém um código de amostra que mostra como implementar uma aplicação do jogador. Existem três tipos diferentes de anúncios que pode inserir no seu media:list.
 
-* **Linear** – anúncios de moldura completa que pausam o vídeo principal.
-* **Anúncios** de sobreposição que são exibidos à medida que o vídeo principal está a ser reproduzido, normalmente um logotipo ou outra imagem estática colocada dentro do leitor.
+* **Linear** – anúncios de moldura completa que fazem uma pausa no vídeo principal.
+* **Nonlinear** – sobreponha anúncios que são exibidos à medida que o vídeo principal está a ser reproduzido, normalmente um logotipo ou outra imagem estática colocada dentro do leitor.
 * **Companheiro** – anúncios que são exibidos fora do leitor.
 
-Os anúncios podem ser colocados em qualquer ponto da linha temporal do vídeo principal. Tens de dizer ao jogador quando jogar o anúncio e quais anúncios para jogar. Isto é feito usando um conjunto de ficheiros padrão baseados em XML: Modelo de serviço de anúncio de vídeo (VAST), Lista de anúncios de vídeo digital (VMAP), Modelo de Sequenciação Abstrata dos Media (MAST) e Definição de Interface de Anúncio de Vídeo Digital (VPAID). Os ficheiros VAST especificam quais anúncios a exibir. Os ficheiros VMAP especificam quando reproduzir vários anúncios e contêm VAST XML. Os ficheiros MAST são outra forma de sequenciar anúncios que também podem conter VAST XML. Os ficheiros VPAID definem uma interface entre o leitor de vídeo e o servidor de anúncios ou anúncios.
+Os anúncios podem ser colocados em qualquer ponto da linha de tempo do vídeo principal. Tem de dizer ao jogador quando deve reproduzir o anúncio e quais os anúncios a reproduzir. Isto é feito usando um conjunto de ficheiros padrão baseados em XML: Modelo de serviço de anúncio de vídeo de vídeo (VAST), lista de reprodução de anúncios múltiplos de vídeo digital (VMAP), modelo de sequenciação abstrata de mídia (MAST) e Definição de Interface de Interface de Leitor de Vídeo Digital (VPAID). Os ficheiros VAST especificam quais os anúncios a exibir. Os ficheiros VMAP especificam quando reproduzir vários anúncios e contêm VAST XML. Os ficheiros MAST são outra forma de sequenciar anúncios que também podem conter VAST XML. Os ficheiros VPAID definem uma interface entre o leitor de vídeo e o servidor de anúncios ou anúncios.
 
-Cada quadro de jogadorfunciona de forma diferente e cada um será coberto pelo seu próprio artigo. Este artigo descreve os mecanismos básicos usados para inserir anúncios. Aplicações de jogadores de vídeo solicitam anúncios de um servidor de anúncios. O servidor de anúncios pode responder de várias formas:
+Cada quadro de jogadores funciona de forma diferente e cada um será coberto pelo seu próprio artigo. Este artigo descreve os mecanismos básicos utilizados para inserir anúncios. As aplicações dos jogadores de vídeo solicitam anúncios a partir de um servidor de anúncios. O servidor de anúncios pode responder de várias formas:
 
-* Devolver um ficheiro VAST
-* Devolver um ficheiro VMAP (com VAST incorporado)
-* Devolver um ficheiro MAST (com VAST incorporado)
-* Devolver um ficheiro VAST com anúncios VPAID
+* Devolva um ficheiro VAST
+* Devolva um ficheiro VMAP (com VAST incorporado)
+* Devolva um ficheiro MAST (com VAST incorporado)
+* Devolva um ficheiro VAST com anúncios VPAID
 
-### <a name="using-a-video-ad-service-template-vast-file"></a>Usando um modelo de serviço de anúncios de vídeo (VAST) arquivo
-Um ficheiro VAST especifica o anúncio ou anúncios a exibir. O XML seguinte é um exemplo de um ficheiro VAST para um anúncio linear:
+### <a name="using-a-video-ad-service-template-vast-file"></a>Usando um modelo de serviço de anúncio de vídeo (VAST)
+Um ficheiro VAST especifica o anúncio ou anúncios a exibir. O seguinte XML é um exemplo de um ficheiro VAST para um anúncio linear:
 
 ```xml
     <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
@@ -94,9 +94,9 @@ Um ficheiro VAST especifica o anúncio ou anúncios a exibir. O XML seguinte é 
     </VAST>
 ```
 
-O anúncio linear é descrito pelo elemento <**Linear**>. Especifica a duração do anúncio, rastreio de eventos, clique, clique em rastreio e vários elementos **do MediaFile.** Os eventos de rastreio são especificados no <**TrackingEvents**> elemento e permitem que um servidor de anúncios rastreie vários eventos que ocorrem durante a visualização do anúncio. Neste caso, o início, ponto médio, completo e expandir eventos são rastreados. O evento de início ocorre quando o anúncio é exibido. O evento de ponto médio ocorre quando pelo menos 50% da linha temporal do anúncio foi vista. O evento completo ocorre quando o anúncio corre até ao fim. O evento Expandir ocorre quando o utilizador expande o leitor de vídeo para o ecrã completo. Os cliques são especificados com um elemento <**ClickThrough**> dentro de um <**VideoClicks**> elemento e especifica um URI a um recurso a apresentar quando o utilizador clica no anúncio. O ClickTracking é especificado num elemento <**ClickTracking**>, também dentro do <**VideoClicks**> elemento e especifica um recurso de rastreio para o leitor solicitar quando o utilizador clica no anúncio. O <Os elementos **> MediaFile** especificam informações sobre uma codificação específica de um anúncio. Quando há mais de um <**elemento> MediaFile,** o leitor de vídeo pode escolher a melhor codificação para a plataforma.
+O anúncio linear é descrito pelo elemento linear> **<.** Especifica a duração do anúncio, eventos de rastreio, clique, clique no tracking e uma série de elementos **MediaFile.** Os eventos de rastreio são especificados dentro do <**TrackingEvents**> elemento e permitem que um servidor de anúncios rastreie vários eventos que ocorrem durante a visualização do anúncio. Neste caso, o início, o ponto médio, os eventos completos e de expansão são acompanhados. O evento de início ocorre quando o anúncio é exibido. O evento de ponto médio ocorre quando pelo menos 50% da linha temporal do anúncio foi visualizada. O evento completo ocorre quando o anúncio corre até o fim. O evento Expandir ocorre quando o utilizador expande o leitor de vídeo para o ecrã completo. Os clickthroughs são especificados com um <**clickThrough**> elemento dentro de um <**VideoClicks**> elemento e especifica um URI para um recurso para exibir quando o utilizador clica no anúncio. O ClickTracking é especificado num elemento de> **clickTracking** <, também dentro do elemento <**VideoClicks**> e especifica um recurso de rastreio para o leitor solicitar quando o utilizador clica no anúncio. Os elementos <**MediaFile**> especificam informações sobre uma codificação específica de um anúncio. Quando há mais de um <**elemento> MediaFile,** o leitor de vídeo pode escolher a melhor codificação para a plataforma.
 
-Os anúncios lineares podem ser exibidos numa ordem especificada. Para tal, adicione `<Ad>` elementos adicionais ao ficheiro VAST e especifique a ordem utilizando o atributo da sequência. O exemplo seguinte ilustra isso mesmo:
+Os anúncios lineares podem ser exibidos numa ordem especificada. Para isso, adicione elementos adicionais `<Ad>` ao ficheiro VAST e especifique a ordem utilizando o atributo de sequência. O exemplo seguinte ilustra isso mesmo:
 
 ```xml
     <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
@@ -143,7 +143,7 @@ Os anúncios lineares podem ser exibidos numa ordem especificada. Para tal, adic
     </VAST>
 ```
 
-Os anúncios não lineares `<Creative>` são especificados num elemento também. O exemplo que `<Creative>` se segue mostra um elemento que descreve um anúncio não linear.
+Os anúncios não lineares também são especificados num `<Creative>` elemento. O exemplo a seguir mostra um `<Creative>` elemento que descreve um anúncio não linear.
 
 ```xml
     <Creative id="video" sequence="1" AdID="">
@@ -160,20 +160,20 @@ Os anúncios não lineares `<Creative>` são especificados num elemento também.
     </Creative>
 ```
 
-O <elemento> **Não LinearAds** pode conter um ou mais elementos> **não lineares** <, cada um dos quais pode descrever um anúncio não linear. O elemento <**> não linear** especifica o recurso para o anúncio não linear. O recurso pode ser um <**> StaticResource,** um <**iFrameResource**>, ou um <**> HTMLResource.** \<**A> StaticResource** descreve um recurso não-HTML e define um atributo creativeType que especifica como o recurso é apresentado:
+O elemento <**NonLinearAds**> pode conter um ou mais elementos <> **não lineares,** cada um dos quais pode descrever um anúncio não linear. O elemento **<NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um> **staticresource** <, um> **<IFrameResource,** ou um> **htmlresource** <. \<**StaticResource**>descreve um recurso não-HTML e define um atributo CreativeType que especifica como o recurso é exibido:
 
-Imagem/gif, imagem/jpeg, imagem/png – o recurso é apresentado numa etiqueta de> HTML <**img.**
+Imagem/gif, imagem/jpeg, imagem/png – o recurso é apresentado numa etiqueta de **<IMG**>.
 
-Aplicação/x-javascript – o recurso é apresentado num **script** de <HTML> etiqueta.
+Aplicação/x-javascript – o recurso é apresentado numa etiqueta de **> de script** <HTML.
 
-Aplicação/x-shockwave-flash – o recurso é apresentado num leitor flash.
+Aplicação/x-shockwave-flash – o recurso é apresentado num leitor Flash.
 
-**O IFrameResource** descreve um recurso HTML que pode ser exibido num IFrame. **HTMLResource** descreve um pedaço de código HTML que pode ser inserido numa página web. **TrackingEvents** especifica eventos de rastreio e o URI para solicitar quando o evento ocorre. Nesta amostra, os eventos aceita-convite e colapso são rastreados. Para obter mais informações sobre o elemento **Não LinearAds** e seus filhos, consulte IAB.NET/VAST. Note que o elemento **TrackingEvents** está localizado dentro do elemento **Não LinearAds** em vez do elemento **não linear.**
+**IFrameResource** descreve um recurso HTML que pode ser exibido num IFrame. **HTMLResource** descreve um pedaço de código HTML que pode ser inserido numa página web. **Os TrackingEvents** especificam eventos de rastreio e o URI para solicitar quando o evento ocorrer. Nesta amostra, os eventos de aceitação e colapso são rastreados. Para obter mais informações sobre o elemento **NonLinearAds** e as suas crianças, consulte IAB.NET/VAST. Note que o elemento **TrackingEvents** está localizado dentro do elemento **NonLinearAds** em vez do elemento **NonLinear.**
 
-Os anúncios de acompanhantes são definidos dentro de um `<CompanionAds>` elemento. O `<CompanionAds>` elemento pode conter `<Companion>` um ou mais elementos. Cada `<Companion>` elemento descreve um anúncio de `<StaticResource>` `<IFrameResource>`acompanhante `<HTMLResource>` e pode conter um , ou que são especificados da mesma forma que num anúncio não linear. Um ficheiro VAST pode conter vários anúncios de acompanhantes e a aplicação do jogador pode escolher o anúncio mais apropriado para exibir. Para mais informações sobre vast, consulte [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
+Os anúncios de acompanhantes são definidos dentro de um `<CompanionAds>` elemento. O `<CompanionAds>` elemento pode conter um ou mais `<Companion>` elementos. Cada `<Companion>` elemento descreve um anúncio de acompanhante e pode conter um , ou que são `<StaticResource>` `<IFrameResource>` `<HTMLResource>` especificados da mesma forma que em um anúncio não linear. Um ficheiro VAST pode conter vários anúncios de acompanhantes e a aplicação do jogador pode escolher o anúncio mais apropriado para exibir. Para mais informações sobre o VAST, consulte [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
-### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Usando um ficheiro de lista de anúncios de vídeo digital (VMAP)
-Um ficheiro VMAP permite especificar quando ocorrem quebras de anúncios, quanto tempo cada pausa é, quantos anúncios podem ser exibidos dentro de uma pausa, e que tipos de anúncios podem ser exibidos durante uma pausa. O seguinte num ficheiro VMAP exemplo que define uma única rutura de anúncio:
+### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Usando um ficheiro de lista de anúncios de vários anúncios de vídeo digital (VMAP)
+Um ficheiro VMAP permite especificar quando ocorrem quebras de anúncios, quanto tempo é cada pausa, quantos anúncios podem ser exibidos dentro de uma pausa e que tipos de anúncios podem ser exibidos durante uma pausa. O seguinte, num ficheiro VMAP de exemplo, que define uma única rutura de anúncio:
 
 ```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
@@ -224,34 +224,34 @@ Um ficheiro VMAP permite especificar quando ocorrem quebras de anúncios, quanto
     </vmap:VMAP>
 ```
 
-Um ficheiro VMAP `<VMAP>` começa com um `<AdBreak>` elemento que contém um ou mais elementos, cada um definindo uma rutura de anúncio. Cada rutura de anúncio especifica um tipo de rutura, quebra de IDENTIFICAção e compensação de tempo. O atributo breakType especifica o tipo de anúncio que pode ser reproduzido durante a pausa: linear, não linear ou exibição. Exibir mapa de anúncios para anúncios de companheiros VAST. Mais de um tipo de anúncio pode ser especificado numa lista separada de vírem (sem espaços). O breakID é um identificador opcional para o anúncio. O tempo Offset especifica quando o anúncio deve ser exibido. Pode ser especificado de uma das seguintes formas:
+Um ficheiro VMAP começa com um `<VMAP>` elemento que contém um ou mais `<AdBreak>` elementos, cada um definindo uma rutura de anúncio. Cada rutura de anúncio especifica um tipo de rutura, identificação de rutura e compensação de tempo. O atributo breakType especifica o tipo de anúncio que pode ser reproduzido durante o intervalo: linear, não linear ou exibido. Exibir mapa de anúncios para anúncios de companheiros VAST. Mais de um tipo de anúncio pode ser especificado numa lista separada de vírgula (sem espaços). O breakID é um identificador opcional para o anúncio. O timeOffset especifica quando o anúncio deve ser exibido. Pode ser especificado de uma das seguintes formas:
 
-1. Tempo – em formato hh:mm:ss ou hh:mm:ss.mmm onde .mmm é milissegundos. O valor deste atributo especifica o tempo desde o início da linha temporal do vídeo até ao início da pausa do anúncio.
-2. Percentagem – em formato n% onde n é a percentagem da linha do tempo de vídeo para reproduzir antes de reproduzir o anúncio
+1. Tempo – em hh:mm:ss ou hh:mm:ss.mmm onde .mmm é milissegundos. O valor deste atributo especifica o tempo desde o início da linha do tempo de vídeo até ao início da quebra de anúncios.
+2. Percentagem – em formato n% onde n é a percentagem da linha do tempo de vídeo a reproduzir antes de reproduzir o anúncio
 3. Início/Fim – especifica que um anúncio deve ser exibido antes ou depois de o vídeo ter sido exibido
-4. Posição – especifica a ordem de ruturas de anúncios quando o tempo do anúncio é desconhecido, como em streaming ao vivo. A ordem de cada intervalo de anúncios é especificada no formato #n onde n é um inteiro 1 ou superior. 1 significa que o anúncio deve ser jogado na primeira oportunidade, 2 significa que o anúncio deve ser jogado na segunda oportunidade e assim por diante.
+4. Posição – especifica a ordem de intervalos de anúncios quando o tempo do anúncio é desconhecido, como em streaming ao vivo. A ordem de cada rutura de anúncio é especificada no formato #n onde n é um número inteiro 1 ou maior. 1 significa que o anúncio deve ser jogado na primeira oportunidade, 2 significa que o anúncio deve ser jogado na segunda oportunidade e assim por diante.
 
-Dentro `<AdBreak>` do elemento, pode haver um <elemento **> AdSource.** O elemento <**AdSource**> contém os seguintes atributos:
+Dentro do `<AdBreak>` elemento, pode haver um <**elemento> AdSource.** O elemento **> <AdSource** contém os seguintes atributos:
 
-1. Id – especifica um identificador para a fonte de anúncios
-2. permitir MultipleAds – um valor booleano que especifica se vários anúncios podem ser exibidos durante a pausa do anúncio
-3. followRedirects – um valor opcional de Boolean que especifica se o leitor de vídeo deve honrar redirecionamentos dentro de uma resposta de anúncio
+1. Id – especifica um identificador para a fonte de anúncio
+2. permitirMultipleAds – um valor booleano que especifica se vários anúncios podem ser exibidos durante a quebra de anúncios
+3. followRedirects – um valor booleano opcional que especifica se o leitor de vídeo deve honrar redirecionamentos dentro de uma resposta de anúncio
 
-O elemento <**AdSource**> fornece ao leitor uma resposta de anúncio inline ou uma referência a uma resposta de anúncio. Pode conter um dos seguintes elementos:
+O elemento **<AdSource**> fornece ao jogador uma resposta de anúncio inline ou uma referência a uma resposta de anúncio. Pode conter um dos seguintes elementos:
 
-* `<VASTAdData>`indica que uma resposta de anúncio vast é incorporada no ficheiro VMAP
-* `<AdTagURI>`um URI que referencia uma resposta de anúncio de outro sistema
-* `<CustomAdData>`-uma cadeia arbitrária que representa uma resposta não-VAST
+* `<VASTAdData>`indica que uma resposta de anúncio VAST está incorporada no ficheiro VMAP
+* `<AdTagURI>`um URI que faz referência a uma resposta de anúncio de outro sistema
+* `<CustomAdData>`-uma cadeia arbitrária que representa uma resposta não-VASTA
 
-Neste exemplo, uma resposta de anúncio em linha `<VASTAdData>` é especificada com um elemento que contém uma resposta de anúncio VAST. Para obter mais informações sobre os outros elementos, consulte [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+Neste exemplo, uma resposta de anúncio em linha é especificada com um `<VASTAdData>` elemento que contém uma resposta de anúncio VAST. Para obter mais informações sobre os outros elementos, consulte [vMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-O elemento <**AdBreak**> também pode conter um <**TrackingEvents**> elemento. O <**TrackingEvents**> elemento permite-lhe rastrear o início ou o fim de uma rutura de anúncio ou se ocorreu um erro durante a pausa do anúncio. O <**TrackingEvents**> elemento contém um ou mais elementos de> **de rastreio** de <, cada um dos quais especifica um evento de rastreio e um URI de rastreio. Os possíveis eventos de rastreio são:
+O elemento **<AdBreak**> também pode conter um elemento <**TrackingEvents**>. O <**TrackingEvents**> elemento permite-lhe rastrear o início ou o fim de uma rutura de anúncio ou se ocorreu um erro durante a quebra de anúncios. O elemento <**TrackingEvents**> contém um ou mais elementos> **de rastreio** <, cada um dos quais especifica um evento de rastreio e um URI de rastreio. Os possíveis eventos de rastreio são:
 
-1. breakStart - acompanha o início de uma pausa de anúncios
-2. breakEnd - acompanhe a conclusão de uma pausa de anúncio
-3. erro – rastreia um erro que ocorreu durante a pausa do anúncio
+1. breakStart – acompanha o início de uma rutura de anúncio
+2. breakEnd - acompanhar a conclusão de uma quebra de anúncio
+3. error – rastreia um erro que ocorreu durante a quebra de anúncios
 
-O exemplo seguinte mostra um ficheiro VMAP que especifica eventos de rastreio
+O exemplo a seguir mostra um ficheiro VMAP que especifica eventos de rastreio
 
 ```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
@@ -276,10 +276,10 @@ O exemplo seguinte mostra um ficheiro VMAP que especifica eventos de rastreio
     </vmap:VMAP>
 ```
 
-Para mais informações sobre o <**TrackingEvents**> elemento e seus filhos, consultehttp://iab.net/VMAP.pdf
+Para obter mais informações sobre o <**TrackingEvents**> elemento e seus filhos, consultehttp://iab.net/VMAP.pdf
 
-### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Usando um modelo de sequenciação abstrata dos meios de comunicação (MAST)
-Um ficheiro MAST permite especificar os gatilhos que definem quando um anúncio é apresentado. Segue-se um ficheiro MAST de exemplo que contém gatilhos para um anúncio pré-roll, um anúncio de rolo médio e um anúncio pós-roll.
+### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Usando um modelo de seqüência abstrata de mídia (MAST)
+Um ficheiro MAST permite especificar os gatilhos que definem quando um anúncio é apresentado. Segue-se um ficheiro MAST de exemplo que contém gatilhos para um anúncio pré-roll, um anúncio de meio-rolo e um anúncio pós-roll.
 
 ```xml
     <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
@@ -327,14 +327,14 @@ Um ficheiro MAST permite especificar os gatilhos que definem quando um anúncio 
 
 Um ficheiro MAST começa com um elemento **MAST** que contém um elemento **de gatilho.** O `<triggers>` elemento contém um ou mais elementos de **gatilho** que definem quando um anúncio deve ser reproduzido.
 
-O elemento **gatilho** contém um elemento **startConditions** que especifica quando um anúncio deve começar a ser reproduzido. O elemento **startConditions** contém `<condition>` um ou mais elementos. Quando `<condition>` cada um avalia verdadeiramente um gatilho é iniciado ou `<condition>` revogado dependendo se o elemento de início de **Condições** ou condições **finais,** respectivamente. Quando `<condition>` vários elementos estão presentes, são tratados como um OR implícito, qualquer condição que avalie verdadeiramente fará com que o gatilho se inicie. `<condition>`elementos podem ser aninhados. Quando `<condition>` os elementos infantis são predefinidos, são tratados como um E implícito, todas as condições devem avaliar de forma verdadeira para que o gatilho seja iniciado. O `<condition>` elemento contém os seguintes atributos que definem a condição:
+O elemento **de gatilho** contém um elemento **startConditions** que especifica quando um anúncio deve começar a ser reproduzido. O elemento **startConditions** contém um ou mais `<condition>` elementos. Quando cada `<condition>` um avalia para verdadeiro um gatilho é iniciado ou revogado dependendo se o é contido dentro de `<condition>` um elemento **startConditions** ou **endConditions** respectivamente. Quando `<condition>` vários elementos estão presentes, são tratados como um OR implícito, qualquer condição que avalie verdadeiramente fará com que o gatilho inicie. `<condition>`elementos podem ser aninhados. Quando `<condition>` os elementos infantis estão predefinidos, são tratados como um E implícito, todas as condições devem avaliar-se verdadeiramente para o gatilho iniciar. O `<condition>` elemento contém os seguintes atributos que definem a condição:
 
 1. **tipo** – especifica o tipo de condição, evento ou propriedade
 2. **nome** – o nome do imóvel ou evento a utilizar durante a avaliação
 3. **valor** – o valor que um imóvel será avaliado contra
-4. **operador** – operação a utilizar durante a avaliação: QE (igual), NEQ (não igual), GTR (maior), GEQ (maior ou igual), LT (menos do que), LEQ (menos ou igual), MOD (modulo)
+4. **operador** – a operação a utilizar durante a avaliação: QE (igual), NEQ (não igual), GTR (maior), GEQ (maior ou igual), LT (Menos do que), LEQ (menos ou igual), MOD (modulo)
 
-**as condições finais** também contêm `<condition>` elementos. Quando uma condição avalia verdadeiramente o gatilho é reposto. O `<trigger>` elemento também `<sources>` contém um elemento `<source>` que contém um ou mais elementos. Os `<source>` elementos definem o URI à resposta do anúncio e ao tipo de resposta de anúncios. Neste exemplo, um URI é dado a uma resposta VAST.
+**as condições finais** também contêm `<condition>` elementos. Quando uma condição avalia para ser verdadeira, o gatilho é reiniciado. O `<trigger>` elemento também contém um elemento que contém um ou mais `<sources>` `<source>` elementos. Os `<source>` elementos definem o URI à resposta do anúncio e ao tipo de resposta a anúncios. Neste exemplo, um URI é dado a uma resposta VASTA.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -349,10 +349,10 @@ O elemento **gatilho** contém um elemento **startConditions** que especifica qu
     </trigger>
 ```
 
-### <a name="using-video-player-ad-interface-definition-vpaid"></a>Utilizando a definição de interface de vídeo player-ad (VPAID)
-VPAID é uma API para permitir que unidades de anúncios executáveis se comuniquem com um leitor de vídeo. Isto permite experiências de anúncios altamente interativas. O utilizador pode interagir com o anúncio e o anúncio pode responder às ações tomadas pelo espectador. Por exemplo, um anúncio pode exibir botões que permitam ao utilizador visualizar mais informações ou uma versão mais longa do anúncio. O leitor de vídeo deve suportar a API VPAID e o anúncio executável deve implementar a API. Quando um leitor solicita um anúncio a partir de um servidor de anúncios, o servidor pode responder com uma resposta VAST que contém um anúncio VPAID.
+### <a name="using-video-player-ad-interface-definition-vpaid"></a>Usando a definição de interface de vídeo-ad (VPAID)
+VPAID é uma API para permitir que unidades de anúncios executáveis se comuniquem com um leitor de vídeo. Isto permite experiências de anúncios altamente interativas. O utilizador pode interagir com o anúncio e o anúncio pode responder às ações tomadas pelo espectador. Por exemplo, um anúncio pode exibir botões que permitem ao utilizador visualizar mais informações ou uma versão mais longa do anúncio. O leitor de vídeo deve apoiar a API VPAID e o anúncio executável deve implementar a API. Quando um jogador solicita um anúncio a partir de um servidor de anúncios, o servidor pode responder com uma resposta VAST que contém um anúncio VPAID.
 
-Um anúncio executável é criado em código que deve ser executado em um ambiente de tempo de execução como Adobe Flash™ ou JavaScript que pode ser executado em um navegador web. Quando um servidor de anúncios devolve uma resposta VAST contendo um anúncio VPAID, o valor do atributo apiFramework no `<MediaFile>` elemento deve ser "VPAID". Este atributo especifica que o anúncio contido é um anúncio executável vPAID. O atributo do tipo deve ser definido para o tipo MIME do executável, tais como "application/x-shockwave-flash" ou "application/x-javascript". O seguinte corte XML `<MediaFile>` mostra o elemento de uma resposta VAST contendo um anúncio executável VPAID.
+Um anúncio executável é criado em código que deve ser executado em um ambiente de tempo de execução como Adobe Flash™ ou JavaScript que pode ser executado em um navegador web. Quando um servidor de anúncios retorna uma resposta VAST contendo um anúncio VPAID, o valor do atributo apiFramework no `<MediaFile>` elemento deve ser "VPAID". Este atributo especifica que o anúncio contido é um anúncio executável VPAID. O atributo do tipo deve ser definido para o tipo MIME do executável, como "aplicação/x-shockwave-flash" ou "aplicação/x-javascript". O seguinte corte XML mostra o `<MediaFile>` elemento de uma resposta VAST contendo um anúncio executável VPAID.
 
 ```xml
     <MediaFiles>
@@ -363,27 +363,27 @@ Um anúncio executável é criado em código que deve ser executado em um ambien
     </MediaFiles>
 ```
 
-Um anúncio executável pode ser `<AdParameters>` inicializado `<Linear>` utilizando `<NonLinear>` o elemento dentro do ou elementos numa resposta VAST. Para obter mais `<AdParameters>` informações sobre o elemento, consulte [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). Para mais informações sobre a API VPAID, consulte [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Um anúncio executável pode ser inicializado usando o `<AdParameters>` elemento dentro ou `<Linear>` `<NonLinear>` elementos numa resposta VAST. Para obter mais informações sobre o `<AdParameters>` elemento, consulte [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). Para obter mais informações sobre a API VPAID, consulte [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
-## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementação de um Windows ou Windows Phone 8 Player com suporte a anúncio
-A Microsoft Media Platform: Player Framework for Windows 8 e Windows Phone 8 contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo utilizando a estrutura. Pode descarregar a Estrutura do Jogador e as amostras da Estrutura do [Jogador para windows 8 e Windows Phone 8](https://playerframework.codeplex.com).
+## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementação de um Windows ou Windows Phone 8 Player com suporte a anúncios
+A Plataforma Microsoft Media: A Estrutura do Jogador para o Windows 8 e o Windows Phone 8 contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo utilizando a estrutura. Pode descarregar o Quadro de Jogadores e as amostras do [Player Framework para Windows 8 e Windows Phone 8](https://playerframework.codeplex.com).
 
-Ao abrir a solução Microsoft.PlayerFramework.Xaml.Samples, verá várias pastas dentro do projeto. A pasta Publicidade contém o código da amostra relevante para a criação de um leitor de vídeo com suporte publicitário. Dentro da pasta Publicidade está uma série de ficheiros XAML/cs cada um dos quais mostram como inserir anúncios de uma forma diferente. A seguinte lista descreve cada um:
+Quando abrir a solução Microsoft.PlayerFramework.Xaml.Samples, verá várias pastas dentro do projeto. A pasta Publicidade contém o código de amostra relevante para a criação de um leitor de vídeo com suporte a anúncios. Dentro da pasta Publicidade está uma série de ficheiros XAML/cs cada um dos quais mostram como inserir anúncios de uma forma diferente. A seguinte lista descreve cada uma:
 
-* AdPodPage.xaml mostra como exibir um casulo de anúncios.
-* AdSchedulingPage.xaml mostra como agendar anúncios.
-* FreeWheelPage.xaml mostra como usar o plugin FreeWheel para agendar anúncios.
-* MastPage.xaml mostra como agendar anúncios com um ficheiro MAST.
-* ProgrammaticAdPage.xaml mostra como agendar anúncios programáticos num vídeo.
-* ScheduleClipPage.xaml mostra como agendar um anúncio sem um ficheiro VAST.
-* VastLinearCompanionPage.xaml mostra como inserir um anúncio linear e companheiro.
-* VastNonLinearPage.xaml mostra como inserir um anúncio não linear.
-* VmapPage.xaml mostra como especificar anúncios com um ficheiro VMAP.
+* AdPodPage.xaml Mostra como exibir um vagem de anúncios.
+* AdSchedulingPage.xaml Mostra como agendar anúncios.
+* FreeWheelPage.xaml Mostra como usar o plugin FreeWheel para agendar anúncios.
+* MastPage.xaml Mostra como agendar anúncios com um ficheiro MAST.
+* ProgrammaticAdPage.xaml Mostra como programar anúncios programáticamente num vídeo.
+* AgendaClipPage.xaml Mostra como agendar um anúncio sem um ficheiro VAST.
+* VastLinearCompanionPage.xaml Mostra como inserir um anúncio linear e companheiro.
+* VastNonLinearPage.xaml Mostra como inserir um anúncio não linear.
+* VmapPage.xaml Mostra como especificar anúncios com um ficheiro VMAP.
 
-Cada uma destas amostras utiliza a classe MediaPlayer definida pela estrutura do jogador. A maioria das amostras utiliza plugins que adicionam suporte para vários formatos de resposta a anúncios. A amostra ProgrammaticAdPage interage programáticamente com uma instância do MediaPlayer.
+Cada uma destas amostras utiliza a classe MediaPlayer definida pela estrutura do jogador. A maioria das amostras usa plugins que adicionam suporte para vários formatos de resposta a anúncios. A amostra ProgrammaticAdPage interage programáticamente com uma instância MediaPlayer.
 
-### <a name="adpodpage-sample"></a>Amostra adPodPage
-Esta amostra utiliza o AdSchedulerPlugin para definir quando apresentar um anúncio. Neste exemplo, está previsto que um anúncio a meio do rolo seja reproduzido após cinco segundos. O casulo de anúncios (um grupo de anúncios para exibir em ordem) é especificado num ficheiro VAST devolvido a partir de um servidor de anúncios. O URI ao ficheiro VAST é `<RemoteAdSource>` especificado no elemento.
+### <a name="adpodpage-sample"></a>Amostra de AdPodPage
+Esta amostra utiliza o AdSchedulerPlugin para definir quando deve apresentar um anúncio. Neste exemplo, um anúncio de meio-rolo está programado para ser reproduzido após cinco segundos. O pod de anúncios (um grupo de anúncios a exibir por ordem) é especificado num ficheiro VAST devolvido a partir de um servidor de anúncios. O URI para o ficheiro VAST é especificado no `<RemoteAdSource>` elemento.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -405,10 +405,10 @@ Esta amostra utiliza o AdSchedulerPlugin para definir quando apresentar um anún
     </mmppf:MediaPlayer>
 ```
 
-Para obter mais informações sobre o AdSchedulerPlugin, consulte [publicidade na Estrutura de Jogadores no Windows 8 e Windows Phone 8](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+Para obter mais informações sobre o AdSchedulerPlugin, consulte [publicidade no Quadro de Jogadores no Windows 8 e Windows Phone 8](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
-### <a name="adschedulingpage"></a>Página de AdScheduling
-Esta amostra também utiliza o AdSchedulerPlugin. Ele programa três anúncios, um anúncio pré-roll, um anúncio de rolo médio, e um anúncio pós-roll. O URI para o VAST para cada `<RemoteAdSource>` anúncio é especificado num elemento.
+### <a name="adschedulingpage"></a>AdSchedulingPage
+Esta amostra também usa o AdSchedulerPlugin. Ele agenda três anúncios, um anúncio pré-roll, um anúncio de meio-rolo, e um anúncio pós-roll. O URI para o VAST para cada anúncio é especificado num `<RemoteAdSource>` elemento.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -441,8 +441,8 @@ Esta amostra também utiliza o AdSchedulerPlugin. Ele programa três anúncios, 
             </mmppf:MediaPlayer>
 ```
 
-### <a name="freewheelpage"></a>Página freewheel
-Esta amostra utiliza o FreeWheelPlugin que especifica um atributo Fonte que especifica um URI que aponta para um ficheiro SmartXML que especifica o conteúdo do anúncio, bem como informações de agendamento de anúncios.
+### <a name="freewheelpage"></a>FreeWheelPage
+Esta amostra utiliza o FreeWheelPlugin que especifica um atributo Source que especifica um URI que aponta para um ficheiro SmartXML que especifica o conteúdo de anúncios, bem como informações de agendamento de anúncios.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -471,7 +471,7 @@ Esta amostra interage programáticamente com o MediaPlayer. O ficheiro Programma
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
 ```
 
-O ficheiro ProgrammaticAdPage.xaml.cs cria um AdHandlerPlugin, adiciona um TimelineMarker para especificar quando um anúncio deve ser exibido e, em seguida, adiciona um manipulador para o evento MarkerReached que carrega um RemoteAdSource especificando um URI a um ficheiro VAST, e depois reproduz o anúncio.
+O ficheiro ProgrammaticAdPage.xaml.cs cria um AdHandlerPlugin, adiciona um TimelineMarker para especificar quando um anúncio deve ser apresentado e, em seguida, adiciona um manipulador para o evento MarkerReached que carrega um RemoteAdSource especificando um URI para um ficheiro VAST e, em seguida, reproduz o anúncio.
 
 ```csharp
     public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
@@ -503,8 +503,8 @@ O ficheiro ProgrammaticAdPage.xaml.cs cria um AdHandlerPlugin, adiciona um Timel
             }
 ```
 
-### <a name="scheduleclippage"></a>Página de ScheduleClipPage
-Esta amostra utiliza o AdSchedulerPlugin para agendar um anúncio de rolo médio, especificando um ficheiro .wmv que contém o anúncio.
+### <a name="scheduleclippage"></a>AgendaClipPage
+Esta amostra utiliza o AdSchedulerPlugin para agendar um anúncio de meio-rolo especificando um ficheiro .wmv que contém o anúncio.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.cloudapp.net/html5/media/bigbuck.mp4">
@@ -529,8 +529,8 @@ Esta amostra utiliza o AdSchedulerPlugin para agendar um anúncio de rolo médio
             </mmppf:MediaPlayer>
 ```
 
-### <a name="vastlinearcompanionpage"></a>VastaPágina de Companheiros Lineares
-Esta amostra ilustra como usar o AdSchedulerPlugin para agendar um anúncio linear de rolo médio com um anúncio de acompanhante. O `<RemoteAdSource>` elemento especifica a localização do ficheiro VAST.
+### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
+Esta amostra ilustra como usar o AdSchedulerPlugin para agendar um anúncio linear de meio rolo com um anúncio de acompanhante. O `<RemoteAdSource>` elemento especifica a localização do ficheiro VAST.
 
 ```xml
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -551,8 +551,8 @@ Esta amostra ilustra como usar o AdSchedulerPlugin para agendar um anúncio line
             </mmppf:MediaPlayer>
 ```
 
-### <a name="vastlinearnonlinearpage"></a>Página VastaLinearnonLinear
-Esta amostra utiliza o AdSchedulerPlugin para agendar um anúncio linear e não linear. A localização do ficheiro VAST `<RemoteAdSource>` é especificada com o elemento.
+### <a name="vastlinearnonlinearpage"></a>VastLinearNonLinearPage
+Esta amostra utiliza o AdSchedulerPlugin para agendar um anúncio linear e não linear. A localização do ficheiro VAST é especificada com o `<RemoteAdSource>` elemento.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -573,8 +573,8 @@ Esta amostra utiliza o AdSchedulerPlugin para agendar um anúncio linear e não 
             </mmppf:MediaPlayer>
 ```
 
-### <a name="vmappage"></a>Página VMAP
-Esta amostra utiliza o VmapSchedulerPlugin para agendar anúncios utilizando um ficheiro VMAP. O uri ao ficheiro VMAP é especificado no `<VmapSchedulerPlugin>` atributo Fonte do elemento.
+### <a name="vmappage"></a>VMAPPage
+Esta amostra utiliza o VmapSchedulerPlugin para agendar anúncios usando um ficheiro VMAP. O URI ao ficheiro VMAP é especificado no atributo Fonte do `<VmapSchedulerPlugin>` elemento.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -586,10 +586,10 @@ Esta amostra utiliza o VmapSchedulerPlugin para agendar anúncios utilizando um 
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementação de um leitor de vídeo iOS com suporte a anúncios
-A Microsoft Media Platform: Player Framework for iOS contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo utilizando a estrutura. Você pode baixar o Quadro do Jogador e as amostras da Estrutura do [Jogador Azure Media](https://github.com/CloudMetal/azure-media-player-framework). A página GitHub tem um link para um Wiki que contém informações adicionais sobre o quadro do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+A Plataforma Microsoft Media: Player Framework for iOS contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo usando a estrutura. Você pode baixar o Quadro de Jogadores e as amostras do [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). A página do GitHub tem um link para um Wiki que contém informações adicionais sobre a estrutura do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-### <a name="scheduling-ads-with-vmap"></a>Anúncios de agendamento com VMAP
-O exemplo que se segue mostra como agendar anúncios utilizando um ficheiro VMAP.
+### <a name="scheduling-ads-with-vmap"></a>Agendamento de Anúncios com VMAP
+O exemplo a seguir mostra como agendar anúncios usando um ficheiro VMAP.
 
 ```csharp
     // How to schedule an Ad using VMAP.
@@ -609,8 +609,8 @@ O exemplo que se segue mostra como agendar anúncios utilizando um ficheiro VMAP
             }
 ```
 
-### <a name="scheduling-ads-with-vast"></a>Anúncios de agendamento com VAST
-A amostra seguinte mostra como agendar um anúncio DE ligação tardia VAST.
+### <a name="scheduling-ads-with-vast"></a>Agendamento de Anúncios com VAST
+A amostra que se segue mostra como agendar um anúncio DE LIGAÇÃO TARDIO VAST.
 
 
 ```csharp
@@ -640,7 +640,7 @@ A amostra seguinte mostra como agendar um anúncio DE ligação tardia VAST.
     }
 ```
 
-   A amostra seguinte mostra como agendar um anúncio de ligação precoce VAST.
+   A amostra que se segue mostra como agendar um anúncio VAST de ligação antecipada.
 
 ```csharp
     //Example:4 Schedule an early binding VAST ad
@@ -669,7 +669,7 @@ A amostra seguinte mostra como agendar um anúncio DE ligação tardia VAST.
     }
 ```
 
-A amostra que se segue mostra como inserir um anúncio utilizando a Edição de Corte Áspero (RCE)
+A amostra que se segue mostra como inserir um anúncio utilizando a Edição de Corte Bruto (RCE)
 
 ```csharp
     //Example:1 How to use RCE.
@@ -687,7 +687,7 @@ A amostra que se segue mostra como inserir um anúncio utilizando a Edição de 
     }
 ```
 
-O exemplo que se segue mostra como agendar uma cápsula de anúncios.
+O exemplo a seguir mostra como agendar uma cápsula de anúncio.
 
 ```csharp
     //Example:5 Schedule an ad Pod.
@@ -717,7 +717,7 @@ O exemplo que se segue mostra como agendar uma cápsula de anúncios.
     }
 ```
 
-O exemplo que se segue mostra como agendar um anúncio não pegajoso. Um anúncio não pegajoso só é jogado uma vez, independentemente de qualquer procura que o espectador execute.
+O exemplo a seguir mostra como agendar um anúncio de meio-rolo não pegajoso. Um anúncio não pegajoso só é reproduzido uma vez, independentemente de qualquer procura que o espectador realize.
 
 ```csharp
     //Example:6 Schedule a single non sticky mid roll Ad
@@ -746,7 +746,7 @@ O exemplo que se segue mostra como agendar um anúncio não pegajoso. Um anúnci
     }
 ```
 
-O exemplo que se segue mostra como agendar um anúncio pegajoso a meio do rolo. Um anúncio pegajoso é exibido cada vez que o ponto especificado na linha do tempo de vídeo é atingido.
+O exemplo a seguir mostra como agendar um anúncio pegajoso a meio do rolo. Um anúncio pegajoso é exibido cada vez que o ponto especificado na linha do tempo de vídeo é alcançado.
 
 ```csharp
     //Example:7 Schedule a single sticky mid roll Ad
@@ -772,7 +772,7 @@ O exemplo que se segue mostra como agendar um anúncio pegajoso a meio do rolo. 
     }
 ```
 
-A amostra seguinte mostra como agendar um anúncio pós-roll.
+A amostra que se segue mostra como agendar um anúncio pós-rolo.
 
 ```csharp
     //Example:8 Schedule Post Roll Ad
@@ -794,7 +794,7 @@ A amostra seguinte mostra como agendar um anúncio pós-roll.
     }
 ```
 
-A amostra seguinte mostra como agendar um anúncio pré-roll.
+A amostra que se segue mostra como agendar um anúncio pré-roll.
 
 ```csharp
     //Example:9 Schedule Pre Roll Ad
@@ -816,7 +816,7 @@ A amostra seguinte mostra como agendar um anúncio pré-roll.
     }
 ```
 
-A amostra que se segue mostra como agendar um anúncio de sobreposição de rolo médio.
+A amostra que se segue mostra como agendar um anúncio de sobreposição de rolos médios.
 
 ```csharp
     // Example10: Schedule a Mid Roll overlay Ad

@@ -1,80 +1,80 @@
 ---
-title: Detetor de Anomalia sacerte biblioteca cliente JavaScript quickstart
+title: Início rápido da biblioteca de clientes JavaScript do detetor de anomalias
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: dca07f37377880008160fa3521d66ed4f6afc084
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a4e8fc18ab7abfee483f36adef083bfb08a4a27f
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759987"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986132"
 ---
-Inicie-se com a biblioteca de clientes do Detetor de Anomalias para o JavaScript. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Anomaly Detetor permite-lhe encontrar anomalias nos dados da série de tempo utilizando automaticamente os modelos mais adequados, independentemente da indústria, cenário ou volume de dados.
+Começa com a biblioteca de clientes do Detetor de Anomalias para o JavaScript. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Detetor de Anomalias permite-lhe encontrar anomalias nos dados da sua série de tempo utilizando automaticamente os modelos mais adequados, independentemente da indústria, cenário ou volume de dados.
 
-Utilize a biblioteca cliente do Detetor de Anomalias para O JavaScript para:
+Utilize a biblioteca de clientes do Detetor de Anomalias para o JavaScript para:
 
-* Detete anomalias ao longo do conjunto de dados da série de tempo, como um pedido de lote
-* Detete o estado da anomalia do último ponto de dados da sua série de tempo
+* Detetar anomalias ao longo do conjunto de dados da série de tempo, como um pedido de lote
+* Detetar o estado de anomalia do último ponto de dados da sua série de tempo
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Pacote de código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | da biblioteca[(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Encontre o código no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector)  |  [Encontre o código no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [Node.js](https://nodejs.org/)
-* Uma chave e ponto final do detetor de anomalias
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* A versão atual de [Node.js](https://nodejs.org/)
+* Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" crie um recurso de Detetor de "  target="_blank"> Anomalias crie um recurso de Detetor de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Anomalias no portal Azure para obter a sua chave e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Detetor de Anomalias. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="create-an-anomaly-detector-azure-resource"></a>Criar um recurso Azure do Detetor de Anomalias
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue para ela. 
+Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue até ela. 
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Executar `npm init` o comando para criar uma `package.json` aplicação de nó com um ficheiro. 
+Executar o `npm init` comando para criar uma aplicação de nó com um `package.json` ficheiro. 
 
 ```console
 npm init
 ```
 
-Criar um `index.js` ficheiro nomeado e importar as seguintes bibliotecas:
+Criar um ficheiro com o nome `index.js` e importar as seguintes bibliotecas:
 
 [!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
 
-Crie variáveis o ponto final e a chave Azure do seu recurso. Se criou a variável ambiental depois de lançar a aplicação, terá de fechar e reabrir o editor, IDE, ou a shell executá-la para aceder à variável. Crie outra variável para o ficheiro de dados de exemplo que irá descarregar num passo posterior, e uma lista vazia para os pontos de dados. Em seguida, crie um `ApiKeyCredentials` objeto para conter a chave.
+Crie variáveis no ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, o IDE ou a shell que a executa para aceder à variável. Crie outra variável para o ficheiro de dados de exemplo que irá descarregar num passo posterior e uma lista vazia para os pontos de dados. Em seguida, crie um `ApiKeyCredentials` objeto para conter a chave.
 
 [!code-javascript[Initial endpoint and key variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
-### <a name="install-the-client-library"></a>Instale a biblioteca do cliente
+### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
-Instale `ms-rest-azure` `azure-cognitiveservices-anomalydetector` os pacotes e nPM. A biblioteca csv-parse também é usada neste arranque rápido:
+Instale os `ms-rest-azure` pacotes e `azure-cognitiveservices-anomalydetector` NPM. A biblioteca csv-parse também é usada neste arranque rápido:
 
 ```console
 npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
-O ficheiro `package.json` da sua aplicação será atualizado com as dependências.
+O ficheiro da sua aplicação `package.json` será atualizado com as dependências.
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente do Detetor de Anomalias é um objeto [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) que autentica o Azure usando a sua chave. O cliente fornece dois métodos de deteção de anomalias: em todo um conjunto de dados utilizando [inteiroDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)e no último ponto de dados utilizando [lastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). 
+O cliente do Detetor de Anomalias é um objeto [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) que autentica a Azure usando a sua chave. O cliente fornece dois métodos de deteção de anomalias: Num conjunto de dados inteiro utilizando [todo oDeto()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)e no último ponto de dados utilizando [o LastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). 
 
-Os dados da série time são enviados como série de [Pontos](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) num objeto [de Pedido.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) O `Request` objeto contém propriedades para descrever os dados[(Granularity,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) por exemplo), e parâmetros para a deteção de anomalias. 
+Os dados da série de tempo são enviados como série de [pontos](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) num objeto [Request.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) O `Request` objeto contém propriedades para descrever os dados[(Granularidade,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) por exemplo), e parâmetros para a deteção de anomalias. 
 
-A resposta do Detetor de Anomalias é um objeto [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) ou [WholeDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) dependendo do método utilizado. 
+A resposta do Detetor de Anomalias é um objeto [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) ou [TotalDetectResponse,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) dependendo do método utilizado. 
 
 ## <a name="code-examples"></a>Exemplos de código 
 
@@ -83,42 +83,42 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca d
 * [Autenticar o cliente](#authenticate-the-client)
 * [Carregue um conjunto de dados da série de tempo a partir de um ficheiro](#load-time-series-data-from-a-file)
 * [Detetar anomalias em todo o conjunto de dados](#detect-anomalies-in-the-entire-data-set) 
-* [Detete o estado da anomalia do último ponto de dados](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Detetar o estado de anomalia do último ponto de dados](#detect-the-anomaly-status-of-the-latest-data-point)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantie um objeto [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) com o seu ponto final e credenciais.
+Instantiizar um objeto [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) com o seu ponto final e credenciais.
 
 [!code-javascript[Authentication](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
 
-## <a name="load-time-series-data-from-a-file"></a>Dados da série de tempo de carga de um ficheiro
+## <a name="load-time-series-data-from-a-file"></a>Carregar dados da série de tempo a partir de um ficheiro
 
-Descarregue os dados de exemplo para este arranque rápido a partir do [GitHub:](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv)
-1. No seu navegador, clique em **Raw.**
-2. Clique no **link Guardar como**.
-3. Guarde o ficheiro para o seu diretório de candidatura, como ficheiro .csv.
+Descarregue os dados de exemplo para este arranque rápido do [GitHub:](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv)
+1. No seu navegador, clique com o botão direito **Raw.**
+2. Clique **em Guardar link como**.
+3. Guarde o ficheiro para o seu diretório de candidaturas, como ficheiro .csv.
 
 Estes dados da série de tempo são formatados como um ficheiro .csv, e serão enviados para a API do Detetor de Anomalias.
 
-Leia o seu ficheiro de dados com o `readFileSync()` método da biblioteca csv-parse e analise o ficheiro com `parse()`. Para cada linha, empurre um objeto [Point](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) contendo a marca de tempo e o valor numérico.
+Leia o seu ficheiro de dados com o método da biblioteca csv-parse `readFileSync()` e analise o ficheiro com `parse()` . Para cada linha, empurre um objeto [point](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) contendo a estada de tempo e o valor numérico.
 
 [!code-javascript[Read the data file](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=readFile)]
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>Detetar anomalias em todo o conjunto de dados 
 
-Ligue para a API para detetar anomalias em toda a série de tempo como um lote com todo o método [Detect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) do cliente. Guarde o objeto [InteiraDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) devolvido. Iterar através da `isAnomaly` lista de resposta, e `true` imprimir o índice de quaisquer valores. Estes valores correspondem ao índice de pontos de dados anómalos, caso se encontre algum.
+Ligue para a API para detetar anomalias durante toda a série de tempo como um lote com todo o método [do Doutor().](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) Guarde o objeto [Deresponse TotalDetect.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) Iterar através da lista de `isAnomaly` resposta, e imprimir o índice de quaisquer `true` valores. Estes valores correspondem ao índice de pontos de dados anómalos, caso se encontrem.
 
 [!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detete o estado da anomalia do último ponto de dados
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detetar o estado de anomalia do último ponto de dados
 
-Ligue para a API do Detetor de Anomalias para determinar se o seu último ponto de dados é uma anomalia usando o último método [detect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) do cliente, e armazene o objeto [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) devolvido. O valor `isAnomaly` da resposta é uma booleana que especifica o estado da anomalia desse ponto.  
+Ligue para a API do Detetor de Anomalias para determinar se o seu último ponto de dados é uma anomalia utilizando o [método último do](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) cliente e guarde o objeto [BackDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) devolvido. O valor da resposta `isAnomaly` é um booleano que especifica o estado de anomalia desse ponto.  
 
 [!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o `node` pedido com o comando no seu ficheiro de arranque rápido.
+Execute a aplicação com o `node` comando no seu ficheiro quickstart.
 
 ```console
 node index.js

@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.openlocfilehash: f3603bf8afdcd990144897113f4e8506629f60a3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84429749"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implemente um modelo a partir do CLI
@@ -300,7 +300,7 @@ O ficheiro runconfig também contém informações usadas para configurar o ambi
 > [!TIP]
 > Embora seja possível criar manualmente um ficheiro runconfig, o deste exemplo foi criado usando o `generate-runconfig.py` ficheiro incluído no repositório. Este ficheiro obtém uma referência ao conjunto de dados registado, cria uma execução config programaticamente, e depois persiste em arquivá-lo.
 
-Para obter mais informações sobre ficheiros de configuração de execução, consulte [Configurar e utilizar alvos de computação para a formação de modelos](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Para obter uma referência JSON completa, consulte o [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Para obter mais informações sobre ficheiros de configuração de execução, consulte [Configurar e utilizar alvos de computação para a formação de modelos](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Para obter uma referência completa ao JSON, consulte a [runconfigschema.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Submeta a formação
 

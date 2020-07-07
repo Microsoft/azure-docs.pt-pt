@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/29/2019
 ms.author: normesta
 ms.openlocfilehash: 8f8568f2b4df3367e1ca6778431c1056be713e51
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85550982"
 ---
 > [!NOTE]

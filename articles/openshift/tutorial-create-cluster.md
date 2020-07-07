@@ -1,23 +1,23 @@
 ---
-title: Tutorial - Crie um cluster OpenShift 4 do chapéu vermelho azure
-description: Saiba como criar um cluster OpenShift do Microsoft Azure Red Hat usando o Azure CLI
+title: Tutorial - Criar um aglomerado Azure Red Hat OpenShift 4
+description: Saiba como criar um cluster Microsoft Azure Red Hat OpenShift utilizando o Azure CLI
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800171"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985693"
 ---
-# <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster OpenShift 4 do chapéu vermelho azure
+# <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
-Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar um cluster OpenShift de chapéu vermelho azure executando OpenShift 4, e criar um cluster. Vai aprender a:
+Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar um cluster Azure Red Hat OpenShift executando OpenShift 4, e criar um cluster. Vai aprender a:
 > [!div class="checklist"]
-> * Configurar os pré-requisitos e criar a rede virtual e as subredes necessárias
+> * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -26,15 +26,15 @@ Se optar por instalar e utilizar o CLI localmente, este tutorial requer que este
 
 ### <a name="verify-your-permissions"></a>Verificar as permissões
 
-Para criar um cluster OpenShift de chapéu vermelho Azure, verifique as seguintes permissões na sua conta Azure e no utilizador:
+Para criar um cluster Azure Red Hat OpenShift, verifique as seguintes permissões na sua subscrição Azure, utilizador do Azure Ative Directory ou principal de serviço:
 
-|Permissões|Grupo de Recursos que contém o VNet|Execução do utilizador`az aro create`|Diretor de serviço passou como`–client-id`|
+|Permissões|Grupo de Recursos que contém o VNet|Execução do utilizador`az aro create`|Diretor de Serviço passou como`–client-id`|
 |----|:----:|:----:|:----:|
 |**Administrador de Acesso do Utilizador**|X|X| |
 |**Contribuinte**|X|X|X|
 
-### <a name="install-the-az-aro-extension"></a>Instalar a `az aro` extensão
-A `az aro` extensão permite-lhe criar, aceder e eliminar os clusters OpenShift do Chapéu Vermelho Azure diretamente da linha de comando utilizando o Azure CLI.
+### <a name="install-the-az-aro-extension"></a>Instale a `az aro` extensão
+A `az aro` extensão permite-lhe criar, aceder e eliminar aglomerados Azure Red Hat OpenShift diretamente da linha de comando utilizando o Azure CLI.
 
 Executar o seguinte comando para instalar a `az aro` extensão.
 
@@ -50,7 +50,7 @@ az extension update -n aro --index https://az.aroapp.io/stable
 
 ### <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
-Em seguida, precisa de registar o fornecedor de `Microsoft.RedHatOpenShift` recursos na sua subscrição.
+Em seguida, tem de registar o `Microsoft.RedHatOpenShift` fornecedor de recursos na sua subscrição.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
@@ -71,27 +71,27 @@ aro                                1.0.0
 ...
 ```
 
-### <a name="get-a-red-hat-pull-secret-optional"></a>Obtenha um segredo de pull de chapéu vermelho (opcional)
+### <a name="get-a-red-hat-pull-secret-optional"></a>Obtenha um segredo de puxar o chapéu vermelho (opcional)
 
-Um segredo de pull Red Hat permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional. Este passo é opcional, mas recomendado.
+Um segredo de puxar o chapéu vermelho permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional. Este passo é opcional, mas recomendado.
 
-1. **Navegue para o portal de gestor de [cluster Sondar do Chapéu Vermelho](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) e faça login.**
+1. **[Navegue para o seu portal de clusters Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) e faça login.**
 
-   Terá de fazer login na sua conta Red Hat ou criar uma nova conta Red Hat com o seu email comercial e aceitar os termos e condições.
+   Terá de iniciar sessão na sua conta Red Hat ou criar uma nova conta Red Hat com o seu email de negócios e aceitar os termos e condições.
 
-2. **Clique em Baixar segredo de puxar.**
+2. **Clique em Baixar O segredo de puxar.**
 
 Mantenha o ficheiro guardado `pull-secret.txt` em algum lugar seguro - será usado em cada criação de cluster.
 
-Ao executar o comando, pode fazer referência ao `az aro create` seu segredo de puxar usando o `--pull-secret @pull-secret.txt` parâmetro. Execute `az aro create` a partir do diretório onde guardou o seu `pull-secret.txt` ficheiro. Caso contrário, `@pull-secret.txt` substitua-o por `@<path-to-my-pull-secret-file>` .
+Ao executar o `az aro create` comando, pode fazer referência ao seu segredo de puxar utilizando o `--pull-secret @pull-secret.txt` parâmetro. Execute `az aro create` a partir do diretório onde guardou o seu `pull-secret.txt` ficheiro. Caso contrário, `@pull-secret.txt` `@<path-to-my-pull-secret-file>` substitua-o por .
 
-Se estiver a copiar o seu segredo de puxar ou a referenciar noutros scripts, o seu segredo de puxar deve ser formatado como uma corda JSON válida.
+Se estiver a copiar o seu segredo de puxar ou a fazê-lo referenciar noutros scripts, o seu segredo de puxar deve ser formatado como uma cadeia JSON válida.
 
-### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Criar uma rede virtual contendo duas subredes vazias
+### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Criar uma rede virtual contendo duas sub-redes vazias
 
-Em seguida, criará uma rede virtual contendo duas subredes vazias.
+Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
 
-1. **Desconte as seguintes variáveis.**
+1. **Desa estarda as seguintes variáveis.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -101,13 +101,13 @@ Em seguida, criará uma rede virtual contendo duas subredes vazias.
 
 1. **Criar um grupo de recursos**
 
-    Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Crie um grupo de recursos utilizando o comando [az group criar][az-group-create].
+    Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o comando [az-group-create].
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
     ```
 
-    A saída de exemplo seguinte mostra o grupo de recursos criado com sucesso:
+    A saída de exemplo a seguir mostra o grupo de recursos criado com sucesso:
 
     ```json
     {
@@ -124,7 +124,7 @@ Em seguida, criará uma rede virtual contendo duas subredes vazias.
 
 2. **Criar uma rede virtual.**
 
-    Os clusters OpenShift do Chapéu Vermelho Azure que executam o OpenShift 4 requerem uma rede virtual com duas subredes vazias, para os nós mestre e operário.
+    Os clusters Azure Red Hat OpenShift que executam o OpenShift 4 requerem uma rede virtual com duas sub-redes vazias, para os nós de mestre e trabalhador.
 
     Crie uma nova rede virtual no mesmo grupo de recursos que criou anteriormente.
 
@@ -155,7 +155,7 @@ Em seguida, criará uma rede virtual contendo duas subredes vazias.
     }
     ```
 
-3. **Adicione uma sub-rede vazia para os narizes principais.**
+3. **Adicione uma sub-rede vazia para os nós mestres.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -166,7 +166,7 @@ Em seguida, criará uma rede virtual contendo duas subredes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Adicione uma sub-rede vazia para os nódosos dos trabalhadores.**
+4. **Adicione uma sub-rede vazia para os nós dos trabalhadores.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -177,7 +177,7 @@ Em seguida, criará uma rede virtual contendo duas subredes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Desative as políticas de ponto final privado da sub-rede](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) na sub-rede principal.** Isto é necessário para ser capaz de ligar e gerir o cluster.
+5. **[Desative as políticas de ponto final privado da sub-rede](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) na sub-rede principal.** Isto é necessário para ser capaz de conectar e gerir o cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -189,10 +189,10 @@ Em seguida, criará uma rede virtual contendo duas subredes vazias.
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Executar o seguinte comando para criar um cluster. Opcionalmente, pode [passar o seu segredo de pull Red Hat](#get-a-red-hat-pull-secret-optional) que permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional.
+Executar o seguinte comando para criar um cluster. Opcionalmente, pode [passar o seu segredo de puxar o Chapéu Vermelho,](#get-a-red-hat-pull-secret-optional) o que permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional.
 
 >[!NOTE]
-> Se estiver a copiar/colar comandos e a utilizar um dos parâmetros opcionais, certifique-se de eliminar as hashtags iniciais e o texto de comentário sonoro. Além disso, feche o argumento na linha anterior do comando com um recuo.
+> Se estiver a copiar/colar comandos e utilizar um dos parâmetros opcionais, certifique-se de que apaga as hashtags iniciais e o texto de comentário de fuga. Além disso, feche o argumento na linha anterior do comando com uma faixa de recuo.
 
 ```azurecli-interactive
 az aro create \
@@ -205,21 +205,21 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-Depois de executar o `az aro create` comando, normalmente leva cerca de 35 minutos para criar um cluster.
+Após a execução do `az aro create` comando, normalmente demora cerca de 35 minutos a criar um cluster.
 
 >[!IMPORTANT]
-> Se optar por especificar um domínio personalizado, por **exemplo, foo.example.com,** a consola OpenShift estará disponível num URL `https://console-openshift-console.apps.foo.example.com` como, em vez do domínio `https://console-openshift-console.apps.<random>.<location>.aroapp.io` incorporado.
+> Se optar por especificar um domínio personalizado, por exemplo **foo.example.com,** a consola OpenShift estará disponível num URL como `https://console-openshift-console.apps.foo.example.com` , em vez do domínio incorporado `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
-> Por predefinição, a OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io` .  Se optar por utilizar DNS personalizados após a ligação ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) de entrada e um CA personalizado para o seu servidor [API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Por predefinição, o OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io` .  Se optar por utilizar DNS personalizados após a ligação ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e um CA personalizado para o seu servidor [API.](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)
 >
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]
-> * Configurar os pré-requisitos e criar a rede virtual e as subredes necessárias
+> * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster
 
 Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]
-> [Ligue-se a um cluster OpenShift do chapéu vermelho azul](tutorial-connect-cluster.md)
+> [Ligue-se a um cluster Azure Red Hat OpenShift](tutorial-connect-cluster.md)

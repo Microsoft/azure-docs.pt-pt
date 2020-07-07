@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: d2783d658d3420575da5d9d480fb705afe2495fc
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85550363"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984016"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Storage do Azure](https://azure.microsoft.com/services/storage/)
++ [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
 + [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -170,7 +170,7 @@ Um [objeto skillset](https://docs.microsoft.com/rest/api/searchservice/create-sk
 1. Utilize **o PUT** e o seguinte URL, substituindo o SEU NOME DE SERVIÇO pelo nome real do seu serviço.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2020-06-30
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
 1. A pedido **Body**, copie a definição JSON abaixo. Esta habilidade consiste nas seguintes competências incorporadas.

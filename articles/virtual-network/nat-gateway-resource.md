@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
 ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85549640"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT

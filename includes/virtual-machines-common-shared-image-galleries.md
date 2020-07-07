@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84317624"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens geridas. As Galerias de Imagem Partilhadas fornecem:
@@ -233,7 +233,7 @@ Para obter mais informações, consulte **Gerir os recursos** da galeria utiliza
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Posso mover a minha imagem existente para a galeria de imagens partilhada?
  
-Yes. Existem 3 cenários baseados nos tipos de imagens que pode ter.
+Sim. Existem 3 cenários baseados nos tipos de imagens que pode ter.
 
  Cenário 1: Se tiver uma imagem gerida, então pode criar uma definição de imagem e versão de imagem a partir dela. Para obter mais informações, consulte **Migrar de uma imagem gerida para uma versão de imagem** utilizando o [Azure CLI](../articles/virtual-machines/image-version-managed-image-cli.md) ou [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 
