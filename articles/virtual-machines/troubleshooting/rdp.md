@@ -1,6 +1,6 @@
 ---
-title: Problemas de RDP para VMs windows em Azure Microsoft Docs
-description: Problemas de RDP em Azure para VMs windows.
+title: Problemas de PDR para VMs do Windows em Azure Microsoft Docs
+description: Problemas de PDR em Azure para VMs windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,15 +15,15 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057273"
 ---
-# <a name="troubleshoot-rdp-issues"></a>Problemas de resolução de problemas problemas com RDP
+# <a name="troubleshoot-rdp-issues"></a>Problemas de resolução de problemas do PDR
 
-As seguintes questões com a criação de um PDR à ligação a um VM estão abrangidas nesta secção:
+As seguintes questões com a criação de um PDR para a ligação a um VM são abordadas nesta secção:
 
 - [Repor o RDP](reset-rdp.md)
 - [Resolução de problemas de RDP](troubleshoot-rdp-connection.md)
@@ -41,9 +41,9 @@ As seguintes questões com a criação de um PDR à ligação a um VM estão abr
 - [Resolver problema de erro RDP na VM devido a IP estático](troubleshoot-rdp-static-ip.md)
 - [Resolver problema de erro RDP na VM devido a NIC desativado](troubleshoot-rdp-nic-disabled.md)
 - [Resolver problemas do erro de RDP causados pelo Modo Seguro](troubleshoot-rdp-safe-mode.md)
-- [Desativar a Firewall do SO convidado na VM do Azure](disable-guest-os-firewall-windows.md)
+- [Desative a firewall do SO convidado na VM do Azure](disable-guest-os-firewall-windows.md)
 - [Ativar ou desativar uma regra de firewall num SO convidado](enable-disable-firewall-rule-guest-os.md)
 - [A firewall do SO convidado está a bloquear o tráfego de entrada](guest-os-firewall-blocking-inbound-traffic.md)
-- [A firewall do SO convidado está configurada incorretamente](guest-os-firewall-misconfigured.md) 
+- [Guest OS firewall is misconfigured](guest-os-firewall-misconfigured.md) (A firewall do SO convidado está mal configurada) 
 - [Resolver problemas do erro de RDP causados pelo netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
 
