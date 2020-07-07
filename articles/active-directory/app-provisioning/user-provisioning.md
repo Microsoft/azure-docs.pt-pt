@@ -12,10 +12,10 @@ ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
 ms.openlocfilehash: 7f09bb42f529164ef0f5062ef801ddc7ecfef85c
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781095"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações com Azure AD

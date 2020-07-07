@@ -1,6 +1,6 @@
 ---
 title: Diretrizes de limitação do Azure Key Vault
-description: A aceleração do cofre-chave limita o número de chamadas simultâneas para evitar o uso excessivo de recursos.
+description: O estrangulamento do Cofre-Chave limita o número de chamadas simultâneas para evitar o uso excessivo de recursos.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,60 +10,60 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432089"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
-O estrangulamento é um processo que inicia que limita o número de chamadas simultâneas ao serviço Azure para evitar o uso excessivo de recursos. O Azure Key Vault (AKV) foi concebido para lidar com um elevado volume de pedidos. Se ocorrer um número esmagador de pedidos, a aceleração dos pedidos do seu cliente ajuda a manter o desempenho e a fiabilidade ideais do serviço AKV.
+O Throttling é um processo que inicia que limita o número de chamadas simultâneas ao serviço Azure para evitar o uso excessivo de recursos. O Azure Key Vault (AKV) foi concebido para suportar um grande volume de pedidos. Se ocorrer um número esmagador de pedidos, o estrangulamento dos pedidos do seu cliente ajuda a manter o melhor desempenho e fiabilidade do serviço AKV.
 
-Os limites de estrangulamento variam em função do cenário. Por exemplo, se estiver a realizar um grande volume de escritos, a possibilidade de estrangulamento é maior do que se estiver apenas a executar leituras.
+Os limites de estrangulamento variam em função do cenário. Por exemplo, se estiver a executar um grande volume de escritas, a possibilidade de estrangulamento é maior do que se estiver apenas a executar leituras.
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Como é que o Key Vault lida com os seus limites?
 
-Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço para todos os clientes da Key Vault. Quando um limiar de serviço é ultrapassado, o Cofre chave limita quaisquer pedidos adicionais desse cliente por um período de tempo, devolve o código de estado HTTP 429 (pedidos a mais), e o pedido falha. Pedidos falhados que devolvem uma contagem de 429 para os limites de aceleração rastreados pela Key Vault. 
+Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço a todos os clientes da Key Vault. Quando um limiar de serviço é ultrapassado, o Key Vault limita quaisquer outros pedidos desse cliente por um período de tempo, devolve o código de estado HTTP 429 (Demasiados pedidos) e o pedido falha. Pedidos falhados que devolvem uma contagem de 429 para os limites do acelerador seguidos por Key Vault. 
 
-Key Vault foi originalmente projetado para ser usado para armazenar e recuperar os seus segredos na hora de implantação.  O mundo evoluiu, e key vault está sendo usado em tempo de execução para armazenar e recuperar segredos, e muitas vezes apps e serviços querem usar Key Vault como uma base de dados.  Os limites atuais não suportam taxas de entrada elevadas.
+Key Vault foi originalmente projetado para ser usado para armazenar e recuperar os seus segredos na hora de implantação.  O mundo evoluiu, e o Key Vault está a ser usado em tempo de execução para armazenar e recuperar segredos, e muitas vezes aplicações e serviços querem usar o Key Vault como uma base de dados.  Os limites atuais não suportam taxas de produção elevadas.
 
-Key Vault foi originalmente criado com os limites especificados nos limites de serviço do [Cofre chave Azure](service-limits.md).  Para maximizar o seu Cofre chave através de taxas de colocação, aqui estão algumas diretrizes/boas práticas recomendadas para maximizar a sua entrada:
-1. Certifique-se de que tem estrangulamento no lugar.  O cliente deve honrar as políticas de back-off exponenciais para 429's e garantir que está a fazer repetições de acordo com a orientação abaixo.
-1. Divida o tráfego do cofre entre vários cofres e diferentes regiões.   Utilize um cofre separado para cada domínio de segurança/disponibilidade.   Se você tem cinco apps, cada uma em duas regiões, então recomendamos 10 cofres cada um contendo os segredos exclusivos para app e região.  Um limite de subscrição para todos os tipos de transações é cinco vezes o limite individual do cofre. Por exemplo, outras transações HSM por subscrição estão limitadas a 5.000 transações em 10 segundos por subscrição. Considere o cache do segredo dentro do seu serviço ou app para também reduzir o RPS diretamente para o cofre chave e/ou manusear o tráfego baseado em explosão.  Também pode dividir o seu tráfego entre diferentes regiões para minimizar a latência e usar uma subscrição/cofre diferente.  Não envie mais do que o limite de subscrição do serviço Key Vault numa única região do Azure.
-1. Cache os segredos que você recupera do Cofre chave Azure na memória, e reutilizar da memória sempre que possível.  Releia a partir do Cofre de Chaves Azure apenas quando a cópia em cache deixar de funcionar (por exemplo, porque foi rodada na fonte). 
-1. Key Vault foi projetado para os seus próprios segredos de serviços.   Se estiver a armazenar os segredos dos seus clientes (especialmente para cenários de armazenamento chave de alta suposição), considere colocar as chaves numa base de dados ou numa conta de armazenamento com encriptação e armazenar apenas a chave principal no Cofre chave azure.
-1. Criptografe, envolva e verifique que as operações de chave pública podem ser realizadas sem acesso ao Key Vault, o que não só reduz o risco de estrangulamento, como também melhora a fiabilidade (desde que guarde adequadamente o material chave do público).
-1. Se utilizar o Key Vault para armazenar credenciais para um serviço, verifique se esse serviço suporta a Autenticação AD Azure para autenticar diretamente. Isto reduz a carga no Cofre chave, melhora a fiabilidade e simplifica o seu código, uma vez que o Key Vault pode agora usar o token Azure AD.  Muitos serviços passaram a usar a Azure AD Auth.  Consulte a lista atual nos [Serviços que suportam identidades geridas para os recursos do Azure.](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
-1. Considere escalonar a sua carga/implantação durante um período mais longo de tempo para se manter abaixo dos limites atuais de RPS.
+O Key Vault foi originalmente criado com os limites especificados nos limites de [serviço do Azure Key Vault](service-limits.md).  Para maximizar o seu Cofre-Chave através de taxas de put, aqui estão algumas diretrizes/melhores práticas recomendadas para maximizar o seu rendimento:
+1. Certifique-se de que tem estrangulamento no lugar.  O cliente deve honrar as políticas de back-off exponencial para 429's e garantir que está a fazer recauchutagem de acordo com as orientações abaixo.
+1. Divida o seu tráfego key vault entre vários cofres e diferentes regiões.   Utilize um cofre separado para cada domínio de segurança/disponibilidade.   Se você tem cinco aplicativos, cada um em duas regiões, então recomendamos 10 cofres cada um contendo os segredos exclusivos para app e região.  Um limite de subscrição para todos os tipos de transação é cinco vezes superior ao limite de cofre de chaves individual. Por exemplo, as transações HSM-other por subscrição estão limitadas a 5.000 transações em 10 segundos por subscrição. Considere caching o segredo dentro do seu serviço ou app para também reduzir o RPS diretamente para o cofre chave e/ou manusear o tráfego baseado em explosão.  Também pode dividir o seu tráfego entre diferentes regiões para minimizar a latência e usar uma subscrição/cofre diferente.  Não envie mais do que o limite de subscrição para o serviço Key Vault numa única região de Azure.
+1. Cache os segredos que você recupera do Cofre da Chave Azure na memória, e reutilizar da memória sempre que possível.  Relê-lo do Azure Key Vault apenas quando a cópia em cache deixar de funcionar (por exemplo, porque foi rodada na fonte). 
+1. O Key Vault foi concebido para os seus próprios segredos de serviços.   Se estiver a armazenar os segredos dos seus clientes (especialmente para cenários de armazenamento de chaves de alto rendimento), considere colocar as chaves numa base de dados ou uma conta de armazenamento com encriptação e armazenar apenas a chave principal no Cofre da Chave Azure.
+1. Criptografe, envolva e verifique se as operações de chave pública podem ser realizadas sem acesso ao Key Vault, o que não só reduz o risco de estrangulamento, como também melhora a fiabilidade (desde que cache corretamente o material chave público).
+1. Se utilizar o Key Vault para armazenar credenciais para um serviço, verifique se esse serviço suporta a autenticação AZure AD para autenticar diretamente. Isto reduz a carga no Key Vault, melhora a fiabilidade e simplifica o seu código, uma vez que o Key Vault pode agora utilizar o token AD Azure.  Muitos serviços passaram a usar a Azure AD Auth.  Consulte a lista atual dos [Serviços que suportam identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
+1. Considere espantosamente a sua carga/implantação durante um período de tempo mais longo para se manter abaixo dos limites atuais do RPS.
 1. Se a sua aplicação compreende vários nós que precisam de ler os mesmos segredos, então considere usar um padrão de saída de ventilador, onde uma entidade lê o segredo de Key Vault, e os fãs para todos os nós.   Cache os segredos recuperados apenas na memória.
-Se descobrir que o acima ainda não satisfaz as suas necessidades, preencha a tabela abaixo e contacte-nos para determinar que capacidade adicional pode ser adicionada (exemplo abaixo colocado abaixo apenas para fins ilustrativos).
+Se descobrir que o acima ainda não satisfaz as suas necessidades, preencha a tabela abaixo e contacte-nos para determinar que capacidade adicional pode ser adicionada (por exemplo, colocado abaixo apenas para fins ilustrativos).
 
-| Nome do cofre | Região do Cofre | Tipo de objeto (Segredo, Chave ou Cert) | Operação(s)* | Tipo chave | Comprimento da chave ou curva | Chave HSM?| RPS de estado estável necessário | RpS de pico necessário |
+| Nome do Vault | Região do Cofre | Tipo de objeto (Segredo, Chave ou Cert) | Operação(s)* | Tipo chave | Comprimento ou curva da chave | Chave HSM?| RPS de estado estável necessário | Pico RPS necessário |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | No | 200 | 1000 |
 
-\*Para obter uma lista completa de valores possíveis, consulte [as operações do Cofre chave do Azure](/rest/api/keyvault/key-operations).
+\*Para obter uma lista completa de valores possíveis, consulte as [operações do Azure Key Vault](/rest/api/keyvault/key-operations).
 
-Se for aprovada uma capacidade adicional, note o seguinte como resultado do aumento da capacidade:
-1. O modelo de consistência de dados muda. Uma vez que um cofre é permitido listado com capacidade de entrada adicional, a garantia de consistência de dados do serviço Key Vault altera as alterações (necessárias para atender rpS de volume mais elevado, uma vez que o serviço de armazenamento azure subjacente não consegue acompanhar).  Em poucas palavras:
+Se for aprovada a capacidade adicional, por favor, note o seguinte como resultado do aumento da capacidade:
+1. Alterações no modelo de consistência de dados. Uma vez que um cofre é permitido listado com capacidade adicional de produção, o serviço Key Vault de consistência de dados altera alterações (necessária para atender RPS de volume mais elevado uma vez que o serviço de armazenamento Azure subjacente não consegue acompanhar).  Em poucas palavras:
   1. **Sem permitir a listagem**: O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) imediatamente em chamadas subsequentes (por exemplo. SecretGet, KeySign).
-  1. **Com a listagem de permitines**: O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo. SecretGet, KeySign).
-1. O código do cliente deve honrar a política de back-off por 429 repetições. O código do cliente que liga para o serviço Key Vault não deve rejulgar imediatamente os pedidos do Key Vault quando receber um código de resposta 429.  A orientação de estrangulamento do Cofre-Chave Azure publicada aqui recomenda a aplicação de backoff exponencial ao receber um código de resposta http 429.
+  1. **Com a listagem de permitis**: O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo. SecretGet, KeySign).
+1. O código do cliente deve honrar a política de back-off para 429 retróscos. O código do cliente que chama o serviço Key Vault não deve re-tentar imediatamente os pedidos do Key Vault quando recebe um código de resposta 429.  A orientação de estrangulamento do Azure Key Vault publicada aqui recomenda a aplicação de backoff exponencial ao receber um código de resposta 429 Http.
 
-Se tiver um caso de negócio válido para limites de aceleração mais elevados, contacte-nos.
+Se tiver um caso de negócio válido para limites de aceleração mais elevados, entre em contato conosco.
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Como acelerar a sua app em resposta aos limites de serviço
 
-Seguem-se **as melhores práticas** que deve implementar quando o seu serviço está estrangulado:
-- Reduzir o número de operações por pedido.
+Seguem-se **as melhores práticas** que deve implementar quando o seu serviço é acelerado:
+- Reduza o número de operações por pedido.
 - Reduza a frequência dos pedidos.
-- Evite repetições imediatas. 
+- Evite recauchutagens imediatas. 
     - Todos os pedidos se acumulam contra os seus limites de utilização.
 
-Quando implementar o manuseamento de erros da sua aplicação, utilize o código de erro HTTP 429 para detetar a necessidade de estrangulamento do lado do cliente. Se o pedido falhar novamente com um código de erro HTTP 429, ainda encontra um limite de serviço Azure. Continue a utilizar o método de estrangulamento recomendado do lado do cliente, reexperimentando o pedido até que tenha sucesso.
+Quando implementar o tratamento de erros da sua aplicação, utilize o código de erro HTTP 429 para detetar a necessidade de estrangulamento do lado do cliente. Se o pedido falhar novamente com um código de erro HTTP 429, ainda encontra um limite de serviço Azure. Continue a utilizar o método de estrangulamento recomendado do lado do cliente, reformulando o pedido até que tenha sucesso.
 
-O código que implementa backoff exponencial é mostrado abaixo. 
+O código que implementa o backoff exponencial é mostrado abaixo. 
 ```
 SecretClientOptions options = new SecretClientOptions()
     {
@@ -84,19 +84,19 @@ SecretClientOptions options = new SecretClientOptions()
 
 A utilização deste código numa aplicação C# do cliente é simples. 
 
-### <a name="recommended-client-side-throttling-method"></a>Método recomendado de estrangulamento do lado do cliente
+### <a name="recommended-client-side-throttling-method"></a>Método de estrangulamento recomendado do lado do cliente
 
-No código de erro HTTP 429, comece a estrangular o seu cliente usando uma abordagem exponencial de backoff:
+No código de erro HTTP 429, comece a estrangular o seu cliente utilizando uma abordagem exponencial de backoff:
 
-1. Espere 1 segundo, pedido de novo
-2. Se ainda estiver estrangulado espere 2 segundos, peça de novo
-3. Se ainda estiver estrangulado espere 4 segundos, peça de novo
-4. Se ainda estiver estrangulado espere 8 segundos, peça de novo
-5. Se ainda estiver estrangulado espere 16 segundos, peça de novo
+1. Espere 1 segundo, redando o pedido
+2. Se ainda estrangulado esperar 2 segundos, reda o pedido de novo
+3. Se ainda estrangulado esperar 4 segundos, reda o pedido de novo
+4. Se ainda estrangulado esperar 8 segundos, reda o pedido de novo
+5. Se ainda estrangulado esperar 16 segundos, reda o pedido de novo
 
 Neste momento, não deverá receber códigos de resposta HTTP 429.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-Para uma orientação mais profunda de estrangulamento na Nuvem microsoft, consulte [o Padrão de Estrangulamento](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+Para uma orientação mais profunda de estrangulamento na Cloud microsoft, consulte o [Padrão de Aceleração](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

@@ -1,7 +1,7 @@
 ---
-title: Como gerir escritos simultâneos aos recursos
+title: Como gerir escritos simultâneos para recursos
 titleSuffix: Azure Cognitive Search
-description: Utilize uma conmoeda otimista para evitar colisões no ar em atualizações ou eliminações para índices de pesquisa cognitiva azure, indexadores, fontes de dados.
+description: Use concuncy otimista para evitar colisões aéreas em atualizações ou eliminações para índices de Pesquisa Cognitiva Azure, indexadores, fontes de dados.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,40 +9,40 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792222"
 ---
-# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerir a conmoeda na Pesquisa Cognitiva Azure
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerir a concordância na Pesquisa Cognitiva Azure
 
-Ao gerir recursos de Pesquisa Cognitiva Azure, como índices e fontes de dados, é importante atualizar os recursos de forma segura, especialmente se os recursos forem acedidos simultaneamente por diferentes componentes da sua aplicação. Quando dois clientes atualizam simultaneamente um recurso sem coordenação, as condições de corrida são possíveis. Para evitar isto, a Azure Cognitive Search oferece um *modelo de conmoeda otimista.* Não há fechaduras num recurso. Em vez disso, existe um ETag para cada recurso que identifica a versão de recurso para que possa elaborar pedidos que evitem sobreposições acidentais.
+Ao gerir recursos de Pesquisa Cognitiva Azure, como índices e fontes de dados, é importante atualizar os recursos de forma segura, especialmente se os recursos forem acedidos simultaneamente por diferentes componentes da sua aplicação. Quando dois clientes atualizam simultaneamente um recurso sem coordenação, as condições de corrida são possíveis. Para evitar isto, a Azure Cognitive Search oferece um *modelo de concordância otimista.* Não há fechaduras num recurso. Em vez disso, existe um ETag para cada recurso que identifica a versão de recursos para que possa elaborar pedidos que evitem substituições acidentais.
 
 > [!Tip]
-> O código conceptual numa [solução C# de amostra](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica como funciona o controlo de moedas na Pesquisa Cognitiva Azure. O código cria condições que invocam o controlo da moeda. Ler o fragmento de [código abaixo](#samplecode) é provavelmente suficiente para a maioria dos desenvolvedores, mas se quiser executá-lo, edite as definições de appsettings.json para adicionar o nome do serviço e uma chave de api-key de administração. Dado um `http://myservice.search.windows.net`URL de serviço `myservice`de , o nome de serviço é .
+> O código conceptual numa [solução C# explica](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) como funciona o controlo da conuncy na Pesquisa Cognitiva Azure. O código cria condições que invocam o controlo da concordância. Ler o fragmento de [código abaixo](#samplecode) é provavelmente suficiente para a maioria dos desenvolvedores, mas se quiser executá-lo, edite appsettings.jspara adicionar o nome de serviço e uma chave api administração. Dado um URL de serviço `http://myservice.search.windows.net` de, o nome de serviço é `myservice` .
 
 ## <a name="how-it-works"></a>Como funciona
 
-A conmoeda otimista é implementada através de verificações de condições de acesso em chamadas API escritas para índices, indexadores, fontes de dados e recursos sinonymMap.
+A concordância otimista é implementada através de verificações de condições de acesso em chamadas API escritas para índices, indexadores, fontes de dados e recursos synonymMap.
 
 Todos os recursos têm uma [*etiqueta de entidade (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) que fornece informações sobre a versão do objeto. Ao verificar primeiro o ETag, pode evitar atualizações simultâneas num fluxo de trabalho típico (obter, modificar localmente, atualizar) garantindo que o ETag do recurso corresponde à sua cópia local.
 
-+ A API REST usa um [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no cabeçalho de pedido.
-+ O .NET SDK define o ETag através de um objeto accessCondition, definindo o [If-Match [ Cabeçalho if-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no recurso. Qualquer objeto herdado do [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tem um objeto accessCondition.
++ A API REST utiliza um [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no cabeçalho de pedido.
++ O .NET SDK define o ETag através de um objeto de acessoCondição, definindo o [If-Match / Se-Match-Nenhum cabeçalho](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no recurso. Qualquer objeto herdado do [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tem um objeto de acessoCondição.
 
-Sempre que atualiza um recurso, o seu ETag muda automaticamente. Quando implementa a gestão da moeda, tudo o que está a fazer é colocar uma condição prévia no pedido de atualização que requer que o recurso remoto tenha o mesmo ETag que a cópia do recurso que modificou no cliente. Se um processo simultâneo já tiver alterado o recurso remoto, o ETag não corresponderá à condição prévia e o pedido falhará com http 412. Se estiver a utilizar o .NET SDK, `CloudException` isto `IsAccessConditionFailed()` manifesta-se como um local onde o método de extensão retorna verdadeiro.
+Sempre que atualiza um recurso, o seu ETag muda automaticamente. Quando implementa uma gestão de conuncy, tudo o que está a fazer é colocar uma condição prévia no pedido de atualização que requer que o recurso remoto tenha o mesmo ETag que a cópia do recurso que modificou no cliente. Se um processo simultâneo já tiver alterado o recurso remoto, o ETag não corresponderá à condição prévia e o pedido falhará com HTTP 412. Se estiver a utilizar o .NET SDK, isto manifesta-se como um `CloudException` local onde o método de `IsAccessConditionFailed()` extensão retorna verdadeiramente.
 
 > [!Note]
-> Só há um mecanismo de conmoedação. É sempre usado independentemente do qual a API é usada para atualizações de recursos.
+> Só há um mecanismo de concordância. É sempre usado independentemente do que a API é usada para atualizações de recursos.
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>Utilizar casos e código de amostra
 
-O seguinte código demonstra controlos de acessoCondition para operações de atualização chave:
+O seguinte código demonstra o acesso Verificações de condições para operações de atualização chave:
 
-+ Falhar uma atualização se o recurso já não existir
-+ Falhar uma atualização se a versão de recurso mudar
++ Falhe uma atualização se o recurso já não existir
++ Falhe uma atualização se a versão do recurso mudar
 
 ### <a name="sample-code-from-dotnetetagsexplainer-program"></a>Código de amostra do [programa DotNetETagsExplainer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
@@ -167,11 +167,11 @@ O seguinte código demonstra controlos de acessoCondition para operações de at
 
 ## <a name="design-pattern"></a>Padrão de design
 
-Um padrão de conceção para implementar uma moeda otimista deve incluir um loop que retente a verificação da condição de acesso, um teste para a condição de acesso, e obter opcionalmente um recurso atualizado antes de tentar reaplicar as alterações.
+Um padrão de design para implementar a concordância otimista deve incluir um loop que retrite a verificação da condição de acesso, um teste para a condição de acesso, e obter opcionalmente um recurso atualizado antes de tentar reapriscê-la.
 
-Este fragmento de código ilustra a adição de um sinonymMap a um índice que já existe. Este código é do [exemplo Synonym C# para a Pesquisa Cognitiva Azure](search-synonyms-tutorial-sdk.md).
+Este código de corte ilustra a adição de um sinónimoMap a um índice que já existe. Este código é do [exemplo Synonym C# para Azure Cognitive Search](search-synonyms-tutorial-sdk.md).
 
-O snippet obtém o índice de "hotéis", verifica a versão do objeto numa operação de atualização, lança uma exceção se a condição falhar, e depois tenta novamente a operação (até três vezes), começando com a recuperação de índices do servidor para obter a versão mais recente.
+O snippet obtém o índice de "hotéis", verifica a versão do objeto numa operação de atualização, lança uma exceção se a condição falhar e, em seguida, retrimba a operação (até três vezes), começando com a recuperação de índices do servidor para obter a versão mais recente.
 
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
@@ -209,13 +209,13 @@ O snippet obtém o índice de "hotéis", verifica a versão do objeto numa opera
 
 Reveja a [amostra de sinónimos C#](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) para obter mais contexto sobre como atualizar com segurança um índice existente.
 
-Tente modificar qualquer uma das seguintes amostras para incluir eTags ou objetos AccessCondition.
+Tente modificar qualquer uma das seguintes amostras para incluir ETags ou objetos AccessCondition.
 
-+ [Amostra de API REST no GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
-+ [amostra de SDK .NET no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solução inclui o projeto "DotNetEtagsExplainer" contendo o código apresentado neste artigo.
++ [Rest API amostra no GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
++ [.NET SDK amostra no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solução inclui o projeto "DotNetEtagsExplainer" que contém o código apresentado neste artigo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Cabeçalhos comuns](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-de pedido e resposta[HTTP códigos](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-de estado[(REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Comuns de pedidos http e cabeçalhos](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ de resposta Códigos de [estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
+ [Operações de índice (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

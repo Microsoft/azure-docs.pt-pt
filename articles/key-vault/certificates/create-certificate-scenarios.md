@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430971"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorizar e gerir a criação do certificados
@@ -22,25 +22,25 @@ Aplica-se a: Azure
 
 Os cenários/operações delineados neste artigo são:
 
-- Solicite um Certificado KV com um emitente apoiado
-- Obtenha pedido pendente - o estado do pedido é "inProgress"
-- Obtenha pedido pendente - o estado do pedido é "completo"
-- Obtenha pedido pendente - pendente do estado do pedido é "cancelado" ou "falhado"
-- Obter pedido pendente - pendente do estado do pedido é "eliminado" ou "subscrito"
-- Criar (ou Importar) quando o pedido pendente existir - o estatuto é "inProgress"
-- Fundir-se quando pendente o pedido é criado com um emitente (DigiCert, por exemplo)
-- Solicite um cancelamento enquanto o estado de pedido pendente é "inProgress"
+- Solicite um Certificado KV com um emitente suportado
+- Obter pedido pendente - estado de pedido é "inProgress"
+- Obter pedido pendente - estado de pedido é "completo"
+- Obter pedido pendente - estado de pedido pendente é "cancelado" ou "falhado"
+- Obter pedido pendente - estado de pedido pendente é "eliminado" ou "substituído"
+- Criar (ou Importar) quando o pedido pendente existe - o estado é "inProgress"
+- Fundir quando o pedido pendente é criado com um emitente (DigiCert, por exemplo)
+- Solicite um cancelamento enquanto o estado do pedido pendente é "inProgress"
 - Eliminar um objeto de pedido pendente
-- Criar manualmente um certificado KV
-- Fundir quando um pedido pendente é criado - criação de certificado manual
+- Criar um certificado KV manualmente
+- Fusão quando um pedido pendente é criado - criação manual de certificados
 
-## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Solicite um Certificado KV com um emitente apoiado 
+## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Solicite um Certificado KV com um emitente suportado 
 
 |Método|URI do pedido|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-Os seguintes exemplos requerem que um objeto chamado "mydigicert" já esteja disponível no seu cofre chave com o fornecedor emitente como DigiCert. O emitente de certificado é uma entidade representada no Cofre chave azure (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome emitente, fornecedor, credenciais e outros detalhes administrativos.
+Os exemplos a seguir requerem que um objeto chamado "mydigicert" já esteja disponível no seu cofre-chave com o fornecedor de emitentes como DigiCert. O emitente de certificado é uma entidade representada no Azure Key Vault (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome do emitente, fornecedor, credenciais e outros detalhes administrativos.
 
 ### <a name="request"></a>Pedir
 
@@ -77,7 +77,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-## <a name="get-pending-request---request-status-is-inprogress"></a>Obtenha pedido pendente - o estado do pedido é "inProgress"
+## <a name="get-pending-request---request-status-is-inprogress"></a>Obter pedido pendente - estado de pedido é "inProgress"
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -91,7 +91,7 @@ OU
 Obter`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
-> Se *request_id* for especificado na consulta, funciona como um filtro. Se o *request_id* na consulta e no objeto pendente fordiferente, um código de estado http de 404 é devolvido.
+> Se *request_id* for especificado na consulta, atua como um filtro. Se o *request_id* na consulta e no objeto pendente for diferente, é devolvido um código de estado http de 404.
 
 ### <a name="response"></a>Resposta
 
@@ -111,7 +111,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-## <a name="get-pending-request---request-status-is-complete"></a>Obtenha pedido pendente - o estado do pedido é "completo"
+## <a name="get-pending-request---request-status-is-complete"></a>Obter pedido pendente - estado de pedido é "completo"
 
 ### <a name="request"></a>Pedir
 
@@ -143,7 +143,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Obtenha pedido pendente - pendente do estado do pedido é "cancelado" ou "falhado"
+## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Obter pedido pendente - estado de pedido pendente é "cancelado" ou "falhado"
 
 ### <a name="request"></a>Pedir
 
@@ -180,10 +180,10 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```
 
 > [!NOTE]
-> O valor do código de *erro* pode ser "Erro do emitente do certificado" ou "Pedido rejeitado" com base no emitente ou erro do utilizador, respectivamente.
+> O valor do código de *erro* pode ser "Erro do emitente de certificado" ou "Pedido rejeitado" com base em emitente ou erro do utilizador, respectivamente.
 
-## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Obter pedido pendente - pendente do estado do pedido é "eliminado" ou "subscrito"
-Um objeto pendente pode ser eliminado ou substituído por uma operação de criação/importação quando o seu estado não for "inProgress".
+## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Obter pedido pendente - estado de pedido pendente é "eliminado" ou "substituído"
+Um objeto pendente pode ser eliminado ou substituído por uma operação de criação/importação quando o seu estatuto não for "inProgress".
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -209,19 +209,19 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
 ```
 
-## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Criar (ou Importar) quando o pedido pendente existir - o estatuto é "inProgress"
-Um objeto pendente tem quatro estados possíveis; "inprogress", "cancelado", "falhado", ou "concluído".
+## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Criar (ou Importar) quando o pedido pendente existe - o estado é "inProgress"
+Um objeto pendente tem quatro estados possíveis; "inprogresss", "cancelado", "falhado", ou "concluído".
 
-Quando o estado de um pedido pendente estiver "em andamento", as operações (e importar) falharão com um código de estado de http de 409 (conflito).
+Quando o estado de um pedido pendente é "inprogress", criar (e importar) operações falhará com um código de estado http de 409 (conflito).
 
 Para resolver um conflito:
 
-- Se o certificado estiver a ser criado manualmente, pode completar o certificado KV fazendo uma fusão ou apagar no objeto pendente.
+- Se o certificado estiver a ser criado manualmente, pode completar o certificado KV fazendo uma fusão ou eliminando o objeto pendente.
 
-- Se o certificado estiver a ser criado com um emitente, pode esperar até que o certificado complete, falhe ou seja cancelado. Em alternativa, pode eliminar o objeto pendente.
+- Se o certificado estiver a ser criado com um emitente, pode esperar até que o certificado preencha, falhe ou seja cancelado. Em alternativa, pode eliminar o objeto pendente.
 
 > [!NOTE]
-> A adesão de um objeto pendente pode ou não cancelar o pedido de certificado x509 com o fornecedor.
+> A eliminação de um objeto pendente pode ou não cancelar o pedido de certificado x509 com o fornecedor.
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -255,10 +255,10 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```
 
-## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Fundir-se quando pendente o pedido é criado com um emitente
-A fusão não é permitida quando um objeto pendente é criado com um emitente, mas é permitido quando o seu estado está "inProgress". 
+## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Fundir quando o pedido pendente é criado com um emitente
+A fusão não é permitida quando um objeto pendente é criado com um emitente, mas é permitido quando o seu estado é "inProgress". 
 
-Se o pedido de criação do certificado x509 falhar ou cancelar por algum motivo, e se um certificado x509 puder ser recuperado por meios fora da banda, pode ser feita uma operação de fusão para completar o certificado KV.
+Se o pedido de criação do certificado x509 falhar ou cancelar por alguma razão, e se um certificado x509 puder ser recuperado por meios fora de banda, pode ser feita uma operação de fusão para completar o certificado KV.
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -286,8 +286,8 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 ```
 
-## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Solicite um cancelamento enquanto o estado de pedido pendente é "inProgress"
-Um cancelamento só pode ser solicitado. Um pedido pode ou não ser cancelado. Se um pedido não for "inProgress", é devolvido um estatuto de http de 400 (Pedido Mau).
+## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Solicite um cancelamento enquanto o estado do pedido pendente é "inProgress"
+Um cancelamento só pode ser solicitado. Um pedido pode ou não ser cancelado. Se um pedido não for "inProgress", é devolvido um estado http de 400 (Mau Pedido).
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -327,18 +327,18 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="delete-a-pending-request-object"></a>Eliminar um objeto de pedido pendente
 
 > [!NOTE]
-> A adesão do objeto pendente pode ou não cancelar o pedido de certificado x509 com o prestador.
+> A eliminação do objeto pendente pode ou não cancelar o pedido de certificado x509 com o fornecedor.
 
 |Método|URI do pedido|
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Pedir
-ELIMINAR`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+EXCLUIR`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OU
 
-ELIMINAR`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+EXCLUIR`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Resposta
 
@@ -356,8 +356,8 @@ StatusCode: 200, ReasonPhrase: 'OK'
 }
 ```
 
-## <a name="create-a-kv-certificate-manually"></a>Criar manualmente um certificado KV
-Pode criar um certificado emitido com um AC à sua escolha através de um processo de criação manual. Defino o nome do emitente para "Desconhecido" ou não especifique o campo emitente.
+## <a name="create-a-kv-certificate-manually"></a>Criar um certificado KV manualmente
+Pode criar um certificado emitido com um CA à sua escolha através de um processo de criação manual. Desa estade o nome do emitente para "Desconhecido" ou não especifique o campo do emitente.
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -397,7 +397,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Fundir quando um pedido pendente é criado - criação de certificado manual
+## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Fusão quando um pedido pendente é criado - criação manual de certificados
 
 |Método|URI do pedido|
 |------------|-----------------|
@@ -414,7 +414,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nome do elemento|Necessário|Tipo|Versão|Descrição|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Sim|array|\<introduzindo a versão>|Cadeia de certificados X509 como linha de corda base 64.|
+|x5c|Yes|array|\<introducing version>|Cadeia de certificados X509 como matriz de corda base 64.|
 
 ### <a name="response"></a>Resposta
 

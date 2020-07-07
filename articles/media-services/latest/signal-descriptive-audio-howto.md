@@ -1,6 +1,6 @@
 ---
-title: Faixas de áudio descritivas de sinal com Azure Media Services v3 / Microsoft Docs
-description: Siga os passos deste tutorial para carregar um ficheiro, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir o seu conteúdo com o Media Services v3.
+title: Faixas de áudio descritivas de sinal com Azure Media Services v3 Microsoft Docs
+description: Siga os passos deste tutorial para fazer o upload de um ficheiro, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir o seu conteúdo com o Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,28 +13,28 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392192"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
 
-Pode adicionar uma faixa de narração ao seu vídeo para ajudar os clientes com deficiência visual a acompanhar a gravação de vídeo ouvindo a narração. Nos Serviços de Media v3, assinala-se faixas áudio descritivas anotando a faixa de áudio no ficheiro manifesto.
+Pode adicionar uma faixa de narração ao seu vídeo para ajudar os clientes com deficiência visual a seguirem a gravação de vídeo ouvindo a narração. Nos Serviços de Comunicação social v3, sinaliza faixas de áudio descritivas anotando a faixa áudio no ficheiro manifesto.
 
-Este artigo mostra como codificar um vídeo, carregar um ficheiro MP4 apenas áudio (Codec AAC) contendo áudio descritivo no ativo de saída, e editar o ficheiro .ism para incluir o áudio descritivo.
+Este artigo mostra como codificar um vídeo, carregar um ficheiro MP4 (código AAC) contendo áudio descritivo no ativo de saída e editar o ficheiro .ism para incluir o áudio descritivo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Media Services.](create-account-cli-how-to.md)
-- Siga os passos na API access [Azure Media Services com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
-- Rever [a embalagem dinâmica.](dynamic-packaging-overview.md)
-- Reveja o tutorial de [upload, codificação e streaming de vídeos.](stream-files-tutorial-with-api.md)
+- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.
+- Siga os passos na [Access Azure Media Services API com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
+- Rever [embalagem dinâmica.](dynamic-packaging-overview.md)
+- Reveja o [tutorial de upload, codificação e stream](stream-files-tutorial-with-api.md) de vídeos.
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um elemento de entrada e carregar um ficheiro local para ele 
 
-A função **CreateInputAsset** cria um novo [Elemento](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este **Ativo** é usado como entrada para o seu Trabalho de codificação. Nos Serviços de Media v3, a entrada para um **Trabalho** pode ser um **Ativo,** ou pode ser conteúdo que disponibilize na sua conta de Media Services através de URLs HTTPS. 
+A função **CreateInputAsset** cria um novo [Elemento](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este **Ativo** é utilizado como entrada para o seu trabalho de codificação. Nos Serviços de Comunicação social v3, a entrada para um **Job** pode ser um **Ativo,** ou pode ser conteúdo que disponibiliza à sua conta de Media Services através de URLs HTTPS. 
 
 Se quiser aprender a codificar a partir de um URL HTTPS, consulte [este artigo](job-input-from-http-how-to.md) .  
 
@@ -43,46 +43,46 @@ Nos Serviços de Multimédia v3, deverá utilizar as APIs do Armazenamento do A
 A função seguinte executa estes passos:
 
 * Cria um **Ativo** 
-* Obtém um [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) writável para o contentor do ativo [no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Obtém um [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) writable para o contentor do ativo [no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Carrega o ficheiro para o contentor de armazenamento através do URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Se precisar de passar o nome do ativo de entrada criado `Name` para outros métodos, `CreateInputAssetAsync`certifique-se de utilizar a propriedade no objeto de ativo devolvido de, por exemplo, inputAsset.Name. 
+Se precisar de passar o nome do ativo de entrada criado para outros métodos, certifique-se de utilizar a `Name` propriedade no objeto do ativo devolvido de , por `CreateInputAssetAsync` exemplo, inputAsset.Name. 
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Criar um ativo de saída para armazenar o resultado do trabalho de codificação
 
-A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação. A função seguinte mostra como criar um ativo de saída.
+A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação. A seguinte função mostra como criar um ativo de saída.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Se precisar passar o nome do ativo de saída criado para `Name` outros métodos, `CreateIOutputAssetAsync`certifique-se de utilizar a propriedade no objeto de ativo devolvido de, por exemplo, outputAsset.Name. 
+Se precisar de passar o nome do ativo de saída criado para outros métodos, certifique-se de utilizar a `Name` propriedade no objeto do ativo devolvido de , por `CreateIOutputAssetAsync` exemplo, outputAsset.Name. 
 
-No caso deste artigo, `outputAsset.Name` passe o `SubmitJobAsync` `UploadAudioIntoOutputAsset` valor para as funções e funções.
+No caso deste artigo, passe o `outputAsset.Name` valor para as `SubmitJobAsync` `UploadAudioIntoOutputAsset` funções e funções.
 
-## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Criar uma transformação e um trabalho que codifica o ficheiro carregado
+## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Crie uma transformação e um trabalho que codifica o ficheiro carregado
 
-Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novos empregos para cada novo vídeo, está a aplicar essa receita a todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
+Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
-O exemplo seguinte cria uma transformação (se não existir).
+O exemplo a seguir cria uma transformação (se não existir).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
-A seguinte função submete um trabalho.
+A seguinte função submete um emprego.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguarde até que a tarefa termine
 
-A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Recomendamos a utilização da Rede de Eventos para aguardar que o trabalho esteja concluído.
+A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Recomendamos a utilização da Grade de Eventos para aguardar que o trabalho esteja concluído.
 
-O trabalho geralmente passa pelos seguintes estados: **Agendado,** **Fila,** **Processamento,** **Terminado** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver a ser cancelada, verá **A cancelar** e **Cancelada** quando terminar.
+O trabalho geralmente passa pelos seguintes estados: **Programado,** **Fila,** **Processamento,** **Terminado** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver a ser cancelada, verá **A cancelar** e **Cancelada** quando terminar.
 
-Para mais informações, consulte os [eventos handling event grid](reacting-to-media-services-events.md).
+Para obter mais informações, consulte [eventos de Grelha de Eventos de Gestão](reacting-to-media-services-events.md).
 
-## <a name="upload-the-audio-only-mp4-file"></a>Faça upload do ficheiro MP4 apenas áudio
+## <a name="upload-the-audio-only-mp4-file"></a>Faça o upload do ficheiro MP4 apenas áudio
 
-Faça upload do ficheiro MP4 adicional (Codec AAC) contendo áudio descritivo no ativo de saída.  
+Faça o upload do ficheiro MP4 adicional apenas áudio (codec AAC) contendo áudio descritivo no ativo de saída.  
 
 ```csharp
 private static async Task UpoadAudioIntoOutputAsset(
@@ -127,7 +127,7 @@ private static async Task UpoadAudioIntoOutputAsset(
 }
 ```
 
-Aqui está um exemplo de `UpoadAudioIntoOutputAsset` uma chamada para a função:
+Aqui está um exemplo de uma chamada para a `UpoadAudioIntoOutputAsset` função:
 
 ```csharp
 await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.m4a");
@@ -137,12 +137,12 @@ await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName
 
 Quando o seu trabalho de codificação estiver feito, o ativo de saída conterá os ficheiros gerados pelo trabalho de codificação. 
 
-1. No portal Azure, navegue para a conta de armazenamento associada à sua conta de Serviços de Media. 
+1. No portal Azure, navegue para a conta de armazenamento associada à sua conta de Media Services. 
 1. Encontre o recipiente com o nome do seu ativo de saída. 
-1. No recipiente, encontre o ficheiro .ism e clique em **Editar a bolha** (na janela certa). 
-1. Editar o ficheiro .ism adicionando as informações sobre o ficheiro MP4 de áudio enviado (Codec AAC) contendo áudio descritivo e prima **Guardar** quando feito.
+1. No recipiente, encontre o ficheiro .ism e clique em **Editar blob** (na janela direita). 
+1. Editar o ficheiro .ism adicionando as informações sobre o ficheiro MP4 (código AAC) carregado apenas com áudio e pressione **Guardar** quando for feito.
 
-    Para sinalizar as faixas de áudio descritivas, é necessário adicionar parâmetros de "acessibilidade" e "role" ao ficheiro .ism. É da sua responsabilidade definir estes parâmetros corretamente para sinalizar uma faixa de áudio como descrição áudio. Por exemplo, `<param name="accessibility" value="description" />` `<param name="role" value="alternate" />` adicione e ao ficheiro .ism para uma faixa de áudio específica, como mostra o exemplo seguinte.
+    Para sinalizar as faixas de áudio descritivas, é necessário adicionar parâmetros de "acessibilidade" e "função" ao ficheiro .ism. É da sua responsabilidade definir corretamente estes parâmetros para sinalizar uma faixa áudio como descrição áudio. Por exemplo, adicione `<param name="accessibility" value="description" />` e `<param name="role" value="alternate" />` ao ficheiro .ism para uma faixa áudio específica, como mostra o exemplo seguinte.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -202,27 +202,27 @@ Quando o seu trabalho de codificação estiver feito, o ativo de saída conterá
 
 ## <a name="get-a-streaming-locator"></a>Obtenha um localizador de streaming
 
-Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode fazê-lo em dois passos: primeiro, criar um Localizador de [Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), e segundo, construir os URLs de streaming que os clientes podem usar. 
+Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode fazê-lo em dois passos: primeiro, criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)e, em segundo lugar, construir os URLs de streaming que os clientes podem usar. 
 
-O processo de criação de um Localizador de **Streaming** chama-se publicação. Por predefinição, o Localizador de **Streaming** é válido imediatamente após a efetuação das chamadas API, e dura até que seja eliminado, a menos que configure os tempos de início e fim opcionais. 
+O processo de criação de um **Localizador de Streaming** chama-se publicação. Por predefinição, o **Localizador de Streaming** é válido imediatamente após a edição da API e dura até ser eliminado, a menos que configuure os tempos de início e fim opcionais. 
 
-Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o **StreamingPolicyName** pretendido. Neste exemplo, estará a transmitir conteúdo in-the-clear (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPolicy.ClearStreamingOnly).**
+Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o **StreamingPolicyName** pretendido. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPolicy.ClearStreamingOnly).**
 
 > [!IMPORTANT]
-> Ao utilizar uma Política de [Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, deve conceber um conjunto limitado de tais políticas para a sua conta de Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Serviço de Media tem uma quota para o número de entradas de Política de Streaming. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
+> Ao utilizar uma [Política de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Media Service tem uma quota para o número de entradas na Política de Streaming. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
 
 O código seguinte parte do princípio de que está a chamar a função com um locatorName exclusivo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
-Enquanto a amostra neste tópico discute o streaming, pode usar a mesma chamada para criar um Localizador de Streaming para entregar vídeo através de download progressivo.
+Enquanto a amostra deste tópico discute o streaming, você pode usar a mesma chamada para criar um Localizador de Streaming para entregar vídeo através de download progressivo.
 
 ### <a name="get-streaming-urls"></a>Obter os URLs de transmissão
 
-Agora que o Localizador de [Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostra o **GetStreamingURLs**. Para construir um URL, você precisa concatenar o nome de [anfitrião do Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o **ponto final de streaming** *predefinido.* Quando criar uma conta de Serviço de Media, este **ponto final** de streaming *padrão* estará em estado de paragem, por isso precisa ligar para **Iniciar**.
+Agora que o [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 > [!NOTE]
-> Neste método, precisa do nome localizador que foi usado na criação do Localizador de **Streaming** para o Ativo de saída.
+> Neste método, você precisa do nome localizador que foi usado ao criar o **Localizador de Streaming** para o Ativo de saída.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 
@@ -233,10 +233,10 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 > [!NOTE]
 > Se um leitor estiver alojado num site de https, confirme que atualiza o URL para “https”.
 
-1. Abra um navegador web [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)e navegue para .
-2. No **URL:** caixa, cola um dos valores de URL de streaming que obteve da sua aplicação. 
+1. Abra um navegador web e navegue para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
+2. No **URL:** caixa, cole um dos valores de URL de streaming que obteve da sua aplicação. 
  
-     Pode colar o URL em formato HLS, Dash ou Smooth e o Azure Media Player mudará para um protocolo de streaming apropriado para reprodução no seu dispositivo automaticamente.
+     Pode colar o URL no formato HLS, Dash ou Smooth e o Azure Media Player mudará para um protocolo de streaming apropriado para reprodução no seu dispositivo automaticamente.
 3. Prima **Atualizar Leitor**.
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 
