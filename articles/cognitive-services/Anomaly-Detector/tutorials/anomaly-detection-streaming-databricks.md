@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Deteção de anomalias em dados de streaming usando tijolos de dados do Azure'
+title: 'Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a utilizar os API e Os Databricks do Detetor de Anomalias para monitorizar anomalias nos seus dados.
+description: Saiba como utilizar o Detetor de Anomalias API e a Azure Databricks para monitorizar anomalias nos seus dados.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -11,20 +11,20 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918935"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming usando tijolos de dados do Azure
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) é um serviço de análise rápido, fácil e colaborativo apache spark. A API do Detetor de Anomalias, parte dos Serviços Cognitivos Azure, fornece uma forma de monitorizar os dados da série de tempo. Utilize este tutorial para executar a deteção de anomalias num fluxo de dados em tempo real utilizando os Bricks Azure. Você ingerirá dados do Twitter usando Hubs de Eventos Azure, e importá-los-á em Tijolos de Dados Azure usando o conector Spark Event Hubs. Depois, utilizará a API para detetar anomalias nos dados transmitidos. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) é um serviço de análise rápido, fácil e colaborativo baseado em Apache Spark. A API do Detetor de Anomalias, parte dos Serviços Cognitivos do Azure, fornece uma forma de monitorizar os dados das suas séries temporizadas. Utilize este tutorial para executar a deteção de anomalias num fluxo de dados em quase tempo real usando Azure Databricks. Você vai ingerir dados do Twitter usando Azure Event Hubs, e importá-los em Azure Databricks usando o conector Spark Event Hubs. Em seguida, você usará a API para detetar anomalias nos dados transmitidos. 
 
 A ilustração seguinte mostra o fluxo da aplicação:
 
-![Azure Databricks com Hubs de Eventos e Serviços Cognitivos](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks com Hubs de Eventos e Serviços Cognitivos")
+![Azure Databricks com Centros de Eventos e Serviços Cognitivos](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks com Centros de Eventos e Serviços Cognitivos")
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -34,26 +34,26 @@ Este tutorial abrange as seguintes tarefas:
 > * Criar uma aplicação no Twitter para aceder a dados de transmissão
 > * Criar blocos de notas no Azure Databricks
 > * Anexar bibliotecas aos Hubs de Eventos e à API do Twitter
-> * Crie um recurso do Detetor de Anomalias e recupere a chave de acesso
+> * Crie um recurso de detetor de anomalias e recupere a chave de acesso
 > * Enviar tweets para os Hubs de Eventos
 > * Ler tweets dos Hubs de Eventos
 > * Executar deteção de anomalias em tweets
 
 > [!Note]
 > * Este tutorial introduz uma abordagem para implementar a arquitetura de [solução](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para a API do Detetor de Anomalias.
-> * Este tutorial não pode ser concluído com um teste gratuito para a API do Detetor de Anomalias, ou Tijolos de Dados Azure. 
+> * Este tutorial não pode ser concluído com um teste gratuito para a API do Detetor de Anomalias ou para a Azure Databricks. 
 
 Crie uma [subscrição Azure](https://azure.microsoft.com/free/) se não tiver uma.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [espaço de nome azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) e centro de eventos.
+- Um centro de nomes e centro de [eventos Azure Event Hubs.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-- A [cadeia de ligação](../../../event-hubs/event-hubs-get-connection-string.md) para aceder ao espaço de nome do Event Hubs. A cadeia de ligação deve ter um formato semelhante ao seguinte:
+- A [cadeia de ligação](../../../event-hubs/event-hubs-get-connection-string.md) para aceder ao espaço de nomes do Event Hubs. A cadeia de ligação deve ter um formato semelhante a:
 
     `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. 
 
-- O nome da política de acesso partilhado e a chave política para os Centros de Eventos.
+- O nome da política de acesso partilhado e a chave de política para os Centros de Eventos.
 
 Consulte o Azure Event Hubs [para](../../../event-hubs/event-hubs-create.md) obter informações sobre a criação de um espaço de nome e centro de eventos.
 
@@ -61,20 +61,20 @@ Consulte o Azure Event Hubs [para](../../../event-hubs/event-hubs-create.md) obt
 
 Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [portal Azure](https://portal.azure.com/).
 
-1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
+1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks**.
 
-    ![Tijolos de dados no portal Azure](../media/tutorials/azure-databricks-on-portal.png "Tijolos de dados no portal Azure")
+    ![Databricks no portal Azure](../media/tutorials/azure-databricks-on-portal.png "Databricks no portal Azure")
 
-3. No âmbito do Serviço De Tijolos de Dados Azure, forneça os **seguintes valores**para criar um espaço de trabalho databricks:
+3. No serviço **Azure Databricks,** forneça os seguintes valores para criar um espaço de trabalho databricks:
 
 
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
-    |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/management/overview.md). |
+    |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **East US 2** ou uma das outras regiões disponíveis. Consulte [os serviços Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade da região.        |
-    |**Nível de Preços**     |  Escolha entre **Standard** ou **Premium**. NÃO escolha **O Julgamento**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Nível de preços**     |  Escolha entre **Standard** ou **Premium**. NÃO escolha **o Trial**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Selecione **Criar**.
 
@@ -84,19 +84,19 @@ Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [po
 
 1. No portal do Azure, aceda à área de trabalho do Databricks que criou e, em seguida, selecione **Iniciar Área de Trabalho**.
 
-2. Foi redirecionado para o portal Azure Databricks. A partir do portal, selecione **New Cluster**.
+2. Está redirecionado para o portal Azure Databricks. A partir do portal, selecione **Novo Cluster**.
 
-    ![Tijolos de dados em Azure](../media/tutorials/databricks-on-azure.png "Tijolos de dados em Azure")
+    ![Databricks em Azure](../media/tutorials/databricks-on-azure.png "Databricks em Azure")
 
 3. Na página **New Cluster,** forneça os valores para criar um cluster.
 
-    ![Criar cluster de faíscas databricks em Azure](../media/tutorials/create-databricks-spark-cluster.png "Criar cluster de faíscas databricks em Azure")
+    ![Criar conjunto de faíscas de dados no Azure](../media/tutorials/create-databricks-spark-cluster.png "Criar conjunto de faíscas de dados no Azure")
 
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
    * Introduza um nome para o cluster.
    * Para este artigo, crie um cluster com **5.2** tempo de execução. NÃO selecione **5.3** tempo de execução.
-   * Certifique-se de que o **Terminate após \_ \_ minutos de caixa de verificação de inatividade** é selecionado. Forneça uma duração (em minutos) para terminar o cluster, se o cluster não estiver a ser utilizado.
+   * Certifique-se de que **a caixa de verificação Terminate after minutes \_ \_ of inactiving** é selecionada. Forneça uma duração (em minutos) para terminar o cluster, se o cluster não estiver a ser utilizado.
 
      Selecione **Criar cluster**. 
 4. A criação do cluster leva vários minutos. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
@@ -107,7 +107,7 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
 1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](https://apps.twitter.com/) e selecione **Criar Nova Aplicação**.
 
-    ![Criar aplicação do Twitter](../media/tutorials/databricks-create-twitter-app.png "Criar aplicação do Twitter")
+    ![Criar aplicação twitter](../media/tutorials/databricks-create-twitter-app.png "Criar aplicação twitter")
 
 2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
@@ -123,16 +123,16 @@ Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores
 
 Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs de Eventos. Também pode utilizar o [Conector de Hubs de eventos do Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e escrever dados em Hubs de Eventos do Azure. Para utilizar estas APIs como parte do cluster, adicione-as como bibliotecas ao Azure Databricks e, em seguida, associe-as ao cluster do Spark. As seguintes instruções mostram como adicionar as bibliotecas à pasta **Partilhada** no seu espaço de trabalho.
 
-1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do menu de contexto, selecione **Create** > **Library**.
+1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do **Create**menu de contexto, selecione  >  **Criar Biblioteca.**
 
-   ![Adicione a caixa de diálogo da biblioteca](../media/tutorials/databricks-add-library-option.png "Adicione a caixa de diálogo da biblioteca")
+   ![Adicione caixa de diálogo de biblioteca](../media/tutorials/databricks-add-library-option.png "Adicione caixa de diálogo de biblioteca")
 
-2. Na página da Nova Biblioteca, para **Fonte** selecione **Maven**. Para **coordenadas,** insira a coordenada para o pacote que pretende adicionar. Eis as coordenadas do Maven para as bibliotecas utilizadas neste tutorial:
+2. Na página Nova Biblioteca, para **Obter** selecione **Maven**. Para **coordenadas,** introduza a coordenada para o pacote que pretende adicionar. Eis as coordenadas do Maven para as bibliotecas utilizadas neste tutorial:
 
    * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API do Twitter – `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Forneça coordenadas Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Forneça coordenadas Maven")
+     ![Fornecer coordenadas Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Fornecer coordenadas Maven")
 
 3. Selecione **Criar**.
 
@@ -141,7 +141,7 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
     ![Selecione biblioteca para adicionar](../media/tutorials/select-library.png "Selecione biblioteca para adicionar")
 
 5. Se não houver cluster na página da biblioteca, selecione **Clusters** e execute o cluster que criou. Espere até que o estado mostre "Running" e depois volte para a página da biblioteca.
-Na página da biblioteca, selecione o cluster onde pretende utilizar a biblioteca e, em seguida, selecione **Instalar**. Uma vez que a biblioteca é associada com sucesso ao cluster, o estado muda imediatamente para **Instalado**.
+Na página da biblioteca, selecione o cluster onde pretende utilizar a biblioteca e, em seguida, **selecione Instalar**. Uma vez que a biblioteca esteja associada com sucesso ao cluster, o estado muda imediatamente para **Instalado**.
 
     ![Instalar biblioteca para cluster](../media/tutorials/databricks-library-attached.png "Instalar biblioteca para cluster")
 
@@ -149,34 +149,34 @@ Na página da biblioteca, selecione o cluster onde pretende utilizar a bibliotec
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obter uma chave de acesso aos Serviços Cognitivos
 
-Neste tutorial, você usa as APIs do Detetor de [Anomalias de Serviços Cognitivos Azure](../overview.md) para executar a deteção de anomalias num fluxo de tweets em tempo quase real. Antes de utilizar as APIs, deve criar um recurso do Detetor de Anomalias no Azure e recuperar uma chave de acesso para utilizar as APIs do Detetor de Anomalias.
+Neste tutorial, você usa as APIs do [Detetor de Anomalias de Serviços Cognitivos Azure](../overview.md) para executar a deteção de anomalias num fluxo de tweets em tempo real. Antes de utilizar as APIs, tem de criar um recurso de detetor de anomalias no Azure e recuperar uma chave de acesso para utilizar as APIs do Detetor de Anomalias.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
 
-3. No Azure Marketplace, selecione **IA + Machine Learning** > **Ver todos os** > **serviços cognitivos - Mais** > **Detetor de Anomalias**. Ou pode utilizar [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente à caixa de diálogo **Create.**
+3. No mercado Azure, selecione **AI + Machine Learning**  >  **Ver todos os**  >  **Serviços Cognitivos - Mais**Detetor de  >  **Anomalias**. Ou pode usar [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente à caixa de diálogo **Create.**
 
-    ![Criar recurso detetor de anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar recurso detetor de anomalias")
+    ![Criar recurso de detetor de anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar recurso de detetor de anomalias")
 
 4. Na caixa de diálogo **Criar**, forneça os valores seguintes:
 
-    |Valor |Descrição  |
+    |Valor |Description  |
     |---------|---------|
-    |Nome     | Um nome para o recurso do Detetor de Anomalias.        |
-    |Subscrição     | A subscrição azure a que o recurso será associado.        |
+    |Name     | Um nome para o recurso do Detetor de Anomalias.        |
+    |Subscrição     | A subscrição do Azure a que o recurso será associado.        |
     |Localização     | Uma localização Azure.        |
     |Escalão de preço     | Um nível de preços para o serviço. Para obter mais informações sobre os preços do Detetor de Anomalias, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Grupo de recursos     | Especifique se pretende criar um novo grupo de recursos ou selecione um existente.        |
+    |Grupo de recursos     | Especifique se pretende criar um novo grupo de recursos ou selecionar um existente.        |
 
 
      Selecione **Criar**.
 
-5. Após a criação do recurso, a partir do separador **Overview,** copiar e guardar o URL **endpoint,** como mostrado na imagem. Em seguida, selecione **As teclas de acesso Mostrar**.
+5. Após a criação do recurso, a partir do **separador Visão Geral,** copie e guarde o URL **endpoint,** como mostrado na imagem. Em seguida, **selecione Mostrar as teclas de acesso**.
 
-    ![Mostrar chaves de acesso](../media/tutorials/cognitive-services-get-access-keys.png "Mostrar chaves de acesso")
+    ![Mostrar teclas de acesso](../media/tutorials/cognitive-services-get-access-keys.png "Mostrar teclas de acesso")
 
-6. Em **Teclas,** selecione o ícone da cópia com a chave que pretende utilizar. Guarde a chave de acesso.
+6. Em **Teclas,** selecione o ícone de cópia contra a chave que pretende utilizar. Guarde a chave de acesso.
 
     ![Copiar chaves de acesso](../media/tutorials/cognitive-services-copy-access-keys.png "Copiar chaves de acesso")
 
@@ -185,13 +185,13 @@ Neste tutorial, você usa as APIs do Detetor de [Anomalias de Serviços Cognitiv
 Nesta secção, vai criar dois blocos de notas na área de trabalho do Databricks, com os seguintes nomes
 
 - **SendTweetsToEventHub** – Um bloco de notas de produtor que utiliza para obter tweets do Twitter e transmiti-los para os Hubs de Eventos.
-- **AnalyzeTweetsFromEventHub** - Um caderno de consumidores que usa para ler os tweets dos Centros de Eventos e executar a deteção de anomalias.
+- **AnalyzeTweetsFromEventHub** - Um caderno de consumo que usa para ler os tweets dos Event Hubs e executar a deteção de anomalias.
 
 1. No espaço de trabalho Azure Databricks, selecione **Workspace** a partir do painel esquerdo. No menu pendente **Área de Trabalho**, selecione **Criar** e, em seguida, selecione **Bloco de Notas**.
 
     ![Criar caderno em Databricks](../media/tutorials/databricks-create-notebook.png "Criar caderno em Databricks")
 
-2. Na caixa de diálogo **Create Notebook,** introduza o **SendTweetsToEventHub** como nome, selecione **Scala** como idioma e selecione o cluster Spark que criou anteriormente.
+2. Na caixa de diálogo **Create Notebook,** **insira SendTweetsToEventHub** como nome, selecione **Scala** como idioma e selecione o cluster Spark que criou anteriormente.
 
     ![Criar caderno em Databricks](../media/tutorials/databricks-notebook-details.png "Criar caderno em Databricks")
 
@@ -201,7 +201,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 
 ## <a name="send-tweets-to-event-hubs"></a>Enviar tweets para os Hubs de Eventos
 
-No caderno **SendTweetsToEventHub,** cola o seguinte código e substitui o espaço reservado por valores para o espaço de nome do Seu Event Hubs e aplicação do Twitter que criou anteriormente. Este caderno extrai tempo de criação e número de "Like" de tweets com a palavra-chave "Azure" e transmite-os como eventos em Event Hubs em tempo real.
+No caderno **SendTweetsToEventHub,** cole o seguinte código e substitua o espaço reservado por valores para o seu espaço de nomes de Event Hubs e aplicação twitter que criou anteriormente. Este caderno extrai o tempo de criação e o número de "Likes" de tweets com a palavra-chave "Azure" e transmite-os como eventos para os Centros de Eventos em tempo real.
 
 ```scala
 //
@@ -298,8 +298,9 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conforme mostrado no seguinte fragmento. Cada evento na saída é uma combinação de carimbo de tempo e número de "Like" ingerido nos Centros de Eventos.
+Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conforme mostrado no seguinte fragmento. Cada evento na saída é uma combinação de timetamp e número de "Like" ingerido nos Centros de Eventos.
 
+```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
     Sent event: {"timestamp":"2019-04-24T09:38:48.000Z","favorite":1}
@@ -318,10 +319,11 @@ Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conf
 
     ...
     ...
+```
 
 ## <a name="read-tweets-from-event-hubs"></a>Ler tweets dos Hubs de Eventos
 
-No caderno **AnalyzeTweetsFromEventHub,** cola o seguinte código e substitui o espaço reservado por valores para o seu recurso Detetor de Anomalias que criou anteriormente. Este bloco de notas lê os tweets que transmitiu anteriormente para os Hubs de Eventos através do bloco de notas **SendTweetsToEventHub**.
+No portátil **DoEventHub da AnalyzeTweets,** cole o seguinte código e substitua o espaço reservado por valores para o seu recurso Detetor de Anomalia que criou anteriormente. Este bloco de notas lê os tweets que transmitiu anteriormente para os Hubs de Eventos através do bloco de notas **SendTweetsToEventHub**.
 
 Primeiro, escreva um cliente para ligar para o detetor de anomalias. 
 ```scala
@@ -423,18 +425,20 @@ object AnomalyDetector extends Serializable {
 
 Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conforme mostrado no seguinte fragmento.
 
-    import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
-    import java.net.URL
-    import java.sql.Timestamp
-    import com.google.gson.{Gson, GsonBuilder, JsonParser}
-    import javax.net.ssl.HttpsURLConnection
-    defined class Point
-    defined class Series
-    defined class AnomalySingleResponse
-    defined class AnomalyBatchResponse
-    defined object AnomalyDetector
+```scala
+import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+import java.net.URL
+import java.sql.Timestamp
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import javax.net.ssl.HttpsURLConnection
+defined class Point
+defined class Series
+defined class AnomalySingleResponse
+defined class AnomalyBatchResponse
+defined object AnomalyDetector
+```
 
-Em seguida, prepare uma função de agregação para o uso futuro.
+Em seguida, prepare uma função de agregação para utilização futura.
 ```scala
 //
 // User Defined Aggregation Function for Anomaly Detection
@@ -495,13 +499,15 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conforme mostrado no seguinte fragmento.
 
-    import org.apache.spark.sql.Row
-    import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
-    import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-    import scala.collection.immutable.ListMap
-    defined class AnomalyDetectorAggregationFunction
+```scala
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+import scala.collection.immutable.ListMap
+defined class AnomalyDetectorAggregationFunction
+```
 
-Em seguida, carregue os dados do centro de eventos para deteção de anomalias. Substitua o espaço reservado por valores para os seus Hubs de Eventos Azure que criou anteriormente.
+Em seguida, carregue os dados do centro de eventos para deteção de anomalias. Substitua o espaço reservado por valores para os seus Azure Event Hubs que criou anteriormente.
 
 ```scala
 //
@@ -539,18 +545,18 @@ display(msgStream)
 
 ```
 
-A saída agora se assemelha à seguinte imagem. Note que a sua data na tabela pode ser diferente da data neste tutorial, uma vez que os dados são em tempo real.
-![Dados de carga do centro do evento](../media/tutorials/load-data-from-eventhub.png "Dados de carga do centro de eventos")
+A saída assemelha-se agora à seguinte imagem. Note que a sua data na tabela pode ser diferente da data neste tutorial, uma vez que os dados são em tempo real.
+![Dados de carga do centro de eventos](../media/tutorials/load-data-from-eventhub.png "Dados de carga do centro de eventos")
 
-Já transmitiu dados dos Hubs de Eventos Azure para os Tecidos De dados do Azure em tempo quase real, utilizando o conector De Eventos Hubs para A Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Já transmitiu dados do Azure Event Hubs para Azure Databricks em quase tempo real usando o conector Event Hubs para Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 
 
 ## <a name="run-anomaly-detection-on-tweets"></a>Executar deteção de anomalias em tweets
 
-Nesta secção, executa a deteção de anomalias nos tweets recebidos utilizando a API do detetor de anomalias. Nesta secção, vai adicionar os fragmentos de código ao mesmo bloco de notas **AnalyzeTweetsFromEventHub**.
+Nesta secção, você executou a deteção de anomalias nos tweets recebidos usando o detetor de anomaliaS API. Nesta secção, vai adicionar os fragmentos de código ao mesmo bloco de notas **AnalyzeTweetsFromEventHub**.
 
-Para fazer a deteção de anomalias, primeiro, precisa agregar a sua contagem métrica por hora.
+Para fazer a deteção de anomalias, primeiro, é preciso agregar a sua contagem métrica por hora.
 ```scala
 //
 // Aggregate Metric Count by Hour
@@ -578,8 +584,8 @@ groupTime                       average
 
 ```
 
-Em seguida, obtenha o resultado de saída agregado para a Delta. Como a deteção de anomalias requer uma janela de histórico mais longa, estamos a usar a Delta para manter os dados do histórico para o ponto que queres detetar. Substitua o "[Placeholder: table name]" por um nome de mesa Delta qualificado a criar (por exemplo, "tweets"). Substitua "[Placeholder: nome de pasta para pontos de verificação]" por um valor de cadeia único cada vez que executa este código (por exemplo, "etl-from-eventhub-20190605").
-Para saber mais sobre o Lago Delta em Tijolos de Dados Azure, consulte o [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
+Em seguida, obter o resultado de saída agregado para a Delta. Como a deteção de anomalias requer uma janela de história mais longa, estamos a usar a Delta para manter os dados de história para o ponto que queres detetar. Substitua o "[Espaço reservado: nome de mesa]" por um nome de mesa Delta qualificado a criar (por exemplo, "tweets"). Substitua "[Espaço reservado: nome de pasta para pontos de verificação]" por um valor de corda único cada vez que executar este código (por exemplo, "etl-from-eventhub-20190605").
+Para saber mais sobre o Lago Delta em Azure Databricks, consulte o [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
 
 
 ```scala
@@ -595,7 +601,7 @@ groupStream.writeStream
 
 ```
 
-Substitua o "[Placeholder: nome da mesa]" com o mesmo nome de mesa Delta que selecionou acima.
+Substitua o "[Espaço reservado: nome de mesa]" pelo mesmo nome de mesa Delta que selecionou acima.
 ```scala
 //
 // Show Aggregate Result
@@ -609,7 +615,7 @@ twitterData.show(200, false)
 
 display(twitterData)
 ```
-A saída como abaixo: 
+A saída abaixo: 
 ```
 groupTime                       average
 2019-04-08T01:00:00.000+0000    25.6
@@ -622,7 +628,7 @@ groupTime                       average
 
 ```
 
-Agora, os dados agregados da série time são continuamente ingeridos no Delta. Então pode agendar um trabalho de hora em hora para detetar a anomalia do último ponto. Substitua o "[Placeholder: nome da mesa]" com o mesmo nome de mesa Delta que selecionou acima.
+Agora, os dados agregados da série de tempo são continuamente ingeridos no Delta. Então pode agendar um trabalho de hora a hora para detetar a anomalia do último ponto. Substitua o "[Espaço reservado: nome de mesa]" pelo mesmo nome de mesa Delta que selecionou acima.
 
 ```scala
 //
@@ -661,7 +667,7 @@ spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 val adResult = spark.sql("SELECT '" + endTime.toString + "' as datetime, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
-Resultado sem resultado: 
+Resultado como abaixo: 
 
 ```
 +--------------------+-------+
@@ -671,20 +677,20 @@ Resultado sem resultado:
 +--------------------+-------+
 ```
 
-Já está! Utilizando os Dados Azure, transbordou com sucesso dados para o Azure Event Hubs, consumiu os dados de streaming utilizando o conector Event Hubs e, em seguida, executou a deteção de anomalias em dados de streaming em tempo real.
-Embora neste tutorial, a granularidade seja de hora em hora, pode sempre alterar a granularidade para satisfazer a sua necessidade. 
+Já está! Utilizando a Azure Databricks, transmitiu dados com sucesso para a Azure Event Hubs, consumiu os dados de fluxo usando o conector Event Hubs e, em seguida, executou a deteção de anomalias em dados de streaming em tempo real.
+Embora neste tutorial, a granularidade seja de hora a hora, pode sempre mudar a granularidade para satisfazer as suas necessidades. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de executar o tutorial, pode terminar o cluster. Para isso, no espaço de trabalho Azure Databricks, selecione **Clusters** a partir do painel esquerdo. Para o cluster que pretende terminar, mova o cursor sobre a coluna **De ações** e selecione o ícone **'Terminar'** e, em seguida, selecione **Confirmar**.
+Depois de executar o tutorial, pode terminar o cluster. Para tal, no espaço de trabalho Azure Databricks, selecione **Clusters** a partir do painel esquerdo. Para o cluster que pretende terminar, mova o cursor sobre a elipse sob a coluna **Actions** e selecione o ícone **Terminate** e, em seguida, selecione **Confirmar**.
 
-![Parar um cluster de Databricks](../media/tutorials/terminate-databricks-cluster.png "Parar um cluster de Databricks")
+![Pare um cluster Databricks](../media/tutorials/terminate-databricks-cluster.png "Pare um cluster Databricks")
 
-Se não terminar manualmente o cluster, para automaticamente, desde que selecione o **Terminate após \_ \_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se não encerrar manualmente o cluster, este para automaticamente, desde que tenha selecionado a **caixa de verificação Terminate after \_ \_ minutes of inactivity** enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Avance para o próximo tutorial para aprender a chamar a API do Detetor de Anomalias e visualizar anomalias usando o ambiente de trabalho power BI. 
+Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Avance para o próximo tutorial para aprender a chamar a API do Detetor de Anomalias e visualizar anomalias usando o ambiente de trabalho Power BI. 
 
 > [!div class="nextstepaction"]
->[Deteção de anomalias de lote com ambiente de trabalho Power BI](batch-anomaly-detection-powerbi.md)
+>[Deteção de anomalias de lote com desktop Power BI](batch-anomaly-detection-powerbi.md)

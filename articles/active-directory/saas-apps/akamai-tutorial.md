@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 8fef2d7e3afb0cdda3c3c3e2506b39ba542e0760
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675382"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956887"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
 
@@ -102,7 +102,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 #### <a name="important"></a>Importante
 
-Todas as configurações listadas abaixo são as mesmas para o **Cenário de Integração 1** e **Cenário 2**. Para o **cenário de Integração 2** você tem configuração De IDP individual na Akamai EAA e a propriedade URL precisa ser modificada para apontar para o URL de aplicação.
+Todas as configurações listadas abaixo são as mesmas para o **Cenário de Integração 1** e **Cenário 2**. Para o **cenário de Integração 2** tem de configurar o IDP individual na Akamai EAA e a propriedade URL precisa de ser modificada para apontar para o URL da aplicação.
 
 ![Importante](./media/header-akamai-tutorial/important.png)
 

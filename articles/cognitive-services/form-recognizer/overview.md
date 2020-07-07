@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f5d0e9a851c41fa88461ed790ad3fe4e89d0fa21
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563245"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957144"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -57,18 +57,20 @@ O Reconhecimento de Formulários também pode extrair texto e estrutura de tabel
 
 Siga um arranque rápido para começar a extrair dados dos seus formulários. Recomendamos que utilize o serviço gratuito quando estiver a aprender a tecnologia. Lembre-se que o número de páginas gratuitas está limitado a 500 por mês.
 
-* Custom - treine um modelo para as suas formas
-  * Comboio sem rótulos
-    * [Quickstart: Treine um modelo de reconhecimento de formulário e extraia dados de formulário utilizando a API REST com cURL](quickstarts/curl-train-extract.md)
-    * [Quickstart: Treine um modelo de reconhecimento de formulário e extraia dados de formulário utilizando a API REST com Python](quickstarts/python-train-extract.md)
-  * Treine com etiquetas
-    * [Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra](quickstarts/label-tool.md)
-    * [Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python](quickstarts/python-labeled-data.md)
-* Recibos pré-construídos - extrair dados dos recibos de vendas dos EUA
-  * [Quickstart: Extrair dados de recibos utilizando o cURL](quickstarts/curl-receipts.md)
-  * [Quickstart: Extrair dados de recibos usando Python](quickstarts/python-receipts.md)
-* Layout - extrair texto e estrutura de mesa a partir de formas
-  * [Quickstart: Extrair dados de layout usando Python](quickstarts/python-layout.md)
+* [Início rápido da biblioteca do cliente](./quickstarts/client-library.md) (todos os idiomas, múltiplos cenários)
+* Inícios rápidos da Web UI
+  * [Treine com rótulos - ferramenta de rotulagem de amostra](quickstarts/label-tool.md)
+* REST quickstarts
+  * Treine modelos personalizados e extrair dados de formulário
+    * [Comboio sem etiquetas - cURL](quickstarts/curl-train-extract.md)
+    * [Comboio sem etiquetas - Python](quickstarts/python-train-extract.md)
+    * [Comboio com etiquetas - Python](quickstarts/python-labeled-data.md)
+  * Extrair dados dos recibos de vendas dos EUA
+    * [Dados de recibos de extração - cURL](quickstarts/curl-receipts.md)
+    * [Dados de recibos de extração - Python](quickstarts/python-receipts.md)
+  * Extrair texto e estrutura de mesa a partir de formas
+    * [Dados de layout de extrato - Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>Rever as APIs rest
 

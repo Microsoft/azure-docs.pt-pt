@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 2829f451b90a20c5ad399796b0485c6e533bbb23
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 28eb88a40139352b475851003a1092954a97ef64
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562276"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954320"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de Pesquisa Cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
@@ -275,4 +275,4 @@ Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três
 Utilize um assistente de portal para gerar uma aplicação web pronta a usar que funciona num browser. Pode experimentar este assistente no pequeno índice que acabou de criar ou utilizar um dos conjuntos de dados de amostras incorporados para uma experiência de pesquisa mais rica.
 
 > [!div class="nextstepaction"]
-> [Criar uma app de pesquisa no portal](search-create-app-portal.md)
+> [Criar uma app de demonstração no portal](search-create-app-portal.md)

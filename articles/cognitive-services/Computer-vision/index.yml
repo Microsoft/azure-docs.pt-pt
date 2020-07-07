@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 3f2feec02efebbf6b3736b01151098cbe2bf02ae
-  ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+  ms.openlocfilehash: 5e5fe7f2175db8990a7030284a9ede14b1f55d3a
+  ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/26/2020
-  ms.locfileid: "85413795"
+  ms.lasthandoff: 07/02/2020
+  ms.locfileid: "85920946"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -32,11 +32,11 @@ landingContent:
     links:
     - text: Integrar inteligência nas suas aplicações com as APIs de Imagem Digitalizada
       url: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
-- title: Ler texto a partir de imagens e documentos
+- title: Reconhecimento Ótico de Carateres (OCR)
   linkLists:
   - linkListType: concept
     links:
-    - text: Reconhecimento de texto
+    - text: Reconhecimento Ótico de Carateres (OCR)
       url: concept-recognizing-text.md
   - linkListType: quickstart
     links:
