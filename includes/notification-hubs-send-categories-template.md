@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -9,21 +9,21 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 48907713082ebb1008ad963121671b36af7f2731
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228160"
 ---
 Nesta secção, irá enviar notícias de última hora como notificações de modelo etiquetadas a partir da aplicação de consola .NET.
 
 1. No Visual Studio, crie uma nova aplicação da consola Visual C#
-    1. No menu, selecione **File** > **New** > **Project**.
-    1. Em **Criar um novo projeto,** selecione App consola **(.NET Framework)** para C# na lista de modelos, e selecione **Next**.
+    1. No menu, selecione **File**  >  **New**  >  **Project**.
+    1. In **Create a new project**, selecione Console App **(.NET Framework)** para C# na lista de modelos e selecione **Next**.
     1. Insira um nome para a aplicação.
-    1. Para **solução,** escolha **Adicionar à solução**e selecione **Criar** para criar o projeto.
+    1. Para **solução,** escolha **Adicionar à solução,** e selecione **Criar** para criar o projeto.
 
-1. Selecione **ferramentas** > **NuGet Package Manager** > **Manager Console** e, em seguida, na janela da consola, executar o seguinte comando:
+1. Selecione **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola** e, em seguida, na janela da consola, executar o seguinte comando:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs
@@ -31,7 +31,7 @@ Nesta secção, irá enviar notícias de última hora como notificações de mod
 
    Esta ação adiciona uma referência ao Azure Notification Hubs SDK utilizando o pacote [Microsoft.Azure.NotificationHubs.]
 
-1. Abra o ficheiro *Program.cs* e `using` adicione a seguinte declaração:
+1. Abra o ficheiro *Program.cs* e adicione a seguinte `using` declaração:
 
    ```csharp
    using Microsoft.Azure.NotificationHubs;

@@ -1,6 +1,6 @@
 ---
-title: Monitor Media Services registos de diagnóstico via Azure Monitor [ Monitor] Microsoft Docs
-description: Este artigo demonstra como encaminhar e ver registos de diagnóstico através do Monitor Azure.
+title: Monitor Media Services registos de diagnóstico via Azure Monitor / Microsoft Docs
+description: Este artigo demonstra como encaminhar e visualizar registos de diagnóstico através do Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,37 +14,37 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382924"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>Monitor de registos de diagnóstico dos Serviços de Media
+# <a name="monitor-media-services-diagnostic-logs"></a>Monitor Media Services registos de diagnóstico
 
-[O Monitor Azure](../../azure-monitor/overview.md) permite-lhe monitorizar métricas e registos de diagnóstico que o ajudam a compreender como as suas aplicações estão a funcionar. Para uma descrição detalhada desta funcionalidade e para ver por que razão quereria utilizar métricas e registos de diagnóstico do Azure Media Services, consulte as métricas do [Monitor Media Services e os registos de diagnóstico.](media-services-metrics-diagnostic-logs.md)
+[O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar métricas e registos de diagnóstico que o ajudam a compreender como as suas aplicações estão a funcionar. Para uma descrição detalhada desta funcionalidade e para ver por que razão pretende utilizar as métricas e registos de diagnóstico do Azure Media Services, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-Este artigo mostra-lhe como encaminhar dados para a conta de armazenamento e, em seguida, ver os dados.
+Este artigo mostra-lhe como encaminhar os dados para a conta de armazenamento e, em seguida, ver os dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Media Services.](create-account-cli-how-to.md)
-- Reveja as métricas dos [Serviços de Media e os registos de diagnóstico.](media-services-metrics-diagnostic-logs.md)
+- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.
+- Rever [métricas de Serviços de Mídia monitor e registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>Encaminha os dados para a conta de armazenamento utilizando o portal
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>Encaminhar os dados para a conta de armazenamento utilizando o portal
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
-1. Navegue para a sua conta de Serviços de Media e clique em **Definições de Diagnóstico** no **Monitor**. Aqui, pode ver uma lista de todos os recursos na sua subscrição que produzem dados de monitorização através do Azure Monitor.
+1. Navegue na sua conta de Serviços de Mídia e clique em **Definições de Diagnóstico** no **Monitor**. Aqui, pode ver uma lista de todos os recursos na sua subscrição que produzem dados de monitorização através do Azure Monitor.
 
     ![Secção Definições de diagnóstico](media/media-services-diagnostic-logs/logs01.png)
 
-1. Clique em **adicionar definição de diagnóstico**.
+1. Clique **na definição de diagnóstico de adicionar**.
 
    As definições de diagnóstico de recursos são definições *dos* dados de monitorização que devem ser encaminhados a partir de um determinado recurso e para *onde* é que devem ser encaminhados.
 
 1. Na secção que aparece, dê um **nome** à definição e selecione a caixa para **Arquivar numa conta de armazenamento**.
 
-    Selecione a conta de armazenamento para a qual pretende enviar registos e prima **OK**.
+    Selecione a conta de armazenamento para a qual deseja enviar registos e prima **OK**.
 1. Selecione todas as caixas em **Registo** e **Métrica**. Dependendo do tipo de recurso, poderá ter apenas uma destas opções. Estas caixas de verificação controlam quais as categorias de dados de registos e de métricas que estão disponíveis para esse tipo de recurso que são enviadas para o destino que selecionou, neste caso, uma conta de armazenamento.
 
    ![Secção Definições de diagnóstico](media/media-services-diagnostic-logs/logs02.png)
@@ -53,9 +53,9 @@ Este artigo mostra-lhe como encaminhar dados para a conta de armazenamento e, em
 
 Os dados de monitorização do seu recurso estão agora a ser encaminhados para a conta de armazenamento.
 
-## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Encaminha os dados para a conta de armazenamento utilizando o Azure CLI
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Encaminhar os dados para a conta de armazenamento utilizando o Azure CLI
 
-Para permitir o armazenamento de registos de diagnóstico `az monitor diagnostic-settings` numa Conta de Armazenamento, executaria o seguinte comando Azure CLI:
+Para permitir o armazenamento de registos de diagnóstico numa Conta de Armazenamento, executaria o seguinte `az monitor diagnostic-settings` comando Azure CLI:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -91,14 +91,14 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 
 1. No portal, navegue para a secção **Contas de Armazenamento**, que estão disponíveis na barra de navegação esquerda.
 1. Identifique a conta de armazenamento que criou na secção anterior e clique na mesma.
-1. Clique em **Blobs,** em seguida, nos pedidos de entrega de **insights-keydelivery**do recipiente. Este é o recipiente que tem os seus troncos. Os dados de monitorização são divididos em recipientes por identificação de recursos, e depois por data e hora.
+1. Clique em **Blobs,** em seguida, no recipiente marcado **insights-logs-keydeliveryrequests**. Este é o contentor que tem os seus troncos. Os dados de monitorização são divididos em contentores por identificação de recursos, em seguida, por data e hora.
 1. Clique nos contentores de ID de recurso, data e hora para navegar para o ficheiro PT1H.json. Clique no ficheiro PT1H.json e clique em **Transferir**.
 
  Pode ver agora o evento JSON que foi armazenado na conta de armazenamento.
 
-### <a name="examples-of-pt1hjson"></a>Exemplos de PT1H.json
+### <a name="examples-of-pt1hjson"></a>Exemplos de PT1H.jsem
 
-#### <a name="clear-key-delivery-log"></a>Limpar o registo de entrega da chave
+#### <a name="clear-key-delivery-log"></a>Registo de entrega de chave clara
 
 ```json
 {
@@ -136,7 +136,7 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 }
 ```
 
-#### <a name="widevine-encrypted-key-delivery-log"></a>Registo de entrega de chaves encriptadas widevine
+#### <a name="widevine-encrypted-key-delivery-log"></a>Registo de entrega de chave encriptado widevine
 
 ```json
 {
@@ -176,12 +176,12 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
+* Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md)
-* [Registos de diagnóstico do Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Registos de diagnóstico do monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes

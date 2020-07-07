@@ -1,6 +1,6 @@
 ---
-title: Atividade de switch na Fábrica de Dados Azure
-description: A atividade da Switch permite controlar o fluxo de processamento com base numa condição.
+title: Mudar de atividade na Azure Data Factory
+description: A atividade Switch permite-lhe controlar o fluxo de processamento com base numa condição.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418019"
 ---
-# <a name="switch-activity-in-azure-data-factory"></a>Atividade de switch na Fábrica de Dados Azure
+# <a name="switch-activity-in-azure-data-factory"></a>Mudar de atividade na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade da Switch fornece a mesma funcionalidade que uma declaração de switch fornece em linguagens de programação. Avalia um conjunto de atividades correspondentes a um caso que corresponde à avaliação da condição.
+A atividade Switch fornece a mesma funcionalidade que uma declaração de comutação fornece em linguagens de programação. Avalia um conjunto de atividades correspondentes a um caso que corresponde à avaliação da condição.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 
@@ -65,24 +65,24 @@ A atividade da Switch fornece a mesma funcionalidade que uma declaração de swi
 }
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade da switch. | String | Sim
-tipo | Deve ser definido para *Switch** | String | Sim
-expression | Expressão que deve avaliar ao valor de cadeia | Expressão com cadeia de tipo de resultado | Sim
-casos | Conjunto de casos que contêm um valor e um conjunto de atividades para executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Conjunto de objetos de caso | Sim
-atividades padrão | Conjunto de atividades que são executadas quando a avaliação de expressão não está satisfeita. | Conjunto de Atividades | Sim
+name | Nome da atividade do interruptor. | String | Yes
+tipo | Tem de ser definido para *mudar** | String | Yes
+expression | Expressão que deve avaliar o valor das cordas | Expressão com cadeia do tipo de resultado | Yes
+casos | Conjunto de casos que contêm um valor e um conjunto de atividades a executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos de caso | Yes
+padrãoAtivas | Conjunto de atividades que são executadas quando a avaliação da expressão não está satisfeita. | Conjunto de atividades | Yes
 
 ## <a name="example"></a>Exemplo
 
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do gasoduto: routeSelection.
 
 > [!NOTE]
-> Esta secção fornece definições JSON e amostra de comandos PowerShell para executar o gasoduto. Para um passeio com instruções passo a passo para criar um pipeline data Factory utilizando definições Azure PowerShell e JSON, consulte [tutorial: crie uma fábrica de dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta secção fornece definições JSON e comandos de amostra PowerShell para executar o gasoduto. Para uma passagem com instruções passo a passo para criar um oleoduto data factory utilizando definições Azure PowerShell e JSON, consulte tutorial: crie uma fábrica de [dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade switch (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade da Switch (Adfv2QuickStartPipeline.jsligado)
 
 ```json
 {
@@ -230,7 +230,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 
 ```
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado ao armazenamento azure (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado a Azure Storage (AzureStorageLinkedService.jsligado)
 
 ```json
 {
@@ -244,9 +244,9 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados Azure Blob parametrizado (BlobDataset.json)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados parametrizado do Azure Blob (BlobDataset.jsligado)
 
-O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **outputPath2** parâmetro do gasoduto. 
+O pipeline define a **pastaPath** ao valor de **saídaPath1** ou **saída Parâmetro2** do pipeline. 
 
 ```json
 {
@@ -272,7 +272,7 @@ O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **output
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.jsligado)
 
 ```json
 {

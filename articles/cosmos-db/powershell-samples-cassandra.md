@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
 ms.openlocfilehash: fec25bb3043942605895491952d963ee20ac4078
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85563905"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Amostras Azure PowerShell para Azure Cosmos DB - Cassandra API

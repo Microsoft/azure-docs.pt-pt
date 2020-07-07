@@ -1,6 +1,6 @@
 ---
-title: Suporte de Linux do Windows Virtual Desktop - Azure
-description: Um breve suporte de visão geral do Linux para o Windows Virtual Desktop.
+title: Suporte virtual do Windows Desktop Linux - Azure
+description: Uma breve visão geral do suporte do Linux para o Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,38 +9,38 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422420"
 ---
 # <a name="linux-support"></a>Apoio Técnico para Linux
 
-Os parceiros podem usar o Linux SDK para o Windows Virtual Desktop para construir um cliente autónomo do Windows Virtual Desktop. Também pode utilizá-lo para ativar o suporte ao Windows Virtual Desktop na sua aplicação de cliente. Este guia rápido explicará o que é o Linux SDK e como começar a usá-lo.
+Os parceiros podem utilizar o Linux SDK para o Windows Virtual Desktop para construir um cliente virtual do Windows. Também pode usá-lo para ativar o suporte virtual do Windows desktop na sua aplicação ao cliente. Este guia rápido explicará o que é o Linux SDK e como começar a usá-lo.
 
 ## <a name="connect-with-your-linux-device"></a>Conecte-se com o seu dispositivo Linux
 
-Os seguintes parceiros aprovaram os clientes do Windows Virtual Desktop para dispositivos Linux.
+Os seguintes parceiros aprovaram clientes do Windows Virtual Desktop para dispositivos Linux.
 
-|Parceiro|Documentação do parceiro|Apoio ao parceiro|
+|Parceiro|Documentação do parceiro|Apoio a parceiros|
 |:------|:--------------------|:--------------|
-|![Logotipo iGEL](./media/partners/igel.png)|[Documentação do cliente IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte iGEL](https://www.igel.com/support/)|
+|![Logotipo IGEL](./media/partners/igel.png)|[Documentação do cliente IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte IGEL](https://www.igel.com/support/)|
 
 ## <a name="what-is-the-linux-sdk"></a>O que é o Linux SDK?
 
-Pode utilizar as APIs sDK para recuperar feeds de recursos, ligar-se a sessões de desktop ou aplicações remotas e utilizar muitas das redirecionações que os nossos clientes de primeira parte suportam.
+Pode utilizar as APIs SDK para recuperar feeds de recursos, ligar-se a sessões de aplicações de ambiente de trabalho ou remotas e utilizar muitas das reorientações que os nossos clientes de primeira parte suportam.
 
 > [!NOTE]
 > O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para aceder ao SDK quando estiver geralmente disponível.
 
-### <a name="supported-linux-distributions"></a>Distribuição de Linux suportada
+### <a name="supported-linux-distributions"></a>Distribuição apoiada do Linux
 
-O SDK é compatível com a maioria dos sistemas operativos com base em Ubuntu 18.04 ou posterior. Se tiver uma distribuição linux diferente, podemos trabalhar consigo para descobrir como melhor suportar as suas necessidades.
+O SDK é compatível com a maioria dos sistemas operativos com base no Ubuntu 18.04 ou posterior. Se tiver uma distribuição Linux diferente, podemos trabalhar consigo para descobrir como melhor suportar as suas necessidades.
 
-### <a name="feature-support"></a>Suporte de recurso
+### <a name="feature-support"></a>Suporte de recursos
 
-O SDK suporta múltiplas ligações a sessões de desktop e aplicações remotas. São apoiadas as seguintes redirecionamentos:
+O SDK suporta múltiplas ligações a sessões de secretária e aplicações remotas. São suportadas as seguintes reorientações:
 
 | Redirecionamento       | Suportado |
 | :---------------- | :-------: |
@@ -49,28 +49,28 @@ O SDK suporta múltiplas ligações a sessões de desktop e aplicações remotas
 | Áudio em          | &#10004;  |
 | Áudio para fora         | &#10004;  |
 | Prancheta (texto)  | &#10004;  |
-| Clipboard (imagem) | &#10004;  |
-| Clipboard (ficheiro)  | &#10004;  |
+| Prancheta (imagem) | &#10004;  |
+| Prancheta (arquivo)  | &#10004;  |
 | Smartcard         | &#10004;  |
 | Unidade/pasta      | &#10004;  |
 
-O SDK também suporta várias configurações de ecrã de monitor, desde que os monitores selecionados para a sua sessão sejam contíguos.
+O SDK também suporta várias configurações de visualização do monitor, desde que os monitores selecionados para a sessão sejam contíguos.
 
 Atualizaremos este documento à medida que adicionamos suporte para novas funcionalidades e redirecionamentos. Se pretender sugerir novas funcionalidades e outras melhorias, visite a nossa [página UserVoice](https://go.microsoft.com/fwlink/?linkid=2116523).
 
-## <a name="get-started-with-the-linux-sdk"></a>Começar com o Linux SDK
+## <a name="get-started-with-the-linux-sdk"></a>Começa com o Linux SDK
 
 Antes de poder desenvolver um cliente Linux para o Windows Virtual Desktop, tem de fazer as seguintes coisas:
 
-1. Construir e implementar um ambiente de ambiente de trabalho virtual do Windows para testar ou utilizar a produção.
-2. Teste os clientes disponíveis de primeira parte para se familiarizar com a experiência do utilizador do Windows Virtual Desktop.
+1. Construa e implemente um ambiente de ambiente de trabalho virtual do Windows para testes ou utilização de produção.
+2. Teste os clientes de primeira parte disponíveis para se familiarizar com a experiência do utilizador virtual do Windows Desktop.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Confira a nossa documentação para os seguintes clientes:
+Consulte a nossa documentação para os seguintes clientes:
 
-- [Cliente do Windows Desktop](connect-windows-7-and-10.md)
-- [Cliente web](connect-web.md)
+- [Cliente do Ambiente de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Cliente Web](connect-web.md)
 - [Cliente Android](connect-android.md)
-- [cliente macOS](connect-macos.md)
-- [cliente iOS](connect-ios.md)
+- [Cliente macOS](connect-macos.md)
+- [Cliente iOS](connect-ios.md)

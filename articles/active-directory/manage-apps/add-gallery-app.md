@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77b1794f5dde4d7e346e45c2da5d24195d69b50e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85555189"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicione uma aplicação de galeria à sua organização AZure AD

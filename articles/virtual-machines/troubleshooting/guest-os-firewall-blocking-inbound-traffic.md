@@ -1,6 +1,6 @@
 ---
-title: Firewall Do Os do Azure VM Está bloqueando o tráfego de entrada Microsoft Docs
-description: Saiba como corrigir o problema de ligação do Portal de Ambiente de Trabalho Remoto (RDP) que a firewall do sistema operativo do hóspede está a bloquear o tráfego de entrada.
+title: Firewall Azure VM Guest OS está a bloquear o tráfego de entrada Microsoft Docs
+description: Saiba como corrigir o problema de ligação do Portal do Ambiente de Trabalho Remoto (RDP) que a firewall do sistema operativo dos hóspedes está a bloquear o tráfego de entrada.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,45 +15,45 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422548"
 ---
-# <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall do Os Do MS de Hóspedes Azure está bloqueando o tráfego de entrada
+# <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall Azure VM Guest OS está bloqueando o tráfego de entrada
 
-Este artigo discute como corrigir o problema do Portal do Ambiente de Trabalho Remoto (RDP) que ocorre se o sistema operativo de hóspedes bloquear o tráfego de entrada.
+Este artigo discute como corrigir o problema do Portal de Ambiente de Trabalho Remoto (RDP) que ocorre se o sistema operativo do hóspede bloquear o tráfego de entrada.
 
 ## <a name="symptoms"></a>Sintomas
 
-Não é possível utilizar uma ligação RDP para ligar a uma máquina virtual Azure (VM). A partir de diagnósticos boot -> Screenshot, mostra que o sistema operativo está totalmente carregado no ecrã Welcome (Ctrl+Alt+Del).
+Não é possível utilizar uma ligação RDP para ligar a uma máquina virtual Azure (VM). A partir de Boot diagnostics -> Screenshot, mostra que o sistema operativo está totalmente carregado no ecrã Welcome (Ctrl+Alt+Del).
 
 ## <a name="cause"></a>Causa
 
 ### <a name="cause-1"></a>Causa 1
 
-A regra do PDR não está configurada para permitir o tráfego de PDR.
+A regra rdp não está definida para permitir o tráfego de PDR.
 
 ### <a name="cause-2"></a>Causa 2
 
-Os perfis de firewall do sistema de hóspedes são configurados para bloquear todas as ligações de entrada, incluindo o tráfego RDP.
+Os perfis de firewall do sistema de hóspedes estão configurados para bloquear todas as ligações de entrada, incluindo o tráfego RDP.
 
 ![Definição de firewall](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire uma foto do disco do sistema do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire uma foto do disco do sistema do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para corrigir o problema, utilize um dos métodos em [Como utilizar ferramentas remotas para resolver problemas de VM Azure](remote-tools-troubleshoot-azure-vm-issues.md) para ligar remotamente ao VM e, em seguida, editar as regras de firewall do sistema operativo de hóspedes para **permitir** o tráfego de RDP.
+Para corrigir o problema, utilize um dos métodos de utilização de [ferramentas remotas para resolver problemas](remote-tools-troubleshoot-azure-vm-issues.md) de VM para ligar remotamente ao VM e, em seguida, editar as regras de firewall do sistema operativo para permitir o tráfego **rdp.**
 
-### <a name="online-troubleshooting"></a>Resolução de problemas online
+### <a name="online-troubleshooting"></a>Resolução de problemas on-line
 
-Ligue-se à [Consola em Série e, em seguida, abra uma instância PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se a consola em série não estiver ativada no VM, vá para "[Reparar o VM Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Ligue-se à [Consola em Série e, em seguida, abra uma instância PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se a Consola em Série não estiver ativada no VM, vá para "[Reparar o VM Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### <a name="mitigation-1"></a>Mitigação 1
 
-1.  Se o Agente Azure estiver instalado e a funcionar corretamente no VM, pode utilizar a opção "Reset only" no suporte **+ resolução** > de resolução de problemas**Reset** password no menu VM.
+1.  Se o Agente Azure estiver instalado e a funcionar corretamente no VM, pode utilizar a opção "Reset configuration only" no **Suporte + resolução de problemas**Redefinir a  >  **palavra-passe** no menu VM.
 
 2.  Executar esta opção de recuperação faz o seguinte:
 
@@ -61,39 +61,39 @@ Ligue-se à [Consola em Série e, em seguida, abra uma instância PowerShell](se
 
     *   Permite todos os perfis de firewall do Windows.
 
-    *   Certifique-se de que a regra do RDP está ligada no Windows Firewall.
+    *   Certifique-se de que a regra RDP está ligada no Windows Firewall.
 
-    *   Se os passos anteriores não funcionarem, repor manualmente a regra da firewall. Para tal, consultar todas as regras que contêm o nome "Remote Desktop" executando o seguinte comando:
+    *   Se os passos anteriores não funcionarem, repõe manualmente a regra da firewall. Para tal, consultar todas as regras que contêm o nome "Remote Desktop" executando o seguinte comando:
 
         ```cmd
         netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(Name.*Remote Desktop)" -context 9,4 | more
         ```
 
-        Se a porta RDP foi definida para qualquer outra porta que não o 3389, você tem que encontrar qualquer regra personalizada que possa ter sido criada e definida para esta porta. Para consultar todas as regras de entrada que tenham uma porta personalizada, execute o seguinte comando:
+        Se a porta RDP foi definida para qualquer outra porta que não seja 3389, você tem que encontrar qualquer regra personalizada que possa ter sido criada e definida para este porto. Para consultar todas as regras de entrada que têm uma porta personalizada, executar o seguinte comando:
 
         ```cmd
         netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<CUSTOM PORT>)" -context 9,4 | more
         ```
 
-3.  Se vir que a regra está desativada, ative-a. Para abrir um grupo inteiro, como o grupo de ambiente de trabalho remoto incorporado, executar o seguinte comando:
+3.  Se vir que a regra está desativada, ative-a. Para abrir um grupo inteiro, como o grupo de desktop remoto incorporado, executar o seguinte comando:
 
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
 
-    Caso contrário, para abrir a regra específica do Ambiente de Trabalho Remoto (TCP-In), execute o seguinte comando:
+    Caso contrário, para abrir a regra específica do Ambiente de Trabalho Remoto (TCP-In), executar o seguinte comando:
 
     ```cmd
     netsh advfirewall firewall set rule name="<CUSTOM RULE NAME>" new enable=yes
     ```
 
-4.  Para resolução de problemas, pode rodar os perfis de firewall para OFF:
+4.  Para a resolução de problemas, pode virar os perfis de firewall para OFF:
 
     ```cmd
     netsh advfirewall set allprofiles state off
     ```
 
-    Depois de terminar a resolução de problemas e de configurar corretamente a firewall, reative a firewall.
+    Depois de terminar a resolução de problemas e de colocar a firewall corretamente, reecam ative a firewall.
 
     > [!Note]
     > Não é preciso reiniciar o VM para aplicar estas alterações.
@@ -102,20 +102,20 @@ Ligue-se à [Consola em Série e, em seguida, abra uma instância PowerShell](se
 
 #### <a name="mitigation-2"></a>Mitigação 2
 
-1.  Consulta dos perfis de firewall para determinar se a política de firewall de entrada está definida para *BlockInboundAlways:*
+1.  Consultar os perfis de firewall para determinar se a política de firewall de entrada está definida para *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
     ```
 
-    ![Todos os perfis](./media/guest-os-firewall-blocking-inbound-traffic/firewall-profiles.png)
+    ![Todos os filtros](./media/guest-os-firewall-blocking-inbound-traffic/firewall-profiles.png)
 
     > [!Note]
-    > As seguintes diretrizes aplicam-se à política de firewall, dependendo de como é configurada:
-    >    * *BlockInbound*: Todo o tráfego de entrada será bloqueado a menos que tenha uma regra em vigor para permitir esse tráfego.
-    >    * *BlockInboundAlways:* Todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
+    > As seguintes diretrizes aplicam-se à política de firewall, dependendo da forma como é configurada:
+    >    * *Bloqueio:* Todo o tráfego de entrada será bloqueado a menos que tenha uma regra em vigor para permitir esse tráfego.
+    >    * *BlockInboundAlways*: Todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
 
-2.  Editar a *DefaultInboundAction* para definir estes perfis para **permitir** o tráfego. Para tal, execute o seguinte comando:
+2.  Edite a *DefaultInboundAction* para definir estes perfis para **permitir o** tráfego. Para tal, execute o seguinte comando:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -132,27 +132,27 @@ Ligue-se à [Consola em Série e, em seguida, abra uma instância PowerShell](se
 
 4.  Tente novamente aceder ao seu VM através de RDP.
 
-### <a name="offline-mitigations"></a>Mitigações Offline
+### <a name="offline-mitigations"></a>Mitigações offline
 
-1.  [Fixe o disco do sistema a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .
+1.  [Ligue o disco do sistema a um VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Inicie uma ligação remote Desktop ao VM de recuperação.
+2.  Inicie uma ligação de ambiente de trabalho remoto ao VM de recuperação.
 
 3.  Certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco do sistema anexo.
 
 #### <a name="mitigation-1"></a>Mitigação 1
 
-Ver [Como ativar uma regra de firewall num OS do hóspede](enable-disable-firewall-rule-guest-os.md).
+Ver [como ativar uma regra de firewall num sistema operativo de hóspedes](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Mitigação 2
 
-1.  [Fixe o disco do sistema a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .
+1.  [Ligue o disco do sistema a um VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Inicie uma ligação remote Desktop ao VM de recuperação.
+2.  Inicie uma ligação de ambiente de trabalho remoto ao VM de recuperação.
 
-3.  Depois de o disco do sistema estar ligado ao VM de recuperação, certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco osso anexado.
+3.  Depois de o disco do sistema ser ligado ao VM de recuperação, certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco de sos anexado.
 
-4.  Abra uma instância CMD elevada e, em seguida, executar o seguinte script:
+4.  Abra uma instância CMD elevada e, em seguida, execute o seguinte script:
 
     ```cmd
     REM Backup the registry prior doing any change
@@ -173,6 +173,6 @@ Ver [Como ativar uma regra de firewall num OS do hóspede](enable-disable-firew
     reg unload HKLM\BROKENSYSTEM
     ```
 
-5.  [Desmontar o disco do sistema e recriar o VM](troubleshoot-recovery-disks-portal-windows.md).
+5.  [Retire o disco do sistema e recobri o VM](troubleshoot-recovery-disks-portal-windows.md).
 
-6.  Verifique se o problema está resolvido.
+6.  Verifique se a questão está resolvida.
