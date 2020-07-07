@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 8db6f32ddfd8d245fa6936f8ca99fa4dbb83999f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: 0cdd837f6c618846587878fac5145cb846dd8d36
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610988"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027977"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Use Node.js para ligar para o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
@@ -467,4 +466,4 @@ get_entities(documents);
 ## <a name="see-also"></a>Ver também 
 
  [Descrição Geral da Análise de Texto](../overview.md)  
- [Perguntas Frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

@@ -4,12 +4,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 88d03e5b8090687930f729e3d55be1ece392ec30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: abd34ddf39bd8e64740d3edd4a2bf4f44851c07e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85838940"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035824"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +40,7 @@ Crie um novo ficheiro na pasta, com o nome `index.html`, e abra este ficheiro co
 No caso de querer alojar a página Web num servidor Web, pode fornecer opcionalmente uma origem de token para a aplicação de demonstração.
 Dessa forma, a chave de subscrição nunca vai sair do servidor, o que permite aos utilizadores usufruir das capacidades de voz sem introduzir qualquer código de autorização.
 
-Crie um novo ficheiro com o nome `token.php`. Neste exemplo, presumimos que o servidor Web suporta a linguagem de scripts PHP. Introduza o seguinte código:
+Crie um novo ficheiro com o nome `token.php`. Neste exemplo, assumimos que o seu servidor web suporta a linguagem de script PHP com caracóis ativados. Introduza o seguinte código:
 
 ```php
 <?php
@@ -67,11 +66,11 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Criar e executar o exemplo localmente
 
-Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o com o seu browser favorito. Apresentará um GUI simples que lhe permitirá introduzir a sua chave de subscrição e [região](../../../../regions.md) e desencadear a síntese do texto de entrada.
+Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o com o seu browser favorito. Apresentará um GUI simples que lhe permitirá introduzir a sua chave de subscrição e [região](../../../../regions.md) e desencadear a transcrição de texto do discurso de entrada.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo através de um servidor Web
 
-Para lançar a sua aplicação, abra o seu navegador web favorito e aponte-o para o URL público em que hospeda a pasta, insira a sua [região](../../../../regions.md)e desencadeie a síntese do texto de entrada. Se estiver configurado, vai adquirir um token a partir da origem de token.
+Para lançar a sua aplicação, abra o seu navegador web favorito e aponte-o para o URL público em que hospeda a pasta, insira a sua [região](../../../../regions.md)e desencadeie a transcrição de texto do discurso de entrada. Se estiver configurado, vai adquirir um token a partir da origem de token.
 
 ## <a name="next-steps"></a>Passos seguintes
 

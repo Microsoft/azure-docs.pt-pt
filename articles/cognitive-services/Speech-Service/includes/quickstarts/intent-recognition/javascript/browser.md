@@ -4,12 +4,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 13f641c2e5baf02cd7f6f200a5b1965ea9a44c55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 4889d9b0f142206bf26a69f275cb60598fba577f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85838960"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035469"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
@@ -245,7 +244,7 @@ Insira este código abaixo da adição do modelo:
 No caso de querer alojar a página Web num servidor Web, pode fornecer opcionalmente uma origem de token para a aplicação de demonstração.
 Dessa forma, a chave de subscrição nunca vai sair do servidor, o que permite aos utilizadores usufruir das capacidades de voz sem introduzir qualquer código de autorização.
 
-Crie um novo ficheiro com o nome `token.php`. Neste exemplo, presumimos que o servidor Web suporta a linguagem de scripts PHP. Introduza o seguinte código:
+Crie um novo ficheiro com o nome `token.php`. Neste exemplo, assumimos que o seu servidor web suporta a linguagem de script PHP com caracóis ativados. Introduza o seguinte código:
 
 ```php
 <?php

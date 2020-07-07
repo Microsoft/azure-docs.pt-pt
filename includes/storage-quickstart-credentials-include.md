@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: mhopkins-msft
 ms.service: storage
@@ -10,14 +10,13 @@ ms.author: mhopkins
 ms.custom: include file
 ms.openlocfilehash: 7dd22886d11c3a35a7a866ff7c9a4f56ea74cab7
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75351233"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar as credenciais do Portal do Azure
 
-Quando o pedido de amostrafaz um pedido ao Armazenamento Azure, deve ser autorizado. Para autorizar um pedido, adicione as credenciais da sua conta de armazenamento ao pedido como uma cadeia de ligação. Veja as credenciais da conta de armazenamento através dos seguintes passos:
+Quando o pedido de amostra fizer um pedido ao Azure Storage, deve ser autorizado. Para autorizar um pedido, adicione as credenciais da sua conta de armazenamento à aplicação como uma cadeia de ligação. Veja as credenciais da conta de armazenamento através dos seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Localize a sua conta de armazenamento.
@@ -28,7 +27,7 @@ Quando o pedido de amostrafaz um pedido ao Armazenamento Azure, deve ser autoriz
 
 ### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
-Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambiente no computador local que está a executar a aplicação. Para definir a variável de ambiente, abra uma janela da consola e siga as instruções relevantes para o seu sistema operativo. Substitua-a `<yourconnectionstring>` com a sua corda de ligação real.
+Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambiente no computador local que está a executar a aplicação. Para definir a variável de ambiente, abra uma janela da consola e siga as instruções relevantes para o seu sistema operativo. `<yourconnectionstring>`Substitua-a pela sua verdadeira cadeia de ligação.
 
 #### <a name="windows"></a>Windows
 
@@ -36,7 +35,7 @@ Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambien
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-Depois de adicionar a variável ambiental no Windows, deve iniciar uma nova instância da janela de comando.
+Depois de adicionar a variável ambiente no Windows, deve iniciar uma nova instância da janela de comando.
 
 #### <a name="linux"></a>Linux
 
@@ -52,4 +51,4 @@ export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 
 #### <a name="restart-programs"></a>Reiniciar programas
 
-Depois de adicionar a variável ambiental, reinicie todos os programas de execução que precisem de ler a variável ambiental. Por exemplo, reinicie o seu ambiente de desenvolvimento ou editor antes de continuar.
+Depois de adicionar a variável ambiental, reinicie todos os programas em execução que precisem de ler a variável ambiental. Por exemplo, reinicie o seu ambiente de desenvolvimento ou editor antes de continuar.
