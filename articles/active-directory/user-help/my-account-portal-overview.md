@@ -1,6 +1,6 @@
 ---
 title: O que é o portal A Minha Conta? - Azure AD
-description: Como chegar ao portal My Account e suas funcionalidades, incluindo a configuração e gestão das suas informações de Segurança, Dispositivos, Password, Organizações, Privacidade e My Sign-ins.
+description: Como chegar ao portal My Account e suas funcionalidades, incluindo configurar e gerir as suas informações de Segurança, Dispositivos, Password, Organizações, Privacidade e Os Meus Logins.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,17 +12,17 @@ ms.topic: end-user-help
 ms.date: 04/20/2020
 ms.author: curtand
 ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83742195"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal A Minha Conta?
 
 O portal **My Account** ajuda-o a gerir o seu trabalho ou conta escolar, configurando e gerindo as suas informações de segurança, gerindo as suas organizações e dispositivos conectados, visualizando como a sua organização utiliza os seus dados.
 
-Pode chegar ao portal **My Account** ( a partir da versão atual de qualquer um https://myaccount.microsoft.com) dos seguintes navegadores):
+Pode chegar ao portal **My Account** ( , a partir da versão atual de qualquer um https://myaccount.microsoft.com) dos seguintes navegadores:
 
 - Chrome
 - Microsoft Edge
@@ -30,20 +30,20 @@ Pode chegar ao portal **My Account** ( a partir da versão atual de qualquer um 
 - Firefox
 - Internet Explorer 11
 
-![Meu portal de conta, página de visão geral](media/my-account-portal/my-account-portal-overview.png)
+![Portal da Minha Conta, Página geral](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Este artigo destina-se a utilizadores que pretendam chegar ao portal My Account para atualizar as suas informações de segurança, informações do dispositivo, palavra-passe, organizações conectadas, privacidade ou informações prévias de entrada. Se é um administrador que procura informações sobre como ativar a autenticação e outras funcionalidades do Azure Ative Directory (Azure AD) para os seus colaboradores e outras utilizações, consulte a [documentação da AD Azure para administradores](https://docs.microsoft.com/azure/active-directory/).
+>Este artigo destina-se a utilizadores que tentem chegar ao portal My Account para atualizarem as suas informações de segurança, informações do dispositivo, palavra-passe, organizações conectadas, privacidade ou informações de login anteriores. Se é um administrador que procura informações sobre como ativar a autenticação e outras funcionalidades do Azure Ative Directory (Azure AD) para os seus colaboradores e outras utilizações, consulte a [documentação AD AD do Azure para administradores.](https://docs.microsoft.com/azure/active-directory/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Selecione para visualizar ou gerir as suas [informações](user-help-security-info-overview.md) de segurança
+- Selecione para ver ou gerir as suas [informações de segurança](user-help-security-info-overview.md)
 
 - Ver ou gerir os seus [dispositivos conectados](my-account-portal-devices-page.md)
 
 - Ver e gerir as suas [organizações](my-account-portal-organizations-page.md)
 
-- Ver a sua [atividade de inscrição](my-account-portal-sign-ins-page.md)
+- Veja a sua [atividade de inscrição](my-account-portal-sign-ins-page.md)
 
 - Veja como a sua organização [utiliza os seus dados relacionados com a privacidade](my-account-portal-privacy-page.md)
 
@@ -51,8 +51,8 @@ Pode chegar ao portal **My Account** ( a partir da versão atual de qualquer um 
 
 - [Inscreva-se para gerir o seu produto Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
-- [Vá à página do Escritório **Da Minha Conta**](https://portal.office.com/account/)
+- [Vá à página do Office **My Account**](https://portal.office.com/account/)
 
-- [Vá ao Office A minha página **de instalações**](https://portal.office.com/account/#installs)
+- [Vá ao Office **My installs** page](https://portal.office.com/account/#installs)
 
-- [Vá à página **de Subscrições** do Escritório](https://portal.office.com/account/#subscriptions)
+- [Vá à página de **Subscrições** do Office](https://portal.office.com/account/#subscriptions)

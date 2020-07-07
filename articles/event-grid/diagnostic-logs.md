@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: spelluru
 ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82630255"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Registos de diagnóstico para tópicos/domínios da Grelha de Eventos Azure
-As definições de diagnóstico permitem que os utilizadores da Rede de Eventos capturem e vejam registos de falhas de **publicação e entrega** numa conta de Armazenamento, num hub de eventos ou num Espaço de Trabalho de Log Analytics. Este artigo fornece esquemas para os registos e uma entrada de registo exemplo.
+As definições de diagnóstico permitem aos utilizadores da Grade de Eventos capturar e visualizar registos de **falha de publicação e entrega** numa conta de Armazenamento, num centro de eventos ou num espaço de trabalho do Log Analytics. Este artigo fornece esquema para os registos e uma entrada de registo de exemplo.
 
 
-## <a name="schema-for-publishdelivery-failure-logs"></a>Schema para registos de falha de publicação/entrega
+## <a name="schema-for-publishdelivery-failure-logs"></a>Esquema para registos de falha de publicação/entrega
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | Description |
 | ------------- | --------- | ----------- | 
-| Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>Valor do **exemplo:** 01-29-2020 09:52:02.700</p> |
-| Nome de subscrição de eventos | String | O nome da subscrição do evento <p>**Valor do exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
-| Categoria | String | O nome da categoria de registo. <p>**Valores de exemplo:** "Falhas de entrega" ou "Falhas de publicação" | 
-| OperationName | String | O nome da operação realizada durante o encontro com a falha.<p>**Exemplo valores:** "Entregar" para falhas de entrega. |
-| Mensagem | String | A mensagem de log para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
-| ResourceId | String | O ID de recurso para o recurso tópico/domínio<p>**Exemplo valores:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
+| Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>**Valor do exemplo:** 01-29-2020 09:52:02.700</p> |
+| Nome de subscrição de eventos | String | O nome da subscrição do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
+| Categoria | String | O nome da categoria de registo. <p>**Valores de exemplo:** "DeliveryFailures" ou "PublishFailures" | 
+| OperationName | String | O nome da operação foi realizado enquanto se depara com a falha.<p>**Valores de exemplo:** "Entregar" para falhas de entrega. |
+| Mensagem | String | A mensagem de registo para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
+| ResourceId | String | O ID de recursos para o tópico/recurso de domínio<p>**Valores de exemplo:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 ## <a name="example"></a>Exemplo
 
@@ -43,4 +43,4 @@ As definições de diagnóstico permitem que os utilizadores da Rede de Eventos 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para aprender a ativar registos de diagnóstico para tópicos ou domínios, consulte [Iniciars](enable-diagnostic-logs-topic.md)de diagnóstico .
+Para aprender a ativar registos de diagnóstico para tópicos ou domínios, consulte [Ativar registos de diagnóstico](enable-diagnostic-logs-topic.md).

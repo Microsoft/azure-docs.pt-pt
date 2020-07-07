@@ -12,37 +12,37 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628951"
 ---
 # <a name="templates"></a>Modelos
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Os modelos são oleodutos pré-definidos da Fábrica de Dados Azure que permitem começar rapidamente com a Data Factory. Os modelos são úteis quando se é novo na Data Factory e quer começar rapidamente. Estes modelos reduzem o tempo de desenvolvimento para a construção de projetos de integração de dados, melhorando assim a produtividade do desenvolvedor.
+Os modelos são oleodutos Azure Data Factory predefinidos que permitem começar rapidamente com a Data Factory. Os modelos são úteis quando se é novo na Data Factory e querem começar rapidamente. Estes modelos reduzem o tempo de desenvolvimento para a construção de projetos de integração de dados, melhorando assim a produtividade dos desenvolvedores.
 
-## <a name="create-data-factory-pipelines-from-templates"></a>Criar oleodutos data factory a partir de modelos
+## <a name="create-data-factory-pipelines-from-templates"></a>Criar oleodutos de fábrica de dados a partir de modelos
 
-Você pode começar a criar um pipeline Data Factory a partir de um modelo nas seguintes duas maneiras:
+Pode começar a criar um pipeline data factory a partir de um modelo de duas maneiras:
 
-1.  Selecione **Criar o pipeline a partir do modelo** na página overview para abrir a galeria do modelo.
+1.  Selecione **Criar o pipeline a partir do modelo** na página 'Vista Geral' para abrir a galeria do modelo.
 
-    ![Abra a galeria do modelo a partir da página de visão geral](media/solution-templates-introduction/templates-intro-image1.png)
+    ![Abra a galeria de modelos a partir da página do visão geral](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  No separador Autor no **+** Explorador de Recursos, selecione, em seguida, **Pipeline do modelo** para abrir a galeria do modelo.
+1.  No separador Autor no Explorador de Recursos, selecione, **+** em seguida, **Pipeline do modelo** para abrir a galeria do modelo.
 
-    ![Abra a galeria do modelo a partir do separador Autor](media/solution-templates-introduction/templates-intro-image2.png)
+    ![Abra a galeria de modelos a partir do separador Autor](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Galeria do Modelo
+## <a name="template-gallery"></a>Galeria de Modelos
 
-![A galeria do modelo](media/solution-templates-introduction/templates-intro-image3.png)
+![A galeria de modelos](media/solution-templates-introduction/templates-intro-image3.png)
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Fora da caixa modelos de fábrica de dados
 
-Data Factory usa modelos do Gestor de Recursos Azure para salvar modelos de gasodutos de fábrica de dados. Pode ver todos os modelos do Gestor de Recursos, juntamente com o ficheiro manifesto utilizado para fora dos modelos da fábrica de dados da caixa, no repo oficial da Fábrica de [Dados do Azure.](https://github.com/Azure/Azure-DataFactory/tree/master/templates) Os modelos pré-definidos fornecidos pela Microsoft incluem, mas não se limitam aos seguintes itens:
+A Data Factory utiliza modelos do Gestor de Recursos Azure para guardar modelos de gasodutos de fábrica de dados. Pode ver todos os modelos do Gestor de Recursos, juntamente com o ficheiro manifesto utilizado para fora dos modelos de Data Factory da caixa, no repo oficial da Fábrica de [Dados Azure.](https://github.com/Azure/Azure-DataFactory/tree/master/templates) Os modelos predefinidos fornecidos pela Microsoft incluem, mas não se limitam aos seguintes itens:
 
 -   Modelos de cópia:
 
@@ -50,13 +50,13 @@ Data Factory usa modelos do Gestor de Recursos Azure para salvar modelos de gaso
     
     -   [Copiar novos ficheiros por DataÚltimaModificação](solution-template-copy-new-files-lastmodifieddate.md)
 
-    -   [Copiar vários contentores de ficheiros entre lojas baseadas em ficheiros](solution-template-copy-files-multiple-containers.md)
+    -   [Copie vários contentores de ficheiros entre lojas baseadas em ficheiros](solution-template-copy-files-multiple-containers.md)
 
     -   [Mover ficheiros](solution-template-move-files.md)
 
     -   [Cópia delta da Base de Dados](solution-template-delta-copy-with-control-table.md)
 
-    -   Cópia \<de\> \<fonte para destino\>
+    -   Cópia \<source\> de\<destination\>
 
         -   [Da Amazon S3 à Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
@@ -66,19 +66,19 @@ Data Factory usa modelos do Gestor de Recursos Azure para salvar modelos de gaso
 
         -   De Netezza a Azure Data Lake Store Gen 1
 
-        -   Do Servidor SQL nas instalações até à Base de Dados Azure SQL
+        -   Do SQL Server nas instalações até à Base de Dados Azure SQL
 
-        -   Do Servidor SQL nas instalações do Armazém de Dados Azure SQL
+        -   Do SQL Server nas instalações até ao Armazém de Dados Azure SQL
 
-        -   Da Oracle nas instalações até ao Armazém de Dados Azure SQL
+        -   Da Oracle nas instalações para o Armazém de Dados Azure SQL
 
 -   Modelos SSIS
 
-    -   AgendaR Tempo de Integração Azure-SSIS para executar pacotes SSIS
+    -   Agendar o tempo de execução da integração Azure-SSIS para executar pacotes SSIS
 
--   Transformar modelos
+-   Modelos de transformação
 
-    -   [ETL com tijolos de dados Azure](solution-template-databricks-notebook.md)
+    -   [ETL com Azure Databricks](solution-template-databricks-notebook.md)
 
 ### <a name="my-templates"></a>Meus modelos
 
@@ -91,4 +91,4 @@ Pode ver os oleodutos guardados como modelos na secção **My Templates** da Gal
 ![Meus modelos](media/solution-templates-introduction/templates-intro-image5.png)
 
 > [!NOTE]
-> Para utilizar a funcionalidade My Templates, tem de permitir a integração do GIT. Tanto o Azure DevOps GIT como o GitHub são apoiados.
+> Para utilizar a funcionalidade My Templates, tem de ativar a integração do GIT. Tanto a Azure DevOps GIT como o GitHub são apoiados.
