@@ -1,21 +1,21 @@
 ---
-title: Rolar sobre um certificado de cluster Azure Service Fabric
-description: Aprenda a revestir um certificado de cluster service Fabric identificado pelo nome comum do certificado.
+title: Rolar um certificado de cluster de tecido de serviço Azure
+description: Saiba como passar um certificado de cluster de Tecido de Serviço identificado pelo nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 7a5fe2a7f2a05295605ef0e1d5db321a83b96712
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611913"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Rolar manualmente sobre um certificado de cluster de tecido de serviço
-Quando um certificado de cluster service Fabric está perto de expirar, você precisa atualizar o certificado.  A capotação do certificado é simples se o cluster foi [criado para utilizar certificados baseados no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificados com uma nova data de validade.  Os certificados auto-assinados não são suporte para clusters de tecido de serviço de produção, para incluir certificados gerados durante o fluxo de trabalho de criação do portal Azure Cluster. O novo certificado deve ter o mesmo nome comum que o certificado mais antigo. 
+Quando um certificado de cluster de Tecido de Serviço está perto de expirar, você precisa atualizar o certificado.  A cadugação do certificado é simples se o cluster foi [criado para utilizar certificados com base no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificado com uma nova data de validade.  Os certificados auto-assinados não são suporte para clusters de tecido de serviço de produção, para incluir certificados gerados durante o fluxo de trabalho de criação do portal Azure Cluster. O novo certificado deve ter o mesmo nome comum que o certificado antigo. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-O cluster de tecido de serviço utilizará automaticamente o certificado declarado com uma nova data de validade futura; quando for instalado mais de um certificado de validação no hospedeiro. A melhor prática é usar um modelo de Gestor de Recursos para fornecer Recursos Azure. Para o ambiente de não produção, o seguinte script pode ser usado para carregar um novo certificado para um cofre chave e, em seguida, instala o certificado no conjunto de escala de máquina virtual: 
+O cluster de tecidos de serviço utilizará automaticamente o certificado declarado com uma nova data de validade futura; quando mais de um certificado validado é instalado no anfitrião. Uma boa prática é usar um modelo de Gestor de Recursos para a provisionar recursos Azure. Para ambientes não produtivos, o seguinte script pode ser usado para carregar um novo certificado para um cofre de chaves e, em seguida, instala o certificado no conjunto de escala de máquina virtual: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -71,9 +71,9 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 ```
 
 >[!NOTE]
-> Computes Virtual Machine Scale set Secrets não suportam o mesmo id de recursos para dois segredos separados, uma vez que cada segredo é um recurso exclusivo versão. 
+> Computes Virtual Machine Scale set Secrets não suportam o mesmo id de recursos para dois segredos separados, uma vez que cada segredo é um recurso único em versão. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
+* Conheça a [segurança do cluster.](service-fabric-cluster-security.md)
 * [Atualizar e Gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)

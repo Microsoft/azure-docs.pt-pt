@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1226d181a47f48e294d8a7da4c42467c9ade488
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b15dcb403b1caac1f317f840f15cd89a3b496705
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608641"
+ms.locfileid: "85798498"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Tutorial: Azure Ative Directory integração única (SSO) com insumitação
 
@@ -84,19 +84,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **URL, digite** um URL utilizando um dos seguintes padrões:
 
-        ```https
-        https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
-        https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
-        ```
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`DreamArts_insuite_TENANTNAME`
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
-        ```https
-        https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
-        https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
-        ```
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [a equipa de apoio ao Cliente insutiita](mailto:e-support@dreamarts.co.jp) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

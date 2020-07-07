@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center FAQ - perguntas sobre os agentes de Log Analytics existentes
-description: Esta FAQ responde a perguntas para os clientes que já utilizam o agente Log Analytics e que consideram o Azure Security Center, um produto que o ajuda a prevenir, detetar e responder a ameaças.
+title: Azure Security Center FAQ - perguntas sobre os agentes existentes do Log Analytics
+description: Esta FAQ responde a perguntas para clientes que já usam o agente Log Analytics e consideram o Azure Security Center, um produto que o ajuda a prevenir, detetar e responder a ameaças.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,35 +14,35 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612831"
 ---
-# <a name="faq-for-customers-already-using-azure-monitor-logs"></a>FAQ para clientes que já usam registos do Monitor Azure<a name="existingloganalyticscust"></a>
+# <a name="faq-for-customers-already-using-azure-monitor-logs"></a>FAQ para clientes que já utilizam registos do Azure Monitor<a name="existingloganalyticscust"></a>
 
-## <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>O Centro de Segurança sobrepor-se a alguma ligação existente entre VMs e espaços de trabalho?
+## <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>O Centro de Segurança sobrepõe-se a quaisquer ligações existentes entre VMs e espaços de trabalho?
 
-Se um VM já tiver o agente Log Analytics instalado como uma extensão Azure, o Security Center não sobrepor-se à ligação do espaço de trabalho existente. Em vez disso, o Centro de Segurança usa o espaço de trabalho existente. O VM será protegido desde que a solução "Security" ou "SecurityCenterFree" tenha sido instalada no espaço de trabalho para o qual está a reportar. 
+Se um VM já tiver o agente Log Analytics instalado como uma extensão Azure, o Security Center não substitui a ligação existente no espaço de trabalho. Em vez disso, o Centro de Segurança utiliza o espaço de trabalho existente. O VM será protegido desde que a solução "Security" ou "SecurityCenterFree" tenha sido instalada no espaço de trabalho a que está a reportar. 
 
-Uma solução De Security Center está instalada no espaço de trabalho selecionado no ecrã de Recolha de Dados se ainda não estiver presente, e a solução é aplicada apenas aos VMs relevantes. Quando adiciona uma solução, é automaticamente implementada por padrão a todos os agentes Windows e Linux ligados ao seu espaço de trabalho Log Analytics. [O Targeting de Soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito às suas soluções.
+Uma solução do Centro de Segurança é instalada no espaço de trabalho selecionado no ecrã de Recolha de Dados se ainda não estiver presente, e a solução é aplicada apenas aos VM relevantes. Quando adiciona uma solução, é automaticamente implementada por padrão a todos os agentes Windows e Linux ligados ao seu espaço de trabalho Log Analytics. [O Targeting de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito às suas soluções.
 
 > [!TIP]
-> Se o agente Log Analytics for instalado diretamente no VM (não como uma extensão Azure), o Security Center não instala o agente Log Analytics e a monitorização de segurança é limitada.
+> Se o agente Log Analytics for instalado diretamente no VM (não como uma extensão Azure), o Centro de Segurança não instala o agente Log Analytics e a monitorização de segurança é limitada.
 
-## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>O Security Center instala soluções nos meus espaços de trabalho de Log Analytics existentes? Quais são as implicações da faturação?
-Quando o Security Center identifica que um VM já está ligado a um espaço de trabalho que criou, o Security Center permite soluções neste espaço de trabalho de acordo com o seu nível de preços. As soluções são aplicadas apenas aos VMs Azure relevantes, através da [orientação de soluções,](../operations-management-suite/operations-management-suite-solution-targeting.md)pelo que a faturação permanece a mesma.
+## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>O Security Center instala soluções nos meus espaços de trabalho existentes do Log Analytics? Quais são as implicações da faturação?
+Quando o Security Center identifica que um VM já está ligado a um espaço de trabalho que criou, o Security Center permite soluções neste espaço de trabalho de acordo com o seu nível de preços. As soluções aplicam-se apenas aos VMs Azure relevantes, através de [uma solução-alvo,](../operations-management-suite/operations-management-suite-solution-targeting.md)pelo que a faturação permanece a mesma.
 
-- **Free tier** – Security Center instala a solução 'SecurityCenterFree' no espaço de trabalho. Não será cobrado para o free tier.
-- **Standard tier** – Security Center instala a solução 'Segurança' no espaço de trabalho.
+- **Free Tier** – Security Center instala a solução 'SecurityCenterFree' no espaço de trabalho. Não será cobrado para o free tier.
+- **Nível padrão** – O Centro de Segurança instala a solução 'Security' no espaço de trabalho.
 
-   ![Soluções sobre o espaço de trabalho padrão](./media/security-center-platform-migration-faq/solutions.png)
+   ![Soluções no espaço de trabalho predefinido](./media/security-center-platform-migration-faq/solutions.png)
 
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Já tenho espaços de trabalho no meu ambiente, posso usá-los para recolher dados de segurança?
-Se um VM já tiver o agente Log Analytics instalado como uma extensão Azure, o Security Center utiliza o espaço de trabalho conectado existente. Uma solução De Centro de Segurança está instalada no espaço de trabalho se ainda não estiver presente, e a solução é aplicada apenas aos VMs relevantes através [de uma solução direcionada](../operations-management-suite/operations-management-suite-solution-targeting.md).
+Se um VM já tiver o agente Log Analytics instalado como uma extensão Azure, o Security Center utiliza o espaço de trabalho ligado existente. Uma solução do Centro de Segurança é instalada no espaço de trabalho se ainda não estiver presente, e a solução é aplicada apenas aos VM relevantes através de [uma solução de orientação.](../operations-management-suite/operations-management-suite-solution-targeting.md)
 
-Quando o Security Center instala o agente Log Analytics em VMs, utiliza o espaço de trabalho padrão criado pelo Security Center se o Security Center não for apontado para um espaço de trabalho existente.
+Quando o Security Center instala o agente Log Analytics em VMs, utiliza o espaço de trabalho predefinido criado pelo Security Center se o Centro de Segurança não estiver apontado para um espaço de trabalho existente.
 
-## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho solução de segurança nos meus espaços de trabalho. Quais são as implicações da faturação?
-A solução de auditoria & de segurança é utilizada para permitir funcionalidades de nível padrão do Security Center para VMs Azure. Se a solução de Auditoria & de Segurança já estiver instalada num espaço de trabalho, o Security Center utiliza a solução existente. Não há alteração na faturação.
+## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho uma solução de segurança nos meus espaços de trabalho. Quais são as implicações da faturação?
+A solução de Auditoria de & de Segurança é utilizada para permitir funcionalidades de nível padrão do Centro de Segurança para VMs Azure. Se a solução de Auditoria & de Segurança já estiver instalada num espaço de trabalho, o Centro de Segurança utiliza a solução existente. Não há mudança na faturação.

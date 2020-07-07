@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb7778ce25fd1ff01cfd7d2e1af7991bb38b1f47
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: d47a70f2e086c5322e8ecd53cbf352c672528ebc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605656"
+ms.locfileid: "85798913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integração do Azure Ative Directory com o Infor CloudSuite
 
@@ -109,21 +109,21 @@ Para configurar o Azure AD com Infor CloudSuite, execute os seguintes passos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        http://mingle-sso.inforcloudsuite.com
-        http://mingle-sso.se1.inforcloudsuite.com
-        http://mingle-sso.eu1.inforcloudsuite.com
-        http://mingle-sso.se2.inforcloudsuite.com
-        ```
+    ```http
+    http://mingle-sso.inforcloudsuite.com
+    http://mingle-sso.se1.inforcloudsuite.com
+    http://mingle-sso.eu1.inforcloudsuite.com
+    http://mingle-sso.se2.inforcloudsuite.com
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
-        ```
+    ```http
+    https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+    ```
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
@@ -131,12 +131,12 @@ Para configurar o Azure AD com Infor CloudSuite, execute os seguintes passos:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://mingle-portal.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
-        ```
+    ```http
+    https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Infor CloudSuite](mailto:support@infor.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85554993"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemplos de Azure AD PowerShell para Proxy de Aplicação AD AZure

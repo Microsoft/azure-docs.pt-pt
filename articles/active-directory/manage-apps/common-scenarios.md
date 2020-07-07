@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763640"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar a gestão de aplicações com a Azure AD
@@ -89,6 +89,6 @@ A identidade só pode ser o seu plano de controlo se conseguir ligar tudo atrav�
 - [Gestão de aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Aprovisionamento de aplicações](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Governação de identidade](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
+- [Governação identitária](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Plataforma de identidades da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Segurança de identidade](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

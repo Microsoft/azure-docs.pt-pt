@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a2fd4a4649b38434d196e8f4203966efdff876
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 21428738873f60d2173df53f5b9f1d108ee5eff4
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606567"
+ms.locfileid: "85798727"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-experience-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Experience Cloud
 
@@ -86,32 +86,32 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando os seguintes padrões:
     
-        ```https
-        https://<cluster>.medallia.com/sso/<company>
-        https://<cluster>.medallia.ca/sso/<company>
-        https://<cluster>.medallia.eu/sso/<company>
-        https://<cluster>.medallia.au/sso/<company>
-        ```
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando os seguintes padrões:
 
-        ```https
-        https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
-        https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
-        https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
-        https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
-        ```
+    ```http
+    https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
+    ```
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de sinais,** digite um URL utilizando os seguintes padrões:
 
-        ```https
-        https://<cluster>.medallia.com/sso/<company>
-        https://<cluster>.medallia.ca/sso/<company>
-        https://<cluster>.medallia.eu/sso/<company>
-        https://<cluster>.medallia.au/sso/<company>
-        ```
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. [Contacte a equipa de suporte do Cliente Cloud Experience](mailto:support@medallia.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

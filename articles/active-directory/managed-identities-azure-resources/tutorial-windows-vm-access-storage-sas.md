@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1ed86db85de8d4665c9eecfbde96b0909b12362
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85608318"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilize uma identidade gerida atribuída ao sistema Windows VM para aceder ao Azure Storage através de uma credencial SAS

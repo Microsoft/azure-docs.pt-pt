@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39e2d72ba63633d7c5d3da3094cfa00e076513af
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85609117"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando o portal Azure

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ms.openlocfilehash: a6cb3392aa83b2c02df621449a73f7cb68691ec6
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608609"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Utilize a Caixa de Dados Azure Heavy para migrar o conteúdo da partilha de ficheiros para o SharePoint Online
@@ -90,6 +90,6 @@ Para melhor desempenho e conectividade, recomendamos que crie uma Máquina Virtu
 > - A velocidade a que os dados são ingeridos no SharePoint Online é afetada por vários fatores, independentemente de já ter os seus dados no Azure. Compreender estes fatores irá ajudá-lo a planear e maximizar a eficiência da sua migração.  Para mais informações, aceda ao [SharePoint Online e à Velocidade de migração OneDrive.](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed)
 > - Existe o risco de perder permissões existentes em ficheiros ao migrar os dados para o SharePoint Online. Pode também perder certos metadados, tais como *Criado por* e *Data modificado por*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Encomende a sua Caixa de Dados Pesada](./data-box-heavy-deploy-ordered.md)

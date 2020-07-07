@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
 ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699469"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Azure DNS zonas privadas do legado migratório para novo modelo de recursos
