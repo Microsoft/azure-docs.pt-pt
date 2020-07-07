@@ -99,6 +99,10 @@
     - name: Auditar VMs com a Configuração de Convidado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança para a Referência de Segurança do Azure
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Extensão do Azure Policy para o VS Code

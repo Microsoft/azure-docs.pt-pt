@@ -25,6 +25,8 @@
           href: quickstart-send-telemetry-android.md
         - name: iOS
           href: quickstart-send-telemetry-ios.md
+        - name: Xamarin.Forms
+          href: quickstart-send-telemetry-xamarinforms.md
     - name: Controlar um dispositivo
       items:
         - name: Node.js
@@ -324,6 +326,8 @@
           href: iot-hub-distributed-tracing.md
         - name: Configurar a filtragem de IPs
           href: iot-hub-ip-filtering.md
+        - name: Gerir o acesso à rede pública
+          href: iot-hub-public-network-access.md
         - name: Gestão automática de dispositivos à escala
           items:
             - name: Utilizar o portal do Azure

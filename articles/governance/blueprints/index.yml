@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentação do Azure Blueprints
-summary: Simplifique as implementações ao empacotar artefactos, como modelos do Resource Manager, controlos de acesso baseado em funções e políticas, tudo numa única definição de esquema.
+summary: Simplifique as implementações ao empacotar artefactos, como modelos do Azure Resource Manager, controlos de acesso baseado em funções e políticas, tudo numa única definição de esquema.
 metadata:
   title: Documentação do Azure Blueprints
-  description: Simplifique as implementações ao empacotar artefactos, como modelos do Resource Manager, controlos de acesso baseado em funções e políticas, tudo numa única definição de esquema.
+  description: Simplifique as implementações ao empacotar artefactos, como modelos do Azure Resource Manager, controlos de acesso baseado em funções e políticas, tudo numa única definição de esquema.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: 77959798ea5ab2369402f7e0a1ac8e7b530adc27
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-  ms.translationtype: HT
+  ms.openlocfilehash: 04c99d2428bd3c92187ce9383f51d38a9729d22a
+  ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+  ms.translationtype: 
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85550212"
+  ms.lasthandoff: 07/06/2020
+  ms.locfileid: "85969384"
 landingContent:
 - title: Acerca do Azure Blueprints
   linkLists:

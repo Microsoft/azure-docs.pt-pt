@@ -130,6 +130,8 @@
       href: rest-error-codes.md
     - name: Parâmetros e cabeçalhos comuns
       href: common-parameters-and-headers.md
+    - name: Versões do Key Vault
+      href: versions.md
     - name: Azure PowerShell
       href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: CLI do Azure

@@ -28,6 +28,8 @@
       href: Quickstarts/batch-testing.md
 - name: Conceitos
   items:
+    - name: Planear a sua base de dados de conhecimento
+      href: Concepts/plan.md
     - name: Recursos do Azure
       href: Concepts/azure-resources.md
     - name: Colaborar com outros

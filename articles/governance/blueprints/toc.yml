@@ -69,6 +69,17 @@
         - name: Passos para implementar
           displayName: 'standards, DoD, IL4'
           href: ./samples/dod-impact-level-4/deploy.md
+    - name: Impacto DoD Nível 5
+      items:
+        - name: Descrição geral
+          displayName: 'standards, DoD, IL5'
+          href: ./samples/dod-impact-level-5/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, DoD, IL5'
+          href: ./samples/dod-impact-level-5/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, DoD, IL5'
+          href: ./samples/dod-impact-level-5/deploy.md
     - name: FedRAMP Moderado
       items:
         - name: Descrição geral
@@ -160,6 +171,9 @@
     - name: NIST SP 800-53 R4
       displayName: 'standards, nist, 800-53, rev 4'
       href: ./samples/nist-sp-800-53-r4.md
+    - name: NIST SP 800-171 R2
+      displayName: 'standards, nist, 800-171, rev 2'
+      href: ./samples/nist-sp-800-171-r2.md
     - name: PCI-DSS v3.2.1
       items:
         - name: Descrição geral
@@ -250,7 +264,7 @@
     - name: CLI do Azure
       href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
-      href: '/powershell/module/az.blueprint/#blueprint'
+      href: /powershell/module/az.blueprint/#blueprint
     - name: SDK do Azure para .NET
       href: /dotnet/api/overview/azure/blueprints/management
     - name: REST

@@ -261,6 +261,14 @@
       href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
     - name: O Azure Data Factory oferece integração de dados do SAP HANA e Business Warehouse
       href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
+- name: Azure Monitor para Soluções SAP
+  items:
+    - name: Descrição Geral do Azure Monitor para Soluções SAP
+      href: azure-monitor-overview.md
+    - name: Fornecedores do Azure Monitor para Soluções SAP
+      href: azure-monitor-providers.md
+    - name: FAQ do Azure Monitor para Soluções SAP
+      href: azure-monitor-faq.md
 - name: Referência
   items:
     - name: CLI do Azure

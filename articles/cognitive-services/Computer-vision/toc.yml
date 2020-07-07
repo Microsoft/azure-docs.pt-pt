@@ -49,7 +49,7 @@
               href: QuickStarts/node-thumb.md
             - name: Python
               href: QuickStarts/python-thumb.md
-        - name: Extrair texto (Imagem Digitalizada - Ler a API)
+        - name: Extrair texto (API de leitura)
           items:
             - name: C#
               href: QuickStarts/CSharp-hand-text.md
@@ -59,7 +59,7 @@
               href: QuickStarts/javascript-hand-text.md
             - name: Python
               href: QuickStarts/python-hand-text.md
-        - name: Extrair texto impresso (OCR)
+        - name: Extrair texto (API de OCR)
           items:
             - name: C#
               href: QuickStarts/CSharp-print-text.md
@@ -105,7 +105,7 @@
       href: concept-detecting-color-schemes.md
     - name: Miniaturas com recorte inteligente
       href: concept-generating-thumbnails.md
-    - name: Reconhecimento de texto
+    - name: Reconhecimento Ótico de Carateres (OCR)
       href: concept-recognizing-text.md
     - name: Deteção de conteúdo para adultos
       href: concept-detecting-adult-content.md

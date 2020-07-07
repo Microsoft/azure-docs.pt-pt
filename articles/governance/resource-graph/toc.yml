@@ -17,6 +17,9 @@
     - name: Executar a sua primeira consulta - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: ./first-query-powershell.md
+    - name: Executar a sua primeira consulta - .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
     - name: Executar a sua primeira consulta - Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
@@ -26,6 +29,9 @@
     - name: Executar a sua primeira consulta - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Executar a sua primeira consulta - REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
     - name: Criar uma consulta partilhada - CLI do Azure
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md

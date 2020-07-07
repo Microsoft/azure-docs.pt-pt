@@ -3,5 +3,7 @@
 - name: Perguntas Mais Frequentes
   expanded: true
   items:
+    - name: SRE e Codificação
+      href: code.md
     - name: SRE e DevOps
       href: devops.md

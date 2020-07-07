@@ -43,8 +43,8 @@
       items:
         - name: Criar um pedido de suporte do Azure
           href: supportability/how-to-create-azure-support-request.md
-        - name: Carregar ficheiros para um pedido de suporte
-          href: supportability/how-to-use-file-uploader.md
+        - name: Gerir um pedido de suporte do Azure
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Pedir aumentos de quota
           items:
             - name: Aumentar os limites de vCPU de computação
