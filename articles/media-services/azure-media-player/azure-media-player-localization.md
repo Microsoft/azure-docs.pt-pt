@@ -1,45 +1,45 @@
 ---
-title: Localização de jogador de mídia azure
-description: Suporte de idiomas múltiplos para utilizadores de locais não ingleses.
+title: Localização do Azure Media Player
+description: Suporte linguístico múltiplo para utilizadores de locais não ingleses.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82779047"
 ---
 # <a name="localization"></a>Localização #
 
-O suporte linguístico múltiplo permite que os utilizadores de locais não ingleses interajam de forma nativa com o jogador. O Azure Media Player irá instantaneamente com um dicionário global de idiomas, que localizará as mensagens de erro com base na linguagem da página. Um desenvolvedor também pode criar uma instância de jogador com uma linguagem forçada. A língua padrão é inglês (pt).
+O suporte linguístico múltiplo permite que os utilizadores de locais não ingleses interajam de forma nativa com o leitor. O Azure Media Player instantaneamente com um dicionário global de idiomas, que irá localização das mensagens de erro com base no idioma da página. Um desenvolvedor também pode criar uma instância de jogador com uma linguagem definida forçada. A língua predefinida é inglês (pt).
 
 > [!NOTE]
-> Esta funcionalidade ainda está a passar por alguns testes e, como tal, está sujeita a bugs.
+> Esta funcionalidade ainda se encontra a passar por alguns testes e, como tal, está sujeita a bugs.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin" data-setup='{"language":"es"}'>...</video>
 ```
 
-O Azure Media Player suporta atualmente os seguintes idiomas com os respetivos códigos linguísticos:
+A Azure Media Player suporta atualmente os seguintes idiomas com os respetivos códigos linguísticos:
 
-| Idioma            | Código | Idioma                | Código   | Idioma                | Código         |
+| Linguagem            | Código | Linguagem                | Código   | Linguagem                | Código         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
-| Inglês {padrão}   | en   | Croata                | hr     | Romeno                | ro           |
+| Português {predefinido}   | en   | Croata                | hr     | Romeno                | ro           |
 | Árabe              | ar   | Húngaro               | hu     | Eslovaco                  | sk           |
 | Búlgaro           | bg   | Indonésio              | ID     | Esloveno                 | sl           |
 | Catalão             | ca   | Islandês               | é     | Sérvio - Cirílico      | sr-cyrl-cs   |
-| Checo               | cs   | Italiano                 | lo     | Sérvio - Latim         | sr-latn-rs   |
+| Checo               | cs   | Italiano                 | que     | Sérvio - Latim         | sr-latn-rs   |
 | Dinamarquês              | da   | Japonês                | ja     | Russo                 | ru           |
 | Alemão              | de   | Cazaque                  | kk     | Sueco                 | sv           |
 | Grego               | el   | Coreano                  | ko     | Tailandês                    | th           |
 | Espanhol             | es   | Lituano              | lt     | Tagalog                 | tl           |
 | Estónio            | et   | Letão                 | lv     | Turco                 | tr           |
 | Basco              | eu   | Malásia               | ms     | Ucraniano               | Reino Unido           |
-| Farsi               | fa   | Norueguês - Bokmã¥l     | nb     | Urdu                    | o seu           |
+| Rio Farsi               | fa   | Norueguês - Bokmã-l     | nb     | Urdu                    | o seu           |
 | Finlandês             | fi   | Neerlandês                   | nl     | Vietnamita              | vi           |
 | Francês              | fr   | Norueguês - Nynorsk     | nn     | Chinês - simplificado    | zh-hans      |
 | Galego            | gl   | Polaco                  | pl     | Chinês - tradicional   | zh-hant      |
@@ -48,7 +48,7 @@ O Azure Media Player suporta atualmente os seguintes idiomas com os respetivos c
 
 
 > [!NOTE]
-> Se não quiser que ocorra qualquer localização, deve forçar a língua ao inglês
+> Se não quiser que ocorra qualquer localização, deve forçar a língua a inglês
 
 ## <a name="next-steps"></a>Passos seguintes ##
 

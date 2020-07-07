@@ -1,6 +1,6 @@
 ---
-title: Crie o gasoduto de aprendizagem automática Apache Spark - Azure HDInsight
-description: Utilize a biblioteca de machine learning Apache Spark para criar gasodutos de dados em Azure HDInsight.
+title: Criar o oleoduto de aprendizagem da máquina de faíscas Apache Spark - Azure HDInsight
+description: Utilize a biblioteca de aprendizagem de máquinas Apache Spark para criar oleodutos de dados em Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,33 +9,33 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494672"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Apache Spark
 
-A biblioteca de machine learning (MLlib) da Apache Spark traz capacidades de modelação para um ambiente distribuído. O pacote [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) Spark é um conjunto de APIs de alto nível construídos em DataFrames. Estas APIs ajudam-no a criar e a afinar os gasodutos práticos de aprendizagem automática.  *A spark machine learning* refere-se a este API baseado em MLlib DataFrame, e não ao mais antigo pipeline baseado em RDD API.
+A biblioteca de machine learning escalável da Apache Spark (MLlib) traz capacidades de modelação para um ambiente distribuído. O pacote Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível construído em DataFrames. Estes APIs ajudam-no a criar e afinar os oleodutos práticos de aprendizagem automática.  *A aprendizagem de máquinas* de faísca refere-se a esta API baseada em Dados MLlib, e não ao antigo gasoduto baseado em RDD API.
 
-Um pipeline de aprendizagem automática (ML) é um fluxo de trabalho completo que combina vários algoritmos de aprendizagem automática. Pode haver muitos passos necessários para processar e aprender com dados, requerendo uma sequência de algoritmos. Os oleodutos definem as fases e a encomenda de um processo de aprendizagem automática. Em MLlib, as fases de um oleoduto são representadas por uma sequência específica de PipelineStages, onde um Transformador e um Estimador executam cada um tarefas.
+Um pipeline de machine learning (ML) é um fluxo de trabalho completo combinando vários algoritmos de aprendizagem automática juntos. Pode haver muitos passos necessários para processar e aprender com os dados, requerendo uma sequência de algoritmos. Os oleodutos definem os estágios e a encomenda de um processo de aprendizagem automática. Em MLlib, as fases de um oleoduto são representadas por uma sequência específica de PipelineStages, onde um Transformador e um Estimador executam tarefas.
 
-Um Transformer é um algoritmo que transforma um `transform()` DataFrame para outro usando o método. Por exemplo, um transformador de funcionalidades poderia ler uma coluna de um DataFrame, mapeá-lo para outra coluna e fazer um novo DataFrame com a coluna mapeada anexada a ele.
+Um Transformer é um algoritmo que transforma um DataFrame em outro usando o `transform()` método. Por exemplo, um transformador de recurso poderia ler uma coluna de um DataFrame, mapeá-lo para outra coluna, e desatar um novo DataFrame com a coluna mapeada anexada a ela.
 
-Um Estimador é uma abstração de algoritmos de aprendizagem, e é responsável por encaixar ou treinar num conjunto de dados para produzir um Transformer. Um Estimador implementa um `fit()`método chamado , que aceita um DataFrame e produz um DataFrame, que é um Transformer.
+Um Estimador é uma abstração de algoritmos de aprendizagem, e é responsável por encaixar ou treinar num conjunto de dados para produzir um Transformer. Um Estimador implementa um método chamado `fit()` , que aceita um DataFrame e produz um DataFrame, que é um Transformador.
 
-Cada instância apátrida de um Transformador ou de um Estimador tem o seu próprio identificador único, que é usado ao especificar parâmetros. Ambos utilizam uma API uniforme para especificar estes parâmetros.
+Cada instância apátrida de um Transformador ou um Estimador tem o seu próprio identificador único, que é usado ao especificar parâmetros. Ambos utilizam uma API uniforme para especificar estes parâmetros.
 
-## <a name="pipeline-example"></a>Exemplo de gasoduto
+## <a name="pipeline-example"></a>Exemplo do gasoduto
 
-Para demonstrar uma utilização prática de um `HVAC.csv` gasoduto ML, este exemplo utiliza o ficheiro de dados da amostra que vem pré-carregado no armazenamento predefinido para o seu cluster HDInsight, quer no Armazenamento De Azure quer no Armazenamento de Data Lake. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv`contém um conjunto de tempos com sistemas de avac e temperaturas reais para sistemas de AVAC *(aquecimento, ventilação e ar condicionado)* em vários edifícios. O objetivo é formar o modelo nos dados e produzir uma temperatura prevista para um determinado edifício.
+Para demonstrar uma utilização prática de um gasoduto ML, este exemplo utiliza o ficheiro de dados da amostra `HVAC.csv` que vem pré-carregado no armazenamento predefinido para o seu cluster HDInsight, seja o Azure Storage ou o Data Lake Storage. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv`contém um conjunto de tempos com os sistemas de AVAC *(aquecimento, ventilação e ar condicionado)* em vários edifícios. O objetivo é treinar o modelo nos dados, e produzir uma temperatura prevista para um determinado edifício.
 
 O seguinte código:
 
-1. Define um `LabeledDocument`, que `BuildingID` `SystemInfo` armazena o , (identificador `label` e idade de um sistema) e um (1.0 se o edifício estiver muito quente, 0.0 caso contrário).
-2. Cria uma função `parseDocument` de parser personalizado que toma uma linha (linha) de dados e determina se o edifício está "quente" comparando a temperatura-alvo com a temperatura real.
-3. Aplica o parser ao extrair os dados de origem.
+1. Define um `LabeledDocument` , que armazena o , `BuildingID` `SystemInfo` (identificador e idade de um sistema) e um `label` (1.0 se o edifício estiver muito quente, 0.0 de outra forma).
+2. Cria uma função de parser personalizado `parseDocument` que toma uma linha (linha) de dados e determina se o edifício está "quente" comparando a temperatura-alvo com a temperatura real.
+3. Aplica o analisador ao extrair os dados de origem.
 4. Cria dados de treino.
 
 ```python
@@ -78,11 +78,11 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-Este gasoduto de exemplo `Tokenizer` `HashingTF` tem três fases: e (ambos Transformers) e `Logistic Regression` (um Estimador).  Os dados extraídos e analisados no `training` DataFrame `pipeline.fit(training)` fluem através do pipeline quando são chamados.
+Este gasoduto de exemplo tem três fases: `Tokenizer` e `HashingTF` (ambos Transformadores) e `Logistic Regression` (um Estimador).  Os dados extraídos e analisados no `training` DataFrame fluem através do pipeline quando `pipeline.fit(training)` são chamados.
 
-1. A primeira `Tokenizer`fase, divide `SystemInfo` a coluna de entrada (composta pelo identificador `words` do sistema e pelos valores de idade) numa coluna de saída. Esta `words` nova coluna é adicionada ao DataFrame. 
-2. O segundo `HashingTF`estágio, converte `words` a nova coluna em vetores de recurso. Esta `features` nova coluna é adicionada ao DataFrame. Estes dois primeiros estágios são Transformers. 
-3. A terceira `LogisticRegression`fase, é um Estimador, e por `LogisticRegression.fit()` isso o `LogisticRegressionModel`gasoduto chama o método de produzir a . 
+1. Na primeira fase, `Tokenizer` divide a coluna de entrada `SystemInfo` (composta pelo identificador do sistema e valores de idade) numa `words` coluna de saída. Esta nova `words` coluna é adicionada ao DataFrame. 
+2. O segundo `HashingTF` estágio, converte a nova `words` coluna em vetores de recurso. Esta nova `features` coluna é adicionada ao DataFrame. Estas duas primeiras etapas são Transformers. 
+3. A terceira `LogisticRegression` fase, é um estimador, e assim o oleoduto chama o `LogisticRegression.fit()` método para produzir um `LogisticRegressionModel` . 
 
 ```python
 tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -95,7 +95,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-Para ver `words` as `features` novas e `Tokenizer` colunas adicionadas pelos transformadores e `HashingTF` transformadores, e uma amostra do `LogisticRegression` estimador, executar um `PipelineModel.transform()` método no DataFrame original. No código de produção, o próximo passo seria passar num dataFrame de teste para validar o treino.
+Para ver os novos `words` e `features` colunas adicionados pelos `Tokenizer` `HashingTF` transformadores e uma amostra do `LogisticRegression` estimador, executar um `PipelineModel.transform()` método no DataFrame original. No código de produção, o próximo passo seria passar num DataFrame de teste para validar o treino.
 
 ```python
 peek = model.transform(training)
@@ -130,8 +130,8 @@ peek.show()
 only showing top 20 rows
 ```
 
-O `model` objeto pode agora ser usado para fazer previsões. Para obter a amostra completa desta aplicação de aprendizagem automática e instruções passo a passo para executá-la, consulte as aplicações de [aprendizagem automática Build Apache Spark no Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
+O `model` objeto pode agora ser usado para fazer previsões. Para obter a amostra completa desta aplicação de machine learning e instruções passo a passo para executá-la, consulte aplicações de [aprendizagem automática Build Apache Spark no Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Data Science usando Scala e Apache Spark em Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

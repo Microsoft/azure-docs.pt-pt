@@ -12,10 +12,10 @@ ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385030"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do utilizador no Azure Ative Directory B2C

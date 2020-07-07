@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76759858"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
@@ -36,8 +36,8 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
    |Replicação     |Armazenamento georredundante com acesso de leitura (RA-GRS)         |
    |Escalão de acesso     |Acesso Frequente         |
 
-8. Se planeia utilizar o Armazenamento do [Lago De Dados Azure,](https://azure.microsoft.com/services/storage/data-lake-storage/)escolha o separador **Advanced** e, em seguida, coloque o espaço de **nome hierárquico** para **Ativado**.
+8. Se planeia utilizar [o Azure Data Lake Storage,](https://azure.microsoft.com/services/storage/data-lake-storage/)escolha o separador **Avançado** e, em seguida, desempate o espaço de **nome hierárquico** para **Ativado**.
 9. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
 10. Selecione **Criar**.
 
-Para obter mais informações sobre tipos de contas de armazenamento e outras definições de conta de armazenamento, consulte [Descrição geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Para obter mais informações sobre os grupos de recursos, consulte a [visão geral do Gestor de Recursos do Azure.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 
+Para obter mais informações sobre tipos de contas de armazenamento e outras definições de conta de armazenamento, consulte [Descrição geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Para obter mais informações sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 

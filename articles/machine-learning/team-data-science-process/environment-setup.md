@@ -1,6 +1,6 @@
 ---
-title: Criar ambientes de ciência de dados em Azure - Team Data Science Process
-description: Criar ambientes de ciência de dados em Azure para uso no Processo de Ciência de Dados da Equipa.
+title: Configurar ambientes de ciência de dados em Azure - Processo de Ciência de Dados de Equipa
+description: Crie ambientes de ciência de dados no Azure para uso no Processo de Ciência de Dados de Equipa.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,27 +12,27 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6d1185e13397b3e466bd1e8d609a46f2f68bf390
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80063943"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Configurar ambientes de ciência de dados para utilizar no Team Data Science Process
-O Processo de Ciência de Dados da Equipa utiliza vários ambientes de ciência de dados para o armazenamento, processamento e análise de dados. Incluem o Armazenamento De Blob Azure, vários tipos de máquinas virtuais Azure, clusters HDInsight (Hadoop) e espaços de trabalho azure machine learning. A decisão sobre qual o ambiente a utilizar depende do tipo e quantidade de dados a modelar e do destino-alvo desses dados na nuvem. 
+O Processo de Ciência de Dados da Equipa utiliza vários ambientes de ciência de dados para o armazenamento, processamento e análise de dados. Eles incluem Azure Blob Storage, vários tipos de máquinas virtuais Azure, clusters HDInsight (Hadoop) e espaços de trabalho de aprendizagem de máquinas Azure. A decisão sobre qual o ambiente a utilizar depende do tipo e quantidade de dados a modelar e do destino-alvo para esses dados na nuvem. 
 
-* Para obter orientações sobre questões a considerar ao tomar esta decisão, consulte [Plan Your Azure Machine Learning Data Science Environment](plan-your-environment.md). 
-* Para um catálogo de alguns dos cenários que poderá encontrar ao fazer [análises avançadas,](plan-sample-scenarios.md) consulte Cenários para o Processo de Ciência de Dados da Equipa
+* Para obter orientações sobre questões a ter em conta ao tomar esta decisão, consulte [Plan Your Azure Machine Learning Data Science Environment](plan-your-environment.md). 
+* Para obter um catálogo de alguns dos cenários que poderá encontrar ao fazer [análises avançadas, consulte Cenários para o Processo de Ciência de Dados da Equipa](plan-sample-scenarios.md)
 
-Os seguintes artigos descrevem como configurar os vários ambientes de ciência de dados usados pelo Processo de Ciência de Dados da Equipa.
+Os seguintes artigos descrevem como configurar os vários ambientes de ciência de dados utilizados pelo Processo de Ciência de Dados de Equipa.
 
-* [Conta de armazenamento azure](../../storage/common/storage-account-create.md)
+* [Conta de armazenamento Azure](../../storage/common/storage-account-create.md)
 * [Cluster HDInsight (Hadoop)](customize-hadoop-cluster.md)
-* [Azure Machine Learning Studio (clássico) espaço de trabalho](../studio/create-workspace.md)
+* [Azure Machine Learning Studio (espaço de trabalho clássico)](../studio/create-workspace.md)
 
-A **Microsoft Data Science Virtual Machine (DSVM)** também está disponível como uma imagem de máquina virtual Azure (VM). Este VM é pré-instalado e configurado com várias ferramentas populares que são comumente usadas para análise de dados e machine learning. O DSVM está disponível tanto no Windows como no Linux. Para mais informações, consulte Introdução à máquina virtual de data science baseada [na nuvem para Linux e Windows](../data-science-virtual-machine/overview.md).
+A **Máquina Virtual da Microsoft Data Science (DSVM)** também está disponível como uma imagem de máquina virtual Azure (VM). Este VM é pré-instalado e configurado com várias ferramentas populares que são comumente usadas para análise de dados e machine learning. O DSVM está disponível tanto no Windows como no Linux. Para obter mais informações, consulte Introdução à máquina virtual de [ciência de dados baseada na nuvem para Linux e Windows](../data-science-virtual-machine/overview.md).
 
-Aprenda a criar:
+Saiba como criar:
 
 - [DSVM do Windows](../data-science-virtual-machine/provision-vm.md)
 - [DSVM do Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)

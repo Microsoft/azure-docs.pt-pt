@@ -1,7 +1,7 @@
 ---
 title: Credenciais de certificado de plataforma de identidade da Microsoft
 titleSuffix: Microsoft identity platform
-description: Este artigo discute o registo e utilização de credenciais de certificado para autenticação de candidaturas.
+description: Este artigo discute o registo e a utilização de credenciais de certificado para autenticação de pedidos.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82690276"
 ---
-# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicação de plataforma de identidade microsoft
+# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicativos da plataforma de identidade da Microsoft
 
-A plataforma de identidade microsoft permite que uma aplicação utilize as suas próprias credenciais para autenticação, por exemplo, no [OAuth 2.0 Client Credentials Grant flowv2.0](v2-oauth2-client-creds-grant-flow.md) e no [fluxo On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md)).
+A plataforma de identidade microsoft permite que uma aplicação utilize as suas próprias credenciais para autenticação, por exemplo, no [OAuth 2.0 Client Credentials Grant flowv2.0](v2-oauth2-client-creds-grant-flow.md) e [no fluxo On-Behalf-Of).](v2-oauth2-on-behalf-of-flow.md)
 
-Uma forma de credencial que uma aplicação pode usar para autenticação é uma afirmação JSON Web Token(JWT) assinada com um certificado que a aplicação detém.
+Uma forma de credencial que uma aplicação pode usar para autenticação é uma afirmação JSON Web Token (JWT) assinada com um certificado que a aplicação possui.
 
 ## <a name="assertion-format"></a>Formato de afirmação
 Plataforma de identidade da Microsoft Para calcular a afirmação, pode utilizar uma das muitas bibliotecas [JSON Web Token](https://jwt.ms/) no idioma à sua escolha. As informações transportadas pelo símbolo são as seguintes:
@@ -37,22 +37,22 @@ Plataforma de identidade da Microsoft Para calcular a afirmação, pode utilizar
 | `typ` | Deve ser **JWT** |
 | `x5t` | Deve ser a impressão digital do Certificado X.509 SHA-1 |
 
-### <a name="claims-payload"></a>Reclamações (carga útil)
+### <a name="claims-payload"></a>Sinistros (carga útil)
 
 | Parâmetro |  Observações |
 | --- | --- |
 | `aud` | Público: Deve ser ** https://login.microsoftonline.com/ *tenant_Id*/oauth2/token** |
-| `exp` | Data de validade: a data em que o token expira. O tempo é representado como o número de segundos de 1 de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até ao momento em que a validade do símbolo expira.|
-| `iss` | Emitente: deve ser o client_id (Id de aplicação do serviço ao cliente) |
-| `jti` | GUID: o ID JWT |
-| `nbf` | Não antes: a data anterior à qual o símbolo não pode ser utilizado. O tempo é representado como o número de segundos de 1 de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até ao momento em que o token foi emitido. |
-| `sub` | Objeto: Quanto `iss`a, deve ser o client_id (Id de aplicação do serviço ao cliente) |
+| `exp` | Data de validade: a data em que o token expira. O tempo é representado como o número de segundos a partir de 1 de janeiro de 1970 (1970-01-01T0:0Z) UTC até o momento em que a validade do símbolo expirar.|
+| `iss` | Emitente: deve ser o client_id (ID de aplicação do serviço ao cliente) |
+| `jti` | GUID: o JWT ID |
+| `nbf` | Não antes: a data anterior à qual o símbolo não pode ser utilizado. O tempo é representado como o número de segundos a partir de 1 de janeiro de 1970 (1970-01-01T0:0Z) UTC até a hora em que o token foi emitido. |
+| `sub` | Objeto: Quanto `iss` a , deve ser o client_id (ID de aplicação do serviço ao cliente) |
 
 ### <a name="signature"></a>Assinatura
 
 A assinatura é calculada aplicando o certificado conforme descrito na [especificação JSON Web Token RFC7519](https://tools.ietf.org/html/rfc7519)
 
-## <a name="example-of-a-decoded-jwt-assertion"></a>Exemplo de uma afirmação deScodificada jWT
+## <a name="example-of-a-decoded-jwt-assertion"></a>Exemplo de uma afirmação descodificada do JWT
 
 ```JSON
 {
@@ -75,7 +75,7 @@ A assinatura é calculada aplicando o certificado conforme descrito na [especifi
 
 ## <a name="example-of-an-encoded-jwt-assertion"></a>Exemplo de uma afirmação codificada do JWT
 
-A seguinte corda é um exemplo de afirmação codificada. Se olhar com atenção, note três secções separadas por pontos (.):
+A seguinte corda é um exemplo de afirmação codificada. Se olhar com atenção, nota três secções separadas por pontos (.):
 * A primeira secção codifica o cabeçalho
 * A segunda secção codifica a carga útil
 * A última secção é a assinatura calculada com os certificados do conteúdo das duas primeiras secções
@@ -89,26 +89,26 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 Pode associar a credencial de certificado à aplicação do cliente na plataforma de identidade da Microsoft através do portal Azure utilizando qualquer um dos seguintes métodos:
 
-### <a name="uploading-the-certificate-file"></a>Upload do ficheiro de certificado
+### <a name="uploading-the-certificate-file"></a>Upload do arquivo de certificados
 
-No registo da aplicação Azure para a aplicação do cliente:
+No registo da app Azure para a aplicação do cliente:
 1. Selecione **Certificados & segredos**.
 2. Clique no **certificado de upload** e selecione o ficheiro de certificado para carregar.
 3. Clique em **Adicionar**.
-  Uma vez carregado o certificado, a impressão digital, a data de início e os valores de validade são apresentados.
+  Uma vez que o certificado é carregado, a impressão digital, a data de início e os valores de validade são apresentados.
 
-### <a name="updating-the-application-manifest"></a>Atualizar o manifesto de candidatura
+### <a name="updating-the-application-manifest"></a>Atualizar o manifesto de aplicação
 
 Tendo um certificado, precisa calcular:
 
-- `$base64Thumbprint`, que é a codificação base64 do certificado hash
+- `$base64Thumbprint`, que é a codificação base64 do haxixe certificado
 - `$base64Value`, que é a codificação base64 dos dados brutos do certificado
 
-Também precisa de fornecer um GUID para identificar`$keyId`a chave no manifesto de aplicação ( ).
+Também é necessário fornecer um GUID para identificar a chave no manifesto de candidatura ( `$keyId` ).
 
-No registo da aplicação Azure para a aplicação do cliente:
-1. Selecione **Manifesto** para abrir o manifesto de aplicação.
-2. Substitua a propriedade *keyCredencias* pelo seu novo certificado utilizando o seguinte esquema.
+No registo da app Azure para a aplicação do cliente:
+1. Selecione **Manifesto** para abrir o manifesto de inscrição.
+2. Substitua a propriedade *keyCredentials* com as informações do seu novo certificado utilizando o seguinte esquema.
 
    ```JSON
    "keyCredentials": [
@@ -121,13 +121,13 @@ No registo da aplicação Azure para a aplicação do cliente:
        }
    ]
    ```
-3. Guarde as edições para o manifesto da aplicação e, em seguida, faça upload do manifesto para a plataforma de identidade da Microsoft.
+3. Guarde as edições para o manifesto da aplicação e, em seguida, faça o upload do manifesto para a plataforma de identidade da Microsoft.
 
-   A `keyCredentials` propriedade é multi-valiosa, por isso pode carregar vários certificados para uma gestão chave mais rica.
+   A `keyCredentials` propriedade é multi-valorizada, para que você possa carregar vários certificados para uma gestão de chaves mais rica.
 
 ## <a name="code-sample"></a>Exemplo de código
 
 > [!NOTE]
-> Deve calcular o cabeçalho X5T convertendo-o numa corda base 64 utilizando o hash do certificado. O código para executar isto `System.Convert.ToBase64String(cert.GetCertHash());`em C# é .
+> Deve calcular o cabeçalho X5T convertendo-o numa corda base 64 utilizando o haxixe do certificado. O código para executar isto em C# é `System.Convert.ToBase64String(cert.GetCertHash());` .
 
-A aplicação de consola da net [Core daemon utilizando](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) a plataforma de identidade da Microsoft mostra como uma aplicação utiliza as suas próprias credenciais para autenticação. Também mostra como pode criar um certificado `New-SelfSignedCertificate` [auto-assinado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) utilizando o comando Powershell. Você também pode aproveitar e usar os scripts de criação de [aplicativos](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) para criar os certificados, calcular a impressão digital, e assim por diante.
+A [aplicação de consola daemon da](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) amostra de código .NET Core utilizando a plataforma de identidade da Microsoft mostra como uma aplicação utiliza as suas próprias credenciais para autenticação. Também mostra como pode [criar um certificado auto-assinado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) usando o `New-SelfSignedCertificate` comando Powershell. Também pode aproveitar e usar os [scripts de criação de aplicações](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) para criar os certificados, calcular a impressão digital, e assim por diante.
