@@ -1,7 +1,7 @@
 ---
 title: 'Árvore de decisão reforçada de duas classes: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de árvore de decisão impulsionada por duas classes em Azure Machine Learning para criar um modelo de aprendizagem automática que se baseie no algoritmo de árvores de decisão impulsionada.
+description: Aprenda a usar o módulo de árvore de decisão reforçada de duas classes em Azure Machine Learning para criar um modelo de aprendizagem automática que se baseia no algoritmo de árvores de decisão reforçada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,79 +10,79 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137659"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão impulsionado por duas classes
+# <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão reforçada de duas classes
 
-Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
 
-Use este módulo para criar um modelo de aprendizagem automática que se baseie no algoritmo de árvores de decisão impulsionada. 
+Use este módulo para criar um modelo de aprendizagem automática que se baseia no algoritmo de árvores de decisão reforçada. 
 
-Uma árvore de decisão reforçada é um método de aprendizagem conjunto em que a segunda árvore corrige os erros da primeira árvore, a terceira árvore corrige para os erros da primeira e segunda árvores, e assim por diante.  As previsões baseiam-se em todo o conjunto de árvores que fazem a previsão.
+Uma árvore de decisão reforçada é um método de aprendizagem conjunto em que a segunda árvore corrige para os erros da primeira árvore, a terceira árvore corrige para os erros da primeira e segunda árvores, e assim por diante.  As previsões são baseadas em todo o conjunto de árvores juntas que faz a previsão.
   
-Geralmente, quando devidamente configuradas, as árvores de decisão impulsionadas são os métodos mais fáceis para obter o melhor desempenho numa grande variedade de tarefas de aprendizagem automática. No entanto, são também um dos alunos mais intensivos da memória, e a implementação atual guarda tudo na memória. Portanto, um modelo de árvore de decisão reforçado pode não ser capaz de processar os grandes conjuntos de dados que alguns alunos lineares podem lidar.
+Geralmente, quando devidamente configuradas, as árvores de decisão reforçadas são os métodos mais fáceis de obter o melhor desempenho em uma grande variedade de tarefas de aprendizagem automática. No entanto, são também um dos alunos mais intensivos de memória, e a implementação atual guarda tudo na memória. Portanto, um modelo de árvore de decisão reforçada pode não ser capaz de processar os grandes conjuntos de dados que alguns alunos lineares podem lidar.
 
 ## <a name="how-to-configure"></a>Como configurar
 
-Este módulo cria um modelo de classificação destreinado. Como a classificação é um método de aprendizagem supervisionado, para treinar o modelo, você precisa de um conjunto de *dados marcado* que inclua uma coluna de etiqueta com um valor para todas as linhas.
+Este módulo cria um modelo de classificação destreinado. Como a classificação é um método de aprendizagem supervisionado, para treinar o modelo, é necessário um conjunto de *dados marcado* que inclua uma coluna de etiqueta com um valor para todas as linhas.
 
-Pode treinar este tipo de modelo utilizando [o Modelo de Comboio](././train-model.md). 
+Pode treinar este tipo de modelo utilizando [o Modelo de Comboio.](././train-model.md) 
 
-1.  No Azure Machine Learning, adicione o módulo **Boosted Decision Tree** ao seu pipeline.
+1.  Em Azure Machine Learning, adicione o módulo **De Decisão Reforçada** ao seu oleoduto.
   
-2.  Especifique como pretende que o modelo seja treinado, definindo a opção modo **Criar.**
+2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**
   
     + **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
   
-    + **Gama de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune. Você fornece alguma gama de valores, e o treinador iterates sobre múltiplas combinações das configurações para determinar a combinação de valores que produz o melhor resultado.
+    + **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
   
-3.  Para o **número máximo de folhas por árvore,** indique o número máximo de nódos os terminais (folhas) que podem ser criados em qualquer árvore.
+3.  Para **o número máximo de folhas por árvore,** indique o número máximo de nós terminais (folhas) que podem ser criados em qualquer árvore.
   
-     Ao aumentar este valor, você potencialmente aumenta o tamanho da árvore e obtém uma melhor precisão, com o risco de excesso de montagem e tempo de treino mais longo.
+     Ao aumentar este valor, você potencialmente aumenta o tamanho da árvore e obtém uma melhor precisão, correndo o risco de sobremontagem e tempo de treino mais longo.
   
-4.  Para o **número mínimo de amostras por nó**de folha, indique o número de caixas necessárias para criar qualquer nó terminal (folha) numa árvore.  
+4.  Para **o número mínimo de amostras por nó folha,** indique o número de casos necessários para criar qualquer nó terminal (folha) numa árvore.  
   
-     Ao aumentar este valor, aumenta-se o limiar para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se aumentar o valor para 5, os dados de formação teriam de conter pelo menos cinco casos que satisfaçam as mesmas condições.
+     Ao aumentar este valor, aumenta-se o limiar para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se aumentar o valor para 5, os dados da formação terão de conter pelo menos cinco casos que satisfaçam as mesmas condições.
   
-5.  Para **a taxa de aprendizagem**, digite um número entre 0 e 1 que defina o tamanho do passo durante a aprendizagem.  
+5.  Para **a taxa de aprendizagem,** digite um número entre 0 e 1 que define o tamanho do passo durante a aprendizagem.  
   
-     A taxa de aprendizagem determina a rapidez ou a lentidão do aluno converge na solução ideal. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho do passo for muito pequeno, o treino demora mais tempo a convergir para a melhor solução.
+     A taxa de aprendizagem determina a rapidez ou a lentidão com que o aluno converge na solução ideal. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho do degrau for muito pequeno, o treino demora mais tempo a convergir para a melhor solução.
   
-6.  Para **o número de árvores construídas,** indicar o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, pode potencialmente obter uma melhor cobertura, mas o tempo de treino aumentará.
+6.  Para **o número de árvores construídas,** indicar o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma melhor cobertura, mas o tempo de treino vai aumentar.
   
-     Este valor também controla o número de árvores exibidas ao visualizar o modelo treinado. se quiser ver ou imprimir uma única árvore, deite o valor para 1. No entanto, quando o fizer, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e não são realizadas mais iterações.
+     Este valor também controla o número de árvores exibidas ao visualizar o modelo treinado. se quiser ver ou imprimir uma única árvore, desa um valor para 1. No entanto, quando o fazes, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e não são realizadas mais iterações.
   
-7.  Para **sementes aleatórias,** digite opcionalmente um inteiro não negativo para usar como o valor de sementes aleatórias. Especificar uma semente garante a reprodutibilidade em percursos que tenham os mesmos dados e parâmetros.  
+7.  Para **sementes de número aleatório,** digite opcionalmente um número inteiro não negativo para usar como valor de sementes aleatórias. Especificar uma semente garante a reprodutibilidade através de percursos que têm os mesmos dados e parâmetros.  
   
-     A semente aleatória é definida por padrão para 0, o que significa que o valor inicial da semente é obtido a partir do relógio do sistema.  As corridas sucessivas com uma semente aleatória podem ter resultados diferentes.
+     A semente aleatória é definida por defeito a 0, o que significa que o valor inicial da semente é obtido a partir do relógio do sistema.  Corridas sucessivas usando uma semente aleatória podem ter resultados diferentes.
   
 
 9. Treine o modelo:
 
-    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
+    + Se definir **Criar o modo de treinador** para single **parâmetro,** conecte um conjunto de dados marcado e o módulo Modelo de [Comboio.](train-model.md)  
   
-    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+    + Se definir **Criar modo de treinador** para intervalo de **parâmetros,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparmetros do modelo de sintonização](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
-    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros únicos.  
     > 
-    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > Se passar um único conjunto de valores de parâmetros para o módulo [Tune Model Hyperparameters,](tune-model-hyperparameters.md) quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
     > 
-    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.  
+    > Se selecionar a opção De Alcance de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros se alterem numa gama de valores.  
    
 ## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 
-+ Para guardar uma imagem do modelo treinado, selecione o separador **Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone do conjunto de **dados Register** para salvar o modelo como um módulo reutilizável.
++ Para guardar uma imagem do modelo treinado, selecione o **separador Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone **do conjunto de dados registar** para guardar o modelo como um módulo reutilizável.
 
-+ Para utilizar o modelo para a pontuação, adicione o módulo **Score Model** a um pipeline.
++ Para utilizar o modelo para pontuar, adicione o módulo **'Marcar',** a um pipeline.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
-title: 'Regressão logística de duas classes: Referência do módulo'
+title: 'Regressão Logística de duas classes: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de regressão logística de duas classes em Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
+description: Aprenda a usar o módulo de regressão logística de duas classes no Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,82 +10,82 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137625"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
-Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
 
 Utilize este módulo para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados. 
 
-A regressão logística é uma técnica estatística bem conhecida que é usada para modelar muitos tipos de problemas. Este algoritmo é um método de *aprendizagem supervisionado;*  por isso, deve fornecer um conjunto de dados que já contenha os resultados para treinar o modelo.  
+A regressão logística é uma técnica estatística bem conhecida que é usada para modelar muitos tipos de problemas. Este algoritmo é um método *de aprendizagem supervisionado;*  portanto, deve fornecer um conjunto de dados que já contenha os resultados para treinar o modelo.  
 
 ### <a name="about-logistic-regression"></a>Sobre a regressão logística  
 
 A regressão logística é um método bem conhecido nas estatísticas que é usado para prever a probabilidade de um resultado, e é especialmente popular para tarefas de classificação. O algoritmo prevê a probabilidade de ocorrência de um evento, adaptando dados a uma função logística.
   
-Neste módulo, o algoritmo de classificação é otimizado para dicotomias ou variáveis binárias. se precisar de classificar vários resultados, utilize o módulo [de regressão logística multiclasse.](./multiclass-logistic-regression.md)
+Neste módulo, o algoritmo de classificação é otimizado para variáveis dicotomias ou binárias. se precisar de classificar vários resultados, utilize o módulo [de regressão logística multiclasse.](./multiclass-logistic-regression.md)
 
 ##  <a name="how-to-configure"></a>Como configurar  
 
-Para treinar este modelo, deve fornecer um conjunto de dados que contenha uma etiqueta ou coluna de classe. Como este módulo se destina a problemas de duas classes, a etiqueta ou coluna de classe deve conter exatamente dois valores. 
+Para treinar este modelo, tem de fornecer um conjunto de dados que contenha uma etiqueta ou coluna de classe. Uma vez que este módulo se destina a problemas de duas classes, o rótulo ou coluna de classe deve conter exatamente dois valores. 
 
-Por exemplo, a coluna de etiquetas pode ser [Votada] com possíveis valores de "Sim" ou "Não". Ou, pode ser [Risco de Crédito], com valores possíveis de "Alto" ou "Baixo". 
+Por exemplo, a coluna do rótulo pode ser [Votada] com possíveis valores de "Sim" ou "Não". Ou, pode ser [Risco de Crédito], com possíveis valores de "Alto" ou "Baixo". 
   
 1.  Adicione o módulo **de regressão logística de duas classes** ao seu oleoduto.  
   
-2.  Especifique como pretende que o modelo seja treinado, definindo a opção modo **Criar.**  
+2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
     -   **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Gama de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune. Você fornece alguma gama de valores, e o treinador iterates sobre múltiplas combinações das configurações para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
   
-3.  Para **a tolerância à otimização,** especifique um valor-limiar a utilizar ao otimizar o modelo. Se a melhoria entre iterações ficar abaixo do limiar especificado, o algoritmo é considerado como tendo convergido para uma solução, e o treino para.  
+3.  Para **a tolerância à otimização,** especifique um valor-limiar a utilizar ao otimizar o modelo. Se a melhoria entre iterações ficar abaixo do limiar especificado, considera-se que o algoritmo convergiu numa solução e o treino para.  
   
-4.  Para **o peso da regularização L1** e o peso da **regularização L2,** escreva um valor a utilizar para os parâmetros de regularização L1 e L2. Recomenda-se um valor não-zero para ambos.  
-     *A regularização* é um método para prevenir o excesso de montagem penalizando modelos com valores de coeficiente extremos. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Assim, um modelo preciso com valores de coeficiente extremos seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria menos penalizado.  
+4.  Para **o peso de regularização L1** e o peso de **regularização L2,** escreva um valor a utilizar para os parâmetros de regularização L1 e L2. Recomenda-se um valor não zero para ambos.  
+     *A regularização* é um método para prevenir a sobremontagem, penalizando modelos com valores de coeficiente extremos. A regularização funciona adicionando a penalidade que está associada aos valores do coeficiente ao erro da hipótese. Assim, um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria menos penalizado.  
   
-     A regularização L1 e L2 tem efeitos e usos diferentes.  
+     A regularização L1 e L2 tem efeitos e utilizações diferentes.  
   
-    -   A L1 pode ser aplicada a modelos escassos, o que é útil quando se trabalha com dados de alta dimensão.  
+    -   L1 pode ser aplicado em modelos escassos, o que é útil quando se trabalha com dados de alta dimensão.  
   
-    -   Em contraste, a regularização L2 é preferível para dados que não são escassos.  
+    -   Em contrapartida, a regularização L2 é preferível para dados que não são escassos.  
   
-     Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se <code>x = L1</code> e, <code>y = L2</code>em seguida, <code>ax + by = c</code> define o período linear dos termos de regularização.  
+     Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se <code>x = L1</code> e <code>y = L2</code> , em seguida, define o período <code>ax + by = c</code> linear dos termos de regularização.  
   
     > [!NOTE]
-    >  Quer saber mais sobre a regularização l1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a adaptação do modelo, com amostras de código para a regressão logística e modelos de rede neural: [L1 e L2 Regularização para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Quer saber mais sobre a regularização L1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a montagem do modelo, com amostras de código para regressão logística e modelos de rede neural: [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
-    > Foram concebidas diferentes combinações lineares de termos L1 e L2 para modelos de regressão logística: por exemplo, [regularização elástica da rede.](https://wikipedia.org/wiki/Elastic_net_regularization) Sugerimos que refira estas combinações para definir uma combinação linear que seja eficaz no seu modelo.
+    > Foram concebidas diferentes combinações lineares de termos L1 e L2 para modelos de regressão logística: por exemplo, [regularização líquida elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que faça referência a estas combinações para definir uma combinação linear que seja eficaz no seu modelo.
       
-5.  Para o **tamanho da memória para L-BFGS,** especifique a quantidade de memória a utilizar para a otimização *L-BFGS.*  
+5.  Para **o tamanho da memória para L-BFGS,** especifique a quantidade de memória a utilizar para a otimização *L-BFGS.*  
   
-     L-BFGS significa "memória limitada Broyden-Fletcher-Goldfarb-Shanno". É um algoritmo de otimização que é popular para a estimativa de parâmetros. Este parâmetro indica o número de posições e gradientes anteriores para armazenar para a computação do próximo passo.  
+     L-BFGS significa "memória limitada Broyden-Fletcher-Goldfarb-Shanno". É um algoritmo de otimização que é popular para a estimativa de parâmetros. Este parâmetro indica o número de posições e gradientes passados para armazenar para a computação do passo seguinte.  
   
      Este parâmetro de otimização limita a quantidade de memória que é usada para calcular o próximo passo e direção. Quando se especifica menos memória, o treino é mais rápido, mas menos preciso.  
   
-6.  Para **sementes de número aleatórios,** digite um valor inteiro. Definir um valor de semente é importante se quiser que os resultados sejam reprodutíveis ao longo de várias corridas do mesmo oleoduto.  
+6.  Para **sementes de número aleatório,** digite um valor inteiro. A definição de um valor de sementes é importante se pretender que os resultados sejam reprodutíveis ao longo de várias corridas do mesmo oleoduto.  
   
   
-8. Adicione um conjunto de dados rotulado ao gasoduto e treine o modelo:
+8. Adicione um conjunto de dados rotulado ao oleoduto e treine o modelo:
 
-    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
+    + Se definir **Criar o modo de treinador** para single **parâmetro,** conecte um conjunto de dados marcado e o módulo Modelo de [Comboio.](train-model.md)  
   
-    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+    + Se definir **Criar modo de treinador** para intervalo de **parâmetros,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparmetros do modelo de sintonização](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
-    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros únicos.  
     > 
-    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > Se passar um único conjunto de valores de parâmetros para o módulo [Tune Model Hyperparameters,](tune-model-hyperparameters.md) quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
     > 
-    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.  
+    > Se selecionar a opção De Alcance de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros se alterem numa gama de valores.  
   
-9. Submeta o oleoduto.  
+9. Envie o oleoduto.  
   
 ## <a name="results"></a>Resultados
 
@@ -97,4 +97,4 @@ Após o treino estar completo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

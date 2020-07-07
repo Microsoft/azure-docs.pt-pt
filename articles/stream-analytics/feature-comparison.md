@@ -1,79 +1,79 @@
 ---
-title: Comparação de funcionalidades Azure Stream Analytics
-description: Este artigo compara as funcionalidades suportadas para os trabalhos de nuvem Azure Stream Analytics e IoT Edge no portal Azure, Visual Studio e Visual Studio Code.
+title: Comparação de recursos Azure Stream Analytics
+description: Este artigo compara as funcionalidades suportadas para trabalhos em nuvem Azure Stream Analytics e IoT Edge no portal Azure, Visual Studio e Visual Studio Code.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133505"
 ---
-# <a name="azure-stream-analytics-feature-comparison"></a>Comparação de funcionalidades Azure Stream Analytics
+# <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos Azure Stream Analytics
 
-Com o Azure Stream Analytics, pode criar soluções de streaming na nuvem e no IoT Edge utilizando o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-vs-code.md). As tabelas deste artigo mostram quais as funcionalidades suportadas por cada plataforma para ambos os tipos de trabalho.
+Com o Azure Stream Analytics, pode criar soluções de streaming na nuvem e no IoT Edge utilizando o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-vs-code.md). As tabelas deste artigo mostram quais as funcionalidades suportadas por cada plataforma para ambos os tipos de emprego.
 
 > [!NOTE]
 > As ferramentas Visual Studio e Visual Studio Code não suportam empregos nas regiões do Leste da China, China Norte, Alemanha Central e Alemanha NorthEast.
 
-## <a name="cloud-job-features"></a>Características do trabalho na nuvem
+## <a name="cloud-job-features"></a>Recursos de trabalho em nuvem
 
 
 |Funcionalidade  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Plataforma transversal     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
-|Autoria de script     |Sim         |Sim         |Sim         |
-|Script Intellisense     |Destaque da sintaxe         |Destaque da sintaxe</br>Conclusão do código</br>Marcador de erro         |Destaque da sintaxe</br>Conclusão do código</br>Marcador de erro         |
-|Defina todos os tipos de inputs, saídas e configurações de trabalho     |Sim         |Sim         |Sim         |
-|Controlo de código fonte     |Não         |Sim         |Sim         |
+|Autoria do guião     |Sim         |Sim         |Sim         |
+|Script Intellisense     |Destaque de sintaxe         |Destaque de sintaxe</br>Conclusão do código</br>Marcador de erro         |Destaque de sintaxe</br>Conclusão do código</br>Marcador de erro         |
+|Definir todos os tipos de entradas, saídas e configurações de emprego     |Sim         |Sim         |Sim         |
+|Controlo de código fonte     |No         |Sim         |Sim         |
 |Suporte ci/CD     |Parcial         |Sim         |Sim         |
-|Partilhar inputs e saídas em várias consultas     |Não         |Sim         |Sim         |
-|Teste de consulta com um arquivo de amostra     |Sim         |Sim        |Sim         |
-|Testes locais de dados ao vivo     |Não         |Sim       |Sim      |
-|Listar empregos e visualizar entidades de emprego     |Sim         |Sim        |Sim         |
-|Exportar um emprego para um projeto local     |Não         |Sim         |Sim         |
-|Submeta, comece e pare os empregos     |Sim         |Sim         |Sim         |
+|Partilhar entradas e saídas em várias consultas     |No         |Sim         |Sim         |
+|Teste de consulta com um ficheiro de amostra     |Sim         |Sim        |Sim         |
+|Testes locais de dados ao vivo     |No         |Sim       |Sim      |
+|Listar empregos e ver entidades de emprego     |Sim         |Sim        |Sim         |
+|Exportar um emprego para um projeto local     |No         |Sim         |Sim         |
+|Submeter, iniciar e parar de trabalhar     |Sim         |Sim         |Sim         |
 |Ver métricas de trabalho e diagrama     |Sim         |Sim         |Abrir no Portal         |
-|Ver erros de execução de emprego     |Sim         |Sim         |Não         |
-|Registos do recurso     |Sim         |Não         |Não         |
-|Propriedades de mensagem personalizada     |Sim         |Sim         |Não       |
-|Função de código personalizado C# e Deserializer|Modo de leitura|Sim|Não|
+|Ver erros de tempo de execução de trabalho     |Sim         |Sim         |No         |
+|Registos do recurso     |Yes         |Não         |Não         |
+|Propriedades de mensagens personalizadas     |Sim         |Sim         |No       |
+|Função de código personalizado C# e Deserializador|Modo apenas de leitura|Yes|No|
 |JavaScript UDF e UDA     |Sim         |Sim         |Apenas no Windows         |
-|Serviço do Machine Learning     |Sim        |Sim         |Não         |
-|Machine Learning Studio     |Sim, mas a consulta não pode ser testada.        |Sim |Não         |
-|Nível de compatibilidade     |1.0</br>1.1</br>1.2 (predefinido)         |1.0</br>1.1</br>1.2 (predefinido)           |1.0</br>1.1</br>1.2 (predefinido)           |
-|Funções incorporadas de deteção de anomalias baseadas em ML     |Sim         |Sim         |Sim         |
-|Funções GeoEspacial incorporadas     |Sim         |Sim         |Sim         |
+|Serviço Machine Learning     |Sim        |Sim         |No         |
+|Machine Learning Studio     |Sim, mas a consulta não pode ser testada.        |Yes |No         |
+|Nível de compatibilidade     |1.0</br>1.1</br>1.2 (padrão)         |1.0</br>1.1</br>1.2 (padrão)           |1.0</br>1.1</br>1.2 (padrão)           |
+|Funções de deteção de anomalias baseadas em ML incorporadas     |Sim         |Sim         |Sim         |
+|Funções GeoSpaciais incorporadas     |Sim         |Sim         |Sim         |
 
 
 
-## <a name="iot-edge-job-features"></a>Características de trabalho ioT Edge
+## <a name="iot-edge-job-features"></a>Funcionalidades de trabalho IoT Edge
 
 |Funcionalidade  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Autoria de trabalho     |Sim         |Sim         |Não         |
-|Controlo de código fonte     |Não         |Sim         |Não         |
-|Exportar um emprego para um projeto local     |Não         |Sim         |Não         |
-|Teste de consulta com um arquivo de amostra     |Sim         |Sim         |Não         |
-|Partilhar inputs e saídas em várias consultas     |Não         |Sim         |Não         |
-|UDF em C#     |Não         |Sim         |Não         |
-|Submeter postos de trabalho     |Sim         |Sim         |Não         |
-|Listar empregos e visualizar entidades de emprego     |Sim         |Sim         |Não         |
-|Ver métricas de trabalho e diagrama     |Sim         |Parcial         |Não         |
-|Ver erros de execução de emprego     |Sim         |Parcial         |Não         |
-|Suporte ci/CD     |Não         |Não         |Não         |
+|Autoria de emprego     |Sim         |Sim         |No         |
+|Controlo de código fonte     |No         |Yes         |No         |
+|Exportar um emprego para um projeto local     |No         |Yes         |No         |
+|Teste de consulta com um ficheiro de amostra     |Sim         |Sim         |No         |
+|Partilhar entradas e saídas em várias consultas     |No         |Yes         |No         |
+|UDF em C#     |No         |Yes         |No         |
+|Apresentar postos de trabalho     |Sim         |Sim         |No         |
+|Listar empregos e ver entidades de emprego     |Sim         |Sim         |No         |
+|Ver métricas de trabalho e diagrama     |Yes         |Parcial         |No         |
+|Ver erros de tempo de execução de trabalho     |Yes         |Parcial         |No         |
+|Suporte ci/CD     |No         |Não         |Não         |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure Stream Analytics no IoT Edge](stream-analytics-edge.md)
-* [Tutorial: Escreva uma função c# definida pelo utilizador para o trabalho de Azure Stream Analytics IoT Edge (Pré-visualização)](stream-analytics-edge-csharp-udf.md)
-* [Desenvolver trabalhos de Streaming Analytics IoT Edge usando ferramentas do Estúdio Visual](stream-analytics-tools-for-visual-studio-edge-jobs.md)
-* [Use o Estúdio Visual para ver empregos da Azure Stream Analytics](stream-analytics-vs-tools.md)
-* [Explore o Azure Stream Analytics com o Código do Estúdio Visual (Pré-visualização)](visual-studio-code-explore-jobs.md)
+* [Tutorial: Escreva uma função definida pelo utilizador C# para o trabalho Azure Stream Analytics IoT Edge (Pré-visualização)](stream-analytics-edge-csharp-udf.md)
+* [Desenvolver trabalhos de Stream Analytics IoT Edge usando ferramentas de Estúdio Visual](stream-analytics-tools-for-visual-studio-edge-jobs.md)
+* [Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Explore a Azure Stream Analytics com Código de Estúdio Visual (Pré-visualização)](visual-studio-code-explore-jobs.md)
 
 

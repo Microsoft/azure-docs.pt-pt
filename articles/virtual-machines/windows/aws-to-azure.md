@@ -1,6 +1,6 @@
 ---
-title: Mova uma instância Windows AWS EC2 para Azure
-description: Mova uma instância de Windows Amazon Web Services (AWS) EC2 para uma máquina virtual Azure.
+title: Mover uma instância EC2 do Windows AWS para Azure
+description: Mova uma instância eC2 do Windows da Amazon Web Services (AWS) para uma máquina virtual Azure.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -8,56 +8,56 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084520"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mova um VM Windows da Amazon Web Services (AWS) para uma máquina virtual Azure
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover um VM windows da Amazon Web Services (AWS) para uma máquina virtual Azure
 
-Se estiver a avaliar as máquinas virtuais Azure para hospedar as suas cargas de trabalho, pode exportar uma instância VM EC2 Windows EC2 (AWS) Da Amazon Web Services (AWS) e depois carregar o disco rígido virtual (VHD) para o Azure. Assim que o VHD for carregado, pode criar um novo VM em Azure a partir do VHD. 
+Se estiver a avaliar as máquinas virtuais Azure para hospedar as suas cargas de trabalho, pode exportar uma instância de VM do Amazon Web Services (AWS) existente e depois fazer o upload do disco rígido virtual (VHD) para Azure. Uma vez que o VHD é carregado, você pode criar um novo VM em Azure a partir do VHD. 
 
-Este artigo abrange a deslocação de um único VM da AWS para o Azure. Se quiser mover VMs de AWS para Azure em escala, consulte [máquinas virtuais migrate em Amazon Web Services (AWS) para Azure com recuperação](../../site-recovery/site-recovery-migrate-aws-to-azure.md)de site Azure .
+Este artigo abrange a deslocação de um único VM de AWS para Azure. Se quiser mover VMs de AWS para Azure em escala, consulte [máquinas virtuais migratórias nos Serviços Web da Amazon (AWS) para Azure com Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## <a name="prepare-the-vm"></a>Preparar a VM 
  
-Pode enviar VHDs generalizados e especializados para o Azure. Cada tipo requer que prepare o VM antes de exportar da AWS. 
+Pode enviar VHDs generalizados e especializados para Azure. Cada tipo requer que prepare o VM antes de exportar da AWS. 
 
-- **VHD generalizado** - um VHD generalizado teve todas as suas informações pessoais removidas usando sysprep. Se pretende utilizar o VHD como imagem para criar novos VMs, deve: 
+- **VHD generalizado** - um VHD generalizado teve todas as informações da sua conta pessoal removidas usando sysprep. Se pretender usar o VHD como imagem para criar novos VMs a partir de, deve: 
  
-    * [Prepare um VM Windows](prepare-for-upload-vhd-image.md).  
-    * Generalize a máquina virtual usando sysprep.  
+    * [Preparar um VM do Windows](prepare-for-upload-vhd-image.md).  
+    * Generalize a máquina virtual utilizando o Sysprep.  
 
  
-- **VHD especializado** - um VHD especializado mantém as contas de utilizador, aplicações e outros dados do Estado do seu VM original. Se pretender utilizar o VHD como está para criar um novo VM, certifique-se de que os seguintes passos estão concluídos.  
-    * [Prepare um VHD do Windows para fazer o upload para o Azure](prepare-for-upload-vhd-image.md). **Não** generalize o VM utilizando sysprep. 
-    * Remova quaisquer ferramentas e agentes de virtualização de hóspedes instalados no VM (isto é, ferramentas VMware). 
-    * Certifique-se de que o VM está configurado para puxar o seu endereço IP e as definições de DNS através do DHCP. Isto garante que o servidor obtém um endereço IP dentro do VNet quando é iniciado.  
+- **Specialized VHD** - um VHD especializado mantém as contas de utilizador, aplicações e outros dados estatais do seu VM original. Se pretender utilizar o VHD como é para criar um novo VM, certifique-se de que os seguintes passos estão concluídos.  
+    * [Prepare um VHD do Windows para fazer o upload para o Azure](prepare-for-upload-vhd-image.md). **Não** generalize o VM utilizando o Sysprep. 
+    * Remova quaisquer ferramentas e agentes de virtualização de hóspedes instalados no VM (por isso, ferramentas VMware). 
+    * Certifique-se de que o VM está configurado para puxar o seu endereço IP e as definições de DNS via DHCP. Isto garante que o servidor obtém um endereço IP dentro do VNet quando este começar.  
 
 
-## <a name="export-and-download-the-vhd"></a>Exportar e baixar o VHD 
+## <a name="export-and-download-the-vhd"></a>Exportar e descarregar o VHD 
 
-Exporte a instância EC2 para um VHD num balde Amazon S3. Siga os passos do artigo de documentação da Amazon [Exportando uma instância como VM utilizando a Importação/Exportação vM](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando de tarefas de [criação de tarefas](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) de exportação para exportar a instância EC2 para um ficheiro VHD. 
+Exporte a instância EC2 para um VHD num balde Amazon S3. Siga as etapas do artigo de documentação da Amazon [Exportando uma Instância como VM Utilizando a VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e executar o comando [de tarefa de criação-caso-exportação](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância EC2 para um ficheiro VHD. 
 
-O ficheiro VHD exportado é guardado no balde Amazon S3 que especifica. A sintaxe básica para exportar o VHD é abaixo, basta substituir o texto do espaço reservado em \<parênteses> com as suas informações.
+O ficheiro VHD exportado é guardado no balde Amazon S3 que especifica. A sintaxe básica para exportar o VHD está abaixo, basta substituir o texto do espaço reservado \<brackets> com as suas informações.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Uma vez exportado o VHD, siga as instruções em [Como descarregue i um objeto de um Balde S3 para](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) descarregar o ficheiro VHD do balde S3. 
+Uma vez exportado o VHD, siga as instruções de [Como Descarregar um Objeto de um Balde S3?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) 
 
 > [!IMPORTANT]
-> A AWS cobra taxas de transferência de dados por descarregar o VHD. Consulte o [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) para obter mais informações.
+> AWS cobra taxas de transferência de dados para o download do VHD. Consulte [o Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) para mais informações.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora pode enviar o VHD para o Azure e criar um novo VM. 
+Agora pode fazer o upload do VHD para Azure e criar um novo VM. 
 
-- Se você correu Sysprep na sua fonte para **generalizá-lo** antes de exportar, consulte [Upload um VHD generalizado e use-o para criar um novo VMs em Azure](upload-generalized-managed.md)
-- Se não executou a Sysprep antes de exportar, o VHD é considerado **especializado,** consulte [O upload de um VHD especializado para o Azure e crie um novo VM](create-vm-specialized.md)
+- Se executou a Sysprep na sua fonte para **generalizá-lo** antes de exportar, consulte [o Upload a Generalized VHD e use-o para criar um novo VMs em Azure](upload-generalized-managed.md)
+- Se não executou o Sysprep antes de exportar, o VHD é considerado **especializado,** consulte [o Upload de um VHD especializado para a Azure e crie um novo VM](create-vm-specialized.md)
 
  

@@ -1,6 +1,6 @@
 ---
-title: Impor segurança com políticas em VMs windows em Azure
-description: Como aplicar uma política a uma máquina virtual do Gestor de Recursos Azure Windows
+title: Impor segurança com políticas sobre VMs do Windows em Azure
+description: Como aplicar uma política a um Gestor de Recursos Azure Windows Virtual Machine
 author: mimckitt
 manager: vashan
 ms.service: virtual-machines-windows
@@ -10,19 +10,19 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: a0ff463bd7f77f8a4a138bf41698059102809215
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82098701"
 ---
-# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas para VMs Windows com Gestor de Recursos Azure
-Ao usar políticas, uma organização pode impor várias convenções e regras em toda a empresa. A aplicação do comportamento desejado pode ajudar a mitigar o risco, contribuindo para o sucesso da organização. Neste artigo, descrevemos como pode usar as políticas do Gestor de Recursos Azure para definir o comportamento desejado para as Máquinas Virtuais da sua organização.
+# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs do Windows com gestor de recursos Azure
+Ao usar políticas, uma organização pode impor várias convenções e regras em toda a empresa. A aplicação do comportamento pretendido pode ajudar a mitigar o risco, contribuindo para o sucesso da organização. Neste artigo, descrevemos como pode usar as políticas do Gestor de Recursos Azure para definir o comportamento desejado para as Máquinas Virtuais da sua organização.
 
 Para uma introdução às políticas, veja [o que é a Política Azure?](../../governance/policy/overview.md)
 
-## <a name="permitted-virtual-machines"></a>Máquinas Virtuais Permitidas
-Para garantir que as máquinas virtuais para a sua organização são compatíveis com uma aplicação, pode restringir os sistemas operativos permitidos. No exemplo da política seguinte, permite acriação apenas de Máquinas Virtuais do Windows Server 2012 R2 Datacenter:
+## <a name="permitted-virtual-machines"></a>Máquinas virtuais permitidas
+Para garantir que as máquinas virtuais para a sua organização são compatíveis com uma aplicação, pode restringir os sistemas operativos permitidos. No seguinte exemplo de política, permite a criação apenas de máquinas virtuais do Centro de Dados R2 do Windows Server 2012 R2:
 
 ```json
 {
@@ -73,7 +73,7 @@ Para garantir que as máquinas virtuais para a sua organização são compatíve
 }
 ```
 
-Utilize um wild card para modificar a política anterior para permitir qualquer imagem do Datacenter do Windows Server:
+Utilize um wild card para modificar a política anterior para permitir qualquer imagem do Centro de Dados do Windows Server:
 
 ```json
 {
@@ -82,7 +82,7 @@ Utilize um wild card para modificar a política anterior para permitir qualquer 
 }
 ```
 
-Utilize qualquer Um Of para modificar a política anterior para permitir qualquer Datacenter Do Windows Server 2012 R2 ou imagem superior:
+Utilize qualquer Of para modificar a política anterior para permitir qualquer Datacenter Do Windows Server 2012 ou imagem superior:
 
 ```json
 {
@@ -99,7 +99,7 @@ Utilize qualquer Um Of para modificar a política anterior para permitir qualque
 }
 ```
 
-Para obter informações sobre os domínios políticos, consulte [pseudónimos políticos.](../../governance/policy/concepts/definition-structure.md#aliases)
+Para obter informações sobre os campos [políticos, consulte pseudónimos de política.](../../governance/policy/concepts/definition-structure.md#aliases)
 
 ## <a name="managed-disks"></a>Managed disks
 
@@ -151,9 +151,9 @@ Para exigir a utilização de discos geridos, utilize a seguinte política:
 
 ## <a name="images-for-virtual-machines"></a>Imagens para Máquinas Virtuais
 
-Por razões de segurança, pode exigir que apenas as imagens personalizadas aprovadas sejam implementadas no seu ambiente. Pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.
+Por razões de segurança, pode exigir que apenas imagens personalizadas aprovadas sejam implementadas no seu ambiente. Pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.
 
-O exemplo que se segue requer imagens de um grupo de recursos aprovados:
+O exemplo a seguir requer imagens de um grupo de recursos aprovado:
 
 ```json
 {
@@ -180,7 +180,7 @@ O exemplo que se segue requer imagens de um grupo de recursos aprovados:
 } 
 ```
 
-O exemplo que se segue especifica as iDs de imagem aprovadas:
+O exemplo a seguir especifica os IDs de imagem aprovados:
 
 ```json
 {
@@ -189,9 +189,9 @@ O exemplo que se segue especifica as iDs de imagem aprovadas:
 }
 ```
 
-## <a name="virtual-machine-extensions"></a>Extensões de Máquina Virtual
+## <a name="virtual-machine-extensions"></a>Extensões de máquina virtual
 
-Pode proibir o uso de certos tipos de extensões. Por exemplo, uma extensão pode não ser compatível com certas imagens de máquinas virtuais personalizadas. O exemplo que se segue mostra como bloquear uma extensão específica. Utiliza o editor e o tipo para determinar qual a extensão a bloquear.
+Pode querer proibir o uso de certos tipos de extensões. Por exemplo, uma extensão pode não ser compatível com certas imagens de máquinas virtuais personalizadas. O exemplo a seguir mostra como bloquear uma extensão específica. Utiliza editor e tipo para determinar qual extensão para bloquear.
 
 ```json
 {
@@ -221,7 +221,7 @@ Pode proibir o uso de certos tipos de extensões. Por exemplo, uma extensão pod
 
 ## <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
 
-Quando tiver uma licença no local, pode poupar a taxa de licença nas suas máquinas virtuais. Quando não tem a licença, deve proibir a opção. A seguinte política proíbe a utilização de Benefício sinuoso de Utilização Azure (AHUB):
+Quando tiver uma licença no local, pode poupar a taxa de licença nas suas máquinas virtuais. Quando não tem a licença, deve proibir a opção. A seguinte política proíbe a utilização do Benefício de Utilização Híbrida Azure (AHUB):
 
 ```json
 {
@@ -244,6 +244,6 @@ Quando tiver uma licença no local, pode poupar a taxa de licença nas suas máq
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Depois de definir uma regra de política (como mostram os exemplos anteriores), é necessário criar a definição de política e atribuí-la a um âmbito. O âmbito pode ser uma subscrição, grupo de recursos ou recurso. Para atribuir políticas, consulte [o portal Use Azure para atribuir e gerir políticas](../../governance/policy/assign-policy-portal.md)de recursos , use [powerShell para atribuir políticas](../../governance/policy/assign-policy-powershell.md), ou use o [Azure CLI para atribuir políticas](../../governance/policy/assign-policy-azurecli.md).
-* Para uma introdução às políticas de recursos, veja o que é a [Política Azure?](../../governance/policy/overview.md)
+* Depois de definir uma regra política (como mostrado nos exemplos anteriores), é necessário criar a definição de política e atribuí-la a um âmbito. O âmbito pode ser uma subscrição, grupo de recursos ou recurso. Para atribuir políticas, consulte [o portal Use Azure para atribuir e gerir políticas de recursos](../../governance/policy/assign-policy-portal.md), Use [PowerShell para atribuir políticas](../../governance/policy/assign-policy-powershell.md), ou Use [Azure CLI para atribuir políticas](../../governance/policy/assign-policy-azurecli.md).
+* Para uma introdução às políticas de recursos, veja [o que é a Política Azure?](../../governance/policy/overview.md)
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
