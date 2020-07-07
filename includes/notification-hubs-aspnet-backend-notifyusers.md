@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: Inclua o ficheiro que contém o código para criar um projeto de back-end de ASP.NET WebAPI.
 services: notification-hubs
 author: spelluru
@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77192541"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o Projeto WebAPI
@@ -33,7 +33,7 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 ![][B4]
 
 > [!NOTE]
-> Certifique-se de que instalou o Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) para implementação do website.
+> Certifique-se de que instalou o Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) para implementação do site.
 
 1. Inicie o Visual Studio ou o Visual Studio Express.
 
@@ -59,7 +59,7 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 
     ![A janela Configurar Aplicação Web do Microsoft Azure][B5]
 
-    Se não vir esta página para configurar o plano de serviço de aplicações, continue com o tutorial. Pode configurá-la enquanto publica a aplicação mais tarde. 
+    Se não vir esta página para configurar o plano de serviço de aplicações, continue com o tutorial. Pode configubá-la enquanto publica a aplicação mais tarde. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autenticar clientes no back-end de WebAPI
 
@@ -186,7 +186,7 @@ Nesta secção, adicione um controlador novo ao back-end de WebAPI para processa
     }
     ```
     > [!IMPORTANT]
-    > Introduza o **nome** e a **Assinatura DeAcesso Partilhado Predefinido** do seu hub antes de prosseguir. 
+    > Insira o **nome** e o **DefaultFulFullSharedAccesssssignature** do seu hub antes de prosseguir. 
     
 7. Em seguida, crie um controlador novo com o nome **RegisterController**. No Explorador de Soluções, clique com o botão direito do rato na pasta **Controladores**, selecione **Adicionar** e, em seguida, selecione **Controlador**.
 
@@ -390,7 +390,7 @@ Em seguida, implemente a aplicação num site do Azure para que seja acessível 
 
     ![O mosaico do Serviço de Aplicações do Microsoft Azure][B15]
 
-3. Na janela **Criar Serviço de Aplicações**, selecione a sua conta do Azure. Selecione **Alterar tipo tipo** > **Web .** Mantenha o **Nome da Aplicação Web** predefinido e, em seguida, selecione a **Subscrição**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicações**.
+3. Na janela **Criar Serviço de Aplicações**, selecione a sua conta do Azure. Selecione **Change Type**  >  **Web App**. Mantenha o **Nome da Aplicação Web** predefinido e, em seguida, selecione a **Subscrição**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicações**.
 
 4. Selecione **Criar**.
 

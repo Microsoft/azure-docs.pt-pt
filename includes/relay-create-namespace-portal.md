@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76021295"
 ---
 1. Inicie sessão no [portal do Azure][Azure portal].
-1. Selecione **Criar um recurso**. Em seguida, selecione**Retransmissão**de **Integração** > . Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito.
-1. Selecione **Criar**e introduza um nome de espaço de nome no campo **Nome.** O portal Azure verifica se o nome está disponível.
+1. Selecione **Criar um recurso**. Em seguida, selecione **Integration**  >  **Integration Relay**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito.
+1. **Selecione Criar**e insira um nome de espaço no campo **Nome.** O portal Azure verifica se o nome está disponível.
 1. Escolha uma subscrição Azure para criar o espaço de nome.
-1. Para [o grupo Recursos,](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)escolha um grupo de recursos existente para colocar o espaço de nome, ou criar um novo.  
+1. Para [o grupo de recursos,](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)escolha um grupo de recursos existente para colocar o espaço de nomes ou criar um novo.  
 1. Selecione o país ou região em que o seu espaço de nome deve ser hospedado.
 
     ![Create namespace][create-namespace]
@@ -24,10 +24,10 @@ ms.locfileid: "76021295"
 
 ### <a name="get-management-credentials"></a>Obter credenciais de gestão
 
-1. **Selecione Todos os recursos**e, em seguida, escolha o nome de espaço de nome recém-criado.
-1. Selecione políticas de **acesso partilhado**.  
+1. Selecione **Todos os recursos**e, em seguida, escolha o nome de espaço de nome recém-criado.
+1. Selecione **políticas de acesso compartilhado**.  
 1. Em **Políticas de acesso partilhado**, selecione **RootManageSharedAccessKey**.
-1. Sob **a política SAS: RootManageSharedAccessKey,** selecione o botão **Copiar** ao lado da cadeia **de ligação primária**. Esta ação copia a cadeia de ligação à sua prancheta para posterior utilização. Cole este valor no Bloco de Notas ou noutra localização temporária.
+1. Sob **a política sas: RootManageSharedAccessKey**, selecione o botão **Copy** ao lado da Cadeia **de Ligação Primária**. Esta ação copia o fio de ligação à sua área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
 1. Repita o passo anterior para copiar e colar o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.  
 
     ![cadeia-ligação][connection-string]
