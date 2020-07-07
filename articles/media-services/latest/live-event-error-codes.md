@@ -1,6 +1,6 @@
 ---
-title: Códigos de erro de eventos ao vivo da Azure Media Services Microsoft Docs
-description: Este artigo lista códigos de erro de eventos ao vivo.
+title: Códigos de erro de evento ao vivo da Azure Media Services Microsoft Docs
+description: Este artigo lista códigos de erro de evento ao vivo.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -14,50 +14,50 @@ ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
 ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791056"
 ---
-# <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos ao vivo dos Media Services
+# <a name="media-services-live-event-error-codes"></a>Códigos de erro do Evento Ao Vivo dos Serviços De Media
 
-As tabelas desta secção listam os códigos de erro [do Evento Ao Vivo.](live-events-outputs-concept.md)
+As tabelas desta secção listam os códigos de erro [do Evento Vivo.](live-events-outputs-concept.md)
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejeitado
+## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Ao subscrever os eventos da Grelha de [Eventos](https://docs.microsoft.com/azure/event-grid/) para um evento ao vivo, poderá ver um dos seguintes erros do evento [LiveEventConnectionRejected.](media-services-event-schemas.md#liveeventconnectionrejected)
+Ao subscrever os eventos [Da Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/) para um evento ao vivo, poderá ver um dos seguintes erros do evento [LiveEventConnectionRejected.](media-services-event-schemas.md#liveeventconnectionrejected)
 
-| Código do resultado | Descrição |
+| Código do resultado | Description |
 | ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | URL incorreto |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | O IP do codificador não está presente na lista de permitir IP configurada |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | O codificador RTMP não enviou o comando setDataFrame. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | O codec especificado não é suportado. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED |A informação sobre a descrição dos meios de comunicação social não foi recebida antes de os dados reais dos meios de comunicação social terem sido entregues.|
+| MPE_RTMP_APPID_AUTH_FAILURE | URL de ingestão incorreta |
+| MPE_INGEST_ENCODER_CONNECTION_DENIED | O IP do codificante não está presente na lista de autorizações IP configuradas |
+| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | O codificar RTMP não enviou o comando SetDataFrame. |
+| MPE_INGEST_CODEC_NOT_SUPPORTED | O código especificado não é suportado. |
+| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED |A informação sobre a descrição dos meios de comunicação não foi recebida antes da entrega dos dados dos meios de comunicação social.|
 | MPE_INGEST_MEDIA_QUALITIES_EXCEEDED |A contagem de qualidades para o tipo de áudio ou vídeo excedeu o limite máximo permitido.|
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED |A bitrate total de entrada num evento ao vivo ou serviço de canal excedeu o limite máximo permitido.|
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | A marca de tempo para vídeo ou áudio FLVTag é inválida a partir do codificador RTMP. |
-| MPE_INGEST_FRAMERATE_EXCEEDED | Os fluxos codificadores ingeridos com emoldurações excediam o máximo permitido de 30fps para codificar eventos/canais ao vivo.|
-| MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Os fluxos codificadores ingeridos ultrapassaram as seguintes resoluções permitidas: 1920x1088 para codificação de eventos/canais ao vivo e 4096 x 2160 para eventos/canais ao vivo pass-through.|
-| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | O evento ao vivo recebeu uma grande quantidade de dados áudio ao mesmo tempo, ou uma grande quantidade de dados de vídeo sem qualquer quadro chave. Desligamos o codificador para lhe dar a oportunidade de voltar a tentar com dados corretos. |
+| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED |O valor total de entrada num evento ao vivo ou serviço de canais excedeu o limite máximo permitido.|
+| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | O tempotad para vídeo ou áudio FLVTag é inválido do codificader RTMP. |
+| MPE_INGEST_FRAMERATE_EXCEEDED | Os fluxos ingeridos com framerates ultrapassaram os 30fps máximos permitidos para codificar eventos/canais ao vivo.|
+| MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Os fluxos ingeridos de entrada ultrapassaram as seguintes resoluções permitidas: 1920x1088 para codificação de eventos/canais ao vivo e 4096 x 2160 para eventos/canais ao vivo.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | O evento ao vivo recebeu uma grande quantidade de dados áudio ao mesmo tempo, ou uma grande quantidade de dados de vídeo sem qualquer frames chave. Desconectámos o codificar para lhe dar a oportunidade de voltar a tentar com os dados corretos. |
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDesligado
+## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDis ligados
 
-Pode ver um dos seguintes erros do evento [LiveEventEncoderDisconnected.](media-services-event-schemas.md#liveeventencoderdisconnected)
+Pode ver um dos seguintes erros do [evento LiveEventEncoderDis.](media-services-event-schemas.md#liveeventencoderdisconnected)
 
-|Código do resultado|Descrição|
+|Código do resultado|Description|
 |---|---|
-|MPE_RTMP_SESSION_IDLE_TIMEOUT|A sessão de RTMP foi cronometrada depois de estar inativa para o prazo permitido.|
-|MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|A marca de tempo para vídeo ou áudio FLVTag é inválida a partir do codificador RTMP.|
-|MPE_CAPACITY_LIMIT_REACHED|Codificador enviando dados muito rápido.|
-|Códigos de erro desconhecidos|Estes códigos de erro podem ir desde o erro de memória até duplicar as entradas no mapa de hash.|
+|MPE_RTMP_SESSION_IDLE_TIMEOUT|A sessão de RTMP foi cronometrada depois de ter ficado inativa por um limite de tempo permitido.|
+|MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|O tempotad para vídeo ou áudio FLVTag é inválido do codificader RTMP.|
+|MPE_CAPACITY_LIMIT_REACHED|Codificação enviando dados muito rápido.|
+|Códigos de erro desconhecidos|Estes códigos de erro podem variar de erro de memória a entradas duplicadas no mapa de haxixe.|
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Códigos de erro de Streaming Endpoint (Origem)](streaming-endpoint-error-codes.md)
+[Códigos de erro de streaming endpoint (origem)](streaming-endpoint-error-codes.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial: Stream live with Media Services](stream-live-tutorial-with-api.md)
+[Tutorial: Stream ao vivo com serviços de mídia](stream-live-tutorial-with-api.md)

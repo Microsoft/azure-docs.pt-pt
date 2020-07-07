@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Criar uma experiência de ciência de dados'
 titleSuffix: ML Studio (classic) - Azure
-description: Este arranque de aprendizagem automática acompanha-o através de uma experiência fácil de ciência de dados. Vamos prever o preço de um carro através de um algoritmo de regressão.
+description: Este arranque rápido de aprendizagem automática acompanha-o através de uma experiência fácil de ciência de dados. Vamos prever o preço de um carro através de um algoritmo de regressão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,50 +10,50 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117359"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965149"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência em ciência de dados no Azure Machine Learning Studio (clássico)
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência de ciência de dados no Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Neste arranque rápido, cria-se uma experiência de machine learning no [Azure Machine Learning Studio (clássico)](what-is-ml-studio.md) que prevê o preço de um carro com base em diferentes variáveis, como fazer e especificações técnicas.
+Neste quickstart, você cria uma experiência de machine learning no [Azure Machine Learning Studio (clássico)](what-is-ml-studio.md) que prevê o preço de um carro com base em diferentes variáveis, tais como a make e as especificações técnicas.
 
 Se você é novo em machine learning, a série de vídeo [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) é uma ótima introdução ao machine learning usando linguagem e conceitos do dia-a-dia.
 
-Este quickstart segue o fluxo de trabalho padrão para uma experiência:
+Este arranque rápido segue o fluxo de trabalho padrão para uma experiência:
 
 1. **Criar um modelo**
     - [Obter os dados]
     - [Preparar os dados]
-    - [Definir funcionalidades]
+    - [Definir características]
 1. **Dar formação sobre o modelo**
     - [Escolha e aplique um algoritmo]
 1. **Pontuar e testar o modelo**
-    - [Prever novos preços do automóvel]
+    - [Prever novos preços de automóveis]
 
 [Obter os dados]: #get-the-data
 [Preparar os dados]: #prepare-the-data
-[Definir funcionalidades]: #define-features
+[Definir características]: #define-features
 [Escolha e aplique um algoritmo]: #choose-and-apply-an-algorithm
-[Prever novos preços do automóvel]: #predict-new-automobile-prices
+[Prever novos preços de automóveis]: #predict-new-automobile-prices
 
 ## <a name="get-the-data"></a>Obter os dados
 
-A primeira coisa que precisa na aprendizagem automática são os dados.
-Existem vários conjuntos de dados de amostras incluídos no Studio (clássico) que pode utilizar, ou pode importar dados de muitas fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))**, que está incluído na sua área de trabalho.
+A primeira coisa que precisas na aprendizagem automática são os dados.
+Existem vários conjuntos de dados de amostras incluídos no Studio (clássico) que pode usar, ou pode importar dados de muitas fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))**, que está incluído na sua área de trabalho.
 Este conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como a marca, o modelo, as especificações técnicas e o preço.
 
 > [!TIP]
-> Pode encontrar uma cópia de trabalho da experimentação seguinte na [Galeria de IA do Azure](https://gallery.azure.ai). Vá à **[sua primeira experiência](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** em ciência de dados - Previsão de preços do automóvel e clique em Open in **Studio** para descarregar uma cópia da experiência no seu espaço de trabalho machine learning studio (clássico).
+> Pode encontrar uma cópia de trabalho da experimentação seguinte na [Galeria de IA do Azure](https://gallery.azure.ai). Vá à sua primeira experiência de ciência de **[dados - Previsão de preços de automóveis](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique **em Open in Studio** para descarregar uma cópia da experiência no seu espaço de trabalho Machine Learning Studio (clássico).
 
 Eis como obter o conjunto de dados na sua experimentação.
 
-1. Crie uma nova experiência clicando **+NEW** na parte inferior da janela machine learning studio (clássico). Selecione **EXPERIMENT Experiência**  >   **Em Branco**EXPERIMENT .
+1. Crie uma nova experiência clicando **em +NEW** na parte inferior da janela Machine Learning Studio (clássico). Selecione **EXPERIMENT**  >   **Blank Experiment**.
 
 1. É dado um nome predefinido à experimentação, que pode ver na parte superior da tela. Selecione este texto e mude o nome para algo significativo, como, por exemplo, **Previsão de preços de automóveis**. O nome não tem de ser exclusivo.
 
@@ -85,20 +85,20 @@ Normalmente, um conjunto de dados requer alguns pré-processamentos antes de pod
 > [!TIP]
 > Apagar os valores em falta a partir dos dados de entrada é um pré-requisito para utilizar a maioria dos módulos.
 
-Primeiro, adicionamos um módulo que remove completamente a coluna **de perdas normalizadas.** Em seguida, adicionamos outro módulo que remove qualquer linha que tenha dados em falta.
+Primeiro, adicionamos um módulo que remove completamente a coluna **de perdas normalizada.** Em seguida, adicionamos outro módulo que remove qualquer linha que tenha dados em falta.
 
-1. Digite **colunas na** caixa de pesquisa na parte superior da paleta de módulos para encontrar as Colunas Select no módulo [Dataset.][select-columns] Em seguida, arrastá-lo para a tela de experiência. Este módulo permite-nos selecionar quais as colunas de dados que pretendemos incluir ou excluir no modelo.
+1. Digite **colunas** na caixa de pesquisa na parte superior da paleta de módulos para encontrar as [Colunas Selecionadas no módulo Dataset.][select-columns] Em seguida, arrastá-lo para a tela de experimentação. Este módulo permite-nos selecionar quais as colunas de dados que pretendemos incluir ou excluir no modelo.
 
-1. Ligue a porta de saída dos dados de preços do **Automóvel (Raw)** à porta de entrada das Colunas Select em Dataset.
+1. Ligue a porta de saída do conjunto de **dados de preços do automóvel (Raw)** à porta de entrada das Colunas Selecionadas no Conjunto de Dados.
 
     ![Adicione o módulo "Select Columns in Dataset” à tela da experimentação e ligue-o](./media/create-experiment/type-select-columns.png)
 
 1. Clique no módulo [Select Columns in Dataset][select-columns] e clique em **Launch column selector (Iniciar seletor de colunas)**, no painel **Properties (Propriedades)**.
 
    - À esquerda, clique em **Com regras**
-   - Em **Começar Com**, clique em **Todas as colunas**. Estas regras direcionam [colunas select as colunas em Dataset][select-columns] para passar em todas as colunas (exceto aquelas colunas que estamos prestes a excluir).
+   - Em **Começar Com**, clique em **Todas as colunas**. Estas regras [direcionam as Colunas Selecionadas no Conjunto de Dados][select-columns] para passar por todas as colunas (exceto as colunas que estamos prestes a excluir).
    - Nas listas pendentes, selecione **Excluir** e os **nomes das colunas** e, em seguida, clique dentro da caixa de texto. É apresentada uma lista de colunas. Selecione **normalized-losses**, que é adicionada à caixa de texto.
-   - Clique no botão marca de verificação (OK) para fechar o seletor de colunas (na parte inferior direita).
+   - Clique no botão de marca de verificação (OK) para fechar o seletor de colunas (no lado inferior direito).
 
      ![Inicie o seletor de colunas e exclua a coluna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
 
@@ -111,7 +111,7 @@ Primeiro, adicionamos um módulo que remove completamente a coluna **de perdas n
 
      ![Faça duplo clique num módulo para adicionar um comentário](./media/create-experiment/add-comment.png)
 
-1. Arraste o módulo [Apagar dados em falta][clean-missing-data] para a tela de experimentação e conecte-o ao módulo [Selecionar colunas no conjunto de dados][select-columns]. No painel **Properties**, selecione **Remove entire row (Remover linha inteira)**, em **Cleaning mode (Modo de limpeza)**. Estas opções direcionam dados [em falta][clean-missing-data] para limpar os dados removendo linhas que têm valores em falta. Clique duas vezes no módulo e escreva o comentário "Remover linhas de valor em falta".
+1. Arraste o módulo [Apagar dados em falta][clean-missing-data] para a tela de experimentação e conecte-o ao módulo [Selecionar colunas no conjunto de dados][select-columns]. No painel **Properties**, selecione **Remove entire row (Remover linha inteira)**, em **Cleaning mode (Modo de limpeza)**. Estas opções [direcionam os Dados Em Falta][clean-missing-data] para limpar os dados, removendo linhas que tenham valores em falta. Clique duas vezes no módulo e escreva o comentário "Remover linhas de valor em falta".
 
     ![Defina o modo de limpeza como “Remove entire row” no módulo “Clean Missing Data”](./media/create-experiment/set-remove-entire-row.png)
 
@@ -128,15 +128,15 @@ Agora temos dados limpos. Se pretender ver o conjunto de dados limpo, clique na 
 
 Agora que os dados foram apagados, estamos prontos para especificar quais as funcionalidades que vai utilizar no modelo preditivo.
 
-## <a name="define-features"></a>Definir funcionalidades
+## <a name="define-features"></a>Definir características
 
-No machine learning, *as características* são propriedades individuais mensuráveis de algo que lhe interessa. No nosso conjunto de dados, cada linha representa um automóvel e cada coluna é uma funcionalidade desse automóvel.
+No machine learning, *as características* são propriedades mensuráveis individuais de algo que lhe interessa. No nosso conjunto de dados, cada linha representa um automóvel e cada coluna é uma funcionalidade desse automóvel.
 
-Encontrar um bom conjunto de funcionalidades para criar um modelo preditivo requer experimentação e conhecimentos sobre o problema que pretende resolver. Algumas funcionalidades são melhores para prever num destino do que outras. Algumas características têm uma forte correlação com outras características e podem ser removidas. Por exemplo, city-mpg e highway-mpg estão intimamente relacionados, pelo que podemos manter um e remover o outro sem afetar a predição significativamente.
+Encontrar um bom conjunto de funcionalidades para criar um modelo preditivo requer experimentação e conhecimentos sobre o problema que pretende resolver. Algumas funcionalidades são melhores para prever num destino do que outras. Algumas características têm uma forte correlação com outras funcionalidades e podem ser removidas. Por exemplo, city-mpg e highway-mpg estão intimamente relacionados, pelo que podemos manter um e remover o outro sem afetar a predição significativamente.
 
 Vamos criar um modelo que utiliza um subconjunto das funcionalidades no nosso conjunto de dados. Pode regressar mais tarde e selecionar funcionalidades diferentes, executar novamente a experimentação e ver se consegue obter melhores resultados. Contudo, para começar, vamos experimentar as seguintes funcionalidades:
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> fazer, estilo corpo, base de roda, tamanho do motor, potência, pico-rpm, highway-mpg, preço
 
 1. Arraste outro módulo [Select Columns in Dataset][select-columns] para a tela da experimentação. Ligue a porta de saída à esquerda do módulo [Clean Missing Data][clean-missing-data] à porta de entrada do módulo [Select Columns in Dataset][select-columns].
 
@@ -148,13 +148,13 @@ Vamos criar um modelo que utiliza um subconjunto das funcionalidades no nosso co
 
 1. Clique em **Com regras**.
 
-1. Em **Begin With (Começar Em)**, clique em **No columns (Nenhuma coluna)**. Na linha do filtro, selecione **Include (Incluir)** e **column names (nomes das colunas)** e selecione a lista de nomes de colunas na caixa de texto. Este filtro direciona o módulo para não passar por quaisquer colunas (funcionalidades), exceto as que especificamos.
+1. Em **Begin With (Começar Em)**, clique em **No columns (Nenhuma coluna)**. Na linha do filtro, selecione **Include (Incluir)** e **column names (nomes das colunas)** e selecione a lista de nomes de colunas na caixa de texto. Este filtro direciona o módulo para não passar por nenhuma coluna (características), exceto as que especificamos.
 
 1. Clique no botão de marca de verificação (OK).
 
     ![Selecione as colunas (características) a incluir na predição](./media/create-experiment/select-columns-to-include.png)
 
-Este módulo produz um conjunto de dados filtrado que contém apenas as funcionalidades que queremos passar para o algoritmo de aprendizagem que usaremos no próximo passo. Mais tarde, pode voltar e tentar novamente com uma seleção de funcionalidades diferente.
+Este módulo produz um conjunto de dados filtrado contendo apenas as funcionalidades que queremos passar para o algoritmo de aprendizagem que usaremos no próximo passo. Mais tarde, pode voltar e tentar novamente com uma seleção de funcionalidades diferente.
 
 ## <a name="choose-and-apply-an-algorithm"></a>Escolha e aplique um algoritmo
 
@@ -163,7 +163,7 @@ Agora que os dados estão prontos, construir um modelo preditivo consiste em for
 
 *Classficação* e *regrssão* são dois tipos de algoritmos de machine learning supervisionados. A classificação prevê uma resposta a partir de um conjunto definido de categorias, tais como uma cor (vermelho, azul ou verde). A regressão é utilizada para prever um número.
 
-Uma vez que queremos prever o preço, que é um número, vamos utilizar um algoritmo de regressão. Para este exemplo, usaremos um modelo linear de *regressão.*
+Uma vez que queremos prever o preço, que é um número, vamos utilizar um algoritmo de regressão. Para este exemplo, usaremos um modelo *linear de regressão.*
 
 
 Para preparar o modelo, damos-lhe um conjunto de dados que incluem o preço. O modelo analisa os dados e procura correlações entre as características e o preço de um automóvel. Depois, testamos o modelo. Damos-lhe um conjunto de características de automóveis com que estamos familiarizados e vemos a exatidão com que o modelo consegue prever o preço sabido.
@@ -187,7 +187,7 @@ Vamos utilizar os dados quer para preparar o modelo, quer para testá-lo, dividi
 
     ![Ligue o módulo “Train Module” aos módulos “Linear Regression” e “Split Data”](./media/create-experiment/connect-train-model.png)
 
-1. Clique no módulo [Train Model][train-model], clique em **Launch column selector**no painel **Properties** e selecione a coluna **price (preço)**. **O preço** é o valor que o nosso modelo vai prever.
+1. Clique no módulo [Train Model][train-model], clique em **Launch column selector**no painel **Properties** e selecione a coluna **price (preço)**. **O** preço é o valor que o nosso modelo vai prever.
 
     Para selecionar a coluna **price** no seletor de colunas, mova-a da lista **Available columns (Colunas disponíveis)** para a lista **Selected columns (Colunas selecionadas)**.
 
@@ -199,7 +199,7 @@ Temos agora um modelo de regressão preparado que pode ser utilizado para classi
 
 ![Depois de ser executada, a experimentação deverá ter este aspeto](./media/create-experiment/second-experiment-run.png)
 
-## <a name="predict-new-automobile-prices"></a>Prever novos preços do automóvel
+## <a name="predict-new-automobile-prices"></a>Prever novos preços de automóveis
 
 Agora que experimentámos o modelo, utilizando 75% dos nossos dados, podemos utilizá-lo para pontuar os outros 25% por cento dos dados para ver quão bem funciona o nosso modelo.
 
@@ -207,7 +207,7 @@ Agora que experimentámos o modelo, utilizando 75% dos nossos dados, podemos uti
 
     ![Ligue o módulo "Score Model" aos módulos "Train Model" e "Split Data"](./media/create-experiment/connect-score-model.png)
 
-1. Execute a experiência e veja a saída a partir do módulo ['Modelo de Pontuação',][score-model] clicando na porta de saída do [Score Model][score-model] e selecione **Visualize**. O resultado mostra os valores previstos para os preços e os valores conhecidos dos dados do teste.  
+1. Executar a experiência e ver a saída do módulo ['Modelo de Pontuação',][score-model] clicando na porta de saída do [Modelo de Pontuação][score-model] e selecione **Visualize**. O resultado mostra os valores previstos para os preços e os valores conhecidos dos dados do teste.  
 
     ![Saída do módulo “Score Model”](./media/create-experiment/score-model-output.png)
 
@@ -235,12 +235,12 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor ma
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou uma experiência simples utilizando um conjunto de dados de amostras. Para explorar o processo de criação e implantação de um modelo com mais profundidade, continue a ser tutorial de solução preditiva.
+Neste arranque rápido, criou uma experiência simples usando um conjunto de dados de amostra. Para explorar o processo de criação e implantação de um modelo em maior profundidade, continue a solução tutorial de solução preditiva.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Desenvolver uma solução preditiva no Studio (clássico)](tutorial-part1-credit-risk.md)
+> [Tutorial: Desenvolver uma solução preditiva em Studio (clássico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

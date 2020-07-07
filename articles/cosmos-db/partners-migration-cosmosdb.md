@@ -1,53 +1,53 @@
 ---
 title: Parceiros de migração e desenvolvimento de aplicações para a Azure Cosmos DB
-description: Lista os parceiros da Microsoft com soluções de migração que suportam o Azure Cosmos DB.
+description: Lista os parceiros da Microsoft com soluções de migração que suportam a Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791736"
 ---
-# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de migração e desenvolvimento de aplicações da Azure Cosmos DB NoSQL
+# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de migração e desenvolvimento de aplicações Azure Cosmos DB NoSQL
 
-Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma variedade de parceiros e ferramentas integradores de sistemas experientes para apoiar as suas soluções Azure Cosmos DB. 
+Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma variedade de parceiros integradores de sistemas experientes e ferramentas para apoiar as suas soluções DB Azure Cosmos. 
 
-## <a name="systems-integrator-partners"></a>Parceiros Integradores de Sistemas
+## <a name="systems-integrator-partners"></a>Parceiros integradores de sistemas
 
 |**Parceiro**  |**Capacidades & experiência**  |**Países/regiões apoiados**  |
 |---------|---------|---------|
-|[Rio Striim](https://www.striim.com/)    |  Movimento contínuo e em tempo real de dados, migração de dados|   EUA   |
-| [10ª Magnitude](https://www.10thmagnitude.com/) | IoT, Retalho (inventário), Analytics Operacional (Spark), Arquitetura Sem Servidor, Desenvolvimento de Aplicativos | EUA |
-|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventário), Arquiteturas Servidoras NoSQL migração, desenvolvimento de aplicativos|   EUA |
-|[Avanade](https://www.avanade.com/) | IoT, Retalho (inventário), Arquitetura Sem Servidor, Desenvolvimento de Aplicativos | Áustria, Alemanha, Suíça, Itália, Noruega, Espanha, Reino Unido, Canadá |
-|[Acentuado](https://www.accenture.com/) | IoT, Retalho (inventário), Arquitetura Sem Servidor, Desenvolvimento de Aplicativos |Global|
-|[Metal azul](https://www.bluemetal.com/)     |  IoT, Personalization Retail (inventário), Analytics Operacional para Empresas & SMC, Anotação de Imagem de IA, Controlo de Ativos, Migração NoSQL, Desenvolvimento de Apps     |    América do Norte     |
-|[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalização, Retalho (inventário), Analytics Operacional (Spark), Arquitetura Servidora, Desenvolvimento de Aplicativos|    EUA     |  
-| [Capgemini](https://www.capgemini.com/) | Retalho (inventário), IoT, Analytics Operacional (Spark), Desenvolvimento de App | EUA, França, Reino Unido, Holanda, Finlândia  |
-| [Cognizant](https://www.cognizant.com/) | IoT, Personalização, Retalho (inventário), Análise Operacional (Spark), Desenvolvimento de App |EUA, Canadá, Reino Unido, Dinamarca, Holanda, Suíça, Austrália, Japão |
+|[Striim](https://www.striim.com/)    |  Movimento contínuo de dados em tempo real, migração de dados|   EUA   |
+| [10ª Magnitude](https://www.10thmagnitude.com/) | IoT, Retail (inventário), Analytics Operacional (Faísca), Arquitetura Serverless, Desenvolvimento de Aplicações | EUA |
+|[Desenvolvimento de Altoros LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventário), Arquiteturas Serverless Migração NoSQL, Desenvolvimento de Aplicações|   EUA |
+|[Avanade](https://www.avanade.com/) | IoT, Retail (inventário), Arquitetura Sem Servidor, Desenvolvimento de Aplicações | Áustria, Alemanha, Suíça, Itália, Noruega, Espanha, Reino Unido, Canadá |
+|[Accenture](https://www.accenture.com/) | IoT, Retail (inventário), Arquitetura Sem Servidor, Desenvolvimento de Aplicações |Global|
+|[Bluemetal](https://www.bluemetal.com/)     |  IoT, Personalization Retail (inventário), Análise Operacional para Empresa & SMC, Anotação de imagem de IA, Controlo de Ativos, Migração NoSQL, Desenvolvimento de Aplicações     |    América do Norte     |
+|[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalização, Retalho (inventário), Analytics Operacional (Faísca), Arquitetura Serverless, Desenvolvimento de Aplicações|    EUA     |  
+| [Capgemini](https://www.capgemini.com/) | Retalho (inventário), IoT, Analytics Operacional (Faísca), Desenvolvimento de Aplicações | EUA, França, Reino Unido, Holanda, Finlândia  |
+| [Cognizant](https://www.cognizant.com/) | IoT, Personalização, Retalho (inventário), Analytics Operacional (Faísca), Desenvolvimento de Aplicações |EUA, Canadá, Reino Unido, Dinamarca, Holanda, Suíça, Austrália, Japão |
 |[Infosys](https://www.infosys.com/)     | Programação de aplicações      |    EUA    |  
-| [Sistemas Lagash](https://www.lagash.com/) | IoT, arquitetura sem servidor, desenvolvimento de aplicativos | Argentina, Chile, Colômbia, México|
-| [Informática Lambda3](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de retalho, desenvolvimento de aplicativos | Brasil|
-|[Analítico Neal](https://www.nealanalytics.com/)    |     Personalização, Retalho (inventário), Análise Operacional (Faísca), Desenvolvimento de App  |    EUA     |  
-|[Software de obras pragmáticas Inc](https://www.pragmaticworks.com/)    |   Migração NoSQL      |   EUA      |
-| [Serviços Digitais Ricoh](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de retalho, migração noSQL | REINO UNIDO  |
-|[Tecnologias SNP](https://www.snp.com/) | Migração NoSQL| EUA |
-| [Resposta Solidsoft](https://www.reply.com/solidsoft-reply/) | Migração NoSQL | Croácia, Suécia, Dinamarca, Irlanda, Bulgária, Eslovénia, Chipre, Malta, Lituânia, República Checa, Islândia e Suíça e Liechtenstein|
-| [Tecnologias de Ponta Espanhola](https://www.spanishpoint.ie/) | Migração NoSQL| Irlanda|
-| [Syone](https://www.syone.com/) | Migração NoSQL| Portugal|
+| [Sistemas Lagash](https://www.lagash.com/) | IoT, arquitetura serverless, desenvolvimento de aplicativos | Argentina, Chile, Colômbia, México|
+| [Informática Lambda3](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de retalho, desenvolvimento de aplicações | Brasil|
+|[Neal Analytics](https://www.nealanalytics.com/)    |     Personalização, Retalho (inventário), Analytics Operacional (Faísca), Desenvolvimento de Aplicações  |    EUA     |  
+|[Pragmático Works Software Inc](https://www.pragmaticworks.com/)    |   Migração noSQL      |   EUA      |
+| [Serviços Digitais Ricoh](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração NoSQL | REINO UNIDO  |
+|[Tecnologias SNP](https://www.snp.com/) | Migração noSQL| EUA |
+| [Resposta Solidsoft](https://www.reply.com/solidsoft-reply/) | Migração noSQL | Croácia, Suécia, Dinamarca, Irlanda, Bulgária, Eslovénia, Chipre, Malta, Lituânia, República Checa, Islândia e Suíça e Liechtenstein|
+| [Tecnologias de Ponta Espanholas](https://www.spanishpoint.ie/) | Migração noSQL| Irlanda|
+| [Syone](https://www.syone.com/) | Migração noSQL| Portugal|
 |[Rio Tallan](https://www.tallan.com/)    |  Programação de aplicações      |    EUA     |
 | [TCS](https://www.tcs.com/) | Programação de aplicações | EUA, Reino Unido, França, Malásia, Dinamarca, Noruega, Suécia|
-|[VTeamLabs](https://www.vteamlabs.com/)    | Personalização, Retalho (inventário), IoT, Gaming, Analytics Operacional (Spark), Arquitetura Servidora, Migração NoSQL, Desenvolvimento de Aplicações       |  EUA      |  
-| [Pato Branco GmbH](https://whiteducksoftware.com/) |Desenvolvimento de novas aplicações, App Backend, Armazenamento para dados baseados em documentos| Alemanha |
-| [Xpand IT](https://www.xpand-it.com/) | Desenvolvimento de novas aplicações | Portugal, Reino Unido|
-| [Rio Hanu](https://hanu.com/) | IoT, Desenvolvimento de aplicativos | EUA|
-| [Incycle Software](https://www.incyclesoftware.com/) | Migração NoSQL, arquitetura sem servidor, desenvolvimento de aplicativos| EUA|
-| [Rio Orion](https://www.orioninc.com/) | Personalização, Retalho (inventário), Analytics Operacional (Spark), IoT, Desenvolvimento de Aplicações| EUA|
+|[VTeamLabs](https://www.vteamlabs.com/)    | Personalização, Retalho (inventário), IoT, Gaming, Analytics Operacional (Faísca), Arquitetura Serverless, Migração NoSQL, Desenvolvimento de Aplicações       |  EUA      |  
+| [Pato Branco GmbH](https://whiteducksoftware.com/) |Novo desenvolvimento de aplicativos, App Backend, Armazenamento para dados baseados em documentos| Alemanha |
+| [TI Xpand](https://www.xpand-it.com/) | Desenvolvimento de novas aplicações | Portugal, Reino Unido|
+| [Hanu](https://hanu.com/) | IoT, Desenvolvimento de Aplicativos | EUA|
+| [Incycle Software](https://www.incyclesoftware.com/) | Migração NoSQL, arquitetura serverless, desenvolvimento de aplicações| EUA|
+| [Rio Orion](https://www.orioninc.com/) | Personalização, Retalho (inventário), Analytics Operacional (Faísca), IoT, Desenvolvimento de App| EUA|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você elabora uma definição de política personalizada para a Azure Policy para impor regras de negócio personalizadas sobre os seus recursos Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bff5596049a141f06f5c189f2e5673efed1ed6bf
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888144"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970829"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -53,7 +53,7 @@ Com base na exigência do negócio, o recurso Azure para auditar com a Azure Pol
 Existem muitas maneiras de determinar as propriedades de um recurso Azure. Vamos olhar cada um para este tutorial:
 
 - Extensão do Azure Policy para o VS Code
-- Modelos do Resource Manager
+- Modelos de gestor de recursos Azure (modelos ARM)
   - Exportar recurso existente
   - Experiência de criação
   - Modelos quickstart (GitHub)
@@ -64,7 +64,7 @@ Existem muitas maneiras de determinar as propriedades de um recurso Azure. Vamos
 
 A [extensão do Código VS](../how-to/extension-for-vscode.md#search-for-and-view-resources) pode ser usada para navegar recursos no seu ambiente e ver as propriedades do Gestor de Recursos em cada recurso.
 
-### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+### <a name="arm-templates"></a>Modelos de ARM
 
 Existem várias formas de olhar para um [modelo de Gestor de Recursos](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que você está procurando gerir.
 
@@ -144,12 +144,11 @@ Esta informação diz-nos o tipo de propriedade e também confirma **o suporteHt
 
 #### <a name="quickstart-templates-on-github"></a>Modelos de quickstart no GitHub
 
-Os [modelos de arranque rápido do Azure](https://github.com/Azure/azure-quickstart-templates) no GitHub têm centenas de modelos de Gestor de Recursos construídos para diferentes recursos. Estes modelos podem ser uma ótima maneira de encontrar a propriedade de recursos que você procura. Algumas propriedades podem parecer o que procura, mas controle outra coisa.
+Os [modelos de arranque rápido do Azure](https://github.com/Azure/azure-quickstart-templates) no GitHub têm centenas de modelos ARM construídos para diferentes recursos. Estes modelos podem ser uma ótima maneira de encontrar a propriedade de recursos que você procura. Algumas propriedades podem parecer o que procura, mas controle outra coisa.
 
 #### <a name="resource-reference-docs"></a>Documentos de referência de recursos
 
-Para validar **suportesHttpsTrafficOnly** é propriedade correta, verifique a referência do modelo do Gestor de Recursos para o recurso da [conta de armazenamento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) no fornecedor de armazenamento.
-O objeto de propriedades tem uma lista de parâmetros válidos. A seleção da ligação [de objetos StorageAccountCountCountPropertiesCreateParameters](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao que procuramos para satisfazer os requisitos de negócio.
+Para validar **suportesHttpsTrafficOnly** é propriedade correta, verifique a referência do modelo ARM para o recurso da [conta de armazenamento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) no fornecedor de armazenamento. O objeto de propriedades tem uma lista de parâmetros válidos. A seleção da ligação [de objetos StorageAccountCountCountPropertiesCreateParameters](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao que procuramos para satisfazer os requisitos de negócio.
 
 ### <a name="azure-resource-explorer"></a>Explorador de Recursos do Azure
 
@@ -219,7 +218,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Os resultados são semelhantes ao que vemos nos modelos do Gestor de Recursos e através do Azure Resource Explorer. No entanto, os [resultados](../concepts/definition-structure.md#aliases) do Azure Resource Graph também podem incluir detalhes do pseudónimo _projetando_ a matriz de _pseudónimos:_
+Os resultados são semelhantes ao que vemos nos modelos ARM e através do Azure Resource Explorer. No entanto, os [resultados](../concepts/definition-structure.md#aliases) do Azure Resource Graph também podem incluir detalhes do pseudónimo _projetando_ a matriz de _pseudónimos:_
 
 ```kusto
 Resources

@@ -1,23 +1,23 @@
 ---
-title: Eliminação suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
+title: Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
 description: Saiba como a eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM torna as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: f1e3ecae5d643b8e32f8f4f07808d56cdc421163
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791379"
 ---
-# <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminação suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
+# <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
 
-O Azure Backup fornece agora uma eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM. Isto para além do cenário de [eliminação suave](soft-delete-virtual-machines.md)da máquina azul já suportada.
+O Azure Backup agora fornece uma eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM. Isto para além do já suportado cenário de eliminação suave da [máquina Azure Virtual.](soft-delete-virtual-machines.md)
 
-[Soft delete](backup-azure-security-feature-cloud.md) é uma funcionalidade de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, mesmo que um ator malicioso apague a cópia de segurança de uma base de dados (ou os dados de backup sejam acidentalmente eliminados), os dados de backup são conservados por 14 dias adicionais. Isto permite a recuperação desse item de backup sem perda de dados. Esta retenção adicional de 14 dias dos dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente.
+[A eliminação suave](backup-azure-security-feature-cloud.md) é uma funcionalidade de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, mesmo que um ator malicioso elimine a cópia de segurança de uma base de dados (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de backup são retidos por mais 14 dias. Isto permite a recuperação desse item de backup sem perda de dados. Esta retenção adicional de 14 dias dos dados de backup no estado de "soft delete" não incorre em qualquer custo para o cliente.
 
 >[!NOTE]
->Uma vez ativada a pré-visualização para uma subscrição, não é possível desativar a eliminação suave apenas para o servidor SQL ou DBs SAP HANA, mantendo-o ativado para máquinas virtuais no mesmo cofre. Pode criar cofres separados para controlo granular.
+>Uma vez que a pré-visualização é ativada para uma subscrição, não é possível desativar a exclusão suave apenas para o servidor SQL ou DBs SAP HANA, mantendo-o ativado para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
 
 ## <a name="steps-to-enroll-in-preview"></a>Passos para se inscrever na pré-visualização
 
@@ -33,7 +33,7 @@ O Azure Backup fornece agora uma eliminação suave para o servidor SQL em Azure
    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 
-3. Registe esta subscrição no programa de pré-visualização:
+3. Registe esta subscrição do programa de pré-visualização:
 
    ```powershell
    Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
@@ -41,75 +41,75 @@ O Azure Backup fornece agora uma eliminação suave para o servidor SQL em Azure
 
 4. Aguarde 30 minutos para que a subscrição seja inscrita na pré-visualização.
 
-5. Para verificar o estado, faça os seguintes cmdlets:
+5. Para verificar o estado, executar os seguintes cmdlets:
 
    ```powershell
    Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
    ```
 
-6. Uma vez que a subscrição mostre como registada, execute o seguinte comando:
+6. Assim que a subscrição aparecer como registada, execute o seguinte comando:
 
    ```powershell
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 >[!NOTE]
->Sempre que um novo cofre/cofre sou criado sob a subscrição ativada por eliminação suave, o seguinte comando precisa de ser reexecutado para permitir a funcionalidade para os cofres recém-criados.<BR>
+>Sempre que um novo cofre/abóbada é criado sob a subscrição ativada por eliminação suave, o seguinte comando precisa de ser reendo para permitir a funcionalidade para os cofres recém-criados.<BR>
 > `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
-## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Eliminação suave para servidor SQL em Azure VM utilizando portal Azure
+## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Excluir suave para servidor SQL em Azure VM usando o portal Azure
 
 >[!NOTE]
 >Estas instruções aplicam-se também ao SAP HANA em Azure VM.
 
-1. Para eliminar os dados de cópia de segurança de uma base de dados num servidor SQL, a cópia de segurança deve ser interrompida. No portal Azure, vá ao cofre dos serviços de recuperação, vá ao item de reserva e escolha **stop backup**.
+1. Para eliminar os dados de cópia de segurança de uma base de dados num servidor SQL, a cópia de segurança tem de ser interrompida. No portal Azure, vá ao cofre dos seus serviços de recuperação, vá ao item de reserva e escolha **'Parar de fazer backup'.**
 
    ![Parar o backup](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
-2. Na janela seguinte, será-lhe dada a opção de eliminar ou reter os dados de cópia de segurança. Se escolher Eliminar os dados de **backup,** a cópia de segurança da base de dados não será eliminada permanentemente. Em vez disso, os dados de backup serão conservados durante 14 dias no estado suave apagado. A eliminação é adiada até ao dia 15 com e-mails de alerta regulares no primeiro, 12º e 15º dia informando sobre o estado de backup da base de dados ao utilizador.
+2. Na janela seguinte, será-lhe dada a opção de eliminar ou reter os dados de backup. Se escolher **Eliminar dados de backup,** a cópia de segurança da base de dados não será permanentemente eliminada. Em vez disso, os dados de backup serão retidos durante 14 dias no estado de apagação suave. A eliminação é adiada até ao dia 15 com e-mails de alerta regular no primeiro, dia 12 e 15 dias informando sobre o estado de backup da base de dados ao utilizador.
 
    ![Eliminar dados de cópia de segurança](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 
-3. Durante esses 14 dias, no Cofre de Serviços de Recuperação, o item apagado suave aparecerá com um ícone vermelho de "soft-delete" ao lado.
+3. Durante esses 14 dias, no Cofre dos Serviços de Recuperação, o item apagado suave aparecerá com um ícone vermelho de "soft-delete" ao lado.
 
    ![Itens apagados suaves](./media/soft-delete-sql-saphana-in-azure-vm/soft-deleted-items.png)
 
-4. Para restaurar o DB eliminado suavemente, deve primeiro não ser eliminado. Para não apagar, escolha o DB eliminado suavemente e, em seguida, selecione a opção **Não delete**.
+4. Para restaurar o DB apagado suave, deve primeiro ser desescolado. Para desembolsar, escolha o DB apagado suave e, em seguida, selecione a opção **Undelete**.
 
-   ![Base de dados de exclusão](./media/soft-delete-sql-saphana-in-azure-vm/undelete-database.png)
+   ![Base de dados undelete](./media/soft-delete-sql-saphana-in-azure-vm/undelete-database.png)
 
-   Aparecerá uma janela avisando que, se não for escolhida a eliminação, todos os pontos de restauro da base de dados serão não eliminados e disponíveis para a realização de uma operação de restauro. O item de backup será retido num estado de "stop protection with reretain data" com cópias de segurança interrompidas e dados de backup retidos para sempre sem uma política de backup eficaz.
+   Uma janela aparecerá avisando que, se não for escolhida, todos os pontos de restauro para a base de dados serão indelegados e disponíveis para a realização de uma operação de restauro. O item de backup será retido num estado de "stop protection with reserv datas", com cópias de segurança paradas e dados de backup retidos para sempre sem nenhuma política de backup eficaz.
 
-   ![Aviso de desapago](./media/soft-delete-sql-saphana-in-azure-vm/undelete-warning.png)
+   ![Aviso undelete](./media/soft-delete-sql-saphana-in-azure-vm/undelete-warning.png)
 
-5. Neste ponto, também pode restaurar os dados selecionando **restaurar** para o item de backup suave eliminado escolhido.
+5. Neste ponto, também pode restaurar os dados selecionando **Restaurar** para o item de backup depagou suavemente escolhido.
 
    ![Restaurar VMs](./media/soft-delete-sql-saphana-in-azure-vm/restore-vm.png)
 
-6. Após o processo de não exclusão, o estado voltará a "Parar a cópia de segurança com os dados de retenção" e, em seguida, poderá escolher a **cópia de segurança do Currículo**. A operação de **backup resume** o item de backup no estado ativo, associado a uma política de backup selecionada pelo utilizador que define os horários de backup e retenção.
+6. Após o processo de desembrulhá-lo, o estado voltará a "Parar a cópia de segurança com os dados de retenção" e, em seguida, pode escolher **a cópia de segurança do Currículo**. A operação **de backup do Currículo** traz de volta o item de backup no estado ativo, associado a uma política de backup selecionada pelo utilizador que define os horários de backup e retenção.
 
-   ![Retomar cópia de segurança](./media/soft-delete-sql-saphana-in-azure-vm/resume-backup.png)
+   ![Retomar backup](./media/soft-delete-sql-saphana-in-azure-vm/resume-backup.png)
 
-## <a name="soft-delete-for-sql-server-in-vm-using-azure-powershell"></a>Eliminação suave para servidor SQL em VM utilizando O PowerShell Azure
+## <a name="soft-delete-for-sql-server-in-vm-using-azure-powershell"></a>Excluir suave para servidor SQL em VM usando Azure PowerShell
 
 >[!NOTE]
->A versão Az.RecoveryServices necessária para utilizar soft-delete utilizando o Azure PowerShell é mínima de 2.2.0. Use `Install-Module -Name Az.RecoveryServices -Force` para obter a versão mais recente.
+>A versão Az.RecoveryServices necessária para utilizar o soft-delete utilizando o Azure PowerShell é mínima de 2.2.0. Use `Install-Module -Name Az.RecoveryServices -Force` para obter a versão mais recente.
 
-A sequência de passos para a utilização do Azure PowerShell é a mesma que no portal Azure, acima descrita.
+A sequência de passos para a utilização do Azure PowerShell é a mesma que no portal Azure, descrito acima.
 
-### <a name="delete-the-backup-item-using-azure-powershell"></a>Elimine o item de cópia de segurança utilizando o Azure PowerShell
+### <a name="delete-the-backup-item-using-azure-powershell"></a>Elimine o item de backup usando a Azure PowerShell
 
-Elimine o item de backup utilizando o cmdlet de proteção ps de [deficientes-AzRecoveryServicesBackup.](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0)
+Elimine o item de cópia de segurança utilizando o cmdlet PS [de Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
 ```
 
-O **DeleteState** do item de cópia de segurança passará de **NotDeleted** para **ToBeDeleted**. Os dados de cópia de segurança serão conservados durante 14 dias. Se pretender reverter a operação de eliminação, deve efetuar a eliminação do desmino.
+O **DeleteState** do item de cópia de segurança mudará de **NotDeleted** para **ToBeDeleted**. Os dados de backup serão retidos por 14 dias. Se desejar reverter a operação de eliminação, deve efetuar-se a eliminação.
 
-### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazer a operação de eliminação utilizando o Azure PowerShell
+### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazer a operação de eliminação utilizando a Azure PowerShell
 
-Em primeiro lugar, pegue o item de reserva relevante que está em estado de eliminação suave (isto é, prestes a ser eliminado).
+Em primeiro lugar, pegue o item de backup relevante que está em estado de eliminação suave (isto é, prestes a ser eliminado).
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
@@ -117,19 +117,19 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, execute a operação de deseliminação utilizando o [undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.8.0) PS cmdlet.
+Em seguida, efetue a operação de eliminação utilizando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.8.0) PS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
 ```
 
-O **DeleteState** do item de cópia de segurança reverterá para **NotDeleted**. Mas a proteção ainda está parada. Retome a cópia de segurança para reativar a proteção.
+O **DeleteState** do item de cópia de segurança reverterá para **NotDeleted**. Mas a proteção ainda está parada. Retomar a cópia de segurança para voltar a ativar a proteção.
 
-## <a name="how-to-disable-soft-delete"></a>Como desativar o soft delete
+## <a name="how-to-disable-soft-delete"></a>Como desativar a eliminação suave
 
-Não é recomendável desativar esta funcionalidade. A única circunstância em que deve considerar desativar o soft delete é se planeia mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reproteger (como num ambiente de teste).) Para obter instruções sobre como desativar a eliminação suave, consulte [ativar e desativar](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)a eliminação suave .
+Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Para obter instruções sobre como desativar a eliminação suave, consulte [ativar e desativar a eliminação suave](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia as [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre apagar suavemente
-- Leia sobre todas as [funcionalidades de segurança no Azure Backup](security-overview.md)
+- Leia as [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre apagar suaves
+- Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

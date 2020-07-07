@@ -3,12 +3,12 @@ title: Descrição geral do Azure Resource Graph
 description: Compreenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
 ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: 055bb0be75de4d5f6a5a27c5fb3b218fda8777d7
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565690"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970608"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -29,7 +29,7 @@ Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Como é que o Resource Graph complementa o Azure Resource Manager?
 
-A Azure Resource Manager atualmente suporta consultas sobre campos básicos de recursos, especificamente - Nome de recursos, ID, Tipo, Grupo de Recursos, Subscrição e Localização. O Gestor de Recursos também fornece facilidades para chamar fornecedores individuais de recursos para propriedades detalhadas um recurso de cada vez.
+Atualmente, o Gestor de Recursos suporta consultas sobre campos básicos de recursos, especificamente - Nome de recursos, ID, Tipo, Grupo de Recursos, Subscrição e Localização. O Gestor de Recursos também fornece facilidades para chamar fornecedores individuais de recursos para propriedades detalhadas um recurso de cada vez.
 
 Com o Azure Resource Graph, pode aceder a estas propriedades devolvidas pelos fornecedores de recursos sem a necessidade de fazer chamadas individuais para cada fornecedor de recursos. Para obter uma lista de tipos de recursos suportados, reveja a [tabela e a referência do tipo de recurso](./reference/supported-tables-resources.md). Uma forma alternativa de ver tipos de recursos suportados é através do [navegador Azure Resource Graph Explorer Schema](./first-query-portal.md#schema-browser).
 

@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509970"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configurar o reencaminhamento de DNS para Ficheiros do Azure
@@ -21,7 +21,7 @@ Para que as ligações à sua conta de armazenamento se debruçassem sobre o seu
 
 Recomendamos vivamente que leia Planeamento para uma implementação de [Ficheiros Azure](storage-files-planning.md) e [considerações de networking de Ficheiros Azure](storage-files-networking-overview.md) antes de completar os passos descritos neste artigo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
 - Pontos finais públicos, que têm um endereço IP público e podem ser acedidos a partir de qualquer parte do mundo.
 - Pontos finais privados, que existem dentro de uma rede virtual e têm um endereço IP privado a partir do espaço de endereço dessa rede virtual.
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Pode ainda achar útil/necessário fornecer vários parâmetros adicionais:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Tipo | Description |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Por predefinição, os servidores DNS serão implantados no mesmo grupo de recursos que a rede virtual. Se isso não for desejado, este parâmetro permite-lhe escolher um grupo de recursos alternativos para que sejam implantados. |
 | `DnsForwarderRootName` | `string` | Por predefinição, os servidores DNS que são implantados no Azure têm os nomes `DnsFwder-*` , onde o asterisco é povoado por um iterador. Este parâmetro altera a raiz desse nome (isto é, `DnsFwder` ). |

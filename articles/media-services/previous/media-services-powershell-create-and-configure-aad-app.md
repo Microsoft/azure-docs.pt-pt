@@ -1,6 +1,6 @@
 ---
-title: Use a PowerShell para criar uma app Azure AD para aceder à API dos Serviços de Mídia Azure [ Microsoft Docs
-description: Aprenda a usar o PowerShell para criar uma aplicação Azure Ative Directory (Azure AD) e instale-a para aceder à API azure Media Services.
+title: Use o PowerShell para criar uma app AD Azure para aceder à Azure Media Services API Microsoft Docs
+description: Aprenda a usar o PowerShell para criar uma aplicação Azure Ative Directory (Azure AD) e instale-a para aceder à AZure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,29 +14,29 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 02cc2ddc793906ff79cbb8619a43d54d696b42ed
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594088"
 ---
-# <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Use a PowerShell para criar uma app Azure AD para usar com a API Azure Media Services
+# <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Use o PowerShell para criar uma app AD Azure para usar com a Azure Media Services API
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Saiba como usar um script PowerShell para criar uma aplicação e serviço de serviço azure Ative Directory (Azure AD) para aceder aos recursos da Azure Media Services.  
+Saiba como usar um script PowerShell para criar uma aplicação e um diretor de serviço Azure Ative (Azure AD) para aceder aos recursos do Azure Media Services.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Se não tiver uma conta, comece com um [teste gratuito azure.](https://azure.microsoft.com/pricing/free-trial/) 
-- Uma conta dos Media Services. Para mais informações, consulte [Criar uma conta Azure Media Services no portal Azure.](media-services-portal-create-account.md)
+- Uma conta do Azure. Se não tem conta, comece com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
+- Uma conta dos Media Services. Para mais informações, consulte [Criar uma conta Azure Media Services no portal Azure](media-services-portal-create-account.md).
 
-- Azure PowerShell. Para mais informações, consulte [Como utilizar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+- Azure PowerShell. Para obter mais informações, [consulte Como utilizar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="create-an-azure-ad-app-by-using-powershell"></a>Crie uma aplicação Azure AD utilizando o PowerShell  
+## <a name="create-an-azure-ad-app-by-using-powershell"></a>Crie uma aplicação AD AZure utilizando o PowerShell  
 
 ```powershell
 Connect-AzAccount
@@ -58,12 +58,12 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 }
 ```
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-- [Gerir o Controlo de Acesso baseado em funções utilizando o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Como configurar manualmente as aplicações daemon utilizando certificados](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
+- [Gerir o Controlo de Acesso Baseado em Função utilizando o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Como configurar manualmente aplicações daemon usando certificados](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Começa com [o upload de ficheiros para a sua conta.](media-services-portal-upload-files.md)
+Começa com [o upload de ficheiros para a tua conta.](media-services-portal-upload-files.md)

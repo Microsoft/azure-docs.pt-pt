@@ -8,10 +8,10 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512561"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerações de networking de arquivo azure
@@ -48,7 +48,7 @@ Pode isolar os seus servidores de ficheiros da maioria da localização da Inter
 
 O Azure File Sync requer os intervalos de endereços IP para os seguintes serviços, identificados pelas suas etiquetas de serviço:
 
-| Serviço | Descrição | Etiqueta de serviço |
+| Serviço | Description | Etiqueta de serviço |
 |---------|-------------|-------------|
 | Azure File Sync | O serviço Azure File Sync, representado pelo objeto Storage Sync Service, é responsável pela atividade principal de sincronização de dados entre uma partilha de ficheiros Azure e um servidor de ficheiros Windows. | `StorageSyncService` |
 | Ficheiros do Azure | Todos os dados sincronizados via Azure File Sync são armazenados na partilha de ficheiros Azure. Os ficheiros alterados nos servidores de ficheiros do Windows são replicados na sua partilha de ficheiros Azure e os ficheiros incluídos no servidor de ficheiros no local são descarregados sem problemas quando um utilizador os solicita. | `Storage` |
