@@ -1,6 +1,6 @@
 ---
-title: Notas de lançamento da Disponibilização Geral da Caixa de Dados azure Gateway Microsoft Docs
-description: Descreve questões e resoluções críticas abertas para o Portal de Dados Azure que executa o lançamento geral da disponibilidade.
+title: Azure Data Box Gateway Geral Disponibilidade nota de lançamento Microsoft Docs
+description: Descreve questões e resoluções abertas críticas para o Gateway Azure Data Box com lançamento geral de disponibilidade.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,45 +9,45 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561042"
 ---
-# <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de lançamento da Caixa de Dados Azure Edge/Azure Data Box Gateway
+# <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Azure Data Box Edge/Azure Data Box Gateway Notas de lançamento geral de disponibilidade
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-As seguintes notas de lançamento identificam as questões críticas em aberto e as questões resolvidas para a libertação da Disponibilidade Geral (GA) para o Azure Data Box Edge e o Azure Data Box Gateway. 
+As seguintes notas de lançamento identificam as questões abertas críticas e os problemas resolvidos para a libertação de Disponibilidade Geral (GA) para Azure Data Box Edge e Azure Data Box Gateway. 
 
-As notas de lançamento são continuamente atualizadas e, à medida que são descobertas questões críticas que exigem uma suver, são adicionadas. Antes de implementar o seu Portal de Data Box Edge/Data Box, reveja cuidadosamente as informações contidas nas notas de lançamento.
+As notas de lançamento são continuamente atualizadas, e à medida que são descobertas questões críticas que requerem uma solução alternativa, são adicionadas. Antes de implementar o seu Data Box Edge/Data Box Gateway, reveja cuidadosamente as informações contidas nas notas de libertação.
 
-A versão GA corresponde às versões do software:
+A versão GA corresponde às versões de software:
 
-- **Data Box Gateway 1903 (1.5.814.447)**
-- **Borda da caixa de dados 1903 (1.5.814.447)**
+- **Porta de caixa de dados 1903 (1.5.814.447)**
+- **Borda da Caixa de Dados 1903 (1.5.814.447)**
 
 
 ## <a name="whats-new"></a>Novidades
 
-- **Novas imagens** de disco virtual - New VHDX e VMDK estão agora disponíveis no portal Azure. Descarregue estas imagens para fornecer, configurar e implementar novos dispositivos Data Box Gateway GA. Os dispositivos Data Box Gateway criados nas versões de pré-visualização anteriores não podem ser atualizados para esta versão. Para mais informações, vá à [Prepare-se para implementar o Portal](data-box-gateway-deploy-prep.md)da Caixa de Dados Do Azure .
-- **Suporte NFS** - Suporte NFS está atualmente em pré-visualização e disponível para clientes v3.0 e v4.1 que acedem aos dispositivos Data Box Edge e Data Box Gateway.
-- **Resiliência de armazenamento** - O dispositivo Data Box Edge pode resistir à falha de um disco de dados com a funcionalidade de resiliência do Armazenamento. Esta funcionalidade encontra-se em pré-visualização. Pode ativar a resiliência do armazenamento selecionando a opção **Resilient** nas **definições** de Armazenamento na UI web local.
+- **Novas imagens de disco virtual** - Novos VHDX e VMDK já estão disponíveis no portal Azure. Descarregue estas imagens para provisões, configurar e implementar novos dispositivos Data Box Gateway GA. Os dispositivos Data Box Gateway criados nas versões de pré-visualização anteriores não podem ser atualizados para esta versão. Para mais informações, vá a [Preparar-se para implementar o Gateway da Caixa de Dados Azure](data-box-gateway-deploy-prep.md).
+- **Suporte NFS** - O suporte NFS está atualmente em pré-visualização e disponível para clientes v3.0 e v4.1 que acedem aos dispositivos Data Box Edge e Data Box Gateway.
+- **Resiliência de armazenamento** - O seu dispositivo Data Box Edge pode resistir à falha de um disco de dados com a funcionalidade de resiliência de Armazenamento. Esta funcionalidade encontra-se em pré-visualização. Pode ativar a resiliência do armazenamento selecionando a opção **Resilient** nas **definições de Armazenamento** na UI web local.
 
 
 ## <a name="known-issues-in-ga-release"></a>Questões conhecidas no lançamento da GA
 
-A tabela seguinte fornece um resumo de questões conhecidas para o lançamento em execução data Box Gateway.
+A tabela seguinte fornece um resumo de problemas conhecidos para a versão de execução do Data Box Gateway.
 
-| Não. | Funcionalidade | Problema | Seleção/comentários |
+| Não. | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
-| **1.** |Tipos de ficheiros | Os seguintes tipos de ficheiros não são suportados: ficheiros de caracteres, ficheiros de blocos, tomadas, tubos, links simbólicos.  |Copiar estes ficheiros resulta na criação de ficheiros de 0 comprimentos na parte NFS. Estes ficheiros permanecem num estado de erro e também são reportados em *erro.xml*. <br> Ligações simbólicas aos diretórios resultam em diretórios nunca serem marcados offline. Como resultado, pode não ver a cruz cinzenta nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente enviado para o Azure. |
-| **2.** |Eliminação | Devido a um bug nesta versão, se uma parte nFS for eliminada, então a parte não pode ser eliminada. O estado da partilha mostrará *a deleting*.  |Isto ocorre apenas quando a parte está usando um nome de ficheiro não suportado. |
-| **3.** |Copiar | A cópia de dados falha com o Error: A operação solicitada não pôde ser concluída devido a uma limitação do sistema de ficheiros.  |O Fluxo de Dados Alternativos (ADS) associado ao tamanho do ficheiro superior a 128 KB não é suportado.   |
+| **1.** |Tipos de ficheiros | Os seguintes tipos de ficheiros não são suportados: ficheiros de caracteres, ficheiros de blocos, tomadas, tubos, ligações simbólicas.  |Copiar estes ficheiros resulta na criação de ficheiros de 0 comprimentos na partilha NFS. Estes ficheiros permanecem em estado de erro e também são reportados em *error.xml*. <br> Ligações simbólicas a diretórios resultam em diretórios nunca ficarem marcados offline. Como resultado, pode não ver a cruz cinzenta nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente enviado para a Azure. |
+| **2.** |Eliminação | Devido a um erro nesta versão, se uma parte NFS for eliminada, então a parte não pode ser eliminada. O estado da partilha mostrará *a Eliminação*.  |Isto ocorre apenas quando a ação está usando um nome de ficheiro não suportado. |
+| **3.** |Copiar | A cópia de dados falha com Erro: A operação solicitada não pôde ser concluída devido a uma limitação do sistema de ficheiros.  |O Fluxo de Dados Alternativo (ADS) associado ao tamanho do ficheiro superior a 128 KB não é suportado.   |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Prepare-se para implementar o Portal](data-box-gateway-deploy-prep.md)da Caixa de Dados Azure .
-- [Prepare-se para implantar o Edge da Caixa](azure-stack-edge-deploy-prep.md)de Dados Azure .
+- [Prepare-se para implantar o Gateway da Caixa de Dados Azure](data-box-gateway-deploy-prep.md).
+- [Prepare-se para implantar a borda da caixa de dados Azure](azure-stack-edge-deploy-prep.md).

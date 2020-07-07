@@ -1,27 +1,27 @@
 ---
 title: Atualizar a configuração de um cluster autónomo
-description: Aprenda a atualizar a configuração que executa um cluster de Tecido de Serviço autónomo.
+description: Saiba como atualizar a configuração que executa um cluster de tecido de serviço autónomo.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790852"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualizar a configuração de um cluster autónomo 
 
-Para qualquer sistema moderno, a capacidade de upgrade é fundamental para o sucesso a longo prazo do seu produto. Um cluster Azure Service Fabric é um recurso que possui. Este artigo descreve como atualizar as configurações de configuração do seu cluster de Tecido de Serviço autónomo.
+Para qualquer sistema moderno, a capacidade de upgrade é fundamental para o sucesso a longo prazo do seu produto. Um cluster Azure Service Fabric é um recurso que possui. Este artigo descreve como atualizar as definições de configuração do seu cluster de tecido de serviço autónomo.
 
-## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalize as definições de cluster no ficheiro ClusterConfig.json
-Os clusters autónomos são configurados através do ficheiro *ClusterConfig.json.* Para saber mais sobre as diferentes definições, consulte as definições de [Configuração para um cluster Windows autónomo](service-fabric-cluster-manifest.md).
+## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalize as definições do cluster no ClusterConfig.jsno ficheiro
+Os aglomerados autónomos são configurados através do *ClusterConfig.jsem* arquivo. Para saber mais sobre as diferentes definições, consulte [as definições de Configuração para um cluster Windows autónomo](service-fabric-cluster-manifest.md).
 
-Pode adicionar, atualizar ou remover `fabricSettings` as definições na secção sob a secção de propriedades do [Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.json*. 
+Pode adicionar, atualizar ou remover as definições na `fabricSettings` secção sob a secção propriedades do [Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.jsem*. 
 
-Por exemplo, o seguinte JSON adiciona uma nova definição *MaxDiskQuotaInMB* à secção *de Diagnósticos* em : `fabricSettings`
+Por exemplo, o seguinte JSON adiciona uma nova definição *MaxDiskQuotaInMB* à secção *de Diagnóstico em* `fabricSettings` :
 
 ```json
       {
@@ -35,7 +35,7 @@ Por exemplo, o seguinte JSON adiciona uma nova definição *MaxDiskQuotaInMB* à
       }
 ```
 
-Depois de ter modificado as definições no ficheiro ClusterConfig.json, [teste a configuração do cluster](#test-the-cluster-configuration) e, em seguida, [atualize a configuração do cluster](#upgrade-the-cluster-configuration) para aplicar as definições ao seu cluster. 
+Depois de modificar as definições do seu ClusterConfig.jsno ficheiro, [teste a configuração do cluster](#test-the-cluster-configuration) e, em seguida, [atualize a configuração do cluster](#upgrade-the-cluster-configuration) para aplicar as definições no seu cluster. 
 
 ## <a name="test-the-cluster-configuration"></a>Testar a configuração do cluster
 Antes de iniciar a atualização de configuração, pode testar a sua nova configuração de cluster JSON executando o seguinte script PowerShell no pacote autónomo:
@@ -44,39 +44,39 @@ Antes de iniciar a atualização de configuração, pode testar a sua nova confi
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
 ```
 
-Ou usar este guião:
+Ou use este script:
 
 ```powershell
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Algumas configurações não podem ser atualizadas, tais como pontos finais, nome de cluster, IP do nó, etc. A nova configuração do cluster JSON é testada contra a antiga e lança erros na janela PowerShell se houver um problema.
+Algumas configurações não podem ser atualizadas, tais como pontos finais, nome de cluster, nó IP, etc. A nova configuração do cluster JSON é testada contra a antiga e lança erros na janela PowerShell se houver algum problema.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
-Para atualizar a atualização de configuração do cluster, executar [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada no domínio de upgrade por domínio de atualização.
+Para atualizar a atualização da configuração do cluster, executar [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização por domínio de upgrade.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 ```
 
 ## <a name="upgrade-cluster-certificate-configuration"></a>Configuração de certificado de cluster de upgrade
-É utilizado um certificado de cluster para autenticação entre os nós do cluster. O capotamento do certificado deve ser realizado com especial cuidado porque a falha bloqueia a comunicação entre os nós do cluster.
+Um certificado de cluster é utilizado para a autenticação entre nós de cluster. O capotamento do certificado deve ser efetuado com cuidado extra porque a falha bloqueia a comunicação entre os nós do cluster.
 
-São apoiadas quatro opções:  
+Quatro opções são suportadas:  
 
-* Atualização de certificado único: A trajetória de atualização é certificado A (Primário) -> Certificado B (Primário) -> Certificado C (Primário) ->....
+* Atualização de certificado único: A trajetória de atualização é o Certificado A (Primário) -> Certificado B (Primário) -> Certificado C (Primário) ->....
 
-* Atualização dupla do certificado: A trajetória de atualização é o Certificado A (Primário) -> Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário) ->....
+* Atualização de certificado duplo: A trajetória de atualização é o Certificado A (Primário) -> (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário) ->....
 
-* Atualização do tipo de certificado: Configuração de certificado baseado em impressão digital < configuração do certificado baseado em Nome Comum > CommonName. Por exemplo, Impressão digital do certificado A (Primária) e impressão digital B (secundária) -> Certificado Comum C.
+* Atualização do tipo de certificado: Configuração do certificado baseado em impressão digital <-> configuração do certificado baseado em CommonName. Por exemplo, Impressão digital de certificado A (Primária) e Impressão Digital B (Secundário) -> Certificado CommonName C.
 
-* Atualização da impressão digital do emitente do certificado: O caminho de atualização é certificado CN=A,EmitenteThumbprint=IT1 (Primário) -> Certificado CN=A,EmitenteThumbprint=IT1,IT2 (Primário) -> Certificado CN=A,EmitenteThumbprint=IT2 (Primário).
+* Atualização da impressão digital do emitente de certificado: A trajetória de atualização é Certificate CN=A,EmiterThumbprint=IT1 (Primária) -> Certificate CN=A,EmiterThumbprint=IT1,IT2 (Primária) -> Certificate CN=A,EmiterThumbprint=IT2 (Primário).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Aprenda a personalizar algumas [definições](service-fabric-cluster-fabric-settings.md)de cluster de Tecido de Serviço .
-* Aprenda a [escalar o seu cluster para dentro e para fora.](service-fabric-cluster-scale-in-out.md)
-* Conheça as atualizações de [aplicações.](service-fabric-application-upgrade.md)
+* Saiba como personalizar algumas [configurações de cluster de tecido de serviço](service-fabric-cluster-fabric-settings.md).
+* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-in-out.md).
+* Saiba mais [sobre atualizações de aplicações.](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

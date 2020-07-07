@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115283"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961103"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um caderno em Azure Cosmos DB para analisar e visualizar os dados
 
@@ -235,7 +235,7 @@ Nesta secção, irá executar algumas consultas sobre os dados recuperados.
 
    A saída exibe o mapa do mundo com cores diferentes. As cores mais escuras para mais claras representam os países/regiões com maiores receitas para as receitas mais baixas.
 
-   ![Visualização do mapa de receitas dos países/regiões](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualização do mapa de receitas dos países/regiões":::
 
 1. Vamos ver outro caso de visualização de dados. O contentor WebsiteData tem registo de utilizadores que visualizaram um item, adicionados ao seu carrinho, e compraram o item. Vamos traçar a taxa de conversão dos artigos comprados. Executar o seguinte código numa nova célula para visualizar a taxa de conversão de cada item:
 

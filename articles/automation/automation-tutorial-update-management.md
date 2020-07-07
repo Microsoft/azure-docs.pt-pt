@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
 ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204893"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerir atualizações e patches para os seus VMs Azure
@@ -61,7 +61,7 @@ Siga os passos abaixo para configurar alertas para informá-lo sobre o estado de
 
 5. Clique **em Adicionar a condição** para selecionar o sinal apropriado para a sua implementação de atualização. A tabela seguinte mostra os detalhes dos dois sinais disponíveis.
 
-    |Nome do sinal|Dimensões|Descrição
+    |Nome do sinal|Dimensões|Description
     |---|---|---|
     |`Total Update Deployment Runs`|- Nome de implementação de atualização<br>- Estado    |Alertas sobre o estado geral de uma implementação de atualização.|
     |`Total Update Deployment Machine Runs`|- Nome de implementação de atualização</br>- Estado</br>- Computador-alvo</br>- Atualizar o ID de execução de implementação    |Alertas sobre o estado de uma atualização direcionada a máquinas específicas.|

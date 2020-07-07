@@ -3,13 +3,13 @@ title: 'Tutorial: Rever as declarações de ponto final - LUIS'
 description: Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as expressões recebidas através do ponto final LUIS HTTP de que a LUIS não tem a certeza. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 07/02/2020
+ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445934"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959050"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de ponto final
 Neste tutorial, melhore as previsões das aplicações verificando ou corrigindo as expressões, recebidas através do ponto final LUIS HTTPS, de que a LUIS não tem a certeza. Você deve rever as declarações de ponto final como uma parte regular da sua manutenção agendada LUIS.
@@ -35,11 +35,16 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 ## <a name="download-json-file-for-app"></a>Baixar ficheiro JSON para app
 
-Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 ## <a name="import-json-file-for-app"></a>Importar ficheiro JSON para aplicação
 
-[!INCLUDE [Import app steps](includes/import-app-steps.md)]
+
+1. No [portal LUIS,](https://www.luis.ai)na página **My apps,** selecione **+ Nova aplicação para conversação,** em seguida **Import as JSON**. Encontre o ficheiro JSON guardado do passo anterior. Não precisa de mudar o nome da aplicação. Selecione **Feito**
+
+1. Selecione **Build** então **Intenções** para ver as intenções, os principais blocos de construção de uma aplicação LUIS.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Altere da página Versões para a página Intenções.":::
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treine a app para aplicar as alterações da entidade à app
 
@@ -77,15 +82,11 @@ Reveja as declarações do ponto final para uma intenção corretamente alinhada
 
 1. A partir da secção **Build** do portal, selecione Rever as **expressões** do ponto final da navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Screenshot do botão de comentários de ponto final do Review na navegação à esquerda.":::
 
-    Esta `I'm looking for a job with Natural Language Processing` expressão, não está na intenção correta.
+    Esta `I'm looking for a job with Natural Language Processing` expressão, não está na intenção correta, _GetJobInformation_. Foi mal indiciado como _ApplyForJob_ devido à semelhança de nomes de emprego e verbos nas duas intenções.
 
-1.  Para alinhar esta expressão, na linha de expressão, selecione a **intenção** alinhada correta de `GetJobInformation` . Adicione a expressão alterada à aplicação selecionando a marca de verificação.
-
-    > [!div class="mx-imgBorder"]
-    > ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  Para alinhar esta expressão, selecione a **intenção** alinhada correta de `GetJobInformation` . Adicione a expressão alterada à aplicação selecionando a marca de verificação.
 
     Reveja as restantes declarações nesta intenção, corrigindo a intenção alinhada conforme necessário. Use a tabela de expressão inicial neste tutorial para ver a intenção alinhada.
 
@@ -110,37 +111,37 @@ Para verificar as expressões de exemplo corretamente alinhadas melhorou a previ
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -156,7 +157,7 @@ Para verificar as expressões de exemplo corretamente alinhadas melhorou a previ
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3d0a054e587a8f067be33913b05d2962b970fb1a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b02455c153c6205b87a64a388d5588c3c431e0c9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321623"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963517"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Quickstart: Utilize um modelo de capacidade do dispositivo para criar um dispositivo IoT Plug e Play Preview (Windows)
 
@@ -78,7 +78,7 @@ Neste arranque rápido, você usa o gestor da biblioteca [Vcpkg](https://github.
 1. Instalar o dispositivo Azure IoT C SDK Vcpkg:
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## <a name="author-your-model"></a>Autore o seu modelo
@@ -87,7 +87,7 @@ Neste arranque rápido, utiliza-se um modelo de capacidade de amostra existente 
 
 1. Crie uma `pnp_app` pasta na unidade local. Utilize esta pasta para os ficheiros do modelo do dispositivo e para o código do dispositivo.
 
-1. Descarregue o [modelo de capacidade do dispositivo e os ficheiros de amostras de interface](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/SampleDevice.model.json) e a amostra de [interface](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/EnvironmentalSensor.interface.json) e guarde os ficheiros na `pnp_app` pasta.
+1. Descarregue os [ficheiros de amostras de capacidade do dispositivo](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) e [interface](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json) e guarde-os na `pnp_app` pasta.
 
     > [!TIP]
     > Para descarregar um ficheiro do GitHub, navegue para o ficheiro, clique com o botão direito em **Raw**e, em seguida, selecione **Guardar link como**.

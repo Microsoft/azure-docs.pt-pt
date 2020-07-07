@@ -15,10 +15,10 @@ ms.date: 05/16/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f49db0455af02449c3bd087d323d9972d18d96f9
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479730"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a apps

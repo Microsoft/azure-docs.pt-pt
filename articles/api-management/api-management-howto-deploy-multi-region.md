@@ -1,7 +1,7 @@
 ---
-title: Implementar serviços de Gestão Azure API para várias regiões do Azure
+title: Implementar serviços de Gestão API da Azure em várias regiões do Azure
 titleSuffix: Azure API Management
-description: Saiba como implementar uma instância de serviço de Gestão API Azure para várias regiões azure.
+description: Saiba como implementar um serviço de gestão AZure API para várias regiões do Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -14,56 +14,56 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790484"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure
 
-A Azure API Management apoia a implantação em várias regiões, o que permite aos editores da API distribuir um único serviço de gestão da API Azure em várias regiões apoiadas do Azure. A funcionalidade multi-região ajuda a reduzir a latência de pedidos percebida pelos consumidores de API distribuídos geograficamente e melhora a disponibilidade de serviços se uma região ficar offline.
+A Azure API Management suporta a implantação multi-região, o que permite aos editores da API distribuir um único serviço de gestão AZure API em qualquer número de regiões de Azure apoiadas. A funcionalidade multi-região ajuda a reduzir a latência de pedidos percebida pelos consumidores de API distribuídos geograficamente e melhora a disponibilidade de serviços se uma região ficar offline.
 
-Um novo serviço de Gestão De API Azure contém inicialmente apenas uma [unidade][unit] numa única região de Azure, a região Primária. Unidades adicionais podem ser adicionadas às regiões Primária ou Secundária. Um componente de gateway de gestão da API é implantado em todas as regiões primárias e secundárias selecionadas. Os pedidos de API são automaticamente direcionados para a região mais próxima. Se uma região ficar offline, os pedidos da API serão automaticamente encaminhados para a região falhada para o gateway mais próximo.
+Um novo serviço de Gestão AZURE API contém inicialmente apenas uma [unidade][unit] numa única região de Azure, a região primária. Podem ser adicionadas unidades adicionais às regiões primárias ou secundárias. Um componente de gateway de gestão API é implantado em todas as regiões primárias e secundárias selecionadas. Os pedidos de API de entrada são automaticamente direcionados para a região mais próxima. Se uma região ficar offline, os pedidos da API serão automaticamente encaminhados em torno da região falhada para o portão mais próximo.
 
 > [!NOTE]
-> Apenas a componente de gateway da API Management é implantada para todas as regiões. A componente de gestão de serviços e o portal de desenvolvimento estão alojados apenas na região Primária. Por isso, no caso da paralisação da região primária, o acesso ao portal de desenvolvimento e a capacidade de alterar a configuração (por exemplo, adicionar APIs, aplicar políticas) serão prejudicados até que a região Primária volte a funcionar. Enquanto a região primária estiver offline, as regiões secundárias disponíveis continuarão a servir o tráfego da API utilizando a configuração mais recente à sua disposição.
+> Apenas a componente de gateway da API Management é implantada em todas as regiões. A componente de gestão de serviços e o portal de desenvolvedores estão hospedados apenas na região Primária. Assim, em caso de paralisação da região primária, o acesso ao portal do desenvolvedor e a capacidade de alterar a configuração (por exemplo, a adição de APIs, políticas de aplicação) serão prejudicados até que a região primária volte a funcionar. Enquanto a região primária estiver offline, as regiões secundárias disponíveis continuarão a servir o tráfego da API utilizando a configuração mais recente disponível para eles.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Implementar serviço de Gestão API para uma nova região
+## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Implementar serviço de Gestão da API para uma nova região
 
 > [!NOTE]
-> Se ainda não criou uma instância de serviço de Gestão API, consulte Criar uma instância de serviço de [Gestão API][create an api management service instance].
+> Se ainda não criou uma instância de serviço de Gestão API, consulte [criar uma instância de serviço de Gestão API.][create an api management service instance]
 
-1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **de Localizações** no menu.
-2. Clique **+ Adicione** a barra superior.
-3. Selecione a localização a partir da lista de lançamentos e detetete o número de unidades com o slider.
+1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **Localização** no menu.
+2. Clique **+ Adicione** na barra superior.
+3. Selecione a localização da lista de drop-down e desa estale o número de unidades com o slider.
 4. Clique no botão **Adicionar** para confirmar.
 5. Repita este processo até configurar todos os locais.
 6. Clique em **Guardar** na barra superior para iniciar o processo de implementação.
 
-## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminar um local de serviço de Gestão API
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Excluir uma localização de serviço de gestão API
 
-1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **de Localizações** no menu.
-2. Para a localização que deseja remover, abra o menu de contexto usando o **...** botão na extremidade direita da mesa. Selecione a opção **Eliminar.**
+1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **Localização** no menu.
+2. Para a localização que pretende remover, abra o menu de contexto utilizando o **botão ...** na extremidade direita da tabela. Selecione a opção **Eliminar.**
 3. Confirme a eliminação e clique **em Guardar** para aplicar as alterações.
 
-## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Rota API chama serviços regionais de backend
+## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Rota API chama para serviços regionais de backend
 
-A Azure API Management dispõe apenas de um URL de serviço de backend. Apesar de existirem casos de Gestão API Azure em várias regiões, a porta de entrada da API continuará a encaminhar pedidos para o mesmo serviço de backend, que é implantado em apenas uma região. Neste caso, o ganho de desempenho virá apenas de respostas em cache dentro da Azure API Management, numa região específica do pedido, mas contactar o backend em todo o mundo pode ainda causar alta latência.
+A Azure API Management dispõe de apenas um URL de serviço de backend. Apesar de existirem instâncias de Gestão da API da Azure em várias regiões, a porta de entrada da API continuará a encaminhar pedidos para o mesmo serviço de backend, que é implantado em apenas uma região. Neste caso, o ganho de desempenho virá apenas de respostas em cache dentro da Azure API Management numa região específica ao pedido, mas contactar o backend em todo o mundo pode ainda causar alta latência.
 
-Para alavancar totalmente a distribuição geográfica do seu sistema, deve ter serviços de backend implantados nas mesmas regiões que as instâncias de Gestão API Azure. Depois, usando `@(context.Deployment.Region)` políticas e propriedades, pode encaminhar o tráfego para instâncias locais do seu backend.
+Para alavancar plenamente a distribuição geográfica do seu sistema, deverá ter serviços de backend implantados nas mesmas regiões que os casos de Gestão API da Azure. Em seguida, usando políticas e `@(context.Deployment.Region)` propriedades, você pode encaminhar o tráfego para instâncias locais do seu backend.
 
-1. Navegue para a sua instância de Gestão API Azure e clique em **APIs** a partir do menu esquerdo.
-2. Selecione a sua API desejada.
-3. Clique no editor do **Código** a partir da queda da seta no **processamento de entrada**.
+1. Navegue para a sua instância de Gestão AZure API e clique em **APIs** a partir do menu esquerdo.
+2. Selecione a API desejada.
+3. Clique **em Code editor** a partir da queda da seta no processamento de **Entrada**.
 
-    ![Editor de código API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+    ![Editor de código da API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
 
-4. Utilize `set-backend` o combinado `choose` com políticas condicionais para `<inbound> </inbound>` construir uma política de encaminhamento adequada na secção do ficheiro.
+4. Utilize o `set-backend` combinado com políticas condicionais para construir uma `choose` política de encaminhamento adequada na secção `<inbound> </inbound>` do ficheiro.
 
-    Por exemplo, o ficheiro XML abaixo funcionaria para as regiões dos EUA Ocidentais e da Ásia Oriental:
+    Por exemplo, o ficheiro XML abaixo funcionaria para as regiões dos EUA e da Ásia Oriental:
 
     ```xml
     <policies>
@@ -94,17 +94,17 @@ Para alavancar totalmente a distribuição geográfica do seu sistema, deve ter 
     ```
 
 > [!TIP]
-> Também pode fazer frente aos seus serviços de backend com o Gestor de [Tráfego Azure,](https://azure.microsoft.com/services/traffic-manager/)direcionar as chamadas da API para o Gestor de Tráfego e deixá-lo resolver o encaminhamento automaticamente.
+> Pode também fazer frente aos seus serviços de backend com o [Azure Traffic Manager,](https://azure.microsoft.com/services/traffic-manager/)direcione as chamadas da API para o Gestor de Tráfego e deixe-o resolver automaticamente o encaminhamento.
 
-## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>Utilize o encaminhamento personalizado para gateways regionais de Gestão API
+## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>Utilize encaminhamento personalizado para gateways regionais da API Management
 
-A API Management encaminha os pedidos para um _portal_ regional com base na [latência mais baixa.](../traffic-manager/traffic-manager-routing-methods.md#performance) Embora não seja possível anular este cenário na API Management, pode utilizar o seu próprio Gestor de Tráfego com regras de encaminhamento personalizadas.
+A API Management encaminha os pedidos para uma _porta de entrada_ regional com base na [latência mais baixa.](../traffic-manager/traffic-manager-routing-methods.md#performance) Embora não seja possível anular esta definição na API Management, pode utilizar o seu próprio Gestor de Tráfego com regras de encaminhamento personalizados.
 
-1. Crie o seu próprio Gestor de [Tráfego Azure.](https://azure.microsoft.com/services/traffic-manager/)
-1. Se estiver a utilizar um domínio personalizado, [utilize-o com o Gestor](../traffic-manager/traffic-manager-point-internet-domain.md) de Tráfego em vez do serviço de Gestão API.
-1. [Configure os pontos finais regionais da API Management em Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Os pontos finais regionais seguem o padrão URL de, `https://<service-name>-<region>-01.regional.azure-api.net`por exemplo. `https://contoso-westus2-01.regional.azure-api.net`
-1. [Configure os pontos finais do estado regional da API Management no Gestor de Tráfego.](../traffic-manager/traffic-manager-monitoring.md) Os pontos finais do `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`estado regional `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`seguem o padrão URL de, por exemplo.
-1. Especifique o método de [encaminhamento](../traffic-manager/traffic-manager-routing-methods.md) do Gestor de Tráfego.
+1. Crie o seu próprio [Gestor de Tráfego Azure.](https://azure.microsoft.com/services/traffic-manager/)
+1. Se estiver a utilizar um domínio personalizado, [use-o com o Gestor](../traffic-manager/traffic-manager-point-internet-domain.md) de Tráfego em vez do serviço de Gestão API.
+1. [Configurar os pontos finais regionais da API Management em Gestor de Tráfego.](../traffic-manager/traffic-manager-manage-endpoints.md) Os pontos finais regionais seguem o padrão url `https://<service-name>-<region>-01.regional.azure-api.net` de, por `https://contoso-westus2-01.regional.azure-api.net` exemplo.
+1. [Configurar os pontos finais do estatuto regional da API Management em Gestor de Tráfego.](../traffic-manager/traffic-manager-monitoring.md) Os pontos finais do estatuto regional seguem o padrão url `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` de, por `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` exemplo.
+1. Especificar o método de [encaminhamento](../traffic-manager/traffic-manager-routing-methods.md) do Gestor de Tráfego.
 
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md

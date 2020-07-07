@@ -1,24 +1,24 @@
 ---
-title: Pontuação de referência computacional para VMs Azure Linux
-description: Compare as pontuações de referência do cálculo coreMark para Os VMs Azure que executam o Linux.
+title: Pontuações de referência do Cálculo para VMs Azure Linux
+description: Compare as pontuações de referência da computação CoreMark para VMs Azure com linux.
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/29/2020
 ms.reviewer: davberg
 ms.openlocfilehash: afe1bddd5822b506dcf2c177fc308b717ddc2129
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580456"
 ---
-# <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuação de referência computacional para VMs Linux
-As pontuações de referência do CoreMark mostram o desempenho da computação para a linha VM de alto desempenho da Azure a executar ubuntu. As pontuações de referência computacionais também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de referência do Cálculo para Os VMs do Linux
+As seguintes pontuações de referência do CoreMark mostram o desempenho do computação para a linha VM de alto desempenho da Azure que executa ubuntu. As pontuações de referência do computo também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="standard_das_v4"></a>Standard_Das_v4
-(12/11/2019 2:28:52 AM pbi 5851281)
+(12/11/2019 2:28:52 Pbi 5851281)
 
-|Tamanho da VM| CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+|Tamanho da VM| CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 |---| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |Standard_D2as_v4| Processador AMD EPYC 7452 32-Core | 2 | 1 | 7.8 | 29,726 | 693 | 2.33% | 42 |
 |Standard_D4as_v4| Processador AMD EPYC 7452 32-Core | 4 | 1 | 15.7 | 59,224 | 1,595 | 2.69% | 42 |
@@ -27,9 +27,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 |Standard_D32as_v4| Processador AMD EPYC 7452 32-Core | 32 | 4 | 125.9 | 461,916 | 6,746 | 1.46% | 35 |
 
 ## <a name="standard_da_v4"></a>Standard_Da_v4
-(12/12/2019 12:01:48 AM pbi 5851281)
+(12/12/2019 12:01:48 Pbi 5851281)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2a_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 7.8 | 30,023 | 333 | 1.11% | 35 |
 | Standard_D4a_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 15.7 | 59,685 | 1,141 | 1.91% | 77 |
@@ -43,7 +43,7 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="standard_eas_v4"></a>Standard_Eas_v4
 (12/11/2019 2:28:50 AM pbi 5851281)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2as_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 15.7 | 29,217 | 654 | 2.24% | 42 |
 | Standard_E4as_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 31.4 | 58,356 | 480 | 0.82% | 42 |
@@ -55,9 +55,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_E96as_v4 | Processador AMD EPYC 7452 32-Core | 96 | 12 | 661.4 | 1,299,233 | 14,997 | 1.15% | 70 |
 
 ##  <a name="standard_ea_v4"></a>Standard_Ea_v4
-(12/11/2019 2:29:06 AM pbi 5851281)
+(12/11/2019 2:29:06 Pbi 5851281)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2a_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 15.7 | 29,561 | 422 | 1.43% | 42 |
 | Standard_E4a_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 31.4 | 58,303 | 1,280 | 2.20% | 42 |
@@ -69,9 +69,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_E96a_v4 | Processador AMD EPYC 7452 32-Core | 96 | 12 | 661.4 | 1,298,074 | 15,948 | 1.23% | 35 |
 
 ## <a name="av2---general-compute"></a>Av2 - Computação Geral
-(3/15/2019 12:06:55 AM pbi 3897709)
+(3/15/2019 12:06:55 Pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 1.9 | 6,483 | 120 | 1.85% | 273 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 6,059 | 208 | 3.43% | 217 |
@@ -96,12 +96,12 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 49,123 | 2,483 | 5,05% | 259 |
 
 > [!NOTE]
-> Os VMs da série Av2 podem ser implantados numa variedade de tipos de hardware e processadores (como visto acima). Os VMs da série Av2 têm configurações de desempenho cpu e memória mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é acelerado para oferecer um desempenho relativamente consistente do processador para a instância de execução, independentemente do hardware em que é implantado; no entanto, o software que tira partido de otimizações específicas de processadores mais recentes pode ver uma variação mais significativa entre os tipos de processadores.
+> Os VMs da série Av2 podem ser implantados numa variedade de tipos e processadores de hardware (como se vê acima). Os VMs da série Av2 têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é acelerado para oferecer um desempenho relativamente consistente do processador para a instância de execução, independentemente do hardware em que é implantado; no entanto, o software que tira partido de otimizações específicas de processadores mais recentes pode ver uma variação mais significativa entre os tipos de processadores.
 
-## <a name="b---burstable"></a>B - Burstable
-(3/15/2019 12:27:08 AM pbi 3897709) (atualizado 6/14/2019 7:09:29 PBI 4777081)
+## <a name="b---burstable"></a>B - Rebentado
+(3/15/2019 12:27:08 Pbi 3897709) (atualizado 6/14/2019 7:09:29 Pbi 4777081)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 13,593 | 307 | 2.26% | 28 |
 | Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 14,069 | 495 | 3.52% | 672 |
@@ -124,14 +124,14 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 
 
 > [!NOTE]
-> Os VMs da Série B destinam-se a cargas de trabalho com requisitos de desempenho insupreensíveis. Os casos vm acumulam créditos quando se utiliza menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base usando até 100% para satisfazer os requisitos curtos de rutura do CPU. O tempo de rutura depende dos créditos disponíveis, que é uma função do tamanho e tempo do VM.  
+> Os VMs da Série B destinam-se a cargas de trabalho com requisitos de desempenho rebentáveis. As instâncias VM acumulam créditos quando utilizam menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base usando até 100% para satisfazer os requisitos de explosão de CPU curtos. O tempo de rutura depende dos créditos disponíveis, que é uma função do tamanho e do tempo de VM.  
 >
-> CoreMark é um teste de curto prazo que normalmente completa dentro dos créditos de explosão disponíveis.  Portanto, os números acima normalmente representam o desempenho de rutura do VM, refletindo o que o desempenho curto, rebentado, cargas de trabalho (típicas em Série B) normalmente verá.
+> CoreMark é um teste de curto curso que normalmente completa dentro dos créditos de rutura disponíveis.  Assim, os números acima normalmente representam o desempenho de explosão do VM, refletindo o que o desempenho curto, rebentado, cargas de trabalho (típico em Série B) normalmente verá.
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - Computação Geral + Armazenamento Premium
-(3/12/2019 6:52:03 PBI 3897709)
+(3/12/2019 6:52:03 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20,153 | 838 | 4.16% | 147 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20,903 | 1,324 | 6.33% | 553 |
@@ -145,10 +145,10 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1 | 125.9 | 312,058 | 1,661 | 0.53% | 595 |
 | Standard_D64s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 251.9 | 627,378 | 4,447 | 0.71% | 700 |
 
-## <a name="dv3---general-compute"></a>Dv3 - Computação Geral
+## <a name="dv3---general-compute"></a>Dv3 - Cálculo Geral
 (3/12/2019 6:54:27 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20,359 | 799 | 3.93% | 154 |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20,737 | 1,422 | 6.86% | 546 |
@@ -163,9 +163,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_D64_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 251.9 | 627,470 | 9,651 | 1.54% | 700 |
 
 ## <a name="dsv2---storage-optimized"></a>DSv2 - Armazenamento Otimizado
-(3/15/2019 12:53:13 AM pbi 3897709)
+(3/15/2019 12:53:13 Pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 14,642 | 600 | 4.10% | 259 |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 14,808 | 904 | 6.10% | 434 |
@@ -180,32 +180,32 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 55.0 | 226,818 | 1,797 | 0.79% | 497 |
 | Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 13.7 | 28,571 | 920 | 3.22% | 238 |
 | Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 13.7 | 29,049 | 1,614 | 5.56% | 469 |
-| Standard_DS11-1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 13.7 | 14,594 | 617 | 4.23% | 287 |
-| Standard_DS11-1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 13.7 | 14,951 | 852 | 5.70% | 413 |
+| Standard_DS11 1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 13.7 | 14,594 | 617 | 4.23% | 287 |
+| Standard_DS11 1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 13.7 | 14,951 | 852 | 5.70% | 413 |
 | Standard_DS12_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 27.5 | 57,503 | 1,398 | 2.43% | 217 |
 | Standard_DS12_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 27.5 | 57,082 | 2,372 | 4.16% | 483 |
 | Standard_DS12-1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 27.5 | 14,698 | 564 | 3.84% | 238 |
 | Standard_DS12-1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 27.5 | 15,127 | 941 | 6.22% | 462 |
-| Standard_DS12-2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 27.5 | 28,711 | 981 | 3.42% | 259 |
-| Standard_DS12-2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 27.5 | 29,305 | 1,241 | 4.24% | 441 |
+| Standard_DS12 2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 27.5 | 28,711 | 981 | 3.42% | 259 |
+| Standard_DS12 2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 27.5 | 29,305 | 1,241 | 4.24% | 441 |
 | Standard_DS13_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 55.0 | 116,875 | 1,286 | 1.10% | 203 |
 | Standard_DS13_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 55.0 | 112,318 | 1,356 | 1.21% | 504 |
 | Standard_DS13-2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 55.0 | 29,105 | 1,154 | 3.97% | 224 |
 | Standard_DS13-2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 55.0 | 29,936 | 1,720 | 5.75% | 483 |
-| Standard_DS13-4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 55.0 | 56,992 | 1,814 | 3.18% | 280 |
-| Standard_DS13-4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 55.0 | 57,781 | 2,122 | 3.67% | 427 |
+| Standard_DS13 4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 55.0 | 56,992 | 1,814 | 3.18% | 280 |
+| Standard_DS13 4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 55.0 | 57,781 | 2,122 | 3.67% | 427 |
 | Standard_DS14_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 110.2 | 224,149 | 3,450 | 1.54% | 196 |
 | Standard_DS14_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 110.2 | 227,108 | 1,267 | 0.56% | 504 |
-| Standard_DS14-4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 2 | 110.2 | 56,211 | 2,154 | 3.83% | 189 |
-| Standard_DS14-4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 110.2 | 59,651 | 2,560 | 4.29% | 518 |
-| Standard_DS14-8_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 2 | 110.2 | 112,280 | 4,430 | 3.95% | 196 |
-| Standard_DS14-8_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 110.2 | 113,375 | 1,442 | 1.27% | 511 |
+| Standard_DS14 4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 2 | 110.2 | 56,211 | 2,154 | 3.83% | 189 |
+| Standard_DS14 4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 110.2 | 59,651 | 2,560 | 4.29% | 518 |
+| Standard_DS14 8_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 2 | 110.2 | 112,280 | 4,430 | 3.95% | 196 |
+| Standard_DS14 8_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 110.2 | 113,375 | 1,442 | 1.27% | 511 |
 | Standard_DS15_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 2 | 137.7 | 279,359 | 4,032 | 1,44% | 665 |
 
 ## <a name="dv2---general-compute"></a>Dv2 - Computação Geral
-(3/12/2019 6:53:48 PBI 3897709)
+(3/12/2019 6:53:48 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 14,730 | 663 | 4.50% | 385 |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 15,057 | 1,319 | 8.76% | 322 |
@@ -229,38 +229,38 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_D15_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 2 | 137.7 | 281,494 | 7,976 | 2.83% | 672 |
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3 - Memória Otimizada + Armazenamento Premium
-(3/12/2019 7:17:33 PBI 3897709)
+(3/12/2019 7:17:33 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 20,957 | 1200 | 5.73% | 672 |
 | Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 40,420 | 1,993 | 4.93% | 672 |
-| Standard_E4-2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 31.4 | 20,774 | 1,133 | 5.45% | 672 |
+| Standard_E4 2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 31.4 | 20,774 | 1,133 | 5.45% | 672 |
 | Standard_E8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 80,153 | 3,308 | 4.13% | 665 |
-| Standard_E8-2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 62.9 | 21,178 | 1,334 | 6.30% | 665 |
-| Standard_E8-4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 62.9 | 40,614 | 2,216 | 5.46% | 672 |
+| Standard_E8 2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 62.9 | 21,178 | 1,334 | 6.30% | 665 |
+| Standard_E8 4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 62.9 | 40,614 | 2,216 | 5.46% | 672 |
 | Standard_E16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 125.9 | 156,137 | 2,160 | 1.38% | 672 |
 | Standard_E16-4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 125.9 | 41,950 | 2,309 | 5.50% | 637 |
-| Standard_E16-8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 125.9 | 81,196 | 3,179 | 3.91% | 658 |
+| Standard_E16 8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 125.9 | 81,196 | 3,179 | 3.91% | 658 |
 | Standard_E20s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 157.4 | 196,619 | 1,325 | 0.67% | 672 |
 | Standard_E32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 2 | 251.9 | 304,707 | 5,719 | 1.88% | 672 |
-| Standard_E32-8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 2 | 251.9 | 83,576 | 3,693 | 4.42% | 672 |
-| Standard_E32-16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 2 | 251.9 | 158,023 | 4,317 | 2.73% | 672 |
+| Standard_E32 8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 2 | 251.9 | 83,576 | 3,693 | 4.42% | 672 |
+| Standard_E32 16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 2 | 251.9 | 158,023 | 4,317 | 2.73% | 672 |
 | Standard_E64s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 628,540 | 3,982 | 0.63% | 49 |
-| Standard_E64-16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 2 | 425.2 | 169,611 | 3,265 | 1.92% | 42 |
-| Standard_E64-32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 2 | 425.2 | 307,584 | 3,569 | 1.16% | 56 |
+| Standard_E64 16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 2 | 425.2 | 169,611 | 3,265 | 1.92% | 42 |
+| Standard_E64 32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 2 | 425.2 | 307,584 | 3,569 | 1.16% | 56 |
 
-## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3 - Memory Opt + Premium Storage (isolado)
+## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3 - Memory Opt + Armazenamento Premium (isolado)
 (4/11/2019 10:07:29 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E64is_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 627,745 | 4,062 | 0.65% | 196 |
 
 ## <a name="ev3---memory-optimized"></a>Ev3 - Memória Otimizada
-(3/12/2019 6:52:13 PBI 3897709)
+(3/12/2019 6:52:13 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 21,171 | 1,772 | 8.37% | 693 |
 | Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 41,181 | 3,148 | 7.64% | 700 |
@@ -271,9 +271,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_E64_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 628,451 | 9,235 | 1.47% | 707 |
 
 ## <a name="eiv3---memory-optimized-isolated"></a>Eiv3 - Memória Otimizada (isolada)
-(3/12/2019 6:57:51 PBI 3897709)
+(3/12/2019 6:57:51 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E64i_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 625,855 | 4,881 | 0.78% | 7 |
 | Standard_E64i_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 629,151 | 9,756 | 1.55% | 217 |
@@ -281,7 +281,7 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="fsv2---compute--storage-optimized"></a>Fsv2 - Compute + Armazenamento Otimizado
 (3/12/2019 6:51:35 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 3.9 | 28,219 | 1,843 | 6.53% | 700 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 4 | 1 | 7.8 | 53,911 | 1,002 | 1.86% | 707 |
@@ -291,10 +291,10 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 64 | 2 | 125.9 | 829,537 | 21,574 | 2.60% | 707 |
 | Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 72 | 2 | 141.7 | 933,800 | 26,783 | 2.87% | 707 |
 
-## <a name="fs---compute-and-storage-optimized"></a>FS - Computação e Armazenamento Otimizado
-(3/15/2019 12:12:51 AM pbi 3897709)
+## <a name="fs---compute-and-storage-optimized"></a>Fs - Computação e Armazenamento Otimizados
+(3/15/2019 12:12:51 Pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 14,552 | 504 | 3.46% | 350 |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 14,784 | 858 | 5.80% | 357 |
@@ -309,9 +309,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 31.4 | 227,015 | 1,543 | 0.68% | 462 |
 
 ## <a name="f---compute-optimized"></a>F - Compute Otimizado
-(3/12/2019 6:53:59 PBI 3897709)
+(3/12/2019 6:53:59 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 14,937 | 593 | 3.97% | 350 |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 15,460 | 1,326 | 8.58% | 350 |
@@ -328,7 +328,7 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="gs---storage-optimized"></a>GS - Armazenamento Otimizado
 (3/12/2019 10:22:33 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 27.5 | 28,835 | 2,222 | 7.71% | 287 |
 | Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 55.0 | 55,568 | 3,139 | 5.65% | 287 |
@@ -341,9 +341,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_GS5-16 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 2 | 440.9 | 210,984 | 2,995 | 1.42% | 287 |
 
 ## <a name="g---compute-optimized"></a>G - Compute Otimizado
-(3/12/2019 10:23:51 PBI 3897709)
+(3/12/2019 10:23:51 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 27.5 | 32,808 | 2,679 | 8.17% | 287 |
 | Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 55.0 | 62,907 | 4,465 | 7.10% | 287 |
@@ -351,10 +351,10 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_G4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 1 | 220.4 | 212,092 | 2,857 | 1.35% | 287 |
 | Standard_G5 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 32 | 2 | 440.9 | 403,315 | 6,947 | 1.72% | 273 |
 
-## <a name="h---high-performance-compute-hpc"></a>H - Computação de Alto Desempenho (HPC)
-(3/12/2019 10:50:51 PBI 3897709)
+## <a name="h---high-performance-compute-hpc"></a>H - Alto Desempenho Compute (HPC)
+(3/12/2019 10:50:51 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_H8 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 8 | 1 | 55.0 | 149,859 | 734 | 0.49% | 175 |
 | Standard_H8m | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 8 | 1 | 110.2 | 149,931 | 657 | 0.44% | 147 |
@@ -364,9 +364,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_H16r | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 16 | 2 | 110.2 | 280,837 | 6,587 | 2.35% | 84 |
 
 ## <a name="lv2---storage-optimized"></a>Lv2 - Armazenamento Otimizado
-(3/14/2019 5:49:04 PBI 3897709)
+(3/14/2019 17:49:04 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_L8s_v2 | Processador AMD EPYC 7551 32-Core | 8 | 1 | 62.9 | 80,528 | 404 | 0.50% | 119 |
 | Standard_L16s_v2 | Processador AMD EPYC 7551 32-Core | 16 | 2 | 125.9 | 154,829 | 3,708 | 2.40% | 119 |
@@ -375,9 +375,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_L80s_v2 | Processador AMD EPYC 7551 32-Core | 80 | 10 | 629.9 | 773,171 | 19,559 | 2.53% | 119 |
 
 ## <a name="ls---storage-optimized"></a>Ls - Armazenamento Otimizado
-(3/12/2019 10:22:29 PBI 3897709)
+(3/12/2019 10:22:29 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_L4s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 31.4 | 56,488 | 2,916 | 5.16% | 287 |
 | Standard_L8s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 62.9 | 107,017 | 2,323 | 2.17% | 287 |
@@ -385,9 +385,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_L32s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 32 | 2 | 251.9 | 399,963 | 9,254 | 2,31% | 287 |
 
 ## <a name="m---memory-optimized"></a>M - Memória Otimizada
-(4/11/2019 7:30:39 PBI 3897709)
+(4/11/2019 19:30:39 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_M8-2ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 2 | 1 | 215.2 | 22,605 | 29 | 0.13% | 42 |
 | Standard_M8-4ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 4 | 1 | 215.2 | 44,488 | 183 | 0.41% | 42 |
@@ -416,9 +416,9 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 | Standard_M8ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 8 | 1 | 215.2 | 88,066 | 1,391 | 1.58% | 42 |
 
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3 - GPU Habilitado
-(3/21/2019 5:48:37 pbi 3897709)
+(3/21/2019 17:48:37 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NC6s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 1 | 110.2 | 106,929 | 353 | 0.33% | 49 |
 | Standard_NC12s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 1 | 220.4 | 213,585 | 875 | 0.41% | 42 |
@@ -428,7 +428,7 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="ncsv2---gpu-enabled"></a>NCSv2 - GPU Habilitado
 (3/12/2019 11:19:19 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NC6s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 1 | 110.2 | 107,115 | 321 | 0.30% | 63 |
 | Standard_NC12s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 1 | 220.4 | 213,814 | 656 | 0.31% | 63 |
@@ -438,7 +438,7 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="nc---gpu-enabled"></a>NC - GPU Habilitado
 (3/12/2019 11:08:03 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NC6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 6 | 1 | 55.0 | 102,211 | 658 | 0.64% | 259 |
 | Standard_NC12 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 12 | 1 | 110.2 | 203,523 | 2,293 | 1,13% | 259 |
@@ -448,7 +448,7 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="nds--gpu-enabled"></a>NDs- GPU Habilitado
 (3/12/2019 11:19:10 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_ND6s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 1 | 110.2 | 107,095 | 353 | 0.33% | 63 |
 | Standard_ND12s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 1 | 220.4 | 212,298 | 3,457 | 1.63% | 63 |
@@ -458,17 +458,17 @@ As pontuações de referência do CoreMark mostram o desempenho da computação 
 ## <a name="nv---gpu-enabled"></a>NV - GPU Habilitado
 (3/12/2019 11:08:13 pbi 3897709)
 
-| Tamanho da VM | CPU | vCPUs | Nódosos NUMA | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
+| Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NV6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 6 | 1 | 55.0 | 101,728 | 2,094 | 2.06% | 259 |
 | Standard_NV12 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 12 | 1 | 110.2 | 203,903 | 1,724 | 0.85% | 252 |
 | Standard_NV24 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 24 | 2 | 220.4 | 379,879 | 8,737 | 2.30% | 259 |
 
 
-## <a name="about-coremark"></a>Sobre coremark
-Os números do Linux foram calculados com o [CoreMark](https://www.eembc.org/coremark/faq.php) em Ubuntu. CoreMark foi configurado com o número de fios definidos para o número de CPUs virtuais, e concurrency definido para PThreads. O número alvo de iterações foi ajustado com base no desempenho esperado para fornecer um tempo de execução de pelo menos 20 segundos (normalmente muito mais longo). A pontuação final representa o número de iterações concluídas divididas pelo número de segundos que demorou a executar o teste. Cada teste foi feito pelo menos sete vezes em cada VM. Datas de teste mostradas acima. Testes realizados em vários VMs em regiões públicas de Azure o VM foi apoiado na data de execução. Sériebásica A e B (Burstable) não mostrada porque o desempenho é variável. Série n não mostrada como são centradas na GPU e Coremark não mede o desempenho da GPU.
+## <a name="about-coremark"></a>Sobre o CoreMark
+Os números de Linux foram calculados executando [CoreMark](https://www.eembc.org/coremark/faq.php) em Ubuntu. CoreMark foi configurado com o número de fios definidos para o número de CPUs virtuais, e concurrency definido para PThreads. O número de iterações-alvo foi ajustado com base no desempenho esperado para proporcionar um tempo de funcionaamento de pelo menos 20 segundos (normalmente muito mais longo). A pontuação final representa o número de iterações completas divididas pelo número de segundos que demorou a executar o teste. Cada teste foi executado pelo menos sete vezes em cada VM. Datas de teste mostradas acima. Os testes realizados em vários VMs em todas as regiões públicas do Azure o VM foi apoiado na data executada. Séries Básicas A e B (Burstable) não mostradas porque o desempenho é variável. As séries N não são mostradas como centradas na GPU e a Coremark não mede o desempenho da GPU.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [Tamanhos para máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para executar os scripts CoreMark em VMs Linux, descarregue o pacote de [scripts CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
+* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Para executar os scripts CoreMark em VMs Linux, descarregue o [pacote de scripts CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 

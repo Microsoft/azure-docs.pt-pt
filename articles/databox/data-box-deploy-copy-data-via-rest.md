@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use APIs REST para copiar para o armazenamento blob'
+title: 'Tutorial: Copiar para blob armazenamento via REST APIs'
 titleSuffix: Azure Data Box
 description: Saiba como copiar dados para o seu armazenamento de blob da caixa de dados Azure através de APIs REST
 services: databox
@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219147"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960690"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o armazenamento de blob da caixa de dados Azure através de APIs REST  
+# <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutorial: Use APIs de REPOUSO para copiar dados para o armazenamento de blob da caixa de dados Azure  
 
 Este tutorial descreve procedimentos para ligar ao armazenamento da Caixa de Dados Azure através de APIs REST em *http* ou *https*. Uma vez ligados, são também descritos os passos necessários para copiar os dados para o armazenamento da Caixa de Dados e preparar a Caixa de Dados para o envio.
 
@@ -32,11 +32,11 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, certifique-se de que:
 
-1. Completou o [Tutorial: Configurar a Caixa de Dados Azure.](data-box-deploy-set-up.md)
+1. Concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
 2. Recebeu o Data Box e o estado da encomenda no portal é **Entregue**.
 3. Reviu os [requisitos](data-box-system-requirements-rest.md) do sistema para o armazenamento de Data Box Blob e está familiarizado com versões suportadas de APIs, SDKs e ferramentas.
 4. Tem acesso a um computador anfitrião que tem os dados que pretende copiar para a Data Box. O computador anfitrião tem de
-    * Executar um [sistema operativo suportado.](data-box-system-requirements.md)
+    * Executar um [sistema operativo suportado](data-box-system-requirements.md).
     * Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, pode ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão impactadas.
 5. [Faça o download do AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) no computador anfitrião. Utilizará o AzCopy para copiar dados para o armazenamento da Azure Data Box Blob a partir do seu computador anfitrião.
 
@@ -153,7 +153,7 @@ Uma vez ligado ao armazenamento da Caixa de Dados Blob, o próximo passo é copi
 * Se os dados, que estão a ser carregados pela Data Box, forem simultaneamente carregados por outras aplicações fora da Data Box, isso poderá resultar em falhas de trabalho no upload e corrupção de dados.
 
 > [!IMPORTANT]
-> Certifique-se de que mantém uma cópia dos dados de origem até que possa confirmar que a Caixa de Dados transferiu os seus dados para o Azure Storage.
+> Certifique-se de que mantém uma cópia dos dados de origem até poder confirmar que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
 Neste tutorial, o AzCopy é usado para copiar dados para o armazenamento de Data Box Blob. Também pode utilizar o Azure Storage Explorer (se preferir uma ferramenta baseada em GUI) ou um software parceiro para copiar os dados.
 
@@ -186,15 +186,19 @@ Utilize o AzCopy para fazer o upload de todos os ficheiros numa pasta para o arm
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 `<key>`Substitua-a pela chave da conta. Para obter a chave da sua conta, no portal Azure, vá à sua conta de armazenamento. Vá às **definições > teclas de acesso,** selecione uma chave e cole-a no comando AzCopy.
 
@@ -209,16 +213,21 @@ Utilize o AzCopy para carregar ficheiros com base no seu último tempo modificad
 Se quiser copiar apenas recursos de origem que não existem no destino, especifique os parâmetros `--exclude-older` e `--exclude-newer` (Linux) ou `/XO` e `/XN` (Windows) no comando do AzCopy. O AzCopy carrega apenas os dados atualizados, com base no respetivo carimbo de data/hora.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Se houver erros durante a operação de ligação ou cópia, consulte [problemas de resolução de problemas com o armazenamento de Bloco de Caixa de Dados](data-box-troubleshoot-rest.md).
 

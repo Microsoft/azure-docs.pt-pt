@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 8028b1f301a3c7fb4ca39c8920824091a4065118
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ccbafcfcbf13809b84883352c5a31835c6988d51
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261958"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962701"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar uma aplicação Java que usa Azure Cosmos DB SQL API e alterar processador de feed
 
@@ -57,7 +57,7 @@ mvn clean package
 
 1. Como primeira verificação, deve ter uma conta DB Azure Cosmos. Abra o **portal Azure** no seu navegador, vá à sua conta DB Azure Cosmos e no painel esquerdo navegue para o **Data Explorer**.
 
-    ![Conta DB de Azure Cosmos](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
+   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Conta DB de Azure Cosmos":::
 
 1. Executar a aplicação no terminal utilizando o seguinte comando:
 
@@ -77,9 +77,7 @@ mvn clean package
     * **InventárioContainer-pktype** - Uma visão materializada do registo de inventário, otimizada para consultas sobre item```type```
     * **InventárioContainer-leases** - Um recipiente de locação é sempre necessário para alterar alimentos; os arrendamentos acompanham o progresso da app na leitura do feed de mudança.
 
-
-    ![Recipientes vazios](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
-
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Recipientes vazios":::
 
 1. No terminal, deve agora ver um pedido
 
@@ -97,7 +95,7 @@ mvn clean package
 
     Volte ao portal Azure Data Explorer no seu browser. No âmbito do contentor **Decontainer-leases,** clique em **itens** para ver o seu conteúdo. Verá que o Processador Change Feed povoou o recipiente de locação, ou seja, o processador atribuiu ao ```SampleHost_1``` trabalhador um arrendamento em algumas divisórias do **InventárioContainer**.
 
-    ![Concessões](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Concessões":::
 
 1. A imprensa volta a entrar no terminal. Isto irá desencadear 10 documentos a serem inseridos no **InventárioContainer**. Cada inserção de documento aparece no feed de alteração como JSON; o seguinte código de retorno trata estes eventos espelhando os documentos JSON numa visão materializada:
 
@@ -107,15 +105,15 @@ mvn clean package
 
 1. Deixe o código funcionar 5-10sec. Em seguida, volte ao portal Azure Data Explorer e navegue para **InventárioContainer > itens**. Deve ver se os itens estão a ser inseridos no recipiente de inventário; note a chave de partição ```id``` ().
 
-    ![Recipiente para alimentação](media/create-sql-api-java-changefeed/cosmos_items.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Recipiente para alimentação":::
 
 1. Agora, no Data Explorer navegue para **InventárioContainer-pktype > itens**. Esta é a vista materializada - os itens neste espelho de **contentorEs InventárioContainer** porque foram inseridos programáticamente por alteração de feed. Note a tecla de partição ```type``` (). Portanto, esta visão materializada é otimizada para consultas filtrando ```type``` sobre , o que seria ineficiente no **InventárioContainer** porque é dividido em ```id``` .
 
-    ![Vista materializada](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Vista materializada":::
 
 1. Vamos apagar um documento tanto do **InventárioContainer** como do **InventárioContainer-pktype** usando apenas uma ```upsertItem()``` chamada. Primeiro, dê uma olhada no portal Azure Data Explorer. Vamos apagar o documento para o ```/type == "plums"``` qual; está cercado em vermelho abaixo
 
-    ![Vista materializada](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Vista materializada":::
 
     Introduza novamente para ligar a função ```deleteDocument()``` no código de exemplo. Esta função, mostrada abaixo, aumenta uma nova versão do documento com ```/ttl == 5``` , que define o documento Time-To-Live (TTL) a 5sec. 
     

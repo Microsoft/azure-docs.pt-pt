@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: bca6cbe2a605131083536b3e709943fe2353f38f
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 078892691bfaec62f71f9d601a42de3f80221149
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565078"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958162"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -66,7 +66,7 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 ### <a name="december-2019"></a>Dezembro de 2019
 
-+ [Criar app (pré-visualização)](search-create-app-portal.md) é um novo assistente no portal que gera um ficheiro HTML transferível. O ficheiro vem com um script incorporado que torna uma aplicação web de estilo "localhost", ligada a um índice no seu serviço de pesquisa. As páginas são configuráveis no assistente e podem conter uma barra de pesquisa, área de resultados, navegação na barra lateral e suporte de consulta de cabeça de tipo. Pode modificar o HTML offline para estender ou personalizar o fluxo de trabalho ou a aparência.
++ [Create Demo App (pré-visualização)](search-create-app-portal.md) é um novo assistente no portal que gera um ficheiro HTML transferível com acesso de consulta (apenas para leitura) a um índice. O ficheiro vem com um script incorporado que torna uma aplicação web de estilo "localhost", ligada a um índice no seu serviço de pesquisa. As páginas são configuráveis no assistente e podem conter uma barra de pesquisa, área de resultados, navegação na barra lateral e suporte de consulta de cabeça de tipo. Pode modificar o HTML offline para estender ou personalizar o fluxo de trabalho ou a aparência. Uma app de demonstração não é facilmente estendida para incluir camadas de segurança e hospedagem que são normalmente necessárias em cenários de produção. Deve considerá-lo como uma ferramenta de validação e teste em vez de um atalho para uma aplicação completa do cliente.
 
 + [Criar um ponto final privado para ligações seguras (pré-visualização)](service-create-private-endpoint.md) explica como configurar um Link Privado para ligações seguras ao seu serviço de pesquisa. Esta funcionalidade de pré-visualização está disponível mediante solicitação e utiliza [a Azure Private Link](../private-link/private-link-overview.md) e a [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) como parte da solução.
 

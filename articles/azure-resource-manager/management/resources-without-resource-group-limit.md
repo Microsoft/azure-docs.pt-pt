@@ -6,31 +6,31 @@ author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 05/04/2020
 ms.openlocfilehash: 892b59b3d3e980abfcdb9cd692c2598ceb1284ad
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780934"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
-Por padrão, pode implementar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos estão isentos do limite de 800 instâncias. Este artigo lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos. Todos os outros tipos de recursos estão limitados a 800 instâncias.
+Por predefinição, pode implementar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos estão isentos do limite de 800 instâncias. Este artigo lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos. Todos os outros tipos de recursos estão limitados a 800 instâncias.
 
-Para alguns tipos de recursos, é necessário contactar o suporte para remover o limite de 800 instâncias. Estes tipos de recursos são anotados neste artigo.
+Para alguns tipos de recursos, é necessário contactar o suporte para que o limite de 800 instâncias seja removido. Estes tipos de recursos são anotados neste artigo.
 
-## <a name="microsoftautomation"></a>Microsoft.Automação
+## <a name="microsoftautomation"></a>Microsoft.Automation
 
-* automatizaçõesContas
+* automação Contas
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 * registos
-* registos/assinaturas de clientes
+* registos/clienteSubscrições
 * registos/produtos
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices - Por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado contactando o apoio.
+* botServices - Por padrão, limitado a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -40,7 +40,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * galerias/imagens/versões
 * imagens
 * instantâneos
-* máquinas virtuais
+* virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -48,11 +48,11 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
-* registos/tarefas de construção
+* registos/buildTasks
 * registos/buildTasks/listSourceRepositoryProperties
-* registos/construçãoTarefas/passos
+* registos/buildTasks/passos
 * registos/buildTasks/steps/listBuildArguments
-* registos/eventoSGridFilters
+* registos/eventGridFilters
 * registos/replicações
 * registos/tarefas
 * registos/webhooks
@@ -65,16 +65,16 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 
 * servidores
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+## <a name="microsoftdbforpostgresql"></a>Microsoft.DbforPostgresql
 
-* servidorGrupos
+* grupos de servidores
 * servidores
-* servidorsv2
+* servidorv2
 * singleServers
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* horários - Por defeito, limitado a 800 instâncias. Esse limite pode ser aumentado contactando o apoio.
+* horários - Por padrão, limitado a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -85,14 +85,14 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * aglomerados
 * espaços de nome
 
-## <a name="microsoftexperimentation"></a>Microsoft.Experimentação
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
-* experimentosEspaços workespaços
+* experimentOs espaços de trabalho
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
-* autoGeridoVmConfigurationPerfis
-* configuraçãoPerfilAssignments
+* autoManagedVmConfigurationProfiles
+* configuraçãoProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -100,11 +100,11 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
-* alertas métricos
+* metricalerts
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
-* integraçõesContas
+* integraçãoAconselhos
 * fluxos de trabalho
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
@@ -113,17 +113,17 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * netAppAccounts/capacityPools
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
-* netAppAccounts/capacityPools/volumes/instantâneos
+* netAppAccounts/capacityPools/volumes/snapshots
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 * aplicaçãoGatewayWebApplicationFirewallPolicies
-* aplicaçõesGrupos de Segurança
+* applicationSecurityGroups
 * bastionHosts
 * ddosProtectionPlans
-* zonas de dnszone
-* zonas/A
-* zonas/AAAA
+* dnszones
+* dnszones/A
+* dnszones/AAAA
 * dnszones/CAA
 * dnszones/CNAME
 * dnszones/MX
@@ -132,13 +132,13 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * dnszones/SOA
 * dnszones/SRV
 * dnszones/TXT
-* zonas de dnszone/todos
-* dnszones/conjuntos de recordes
-* políticas de intenções de rede
+* dnszones/todos
+* dnszones/recordets
+* networkIntentPolicies
 * networkInterfaces
 * privateDnsZones
 * privateDnsZones/A
-* privateDnsZones/AAAAA
+* privateDnsZones/AAAA
 * privateDnsZones/CNAME
 * privateDnsZones/MX
 * privateDnsZones/PTR
@@ -147,20 +147,20 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * privateDnsZones/TXT
 * privateDnsZones/all
 * privateDnsZones/virtualNetworkLinks
-* privateEndpoints
+* privadosEndpoints
 * privateLinkServices
-* publicIPAddresss - Por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado contactando o apoio.
+* publicIPAddresses - Por defeito, limitado a 800 casos. Este limite pode ser aumentado através do contacto com o suporte.
 * serviceEndpointPolicies
-* perfis de gestor de tráfego
+* trafficmanagerprofiles
 * virtualNetworkTaps
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 
-* rootRecursos
+* rootResources
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections - Por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado contactando o apoio.
+* workspaceCollections - Por padrão, limitado a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -168,7 +168,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-* recolhas de emprego
+* trabalhocollectões
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -178,20 +178,20 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 
 * aplicações
 * grupos de contentores
-* gateways
+* portais
 * redes
 * segredos
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
-* armazenamentoContas
+* armazenamento Contas
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
-* apiGeGeAccounts/apis
+* apiManagementAccounts/apis
 * sites
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista completa de quotas e limites, consulte os limites de subscrição e serviço do [Azure, quotas e restrições.](azure-subscription-service-limits.md)
+Para obter uma lista completa de quotas e limites, consulte [os limites de subscrição e serviços, quotas e restrições da Azure.](azure-subscription-service-limits.md)
