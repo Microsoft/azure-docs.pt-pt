@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c1ee9d301d983404c23f4c710ea771599942df49
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 17dc6ef4b1c86e0ae0301783c2c524062e85fb5a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607014"
+ms.locfileid: "85799279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Diretório Ativo Azure com Form.com
 
@@ -111,10 +111,10 @@ Para configurar o Azure AD com Form.com, execute os seguintes passos:
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
-        https://<subdomain>.form.com/Member/UserAccount/SAML2.action
-        ```
+    ```http
+    https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
+    https://<subdomain>.form.com/Member/UserAccount/SAML2.action
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [Form.com equipa de apoio ao Cliente](https://form.com/about/company/contact-us/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

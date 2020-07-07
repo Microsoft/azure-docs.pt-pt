@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321832"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Utilize os conjuntos de dados da amostra no Azure Machine Learning Studio (clássico)

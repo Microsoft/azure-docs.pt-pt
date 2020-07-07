@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Compilar uma aplicação de página única da Pesquisa de Vídeos do Bing'
 titleSuffix: Azure Cognitive Services
-description: Este tutorial explica como usar a API de pesquisa de vídeo bing numa aplicação web de uma página única.
+description: Este tutorial explica como usar a API de Pesquisa de Vídeo Bing numa aplicação Web de uma página.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76988265"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800730"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicação de página única da Pesquisa de Vídeos
 A API de Pesquisa de Vídeos do Bing permite-lhe pesquisar na Web e obter resultados de vídeos relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript.
@@ -100,7 +100,7 @@ A imagem abaixo mostra a caixa de texto da consulta e as opções que definem a 
 
 O formulário HTML inclui elementos com os nomes abaixo:
 
-|Elemento|Descrição|
+|Elemento|Description|
 |-|-|
 | `where` | Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa. |
 | `query` | O campo de texto no qual introduzir os termos da pesquisa. |
@@ -138,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Por exemplo, `SafeSearch` o parâmetro numa chamada API `moderate`real `moderate` pode ser, `strict`ou, sendo o padrão.
+Por exemplo, o `SafeSearch` parâmetro de uma chamada api real pode ser , `strict` `moderate` ou, com o `moderate` padrão.
 
 ## <a name="performing-the-request"></a>Fazer o pedido
-Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing. Pode utilizar o ponto final global abaixo ou o ponto final [personalizado subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -308,7 +308,7 @@ Os resultados da pesquisa são devolvidos como o objeto `value` de nível superi
 
 A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São:
 
-|Relação|Descrição|
+|Relação|Description|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -373,7 +373,7 @@ A função de compositor:
 > * Cria as tags `<a>` de HTML que ligam à imagem e à página que a contém.
 > * Cria a descrição que apresenta as informações sobre a imagem e o site no qual a imagem se encontra.
 
-O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. Bing devolverá uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
+O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. Bing devolverá uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) desse tamanho.
 
 ## <a name="persisting-client-id"></a>ID de cliente persistente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se estiverem a ser utilizadas várias APIs de Pesquisa do Bing, deve ser utilizado o mesmo ID de cliente em todas as APIs, se possível.
@@ -389,19 +389,22 @@ As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal `Access-Control-Expose-Headers` procuração tem um cabeçalho que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que permite cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Em seguida, altere o ponto de terminação Bing Web Search no ficheiro HTML para:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy do CORS com o comando seguinte:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 

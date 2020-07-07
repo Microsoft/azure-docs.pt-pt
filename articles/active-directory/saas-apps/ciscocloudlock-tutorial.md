@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7095608427a429c26ac5f7b83577d66912e5d773
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 397fe8c111870f4a1a6489e6502ff4365f80d1e3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607377"
+ms.locfileid: "85799586"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Tutorial: Integre o tecido de segurança da nuvem com diretório ativo Azure
 
@@ -85,17 +85,17 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **URL,** digite um URL:
 
-        ```https
-        https://platform.cloudlock.com
-        https://app.cloudlock.com
-        ```
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://platform.cloudlock.com/gate/saml/sso/<subdomain>
-        https://app.cloudlock.com/gate/saml/sso/<subdomain>
-        ```
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
     > [!NOTE]
     > O valor do Identificador não é real. Atualize o valor com o identificador real. Contacte [a equipa de suporte do Cliente cloud Security Fabric](mailto:support@cloudlock.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

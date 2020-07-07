@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01e4c34b492fbc3d39fb46252f2460a710ccc01c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 452f06e1294fad64547e0b04003ae06f80c1d9f4
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608590"
+ms.locfileid: "85799807"
 ---
 # <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Tutorial: Integrar o Land Gorilla com o Azure Ative Directory
 
@@ -84,19 +84,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando um dos seguintes padrões:
 
-        ```https
-        https://<customer domain>.landgorilla.com/
-        https://www.<customer domain>.landgorilla.com
-        ```
+      ```http
+      https://<customer domain>.landgorilla.com/
+      https://www.<customer domain>.landgorilla.com
+      ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
-        ```https
-        https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
-        https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
-        https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
-        https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
-        ```
+      ```http
+      https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
+      https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
+      https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
+      https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
+      ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Aqui sugerimos que use o valor único da corda no Identificador. Contacte [a equipa de apoio ao Cliente Da Terra Gorilla](https://www.landgorilla.com/support/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

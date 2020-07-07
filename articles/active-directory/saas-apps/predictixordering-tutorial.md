@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com A Encomenda de Previsão [ Microsoft Docs'
-description: Neste tutorial, você vai aprender a configurar um único sign-on entre o Azure Ative Directory e o Predictix Ordering.
+title: 'Tutorial: Integração do Azure Ative Directory com a Predictix Ordering / Microsoft Docs'
+description: Neste tutorial, você aprenderá a configurar um único sign-on entre O Diretório Ativo Azure e Predictix Ordering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,133 +15,132 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9ab66dc7bc2aea249e105df20652c0f5904e294d
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67094129"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800264"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integração de Diretório Ativo Azure com Encomenda de Previsão
+# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integração do Diretório Ativo Azure com a Predictix Ordering
 
-Neste tutorial, você vai aprender a integrar a Predictix Ordering com o Azure Ative Directory (Azure AD).
+Neste tutorial, você vai aprender a integrar a Predictix Ordering com O Diretório Ativo Azure (Azure AD).
 Esta integração proporciona estes benefícios:
 
-* Pode utilizar o Azure AD para controlar quem tem acesso à Ordem do Predictix.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Predictix Ordering (única investida) com as suas contas Azure AD.
+* Você pode usar Azure AD para controlar quem tem acesso a Predictix Ordering.
+* Pode permitir que os seus utilizadores se inscrevam automaticamente na Predictix Ordering (único sind on) com as suas contas AD Azure.
 * Pode gerir as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração de aplicações saaS com a Azure AD, consulte [o single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [o Single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com o Predictix Ordering, é necessário ter:
+Para configurar a integração AZure AD com a Predictix Ordering, você precisa ter:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/pricing/free-trial/)
-* Uma subscrição de Encomenda de Previsão que tem um único sinal ativado.
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição de Encomendas Predictix que tenha um único sinal de acesso ativado.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você vai configurar e testar o único sign-on Azure AD em um ambiente de teste.
+Neste tutorial, você vai configurar e testar Azure AD um único sinal de acesso em um ambiente de teste.
 
-* A Ordem predictix suporta sSO iniciado por SP.
+* A Predictix Ordering suporta sSO iniciado pelo SP.
 
-## <a name="add-predictix-ordering-from-the-gallery"></a>Adicione a Encomenda de Predictix da galeria
+## <a name="add-predictix-ordering-from-the-gallery"></a>Adicionar Predictix Encomenda da galeria
 
-Para configurar a integração da Predictix Ordering no Azure AD, você precisa adicionar O Pedido de Previsão da galeria à sua lista de aplicações geridas saaS.
+Para configurar a integração do Predictix Ordering em Azure AD, precisa adicionar a Predictix Ordering da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory:**
+1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory**:
 
     ![Selecione Azure Active Directory](common/select-azuread.png)
 
-2. Ir a **aplicações** > da Enterprise**Todas as aplicações:**
+2. Ir para **aplicações da Empresa**  >  **Todas as aplicações**:
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
-    ![Selecione Nova aplicação](common/add-new-app.png)
+    ![Selecione nova aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **a Encomenda**de Previsão . Selecione **Predictix Encomendar** nos resultados da pesquisa e, em seguida, selecione **Adicionar**.
+4. Na caixa de pesquisa, insira **o Pedido De Predictix**. Selecione **Predictix Encomendar** nos resultados da pesquisa e, em seguida, selecione **Adicionar**.
 
      ![Resultados de pesquisa](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, irá configurar e testar um único sinal de Azure AD com a Predictix Ordering utilizando um utilizador de teste chamado Britta Simon.
-Para permitir uma única inscrição, é necessário estabelecer uma relação entre um utilizador da AD Azure e o utilizador correspondente em Predictix Ordering.
+Nesta secção, irá configurar e testar o Azure AD com a Predictix Ordering usando um utilizador de teste chamado Britta Simon.
+Para ativar um único sinal, é necessário estabelecer uma relação entre um utilizador Azure AD e o utilizador correspondente na Predictix Ordering.
 
-Para configurar e testar o único sinal de Azure AD com a Predictix Ordering, é necessário completar estes passos:
+Para configurar e testar o Azure AD com a Predictix Ordering, é necessário completar estes passos:
 
-1. Configure o único sinal de entrada **[da AD Azure](#configure-azure-ad-single-sign-on)** para ativar a funcionalidade para os seus utilizadores.
-2. **[Configure Predictix Encomendando um único sinal](#configure-predictix-ordering-single-sign-on)** no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de AD Azure.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para ativar o único sinal de entrada da Azure AD para o utilizador.
-5. **[Crie um utilizador](#create-a-predictix-ordering-test-user)** de teste de Encomenda de Previsão que esteja ligado à representação da AD Azure do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** para verificar se a configuração funciona.
+1. **[Configurar o Azure AD um único sinal para](#configure-azure-ad-single-sign-on)** ativar a funcionalidade para os seus utilizadores.
+2. **[Configurar Predictix Encomendar um único sinal no](#configure-predictix-ordering-single-sign-on)** lado da aplicação.
+3. **[Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user)** para testar o Azure AD com um único sinal de sessão.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para ativar um único sinal de Azure AD para o utilizador.
+5. **[Crie um utilizador](#create-a-predictix-ordering-test-user)** de teste de previsão de encomenda que esteja ligado à representação AD AZure do utilizador.
+6. **[Teste um único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, irá ativar o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativará a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sinal de Azure AD com a Predictix Ordering, tome estas medidas:
+Para configurar o Azure AD com a Predictix Ordering, tome estes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Predictix Ordering,** selecione **Single sign-on:**
+1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Predictix,** selecione **Single sign-on**:
 
-    ![Selecione um único sinal on](common/select-sso.png)
+    ![Selecione um único sinal de s-on](common/select-sso.png)
 
-2. Na selectuma única caixa de diálogo do **método de sinalização,** selecione o modo **SAML/WS-Fed** para ativar um único sinal:
+2. Na caixa de diálogo **de método de inscrição única,** selecione o modo **SAML/WS-Fed** para permitir um único sinal de entrada:
 
-    ![Selecione um único método de sinalização](common/select-saml-option.png)
+    ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na configuração de um único sign-on com a página **SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração SAML básica:**
+3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
-4. Na caixa de diálogo **Basic SAML Configuration,** complete os seguintes passos.
+4. Na caixa de diálogo **de configuração DE SAML Básica,** complete os seguintes passos.
 
-    ![Caixa de diálogo de configuração SAML básica](common/sp-identifier.png)
+    ![Caixa básica de diálogo de configuração SAML](common/sp-identifier.png)
 
-    1. No **signo na** caixa URL, introduza um URL neste padrão:
+    1. Na **caixa de URL** sign in, introduza um URL neste padrão:
 
        `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
-    1. Na caixa **Identifier (Id da Entidade),** introduza um URL neste padrão:
+    1. Na caixa **identifier (Entity ID),** introduza um URL neste padrão:
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.dev.ordering.predictix.com` |
-        | `https://<companyname-pricing>.ordering.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.dev.ordering.predictix.com
+        https://<companyname-pricing>.ordering.predictix.com
+        ```
 
     > [!NOTE]
-    > Estes valores são espaços reservados. Tens de usar o URL e identificador de inscrição real. Contacte a equipa de suporte da [Ordem do Previsibilidade](https://www.predix.io/support/) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **Basic SAML Configuration** no portal Azure.
+    > Estes valores são espaços reservados. Tens de usar o URL e o identificador de inscrição real. Contacte a [equipa de apoio da Predictix Ordering](https://www.predix.io/support/) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-5. Na configuração de um único sinal com a página **SAML,** na secção Certificado de **Assinatura SAML,** selecione o link **de descarregamento** ao lado do **Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
+5. Na **configuração de um único sign-on com página SAML,** na secção **Certificado de Assinatura SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
 
     ![Link de descarregamento de certificado](common/certificatebase64.png)
 
-6. Na secção Configurar a Ordem do **Predileto,** copie os URLs apropriados, com base nos seus requisitos:
+6. Na secção **De Encomenda de Previsão,** copie os URLs apropriados, com base nos seus requisitos:
 
     ![Copiar os URLs de configuração](common/copy-configuration-urls.png)
 
     1. **URL de login**.
 
-    2. **Identificador Azure AD**.
+    2. **Identificador Azure Ad.**
 
-    3. **URL de logout**.
+    3. **URL logout**.
 
-### <a name="configure-predictix-ordering-single-sign-on"></a>Configure Predictix Ordenando um único sinal
+### <a name="configure-predictix-ordering-single-sign-on"></a>Configurar Previsão De encomenda de um único sinal
 
-Para configurar um único sinal no lado de Encomenda de Previsão, precisa enviar o certificado que descarregou e os URLs que copiou do portal Azure para a equipa de [suporte da Predictix Ordering](https://www.predix.io/support/). Esta equipa garante que a ligação SAML SSO está corretamente definida em ambos os lados.
+Para configurar um único sinal no lado do Pedido de Previsão, tem de enviar o certificado que descarregou e os URLs que copiou do portal Azure para a equipa de [suporte do Predictix Ordering](https://www.predix.io/support/). Esta equipa garante que a ligação SSO SAML está corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, você vai criar uma utilizadora de teste chamada Britta Simon no portal Azure.
+Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal Azure.
 
-1. No portal Azure, selecione **Azure Ative Directory** no painel esquerdo, selecione **Utilizadores,** e, em seguida, selecione **Todos os utilizadores:**
+1. No portal Azure, selecione **O Diretório Ativo Azure** no painel esquerdo, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**:
 
     ![Selecionar Todos os utilizadores](common/users.png)
 
@@ -149,27 +148,27 @@ Nesta secção, você vai criar uma utilizadora de teste chamada Britta Simon no
 
     ![Selecione Novo utilizador](common/new-user.png)
 
-3. Na caixa de diálogo **do Utilizador,** tome os seguintes passos.
+3. Na caixa de diálogo **do utilizador,** tome os seguintes passos.
 
     ![Caixa de diálogo do utilizador](common/user-properties.png)
 
-    1. Na caixa **de nomes,** entre **brittaSimon.**
+    1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa de **nomes do Utilizador,** introduza **\<BrittaSimon@> de domínio da\< sua empresa.>de extensão. ** (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension> ** (Por exemplo, BrittaSimon@contoso.com .)
 
-    1. Selecione **Mostrar palavra-passe**e, em seguida, anote o valor que está na caixa **password.**
+    1. Selecione **Mostrar Palavra-Passe**e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
 
     1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permitirá que Britta Simon use um único sign-on da Azure AD, concedendo-lhe acesso à Predictix Ordering.
+Nesta secção, você permitirá que Britta Simon use Azure AD um único sinal de acesso, concedendo-lhe acesso à Predictix Ordering.
 
-1. No portal Azure, selecione **aplicações Enterprise,** selecione **Todas as aplicações,** e, em seguida, selecione **Predictix Ordering:**
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **Predictix Ordering**:
 
     ![Aplicações Empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Predictix Ordering**.
+2. Na lista de candidaturas, selecione **Predictix Ordering**.
 
     ![Lista de candidaturas](common/all-applications.png)
 
@@ -177,25 +176,25 @@ Nesta secção, permitirá que Britta Simon use um único sign-on da Azure AD, c
 
     ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-4. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Atribuição adicionar'.**
+4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Selecione Adicionar utilizador](common/add-assign-user.png)
 
-5. Na caixa de diálogo **De utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. Na caixa de diálogo **de Utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se esperar um valor de papel na afirmação Do SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Clique no botão **Select** na parte inferior do ecrã.
+6. Se espera um valor de função na afirmação SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Clique no botão **Selecione** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar Atribuição,** selecione **Atribuir**.
+7. Na caixa de diálogo **'Adicionar Atribuição',** selecione **Atribuir**.
 
-### <a name="create-a-predictix-ordering-test-user"></a>Criar um utilizador de teste de encomenda de Previsão
+### <a name="create-a-predictix-ordering-test-user"></a>Criar um utilizador de teste de encomendas De Previsão
 
-Em seguida, você precisa criar uma utilizadora chamada Britta Simon em Prepredictix Ordering. Trabalhe com a equipa de suporte da [Predictix Ordering](https://www.predix.io/support/) para adicionar utilizadores. Os utilizadores precisam de ser criados e ativados antes de utilizar um único sinal.
+Em seguida, precisa criar um utilizador chamado Britta Simon em Predictix Ordering. Trabalhe com a [equipa de suporte da Predictix Ordering](https://www.predix.io/support/) para adicionar utilizadores. Os utilizadores precisam de ser criados e ativados antes de utilizarem uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Agora precisa de testar a configuração de um único sinal de acesso do Azure AD utilizando o Painel de Acesso.
+Agora tem de testar a sua configuração de inscrição única AD Azure utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo Predictix Ordering no Painel de Acesso, deve ser automaticamente inscrito na instância De Encomenda de Previsão para a qual configura o SSO. Para mais informações, consulte [O Acesso e utilize aplicações no portal My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo de encomenda do Predictix no Painel de Acesso, deverá ser automaticamente inscrito na instância de Pedido de Previsão para a qual configura sSO. Para mais informações, consulte [o Access e utilize aplicações no portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -203,4 +202,4 @@ Quando selecionar o azulejo Predictix Ordering no Painel de Acesso, deve ser aut
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

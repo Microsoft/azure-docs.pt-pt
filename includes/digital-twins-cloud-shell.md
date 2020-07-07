@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 4aa016294f0ef3bd26f7f3ef6fa374e9367b672d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8be070826de0334483f4150925c05cb4dfb73f2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805700"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
@@ -29,16 +29,33 @@ Se esta é a primeira vez que usa esta subscrição com a Azure Digital Twins, g
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Em seguida, irá adicionar a [**extensão IoT do Microsoft Azure para O Azure CLI**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) à sua Cloud Shell, para permitir comandos para interagir com a Azure Digital Twins e outros serviços IoT. Utilize este comando para adicionar a extensão:
+Em seguida, irá adicionar a [**extensão IoT do Microsoft Azure para O Azure CLI**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) à sua Cloud Shell, para permitir comandos para interagir com a Azure Digital Twins e outros serviços IoT. 
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+Primeiro, faça este comando para ver uma lista de todas as extensões que já instalou.
 
-Se já instalou a extensão no passado, a saída pode dizer "Extensão 'azure-iot' já está instalada." Se isto acontecer, execute o seguinte para se certificar de que tem a última atualização: 
+```azurecli-interactive
+az extension list
+```
+
+Na saída, procure o `"name"` campo para cada entrada de lista para ver os nomes das extensões.
+
+Utilize a saída para determinar quais dos seguintes comandos a executar para a configuração da extensão (pode executar mais de um).
+* Se a lista `azure-iot` contiver: Já tem a extensão. Execute este comando para se certificar de que tem a última atualização:
 
    ```azurecli-interactive
    az extension update --name azure-iot
+   ```
+
+* Se a lista **não** `azure-iot` contiver: É necessário instalar a extensão. Utilize este comando:
+
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
+
+* Se a lista `azure-iot-cli-ext` contiver: Esta é a versão antiga da extensão. Apenas uma versão da extensão deve ser instalada de cada vez, pelo que deve desinstalar a extensão do legado. Utilize este comando:
+
+   ```azurecli-interactive
+   az extension remove --name azure-cli-iot-ext
    ```
 
 Agora estás pronto para trabalhar com a Azure Digital Twins na Cloud Shell.

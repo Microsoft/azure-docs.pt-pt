@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc5ae5532acdd66e091891c55e3cebb79cb3d227
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9e3931baa8bab6f21d0edfefd17b95f7ecf3f7be
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608626"
+ms.locfileid: "85799824"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Tutorial: Azure Ative Directory integração única (SSO) com KnowledgeOwl
 
@@ -86,34 +86,34 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://app.knowledgeowl.com/sp        
-        https://app.knowledgeowl.com/sp/id/<unique ID>
-        ```
+    ```http
+    https://app.knowledgeowl.com/sp
+    https://app.knowledgeowl.com/sp/id/<unique ID>
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://subdomain.knowledgeowl.com/help/saml-login
-        https://subdomain.knowledgeowl.com/docs/saml-login
-        https://subdomain.knowledgeowl.com/home/saml-login
-        https://privatedomain.com/help/saml-login
-        https://privatedomain.com/docs/saml-login
-        https://privatedomain.com/home/saml-login
-        ```
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://subdomain.knowledgeowl.com/help/saml-login
-        https://subdomain.knowledgeowl.com/docs/saml-login
-        https://subdomain.knowledgeowl.com/home/saml-login
-        https://privatedomain.com/help/saml-login
-        https://privatedomain.com/docs/saml-login
-        https://privatedomain.com/home/saml-login
-        ```
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Você precisará atualizar estes valores a partir de identificador real, URL de resposta e URL de inscrição, que é explicado mais tarde no tutorial.

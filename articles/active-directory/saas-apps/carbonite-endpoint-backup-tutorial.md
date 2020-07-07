@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f77f00870af7b9d1788d96391264bdf9b4ee73c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b3c8062bf40e8c97e93f237237dcd7c6923d59dd
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607706"
+ms.locfileid: "85799651"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Tutorial: Integrar a Cópia de Segurança do Ponto Final de Carbonite com o Azure Ative Directory
 
@@ -84,28 +84,28 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **identifier,** digite um dos seguintes URLs:
 
-        ```https
-        https://red-us.mysecuredatavault.com
-        https://red-apac.mysecuredatavault.com
-        https://red-fr.mysecuredatavault.com
-        https://red-emea.mysecuredatavault.com
-        https://kamino.mysecuredatavault.com
-        ```
+    ```http
+    https://red-us.mysecuredatavault.com
+    https://red-apac.mysecuredatavault.com
+    https://red-fr.mysecuredatavault.com
+    https://red-emea.mysecuredatavault.com
+    https://kamino.mysecuredatavault.com
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um dos seguintes URLs:
 
-        ```https
-        https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
-        ```
+    ```http
+    https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
+    ```
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de assinatura,** digite um dos seguintes URLs:
 
-    ```https
+    ```http
     https://red-us.mysecuredatavault.com/
     https://red-apac.mysecuredatavault.com/
     https://red-fr.mysecuredatavault.com/

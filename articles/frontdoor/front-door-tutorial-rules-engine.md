@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
 ms.openlocfilehash: a931a12889cec67baf6ef2db09091c8ec581ef08
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321567"
 ---
 # <a name="configure-your-rules-engine"></a>Configure o seu motor de regras

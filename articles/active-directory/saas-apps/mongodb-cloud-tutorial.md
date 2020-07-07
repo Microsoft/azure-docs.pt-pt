@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901022e31a917cd499d9a1daf5903c72e96aa9f0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 7a502a8273aef3df3488764ea7b01c21c512ba43
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367211"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800229"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com a MongoDB Cloud
 
@@ -101,11 +101,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além dos atributos anteriores, a aplicação MongoDB Cloud espera que mais alguns atributos sejam repercutidos na resposta SAML. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | |  Atributo de origem|
-    | ---------------| --------------- | --------- |
-    | e-mail | | user.userprincipalname |
-    | nomePróprio | | user.givenname |
-    | apelido | | utilizador.sobrenome |
+    | Name | Atributo de origem|
+    | ---------------| --------- |
+    | e-mail | user.userprincipalname |
+    | nomePróprio | user.givenname |
+    | apelido | utilizador.sobrenome |
 
 1. Na **configuração de um único sinal com** a página SAML, na secção certificado de assinatura **SAML,** encontre **o Metadados da Federação XML**. Selecione **Baixar** para descarregar o certificado e guardá-lo no seu computador.
 

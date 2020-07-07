@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b5b43a871eefa313982275b90e2c31f99badcf97
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 04d6d79000b38116cbda6de960f078608964b6ca
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608866"
+ms.locfileid: "85799603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Tutorial: Integração do Diretório Ativo Azure com Horizontes Confirmait
 
@@ -109,23 +109,23 @@ Para configurar o Azure AD com a Confirmait Horizons, execute os seguintes passo
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
-        https://sso.us.confirmit.com/<UNIQUEID>
-        ```
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
-        https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
-        https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
-        https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
-        https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
-        ```
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
+    https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
+    ```
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
@@ -133,13 +133,13 @@ Para configurar o Azure AD com a Confirmait Horizons, execute os seguintes passo
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
-        https://sso.us.confirmit.com/<UNIQUEID>
-        ```
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Confirmit Horizons](mailto:support@confirmit.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

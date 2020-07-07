@@ -1,6 +1,6 @@
 ---
-title: Tutorial de rotação de dupla credencial
-description: Use este tutorial para aprender a automatizar a rotação de um segredo para recursos que utilizam a autenticação de dupla credencial.
+title: Tutorial de rotação para recursos com dois conjuntos de credenciais
+description: Use este tutorial para aprender a automatizar a rotação de um segredo para recursos que usam dois conjuntos de credenciais de autenticação.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 9ab8a35808f94c04c1d57cd18a8d45b5a59c5160
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85487000"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800702"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-dual-credential-authentication"></a>Automatizar a rotação de um segredo para recursos que utilizam a autenticação de dupla credencial
+# <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
 A melhor forma de autenticar os serviços da Azure é utilizando uma [identidade gerida](../general/managed-identity.md), mas existem alguns cenários em que isso não é uma opção. Nesses casos, são utilizadas chaves de acesso ou senhas de acesso. As chaves de acesso e as palavras-passe devem ser rodadas com frequência.
 
-Este tutorial mostra como automatizar a rotação periódica de segredos para bases de dados e serviços que utilizam a autenticação de dupla credencial. Especificamente, este tutorial gira as teclas de conta de armazenamento Azure armazenadas no Cofre da Chave Azure como segredos usando uma função desencadeada pela notificação da Azure Event Grid. :
+Este tutorial mostra como automatizar a rotação periódica de segredos para bases de dados e serviços que utilizam dois conjuntos de credenciais de autenticação. Especificamente, este tutorial gira as teclas de conta de armazenamento Azure armazenadas no Cofre da Chave Azure como segredos usando uma função desencadeada pela notificação da Azure Event Grid. :
 
 > [!NOTE]
 > As Chaves de Conta de Armazenamento podem ser geridas automaticamente no Cofre de Chaves, fornecendo fichas de assinatura de acesso partilhado para acesso delegado à Conta de Armazenamento. Existem serviços que requerem cadeia de ligação de conta de armazenamento com chave de acesso e para esse cenário esta solução é recomendada

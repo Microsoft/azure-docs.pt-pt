@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9800e2c4e5c99ea86ec7bf27a5925b7c96b5384
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: aed7c6ece045ab75571c9146c235c69f5c8d19a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608029"
+ms.locfileid: "85799994"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Diretório Ativo Azure com a Ariba
 
@@ -108,10 +108,10 @@ Para configurar o Azure AD com Ariba, execute os seguintes passos:
 
     a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<subdomain>.sourcing.ariba.com
-        https://<subdomain>.supplier.ariba.com
-        ```
+    ```http
+    https://<subdomain>.sourcing.ariba.com
+    https://<subdomain>.supplier.ariba.com
+    ```
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`http://<subdomain>.procurement-2.ariba.com`
 

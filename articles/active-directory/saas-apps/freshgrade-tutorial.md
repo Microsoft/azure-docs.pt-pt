@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c7a6716bbc4b297973c8bfb0305434ee08a4730
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b2bceac127645717947d1da712d1e3699a04bee0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606397"
+ms.locfileid: "85799212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Diretório Ativo Azure com FreshGrade
 
@@ -107,17 +107,17 @@ Para configurar o Azure AD single sign-on com FreshGrade, execute os seguintes p
 
      a. Na caixa de texto **url de entrada de sinais,** digite um URL utilizando os seguintes padrões:
 
-        ```https        
-        https://<subdomain>.freshgrade.com/login
-        https://<subdomain>.onboarding.freshgrade.com/login
-        ```
+    ```http       
+    https://<subdomain>.freshgrade.com/login
+    https://<subdomain>.onboarding.freshgrade.com/login
+    ```
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando os seguintes padrões:
     
-        ```https
-        https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
-        https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
-        ```
+    ```http
+    https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
+    https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. Contacte [a equipa de suporte ao Cliente FreshGrade](mailto:support@freshgrade.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

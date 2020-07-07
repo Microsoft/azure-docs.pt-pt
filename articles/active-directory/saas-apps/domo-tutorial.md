@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba0bdd58dfcadf4c524e9c386aac94628f77c8a
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 7a791fb2e40e46c1081dbb50a85af780d45f528e
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608786"
+ms.locfileid: "85799535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-domo"></a>Tutorial: Azure Ative Directory integração única (SSO) com Domo
 
@@ -87,19 +87,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<companyname>.domo.com` |
-        https://<companyname>.beta.domo.com` |
-        https://<companyname>.demo.domo.com` |
-        https://<companyname>.dev.domo.com` |
-        https://<companyname>.fastage1.domo.com` |
-        https://<companyname>.frdev.domo.com` |
-        https://<companyname>.gastage.domo.com` |
-        https://<companyname>.load.domo.com` |
-        https://<companyname>.local.domo.com` |
-        https://<companyname>.qa.domo.com` |
-        https://<companyname>.stage.domo.com` |
-        ```
+    ```http
+    https://<companyname>.domo.com
+    https://<companyname>.beta.domo.com
+    https://<companyname>.demo.domo.com
+    https://<companyname>.dev.domo.com
+    https://<companyname>.fastage1.domo.com
+    https://<companyname>.frdev.domo.com
+    https://<companyname>.gastage.domo.com
+    https://<companyname>.load.domo.com
+    https://<companyname>.local.domo.com
+    https://<companyname>.qa.domo.com
+    https://<companyname>.stage.domo.com
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Domo](mailto:support@domo.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

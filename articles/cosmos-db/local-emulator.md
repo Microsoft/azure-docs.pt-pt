@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 227e60486f0a6712b0d29de47983bad737481bd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262434"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800550"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Use o Emulador Azure Cosmos para desenvolvimento local e testes
 
@@ -233,7 +233,9 @@ A partir do local de instalação, pode utilizar a linha de comando para iniciar
 
 ### <a name="command-line-syntax"></a>Sintaxe da linha de comandos
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` na linha de comandos.
 
@@ -418,7 +420,7 @@ Fechar a concha interativa uma vez iniciado o emulador desligará o recipiente d
 
 Para abrir o Data Explorer, navegue para o seguinte URL no browser. O ponto final do emulador é fornecido na mensagem de resposta mostrada acima.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**https \: // ** \<emulator endpoint provided in response> **/_explorer/index.html**
 
 Se tiver uma aplicação de cliente .NET a funcionar num recipiente de estival Linux e se estiver a executar o emulador Azure Cosmos numa máquina hospedeira, siga a secção abaixo para linux importar o certificado para o recipiente linux docker.
 

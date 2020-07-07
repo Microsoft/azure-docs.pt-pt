@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 439a904c4e70a6e7e9633757c6d89fd3ce0a3a90
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 46a421ca9ab8efc69775966504fa393be9efba04
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608743"
+ms.locfileid: "85799926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: Integração do Diretório Ativo Azure com Huddle
 
@@ -111,18 +111,18 @@ Para configurar o Azure AD single sign-on com Huddle, execute os seguintes passo
 
     a. Na caixa de texto **do identificador,digite** um URL:
 
-        ```https
-        https://login.huddle.net
-        https://login.huddle.com
-        ```
+    ```http
+    https://login.huddle.net
+    https://login.huddle.com
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL:
 
-        ```https
-        https://login.huddle.net/saml/browser-sso
-        https://login.huddle.com/saml/browser-sso
-        https://login.huddle.com/saml/idp-initiated-sso
-        ```
+    ```http
+    https://login.huddle.net/saml/browser-sso
+    https://login.huddle.com/saml/browser-sso
+    https://login.huddle.com/saml/idp-initiated-sso
+    ```
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
@@ -130,127 +130,127 @@ Para configurar o Azure AD single sign-on com Huddle, execute os seguintes passo
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<customsubdomain>.huddle.com
-        https://us.huddle.com
+    ```http
+    https://<customsubdomain>.huddle.com
+    https://us.huddle.com
         ```
 
     > [!NOTE]
-    > O valor url de inscrição não é real. Atualize este valor com o URL de inscrição real. Contacte a [equipa de suporte do Cliente Huddle](https://huddle.zendesk.com) para obter este valor.
+    > The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get this value.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-    ![O link de descarregamento de certificado](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
-7. Na secção **Configurar Huddle,** copie os URL(s) apropriados de acordo com o seu requisito.
+7. On the **Set up Huddle** section, copy the appropriate URL(s) as per your requirement.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+    a. Login URL
 
-    b. Identificador Azure Ad
+    b. Azure Ad Identifier
 
     c. Logout URL
 
-### <a name="configure-huddle-single-sign-on"></a>Configurar Huddle Single Sign-On
+### Configure Huddle Single Sign-On
 
-Para configurar um único sign-on on do lado **huddle,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Huddle](https://huddle.zendesk.com/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+To configure single sign-on on **Huddle** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Huddle support team](https://huddle.zendesk.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!NOTE]
-> O sign-on único tem de ser ativado pela equipa de apoio huddle. Recebe uma notificação quando a configuração estiver concluída.
+> Single sign-on needs to be enabled by the Huddle support team. You get a notification when the configuration has been completed.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
+### Create an Azure AD test user
 
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Selecione **Novo utilizador** na parte superior do ecrã.
+2. Select **New user** at the top of the screen.
 
-    ![Novo botão de utilizador](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. Nas propriedades do Utilizador, execute os seguintes passos.
+3. In the User properties, perform the following steps.
 
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
-    d. Clique em **Criar**.
+    d. Click **Create**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+### Assign the Azure AD test user
 
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Huddle.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Huddle.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Huddle**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Huddle**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Huddle**.
+2. In the applications list, select **Huddle**.
 
-    ![O link Huddle na lista de Aplicações](common/all-applications.png)
+    ![The Huddle link in the Applications list](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. In the menu on the left, select **Users and groups**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![O painel de atribuição de adição](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-huddle-test-user"></a>Criar utilizador de teste Huddle
+### Create Huddle test user
 
-Para permitir que os utilizadores de Azure AD iniciem sessão no Huddle, devem ser a provisionados no Huddle. No caso do Huddle, o provisionamento é uma tarefa manual.
+To enable Azure AD users to log in to Huddle, they must be provisioned into Huddle. In the case of Huddle, provisioning is a manual task.
 
-**Para configurar o provisionamento do utilizador, execute os seguintes passos:**
+**To configure user provisioning, perform the following steps:**
 
-1. Faça login no seu site da empresa **Huddle** como administrador.
+1. Log in to your **Huddle** company site as administrator.
 
-2. Clique **no Espaço de Trabalho.**
+2. Click **Workspace**.
 
-3. Clique **em Pessoas \> Convidam as pessoas.**
+3. Click **People \> Invite People**.
 
     ![People](./media/huddle-tutorial/ic787838.png "People")
 
-4. Na secção Criar uma nova secção **de convites,** execute os seguintes passos:
+4. In the **Create a new invitation** section, perform the following steps:
   
-    ![Novo Convite](./media/huddle-tutorial/ic787839.png "Novo Convite")
+    ![New Invitation](./media/huddle-tutorial/ic787839.png "New Invitation")
   
-    a. Na **escolha de uma equipa para convidar as pessoas a juntarem-se à** lista, selecione **equipa**.
+    a. In the **Choose a team to invite people to join** list, select **team**.
 
-    b. Digite o Endereço de **E-mail** de uma conta Azure AD válida que pretenda introduzir para **introduzir o endereço de e-mail para pessoas que deseja convidar para a** caixa de texto.
+    b. Type the **Email Address** of a valid Azure AD account you want to provision in to **Enter email address for people you'd like to invite** textbox.
 
-    c. Clique **em Convidar.**
+    c. Click **Invite**.
 
     > [!NOTE]
-    > O titular da conta Azure AD receberá um e-mail incluindo um link para confirmar a conta antes de ficar ativa.
+    > The Azure AD account holder will receive an email including a link to confirm the account before it becomes active.
 
 > [!NOTE]
-> Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador huddle ou APIs fornecidas pela Huddle para fornecer contas de utilizador Azure AD.
+> You can use any other Huddle user account creation tools or APIs provided by Huddle to provision Azure AD user accounts.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### Test single sign-on
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Quando clicar no azulejo Do Huddle no Painel de Acesso, deverá ser automaticamente inscrito no Huddle para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+When you click the Huddle tile in the Access Panel, you should be automatically signed in to the Huddle for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## Additional Resources
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

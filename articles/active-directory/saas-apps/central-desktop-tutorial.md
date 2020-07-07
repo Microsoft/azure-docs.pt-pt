@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3747c16d67d7ecbe9496e438e8d1eb1cd51ca1
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 6e2fa19c7c2525eadc0eb8008d66cf37b3526d72
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607919"
+ms.locfileid: "85799647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Diretório Ativo Azure com o Ambiente central
 
@@ -110,10 +110,10 @@ Para configurar o Azure AD com o Central Desktop, execute os seguintes passos:
 
     b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<companyname>.centraldesktop.com/saml2-metadata.php
-        https://<companyname>.imeetcentral.com/saml2-metadata.php
-        ```
+    ```http
+    https://<companyname>.centraldesktop.com/saml2-metadata.php
+    https://<companyname>.imeetcentral.com/saml2-metadata.php
+    ```
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<companyname>.centraldesktop.com/saml2-assertion.php`
 

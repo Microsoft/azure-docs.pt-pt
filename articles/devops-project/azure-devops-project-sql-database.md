@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318629"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua app de ASP.NET e código de base de dados Azure SQL utilizando o Azure DevOps Starter
@@ -33,7 +33,7 @@ Neste tutorial, irá:
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
-> * Ligue-se à Base de Dados Azure SQL 
+> * Ligar à Base de Dados SQL do Azure 
 > * Limpar recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -140,7 +140,7 @@ Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando 
 
 1. Depois de concluída a versão, refresque a sua aplicação para verificar as suas alterações.
 
-## <a name="connect-to-azure-sql-database"></a>Ligue-se à Base de Dados Azure SQL
+## <a name="connect-to-azure-sql-database"></a>Ligar à Base de Dados SQL do Azure
 
 Precisa de permissões adequadas para se ligar à Base de Dados Azure SQL.
 
@@ -184,7 +184,7 @@ Opcionalmente, pode modificar estes pipelines de compilação e versão para sat
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
-> * Ligue-se à Base de Dados Azure SQL 
+> * Ligar à Base de Dados SQL do Azure 
 > * Limpar recursos
 
 Para saber mais sobre o oleoduto CI/CD, consulte:

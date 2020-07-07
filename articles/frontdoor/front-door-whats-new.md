@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
 ms.openlocfilehash: d00ed607322205daefd80c111b83483524c4a742
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321525"
 ---
 # <a name="whats-new-in-azure-front-door"></a>O que há de novo na Porta da Frente Azure?

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 453c1f19945c309e4bcc224b55c2b359b6194789
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b473502f740717fb0426d09261c1f1107144d047
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605502"
+ms.locfileid: "85799847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Diretório Ativo Azure com a Kintone
 
@@ -109,10 +109,10 @@ Para configurar o Azure AD single sign-on com Kintone, execute os seguintes pass
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<companyname>.cybozu.com
-        https://<companyname>.kintone.com
-        ```
+    ```http
+    https://<companyname>.cybozu.com
+    https://<companyname>.kintone.com
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte a [equipa de suporte do Cliente Kintone](https://www.kintone.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

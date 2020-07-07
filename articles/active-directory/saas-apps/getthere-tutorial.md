@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d8ce37da0992ab3ac2c02f9c48c9c79ee40ae8
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 45fc683bb894fdafae7f88e112971d1c8378e50b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608684"
+ms.locfileid: "85799884"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-getthere"></a>Tutorial: Azure Ative Directory integração única (SSO) com GetThere
 
@@ -87,19 +87,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **identifier,** digite um URL:
 
-        ```https
-        getthere.com
-        http://idp.getthere.com
-        ```
+    ```http
+    getthere.com
+    http://idp.getthere.com
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite qualquer um dos URLs abaixo:
 
-        ```https
-        https://wx1.getthere.net/login/saml/post.act
-        https://gtx2-gcte2.getthere.net/login/saml/post.act
-        https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act
-        https://wx1.getthere.net/login/saml/ssoaavalidate.act
-        ```
+    ```http
+    https://wx1.getthere.net/login/saml/post.act
+    https://gtx2-gcte2.getthere.net/login/saml/post.act
+    https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act
+    https://wx1.getthere.net/login/saml/ssoaavalidate.act
+    ```
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 

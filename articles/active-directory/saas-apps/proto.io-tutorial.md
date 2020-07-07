@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b499c8311e3b8acb1a239acc196ae158692b8716
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: db770e513599aa5da43ffa25463994d887536494
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765574"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800140"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-protoio"></a>Tutorial: Azure Ative Directory integração única (SSO) com Proto.io
 
@@ -101,11 +101,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, Proto.io aplicação espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  |  Atributo de origem|
-    | ---------------| --------------- | --------- |
-    | e-mail | | user.mail |
-    | fname | | user.givenname |
-    | Nome | | utilizador.sobrenome |
+    | Name | Atributo de origem|
+    | --------------- | --------- |
+    | e-mail | user.mail |
+    | fname | user.givenname |
+    | Nome | utilizador.sobrenome |
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917e70374007d230c4a675f882457b05ba3a021b
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 01ad3a1fb23aac9badefcef7414521e014476eef
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607019"
+ms.locfileid: "85799569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Diretório Ativo Azure com a EthicsPoint Incident Management (EPIM)
 
@@ -108,10 +108,10 @@ Para configurar o Azure AD um único sinal de insuflação com a EthicsPoint Inc
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<companyname>.navexglobal.com
-        https://<companyname>.ethicspointvp.com
-        ```
+    ```http
+    https://<companyname>.navexglobal.com
+    https://<companyname>.ethicspointvp.com
+    ```
 
     b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão:`https://<companyname>.navexglobal.com/adfs/services/trust`
 

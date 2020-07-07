@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09bb4cfb62217ffa16d30170ce2aa5e065a7eae6
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: c8529e1ea08707d9a60ec43d3fa569bdc7f5b7bf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607907"
+ms.locfileid: "85799308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Azure Ative Directory com Brightspace by Desire2Learn
 
@@ -108,10 +108,10 @@ Para configurar o único sign-on Ad Ad ad com Brightspace by Desire2Learn, execu
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://<companyname>.tenants.brightspace.com/samlLogin
-        https://<companyname>.desire2learn.com/shibboleth-sp
-        ```
+    ```http
+    https://<companyname>.tenants.brightspace.com/samlLogin
+    https://<companyname>.desire2learn.com/shibboleth-sp
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 

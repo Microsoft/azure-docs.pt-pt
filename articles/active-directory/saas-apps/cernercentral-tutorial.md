@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f0895cbad547dbbb4ab040e69f1963c95df425
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 4690269775d68b23fd7b7d8c14b94c6188832934
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607502"
+ms.locfileid: "85799282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: Integração do Diretório Ativo Azure com a Cerner Central
 
@@ -109,17 +109,17 @@ Para configurar o Azure AD com a Cerner Central, execute os seguintes passos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
-        https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
-        ```
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
-        https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
-        ```
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
+    ```
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de apoio ao Cliente Central da Cerner](mailto:SISupport@cbre.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85338189"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
@@ -114,7 +114,7 @@ Os pacotes de acesso não substituem outros mecanismos de acesso.  São mais ade
 
 Para melhor compreender a gestão de direitos e a sua documentação, pode remeter para a seguinte lista de termos.
 
-| Termo | Descrição |
+| Termo | Description |
 | --- | --- |
 | pacote de acesso | Um conjunto de recursos que uma equipa ou projeto precisa e é governado com políticas. Um pacote de acesso está sempre contido num catálogo. Criaria um novo pacote de acesso para um cenário em que os utilizadores precisam de pedir acesso.  |
 | pedido de acesso | Um pedido de acesso aos recursos num pacote de acesso. Um pedido normalmente passa por um fluxo de trabalho de aprovação.  Se aprovado, o utilizador que solicita recebe uma atribuição de pacote de acesso. |

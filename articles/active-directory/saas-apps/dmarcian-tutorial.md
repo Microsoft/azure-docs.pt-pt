@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a09610fa7855dfa2be71e3736371f8f45078f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: e8ad669f092fac0cc2e737d93ccc9d225ef57adf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607120"
+ms.locfileid: "85799552"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Tutorial: Integrar dmarcian com Diretório Ativo Azure
 
@@ -85,29 +85,29 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        ```
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
 
-        ```https
-        https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
-        https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
-        https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
-        ```
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://us.dmarcian.com/login/<ACCOUNT_ID>
-        https://dmarcian-eu.com/login/<ACCOUNT_ID>
-        https://dmarciam-ap.com/login/<ACCOUNT_ID>
-        ```
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
      
     > [!NOTE] 
     > Estes valores não são reais. Irá atualizar estes valores com o identificador real, URL de resposta e URL de inscrição, que é explicado mais tarde no tutorial.
