@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383050"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087427"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Use o serviço Azure Kubernetes com Apache Kafka em HDInsight
 
@@ -223,7 +223,7 @@ Neste momento, o Serviço Kafka e Azure Kubernetes estão em comunicação atrav
     > [!WARNING]  
     > Pode receber várias cópias de uma mensagem. Este problema geralmente acontece quando você atualiza o seu navegador após a ligação, ou abre várias ligações de navegador à aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 

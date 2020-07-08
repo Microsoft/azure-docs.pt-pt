@@ -11,14 +11,82 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607878"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086309"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="text-to-speech-2020-july-release"></a>Lançamento de texto-a-discurso 2020-julho
+
+### <a name="new-features"></a>Novas funcionalidades
+
+* **TTS neurais, 15 novas vozes neurais**: As novas vozes adicionadas ao portfólio neural TTS são Salma em árabe (Egito), Zariyah em árabe (Arábia Saudita), Alba em catalão (Espanha), Christel em dinamarquês (Dinamarca), Neerja em inglês (Índia), Swara em Hindi (Índia), Colette em holandês (Holanda), Zof é polaca (Polónia), Fernanda em português (Portugal), Dariya em russo (Rússia), Hillevi em sueco (Suécia), Achara em tailandês (Tailândia), Iselin Norueguês (Bokmål) em (Noruega), HiuGaai em chinês (Hongkong) e HsiaoYu em chinês (Taiwan). Verifique todas as [línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)  
+
+* **Voz Personalizada, testes de voz simplificados com o fluxo de treino para simplificar a experiência**do utilizador : Com a nova funcionalidade de teste, cada voz será automaticamente testada com um conjunto de testes pré-definido otimizado para cada idioma para cobrir cenários gerais e assistentes de voz. Estes conjuntos de testes são cuidadosamente selecionados e testados para incluir casos de uso típicos e fones de telefone no idioma. Além disso, os utilizadores ainda podem selecionar para carregar os seus próprios scripts de teste ao treinar um modelo.
+
+* **Audio Content Creation: um conjunto de novas funcionalidades são lançadas para permitir capacidades de afinação de voz e gestão de áudio mais poderosas**
+
+    * `Pitch`, `rate` e `volume` são melhorados para suportar a sintonização com um valor predefinido, como lento, médio e rápido. Agora é simples para os utilizadores escolherem um valor 'constante' para a sua edição de áudio.
+
+    ![Afinação de áudio](media/release-notes/audio-tuning.png)
+
+    * Os utilizadores podem agora rever o `Audio history` seu ficheiro de trabalho. Com esta funcionalidade, os utilizadores podem facilmente rastrear todo o áudio gerado relacionado com um ficheiro de trabalho. Podem verificar a versão histórica e comparar a qualidade enquanto afinam ao mesmo tempo. 
+
+    ![História do áudio](media/release-notes/audio-history.png)
+
+    * A `Clear` funcionalidade é agora mais flexível. Os utilizadores podem limpar um parâmetro de sintonização específico, mantendo outros parâmetros disponíveis para o conteúdo selecionado.  
+
+    * Um vídeo tutorial foi adicionado na [página de aterragem](https://speech.microsoft.com/audiocontentcreation) para ajudar os utilizadores a começar rapidamente com a afinação de voz TTS e gestão de áudio. 
+
+### <a name="general-tts-voice-quality-improvements"></a>Melhorias gerais da qualidade da voz TTS
+
+* Melhor vocoder TTS para uma maior fidelidade e menor latência.
+
+    * A Elsa atualizou a Elsa em italiano para um novo vocoder que alcançou +0,464 CMOS (Comparative Mean Opinion Score) ganho na qualidade de voz, 40% mais rápido na síntese e 30% na primeira latência byte. 
+    * Atualizado Xiaoxiao em chinês para o novo vocoder com +0148 CMOS ganho para o domínio geral, +0.348 para o estilo de noticiário e +0.195 para o estilo lírico. 
+
+* Modelos `de-DE` atualizados e `ja-JP` de voz para tornar a saída TTS mais natural.
+    
+    * Atualizado Katja em alemão com o mais recente método de modelação de prosody, o ganho de MOS (Mean Opinion Score) é de +0.13. 
+    * Nanami atualizado em japonês com um novo modelo de prosody de sotaque de tom, o ganho MOS (Mean Opinion Score) é +0.19;  
+
+* Melhor precisão da pronúncia ao nível da palavra em 5 línguas.
+
+    | Linguagem | Redução do erro de pronúncia |
+    |---|---|
+    | en-GB | 51% |
+    | ko-KR | 17% |
+    | pt-BR | 39% |
+    | pt-PT | 77% |
+    | id-ID | 46% |
+
+### <a name="bug-fixes"></a>Correções de erros
+
+* Leitura cambial
+    * Corrigiu a questão com a leitura da moeda para `es-ES` e`es-MX`
+     
+    | Linguagem | Entrada | Leitura após melhoria |
+    |---|---|---|
+    | es-MX | $1,58 | un peso cincuenta y ocho centavos |
+    | es-ES | $1,58 | un dólar cincuenta y ocho centavos |
+
+    * Apoio à moeda negativa (como "-325€" ) nos locais seguintes: `en-US` , , , . . `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
+
+* Melhor leitura de endereço em `pt-PT` .
+* Problemas `en-AU` fixos de pronúncia natasha e Libby `en-UK` sobre a palavra "para" e "quatro".  
+* Bugs fixos na ferramenta de criação de conteúdo sonoro
+    * A pausa adicional e inesperada após a fixação do segundo parágrafo.  
+    * A função 'no break' é adicionada de volta de um bug de regressão. 
+    * A emissão de atualização aleatória do Estúdio de Fala é corrigida.  
+
+### <a name="samplessdk"></a>Amostras/SDK
+
+* JavaScript: Corre o problema de reprodução no FireFox e o Safari no macOS e iOS. 
+
 ## <a name="speech-sdk-1121-2020-june-release"></a>Discurso SDK 1.12.1: Lançamento 2020-junho
 **Discurso CLI (também conhecido como SPX)**
 -   Adicionados recursos de pesquisa in-CLI ajudam a pesquisar:
@@ -33,7 +101,7 @@ ms.locfileid: "84607878"
 
 **Correções de bugs**
 -   **C \# , C++**: A gravação fixa do microfone não estava a funcionar em 1.12 no reconhecimento do altifalante.
--   **JavaScript**: Correções para texto-a-voz no FireFox, e Safari no MacOS e iOS.
+-   **JavaScript**: Correções para texto-a-voz no FireFox e Safari em macOS e iOS.
 -   Correção para falha de verificação de verificação de aplicações do Windows na transcrição da transcrição da conversação quando utilizar o fluxo de 8 canais.
 -   Correção para falha de violação de acesso a aplicações do Windows na tradução de conversação de vários dispositivos.
 
@@ -215,7 +283,7 @@ Mantenha-se saudável!
 - Suporte `Compressed` de entrada adicionado para ALaw, Mulaw, FLAC no Android, iOS e Linux
 - Adicionado `SendMessageAsync` na aula para enviar uma `Connection` mensagem ao serviço
 - Adicionado `SetMessageProperty` na classe para definir propriedade de uma `Connection` mensagem
-- TTS acrescentou encadernações para Java (Jre e Android), Python, Swift e Objective-C
+- TTS acrescentou encadernações para Java (JRE e Android), Python, Swift e Objective-C
 - O TTS adicionou suporte de reprodução para macOS, iOS e Android.
 - Acrescentou informação de "limite de palavras" para TTS.
 
@@ -412,7 +480,7 @@ Esta é uma versão apenas para JavaScript. Não foram adicionados recursos. For
   - A versão Beta do suporte Python (3.5 ou superior) está disponível com esta versão. Para mais informações, consulte aqui[quickstart-python.md).
 - JavaScript
   - O SDK de discurso para JavaScript foi de origem aberta. O código fonte está disponível no [GitHub.](https://github.com/Microsoft/cognitive-services-speech-sdk-js)
-  - Agora apoiamos Node.js, mais informações podem ser encontradas [aqui.](quickstart-js-node.md)
+  - Agora apoiamos Node.js, mais informações podem ser [encontradas aqui.](quickstart-js-node.md)
   - A restrição de comprimento das sessões de áudio foi removida, a reconexão acontecerá automaticamente sob a capa.
 - `Connection`objeto
   - A partir `Recognizer` do, você pode aceder a um `Connection` objeto. Este objeto permite-lhe iniciar explicitamente a ligação de serviço e subscrever eventos de ligação e desconexão.
@@ -443,7 +511,7 @@ Esta é uma versão apenas para JavaScript. Não foram adicionados recursos. For
 **Amostras**
 
 - Atualizaram e fixaram várias amostras (por exemplo, vozes de saída para tradução, etc.).
-- Adicione amostras de Node.js no [repositório](https://aka.ms/csspeech/samples)de amostras.
+- Adicionou Node.js [amostras no repositório de amostras.](https://aka.ms/csspeech/samples)
 
 ## <a name="speech-sdk-110"></a>Discurso SDK 1.1.0
 

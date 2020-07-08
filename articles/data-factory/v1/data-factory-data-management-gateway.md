@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188297"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087083"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -246,7 +247,9 @@ A aplicação **'Credenciais de Definição'** utiliza a porta de entrada **8050
 
 Se estiver a utilizar uma firewall de terceiros, pode abrir manualmente a porta 8050. Se encontrar um problema de firewall durante a configuração do gateway, pode tentar utilizar o seguinte comando para instalar o gateway sem configurar a firewall.
 
-    msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```cmd
+msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```
 
 Se optar por não abrir a porta 8050 na máquina de gateway, utilize mecanismos que não utilizem a aplicação **'Definição de Credenciais'** para configurar credenciais de armazenamento de dados. Por exemplo, pode utilizar [o cmdlet New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell. Consulte a secção de Definição de Credenciais e Segurança sobre a forma como as credenciais de armazenamento de dados podem ser definidas.
 

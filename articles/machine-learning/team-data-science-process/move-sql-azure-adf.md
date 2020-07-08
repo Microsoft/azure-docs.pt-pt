@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194412"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086658"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Mover dados de uma base de dados do SQL Server para a Base de Dados SQL com Azure Data Factory
 
@@ -139,7 +140,9 @@ Os nomes das colunas não foram incluídos aqui. Pode subselectar os nomes das c
 
 Copie a definição JSON da tabela num ficheiro chamado *onpremtabledef.jsem* ficheiro e guarde-a para um local conhecido (aqui assumiu-se *queC:\temp\onpremtabledef.js).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```
 
 
 ### <a name="blob-table"></a><a name="adf-table-blob-store"></a>Mesa Blob
@@ -172,7 +175,9 @@ A definição para a tabela para a localização do blob de saída está no segu
 
 Copie a definição JSON da tabela num ficheiro chamado *bloboutputtabledef.jsem* ficheiro e guarde-a para um local conhecido (aqui assumiu-se *queC:\temp\bloboutputtabledef.js).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```
 
 ### <a name="sql-azure-table"></a><a name="adf-table-azure-sql"></a>Mesa Azure SQL
 A definição para a tabela para a saída SQL Azure está no seguinte (este esquema mapeia os dados provenientes da bolha):
@@ -204,7 +209,9 @@ A definição para a tabela para a saída SQL Azure está no seguinte (este esqu
 
 Copie a definição JSON da tabela num ficheiro chamado *AzureSqlTable.jsem* ficheiro e guarde-a para um local conhecido (aqui assumiu-se *queC:\temp\AzureSqlTable.js).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```
 
 
 ## <a name="define-and-create-the-pipeline"></a><a name="adf-pipeline"></a>Definir e criar o gasoduto
@@ -289,13 +296,17 @@ Utilizando as definições de tabela fornecidas anteriormente, a definição de 
 
 Copie esta definição JSON do gasoduto num ficheiro chamado *pipelinedef.jsem* ficheiro e guarde-o para um local conhecido (aqui assumido como *C:\temp\pipelinedef.js).* Criar o gasoduto em ADF com o seguinte cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```azurepowershell
+New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```
 
 
 ## <a name="start-the-pipeline"></a><a name="adf-pipeline-start"></a>Inicie o Pipeline
 O gasoduto pode agora ser executado utilizando o seguinte comando:
 
-    Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```azurepowershell
+Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```
 
 Os valores dos parâmetros de *data de início* e de fim de *data* devem ser substituídos pelas datas reais entre as quais pretende que o gasoduto seja executado.
 

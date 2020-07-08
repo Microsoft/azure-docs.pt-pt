@@ -11,16 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708687"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087578"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Neste artigo, você aprende sobre os métodos para migrar um SQL Server 2005 ou posterior instância de versão para [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Para obter informações sobre migração para uma única base de dados ou piscina elástica, consulte [Migrar para uma base de dados única ou agamada.](../database/migrate-to-database-from-sql-server.md) Para obter informações sobre migração de outras plataformas, consulte [o Guia de Migração da Base de Dados Azure.](https://datamigration.microsoft.com/)
+Neste artigo, você aprende sobre os métodos para migrar um SQL Server 2005 ou posterior instância de versão para [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Para obter informações sobre migração para uma única base de dados ou piscina elástica, consulte [Migrar para a Base de Dados SQL](../database/migrate-to-database-from-sql-server.md). Para obter informações sobre migração de outras plataformas, consulte [o Guia de Migração da Base de Dados Azure.](https://datamigration.microsoft.com/)
 
 > [!NOTE]
 > Se quiser começar rapidamente e experimentar a Azure SQL Managed Instance, talvez queira ir ao [guia de arranque rápido](quickstart-content-reference-guide.md) em vez desta página.

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: tracking-python
-ms.openlocfilehash: a20cbf14ea2aa2475f25236615b85d6697ce252b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704867"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087134"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -71,7 +71,7 @@ Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o 
 
 ## <a name="connect-to-an-azure-account"></a>Ligue-se a uma conta Azure
 
-Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdio Visual, tem de ligar-se à sua conta Azure ou ligar um cluster. Utilize o nome de utilizador apache Ambari e credenciais de senha ou uma conta de domínio. Siga estes passos para ligar a Azure:
+Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdio Visual, o utilizador pode iniciar sposição na subscrição do Azure ou [ligar um cluster HDInsight](#link-a-cluster). Utilize o nome de utilizador/palavra-passe ambari ou a credencial de domínio para o cluster ESP ligar ao seu cluster HDInsight. Siga estes passos para ligar a Azure:
 
 1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Azure: Iniciar Sedura**:
 
@@ -292,6 +292,21 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
 Depois de submeter um trabalho python, os registos de submissão aparecem na janela **OUTPUT** no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
 
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integre-se com o HdInsight Identity Broker (HIB)
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Conecte-se ao seu cluster HDInsight ESP com o ID Broker (HIB)
+
+Pode seguir os passos normais para iniciar seducação na subscrição do Azure para ligar ao seu cluster HDInsight ESP com o ID Broker (HIB). Após o sinstrução, verá a lista de clusters no Azure Explorer. Para obter mais instruções, consulte [Connect to your HDInsight cluster](#connect-to-an-azure-account).
+
+### <a name="run-a-hivepyspark-job-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Executar um trabalho de Hive/PySpark num cluster HDInsight ESP com ID Broker (HIB)
+
+Para executar um trabalho de colmeia, pode seguir os passos normais para submeter o trabalho ao cluster HDInsight ESP com ID Broker (HIB). Consulte [as consultas interativas de Colmeia e os scripts do lote de Colmeia](#submit-interactive-hive-queries-and-hive-batch-scripts) para obter mais instruções.
+
+Para executar um trabalho pySpark interativo, você pode seguir os passos normais para submeter o trabalho ao cluster HDInsight ESP com ID Broker (HIB). Consulte [as consultas interativas do PySpark](#submit-interactive-pyspark-queries) para obter mais instruções.
+
+Para executar uma função de lote PySpark, pode seguir os passos normais para submeter o trabalho ao cluster HDInsight ESP com ID Broker (HIB). Consulte o [trabalho de lote PySpark](#submit-pyspark-batch-job) para obter mais instruções.
+
+
 ## <a name="apache-livy-configuration"></a>Configuração Apache Livy
 
 A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada. Pode configurá-lo no **.VSCode\settings.jsarquivado na** pasta do espaço de trabalho. Atualmente, a configuração livy apenas suporta o script Python. Para mais informações, consulte [Livy README.](https://github.com/cloudera/livy/blob/master/README.rst )
@@ -423,7 +438,7 @@ Ao submeter o trabalho a um cluster HDInsight, é solicitado a ligar o cluster s
   >
   >![Ferramentas de hive & para leitor de código de estúdio visual ligado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
-## <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
+## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Navegue numa conta Gen2 de armazenamento de dados
 
@@ -458,6 +473,6 @@ A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois ins
 
 ![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

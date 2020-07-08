@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 2163a6e47767f6ce990526c7ececb7b4b554bf4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708504"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086403"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,8 +29,8 @@ A replicação transacional é uma característica do Azure SQL Managed Instance
 Pode utilizar a replicação transacional para impulsionar as alterações efetuadas numa Instância Gerida Azure SQL para:
 
 - Uma base de dados SQL Server - no local ou no Azure VM
-- Uma base de dados única ou agrizada na Base de Dados Azure SQL
-- Uma base de dados única ou agrizada em Azure SQL Managed Instance
+- Uma base de dados na Base de Dados Azure SQL
+- Uma base de dados de casos em Azure SQL GestdEd Instance
 
   > [!NOTE]
   > Para utilizar todas as funcionalidades do Azure SQL Managed Instance, deve utilizar as versões mais recentes do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e das Ferramentas de [Dados do Servidor SQL (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
@@ -136,7 +137,7 @@ Editor e distribuidor são configurados em duas instâncias geridas. Existem alg
 
 Nesta configuração, uma base de dados na Base de Dados Azure SQL ou Azure SQL Managed Instance é um assinante. Esta configuração suporta a migração de instalações para Azure. Se um assinante for uma base de dados na Base de Dados Azure SQL, deve estar no modo de pressão.  
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 - Utilize a autenticação SQL para conectividade entre os participantes da replicação.
 - Utilize uma parte da Conta de Armazenamento Azure para o diretório de trabalho utilizado por replicação.

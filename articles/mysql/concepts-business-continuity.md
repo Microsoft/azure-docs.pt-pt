@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537232"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086556"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Compreender a continuidade do negócio na Base de Dados Azure para o MySQL
 
@@ -48,7 +48,11 @@ A outra opção é utilizar a Base de Dados Azure para a funcionalidade de geo-r
 > [!IMPORTANT]
 > O geo-restauro só é possível se forte o servidor com armazenamento de backup geo-redundante. Se desejar mudar de cópias de segurança locais redundantes para geo-redundantes para um servidor existente, deve descarregar usando o mysqldump do seu servidor existente e restaurá-lo para um servidor recém-criado configurado com cópias de segurança geo-redundantes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="cross-region-read-replicas"></a>Réplicas de leitura transversal
+
+Você pode usar réplicas de leitura de região cruzada para melhorar o seu plano de continuidade e recuperação de desastres. As réplicas de leitura são atualizadas assíncronea usando a tecnologia binária de replicação de registos do MySQL. Saiba mais sobre réplicas lidas, regiões disponíveis e como falhar a partir do artigo de [conceitos de réplicas lidos.](concepts-read-replicas.md) 
+
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [cópias de segurança automáticas na Base de Dados Azure para o MySQL](concepts-backup.md).
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).

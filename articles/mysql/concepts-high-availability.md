@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50bf1502589ea0932fd45367c039e6e37135d761
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532778"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086063"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de alta disponibilidade na Base de Dados Azure para o MySQL
 A Base de Dados Azure para o serviço MySQL proporciona um elevado nível de disponibilidade garantido. O contrato de nível de serviços com apoio financeiro (SLA) é de 99,99% em termos de disponibilidade geral. Não existe praticamente nenhum tempo de insusição de aplicação ao utilizar este serviço.
@@ -29,8 +29,8 @@ Internamente em Azure, um gateway é usado para redirecionar as ligações para 
 ## <a name="scaling-up-or-down"></a>Escalonamento para cima ou para baixo
 Semelhante ao modelo HA, quando uma Base de Dados Azure para o MySQL é dimensionada para cima ou para baixo, uma nova instância do servidor com o tamanho especificado é criada. O armazenamento de dados existente é separado da instância original, e anexado à nova instância.
 
-Durante a operação de escala, ocorre uma interrupção das ligações da base de dados. As aplicações do cliente estão desligadas e as transações abertas não comprometidas são canceladas. Uma vez que a aplicação do cliente recauchuta a ligação, ou faz uma nova ligação, o gateway direciona a ligação para a nova instância de tamanho. 
+Durante a operação de escala, ocorre uma interrupção das ligações da base de dados. As aplicações do cliente estão desligadas e as transações abertas não comprometidas são canceladas. Uma vez que a aplicação do cliente recauchuta a ligação, ou faz uma nova ligação, o gateway direciona a ligação para a nova instância de tamanho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [lidar com erros de conectividade transitórios](concepts-connectivity.md)
 - Saiba como [replicar os seus dados com réplicas lidas](howto-read-replicas-portal.md)

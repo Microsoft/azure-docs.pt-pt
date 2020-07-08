@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49f3f44c7de8c700d0093c5eb6f166a1dffb34a4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918194"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087253"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível desktop remoto para Azure Virtual Machines por causa de IP estático
 
@@ -55,18 +56,27 @@ Para resolver este problema, utilize o controlo de série para ativar a interfac
 ). Se a Consola em Série não estiver ativada no seu VM, consulte [a interface de rede Reset](reset-network-interface.md).
 2. Verifique se o DHCP está desativado na interface de rede:
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
+
 3. Se o DHCP estiver desativado, reverta a configuração da sua interface de rede para utilizar o DHCP:
 
-        netsh interface ip set address name="<NIC Name>" source=dhc
+    ```console
+    netsh interface ip set address name="<NIC Name>" source=dhc
+    ```
 
     Por exemplo, se a interface inter-trabalhar nomear "Ethernet 2", executar o seguinte comando:
 
-        netsh interface ip set address name="Ethernet 2" source=dhc
+    ```console
+    netsh interface ip set address name="Ethernet 2" source=dhc
+    ```
 
 4. Consultar novamente a configuração IP para se certificar de que a interface de rede está agora corretamente configurada. O novo endereço IP deve corresponder ao fornecido pelo Azure.
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
 
     Não tens de reiniciar o VM neste momento. O VM voltará a ser alcançável.
 

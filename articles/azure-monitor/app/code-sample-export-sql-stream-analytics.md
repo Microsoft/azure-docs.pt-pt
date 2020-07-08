@@ -3,12 +3,12 @@ title: Exportação para SQL a partir de Azure Application Insights / Microsoft 
 description: Exportar continuamente dados de Insights de Aplicação para SQL usando Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 811d86c0a9b8e55f548046402885e2ec5967c477
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254689"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087236"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exportação para SQL a partir de Insights de Aplicação usando Stream Analytics
 Este artigo mostra como mover os seus dados de telemetria da [Azure Application Insights][start] para a Base de Dados Azure SQL utilizando [a Continuação exportação][export] e [o Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -77,14 +77,14 @@ Mais uma vez a partir da sua subscrição no [portal Azure,][portal]crie a base 
 
 ![Novo, Dados, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-Certifique-se de que o servidor de base de dados permite o acesso aos serviços Azure:
+Certifique-se de que o servidor permite o acesso aos serviços Azure:
 
 ![Procurar, Servidores, o seu servidor, Definições, Firewall, Permitir acesso ao Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-db"></a>Criar uma tabela em Azure SQL DB
+## <a name="create-a-table-in-azure-sql-database"></a>Criar uma tabela na Base de Dados Azure SQL
 Ligue à base de dados criada na secção anterior com a sua ferramenta de gestão preferida. Nesta passagem, estaremos a utilizar [ferramentas de gestão de servidores SQL](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
-![](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
+![Ligar à Base de Dados SQL do Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
 Crie uma nova consulta e execute o seguinte T-SQL:
 
@@ -126,7 +126,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-![](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
+![Criar PageViewsTable](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
 
 Nesta amostra, estamos a usar dados a partir de visualizações de página. Para ver os outros dados disponíveis, inspecione a sua saída JSON e consulte o modelo de dados de [exportação.](../../azure-monitor/app/export-data-model.md)
 
@@ -135,7 +135,7 @@ A partir do [portal Azure,](https://portal.azure.com/)selecione o serviço Azure
 
 ![Definições de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/code-sample-export-sql-stream-analytics/SA002.png)
+![Novo trabalho de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Quando o novo trabalho for criado, selecione **Ir para o recurso**.
 
@@ -157,7 +157,9 @@ Agora vai precisar da chave de acesso primário da sua conta de armazenamento, q
 
 O Padrão do Prefixo do Caminho especifica como o Stream Analytics encontra os ficheiros de entrada no armazenamento. É necessário defini-lo para corresponder à forma como a Exportação Contínua armazena os dados. Definir assim:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```sql
+webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```
 
 Neste exemplo:
 
@@ -235,9 +237,10 @@ Pode escolher se deve começar a processar os dados a partir de agora ou começa
 
 Após alguns minutos, volte às Ferramentas de Gestão do Servidor SQL e veja os dados a fluir. Por exemplo, use uma consulta como esta:
 
-    SELECT TOP 100 *
-    FROM [dbo].[PageViewsTable]
-
+```sql
+SELECT TOP 100 *
+FROM [dbo].[PageViewsTable]
+```
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Exportação para Power BI usando Stream Analytics](../../azure-monitor/app/export-power-bi.md )

@@ -5,13 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: abedaf6f66bdd7aea36512c90bb5ee799f8e7a99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800949"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086675"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar aparelho virtual de rede em Azure HDInsight
 

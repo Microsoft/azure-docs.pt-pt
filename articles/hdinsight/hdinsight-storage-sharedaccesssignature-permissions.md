@@ -1,51 +1,51 @@
 ---
-title: Restringir o acesso usando assinaturas de acesso partilhado - Azure HDInsight
-description: Saiba como usar assinaturas de acesso partilhado para restringir o acesso ao HDInsight aos dados armazenados em blobs de armazenamento Azure.
+title: Restringir o acesso usando assinaturas de acesso compartilhado - Azure HDInsight
+description: Saiba como utilizar assinaturas de acesso partilhado para restringir o acesso hdInsight aos dados armazenados em bolhas de armazenamento Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 77314514ca26997fecd6b5d7c6ba1fc7d14c2584
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3756e7d1f58c37038347888a21d98326cd4eb71f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209065"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087457"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar Assinaturas de Acesso Partilhado do Armazenamento do Azure para restringir o acesso aos dados no HDInsight
 
-O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associadas ao cluster. Pode utilizar assinaturas de acesso partilhado no recipiente blob para restringir o acesso aos dados. As Assinaturas de Acesso Partilhado (SAS) são uma característica das contas de armazenamento do Azure que lhe permite limitar o acesso aos dados. Por exemplo, fornecer acesso apenas a leitura a dados.
+O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associadas ao cluster. Pode utilizar assinaturas de acesso partilhado no recipiente blob para restringir o acesso aos dados. As Assinaturas de Acesso Partilhado (SAS) são uma funcionalidade das contas de armazenamento Azure que lhe permite limitar o acesso aos dados. Por exemplo, fornecer acesso apenas de leitura aos dados.
 
 > [!IMPORTANT]  
-> Para uma solução utilizando o Apache Ranger, considere utilizar o HDInsight de domínio. Para mais informações, consulte o documento [HDInsight unido ao domínio Configure.](./domain-joined/apache-domain-joined-configure.md)
+> Para obter uma solução utilizando o Apache Ranger, considere utilizar o HDInsight de domínio. Para obter mais informações, consulte o documento [HDInsight de domínio de Configuração.](./domain-joined/apache-domain-joined-configure.md)
 
 > [!WARNING]  
 > O HDInsight deve ter acesso total ao armazenamento predefinido para o cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Um recipiente de [armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)existente.  
 
 * Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/overview).
 
-* Se pretender utilizar o Azure CLI e ainda não o tiver instalado, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se quiser utilizar o Azure CLI e ainda não o instalou, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* Se utilizar [python](https://www.python.org/downloads/), versão 2.7 ou superior.
+* Se utilizar [Python](https://www.python.org/downloads/), versão 2.7 ou superior.
 
-* Se utilizar c#, o Visual Studio deve ser a versão 2013 ou superior.
+* Se utilizar C#, o Visual Studio deve ser versão 2013 ou superior.
 
-* O esquema URI para a sua conta de armazenamento. Este esquema `wasb://` seria para o `abfs://` Armazenamento Azure, para `adl://` o Azure Data Lake Storage Gen2 ou para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Azure, o URI seria .
+* O esquema URI para a sua conta de armazenamento. Este esquema seria `wasb://` para o Azure Storage, `abfs://` para a Azure Data Lake Storage Gen2 ou `adl://` para a Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será `wasbs://` .
 
 * Um cluster HDInsight existente para adicionar uma Assinatura de Acesso Partilhado. Caso contrário, pode utilizar o Azure PowerShell para criar um cluster e adicionar uma Assinatura de Acesso Partilhado durante a criação do cluster.
 
-* Os ficheiros [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)exemplo de . Este repositório contém os seguintes itens:
+* Os ficheiros de exemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature) . Este repositório contém os seguintes itens:
 
-  * Um projeto do Estúdio Visual que pode criar um recipiente de armazenamento, política armazenada e SAS para uso com HDInsight
+  * Um projeto visual studio que pode criar um recipiente de armazenamento, política armazenada e SAS para uso com HDInsight
   * Um script Python que pode criar um recipiente de armazenamento, política armazenada e SAS para uso com HDInsight
   * Um script PowerShell que pode criar um cluster HDInsight e configurá-lo para usar o SAS. Uma versão atualizada é usada mais abaixo.
   * Um ficheiro de amostra:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
@@ -54,33 +54,33 @@ O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associa
 
 Existem duas formas de Assinaturas de Acesso Partilhado:
 
-* `Ad hoc`: O tempo de início, o tempo de validade e as permissões para o SAS são todos especificados no SAS URI.
+* `Ad hoc`: A hora de início, o prazo de validade e as permissões para o SAS estão todas especificadas no SAS URI.
 
-* `Stored access policy`: Uma política de acesso armazenada é definida num recipiente de recursos, como um recipiente de bolhas. Uma política pode ser utilizada para gerir constrangimentos para uma ou mais assinaturas de acesso partilhado. Quando associa um SAS a uma política de acesso armazenada, o SAS herda os constrangimentos - o tempo de início, o tempo de validade e as permissões - definidos para a política de acesso armazenada.
+* `Stored access policy`: Uma política de acesso armazenada é definida num recipiente de recursos, como um recipiente de bolhas. Uma política pode ser usada para gerir constrangimentos para uma ou mais assinaturas de acesso partilhadas. Quando associa um SAS a uma política de acesso armazenada, o SAS herda os constrangimentos - a hora de início, o tempo de validade e permissões - definidos para a política de acesso armazenada.
 
-A diferença entre as duas formas é importante para um cenário-chave: a revogação. Um SAS é um URL, para que qualquer pessoa que obtenha o SAS pode usá-lo. Não importa quem o pediu para começar. Se um SAS for publicado publicamente, pode ser usado por qualquer pessoa no mundo. Um SAS que é distribuído é válido até que uma de quatro coisas aconteça:
+A diferença entre as duas formas é importante para um cenário-chave: a revogação. Um SAS é um URL, para que qualquer pessoa que obtenha o SAS pode usá-lo. Não importa quem pediu para começar. Se um SAS for publicado publicamente, pode ser usado por qualquer pessoa no mundo. Um SAS que é distribuído é válido até que uma das quatro coisas aconteça:
 
 1. O prazo de validade especificado no SAS é atingido.
 
 2. O prazo de validade especificado na política de acesso armazenada referenciada pelo SAS é atingido. Os seguintes cenários fazem com que o prazo de validade seja atingido:
 
-    * O intervalo de tempo decorreu.
-    * A política de acesso armazenada é modificada para ter um tempo de validade no passado. Alterar o tempo de validade é uma forma de revogar o SAS.
+    * O intervalo de tempo passou.
+    * A política de acesso armazenada é modificada para ter um prazo de validade no passado. Alterar o prazo de validade é uma forma de revogar o SAS.
 
-3. A política de acesso armazenada referenciada pelo SAS é suprimida, o que é outra forma de revogar o SAS. Se recriar a política de acesso armazenada com o mesmo nome, todas as fichas SAS para a política anterior são válidas (se o prazo de validade no SAS não tiver passado). Se pretender revogar o SAS, certifique-se de que utiliza um nome diferente se recriar a política de acesso com um prazo de validade no futuro.
+3. A política de acesso armazenada referenciada pelo SAS é eliminada, o que é outra forma de revogar o SAS. Se recriar a política de acesso armazenada com o mesmo nome, todos os tokens SAS para a apólice anterior são válidos (se o prazo de validade do SAS não tiver passado). Se pretende renunciar ao SAS, não se esqueça de usar um nome diferente se recriar a política de acesso com um prazo de validade no futuro.
 
-4. A chave de conta que foi usada para criar o SAS é regenerada. Regenerar a chave faz com que todas as aplicações que utilizam a chave anterior falhem na autenticação. Atualize todos os componentes para a nova tecla.
+4. A chave de conta que foi usada para criar o SAS é regenerada. A regeneração da chave faz com que todas as aplicações que utilizem a chave anterior falhem na autenticação. Atualize todos os componentes para a nova chave.
 
 > [!IMPORTANT]  
-> Uma assinatura de acesso partilhado URI está associada à chave de conta utilizada para criar a assinatura, e à política de acesso armazenada associada (se houver). Se não for especificada a política de acesso armazenada, a única forma de revogar uma assinatura de acesso partilhado é alterar a chave da conta.
+> Uma assinatura de acesso partilhado URI está associada à chave de conta utilizada para criar a assinatura, e à política de acesso armazenada associada (se houver). Se não for especificada nenhuma política de acesso armazenada, a única forma de revogar uma assinatura de acesso partilhado é alterar a chave da conta.
 
-Recomendamos que utilize sempre políticas de acesso armazenadas. Ao utilizar as políticas armazenadas, pode revogar assinaturas ou prolongar a data de validade conforme necessário. Os passos neste documento utilizam políticas de acesso armazenadas para gerar SAS.
+Recomendamos que utilize sempre as políticas de acesso armazenadas. Ao utilizar as políticas armazenadas, pode revogar as assinaturas ou prolongar a data de validade, conforme necessário. Os passos neste documento utilizam políticas de acesso armazenadas para gerar SAS.
 
-Para obter mais informações sobre assinaturas de acesso partilhado, consulte [Compreender o modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para obter mais informações sobre assinaturas de acesso partilhado, consulte [compreender o modelo SAS.](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="create-a-stored-policy-and-sas"></a>Criar uma política armazenada e SAS
 
-Guarde o token SAS que é produzido no final de cada método. O símbolo será semelhante à seguinte saída:
+Salve o token SAS que é produzido no final de cada método. O token será semelhante à seguinte saída:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -88,7 +88,7 @@ Guarde o token SAS que é produzido no final de cada método. O símbolo será s
 
 ### <a name="using-powershell"></a>Com o PowerShell
 
-Substitua, `RESOURCEGROUP` `STORAGEACCOUNT` `STORAGECONTAINER` e com os valores adequados para o seu recipiente de armazenamento existente. Mude o `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` diretório para `-File` ou reveja o `Set-AzStorageblobcontent`parâmetro para conter o caminho absoluto para . Introduza o seguinte comando PowerShell:
+`RESOURCEGROUP` `STORAGEACCOUNT` Substitua, e pelos `STORAGECONTAINER` valores adequados para o seu recipiente de armazenamento existente. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou reveja o `-File` parâmetro para conter o caminho absoluto para `Set-AzStorageblobcontent` . Introduza o seguinte comando PowerShell:
 
 ```powershell
 $resourceGroupName = "RESOURCEGROUP"
@@ -152,9 +152,9 @@ Set-AzStorageblobcontent `
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
-A utilização de variáveis nesta secção baseia-se num ambiente Windows. Serão necessárias ligeiras variações para a festa ou outros ambientes.
+A utilização de variáveis nesta secção baseia-se num ambiente Windows. Serão necessárias ligeiras variações para a bash ou outros ambientes.
 
-1. `STORAGEACCOUNT`Substitua, `STORAGECONTAINER` e com os valores adequados para o seu recipiente de armazenamento existente.
+1. Substitua `STORAGEACCOUNT` , e `STORAGECONTAINER` pelos valores adequados para o seu recipiente de armazenamento existente.
 
     ```azurecli
     # set variables
@@ -171,14 +171,14 @@ A utilização de variáveis nesta secção baseia-se num ambiente Windows. Ser�
     az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
     ```
 
-2. Desloque a chave primária recuperada para uma variável para posterior utilização. Substitua `PRIMARYKEY` pelo valor recuperado no passo anterior e, em seguida, introduza o comando abaixo:
+2. Desa estale a chave primária recuperada para uma variável para posterior utilização. `PRIMARYKEY`Substitua-o pelo valor recuperado no passo anterior e, em seguida, introduza o comando abaixo:
 
     ```console
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. Mude o `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` diretório para `--file` ou reveja o `az storage blob upload`parâmetro para conter o caminho absoluto para . Executar os restantes comandos:
+3. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou reveja o `--file` parâmetro para conter o caminho absoluto para `az storage blob upload` . Execute os restantes comandos:
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -199,36 +199,36 @@ A utilização de variáveis nesta secção baseia-se num ambiente Windows. Ser�
 
 ### <a name="using-python"></a>Utilizar o Python
 
-Abra `SASToken.py` o ficheiro `storage_account_name` `storage_account_key`e `storage_container_name` substitua, e com os valores apropriados para o seu recipiente de armazenamento existente, e, em seguida, executar o script.
+Abra o `SASToken.py` ficheiro e `storage_account_name` substitua, e com os `storage_account_key` `storage_container_name` valores adequados para o seu recipiente de armazenamento existente, e, em seguida, execute o script.
 
-Poderá ter de `pip install --upgrade azure-storage` executar se receber `ImportError: No module named azure.storage`a mensagem de erro .
+Poderá ter de ser executado `pip install --upgrade azure-storage` se receber a mensagem de erro `ImportError: No module named azure.storage` .
 
 ### <a name="using-c"></a>Usando C\#
 
-1. Abra a solução no Estúdio Visual.
+1. Abra a solução no Visual Studio.
 
-2. No Solution Explorer, clique à direita no projeto **SASExample** e selecione **Propriedades**.
+2. No Solution Explorer, clique com o botão direito no projeto **SASExample** e selecione **Propriedades**.
 
 3. Selecione **Definições** e adicione valores para as seguintes entradas:
 
     |Item |Descrição |
     |---|---|
-    |Cadeia de conexão de armazenamento|A cadeia de ligação para a conta de armazenamento que pretende criar uma política armazenada e sas para. O formato `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` `myaccount` deve ser onde está `mykey` o nome da sua conta de armazenamento e é a chave para a conta de armazenamento.|
+    |ArmazenamentoConnectionString|O fio de ligação para a conta de armazenamento para a que pretende criar uma política armazenada e SAS para. O formato deve ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` onde está o nome da sua conta de armazenamento e é a chave para a conta de `myaccount` `mykey` armazenamento.|
     |ContainerName|O recipiente na conta de armazenamento a que pretende restringir o acesso.|
     |SASPolicyName|O nome a usar para a política armazenada para criar.|
-    |FileToUpload|O caminho para um ficheiro que é enviado para o recipiente.|
+    |FileToUpload|O caminho para um ficheiro que é enviado para o contentor.|
 
-4. Executar o projeto. Guarde o símbolo da política SAS, o nome da conta de armazenamento e o nome do contentor. Estes valores são utilizados ao associar a conta de armazenamento ao seu cluster HDInsight.
+4. Executar o projeto. Guarde o token da política SAS, o nome da conta de armazenamento e o nome do recipiente. Estes valores são utilizados ao associar a conta de armazenamento ao seu cluster HDInsight.
 
-## <a name="use-the-sas-with-hdinsight"></a>Utilize o SAS com HDInsight
+## <a name="use-the-sas-with-hdinsight"></a>Use o SAS com HDInsight
 
-Ao criar um cluster HDInsight, deve especificar uma conta de armazenamento primária. Também pode especificar contas de armazenamento adicionais. Ambos os métodos de adição de armazenamento requerem acesso total às contas de armazenamento e aos contentores utilizados.
+Ao criar um cluster HDInsight, deve especificar uma conta de armazenamento primário. Também pode especificar contas de armazenamento adicionais. Ambos os métodos de adição de armazenamento requerem acesso total às contas de armazenamento e aos recipientes utilizados.
 
-Utilize uma Assinatura de Acesso Partilhado para limitar o acesso ao contentor. Adicione uma entrada personalizada na configuração do **núcleo para** o cluster. Pode adicionar a entrada durante a criação de cluster utilizando powerShell ou após a criação de cluster usando Ambari.
+Utilize uma Assinatura de Acesso Partilhado para limitar o acesso ao contentor. Adicione uma entrada personalizada à configuração do **núcleo do site** para o cluster. Pode adicionar a entrada durante a criação do cluster usando PowerShell ou após a criação do cluster usando Ambari.
 
-### <a name="create-a-cluster-that-uses-the-sas"></a>Criar um cluster que utilize o SAS
+### <a name="create-a-cluster-that-uses-the-sas"></a>Criar um cluster que usa o SAS
 
-`RESOURCEGROUP`Substitua, `DEFAULTSTORAGEACCOUNT` `CLUSTERNAME` `STORAGECONTAINER`, `STORAGEACCOUNT`, `TOKEN` e com os valores apropriados. Introduza os comandos PowerShell:
+`CLUSTERNAME`Substitua, , , , , , e pelos `RESOURCEGROUP` `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` `TOKEN` valores apropriados. Insira os comandos PowerShell:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -338,66 +338,66 @@ Remove-AzResourceGroup `
 ```
 
 > [!IMPORTANT]  
-> Quando solicitado o nome e a senha de utilizador HTTP/s ou SSH, deve fornecer uma palavra-passe que satisfaça os seguintes critérios:
+> Quando solicitado para o nome de utilizador http/s ou SSH e palavra-passe, deve fornecer uma palavra-passe que satisfaça os seguintes critérios:
 >
 > * Deve ter pelo menos 10 caracteres de comprimento.
 > * Deve conter pelo menos um dígito.
 > * Deve conter pelo menos um carácter não alfanumérico.
-> * Deve conter pelo menos uma letra maiúscula ou minúscula.
+> * Deve conter pelo menos uma letra maiúscula ou inferior.
 
-Demora um pouco para que este guião esteja concluído, normalmente cerca de 15 minutos. Quando o script completa sem erros, o cluster foi criado.
+Leva um tempo para que este script esteja completo, geralmente cerca de 15 minutos. Quando o script termina sem erros, o cluster foi criado.
 
 ### <a name="use-the-sas-with-an-existing-cluster"></a>Utilize o SAS com um cluster existente
 
-Se tiver um cluster existente, pode adicionar o SAS à configuração **do núcleo do site** utilizando os seguintes passos:
+Se tiver um cluster existente, pode adicionar o SAS à configuração do **núcleo** utilizando os seguintes passos:
 
-1. Abra a UI web ambari para o seu cluster. O endereço para `https://YOURCLUSTERNAME.azurehdinsight.net`esta página é . Quando solicitado, autentica-se no cluster utilizando o nome de administrador (administrador) e a palavra-passe que usou ao criar o cluster.
+1. Abra a UI web Ambari para o seu cluster. O endereço desta página é `https://YOURCLUSTERNAME.azurehdinsight.net` . Quando solicitado, autente para o cluster utilizando o nome de administração (administrador) e a palavra-passe que utilizou ao criar o cluster.
 
-1. Navegue para **HDFS** > **Configs** > **Avançado** > Custom**core-site**.
+1. Navegue para **o núcleo**avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
 
-1. Expanda a secção **de core-site personalizado,** percorra até ao fim e, em seguida, selecione **adicionar propriedade...**. Utilize os seguintes valores para **chave** e **valor:**
+1. Expandir a secção **de núcleo personalizado,** deslocar até ao fim e, em seguida, selecionar **Adicionar propriedade...**. Utilize os seguintes valores para **Chave** e **Valor:**
 
     * **Chave:**`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Valor**: O SAS devolvido por um dos métodos anteriormente executados.
 
-    Substitua-a `CONTAINERNAME` com o nome do recipiente utilizado com a aplicação C# ou SAS. Substitua `STORAGEACCOUNTNAME` pelo nome da conta de armazenamento que usou.
+    `CONTAINERNAME`Substitua-o pelo nome do recipiente que utilizou pela aplicação C# ou SAS. `STORAGEACCOUNTNAME`Substitua-o pelo nome da conta de armazenamento que utilizou.
 
-    Selecione **Adicionar** para guardar esta chave e valor
+    **Selecione Adicionar** para guardar esta chave e valor
 
-1. Selecione o botão **Guardar** para evitar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionar acesso ao armazenamento SAS" por exemplo) e, em seguida, **selecione Guardar**.
+1. Selecione o botão **Guardar** para guardar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionar acesso ao armazenamento SAS" por exemplo) e, em seguida, **selecione Save**.
 
     Selecione **OK** quando as alterações estiverem concluídas.
 
    > [!IMPORTANT]  
-   > Deve reiniciar vários serviços antes que a mudança entre em vigor.
+   > Deve reiniciar vários serviços antes que a alteração entre em vigor.
 
-1. Aparecerá uma lista de **reinício.** Selecione **Reiniciar Todos os afetados** a partir da lista de lançamentos __e,__ em seguida, confirmar reiniciar tudo .
+1. Aparecerá uma lista de recuos do **Restart.** Selecione **Reiniciar todos os afetados** da lista de drop-down e, em seguida, __confirmar Recomeça tudo__.
 
     Repita este processo para **MapReduce2** e **YARN**.
 
-1. Uma vez reiniciados os serviços, selecione cada um deles e desative o modo de manutenção das Ações de **Serviço.**
+1. Uma vez reiniciado os serviços, selecione cada um deles e desative o modo de manutenção das Ações de **Serviço.**
 
 ## <a name="test-restricted-access"></a>Teste de acesso restrito
 
 Utilize os seguintes passos para verificar se só pode ler e listar itens na conta de armazenamento SAS.
 
-1. Ligue-se ao aglomerado. Substitua-o `CLUSTERNAME` pelo nome do seu cluster e introduza o seguinte comando:
+1. Ligue-se ao aglomerado. `CLUSTERNAME`Substitua-o pelo nome do seu cluster e introduza o seguinte comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Para listar o conteúdo do recipiente, utilize o seguinte comando a partir do pedido:
+2. Para listar o conteúdo do recipiente, utilize o seguinte comando a partir do aviso:
 
     ```bash
     hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     ```
 
-    Substitua `SASCONTAINER` pelo nome do recipiente criado para a conta de armazenamento SAS. Substitua `SASACCOUNTNAME` pelo nome da conta de armazenamento utilizada para o SAS.
+    `SASCONTAINER`Substitua-o pelo nome do recipiente criado para a conta de armazenamento SAS. `SASACCOUNTNAME`Substitua-a pelo nome da conta de armazenamento utilizada para o SAS.
 
     A lista inclui o ficheiro carregado quando o contentor e o SAS foram criados.
 
-3. Utilize o seguinte comando para verificar se pode ler o conteúdo do ficheiro. Substitua `SASCONTAINER` `SASACCOUNTNAME` o e como no passo anterior. Substitua `sample.log` pelo nome do ficheiro apresentado no comando anterior:
+3. Utilize o seguinte comando para verificar se pode ler o conteúdo do ficheiro. Substitua o `SASCONTAINER` e como no passo `SASACCOUNTNAME` anterior. `sample.log`Substitua-o pelo nome do ficheiro apresentado no comando anterior:
 
     ```bash
     hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
@@ -405,15 +405,15 @@ Utilize os seguintes passos para verificar se só pode ler e listar itens na con
 
     Este comando lista o conteúdo do ficheiro.
 
-4. Utilize o seguinte comando para transferir o ficheiro para o sistema de ficheiros local:
+4. Utilize o seguinte comando para descarregar o ficheiro para o sistema de ficheiros local:
 
     ```bash
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Este comando transfere o ficheiro para um ficheiro local chamado **testfile.txt**.
+    Este comando descarrega o ficheiro para um ficheiro local chamado **testfile.txt**.
 
-5. Utilize o seguinte comando para fazer o upload do ficheiro local para um novo ficheiro chamado **testupload.txt** no armazenamento SAS:
+5. Utilize o seguinte comando para enviar o ficheiro local para um novo ficheiro nomeado **testupload.txt** no armazenamento SAS:
 
     ```bash
     hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
@@ -421,17 +421,19 @@ Utilize os seguintes passos para verificar se só pode ler e listar itens na con
 
     Recebe uma mensagem semelhante ao seguinte texto:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
-    Este erro ocorre porque o local de armazenamento é apenas ler+lista. Utilize o seguinte comando para colocar os dados no armazenamento predefinido para o cluster, que é repreensível:
+    Este erro ocorre porque o local de armazenamento é apenas leitura+lista. Utilize o seguinte comando para colocar os dados no armazenamento predefinido para o cluster, que é preceitável:
 
     ```bash
     hdfs dfs -put testfile.txt wasbs:///testupload.txt
     ```
 
-    Desta vez, a operação deve ser concluída com sucesso.
+    Desta vez, a operação deve estar concluída com sucesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, aprenda outras formas de trabalhar com dados no seu cluster:
 

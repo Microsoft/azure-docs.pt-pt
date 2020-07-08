@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cee60a71f6f19e09194dc689f95999bb11faad3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64685328"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086471"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação HDInsight no Azure Marketplace
 Pode instalar uma aplicação Azure HDInsight num cluster HDInsight baseado em Linux. Neste artigo, aprenda a publicar uma aplicação HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -44,7 +44,7 @@ Estão envolvidos dois passos na publicação de aplicações no Mercado. Primei
 }
 ```
 
-| Campo | Description | Valores possíveis |
+| Campo | Descrição | Valores possíveis |
 | --- | --- | --- |
 | tipos |Os tipos de cluster com os quais a aplicação é compatível. |Hadoop, HBase, Storm, Spark (ou qualquer combinação destes) |
 | versões |Os tipos de cluster do HDInsight com os quais a aplicação é compatível. |3.4 |
@@ -96,7 +96,7 @@ Para publicar uma aplicação HDInsight:
 8. Faça o upload do ficheiro .zip que criou quando embalou a aplicação.  
 9. Selecione **Certificação de Pedidos.** A equipa de certificação da Microsoft analisa os ficheiros e certifica a topologia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [instalar aplicações HDInsight](hdinsight-apps-install-applications.md) nos seus clusters.
 * Aprenda a [instalar aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) e implemente uma aplicação HDInsight não publicada para o HDInsight.
 * Aprenda a usar a [Script Action para personalizar clusters HDInsight baseados em Linux](hdinsight-hadoop-customize-cluster-linux.md) e adicionar mais aplicações. 

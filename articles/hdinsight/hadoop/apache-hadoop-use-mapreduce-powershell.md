@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eb5817a3339494417bb426bfdccb09ae3ac7230
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75830076"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087780"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando PowerShell
 
@@ -78,7 +79,7 @@ Para ver as palavras e contagens produzidas pelo trabalho, abra o ficheiro **out
 > [!NOTE]  
 > Os ficheiros de saída de um trabalho do MapReduce são imutáveis. Por isso, se voltar a fazer esta amostra, tem de alterar o nome do ficheiro de saída.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Se nenhuma informação for devolvida quando o trabalho estiver concluído, ver erros para o trabalho. Para visualizar informações de erro para este trabalho, adicione o seguinte comando ao fim do ficheiro **mapreducejob.ps1.** Em seguida, guarde o ficheiro e reexame o script.
 

@@ -5,16 +5,16 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: troubleshooting
+ms.date: 06/05/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 76f109645e4a27e712066cec7010f2ac7eb6b507
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b0a8b30120b53a02402b3f55b893ac7f5d097ac2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411652"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102774"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Erro de início de sessão Não foram encontradas subscrições no portal do Azure ou no centro de contas do Azure
 

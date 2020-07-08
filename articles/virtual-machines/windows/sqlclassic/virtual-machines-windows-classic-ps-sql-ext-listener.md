@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4517a600acaf581ad240d634e89bba3984f835db
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75978186"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087338"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configure um ouvinte externo para grupos de disponibilidade em VMs do servidor Azure SQL
 > [!div class="op_single_selector"]
@@ -61,22 +62,26 @@ Deve criar um ponto final equilibrado para cada VM que hospeda uma réplica Azur
 5. Lançamento **Azure PowerShell**. Abre-se uma nova sessão PowerShell com os módulos administrativos Azure carregados.
 6. Executar **Get-AzurePublishSettingsFile**. Este cmdlet direciona-o para um navegador para descarregar um ficheiro de configurações de publicação para um diretório local. Pode ser solicitado para as suas credenciais de login para a sua assinatura Azure.
 7. Executar o comando **Import-AzurePublishSettingsFile** com o caminho do ficheiro de definições de publicação que descarregou:
-   
-        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
+    ```powershell
+    Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+    ```
+
     Uma vez importado o ficheiro de definições de publicação, pode gerir a sua subscrição Azure na sessão PowerShell.
     
 1. Copie o script PowerShell abaixo num editor de texto e desaprova os valores variáveis de acordo com o seu ambiente (foram fornecidos padrão para alguns parâmetros). Note que se o seu grupo de disponibilidade abrange regiões Azure, deve executar o script uma vez em cada datacenter para o serviço de nuvem e nós que residem nesse datacenter.
+
+    ```powershell
+    # Define variables
+    $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+    $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
    
-        # Define variables
-        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-   
-        # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
-        ForEach ($node in $AGNodes)
-        {
-            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
-        }
+    # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
+    ForEach ($node in $AGNodes)
+    {
+        Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+    }
+    ```
 
 2. Depois de definir as variáveis, copie o script do editor de texto para a sua sessão Azure PowerShell para executá-lo. Se a solicitação ainda mostrar >>, escreva ENTER novamente para se certificar de que o script começa a funcionar.
 
@@ -97,18 +102,21 @@ Crie o ouvinte do grupo de disponibilidade em dois passos. Em primeiro lugar, cr
 1. Para equilibrar cargas externas, deve obter o endereço IP virtual público do serviço de nuvem que contém as suas réplicas. Inicie sessão no portal do Azure. Navegue para o serviço de nuvem que contém o seu grupo de disponibilidade VM. Abra a vista **do painel de instrumentos.**
 2. Note o endereço indicado no **Endereço IP Virtual Público (VIP).** Se a sua solução abranger VNets, repita este passo para cada serviço de nuvem que contenha um VM que acolhe uma réplica.
 3. Num dos VMs, copie o script PowerShell abaixo num editor de texto e defina as variáveis para os valores que observou anteriormente.
+
+    ```powershell
+    # Define variables
+    $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
    
-        # Define variables
-        $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
+    Import-Module FailoverClusters
    
-        Import-Module FailoverClusters
+    # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
    
-        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
-   
-        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-        # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
+    # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    ```
+
 4. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell e, em seguida, copie o script do editor de texto e cole-o na sessão Azure PowerShell para executá-lo. Se a solicitação ainda mostrar >>, escreva ENTER novamente para se certificar de que o script começa a funcionar.
 5. Repita isto em cada VM. Este script configura o recurso IP Address com o endereço IP do serviço de nuvem e define outros parâmetros como a porta da sonda. Quando o recurso IP Address é trazido on-line, pode então responder à votação na porta da sonda a partir do ponto final equilibrado de carga criado anteriormente neste tutorial.
 
@@ -124,7 +132,9 @@ Crie o ouvinte do grupo de disponibilidade em dois passos. Em primeiro lugar, cr
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Teste o ouvinte do grupo de disponibilidade (através da internet)
 Para aceder ao ouvinte de fora da rede virtual, deve utilizar o equilíbrio de carga externa/pública (descrito neste tópico) em vez do ILB, que só é acessível dentro do mesmo VNet. Na cadeia de ligação, especifique o nome do serviço de assistência na nuvem. Por exemplo, se tivesse um serviço de nuvem com o nome *mycloudservice,* a declaração sqlcmd seria a seguinte:
 
-    sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```console
+sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```
 
 Ao contrário do exemplo anterior, a autenticação SQL deve ser utilizada, uma vez que o autor da chamada não pode utilizar a autenticação do Windows através da internet. Para mais informações, consulte [Sempre On Availability Group em Azure VM: Cenários de Conectividade do Cliente](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Ao utilizar a autenticação SQL, certifique-se de que cria o mesmo login em ambas as réplicas. Para obter mais informações sobre a resolução de logins com grupos de disponibilidade, consulte [como mapear logins ou utilizar o utilizador de base de dados SQL contido para ligar a outras réplicas e mapear bases de dados de disponibilidade.](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)
 

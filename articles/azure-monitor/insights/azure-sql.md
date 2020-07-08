@@ -7,11 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249420"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087185"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitor Azure SQL Database usando Azure SQL Analytics (Pré-visualização)
 
@@ -71,7 +72,7 @@ Quando adiciona a Azure SQL Analytics ao seu espaço de trabalho, o azulejo Azur
 
 ![Azulejo sumário Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Uma vez carregado, o azulejo mostra o número de bases de dados e piscinas elásticas na Base de Dados SQL e gestão de casos e bases de dados de casos em SQL Managed Instance a partir do qual a Azure SQL Analytics está a receber telemetria de diagnóstico.
+Uma vez carregado, o azulejo mostra o número de bases de dados e piscinas elásticas na Base de Dados SQL e casos e dados de dados de casos em SQL Managed Instance a partir do qual a Azure SQL Analytics está a receber telemetria de diagnóstico.
 
 ![Azulejo Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -105,7 +106,7 @@ Uma vez selecionado o azulejo Azure SQL Analytics para as bases de dados, é ind
 
 Selecionando qualquer um dos azulejos, abre um relatório de perfuração na perspetiva específica. Uma vez selecionada a perspetiva, o relatório de perfuração é aberto.
 
-Selecionando a visão SQL Managed Instance, mostra detalhes sobre a utilização de instâncias geridas, bases de dados que contém e telemetria nas consultas executadas em todo o caso.
+Selecionando a visão SQL Managed Instance, mostra detalhes sobre a utilização de casos, bases de dados de casos e telemetria nas consultas executadas em toda a instância gerida.
 
 ![Intervalos de análise Azure SQL](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
@@ -268,7 +269,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Pré-requisito para configurar este alerta é que monitorizada a instância gerida tem o streaming de registo de ResourceUsageStats ativado para Azure SQL Analytics.
+> - O pré-requisito da configuração deste alerta é que a instância gerida monitorizada tem o streaming de registo de ResourceUsageStats ativado para Azure SQL Analytics.
 > - Esta consulta requer que seja criada uma regra de alerta para disparar um alerta quando houver resultados (> 0 resultados) da consulta, denotando que a condição existe na instância gerida. A produção é o consumo percentual de armazenamento no caso gerido.
 
 #### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Consumo médio da CPU é superior a 95% nos últimos 1 hora

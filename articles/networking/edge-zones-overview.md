@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086896"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Sobre a pré-visualização da Zona de Edge Azure
 
@@ -74,7 +74,9 @@ Os casos de uso típico incluem:
 
 As Edge Zones serão oferecidas em parceria com os seguintes operadores:
 
-- AT&T (Atlanta, Dallas e Los Angeles)
+- AT&T (Atlanta, Dallas e Los Angeles) 
+
+[Contacte a equipa da Edge Zone](https://aka.ms/EdgeZones) para mais informações.
 
 ## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Zonas de borda privada Azure
 
@@ -183,7 +185,7 @@ A SD-WAN permite criar redes de área de grande qualidade empresarial (WANs) que
 A SD-WAN fornece conectividade perfeita de filial que é orquestrada a partir de controladores centrais redundantes a menor custo de propriedade.
 O SD-WAN em Private Edge Zones permite-lhe passar de um modelo centrado no capex para um modelo de software-as-a-service (SaaS) para reduzir os orçamentos de TI. Pode utilizar a sua escolha de parceiros SD-WAN, orquestrador ou controlador, para ativar novos serviços e propaga-los em toda a sua rede imediatamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, contacte as seguintes equipas:
 

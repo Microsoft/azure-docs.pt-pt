@@ -6,15 +6,15 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: troubleshooting
+ms.date: 06/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 2f2d690cd22cbd37af46c89b3bd19492ae9034b4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 0cf6f1c0fcc9a2da0bbfacc9e51076add107ed26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344108"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102706"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 

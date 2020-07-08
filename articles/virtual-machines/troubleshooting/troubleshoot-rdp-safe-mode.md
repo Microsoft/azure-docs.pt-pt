@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918211"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086777"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é pDR a um VM porque as botas VM entram em Modo Seguro
 
@@ -46,7 +47,9 @@ Para resolver este problema, utilize o controlo de série para configurar o VM p
    ). Se a Consola em Série não estiver ativada no seu VM, consulte [a reparação offline do VM](#repair-the-vm-offline).
 2. Verifique os dados de configuração da bota:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     Se o VM estiver configurado para iniciar o modo de segurança, verá uma bandeira extra sob a secção **de carregador de botas do Windows** chamada **safeboot**. Se não vir a bandeira **de segurança,** o VM não está em Modo de Segurança. Este artigo não se aplica ao seu cenário.
 
@@ -60,11 +63,15 @@ Para resolver este problema, utilize o controlo de série para configurar o VM p
 
 3. Elimine a bandeira **de safemoade,** para que o VM entre em modo normal:
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Verifique os dados de configuração da bota para se certificar de que a bandeira **de safeboot** é removida:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. Reinicie o VM e, em seguida, verifique se o problema está resolvido.
 
@@ -114,7 +121,10 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
 1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador**).
 2. Verifique os dados de configuração da bota. Nos seguintes comandos, assumimos que a letra de unidade que é atribuída ao disco de OS anexado é F. Substitua esta letra de unidade pelo valor adequado para o seu VM.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Tome nota do nome identificador da partição que tem a pasta **\windows.** Por predefinição, o nome identificador é "Predefinido".
 
     Se o VM estiver configurado para iniciar o modo de segurança, verá uma bandeira extra sob a secção **de carregador de botas do Windows** chamada **safeboot**. Se não vir a bandeira **de safeboot,** este artigo não se aplica ao seu cenário.
@@ -123,8 +133,14 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
 
 3. Retire a bandeira **de segurança,** para que o VM entre em modo normal:
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Verifique os dados de configuração da bota para se certificar de que a bandeira **de safeboot** é removida:
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [Retire o disco de SO e recrie o VM](../windows/troubleshoot-recovery-disks-portal.md). Então verifique se a questão está resolvida.

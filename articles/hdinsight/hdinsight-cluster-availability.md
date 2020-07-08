@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 4b26128b794a6a667edc578f56ad0bc9fb8303a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691142"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086420"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Como monitorizar a disponibilidade de clusters com Apache Ambari em Azure HDInsight
 
@@ -55,7 +55,7 @@ Para ver uma lista de definições de alerta e seus estados, selecione o separad
 
 Ambari oferece muitos alertas predefinidos relacionados com a disponibilidade, incluindo:
 
-| Nome do Alerta                        | Description   |
+| Nome do Alerta                        | Descrição   |
 |---|---|
 | Resumo da saúde dataNode           | Este alerta de nível de serviço é desencadeado se houver DataNodes pouco saudáveis|
 | NomeNode Alta Disponibilidade Saúde | Este alerta de nível de serviço é acionado se o Nome Activonode ou o Nome de StandbyNode não estiverem em execução.|
@@ -85,9 +85,9 @@ Será aberto um diálogo para a gestão das notificações de alerta. Selecione 
 > [!TIP]
 > A configuração de notificações por e-mail Ambari pode ser uma boa maneira de receber alertas num só local quando se gerem muitos clusters HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](hdinsight-high-availability-linux.md)
 - [Disponibilidade do cluster - Registos do Azure Monitor](./cluster-availability-monitor-logs.md)
-- [Utilizar os registos do Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+- [Utilize registos do Monitor Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Notificações por e-mail do Apache Ambari](apache-ambari-email.md)

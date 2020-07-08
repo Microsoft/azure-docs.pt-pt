@@ -1,5 +1,5 @@
 ---
-title: Migrar pacotes SSIS para exemplo gerido pela SQL
+title: Migrar pacotes SSIS para sql caso gerido
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar pacotes e projetos de integração de servidores SQL (SSIS) para uma Instância Gerida Azure SQL utilizando o Serviço de Migração da Base de Dados Azure ou o Assistente de Migração de Dados.
 services: database-migration
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196574"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086573"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes de Serviços de Integração de ServidorES SQL para uma instância gerida Azure SQL
 Se utilizar os Serviços de Integração de Servidores SQL (SSIS) e quiser migrar os seus projetos/pacotes SSIS da fonte SSISDB hospedado pelo SQL Server para o destino SSISDB hospedado por um Azure SQL Managed Instance, pode utilizar o Azure Database Migration Service.
@@ -84,7 +85,7 @@ Embora a avaliação da fonte SSISDB ainda não esteja integrada no Assistente d
 
     Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual utilizando o portal Azure](https://aka.ms/DMSVnet).
 
-    Para mais detalhes, consulte as [topologias da rede para Azure SQL DB geridas por casos de migração utilizando o Serviço de Migração da Base de Dados Azure](https://aka.ms/dmsnetworkformi).
+    Para mais detalhes, consulte as topologias da rede para as migrações de [instância gerida do Azure SQL utilizando o Serviço de Migração da Base de Dados Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selecione um escalão de preço.
 

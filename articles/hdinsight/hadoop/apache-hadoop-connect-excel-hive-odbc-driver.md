@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 388f59f5090be43469acfde5197a658942e817f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5499a8c4fd6ee200ca0fac800c8c17c92a1cc0c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82182451"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087848"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Apache Hadoop no Azure HDInsight com o controlador ODBC Hive da Microsoft
 
@@ -48,7 +48,7 @@ Os passos seguintes mostram-lhe como criar uma Fonte de Dados Da Colmeia ODBC.
 
 1. Escreva ou selecione os seguintes valores:
 
-   | Propriedade | Description |
+   | Propriedade | Descrição |
    | --- | --- |
    |  Nome da Origem de Dados |Atribua um nome para a sua origem de dados |
    |  Anfitriões ou anfitriões |Introduza `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Nota: `HDInsightClusterName-int.azurehdinsight.net` é suportado desde que o VM cliente seja espreitado para a mesma rede virtual. |
@@ -94,7 +94,7 @@ Os seguintes passos descrevem a forma de importar dados de uma tabela de Colmeia
 
     ![Navegador HDInsight Excel Hive ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Navegador HDInsight Excel Hive ODBC")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar o controlador ODBC da Microsoft Hive para recuperar dados do Serviço HDInsight para o Excel. Da mesma forma, pode obter dados do Serviço HDInsight para a Base de Dados SQL. Também é possível enviar dados para um Serviço HDInsight. Para saber mais, consulte:
 

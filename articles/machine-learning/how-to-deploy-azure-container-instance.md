@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087270"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo para instâncias de contentores Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,10 @@ Para obter informações sobre a disponibilidade de quotas e de região para o A
 ## <a name="deploy-to-aci"></a>Implementar para ACI
 
 Para implementar um modelo para Azure Container Instances, crie uma __configuração de implementação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço web. Para obter mais informações sobre a criação da configuração de inferência, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
+
+> [!NOTE]
+> * O ACI é adequado apenas para pequenos modelos <de 1GB de tamanho. 
+> * Recomendamos a utilização de um único nó AKS para teste dev de modelos maiores.
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 

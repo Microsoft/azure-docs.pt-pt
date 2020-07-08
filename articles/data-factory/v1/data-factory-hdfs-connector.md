@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7652ab72fb972230d98913c2d7e2601737982532
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3f158bb4e8208d00fdfbc44b4afaf067183b6d2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74924353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087321"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -366,76 +367,84 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
     A máquina deve ser configurada como membro de um grupo de trabalho, uma vez que um reino Kerberos é diferente de um domínio Windows. Isto pode ser conseguido definindo o reino de Kerberos e adicionando um servidor KDC da seguinte forma. Substitua *REALM.COM* pelo seu próprio reino, se necessário.
 
-            C:> Ksetup /setdomain REALM.COM
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```cmd
+    C:> Ksetup /setdomain REALM.COM
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```
 
     **Reinicie** a máquina depois de executar estes 2 comandos.
 
 2.  Verifique a configuração com o comando **Ksetup.** A saída deve ser como:
 
-            C:> Ksetup
-            default realm = REALM.COM (external)
-            REALM.com:
-                kdc = <your_kdc_server_address>
+    ```cmd
+    C:> Ksetup
+    default realm = REALM.COM (external)
+    REALM.com:
+        kdc = <your_kdc_server_address>
+        ```
 
-**Na Fábrica de Dados Azure:**
+**In Azure Data Factory:**
 
-* Configure o conector HDFS utilizando a **autenticação do Windows** juntamente com o nome principal e a palavra-passe kerberos para ligar à fonte de dados HDFS. Consulte a secção [de propriedades do Serviço Linked HDFS](#linked-service-properties) nos detalhes da configuração.
+* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
 
-### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Permitir a confiança mútua entre o domínio windows e o reino de Kerberos
+### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
 
-#### <a name="requirement"></a>Requisito:
-*   A máquina de porta de entrada deve juntar-se a um domínio Windows.
-*   Precisa de permissão para atualizar as definições do controlador de domínio.
+#### Requirement:
+*   The gateway machine must join a Windows domain.
+*   You need permission to update the domain controller's settings.
 
-#### <a name="how-to-configure"></a>Como configurar:
+#### How to configure:
 
 > [!NOTE]
-> Substitua REALM.COM e AD.COM no seguinte tutorial pelo seu próprio reino e controlador de domínio, se necessário.
+> Replace REALM.COM and AD.COM in the following tutorial with your own respective realm and domain controller as needed.
 
-**No servidor KDC:**
+**On KDC server:**
 
-1. Edite a configuração KDC no ficheiro **krb5.conf** para permitir que o KDC confie no Windows Domain referindo-se ao modelo de configuração a seguir. Por predefinição, a configuração está localizada em **/etc/krb5.conf**.
+1. Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
 
-           [logging]
-            default = FILE:/var/log/krb5libs.log
-            kdc = FILE:/var/log/krb5kdc.log
-            admin_server = FILE:/var/log/kadmind.log
+   ```config
+   [logging]
+   default = FILE:/var/log/krb5libs.log
+   kdc = FILE:/var/log/krb5kdc.log
+   admin_server = FILE:/var/log/kadmind.log
 
-           [libdefaults]
-            default_realm = REALM.COM
-            dns_lookup_realm = false
-            dns_lookup_kdc = false
-            ticket_lifetime = 24h
-            renew_lifetime = 7d
-            forwardable = true
+   [libdefaults]
+   default_realm = REALM.COM
+   dns_lookup_realm = false
+   dns_lookup_kdc = false
+   ticket_lifetime = 24h
+   renew_lifetime = 7d
+   forwardable = true
 
-           [realms]
-            REALM.COM = {
-             kdc = node.REALM.COM
-             admin_server = node.REALM.COM
-            }
-           AD.COM = {
-            kdc = windc.ad.com
-            admin_server = windc.ad.com
-           }
+   [realms]
+   REALM.COM = {
+       kdc = node.REALM.COM
+       admin_server = node.REALM.COM
+   }
+   AD.COM = {
+   kdc = windc.ad.com
+   admin_server = windc.ad.com
+   }
 
-           [domain_realm]
-            .REALM.COM = REALM.COM
-            REALM.COM = REALM.COM
-            .ad.com = AD.COM
-            ad.com = AD.COM
+   [domain_realm]
+   .REALM.COM = REALM.COM
+   REALM.COM = REALM.COM
+   .ad.com = AD.COM
+   ad.com = AD.COM
 
-           [capaths]
-            AD.COM = {
-             REALM.COM = .
-            }
+   [capaths]
+   AD.COM = {
+       REALM.COM = .
+   }
+   ```
 
    **Reinicie** o serviço KDC após a configuração.
 
 2. Prepare um principal chamado **krbtgt/REALM.COM \@ AD.COM** no servidor KDC com o seguinte comando:
 
-           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+   ```cmd
+   Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+   ```
 
 3. Em **hadoop.security.auth_to_local** ficheiro de configuração de serviço HDFS, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
@@ -443,12 +452,16 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 1.  Executar os seguintes comandos **Ksetup** para adicionar uma entrada de reino:
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```cmd
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```
 
 2.  Estabeleça a confiança do Windows Domain para o Reino de Kerberos. [palavra-passe] é a palavra-passe para o **principal krbtgt/REALM.COM \@ AD.COM**.
 
-            C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+    ```cmd
+    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+    ```
 
 3.  Selecione algoritmo de encriptação usado em Kerberos.
 
@@ -462,7 +475,9 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
     4. Utilize o comando **Ksetup** para especificar o algoritmo de encriptação a utilizar no REALM específico.
 
-                C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+       ```cmd
+       C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+       ```
 
 4.  Crie o mapeamento entre a conta de domínio e kerberos principal, de modo a utilizar kerberos principal no Domínio do Windows.
 
@@ -480,8 +495,10 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 * Executar os seguintes comandos **Ksetup** para adicionar uma entrada de reino.
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```cmd
+   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
 **Na Fábrica de Dados Azure:**
 

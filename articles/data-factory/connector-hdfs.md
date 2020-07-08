@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ec6778e3e00a85a2fa7d43383df5c2ce6c47faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629509"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087763"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copie os dados do servidor HDFS utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -274,7 +275,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: Junte-se a uma máquina de execução de integração auto-hospedada no reino de Kerberos
 
-#### <a name="requirements"></a>Requirements
+#### <a name="requirements"></a>Requisitos
 
 * A máquina de execução de integração auto-hospedada precisa de se juntar ao reino de Kerberos e não pode aderir a nenhum domínio windows.
 
@@ -286,17 +287,21 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
     A máquina deve ser configurada como membro de um grupo de trabalho, porque um reino Kerberos é diferente de um domínio Windows. Pode alcançar esta configuração definindo o reino de Kerberos e adicionando um servidor KDC executando os seguintes comandos. Substitua *REALM.COM* pelo seu próprio nome de reino.
 
-            C:> Ksetup /setdomain REALM.COM
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```console
+    C:> Ksetup /setdomain REALM.COM
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```
 
     Depois de executar estes comandos, reinicie a máquina.
 
 2.  Verifique a configuração com o `Ksetup` comando. A saída deve ser como:
 
-            C:> Ksetup
-            default realm = REALM.COM (external)
-            REALM.com:
-                kdc = <your_kdc_server_address>
+    ```output
+    C:> Ksetup
+    default realm = REALM.COM (external)
+    REALM.com:
+        kdc = <your_kdc_server_address>
+    ```
 
 **Na sua fábrica de dados:**
 
@@ -304,7 +309,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 ### <a name="option-2-enable-mutual-trust-between-the-windows-domain-and-the-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Permitir a confiança mútua entre o domínio Windows e o reino de Kerberos
 
-#### <a name="requirements"></a>Requirements
+#### <a name="requirements"></a>Requisitos
 
 *   A máquina de execução de integração auto-hospedada deve juntar-se a um domínio Windows.
 *   Precisa de permissão para atualizar as definições do controlador de domínio.
@@ -318,45 +323,49 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 1. Editar a configuração KDC no ficheiro *krb5.conf* para permitir que a KDC confie no domínio windows, referindo-se ao modelo de configuração a seguir. Por predefinição, a configuração está localizada em */etc/krb5.conf*.
 
-           [logging]
-            default = FILE:/var/log/krb5libs.log
-            kdc = FILE:/var/log/krb5kdc.log
-            admin_server = FILE:/var/log/kadmind.log
+   ```config
+   [logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
             
-           [libdefaults]
-            default_realm = REALM.COM
-            dns_lookup_realm = false
-            dns_lookup_kdc = false
-            ticket_lifetime = 24h
-            renew_lifetime = 7d
-            forwardable = true
+   [libdefaults]
+    default_realm = REALM.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = false
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
             
-           [realms]
-            REALM.COM = {
-             kdc = node.REALM.COM
-             admin_server = node.REALM.COM
-            }
-           AD.COM = {
-            kdc = windc.ad.com
-            admin_server = windc.ad.com
-           }
+   [realms]
+    REALM.COM = {
+     kdc = node.REALM.COM
+     admin_server = node.REALM.COM
+    }
+   AD.COM = {
+    kdc = windc.ad.com
+    admin_server = windc.ad.com
+   }
             
-           [domain_realm]
-            .REALM.COM = REALM.COM
-            REALM.COM = REALM.COM
-            .ad.com = AD.COM
-            ad.com = AD.COM
+   [domain_realm]
+    .REALM.COM = REALM.COM
+    REALM.COM = REALM.COM
+    .ad.com = AD.COM
+    ad.com = AD.COM
             
-           [capaths]
-            AD.COM = {
-             REALM.COM = .
-            }
+   [capaths]
+    AD.COM = {
+     REALM.COM = .
+    }
+    ```
 
    Depois de configurar o ficheiro, reinicie o serviço KDC.
 
 2. Prepare um principal chamado *krbtgt/REALM.COM \@ AD.COM* no servidor KDC com o seguinte comando:
 
-           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```cmd
+    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```
 
 3. No ficheiro de configuração de serviço *hadoop.security.auth_to_local* HDFS, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
@@ -364,12 +373,16 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 1.  Executar os `Ksetup` seguintes comandos para adicionar uma entrada de reino:
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```cmd
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```
 
 2.  Estabeleça confiança do domínio windows para o reino de Kerberos. [palavra-passe] é a palavra-passe para o *principal krbtgt/REALM.COM \@ AD.COM*.
 
-        C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```cmd
+    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```
 
 3.  Selecione o algoritmo de encriptação que é usado em Kerberos.
 
@@ -383,7 +396,9 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
     d. Utilize o `Ksetup` comando para especificar o algoritmo de encriptação a utilizar no reino especificado.
 
-        C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```cmd
+    C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```
 
 4.  Crie o mapeamento entre a conta de domínio e o principal Kerberos, para que possa utilizar o principal Kerberos no domínio Windows.
 
@@ -401,8 +416,10 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 * Executar os `Ksetup` seguintes comandos para adicionar uma entrada de reino.
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```cmd
+   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
 **Na sua fábrica de dados:**
 

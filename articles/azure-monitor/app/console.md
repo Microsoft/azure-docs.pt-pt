@@ -4,11 +4,12 @@ description: Monitorize as aplicações web para disponibilidade, desempenho e u
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: 302d96544a719f0e818d942bff1011c6a4368ef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807320"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086250"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Insights de aplicação para aplicações de consola .NET
 
@@ -17,7 +18,7 @@ ms.locfileid: "85807320"
 Precisa de uma subscrição com [o Microsoft Azure](https://azure.com). Faça sômis com uma conta Microsoft, que poderá ter para Windows, Xbox Live ou outros serviços na nuvem da Microsoft. A sua equipa poderá ter uma subscrição organizacional do Azure: peça ao proprietário que lhe adicione usando a sua conta Microsoft.
 
 > [!NOTE]
-> Existe um novo SDK de Insights de Aplicação chamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que pode ser utilizado para ativar insights de aplicação para quaisquer aplicações de consola. Recomenda-se a utilização deste pacote e instruções associadas [a](../../azure-monitor/app/worker-service.md)partir daqui. Este pacote destina-se [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) a ser utilizado em .NET Core 2.0 ou superior, e .NET Framework 4.7.2 ou superior.
+> É *altamente recomendado* utilizar o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e instruções associadas a partir [daqui](../../azure-monitor/app/worker-service.md) para quaisquer aplicações de consola. Este pacote destina-se [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) a ser utilizado em .NET Core 2.1 ou superior, e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
 

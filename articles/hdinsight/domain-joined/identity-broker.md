@@ -5,13 +5,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 1bea8adbdb39d2ce83cfe7821ef052fdc1f1d512
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921323"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086607"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utilizar o Corretor de ID (pré-visualização) para gestão credencial
 
