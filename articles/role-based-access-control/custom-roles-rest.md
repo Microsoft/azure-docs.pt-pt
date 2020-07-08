@@ -16,10 +16,9 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84790194"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Criar ou atualizar funções personalizadas Azure usando a API REST
@@ -44,7 +43,7 @@ Para listar todas as funções personalizadas num diretório, utilize as [Defini
 1. Substitua *{filter}* pelo tipo de função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtro baseado no tipo CustomRole |
 
@@ -71,7 +70,7 @@ Para listar funções personalizadas num âmbito, utilize as [Definições de Fu
 1. Substitua *{filter}* pelo tipo de função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtro baseado no tipo CustomRole |
 
@@ -98,7 +97,7 @@ Para obter informações sobre um papel personalizado pelo seu nome de exibiçã
 1. Substitua *{filter}* pelo nome de visualização para a função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | Utilize a forma codificada url do nome exato do visor da função. Por exemplo,`$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
@@ -338,7 +337,7 @@ Para eliminar uma função personalizada, utilize as [Definições de Função -
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções personalizadas Azure](custom-roles.md)
 - [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)

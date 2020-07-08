@@ -4,10 +4,9 @@ description: Este artigo explica como usar sessões para permitir o manuseamento
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341183"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
@@ -76,10 +75,10 @@ O estado da sessão realizado em fila ou numa subscrição conta para a quota de
 
 A definição de contagem de entrega por mensagem no contexto das sessões varia ligeiramente em parte da definição na ausência de sessões. Aqui está uma tabela que resume quando a contagem de entrega é incrementada.
 
-| Cenário | É a contagem de entrega da mensagem incrementada |
+| Scenario | É a contagem de entrega da mensagem incrementada |
 |----------|---------------------------------------------|
-| A sessão é aceite, mas o bloqueio da sessão expira (devido ao tempo limite) | Yes |
-| A sessão é aceite, as mensagens dentro da sessão não estão concluídas (mesmo que estejam bloqueadas), e a sessão está fechada | No |
+| A sessão é aceite, mas o bloqueio da sessão expira (devido ao tempo limite) | Sim |
+| A sessão é aceite, as mensagens dentro da sessão não estão concluídas (mesmo que estejam bloqueadas), e a sessão está fechada | Não |
 | Sessão é aceite, as mensagens são completadas, e então a sessão é explicitamente fechada | N/A (É o fluxo padrão. Aqui as mensagens são removidas da sessão) |
 
 ## <a name="request-response-pattern"></a>Padrão de resposta a pedidos
@@ -90,7 +89,7 @@ Várias aplicações podem enviar os seus pedidos para uma única fila de pedido
 > [!NOTE]
 > A aplicação que envia os pedidos iniciais deve saber sobre o ID da sessão e usar `SessionClient.AcceptMessageSession(SessionID)` para bloquear a sessão em que está à espera da resposta. É uma boa ideia usar um GUID que identifica exclusivamente a instância da aplicação como um id de sessão. Não deve haver um manipulador de sessão ou `AcceptMessageSession(timeout)` na fila para garantir que as respostas estão disponíveis para serem bloqueadas e processadas por recetores específicos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte as [amostras Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [as amostras microsoft.ServiceBus.Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) para um exemplo que utiliza o cliente .NET Framework para lidar com mensagens conscientes da sessão. 
 

@@ -1,5 +1,5 @@
 ---
-title: Python
+title: Execute o Python Script no designer
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar python em azure machine learning designer para transformar dados.
 services: machine-learning
@@ -10,14 +10,13 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.custom: designer, tracking-python
-ms.openlocfilehash: af26dce03c0dcf5226c52dcdd8af4408186aa343
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557040"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041018"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Execute o código Python no designer de aprendizagem de máquinas Azure
+# <a name="run-python-code-in-azure-machine-learning-designer"></a>Executar código Python em Azure Machine Learning designer
 
 Neste artigo, você aprende a usar o módulo [executar python script](algorithm-module-reference/execute-python-script.md) para adicionar lógica personalizada ao designer de Aprendizagem automática Azure. No seguinte como fazer, você usa a biblioteca pandas para fazer engenharia de recursos simples.
 
@@ -83,6 +82,6 @@ Neste exemplo, você usa Pandas para combinar duas colunas encontradas no conjun
 
 Agora, você tem um conjunto de dados com a nova funcionalidade **Dólares/HP,** o que pode ser útil na formação de um recomendador de carro. Este é um exemplo de extração de recursos e redução da dimensionalidade. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [importar os seus próprios dados](how-to-designer-import-data.md) no designer de Machine Learning Azure.

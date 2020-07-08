@@ -16,10 +16,9 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515215"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação após desastre e ativação pós-falha do dispositivo para a Matriz Virtual do StorSimple através do portal do Azure
@@ -178,7 +177,7 @@ Um cenário de recuperação de desastres de continuidade do negócio (BCDR) oco
 
 Se existirem dispositivos StorSimple que foram registados pouco antes de ocorrer uma catástrofe, então estes dispositivos StorSimple podem ter de ser eliminados. Depois do desastre, podes recriar e configurar esses dispositivos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [administrar o seu StorSimple Virtual Array utilizando a UI web local.](storsimple-ova-web-ui-admin.md)
 

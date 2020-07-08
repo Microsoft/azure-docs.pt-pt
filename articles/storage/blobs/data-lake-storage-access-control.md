@@ -9,10 +9,9 @@ ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84193527"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
@@ -125,9 +124,9 @@ A tabela que se segue enumera alguns cenários comuns para o ajudar a compreende
 
 |    Operação             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Ler Dados.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Leia Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Apêndice a Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Eliminar Dados.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Apagar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Criar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Lista /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -348,6 +347,6 @@ AcLs não herdam. No entanto, os ACLs predefinidos podem ser usados para definir
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

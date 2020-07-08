@@ -16,10 +16,9 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731975"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegada administração em Diretório Ativo Azure
@@ -112,6 +111,6 @@ Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tr
 
 Para a maioria das atividades do dia-a-dia, nem todos os utilizadores precisam de direitos de administrador global, e nem todos devem ser permanentemente atribuídos ao papel de Administrador Global. Quando os utilizadores precisam das permissões de um Administrador Global, devem ativar a atribuição de funções na Azure AD [Privileged Identity Management,](../active-directory-privileged-identity-management-configure.md) quer na sua própria conta, quer numa conta administrativa alternativa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma referência às descrições de funções da AD Azure, consulte [atribuir funções de administrador em Azure AD](directory-assign-admin-roles.md)

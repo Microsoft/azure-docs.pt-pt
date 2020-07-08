@@ -7,18 +7,17 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: e0fcbec2e502088024805ebc1f02007c09a12c9d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.openlocfilehash: 6281e729c2663666cd61f22b2697edd61bbf88f5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192498"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040797"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída Azure Stream Analytics para Azure SQL Database
 
 Este artigo discute dicas para obter um melhor desempenho de produção de escrita quando está a carregar dados na Base de Dados Azure SQL usando a Azure Stream Analytics.
 
-A saída SQL em Azure Stream Analytics suporta a escrita em paralelo como uma opção. Esta opção permite topologias de trabalho [totalmente paralelas,](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) onde várias divisórias de saída estão escrevendo para a tabela de destino em paralelo. No entanto, permitir esta opção no Azure Stream Analytics pode não ser suficiente para obter posições mais elevadas, uma vez que depende significativamente da configuração da sua base de dados e do esquema de tabela. A escolha dos índices, a chave de agrupamento, o fator de preenchimento do índice e a compressão têm um impacto no tempo para carregar tabelas. Para obter mais informações sobre como otimizar a sua base de dados para melhorar a consulta e o desempenho da carga com base em referências internas, consulte [a orientação de desempenho da base de dados SQL](../azure-sql/database/performance-guidance.md). A encomenda de escritos não é garantida quando se escreve em paralelo com a Base de Dados SQL.
+A saída SQL em Azure Stream Analytics suporta a escrita em paralelo como uma opção. Esta opção permite topologias de trabalho [totalmente paralelas,](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) onde várias divisórias de saída estão escrevendo para a tabela de destino em paralelo. No entanto, permitir esta opção no Azure Stream Analytics pode não ser suficiente para obter posições mais elevadas, uma vez que depende significativamente da configuração da sua base de dados e do esquema de tabela. A escolha dos índices, a chave de agrupamento, o fator de preenchimento do índice e a compressão têm um impacto no tempo para carregar tabelas. Para obter mais informações sobre como otimizar a sua base de dados para melhorar a consulta e o desempenho da carga com base em referências internas, consulte [a orientação de desempenho da Base de Dados SQL](../azure-sql/database/performance-guidance.md). A encomenda de escritos não é garantida quando se escreve em paralelo com a Base de Dados SQL.
 
 Aqui estão algumas configurações dentro de cada serviço que podem ajudar a melhorar o rendimento geral da sua solução.
 

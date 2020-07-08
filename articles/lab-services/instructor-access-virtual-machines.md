@@ -4,10 +4,9 @@ description: Este artigo mostra como os educadores podem aceder aos seus VMs dos
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad4f9cfd11b372e5c6da5c17eaeba82b0cd8a91f
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445105"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Aceda a máquinas virtuais como estudante a partir da visão educadora
@@ -22,7 +21,7 @@ Aqui está um cenário em que esta funcionalidade vai ajudar. Um assistente de e
     
     ![Acesso vMs de estudante](./media/instructors-access-virtual-machines/access-student-virtual-machines.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Ligar a uma VM](how-to-use-classroom-lab.md#connect-to-the-vm)

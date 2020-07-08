@@ -4,10 +4,9 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677836"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos ARM
@@ -15,7 +14,7 @@ ms.locfileid: "84677836"
 O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos Azure Resource Manager (ARM).
 
 * [coalesce](#coalesce)
-* [é igual a](#equals)
+* [equals](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [less](#less)
@@ -93,7 +92,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | stringOutput | String | predefinição |
 | intOutput | int | 1 |
 | objetoOutput | Objeto | {"first": "default"} |
-| intervalo de matriz | Matriz | [1] |
+| intervalo de matriz | Matriz |  [1] |
 | outout vazio | Booleano | Verdadeiro |
 
 ## <a name="equals"></a>equals

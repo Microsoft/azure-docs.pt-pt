@@ -4,10 +4,9 @@ description: Aprenda a configurar uma conta de laboratório para usar uma galeri
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4dc001a5e4c95db608c38f0a7c00190fd1859998
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445156"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços Azure Lab
@@ -56,5 +55,5 @@ Um educador pode escolher uma imagem personalizada disponível na galeria de ima
 > Pode criar um modelo VM baseado em imagens **generalizadas** e **especializadas** nos Serviços Azure Lab. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais informações sobre galerias de imagens partilhadas, consulte [a galeria de imagens partilhada.](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)

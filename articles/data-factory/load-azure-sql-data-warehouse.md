@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252003"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregue os dados no Azure Synapse Analytics utilizando a Azure Data Factory
@@ -152,7 +151,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
     ![Monitorize detalhes da atividade](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o seguinte artigo para saber sobre o suporte Azure Synapse Analytics:
 

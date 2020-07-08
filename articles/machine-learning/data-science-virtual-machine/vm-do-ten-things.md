@@ -10,12 +10,11 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f59ee4a21581310a0729079cd25afa1c683071cd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552700"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959284"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina virtual da Ciência de Dados do Windows
 
@@ -132,7 +131,7 @@ IrisPredictor(3,2,3,4)
 ### <a name="build-and-operationalize-r-models"></a>Construir e operacionalizar modelos R
 Você pode implementar modelos R construídos na Máquina Virtual da Ciência de Dados ou em qualquer outro lugar no Azure Machine Learning de uma forma semelhante à que é feito para Python. Eis os passos:
 
-1. Crie um ficheiro de definições.json para fornecer o seu ID do espaço de trabalho e ficha de autenticação. 
+1. Crie uma settings.jsno ficheiro para fornecer o seu ID do espaço de trabalho e ficha de autenticação. 
 2. Escreva um invólucro para a função de previsão do modelo.
 3. Ligue ```publishWebService``` para a biblioteca Azure Machine Learning para passar no invólucro de função.  
 
@@ -140,9 +139,9 @@ Utilize o seguinte procedimento e código snippets para configurar, construir, p
 
 #### <a name="set-up"></a>Configurar
 
-Crie um ficheiro de definições.json sob um diretório chamado ```.azureml``` sob o seu diretório de casa. Introduza os parâmetros do seu espaço de trabalho de aprendizagem de máquinas Azure.
+Crie uma settings.jsno arquivo sob um diretório chamado ```.azureml``` sob o seu diretório de casa. Introduza os parâmetros do seu espaço de trabalho de aprendizagem de máquinas Azure.
 
-Aqui está a estrutura de ficheiros definições.json:
+Aqui está a settings.jsna estrutura do ficheiro:
 
 ```json
 {"workspace":{
@@ -249,7 +248,9 @@ O DSVM vem carregado com ferramentas de cliente na linha de comando e no GUI par
 
 Para descarregar código a partir de um repositório GitHub, use o ```git clone``` comando. Por exemplo, para transferir o repositório de ciência de dados publicado pela Microsoft para o diretório atual, pode executar o seguinte comando em Git Bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 No Visual Studio, podes fazer a mesma operação de clone. A imagem que se segue mostra como aceder às ferramentas Git e GitHub no Visual Studio:
 
@@ -267,7 +268,7 @@ O armazenamento Azure Blob é um serviço de armazenamento de nuvem fiável e ec
 
    ![Screenshot do processo de criação de conta de armazenamento no portal Azure](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Confirme se a ferramenta AzCopy da linha de comando está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está na variável ambiente PATH, para evitar digitar o caminho de comando completo ao executar esta ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação AzCopy](../../storage/common/storage-use-azcopy.md).
+* Confirme se a ferramenta AzCopy da linha de comando está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está na variável ambiente PATH, para que possa evitar digitar o caminho de comando completo ao executar esta ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação AzCopy](../../storage/common/storage-use-azcopy.md).
 * Inicie a ferramenta Azure Storage Explorer. Pode descarregá-lo na [página do Storage Explorer.](https://storageexplorer.com/) 
 
    ![Screenshot do Azure Storage Explorer a aceder a uma conta de armazenamento](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -276,7 +277,9 @@ O armazenamento Azure Blob é um serviço de armazenamento de nuvem fiável e ec
 
 Para mover dados entre os seus ficheiros locais e o armazenamento Blob, pode utilizar o AzCopy na linha de comando ou no PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Substitua **c:\myfolder** pelo caminho onde o seu ficheiro está armazenado, **contagem de mystorage** com o nome da sua conta de armazenamento Blob, **mycontainer** com o nome do recipiente e **chave de conta de armazenamento** com a sua chave de acesso de armazenamento Blob. Pode encontrar as suas credenciais de conta de armazenamento no [portal Azure.](https://portal.azure.com)
 
@@ -437,7 +440,7 @@ Depois de a sua consulta ser submetida ao servidor, um diagrama mostra o estado 
 
 Depois do conjunto de dados ser ingerido no Lago de Dados Azure, pode utilizar [a linguagem U-SQL](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) para consultar e explorar os dados. O idioma U-SQL é semelhante ao T-SQL, mas combina algumas funcionalidades de C# para que os utilizadores possam escrever módulos personalizados e funções definidas pelo utilizador. Pode utilizar os scripts no passo anterior.
 
-Depois de a consulta ser submetida ao servidor, tripdata_summary. CSV aparece no Azure Data Lake Explorer. Pode visualizar os dados clicando no ficheiro à direita.
+Após a consulta ser submetida ao servidor, tripdata_summary.CSV aparece no Azure Data Lake Explorer. Pode visualizar os dados clicando no ficheiro à direita.
 
 ![Screenshot do ficheiro CSV no Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -458,7 +461,7 @@ Utilize os seguintes passos pré-requisitos para aceder ao Azure Cosmos DB a par
 1. O Azure Cosmos DB Python SDK já está instalado no DSVM. Para atualizá-lo, corra ```pip install pydocumentdb --upgrade``` a partir de um pedido de comando.
 2. Crie uma conta DB Azure Cosmos e base de dados a partir do [portal Azure](https://portal.azure.com).
 3. Descarregue a Ferramenta de Migração de Dados DB Azure Cosmos do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) e extraia para um diretório à sua escolha.
-4. Importar dados JSON (dados do vulcão) armazenados numa [bolha pública](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) em Azure Cosmos DB com os seguintes parâmetros de comando para a ferramenta de migração. (Use dtui.exe a partir do diretório onde instalou a Ferramenta de Migração de Dados Azure Cosmos DB.) Insira a origem e a localização do alvo com estes parâmetros:
+4. Importar dados JSON (dados do vulcão) armazenados numa [bolha pública](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) em Azure Cosmos DB com os seguintes parâmetros de comando para a ferramenta de migração. (Utilize dtui.exe do diretório onde instalou a Ferramenta de Migração de Dados Azure Cosmos DB.) Insira a origem e a localização do alvo com estes parâmetros:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 

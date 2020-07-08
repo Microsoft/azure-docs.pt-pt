@@ -4,10 +4,9 @@ description: Navegue e espreite as mensagens Service Bus permite que um cliente 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341232"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
@@ -32,7 +31,7 @@ Quando chamado repetidamente, o método Peek enumera todas as mensagens que exis
 
 Também pode semear uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) no qual começar e, em seguida, chamar a sobrecarga do método sem parâmetros para enumerar ainda mais. **O PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

@@ -1,5 +1,5 @@
 ---
-title: Modelo de Pytorch de comboio
+title: Preparar um Modelo do PyTorch
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar o modelo de pytorch do zero ou a afina-lo.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450662"
 ---
-# <a name="train-pytorch-model"></a>Modelo de Pytorch de comboio
+# <a name="train-pytorch-model"></a>Preparar um Modelo do PyTorch
 
 Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machine Learning designer (pré-visualização) para treinar modelos de pytorch como o DenseNet. A formação ocorre depois de definir um modelo e definir os seus parâmetros, e requer dados rotulados. 
 
@@ -58,7 +57,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 ## <a name="technical-notes"></a>Notas técnicas
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome               | Tipo                    | Descrição                              |
+| Name               | Tipo                    | Descrição                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Modelo destreinado    | Não treinadoModelDirect | Modelo destreinado, requer pytorch         |
 | Conjunto de dados de formação   | ImageDirectory          | Conjunto de dados de formação                         |
@@ -66,7 +65,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome          | Intervalo            | Tipo    | Predefinição | Descrição                              |
+| Name          | Intervalo            | Tipo    | Predefinição | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Épocas        | >0               | Número inteiro | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
 | Tamanho do lote    | >0               | Número inteiro | 16      | Quantas instâncias para treinar num lote   |
@@ -76,7 +75,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="outputs"></a>Saídas  
 
-| Nome          | Tipo           | Descrição   |
+| Name          | Tipo           | Descrição   |
 | ------------- | -------------- | ------------- |
 | Modelo treinado | ModelDirectory | Modelo treinado |
 

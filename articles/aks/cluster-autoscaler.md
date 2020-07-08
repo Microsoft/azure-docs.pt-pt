@@ -5,10 +5,9 @@ services: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84730021"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensione automaticamente um cluster para satisfazer as exigências da aplicação no Serviço Azure Kubernetes (AKS)
@@ -17,7 +16,7 @@ Para acompanhar as exigências da aplicação no Serviço Azure Kubernetes (AKS)
 
 Este artigo mostra-lhe como ativar e gerir o cluster autoscaler num cluster AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.76 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -107,7 +106,7 @@ Monitorize o desempenho das suas aplicações e serviços e ajuste as contagens 
 
 Também pode configurar mais detalhes granulares do autoescalador do cluster alterando os valores predefinidos no perfil de autoescala em todo o cluster. Por exemplo, um evento de escala para baixo ocorre depois de os nós serem subutilizados após 10 minutos. Se tiver cargas de trabalho que se desciam a cada 15 minutos, talvez quisesse alterar o perfil de autoescalador para reduzir sob nós utilizados após 15 ou 20 minutos. Quando ativa o autoescalador do cluster, é utilizado um perfil predefinido a menos que especifique diferentes definições. O perfil de autoescalador do cluster tem as seguintes definições que pode atualizar:
 
-| Definição                          | Description                                                                              | Valor predefinido |
+| Definição                          | Descrição                                                                              | Valor predefinido |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | intervalo de digitalização                    | Quantas vezes o cluster é reavaliado para escala para cima ou para baixo                                    | 10 segundos    |
 | escala-down-delay-after-add       | Quanto tempo depois de escalar a escala para baixo a avaliação retoma                               | 10 minutos    |
@@ -262,7 +261,7 @@ az aks nodepool update \
 
 Se desejar voltar a ativar o autoescalador de cluster num cluster existente, pode voltar a capacitá-lo utilizando o comando [de atualização de nodepool az aks,][az-aks-nodepool-update] especificando os parâmetros *de autoescalo de cluster-activar*, *--contagem de min-* e *--contagem máxima.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como escalar automaticamente o número de nós AKS. Também pode utilizar o autoescalador horizontal para ajustar automaticamente o número de cápsulas que executam a sua aplicação. Para passos na utilização do autoescalador horizontal, consulte [as aplicações scale em AKS][aks-scale-apps].
 

@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: v-erkel
 ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84434090"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
@@ -96,7 +95,7 @@ Quando a criação termina, uma notificação aparece com um link para a nova in
 > [!NOTE]
 > Se o seu cache utilizar chaves de encriptação geridas pelo cliente, a cache pode aparecer na lista de recursos antes que o estado de implantação seja concluído. Assim que o estado da cache estiver à espera da **chave,** pode [autorizar a](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) utilização do cofre da chave.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois da sua cache aparecer na lista **de Recursos,** pode passar para o próximo passo.
 

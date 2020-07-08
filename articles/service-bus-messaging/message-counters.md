@@ -4,10 +4,9 @@ description: Recupere a contagem de mensagens realizadas em filas e subscriçõe
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d0e1a7a5c6eb0b281b4e6ac08135f41f28ecbec8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341267"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
@@ -39,7 +38,7 @@ Se uma aplicação quiser escalar os recursos com base no comprimento da fila, d
 
 Se olharmos para as subscrições, então terão uma contagem de mensagens não-zero (que somam 323MB de espaço para toda esta entidade).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

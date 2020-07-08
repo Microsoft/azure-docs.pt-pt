@@ -12,10 +12,9 @@ author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432989"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção

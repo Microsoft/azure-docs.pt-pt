@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84790590"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
@@ -28,7 +27,7 @@ Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 ## <a name="logs"></a>Registos
 
-|Registar | Description |
+|Registar | Descrição |
 |----|----|
 | **AplicaçãoConsola** | Registo de consola de todas as aplicações do cliente. |
 | **SystemLogs** | Atualmente, apenas os registos [do Servidor Config da Nuvem de primavera](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) nesta categoria. |
@@ -175,7 +174,7 @@ AppPlatformLogsforSpring
 
 O Azure Monitor fornece um suporte extensivo para consulta de registos de aplicações utilizando o Log Analytics. Para saber mais sobre este serviço, consulte [Começar com consultas de log no Azure Monitor.](../azure-monitor/log-query/get-started-queries.md) Para obter mais informações sobre consultas de construção para analisar os registos de aplicações, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Como converter vestígios de pilhas de Java multi-linhas numa única linha?
 

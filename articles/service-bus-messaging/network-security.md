@@ -4,10 +4,9 @@ description: Este artigo descreve funcionalidades de segurança de rede tais com
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341143"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Segurança de rede para ônibus de serviço Azure 
@@ -88,7 +87,7 @@ Para mais informações, consulte [o que é a Azure Private Link?](../private-li
 Para obter mais informações, consulte [Como configurar pontos finais privados para um espaço de nomes de autocarros de serviço](private-link-service.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Como configurar firewall IP para um espaço de nomes de ônibus de serviço](service-bus-ip-filtering.md)

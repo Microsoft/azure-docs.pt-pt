@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
 ms.openlocfilehash: d6417b3632e1aad0b942844a1470772e8f0197e2
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85081095"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS de Endpoint Privado Azure
@@ -188,5 +187,5 @@ O diagrama que se segue ilustra a sequência de resolução de DNS a partir de u
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Cenário híbrido":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Conheça os pontos finais privados](private-endpoint-overview.md)

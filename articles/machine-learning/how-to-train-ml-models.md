@@ -12,10 +12,9 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
 ms.openlocfilehash: 53a5a78f776982ec9bf21e5e45e3e89eb93e5cce
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433846"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Azure Machine Learning usando estimador
@@ -152,7 +151,7 @@ Para cadernos sobre modelos de formação utilizando estimativas específicas de
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
 * [Preparar modelos de PyTorch](how-to-train-pytorch.md)

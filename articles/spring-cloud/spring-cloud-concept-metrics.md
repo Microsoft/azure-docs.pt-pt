@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.openlocfilehash: ed8a46683d79211559b4af7972c6d1bb784e1f02
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84434170"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
@@ -150,12 +149,12 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >| tomcat.sessions.rejeitado | tomcat.sessions.rejeitado | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas atingiu. |
 >| tomcat.sessions.ative.current | tomcat.sessions.ative.current | Contagem | Contagem ativa da sessão de Tomcat |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) (Introdução ao Explorador de Métricas do Azure)
 
 * [Analisar registos e métricas com definições de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Tutorial: Monitorar recursos da Nuvem de primavera usando alertas e grupos de ação](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Quotas e Planos de Serviço para Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)

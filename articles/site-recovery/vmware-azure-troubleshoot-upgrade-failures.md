@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84434365"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
@@ -30,17 +29,17 @@ Para atualizar, utilize os seguintes passos:
    1. Na secção "Links to atualmente suportados rollups" das atualizações de Serviço no artigo [de Recuperação do Site Azure,](service-updates-how-to.md#links-to-currently-supported-update-rollups) selecione o fornecedor ao qual está a atualizar.
    2. Na página rollup, localize a secção **de informações de Atualização** e descarregue o Rollup de Atualização para a Configuração Unificada de Recuperação do Site do Microsoft Azure.
 
-2. Abra um pedido de comando e navegue para a pasta para a qual descarregou o ficheiro De configuração unificada. Extrair os ficheiros de configuração do download utilizando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x: caminho da &lt; pasta para os ficheiros extraídos &gt; .
+2. Abra um pedido de comando e navegue para a pasta para a qual descarregou o ficheiro De configuração unificada. Extrair os ficheiros de configuração do download utilizando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x: &lt; caminho de pasta para os ficheiros extraídos &gt; .
     
     Comando de exemplo:
 
-    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extração
+    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extraída
 
 3. Na visou prompt de comando, navegue para a pasta para a qual extraiu os ficheiros e execute os seguintes comandos de instalação:
    
-    CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPRESSMSGBOXES /NORESTART UCX_SERVER_SETUP. EXE /VERYSILENT /SUPRESSMSGBOXES /NORESTART /UPGRADE
+    CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPRESSMSGBOXES /NORESTART UCX_SERVER_SETUP.EXE /VERYSILENT /SUPRESSMSGBOXES /NORESTART /UPGRADE
 
-1. Volte à pasta à qual descarregou a Configuração Unificada e execute microsoftAzureSiteRecoveryUnifiedSetup.exe para terminar a atualização. 
+1. Volte à pasta à qual descarregou a Configuração Unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para terminar a atualização. 
 
 ## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de upgrade devido à pasta do 3º partido ser renomeada
 
@@ -48,24 +47,24 @@ Para que a atualização tenha sucesso, a pasta do terceiro partido não deve se
 
 Para resolver o problema.
 
-1. Inicie o Editor de Registo (regedit.exe) e abra o HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Produtos instalados\10.
+1. Inicie o Editor de Registo (regedit.exe) e abra o HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 branch.
 1. Inspecione o valor da `Build_Version` chave. Se estiver definido para a versão mais recente, reduza o número da versão. Por exemplo, se a versão mais recente for 9.22. \* e o `Build_Version` conjunto de chave para esse valor, em seguida, reduzi-lo para 9.21. . . \* .
 1. Descarregue a mais recente Configuração Unificada de Recuperação do Site microsoft Azure:
    1. Na secção "Links to atualmente suportados rollups" das atualizações de Serviço no artigo [de Recuperação do Site Azure,](service-updates-how-to.md#links-to-currently-supported-update-rollups) selecione o fornecedor ao qual está a atualizar.
    2. Na página rollup, localize a secção **de informações de Atualização** e descarregue o Rollup de Atualização para a Configuração Unificada de Recuperação do Site do Microsoft Azure.
-1. Abra um pedido de comando e navegue para a pasta para a qual descarregou o ficheiro Configuração Unificada e extrai os ficheiros de configuração do download utilizando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q/x: &lt; caminho de pasta para os ficheiros extraídos &gt; .
+1. Abra um pedido de comando e navegue para a pasta para a qual descarregou o ficheiro Configuração Unificada e extrai os ficheiros de configuração do download utilizando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x: &lt; caminho de pasta para os ficheiros extraídos &gt; .
 
     Comando de exemplo:
 
-    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extração
+    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extraída
 
 1. Na visou prompt de comando, navegue para a pasta para a qual extraiu os ficheiros e execute os seguintes comandos de instalação:
    
-    CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPRESSMSGBOXES /NORESTART
+    CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPRESSMSGBOXES /NORESTART
 
-1. Utilize o gestor de tarefas para monitorizar o progresso da instalação. Quando o processo para CX_THIRDPARTY_SETUP. O EXE já não é visível no gestor de tarefas, avance para o passo seguinte.
+1. Utilize o gestor de tarefas para monitorizar o progresso da instalação. Quando o processo de CX_THIRDPARTY_SETUP.EXE deixar de ser visível no gestor de tarefas, proceda ao passo seguinte.
 1. Verifique se c:\terceiro partido existe e que a pasta contém as bibliotecas RRD.
-1. Volte à pasta à qual descarregou a Configuração Unificada e execute microsoftAzureSiteRecoveryUnifiedSetup.exe para terminar a atualização.
+1. Volte à pasta à qual descarregou a Configuração Unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para terminar a atualização.
 
 ## <a name="upgrade-failure-due-to-master-target-installation-failure"></a>Falha de upgrade devido à falha de instalação do Master Target
 

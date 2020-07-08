@@ -10,10 +10,9 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433582"
 ---
 # <a name="blob-versioning-preview"></a>Veragem blob (pré-visualização)
@@ -176,7 +175,7 @@ A versão blob foi concebida para proteger os seus dados de eliminação acident
 
 A tabela que se segue mostra quais as ações do RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Description | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
+| Descrição | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Colaborador de dados blob de armazenamento |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário de dados blob de armazenamento |
@@ -313,7 +312,7 @@ No cenário 4, a bolha de base foi completamente atualizada e não contém nenhu
 
 ![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Ativar a criação de versões de blobs](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

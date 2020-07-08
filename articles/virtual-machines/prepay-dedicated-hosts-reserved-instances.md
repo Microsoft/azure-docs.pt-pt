@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84678091"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Economize custos com uma Instância Reservada de Anfitriões Dedicados Azure
@@ -135,7 +134,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [Gerir Reservas no Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 
-- [Compreender como o desconto de reserva é aplicado](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Compreender como o desconto das reservas é aplicado](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
 
 - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
 

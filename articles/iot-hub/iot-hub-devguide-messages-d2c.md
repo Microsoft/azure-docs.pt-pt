@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84790522"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais
@@ -147,7 +146,7 @@ O IoT Hub fornece várias métricas relacionadas com o encaminhamento e pontos f
 
 Utilize o [guia de resolução de problemas para encaminhamento](troubleshoot-message-routing.md) para obter mais detalhes e suporte para o encaminhamento de resolução de problemas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a criar rotas de mensagens, consulte [mensagens de dispositivo ioT hub do processo para nuvem utilizando rotas.](tutorial-routing.md)
 

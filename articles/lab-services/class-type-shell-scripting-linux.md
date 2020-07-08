@@ -4,10 +4,9 @@ description: Aprende a criar um laboratório para ensinar a escrever em Linux.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444969"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Crie um laboratório para ensinar scripts de conchas em Linux
@@ -28,7 +27,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 
 | Configurações de laboratório | Valor/instruções | 
 | ------------ | ------------------ |
-| Tamanho da máquina virtual (VM) | Small  |
+| Tamanho da máquina virtual (VM) | Pequeno  |
 | Imagem VM | Servidor Ubuntu 18.04 LTS|
 | Ativar a ligação remota do ambiente de trabalho | Ativar. <p>Ativar esta definição permitirá que professores e alunos se conectem aos seus VMs utilizando o ambiente de trabalho remoto (PDR). Para obter mais informações, consulte [Ative o ambiente de trabalho remoto para máquinas virtuais Linux em laboratório em Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
@@ -81,7 +80,7 @@ Para obter mais informações sobre o preço pode ser consultado no seguinte doc
 ## <a name="conclusion"></a>Conclusão
 Este artigo acompanhou-te pelos degraus para criar um laboratório para aulas de guiões. Enquanto este artigo se focou na configuração de ferramentas de script ruby na máquina Linux, a mesma configuração pode ser usada para outras aulas de scripts como Python em Linux.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Os próximos passos são comuns para a criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

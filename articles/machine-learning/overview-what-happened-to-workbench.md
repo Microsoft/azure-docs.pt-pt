@@ -11,10 +11,9 @@ author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
 ms.openlocfilehash: 53f8fb79e965c09ad59ada085b9cfd27014bd140
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433064"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
@@ -91,7 +90,7 @@ Saiba mais nestes artigos:
 + [Onde e como implementar modelos](how-to-deploy-and-where.md)
 + [Tutorial: Implementar modelos com aprendizagem automática Azure](tutorial-deploy-models-with-aml.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça a [mais recente arquitetura para Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
 

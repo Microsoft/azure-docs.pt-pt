@@ -14,10 +14,9 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00dfac7c3036c4fd457c5d3a6bb4eb7bd4e56998
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731329"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores no portal Azure Ative Directory
@@ -78,7 +77,7 @@ Pode ver o estado dos seus pedidos em massa pendentes na página de resultados d
 
 Cada atividade a granel para criar uma lista de utilizadores pode funcionar até uma hora. Isto permite a criação e download de uma lista de pelo menos 500.000 utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizadores adicionados a granel](users-bulk-add.md)
 - [Eliminar utilizadores em massa](users-bulk-delete.md)

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: db0e2f90ee45d4e1c0173cbc037084793a66e149
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450648"
 ---
 # <a name="densenet"></a>DenseNet
@@ -49,7 +48,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome             | Intervalo | Tipo    | Predefinição     | Descrição                              |
+| Name             | Intervalo | Tipo    | Predefinição     | Descrição                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Nome do modelo       | Qualquer   | Modo    | densenet201 | Nome de uma certa estrutura de densenet     |
 | Pré-treinado       | Qualquer   | Booleano | Verdadeiro        | Se usar um modelo pré-treinado no ImageNet |
@@ -57,7 +56,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="output"></a>Saída  
 
-| Nome            | Tipo                    | Descrição                              |
+| Name            | Tipo                    | Descrição                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modelo destreinado | Não treinadoModelDirect | Um modelo de densenet destreinado que pode ser ligado ao Modelo Train Pytorch. |
 

@@ -2,13 +2,12 @@
 title: Configure Híbrido Kubernetes clusters com Monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve como pode configurar o Azure Monitor para contentores para monitorizar os aglomerados de Kubernetes alojados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 063da61c28a67f26d03c7072c0587fdae679d28f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: c7a92476fca2bc61d51ab518c22ff0c436fb78f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801466"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure híbrido Kubernetes clusters com Monitor Azure para contentores
 
@@ -16,7 +15,7 @@ O Azure Monitor para contentores proporciona uma rica experiência de monitoriza
 
 ## <a name="supported-configurations"></a>Configurações suportadas
 
-O seguinte é oficialmente apoiado com o Azure Monitor para contentores.
+As seguintes configurações são oficialmente suportadas com o Azure Monitor para contentores.
 
 - Ambientes:
 
@@ -38,7 +37,7 @@ O seguinte é oficialmente apoiado com o Azure Monitor para contentores.
 
 Antes de começar, certifique-se de que tem o seguinte:
 
-- Uma área de trabalho do Log Analytics.
+- Um [espaço de trabalho Log Analytics](../platform/design-logs-deployment.md).
 
     O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../platform/template-workspace-configuration.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
 
@@ -46,7 +45,9 @@ Antes de começar, certifique-se de que tem o seguinte:
     >Não é suportada a monitorização de múltiplos clusters com o mesmo nome de cluster para o mesmo espaço de trabalho Log Analytics. Os nomes dos agrupamentos devem ser únicos.
     >
 
-- É membro da **função de contribuinte Log Analytics** para permitir a monitorização do contentor. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerir o acesso ao espaço de trabalho e registar dados](../platform/manage-access.md)
+- É membro da **função de contribuinte Log Analytics** para permitir a monitorização do contentor. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerir o acesso ao espaço de trabalho e registar dados.](../platform/manage-access.md)
+
+- Para visualizar os dados de monitorização, é necessário ter o papel de [*leitor do Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Do Log Analytics, configurado com o Azure Monitor para contentores.
 
 - [Cliente HELM](https://helm.sh/docs/using_helm/) a bordo do Azure Monitor para gráfico de contentores para o cluster kubernetes especificado.
 
@@ -248,46 +249,58 @@ Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics
 
        Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder ver as métricas de saúde para o cluster.
 
-## <a name="install-the-chart"></a>Instale o gráfico
+## <a name="install-the-helm-chart"></a>Instale o gráfico HELM
+
+Nesta secção instale o agente contentorizado para o Azure Monitor para recipientes. Antes de prosseguir, é necessário identificar o ID do espaço de trabalho necessário para o `omsagent.secret.wsid` parâmetro e a chave primária necessária para o `omsagent.secret.key` parâmetro. Pode identificar esta informação executando os seguintes passos e, em seguida, executar os comandos para instalar o agente utilizando o gráfico HELM.
+
+1. Executar o seguinte comando para identificar o ID do espaço de trabalho:
+
+    `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
+
+    Na saída, encontre o nome do espaço de trabalho sob o **nome**de campo e, em seguida, copie o ID do espaço de trabalho desse log analytics sob o **cliente de campoID**.
+
+2. Executar o seguinte comando para identificar a chave primária para o espaço de trabalho:
+
+    `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
+
+    Na saída, encontre a chave primária sob o campo **primarySharedKey**e, em seguida, copie o valor.
 
 >[!NOTE]
->Os seguintes comandos são aplicáveis apenas para a versão Helm 2. A utilização do `--name` parâmetro não é aplicável com a versão Helm 3.
-
-Para ativar o gráfico HELM, faça o seguinte:
+>Os seguintes comandos são aplicáveis apenas para a versão Helm 2. A utilização do `--name` parâmetro não é aplicável com a versão Helm 3. 
 
 >[!NOTE]
 >Se o seu cluster Kubernetes comunicar através de um servidor proxy, configuure o parâmetro `omsagent.proxy` com o URL do servidor proxy. Se o cluster não comunicar através de um servidor proxy, então não precisa de especificar este parâmetro. Para mais informações, consulte [o ponto final de proxy Configure mais](#configure-proxy-endpoint) tarde neste artigo.
 
-1. Adicione o repositório de gráficos Azure à sua lista local executando o seguinte comando:
+3. Adicione o repositório de gráficos Azure à sua lista local executando o seguinte comando:
 
     ```
     helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
     ````
 
-2. Instale o gráfico executando o seguinte comando:
+4. Instale o gráfico executando o seguinte comando:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
     ```
 
     Se o espaço de trabalho Log Analytics estiver no Azure China 21Vianet, executar o seguinte comando:
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
     Se o espaço de trabalho Log Analytics estiver no Governo dos EUA, executar o seguinte comando:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
 ### <a name="enable-the-helm-chart-using-the-api-model"></a>Ativar o gráfico Helm utilizando o Modelo API
 
-Pode especificar um addon no ficheiro json de especificação de cluster do motor AKS, também referido como Modelo API. Neste addon, forneça a versão codificada base64 de `WorkspaceGUID` e do espaço de trabalho Log Analytics onde os `WorkspaceKey` dados de monitorização recolhidos são armazenados.
+Pode especificar um addon no ficheiro json de especificação de cluster do motor AKS, também referido como Modelo API. Neste addon, forneça a versão codificada base64 de `WorkspaceGUID` e do espaço de trabalho Log Analytics onde os `WorkspaceKey` dados de monitorização recolhidos são armazenados. Pode encontrar os `WorkspaceGUID` `WorkspaceKey` passos 1 e 2 na secção anterior.
 
 As definições de API suportadas para o cluster Azure Stack Hub podem ser encontradas neste exemplo - [kubernetes-container-monitoring_existing_workspace_id_and_key.jsem](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Especificamente, encontre a propriedade **addons** em **kubernetesConfig:**
 
@@ -299,7 +312,7 @@ As definições de API suportadas para o cluster Azure Stack Hub podem ser encon
              "name": "container-monitoring",
              "enabled": true,
              "config": {
-               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceGuid": "<Azure Log Analytics Workspace Id in Base-64 encoded>",
                "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
              }
            }
@@ -356,6 +369,6 @@ Para executar com a Azure PowerShell, utilize os seguintes comandos na pasta que
 .\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile> -clusterContextInKubeconfig <clusterContext>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster híbrido Kubernetes e cargas de trabalho em execução sobre eles, aprenda [a usar](container-insights-analyze.md) o Azure Monitor para recipientes.

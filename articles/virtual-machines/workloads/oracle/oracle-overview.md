@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: borisb
 ms.openlocfilehash: 7c15c96305cc1220d9ca3cdb9062d7ea7acb4e86
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85098938"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
@@ -93,7 +92,7 @@ Utilize os Serviços de Nuvem oracle Database (Base de Dados Autónoma, RAC, Exa
 
 A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Consulte a [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle-Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [aplicações Azure do WebLogic Server](oracle-weblogic.md) e as integrações de serviços Azure que suportam.
 

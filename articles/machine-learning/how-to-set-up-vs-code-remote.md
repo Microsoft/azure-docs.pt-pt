@@ -10,10 +10,9 @@ ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
 ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433130"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Debug interativamente em uma Azure Machine Learning Compute Instance com VS Code Remote
@@ -86,7 +85,7 @@ Host azmlci1
 
 Aqui alguns detalhes sobre os campos: 
 
-|Campo|Description|
+|Campo|Descrição|
 |----|---------|
 |Anfitrião|Use a abreviatura que quiser para a instância computacional |
 |NomedeAnfitrião|Este é o endereço IP da instância computacional |
@@ -110,7 +109,7 @@ Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a ab
 
 A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância de computação como computação remota do Código do Estúdio Visual para depurar interativamente o teu código. 
 

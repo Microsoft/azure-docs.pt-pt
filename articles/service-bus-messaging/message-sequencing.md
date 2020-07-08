@@ -4,10 +4,9 @@ description: Este artigo explica como preservar a sequenciação e encomenda (co
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341176"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
@@ -36,7 +35,7 @@ O **SequenceNumber** para uma mensagem agendada só é válido enquanto a mensag
 
 Como a funcionalidade está ancorada em mensagens individuais e as mensagens só podem ser encostadas uma vez, a Service Bus não suporta horários recorrentes de mensagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

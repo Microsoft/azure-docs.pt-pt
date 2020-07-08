@@ -3,12 +3,11 @@ title: Matriz de suporte de cópia de segurança do SAP HANA
 description: Neste artigo, conheça os cenários e limitações suportados quando utilizar o backup Azure para fazer backup nas bases de dados SAP HANA em VMs Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e147e83a4d039fcd46d4e0f528cdd824e3a93856
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.openlocfilehash: 472bbfa09bff135fa9642c097974436241c433c6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417740"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959726"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -22,9 +21,9 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 | **Cenário**               | **Configurações suportadas**                                | **Configurações não suportadas**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA a funcionar apenas em VMs Azure Linux                    | HANA Grandes Instâncias (HLI)                                   |
-| **Regiões**                   | **GA:**<br> **Américas** – Central EUA, Leste dos EUA 2, Leste dos EUA, Norte Central EUA, Centro Sul dos EUA, West Central US, West Central US, West Us, Canadá Central, Canadá Leste, Brasil Sul <br> **Ásia Pacífico** – Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Ásia Oriental, Sudeste Asiático, Índia Central, Índia Central, Índia Ocidental, China Leste, China Norte, China Leste2, China Norte 2 <br> **Europa** – Europa Ocidental, Norte da Europa, França Central, Reino Unido Sul, Reino Unido Oeste, Alemanha Norte, Alemanha Central Ocidental, Suíça Norte, Suíça Oeste, Suíça Norte, Suíça Norte <br> **África / ME** - África do Sul Norte, África do Sul Oeste, Emirados Árabes Unidos Norte, Uae Central  <BR>  **Regiões do Azure Government** | França Sul, Alemanha Central, Alemanha Nordeste, EUA Gov IOWA |
+| **Regiões**                   | **GA:**<br> **Américas** – Central EUA, Leste dos EUA 2, Leste dos EUA, Norte Central EUA, Centro Sul dos EUA, West Central US, West Central US, West Us, Canadá Central, Canadá Leste, Brasil Sul <br> **Ásia Pacífico** – Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Ásia Oriental, Sudeste Asiático, Índia Central, Índia Central, Índia Ocidental, China Leste, China Norte, China Leste2, China Norte 2 <br> **Europa** – Europa Ocidental, Norte da Europa, França Central, Reino Unido Sul, Reino Unido Oeste, Alemanha Norte, Alemanha Central Ocidental, Suíça Norte, Suíça Oeste, Suíça Norte, Noruega Leste, Noruega Oeste <br> **África / ME** - África do Sul Norte, África do Sul Oeste, Emirados Árabes Unidos Norte, Uae Central  <BR>  **Regiões do Azure Government** | França Sul, Alemanha Central, Alemanha Nordeste, EUA Gov IOWA |
 | **Versões de SO**            | SLES 12 com SP2, SP3 e SP4; SLES 15 com SP0 e SP1 <br><br>   **Pré-visualização** - RHEL 7.4, 7.6, 7.7 e 8.1  <br>     [Começa](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) com a pré-visualização de backup SAP HANA para RHEL (7.4, 7.6, 7.7 e 8.1). Para mais perguntas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .                |                                             |
-| **Versões HANA**          | SDC em HANA 1.x, MDC em HANA 2.x <= SPS04 Rev 46       | -                                                            |
+| **Versões HANA**          | SDC em HANA 1.x, MDC em HANA 2.x <= SPS04 Rev 48       | -                                                            |
 | **Implantações hana**       | SAP HANA em um único Azure VM - Escalar apenas. <br><br> Para implementações de alta disponibilidade, ambos os nós nas duas máquinas diferentes são tratados como nós individuais com cadeias de dados separadas.               | Aumentar <br><br> Em implementações de alta disponibilidade, a cópia de segurança não falha automaticamente no nó secundário. A cópia de segurança configurante deve ser feita separadamente para cada nó.                                           |
 | **Instâncias HANA**         | Um único caso SAP HANA em um único Azure VM - escala apenas | Múltiplas instâncias SAP HANA em um único VM                  |
 | **Tipos de base de dados HANA**    | Único Recipiente de Base de Dados (SDC) ON 1.x, Recipiente Multi-Base de Dados (MDC) em 2.x | MDC em HANA 1.x                                              |
@@ -45,7 +44,7 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 > [!NOTE]
 > Agora pode [monitorizar os trabalhos de backup e restauro](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) (para a mesma máquina) desencadeados a partir de clientes nativos da HANA (SAP HANA Studio/ Cockpit/ DBA Cockpit) no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [fazer backup sap HANA bases de dados em VMs Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
 * Saiba como restaurar as [bases de dados SAP HANA em execução em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)

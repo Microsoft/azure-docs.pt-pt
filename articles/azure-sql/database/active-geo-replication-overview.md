@@ -12,10 +12,9 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/28/2020
 ms.openlocfilehash: 5449bb335232d3c7a6f2b97c5cce41a8bd2cf0f4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249776"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
@@ -245,7 +244,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 > [!IMPORTANT]
 > Estes comandos Transact-SQL aplicam-se apenas à geo-replicação ativa e não se aplicam a grupos de failover. Como tal, também não se aplicam a casos de SQL Managed Instance, uma vez que apenas suportam grupos de failover.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar a falha |
@@ -262,7 +261,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
-| Cmdlet | Description |
+| Cmdlet | Descrição |
 | --- | --- |
 | [Base de Dados Get-AzSql](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Obtém uma ou mais bases de dados. |
 | [Novo AzSqlDatabaseSesecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
@@ -276,7 +275,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: Gerir o failover de bases de dados individuais e agmbadas
 
-| API | Description |
+| API | Descrição |
 | --- | --- |
 | [Criar ou atualizar base de dados (createMode=Restaurar)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura uma base de dados primária ou secundária. |
 | [Obtenha criar ou atualizar o estado da base de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Devolve o estado durante uma operação de criação. |
@@ -287,7 +286,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 | [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para os scripts de amostra, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/setup-geodr-and-failover-database-powershell.md)

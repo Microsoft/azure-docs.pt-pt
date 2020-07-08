@@ -7,17 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
 ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84449520"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a produção de autoescala abastada na Azure Cosmos DB
 
 Com a produção de autoescala, a Azure Cosmos DB irá gerir e escalar automaticamente o RU/s da sua base de dados ou contentor com base na utilização. Este artigo responde a perguntas comumente sobre autoescala.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="what-is-the-difference-between-autopilot-and-autoscale-in-azure-cosmos-db"></a>Qual é a diferença entre "piloto automático" e "autoescala" em Azure Cosmos DB?
 "Autoscale" ou "autoscale provisioned throughput" é o nome atualizado para a funcionalidade, anteriormente conhecida como "piloto automático". Com o lançamento atual da autoescala, adicionámos novas funcionalidades, incluindo a capacidade de definir max RU/s personalizado e suporte programático. 
@@ -42,24 +41,24 @@ Em contas monoindisculinas, a taxa de autoescala por 100 RU/s é de 1,5x a taxa 
 Em contas multi-master, a taxa de autoescala por 100 RU/s é a mesma que a taxa para o rendimento multi-mestre normal (manual). Na sua conta, verá o medidor multi-mestre existente. Uma vez que as tarifas são as mesmas, se utilizar a autoescala, verá a mesma quantidade que com a produção padrão.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>Funciona em autoescalação com capacidade reservada?
-Yes. Ao adquirir a capacidade reservada de um único mestre, o desconto de reserva para recursos de autoescala é aplicado à utilização do seu contador com um rácio de 1,5 * o [rácio da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sim. Ao adquirir a capacidade reservada de um único mestre, o desconto de reserva para recursos de autoescala é aplicado à utilização do seu contador com um rácio de 1,5 * o [rácio da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 A capacidade reservada multi-master funciona da mesma forma para a produção de escala automática e padrão (manual) a produção. Ver capacidade reservada da [Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>A autoescala funciona com o free tier?
-Yes. No nível livre, pode utilizar a produção de escala automática num recipiente. O suporte para bases de dados de produção partilhadas por escala automática com max RU/s personalizado ainda não está disponível. Veja como [funciona a faturação de nível livre com autoescala.](understand-your-bill.md#billing-examples-with-free-tier-accounts)
+Sim. No nível livre, pode utilizar a produção de escala automática num recipiente. O suporte para bases de dados de produção partilhadas por escala automática com max RU/s personalizado ainda não está disponível. Veja como [funciona a faturação de nível livre com autoescala.](understand-your-bill.md#billing-examples-with-free-tier-accounts)
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>A autoescala suportada para todas as APIs?
 Sim, a autoescala é suportada para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para o MongoDB.
 
 ### <a name="is-autoscale-supported-for-multi-master-accounts"></a>O autoscale é suportado para contas multi-master?
-Yes. Os RU/s max estão disponíveis em cada região que é adicionada à conta DB Azure Cosmos. 
+Sim. Os RU/s max estão disponíveis em cada região que é adicionada à conta DB Azure Cosmos. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Como posso permitir a autoescala em novas bases de dados ou contentores?
 Consulte este artigo sobre [como permitir a autoescala.](how-to-provision-autoscale-throughput.md)
 
 ### <a name="can-i-enable-autoscale-on-an-existing-database-or-a-container"></a>Posso permitir a autoescala numa base de dados existente ou num contentor?
-Yes. Pode também alternar entre a potência de autoescala e a produção normalizada (manual) conforme necessário. Atualmente, para todas as APIs, só é possível utilizar o [portal Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para fazer estas operações.
+Sim. Pode também alternar entre a potência de autoescala e a produção normalizada (manual) conforme necessário. Atualmente, para todas as APIs, só é possível utilizar o [portal Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para fazer estas operações.
 
 ### <a name="how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work"></a>Como funciona a migração entre o trabalho de produção auto-escala e padrão (manual) aussitado?
 Conceptualmente, mudar o tipo de produção é um processo em duas fases. Em primeiro lugar, envia um pedido para alterar as definições de produção para utilizar a produção automática ou manual. Em ambos os casos, o sistema determinará e definirá automaticamente um valor RU/s inicial, com base nas definições de produção e armazenamento atuais. Durante este passo, não será aceite qualquer valor RU/s fornecido pelo utilizador. Em seguida, após a atualização estar concluída, pode [alterar o RU/s](#can-i-change-the-max-rus-on-the-database-or-container) de acordo com a sua carga de trabalho. 
@@ -97,10 +96,10 @@ O limite de armazenamento em GB para cada RU/s máximo é: Max RU/s de base de d
 ### <a name="what-happens-if-i-exceed-the-storage-limit-associated-with-my-max-throughput"></a>O que acontece se eu exceder o limite de armazenamento associado à minha produção máxima?
 Se o limite de armazenamento associado à potência máxima da base de dados ou do contentor for ultrapassado, a Azure Cosmos DB aumentará automaticamente a potência máxima para o próximo RU/s mais elevado que possa suportar esse nível de armazenamento.
 
-Por exemplo, se começar com um RU/s máximo de 50.000 RU/s (balanças entre 5000 - 50.000 RU/s), pode armazenar até 500 GB de dados. Se exceder 500 GB - por exemplo, o armazenamento é agora de 600 GB, o novo máximo RU/s será de 60.000 RU/s (balanças entre 6000 - 60.000 RU/s).
+Por exemplo, se começar com um RU/s máximo de 50.000 RU/s (balanças entre 5000 - 50.000 RU/s), pode armazenar até 500 GB de dados. Se exceder os 500 GB, por exemplo, se o armazenamento for agora de 600 GB, a nova RU/s máxima será de 60 000 RU/s (que dimensiona entre 6000 e 60 000 RU/s).
 
 ### <a name="can-i-change-the-max-rus-on-the-database-or-container"></a>Posso alterar o max RU/s na base de dados ou no contentor? 
-Yes. Consulte este [artigo](how-to-provision-autoscale-throughput.md) sobre como alterar o max RU/s. Quando se altera o max RU/s, dependendo do valor solicitado, esta pode ser uma operação assíncronea que pode demorar algum tempo a ser concluída (pode ser até 4-6 horas, dependendo do RU/s selecionado)
+Sim. Consulte este [artigo](how-to-provision-autoscale-throughput.md) sobre como alterar o max RU/s. Quando se altera o max RU/s, dependendo do valor solicitado, esta pode ser uma operação assíncronea que pode demorar algum tempo a ser concluída (pode ser até 4-6 horas, dependendo do RU/s selecionado)
 
 #### <a name="increasing-the-max-rus"></a>Aumentando o máximo RU/s
 Quando envia um pedido para aumentar o max RU/s, `Tmax` dependendo do máximo RU/s selecionado, o serviço fornece mais recursos para suportar o máximo máximo RU/s. Enquanto isto estiver a acontecer, a sua carga de trabalho e operações existentes não serão afetadas. O sistema continuará a escalar a sua base de dados ou contentor entre o anterior `0.1*Tmax` até que a nova gama de `Tmax` escalas de para estar `0.1*Tmax_new` `Tmax_new` pronta.
@@ -136,9 +135,9 @@ Se o RU/s consumido globalmente exceder o máximo RU/s da base de dados ou do co
 > O cliente Azure Cosmos DB SDKs e ferramentas de importação de dados (Azure Data Factory, biblioteca executora a granel) voltam automaticamente a tentar em 429s, por isso, ocasionalmente, 429s estão bem. Um número elevado sustentado de 429s pode indicar que precisa aumentar o máximo RU/s ou rever a sua estratégia de partição para uma [partição quente](#autoscale-rate-limiting).
 
 ### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Ainda é possível ver 429s (aceleração/limitação de taxa) quando a autoescala está ativada? 
-Yes. É possível ver 429s em dois cenários. Em primeiro lugar, quando o RU/s consumido globalmente exceder o máximo RU/s da base de dados ou do contentor, o serviço irá acelerar os pedidos em conformidade. 
+Sim. É possível ver erros 429 em dois cenários. Em primeiro lugar, quando o RU/s consumido globalmente exceder o máximo RU/s da base de dados ou do contentor, o serviço irá acelerar os pedidos em conformidade. 
 
-Em segundo lugar, se houver uma partição quente, ou seja, um valor-chave de partição lógica que tenha uma quantidade desproporcionalmente maior de pedidos em comparação com outros valores-chave de partição, é possível que a partição física subjacente exceda o seu orçamento RU/s. Como uma boa prática, para evitar divisórias quentes, escolha uma boa chave de [partição](partitioning-overview.md#choose-partitionkey) que resulte numa distribuição uniforme tanto do armazenamento como da produção. 
+Em segundo lugar, se houver uma partição quente, ou seja, um valor-chave de partição lógica que tenha uma quantidade desproporcionalmente maior de pedidos em comparação com outros valores-chave de partição, é possível que a partição física subjacente exceda o seu orçamento RU/s. Como melhor prática, para evitar partições frequentes, [escolha uma boa chave de partição](partitioning-overview.md#choose-partitionkey) que resulte numa distribuição uniforme tanto do armazenamento como do débito. 
 
 Por exemplo, se selecionar a opção de produção máxima de 20.000 RU/s e tiver 200 GB de armazenamento, com quatro divisórias físicas, cada divisória física pode ser autodimensionada até 5000 RU/s. Se houver uma partição quente numa chave de partição lógica específica, verá 429s quando a partição física subjacente reside em mais de 5000 RU/s, ou seja, excede 100% de utilização normalizada.
 

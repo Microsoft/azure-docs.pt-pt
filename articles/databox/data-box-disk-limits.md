@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85099066"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados Azure
@@ -93,6 +92,6 @@ Aqui estão os tamanhos dos objetos Azure que podem ser escritos. Certifique-se 
 |-------------------|-----------------------------------------------------------|
 | Nomes de discos geridos       | <li> O nome deve ter entre 1 a 80 caracteres. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, períodos ou hífenes. </li><li>   O nome não deve ter espaços ou `/` . .                                              |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever [os requisitos do sistema de disco de caixa de dados](data-box-disk-system-requirements.md)

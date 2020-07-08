@@ -4,10 +4,9 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677853"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
@@ -93,7 +92,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| intOutput | Matriz | [1] |
+| intOutput | Matriz |  [1] |
 | stringOutput | Matriz | ["efgh"] |
 | objetoOutput | Matriz | [{"a": "b", "c": "d"}] |
 
@@ -187,7 +186,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | concatOutput | String | prefixo-5yj4yjf5mbg72 |
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
 

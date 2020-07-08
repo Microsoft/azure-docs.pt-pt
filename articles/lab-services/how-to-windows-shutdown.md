@@ -4,10 +4,9 @@ description: Passos para desligar automaticamente uma máquina virtual do Window
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445173"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guia para controlar o comportamento de paragem do Windows
@@ -104,5 +103,5 @@ Ou, pode optar por seguir estes passos manuais utilizando o modelo VM:
 
     ![Comando de encerramento](./media/how-to-windows-shutdown/start-menu.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o artigo sobre como preparar um VM modelo do Windows: [Guia para configurar uma máquina de modelos Windows nos Serviços de Laboratório Azure](how-to-prepare-windows-template.md)

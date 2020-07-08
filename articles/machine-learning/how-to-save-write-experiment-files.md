@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
 ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433275"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática Azure
@@ -73,7 +72,7 @@ Se não necessitar de uma loja de dados, escreva ficheiros para a `./outputs` pa
 
 * **Para guardar o ficheiro escrito como registos no histórico de execução,** escreva ficheiros para `./logs` pasta. Os registos são carregados em tempo real, pelo que este método é adequado para transmitir atualizações ao vivo a partir de uma execução remota.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o acesso aos dados das suas datastores.](how-to-access-data.md)
 

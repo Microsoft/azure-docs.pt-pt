@@ -9,12 +9,11 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 31c285b8130e7df549ae9f3bb7f1e30cd8a0546c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432669"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960219"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitorização do armazenamento Azure
 
@@ -67,7 +66,7 @@ Esta tabela mostra [métricas de armazenamento de fila.](https://docs.microsoft.
 | ------------------- | ----------------- |
 | Capacidade de Fila | A quantidade de armazenamento de fila utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de filas   | O número de filas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueMessageCount | O número de mensagens de fila não piradas na conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| QueueMessageCount | O número aproximado de mensagens de fila no serviço de fila da conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 #### <a name="file-storage"></a>Armazenamento de ficheiros
 
@@ -100,7 +99,7 @@ O Azure Storage fornece as seguintes métricas de transação no Azure Monitor.
 
 O Azure Storage suporta as seguintes dimensões para métricas no Azure Monitor.
 
-| Nome da dimensão | Description |
+| Nome da dimensão | Descrição |
 | ------------------- | ----------------- |
 | **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage**. Append Blob está incluído no BlockBlob. |
 | **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente**: Nível quente</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para bolha de página premium</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tipo de nível para fins gerais conta de armazenamento v1</li> |
@@ -273,7 +272,7 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 |**smbCommandMajor uint32** | Valor no **SMB2_HEADER.Comando**. Atualmente, este é um número entre 0 e 18 inclusive. Por exemplo: `0x6` |
 |**smbCommandMinor** | A subclasse de **SmbCommandMajor,** se for caso disso. Por exemplo: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - Consulte [o Monitor Azure Storage](monitor-storage.md) para obter uma descrição da monitorização do armazenamento do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

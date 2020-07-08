@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: juliako
 ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85095597"
 ---
 # <a name="input-metadata"></a>Metadados de entrada 
@@ -41,7 +40,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 > 
 > 
 
-| Name  | Description |
+| Name  | Descrição |
 | --- | --- | 
 | **VideoTracks**|Cada ficheiro de ativo físico pode conter faixas de vídeos zero ou mais intercaladas num formato de recipiente apropriado. Para mais informações, consulte [VideoTracks](#videotracks). |
 | **AudioTracks**|Cada ficheiro de ativo físico pode conter zero ou mais faixas de áudio intercaladas num formato de recipiente apropriado. Para mais informações, consulte [AudioTracks](#audiotracks) |
@@ -63,7 +62,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Name |  | Description |
+| Name |  | Descrição |
 | --- | --- |
 | **FourCC**<br />Necessário |Código de vídeo Código FourCC que é reportado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1"` |
 | **Perfil** |Perfil da pista de vídeo. <br /><br />Exemplo: `"Profile": "Main"`|
@@ -90,7 +89,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="audiotracks"></a>AudioTracks
 
-| Name  | Description |
+| Name  | Descrição |
 | --- | --- | 
 | **SampleFormat** |Formato de amostra. <br /><br />Exemplo: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Disposição do canal. <br /><br />Exemplo: `"ChannelLayout": "stereo"`|
@@ -108,7 +107,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="metadata"></a>Metadados
 
-| Name | Description |
+| Name | Descrição |
 | --- | --- |
 | **chave**<br />Necessário |A chave no par chave/valor. |
 | **valor**<br /> Necessário |O valor no par chave/valor. |
@@ -238,6 +237,6 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Metadados de saída](output-metadata-schema.md)

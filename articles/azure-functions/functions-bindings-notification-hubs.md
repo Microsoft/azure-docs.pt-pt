@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: f500e7cac7a049152057f7fc7c3349fb028a31a4
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444544"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Ligação de saída de Hubs de Notificação para Funções Azure
@@ -300,7 +299,7 @@ O nome desta definição de aplicação é o que vai na definição de ligação
 |---|---|
 | Centro de Notificação | [Guia de Operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

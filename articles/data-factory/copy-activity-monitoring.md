@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249708"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
@@ -50,7 +49,7 @@ Os **detalhes e durações** da execução inferior descrevem os passos-chave qu
 
 Os detalhes da execução da atividade de cópia e as características de desempenho também são devolvidos na secção **de resultado de execução**da Copy  >  **Output** Activity, que é usada para tornar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [programáticamente monitorizar uma fábrica de dados Azure](monitor-programmatically.md).
 
-| Nome da propriedade  | Description | Unidade de saída |
+| Nome da propriedade  | Descrição | Unidade de saída |
 |:--- |:--- |:--- |
 | dadosRead | A quantidade real de dados lidos a partir da fonte. | Valor int64, em bytes |
 | dadosCritos | O monte real de dados escritos/comprometidos com a pia. O tamanho pode ser diferente do `dataRead` tamanho, uma vez que relaciona a forma como cada data armazena os dados. | Valor int64, em bytes |
@@ -150,7 +149,7 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de Atividade de Cópia:
 
 \-[Visão geral da atividade da cópia](copy-activity-overview.md)

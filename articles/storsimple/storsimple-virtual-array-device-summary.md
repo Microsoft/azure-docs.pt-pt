@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 1ab72788c768568366f2627055015c74028330b5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515244"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utilize a lâmina de resumo do dispositivo para o Gestor de Dispositivos StorSimple ligado ao StorSimple Virtual Array
@@ -51,7 +50,7 @@ A área essencial captura algumas das propriedades importantes, tais como, o est
 
 * O azulejo **de Ações** ou **Volumes** fornece um resumo do número de ações ou volumes no seu dispositivo agrupados por estado. Clique no azulejo para abrir a lâmina da lista **de Partilhas** ou **Volumes** e, em seguida, clique numa partilha ou volume individual para visualizar ou modificar as suas propriedades. Para obter mais informações, consulte como [gerir ações](storsimple-virtual-array-manage-shares.md) ou [gerir volumes.](storsimple-virtual-array-manage-volumes.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Aprenda a:
 - [Gerir ações numa Matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
     

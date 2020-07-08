@@ -1,5 +1,5 @@
 ---
-title: Mapeando fluxo de dados Monitorização Visual
+title: Mapeamento do fluxo de dados Monitorização Visual
 description: Como monitorizar visualmente os fluxos de dados da fábrica de dados do Azure
 author: kromerm
 ms.author: makromer
@@ -7,61 +7,79 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833987"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958906"
 ---
-# <a name="monitor-data-flows"></a>Monitorizar fluxos de dados
+# <a name="monitor-data-flows"></a>Monitorize fluxos de dados
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Depois de ter concluído a construção e depurando o fluxo de dados, pretende agendar o fluxo de dados para executar num horário no contexto de um pipeline. Pode agendar o oleoduto a partir da Azure Data Factory utilizando gatilhos. Ou pode utilizar a opção Trigger Now do Azure Data Factory Pipeline Builder para executar uma execução de uma única execução para testar o fluxo de dados dentro do contexto do gasoduto.
+Depois de ter concluído a construção e depurando o fluxo de dados, pretende agendar o fluxo de dados para executar num horário no contexto de um pipeline. Pode agendar o gasoduto a partir da Azure Data Factory utilizando Triggers. Ou pode utilizar a opção Trigger Now do Azure Data Factory Pipeline Builder para executar uma execução única para testar o fluxo de dados dentro do contexto do pipeline.
 
-Quando executar o seu pipeline, pode monitorizar o gasoduto e todas as atividades contidas no gasoduto, incluindo a atividade do Fluxo de Dados. Clique no ícone do monitor no painel UI da Fábrica de Dados Azure à esquerda. Pode ver um ecrã semelhante ao de baixo. Os ícones destacados permitem-lhe perfurar as atividades no pipeline, incluindo a atividade do Fluxo de Dados.
+Quando executa o seu oleoduto, pode monitorizar o gasoduto e todas as atividades contidas no oleoduto, incluindo a atividade do Fluxo de Dados. Clique no ícone do monitor no painel de UI da Fábrica de Dados Azure. Pode ver um ecrã semelhante ao abaixo. Os ícones destacados permitem-lhe perfurar as atividades no oleoduto, incluindo a atividade do Fluxo de Dados.
 
 ![Monitorização do fluxo de dados](media/data-flow/mon001.png "Monitorização de Fluxo de Dados")
 
-Vê estatísticas a este nível, incluindo os tempos de execução e o estado. O ID de execução ao nível da atividade é diferente do ID de execução ao nível do gasoduto. O ID de execução no nível anterior é para o gasoduto. A seleção dos óculos dá-lhe detalhes profundos sobre a execução do fluxo de dados.
+Vê-se estatísticas a este nível, incluindo os tempos de execução e o estado. O ID de execução ao nível de atividade é diferente do ID de execução ao nível do gasoduto. O Run ID no nível anterior é para o gasoduto. A seleção dos óculos dá-lhe detalhes profundos sobre a execução do fluxo de dados.
 
 ![Monitorização do fluxo de dados](media/data-flow/mon002.png "Monitorização de Fluxo de Dados")
 
-Quando estiver na vista de monitorização do nó gráfico, pode ver uma versão simplificada apenas do seu gráfico de fluxo de dados.
+Quando está na vista de monitorização do nó gráfico, pode ver uma versão simplificada apenas do seu gráfico de fluxo de dados.
 
 ![Monitorização do fluxo de dados](media/data-flow/mon003.png "Monitorização de Fluxo de Dados")
 
-Aqui está uma visão geral de vídeo da monitorização do desempenho dos seus dados flui do ecrã de monitorização ADF:
+Aqui está uma visão geral de vídeo do desempenho da monitorização dos seus fluxos de dados a partir do ecrã de monitorização ADF:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
-## <a name="view-data-flow-execution-plans"></a>Ver planos de execução de fluxo de dados
+## <a name="view-data-flow-execution-plans"></a>Ver Planos de Execução de Fluxo de Dados
 
-Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determina os melhores caminhos de código com base na totalidade do seu fluxo de dados. Além disso, os caminhos de execução podem ocorrer em diferentes nós de escala e divisórias de dados. Portanto, o gráfico de monitorização representa o design do seu fluxo, tendo em conta o caminho de execução das suas transformações. Quando selecionam os nós individuais, podemos ver "agrupamentos" que representam código que foi executado em conjunto no cluster. Os timings e contagens que você vê representam esses grupos em oposição aos passos individuais no seu projeto.
+Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determina caminhos de código ideais com base na totalidade do seu fluxo de dados. Além disso, os caminhos de execução podem ocorrer em diferentes nós de escala e divisórias de dados. Portanto, o gráfico de monitorização representa o design do seu fluxo, tendo em conta o caminho de execução das suas transformações. Quando seleciona nós individuais, pode ver "agrupamentos" que representam código que foi executado em conjunto no cluster. Os timings e contagens que você vê representam esses grupos em oposição aos passos individuais no seu design.
 
 ![Monitorização do fluxo de dados](media/data-flow/mon004.png "Monitorização de Fluxo de Dados")
 
-* Quando seleciona o espaço aberto na janela de monitorização, as estatísticas no tempo de visualização do painel inferior e a linha contam para cada Sink e as transformações que levaram aos dados do lavatório para a linhagem de transformação.
+* Quando selecionar o espaço aberto na janela de monitorização, as estatísticas no painel inferior mostram o tempo e as contagens de linha para cada Pia e as transformações que levaram aos dados do lavatório para a linhagem de transformação.
 
-* Ao selecionar transformações individuais, recebe feedback adicional no painel da direita que mostra estatísticas de partição, contagem de colunas, distorção (quão uniformemente são os dados distribuídos por divisórias) e kurtose (quão espinhoso são os dados).
+* Quando seleciona transformações individuais, recebe feedback adicional no painel da direita que mostra estatísticas de partição, contagem de colunas, distorção (quão uniformemente são os dados distribuídos por divisórias) e kurtose (quão espinhosos são os dados).
 
-* Quando selecionar a pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo dos seus dados fluem para aterrar na Pia. São:
+* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. São:
 
-  * Computorizado: Utiliza a coluna para processamento condicional ou dentro de uma expressão no fluxo de dados, mas não a aterra na Pia
-  * Derivado: A coluna é uma nova coluna que gerou no seu fluxo, ou seja, não estava presente na Fonte
-  * Mapeado: A coluna originou-se da fonte e a sua está mapeando-a para um campo de afundar
+  * Computação: Utiliza a coluna para processamento condicional ou dentro de uma expressão no fluxo de dados, mas não a aterra na Pia
+  * Derivado: A coluna é uma nova coluna que gerou no seu fluxo, isto é, não estava presente na Fonte
+  * Mapeado: A coluna originou-se da fonte e está a mapeá-la para um campo de pia
   * Estado do fluxo de dados: O estado atual da sua execução
-  * Tempo de arranque do cluster: Quantidade de tempo para adquirir o ambiente computacional JIT Spark para a sua execução de fluxo de dados
+  * Tempo de arranque do cluster: Quantidade de tempo para adquirir o ambiente computacional JIT Spark para a execução do fluxo de dados
   * Número de transformações: Quantos passos de transformação estão a ser executados no seu fluxo
   
-![Monitorização do fluxo de dados](media/data-flow/monitornew.png "Monitorização do fluxo de dados nova")  
+![Monitorização do fluxo de dados](media/data-flow/monitornew.png "Monitorização do fluxo de dados novo")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo total de processamento de pia vs. Tempo de Processamento de Transformação
+
+Cada fase de transformação inclui um tempo total para que essa fase se complete com cada tempo de execução de partição totalizado. Quando clicar na Pia verá "Tempo de Processamento da Pia". Este tempo inclui o total do tempo de transformação *mais* o tempo de E/S que demorou a escrever os seus dados para a sua loja de destino. A diferença entre o tempo de processamento do lavatório e o total da transformação é a hora de E/S para escrever os dados.
+
+Também pode ver um timing detalhado para cada passo de transformação de partição se abrir a saída JSON a partir da sua atividade de fluxo de dados na vista de monitorização do gasoduto ADF. O JSON contém um tempo de milissegundo para cada partição, enquanto que a visão de monitorização UX é um calendário agregado de divisórias adicionadas em conjunto:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
-## <a name="monitor-icons"></a>Ícones de monitor
+## <a name="monitor-icons"></a>Ícones do monitor
 
-Este ícone significa que os dados de transformação já estavam em cache no cluster, pelo que os timings e o caminho de execução tomaram isso em consideração:
+Este ícone significa que os dados de transformação já estavam em cache no cluster, por isso os timings e o caminho de execução têm tido isso em conta:
 
-![Monitorização do fluxo de dados](media/data-flow/mon004.png "Monitorização de Fluxo de Dados")
+![Monitorização do fluxo de dados](media/data-flow/mon005.png "Monitorização de Fluxo de Dados")
 
-Você também vê ícones de círculo verde na transformação. Representam uma contagem do número de sumidouros em que os dados estão a fluir.
+Você também vê ícones do círculo verde na transformação. Representam uma contagem do número de sumidouros em que os dados estão a fluir.

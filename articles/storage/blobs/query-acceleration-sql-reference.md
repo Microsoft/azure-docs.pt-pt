@@ -11,10 +11,9 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84193397"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>Referência linguística SQL de aceleração de consulta (pré-visualização)
@@ -321,7 +320,7 @@ Na maioria dos casos, o tamanho de cada lote será ligeiramente superior ao núm
 >[!NOTE]
 > O split_size deve ser de, pelo menos, 10 MB (10485760).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Aceleração da consulta de armazenamento do lago de dados Azure (pré-visualização)](data-lake-storage-query-acceleration.md)
 - [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados Azure (pré-visualização)](data-lake-storage-query-acceleration-how-to.md)

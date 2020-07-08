@@ -15,10 +15,9 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2527e4e630e7bf9cce0c68261bfa1c1797fbf795
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731822"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registo de aplicativos no Azure Ative Directory
@@ -101,7 +100,7 @@ Dicas ao criar e utilizar funções personalizadas para delegar a gestão de apl
 
 Para obter mais informações sobre o básico das funções personalizadas, consulte a visão geral das [funções personalizadas,](roles-custom-overview.md)bem como como [criar um papel personalizado](roles-create-custom.md) e como atribuir um [papel.](roles-assign-powershell.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Subtipos e permissões de registo de pedidos](roles-custom-available-permissions.md)
 - [Referência de função de administrador da AD Azure](directory-assign-admin-roles.md)

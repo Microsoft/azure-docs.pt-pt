@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1484c4bf17d5f437d681e32559b7e6ed4115f5f5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515134"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados Azure
@@ -71,7 +70,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
     * [Fontes de dados do documento no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
 * [Fontes de dados do documento no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrar data lake storage Gen1 com outros serviços Azure](data-lake-store-integrate-with-other-services.md)

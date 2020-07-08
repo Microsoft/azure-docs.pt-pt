@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 684554c5eaf3f5fa2701bad2d49c082595552adb
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515178"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de Dispositivos do StorSimple para resolver problemas na Matriz Virtual do StorSimple
@@ -42,6 +41,6 @@ Pode ver alguns dos problemas comuns com o StorSimple Virtual Array e rever as s
 
 3. Se não conseguir encontrar uma referência ao seu problema ou resolvê-lo, contacte o Microsoft Support para obter mais assistência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como [registar um bilhete de apoio](storsimple-virtual-array-log-support-ticket.md)
 

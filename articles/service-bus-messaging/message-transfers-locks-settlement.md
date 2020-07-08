@@ -4,10 +4,9 @@ description: Este artigo fornece uma visão geral das transferências de mensage
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 22be139fccdeecee846c204a8035804fb897ae5a
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341149"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
@@ -124,7 +123,7 @@ O mecanismo típico para identificar entregas de mensagens duplicadas é verific
 >
 > Quando o bloqueio for perdido, o Azure Service Bus gerará um LockLostException que será apresentado no código de aplicação do cliente. Neste caso, a lógica de relemisso padrão do cliente deve automaticamente entrar em vigor e voltar a tentar a operação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

@@ -12,10 +12,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194475"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
@@ -26,7 +25,7 @@ Um dos desafios para a integração moderna de dados é mover dados de e para o 
 
 Consulte os seguintes artigos para obter informações detalhadas sobre a Data Management Gateway e como utilizá-la:
 
-*  [Data Management Gateway](data-factory-data-management-gateway.md)
+*  [Gateway de Gestão de Dados](data-factory-data-management-gateway.md)
 *  [Mover dados entre as instalações e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 

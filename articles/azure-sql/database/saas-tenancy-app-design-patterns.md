@@ -11,10 +11,9 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85250718"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de arrendamento de base de dados SaaS multi-inquilinos
@@ -193,7 +192,7 @@ A tabela seguinte resume as diferenças entre os principais modelos de arrendame
 | Complexidade operacional | Baixo-alto. Individualmente simples, complexo à escala. | Baixo-médio. Os padrões abordam a complexidade à escala. | Baixo-alto. A gestão individual de inquilinos é complexa. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar e explorar uma aplicação wingtip multi-inquilino que utiliza o modelo SaaS de base de dados por inquilino - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

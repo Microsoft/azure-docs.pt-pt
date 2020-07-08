@@ -5,12 +5,11 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 4ab42509930e76989a67f45deb33e370e6e9adf4
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
-ms.translationtype: MT
+ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800652"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenha dados meteorológicos dos parceiros meteorológicos
 
@@ -140,10 +139,7 @@ Para começar a obter dados meteorológicos no seu hub de dados FarmBeats, siga 
 
 ## <a name="query-ingested-weather-data"></a>Dados meteorológicos ingeridos de consulta
 
-Depois de os trabalhos meteorológicos estarem completos, você pode consultar dados meteorológicos ingeridos para construir modelos ou insights accuáveis. Existem duas formas de aceder e consultar os dados meteorológicos da FarmBeats:
-
-- API e
-- Insights de séries temporítros (TSI).
+Após o tempo de trabalhos estarem completos, você pode consultar dados meteorológicos ingeridos para construir modelos ou insights acccionáveis usando As APIs do FarmBeats Datahub REST.
 
 ### <a name="query-using-rest-api"></a>Consulta usando REST API
 
@@ -209,20 +205,6 @@ Para consultar os dados meteorológicos utilizando a API do FarmBeats REST, siga
 
 No exemplo anterior, a resposta tem dados para dois timetamps juntamente com o nome da medida ("Temperatura") e os valores dos dados meteorológicos reportados nos dois picos de tempo. Terá de consultar o Modelo de Dados Meteorológicos associado (conforme descrito no passo 2 acima) para interpretar o tipo e a unidade dos valores relatados.
 
-### <a name="query-using-azure-time-series-insights-tsi"></a>Consulta utilizando insights da série de tempo Azure (TSI)
-
-FarmBeats usa [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) para ingerir, armazenar, consultar e visualizar dados na escala IoT-dados altamente contextualizados e otimizados para séries temporizadas.
-
-Os dados meteorológicos são recebidos num EventHub e depois empurrados para um ambiente TSI dentro do grupo de recursos FarmBeats. Os dados podem então ser consultados diretamente a partir da EES. Para mais informações, consulte [a documentação da TSI.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
-
-Siga os passos para visualizar os dados sobre a EDIÇÃO:
-
-1. Vá ao **portal Azure**  >  **FarmBeats DataHub grupo de recursos** > selecione Time Series **Insights** ambiente (tsi-xxxx) > Políticas de Acesso **a Dados**. Adicione o utilizador com acesso ao Leitor ou ao Contribuinte.
-
-2. Aceda à página **geral** do ambiente **Time Series Insights** (tsi-xxxx) e selecione o URL do Time Series Insights **Explorer**. Agora pode visualizar os dados meteorológicos ingeridos.
-
-Além de armazenar, consultar e visualizar dados meteorológicos, a TSI também permite a integração num dashboard Power BI. Para obter mais informações, consulte [visualizar dados da Time Series Insights in Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
-
 ## <a name="appendix"></a>Anexo
 
 |        Parceiro   |  Detalhes   |
@@ -236,8 +218,8 @@ Além de armazenar, consultar e visualizar dados meteorológicos, a TSI também 
 | DockerDetails - partnerCredentials | credenciais para chamar parceiro API em estivador. O parceiro precisa de dar esta informação aos seus clientes com base no mecanismo auth que é suportado por exemplo. Nome de utilizador/palavra-passe ou Chaves API. |
 | parceiroType | "Weather" (Outros tipos de parceiros em FarmBeats são "Sensor" e "Imagery")  |
 |  name   |   Nome desejado do parceiro no sistema FarmBeats   |
-|  descrição |  Description   |
+|  descrição |  Descrição   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora, já questionou os dados dos sensores da sua instância Azure FarmBeats. Agora, aprendam a [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para as vossas quintas.

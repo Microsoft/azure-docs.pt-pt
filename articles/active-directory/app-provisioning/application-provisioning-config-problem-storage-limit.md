@@ -12,10 +12,9 @@ ms.date: 02/21/2018
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 4f47954f3f4943846cab2dd9a38fd310abce3469
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782250"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure 
@@ -40,5 +39,5 @@ Há duas formas possíveis de resolver esta questão hoje:
 
 2. **Reduzir a quantidade de dados de configuração armazenados** - Todos os dados introduzidos na secção de [credenciais de administração](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) do separador de provisionamento são armazenados no mesmo local que o certificado SAML. Embora possa não ser possível reduzir o comprimento de todos estes dados, alguns campos de configuração opcional como o **Email de Notificação** podem ser removidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Configure o fornecimento e desaconses dos utilizadores às aplicações saaS](user-provisioning.md)

@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
 ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84730752"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
@@ -251,7 +250,7 @@ def main(req):
 
 Estão disponíveis métodos adicionais de registo que permitem escrever para a consola em diferentes níveis de vestígios:
 
-| Método                 | Description                                |
+| Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Escreve uma mensagem com nível CRITICAL no madeir de raiz.  |
 | **`error(_message_)`**   | Escreve uma mensagem com ERRO de nível no madeir de raiz.    |
@@ -683,7 +682,7 @@ Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte os seguintes recursos:
 

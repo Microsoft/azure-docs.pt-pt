@@ -8,15 +8,14 @@ ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515195"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
-Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
+Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
 
 Este artigo descreve como monitorizar a implementação do Azure File Sync utilizando o Monitor Azure, o Serviço de Sincronização de Armazenamento e o Servidor do Windows.
 
@@ -52,7 +51,7 @@ Para configurar alertas no Azure Monitor, selecione o Serviço de Sincronizaçã
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
-| Cenário | Métrica para usar para alerta |
+| Scenario | Métrica para usar para alerta |
 |-|-|
 | Saúde do ponto final do servidor no portal = Erro | Resultado da sessão de sincronização |
 | Os ficheiros não estão a sincronizar um servidor ou ponto final na nuvem | Ficheiros não sincronizados |
@@ -145,7 +144,7 @@ Os seguintes contadores de desempenho para Azure File Sync estão disponíveis n
 | Operações de sincronização AFS\Ficheiros de sincronização carregados/seg | Número de ficheiros enviados por segundo. |
 | OPERAÇÕES DE SINCRONIZAÇÃO AFS\Total sync operações/seg | Número total de ficheiros sincronizados (carregar e transferir). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)

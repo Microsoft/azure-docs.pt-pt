@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194412"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Mover dados de uma base de dados do SQL Server para a Base de Dados SQL com Azure Data Factory
@@ -138,7 +137,7 @@ A definição de tabela para o SQL Server é especificada no seguinte ficheiro J
 
 Os nomes das colunas não foram incluídos aqui. Pode subselectar os nomes das colunas, incluindo-os aqui (para mais detalhes consulte o tópico da [documentação ADF.](../../data-factory/copy-activity-overview.md)
 
-Copie a definição JSON da tabela num ficheiro chamado *ficheiro onpremtabledef.json* e guarde-o para um local conhecido (aqui assumido como *C:\temp\onpremtabledef.json).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
+Copie a definição JSON da tabela num ficheiro chamado *onpremtabledef.jsem* ficheiro e guarde-a para um local conhecido (aqui assumiu-se *queC:\temp\onpremtabledef.js).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
@@ -171,7 +170,7 @@ A definição para a tabela para a localização do blob de saída está no segu
 }
 ```
 
-Copie a definição JSON da tabela num ficheiro chamado *bloboutputtabledef.json* e guarde-o para um local conhecido (aqui assumido como *C:\temp\bloboutputtabledef.json).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
+Copie a definição JSON da tabela num ficheiro chamado *bloboutputtabledef.jsem* ficheiro e guarde-a para um local conhecido (aqui assumiu-se *queC:\temp\bloboutputtabledef.js).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
@@ -203,7 +202,7 @@ A definição para a tabela para a saída SQL Azure está no seguinte (este esqu
 }
 ```
 
-Copie a definição JSON da tabela num ficheiro chamado *ficheiro AzureSqlTable.json* e guarde-o para um local conhecido (aqui assumido como *C:\temp\AzureSqlTable.json).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
+Copie a definição JSON da tabela num ficheiro chamado *AzureSqlTable.jsem* ficheiro e guarde-a para um local conhecido (aqui assumiu-se *queC:\temp\AzureSqlTable.js).* Criar a tabela em ADF com o seguinte cmdlet Azure PowerShell:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
@@ -288,7 +287,7 @@ Utilizando as definições de tabela fornecidas anteriormente, a definição de 
 }
 ```
 
-Copie esta definição JSON do gasoduto num ficheiro chamado *pipelinedef.json* e guarde-o para um local conhecido (aqui assumido como *C:\temp\pipelinedef.json).* Criar o gasoduto em ADF com o seguinte cmdlet Azure PowerShell:
+Copie esta definição JSON do gasoduto num ficheiro chamado *pipelinedef.jsem* ficheiro e guarde-o para um local conhecido (aqui assumido como *C:\temp\pipelinedef.js).* Criar o gasoduto em ADF com o seguinte cmdlet Azure PowerShell:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 

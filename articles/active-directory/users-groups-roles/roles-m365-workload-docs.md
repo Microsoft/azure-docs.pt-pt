@@ -15,10 +15,9 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79e3ed41ad3038cf66d61c25292ebad55c2b5e92
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731702"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Funções de administrador para serviços Microsoft 365
@@ -45,7 +44,7 @@ Privileged Identity Management | [Funções de administração da AD Azure](dire
 Intune | [Controlo de acesso baseado em funções intune](https://docs.microsoft.com/intune/role-based-access-control) | [Graph API](https://docs.microsoft.com/graph/api/resources/intune-rbac-conceptual?view=graph-rest-beta)<br>[Ir buscar atribuições de papéis](https://docs.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-beta)
 Desktop gerido | [Funções de administração da AD Azure](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como atribuir ou remover funções de administrador AD da Azure](directory-manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](directory-assign-admin-roles.md)

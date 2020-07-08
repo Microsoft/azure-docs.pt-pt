@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85081100"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multitenant e Pesquisa Cognitiva Azure
@@ -128,7 +127,7 @@ Este método pode ser usado para obter funcionalidades de contas de utilizador s
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 A Azure Cognitive Search é uma escolha convincente para muitas aplicações. Ao avaliar os vários padrões de design para aplicações multitenantes, considere os [vários níveis de preços](https://azure.microsoft.com/pricing/details/search/) e os [respetivos limites](search-limits-quotas-capacity.md) de serviço para melhor adaptar a Azure Cognitive Search para se adaptar às cargas de trabalho de aplicações e arquiteturas de todos os tamanhos.
 
 Quaisquer questões sobre a Pesquisa Cognitiva Azure e cenários multitenantes podem ser direcionadas para azuresearch_contact@microsoft.com .
