@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 8f39c9cf159f8ce5068cf10460ba6f195baa7806
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205063"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026989"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Utilização de pontos finais privados para configuração de aplicações Azure
 
@@ -24,7 +24,7 @@ A utilização de pontos finais privados para a sua loja de configuração de ap
 - Ligue-se seguramente à loja de Configuração de Aplicações a partir de redes no local que se conectam ao VNet [utilizando VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoutes](../expressroute/expressroute-locations.md) com o seu olhar privado.
 
 > [!NOTE]
-> A Azure App Configuration oferece o uso de pontos finais privados como pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.
+> A funcionalidade private endpoint está agora geralmente disponível em todas as *regiões, exceto* na Índia Central. Na região da **Índia Central,** a Azure App Configuration oferece o uso de pontos finais privados como pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.
 
 ## <a name="conceptual-overview"></a>Descrição geral conceptual
 
@@ -64,7 +64,7 @@ Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes dev
 
 Permitir pontos finais privados requer uma loja de configuração de aplicativos [de nível padrão.](https://azure.microsoft.com/pricing/details/app-configuration/)  Para saber mais sobre os detalhes dos preços dos links privados, consulte os preços do [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a criação de um ponto final privado para a sua loja de Configuração de Aplicações, consulte os seguintes artigos:
 

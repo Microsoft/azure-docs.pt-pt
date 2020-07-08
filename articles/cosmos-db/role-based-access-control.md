@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0782d5f091671a235df1ab85a8b9706c7efe9170
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509037"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027023"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Seguem-se os papéis integrados apoiados pela Azure Cosmos DB:
 
 O painel **de controlo de acesso (IAM)** no portal Azure é utilizado para configurar o controlo de acesso baseado em funções nos recursos da Azure Cosmos. As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos. A imagem que se segue mostra a integração do Ative Directory (RBAC) utilizando o controlo de acesso (IAM) no portal Azure:
 
-![Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados":::
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
@@ -108,8 +108,8 @@ Para ativar a utilização do Azure PowerShell, utilize o comando abaixo:
 Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [O que é o controlo de acesso baseado em funções (RBAC) para os recursos Azure](../role-based-access-control/overview.md)
+- [O que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)
 - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) (Funções personalizadas para recursos do Azure)
 - [Operações de fornecedor de recursos DB da Azure Cosmos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

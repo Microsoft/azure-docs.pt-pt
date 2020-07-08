@@ -3,12 +3,12 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: db0addfbc2fc5b322c2f6dd9b51f3ace10935589
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261416"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026972"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
@@ -23,12 +23,12 @@ Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics
 * [Registar dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
 * [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Criar uma conta Azure Media Services](../latest/create-account-howto.md)
-    * Utilize uma destas regiões: Leste dos EUA 2, Central EUA, Norte Central EUA, Japão Oeste, Oeste DOS EUA 2, West Central US, Canadá Leste, Reino Unido Sul, França Central, França Sul, Suíça Norte, Suíça Oeste e Japão Oeste.
+    * Utilize uma destas regiões: Leste dos EUA 2, Central EUA, Norte Central DOS EUA, Japão Leste, Oeste dos EUA 2, West Central US, Canadá Leste, Reino Unido Sul, França Central, França Sul, Suíça Norte, Suíça Oeste e Japão Oeste.
     * Recomenda-se que utilize contas de armazenamento v2 (GPv2) para fins gerais.
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurar recursos do Azure para a utilização de Vídeo Analytics ao Vivo
 
-### <a name="create-custom-azure-resource-manager-role"></a>Crie uma função personalizada de Gestor de Recursos Azure
+### <a name="create-custom-azure-resource-manager-role"></a>Criar função do Azure Resource Manager personalizada
 
 Consulte [Criar uma função personalizada de Gestor de Recursos Azure](create-custom-azure-resource-manager-role-how-to.md) e atribua-a a um diretor de serviço para utilização em Vídeo Analytics ao Vivo.
 
@@ -257,6 +257,6 @@ Em seguida, vamos testar a amostra invocando um método direto. Leia [os método
 
     ![A mensagem status 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

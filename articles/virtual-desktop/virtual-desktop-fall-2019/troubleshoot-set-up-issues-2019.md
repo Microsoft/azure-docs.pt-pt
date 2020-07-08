@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 124d81651cd937dc9671f725f54826b1ff9a42a5
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362327"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026700"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -406,7 +406,13 @@ Se estiver a executar o modelo GitHub Azure Resource Manager, forneça valores p
 - IsServicePrincipal: **verdadeiro**
 - AadTenantId: O ID do Inquilino Azure AD do diretor de serviço que criou
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Erro: vmSubnet não disponível ao configurar redes virtuais
+
+**Causa:** No modelo WVD Marketplace, o UI apenas apresenta sub-redes que têm pelo menos tantos endereços IP disponíveis como o número total de VMs especificados no modelo. O número real de endereços IP disponíveis na sub-rede só precisa de ser igual ao número de novos VM a ser implantado, mas isso não pode ser calculado pela UI atual.
+
+**Correção:** Pode especificar uma sub-rede com pelo menos tantos endereços IP disponíveis como o número de VMs adicionados não utilizando o Marketplace UI, isto pode ser feito especificando o nome da sub-rede no parâmetro "**existenteSSubnetName**" quando [recolocar uma implantação](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [implantação existente usando o modelo ARM subjacente do GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
+
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview-2019.md).
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration-2019.md).

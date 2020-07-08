@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30a80a2e2eb5522768c08a24535b0fb3f8d86a44
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261992"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027745"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implementar O Serviço de Aplicações Azure Cosmos DB e Azure app com uma aplicação web do GitHub usando um modelo de gestor de recursos Azure
 
@@ -36,7 +36,7 @@ A implementação resultante tem uma aplicação web totalmente funcional que po
 
 Em primeiro lugar, selecione o botão **Implementar para Azure** abaixo para abrir o portal Azure para criar uma implementação personalizada. Também pode ver o modelo de Gestão de Recursos Azure da [Galeria de Modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
 
-[![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
 
 Uma vez no portal Azure, selecione a subscrição para implementar e selecionar ou criar um novo grupo de recursos. Em seguida, preencha os seguintes valores.
 
@@ -112,7 +112,7 @@ Por último, precisamos de implementar a aplicação web do GitHub para o Servi�
 
 :::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Implementar a partir do GitHub":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Parabéns! Você implementou Azure Cosmos DB, Azure App Service, e uma aplicação web de amostra que tem automaticamente a informação de conexão necessária para ligar à Cosmos DB, tudo numa única operação e sem ter que cortar e colar informações sensíveis. Usando este modelo como ponto de partida, pode modificá-lo para implementar as suas próprias aplicações web da mesma forma.
 

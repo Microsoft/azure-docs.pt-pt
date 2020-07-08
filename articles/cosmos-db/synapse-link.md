@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1acb01ceb9747fa833e998bd5501ce8a8a51babb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119465"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025782"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -122,6 +122,8 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 * Atualmente, a loja analítica só pode ser ativada para novos contentores (tanto em novas e existentes contas DB Azure Cosmos).
 
+* Na pré-visualização, para o Synapse Link as contas de base de dados ativadas, a cópia de segurança e a restauração de contentores não são suportadas. Se tiver cargas de trabalho de produção que exijam cópias de segurança e restaurar a funcionalidade, recomendamos que não ative o Synapse Link nessas contas de base de dados. 
+
 * O acesso à loja analítica Azure Cosmos DB com servidor Sinaapse SQL está atualmente sob pré-visualização fechada. Para solicitar acesso, envie um e-mail para a [equipa DB da Azure Cosmos.](mailto:cosmosdbsynapselink@microsoft.com)
 
 * O acesso à loja de análiseS DB da Azure Cosmos com o Sinaapse SQL abastado não está disponível atualmente.
@@ -130,11 +132,11 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 O modelo de faturação da Azure Synapse Link inclui os custos incorridos com a utilização da loja analítica Azure Cosmos DB e do tempo de execução da Synapse. Para saber mais, consulte os preços da [loja analítica Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) e os [artigos de preços Azure Synapse Analytics.](https://azure.microsoft.com/pricing/details/synapse-analytics/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os seguintes documentos:
 
-* [Descrição geral do arquivo analítico do Azure Cosmos DB](analytical-store-introduction.md)
+* [Visão geral da loja analítica Azure Cosmos DB](analytical-store-introduction.md)
 
 * [Introdução ao Azure Synapse Link para o Azure Cosmos DB](configure-synapse-link.md)
  

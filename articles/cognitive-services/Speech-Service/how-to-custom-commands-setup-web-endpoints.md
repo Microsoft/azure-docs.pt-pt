@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414288"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027686"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
@@ -46,11 +46,12 @@ Neste artigo, você vai aprender como configurar pontos finais web em uma aplica
    | Name | AtualizaçãoDeviceState | Nome para o ponto final da web. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | O URL do ponto final com o que deseja que a sua aplicação de comando personalizada fale. |
    | Método | POST | As interações permitidas (como GET, POST) com o seu ponto final.|
-   | Cabeçalhos | Chave: app, Valor: um nome único para a sua aplicação | Os parâmetros do cabeçalho para incluir no cabeçalho do pedido.|
+   | Cabeçalhos | Chave: app, Valor: tome os primeiros 8 dígitos da sua aplicaçãoId | Os parâmetros do cabeçalho para incluir no cabeçalho do pedido.|
 
     > [!NOTE]
     > - O ponto final da web exemplo criado usando [a Azure Function,](https://docs.microsoft.com/azure/azure-functions/)que se liga à base de dados que salva o estado do dispositivo da televisão e do ventilador
     > - O cabeçalho sugerido só é necessário para o ponto final exemplo
+    > - Para garantir que o valor do cabeçalho é único no nosso ponto final de exemplo, pegue os primeiros 8 dígitos da sua aplicaçãoId
     > - No mundo real, o ponto final da web pode ser o ponto final para o [hub IOT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que gere os seus dispositivos
 
 1. Clique em **Guardar**.
@@ -74,6 +75,8 @@ Neste artigo, você vai aprender como configurar pontos finais web em uma aplica
     > - Os parâmetros de consulta sugeridos são apenas necessários para o ponto final exemplo
 
 1. In **On Success - Ação a executar**, selecione Enviar resposta de **fala**.
+    
+    Em **Editor Simples,** insira `{SubjectDevice} is {OnOff}` .
    
    > [!div class="mx-imgBorder"]
    > ![Ligue para a ação de pontos finais da web sobre o sucesso](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -86,6 +89,9 @@ Neste artigo, você vai aprender como configurar pontos finais web em uma aplica
    > - Também pode aceder diretamente aos campos na resposta http utilizando `{YourWebEndpointName.FieldName}` . Por exemplo: `{UpdateDeviceState.TV}`
 
 1. In **On Failure - Ação a executar,** selecione Enviar resposta de **fala**
+
+    Em **Editor Simples,** insira `Sorry, {WebEndpointErrorMessage}` .
+
    > [!div class="mx-imgBorder"]
    > ![Ligue para a ação de pontos finais da web em falha](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
@@ -197,7 +203,7 @@ Se testar a aplicação `turn on tv` na secção anterior, veria os programas de
     > [!div class="mx-imgBorder"]
     > ![Ligue o ventilador](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ativar um processo CI/CD para a sua aplicação de Comandos Personalizados](./how-to-custom-commands-deploy-cicd.md)

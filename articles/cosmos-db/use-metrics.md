@@ -7,18 +7,18 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: 157f0a710a0b3aed25455600bbf19d4ae84ed848
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391949"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027819"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas em Azure Cosmos DB
 
 O Azure Cosmos DB fornece métricas para débito, armazenamento, consistência, disponibilidade e latência. O portal do Azure fornece uma vista agregada destas métricas. Também pode ver as métricas do Azure Cosmos DB na API do Azure Monitor. Para saber como ver as métricas do monitor Azure, consulte as [métricas get do artigo do Azure Monitor.](cosmos-db-azure-monitor-metrics.md) 
 
-Este artigo percorre casos de uso comum e como as métricas DB do Azure Cosmos podem ser usadas para analisar e depurar estas questões. As métricas são recolhidas a cada cinco minutos e são mantidas durante sete dias.
+Este artigo aborda casos de utilização comum e a forma como as métricas do Azure Cosmos DB podem ser utilizadas para analisar e depurar estas questões. As métricas são recolhidas a cada cinco minutos e são mantidas durante sete dias.
 
 ## <a name="view-metrics-from-azure-portal"></a>Ver métricas do portal Azure
 
@@ -56,7 +56,7 @@ O código de estado de erro mais comum é 429 (limitação/estrangulamento de ta
 
 Ter uma boa cardinalidade das suas chaves de partição é essencial para qualquer aplicação escalável. Para determinar a distribuição de produção de qualquer recipiente dividido por divisórias, navegue até à **lâmina métrica** do [portal Azure](https://portal.azure.com). No **separador Deprodução,** a avaria de armazenamento é mostrada no **Max consumido RU/segundo por cada gráfico de partição física.** O gráfico que se segue ilustra um exemplo de uma má distribuição de dados, como mostra a divisória distorcida na extrema esquerda.
 
-![Partição única vendo uso pesado às 15:05](media/use-metrics/metrics-17.png)
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partição única vendo uso pesado":::
 
 Uma distribuição de produção desigual pode causar divisórias *quentes,* o que pode resultar em pedidos acelerados e pode exigir repartição. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partition-data.md).
 
@@ -107,7 +107,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 *A ConsultaMetrics* fornece detalhes sobre quanto tempo cada componente da consulta demorou a ser executado. A causa mais comum para consultas de longa duração são os exames, o que significa que a consulta não foi capaz de alavancar os índices. Este problema pode ser resolvido com uma melhor condição de filtro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora aprendeu a monitorizar e depurar problemas usando as métricas fornecidas no portal Azure. Pode querer saber mais sobre a melhoria do desempenho da base de dados lendo os seguintes artigos:
 

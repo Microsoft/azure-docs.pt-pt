@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5504416d09cf6b3f75d02e29cc93b0278cc42386
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117136"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025833"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure
 
@@ -175,7 +175,7 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 | | |
 | --- | --- |  
 |**[Plano de consumo](#consumption-plan)**| Dimensione automaticamente e só pague por recursos de cálculo quando as suas funções estiverem em funcionamento. No plano de Consumo, os casos do anfitrião funções são adicionados e removidos dinamicamente com base no número de eventos que chegam.<br/> ✔ plano de hospedagem padrão.<br/>✔ Pague apenas quando as suas funções estiverem em funcionamento.<br/>✔ de escalonamento automaticamente, mesmo durante períodos de alta carga.|  
-|**[Plano Premium](#premium-plan)**|Enquanto escala automaticamente com base na procura, use trabalhadores pré-aquecidos para executar aplicações sem atrasos após estar inativo, executar em casos mais poderosos e ligar-se a VNETs. Considere o plano Azure Functions Premium nas seguintes situações, além de todas as funcionalidades do plano de Serviço de Aplicações: <br/>✔ As aplicações de função funcionam continuamente, ou quase continuamente.<br/>✔ Tem um elevado número de pequenas execuções e tem uma nota de execução alta, mas baixa nota de GB segundo no plano de consumo.<br/>✔ Precisa de mais OPÇÕES de CPU ou de memória do que as fornecidas pelo plano de Consumo.<br/>✔ O seu código tem de ser executado mais tempo do que o tempo máximo de execução permitido no plano de Consumo.<br/>✔ Necessita de funcionalidades que só são aproveitada [capazes de um plano Premium, como a conectividade de rede virtual.|  
+|**[Plano Premium](#premium-plan)**|Enquanto escala automaticamente com base na procura, use trabalhadores pré-aquecidos para executar aplicações sem atrasos após estar inativo, executar em casos mais poderosos e ligar-se a VNETs. Considere o plano Azure Functions Premium nas seguintes situações, além de todas as funcionalidades do plano de Serviço de Aplicações: <br/>✔ As aplicações de função funcionam continuamente, ou quase continuamente.<br/>✔ Tem um elevado número de pequenas execuções e tem uma nota de execução alta, mas baixa nota de GB segundo no plano de consumo.<br/>✔ Precisa de mais OPÇÕES de CPU ou de memória do que as fornecidas pelo plano de Consumo.<br/>✔ O seu código tem de ser executado mais tempo do que o tempo máximo de execução permitido no plano de Consumo.<br/>✔ Necessita de funcionalidades que só estão disponíveis num plano Premium, como a conectividade da rede virtual.|  
 |**[Plano dedicado](#app-service-plan)**<sup>1</sup>|Executar as suas funções dentro de um plano de Serviço de Aplicações com taxas regulares de plano de serviço de aplicações. Bom ajuste para operações de longo prazo, bem como quando são necessários mais escalões preditivos e custos. Considere um plano de Serviço de Aplicações nas seguintes situações:<br/>✔ Tem VMs existentes e subutilizados que já estão a executar outras instâncias do Serviço de Aplicações.<br/>✔ Pretende fornecer uma imagem personalizada para executar as suas funções.|  
 |**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) é uma funcionalidade de Serviço de Aplicações que fornece um ambiente totalmente isolado e dedicado para executar aplicações de Serviço de Aplicações de forma segura em alta escala. AsE são adequadas para cargas de trabalho de aplicação que requerem: <br/>✔ muito alta escala.<br/>✔ isolamento e acesso seguro à rede.<br/>✔ alta utilização da memória.|  
 | **[Utilizar o Kubernetes](functions-kubernetes-keda.md)** | Kubernetes fornece um ambiente totalmente isolado e dedicado que corre em cima da plataforma Kubernetes.  Kubernetes é apropriado para cargas de trabalho de aplicação que requerem: <br/>✔ requisitos de hardware personalizados.<br/>✔ isolamento e acesso seguro à rede.<br/>✔ Capacidade de funcionar em ambiente híbrido ou multi-nuvem.<br/>✔ Run ao lado das aplicações e serviços existentes da Kubernetes.|  
@@ -241,7 +241,7 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 
 <sup>1</sup> Para limites específicos para as várias opções do plano de Serviço de Aplicações, consulte os limites do [plano do Serviço de Aplicações.](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Quickstart: Criar um projeto Azure Functions utilizando o Código do Estúdio Visual](functions-create-first-function-vs-code.md)
 + [Tecnologias de implantação em Funções Azure](functions-deployment-technologies.md) 

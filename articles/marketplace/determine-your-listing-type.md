@@ -5,32 +5,32 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658053"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027108"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
-A opção de publicação que escolher para a sua oferta diz respeito diretamente aos requisitos de elegibilidade e aos benefícios do marketplace comercial GTM. Mais importante ainda, a seleção de opção de publicação e tipo de oferta define como os utilizadores irão interagir com a sua oferta de mercado comercial.
+A opção de publicação que escolhe para a sua oferta diz-se diretamente com os requisitos de elegibilidade e com os benefícios do mercado comercial GTM. Mais importante ainda, a seleção de opção de publicação e tipo de oferta define como os utilizadores irão interagir com a sua oferta de mercado comercial.
 
-Para configurar a sua oferta, terá de compreender os seguintes conceitos chave do mercado comercial: as opções de publicação, os tipos de oferta e configuração, e as chamadas à ação que irão governar como e onde a sua oferta é apresentada nas montras do mercado comercial.
+Para configurar a sua oferta, terá de compreender os seguintes conceitos principais do mercado comercial: as opções de publicação, tipos de oferta e configuração, e chamadas à ação que regem como e onde a sua oferta é apresentada nas lojas de marketplace comercial.
 
 Neste artigo, vai aprender:
 
-- Como determinar a montra apropriada para a sua solução
-- Quais as opções de publicação e chamadas à ação disponíveis em cada montra
+- Como determinar a montra adequada para a sua solução
+- Quais opções de publicação e chamadas para a ação estão disponíveis em cada montra
 - Quais os tipos de oferta disponíveis para cada opção de publicação
 
 ## <a name="commercial-marketplace-publishing-options"></a>Opções de publicação de mercado comercial
 
-A tabela seguinte mostra as opções de publicação para tipos de oferta no Microsoft AppSource e No Azure Marketplace.
+A tabela seguinte mostra as opções de publicação para os tipos de oferta no Microsoft AppSource e no Azure Marketplace.
 
-|   | **Lista (Contacto)**  | **Lista (Julgamento)**  | **Gratuito** | **BYOL** | **Transt**|
+|   | **Lista (Contacto)**  | **Lista (Julgamento)**  | **Gratuito** | **BYOL** | **Transação**|
 | :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
 | **Máquina Virtual** |  |  |  | Azure Marketplace |  Azure Marketplace |
 | **Aplicativos Azure (multi-VM)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
@@ -40,40 +40,40 @@ A tabela seguinte mostra as opções de publicação para tipos de oferta no Mic
 | **Serviços de consultadoria** | Ambas as montras |  |  |  |   |
 | **App SaaS** | Ambas as montras | Ambas as montras | Ambas as montras |  | Ambas as montras* |
 | **Microsoft 365 App** | AppSource | AppSource |  |  | AppSource**  |
-| **Dinâmica 365 add-in** |  AppSource | AppSource |  |  |   |
+| **Dynamics 365 add-in** |  AppSource | AppSource |  |  |   |
 | **PowerApps** | AppSource |AppSource  |  |  |   |
 
-&#42; aplicação SaaS Transact oferece no Microsoft AppSource são atualmente apenas cartão de crédito.
+&#42; aplicação SaaS As ofertas transact no Microsoft AppSource são atualmente apenas cartão de crédito.
 
-&#42;&#42; as ofertas do Microsoft 365 são gratuitas para serem instaladas e podem ser rentabilizadas através da oferta SaaS como serviço de licenciamento. Para mais informações, consulte [Monetize o seu add-in office 365 através do mercado comercial da Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+&#42;&#42; as ofertas da Microsoft 365 são gratuitas e podem ser rentabilizadas através da oferta saaS como um serviço de licenciamento. Para mais informações, consulte [Monetize o seu add-in Office 365 através do mercado comercial da Microsoft.](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)
 
 ## <a name="selecting-a-storefront"></a>Selecionando uma montra
 
-Antes de selecionar uma opção de publicação, é importante compreender os requisitos de elegibilidade da montra para soluções de mercado comercial, apps e serviços. Cada montra serve requisitos exclusivos do cliente e visa audiências específicas. O seu tipo de oferta, capacidades transatas e categoria ou indústria determinarão onde publicar a sua oferta.
+Antes de selecionar uma opção de publicação, é importante compreender os requisitos de elegibilidade da montra para soluções, apps e serviços de marketplace comercial. Cada montra serve requisitos exclusivos do cliente e visa públicos específicos. O seu tipo de oferta, capacidades de transação e categoria ou indústria determinarão onde publicar a sua oferta.
 
-As aplicações **Microsoft AppSource** são soluções de linha de negócio que podem ser construídas em Azure ou incorporadas para: Dynamics 365, Office 365, Power BI ou Power Apps. Os serviços de consultoria AppSource são ofertas de serviços profissionais que ajudam os clientes a começar ou a acelerar o uso da Dynamics 365 e do Power BI.
+As aplicações **do Microsoft AppSource** são soluções de linha de negócio que podem ser construídas em Azure ou incorporadas para: Dynamics 365, Office 365, Power BI ou Power Apps. Os serviços de consultoria AppSource são ofertas de serviços profissionais que ajudam os clientes a começar ou acelerar o uso da Dynamics 365 e power BI.
 
-As aplicações **do Azure Marketplace** são soluções técnicas de "bloco de construção" construídas ou construídas para o Azure e destinadas a um público de TI ou desenvolvedor. Os serviços de consultoria Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começar ou a acelerar o uso do Azure.
+As aplicações **do Azure Marketplace** são soluções técnicas de "bloco de construção" construídas ou construídas para o Azure e destinadas a um público de TI ou desenvolvedor. Os serviços de consultoria Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começar ou acelerar o uso do Azure.
 
 >[!Note]
->Cross-listing (apenas para Apps SaaS): quando uma lista ou oferta baseada em ensaios satisfaz os critérios para um público técnico e de utilizador de negócios, a sua oferta será listada em ambas as lojas. Saiba mais sobre as opções de publicação abaixo.
+>"Cross-listing" (apenas para aplicações SaaS): se a sua oferta SaaS se destina a um público técnico (Azure Marketplace) e a um público de negócios (AppSource), pode selecionar uma categoria e/ou subcategoria aplicável a qualquer uma das Storefronts. Tenha em atenção que a intenção de "cruzar" a sua oferta deve basear-se numa proposta de valor que se estende a ambos os públicos. Clique [aqui](./gtm-offer-listing-best-practices.md#categories) para ver categorias aplicáveis a cada Montra.
 
 ## <a name="choose-a-publishing-option"></a>Escolha uma opção de publicação
 
-As opções de publicação disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso a benefícios de partilha de chumbo e [mercado comercial.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Note as chamadas à ação que correspondem à opção de publicação:
+As opções de publicação disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso à partilha de chumbo e [aos benefícios do mercado comercial.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Note as chamadas para a ação que correspondem à opção de publicação:
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|
-| **Lista** | Listagem simples da sua aplicação ou serviço que permite a um utilizador do mercado comercial solicitar-lhe que se conecte com o cliente através da chamada **contacte-me.** |
-| **Avaliação** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução, permitindo que os potenciais utilizadores utilizem a sua experiência na aplicação SaaS, IaaS ou Microsoft sem custos limitados antes de comprarem. As chamadas para a ação utilizadas para a opção de publicação do ensaio são **de Teste Gratuito** ou Test **Drive**. |
-| **BYOL** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da sua solução e completar a transação financeira separadamente. Os tipos de oferta BYOL são ideais para as migrações em nuvem. O call-to-action é **Get it Now**.
-| **Transt** | As ofertas transatas são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. O call-to-action é **Get it Now**.|
+| **Lista** | Simples listagem da sua aplicação ou serviço que permite a um utilizador comercial do mercado solicitar-lhe a ligação com o cliente através da chamada de chamada para ação **do Contact Me.** |
+| **Avaliação** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução, permitindo aos potenciais utilizadores utilizarem a sua experiência de saaS, IaaS ou Microsoft na aplicação sem custos limitados antes de comprarem. As chamadas à ação utilizadas para a opção de publicação do ensaio são **de Teste Gratuito** ou Test **Drive**. |
+| **BYOL** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações em nuvem. O call-to-action é **Get it Now**.
+| **Transação** | As ofertas transactais são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. O call-to-action é **Get it Now**.|
 
 > [!Note]
-> Ao utilizar a opção de publicação Transact, é importante compreender as considerações de preços, faturação, faturação e pagamento antes de selecionar um tipo de oferta e criar a sua oferta. Para saber mais, reveja o artigo [Capacidades transacionais](./marketplace-commercial-transaction-capabilities-and-considerations.md)do mercado comercial.
+> Ao utilizar a opção de publicação Da Transact, é importante compreender os preços, faturação, faturação e considerações de pagamento antes de selecionar um tipo de oferta e criar a sua oferta. Para saber mais, reveja o artigo [Capacidades de transação comercial.](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Assim que decidir uma opção de publicação, está pronto para [selecionar o tipo](./publisher-guide-by-offer-type.md) de oferta que será utilizado para apresentar a sua oferta.
-- Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo de oferta para finalizar a seleção e configuração da sua oferta.
-- Reveja os padrões de publicação por montra, por exemplo, sobre como a sua solução mapeia um tipo de oferta e configuração.
+- Assim que decidir uma opção de publicação, está pronto para [selecionar o tipo de oferta](./publisher-guide-by-offer-type.md) que será usado para apresentar a sua oferta.
+- Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
+- Reveja os padrões de publicação por montra, por exemplo, sobre como a sua solução mapeia para um tipo de oferta e configuração.

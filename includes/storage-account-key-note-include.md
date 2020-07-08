@@ -1,22 +1,23 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 95639caddfa627290f4e7153d50f9f7799a1f320
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba715d510dc296ffa8f9c0ee58841f284416a118
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460542"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027341"
 ---
 ## <a name="protect-your-access-keys"></a>Proteja as suas chaves de acesso
 
-As chaves de acesso à sua conta de armazenamento são semelhantes a uma palavra-passe raiz para a sua conta de armazenamento. Tenha sempre cuidado para proteger as suas chaves de acesso. Utilize o Cofre de Chaves Azure para gerir e rodar as chaves de forma segura. Evite distribuir chaves de acesso a outros utilizadores, codificando-as com força ou guarde-as em qualquer lugar em texto simples que seja acessível a outros. Rode as chaves se acreditar que podem ter sido comprometidas.
+As chaves de acesso à sua conta de armazenamento são semelhantes a uma senha de raiz para a sua conta de armazenamento. Tenha sempre cuidado para proteger as suas chaves de acesso. Utilize o Cofre da Chave Azure para gerir e rodar as chaves de forma segura. Evite distribuir chaves de acesso a outros utilizadores, codificando-as duramente ou guardando-as em qualquer lugar em texto simples que seja acessível a outros. Rode as chaves se acredita que podem ter sido comprometidas.
 
-Se possível, utilize o Azure Ative Directory (Azure AD) para autorizar pedidos de armazenamento blob e fila em vez de Chave Partilhada. A Azure AD proporciona uma segurança superior e facilidade de utilização sobre a Chave Partilhada. Para obter mais informações sobre a autorização de acesso a dados com a AD Azure, consulte [Autorizar o acesso a blobs e filas Azure utilizando o Diretório Ativo Azure](../articles/storage/common/storage-auth-aad.md).
+> [!NOTE]
+> A Microsoft recomenda a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos contra dados de blob e fila, se possível, em vez de "Shared Key". A Azure AD proporciona segurança superior e facilidade de utilização sobre a Chave Partilhada. Para obter mais informações sobre a autorização de acesso aos dados com a Azure AD, consulte [o Acesso Autorizado a blobs e filas Azure através do Azure Ative Directory](../articles/storage/common/storage-auth-aad.md).
