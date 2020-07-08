@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: mimart
 ms.openlocfilehash: de1b67265c5c3b3f7247b7f21506eed88abfd550
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82900372"
 ---
 1. Inscreva-se na [Consola de Desenvolvimento](https://developer.amazon.com/dashboard) da Amazon com as suas credenciais de conta Amazon.

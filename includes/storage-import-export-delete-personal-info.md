@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: azure-policy
 author: craigshoemaker
 ms.service: azure-policy
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184472"
 ---
 ## <a name="deleting-personal-information"></a>Apagar informações pessoais
@@ -23,7 +23,7 @@ As informações pessoais são relevantes para o serviço de importação/export
 
 - Nome do contacto
 - Número de telefone
-- Email
+- E-mail
 - Morada
 - Localidade
 - Código postal
@@ -33,16 +33,16 @@ As informações pessoais são relevantes para o serviço de importação/export
 - Número de conta da operadora
 - Número de controlo de envio
 
-Quando é criado um trabalho de importação/exportação, os utilizadores fornecem informações de contacto e um endereço de envio. As informações pessoais são armazenadas em até dois locais diferentes: no trabalho e opcionalmente nas configurações do portal. As informações pessoais só são armazenadas nas definições do portal se verificar a caixa de verificação rotulada, guardar a transportadora e devolver o **endereço de forma predefinida** durante a secção de *informações* de envio de retorno do processo de exportação.
+Quando um trabalho de importação/exportação é criado, os utilizadores fornecem informações de contacto e um endereço de envio. As informações pessoais são armazenadas em até dois locais diferentes: no trabalho e opcionalmente nas definições do portal. As informações pessoais só são armazenadas nas definições do portal se verificar a caixa de verificação etiquetada, **guardar a transportadora e o endereço de devolução como padrão** durante a secção de *informações* de envio de retorno do processo de exportação.
 
-As informações de contacto pessoais podem ser eliminadas das seguintes formas:
+As informações pessoais de contacto podem ser eliminadas das seguintes formas:
 
-- Os dados guardados com o trabalho são apagados com o trabalho. Os utilizadores podem eliminar os trabalhos manualmente e os trabalhos concluídos são automaticamente eliminados após 90 dias. Pode eliminar manualmente os trabalhos através da API REST ou do portal Azure. Para eliminar o trabalho no portal Azure, vá ao seu trabalho de importação/exportação e clique em *Apagar* a partir da barra de comando. Para obter informações sobre como eliminar um emprego de importação/exportação através da API REST, consulte a eliminação de um emprego de [importação/exportação](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
+- Os dados guardados com o trabalho são apagados com o trabalho. Os utilizadores podem eliminar os postos de trabalho manualmente e os trabalhos concluídos são automaticamente eliminados após 90 dias. Pode eliminar manualmente os trabalhos através da API REST ou do portal Azure. Para eliminar o trabalho no portal Azure, vá ao seu trabalho de importação/exportação e clique em *Eliminar* a partir da barra de comando. Para obter informações sobre como eliminar um trabalho de importação/exportação através da REST API, consulte [a Eliminação de um trabalho de importação/exportação](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
-- As informações de contacto guardadas nas definições do portal podem ser removidas apagando as definições do portal. Pode eliminar as definições do portal seguindo estes passos:
+- As informações de contacto guardadas nas definições do portal podem ser removidas eliminando as definições do portal. Pode eliminar as definições do portal seguindo estes passos:
   - Inicie sessão no [portal do Azure](https://portal.azure.com).
-  - Clique no ícone ![de definições do ícone *de definições* do Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
+  - Clique no ícone de *definições* ![ Azure Definições de Definições](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Clique *em Exportar todas as definições* (para guardar as definições atuais para um `.json` ficheiro).
-  - Clique em *Apagar todas as definições e dashboards privados* para eliminar todas as definições, incluindo informações de contacto guardadas.
+  - Clique *em Eliminar todas as definições e dashboards privados* para eliminar todas as definições, incluindo informações de contacto guardadas.
 
 Para mais informações, reveja a política de privacidade da Microsoft no [Trust Center](https://www.microsoft.com/trustcenter)

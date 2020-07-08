@@ -1,7 +1,7 @@
 ---
-title: Obtenha a cadeia de ligação do portal Azure
-description: Obtenha a cadeia de ligação do portal Azure
-keywords: conexão sql,cadeia de ligação
+title: Obtenha a cadeia de ligação a partir do portal Azure
+description: Obtenha a cadeia de ligação a partir do portal Azure
+keywords: conexão sql,cadeia de conexão
 services: sql-database
 author: dalechen
 manager: craigg
@@ -11,34 +11,34 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184339"
 ---
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenha a cadeia de ligação do portal Azure
-Utilize o [portal Azure](https://portal.azure.com/) para obter a cadeia de ligação necessária para que o seu programa de clientes interaja com a Base de Dados Azure SQL.
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenha a cadeia de ligação a partir do portal Azure
+Utilize o [portal Azure](https://portal.azure.com/) para obter a cadeia de ligação necessária para que o seu programa cliente interaja com a Base de Dados Azure SQL.
 
-1. Selecione todas as**bases de dados SQL**de todos **os serviços** > .
+1. Selecione **Todas as**  >  **bases de dados SQL de serviços.**
 
-2. Introduza o nome da sua base de dados na caixa de texto do filtro perto da parte superior esquerda da lâmina de bases de **dados SQL.**
+2. Introduza o nome da sua base de dados na caixa de texto do filtro, perto da parte superior esquerda da lâmina das **bases de dados SQL.**
 
 3. Selecione a linha para a sua base de dados.
 
-4. Depois da lâmina aparecer na sua base de dados, para conveniência visual, selecione os botões **Minimizar** para colapsar as lâminas utilizadas para a navegação e filtragem da base de dados.
+4. Depois de a lâmina aparecer para a sua base de dados, para obter uma conveniência visual, selecione os botões **Minimizar** para colapsar as lâminas utilizadas para navegar e filtrar a base de dados.
 
-5. Na lâmina da sua base de dados, selecione mostrar cordas de **ligação**de base de dados .
+5. Na lâmina da sua base de dados, selecione **As cordas de ligação da base de dados**.
 
-6. Copie a corda de ligação apropriada. ou seja, se pretender utilizar a biblioteca de ligação ADO.NET, copie a corda adequada do separador **ADO.NET.**
+6. Copie a cadeia de ligação apropriada. ou seja, se pretender utilizar a biblioteca de ligação ADO.NET, copie o fio apropriado a partir do separador **ADO.NET.**
 
     ![Copie a cadeia de ligação ADO para a sua base de dados][20-CopyAdoConnectionString]
 
-7. Editar a corda de ligação conforme necessário. isto é, insira a sua palavra-passe&lt;na&gt;cadeia de ligação ou remova "@ servername" do nome de utilizador se o nome de utilizador ou o nome do servidor forem demasiado longos.
+7. Edite a cadeia de ligação conforme necessário. ou seja, insira a sua palavra-passe na cadeia de ligação ou remova &lt; o nome de utilizador "@servername" &gt; do nome de utilizador se o nome de utilizador ou o nome do servidor forem demasiado longos.
 
-8. Num ou noutro formato, colhe a informação de cadeia de ligação no código do programa do seu cliente.
+8. Num formato ou noutro, cole a informação da cadeia de ligação no código do programa do cliente.
 
-Para mais informações, consulte [as cordas de Ligação e os ficheiros](https://msdn.microsoft.com/library/ms254494.aspx)de configuração .
+Para obter mais informações, consulte [as cordas de ligação e os ficheiros de configuração](https://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

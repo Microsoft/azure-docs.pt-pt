@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: glenga
 ms.openlocfilehash: 380878fedaa2f7ea6160c3c4801c8dece6e1a9ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648947"
 ---
 #### <a name="enable-app-service-authenticationauthorization"></a>Ativar a autenticação/autorização do Serviço de Aplicações
