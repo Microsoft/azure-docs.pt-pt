@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357873"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: Faça uma alteração na configuração padrão
@@ -264,7 +264,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, *In from AD – UserType* |
+    | Name | *Fornecer um nome* | Por exemplo, *In from AD – UserType* |
     | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Escolha o conector AD no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
@@ -290,7 +290,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    | Expressão | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(L11(LCase([userPrincipalName])," @partners.fabrikam123.org ")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar o UserType")) | Desselecionado | Atualizar |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(L11(LCase([userPrincipalName])," @partners.fabrikam123.org ")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar o UserType")) | Desselecionado | Atualizar |
 
 7. Clique **em Adicionar** para criar a regra de entrada.
 
@@ -306,7 +306,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, *out to AAD – UserType* |
+    | Name | *Fornecer um nome* | Por exemplo, *out to AAD – UserType* |
     | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o conector AAD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
@@ -392,7 +392,7 @@ Re-activar o programador de sincronização incorporado:
 2. Re-activar a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Leia mais sobre o modelo de configuração na [Compreensão declarativa.](concept-azure-ad-connect-sync-declarative-provisioning.md)
 * Leia mais sobre a linguagem de expressão em [Compreensão Declarativas Expressões.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 

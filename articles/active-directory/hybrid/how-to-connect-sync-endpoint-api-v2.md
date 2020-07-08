@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357584"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync V2 endpoint API (pré-visualização pública) 
@@ -183,7 +183,7 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
 >[!NOTE]
 > Ao voltar dos pontos finais V2 para V1, os grupos sincronizados com mais de 50k membros serão eliminados após a execução de uma sincronização completa, para ambos os grupos AD a provisionados a Azure AD e O365 grupos unificados a provisionados a AD. 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes  
+## <a name="frequently-asked-questions"></a>Perguntas frequentes  
 **P: Pode um cliente utilizar esta funcionalidade em produção?**  
 </br>Sim, isto pode ser usado em ambientes de produção, com a ressalva como mencionado anteriormente.
  
@@ -196,7 +196,7 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
 **Q: Tempo para o próximo marco?**  
 </br>As capacidades de visualização pública podem ser retiradas e possivelmente redesenhadas antes de atingirem mais marcos.  
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

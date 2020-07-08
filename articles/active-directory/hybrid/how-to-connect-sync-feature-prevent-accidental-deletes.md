@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357363"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir eliminações acidentais
@@ -69,7 +69,7 @@ Se todas as eliminações forem desejadas, então faça o seguinte:
 3. Com o Azure Ative Directory Connector ainda selecionado, selecione o Action **Run** e selecione **Export**.
 4. Para voltar a ativar a proteção, executar o cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500` . Substitua 500 pelo valor que notou ao recuperar o limiar de eliminação atual. Forneça uma conta e senha do Administrador Global Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 **Tópicos de visão geral**
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)

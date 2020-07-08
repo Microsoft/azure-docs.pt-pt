@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357754"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Ative Directory Sem Emenda Único Sign-On
@@ -64,10 +64,10 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
-|Windows 8.1|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
-|Windows 8|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
-|Windows 7|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
-|Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Yes|Sim\*\*\*|N/D
+|Windows 8.1|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Sim|Sim\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
@@ -80,7 +80,7 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 >[!NOTE]
 >Para o Windows 10, a recomendação é utilizar o [Azure AD Join](../devices/concept-azure-ad-join.md) para a experiência de súmis ideal com a Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - Plano de [**Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.

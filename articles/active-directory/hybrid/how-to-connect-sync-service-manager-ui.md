@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2975bb95511ba0a0d9f61886109c12715105fd8
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357125"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução ao Azure AD Connect Synchronization Service Manager UI
@@ -33,7 +33,7 @@ O **Serviço de Sincronização** UI é utilizado para configurar aspetos mais a
 Inicia-se o UI do **Serviço de Sincronização** UI a partir do menu inicial. Chama-se **Synchronization Service** e pode ser encontrado no grupo **Azure AD Connect.**  
 ![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o UI do Serviço de Sincronização, incluindo [Operações,](how-to-connect-sync-service-manager-ui-operations.md) [Conectores,](how-to-connect-sync-service-manager-ui-connectors.md) [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md)e separadores [metaverses.](how-to-connect-sync-service-manager-ui-mvsearch.md)
 

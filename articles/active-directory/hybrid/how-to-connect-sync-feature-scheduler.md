@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357397"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
@@ -204,7 +204,7 @@ Na imagem acima, a primeira linha é de um estado onde o motor de sincronizaçã
 ## <a name="scheduler-and-installation-wizard"></a>Programador e assistente de instalação
 Se iniciar o assistente de instalação, o programador está temporariamente suspenso. Este comportamento deve-se ao facto de se ter assumido que faz alterações de configuração e estas definições não podem ser aplicadas se o motor de sincronização estiver a funcionar ativamente. Por esta razão, não deixe o assistente de instalação aberto, uma vez que impede que o motor de sincronização efetua quaisquer ações de sincronização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

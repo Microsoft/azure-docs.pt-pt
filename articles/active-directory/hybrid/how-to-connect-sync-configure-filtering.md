@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357771"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
@@ -328,6 +328,6 @@ Ao sincronizar várias florestas de AD, pode configurar a filtragem baseada em g
 * Tem um utilizador numa floresta que tem um contacto de correio correspondente noutra floresta. Além disso, configura o Azure AD Connect para ligar o utilizador ao contacto de correio. Ambos os objetos devem estar dentro do âmbito de filtragem baseado em grupo. Caso contrário, o utilizador não será sincronizado com a Azure AD.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre a configuração [de sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 - Saiba mais sobre [a integração das suas identidades no local com a Azure AD.](whatis-hybrid-identity.md)

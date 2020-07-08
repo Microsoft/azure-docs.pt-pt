@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc1754eb8818df894e67c1748517b2e2f4356d6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356870"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect sync: Entenda e personalize a sincronização
@@ -62,7 +62,7 @@ O serviço de sincronização é composto por dois componentes, o componente de 
 | **Como...** | |
 | [Redefinir a conta AD Azure](how-to-connect-azureadaccount.md) |Como redefinir as credenciais da conta de serviço utilizada para ligar a partir da sincronização AZure AD Connect ao Azure AD. |
 | **Mais informações e referências** | |
-| [Portas](reference-connect-ports.md) |Lista quais as portas que precisa de abrir entre o motor de sincronização e os seus diretórios no local e a Azure AD. |
+| [Portos](reference-connect-ports.md) |Lista quais as portas que precisa de abrir entre o motor de sincronização e os seus diretórios no local e a Azure AD. |
 | [Atributos sincronizados com o Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Lista todos os atributos que estão a ser sincronizados entre AD no local e Azure AD. |
 | [Funções Referência](reference-connect-sync-functions-reference.md) |Lista todas as funções disponíveis no provisionamento declarativo. |
 

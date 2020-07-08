@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356802"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: atualizar do DirSync
@@ -40,7 +40,7 @@ Se não estiver a atualizar do DirSync, consulte a documentação relacionada pa
 ## <a name="upgrade-from-dirsync"></a>Atualização do DirSync
 Dependendo da sua implementação atual do DirSync, existem várias opções para a atualização. Se o tempo estimado para a atualização for inferior a três horas, recomenda-se efetuar uma atualização no local. Se o tempo estimado para a atualização for superior a três horas, recomenda-se efetuar uma implementação paralela noutro servidor. Estima-se que, se tiver mais de 50 000 objetos, a atualização demorará mais de três horas.
 
-| Cenário |
+| Scenario |
 | --- |
 | [Atualização no local](#in-place-upgrade) |
 | [Implementação paralela](#parallel-deployment) |
@@ -211,7 +211,7 @@ Deverá ver o seguinte:
 
 O Azure AD Connect é agora o seu servidor ativo e não tem de mudar para o servidor do DirSync existente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 
 Saiba mais acerca destas novas funcionalidades que foram ativadas com a instalação: [Atualização automática](how-to-connect-install-automatic-upgrade.md), [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).

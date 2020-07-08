@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357414"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos do Office 365
@@ -142,7 +142,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
+    | Name | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
     | Descrição | *Fornecer uma descrição personalizada* |  |
     | Sistema Conectado | *Escolha o conector ative de diretório no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
@@ -171,7 +171,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
+    | Name | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
     | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o Conector AD Azure* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
@@ -262,7 +262,7 @@ Re-activar o programador de sincronização incorporado:
 ![Screenshot de Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Assumindo que o seu inquilino foi marcado para poder usar esta funcionalidade, a caixa de correio é transferida para o geo correto. Isto pode ser verificado olhando para o nome do servidor onde a caixa de correio está localizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Multi-Geo no Office 365:
 

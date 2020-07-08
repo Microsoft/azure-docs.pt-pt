@@ -11,10 +11,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357856"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
@@ -226,7 +226,7 @@ Para testar o *sso sem costura:*
 
 A remoção de um utilizador do grupo desativa o lançamento encenado para esse utilizador. Para desativar a função de lançamento encenada, deslize o controlo de volta para **Off**.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Posso usar esta capacidade na produção?**
 
@@ -240,5 +240,5 @@ R: Não, esta funcionalidade foi concebida para migrar da autenticação federad
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
