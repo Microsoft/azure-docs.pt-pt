@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 548ebf5b0d5836383b74326516fbe47b1b25f60f
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553291"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação no resto do conteúdo na Pesquisa Cognitiva Azure utilizando chaves geridas pelo cliente no Cofre da Chave Azure
 
@@ -26,7 +26,7 @@ A encriptação com as teclas geridas pelo cliente é configurada ao nível do m
 As chaves não precisam de estar todas no mesmo Cofre de Chaves. Um único serviço de pesquisa pode hospedar vários índices encriptados ou mapas de sinónimos cada um encriptado com as suas próprias chaves de encriptação geridas pelo cliente armazenadas em diferentes Cofres-Chave.  Também pode ter índices e mapas de sinónimo no mesmo serviço que não são encriptados usando chaves geridas pelo cliente. 
 
 > [!IMPORTANT] 
-> Esta funcionalidade está disponível na [versão REST API 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e [na versão .NET SDK 8.0-preview](search-dotnet-sdk-migration-version-9.md). Atualmente não existe suporte para configurar chaves de encriptação geridas pelo cliente no portal Azure. O serviço de pesquisa deve ser criado após janeiro de 2019 e não pode ser um serviço gratuito (partilhado).
+> Esta funcionalidade está disponível na [versão 8.0](search-dotnet-sdk-migration-version-9.md)da [API](https://docs.microsoft.com/rest/api/searchservice/) e da .NET SDK. Atualmente não existe suporte para configurar chaves de encriptação geridas pelo cliente no portal Azure. O serviço de pesquisa deve ser criado após janeiro de 2019 e não pode ser um serviço gratuito (partilhado).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -231,7 +231,7 @@ Para criar uma aplicação AAD no portal:
 > Ao alterar uma aplicação AAD ou a sua chave de autenticação, qualquer índice de Pesquisa Cognitiva Azure ou mapa de sinónimo que utilize essa aplicação deve ser primeiro atualizado para utilizar a nova iD\chave da aplicação **antes de** eliminar a aplicação anterior ou a sua chave de autorização, e antes de revogar o acesso do Cofre-Chave à sua.
 > Se não o fizer, o mapa do índice ou do sinónimo não será utilizável, uma vez que não será capaz de desencriptar o conteúdo assim que o acesso à chave for perdido.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não está familiarizado com a arquitetura de segurança da Azure, reveja a documentação da [Azure Security,](https://docs.microsoft.com/azure/security/)e em particular, este artigo:
 

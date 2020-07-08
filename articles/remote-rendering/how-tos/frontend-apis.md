@@ -1,16 +1,16 @@
 ---
-title: APIs frontend azure para autenticação
+title: Azure Frontend APIs para autenticação
 description: Explica como usar a API frontal C# para autenticação
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: 68d94a3bdf7914f762774686fa0b0fa0d0fd37cc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552691"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilizar as APIs de Front-end do Azure para autenticação
 
@@ -31,8 +31,8 @@ public class AzureFrontendAccountInfo
 
     // Can use one of:
     // 1) ID and Key.
-    // 2) AuthenticationToken.
-    // 3) AccessToken.
+    // 2) ID and AuthenticationToken.
+    // 3) ID and AccessToken.
     public string AccountId = Guid.Empty.ToString();
     public string AccountKey = string.Empty;
     public string AuthenticationToken = string.Empty;
@@ -54,27 +54,27 @@ struct AzureFrontendAccountInfo
 
 ```
 
-Para a _região_ que faz parte do domínio, utilize uma [região perto de si.](../reference/regions.md)
+Para a parte da _região_ no domínio, utilize uma [região perto de si](../reference/regions.md).
 
 A informação da conta pode ser obtida a partir do portal, conforme descrito no parágrafo de informação da [conta de recuperação.](create-an-account.md#retrieve-the-account-information)
 
 ## <a name="azure-frontend"></a>Azure Frontend
 
-As classes relevantes são ```AzureFrontend``` ```AzureSession``` e. ```AzureFrontend```é utilizado para a gestão de conta e funcionalidade de nível de conta, que inclui: conversão de ativos e criação de sessão de renderização. ```AzureSession```é utilizado para a funcionalidade de nível de sessão e inclui: atualização da sessão, consultas, renovação e desmantelamento.
+As aulas relevantes são ```AzureFrontend``` ```AzureSession``` e. ```AzureFrontend```é utilizado para a gestão de conta e funcionalidade do nível de conta, que inclui: conversão de ativos e criação de sessão de renderização. ```AzureSession```é usado para funcionalidade de nível de sessão e inclui: atualização de sessão, consultas, renovação e desmantelamento.
 
-Cada um aberto/criado ```AzureSession``` manterá uma referência à frente que a criou. Para encerrar de forma limpa, todas as sessões devem ser negociadas antes que a frente seja negociada.
+Cada aberto/criado ```AzureSession``` manterá uma referência ao frontend que o criou. Para encerrar de forma limpa, todas as sessões têm de ser negociadas antes que o frontend seja negociado.
 
-A colocação de uma sessão não vai parar o VM em Azure, `AzureSession.StopAsync` deve ser explicitamente chamado.
+Negociar uma sessão não vai parar o VM em Azure, `AzureSession.StopAsync` deve ser explicitamente chamado.
 
-Uma vez criada uma sessão e o seu estado foi marcado como pronto, pode ligar-se ao tempo de funcionamento da renderização remota com `AzureSession.ConnectToRuntime` .
+Uma vez criada uma sessão e o seu estado foi marcado como pronto, pode ligar-se ao tempo de execução de renderização remota com `AzureSession.ConnectToRuntime` .
 
 ### <a name="threading"></a>Rosca
 
-Todas as chamadas de asincronização AzureSession e AzureFrontend são completadas num fio de fundo, e não no fio principal da aplicação.
+Todas as chamadas de assínc AzureSession e AzureFrontend são completadas num fio de fundo, não no fio principal da aplicação.
 
 ### <a name="conversion-apis"></a>APIs de conversão
 
-Para obter mais informações sobre o serviço de conversão, consulte [a conversão do modelo REST API](conversion/conversion-rest-api.md).
+Para obter mais informações sobre o serviço de conversão, consulte [a API de conversão do modelo](conversion/conversion-rest-api.md).
 
 #### <a name="start-asset-conversion"></a>Iniciar a conversão de ativos
 
@@ -180,11 +180,11 @@ void GetConversionStatus(ApiHandle<AzureFrontend> frontend, std::string assetId)
 ```
 
 
-### <a name="rendering-apis"></a>ApIs de renderização
+### <a name="rendering-apis"></a>APIs de renderização
 
 Consulte [a gestão da sessão REST API](session-rest-api.md) para obter detalhes sobre a gestão da sessão.
 
-Uma sessão de renderização pode ser criada dinamicamente no serviço ou um ID de sessão já existente pode ser 'aberto' em um objeto AzureSession.
+Uma sessão de renderização pode ser criada dinamicamente no serviço ou um ID de sessão já existente pode ser 'aberto' num objeto AzureSession.
 
 #### <a name="create-rendering-session"></a>Criar sessão de renderização
 
@@ -295,7 +295,7 @@ void GetCurrentRenderingSessions(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-### <a name="session-apis"></a>Sessão APIs
+### <a name="session-apis"></a>APIs de sessão
 
 #### <a name="get-rendering-session-properties"></a>Obtenha propriedades de sessão de renderização
 
@@ -338,7 +338,7 @@ void GetRenderingSessionProperties(ApiHandle<AzureSession> session)
 }
 ```
 
-#### <a name="update-rendering-session"></a>Sessão de renderização de atualização
+#### <a name="update-rendering-session"></a>Sessão de renderização de atualizações
 
 ```cs
 private SessionAsync _pendingAsync;
@@ -382,7 +382,7 @@ void UpdateRenderingSession(ApiHandle<AzureSession> session, const ARRTimeSpan& 
 }
 ```
 
-#### <a name="stop-rendering-session"></a>Pare de renderizar a sessão
+#### <a name="stop-rendering-session"></a>Parar a sessão de renderização
 
 ```cs
 private SessionAsync _pendingAsync;
@@ -423,7 +423,7 @@ void StopRenderingSession(ApiHandle<AzureSession> session)
 }
 ```
 
-#### <a name="connect-to-arr-inspector"></a>Ligue-se ao inspetor da ARR
+#### <a name="connect-to-arr-inspector"></a>Ligue-se ao inspetor ARR
 
 ```cs
 private ArrInspectorAsync _pendingAsync = null;
@@ -478,7 +478,7 @@ void ConnectToArrInspector(ApiHandle<AzureSession> session, std::string hostname
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma conta](create-an-account.md)
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 09747b1ed739dc424f91b027fa741f4eb9dbc513
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553134"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de segurança para aparar resultados na Pesquisa Cognitiva Azure
 
@@ -60,7 +60,7 @@ Vamos supor que temos um índice de ficheiros seguros, e cada ficheiro é acess�
 Emita um pedido HTTP POST para o ponto final do URL do seu índice. O corpo do pedido HTTP é um objeto JSON que contém os documentos a adicionar:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -118,7 +118,7 @@ Note que esta amostra mostra como pesquisar documentos usando um pedido DEM.
 Emite o pedido HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -153,7 +153,7 @@ Deve obter os documentos de volta onde `group_ids` contém "group_id1" ou "group
 
 É assim que pode filtrar resultados com base na identidade do utilizador e na função de Pesquisa Cognitiva `search.in()` Azure. Pode utilizar esta função para passar, em princípio, identificadores para que o utilizador que solicita corresponda aos identificadores principais associados a cada documento-alvo. Quando um pedido de pesquisa é tratado, a `search.in` função filtra os resultados de pesquisa para os quais nenhum dos principais do utilizador leu o acesso. Os principais identificadores podem representar coisas como grupos de segurança, papéis ou mesmo a própria identidade do utilizador.
  
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Controlo de acesso baseado em identidade do Diretório Ativo usando filtros de pesquisa cognitiva Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
