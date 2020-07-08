@@ -18,10 +18,9 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84703354"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Tráfego de rede de rotas com uma tabela de rotas usando o Azure CLI
@@ -277,7 +276,7 @@ Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure/gr
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou uma tabela de rotas e associou-a a uma sub-rede. Criou uma NVA simples que encaminhou o tráfego de uma sub-rede pública para uma privada. Implementou uma variedade de NVAs pré-configuradas que realizam funções de rede, como proteção com firewall e otimização de WAN, a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
 
