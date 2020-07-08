@@ -2,9 +2,9 @@
 title: Utilização de autenticação de diretório ativo Azure multi-factor
 description: Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suportam ligações do SQL Server Management Studio (SSMS) utilizando a Autenticação Universal do Diretório Ativo.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 04/23/2020
 tags: azure-synapse
-ms.openlocfilehash: 607644a67fad966be25915e55a1bec83d70a1fe0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25d08e86fde47c24c134bc03b036c4f456314856
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344820"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983584"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -70,7 +70,7 @@ Os utilizadores AZure AD que são suportados para cenários Azure AD B2B como ut
 - A versão SSMS 17.2 fornece suporte do Assistente DacFx para base de dados de exportação/extração/implantação de dados. Uma vez que um utilizador específico é autenticado através do diálogo de autenticação inicial utilizando a Autenticação Universal, o Assistente DacFx funciona da mesma forma que funciona para todos os outros métodos de autenticação.
 - O SSMS Table Designer não suporta a Autenticação Universal.
 - Não existem requisitos de software adicionais para a Autenticação Universal do Diretório Ativo, exceto que deve utilizar uma versão suportada do SSMS.  
-- A versão Ative Directory Authentication Library (ADAL) para autenticação Universal foi atualizada para a sua versão mais recente, ADAL.dll 3.13.9 disponível. Consulte a Biblioteca de Autenticação do [Diretório Ativo 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- A versão Ative Directory Authentication Library (ADAL) para autenticação Universal foi atualizada para a sua versão mais recente ADAL.dll 3.13.9 disponível. Consulte a Biblioteca de Autenticação do [Diretório Ativo 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Próximos passos
 
