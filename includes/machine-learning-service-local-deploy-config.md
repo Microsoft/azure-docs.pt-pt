@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 60c754aeec3157abee02eb136dcf148c440d8da0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477277"
 ---
-As entradas `deploymentconfig.json` no mapa de documentos para os parâmetros para [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). A tabela seguinte descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
+As entradas no mapa do `deploymentconfig.json` documento aos parâmetros do [SiteWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
 
-| Entidade JSON | Parâmetro de método | Descrição |
+| Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
-| `computeType` | ND | O destino de computação. Para os alvos locais, `local`o valor deve ser . |
-| `port` | `port` | O porto local para expor o ponto final http do serviço. |
+| `computeType` | ND | O destino de computação. Para os alvos locais, o valor deve `local` ser. |
+| `port` | `port` | O porto local para expor o ponto final HTTP do serviço. |
 
 Este JSON é uma configuração de implementação de exemplo para utilização com o CLI:
 

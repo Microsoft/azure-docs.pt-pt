@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,21 +9,21 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79500193"
 ---
-1. Instale certificados de cliente no cliente do Windows 10, como mostra este artigo de [cliente VPN ponto-a-site.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) O certificado deve estar na loja de utilizadores em vigor.
+1. Instale certificados de cliente no cliente do Windows 10, como mostra este artigo [de cliente VPN ponto a local.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) O certificado deve estar na loja de utilizadores atual.
 
-1. Configure o cliente Always On VPN através do PowerShell, Dogestor de Configuração ou Intune seguindo as instruções no [cliente Configure Windows 10 Sempre nas ligações VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Configure o cliente Always On VPN através do PowerShell, Do Gestor de Configuração ou do Intune seguindo as instruções no [Configure cliente Do Windows 10 Sempre Nas ligações VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Configuração de exemplo para o túnel do utilizador
 
-Depois de configurar o portal de rede virtual e instalar o certificado de cliente na loja de máquinas local no cliente do Windows 10, configure um túnel de dispositivo cliente utilizando os seguintes exemplos:
+Depois de configurar o gateway de rede virtual e instalar o certificado de cliente na loja de máquinas local no cliente Windows 10, configure um túnel do dispositivo cliente utilizando os seguintes exemplos:
 
-1. Copie o seguinte texto e guarde-o como *usercert.ps1*:
+1. Copie o seguinte texto e guarde-o como *usercert.ps1: *
 
    ```
    Param(
@@ -75,7 +75,7 @@ Depois de configurar o portal de rede virtual e instalar o certificado de client
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o seguinte texto e guarde-o como *VPNProfile.xml* na mesma pasta que *usercert.ps1*. Editar o seguinte texto para combinar com o seu ambiente:
+1. Copie o texto que se segue e guarde-o como *VPNProfile.xml* na mesma pasta *queusercert.ps1*. Edite o seguinte texto para combinar com o seu ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,13 +121,13 @@ Depois de configurar o portal de rede virtual e instalar o certificado de client
    ```
 1. Execute o PowerShell como um administrador.
 
-1. No PowerShell, altere para a pasta onde se encontram *usercert.ps1* e *VPNProfile.xml* e execute o seguinte comando:
+1. No PowerShell, mude para a pasta onde estão *usercert.ps1* e *VPNProfile.xml* e execute o seguinte comando:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
-   ![Teste de MáquinaCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. Em **definições VPN,** procure a entrada **userTest** e, em seguida, selecione **Connect**.
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
+1. Em **Definições VPN,** procure a entrada **UserTest** e, em seguida, selecione **Connect**.
 
-1. Se a ligação for bem sucedida, configura com sucesso um túnel de utilizador Always On.
+1. Se a ligação for bem sucedida, configura com sucesso um túnel do utilizador Always On.

@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81686988"
 ---
-1. Ver ligações no vislumremento direto selecionado.
+1. Ver ligações no persimento direto selecionado.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "81686988"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Selecione a ligação que pretende ativar para o Serviço de Peering. Para este exemplo, usaremos a única ligação disponível.
+1. Selecione a ligação que pretende ativar para o Serviço de Observação de Pares. Para este exemplo, usaremos a única ligação disponível.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,7 +47,7 @@ ms.locfileid: "81686988"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Agora guarde as alterações feitas ao 'peering' direto utilizando este comando:
+1. Agora guarde as alterações feitas para o olhar direto utilizando este comando:
     ```powershell
     $directPeering | Update-AzPeering
     ```

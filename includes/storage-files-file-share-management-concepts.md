@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: roygara
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a67ad4c5010cf93ff55123013a35c697ce5971f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77597889"
 ---
-As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos*de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implementar várias partilhas de ficheiros, bem como outros recursos de armazenamento, tais como recipientes de bolhas, filas ou mesas. Todos os recursos de armazenamento que são implantados numa conta de armazenamento partilham os limites aplicáveis a essa conta de armazenamento. Para ver os limites atuais de uma conta de armazenamento, consulte [a escalabilidade e os objetivos](../articles/storage/files/storage-files-scale-targets.md)de desempenho do Azure Files .
+As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos*de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implantar várias partilhas de ficheiros, bem como outros recursos de armazenamento, tais como recipientes blob, filas ou mesas. Todos os recursos de armazenamento que são implantados numa conta de armazenamento partilham os limites que se aplicam a essa conta de armazenamento. Para ver os limites atuais para uma conta de armazenamento, consulte [os objetivos de escalabilidade e desempenho dos Ficheiros Azure](../articles/storage/files/storage-files-scale-targets.md).
 
 Existem dois tipos principais de contas de armazenamento que utilizará para implementações de Ficheiros Azure: 
-- Contas de armazenamento da **versão 2 (GPv2)** de propósito geral : As contas de armazenamento GPv2 permitem-lhe implementar ações de ficheiroS Azure em hardware baseado em disco standard/rígido (baseado em HDD). Além de armazenar ações de ficheiros Azure, as contas de armazenamento Da GPv2 podem armazenar outros recursos de armazenamento, tais como contentores blob, filas ou mesas. 
-- Contas de armazenamento de **ficheiros**: As contas de armazenamento de ficheiros permitem-lhe implementar ações de ficheiroS Azure em hardware baseado em discos premium/sólidos (baseados em SSD). As contas de FileStorage só podem ser utilizadas para armazenar ações de ficheiros Azure; nenhum outro recursos de armazenamento (recipientes de blob, filas, mesas, etc.) pode ser implantado numa conta fileStorage.
+- **Contas de armazenamento versão geral 2 (GPv2): As**contas de armazenamento GPv2 permitem-lhe implantar ações de ficheiros Azure em hardware standard/hard disk (baseado em HDD). Além de armazenar ações de ficheiros Azure, as contas de armazenamento GPv2 podem armazenar outros recursos de armazenamento, tais como recipientes blob, filas ou mesas. 
+- **Contas de armazenamento de filestorage**: As contas de armazenamento de filestorage permitem-lhe implantar ações de ficheiros Azure em hardware baseado em discos de estado premium/sólido (baseado em SSD). As contas de arquiteação de ficheiros só podem ser utilizadas para armazenar ações de ficheiros Azure; nenhum outros recursos de armazenamento (recipientes blob, filas, mesas, etc.) podem ser implantados numa conta de arquiteta.
 
-Existem vários outros tipos de conta de armazenamento que pode encontrar no portal Azure, PowerShell ou CLI. Dois tipos de conta de armazenamento, as contas de armazenamento BlockBlobStorage e BlobStorage, não podem conter ações de ficheiros Azure. Os outros dois tipos de conta de armazenamento que pode ver são a versão 1 (GPv1) e as contas de armazenamento clássicas, ambas com partilhas de ficheiros Azure. Embora o GPv1 e as contas de armazenamento clássicas possam conter ações de ficheiros Azure, a maioria das novas funcionalidades dos Ficheiros Azure estão disponíveis apenas nas contas de armazenamento GPv2 e FileStorage. Por isso, recomendamos apenas usar as contas de armazenamento GPv2 e FileStorage para novas implementações, e atualizar as contas de armazenamento GPv1 e clássicas se já existirem no seu ambiente.  
+Existem vários outros tipos de conta de armazenamento que pode encontrar no portal Azure, PowerShell ou CLI. Dois tipos de conta de armazenamento, contas de armazenamento BlockBlobStorage e BlobStorage, não podem conter ações de ficheiroS Azure. Os outros dois tipos de conta de armazenamento que pode ver são a versão 1 (GPv1) e as contas clássicas de armazenamento, ambas podem conter ações de ficheiros Azure. Embora o GPv1 e as contas clássicas de armazenamento possam conter ações de ficheiros Azure, a maioria das novas funcionalidades dos Ficheiros Azure estão disponíveis apenas em contas de armazenamento de GPv2 e FileStorage. Por isso, recomendamos apenas usar contas de armazenamento de GPv2 e FileStorage para novas implementações, e atualizar as contas de armazenamento GPv1 e clássicas se já existirem no seu ambiente.  
