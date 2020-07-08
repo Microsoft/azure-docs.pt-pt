@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: victorh
 ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85095591"
 ---
 # <a name="azure-firewall-features"></a>Funcionalidades do Azure Firewall
@@ -111,6 +111,6 @@ Você pode configurar a Azure Firewall para encaminhar todo o tráfego ligado à
 
 Azure Firewall é a Indústria de Cartões de Pagamento (PCI), Os Controlos da Organização de Serviços (SOC), a Organização Internacional de Normalização (ISO) e a ICSA Labs em conformidade. Para obter mais informações, consulte [as certificações de conformidade da Azure Firewall.](compliance-certifications.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Lógica de processamento de regras do Azure Firewall](rule-processing.md)

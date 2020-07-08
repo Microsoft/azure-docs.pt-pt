@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
 ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85119499"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
@@ -128,7 +128,7 @@ Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operaç
 
   * Ao utilizar [a loja analítica Azure Cosmos DB](analytical-store-introduction.md), uma loja de colunas totalmente isolada, a Synapse Link não permite análises extract-Transform-Load (ETL) em [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) contra dados operacionais distribuídos globalmente à escala.  Analistas de negócios, engenheiros de dados e cientistas de dados podem agora usar o Synapse Spark ou Synapse SQL de forma interoperável para executar perto de inteligência empresarial em tempo real, analíticos e oleodutos de aprendizagem automática sem afetar o desempenho das suas cargas de trabalho transacionais na Azure Cosmos DB. Veja os [benefícios do Synapse Link em Azure Cosmos DB](synapse-link.md) para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os seguintes documentos:
 

@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125707"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
@@ -208,7 +208,7 @@ Se a sua ação correr por engano, por exemplo, se não tiver definido a credenc
 
  ![Verificações de repetição](./media/github-actions/actions4.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Cofre chave para ações do GitHub da nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
 * [Diretores de serviço azure ative](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub Actions para o Azure](https://github.com/Azure/actions/)

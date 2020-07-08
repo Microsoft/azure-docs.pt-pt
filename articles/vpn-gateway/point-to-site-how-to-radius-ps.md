@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1bdaa2fd1e435e8bf7ff4b17c7f8a15d5bd249d5
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987167"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação ponto-a-local a um VNet utilizando a autenticação RADIUS: PowerShell
@@ -274,6 +274,6 @@ Este FAQ aplica-se a P2S usando a autenticação RADIUS
 
 [!INCLUDE [Point-to-Site RADIUS FAQ](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).

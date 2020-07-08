@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
 ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85116813"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre produção padrão (manual) e autoescala aussida 
@@ -26,7 +26,7 @@ Quando utilizar a produção provisitada, define a produção, medida nas unidad
 
 A tabela a seguir mostra uma comparação de alto nível entre a norma (manual) e a autoescala.
 
-|Description|Padrão (manual)|Dimensionamento Automático|
+|Descrição|Padrão (manual)|Dimensionamento Automático|
 |-------------|------|-------|
 |Mais adequado para|Cargas de trabalho com tráfego constante ou previsível|Cargas de trabalho com tráfego variável ou imprevisível. Consulte [as caixas de autoescala.](provision-throughput-autoscale.md#use-cases-of-autoscale)|
 |Como funciona|Você disponibiliza uma quantidade definida de RU/s que é estática ao longo do `T` tempo, a menos que altere manualmente. A cada segundo, pode utilizar até à `T` produção de RU/s. <br/><br/>Por exemplo, se definir a norma (manual) 400 RU/s, a produção permanecerá a 400 RU/s.|Você define o máximo, ou máximo RU/s `Tmax` que você não quer que o sistema exceda. O sistema escala automaticamente a produção `T` de tal forma que . `0.1* Tmax <= T <= Tmax` . <br/><br/>Por exemplo, se definir um máximo de RU/s de 4000 RU/s, o sistema irá escalar entre 400 - 4000 RU/s.|
@@ -66,7 +66,7 @@ Ao utilizar a autoescala, utilize o Azure Monitor para ver o max RU/s de**autoes
 > [!NOTE]
 > Quando utiliza a produção padrão (manual) prevista, a métrica **de produção de provisionamento** refere-se ao que você como utilizador definiu. Quando utiliza a produção de autoescala, esta métrica refere-se ao RU/s para o qual o sistema é atualmente dimensionado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Utilize [calculadora RU](https://cosmos.azure.com/capacitycalculator/) para estimar a produção de novas cargas de trabalho.
 * Utilize [o Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para monitorizar as cargas de trabalho existentes.
 * Saiba como providenciar a [produção de autoescalação numa base de dados ou contentor Azure Cosmos](how-to-provision-autoscale-throughput.md).

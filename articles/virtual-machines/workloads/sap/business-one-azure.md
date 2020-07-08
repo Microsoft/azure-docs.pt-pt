@@ -16,10 +16,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 601af3a5e642b4bbda54f461b3139e72b01b21d6
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193503"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Azure

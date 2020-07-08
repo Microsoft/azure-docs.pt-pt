@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 3839efecc1f5c645e8365ca6441731868412371e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976851"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de Serviços de Mídia utilizando o portal Azure
@@ -66,7 +66,7 @@ Os passos nesta secção explicam como criar uma conta dos AMS.
 
 Para gerir a sua conta do AMS (por exemplo, ligar à API AMS através de programação, carregar vídeos, codificar elementos, configurar a proteção de conteúdos, monitorizar o progresso da tarefa) selecione **Definições** no lado esquerdo do portal. A partir das **Definições**, navegue até um dos painéis disponíveis (por exemplo: **Acesso à API**, **Elementos**, **Tarefas**, **Proteção de Conteúdo**).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora, pode carregar ficheiros para a sua conta do AMS. Para obter mais informações, veja [Carregar ficheiros](media-services-portal-upload-files.md).
 

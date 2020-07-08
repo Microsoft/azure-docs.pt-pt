@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: fa873baa2d2006164536dd26e040ffbf5cdd51cb
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85123988"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços microsoft em cibersegurança

@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para garantir e melhorar a fiabilidade nas 
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124627"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhore a fiabilidade da sua aplicação utilizando o Azure Advisor
@@ -115,7 +115,7 @@ Máquinas virtuais que não têm replicação ativada para outra região não s�
 
 2.  No painel Advisor, selecione o separador **Alta Disponibilidade.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)

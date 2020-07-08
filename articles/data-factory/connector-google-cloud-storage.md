@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ecb703f8c8f75939d8d796bdd5f687795145f74
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85101051"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copie os dados do Google Cloud Storage utilizando a Azure Data Factory
@@ -60,11 +60,11 @@ As seguintes propriedades são suportadas para serviços ligados ao Google Cloud
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **GoogleCloudStorage**. | Yes |
-| accessKeyId | Identificação da chave de acesso secreta. Para encontrar a chave de acesso e o segredo, consulte [Pré-requisitos.](#prerequisites) |Yes |
-| SecretAccessKey | A chave de acesso secreto em si. Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
-| serviceUrl | Especifique o ponto final GCS personalizado como `https://storage.googleapis.com` . | Yes |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |No |
+| tipo | A propriedade **tipo** deve ser definida para **GoogleCloudStorage**. | Sim |
+| accessKeyId | Identificação da chave de acesso secreta. Para encontrar a chave de acesso e o segredo, consulte [Pré-requisitos.](#prerequisites) |Sim |
+| SecretAccessKey | A chave de acesso secreto em si. Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
+| serviceUrl | Especifique o ponto final GCS personalizado como `https://storage.googleapis.com` . | Sim |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
 
 Eis um exemplo:
 
@@ -97,10 +97,10 @@ As seguintes propriedades são suportadas para o Google Cloud Storage `location`
 
 | Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade **tipo** `location` no conjunto de dados deve ser definida para **GoogleCloudStorageLocation**. | Yes      |
-| baldeName | O nome do balde GCS.                                          | Yes      |
-| folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem da atividade. | No       |
-| fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar os ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | No       |
+| tipo       | A propriedade **tipo** `location` no conjunto de dados deve ser definida para **GoogleCloudStorageLocation**. | Sim      |
+| baldeName | O nome do balde GCS.                                          | Sim      |
+| folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem da atividade. | Não       |
+| fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar os ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
 
 **Exemplo:**
 
@@ -141,19 +141,19 @@ As seguintes propriedades são suportadas para o Google Cloud Storage `storeSett
 
 | Propriedade                 | Descrição                                                  | Necessário                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **GoogleCloudStorageReadSettings**. | Yes                                                         |
+| tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **GoogleCloudStorageReadSettings**. | Sim                                                         |
 | ***Localize os ficheiros para copiar:*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Copiar a partir do balde dado ou do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de um balde ou pasta, especificar ainda `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: Prefixo GCS<br>- prefixo | Prefixo para o nome da chave GCS sob o balde dado configurado no conjunto de dados para filtrar ficheiros GCS de origem. As teclas GCS cujos nomes começam `bucket_in_dataset/this_prefix` por ser selecionados. Utiliza o filtro do lado de serviço do GCS, que proporciona um melhor desempenho do que um filtro wildcard. | No |
-| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
-| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do balde e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
-| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |No |
+| OPÇÃO 2: Prefixo GCS<br>- prefixo | Prefixo para o nome da chave GCS sob o balde dado configurado no conjunto de dados para filtrar ficheiros GCS de origem. As teclas GCS cujos nomes começam `bucket_in_dataset/this_prefix` por ser selecionados. Utiliza o filtro do lado de serviço do GCS, que proporciona um melhor desempenho do que um filtro wildcard. | Não |
+| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do balde e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |Não |
 | ***Definições adicionais:*** |  | |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
-| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia binária, onde as lojas de fontes de dados são Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP ou FTP. O valor predefinido: falso. |No |
-| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo: última modificada. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
-| modificadoDatetimeEnd      | O mesmo que acima.                                               | No                                                          |
-| maxConcurrentConnections | O número de ligações simultâneas ao armazenamento. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | No                                                          |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |Não |
+| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia binária, onde as lojas de fontes de dados são Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP ou FTP. O valor predefinido: falso. |Não |
+| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo: última modificada. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | Não                                            |
+| modificadoDatetimeEnd      | O mesmo que acima.                                               | Não                                                          |
+| maxConcurrentConnections | O número de ligações simultâneas ao armazenamento. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | Não                                                          |
 
 **Exemplo:**
 
@@ -200,7 +200,7 @@ As seguintes propriedades são suportadas para o Google Cloud Storage `storeSett
 
 Esta secção descreve o comportamento resultante do caminho da pasta e nome do ficheiro com filtros wildcard.
 
-| balde | chave | recursivo | Estrutura de pasta de origem e resultado do filtro (os ficheiros em negrito são recuperados)|
+| balde | key | recursivo | Estrutura de pasta de origem e resultado do filtro (os ficheiros em negrito são recuperados)|
 |:--- |:--- |:--- |:--- |
 | balde | `Folder*/*` | false | balde<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.js**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-página1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Outra 14h<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | balde | `Folder*/*` | true | balde<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.js**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-página1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.js**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Outra 14h<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
@@ -233,5 +233,5 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 
 Se estava a usar um conector Amazon S3 para copiar dados do Google Cloud Storage, ainda é suportado como é para retrocompatibilidade. Sugerimos que use o novo modelo mencionado anteriormente. A UI de autoria da Data Factory passou a gerar o novo modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados que a atividade copy na Azure Data Factory suporta como fontes e pias, consulte [lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

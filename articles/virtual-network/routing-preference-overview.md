@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193367"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?
@@ -96,7 +96,7 @@ O apoio de encaminhamento preferencial para a conta de armazenamento está dispo
 * Máquinas virtuais com vários NICs podem ter apenas um tipo de preferência de encaminhamento.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure a preferência de encaminhamento para um VM utilizando o Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Configure a preferência de encaminhamento para um VM utilizando o CLI Azure](configure-routing-preference-virtual-machine-cli.md)

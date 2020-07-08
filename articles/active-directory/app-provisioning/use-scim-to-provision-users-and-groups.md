@@ -12,10 +12,10 @@ ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117323"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD

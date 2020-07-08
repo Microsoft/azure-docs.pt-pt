@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: cshoe
 ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976715"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar quadros front-end e bibliotecas com pré-visualização de aplicações web estáticas Azure
@@ -50,7 +50,7 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
 | [Polímero](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
-| [Reagir](https://reactjs.org/) | `build` | n/a |
+| [React](https://reactjs.org/) | `build` | n/a |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |
@@ -61,6 +61,6 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 
 <sup>2</sup> Não aplicável
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configuração de compilação e fluxo de trabalho](github-actions-workflow.md)

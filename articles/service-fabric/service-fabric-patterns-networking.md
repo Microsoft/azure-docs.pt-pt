@@ -4,10 +4,10 @@ description: Descreve padrões comuns de networking para o Tecido de Serviço e 
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106625"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede de tecido de serviço
@@ -600,7 +600,7 @@ Após a colocação, pode ver dois equilibradores de carga no grupo de recursos.
 
 Os modelos gitHub acima são projetados para trabalhar com o SKU padrão para Azure Standard Load Balancer (SLB), o SKU Básico. Este SLB não tem SLA, pelo que, para as cargas de trabalho de produção, o SKU Standard deve ser utilizado. Para mais informações, consulte a visão geral do [Balanço de Carga Padrão Azure](/azure/load-balancer/load-balancer-standard-overview). Qualquer cluster de tecido de serviço que utilize o SKU Standard para SLB precisa de garantir que cada tipo de nó tem uma regra que permite o tráfego de saída na porta 443. Isto é necessário para completar a configuração do cluster, e qualquer implementação sem tal regra falhará. No exemplo acima de um equilibrador de carga "apenas interno", deve ser adicionado um equilibrador de carga externo adicional ao gabarito com uma regra que permite o tráfego de saída para a porta 443.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)
 
 Após a colocação, pode ver dois equilibradores de carga no grupo de recursos. Se navegar nos esquiliadores de carga, pode ver o endereço IP público e os pontos finais de gestão (portes 19000 e 19080) atribuídos ao endereço IP público. Também pode ver o endereço IP interno estático e o ponto final da aplicação (porta 80) atribuído ao balançador interno de carga. Ambos os equilibradores de carga usam a mesma balança de máquina virtual definida na parte de trás da piscina.

@@ -15,10 +15,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117884"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
@@ -359,7 +359,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Envie bilhete de apoio | Administrador de Serviços | Administrador de Aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação na Nuvem, Administrador de Conformidade, Administrador dinâmico 365, Administrador de Análise de Ambiente, Administrador de Intercâmbio, Administrador de Password, Administrador Intune, Administrador de Negócios, Administrador de Power BI, Administrador de Autenticação Privilegiada, Administrador de Partilha de Comunicações, Administrador de Equipas, Administrador de Equipas, Administrador de Análise de Utilizador, Administrador de Análise de Trabalho
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como atribuir ou remover funções de administrador ad azul](directory-manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](directory-assign-admin-roles.md)

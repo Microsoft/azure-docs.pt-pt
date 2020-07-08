@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84981953"
 ---
 # <a name="text-split-cognitive-skill"></a>Habilidade cognitiva dividida de texto
@@ -29,7 +29,7 @@ Microsoft.Skills.text.splitSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `textSplitMode`    | Ou "páginas" ou "frases" | 
 | `maximumPageLength` | Se o textoSplitMode estiver definido como "páginas", este refere-se ao comprimento máximo da página medido por `String.Length` . O valor mínimo é 300.  Se o textoSplitMode estiver definido como "páginas", o algoritmo tentará dividir o texto em pedaços que são no máximo "Comprimento De PáginaL" em tamanho. Neste caso, o algoritmo fará o seu melhor para quebrar a frase num limite de frase, pelo que o tamanho do pedaço pode ser ligeiramente inferior ao "comprimento máximo de PageL". | 
@@ -38,14 +38,14 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome do parâmetro       | Description      |
+| Nome do parâmetro       | Descrição      |
 |----------------------|------------------|
 | `text`    | O texto para dividir em sub-corda. |
 | `languageCode`    | (Opcional) Código linguístico para o documento. Se não conhece o idioma (ou seja, tem de dividir o texto para inserir no [LanguageDetectionSkill),](cognitive-search-skill-language-detection.md)é seguro remover esta entrada.  |
 
 ## <a name="skill-outputs"></a>Saídas de competências 
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `textItems`   | Uma série de sublmotores que foram extraídos. |
 
@@ -130,7 +130,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se uma língua não for suportada, é gerada uma advertência e o texto é dividido nos limites do personagem.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

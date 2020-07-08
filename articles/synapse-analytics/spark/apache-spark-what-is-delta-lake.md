@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193384"
 ---
 # <a name="what-is-delta-lake"></a>O que é Delta Lake?
@@ -22,7 +22,7 @@ A Azure Synapse Analytics é compatível com o Lago Delta da Fundação Linux. D
 
 ## <a name="key-features"></a>Principais funcionalidades
 
-| Funcionalidade | Description |
+| Funcionalidade | Descrição |
 | --- | --- |
 | **Transações ACID** | Os lagos de dados são tipicamente povoados através de múltiplos processos e oleodutos, alguns dos quais estão escrevendo dados em simultâneo com leituras. Antes da Delta Lake e da adição de transações, os engenheiros de dados tiveram de passar por um processo de erro manual propenso a garantir a integridade dos dados. Delta Lake traz transações acid familiares para lagos de dados. Proporciona serializabilidade, o nível de isolamento mais forte. Saiba mais no [Diving into Delta Lake: Desembalar o Registo de Transações.](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)|
 | **Tratamento de metadados escaláveis** | No big data, até os metadados em si podem ser "big data". A Delta Lake trata os metadados tal como os dados, aproveitando o poder de processamento distribuído da Spark para lidar com todos os seus metadados. Como resultado, o Delta Lake pode lidar com mesas à escala de petabyte com biliões de divisórias e ficheiros à vontade. |
@@ -39,7 +39,7 @@ Para documentação completa, consulte a Página de [Documentação do Lago Delt
 
 Para mais informações, consulte [o Projeto Delta Lake.](https://lfprojects.org)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

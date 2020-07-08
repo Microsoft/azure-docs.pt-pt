@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982021"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Função cognitiva de fusão de texto
@@ -29,7 +29,7 @@ Microsoft.Skills.text.mergeSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `insertPreTag`    | Corda a incluir antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, desa um valor para `""` .  |
 | `insertPostTag`   | Corda a incluir após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, desa um valor para `""` .  |
@@ -144,7 +144,7 @@ O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obt
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

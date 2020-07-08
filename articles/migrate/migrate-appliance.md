@@ -4,10 +4,10 @@ description: Fornece uma visão geral do aparelho Azure Migrate utilizado na ava
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106565"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

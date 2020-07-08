@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 94fef951bf1c5c9d69a9b49cd9465d7d248c74a7
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85099228"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
@@ -111,7 +111,7 @@ Para realizar consultas autenticadas contra as [AP DE INSIGHTS da Série Tempo,]
 
 Os cabeçalhos de pedido necessários são descritos abaixo.
 
-| Cabeçalho de pedido exigido | Description |
+| Cabeçalho de pedido exigido | Descrição |
 | --- | --- |
 | Autorização | Para autenticar com insights de séries de tempo, um token OAuth 2.0 Bearer válido deve ser passado no cabeçalho **de autorização.** |
 
@@ -122,7 +122,7 @@ Os cabeçalhos de pedido necessários são descritos abaixo.
 
 Os cabeçalhos de pedido opcionais são descritos abaixo.
 
-| Cabeçalho de pedido opcional | Description |
+| Cabeçalho de pedido opcional | Descrição |
 | --- | --- |
 | Tipo de conteúdo | só `application/json` é suportado. |
 | x-ms-cliente-pedido-id | Um pedido de identificação do cliente. O serviço regista este valor. Permite que o serviço rastreie a operação através dos serviços. |
@@ -131,7 +131,7 @@ Os cabeçalhos de pedido opcionais são descritos abaixo.
 
 Os cabeçalhos de resposta opcionais mas recomendados são descritos abaixo.
 
-| Cabeçalho de resposta | Description |
+| Cabeçalho de resposta | Descrição |
 | --- | --- |
 | Tipo de conteúdo | Só `application/json` é apoiado. |
 | x-ms-request-id | ID de pedido gerado pelo servidor. Pode ser usado para contactar a Microsoft para investigar um pedido. |
@@ -157,7 +157,7 @@ Os parâmetros de cadeia de consulta de URL opcionais incluem a definição de u
 | `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s` . | GA |
 | `storeType=<storeType>` | Para ambientes de pré-visualização com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` no . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Pré-visualizar |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para o código de amostra que chama a API de Insights de Séries De Tempo GA, leia [os dados de consulta utilizando C#](./time-series-insights-query-data-csharp.md).
 

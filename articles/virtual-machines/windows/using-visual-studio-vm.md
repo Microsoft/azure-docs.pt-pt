@@ -11,10 +11,10 @@ ms.date: 04/23/2020
 ms.author: cathys
 keywords: visuaistudio
 ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106000"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual em Azure
@@ -106,7 +106,7 @@ Para obter mais informações, consulte [Criar uma imagem gerida de um VM genera
 
 Além disso, as suas tarefas ou tecnologias de desenvolvimento podem necessitar de mais escala, como variedades de configurações de desenvolvimento e múltiplas configurações de máquinas. Você pode usar Azure DevTest Labs para criar _receitas_ que automatizam a construção da sua "imagem dourada". Também pode usar a DevTest Labs para gerir políticas para os VMs da sua equipa. [Usar a Azure DevTest Labs para desenvolvedores](../../devtest-labs/devtest-lab-developer-lab.md) é a melhor fonte para mais informações sobre a DevTest Labs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que sabe sobre as imagens pré-configuradas do Visual Studio, o próximo passo é criar um novo VM:
 
 * [Criar um VM através do portal Azure](quick-create-portal.md)

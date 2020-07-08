@@ -15,10 +15,10 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 95ec9a25f97154d8e2d0e2e5b5f9cd29cf7a9c31
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983330"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Adicione ou remova atribuições de funções Azure usando Azure CLI
@@ -211,7 +211,7 @@ O exemplo a seguir remove o papel de Leitor de *Faturação* do *alain \@ exampl
 az role assignment delete --assignee alain@example.com --role "Billing Reader" --scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [ListE Azure atribui funções usando Azure CLI](role-assignments-list-cli.md)
 - [Utilize o CLI Azure para gerir recursos e grupos de recursos da Azure](../azure-resource-manager/cli-azure-resource-manager.md)

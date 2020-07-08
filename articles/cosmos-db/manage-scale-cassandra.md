@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
 ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85119159"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar elasticamente uma conta Azure Cosmos DB Cassandra API
@@ -80,6 +80,6 @@ create table <keyspace name>.<table name> (pk int PRIMARY KEY, ck int) WITH cosm
 alter table <keyspace name>.<table name> WITH cosmosdb_autoscale_max_throughput=4000;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Começar com a [criação de uma conta API cassandra, base de dados e uma tabela](create-cassandra-api-account-java.md) usando uma aplicação Java

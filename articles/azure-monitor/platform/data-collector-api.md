@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
 ms.openlocfilehash: bcce08285c7412644de22f19ddd9d821ad3adea7
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124398"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)
@@ -49,7 +49,7 @@ Para utilizar a API do Recotor de Dados HTTP, cria um pedido DE POST que inclui 
 | Versão da API |A versão da API para usar com este pedido. Atualmente, é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
-| Cabeçalho | Description |
+| Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura da autorização. Mais tarde no artigo, pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Só pode conter letras, números e sublinhar (_), e não pode exceder 100 caracteres. |
@@ -180,7 +180,7 @@ O código de estado HTTP 200 significa que o pedido foi recebido para processame
 
 Esta tabela lista o conjunto completo de códigos de estado que o serviço pode devolver:
 
-| Código | Estado | Código de erro | Description |
+| Código | Estado | Código de erro | Descrição |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |O pedido foi aceite com sucesso. |
 | 400 |Mau pedido |InactiveCustomer |O espaço de trabalho foi fechado. |
@@ -467,14 +467,14 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternativas e considerações
 Embora a API do Colecionador de Dados deva cobrir a maioria das suas necessidades de recolher dados de formulário livre em Registos Azure, existem casos em que uma alternativa pode ser necessária para superar algumas das limitações da API. Todas as suas opções são as seguintes, considerações importantes incluídas:
 
-| Alternativa | Description | Mais adequado para |
+| Alternativa | Descrição | Mais adequado para |
 |---|---|---|
 | [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo em Insights de Aplicação | O Application Insights, tipicamente instrumentado através de um SDK dentro da sua aplicação, oferece a capacidade de enviar dados personalizados através de Eventos Personalizados. | <ul><li> Dados que são gerados dentro da sua aplicação, mas não recolhidos pela SDK através de um dos tipos de dados predefinidos (pedidos, dependências, exceções, e assim por diante).</li><li> Dados que são mais frequentemente correlacionados com outros dados de aplicações em Insights de Aplicação </li></ul> |
 | API do Colecionador de Dados em Registos monitores Azure | A API do Colecionador de Dados em Registos monitores Azure é uma forma completamente aberta de ingerir dados. Qualquer dado formatado num objeto JSON pode ser enviado aqui. Uma vez enviado, será processado e disponível em Logs para ser correlacionado com outros dados em Logs ou contra outros dados de Insights de Aplicação. <br/><br/> É bastante fácil fazer o upload dos dados como ficheiros para uma bolha Azure Blob, de onde estes ficheiros serão processados e enviados para o Log Analytics. Consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para obter uma amostra de tal oleoduto. | <ul><li> Dados que não são necessariamente gerados dentro de uma aplicação instrumentada no Application Insights.</li><li> Exemplos incluem tabelas de procura e de factos, dados de referência, estatísticas pré-agregadas, e assim por diante. </li><li> Destina-se a dados que serão cruzados com outros dados do Azure Monitor (Application Insights, outros tipos de dados de Registos, Centro de Segurança, Monitor Azure para Contentores/VMs, e assim por diante). </li></ul> |
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) é a plataforma de dados que alimenta o Application Insights Analytics e o Azure Monitor Logs. Agora geralmente disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas requerendo a sobrecarga de gestão) sobre o cluster (RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas [opções de ingestão,](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights de Aplicação ou Registos. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento não disponíveis hoje em dia nos Registos do Monitor Azure. </li></ul> |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Utilize a [API de Pesquisa de Registo](../log-query/log-query-overview.md) para obter dados do espaço de trabalho Do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API do Colecionador de Dados](create-pipeline-datacollector-api.md) utilizando o fluxo de trabalho de Apps Lógicas para o Azure Monitor.

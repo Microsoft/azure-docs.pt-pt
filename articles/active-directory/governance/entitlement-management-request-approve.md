@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78c3c177bfcd5ee969e1430306c7294f0a14b658
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078103"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar pedidos de acesso na gestão de direitos da AD Azure
@@ -73,7 +73,7 @@ Depois de abrir um pedido de acesso pendente de aprovação, pode ver detalhes q
 
     Se nenhum dos aprovadores configurados puder aprovar ou negar o pedido de acesso, o pedido expira após a duração do pedido configurado. O utilizador é notificado de que o seu pedido de acesso expirou e que precisa de reenviar o pedido de acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Processo de pedido e notificações de e-mail](entitlement-management-process.md)

@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193418"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
@@ -36,7 +36,7 @@ Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um 
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.
 
-|Definição | Valor de exemplo | Description |
+|Definição | Valor de exemplo | Descrição |
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | STG1 | A conta ADLS para usar com o seu espaço de trabalho. |
@@ -182,6 +182,6 @@ O Synapse Studio comportar-se-á de forma diferente com base nas funções dos u
 > [1] O acesso aos dados em contentores depende do controlo de acesso na ADLS Gen2. </br>
 > [2] As tabelas SQL OD e as tabelas Spark armazenam os seus dados na ADLS Gen2 e o acesso requer as permissões adequadas na ADLS Gen2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criar um [espaço de trabalho sinapse](../quickstart-create-workspace.md)

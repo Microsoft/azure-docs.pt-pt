@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124469"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envie métricas de SO para a loja métrica Azure Monitor clássico Cloud Services 
@@ -189,7 +189,7 @@ Utiliza-se a capacidade de filtragem e divisão de dimensões para visualizar a 
 
  ![Portal Métricas Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
 

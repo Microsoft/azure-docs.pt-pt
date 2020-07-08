@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85101012"
 ---
 # <a name="assigning-variables-with-synapse-sql"></a>Atribuição de variáveis com SQL de Sinapse
@@ -64,6 +64,6 @@ Só é possível definir uma variável de cada vez com o SET. No entanto, os ope
 
 Não é possível utilizar o UPDATE para a atribuição variável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte o artigo de visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)

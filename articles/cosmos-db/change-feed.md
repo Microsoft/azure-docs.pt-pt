@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85119380"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
@@ -95,7 +95,7 @@ A funcionalidade de feed de alteração é emergida como fluxo de mudança na AP
 
 A Nativa Apache Cassandra fornece a captura de dados de mudança (CDC), um mecanismo para sinalizar tabelas específicas para arquivo, bem como rejeitar escritas para essas tabelas uma vez que um tamanho-on-disco configurável para o log CDC é alcançado. A funcionalidade de feed de mudança em Azure Cosmos DB API para Cassandra aumenta a capacidade de consultar as mudanças com predicado via CQL. Para saber mais sobre os detalhes da implementação, consulte [change feed na API API do Azure Cosmos para Cassandra.](cassandra-change-feed.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode agora proceder para saber mais sobre a alteração do feed nos seguintes artigos:
 

@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 06/21/2020
 ms.subservice: alerts
 ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130743"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
@@ -219,6 +219,6 @@ Por exemplo:
     - Como tanto as **métricas de Transações** como **de SucessoE2ELatency** suportam uma dimensão **ApiName,** vou precisar de atualizar ambas as condições, e ter ambas especificar a dimensão **ApiName** com um valor *"GetBlob".*
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações gerais sobre alertas e notificações, consulte [problemas de resolução de problemas nos alertas do Monitor Azure](alerts-troubleshoot.md).

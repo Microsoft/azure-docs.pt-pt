@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85113694"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreender as diferenças entre as bases de dados NoSQL e as bases de dados relacionais
@@ -88,7 +88,7 @@ No que diz respeito à forte consistência, é raro que isso seja necessário em
 
 Mais uma vez, a Azure Cosmos DB oferece mais flexibilidade do que bases de dados relacionais para as várias trocas que são relevantes aqui, mas para implementações em pequena escala, esta abordagem pode adicionar mais considerações de design. Consulte o nosso artigo sobre [Consistência, disponibilidade e tradeoffs de desempenho](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs) para obter mais detalhes sobre este tema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como gerir a sua conta Azure Cosmos e outros conceitos:
 

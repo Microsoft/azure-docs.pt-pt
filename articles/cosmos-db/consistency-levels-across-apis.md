@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85119312"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
@@ -52,7 +52,7 @@ A tabela a seguir ilustra como as preocupações nativas de escrita/leitura da M
 
 :::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapeamento do modelo de consistência mongoDB" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre os níveis de consistência e compatibilidade entre Azure Cosmos DB APIs com as APIs de código aberto. Consulte os seguintes artigos:
 

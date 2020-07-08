@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: 42421f745759d9aee75b285c3fbc6ea7217ba5c0
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85112706"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planear e gerir os custos da Azure Cosmos DB
@@ -67,7 +67,7 @@ Quando utiliza a análise de custos, pode ver os custos do Azure Cosmos DB em gr
 
 No exemplo anterior, vê-se o custo atual da Azure Cosmos DB para o mês de fevereiro. Os gráficos também contêm custos DB Azure Cosmos por localização e por grupo de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja os seguintes artigos para saber mais sobre como os preços funcionam na Azure Cosmos DB:
 

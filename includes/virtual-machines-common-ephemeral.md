@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85112109"
 ---
 Os discos EFÉMER OS são criados no armazenamento da máquina virtual local (VM) e não guardados para o remoto Azure Storage. Os discos efémeros de OS funcionam bem para cargas de trabalho apátridas, onde as aplicações são tolerantes a falhas individuais de VM, mas são mais afetadas pelo tempo de implantação de VM ou pela reimaging das instâncias VM individuais. Com o disco Efemeral OS, obtém-se uma menor leitura/escrita latência para o disco de OS e uma reimagem VM mais rápida. 
@@ -185,7 +185,7 @@ POST https://management.azure.com/subscriptions/{sub-
 id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2018-06-01" 
 ```
  
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Qual é o tamanho dos discos oss locais?**
 

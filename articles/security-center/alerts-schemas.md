@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
 ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85126217"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
@@ -140,7 +140,7 @@ Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando
 
 ### <a name="the-data-model-of-the-schema"></a>O modelo de dados do esquema
 
-|Campo|Description|
+|Campo|Descrição|
 |----|----|
 |**canais**|Constante, "Operação"|
 |**correlationId**|O alerta do Centro de Segurança Azure ID|
@@ -178,7 +178,7 @@ O esquema e uma representação JSON para alertas de segurança enviados para o 
 ---
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu os esquemas que as ferramentas de proteção de ameaças do Azure Security Center usam ao enviar informações de alerta de segurança.
 

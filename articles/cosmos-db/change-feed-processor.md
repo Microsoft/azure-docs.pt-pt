@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85119414"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
@@ -101,7 +101,7 @@ Você é cobrado por RUs consumidos, uma vez que o movimento de dados dentro e f
 * [Amostras de utilização no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Amostras adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode agora proceder para saber mais sobre o processador de feed de mudança nos seguintes artigos:
 

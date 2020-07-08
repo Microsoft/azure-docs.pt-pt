@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117986"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB consulta folhas de batota
@@ -30,7 +30,7 @@ Descarregue as [folhas de fraude do tamanho de Azure Cosmos DB A3](https://go.mi
 
 :::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB consultas folhas de batota - tamanho A3, com SQL API, JavaScript, MongoDB, Gremlin, e Tabela API consultas e funções" border="false":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais ajuda para escrever consultas, consulte os seguintes artigos:
 * Para consultas de API SQL, consulte Consulta utilizando as consultas [SQL API,](tutorial-query-sql-api.md) [SQL para Azure Cosmos DB,](how-to-sql-query.md)e [referência de sintaxe SQL](sql-api-query-reference.md)
 * Para consultas mongoDB, consulte [a Consulta utilizando a API da Azure Cosmos para a MongoDB](tutorial-query-mongodb.md) e a [API da Azure Cosmos DB para suporte e sintaxe de recurso MongoDB](mongodb-feature-support.md)

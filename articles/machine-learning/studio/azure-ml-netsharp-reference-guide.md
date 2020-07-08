@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85129522"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para net# linguagem de especificação de rede neural para Azure Machine Learning Studio (clássico)

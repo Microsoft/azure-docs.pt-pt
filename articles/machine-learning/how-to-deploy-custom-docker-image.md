@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976766"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implemente um modelo usando uma imagem base personalizada do Docker
@@ -191,7 +191,7 @@ Para utilizar uma imagem personalizada, precisa das seguintes informações:
 
 A Microsoft fornece várias imagens de estivadores num repositório acessível ao público, que pode ser usado com os passos nesta secção:
 
-| Imagem | Description |
+| Imagem | Descrição |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem básica para aprendizagem de máquinas Azure |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contém tempo de execução ONNX para inferencing CPU |
@@ -326,7 +326,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 Para obter mais informações sobre a implementação de um modelo utilizando o ML CLI, consulte a secção "registo, perfis e implantação do modelo" da extensão do CLI para o artigo [de Aprendizagem automática Azure.](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [onde implementar e como.](how-to-deploy-and-where.md)
 * Aprenda a [treinar e implementar modelos de machine learning utilizando gasodutos Azure.](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

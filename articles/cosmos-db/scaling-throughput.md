@@ -8,10 +8,10 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 4cc8f2c90e74b5b3ab6df3169df0524f1134b66e
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85113607"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Dimensionamento global de débito aprovisionado 
@@ -36,7 +36,7 @@ Assumindo que um recipiente Cosmos está configurado com *RUs 'R'* e existem reg
 
 A sua escolha de modelo de [consistência](consistency-levels.md) também afeta a produção. Pode obter aproximadamente 2x de produção de leitura para os níveis de consistência mais descontraídos (por exemplo, *sessão,* *prefixo consistente* e *consistência eventual)* em comparação com níveis de consistência mais fortes (por exemplo, *estagnação limitada* ou *forte* consistência).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, pode aprender a configurar a produção num contentor ou base de dados:
 

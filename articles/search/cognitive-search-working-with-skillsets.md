@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976681"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceitos de Skillset em Pesquisa Cognitiva Azure
@@ -99,7 +99,7 @@ Uma vez que um documento está no oleoduto de enriquecimento, é representado co
 |---|---|---|
 |Armazenamento de Blobs|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
-|Cosmos DB|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
+|BD do Cosmos|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
 
  À medida que as habilidades executam, adicionam novos nós à árvore do enriquecimento. Estes novos nós podem então ser usados como entradas para habilidades a jusante, projetando para a loja de conhecimentos, ou mapeando para campos de indexação. Os enriquecimentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que as suas habilidades se tornam mais complexas, também a sua árvore de enriquecimento, mas nem todos os nós na árvore do enriquecimento precisam de chegar ao índice ou à loja de conhecimento. 
 
@@ -391,7 +391,7 @@ A abordagem de formação inline não requer uma habilidade de formador, uma vez
   
 Uma observação de ambas as abordagens é a forma como os valores `"Keyphrases"` são projetados utilizando o `"sourceContext"` . O `"Keyphrases"` nó, que contém uma coleção de cordas, é em si uma criança do texto da página. No entanto, como as projeções requerem um objeto JSON e a página é uma primitiva (corda), `"sourceContext"` é usada para envolver a frase chave num objeto com uma propriedade nomeada. Esta técnica permite que até os primitivos sejam projetados de forma independente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como próximo passo, crie o seu primeiro skillset com habilidades cognitivas.
 

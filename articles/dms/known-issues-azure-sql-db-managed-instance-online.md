@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106404"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Questões conhecidas/limitações de migração com migrações on-line para Azure SQL Gestão De Instância

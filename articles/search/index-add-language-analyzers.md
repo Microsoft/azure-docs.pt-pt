@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130556"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
@@ -129,7 +129,7 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Veja também  
 
 + [Criar índice &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

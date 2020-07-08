@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124958"
 ---
 # <a name="cross-network-connectivity"></a>Conectividade entre redes
@@ -112,7 +112,7 @@ A tabela seguinte mostra a tabela de rotas do espreguite privado do ExpressRoute
 
 ![Mesa de rota Fabrikam ExpressRoute após Alcance Global]( ./media/cross-network-connectivity/fabrikamexr-rt-gr.png )
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [a rede virtual FAQ,][VNet-FAQ]para mais perguntas sobre o VNet e o VNet-peering. Consulte [o ExpressRoute FAQ][ER-FAQ] para mais perguntas sobre a conectividade ExpressRoute e rede virtual.
 

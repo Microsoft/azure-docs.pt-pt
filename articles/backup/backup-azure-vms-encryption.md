@@ -4,10 +4,10 @@ description: Descreve como fazer backup e restaurar VMs Azure encriptados com o 
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124508"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer o back up e restaurar o Azure VM encriptado
@@ -142,7 +142,7 @@ Restaurar vMs encriptados da seguinte forma:
     2. Crie um novo VM a partir dos discos restaurados utilizando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para os VMs Linux, reinstale a extensão ADE para que os discos de dados estejam abertos e montados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se encontrar algum problema, reveja estes artigos:
 

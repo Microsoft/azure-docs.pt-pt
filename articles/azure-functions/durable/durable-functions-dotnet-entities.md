@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125485"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis em .NET
@@ -507,7 +507,7 @@ Finalmente, os seguintes membros são usados para sinalizar outras entidades, ou
 * `SignalEntity(EntityId, operation, input)`: envia uma mensagem de ida para uma entidade.
 * `CreateNewOrchestration(orchestratorFunctionName, input)`: inicia uma nova orquestração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conheça os conceitos de entidade](durable-functions-entities.md)

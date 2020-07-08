@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: femila
 ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85126081"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para Azure Ative Directory pontos finais protegidos
@@ -123,7 +123,7 @@ No separador funcionalidades adicionais, verifique a caixa para "Utilizar a aute
 
     ![Ação Segura webhook](./media/secure-webhook-delivery/aad-configuration.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre a monitorização das entregas de eventos, consulte [a entrega de mensagens monitor a Grelha de Eventos](monitor-event-delivery.md).
 * Para obter mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)

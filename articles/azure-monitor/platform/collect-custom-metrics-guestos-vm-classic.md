@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124550"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas de OS para a base de dados de métricas do Azure Monitor para uma máquina virtual do Windows (clássica)
@@ -202,6 +202,6 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" ao recurso con
    ![Métricas de enredo](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
 

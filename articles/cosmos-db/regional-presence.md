@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 78f02c07932c6a058ba4fa27289640b7efd56169
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85113675"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Presença regional com Azure Cosmos DB
@@ -38,7 +38,7 @@ Todas as APIs expostas por Azure Cosmos DB (incluindo SQL, MongoDB, Cassandra, G
 
 Azure Cosmos DB é um serviço de base de [dados distribuído globalmente.](distribute-data-globally.md) Pode associar qualquer número de regiões do Azure à sua conta Azure Cosmos e os seus dados são replicados de forma automática e transparente. Pode adicionar ou remover uma região na sua conta Azure Cosmos a qualquer momento. Com a capacidade de distribuição global chave na mão e o protocolo de replicação multi-masterizado, a Azure Cosmos DB oferece menos de 10 ms de leitura e escrita de latências no percentil 99, 99.999 leitura e escrita disponibilidade, e capacidade de dimensionar elasticamente a produção provisível para leituras e escritas em todas as regiões associadas à sua conta Azure Cosmos. A Azure Cosmos DB, também oferece cinco modelos de consistência bem definidos e pode optar por aplicar um modelo de consistência específico aos seus dados. Finalmente, a Azure Cosmos DB é o único serviço de base de dados na indústria que fornece um acordo abrangente [de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) que engloba a produção, latência no percentil 99, alta disponibilidade e consistência. As capacidades acima estão disponíveis em todas as nuvens Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora pode aprender sobre conceitos fundamentais da Azure Cosmos DB com os seguintes artigos:
 

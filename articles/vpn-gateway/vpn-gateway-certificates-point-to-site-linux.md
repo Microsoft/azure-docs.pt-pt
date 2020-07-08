@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: alzam
 ms.openlocfilehash: 89f6014b548bd3dd66622d15149051e6b28e94b0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984597"
 ---
 # <a name="generate-and-export-certificates"></a>Gerar e exportar certificados
@@ -27,6 +27,6 @@ As ligações ponto-a-local utilizam certificados para autenticar. Este artigo m
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue com a configuração ponto-a-local para criar e instalar ficheiros de [configuração do cliente VPN](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli).

@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para otimizar as suas implementações Azur
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117782"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Conselheiro Azure
@@ -42,7 +42,7 @@ Selecione a ação recomendada para uma recomendação para implementar a recome
 
 Se não pretender tomar medidas imediatas por recomendação, pode adiá-la por um período de tempo especificado ou descartá-la.  Se não quiser receber recomendações para uma subscrição específica ou grupo de recursos, pode configurar o Advisor apenas para gerar recomendações para subscrições especificadas e grupos de recursos.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="how-do-i-access-advisor"></a>Como posso aceder ao Conselheiro?
 Pode aceder ao Advisor através do [portal Azure.](https://aka.ms/azureadvisordashboard) Inscreva-se no [portal,](https://portal.azure.com) **localize** o Advisor no menu de navegação ou procure-o no menu **Todos os serviços.**
@@ -63,7 +63,7 @@ O Azure Advisor também inclui as suas recomendações do [Azure Security Center
 
 Para adiar ou rejeitar uma recomendação, clique no link **Adia.** Pode especificar um período de adiamento ou selecionar **Nunca** rejeitar a recomendação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

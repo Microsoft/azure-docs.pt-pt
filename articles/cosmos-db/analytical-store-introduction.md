@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
 ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85116031"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
@@ -142,7 +142,7 @@ Para obter uma estimativa de custos de alto nível para permitir uma loja analí
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Tempo analítico para viver (TTL)
 
-A TTL analítica indica quanto tempo os dados devem ser retidos na sua loja analítica, para um recipiente. 
+O TTL Analítico indica quanto tempo os dados devem ser retidos no arquivo analítico, para um contentor. 
 
 As inserções, atualizações, eliminações para dados operacionais são automaticamente sincronizadas da loja transacional para a loja analítica, independentemente da configuração transacional de TTL. A conservação destes dados operacionais na loja analítica pode ser controlada pelo valor Analítico TTL ao nível do contentor, conforme especificado abaixo:
 
@@ -162,7 +162,7 @@ Alguns pontos a considerar:
 
 Para saber mais, consulte [como configurar a TTL analítica num recipiente](configure-synapse-link.md#create-analytical-ttl).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os seguintes documentos:
 
@@ -170,6 +170,6 @@ Para saber mais, consulte os seguintes documentos:
 
 * [Introdução ao Azure Synapse Link para o Azure Cosmos DB](configure-synapse-link.md)
 
-* [Perguntas frequentes sobre Synapse Link para Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Perguntas mais frequentes sobre o Synapse Link para o Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
 * [Casos de utilização do Azure Synapse Link para o Azure Cosmos DB](synapse-link-use-cases.md)

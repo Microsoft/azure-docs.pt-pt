@@ -4,10 +4,10 @@ description: Crie um ficheiro de parâmetros para passar em valores durante a im
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117510"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro do Gestor de Recursos
@@ -206,7 +206,7 @@ Pode utilizar parâmetros inline e um ficheiro de parâmetro local na mesma oper
 Se o seu modelo incluir um parâmetro com o mesmo nome que um dos parâmetros do comando PowerShell, o PowerShell apresenta o parâmetro do seu modelo com o pós-fixação **FromTemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** no seu modelo entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) É-lhe solicitado que forneça um valor para **o ResourceGroupNameFromTemplate**. Pode evitar esta confusão utilizando nomes de parâmetros que não são utilizados para comandos de implantação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para entender como definir parâmetros no seu modelo, consulte [parâmetros nos modelos do Gestor de Recursos Azure](template-parameters.md).
 - Para obter mais informações sobre a utilização de valores a partir de um cofre de chaves, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](key-vault-parameter.md).

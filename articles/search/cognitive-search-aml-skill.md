@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.openlocfilehash: d017472715e8fe924a11080fc837ac837f5bd48f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982157"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade AML num oleoduto de enriquecimento de pesquisa cognitiva Azure
@@ -40,7 +40,7 @@ Microsoft.Skills.custom.AmlSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas. Quais os parâmetros que escolheu utilizar depende da autenticação que [o seu serviço AML requer, se houver](#WhatSkillParametersToUse)
 
-| Nome do parâmetro | Description |
+| Nome do parâmetro | Descrição |
 |--------------------|-------------|
 | `uri` | (Requerido [para não autenticação ou autenticação de chaves)](#WhatSkillParametersToUse) O [URI de pontuação do serviço AML](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service) para o qual será enviada a carga útil _JSON._ Apenas é permitido o sistema **https** URI. |
 | `key` | (Requerido para [a autenticação das chaves)](#WhatSkillParametersToUse) A [chave para o serviço AML.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service#authentication-with-keys) |
@@ -165,7 +165,7 @@ Além de o seu AML estar indisponível ou enviar códigos de estado não bem suc
 
 Para casos em que o serviço AML não esteja disponível ou devolva um erro HTTP, será adicionado um erro amigável com quaisquer detalhes disponíveis sobre o erro HTTP ao histórico de execução do indexante.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Resolução de problemas do serviço AML](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976545"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o backend com O Gateway de Aplicação Azure
@@ -104,7 +104,7 @@ Os seguintes passos ajudam-no a exportar o ficheiro .cer para o seu certificado:
 
 6. Neste momento, extraiu os detalhes do certificado de raiz do certificado de backend. Verá o **Assistente de Exportação de Certificados.** Utilize agora os passos 2-9 mencionados na secção **Certificado de autenticação de exportação a partir de um certificado de backend (para v1 SKU)** acima para exportar o certificado de raiz fidedigno no X.509 codificado base-64(. Formato CER).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora tem o certificado de autenticação/certificado de raiz fidedigno na Base-64 codificada X.509(. Formato CER). Pode adicionar isto ao gateway da aplicação para permitir que os seus servidores de backend acabem com a encriptação TLS. Consulte [o fim da configuração para terminar o TLS utilizando o Gateway de Aplicação com PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

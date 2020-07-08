@@ -4,10 +4,10 @@ description: Utilize recomendações de desempenho no Azure Advisor para melhora
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 45fb1f8844067cb34b415c3897db3b1233ab5c7a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124491"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
@@ -158,7 +158,7 @@ O Azure Advisor identifica os recipientes DB da Azure Cosmos que utilizam um tam
 
 2.  No painel 'Advisor', selecione o **separador Desempenho.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

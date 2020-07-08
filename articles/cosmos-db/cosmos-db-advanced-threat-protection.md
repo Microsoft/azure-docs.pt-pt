@@ -9,10 +9,10 @@ ms.author: memildin
 author: memildin
 manager: rkarlin
 ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85119275"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)
@@ -114,7 +114,7 @@ Uma notificação por e-mail também é enviada com os detalhes de alerta e aç�
 
  Para ver uma lista dos alertas gerados ao monitorizar as contas DB da Azure Cosmos, consulte a secção [de alertas cosmos DB](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) na documentação do Centro de Segurança Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o login de diagnóstico no Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
 * Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 76016da2ec542091aa57d5081e275a1f9f6671cd
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85114270"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos comuns de utilização de Azure Cosmos DB
@@ -97,7 +97,7 @@ JSON, um formato suportado pela Cosmos DB, é um formato eficaz para representar
 
 :::image type="content" source="./media/use-cases/personalization.png" alt-text="Azure Cosmos DB web app arquitetura de referência" border="false":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar com a Azure Cosmos DB, siga os nossos [rápidos começos](create-sql-api-dotnet.md), que o acompanham através da criação de uma conta e começa com a Cosmos DB.
 

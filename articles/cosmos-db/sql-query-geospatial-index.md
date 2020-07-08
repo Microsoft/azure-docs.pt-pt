@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
 ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85116303"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais de índice com Azure Cosmos DB
@@ -161,7 +161,7 @@ A política de indexação acima tem uma caixa de **limites** de (-10, 10) para 
 > [!NOTE]
 > Se tentar adicionar uma política de indexação com uma **caixa de delimitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **GeoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma caixa de **delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a começar com o suporte geoespacial em Azure Cosmos DB, a seguir pode:
 

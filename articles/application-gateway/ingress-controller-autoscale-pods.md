@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125468"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Descalcificar automaticamente os seus pods AKS utilizando métricas de gateway de aplicação (Beta)
@@ -121,5 +121,5 @@ Teste a sua configuração utilizando uma ferramenta de teste de carga como banc
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [**Problemas no controlador ingress :**](ingress-controller-troubleshoot.md)Resolução de problemas com o Controlador de Entradas.

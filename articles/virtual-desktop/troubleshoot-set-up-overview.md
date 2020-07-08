@@ -9,10 +9,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 07857feb2e5552429c445b22c4c4b2f121f29a93
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976494"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Descrição geral da resolução de problemas, comentários e suporte
@@ -54,7 +54,7 @@ Utilize a seguinte tabela para identificar e resolver problemas que poderá enco
 | Problemas utilizando o Log Analytics para o Windows Virtual Desktop | Para problemas com o esquema de diagnóstico, abra um pedido de [apoio ao Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Para consultas, visualização ou outros problemas no Log Analytics, selecione o tipo de problema apropriado em Log Analytics. |
 | Problemas com aplicações M365 | Contacte o centro de administração M365 com uma das opções de ajuda do [centro de administração M365](/microsoft-365/admin/contact-support-for-business-products/). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para resolver problemas enquanto cria uma piscina de anfitriões num ambiente de ambiente de trabalho virtual do Windows, consulte [a criação de piscinas hospedeiras.](troubleshoot-set-up-issues.md)
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).

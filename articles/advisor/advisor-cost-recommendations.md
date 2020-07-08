@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para otimizar o custo das suas implementaç
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130634"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
@@ -105,7 +105,7 @@ Ao utilizar informações sobre a contagem de objetos de armazenamento Azure Blo
 
 1. No painel **'Advisor',** selecione o **separador Custos.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)

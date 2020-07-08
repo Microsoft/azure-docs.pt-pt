@@ -14,10 +14,10 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125826"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
@@ -70,5 +70,5 @@ Estes princípios aplicam-se a todas as camadas da rede: desde a Interface de Re
  
 O crescimento exponencial do Azure e da sua rede chegou a um ponto em que eventualmente percebemos que a intuição humana já não podia ser confiada para gerir as operações globais da rede. Para satisfazer a necessidade de validar alterações de longo, médio e curto prazo na rede, desenvolvemos uma plataforma para espelhar e imitar a nossa rede de produção sinteticamente. A capacidade de criar ambientes espelhados e executar milhões de simulações, permite-nos testar alterações de software e hardware e o seu impacto, antes de os comprometer com a nossa plataforma de produção e rede. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Saiba mais sobre os serviços de networking prestados em Azure](https://azure.microsoft.com/product-categories/networking/)

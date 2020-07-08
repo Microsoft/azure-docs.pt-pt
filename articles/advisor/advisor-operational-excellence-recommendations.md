@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelênci
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125400"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
@@ -54,7 +54,7 @@ A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e geri
 
 **Ativar *herdar uma etiqueta de grupos de recursos*.** Esta política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos principal quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)

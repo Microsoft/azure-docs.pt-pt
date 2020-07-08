@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: asrastog
 ms.openlocfilehash: 83d2fa59654e038586a7f23eedbe7c656873f35c
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976579"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para ioT Hub
@@ -22,7 +22,7 @@ O IoT Hub suporta a encriptação de dados em repouso com as teclas geridas pelo
 Esta capacidade requer a criação de um novo Hub IoT (nível básico ou padrão). Para experimentar esta capacidade, contacte-nos através do [suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Partilhe o nome da sua empresa e o ID de subscrição ao contactar o suporte da Microsoft.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre o IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
 

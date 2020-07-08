@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: fa43df8c4f17bff4e97d999c6653bdcb045bfec3
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84985215"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificar as definições do gateway de rede local com o portal do Azure
@@ -40,6 +40,6 @@ Se o dispositivo VPN que pretende ligar foi alterou o respetivo endereço IP pú
 
 [!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode verificar a sua ligação de gateway. Ver [Verificar uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).

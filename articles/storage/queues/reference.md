@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: fbf20b92edf5d8dce8438731c2812a78e457a402
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976664"
 ---
 # <a name="azure-queue-storage-reference"></a>Referência de armazenamento de Filas do Azure

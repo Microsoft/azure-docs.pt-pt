@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
 ms.openlocfilehash: a0c8b984801a0db2af648b0711d95de34bc9386f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85114814"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – descrição geral
@@ -81,7 +81,7 @@ Vamos investigar cada um em detalhe.
 
 A imagem que se segue mostra como pode utilizar registos de registos de auditoria e de atividade para monitorizar a sua conta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Registos de atividade para Azure Cosmos DB":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre chaves principais e fichas de recursos, consulte [garantir o acesso aos dados DB da Azure Cosmos](secure-access-to-data.md).
 

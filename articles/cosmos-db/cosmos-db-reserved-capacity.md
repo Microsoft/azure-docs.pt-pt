@@ -8,10 +8,10 @@ ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85118938"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade de reserva no Azure Cosmos DB
@@ -68,7 +68,7 @@ Esta recomendação de compra de uma reserva de 30.000 RU/s indica que, entre 3 
 
    :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Preencha o formulário de capacidade reservada":::
 
-   |Campo  |Description  |
+   |Campo  |Descrição  |
    |---------|---------|
    |Âmbito   |   Opção que controla quantas subscrições podem usar o benefício de faturação associado à reserva. Também controla a forma como a reserva é aplicada a subscrições específicas. <br/><br/>  Se selecionar **Shared,** o desconto de reserva é aplicado a instâncias DB da Azure Cosmos que executam em qualquer subscrição dentro do seu contexto de faturação. O contexto de faturação baseia-se na forma como se inscreveu no Azure. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para os clientes pay-as-you-go, o âmbito partilhado é todas as subscrições individuais com taxas de pagamento criadas pelo administrador da conta.  <br/><br/>  Se selecionar **uma subscrição única,** o desconto de reserva é aplicado às instâncias DB da Azure Cosmos na subscrição selecionada. <br/><br/> Se selecionar **um grupo de recursos único,** o desconto de reserva é aplicado às instâncias DB da Azure Cosmos na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição. <br/><br/> Pode alterar o âmbito de reserva depois de comprar a capacidade reservada.  |
    |Subscrição  |   Subscrição que é usada para pagar a capacidade reservada do Azure Cosmos DB. O método de pagamento na subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos: <br/><br/>  Acordo de Empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como excesso. <br/><br/> Subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): Para uma subscrição individual com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou método de pagamento de fatura na subscrição.    |
@@ -94,7 +94,7 @@ Quando a sua reserva expira, as suas instâncias DB Azure Cosmos continuam a dec
 
 Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O desconto de reserva é aplicado automaticamente aos recursos DB da Azure Cosmos que correspondem ao âmbito e atributos da reserva. Pode atualizar o âmbito da reserva através do portal Azure, PowerShell, Azure CLI ou da API.
 
@@ -102,7 +102,7 @@ O desconto de reserva é aplicado automaticamente aos recursos DB da Azure Cosmo
 
 * Para saber mais sobre as reservas do Azure, veja os seguintes artigos:
 
-   * [O que são reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
    * [Gerir reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Compreender a utilização de reservas na sua subscrição Pay As You Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)

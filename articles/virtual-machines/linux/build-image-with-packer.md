@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106015"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais Linux em Azure
@@ -227,5 +227,5 @@ Agora, pode abrir um browser e introduzir `http://publicIpAddress` na barra de e
 ![Site predefinido do NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Também pode utilizar scripts de provisionadores Packer existentes com [O Azure Image Builder](image-builder.md).

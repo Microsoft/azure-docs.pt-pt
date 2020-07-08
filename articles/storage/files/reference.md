@@ -8,10 +8,10 @@ ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976528"
 ---
 # <a name="azure-file-shares-storage-reference"></a>Referência de armazenamento das Partilhas de Ficheiros do Azure

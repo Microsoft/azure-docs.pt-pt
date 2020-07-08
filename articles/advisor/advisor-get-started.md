@@ -4,10 +4,10 @@ description: Começa com o Conselheiro Azure.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117867"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -119,7 +119,7 @@ O Advisor permite-lhe fazer o download de um resumo das suas recomendações.  P
 
 A opção de descarregamento respeita quaisquer filtros que tenha aplicado no painel de instrumentos Advisor.  Se selecionar a opção de descarregamento ao visualizar uma categoria ou recomendação específica de recomendação, o resumo descarregado apenas inclui informações para essa categoria ou recomendação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Conselheiro, consulte:
 

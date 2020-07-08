@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64a619843f781fa24bfdc2a339e67fdb49b1bff1
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078844"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize avaliações de acesso Azure AD para gerir utilizadores excluídos das políticas de acesso condicional
@@ -164,7 +164,7 @@ Agora que tem tudo no lugar, política de grupo, acesso condicional e avaliaçõ
 
 Como administrador de TI, sabe que gerir grupos de exclusão às suas políticas é, por vezes, inevitável. No entanto, a manutenção destes grupos, a sua revisão regular pelo empresário ou pelos próprios utilizadores, e a auditoria destas alterações podem ser facilitadas com revisões de acesso a AD do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

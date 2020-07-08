@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.openlocfilehash: f9792f52ae60039ff4891ea95688f961e73283af
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983425"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generate and export certificates for Point-to-Site using PowerShell (Gerar e exportar certificados para Ponto a Site através da PowerShell)
@@ -31,7 +31,7 @@ Cada cliente que se conecta ao VNet sobre uma ligação P2S requer que um certif
 
 Para instalar um certificado de cliente, consulte [instalar um certificado de cliente para ligações ponto-a-local](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue com a sua configuração Ponto-a-Local.
 

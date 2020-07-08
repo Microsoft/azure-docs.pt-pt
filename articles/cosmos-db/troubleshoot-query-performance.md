@@ -9,10 +9,10 @@ ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117918"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Problemas de consulta de resolução de problemas ao utilizar o Azure Cosmos DB
@@ -488,7 +488,7 @@ Consultas paralelas funcionam consultando várias divisórias em paralelo. Mas o
 
 As consultas são projetadas para obter resultados pré-obtendos enquanto o lote atual de resultados está sendo processado pelo cliente. A pré-busca ajuda a melhorar a latência geral de uma consulta. A definição de MaxBufferedItemCount limita o número de resultados pré-recedidos. Se definir este valor para o número esperado de resultados devolvidos (ou um número mais elevado), a consulta pode obter o maior benefício da pré-obtenção. Se definir este valor para -1, o sistema determinará automaticamente o número de itens a tampão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos para obter informações sobre como medir RUs por consulta, obter estatísticas de execução para afinar as suas consultas, e muito mais:
 
 * [Obtenha métricas de execução de consulta SQL usando .NET SDK](profile-sql-api-query.md)

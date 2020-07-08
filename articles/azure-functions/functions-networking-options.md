@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117232"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
@@ -144,7 +144,7 @@ As seguintes APIs permitem gerir programáticamente integrações de redes virtu
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre networking e Funções Azure:
 

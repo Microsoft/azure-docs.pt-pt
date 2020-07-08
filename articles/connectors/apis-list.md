@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
 ms.openlocfilehash: 7d631698f7c00a838f28d55b6b26055e686d27db
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84977004"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
@@ -95,8 +95,8 @@ A Logic Apps fornece gatilhos e ações incorporados para que possa criar fluxos
 |   |   |   |   |
 |---|---|---|---|
 | [![Agenda de ][schedule-icon]<br> **ícones** da API][schedule-doc] | - Executar uma aplicação lógica numa recorrência especificada, que vai desde horários básicos a horários avançados com o gatilho [ **de Recorrência** ][schedule-recurrence-doc]. <p>- Executar uma aplicação lógica que precisa de lidar com dados em pedaços contínuos com o gatilho [ **da janela deslizante** ][schedule-sliding-window-doc]. <p>- Faça uma pausa na sua aplicação lógica durante uma duração especificada com a ação [ **Delay** ][schedule-delay-doc]. <p>- Faça uma pausa na sua aplicação lógica até à data e hora especificadas com o [ **Atraso até** à ação][schedule-delay-until-doc]. | [![Lote de ícone de API ][batch-icon]<br> **Batch**][batch-doc] | - Processar mensagens em lotes com o gatilho **de mensagens Batch.** <p>- Ligue para aplicações lógicas que tenham gatilhos de lote existentes com as **mensagens Enviar para ação de lote.** |
-| [![Ícone de API ][http-icon]<br> **HTTP**][http-doc] | Ligue para pontos finais HTTP ou HTTPS com gatilhos e ações para HTTP. Outros detonadores e ações incorporados http incluem [HTTP + Swagger][http-swagger-doc] e HTTP + [Webhook][http-webhook-doc]. | [![Pedido de ícone da API ][http-request-icon]<br> **Request**][http-request-doc] | - Tornar a sua aplicação lógica callable a partir de outras aplicações ou serviços, desencadear eventos de recursos de Event Grid ou desencadear respostas aos alertas do Azure Security Center com o gatilho **do Pedido.** <p>- Enviar respostas para uma app ou serviço com a ação **Resposta.** |
-| [![API ícone ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc] | Call triggers e ações definidas pelas suas próprias APIs que gere e publica com a Azure API Management. | [![API ícone ][azure-app-services-icon]<br> **Azure App <br> Services**][azure-app-services-doc] | Ligue para aplicações AZure API, ou Web Apps, hospedados no Azure App Service. Os gatilhos e ações definidos por estas aplicações aparecem como quaisquer outros gatilhos e ações de primeira classe quando o Swagger está incluído.|
+| [![Ícone de API ][http-icon]<br> **HTTP**][http-doc] | Chamar pontos finais HTTP ou HTTPS com acionadores e ações para HTTP. Outros detonadores e ações incorporados http incluem [HTTP + Swagger][http-swagger-doc] e HTTP + [Webhook][http-webhook-doc]. | [![Pedido de ícone da API ][http-request-icon]<br> **Request**][http-request-doc] | - Tornar a sua aplicação lógica callable a partir de outras aplicações ou serviços, desencadear eventos de recursos de Event Grid ou desencadear respostas aos alertas do Azure Security Center com o gatilho **do Pedido.** <p>- Enviar respostas para uma app ou serviço com a ação **Resposta.** |
+| [![API ícone ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc] | Chame acionadores e ações definidos pelas suas próprias APIs que gere e publica com a Gestão de API do Azure. | [![API ícone ][azure-app-services-icon]<br> **Azure App <br> Services**][azure-app-services-doc] | Ligue para as Aplicações API do Azure ou as Aplicações Web alojadas no Serviço de Aplicações do Azure. Os gatilhos e ações definidos por estas aplicações aparecem como quaisquer outros gatilhos e ações de primeira classe quando o Swagger está incluído.|
 | [![][azure-logic-apps-icon]<br>** <br> Aplicativos de lógica azure** ícone da API][nested-logic-app-doc] | Ligue para outras aplicações lógicas que começam com o gatilho **Do Pedido.** |
 |||||
 
@@ -144,8 +144,8 @@ A Logic Apps fornece estes conectores Standard populares para automatizar tarefa
 | [![Ícone API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Conecte-se aos servidores SFTP que pode aceder a partir da internet utilizando o SSH para que possa trabalhar com os seus ficheiros e pastas. | [![Ícone da API ][sharepoint-online-icon]<br> **SharePoint <br> Online**][sharepoint-online-doc] | Ligue-se ao SharePoint Online para que possa gerir ficheiros, anexos, pastas e muito mais. | 
 | [![Ícone API ][dynamics-365-icon]<br> **Dynamics 365 <br> **][dynamics-365-doc] | Ligue-se à sua conta Dynamics 365 para que possa criar e gerir registos, itens e muito mais. | [![API ícone ][azure-queues-icon]<br> **Azure <br> Filas**][azure-queues-doc] | Conecte-se à sua conta de Armazenamento Azure para que possa criar e gerir filas e mensagens |
 | [![Ícone API ][ftp-icon]<br> **FTP**][ftp-doc] | Ligue-se aos servidores FTP que pode aceder a partir da internet para que possa trabalhar com os seus ficheiros e pastas. | [![][file-system-icon]<br>** <br> Sistema de arquivo de** ícones da API][file-system-doc] | Ligue-se à partilha de ficheiros no local para que possa criar e gerir ficheiros. |
-| [![API ícone ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Consumir e publicar eventos através de um Centro de Eventos. Por exemplo, obtenha a saída da sua aplicação lógica com Os Centros de Eventos e, em seguida, envie essa saída para um fornecedor de análise em tempo real. | [![API ícone ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Monitorize eventos publicados por uma Grade de Eventos, por exemplo, quando os recursos do Azure ou recursos de terceiros mudam. |
-| [![Ícone da API ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Ligue-se à sua conta Salesforce para que possa criar e gerir itens como registos, empregos, objetos e muito mais. | [![Twitter ícone da API ][twitter-icon]<br> **Twitter**][twitter-doc] | Ligue-se à sua conta de Twitter para que possa gerir tweets, seguidores, a sua linha temporal e muito mais. Guarde os seus tweets para SQL, Excel ou SharePoint. |
+| [![API ícone ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Consumir e publicar eventos através de um Centro de Eventos. Por exemplo, utilize o Hubs de Eventos para obter resultados da sua aplicação lógica e, em seguida, envie esses resultados para um fornecedor de análises em tempo real. | [![API ícone ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Monitorize eventos publicados por uma Grade de Eventos, por exemplo, quando os recursos do Azure ou recursos de terceiros mudam. |
+| [![Ícone da API ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Ligue-se à sua conta Salesforce para que possa criar e gerir itens como registos, empregos, objetos e muito mais. | [![Twitter ícone da API ][twitter-icon]<br> **Twitter**][twitter-doc] | Ligue-se à sua conta de Twitter para que possa gerir tweets, seguidores, a sua linha temporal e muito mais. Guarde os tweets no SQL, Excel ou SharePoint. |
 |||||
 
 <a name="on-premises-connectors"></a>
@@ -250,7 +250,7 @@ Para chamar APIs que executam código personalizado ou não estão disponíveis 
 
 Se a sua organização não permitir a ligação a recursos específicos utilizando os seus conectores em Azure Logic Apps, pode [bloquear a capacidade de criar essas ligações](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicações lógicas utilizando a [Azure Policy.](../governance/policy/overview.md) Para obter mais informações, consulte [as ligações do Bloco criadas por conectores específicos em Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ver a [lista completa do conector](https://docs.microsoft.com/connectors)
 * [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)

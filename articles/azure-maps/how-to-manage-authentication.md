@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84981727"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
@@ -43,7 +43,7 @@ A tabela que se segue descreve cenários comuns de autenticação e autorizaçã
 > [!IMPORTANT]
 > A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) com controlo de acesso baseado em funções (RBAC) para aplicações de produção.
 
-| Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
+| Scenario                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
 | [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Chave Partilhada     | N/D           | Médio             | Alta               |
 | [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Azure AD       | Alta          | Baixa                | Médio             |
@@ -79,7 +79,7 @@ Solicite um sinal do ponto final da Azure AD. No seu pedido AZure AD, utilize os
 
 Para obter mais informações sobre a solicitação de tokens de acesso da Azure AD para utilizadores e diretores de serviço, consulte [cenários de autenticação para Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) e veja cenários específicos na tabela de [Cenários.](./how-to-manage-authentication.md#determine-authentication-and-authorization)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte [Azure AD e Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 

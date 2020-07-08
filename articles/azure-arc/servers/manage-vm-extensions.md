@@ -8,10 +8,10 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.openlocfilehash: e04b2c63f782a4fcbb64273c08511ecb0bbc2bc3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84977778"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Gestão de extensão de máquina virtual com Azure Arc para servidores (pré-visualização)
@@ -725,7 +725,7 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 4. Olhe para os registos do sistema. Verifique outras operações que possam ter interferido com a extensão, como uma instalação de longa duração de outra aplicação que exigia acesso exclusivo ao gestor de pacotes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
 

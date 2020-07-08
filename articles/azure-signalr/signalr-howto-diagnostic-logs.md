@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85132019"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Registos de recursos para o Serviço Azure SignalR
@@ -66,9 +66,9 @@ Todos os registos são armazenados no formato JavaScript Object Notation (JSON).
 
 As cordas JSON do log de arquivo incluem elementos listados nas seguintes tabelas:
 
-**Formato**
+**Formatar**
 
-Name | Description
+Name | Descrição
 ------- | -------
 hora | Hora do evento de registo
 nível | Nível de evento de registo
@@ -81,7 +81,7 @@ propriedades | Propriedades detalhadas relacionadas com este evento de registo. 
 
 **Tabela de Imóveis**
 
-Name | Description
+Name | Descrição
 ------- | -------
 tipo | Tipo do evento de registo. Atualmente, fornecemos informações sobre conectividade ao Serviço Azure SignalR. O `ConnectivityLogs` único tipo está disponível
 coleção | Coleção do evento de registo. Os valores permitidos são: `Connection` e `Authorization``Throttling`
@@ -128,7 +128,7 @@ Para ver registos de recursos, siga estes passos:
 
 As colunas de registo de arquivo incluem elementos listados na tabela seguinte:
 
-Name | Description
+Name | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de registo
 Coleção | Coleção do evento de registo. Os valores permitidos são: `Connection` e `Authorization``Throttling`
@@ -162,7 +162,7 @@ A diferença entre `ConnectionAborted` e é que é uma `ConnectionEnded` `Connec
 
 As razões do aborto constam da seguinte tabela:
 
-Razão | Description
+Razão | Descrição
 ------- | ------- 
 Contagem de ligação atinge limite | A contagem de ligação atinge o limite do seu nível de preço atual. Considere aumentar a unidade de serviço
 O servidor de aplicações fechou a ligação | O servidor de aplicações desencadeia o aborto. Pode ser considerado como um aborto esperado

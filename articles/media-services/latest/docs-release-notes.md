@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
 ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982174"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Atualizações de documentação do Azure Media Services v3
@@ -41,7 +41,7 @@ Este artigo fala sobre as mais recentes atualizações de documentação dos Med
 
 O [streaming ao vivo com telestream Wirecast](live-events-wirecast-quickstart.md) quickstart foi adicionado. Mostra-lhe como criar um live stream da Azure Media Services utilizando o portal Azure e o Telestream Wirecast.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral](media-services-overview.md)
 - [Media Services v3 notas de lançamento](release-notes.md)

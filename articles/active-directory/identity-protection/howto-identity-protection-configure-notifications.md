@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130437"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações de Proteção de Identidade Azure Ative
@@ -68,6 +68,6 @@ Como administrador, pode mudar o envio de um e-mail semanal de digestão ligado 
 
 Configure o e-mail semanal de digestão no **portal Azure** no âmbito da **Azure Ative**  >  **Directory Security**Identity  >  **Protection**Weekly  >  **digest**.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md)

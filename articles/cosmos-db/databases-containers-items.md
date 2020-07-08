@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 257d7a2e374867f6ff14aeaa633d95521b7ca39e
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85114763"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhe com bases de dados, contentores e itens em Azure Cosmos DB
@@ -39,10 +39,10 @@ Pode interagir com uma base de dados Azure Cosmos com APIs Azure Cosmos, conform
 
 | Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerar todas as bases de dados| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Yes | ND | ND |
-|Ler base de dados| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Yes | ND | ND |
-|Criar nova base de dados| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Yes | ND | ND |
-|Base de dados de atualização| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Yes | ND | ND |
+|Enumerar todas as bases de dados| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Sim | ND | ND |
+|Ler base de dados| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Sim | ND | ND |
+|Criar nova base de dados| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Sim | ND | ND |
+|Base de dados de atualização| Sim | Sim | Sim (base de dados está mapeada para um espaço-chave) | Sim | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contentores do Azure Cosmos
@@ -85,15 +85,15 @@ Um recipiente Azure Cosmos tem um conjunto de propriedades definidas pelo sistem
 
 | Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador | Objetivo | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Gerado pelo sistema | Identificador único do recipiente | Yes | Não | Não | Não | Não |
-|\_etag | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo otimista da conuscção | Yes | Não | Não | Não | Não |
-|\_ts | Gerado pelo sistema | Última hora atualizada do tempo do recipiente | Yes | Não | Não | Não | Não |
-|\_self | Gerado pelo sistema | URI endereçado do contentor | Yes | Não | Não | Não | Não |
+|\_rid | Gerado pelo sistema | Identificador único do recipiente | Sim | Não | Não | Não | Não |
+|\_etag | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo otimista da conuscção | Sim | Não | Não | Não | Não |
+|\_ts | Gerado pelo sistema | Última hora atualizada do tempo do recipiente | Sim | Não | Não | Não | Não |
+|\_self | Gerado pelo sistema | URI endereçado do contentor | Sim | Não | Não | Não | Não |
 |ID | Configurável pelo utilizador | Nome único definido pelo utilizador do recipiente | Sim | Sim | Sim | Sim | Sim |
-|indexaçãoPolícia | Configurável pelo utilizador | Fornece a capacidade de alterar a trajetória do índice, o tipo de índice e o modo de índice | Yes | Não | Não | Não | Yes |
-|TimeToLive | Configurável pelo utilizador | Fornece a capacidade de eliminar automaticamente os itens de um recipiente após um período de tempo definido. Para mais detalhes, consulte [a hora de viver.](time-to-live.md) | Yes | Não | Não | Não | Yes |
-|mudarFeedPolicy | Configurável pelo utilizador | Costumava ler alterações feitas em itens num recipiente. Para mais detalhes, consulte [change feed](change-feed.md). | Yes | Não | Não | Não | Yes |
-|exclusivoKeyPolicy | Configurável pelo utilizador | Usado para garantir a singularidade de um ou mais valores numa partição lógica. Para obter mais informações, consulte [as principais restrições exclusivas.](unique-keys.md) | Yes | Não | Não | Não | Yes |
+|indexaçãoPolícia | Configurável pelo utilizador | Fornece a capacidade de alterar a trajetória do índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
+|TimeToLive | Configurável pelo utilizador | Fornece a capacidade de eliminar automaticamente os itens de um recipiente após um período de tempo definido. Para mais detalhes, consulte [a hora de viver.](time-to-live.md) | Sim | Não | Não | Não | Sim |
+|mudarFeedPolicy | Configurável pelo utilizador | Costumava ler alterações feitas em itens num recipiente. Para mais detalhes, consulte [change feed](change-feed.md). | Sim | Não | Não | Não | Sim |
+|exclusivoKeyPolicy | Configurável pelo utilizador | Usado para garantir a singularidade de um ou mais valores numa partição lógica. Para obter mais informações, consulte [as principais restrições exclusivas.](unique-keys.md) | Sim | Não | Não | Não | Sim |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operações num contentor Azure Cosmos
 
@@ -121,12 +121,12 @@ Cada item Azure Cosmos tem as seguintes propriedades definidas pelo sistema. Dep
 
 | Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador| Objetivo | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Gerado pelo sistema | Identificador único do item | Yes | Não | Não | Não | Não |
-|\_etag | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo otimista da conuscção | Yes | Não | Não | Não | Não |
-|\_ts | Gerado pelo sistema | Timetamp da última atualização do item | Yes | Não | Não | Não | Não |
-|\_self | Gerado pelo sistema | URI endereçada do item | Yes | Não | Não | Não | Não |
-|ID | Qualquer um | Nome único definido pelo utilizador numa divisória lógica. | Yes | Sim | Sim | Sim | Sim |
-|Propriedades arbitrárias definidas pelo utilizador | Definidas pelo utilizador | Propriedades definidas pelo utilizador representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Yes | Sim | Sim | Sim | Sim |
+|\_rid | Gerado pelo sistema | Identificador único do item | Sim | Não | Não | Não | Não |
+|\_etag | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo otimista da conuscção | Sim | Não | Não | Não | Não |
+|\_ts | Gerado pelo sistema | Timetamp da última atualização do item | Sim | Não | Não | Não | Não |
+|\_self | Gerado pelo sistema | URI endereçada do item | Sim | Não | Não | Não | Não |
+|ID | Qualquer um | Nome único definido pelo utilizador numa divisória lógica. | Sim | Sim | Sim | Sim | Sim |
+|Propriedades arbitrárias definidas pelo utilizador | Definidas pelo utilizador | Propriedades definidas pelo utilizador representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Sim | Sim | Sim | Sim | Sim |
 
 > [!NOTE]
 > A singularidade da `id` propriedade só é aplicada dentro de cada divisória lógica. Vários documentos podem ter a mesma `id` propriedade com diferentes valores-chave de partição.
@@ -137,7 +137,7 @@ Os itens da Azure Cosmos suportam as seguintes operações. Pode utilizar qualqu
 
 | Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inserir, Substituir, Eliminar, Aumentar, Ler | Não | Yes | Sim | Sim | Sim | Sim |
+| Inserir, Substituir, Eliminar, Aumentar, Ler | Não | Sim | Sim | Sim | Sim | Sim |
 
 ## <a name="next-steps"></a>Próximos passos
 

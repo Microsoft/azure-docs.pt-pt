@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130811"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição em Pesquisa Cognitiva Azure
@@ -88,7 +88,7 @@ Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista compl
 
 A tabela que se segue lista as APIs e as abordagens baseadas em ferramentas para a apresentação de consultas.
 
-| Metodologia | Description |
+| Metodologia | Descrição |
 |-------------|-------------|
 | [Explorador de procura (portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de versão index e api. Os resultados são devolvidos como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
 | [Carteiro ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste web são uma excelente escolha para formular chamadas REST. A API REST suporta todas as operações possíveis na Pesquisa Cognitiva Azure. Neste artigo, aprenda a configurar um cabeçalho e corpo de pedidos HTTP para o envio de pedidos para a Azure Cognitive Search.  |
@@ -165,7 +165,7 @@ Se quiser que a Azure Cognitive Search retorna os seus resultados encomendados p
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
 Na Pesquisa Cognitiva Azure, enfatizar a parte exata dos resultados de pesquisa que correspondem à consulta de pesquisa é facilitada através da utilização de **`highlight`** **`highlightPreTag`** , e **`highlightPostTag`** parâmetros. Pode especificar quais os campos *pes pesjáveis* que devem ter o seu texto combinado realçado, bem como especificar as etiquetas de corda exatas para anexar ao início e fim do texto combinado que a Azure Cognitive Search retorna.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Como funciona a pesquisa completa de texto na Azure Cognitive Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982123"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade personalizada da API web em um oleoduto de enriquecimento de pesquisa cognitiva Azure
@@ -34,7 +34,7 @@ Microsoft.Skills.custom.webapiskill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `uri` | O URI da API Web para o qual será enviada a carga útil _JSON._ Apenas o esquema **https** URI é permitido |
 | `httpMethod` | O método a utilizar durante o envio da carga útil. Os métodos permitidos são `PUT` ou`POST` |
@@ -201,7 +201,7 @@ Além de a sua API Web não estar disponível, ou enviar códigos de estado não
 
 Para casos em que a API Web não esteja disponível ou devolva um erro HTTP, um erro amigável com quaisquer detalhes disponíveis sobre o erro HTTP será adicionado ao histórico de execução do indexante.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Adicione habilidade personalizada a um oleoduto de enriquecimento de IA](cognitive-search-custom-skill-interface.md)

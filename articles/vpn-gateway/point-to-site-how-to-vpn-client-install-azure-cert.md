@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: a0cfbc39bbbd54e225879bd479bf0ba47186aee8
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987139"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalar certificados de cliente para ligações de autenticação de certificadoS P2S
@@ -39,6 +39,6 @@ Independentemente do sistema operativo cliente de que queira ligar, tem sempre d
 
 O certificado de cliente Linux é instalado no cliente como parte da configuração do cliente. Consulte [a configuração do Cliente - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) para obter instruções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue com os passos de configuração ponto-a-local para [criar e instalar ficheiros de configuração do cliente VPN](point-to-site-vpn-client-configuration-azure-cert.md).

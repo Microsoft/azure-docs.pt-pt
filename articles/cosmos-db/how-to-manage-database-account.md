@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
 ms.openlocfilehash: 35659eba274b4b93ca74e480f6ad2b5edfd2e293
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85116762"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
@@ -39,7 +39,7 @@ Consulte a [conta DB da Create Azure Cosmos com modelos de Gestor de Recursos Az
 
 ### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no [portal Azure](https://portal.azure.com).
 
 1. Vá à sua conta Azure Cosmos e abra o menu **de dados Replica globalmente.**
 
@@ -228,7 +228,7 @@ Consulte [o trigger manual failover com Azure CLI](manage-with-cli.md#trigger-ma
 
 Consulte [o gatilho de falha manual com PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações e exemplos sobre como gerir a conta Azure Cosmos, bem como bases de dados e contentores, leia os seguintes artigos:
 

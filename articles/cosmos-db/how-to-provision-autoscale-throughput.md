@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
 ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85118734"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisão de produção automática na base de dados ou contentor em Azure Cosmos DB
@@ -244,7 +244,7 @@ Consulte este artigo sobre [como utilizar comandos de extensão MongoDB](mongodb
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Pode utilizar um modelo de Gestor de Recursos para obter uma produção de escala automática numa base de dados ou num recipiente para qualquer API. Consulte este [artigo](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) para obter uma amostra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Conheça os [benefícios da produção aussitada com autoescala.](provision-throughput-autoscale.md#benefits-of-autoscale)
 * Saiba como escolher entre a [produção manual e autoescala.](how-to-choose-offer.md)
 * Reveja as [FAQ de escala automática.](autoscale-faq.md)

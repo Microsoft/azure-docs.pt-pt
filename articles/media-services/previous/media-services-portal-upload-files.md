@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982565"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia no portal do Azure 
@@ -61,7 +61,7 @@ Quando o carregamento estiver concluído, o elemento novo é apresentado no pain
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Veja [Encode your uploaded assets](media-services-portal-encode.md) (Codificar os seus elementos carregados).
 
 * Também pode utilizar as Funções do Azure para acionar um trabalho de codificação num ficheiro que esteja a chegar ao contentor configurado. Para obter mais informações, veja o exemplo em [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Serviços de Multimédia: Integrar os Serviços de Multimédia nas Funções do Azure e no Logic Apps).

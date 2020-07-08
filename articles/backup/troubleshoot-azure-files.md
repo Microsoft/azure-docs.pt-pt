@@ -4,10 +4,10 @@ description: Este artigo apresenta informações sobre a resolução de problema
 ms.date: 02/10/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 15cea28ee6c6a969b56e34242e2631b0aa760331
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130403"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
@@ -317,7 +317,7 @@ Error Message: A cópia de segurança falhou à medida que a partilha de ficheir
 
 Verifique se a parte do ficheiro retrossativo é permanentemente eliminada. Se sim, pare a cópia de segurança para a partilha de ficheiros para evitar falhas repetidas de backup. Para aprender a parar a proteção consulte [stop Protection for Azure file share](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o backup das ações de ficheiros Azure, consulte:
 

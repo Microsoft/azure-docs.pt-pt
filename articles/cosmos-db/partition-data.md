@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85112783"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
@@ -56,7 +56,7 @@ A imagem a seguir mostra como as divisórias lógicas são mapeadas para divisó
 
 :::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Uma imagem que demonstra a partição de Azure Cosmos DB" border="false":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como escolher uma chave de partição.](partitioning-overview.md#choose-partitionkey)
 * Conheça a [produção a provisionada em Azure Cosmos DB](request-units.md).

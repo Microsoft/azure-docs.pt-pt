@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
 ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976749"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
@@ -285,7 +285,7 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementar modelo na FPGA](how-to-deploy-fpga-web-service.md)
 * [Implementar modelo com ONNX](concept-onnx.md#deploy-onnx-models-in-azure)

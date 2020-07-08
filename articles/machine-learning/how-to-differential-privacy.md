@@ -11,10 +11,10 @@ author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
 ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84981851"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Use privacidade diferencial em Azure Machine Learning
@@ -151,7 +151,7 @@ Pode utilizar a biblioteca para compor gráficos de análise mais complexos, com
 | Contagem         | Gaussiano   | Elenco       |
 | Histograma     | Geométrico  | Aperto   |
 | Média          | Rio Laplace    | Digitalizar   |
-| Rio Quantiles     |            | Filtro     |
+| Rio Quantiles     |            | Filtrar     |
 | Soma           |            | Imputation |
 | Variação/Covariância |      | Transformação  |
 

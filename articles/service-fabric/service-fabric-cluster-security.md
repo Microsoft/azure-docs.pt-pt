@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080683"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
@@ -141,7 +141,7 @@ Por predefinição, o certificado de cluster tem privilégios de administração
 > [!NOTE]
 > Todas as operações de gestão num cluster de Tecido de Serviço requerem certificados de servidor. Os certificados de cliente não podem ser usados para gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Crie um cluster em Azure usando um modelo de Gestor de Recursos](service-fabric-cluster-creation-via-arm.md)
 * [Utilizar o portal do Azure para criar um cluster](service-fabric-cluster-creation-via-portal.md)

@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 06/20/2020
 ms.openlocfilehash: 84026a5a9ba63bf008eeb25df3d0c42cbd558fa9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85118785"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado dos cenários de migração suportados pelo Azure Database Migration Service
@@ -86,6 +86,6 @@ A tabela seguinte mostra o suporte do Serviço de Migração da Base de Dados Az
 | **Azure DB para PostgreSQL - Hiperescala (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure.](dms-overview.md)
