@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737364"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realize deteção de intrusão de rede com o Network Watcher e ferramentas open source
@@ -26,7 +26,7 @@ As capturas de pacotes são um componente chave para implementar sistemas de det
 
 Uma dessas ferramentas de código aberto é a Suricata, um motor IDS que utiliza regras para monitorizar o tráfego da rede e aciona alertas sempre que ocorram eventos suspeitos. A Suricata oferece um motor multi-roscado, o que significa que pode realizar análises de tráfego de rede com maior rapidez e eficiência. Para mais detalhes sobre a Suricata e as suas capacidades, visite o seu website em https://suricata-ids.org/ .
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Este artigo explica como configurar o seu ambiente para realizar a deteção de intrusões de rede usando o Network Watcher, Suricata e a Pilha Elástica. O Network Watcher fornece-lhe as capturas de pacotes utilizadas para realizar a deteção de intrusões na rede. Suricata processa os pacotes captura e dispara alertas com base em pacotes que correspondem ao seu conjunto de ameaças. Estes alertas são armazenados num ficheiro de registo na sua máquina local. Utilizando a Pilha Elástica, os registos gerados pela Suricata podem ser indexados e utilizados para criar um dashboard Kibana, proporcionando-lhe uma representação visual dos registos e um meio para obter rapidamente insights sobre potenciais vulnerabilidades de rede.  
 
@@ -280,7 +280,7 @@ Para obter mais documentação sobre a criação de visualizações personalizad
 
 Ao combinar capturas de pacotes fornecidas pelo Network Watcher e ferramentas IDS de código aberto, como a Suricata, pode realizar a deteção de intrusões de rede para uma ampla gama de ameaças. Estes dashboards permitem identificar rapidamente tendências e anomalias dentro da sua rede, bem como pesquisar os dados para descobrir as causas de alertas como agentes de utilizadores maliciosos ou portas vulneráveis. Com estes dados extraídos, pode tomar decisões informadas sobre como reagir e proteger a sua rede de quaisquer tentativas de intrusão prejudiciais e criar regras para evitar futuras intrusões na sua rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como desencadear capturas de pacotes com base em alertas visitando a captura de [pacotes de uso para fazer monitorização proativa da rede com funções Azure](network-watcher-alert-triggered-packet-capture.md)
 

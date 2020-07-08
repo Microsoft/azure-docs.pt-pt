@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.openlocfilehash: ddf4625b8e638f7cb13999136ec5aa1afc99418a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738418"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurar o Alcance Global do ExpressRoute
 
 Este artigo ajuda-o a configurar o ExpressRoute Global Reach usando o PowerShell. Para mais informações, consulte [ExpressRoute Global Reach](expressroute-global-reach.md).
 
- ## <a name="before-you-begin"></a>Antes de começar
+ ## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, confirme o seguinte:
 
@@ -124,7 +124,7 @@ Pode executar a operação Get para verificar o estado.
 
 Após a conclusão da operação anterior, já não tem conectividade entre a rede no local através dos circuitos ExpressRoute.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 1. [Saiba mais sobre o ExpressRoute Global Reach](expressroute-global-reach.md)
 2. [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 3. [Ligue um circuito ExpressRoute a uma rede virtual Azure](expressroute-howto-linkvnet-arm.md)

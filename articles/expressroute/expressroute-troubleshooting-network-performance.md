@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738248"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolver problemas de desempenho da rede
@@ -197,7 +197,7 @@ Configuração do teste:
 
 \*A latência para o Brasil é um bom exemplo onde a distância de linha reta difere significativamente da distância de corrida de fibra. Eu esperaria que a latência fosse na vizinhança de 160 ms, mas na verdade é 189 ms. Esta diferença em contra a minha expectativa pode indicar um problema de rede em algum lugar, mas o mais provável é que a corrida de fibra não vá para o Brasil em linha reta e tenha mais 1.000 km de viagem para chegar ao Brasil a partir de Seattle.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 1. Descarregue o Azure Connectivity Toolkit do GitHub[https://aka.ms/AzCT][ACT]
 2. Siga as instruções para testar o [desempenho da ligação][Performance Doc]
 

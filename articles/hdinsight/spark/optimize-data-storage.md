@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737636"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Otimização de armazenamento de dados para Apache Spark
@@ -56,15 +56,15 @@ Quando criar um novo cluster Spark, pode selecionar o Azure Blob Storage ou o Az
 
 | Store Type | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Yes | Aglomerado transitório |
-| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Yes | Aglomerado transitório |
-| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
-| HDFs locais | **hdfs:**//url/ | **Mais rápido** | No | Cluster interativo 24/7 |
+| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| HDFs locais | **hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
 
 Para obter uma descrição completa das opções de armazenamento, consulte opções de [armazenamento compare para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
-## <a name="use-the-cache"></a>Use a cache
+## <a name="use-the-cache"></a>Utilizar a cache
 
 A faísca fornece os seus próprios mecanismos nativos de caching, que podem ser usados através de diferentes métodos, tais `.persist()` `.cache()` como, e `CACHE TABLE` . Este cache nativo é eficaz com pequenos conjuntos de dados e em oleodutos ETL onde você precisa cache resultados intermédios. No entanto, o caching nativo de Spark atualmente não funciona bem com a partição, uma vez que uma mesa em cache não mantém os dados de partição. Uma técnica de caching mais genérica e fiável é *o caching da camada de armazenamento*.
 
@@ -88,7 +88,7 @@ Os trabalhos de faísca são distribuídos, por isso a serialização adequada d
 * A serialização de Java é o padrão.
 * `Kryo`a serialização é um formato mais recente e pode resultar numa serialização mais rápida e compacta do que java.  `Kryo`requer que registe as aulas no seu programa, e ainda não suporta todos os tipos serializáveis.
 
-## <a name="use-bucketing"></a>Use balde
+## <a name="use-bucketing"></a>Utilizar os registos
 
 O balde é semelhante à partição de dados. Mas cada balde pode segurar um conjunto de valores de coluna em vez de apenas um. Este método funciona bem para a divisão em grandes (milhões ou mais) números de valores, tais como identificadores de produtos. Um balde é determinado por hashing a chave do balde da linha. As mesas baldeadas oferecem otimizações únicas porque armazenam metadados sobre como foram baldes e classificados.
 
@@ -100,7 +100,7 @@ Algumas características avançadas de balde são:
 
 Pode usar divisórias e baldes ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Otimizar o processamento de dados para Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)

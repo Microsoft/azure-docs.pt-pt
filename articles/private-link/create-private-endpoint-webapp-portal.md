@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737398"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Conecte-se privadamente a uma Aplicação Web utilizando o Azure Private Endpoint (Preview)
@@ -206,7 +206,7 @@ Quando terminar de usar o Ponto Final Privado, a Web App e o VM, elimine o grupo
 1. Selecione Eliminar grupo de recursos.
 1. Introduza o pronto-rg para o TYPE O NOME DO GRUPO DE RECURSOS e selecione Delete.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste Quickstart, criou um VM numa rede virtual, uma Web App e um Private Endpoint. Ligou-se a um VM da Internet e comunicou-se de forma segura à Web App utilizando o Private Link. Para saber mais sobre o Private Endpoint, consulte [o que é O Ponto Final Privado Azure.][privateendpoint]
 

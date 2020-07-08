@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737381"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Criar um ponto final privado usando a Azure PowerShell
@@ -212,7 +212,7 @@ mstsc /v:<publicIpAddress>
     | Nome do servidor | myserver.database.windows.net |
     | Nome de utilizador | Introduza o nome de utilizador fornecido durante a criação |
     | Palavra-passe | Introduza a senha fornecida durante a criação |
-    | Lembre-se da palavra-passe | Yes |
+    | Lembre-se da palavra-passe | Sim |
     
 5. Selecione **Ligar**.
 6. Procure bases **de dados** a partir do menu esquerdo. 
@@ -226,5 +226,5 @@ Quando terminar de usar o ponto final privado, a Base de Dados SQL e o VM, utili
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [o Azure Private Link](private-link-overview.md)

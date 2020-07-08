@@ -10,10 +10,10 @@ ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737007"
 ---
 # <a name="orchestration-modes-preview"></a>Modos de orquestração (pré-visualização)
@@ -44,7 +44,7 @@ Conjuntos de escala de máquina virtual suportarão 2 modos de orquestração di
 
 |                             | "OrchestrationMode": "VM" (VirtualMachine) | "OrchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração VM      | Nenhum                                       | Necessário |
+| Modelo de configuração VM      | Nenhuma                                       | Necessário |
 | Adicionar novo VM ao conjunto de escala  | Os VMs são explicitamente adicionados à escala definida quando o VM é criado. | Os VMs são implicitamente criados e adicionados à escala definida com base no modelo de configuração VM, contagem de instâncias e regras de AutoScaling | |
 | Eliminar VM                   | Os VMs têm de ser eliminados individualmente, o conjunto de escala não será eliminado se tiver VMs nele. | Os VMs podem ser eliminados individualmente, eliminando o conjunto de escalas eliminará todas as instâncias VM.  |
 | Anexar/desprender VMs           | Não suportado                              | Não suportado |
@@ -62,6 +62,6 @@ Conjuntos de escala de máquina virtual suportarão 2 modos de orquestração di
 | Grupo de colocação única == falso | Não suportado                          | Suportado |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte a [visão geral das opções de disponibilidade.](availability.md)

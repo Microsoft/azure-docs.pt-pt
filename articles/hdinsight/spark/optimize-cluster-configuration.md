@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 464f0dcab3debf92605d2f13be9b25ece63f4bf2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737687"
 ---
 # <a name="cluster-configuration-optimization-for-apache-spark"></a>Otimização de configuração de cluster para Apache Spark
@@ -64,7 +64,7 @@ Monitorize o desempenho da consulta para outliers ou outros problemas de desempe
 
 Às vezes, um ou alguns dos executores são mais lentos do que os outros, e as tarefas demoram muito mais tempo a ser executadas. Esta lentidão acontece frequentemente em aglomerados maiores (> 30 nosdes). Neste caso, divida o trabalho num maior número de tarefas para que o programador possa compensar tarefas lentas. Por exemplo, ter pelo menos o dobro das tarefas que o número de núcleos executor na aplicação. Também pode permitir a execução especulativa de tarefas com `conf: spark.speculation = true` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Otimizar o processamento de dados para Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o armazenamento de dados para Apache Spark](optimize-data-storage.md)

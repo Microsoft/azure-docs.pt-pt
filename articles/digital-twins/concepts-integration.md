@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e266e9f8738a0c7d06c1f3b3f7213ad807e179fc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737177"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digital Twins é normalmente usado juntamente com outros serviços. Utilizando as rotas dos [**eventos,**](concepts-route-events.md)a Azure Digital Twins recebe dados de serviços a montante como [o IoT Hub,](../iot-hub/about-iot-hub.md)que é utilizado para fornecer telemetria e notificações. O Azure Digital Twins também pode encaminhar dados para serviços a jusante para armazenamento, integração de fluxos de trabalho, análise e outros usos. 
 
@@ -42,7 +39,7 @@ Existem muitos outros serviços onde poderá querer, em última análise, direci
 
 Por exemplo, se também estiver a utilizar [o Azure Maps](../azure-maps/about-azure-maps.md) e quiser correlacionar a [localização](concepts-twins-graph.md)com o seu gráfico gémeo Azure Digital Twins, pode utilizar funções Azure com a Grade de Eventos para estabelecer comunicação entre todos os serviços da sua implementação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre pontos finais e eventos de encaminhamento para serviços externos:
 * [Conceitos: Eventos de Roting Azure Digital Twins](concepts-route-events.md)

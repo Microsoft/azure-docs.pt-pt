@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 1ccbb685ceb406fd7a52edf793b53d9e1c32630b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737330"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Ligar de forma privada a uma conta de armazenamento com o Ponto Final Privado do Azure
@@ -201,5 +201,5 @@ Quando terminar de usar o Ponto Final Privado, a conta de armazenamento e o VM, 
 2. Selecione **Eliminar grupo de recursos**. 
 3. Introduza *o myResourceGroup* para **type the RESOURCE GROUP NAME** e selecione **Delete**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste Quickstart, criou um VM numa rede virtual e numa conta de armazenamento e num Private Endpoint. Ligou-se a um VM da internet e comunicou-se de forma segura à conta de armazenamento utilizando o Private Link. Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](private-endpoint-overview.md)

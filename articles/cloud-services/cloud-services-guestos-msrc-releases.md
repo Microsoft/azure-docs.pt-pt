@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.date: 6/12/2020
 ms.author: yohaddad
 ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737466"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS

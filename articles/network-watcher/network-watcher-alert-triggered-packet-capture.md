@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738061"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilize a captura de pacotes para monitorização proativa da rede com alertas e funções Azure
@@ -30,7 +30,7 @@ Os recursos que são implantados no Azure funcionam 24 horas por dia, 7 horas po
 
 Ao utilizar o Network Watcher, alertando e funcionando dentro do ecossistema Azure, pode responder proativamente com os dados e ferramentas para resolver problemas na sua rede.
 
-![Cenário][scenario]
+![Scenario][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,7 +41,7 @@ Ao utilizar o Network Watcher, alertando e funcionando dentro do ecossistema Azu
 * Um caso existente de Network Watcher. Se ainda não tiver um, [crie um exemplo de Network Watcher](network-watcher-create.md).
 * Uma máquina virtual existente na mesma região que o Network Watcher com a [extensão do Windows](../virtual-machines/windows/extensions-nwa.md) ou [a extensão da máquina virtual Linux.](../virtual-machines/linux/extensions-nwa.md)
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Neste exemplo, o seu VM está a enviar mais segmentos de TCP do que o habitual, e quer ser alertado. Os segmentos TCP são usados como exemplo aqui, mas você pode usar qualquer condição de alerta.
 
@@ -346,7 +346,7 @@ Vá a uma máquina virtual existente e, em seguida, adicione uma regra de alerta
   |---|---|---|
   |**Nome**|TCP_Segments_Sent_Exceeded|O nome da regra de alerta.|
   |**Descrição**|Segmentos TCP enviados limiar ultrapassado|A descrição da regra de alerta.|
-  |**Métricas**|Segmentos TCP enviados| A métrica para usar para acionar o alerta. |
+  |**Métrica**|Segmentos TCP enviados| A métrica para usar para acionar o alerta. |
   |**Condição**|Maior que| A condição a utilizar ao avaliar a métrica.|
   |**Limiar**|100| O valor da métrica que desencadeia o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período em que se procura o limiar da métrica.|
@@ -370,7 +370,7 @@ Depois de a sua captura ter sido descarregada, pode vê-la utilizando qualquer f
 - [Analisador de mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 - [ArameShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como ver as capturas do seu pacote visitando a análise de [captura de Packet com a Wireshark.](network-watcher-deep-packet-inspection.md)
 

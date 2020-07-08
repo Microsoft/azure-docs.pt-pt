@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738486"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
@@ -32,7 +32,7 @@ A criação de um alerta personalizado baseia-se em três passos principais:
 
 3. Crie uma aplicação lógica que dispare a Conta Demômótica e envie um e-mail de alerta se o número for maior do que um limiar (por exemplo, 160).
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -330,7 +330,7 @@ Uma aplicação lógica acede a outras aplicações, serviços e à plataforma a
 
 2. Na página de saída de **trabalho Get,** especifique as informações necessárias para aceder à conta de automação. Selecione a **Conta de Subscrição, Recursos**e **Automação** que pretende utilizar. Clique dentro da caixa **de identificação de trabalho.** Quando aparecer a lista **de conteúdos Dynamic,** selecione **Job ID**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="ID de trabalho" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="ID da tarefa" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
 
 ### <a name="5-parse-the-json"></a><a name="parse"></a>5. Parse o JSON
 
@@ -455,6 +455,6 @@ O passo final é a validação do fluxo de trabalho. No **Visão geral das aplic
 
 :::image type="content" source="./media/custom-route-alert-portal/trigger.png" alt-text="Acionar o gatilho":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como personalizar o fluxo de trabalho, consulte [a Azure Logic Apps.](../logic-apps/logic-apps-overview.md)

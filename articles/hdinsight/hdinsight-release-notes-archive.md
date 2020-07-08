@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
 ms.openlocfilehash: aff3ae34f391ac50dc4333fc2dcc3622e1bf479f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738010"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
@@ -1671,7 +1671,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
     
   Pode ver a condição de política com estes caracteres abrindo a política no modo de edição.
     
-  **Solução alternativa**
+  **Solução**
     
   - **Opção \# 1: Criar/atualizar a política via Ranger Rest API**
         

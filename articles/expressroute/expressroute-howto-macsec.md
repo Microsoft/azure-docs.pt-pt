@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737058"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar MACsec em portas diretas ExpressRoute
 
 Este artigo ajuda-o a configurar o MACsec para proteger as ligações entre os routers de borda e os routers de borda da Microsoft utilizando o PowerShell.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, confirme o seguinte:
 
@@ -134,7 +134,7 @@ Neste ponto, o MACsec é desativado nas portas ExpressRoute Direct do lado da Mi
 ### <a name="test-connectivity"></a>Testar conectividade
 Depois de configurar o MACsec (incluindo a atualização da chave MACsec) nas portas Direct ExpressRoute, [verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões de BGP dos circuitos estão a funcionar. Se ainda não tiver nenhum circuito nas portas, por favor crie um primeiro e instale o Azure Private Peering ou o Microsoft Peering do circuito. Se o MACsec estiver mal configurado, incluindo o desfasamento das chaves MACsec, entre os seus dispositivos de rede e os dispositivos de rede da Microsoft, não verá a resolução ARP na camada 2 e no estabelecimento de BGP na camada 3. Se tudo estiver configurado corretamente, deverá ver as rotas BGP publicitadas corretamente em ambas as direções e o fluxo de dados da sua aplicação em conformidade com o ExpressRoute.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 1. [Criar um circuito ExpressRoute no ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Ligue um circuito ExpressRoute a uma rede virtual Azure](expressroute-howto-linkvnet-arm.md)
 3. [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

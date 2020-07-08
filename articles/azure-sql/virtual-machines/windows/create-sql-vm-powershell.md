@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2c5ef71059fd3ba96299624818a13ebe1ae0929b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737857"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Como utilizar o Azure PowerShell para o fornecimento de servidor SQL em Máquinas Virtuais Azure
@@ -454,7 +454,7 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois da máquina virtual ser criada, pode:
 
@@ -462,5 +462,5 @@ Depois da máquina virtual ser criada, pode:
 - Configurar as definições do SERVIDOR SQL no portal para o seu VM, incluindo:
    - [Definições de armazenamento](storage-configuration.md) 
    - [Tarefas de gestão automatizadas](sql-server-iaas-agent-extension-automate-management.md)
-- [Conectividade configure](ways-to-connect-to-sql.md)
+- [Configurar a conectividade](ways-to-connect-to-sql.md)
 - Ligue clientes e aplicações à nova instância do SQL Server

@@ -9,10 +9,10 @@ ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736677"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
@@ -31,16 +31,16 @@ Aqui estão as necessidades de segurança pelas quais é responsável na sua imp
 
 | Necessidade de segurança | O cliente é responsável por isto? |
 |---------------|:-------------------------:|
-|Identidade|Yes|
-|Dispositivos de utilizador (mobile e PC)|Yes|
-|Segurança de aplicativos|Yes|
-|Sessão anfitrião OS|Yes|
-|Configuração de implementação|Yes|
-|Controlos de rede|Yes|
-|Plano de controlo de virtualização|No|
-|Anfitriões físicos|No|
-|Rede física|No|
-|Datacenter físico|No|
+|Identidade|Sim|
+|Dispositivos de utilizador (mobile e PC)|Sim|
+|Segurança de aplicativos|Sim|
+|Sessão anfitrião OS|Sim|
+|Configuração de implementação|Sim|
+|Controlos de rede|Sim|
+|Plano de controlo de virtualização|Não|
+|Anfitriões físicos|Não|
+|Rede física|Não|
+|Datacenter físico|Não|
 
 As necessidades de segurança que o cliente não é responsável são tratadas pela Microsoft.
 
@@ -153,6 +153,6 @@ Ao restringir as capacidades do sistema operativo, pode reforçar a segurança d
 
 - Evite que o software indesejado esteja a funcionar em anfitriões de sessão. Pode ativar o App Locker para obter segurança adicional nos anfitriões da sessão, garantindo que apenas as aplicações que permite podem ser executadas no anfitrião.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a ativar a autenticação de vários fatores, consulte [Configurar a autenticação de vários fatores.](set-up-mfa.md)

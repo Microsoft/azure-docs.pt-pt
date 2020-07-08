@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737534"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de uma rede virtual Azure
@@ -145,7 +145,7 @@ Todos os recursos devolvidos numa topologia têm as seguintes propriedades:
     - **Nome**: O nome do recurso referenciado.
     - **ResourceId**: - O URI do recurso referenciado na associação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [diagnosticar um problema de filtro de tráfego de rede de ou para um VM](diagnose-vm-network-traffic-filtering-problem.md) utilizando a capacidade de verificação do fluxo IP do Observador de Rede
 - Saiba como [diagnosticar um problema de encaminhamento de tráfego de rede a partir de um VM](diagnose-vm-network-routing-problem.md) utilizando a próxima capacidade de lúpulo do Network Watcher

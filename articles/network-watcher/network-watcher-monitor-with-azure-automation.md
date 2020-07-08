@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738220"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar gateways VPN com resolução de problemas do Observador de Rede
 
 Obter informações profundas sobre o desempenho da sua rede é fundamental para fornecer serviços fiáveis aos clientes. Por isso, é fundamental detetar rapidamente as condições de paragem da rede e tomar medidas corretivas para mitigar o estado de paragem. A Azure Automation permite-lhe implementar e executar uma tarefa de forma programática através de runbooks. A utilização da Azure Automation cria uma receita perfeita para a monitorização e alerta contínuas de rede.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 O cenário na imagem seguinte é uma aplicação multi-camadas, com conectividade nas instalações estabelecida usando um Gateway VPN e túnel. Garantir que o Gateway VPN está em funcionamento é fundamental para o desempenho das aplicações.
 
@@ -36,7 +36,7 @@ Este cenário:
 - Criar um livro de bordo chamando o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para o estado de ligação de resolução de problemas
 - Ligue um horário ao livro de corridas
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 
@@ -183,7 +183,7 @@ Clique em Guardar para guardar o horário para o livro de recortes.
 
 ![Passo 10][10]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem um entendimento sobre como integrar a resolução de problemas do Observador de Rede com a Azure Automation, aprenda a desencadear capturas de pacotes em alertas VM visitando [Criar uma captura de pacotes desencadeado em alerta com o Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
 

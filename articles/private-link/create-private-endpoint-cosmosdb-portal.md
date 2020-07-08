@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737721"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Ligar de forma privada a uma conta do Azure Cosmos com o Azure Private Link
@@ -167,7 +167,7 @@ Quando terminar de usar a conta Private Endpoint, Azure Cosmos e o VM, elimine o
 
 1. Introduza *o myResourceGroup* para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou um VM numa rede virtual, uma conta Azure Cosmos e um Private Endpoint. Ligou-se ao VM a partir da internet e comunicou-se de forma segura à conta Azure Cosmos utilizando o Private Link.
 

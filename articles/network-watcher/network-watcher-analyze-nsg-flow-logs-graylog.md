@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737432"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar registos de fluxo de grupos de segurança de rede em Azure usando Network Watcher e Graylog
@@ -30,7 +30,7 @@ Pode ter muitos grupos de segurança de rede na sua rede com registo de fluxos a
 > [!Warning]
 > Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais informações, consulte [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Os registos de fluxo do grupo de segurança da rede são ativados utilizando o Network Watcher. Os registos de fluxo fluem para o armazenamento de bolhas Azure. Um plugin logstash é utilizado para ligar e processar registos de fluxo a partir do armazenamento de bolhas e enviá-los para Graylog. Uma vez que os registos de fluxo são armazenados em Graylog, podem ser analisados e visualizados em dashboards personalizados.
 
@@ -244,6 +244,6 @@ Pode clicar no título do painel para vê-lo, mas neste momento está vazio, uma
 
 Ao integrar o Network Watcher com o Graylog, tem agora uma forma conveniente e centralizada de gerir e visualizar os registos de fluxo de grupos de segurança de rede. Graylog tem uma série de outras funcionalidades poderosas, tais como streams e alertas que também podem ser usados para gerir ainda mais os registos de fluxo e entender melhor o tráfego da sua rede. Agora que tem o Graylog configurado e ligado ao Azure, sinta-se à vontade para continuar a explorar a outra funcionalidade que oferece.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como visualizar os registos de fluxo do seu grupo de segurança de rede com o Power BI visitando [os fluxos de fluxos de grupo de segurança de rede visualize com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

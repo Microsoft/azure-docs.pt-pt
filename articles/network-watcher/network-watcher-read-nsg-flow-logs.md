@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
 ms.openlocfilehash: ffbf37730d5064edcd067c3383fe18c342a2b053
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738503"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
@@ -27,7 +27,7 @@ Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 No cenário seguinte, tem um registo de fluxo de exemplo que é armazenado numa conta de armazenamento. Aprende-se a ler seletivamente os eventos mais recentes nos registos de fluxo do NSG. Neste artigo utiliza-se o PowerShell, no entanto, os conceitos discutidos no artigo não se limitam à linguagem de programação, e são aplicáveis a todas as línguas suportadas pelas APIs de Armazenamento Azure.
 
@@ -184,7 +184,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 Este cenário é um exemplo de como ler entradas em registos de fluxo NSG sem ter que analisar todo o log. Pode ler novas entradas no registo à medida que são escritas utilizando o ID do bloco ou rastreando o comprimento dos blocos armazenados na bolha de bloco. Isto permite-lhe ler apenas as novas entradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 Visite [Use Elástico Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), Use [Grafana](network-watcher-nsg-grafana.md)e [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo NSG. Uma abordagem da Função Open Source Azure para consumir as bolhas diretamente e emitir para vários consumidores de análise de registo pode ser encontrada aqui: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).

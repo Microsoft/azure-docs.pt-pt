@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736577"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copie gradualmente novos ficheiros com base no nome do ficheiro dividido em tempo utilizando a ferramenta Dados de Cópia
@@ -176,7 +176,7 @@ Prepare o seu armazenamento Blob para o tutorial realizando estes passos.
 14. Selecione a nova ligação **DeltaCopyFromBlobPipeline** para o segundo pipeline run quando chegar, e faça o mesmo para rever detalhes. Verá que o ficheiro de origem (file2.txt) foi copiado da **fonte/2020/03/17/04/** para **destino/2020/03/17/04/** com o mesmo nome de ficheiro. Também pode verificar o mesmo utilizando o Azure Storage Explorer https://storageexplorer.com/) (para digitalizar os ficheiros no recipiente **de destino.**
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 
 > [!div class="nextstepaction"]

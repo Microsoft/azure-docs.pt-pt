@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 021999e1757993eea4bbfe3aec0bd68049a37e42
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737670"
 ---
 # <a name="data-processing-optimization-for-apache-spark"></a>Otimização de processamento de dados para Apache Spark
@@ -47,7 +47,7 @@ A ordem de junção importa, particularmente em consultas mais complexas. Comece
 
 Para gerir o paralelismo para a cartesia, pode adicionar estruturas aninhadas, janelas e talvez saltar um ou mais passos no seu Spark Job.
 
-## <a name="optimize-job-execution"></a>Otimizar a execução de empregos
+## <a name="optimize-job-execution"></a>Otimizar a execução de tarefas
 
 * Cache, se necessário, por exemplo, se utilizar os dados duas vezes, em seguida, cache-os.
 * Variáveis de transmissão a todos os executores. As variáveis só são serializadas uma vez, resultando em procuras mais rápidas.
@@ -64,7 +64,7 @@ A chave para o desempenho da consulta Spark 2.x é o motor Tungsten, que depende
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Otimizar o armazenamento de dados para Apache Spark](optimize-data-storage.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)

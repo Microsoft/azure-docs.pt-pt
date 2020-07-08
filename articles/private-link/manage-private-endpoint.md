@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737500"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Manage a Private Endpoint connection (Gerir uma ligação de Ponto Final Privado)
@@ -26,9 +26,9 @@ Existem dois métodos de aprovação de ligação que um consumidor de serviço 
 A tabela abaixo mostra as várias ações do prestador de serviços e os estados de conexão resultantes para private endpoints.  O prestador de serviços também pode alterar o estado de ligação da ligação privada de ponto final mais tarde sem a intervenção do consumidor. A ação atualizará o estado do ponto final do lado do consumidor. 
 
 
-|Ação do Prestador de Serviços   |Estado de Endpoint Privado de Consumidor de Serviço   |Description   |
+|Ação do Prestador de Serviços   |Estado de Endpoint Privado de Consumidor de Serviço   |Descrição   |
 |---------|---------|---------|
-|Nenhum    |    Pendente     |    A ligação é criada manualmente e está pendente para aprovação pelo proprietário do recurso Private Link.       |
+|Nenhuma    |    Pendente     |    A ligação é criada manualmente e está pendente para aprovação pelo proprietário do recurso Private Link.       |
 |Aprovar    |  Aprovado       |  A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.     |
 |Rejeitar     | Rejeitado        | A ligação foi rejeitada pelo proprietário de recursos de ligação privada.        |
 |Remover    |  Desligado       | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza.        |
@@ -86,6 +86,6 @@ az network private-link-service connection update -g myResourceGroup -n myPrivat
 
    
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Saiba mais sobre os pontos finais privados](private-endpoint-overview.md)
  
