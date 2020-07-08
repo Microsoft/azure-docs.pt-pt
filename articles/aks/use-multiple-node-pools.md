@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318441"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
@@ -20,7 +20,7 @@ No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupad
 
 Este artigo mostra-lhe como criar e gerir várias piscinas de nó num cluster AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão Azure CLI 2.2.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
@@ -805,7 +805,7 @@ Também pode eliminar o cluster adicional que criou para o cenário de piscinas 
 az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [piscinas de nó de sistema.][use-system-pool]
 

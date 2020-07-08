@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: 4f1154b994e512521edf22a3b8dc5819a93a5249
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85319213"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0
@@ -233,7 +233,7 @@ Uma vez instalado o DAS, se não vir as consultas que executou no espectador de 
     * `tez.history.logging.proto-base-dir`
 3. Reinicie HDFS, Hive, Tez e DAS em ambos os headnodes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [HdInsight 4.0 Anúncio](../hdinsight-version-release.md)
 * [HDInsight 4.0 mergulho profundo](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
 ms.openlocfilehash: 1a812740983c1ed74f4f728adda639069c6584dc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85319416"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrar o cluster HDInsight para uma versão mais recente
@@ -53,7 +53,7 @@ Os seguintes documentos fornecem orientações sobre como migrar cargas de traba
 
 Para obter mais informações sobre a cópia de segurança da base de dados e restaurar, consulte [recuperar uma base de dados na Base de Dados Azure SQL utilizando cópias de dados automáticas](../azure-sql/database/recovery-using-backups.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ligar ao HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)

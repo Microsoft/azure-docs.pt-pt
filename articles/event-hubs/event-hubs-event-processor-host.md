@@ -4,10 +4,10 @@ description: Este artigo descreve o Anfitrião do Processador de Eventos em Azur
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320643"
 ---
 # <a name="event-processor-host"></a>Anfitrião do processador de eventos
@@ -187,7 +187,7 @@ Não recomendamos a utilização da aplicação quando se cria um recetor com é
 > Recomendamos a utilização de diferentes grupos de consumidores para aplicações que utilizem épocas e para aqueles que não usam épocas para evitar erros. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está familiarizado com o Anfitrião do Processador de Eventos, consulte os seguintes artigos para saber mais sobre os Centros de Eventos:
 

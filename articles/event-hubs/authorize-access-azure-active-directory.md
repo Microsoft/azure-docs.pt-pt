@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a autorização de acesso a
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 734c95f6f26dbb646f641e4446287df52c86be6a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317972"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
@@ -67,7 +67,7 @@ Para obter mais informações sobre como as funções incorporadas são [definid
 - [Centros de Eventos para amostras kafka - OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como atribuir uma função incorporada no RBAC a um diretor de segurança, consulte [o acesso autenticado aos recursos do Event Hubs utilizando o Azure Ative Directory](authenticate-application.md).
 - Saiba [como criar papéis personalizados com o RBAC.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)
 - Saiba [como usar o Azure Ative Directory com EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)

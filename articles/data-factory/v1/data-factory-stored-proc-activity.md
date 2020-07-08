@@ -13,10 +13,10 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85319089"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade do procedimento armazenado do servidor SQL
@@ -305,13 +305,13 @@ A tabela a seguir descreve estas propriedades JSON:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name | Nome da atividade |Yes |
-| descrição |Texto que descreve para que a atividade é usada |No |
-| tipo | Deve ser definido para: **SqlServerStoredProcedure** | Yes |
-| entradas | Opcional. Se especificar um conjunto de dados de entrada, deve estar disponível (em estado 'Pronto') para que a atividade de procedimento armazenado seja executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como parâmetro. É utilizado apenas para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |No |
-| saídas | Deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. O conjunto de dados de saída especifica o **calendário** para a atividade do procedimento armazenado (hora, semanais, mensal, etc.). <br/><br/>O conjunto de dados de saída deve utilizar um **serviço ligado** que se refira a uma Base de Dados Azure SQL ou a um Armazém de Dados Azure SQL ou a uma Base de Dados de Servidor SQL em que pretende que o procedimento armazenado seja executado. <br/><br/>O conjunto de dados de saída pode servir como forma de passar o resultado do procedimento armazenado para posterior processamento por outra atividade[(atividades de acorrentação](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, a Data Factory não escreve automaticamente a saída de um procedimento armazenado para este conjunto de dados. É o procedimento armazenado que escreve para uma tabela SQL que o conjunto de dados de saída aponta. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados falso**, que é utilizado apenas para especificar o calendário para a execução da atividade de procedimento armazenado. |Yes |
-| nome de procedure armazenado |Especifique o nome do procedimento armazenado na Base de Dados Azure SQL, Azure SQL Data Warehouse ou SQL Server que é representado pelo serviço ligado que a tabela de saída utiliza. |Yes |
-| parametrómetros de reserva armazenados |Especifique os valores para os parâmetros de procedimento armazenados. Se precisar de passar nulo para um parâmetro, utilize a sintaxe: "param1": nulo (todos os casos inferiores). Consulte a seguinte amostra para saber sobre a utilização deste imóvel. |No |
+| name | Nome da atividade |Sim |
+| descrição |Texto que descreve para que a atividade é usada |Não |
+| tipo | Deve ser definido para: **SqlServerStoredProcedure** | Sim |
+| entradas | Opcional. Se especificar um conjunto de dados de entrada, deve estar disponível (em estado 'Pronto') para que a atividade de procedimento armazenado seja executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como parâmetro. É utilizado apenas para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |
+| saídas | Deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. O conjunto de dados de saída especifica o **calendário** para a atividade do procedimento armazenado (hora, semanais, mensal, etc.). <br/><br/>O conjunto de dados de saída deve utilizar um **serviço ligado** que se refira a uma Base de Dados Azure SQL ou a um Armazém de Dados Azure SQL ou a uma Base de Dados de Servidor SQL em que pretende que o procedimento armazenado seja executado. <br/><br/>O conjunto de dados de saída pode servir como forma de passar o resultado do procedimento armazenado para posterior processamento por outra atividade[(atividades de acorrentação](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, a Data Factory não escreve automaticamente a saída de um procedimento armazenado para este conjunto de dados. É o procedimento armazenado que escreve para uma tabela SQL que o conjunto de dados de saída aponta. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados falso**, que é utilizado apenas para especificar o calendário para a execução da atividade de procedimento armazenado. |Sim |
+| nome de procedure armazenado |Especifique o nome do procedimento armazenado na Base de Dados Azure SQL, Azure SQL Data Warehouse ou SQL Server que é representado pelo serviço ligado que a tabela de saída utiliza. |Sim |
+| parametrómetros de reserva armazenados |Especifique os valores para os parâmetros de procedimento armazenados. Se precisar de passar nulo para um parâmetro, utilize a sintaxe: "param1": nulo (todos os casos inferiores). Consulte a seguinte amostra para saber sobre a utilização deste imóvel. |Não |
 
 ## <a name="passing-a-static-value"></a>Passando um valor estático
 Agora, vamos considerar adicionar outra coluna chamada "Cenário" na tabela contendo um valor estático chamado "Amostra de documento".

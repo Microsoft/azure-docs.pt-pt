@@ -4,10 +4,10 @@ description: Como utilizar as regiões geográficas para falhar e realizar a rec
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320551"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
@@ -45,10 +45,10 @@ São suportadas as seguintes combinações de espaços de nome primário e secun
 
 | Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Yes | 
-| Standard | Dedicada | Yes | 
-| Dedicada | Dedicada | Yes | 
-| Dedicada | Standard | No | 
+| Standard | Standard | Sim | 
+| Standard | Dedicada | Sim | 
+| Dedicada | Dedicada | Sim | 
+| Dedicada | Standard | Não | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nomes que estão em aglomerados separados. 
@@ -159,7 +159,7 @@ A vantagem desta abordagem é que o failover pode acontecer na camada de aplica�
 > [!NOTE]
 > Para obter orientações sobre a recuperação de geo-desastres de uma rede virtual, consulte [Rede Virtual - Continuidade do Negócio](../virtual-network/virtual-network-disaster-recovery-guidance.md).
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) percorre um simples fluxo de trabalho que cria um geo-emparelhamento e inicia uma falha para um cenário de recuperação de desastres.
 * A [referência REST API](/rest/api/eventhub/) descreve APIs para a realização da configuração de recuperação de geo-desastres.

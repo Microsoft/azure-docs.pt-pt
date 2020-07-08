@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como ligar a Apache Flink a
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320143"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Utilizar o Apache Flink com os Hubs de Eventos do Azure para Apache Kafka
@@ -15,7 +15,7 @@ Este tutorial mostra-lhe como ligar o Apache Flink a um centro de eventos sem al
 
 Um dos principais benefícios da utilização de Apache Kafka é o ecossistema de estruturas a que se pode ligar. O Event Hubs combina a flexibilidade de Kafka com a escalabilidade, consistência e apoio do ecossistema Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
@@ -116,12 +116,12 @@ Se o centro de eventos tiver eventos (por exemplo, se o seu produtor também est
 
 Consulte o [Guia de Conector Kafka da Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) para obter informações mais detalhadas sobre a ligação entre o Flink e o Kafka.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Integre kafka Connect com um centro de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
-- [Ligar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia de desenvolvimento apache Kafka para hubs de eventos Azure](apache-kafka-developer-guide.md)

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318914"
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de Dados Azure - Amostras
@@ -26,7 +26,7 @@ ms.locfileid: "85318914"
 ## <a name="samples-on-github"></a>Exemplos no GitHub
 O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém várias amostras que o ajudam a acelerar rapidamente com o serviço Azure Data Factory (ou) modificar os scripts e usá-lo em aplicação própria. A pasta Samples\JSON contém snippets JSON para cenários comuns.
 
-| Sample | Description |
+| Sample | Descrição |
 |:--- |:--- |
 | [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Esta amostra fornece uma passagem de ponta a ponta para processar ficheiros de registo usando a Azure Data Factory para transformar dados de ficheiros de registo para insights. <br/><br/>Nesta passagem, o pipeline da Data Factory recolhe registos de amostras, processa e enriquece os dados a partir de registos com dados de referência, e transforma os dados para avaliar a eficácia de uma campanha de marketing que foi recentemente lançada. |
 | [Amostras de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Esta amostra fornece exemplos de JSON para cenários comuns. |
@@ -46,7 +46,7 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 Pode encontrar os seguintes modelos de Gestor de Recursos Azure para data factory no GitHub.
 
-| Modelo | Description |
+| Modelo | Descrição |
 | --- | --- |
 | [Cópia do Azure Blob Storage para Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |A implementação deste modelo cria uma fábrica de dados Azure com um pipeline que copia dados do armazenamento de blob Azure especificado para a Base de Dados Azure SQL |
 | [Cópia da Salesforce para o Armazenamento Azure Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |A implementação deste modelo cria uma fábrica de dados Azure com um pipeline que copia dados da conta de Salesforce especificada para o armazenamento de blob Azure. |

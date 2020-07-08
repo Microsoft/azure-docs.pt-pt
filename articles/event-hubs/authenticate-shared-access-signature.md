@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como autenticar o acesso aos recursos do Eve
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318050"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
@@ -217,7 +217,7 @@ Por exemplo, para definir as regras de autorização que se resumem apenas ao en
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticação de centros de eventos com SAS 
 Para autenticar aplicações de back-end que consomem a partir dos dados gerados pelos produtores de Event Hubs, a autenticação simbólica do Event Hubs exige que os seus clientes tenham os direitos de **gestão** ou os privilégios de **escuta** atribuídos ao seu espaço de nomes de Eventos ou ao centro de eventos ou ao tópico. Os dados são consumidos a partir de Centros de Eventos usando grupos de consumidores. Enquanto a política SAS lhe dá âmbito granular, este âmbito é definido apenas ao nível da entidade e não ao nível do consumidor. Significa que os privilégios definidos ao nível do espaço de nome ou do nível do centro de eventos ou do nível tópico serão aplicados aos grupos de consumidores dessa entidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Autorizar a utilização de SAS](authenticate-shared-access-signature.md)

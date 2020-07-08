@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318880"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Colunas de conjunto de dados de origem do mapa para colunas de conjunto de dados de destino
@@ -178,7 +178,7 @@ Neste caso, os resultados da consulta são mapeados pela primeira vez para colun
 
 ![Fluxo de mapeamento de coluna-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o artigo para um tutorial sobre a utilização da Copy Activity: 
 
 - [Copiar dados do Blob Storage para a Base de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

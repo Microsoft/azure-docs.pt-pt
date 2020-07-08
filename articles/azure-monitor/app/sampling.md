@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85319639"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
@@ -33,10 +33,10 @@ O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e
 | Insights de Aplicação SDK | Amostragem adaptativa suportada | Amostragem de taxa fixa suportada | Amostragem de ingestão suportada |
 |-|-|-|-|
 | ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| ASP.NET Core | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Só se nenhuma outra amostragem estiver em vigor |
-| Java | No | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Python | No | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Núcleo de ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | Não | Só se nenhuma outra amostragem estiver em vigor |
+| Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
 | Todos os outros | Não | Não | [Sim](#ingestion-sampling) |
 
 > [!NOTE]
@@ -504,7 +504,7 @@ Ao apresentar a telemetria de volta a si, o serviço Application Insights ajusta
 
 A precisão da aproximação depende em grande parte da percentagem de amostragem configurada. Além disso, a precisão aumenta para aplicações que lidam com um grande volume de pedidos geralmente similares de muitos utilizadores. Por outro lado, para aplicações que não funcionam com uma carga significativa, a amostragem não é necessária, uma vez que estas aplicações podem normalmente enviar toda a sua telemetria enquanto permanecem dentro da quota, sem causar perda de dados por estrangulamento. 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 *Qual é o comportamento de amostragem padrão nos ASP.NET e ASP.NET SDKs core?*
 
@@ -583,7 +583,7 @@ A amostragem de taxa fixa é uma característica do SDK em ASP.NET versões a pa
 
 Antes de v2.5.0-beta2 do ASP.NET SDK, e v2.2.0-beta3 de ASP.NET Core SDK, a decisão de amostragem baseou-se no haxixe do ID do utilizador para aplicações que definem "utilizador" (isto é, aplicações web mais típicas). Para os tipos de aplicações que não definiram os utilizadores (como os serviços web) a decisão de amostragem baseou-se na operação ID do pedido. Versões recentes do ASP.NET e ASP.NET Os SDKs core utilizam o ID de operação para a decisão de amostragem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [A filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controlo mais rigoroso do que o seu SDK envia.
 * Leia o artigo da Rede de [Desenvolvedores Otimize a Telemetria com Insights de Aplicação](https://msdn.microsoft.com/magazine/mt808502.aspx).

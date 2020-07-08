@@ -4,16 +4,16 @@ description: Este artigo fornece informações sobre como ligar a Akka Streams a
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320212"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
 Este tutorial mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Azure Event Hubs para o Kafka suporta [a versão 1.0 de Apache Kafka.](https://kafka.apache.org/10/documentation.html)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
@@ -129,7 +129,7 @@ Se o centro de eventos tiver eventos (por exemplo, se o seu produtor também est
 
 Consulte o [Guia kafka Akka Streams](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter informações mais detalhadas sobre a Akka Streams.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)

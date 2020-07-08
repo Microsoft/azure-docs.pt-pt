@@ -7,13 +7,13 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317768"
 ---
-# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Crie modelos de Gestor de Recursos Azure para automatizar a implementação de apps Azure Logic
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos do Azure Resource Manager para automatizar a implementação do Azure Logic Apps
 
 Para o ajudar a automatizar a criação e implementação da sua aplicação lógica, este artigo descreve as formas de criar um [modelo de Gestor de Recursos Azure](../azure-resource-manager/management/overview.md) para a sua aplicação lógica. Para uma visão geral sobre a estrutura e sintaxe para um modelo que inclua a definição de fluxo de trabalho e outros recursos necessários para a implementação, consulte [a visão geral: Automatize a implementação para aplicações lógicas com modelos de Gestor de Recursos Azure](logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -106,11 +106,11 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 
 | Parâmetros | Obrigatório | Descrição |
 |------------|----------|-------------|
-| ModeloFile | Yes | O caminho do arquivo para o seu arquivo de modelo |
-| KeyVault | No | Um enum que descreve como lidar com possíveis valores do cofre chave. A predefinição é `None`. |
+| ModeloFile | Sim | O caminho do arquivo para o seu arquivo de modelo |
+| KeyVault | Não | Um enum que descreve como lidar com possíveis valores do cofre chave. A predefinição é `None`. |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Implementar modelos de aplicação lógica](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

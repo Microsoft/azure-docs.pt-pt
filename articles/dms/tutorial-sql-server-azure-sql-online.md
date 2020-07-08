@@ -13,17 +13,17 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
 ms.openlocfilehash: e923a09eeb15d05a32e99a1e9a46e36b72552736
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318475"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para uma única base de dados ou base de dados em Azure SQL Database on-line usando DMS
 
 Pode utilizar o Serviço de Migração da Base de Dados Azure para migrar as bases de dados de uma instância do SQL Server para [a Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/) com o mínimo de tempo de inatividade. Neste tutorial, migra a base de dados **Adventureworks2012** restaurada para uma instância no local do SQL Server 2016 (ou mais tarde) para uma única base de dados ou base de dados em Azure SQL Database utilizando o Serviço de Migração da Base de Dados Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > - Utilizar o Assistente de Migração de Dados para avaliar a sua base de dados no local.
@@ -341,7 +341,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
 
     ![Estado da Atividade - concluído](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre questões e limitações conhecidas ao realizar migrações on-line para Azure SQL Database, consulte o artigo [Questões conhecidas e soluções alternativas com migrações on-line Azure SQL Database](known-issues-azure-sql-online.md).
 - Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).

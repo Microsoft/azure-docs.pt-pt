@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Az
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320588"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
@@ -265,7 +265,7 @@ O suporte técnico para o Event Hubs está disponível através da [página de p
 
 Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de Serviço.](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318033"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicações no local através do Proxy de Aplicação do Azure Ative Directory
@@ -60,7 +60,7 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 5. O conector envia o pedido para o pedido no local.
 6. A resposta é enviada através do serviço de conector e procuração de aplicação para o utilizador.
 
-| Componente | Description |
+| Componente | Descrição |
 | --------- | ----------- |
 | Ponto Final  | O ponto final é um URL ou um [portal de utilizador final](end-user-experiences.md). Os utilizadores podem chegar a aplicações fora da sua rede acedendo a um URL externo. Os utilizadores dentro da sua rede podem aceder à aplicação através de um URL ou de um portal de utilizador final. Quando os utilizadores vão a um destes pontos finais, autenticam-se em Azure AD e depois são encaminhados através do conector para a aplicação no local.|
 | Azure AD | A Azure AD realiza a autenticação utilizando o diretório de inquilinos armazenado na nuvem. |
@@ -69,6 +69,6 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 | Diretório Ativo (AD) | O Ative Directory funciona no local para efetuar a autenticação para contas de domínio. Quando o único sinal de sação é configurado, o conector comunica com AD para efetuar qualquer autenticação adicional necessária.
 | Aplicação no local | Por fim, o utilizador pode aceder a uma aplicação no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).
 

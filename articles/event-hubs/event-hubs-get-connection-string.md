@@ -4,10 +4,10 @@ description: Este artigo fornece instruções para obter uma cadeia de ligação
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 271d4dcc1f2fab08dc7f625ce36e021eda225b87
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320498"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenha uma cadeia de conexão Event Hubs
@@ -30,7 +30,7 @@ Um exemplo de ligação cadeia pode parecer`Endpoint=sb://dummynamespace.service
 Este artigo acompanha-o através de várias formas de obter a cadeia de ligação.
 
 ## <a name="get-connection-string-from-the-portal"></a>Obtenha a cadeia de ligação do portal
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inscreva-se no [portal Azure](https://portal.azure.com). 
 2. Selecione **Todos os serviços** no menu de navegação à esquerda. 
 3. Selecione **Centros de Eventos** na secção **Analytics.** 
 4. Na lista de centros de eventos, selecione o seu centro de eventos.
@@ -69,7 +69,7 @@ az eventhubs eventhub authorization-rule keys list --resource-group dummyresourc
 
 Para obter mais informações sobre os comandos Azure CLI para Os Centros de Eventos, consulte [Azure CLI para Centros de Eventos.](/cli/azure/eventhubs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

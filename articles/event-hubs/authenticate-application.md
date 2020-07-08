@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a autenticação de uma apl
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 50566c9405eb203778068b61a03cb9a2d22209b4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318186"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs
@@ -106,7 +106,7 @@ Para obter uma lista de cenários para os quais a aquisição de fichas é supor
 
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md)?
 - Para aprender a atribuir e gerir atribuições de funções da RBAC com a Azure PowerShell, Azure CLI ou a REST API, consulte estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

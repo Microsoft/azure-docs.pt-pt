@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar Apache Spark com 
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 2e7a6b406b6d33c94c6fddea2f73b70c24f45f86
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320177"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o Apache Kafka Connect nos Hubs de Eventos do Azure (Pré-visualização)
@@ -150,7 +150,7 @@ Esta secção mostra-lhe como criar rapidamente os conectores FileStreamSource e
 ### <a name="cleanup"></a>Limpeza
 O Kafka Connect cria tópicos dos Hubs de Eventos para armazenar configurações, deslocamentos e estados que persistem mesmo depois de o cluster do Connect ter sido removido. A menos que essa persistência seja pretendida, recomenda-se que os tópicos sejam eliminados. Também pode ser útil eliminar o hub de eventos `connect-quickstart` que foi criado no decorrer desta orientação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
@@ -158,5 +158,5 @@ Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes ar
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
-- [Ligar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia de desenvolvimento apache Kafka para hubs de eventos Azure](apache-kafka-developer-guide.md)

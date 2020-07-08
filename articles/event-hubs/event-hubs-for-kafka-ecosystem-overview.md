@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre o suporte da Apache Kafka p
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 733623895176bb3b573c2efcbda8a40b9e2d87c0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320533"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
@@ -88,7 +88,7 @@ Aqui está a lista de funcionalidades de Kafka que ainda não estão suportadas:
 *   APOIO HTTP KAFKA API
 *   Riachos Kafka
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo forneceu uma introdução aos Centros de Eventos para Kafka. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md)
 
 
