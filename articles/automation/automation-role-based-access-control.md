@@ -7,10 +7,9 @@ ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85100005"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
@@ -24,7 +23,7 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 | **Role** | **Descrição** |
 |:--- |:--- |
 | Proprietário |A função Proprietário permite o acesso a todos os recursos e ações dentro de uma conta de Automação, incluindo o acesso a outros utilizadores, grupos e aplicações para gerir a conta Automation. |
-| Contribuinte |A função de Contribuidor permite-lhe gerir tudo, exceto modificar as permissões de acesso de outro utilizador para uma conta de Automatização. |
+| Contribuidor |A função de Contribuidor permite-lhe gerir tudo, exceto modificar as permissões de acesso de outro utilizador para uma conta de Automatização. |
 | Leitor |A função de Leitor permite-lhe ver todos os recursos numa conta de Automatização, mas não permite efetuar quaisquer alterações. |
 | Operador de Automatização |A função de Operador de Automação permite-lhe visualizar o nome e propriedades do runbook e criar e gerir empregos para todos os runbooks numa conta de Automação. Esta função é útil se quiser proteger os recursos da sua conta de Automação, como ativos de credenciais e livros de execução, de serem vistos ou modificados, mas ainda assim permitir que os membros da sua organização executem estes runbooks. |
 |Operador de emprego de automação|A função de Operador de Emprego da Automação permite-lhe criar e gerir postos de trabalho para todos os livros numa conta de Automação.|
@@ -43,11 +42,11 @@ As tabelas que se seguem descrevem as permissões específicas dadas a cada pape
 
 Um Proprietário pode gerir tudo, incluindo acesso. A tabela a seguir mostra as permissões concedidas para o papel:
 
-|Ações|Description|
+|Ações|Descrição|
 |---|---|
 |Microsoft.Automation/automation|Criar e gerir recursos de todos os tipos.|
 
-### <a name="contributor"></a>Contribuinte
+### <a name="contributor"></a>Contribuidor
 
 Um Contribuinte pode gerir tudo, exceto o acesso. A tabela a seguir mostra as permissões concedidas e negadas para o papel:
 
@@ -423,7 +422,7 @@ Quando um utilizador atribuído à função de Operador de Automação no âmbit
 
 ![Só tem acesso para começar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais PowerShell RBAC, consulte [Gerir o RBAC com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter mais informações sobre os tipos de livros de execução, consulte os tipos de [runbook da Azure Automation](automation-runbook-types.md).

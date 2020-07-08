@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 5f2c823b0932db42876be6ab04ebcd82783729aa
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734426"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configure sincronização âmbito de sincronização de Azure AD para Azure Ative Directory Domain Services
@@ -253,7 +252,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScoped
 
 Alterar o âmbito da sincronização faz com que o domínio gerido ressincronize todos os dados. Os objetos que já não são necessários no domínio gerido são eliminados e a ressincronização pode demorar muito tempo a ser concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o processo de sincronização, consulte [a sincronização do Azure AD Domain Services](synchronization.md).
 

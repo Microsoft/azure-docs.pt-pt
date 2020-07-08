@@ -10,10 +10,9 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84792035"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure

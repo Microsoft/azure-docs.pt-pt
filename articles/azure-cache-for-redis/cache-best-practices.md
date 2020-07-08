@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457308"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 

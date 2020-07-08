@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515436"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para administrar o seu StorSimple Virtual Array
@@ -76,6 +75,6 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre a UI web e como usá-lo, vá ao [Uso da UI web StorSimple para administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

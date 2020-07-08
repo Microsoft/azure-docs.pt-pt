@@ -9,10 +9,9 @@ ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84463574"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta BlockBlobStorage

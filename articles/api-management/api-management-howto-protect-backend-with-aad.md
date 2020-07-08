@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
 ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445513"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
@@ -226,7 +225,7 @@ Utilize a política [validada do JWT](https://docs.microsoft.com/azure/api-manag
 
 Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como a aplicação do cliente da amostra para ligar para o `Echo API` protegido pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte [as amostras de código do Azure Ative Directory](../active-directory/develop/sample-v2-code.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 - Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a API Management.

@@ -4,10 +4,9 @@ description: Este artigo fornece uma lista de exceções de mensagens Azure Serv
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: dd57938c24565257aefebc89a8b070865e6791af
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341647"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens de autocarro de serviço
@@ -180,6 +179,6 @@ Os passos de resolução dependem do que causou o lançamento do **MessagingExce
    * Para **questões transitórias** (onde ***o isTransient*** é definido como ***verdadeiro)*** ou para **problemas de estrangulamento,** a reorientação da operação pode resolvê-la. A política de reecuração por defeito no SDK pode ser alavancada para isso.
    * Para outras questões, os detalhes da exceção indicam que as etapas de emissão e resolução podem ser deduzidas do mesmo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter a referência completa do Service Bus .NET API, consulte a [referência API Azure .NET](/dotnet/api/overview/azure/service-bus).
 Para obter dicas de resolução de problemas, consulte o [guia de resolução de problemas](service-bus-troubleshooting-guide.md)

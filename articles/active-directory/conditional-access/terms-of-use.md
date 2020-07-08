@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253329"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
@@ -94,8 +93,8 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    | Expire a partir de | Frequência | Resultado |
    | --- | --- | --- |
-   | Data de hoje  | Mensal | A partir de hoje, os utilizadores devem aceitar os termos de uso e depois readceptirem todos os meses. |
-   | Data no futuro  | Mensal | A partir de hoje, os utilizadores devem aceitar os termos de utilização. Quando a data futura ocorrer, os consentimentos expirarão e, em seguida, os utilizadores devem reacetitar todos os meses.  |
+   | Data de hoje  | Mensalmente | A partir de hoje, os utilizadores devem aceitar os termos de uso e depois readceptirem todos os meses. |
+   | Data no futuro  | Mensalmente | A partir de hoje, os utilizadores devem aceitar os termos de utilização. Quando a data futura ocorrer, os consentimentos expirarão e, em seguida, os utilizadores devem reacetitar todos os meses.  |
 
    Por exemplo, se definir o prazo de início de validade para **1 de janeiro** e a frequência para **Mensal,** eis como podem ocorrer expirações para dois utilizadores:
 
@@ -117,7 +116,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | Description |
+   | Modelo | Descrição |
    | --- | --- |
    | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a iniciar seduca e a iniciar seduca. |
    | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de se inscrever e iniciar seduca. |
@@ -253,7 +252,7 @@ O **Requerer que os utilizadores consintam em todas as** definições do disposi
 Aqui está uma lista das plataformas e software suportados.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outro |
+> |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
 > | **Aplicação nativa** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
@@ -345,7 +344,7 @@ Pode configurar uma política de acesso condicional para a aplicação De inscri
 > [!NOTE]
 > A aplicação Intune Registration não é suportada para [termos de utilização por dispositivo.](#per-device-terms-of-use)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Como vejo quando/se um utilizador aceitou um termos de utilização?**<br />
 R: Nos Termos de Utilização, clique no número em **Aceito**. Também pode visualizar ou pesquisar a atividade de aceitação nos registos de auditoria Azure AD. Para obter mais informações, consulte o relatório de quem aceitou e recusou e [ver os registos de auditoria da AZure AD](#view-azure-ad-audit-logs).
@@ -389,7 +388,7 @@ R: Se tiver configurado os termos de utilização do AZure AD e os [termos e con
 **P: Que pontos finais utiliza os termos do serviço de utilização para autenticação?**<br />
 R: Os termos de utilização utilizam os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se a sua organização tiver uma lista de sinais de admissão de URLs para inscrição, terá de adicionar estes pontos finais à sua lista de indicações, juntamente com os pontos finais AZURE AD para iniciar sação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem](require-tou.md)
 - [Melhores práticas para acesso condicional no Diretório Ativo Azure](best-practices.md)

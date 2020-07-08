@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253312"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
@@ -55,7 +54,7 @@ Para editar um controlo personalizado, deve eliminar o controlo de corrente e cr
 
 Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que requer a autenticação multi-factor Azure, o reset da palavra-passe de autosserviço AD Azure (SSPR), a satisfação dos requisitos de reclamação de autenticação de vários fatores ou a elevação de funções no Privileged Identity Manager (PIM).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

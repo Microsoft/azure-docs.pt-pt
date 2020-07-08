@@ -8,10 +8,9 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515292"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
@@ -46,14 +45,14 @@ O Azure File Sync suporta configurações de procuração específicas de aplica
 
 **As definições de procuração específicas** da aplicação permitem a configuração de um proxy especificamente para o tráfego de Sincronização de Ficheiros Azure. As definições de procuração específicas da aplicação são suportadas na versão 4.0.1.0 ou mais recente do agente e podem ser configuradas durante a instalação do agente ou utilizando o cmdlet PowerShell de Configuração de Configuração de Conjuntos de ArmazenamentoSyncProiguration.
 
-O PowerShell ordena configurar definições de procuração específicas da aplicação:
+comandos do PowerShell para configurar definições de proxy específicas da aplicação:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
 **As definições de procuração em toda** a máquina são transparentes para o agente Azure File Sync, uma vez que todo o tráfego do servidor é encaminhado através do proxy.
 
-Para configurar as definições de procuração em toda a máquina, siga os passos abaixo: 
+Para configurar as definições de proxy ao nível do computador, siga os passos abaixo: 
 
 1. Configurar configurações de procuração para aplicações .NET 
 
@@ -97,7 +96,7 @@ A tabela a seguir descreve os domínios necessários para a comunicação:
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | As chamadas do Azure Resource Manager devem ser efetuadas por um utilizador autenticado. Para ter sucesso, este URL é utilizado para a autenticação do utilizador. |
 | **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Como parte da implementação do Azure File Sync, será criado um diretor de serviço no Azure Ative Directory da subscrição. Esta URL é usada para isso. Este principal é utilizado para delegar um conjunto mínimo de direitos ao serviço Azure File Sync. O utilizador que efetua a configuração inicial do Azure File Sync deve ser um utilizador autenticado com privilégios de proprietário de subscrição. |
 | **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Use o URL do ponto final público. | Este URL é acedido pela biblioteca de autenticação ative Diretório que o UI do servidor Azure File Sync utiliza para iniciar sessão no administrador. |
-| **Storage do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente para a partilha de ficheiros Azure na Conta de Armazenamento. O servidor tem uma chave SAS que apenas permite o acesso de partilha de ficheiros direcionado. |
+| **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente para a partilha de ficheiros Azure na Conta de Armazenamento. O servidor tem uma chave SAS que apenas permite o acesso de partilha de ficheiros direcionado. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Após o registo inicial do servidor, o servidor recebe um URL regional para a instância do serviço Azure File Sync naquela região. O servidor pode utilizar o URL para comunicar de forma direta e eficiente com a instância que manuseia a sua sincronização. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Uma vez instalado o agente Azure File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Azure File Sync e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
 
@@ -279,7 +278,7 @@ As listas anteriores deste documento contêm o URLs Azure File Sync atualmente c
 
 A criação de regras de firewall de restrição de domínios pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e poderão até mudar com o tempo. Verifique este artigo periodicamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

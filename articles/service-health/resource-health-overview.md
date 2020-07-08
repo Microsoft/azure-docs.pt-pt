@@ -3,12 +3,11 @@ title: Visão geral da Saúde dos Recursos Azure
 description: Visão geral da Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80159256"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041579"
 ---
 # <a name="resource-health-overview"></a>Visão geral da saúde dos recursos
  
@@ -18,7 +17,7 @@ A Azure Resource Health ajuda-o a diagnosticar e a obter apoio para problemas de
 
 ## <a name="resource-definition-and-health-assessment"></a>Definição de recursos e avaliação da saúde
 
-Um *recurso* é uma instância específica de um serviço Azure, como uma máquina virtual, aplicativo web ou base de dados SQL. A Resource Health baseia-se em sinais de diferentes serviços Azure para avaliar se um recurso é saudável. Se um recurso não for saudável, a Resource Health analisa informações adicionais para determinar a origem do problema. Também relata as ações que a Microsoft está a tomar para corrigir o problema e identifica coisas que pode fazer para o resolver.
+Um *recurso* é uma instância específica de um serviço Azure, como uma máquina virtual, uma aplicação web ou uma Base de Dados SQL. A Resource Health baseia-se em sinais de diferentes serviços Azure para avaliar se um recurso é saudável. Se um recurso não for saudável, a Resource Health analisa informações adicionais para determinar a origem do problema. Também relata as ações que a Microsoft está a tomar para corrigir o problema e identifica coisas que pode fazer para o resolver.
 
 Para obter mais informações sobre a forma como a saúde é avaliada, consulte a lista de tipos de recursos e verificações de saúde na [Azure Resource Health](resource-health-checks-resource-types.md).
 
@@ -94,7 +93,7 @@ Também pode aceder à Saúde dos Recursos selecionando **Todos os serviços** e
 
 ![Abertura de Recursos Saúde de "Todos os serviços"](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira estas referências para saber mais sobre a Saúde dos Recursos:
 -  [Tipos de recursos e verificações de saúde na Azure Resource Health](resource-health-checks-resource-types.md)

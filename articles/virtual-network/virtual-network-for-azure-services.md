@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
 ms.openlocfilehash: cb63f99e93d4324e3f2addde7eadf18ac15f3d2d
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84463353"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Implementar serviços dedicados da Azure em redes virtuais

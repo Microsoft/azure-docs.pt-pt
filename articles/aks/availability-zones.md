@@ -6,10 +6,9 @@ ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195569"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
@@ -20,7 +19,7 @@ Ao definir piscinas de nó em um cluster para abranger várias zonas, os nós em
 
 Este artigo mostra-lhe como criar um cluster AKS e distribuir os componentes do nó através de zonas de disponibilidade.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão 2.0.76 do Azure CLI ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
@@ -165,7 +164,7 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de `eastus2-1` disponibilidade. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3` , e a terceira no nó 4, em `eastus2-2` . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres em AKS][best-practices-bc-dr].
 

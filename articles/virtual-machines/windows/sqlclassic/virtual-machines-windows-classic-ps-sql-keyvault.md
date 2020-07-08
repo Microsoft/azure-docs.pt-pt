@@ -17,16 +17,15 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7439aa360395490f31a638ac690ed7e5cad1054b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195843"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar integração de cofre de chave Azure para servidor SQL em máquinas virtuais Azure (Clássico)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../../../azure-sql/virtual-machines/windows/azure-key-vault-integration-configure.md)
-> * [Clássica](../classic/ps-sql-keyvault.md)
+> * [Clássico](../classic/ps-sql-keyvault.md)
 > 
 > 
 

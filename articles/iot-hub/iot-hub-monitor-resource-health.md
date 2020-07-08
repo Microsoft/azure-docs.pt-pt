@@ -9,10 +9,9 @@ ms.date: 04/21/2020
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84792048"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente
@@ -348,7 +347,7 @@ O IoT Hub regista este registo quando uma mensagem que contém propriedades de v
 
 Aqui, `durationMs` não é calculado como o relógio do IoT Hub pode não estar sincronizado com o relógio do dispositivo, e assim um cálculo de duração pode ser enganador. Recomendamos escrever lógica usando os tempos na `properties` secção para capturar picos na latência dispositivo-nuvem.
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **mensagemSize** | Número inteiro | O tamanho da mensagem dispositivo-a-nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanuméricos ASCII de 7 bits | A identidade do dispositivo |
@@ -382,7 +381,7 @@ O IoT Hub grava este registo quando a mensagem que contém propriedades de vest�
 
 Na `properties` secção, este registo contém informações adicionais sobre a entrada de mensagens.
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
 | **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
@@ -414,7 +413,7 @@ IoT Hub grava este registo quando [o encaminhamento](iot-hub-devguide-messages-d
 
 Na `properties` secção, este registo contém informações adicionais sobre a entrada de mensagens.
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | O nome do ponto final de encaminhamento |
 | **endpointType** | String | O tipo de ponto final de encaminhamento |
@@ -553,7 +552,7 @@ Para verificar a saúde dos seus centros de IoT, siga estes passos:
 
 Para saber mais sobre como interpretar dados de saúde, consulte [a visão geral da saúde dos recursos Azure](../service-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

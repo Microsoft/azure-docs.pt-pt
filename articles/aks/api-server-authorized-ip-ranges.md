@@ -5,10 +5,9 @@ services: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.openlocfilehash: 4d9030e21c3b8f31c18c26fc54dc76d5b8d84a17
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85100058"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando intervalos de endereços IP autorizados no Serviço Azure Kubernetes (AKS)
@@ -20,7 +19,7 @@ Este artigo mostra como utilizar os intervalos de endereços IP autorizados pelo
 > [!IMPORTANT]
 > Em novos clusters, os intervalos de endereços IP autorizados pelo servidor API são suportados apenas no balanceador de carga *Standard* SKU. Os clusters existentes com o balanceador de carga *Basic* SKU e os intervalos de endereço IP autorizados pelo servidor API configurados continuarão a funcionar como está, mas não podem ser migrados para um balanceador de carga *SKU padrão.* Os clusters existentes também continuarão a funcionar se a sua versão Kubernetes ou o seu plano de controlo forem atualizados.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo mostra-lhe como criar um cluster AKS usando o Azure CLI.
 
@@ -125,7 +124,7 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, ativou gamas IP autorizadas pelo servidor API. Esta abordagem é uma parte de como você pode executar um cluster AKS seguro.
 

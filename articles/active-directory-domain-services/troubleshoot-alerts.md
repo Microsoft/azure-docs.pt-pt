@@ -12,10 +12,9 @@ ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734066"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas e resoluções comuns nos Serviços de Domínio do Diretório Ativo do Azure
@@ -294,7 +293,7 @@ Quando o domínio gerido é novamente ativado, a saúde do domínio gerido atual
 
 [Verifique se a saúde do Azure AD DS](check-health.md) é responsável por alertas que indiquem problemas na configuração do domínio gerido. Se conseguir resolver alertas que indiquem um problema de configuração, aguarde duas horas e volte para ver se a sincronização está concluída. Quando estiver pronto, abra um pedido de [suporte Azure][azure-support] para ree capacitar o domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

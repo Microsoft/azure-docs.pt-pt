@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803739"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementar uma solução de balanceador de carga virada para a Internet com o IPv6 utilizando um modelo
@@ -136,6 +135,6 @@ O modelo de exemplo utilizado neste artigo inclui as seguintes variáveis e par�
 
 As variáveis restantes no modelo contêm valores derivados que são atribuídos quando Azure cria os recursos. Não mude estas variáveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para a sintaxe JSON e propriedades de um equilibrador de carga num modelo, consulte [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

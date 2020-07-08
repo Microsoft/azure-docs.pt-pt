@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803528"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com PowerShell
@@ -164,7 +163,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 > [!IMPORTANT]
 > Tanto a chave da delegação de utilizadores como as atribuições de funções RBAC são armazenadas pela Azure Storage, pelo que pode haver um atraso entre quando inicia o processo de revogação e quando uma delegação de utilizadores existente SAS se torna inválida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

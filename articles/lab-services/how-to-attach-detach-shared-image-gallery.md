@@ -4,10 +4,9 @@ description: Este artigo descreve como anexar uma galeria de imagens partilhada 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e0b29bcabe1cfb234b422982c0f8faab49c30796
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445360"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou destacar uma galeria de imagens partilhada nos Serviços do Laboratório Azure
@@ -83,7 +82,7 @@ Apenas uma galeria de imagens partilhada pode ser anexada a um laboratório. Se 
 
 ![Retire a galeria de imagens partilhada da conta do laboratório](./media/how-to-use-shared-image-gallery/detach.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender como guardar uma imagem de laboratório na galeria de imagens partilhada ou usar uma imagem da galeria de imagens partilhada para criar um VM, veja [Como usar a galeria de imagens partilhada.](how-to-use-shared-image-gallery.md)
 
 Para obter mais informações sobre galerias de imagens partilhadas em geral, consulte [a galeria de imagens partilhada.](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)

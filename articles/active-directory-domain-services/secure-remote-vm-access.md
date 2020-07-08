@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734474"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Acesso remoto seguro a máquinas virtuais em Azure Ative Directory Domain Services
@@ -99,7 +98,7 @@ São necessárias as seguintes opções adicionais de configuração para integr
 
 Os utilizadores são agora solicitados para um fator de autenticação adicional quando iniciarem sação, como uma mensagem de texto ou solicitação na aplicação Microsoft Authenticator.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a melhoria da resiliência da sua implementação, consulte [Serviços de Ambiente de Trabalho Remoto - Alta disponibilidade][rds-high-availability].
 

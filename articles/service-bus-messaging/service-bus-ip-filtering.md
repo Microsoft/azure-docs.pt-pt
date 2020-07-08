@@ -4,10 +4,9 @@ description: Como utilizar as Regras de Firewall para permitir ligações de end
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a5ae491f82e73c5364788dff8b531e81d17ebb68
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341450"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configure as regras de firewall IP para o Azure Service Bus
@@ -141,7 +140,7 @@ Parâmetros do modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para limitar o acesso às redes virtuais service bus para Azure, consulte o seguinte link:
 

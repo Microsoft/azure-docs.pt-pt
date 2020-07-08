@@ -17,10 +17,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356156"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory

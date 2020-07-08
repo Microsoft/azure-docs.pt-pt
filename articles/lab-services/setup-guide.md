@@ -4,10 +4,9 @@ description: Este guia ajuda os criadores de laboratório a criar rapidamente um
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445581"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guia de configuração do laboratório de sala de aula
@@ -129,7 +128,7 @@ Depois de entender os requisitos para o laboratório da sua turma, está pronto 
     > [!NOTE]
     > O custo estimado mostrado no painel de instrumentos é o custo máximo que se pode esperar para o uso dos alunos do laboratório. Por exemplo, *não* será cobrado por horas de quota não-aproveitadas pelos seus alunos. Os custos estimados *não* refletem quaisquer encargos pela utilização do modelo VM, da galeria de imagens partilhada, ou quando o criador do laboratório inicia uma máquina de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Controlar a utilização de um laboratório de sala de aula](tutorial-track-usage.md)
   

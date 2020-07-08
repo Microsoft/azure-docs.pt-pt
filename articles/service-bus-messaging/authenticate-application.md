@@ -4,10 +4,9 @@ description: Este artigo fornece informações sobre a autenticação de uma apl
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341506"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma aplicação com a Azure Ative Directory para aceder a entidades do Azure Service Bus
@@ -149,7 +148,7 @@ Antes de poder executar a amostra, edite o ficheiro **app.config** e, dependendo
 Quando executar a aplicação da consola, é-lhe solicitado que selecione um cenário. Selecione **o Início de Sessão do Utilizador Interativo** digitando o seu número e pressionando ENTER. A aplicação apresenta uma janela de login, pede o seu consentimento para aceder ao Service Bus e, em seguida, utiliza o serviço para executar através do cenário de envio/receção utilizando a identidade de login.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md)?
 - Para aprender a atribuir e gerir atribuições de funções da RBAC com a Azure PowerShell, Azure CLI ou a REST API, consulte estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

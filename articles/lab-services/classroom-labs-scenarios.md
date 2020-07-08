@@ -4,10 +4,9 @@ description: Este artigo descreve como usar a Azure DevTest Labs para criar labo
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 582508968609ba53de14b95b71ee75b5fec9ba93
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445258"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Use laboratórios de sala de aula para treinos
@@ -44,5 +43,5 @@ Um modelo num laboratório é a imagem de máquina virtual de base da qual todas
 ## <a name="use-vms-in-the-classroom-lab"></a>Use VMs no laboratório da sala de aula
 Um aluno ou participante de formação registra-se no laboratório, e conecta-se ao VM para fazer exercícios para o curso. Para mais detalhes, consulte [Como aceder a um laboratório de sala de aula.](how-to-use-classroom-lab.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Comece por criar uma conta de laboratório em Classroom Labs seguindo as instruções do artigo: [Tutorial: Configurar uma conta de laboratório com os Serviços Azure Lab](tutorial-setup-lab-account.md).

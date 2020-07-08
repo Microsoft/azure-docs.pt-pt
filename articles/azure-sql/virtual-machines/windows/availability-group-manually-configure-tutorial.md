@@ -14,12 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 574e2e1647ecf33fb05600407163c96247b6ce41
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391048"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960746"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: Configurar um grupo de disponibilidade de servidor SQL em Azure Virtual Machines manualmente
 
@@ -39,15 +38,15 @@ O tutorial pressupõe que você tem uma compreensão básica do SQL Server Alway
 
 A tabela a seguir enumera os pré-requisitos necessários para completar antes de iniciar este tutorial:
 
-|  |Requisito |Description |
+| Requisito |Descrição |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png) | Duas instâncias do SQL Server | - Em um conjunto de disponibilidade azure <br/> - Num único domínio <br/> - Com funcionalidade de Clustering Failover instalada |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)| Windows Server | Partilha de ficheiros para testemunha de cluster |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Conta de serviço do Agente do Servidor SQL | Conta do domínio |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Portas de firewall abertas | - SQL Server: **1433** por exemplo padrão <br/> - Ponto final espelhante da base de dados: **5022** ou qualquer porta disponível <br/> - Disponibilidade de carregamento de grupo de carregamento IP sonda de saúde endereço: **59999** ou qualquer porta disponível <br/> - Cluster core load balancer IP address health sonda: **58888** ou qualquer porta disponível |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Adicionar funcionalidade de clustering failover | Ambas as instâncias do SQL Server requerem esta funcionalidade |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Conta de domínio de instalação | - Administrador local em cada Servidor SQL <br/> - Membro do sql server sysadmin papel de servidor fixo para cada instância do SQL Server  |
+|![Square ](./media/availability-group-manually-configure-tutorial/square.png) **Two SQL Server instances**    | - Em um conjunto de disponibilidade azure <br/> - Num único domínio <br/> - Com funcionalidade de Clustering Failover instalada |
+|![Servidor Square ](./media/availability-group-manually-configure-tutorial/square.png) **Windows**    | Partilha de ficheiros para testemunha de cluster |  
+|![Conta de serviço do ](./media/availability-group-manually-configure-tutorial/square.png) **Servidor SqL** Square    | Conta do domínio |
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Conta de serviço do Agente do Servidor SQL Square**    | Conta do domínio |  
+|![Portas Square ](./media/availability-group-manually-configure-tutorial/square.png) **Firewall abertas**    | - SQL Server: **1433** por exemplo padrão <br/> - Ponto final espelhante da base de dados: **5022** ou qualquer porta disponível <br/> - Disponibilidade de carregamento de grupo de carregamento IP sonda de saúde endereço: **59999** ou qualquer porta disponível <br/> - Cluster core load balancer IP address health sonda: **58888** ou qualquer porta disponível |
+|![Característica de clustering de ](./media/availability-group-manually-configure-tutorial/square.png) **failover** de adicionar quadrado    | Ambas as instâncias do SQL Server requerem esta funcionalidade |
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Conta de domínio de instalação quadrada**    | - Administrador local em cada Servidor SQL <br/> - Membro do sql server sysadmin papel de servidor fixo para cada instância do SQL Server  |
 
 
 Antes de iniciar o tutorial, tem de [completar os pré-requisitos para criar grupos sempre em disponibilidade em máquinas virtuais Azure.](availability-group-manually-configure-prerequisites-tutorial.md) Se estes pré-requisitos já estiverem concluídos, pode saltar para [criar cluster.](#CreateCluster)
@@ -87,7 +86,7 @@ Após a conclusão dos pré-requisitos, o primeiro passo é criar um Cluster de 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Desabar o endereço IP do cluster de falha do servidor do Windows
 
   > [!NOTE]
-  > No Windows Server 2019, o cluster cria um **Nome de Servidor Distribuído** em vez do Nome da Rede de **Cluster**. Se estiver a utilizar o Windows Server 2019, ignore quaisquer passos que se refiram ao nome principal do cluster neste tutorial. Pode criar um nome de rede de cluster utilizando [o PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#windows-server-2019). Reveja o blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) para obter mais informações. 
+  > No Windows Server 2019, o cluster cria um **Nome de Servidor Distribuído** em vez do Nome da Rede de **Cluster**. Se estiver a utilizar o Windows Server 2019, ignore quaisquer passos que se refiram ao nome principal do cluster neste tutorial. Pode criar um nome de rede de cluster utilizando [o PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-failover-cluster). Reveja o blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) para obter mais informações. 
 
 1. Em **Failover Cluster Manager**, desça até cluster core **resources** e expanda os detalhes do cluster. Deve ver tanto o **Nome** como os recursos do **endereço IP** no estado **falhado.** O recurso de endereço IP não pode ser trazido on-line porque o cluster é atribuído o mesmo endereço IP que a própria máquina, portanto é um endereço duplicado.
 
@@ -538,6 +537,6 @@ A ligação SQLCMD liga-se automaticamente a qualquer instância do SQL Server q
 > Certifique-se de que a porta especificada está aberta na firewall de ambos os Servidores SQL. Ambos os servidores requerem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou editar a regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx).
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione um endereço IP a um equilibrador de carga para um segundo grupo de disponibilidade](availability-group-listener-powershell-configure.md#Add-IP).

@@ -12,10 +12,9 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.openlocfilehash: 50ee9e3c22c885931e2586f65ba2fa3353fccfeb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85355850"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizar a configuração da aplicação SSO baseada em SAML com a Microsoft Graph API
@@ -596,7 +595,7 @@ HTTP/1.1 204
 
 Atribua o seguinte utilizador ao principal de serviço e atribua o AWS_Role1. 
 
-| Nome  | ID  |
+| Name  | ID  |
 |---------|---------|
 | ID do utilizador (principalId) | 6cad4079-4e79-4a3f-9efb-ea30a14bdb26 |
 | Tipo (principalType) | Utilizador |
@@ -653,6 +652,6 @@ Utilize o seguinte URL para obter os metadados Azure AD SAML para a aplicação 
 
 https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Utilize APIs de Gráficos do Microsoft para configurar o provisionamento do utilizador](../app-provisioning/application-provisioning-configure-api.md)
 - [Utilize o relatório de atividade da aplicação AD FS para migrar aplicações para a Azure AD](migrate-adfs-application-activity.md)

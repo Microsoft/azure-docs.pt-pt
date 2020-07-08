@@ -4,12 +4,11 @@ description: Grave e analise os eventos de registo de diagnóstico para recursos
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd8265d18f618980af466e193b41cfcc03999c47
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220350"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960729"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
  
@@ -70,7 +69,7 @@ Para configurar um alerta métrico no portal Azure:
 
 Para obter mais informações sobre a criação de alertas métricos, consulte [Como os alertas métricos funcionam no Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) e [Criar, ver e gerir alertas métricos usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-Também pode configurar um alerta quase em tempo real utilizando a [API do](https://docs.microsoft.com/rest/api/monitor/)Monitor Azure . Para mais informações, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou piscina nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas monitores Azure](../azure-monitor/learn/tutorial-response.md).
+Também pode configurar um alerta quase em tempo real utilizando a [API do](/rest/api/monitor/)Monitor Azure . Para mais informações, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou piscina nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas monitores Azure](../azure-monitor/learn/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Batch diagnostics (Diagnósticos do Batch)
 
@@ -174,7 +173,7 @@ Os eventos de registo de serviço emitidos pelo serviço Batch incluem o seguint
 - [Tarefa concluída](batch-task-complete-event.md)
 - [Falha de tarefa](batch-task-fail-event.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 - Saiba mais sobre [a monitorização das soluções do Batch.](monitoring-overview.md)

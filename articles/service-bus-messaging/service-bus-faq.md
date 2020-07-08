@@ -4,10 +4,9 @@ description: Este artigo fornece respostas a algumas das perguntas frequentes (F
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341456"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
@@ -154,7 +153,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a Service Bus, consulte os seguintes artigos:
 
 * [Apresentando Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

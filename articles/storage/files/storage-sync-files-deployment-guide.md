@@ -8,14 +8,13 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515356"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
-Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
+Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
 
 Recomendamos vivamente que leia Planeamento para uma implementação e Planeamento de [Ficheiros Azure](storage-files-planning.md) [antes de](storage-sync-files-planning.md) completar os passos descritos neste artigo.
 
@@ -458,7 +457,7 @@ Para migrar uma implementação DFS-R para Azure File Sync:
 
 Para obter mais informações, consulte [o interop Azure File Sync com o Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Adicionar ou remover um ponto de final do servidor de sincronização de ficheiros Azure](storage-sync-files-server-endpoint.md)
 - [Registar ou não registar um servidor com Azure File Sync](storage-sync-files-server-registration.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

@@ -12,13 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84463948"
 ---
-# <a name="how-to-investigate-risk"></a>Como: Investigar o risco
+# <a name="how-to-investigate-risk"></a>How To: Investigar riscos
 
 A Proteção de Identidade fornece às organizações três relatórios que podem usar para investigar riscos de identidade no seu ambiente. Estes relatórios são **os utilizadores arriscados**, **as entradas de risco**e as **deteções de riscos.** A investigação dos acontecimentos é fundamental para uma melhor compreensão e identificação de quaisquer pontos fracos na sua estratégia de segurança.
 

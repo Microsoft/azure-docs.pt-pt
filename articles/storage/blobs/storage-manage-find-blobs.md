@@ -9,10 +9,9 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85355663"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerir e encontrar dados sobre o armazenamento de blob Azure com índice blob (pré-visualização)
@@ -130,7 +129,7 @@ A tabela abaixo mostra todos os operadores válidos para operações condicionai
 |     <      |  Menor que    | "Idade" < '32' |
 |     <=     |  Menor ou igual a  | "Empresa" <= 'Contoso' |
 |    AND     |  Lógico e  | "Rank" >= '010' E "Rank" < '100' |
-|     OR     |  Lógico ou   | "Status" = 'Feito' ou "Prioridade" >= '05' |
+|     OU     |  Lógico ou   | "Status" = 'Feito' ou "Prioridade" >= '05' |
 
 > [!NOTE]
 > Existem dois operadores adicionais, não iguais e lógicos ou, que são permitidos no cabeçalho x-ms-if-tags condicional para o funcionamento do blob, mas não existem na operação FindBlobsByTags.
@@ -306,7 +305,7 @@ As tags Blob Index apenas suportam tipos de dados de cadeia e consultam os resul
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>As tags Blob Index e Azure Resource Manager estão relacionadas?
 Não, as tags do Azure Resource Manager ajudam a organizar recursos de planos de controlo, tais como subscrições, grupos de recursos e contas de armazenamento. As tags Blob Index fornecem gestão de objetos e descobertas em recursos de planos de dados, tais como bolhas dentro de uma conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja um exemplo de como utilizar o Blob Index. Consulte [o Índice De Blob utilize para gerir e encontrar dados](storage-blob-index-how-to.md)
 

@@ -8,10 +8,9 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515385"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolver para Ficheiros Azure com C++
@@ -363,7 +362,7 @@ if (share.exists())
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Storage do Azure, explore estes recursos:
 

@@ -4,10 +4,9 @@ description: Este artigo fornece detalhes sobre a gramática SQLFilter. Um SqlFi
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341597"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe de SQLFilter
@@ -182,7 +181,7 @@ As constantes booleanas são representadas pelas palavras-chave **TRUE** ou **FA
 
 As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a>função  
+## <a name="function"></a> Função   
   
 ```  
 <function> :=  
@@ -268,7 +267,7 @@ Considere as seguintes semânticas [SqlFilter:](/dotnet/api/microsoft.servicebus
   
 -   Operadores aritméticos `+` `-` como, `*` , , , `/` e `%` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Classe SQLFilter (.Net Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)

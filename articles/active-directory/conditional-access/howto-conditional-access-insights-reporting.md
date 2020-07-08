@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253278"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informações e relatórios de acesso condicional
@@ -36,7 +35,7 @@ As seguintes funções podem aceder a insights e relatórios:
 
 Os utilizadores também precisam de uma das seguintes funções de espaço de trabalho Log Analytics:  
 
-- Contribuinte  
+- Contribuidor  
 - Proprietário 
 
 ### <a name="stream-sign-in-logs-from-azure-ad-to-azure-monitor-logs"></a>Faça streaming de registos de login de Azure AD para registos do Monitor Azure 
@@ -132,6 +131,6 @@ Pode guardar as suas seleções de parâmetros no topo do livro, indo ao **Azure
 
 Pode editar e personalizar o livro indo ao **Azure Ative Directory**  >  **Workbooks**  >  **Conditional Access Insights e reportando**. Aqui encontrará o modelo do livro, onde pode editar o livro e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, nos **meus relatórios** ou **relatórios partilhados.** Para começar a editar as consultas, clique em **Editar** no topo do livro.  
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Modo de relatório de acesso condicional](concept-conditional-access-report-only.md)

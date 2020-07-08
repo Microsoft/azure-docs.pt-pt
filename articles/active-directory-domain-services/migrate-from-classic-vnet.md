@@ -10,10 +10,9 @@ ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
 ms.openlocfilehash: 35f92afea9f9e8da3cf1eeefa81cac0cb712843a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734627"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar serviços de domínio do diretório ativo do Azure do modelo de rede virtual clássico para o Gestor de Recursos
@@ -87,7 +86,7 @@ As etapas de alto nível envolvidas neste cenário de migração de exemplo incl
 1. Crie uma rede virtual que espreita entre a rede virtual Clássica e a nova rede virtual Do Gestor de Recursos.
 1. Mais tarde, [migrar os recursos adicionais][migrate-iaas] da rede virtual Clássica, conforme necessário.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 À medida que prepara e migra um domínio gerido, existem algumas considerações em torno da disponibilidade de serviços de autenticação e gestão. O domínio gerido não está disponível durante um período de tempo durante a migração. As aplicações e serviços que dependem do Azure AD DS experimentam tempo de inatividade durante a migração.
 
@@ -324,7 +323,7 @@ Se tiver problemas após a migração para o modelo de implementação do Gestor
 * [Problemas de inscrição na conta de resolução de problemas][troubleshoot-sign-in]
 * [Resolução de problemas garante problemas de conectividade LDAP][tshoot-ldaps]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com o seu domínio gerido migrado para o modelo de implementação do Gestor de Recursos, [crie e junte o domínio a um VM do Windows][join-windows] e, em seguida, [instale ferramentas de gestão][tutorial-create-management-vm].
 

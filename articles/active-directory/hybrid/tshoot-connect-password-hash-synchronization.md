@@ -16,12 +16,11 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69eb19686598de103b1c2f3e97ad35be2c427beb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85356377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807609"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas da sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 
@@ -288,12 +287,15 @@ Se utilizar a instalação personalizada, desa estale as permissões manualmente
 6. Os controladores de domínio são alcançáveis pelo Azure AD Connect? Se o servidor 'Ligar' não conseguir ligar-se a todos os controladores de domínio, **configurar apenas utilize o controlador de domínio preferido**.  
     
     ![Controlador de domínio utilizado pelo conector Ative Directory](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Volte para **o Gestor de Serviços de Sincronização** **eConfigure Directoriatório Partition**. 
  
 8. Selecione o seu domínio em **Select directy partitions**, selecione a única caixa de verificação **de controladores de domínio preferidos** e, em seguida, clique em **Configurar**. 
 
 9. Na lista, introduza os controladores de domínio que o Connect deve utilizar para sincronização de palavras-passe. A mesma lista é utilizada também para a importação e exportação. Faça estes passos para todos os seus domínios.
+
+> [!NOTE]
+> Para aplicar estas alterações, reinicie o serviço **Microsoft Azure AD Sync** (ADSync).
 
 10. Se o script mostrar que não há batimentos cardíacos, execute o script no [Trigger uma sincronização completa de todas as palavras-passe](#trigger-a-full-sync-of-all-passwords).
 
@@ -442,7 +444,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementação de sincronização de hash de palavra-passe com sincronização Azure AD Connect](how-to-connect-password-hash-synchronization.md)
 * [Azure AD Connect Sync: Personalizar opções de sincronização](how-to-connect-sync-whatis.md)

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c9cd790edcb186ed2f80d467076512cd558ca40
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253397"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicativos de cliente aprovados para acesso a aplicativos na nuvem com Acesso Condicional
@@ -126,10 +125,10 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 
 Reveja o artigo [Como criar e atribuir políticas de proteção de aplicações](/intune/apps/app-protection-policies), para medidas para criar políticas de proteção de aplicações para Android e iOS. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [O que é o Acesso Condicional?](overview.md)
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 
-[Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)

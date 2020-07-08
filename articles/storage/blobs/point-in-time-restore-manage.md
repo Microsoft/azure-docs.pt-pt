@@ -10,10 +10,9 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445445"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)
@@ -179,7 +178,7 @@ $job | Wait-Job
 ## <a name="known-issues"></a>Problemas conhecidos
 - Para um subconjunto de restauros onde estão presentes bolhas de apêndice, a restauração falhará. Por enquanto, por favor, não efetue restauros se os blobs do apêndice estiverem presentes na conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Restauro pontual para bolhas de bloco (pré-visualização)](point-in-time-restore-overview.md)
 - [Eliminação recuperável](soft-delete-overview.md)

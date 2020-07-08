@@ -15,10 +15,9 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84732655"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Ative Directory
@@ -168,7 +167,7 @@ cmdlet | Utilização
 
 Um desafio bem sucedido devolve-lhe o pedido sem um erro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicione um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)

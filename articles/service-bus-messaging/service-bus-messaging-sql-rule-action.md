@@ -4,10 +4,9 @@ description: Este artigo fornece uma referência para a sintaxe SQLRuleAction. A
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341580"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe SQLRuleAction para Azure Service Bus
@@ -186,7 +185,7 @@ As constantes booleanas são representadas pelas palavras-chave `TRUE` ou `FALSE
   
 As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a>função  
+## <a name="function"></a> Função   
   
 ```  
 <function> :=  
@@ -209,7 +208,7 @@ A `property(name)` função devolve o valor do imóvel referenciado por `name` .
 - A ação não falha se as propriedades de utilizador inexistentes forem referenciadas.
 - Uma propriedade utilizadora inexistente é avaliada como "Desconhecida" internamente, seguindo a mesma semântica que o [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar os operadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

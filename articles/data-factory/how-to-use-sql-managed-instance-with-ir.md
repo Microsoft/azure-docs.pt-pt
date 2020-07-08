@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
 ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195376"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utilize a Azure SQL Managed Instance com serviços de integração de servidores SQL (SSIS) na Azure Data Factory
@@ -175,7 +174,7 @@ A política de retenção de registos SSISDB é definida por propriedades abaixo
 
 Para remover os registos SSISDB que estão fora da janela de retenção definida pelo administrador, pode acionar o procedimento armazenado `[internal].[cleanup_server_retention_window_exclusive]` . Opcionalmente, pode agendar a execução de trabalho de agente de instância gerido pela SQL para desencadear o procedimento armazenado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Execute pacotes SSIS por Azure SQL Trabalho de Agente de Instância Gerido](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Criar continuidade de negócios e recuperação de desastres (BCDR)](configure-bcdr-azure-ssis-integration-runtime.md)

@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
 ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515521"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
@@ -135,6 +134,6 @@ Os caminhos virtuais do espaço de nome são mostrados na página de detalhes de
 
 ![screenshot da página de detalhe de um alvo de armazenamento (cabeçalho "Atualizar alvo de armazenamento"). Há uma caixa de destaque em torno de uma entrada na coluna virtual do caminho do espaço de nome da tabela](media/hpc-cache-view-namespace-paths.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para mover os dados para os alvos de armazenamento da cache, leia [o novo armazenamento da Azure Blob](hpc-cache-ingest.md).

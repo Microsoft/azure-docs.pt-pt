@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188179"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041324"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança Azure para HDInsight
 
@@ -1152,7 +1151,7 @@ Como configurar a redundância de armazenamento para as contas de armazenamento 
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-Como configurar a redundância para as bases de dados Azure SQL:
+Como configurar a redundância para a Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 
@@ -1296,7 +1295,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

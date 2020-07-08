@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 777febb86e6a1fa719b6a7d74c32defebcf3b58c
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85099819"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar regras e pontos finais de serviço da Rede Virtual para o Azure Database for MariaDB
@@ -139,7 +138,7 @@ Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI 
 - [Redes virtuais Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados de Azure para as regras MariaDB VNet utilizando o portal Azure](howto-manage-vnet-portal.md)
  

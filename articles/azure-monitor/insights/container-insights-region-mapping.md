@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.custom: references_regions
 ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194991"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapeamentos da região apoiados pelo Azure Monitor para contentores
@@ -69,6 +68,6 @@ Os recursos de cluster AKS ou log analytics podem residir em outras regiões, e 
 
 As métricas de recolha dos nós e cápsulas de agrupamentos Azure Kubernetes Services (AKS) são suportadas para publicação como métricas personalizadas apenas nas [seguintes regiões de Azure.](../platform/metrics-custom-overview.md#supported-regions)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a monitorizar o seu cluster AKS, [reveja como permitir que o Monitor Azure para os contentores](container-insights-onboard.md) compreenda os requisitos e métodos disponíveis para permitir a monitorização.  

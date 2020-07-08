@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
 ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457240"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Criar, ver e gerir tópicos do sistema de Grade de Eventos no portal Azure
@@ -23,7 +22,7 @@ Pode criar um tópico de sistema para um recurso Azure (conta de armazenamento, 
 - Utilizando a página **Eventos** de um recurso, por exemplo, Conta de Armazenamento ou Espaço de Nomes de Centros de Eventos. Quando utiliza a página **Eventos** no portal Azure para criar uma subscrição de eventos para um evento levantado por uma fonte Azure (por exemplo: conta de Armazenamento Azure), o portal cria um tópico de sistema para o recurso Azure e, em seguida, cria uma subscrição para o tópico do sistema. Especifica o nome do tópico do sistema se estiver a criar uma subscrição de eventos no recurso Azure pela primeira vez. A partir da segunda vez, o nome tópico do sistema é apresentado para si no modo apenas de leitura. Consulte [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) for detailed steps.
 - Utilizando a página **tópicos do sistema de grelha de evento.** Os seguintes passos são para criar um tópico de sistema utilizando a página **Tópicos do Sistema de Grelha de Eventos.** 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no [portal Azure](https://portal.azure.com).
 2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, prima **ENTER**. 
 
     ![Pesquisa de tópicos do sistema](./media/create-view-manage-system-topics/search-system-topics.png)
@@ -53,7 +52,7 @@ Pode criar um tópico de sistema para um recurso Azure (conta de armazenamento, 
 ## <a name="view-all-system-topics"></a>Ver todos os tópicos do sistema
 Siga estes passos para ver todos os tópicos do sistema de Grelha de Eventos existentes. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no [portal Azure](https://portal.azure.com).
 2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, prima **ENTER**. 
 
     ![Pesquisa de tópicos do sistema](./media/create-view-manage-system-topics/search-system-topics.png)

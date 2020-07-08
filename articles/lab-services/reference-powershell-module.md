@@ -4,10 +4,9 @@ description: Este artigo fornece informações sobre um módulo PowerShell que a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d9c184f3917be378eb77d1bf4096bfebb5ee1884
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445598"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Módulo do PowerShell Az.LabServices (pré-visualização)
@@ -37,5 +36,5 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
     Get-AzLabAccount | Get-AzLab
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).

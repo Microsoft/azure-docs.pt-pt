@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195876"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Segurança e proteção de dados da Caixa de Dados Azure
@@ -98,6 +97,6 @@ Para ver a lista de utilizadores que podem aceder ou apagar uma partilha, siga o
 
 Para mais informações, reveja a política de privacidade da Microsoft no [Trust Center.](https://www.microsoft.com/trustcenter)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Implemente o seu dispositivo Data Box Gateway](data-box-gateway-deploy-prep.md)

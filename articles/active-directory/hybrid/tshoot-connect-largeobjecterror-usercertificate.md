@@ -18,10 +18,9 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356173"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect sync: Handling LargeObject erros causados pelo atributo userCertificate
@@ -117,7 +116,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de deteção** e **pre
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, *"out to AAD – Substituição personalizada para o utilizadorCertificate"* |
+    | Name | *Fornecer um nome* | Por exemplo, *"out to AAD – Substituição personalizada para o utilizadorCertificate"* |
     | Descrição | *Fornecer uma descrição* | Por exemplo, *"Se o atributo userCertificate tiver mais de 15 valores, exporte NU."* |
     | Sistema Conectado | *Selecione o Conector AD Azure* |
     | Tipo de objeto de sistema conectado | **utilizador** | |
@@ -131,7 +130,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de deteção** e **pre
 
     | Atributo | Valor |
     | --- | --- |
-    | Tipo de Fluxo |**Expressão** |
+    | Tipo de Fluxo |**Expression** |
     | Atributo-alvo |**userCertificate** |
     | Atributo de origem |*Utilize a seguinte expressão:*`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
@@ -181,6 +180,6 @@ Agora que a questão está resolvida, reecamia o programador de sincronização 
 > [!Note]
 > Os passos anteriores só são aplicáveis às versões mais recentes (1.1.xxx.x) do Azure AD Connect com o programador incorporado. Se estiver a utilizar versões mais antigas (1.0.xxx.x) do Azure AD Connect que utiliza o Windows Task Scheduler, ou se estiver a utilizar o seu próprio programador personalizado (não comum) para desencadear uma sincronização periódica, tem de as desativar em conformidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
 

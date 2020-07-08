@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445700"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o Publicador OPC
@@ -378,6 +377,6 @@ A sintaxe do ficheiro de configuração é a seguinte:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a configurar a Editora OPC, o próximo passo sugerido é aprender a gerir a [Editora OPC.](howto-opc-publisher-run.md)

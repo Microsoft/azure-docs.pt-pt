@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 374f3106ec42233cd5309c2773b05e3c96bbf98e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515493"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Use cache Azure HPC com ficheiros Azure NetApp
@@ -88,7 +87,7 @@ Não existem restrições especiais nos caminhos virtuais do espaço para estes 
 
 As máquinas de clientes devem montar a cache em vez de montar os volumes dos Ficheiros Azure NetApp diretamente. Siga as instruções no [Monte da Cache Azure HPC](hpc-cache-mount.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ler mais sobre configuração e utilização de [ficheiros Azure NetApp](../azure-netapp-files/index.yml)
 * Para ajudar a planear e configurar o seu sistema Azure HPC Cache para utilizar ficheiros Azure NetApp, [contacte o suporte](hpc-cache-support-ticket.md).

@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
 ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195719"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configure o tempo de integração Azure-SSIS com a geo-replicação e failover da Base de Dados SQL
@@ -264,7 +263,7 @@ Quando ocorrer uma falha, tome os seguintes passos.
     Para obter mais informações sobre este comando PowerShell, consulte [Crie o tempo de integração Azure-SSIS na Azure Data Factory](create-azure-ssis-integration-runtime.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Considere estas outras opções de configuração para o Azure-SSIS IR:
 

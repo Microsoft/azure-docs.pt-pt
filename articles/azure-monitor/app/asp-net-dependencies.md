@@ -4,10 +4,9 @@ description: Monitorize as chamadas de dependência a partir das suas instalaç�
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445224"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreio de dependência em Insights de Aplicação Azure 
@@ -191,7 +190,7 @@ Você pode rastrear dependências na [língua de consulta kusto](/azure/kusto/qu
       on operation_Id
 ```
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Como é que o relatório automático do colecionador de dependências falhou nas chamadas para as dependências?*
 
@@ -200,7 +199,7 @@ Você pode rastrear dependências na [língua de consulta kusto](/azure/kusto/qu
 ## <a name="open-source-sdk"></a>SDK de código aberto
 Como todos os Application Insights SDK, o módulo de recolha de dependência também é de código aberto. Leia e contribua para o código, ou reporte problemas [no repo oficial do GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md)
 * [Dados da página & do utilizador](../../azure-monitor/app/javascript.md)

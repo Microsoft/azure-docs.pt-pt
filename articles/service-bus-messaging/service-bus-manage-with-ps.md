@@ -4,10 +4,9 @@ description: Este artigo explica como usar o módulo Azure PowerShell para criar
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341743"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o PowerShell para gerir os recursos do Service Bus
@@ -151,7 +150,7 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 Pode utilizar o [módulo Service Bus PowerShell](/powershell/module/az.servicebus) para o fornecimento de outras entidades, tais como tópicos e subscrições. Estes cmdlets são sintaticamente semelhantes aos cmdlets de criação de fila demonstrados na secção anterior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [aqui](/powershell/module/az.servicebus)a documentação completa do módulo PowerShell do Service Bus Resource Manager . Esta página lista todos os cmdlets disponíveis.
 - Para obter informações sobre a utilização de modelos do Gestor de Recursos Azure, consulte o artigo [Criar recursos de ônibus de serviço usando modelos de Gestor de Recursos Azure](service-bus-resource-manager-overview.md).

@@ -9,10 +9,9 @@ ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515373"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
@@ -480,7 +479,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Se encontrar algum problema, pode consultar problemas de [Ficheiros Azure de resolução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os Ficheiros Azure, consulte os seguintes recursos:
 

@@ -7,10 +7,9 @@ ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84687009"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Confiem chaves geridas pelo cliente para encriptar dados em repouso para ambientes de serviço de integração (ISEs) em Azure Logic Apps
@@ -47,7 +46,7 @@ Este tópico mostra como configurar e especificar a sua própria chave de encrip
   |----------|-------|
   | **Tipo chave** | RSA |
   | **Tamanho da chave RSA** | 2048 |
-  | **Ativado** | Yes |
+  | **Ativado** | Sim |
   |||
 
   ![Crie a sua chave de encriptação gerida pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -227,6 +226,6 @@ Para esta tarefa, pode utilizar o comando Azure PowerShell [Set-AzKeyVaultAccess
 
 Para obter mais informações, consulte [fornecer a autenticação do Cofre de Chaves com uma identidade gerida.](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o Azure Key Vault](../key-vault/general/overview.md)

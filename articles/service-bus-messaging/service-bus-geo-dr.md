@@ -4,10 +4,9 @@ description: Como utilizar as regiões geográficas para falhar e realizar a rec
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341485"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de geo-desastre de autocarro de serviço Azure
@@ -177,7 +176,7 @@ A vantagem desta abordagem é que o failover pode acontecer na camada de aplica�
 > [!NOTE]
 > Para obter orientações sobre a recuperação de geo-desastres de uma rede virtual, consulte [Rede Virtual - Continuidade do Negócio](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte aqui a [referência da API de](/rest/api/servicebus/disasterrecoveryconfigs)recuperação de geo-desastres .
 - Executar a amostra de recuperação de geo-desastres [no GitHub.](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)

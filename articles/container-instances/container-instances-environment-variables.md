@@ -4,10 +4,9 @@ description: Saiba como definir variáveis ambientais nos recipientes que corre 
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84686739"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis ambientais em instâncias de contentores
@@ -236,7 +235,7 @@ root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
 my-secret-value
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Cenários baseados em tarefas, como o processamento de um grande conjunto de dados com vários contentores, podem beneficiar de variáveis de ambiente personalizados em tempo de execução. Para obter mais informações sobre a execução de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas com políticas de reinício](container-instances-restart-policy.md).
 

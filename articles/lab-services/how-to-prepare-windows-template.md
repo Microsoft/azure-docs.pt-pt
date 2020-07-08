@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445326"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelos Windows nos serviços do Azure Lab
@@ -230,5 +229,5 @@ Instale outras aplicações comumente utilizadas para o ensino através da aplic
 
 Este artigo mostrou-lhe passos opcionais para preparar o seu VM modelo windows para uma classe eficaz.  Os passos incluem a instalação do OneDrive e a instalação do Office 365, a instalação das atualizações para o Windows e a instalação de atualizações para aplicações da Microsoft Store.  Também discutimos como definir atualizações para um horário que funciona melhor para a sua aula.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o artigo sobre como controlar o comportamento de paragem do Windows para ajudar na gestão de custos: [Guia para controlar o comportamento de paragem do Windows](how-to-windows-shutdown.md)

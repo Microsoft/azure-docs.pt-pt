@@ -4,10 +4,9 @@ description: Uma introdução para fazer backup das bases de dados do SQL Server
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195783"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Apoiar o SQL Server para Azure como uma carga de trabalho DPM
@@ -162,6 +161,6 @@ Para recuperar uma entidade protegida, como uma base de dados SQL Server, a part
 
     Quando a recuperação estiver concluída, a base de dados restaurada é consistente com a aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte [a Azure Backup FAQ](backup-azure-backup-faq.md).

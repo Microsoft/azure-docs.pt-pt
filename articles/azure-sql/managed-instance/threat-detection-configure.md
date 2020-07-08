@@ -13,10 +13,9 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84686330"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configure proteção avançada de ameaças em Azure SQL Caso gerido
@@ -42,7 +41,7 @@ Pode receber notificações sobre as ameaças detetadas através de [notificaç�
    ![Proteção Avançada Contra Ameaças](./media/threat-detection-configure/threat-detection.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Proteção Avançada de Ameaças.](../database/threat-detection-overview.md)
 - Conheça as instâncias geridas, veja [O que é um Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).
