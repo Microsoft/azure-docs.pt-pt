@@ -12,10 +12,9 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/03/2020
 ms.openlocfilehash: de1e00d92661c3768efa49e5809751bf4f2327d8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267873"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Serviço e ferramentas disponíveis para cenários de migração de dados
@@ -127,6 +126,6 @@ As tabelas que se seguem identificam os serviços e ferramentas que pode utiliza
 | Sybase - SAP IQ | Azure SQL DB, MI, VM |  |
 | | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure](dms-overview.md).

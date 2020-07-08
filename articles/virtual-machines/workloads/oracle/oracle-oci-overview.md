@@ -15,10 +15,9 @@ ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299881"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicações oracle que integram a Microsoft Azure e a Oracle Cloud Infrastructure
@@ -78,7 +77,7 @@ A identidade é um dos pilares fundamentais da parceria entre a Microsoft e a Or
 
 Atualmente, esta integração permite-lhe gerir numa localização central, que é o Azure Ative Directory. O Azure AD sincroniza quaisquer alterações no diretório com o diretório oráculo correspondente e é utilizado para soluções oracle de sinalização única e de nuvem cruzada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Começa com uma [rede de nuvens cruzadas](configure-azure-oci-networking.md) entre o Azure e o OCI. 
 

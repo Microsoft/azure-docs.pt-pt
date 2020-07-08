@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
 ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266479"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Executar Azure IoT Edge em máquinas virtuais do servidor do Windows
@@ -96,7 +95,7 @@ Este artigo lista os passos para executar o tempo de execução do Azure IoT Edg
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem um dispositivo IoT Edge alojotado com o tempo de funcionaamento instalado, pode [implantar módulos IoT Edge](how-to-deploy-modules-portal.md).
 

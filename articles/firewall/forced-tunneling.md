@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: victorh
 ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267703"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Firewall Azure forçou o túnel
@@ -38,6 +37,6 @@ Se a sua organização utilizar um intervalo de endereços IP público para rede
 
 Uma vez configurar o Azure Firewall para suportar o túnel forçado, não pode desfazer a configuração. Se remover todas as outras configurações IP na sua firewall, a configuração IP de gestão também é removida e a firewall élocada. O endereço IP público atribuído à configuração IP de gestão não pode ser removido, mas pode atribuir um endereço IP público diferente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure](tutorial-hybrid-portal.md)

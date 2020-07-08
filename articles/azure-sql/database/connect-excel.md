@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267516"
 ---
 # <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Ligue o Excel a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância, e crie um relatório
@@ -99,7 +98,7 @@ Para guardar permanentemente os dados de ligação, pode criar um ficheiro .odc 
 
     ![Conexão existente](./media/connect-excel/existing-connection.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [conectar e consultar o SQL Server Management Studio](connect-query-ssms.md) para consultas e análises avançadas.
 * Saiba mais sobre as vantagens dos [conjuntos elásticos](elastic-pool-overview.md).

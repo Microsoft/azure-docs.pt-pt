@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
 ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300310"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Azure Monitor  
@@ -187,7 +186,7 @@ Cada regra de alerta de registo criada no Azure Monitor como parte da sua config
 
 Pode encontrar a hora exata em que o Azure Monitor desativou a regra do alerta de registo procurando um evento no [Registo de Atividades Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [os alertas de registo em Azure](../platform/alerts-unified-log.md).
 - Saiba mais sobre [a Aplicação Insights](../../azure-monitor/app/analytics.md).

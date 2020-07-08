@@ -9,10 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298232"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Use o Visual Studio e o Visual Studio Code para construir dispositivos IoT Plug e Play
@@ -69,7 +68,7 @@ O gerador de código tenta utilizar ficheiros DCM e interfaces localizados na pa
 
 Após o fim da geração de código, a extensão abre uma nova janela do Código VS com o código. Se abrir um ficheiro gerado como **o main.c,** poderá descobrir que o IntelliSense informa que não pode abrir os ficheiros de origem C SDK. Para ativar o IntelliSense correto e a navegação por código, utilize os seguintes passos para incluir a fonte C SDK:
 
-1. No Código VS, utilize **Ctrl+Shift+P** para abrir a paleta de comando, escreva e selecione **C/C++: Editar Configurações (JSON)** para abrir o ficheiro **c_cpp_properties.json.**
+1. No Código VS, utilize **Ctrl+Shift+P** para abrir a paleta de comando, escreva e selecione **C/C++: Editar Configurações (JSON)** para abrir o **c_cpp_properties.jsno** ficheiro.
 
 1. Adicione o caminho do dispositivo SDK na `includePath` secção:
 
@@ -256,6 +255,6 @@ O gerador de códigos pode regenerar o código se atualizar os seus ficheiros DC
 
 Azure IoT Tools é um projeto de origem aberta no GitHub. Para quaisquer problemas e pedidos de funcionalidades, pode [criar um problema no GitHub](https://github.com/microsoft/vscode-azure-iot-tools/issues/new).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo de como fazer, aprendeu a usar o Visual Studio e o Visual Studio Code para gerar código C de esqueleto para implementar a aplicação do dispositivo. Um próximo passo sugerido é aprender a instalar e usar a ferramenta [exploradora Azure IoT.](./howto-install-iot-explorer.md)

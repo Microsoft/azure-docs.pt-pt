@@ -4,10 +4,9 @@ description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Ser
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299235"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
@@ -50,7 +49,7 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
 
 Atualmente será cobrado apenas por instantâneos, uma vez que a cópia de segurança da partilha de ficheiros Azure é uma solução baseada em instantâneos. Os custos de armazenamento incorridos para instantâneos são faturados juntamente com o uso de ficheiros Azure de acordo com os detalhes de preços [mencionados aqui](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Encontre respostas a [Perguntas sobre o backup dos Ficheiros Azure](backup-azure-files-faq.md)

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
 ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300795"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
@@ -359,6 +358,6 @@ AzureDiagnostics  
 
 Para o alerta, desa um **valor de limiar** para 1 e **periode** para 1440 minutos, para verificar falhas no último dia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre](site-recovery-monitor-and-troubleshoot.md) a monitorização incorporada da Recuperação do Local.

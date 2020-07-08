@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84265323"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de streaming suave do Microsoft para o Adobe Open Source Media Framework  
@@ -334,7 +333,7 @@ O streaming suave para plugin dinâmico OSMF é compatível com [a Reprodução 
 2. Defina o src numa fonte de streaming suave (por exemplo, http: \/ /devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Faça as alterações de configuração desejadas e clique em Pré-visualização e Atualização.
    
-   **Nota** O seu servidor web de conteúdo precisa de um crossdomain.xml válido. 
+   **Nota** O seu servidor web de conteúdo precisa de uma crossdomain.xml válida. 
 4. Copie e cole o código para uma página HTML simples utilizando o seu editor de texto favorito, como no exemplo seguinte:
 
         <html>
@@ -391,6 +390,6 @@ Para obter mais informações sobre o desenvolvimento geral da OSMF, consulte a 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Microsoft Adaptive Streaming Plugin para atualização OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

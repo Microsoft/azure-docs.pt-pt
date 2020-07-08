@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300324"
 ---
 # <a name="vpn-gateway-design"></a>Design VPN Gateway
@@ -97,7 +96,7 @@ Pode configurar uma Rede de VPNs como um caminho de ativação pós-falha seguro
 
 Para planeamento e conceção de ligações altamente disponíveis, consulte [ligações altamente disponíveis.](vpn-gateway-highlyavailable.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 

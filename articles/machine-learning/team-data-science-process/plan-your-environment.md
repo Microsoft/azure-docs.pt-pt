@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267930"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planear o processamento de dados de análises avançadas
@@ -158,7 +157,7 @@ Existem muitas opções para línguas, ambientes de desenvolvimento e ferramenta
 
 Depois de ter respondido às perguntas na secção anterior, está pronto para determinar qual o cenário que melhor se adequa ao seu caso. Os cenários da amostra são delineados em [Cenários para análises avançadas em Azure Machine Learning](plan-sample-scenarios.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [O que é o Team Data Science Process (TDSP)?](overview.md)

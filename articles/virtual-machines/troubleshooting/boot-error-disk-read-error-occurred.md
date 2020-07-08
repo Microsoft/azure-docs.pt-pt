@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
 ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300527"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Erro de arranque de resolução de problemas - erro de leitura de disco ocorreu

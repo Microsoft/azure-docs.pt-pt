@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
 ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267635"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
@@ -130,11 +129,11 @@ Aqui está um resumo das opções HA/DR apresentadas neste artigo que pode ser u
 
 | Opção HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade de implementação | Impacto adicional dos custos|
 | --- | --- | --- | --- | --- | --- |
-| Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|No|Nenhuma|Nenhuma|
-| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Yes|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhuma|
-| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|No|Alta|> 1x o custo de 1 hub IoT|
+| Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhuma|Nenhuma|
+| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhuma|
+| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|Não|Alta|> 1x o custo de 1 hub IoT|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é o IoT Hub do Azure?](about-iot-hub.md)
 * [Começa com o IoT Hubs (Quickstart)](quickstart-send-telemetry-dotnet.md)

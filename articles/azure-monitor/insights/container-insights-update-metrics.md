@@ -4,10 +4,9 @@ description: Este artigo descreve como atualiza o Azure Monitor para contentores
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298266"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contentores para ativar métricas

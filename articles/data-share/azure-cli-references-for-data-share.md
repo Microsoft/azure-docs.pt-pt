@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 05/27/2020
 ms.author: dbradish
 ms.openlocfilehash: 404022b13f44174e4b647f0430a58fac5eeb81df
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300620"
 ---
 # <a name="azure-cli-for-azure-data-share"></a>Azure CLI para partilha de dados Azure
@@ -24,7 +23,7 @@ A Interface da Linha de Comando[Azure (Azure CLI)](/cli/azure/what-is-azure-cli)
 
 Todos os comandos Azure CLI para Azure Data Share são atualmente extensões ao Azure CLI.  Uma extensão dá-lhe acesso a comandos experimentais e pré-lançamento.  Saiba mais sobre as referências de extensão de extensão de [utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-|Referência Azure CLI |Description
+|Referência Azure CLI |Descrição
 |-|-|-|
 | [az datashare](/cli/azure/ext/datashare/datashare) | Todos os comandos para gerir a Azure Data Share.
 | [conta de datashare az](/cli/azure/ext/datashare/datashare/account) | Comandos para gerir as contas Azure Data Share.
@@ -58,7 +57,7 @@ az group list --subscription MySubscription --output table
 az datashare account create --location "West US 2" --tags tag1=Red tag2=White --name MyAccount --resource-group MyResourceGroup
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Começa com o Azure CLI](/cli/azure/get-started-with-azure-cli) para aprender sobre a instalação e iniciar súm.
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307372"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Como funciona o Azure Dev Spaces
@@ -22,7 +21,7 @@ O Azure Dev Spaces fornece-lhe múltiplas formas de iterar e depurar rapidamente
 
 A Azure Dev Spaces reduz o esforço de desenvolvimento, teste e iteração da sua aplicação Kubernetes no contexto do seu cluster AKS. Esta redução de esforço permite que os desenvolvedores se concentrem na lógica de negócio das suas aplicações e não configuram os seus serviços para funcionar em Kubernetes.
 
-### <a name="local-process-with-kubernetes"></a>Processo Local com Kubernetes
+### <a name="local-process-with-kubernetes"></a>Processo Local com o Kubernetes
 
 Com o Processo Local com Kubernetes, pode ligar o seu computador de desenvolvimento ao seu cluster Kubernetes, permitindo-lhe executar e depurar código no seu computador de desenvolvimento como se estivesse a funcionar no cluster. O Azure Dev Spaces redireciona o tráfego entre o seu cluster conectado, executando uma cápsula no seu cluster que funciona como um agente remoto para redirecionar o tráfego entre o seu computador de desenvolvimento e o cluster. Esta reorientação de tráfego permite que o código no seu computador de desenvolvimento e serviços em execução no seu cluster se comunique como se estivessem no mesmo cluster. Para obter mais informações sobre a ligação do seu computador de desenvolvimento a um cluster Kubernetes, consulte [como funciona o Processo Local com kubernetes.][how-it-works-local-process-kubernetes]
 
@@ -42,7 +41,7 @@ Com o Azure Dev Spaces, uma equipa pode partilhar um único cluster AKS executan
 
 Também pode utilizar As Ações GitHub com Espaços Azure Dev para testar alterações à sua aplicação num pedido de puxar diretamente no seu cluster antes de se fundir. O Azure Dev Spaces pode implementar automaticamente uma versão de revisão da aplicação para o seu cluster, permitindo ao autor, bem como a outros membros da equipa, rever as alterações no contexto de toda a aplicação. Utilizando as capacidades de encaminhamento do Azure Dev Spaces, esta versão de revisão da aplicação também é implantada no seu cluster sem afetar outros espaços dev. Todas estas capacidades permitem-lhe aprovar e fundir com confiança pedidos de pull. Para ver um exemplo de GitHub Actions and Azure Dev Spaces, consulte [gitHub actions & Serviço Azure Kubernetes][pr-flow].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a ligar o seu computador de desenvolvimento local ao seu cluster AKS, consulte [Ligue o seu computador de desenvolvimento a um cluster AKS.][connect]
 

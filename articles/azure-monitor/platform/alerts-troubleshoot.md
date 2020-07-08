@@ -7,10 +7,9 @@ ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
 ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300778"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de resolução de problemas nos alertas do Monitor Azure
@@ -248,6 +247,6 @@ Se tiver recebido um erro ao tentar criar, atualizar ou eliminar uma [regra de a
     Verifique a documentação da [regra de ação,](alerts-action-rules.md)ou a regra de [ação PowerShell Set-AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) command. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Se utilizar um alerta de registo, consulte também [alertas de registo de resolução de problemas](alert-log-troubleshoot.md).
 - Volte ao [portal Azure](https://portal.azure.com) para verificar se resolveu o seu problema com orientação acima 

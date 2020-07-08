@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266598"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de autenticação e de autorização Azure AD
@@ -308,7 +307,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - O recurso não está configurado para aceitar fichas apenas para dispositivos. |
 | AADSTS240001 | BulkAADJTokenUnautized - O utilizador não está autorizado a registar dispositivos em Azure AD. |
 | AADSTS240002 | RequeridoClaimIsMissing - O id_token não pode ser usado como `urn:ietf:params:oauth:grant-type:jwt-bearer` subvenção.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - O administrador do inquilino configura uma política de segurança que bloqueia este pedido. Verifique as políticas de segurança definidas ao nível do arrendatário para determinar se o seu pedido cumpre os requisitos da apólice. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - O administrador do inquilino configura uma política de segurança que bloqueia este pedido. Verifique as políticas de segurança definidas ao nível do inquilino para determinar se o pedido cumpre os requisitos da política. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - O pedido não foi encontrado no diretório/inquilino. Este erro poderá ocorrer se a aplicação não tiver sido instalada pelo administrador do inquilino ou não tiver sido permitida por qualquer utilizador do inquilino. Poderá ter configurado incorretamente o valor do identificador da aplicação ou enviado o pedido de autenticação para o inquilino errado. |
 | AADSTS700020 | InteractionRequired - A bolsa de acesso requer interação. |
 | AADSTS700022 | InvalidMultipleResourcesScope - O valor fornecido para o âmbito do parâmetro de entrada não é válido porque contém mais do que um recurso. |
@@ -321,6 +320,6 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS7000112 | Não autorizadoClientApplicationDabled - A aplicação está desativada. |
 | AADSTS7500529 | O valor 'SAMLId-Guid' não é um ID SAML válido - A azure AD utiliza este atributo para preencher o atributo InResponseTo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, id6c1c178c16666687be4aaf5e482730 é um ID válido. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Tem uma pergunta ou não consegue encontrar o que procura? Crie um problema do GitHub ou veja [opções de Suporte e ajuda para que os desenvolvedores](active-directory-develop-help-support.md) aprendam sobre outras formas de obter ajuda e suporte.

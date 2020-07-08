@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Descreve os requisitos de networking para executar Azure Dev Spaces em Serviços Azure Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, CNI, kubenet, SDN, rede
 ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300696"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurar a rede para espaços Azure Dev em diferentes topologias de rede
@@ -85,7 +84,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 O Azure Dev Spaces utiliza ferramentas do lado do cliente, como a extensão CLI do Azure Dev Spaces, a extensão do Código do Estúdio Visual e a extensão do Visual Studio, para comunicar com o seu cluster AKS para depuração. Para utilizar a ferramenta do lado do cliente da Azure Dev Spaces, permita o tráfego das máquinas de desenvolvimento até à [infraestrutura Azure Dev Spaces][dev-spaces-allow-infrastructure]. Se utilizar [os intervalos IP autorizados pelo servidor API,][auth-range-section]também precisa de permitir o endereço IP de quaisquer máquinas de desenvolvimento que se conectem ao seu cluster AKS para depurar para se ligar ao seu servidor API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
 

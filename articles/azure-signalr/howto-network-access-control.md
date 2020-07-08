@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300219"
 ---
 # <a name="configure-network-access-control"></a>Configure o controlo de acesso à rede
@@ -60,6 +59,6 @@ Pode gerir o controlo de acesso à rede para o Serviço Azure SignalR através d
 
 1. Clique em **Guardar** para aplicar as suas alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [o Azure Private Link](/azure/private-link/private-link-overview).

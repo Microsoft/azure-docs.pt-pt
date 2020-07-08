@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300205"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Utilize pontos finais privados para o serviço Azure SignalR
@@ -200,6 +199,6 @@ Este constrangimento é o resultado das alterações ao DNS efetuadas quando o S
 
 Atualmente, não é possível configurar as regras [do Grupo de Segurança da Rede](../virtual-network/security-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras NSG aplicadas à sub-rede que acolhe o ponto final privado são aplicadas ao ponto final privado. Uma solução limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas sub-redes de origem, embora esta abordagem possa exigir uma maior sobrecarga de gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configure controlo de acesso à rede](howto-network-access-control.md)

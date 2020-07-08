@@ -4,10 +4,9 @@ description: Crie um grupo de contentores numa rede virtual e use uma porta de e
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299167"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Expor um endereço IP estático para um grupo de contentores
@@ -142,7 +141,7 @@ Para ver a aplicação web em execução quando configurada com sucesso, navegue
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure](./media/container-instances-application-gateway/aci-app-app-gateway.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte um [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) para criar um grupo de contentores com uma instância de contentor WordPress como um servidor de backend atrás de um gateway de aplicações.
 * Também pode configurar um gateway de aplicação com um certificado de rescisão SSL. Veja a [visão geral](../application-gateway/ssl-overview.md) e o [tutorial.](../application-gateway/create-ssl-portal.md)

@@ -4,10 +4,9 @@ description: Encontre respostas para algumas das perguntas comuns sobre o Servi�
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300931"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
@@ -24,11 +23,11 @@ Não. Os aglomerados AKS são recursos regionais e não podem abranger regiões.
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Posso espalhar um cluster AKS através de zonas de disponibilidade?
 
-Yes. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
+Sim. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor API da Kubernetes?
 
-Yes. Existem duas opções para limitar o acesso ao servidor API:
+Sim. Existem duas opções para limitar o acesso ao servidor API:
 
 - Utilize [gamas IP autorizadas do servidor API][api-server-authorized-ip-ranges] se pretender manter um ponto final público para o servidor API, mas restringir o acesso a um conjunto de gamas IP fidedignas.
 - Utilize [um cluster privado][private-clusters] se pretender limitar o servidor API para estar acessível *apenas* a partir da sua rede virtual.
@@ -62,7 +61,7 @@ Para permitir esta arquitetura, cada implantação AKS abrange dois grupos de re
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Posso dar o meu próprio nome para o grupo de recursos de nó AKS?
 
-Yes. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
+Sim. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
 
 Para especificar o nome do seu próprio grupo de recursos, instale a versão de extensão Azure CLI [de pré-visualização aks-preview][aks-preview-cli] *0.3.2* ou posterior. Quando criar um cluster AKS utilizando os [az aks criar][az-aks-create] comando, use o parâmetro *grupo de recursos-node* e especifique um nome para o grupo de recursos. Se [utilizar um modelo de Gestor de Recursos Azure][aks-rm-template] para implantar um cluster AKS, pode definir o nome do grupo de recursos utilizando a propriedade *nodeResourceGroup.*
 

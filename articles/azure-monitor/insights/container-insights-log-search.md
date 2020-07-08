@@ -4,10 +4,9 @@ description: O Azure Monitor para contentores recolhe métricas e dados de regis
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 392aac8f81ac3894fca8b6f70570834a5af16ade
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298308"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar registos do Azure Monitor para contentores
@@ -26,7 +25,7 @@ No quadro seguinte, são fornecidos pormenores sobre os registos recolhidos pelo
 | Inventário do nó do contentor | Kube API | `ContainerNodeInventory`| TempoGertado, Computador, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Inventário de cápsulas num aglomerado de Kubernetes | Kube API | `KubePodInventory` | TimeGenerated, Computador, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, |
 | Inventário de nó de nó parte de um cluster Kubernetes | Kube API | `KubeNodeInventory` | TimeGenerated, Computador, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Eventos Kubernetes | Kube API | `KubeEvents` | TempoGertado, Computador, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Mensagem, SourceSystem | 
+| Eventos do Kubernetes | Kube API | `KubeEvents` | TempoGertado, Computador, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Mensagem, SourceSystem | 
 | Serviços no cluster Kubernetes | Kube API | `KubeServices` | TempoGerado, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
 | Métricas de desempenho para nópartes parte do cluster Kubernetes || Perf &#124; onde ObjectName == "K8SNode" | Computador, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Métricas de desempenho para contentores parte do cluster Kubernetes || Perf &#124; onde ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
@@ -48,7 +47,7 @@ Os registos de contentores que são reencaminhados para o seu espaço de trabalh
 
 Muitas vezes é útil construir consultas que começam com um ou dois exemplos e depois modificá-las para se adequar às suas necessidades. Para ajudar a construir consultas mais avançadas, pode experimentar as seguintes consultas de amostra:
 
-| Consulta | Description | 
+| Consulta | Descrição | 
 |-------|-------------|
 | ContentorInventory<br> &#124; projeto Computador, Nome, Imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; mesa de renderização | Listar todas as informações do ciclo de vida de um contentor| 
 | KubeEvents_CL<br> &#124; em que não(isempty(Namespace_s))<br> &#124; tipo por Desc degenerado Tempo<br> &#124; mesa de renderização | Eventos de Kubernetes|
@@ -109,6 +108,6 @@ A saída apresenta resultados semelhantes ao seguinte exemplo:
 
 ![Registar resultados de eventos informativos do agente](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](container-insights-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais. 

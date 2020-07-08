@@ -12,10 +12,9 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84295427"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicação que podem ser usados no Ative Directory B2C
@@ -142,6 +141,6 @@ Se editar a aplicação Azure AD B2C fora do portal Azure, torna-se uma aplicaç
 
 Para eliminar a candidatura, aceda ao Portal de [Registo de Candidaturas](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) e elimine a aplicação no mesmo. Para que a aplicação fique visível, tem de ser o proprietário da aplicação (e não apenas um administrador do inquilino).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as políticas [incorporadas fornecidas pelos fluxos de utilizador no Azure Ative Directory B2C](user-flow-overview.md).

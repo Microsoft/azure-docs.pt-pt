@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266721"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar VMs de início/paragem durante as horas fora de horas
@@ -183,7 +182,7 @@ Configurar a funcionalidade para apenas parar VMs em determinado momento é supo
 
 5. Selecione **OK** para guardar as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para monitorizar a função durante o funcionamento, consulte [os registos de consulta dos VMs de início/paragem durante as horas de folga](automation-solution-vm-management-logs.md).
 * Para lidar com problemas durante a gestão de VM, consulte [os VMs de início/paragem de resolução de problemas durante as horas fora de horas](troubleshoot/start-stop-vm.md).

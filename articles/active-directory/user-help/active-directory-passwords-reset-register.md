@@ -13,10 +13,9 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266105"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registe a informação do seu método de verificação para redefinir a sua própria senha
@@ -61,7 +60,7 @@ O seu administrador deve ligar esta funcionalidade para poder registar as suas i
 | A sua conta não está ativada para reiniciar a palavra-passe.<br>Lamentamos, mas a sua equipa de TI não criou a sua conta para uso neste serviço.<br>Se quiser, podemos contactar um administrador da sua organização para redefinir a sua senha. | Se receber esta mensagem de erro depois de escrever o seu ID do Utilizador, significa que ou a sua organização não ligou a funcionalidade de reset da palavra-passe ou não está autorizada a usá-la. Para redefinir a sua palavra-passe nesta situação, tem de selecionar o link **de contacto de um administrador.** Depois de clicar no link, é enviado um e-mail para o balcão de ajuda ou administrador da sua organização, informando-os de que pretende redefinir a sua palavra-passe. |
 | Não pudemos verificar a sua conta.<br>Se quiser, podemos contactar um administrador da sua organização para redefinir a sua senha. | Se receber esta mensagem de erro depois de escrever o seu ID do Utilizador, significa que a sua organização ligou a palavra-passe e pode usá-la, mas que não se registou para o serviço. Nesta situação, deve contactar o balcão de ajuda ou administrador da sua organização para redefinir a sua palavra-passe. Para obter informações sobre o reposição da palavra-passe após o seu dispositivo, consulte o processo acima neste artigo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Altere a sua palavra-passe utilizando o reset da palavra-passe de autosserviço](active-directory-passwords-update-your-own-password.md)
 

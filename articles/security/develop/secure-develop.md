@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266768"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
@@ -150,7 +149,7 @@ Garantir que a sua aplicação está segura é tão importante como testar qualq
 
 [Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contém SVTs para múltiplos serviços da plataforma Azure. Você executou estes SVTs periodicamente para garantir que a sua subscrição Azure e os diferentes recursos que compõem a sua aplicação estão em um estado seguro. Também pode automatizar estes testes utilizando a funcionalidade de extensão de integração contínua/implementação contínua (CI/CD) da AzSK, que disponibiliza SVTs como extensão do Visual Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Nos seguintes artigos, recomendamos controlos de segurança e atividades que possam ajudá-lo a conceber e implementar aplicações seguras.
 
 - [Design de aplicações seguras](secure-design.md)

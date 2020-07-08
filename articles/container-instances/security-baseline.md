@@ -8,10 +8,9 @@ ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 3897ef75be34d4413e06dc5459739baec3afdcec
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84268003"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança Azure para instâncias de contentores
@@ -1201,7 +1200,7 @@ Além disso, marque claramente as subscrições (por exemplo. produção, não p
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

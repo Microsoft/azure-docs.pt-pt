@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266700"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
@@ -323,9 +322,9 @@ A imagem abaixo é um exemplo de renderização de rotas alternativas com limite
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Utilize o serviço de encaminhamento numa aplicação web
 
-O Azure Maps Web SDK fornece um [módulo de serviço.](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest) Este módulo é uma biblioteca auxiliar que facilita a utilização das APIs REST do Azure Maps nas aplicações web ou Node.js, utilizando JavaScript ou TypeScript. O módulo de Serviço pode ser utilizado para tornar as rotas devolvidas no mapa. O módulo determina automaticamente quais a API a utilizar com pedidos GET e POST.
+O Azure Maps Web SDK fornece um [módulo de serviço.](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest) Este módulo é uma biblioteca auxiliar que facilita a utilização das APIs REST do Azure Maps em aplicações web ou Node.js, utilizando JavaScript ou TypeScript. O módulo de Serviço pode ser utilizado para tornar as rotas devolvidas no mapa. O módulo determina automaticamente quais a API a utilizar com pedidos GET e POST.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte:
 

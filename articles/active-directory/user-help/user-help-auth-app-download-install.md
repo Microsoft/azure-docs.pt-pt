@@ -13,10 +13,9 @@ ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266224"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Descarregue e instale a aplicação Microsoft Authenticator
@@ -49,7 +48,7 @@ Instale a versão mais recente da aplicação Microsoft Authenticator, com base 
 >[!Important]
 >Se não estiver atualmente no seu dispositivo móvel, ainda pode obter a aplicação Microsoft Authenticator enviando um link de descarregamento a partir da página microsoft [Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de descarregar e instalar a aplicação, consulte a visão geral da [aplicação Authenticator](user-help-auth-app-overview.md) para saber mais. Para obter mais opções de configuração, consulte:
 

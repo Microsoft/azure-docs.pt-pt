@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: e9438e2e82a6d903b74973fe489b0a67d66c9a72
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84296957"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre a Faísca Apache e a Colmeia Apache com o Conector do Armazém da Colmeia em Azure HDInsight
@@ -221,7 +220,7 @@ kinit USERNAME
 
     ![mesa de demonstração depois de aplicar a política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).

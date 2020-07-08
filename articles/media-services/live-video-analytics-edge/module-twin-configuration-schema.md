@@ -4,10 +4,9 @@ description: Este tópico descreve o esquema do JSON twin do vídeo ao vivo no I
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266819"
 ---
 # <a name="module-twin-json-schema"></a>Módulo twin JSON schema
@@ -25,21 +24,21 @@ Live Video Analytics on IoT Edge expõe as seguintes propriedades gémeas do mó
 
 |Propriedade |Necessário |Dinâmica |Descrição |
 |---|---|---|---|
-|aplicaçãoDataDirectório |Yes |No |Caminho para um volume montado para uma configuração persistente. |
-|azureMediaServicesArmId |Yes |No |Identificador exclusivo de Gestão de Recursos Azure para a Conta de Serviços de Mídia.|
-|aadTenantId |Yes |No |Cliente Azure Ad Inquilina do Inquilino.|
+|aplicaçãoDataDirectório |Sim |Não |Caminho para um volume montado para uma configuração persistente. |
+|azureMediaServicesArmId |Sim |Não |Identificador exclusivo de Gestão de Recursos Azure para a Conta de Serviços de Mídia.|
+|aadTenantId |Sim |Não |Cliente Azure Ad Inquilina do Inquilino.|
 |aadServicePrincipalAppId |Sim |Sim |O cliente criou o Azure AD AppId.|
-|aadServicePrincipalCertificate |Sim, é o seu<sup>*</sup>  |Yes |O cliente criou o certificado Azure AD AppId.|
-|aadServicePrincipalPassword |Sim, é o seu<sup>*</sup>  |Yes |O cliente criou a senha Azure AD AppId.|
+|aadServicePrincipalCertificate |Sim, é o seu<sup>*</sup>  |Sim |O cliente criou o certificado Azure AD AppId.|
+|aadServicePrincipalPassword |Sim, é o seu<sup>*</sup>  |Sim |O cliente criou a senha Azure AD AppId.|
 |aadEndpoint |Não |Não |Ponto final Azure AD específico da nuvem. <br/>Predefinição:`https://login.microsoftonline.com` |
 |aadResourceId |Não |Não |Audiência/ID de recursos Azure específicos em nuvem <br/>Predefinição:`https://management.core.windows.net/` |
 |armEndpoint |Não |Não |Fonte específica de recursos Azure Gerencie o ponto final. <br/>Predefinição:`https://management.azure.com/` |
-|diagnósticosLevel |No |Yes |Verbosidade dos eventos: <br/>Informação &#x02758; Aviso &#x02758; Erro &#x02758; & crítico#x02758; Nenhum. |
-|diagnósticoSEventsOutputName |No |Yes |Saída do hub para eventos de diagnóstico. <br/>(Vazio significa que os diagnósticos não são publicados)|
-|operacionalEventsOutputName|No|Yes|Produção do hub para eventos operacionais.<br/>(Vazio significa que os eventos operacionais não são publicados)
-|logLevel|No|Yes|Um dos seguintes: <br/>&#x000B7; Verbose<br/>&#x000B7; Informação (Padrão)<br/>&#x000B7; Aviso<br/>&#x000B7; Erro<br/>&#x000B7; Nenhum.|
-|logCategorias|No|Yes|Uma lista separada em vírgula do seguinte: Aplicação, MediaPipeline, Eventos <br/>Padrão: Aplicação, Eventos|
-|debugLogsDirectory|No|Yes|Diretório para registos de depurg. Se os registos presentes forem gerados, se não estiverem desativados os registos de depuração.
+|diagnósticosLevel |Não |Sim |Verbosidade dos eventos: <br/>Informação &#x02758; Aviso &#x02758; Erro &#x02758; & crítico#x02758; Nenhum. |
+|diagnósticoSEventsOutputName |Não |Sim |Saída do hub para eventos de diagnóstico. <br/>(Vazio significa que os diagnósticos não são publicados)|
+|operacionalEventsOutputName|Não|Sim|Produção do hub para eventos operacionais.<br/>(Vazio significa que os eventos operacionais não são publicados)
+|logLevel|Não|Sim|Um dos seguintes: <br/>&#x000B7; Verbose<br/>&#x000B7; Informação (Padrão)<br/>&#x000B7; Aviso<br/>&#x000B7; Erro<br/>&#x000B7; Nenhum.|
+|logCategorias|Não|Sim|Uma lista separada em vírgula do seguinte: Aplicação, MediaPipeline, Eventos <br/>Padrão: Aplicação, Eventos|
+|debugLogsDirectory|Não|Sim|Diretório para registos de depurg. Se os registos presentes forem gerados, se não estiverem desativados os registos de depuração.
 
 <sup>*</sup>Deve fornecer o certificado principal de serviço ou a senha. 
 
@@ -71,6 +70,6 @@ Consulte o artigo sobre [Monitorização e registo de registos](monitoring-loggi
 } 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Métodos diretos](direct-methods.md)

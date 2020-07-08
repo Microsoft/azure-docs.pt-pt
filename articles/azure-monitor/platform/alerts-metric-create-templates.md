@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 6/2/2020
 ms.subservice: alerts
 ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299337"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
@@ -34,7 +33,7 @@ Os passos básicos são os seguintes:
 
 Para criar um alerta utilizando um modelo de Gestor de Recursos, cria um recurso de tipo `Microsoft.Insights/metricAlerts` e preenche todas as propriedades relacionadas. Abaixo está um modelo de amostra que cria uma regra de alerta métrico.
 
-Guarde o json abaixo como simplestaticmetricalert.json para o propósito desta passagem.
+Guarde o json abaixo como simplestaticmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -208,7 +207,7 @@ Uma explicação do esquema e propriedades para uma regra de alerta [está dispo
 
 Pode definir os valores para os parâmetros na linha de comando ou através de um ficheiro de parâmetros. Um ficheiro de parâmetro de amostra é fornecido abaixo.
 
-Guarde o json abaixo como simplestaticmetricalert.parameters.json e modifique-o conforme necessário.
+Guarde o json abaixo à medida que simplestaticmetricalert.parameters.jse modifique-o conforme necessário.
 
 ```json
 {
@@ -283,7 +282,7 @@ az group deployment create \
 
 Para criar um alerta utilizando um modelo de Gestor de Recursos, cria um recurso de tipo `Microsoft.Insights/metricAlerts` e preenche todas as propriedades relacionadas. Abaixo está um modelo de amostra que cria uma regra de alerta métrico.
 
-Guarde o json abaixo como simpledynamicmetricalert.json para o propósito desta passagem.
+Guarde o json abaixo como simpledynamicmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -481,7 +480,7 @@ Uma explicação do esquema e propriedades para uma regra de alerta [está dispo
 
 Pode definir os valores para os parâmetros na linha de comando ou através de um ficheiro de parâmetros. Um ficheiro de parâmetro de amostra é fornecido abaixo. 
 
-Guarde o json abaixo como simpledynamicmetricalert.parameters.json e modifique-o conforme necessário.
+Guarde o json abaixo à medida que simpledynamicmetricalert.parameters.jse modifique-o conforme necessário.
 
 ```json
 {
@@ -572,7 +571,7 @@ Por favor, note os seguintes constrangimentos ao utilizar dimensões numa regra 
     - No exemplo abaixo, porque tanto as **métricas de Transações** como **de SucessoE2EAtenência** têm uma dimensão **ApiName,** e o *critério1* especifica o valor *"GetBlob"* para a dimensão **ApiName,** então o *critério2* também deve definir um valor *"GetBlob"* para a dimensão **ApiName.**
 
 
-Guarde o json abaixo como avançado estatuicaler.json para o propósito desta passagem.
+Guarde o json abaixo como advancedstaticmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -707,7 +706,7 @@ Guarde o json abaixo como avançado estatuicaler.json para o propósito desta pa
 
 Pode utilizar o modelo acima juntamente com o ficheiro de parâmetros fornecido abaixo. 
 
-Guarde e modifique o json abaixo como advancedstaticmetricalert.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como advancedstaticmetricalert.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -816,7 +815,7 @@ Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por 
 - Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
 - Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
 
-Guarde o json abaixo como multidimensionalizado.json para o propósito desta passagem.
+Guarde o json abaixo como multidimensionalstaticmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -943,7 +942,7 @@ Guarde o json abaixo como multidimensionalizado.json para o propósito desta pas
 
 Pode utilizar o modelo acima juntamente com o ficheiro de parâmetros fornecido abaixo. 
 
-Guarde e modifique o json abaixo como multidimensionalizado.parâmetros.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como multidimensionalstaticmetricalert.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1036,7 +1035,7 @@ Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por 
 - Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
 - Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
 
-Guarde o json abaixo como advanceddynamicmetricalert.json para o propósito desta passagem.
+Guarde o json abaixo como advanceddynamicmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1158,7 +1157,7 @@ Guarde o json abaixo como advanceddynamicmetricalert.json para o propósito dest
 
 Pode utilizar o modelo acima juntamente com o ficheiro de parâmetros fornecido abaixo. 
 
-Guarde e modifique o json abaixo como advanceddynamicmetricalert.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como advanceddynamicmetricalert.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1252,7 +1251,7 @@ Para saber mais sobre métricas personalizadas no Azure Monitor, consulte [métr
 
 Ao criar uma regra de alerta sobre uma métrica personalizada, é necessário especificar tanto o nome métrico como o espaço de nome métrico. Também deve certificar-se de que a métrica personalizada já está a ser reportada, uma vez que não pode criar uma regra de alerta sobre uma métrica personalizada que ainda não existe.
 
-Guarde o json abaixo como alfarrotético.json para o propósito desta passagem.
+Guarde o json abaixo como customstaticmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1432,7 +1431,7 @@ Guarde o json abaixo como alfarrotético.json para o propósito desta passagem.
 
 Pode utilizar o modelo acima juntamente com o ficheiro de parâmetros fornecido abaixo. 
 
-Guarde e modifique o json abaixo como customstticmetricalert.parameters.json para efeitos desta passagem.
+Guarde e modifique o json abaixo como customstaticmetricalert.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1527,7 +1526,7 @@ Esta secção descreverá modelos do Gestor de Recursos Azure para três cenári
 
 Este modelo criará uma regra de alerta métrica estática que monitoriza a Percentagem cpU para todas as máquinas virtuais (numa região de Azure) em um ou mais grupos de recursos.
 
-Guarde o json abaixo como all-vms-in-resource-group-static.json para o propósito deste walk-through.
+Guarde o json abaixo como all-vms-in-resource-group-static.jspara o propósito deste walk-through.
 
 ```json
 {
@@ -1760,7 +1759,7 @@ Guarde o json abaixo como all-vms-in-resource-group-static.json para o propósit
 ```
 
 Pode utilizar o modelo acima com o ficheiro de parâmetro abaixo.
-Guarde e modifique o json abaixo como all-vms-in-resource-group-static.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como all-vms-in-resource-group-static.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1839,7 +1838,7 @@ az group deployment create \
 
 Este modelo criará uma regra de alerta métrica Dynamic Thresholds que monitoriza a Percentagem cpU para todas as máquinas virtuais (numa região de Azure) em um ou mais grupos de recursos.
 
-Guarde o json abaixo como all-vms-in-resource-group-dynamic.json para o propósito deste walk-through.
+Guarde o json abaixo como all-vms-in-resource-group-dynamic.jspara o propósito deste walk-through.
 
 ```json
 {
@@ -2089,7 +2088,7 @@ Guarde o json abaixo como all-vms-in-resource-group-dynamic.json para o propósi
 ```
 
 Pode utilizar o modelo acima com o ficheiro de parâmetro abaixo.
-Guarde e modifique o json abaixo como all-vms-in-resource-group-dynamic.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como all-vms-in-resource-group-dynamic.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -2174,7 +2173,7 @@ az group deployment create \
 
 Este modelo criará uma regra de alerta métrico de limiar estático que monitoriza a Percentagem CPU para todas as máquinas virtuais (numa região de Azure) numa subscrição.
 
-Guarde o json abaixo como all-vms-in-subscription-static.json para o propósito deste walk-through.
+Guarde o json abaixo como all-vms-in-subscription-static.jspara o propósito deste walk-through.
 
 ```json
 {
@@ -2408,7 +2407,7 @@ Guarde o json abaixo como all-vms-in-subscription-static.json para o propósito 
 ```
 
 Pode utilizar o modelo acima com o ficheiro de parâmetro abaixo.
-Guarde e modifique o json abaixo como all-vms-in-subscrição-static.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como all-vms-in-subscription-static.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -2484,7 +2483,7 @@ az group deployment create \
 
 Este modelo criará uma regra de alerta métrica Dynamic Thresholds que monitoriza a Percentagem cpU para todas as máquinas virtuais (numa região de Azure) numa subscrição.
 
-Guarde o json abaixo como all-vms-in-subscrição-dynamic.json para o propósito deste walk-through.
+Guarde o json abaixo como all-vms-in-subscription-dynamic.jspara o propósito deste walk-through.
 
 ```json
 {
@@ -2734,7 +2733,7 @@ Guarde o json abaixo como all-vms-in-subscrição-dynamic.json para o propósito
 ```
 
 Pode utilizar o modelo acima com o ficheiro de parâmetro abaixo.
-Guarde e modifique o json abaixo como all-vms-in-subscription-dynamic.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como all-vms-in-subscription-dynamic.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -2816,7 +2815,7 @@ az group deployment create \
 
 Este modelo criará uma regra de alerta métrico de limiar estático que monitoriza a Percentagem CPU para uma lista de máquinas virtuais (numa região de Azure) numa subscrição.
 
-Guarde o json abaixo como lista de vms-static.json para o propósito deste walk-through.
+Guarde o json abaixo como list-of-vms-static.jspara o propósito deste walk-through.
 
 ```json
 {
@@ -3050,7 +3049,7 @@ Guarde o json abaixo como lista de vms-static.json para o propósito deste walk-
 ```
 
 Pode utilizar o modelo acima com o ficheiro de parâmetro abaixo.
-Guarde e modifique o json abaixo como lista de vms-static.parameters.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como list-of-vms-static.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -3129,7 +3128,7 @@ az group deployment create \
 
 Este modelo criará uma regra de alerta métrica Dynamic Thresholds que monitoriza a Percentagem CPU para uma lista de máquinas virtuais (numa região de Azure) numa subscrição.
 
-Guarde o json abaixo como lista de vms-dynamic.json para o propósito deste walk-through.
+Guarde o json abaixo como list-of-vms-dynamic.jspara o propósito deste walk-through.
 
 ```json
 {
@@ -3379,7 +3378,7 @@ Guarde o json abaixo como lista de vms-dynamic.json para o propósito deste walk
 ```
 
 Pode utilizar o modelo acima com o ficheiro de parâmetro abaixo.
-Guarde e modifique o json abaixo como lista de vms-dynamic.parâmetros.json para o propósito desta passagem.
+Guarde e modifique o json abaixo como list-of-vms-dynamic.parameters.jspara o propósito desta passagem.
 
 ```json
 {
@@ -3465,7 +3464,7 @@ az group deployment create \
 [Os testes de disponibilidade de Insights](../../azure-monitor/app/monitor-web-app-availability.md) de Aplicação ajudam-no a monitorizar a disponibilidade do seu site/aplicação de vários locais em todo o mundo. Os alertas de teste de disponibilidade notificam-no quando os testes de disponibilidade falham a partir de um determinado número de locais.
 Alertas de teste de disponibilidade do mesmo tipo de recurso que os alertas métricos (Microsoft.Insights/metricAlerts). A amostra a seguir Modelo do Gestor de Recursos Azure pode ser usada para configurar um teste de disponibilidade simples e alerta associado.
 
-Guarde o json abaixo como availabilityalert.json para o propósito desta passagem.
+Guarde o json abaixo como availabilityalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -3573,7 +3572,7 @@ Pode definir os valores para os parâmetros na linha de comando ou através de u
 >
 > `&amp`; é a referência da entidade HTML para &. Os parâmetros url ainda estão separados por uma única &, mas se mencionar o URL em HTML, precisa de o codificar. Por isso, se tiver algum "&" no seu valor de parâmetro pingURL, tem de escapar com " `&amp` "."
 
-Guarde o json abaixo como availabilityalert.parameters.json e modifique-o conforme necessário.
+Guarde o json abaixo à medida que availabilityalert.parameters.jse modifique-o conforme necessário.
 
 ```json
 {
@@ -3621,7 +3620,7 @@ az group deployment create \
     --parameters @availabilityalert.parameters.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Ler mais sobre [alertas em Azure](alerts-overview.md)
 - Saiba como [criar um grupo de ação com modelos de Gestor de Recursos](action-groups-create-resource-manager-template.md)

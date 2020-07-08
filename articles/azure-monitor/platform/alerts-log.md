@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 85aaefa12f0cef21e3a367700d1a4899a75e8a90
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298474"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
@@ -207,7 +206,7 @@ Segue-se a estrutura do modelo [de criação de regras de consulta programadas](
 
 ```
 
-A amostra json acima pode ser guardada como (digamos) amostraSchededQueryRule.json para efeitos desta caminhada e pode ser implementada usando [Azure Resource Manager no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.jspara o propósito desta caminhada e pode ser implantada usando [O Gestor de Recursos Azure no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta de registo com consulta de recursos cruzados usando modelo de recursos Azure
@@ -304,7 +303,7 @@ Segue-se a estrutura do modelo [de criação de regras](https://docs.microsoft.c
 > [!IMPORTANT]
 > Ao utilizar consulta de recursos cruzados em alerta de registo, o uso de [recursos autorizados](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) é obrigatório e o utilizador deve ter acesso à lista de recursos indicados
 
-A amostra json acima pode ser guardada como (digamos) amostraSchededQueryRule.json para efeitos desta caminhada e pode ser implementada usando [Azure Resource Manager no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.jspara o propósito desta caminhada e pode ser implantada usando [O Gestor de Recursos Azure no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell"></a>Gerir alertas de registo usando o PowerShell
 
@@ -353,7 +352,7 @@ Azure Monitor - [Regras de Consulta ProgramadaS A API](https://docs.microsoft.co
 > [!NOTE]
 > Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions-resources-searches-alerts.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
 
-Os alertas de registo atualmente não têm comandos CLI dedicados atualmente; mas como ilustrado abaixo pode ser usado através do comando CLI do Gestor de Recursos Azure para o modelo de recursos da amostra mostrado anteriormente (amostraSchededQueryRule.json) na secção modelo de recurso:
+Os alertas de registo atualmente não têm comandos CLI dedicados atualmente; mas como ilustrado abaixo pode ser usado através do comando CLI do Gestor de Recursos Azure para o modelo de recursos da amostra mostrado anteriormente (sampleScheduledQueryRule.js) na secção modelo de recursos:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
@@ -361,7 +360,7 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 
 Em funcionamento bem sucedido, 201 será devolvido ao estado de nova criação de regras de alerta ou 200 serão devolvidos se uma regra de alerta existente for alterada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre alertas de registo em alertas de Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Compreenda [as ações do Webhook para alertas de registo](../../azure-monitor/platform/alerts-log-webhook.md)

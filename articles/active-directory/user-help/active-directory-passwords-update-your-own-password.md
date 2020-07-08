@@ -12,10 +12,9 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266122"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reinicie o seu trabalho ou senha escolar usando informações de segurança
@@ -162,7 +161,7 @@ Eis alguns casos de erro comuns e as suas soluções:
 |Depois de introduzir o meu ID do Utilizador, recebo um erro que diz: "A sua conta não está ativada para reset de palavra-passe."|O seu administrador ainda não criou a sua conta para que possa redefinir a sua própria senha.|O seu administrador não ligou a palavra-passe para a sua organização a partir do link "Não pode aceder à sua conta", ou não o licenciou para utilizar a funcionalidade.<br><br> Para redefinir a sua palavra-passe, tem de selecionar o "link de contacto com um administrador" para enviar um e-mail ao administrador da sua empresa e informá-los de que pretende redefinir a sua palavra-passe.|
 |Depois de introduzir o meu ID do utilizador, recebo um erro que diz: "Não conseguimos verificar a sua conta."|O processo de login não foi capaz de verificar a informação da sua conta.|Há duas razões para estar a ver esta mensagem.<br><br>1. O seu administrador ligou a palavra-passe para a sua organização, mas não se registou para utilizar o serviço. Para se registar para reiniciar a palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Configurar informações de segurança para utilizar uma aplicação autenticadora (pré-visualização)](security-info-setup-auth-app.md), [Configurar informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [Configurar informações](security-info-setup-text-msg.md)de segurança para utilizar mensagens [de texto (pré-visualização)](security-info-setup-email.md) [Set up security info to use security questions (preview)](security-info-setup-questions.md)<br><br>2. O seu administrador não ligou a palavra-passe para a sua organização. Nesta situação, deve selecionar o "link de contacto com um administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir a sua palavra-passe.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre informações de segurança no artigo de visão geral da [informação de segurança (pré-visualização).](user-help-security-info-overview.md)
 

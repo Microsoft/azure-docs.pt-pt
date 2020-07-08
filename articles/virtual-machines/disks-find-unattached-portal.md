@@ -8,10 +8,9 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: ad01155259ea03806f56c6e75b315ff85b606220
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300436"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Localizar e apagar discos geridos e não geridos do Azure - portal Azure
@@ -57,7 +56,7 @@ Se tiver discos não geridos que não estejam ligados a um VM, já não precisa 
 
     :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot de uma lâmina de disco individual não gerido, realçando a exclusão.":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser uma forma automatizada de encontrar e eliminar contas de armazenamento não coladas, consulte os nossos artigos [do CLI](linux/find-unattached-disks.md) ou [da PowerShell.](windows/find-unattached-disks.md)
 
