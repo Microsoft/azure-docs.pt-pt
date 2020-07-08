@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507080"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
@@ -86,7 +86,7 @@ O Azure Monitor para VMs está disponível para servidores ativados aZure Arc em
 
 A tabela que se segue lista os sistemas operativos Windows e Linux que o Azure Monitor suporta para VMs. Mais tarde nesta secção, você encontrará uma lista completa que detalha o lançamento principal e menor do Linux OS e as versões de kernel suportadas.
 
-|Versão do SO |Desempenho |Mapas |
+|Versão do SO |Desempenho |Maps |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -173,9 +173,9 @@ A tabela seguinte descreve as fontes ligadas que a funcionalidade Map suporta nu
 
 | Origem ligada | Suportado | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../../azure-monitor/platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../../azure-monitor/platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Grupo de gestão do System Center Operations Manager | No | |
+| Agentes do Windows | Sim | Juntamente com o [agente Log Analytics para windows,](../../azure-monitor/platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Agentes do Linux | Sim | Juntamente com o [agente Log Analytics para o Linux,](../../azure-monitor/platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Grupo de gestão do System Center Operations Manager | Não | |
 
 Você pode baixar o agente Desafiada a partir destes locais:
 
@@ -219,6 +219,6 @@ Para obter mais informações sobre a recolha e utilização de dados, consulte 
 
 Agora que ativou a monitorização para o seu VM, a informação de monitorização está disponível para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a utilizar a função de monitorização de desempenho, consulte [o View Azure Monitor para o desempenho dos VMs](vminsights-performance.md). Para ver as dependências de aplicações descobertas, consulte [o Monitor do Azure para o Mapa de VMs](vminsights-maps.md).

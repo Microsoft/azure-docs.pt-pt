@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
 ms.openlocfilehash: 92364de82bc3de8229eced4ee02997a27afbde45
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506417"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Como desligar com segurança o hardware do Azure FXT Edge Filer
@@ -33,7 +33,7 @@ Siga estas instruções para desligar com segurança um nó de filete de borda A
 1. Na lista de nós de agrupamento, encontre o que quer desligar. Clique no botão **Desligar** na coluna **Ações.** 
 1. Espere um pouco. O nó desligar-se-á e desligar-se-á.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre o estado dos LEDs e outros indicadores no estado de [hardware do Monitor Azure FXT Edge Filer](fxt-monitor.md).
 * Leia mais sobre fontes de alimentação do Azure FXT Edge Filer nos [cabos de alimentação Connect](fxt-network-power.md#connect-power-cables).

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506264"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use storSimple Snapshot Manager para criar e gerir grupos de volume
@@ -50,7 +50,7 @@ Se clicar no nó **Grupos de Volume,** o painel **de resultados** mostra as segu
 
 | Coluna de resultados | Descrição |
 |:--- |:--- |
-| Nome |A coluna **Nome** contém o nome do grupo de volume. |
+| Name |A coluna **Nome** contém o nome do grupo de volume. |
 | Aplicação |A coluna Aplicações mostra o número de **escritores** VSS atualmente instalados e em execução no anfitrião do Windows. |
 | Selecionado |A coluna **Selecionada** mostra o número de volumes contidos no grupo de volume. Um zero (0) indica que nenhuma aplicação está associada aos volumes do grupo de volume. |
 | Importado |A coluna **importada** mostra o número de volumes importados. Quando definida para **True**, esta coluna indica que um grupo de volume foi importado do portal Azure e não foi criado no StorSimple Snapshot Manager. |
@@ -125,7 +125,7 @@ Utilize o seguinte procedimento para eliminar um grupo de volume.
    
     O grupo de volume eliminado desaparece da lista no painel **de resultados** e todas as cópias de segurança associadas a esse grupo de volume são eliminadas do catálogo de cópias de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para criar e gerir políticas de backup.](storsimple-snapshot-manager-manage-backup-policies.md)
 

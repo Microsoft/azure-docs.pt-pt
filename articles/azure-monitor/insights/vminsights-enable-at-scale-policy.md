@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507182"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Ativar o Monitor Azure para VMs utilizando a política do Azure
@@ -82,7 +82,7 @@ Para obter mais informações sobre a atribuição da Política Azure, consulte 
 
 As definições políticas para um Azure VM estão listadas no quadro seguinte.
 
-|Nome |Descrição |Tipo |
+|Name |Descrição |Tipo |
 |-----|------------|-----|
 |Ativar monitor Azure para VMs |Ativar o Azure Monitor para as máquinas virtuais no âmbito especificado (grupo de gestão, subscrição ou grupo de recursos). Toma o espaço de trabalho log Analytics como parâmetro. |Iniciativa |
 |Implementação de agente de dependência de auditoria – imagem VM (OS) não cotada |Reporta vMs como incompatível se a imagem VM (OS) não estiver definida na lista e o agente não estiver instalado. |Política |
@@ -97,7 +97,7 @@ As definições políticas para um Azure VM estão listadas no quadro seguinte.
 
 As definições políticas para máquinas híbridas Azure Arc estão listadas na tabela seguinte.
 
-|Nome |Descrição |Tipo |
+|Name |Descrição |Tipo |
 |-----|------------|-----|
 | [Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Linux Azure Arc |Relata as máquinas híbridas Azure Arc como incompatíveis para os VMs Linux se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |Política |
 | [Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc |Relata as máquinas híbridas Azure Arc como incompatível com VMs do Windows se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |Política |
@@ -111,7 +111,7 @@ As definições políticas para máquinas híbridas Azure Arc estão listadas na
 
 As definições de política para um conjunto de escala de máquina virtual Azure estão listadas na tabela seguinte.
 
-|Nome |Descrição |Tipo |
+|Name |Descrição |Tipo |
 |-----|------------|-----|
 |Ativar o Azure Monitor para conjuntos de escala de máquinas virtuais |Ativar o Azure Monitor para os conjuntos de escala de máquina virtual no âmbito especificado (grupo de gestão, subscrição ou grupo de recursos). Toma o espaço de trabalho log Analytics como parâmetro. Nota: Se a sua política de atualização definida em escala estiver definida como Manual, aplique a extensão a todos os VMs do conjunto, chamando-os de atualização. No CLI, isto `az vmss update-instances` é. |Iniciativa |
 |Implementação de agente de dependência de auditoria em conjuntos de escala de máquina virtual – imagem VM (OS) não cotada |Relata a escala de máquina virtual definida como incompatível se a imagem VM (OS) não estiver definida na lista e o agente não estiver instalado. |Política |
@@ -123,7 +123,7 @@ As definições de política para um conjunto de escala de máquina virtual Azur
 
 A política autónoma (não incluída na iniciativa) é descrita aqui:
 
-|Nome |Descrição |Tipo |
+|Name |Descrição |Tipo |
 |-----|------------|-----|
 |Audit Log Analytics espaço de trabalho para VM – Relatório incompatibilidade |Reporte os VMs como incompatíveis se não estiverem a registar-se no espaço de trabalho do Log Analytics especificado na atribuição de políticas ou iniciativas. |Política |
 
@@ -220,7 +220,7 @@ Em qualquer momento após a atribuição de uma iniciativa a um grupo de gestão
 - Área de trabalho do Log Analytics
 - Exceções
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com o Azure Monitor para VMs. 
 

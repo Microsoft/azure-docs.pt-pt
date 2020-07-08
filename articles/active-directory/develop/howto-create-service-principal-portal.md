@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505992"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
@@ -55,7 +55,7 @@ Para verificar as permissões de subscrição:
 
 1. Procure e selecione **Subscrições**ou selecione **Subscrições** na página **inicial.**
 
-   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Pesquisa](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a subscrição em que pretende criar o principal serviço em.
 
@@ -185,7 +185,7 @@ Tenha em mente que poderá ter de configurar permissões adicionais sobre recurs
 1. **Selecione Adicionar** para adicionar a política de acesso e, em seguida, **guardar** para cometer as suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como utilizar o [Azure PowerShell para criar um principal de serviço.](howto-authenticate-service-principal-powershell.md)
 * Para saber especificar políticas de segurança, consulte [o Controlo de Acesso baseado em funções Azure.](../../role-based-access-control/role-assignments-portal.md)  
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas aos utilizadores, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos da Azure.](../../role-based-access-control/resource-provider-operations.md)

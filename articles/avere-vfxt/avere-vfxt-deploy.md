@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 4c42abdbfaf5c867a9d8d4cbc6b4519a86adaac0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505652"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
@@ -155,7 +155,7 @@ Para encontrar a informação:
 
    ![página de saídas mostrando SSHSTRING, RESOURCE_GROUP, LOCALIZAÇÃO, NETWORK_RESOURCE_GROUP, REDE, SUBNET, SUBNET_ID, VSERVER_IPs e valores MGMT_IP nos campos à direita dos rótulos](media/avere-vfxt-outputs-values.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que o cluster está em execução e conhece o seu endereço IP de gestão, [conecte-se à ferramenta de configuração do cluster](avere-vfxt-cluster-gui.md).
 

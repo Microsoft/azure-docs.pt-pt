@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505618"
 ---
 # <a name="access-the-vfxt-cluster"></a>Aceder ao cluster vFXT
@@ -65,6 +65,6 @@ Introduza o nome de utilizador `admin` e a palavra-passe administrativa que forn
 
 Clique em **Iniciar sessão** ou prima para introduzir no teclado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter iniciado sessão no painel de controlo do cluster, ative o [suporte](avere-vfxt-enable-support.md).

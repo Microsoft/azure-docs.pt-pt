@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505754"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
@@ -184,7 +184,7 @@ A junção aparecerá após alguns segundos. Crie junções adicionais conforme 
 
 Após a junção ter sido criada, os clientes usam o caminho do espaço de nome para aceder aos ficheiros a partir do sistema de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Montar o cluster Avere vFXT](avere-vfxt-mount-clients.md)
 * Aprenda formas eficientes de [mover dados para um novo recipiente Blob](avere-vfxt-data-ingest.md)

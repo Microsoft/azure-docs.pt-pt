@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
 ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506536"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para lojas de dados ODBC usando Azure Data Factory
@@ -56,13 +56,13 @@ As seguintes propriedades são suportadas para o serviço ligado à ODBC:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Odbc** | Yes |
-| conexãoStragem | A cadeia de ligação excluindo a parte credencial. Pode especificar a cadeia de ligação com padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de execução de integração `"DSN=<name of the DSN on IR machine>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a  `password`   configuração da cadeia de ligação.Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md)   com mais detalhes.| Yes |
-| authenticationType | Tipo de autenticação utilizada para ligar à loja de dados ODBC.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Yes |
-| userName | Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. | No |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| credencial | A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como um SecureString. | No |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
+| tipo | A propriedade tipo deve ser definida para: **Odbc** | Sim |
+| conexãoStragem | A cadeia de ligação excluindo a parte credencial. Pode especificar a cadeia de ligação com padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de execução de integração `"DSN=<name of the DSN on IR machine>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a  `password`   configuração da cadeia de ligação.Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md)   com mais detalhes.| Sim |
+| authenticationType | Tipo de autenticação utilizada para ligar à loja de dados ODBC.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Sim |
+| userName | Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. | Não |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| credencial | A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como um SecureString. | Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
 
 **Exemplo 1: utilização da autenticação básica**
 
@@ -119,7 +119,7 @@ Para copiar dados de/para loja de dados compatíveis com ODBC, suportam-se as se
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **OdbcTable** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **OdbcTable** | Sim |
 | tableName | Nome da tabela na loja de dados ODBC. | Não para a fonte (se for especificada "consulta" na fonte de atividade);<br/>Sim para afundar |
 
 **Exemplo**
@@ -153,7 +153,7 @@ Para copiar dados da loja de dados compatíveis com o ODBC, as seguintes proprie
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **OdbcSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **OdbcSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -196,10 +196,10 @@ Para copiar dados para a loja de dados compatível com ODBC, desaperte o tipo de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para: **OdbcSink** | Yes |
-| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |No |
+| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para: **OdbcSink** | Sim |
+| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |Não |
 | escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0 - auto detetado) |
-| preCopyScript |Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em loja de dados em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. |No |
+| preCopyScript |Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em loja de dados em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. |Não |
 
 > [!NOTE]
 > Para "writeBatchSize", se não estiver definido (detetado automaticamente), a atividade de cópia deteta primeiro se o condutor suporta as operações do lote, e define-o para 10000 se o fizer, ou o definir para 1 se não o fizer. Se definir explicitamente o valor que não seja 0, a atividade de cópia honra o valor e falha no tempo de execução se o condutor não suportar as operações do lote.
@@ -250,5 +250,5 @@ Para resolver problemas de conexão, utilize o separador **de Diagnóstico** do 
 4. Especifique a **cadeia de ligação** que é utilizada para ligar à loja de dados, escolha a **autenticação** e introduza o **nome de utilizador,** **palavra-passe**e/ou **credenciais**.
 5. Clique **na ligação de teste** para testar a ligação à loja de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

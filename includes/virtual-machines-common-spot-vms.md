@@ -8,10 +8,10 @@ ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506055"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
@@ -60,11 +60,11 @@ Alguns canais de subscrição não são suportados:
 
 | Canais Azure               | Disponibilidade de VMs Azure Spot       |
 |------------------------------|-----------------------------------|
-| Contrato Enterprise         | Yes                               |
-| Pay As You Go                | Yes                               |
+| Contrato Enterprise         | Sim                               |
+| Pay As You Go                | Sim                               |
 | Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
-| Patrocinado                    | Yes                               |
+| Patrocinado                    | Sim                               |
 | Avaliação Gratuita                   | Não disponível                     |
 
 
@@ -77,7 +77,7 @@ Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para o spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível.
 
 
-##  <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+##  <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **Q:** Uma vez criado, um Spot VM é o mesmo que o VM normal?
 

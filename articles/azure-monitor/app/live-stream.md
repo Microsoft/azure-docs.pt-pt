@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507351"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnóstico com latência de 1 segundo
@@ -208,7 +208,7 @@ Por predefinição, as Métricas Vivas são desativadas no Node.js SDK. Para ati
 
 Não existem dados? Se a sua aplicação estiver numa rede protegida: Live Metrics Stream utiliza diferentes endereços IP do que outros telemetria de Insights de Aplicação. Certifique-se de que [os endereços IP](../../azure-monitor/app/ip-addresses.md) estão abertos na sua firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Monitorização da utilização com Insights de Aplicação](../../azure-monitor/app/usage-overview.md)
 * [Usando a pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Gerador de perfis](../../azure-monitor/app/profiler.md)

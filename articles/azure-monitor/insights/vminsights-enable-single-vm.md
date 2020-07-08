@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 4cdb9390b3146df74f2cbe8eba7b170a5d11fb2c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507063"
 ---
 # <a name="enable-azure-monitor-for-single-vm-or-vmss-in-the-azure-portal"></a>Ativar o Monitor Azure para um VM ou VMSS único no portal Azure
@@ -45,7 +45,7 @@ Antes de começar, reveja os [pré-requisitos](vminsights-enable-overview.md) e 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para ver as dependências de aplicações descobertas, consulte [o Use Azure Monitor para o Mapa de VMs](vminsights-maps.md). 
 * Para identificar estrangulamentos, utilização geral e desempenho do seu VM, consulte o desempenho do [See Azure VM](vminsights-performance.md).

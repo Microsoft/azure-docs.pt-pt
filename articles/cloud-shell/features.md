@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506570"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Possui ferramentas & para Azure Cloud Shell
@@ -69,16 +69,16 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Nome   |
+|Categoria   |Name   |
 |---|---|
 |Ferramentas Linux            |bash<br> zsh<br> sh<br> tmux<br> cavar<br>               |
-|Ferramentas azul            |[CLI clássico de Azure E](https://github.com/Azure/azure-cli) [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Ferramentas do Azure            |[CLI clássico de Azure E](https://github.com/Azure/azure-cli) [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |código (editor cloud shell)<br> vim<br> nano<br> emacs    |
 |Controlo de código fonte         |git                    |
 |Ferramentas de compilação            |modelo<br> maven<br> npm<br> pip         |
 |Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Bases de Dados              |Cliente MySQL<br> Cliente PostgreSql<br> [utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outro                  |Cliente iPython<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Escritório 365 CLI](https://pnp.github.io/office365-cli/)|
+|Outros                  |Cliente iPython<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Escritório 365 CLI](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Suporte de idiomas
 
@@ -91,7 +91,7 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (padrão)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Bash em Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell em Cloud Shell Quickstart](quickstart-powershell.md) <br>
 [Saiba mais sobre a Azure CLI](https://docs.microsoft.com/cli/azure/) <br>

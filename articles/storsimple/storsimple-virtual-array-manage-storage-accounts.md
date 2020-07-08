@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507505"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Use o Gestor de Dispositivos StorSimple para gerir credenciais de conta de armazenamento para StorSimple Virtual Array
@@ -150,6 +150,6 @@ Para informar o serviço StorSimple Device Manager da alteração, é necessári
    
     ![Sincronizar a chave de acesso](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

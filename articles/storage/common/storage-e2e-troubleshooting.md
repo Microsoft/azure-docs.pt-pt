@@ -11,10 +11,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: e94810d53bf28aeb03de32a440c56a95232d0c2d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506349"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas ponto a ponto com as métricas e o registo de Armazenamento do Azure, o AzCopy e o Message Analyzer
@@ -325,7 +325,7 @@ Agora que está familiarizado com a utilização do Message Analyzer para analis
 | Intervalo de tempo nos registos de servidor e rede |#Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 |Servidor, Rede |
 | Intervalo de tempo nos registos do Servidor |AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 |Server |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre cenários de resolução de problemas no Azure Storage, consulte estes recursos:
 

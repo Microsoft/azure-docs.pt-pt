@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: 66fb5741a5ed1af9e7edf002485c959f9f2fc82f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507267"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
@@ -208,7 +208,7 @@ The Run As account is incomplete. Either one of these was deleted or not created
 
 Pode resolver rapidamente estes problemas da conta Run As, ao eliminar e recriar a conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Objetos de aplicação e objetos principais de serviço.](../active-directory/develop/app-objects-and-service-principals.md)
 * [Visão geral dos certificados para serviços de nuvem Azure](../cloud-services/cloud-services-certs-create.md).

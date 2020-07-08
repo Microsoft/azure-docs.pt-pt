@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: f058ce1ae5b7328c6864684994a74f2fd118ca6e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506995"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>O que é Azure Monitor para VMs?
@@ -41,6 +41,6 @@ Quando implementa o Azure Monitor para VMs, os dados recolhidos pelos seus VMs s
 
 O tamanho do tronco varia em função dos comprimentos de cadeia dos contadores de desempenho, e pode aumentar com o número de discos lógicos e adaptadores de rede atribuídos ao VM. Se já tem um espaço de trabalho e está a recolher estes balcões, não são aplicadas cobranças duplicadas. Se já estiver a utilizar o Mapa de Serviços, a única alteração que verá são os dados adicionais de ligação enviados ao Azure Monitor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para compreender os requisitos e métodos que o ajudam a monitorizar as suas máquinas virtuais, [reveja o Monitor de Azure para VMs](vminsights-enable-overview.md).

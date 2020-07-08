@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506616"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar uma piscina Azure Batch numa rede virtual
@@ -64,7 +64,7 @@ Quando adicionar um UDR, defina a rota para cada prefixo de endereço IP do lote
 > [!WARNING]
 > Os endereços IP do serviço Batch podem ser alterados ao longo do tempo. Para evitar interrupções devido a uma alteração de endereço IP, crie um processo para atualizar automaticamente os endereços IP do serviço Batch e mantê-los atualizados na sua tabela de rotas. Alternadamente, pode [criar uma piscina com endereços IP especificados que controla](create-pool-public-ip.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como [criar uma rota definida pelo utilizador no portal Azure](../virtual-network/tutorial-create-route-table-portal.md).
