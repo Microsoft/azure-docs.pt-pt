@@ -2,8 +2,8 @@
 title: Ler consultas sobre réplicas
 description: A Azure SQL Database fornece a capacidade de carregar cargas de carga apenas de leitura usando a capacidade de réplicas apenas de leitura, chamadas de escala de leitura.
 services: sql-database
-ms.service: sql-database
-ms.subservice: scale-out
+ms.service: sql-db-mi
+ms.subservice: high-availability
 titleSuffix: Azure SQL Database & SQL Managed Instance
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 3883e56108c71d46465dbce94876724fc5664bcf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a043eb5eed8f5554e42a113a3d7963be94da8a49
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737823"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985572"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utilizar réplicas só de leitura para balancear cargas de trabalho de consulta só de leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -151,6 +151,6 @@ Se estiver a ligar à base de dados secundária geo-replicada com a escala de le
 > [!NOTE]
 > Não é suportado o robin redondo ou qualquer outro encaminhamento equilibrado de carga entre as réplicas locais da base de dados secundária.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre a oferta de hiperescala SQL Database, consulte [o nível de serviço hyperscale](service-tier-hyperscale.md).

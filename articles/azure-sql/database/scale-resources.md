@@ -2,7 +2,7 @@
 title: Dimensionar recursos
 description: Este artigo explica como escalar a sua base de dados na Base de Dados Azure SQL e na SQL Managed Instance adicionando ou removendo recursos atribuídos.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 19c75952846067d338d0956391a4b78bbb7d0d26
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 180fca9ae40bc07be762665a3d16270e905d2e02
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323472"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984163"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Recursos de base de dados de escala dinâmica com tempo mínimo de inatividade
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ A escala de recursos é a forma mais fácil e eficaz de melhorar o desempenho da
 - [A escala de leitura](read-scale-out.md) é uma funcionalidade disponível onde está a obter uma réplica apenas de leitura dos seus dados onde pode executar consultas exigentes apenas de leitura, como relatórios. Uma réplica só de leitura irá lidar com a sua carga de trabalho apenas de leitura sem afetar o uso de recursos na sua base de dados primária.
 - [O fragmento de base de dados](elastic-scale-introduction.md) é um conjunto de técnicas que lhe permite dividir os seus dados em várias bases de dados e escaloná-los de forma independente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre a melhoria do desempenho da base de dados alterando o código da base de [dados,](database-advisor-find-recommendations-portal.md)consulte Localizar e aplicar recomendações de desempenho .
 - Para obter informações sobre a informação de uma base de dados incorporada que otimize a sua base de dados, consulte [a sintonização automática](automatic-tuning-overview.md).

@@ -2,7 +2,7 @@
 title: Monitorize o desempenho da base de dados com Insights Inteligentes
 description: Insights Inteligentes na Base de Dados Azure SQL e Azure SQL Managed Instance usa inteligência incorporada para monitorizar continuamente o uso da base de dados através da inteligência artificial e detetar eventos disruptivos que causam um fraco desempenho.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 937eee69c17d207dc348a25fe2a5e6611480db0f
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743461"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986509"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes utilizando a IA para monitorizar e resolver problemas de desempenho da base de dados (pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -185,7 +185,7 @@ O Registo de Insights Inteligentes regista a contagem de pedidos erros. Indica s
 
 Se alguma das exceções críticas monitorizadas atravessar os limiares absolutos geridos pelo sistema, uma visão inteligente é gerada com detalhes críticos de exceção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como monitorizar as [bases de dados utilizando o SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Saiba como [resolver problemas de desempenho com Insights Inteligentes.](intelligent-insights-troubleshoot-performance.md)

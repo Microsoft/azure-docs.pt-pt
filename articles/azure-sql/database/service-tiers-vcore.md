@@ -3,19 +3,19 @@ title: vCore modelo de compra visão geral
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: O modelo de compra vCore permite-lhe escalar independentemente os recursos de computação e armazenamento, combinar o desempenho no local e otimizar o preço para a Base de Dados Azure SQL e Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 3a359e4b3523615623c76d48c1aafd7aa95a5277
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255046"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985555"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ O modelo de compra de núcleo virtual (vCore) utilizado pela Azure SQL Database 
 
 As opções de nível de serviço no modelo vCore incluem Final Geral, Critical de Negócios e Hiperescala. O nível de serviço define geralmente os limites de arquitetura de armazenamento, espaço e E/S, e opções de continuidade de negócios relacionadas com disponibilidade e recuperação de desastres.
 
-||**Finalidade Geral**|**Critical de negócios**|**Hyperscale**|
+|-|**Finalidade Geral**|**Critical de negócios**|**Hyperscale**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho. Oferece opções de cálculo e armazenamento orientadas para o orçamento, equilibradas e escaláveis. |Oferece aplicações de negócio a maior resiliência às falhas usando várias réplicas isoladas, e fornece o maior desempenho de E/S por réplica de base de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento altamente escaláveis e escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica isolada da base de dados. |
 |Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido**:<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
@@ -222,7 +222,7 @@ On the **Details** page, provide the following:
 Approved support requests are typically fulfilled within 5 business days.
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte: 
 - [Criação de uma Base de Dados SQL utilizando o portal Azure](single-database-create-quickstart.md)

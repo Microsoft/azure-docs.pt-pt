@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7d71995e0e7a4b8cb7f6d80756f64cb6824c1ce9
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 0848d092c342b29c1839a4dd4cebd0bad62ea3ca
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374394"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023011"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -33,6 +33,7 @@ Para decidir se a aplicação pode utilizar eficazmente os conjuntos de dimensio
 - Os conjuntos de dimensionamento criados a partir de imagens do Azure Marketplace podem aumentar verticalmente até 1000 VMs.
 - Atualmente, os conjuntos de dimensionamento criados a partir de imagens personalizadas (imagens VM criadas e carregadas por si) podem ser aumentados verticalmente até 600 VMs.
 - Os conjuntos de dimensionamento de grande escala requerem Managed Disks do Azure. Os conjuntos de dimensionamento que não são criados com discos geridos requerem várias contas de armazenamento (uma por cada 20 VMs). Os conjuntos de dimensionamento de grande escala são concebidos para funcionar exclusivamente com Managed Disks, para reduzir a sobrecarga da gestão do armazenamento e para evitar o risco de existirem limites de subscrição para contas de armazenamento. 
+- Em grande escala (SPG=falso) não suporta a rede InfiniBand
 - O balanceamento de carga de camada 4 com conjuntos de dimensionamento compostos por vários grupos de colocação requer o [SKU Balanceador de Carga do Azure Standard](../load-balancer/load-balancer-standard-overview.md). O SKU Balanceador de Carga do Azure Standard oferece mais benefícios, como a capacidade de balancear a carga entre diversos conjuntos de dimensionamento. O SKU Standard também requer que os conjuntos de dimensionamento tenham um Grupo de Segurança de rede associado ao mesmo, caso contrário, os conjuntos NAT não funcionam corretamente. Se tiver de utilizar o SKU Balanceador de Carga do Azure Básico, confirme que o conjunto de dimensionamento está configurado para utilizar um único grupo de colocação, que é a predefinição.
 - O balanceamento de carga de camada 7 com o Gateway de Aplicação do Azure é suportado para todos os conjuntos de dimensionamento.
 - Um conjunto de dimensionamento é definido com uma única sub-rede - certifique-se de que a sub-rede tem um espaço de endereço suficientemente grande para todas as VMs necessárias. Por predefinição, um conjunto de dimensionamento aprovisiona em excesso (cria VMs adicionais no momento da implementação ou ao aumentar horizontalmente, o que não lhe é cobrado) para melhorar a fiabilidade e o desempenho da implementação. Permita um espaço de endereço 20% maior do que o número de VMs que planeia dimensionar.
@@ -42,7 +43,7 @@ Para decidir se a aplicação pode utilizar eficazmente os conjuntos de dimensio
 ## <a name="creating-a-large-scale-set"></a>Criar um conjunto de dimensionamento de grande escala
 Quando cria um conjunto de dimensionamento no portal do Azure, basta especificar o valor da *Contagem de instâncias* até 1000. Se for mais de 100 instâncias, a opção *Ativar o dimensionamento acima de 100 instâncias* estará definida como *Sim*, o que irá permitir que ele seja dimensionado para vários grupos de colocação. 
 
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![Esta imagem mostra a lâmina dos casos do Portal Azure. Estão disponíveis opções para selecionar o tamanho do Contagem de Exemplos e da Instância.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 Pode criar um conjunto de dimensionamento de máquina virtual de grande escala com o comando da [CLI do Azure](https://github.com/Azure/azure-cli) _az vmss create_. Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
 

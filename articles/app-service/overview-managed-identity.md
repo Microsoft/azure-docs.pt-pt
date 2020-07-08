@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: 3be41014c315a5820add3407ca0e4cbdb5a5e23e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559701"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985757"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -43,7 +43,7 @@ Para configurar uma identidade gerida no portal, irá primeiro criar uma aplica�
 
 
 > [!NOTE] 
-> Para encontrar a identidade gerida para a sua web ou app slot no portal Azure, aceda à secção de definições do Utilizador sob aplicações da Enterprise.
+> Para encontrar a identidade gerida para a sua aplicação web ou app slot no portal Azure, sob **aplicações da Enterprise,** procure na secção **de definições** do Utilizador. Normalmente, o nome da ranhura é semelhante a `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
@@ -312,7 +312,7 @@ Uma aplicação com uma identidade gerida tem duas variáveis ambientais definid
 
 O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solicitar tokens. Para obter um token para um recurso, faça um pedido HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
-> | Nome do parâmetro    | Em     | Description                                                                                                                                                                                                                                                                                                                                |
+> | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso AZURE AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação AD AZure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Por favor, use "2019-08-01" ou mais tarde.                                                                                                                                                                                                                                                                 |
@@ -326,7 +326,7 @@ O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode 
 
 Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
-> | Nome da propriedade | Description                                                                                                                                                                                                                                        |
+> | Nome da propriedade | Descrição                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | O sinal de acesso solicitado. O serviço web de chamada pode usar este token para autenticar o serviço web recetor.                                                                                                                               |
 > | client_id     | A identificação do cliente da identidade que foi usada.                                                                                                                                                                                                       |
@@ -501,7 +501,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Há também uma configuração de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "ativada". Como resultado, a utilização desta definição não é recomendada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)

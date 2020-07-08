@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c63fb819f0db7a3a367f5351fd80eb14e5733d99
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559460"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985740"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -23,14 +23,14 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
 
 + [Azure Machine Learning SDK para Python](#python-sdk): O Python SDK oferece várias formas de treinar modelos, cada um com diferentes capacidades.
 
-    | Método de formação | Description |
+    | Método de formação | Descrição |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **forma genérica de treinar modelos** é usar um script de treino e executar a configuração. A configuração de execução fornece as informações necessárias para configurar o ambiente de treino utilizado para treinar o seu modelo. Você pode fazer uma configuração de execução, seu script de treino, e um alvo de computação (o ambiente de treino) e executar um trabalho de treino. |
     | [Aprendizagem automática de máquinas](#automated-machine-learning) | A aprendizagem automática de máquinas **permite-lhe formar modelos sem uma vasta ciência de dados ou conhecimentos de programação.** Para pessoas com um fundo de ciência de dados e programação, ele fornece uma maneira de economizar tempo e recursos automatizando a seleção de algoritmos e afinação hiperparítmica. Não tem de se preocupar em definir uma configuração de execução quando se utiliza aprendizagem automática de máquinas. |
     | [Estimadores](#estimators) | As aulas de estimadores **facilitam a formação de modelos baseados em quadros populares de aprendizagem automática.** Existem aulas de estimadores para **Scikit-learn**, **PyTorch,** **TensorFlow,** **Chainer**e **Ray RLlib.** Há também um estimador genérico que pode ser usado com quadros que ainda não têm uma classe de estimador dedicado. Não tem de se preocupar em definir uma configuração de execução quando se utiliza estimativas. |
     | [Gasoduto de aprendizagem automática](#machine-learning-pipeline) | Os gasodutos não são um método de treino diferente, mas uma **forma de definir um fluxo de trabalho utilizando passos modulares e reutilizáveis,** que podem incluir a formação como parte do fluxo de trabalho. Os oleodutos de aprendizagem automática suportam utilizando machine learning automatizado, estimadores e configuração de execução para treinar modelos. Uma vez que os gasodutos não se concentram especificamente na formação, as razões da utilização de um gasoduto são mais variadas do que os outros métodos de formação. Geralmente, pode utilizar um oleoduto quando:<br>* Pretende **agendar processos não acompanhados,** tais como trabalhos de formação de longa duração ou preparação de dados.<br>* Utilize **vários passos** que são coordenados através de recursos de computação heterogéneos e locais de armazenamento.<br>* Utilize o gasoduto como **modelo reutilizável** para cenários específicos, tais como a reconversão ou a pontuação do lote.<br>* **Rastrear e verrativas fontes de dados, entradas e saídas** para o seu fluxo de trabalho.<br>* O seu fluxo de trabalho é **implementado por diferentes equipas que trabalham em passos específicos de forma independente**. Os passos podem então ser unidos num oleoduto para implementar o fluxo de trabalho. |
 
-+ [Azure Machine Learning SDK for Python](#r-sdk): O SDK usa o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R.
++ [Azure Machine Learning SDK para R](#r-sdk): O SDK para R utiliza o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R.
 
 + **Designer**: O designer de machine learning (pré-visualização) proporciona um fácil ponto de entrada na aprendizagem automática para construir a prova de conceitos, ou para utilizadores com pouca experiência de codificação. Permite-lhe treinar modelos usando uma UI baseada na web. Você pode usar o código Python como parte do design, ou modelos de comboio sem escrever qualquer código.
 
@@ -106,7 +106,7 @@ Para obter mais informações, veja os seguintes artigos:
 O designer permite-lhe treinar modelos usando uma interface de arrasto e queda no seu navegador web.
 
 + [O que é o designer?](concept-designer.md)
-+ [Tutorial : Prever preço do automóvel](tutorial-designer-automobile-price-train-score.md)
++ [Tutorial: Prever preço do automóvel](tutorial-designer-automobile-price-train-score.md)
 + [Regressão: Prever preço](how-to-designer-sample-regression-automobile-price-basic.md)
 + [Classificação: Prever rendimentos](how-to-designer-sample-classification-predict-income.md)
 + [Classificação: Prever churn, appetency e up-selling](how-to-designer-sample-classification-churn.md)
@@ -132,6 +132,6 @@ O CLI de aprendizagem automática é uma extensão para o CLI Azure. Fornece com
 * [Utilize a extensão CLI para aprendizagem automática Azure](reference-azure-machine-learning-cli.md)
 * [MLOps em Azure](https://github.com/microsoft/MLOps)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [configurar ambientes de treino.](how-to-set-up-training-targets.md)

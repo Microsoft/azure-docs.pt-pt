@@ -7,12 +7,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: mlearned
-ms.openlocfilehash: 280637be417d904de6dbb7ae2e2647026da6c838
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bf635d37559d09e887a67be27c412bff7899127b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374547"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023402"
 ---
 # <a name="integrate-aks-managed-azure-ad-preview"></a>Integre A azure AD gerido pela AKS (Preview)
 
@@ -31,7 +31,7 @@ A integração AD da AZure com a Azure AD gerida pela AKS foi concebida para sim
 > - [Políticas de apoio da AKS](support-policies.md)
 > - [FAQ de suporte Azure](faq.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Localize o seu ID do inquilino da Conta Azure navegando no portal Azure e selecione O Diretório Ativo Azure > Propriedades > ID do Diretório
 
@@ -172,7 +172,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure [o Controlo de Acesso Baseado em Função (RBAC)](https://review.docs.microsoft.com/azure/aks/azure-ad-rbac?branch=pr-en-us-117564) para configurar grupos de segurança adicionais para os seus clusters.
+Configure [o Controlo de Acesso Baseado em Função (RBAC)](https://docs.microsoft.com/azure/aks/azure-ad-rbac) para configurar grupos de segurança adicionais para os seus clusters.
 
 ## <a name="troubleshooting-access-issues-with-azure-ad"></a>Problemas de acesso à resolução de problemas com a Azure AD
 
@@ -191,7 +191,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 Existem alguns cenários não interativos, como os oleodutos de integração contínua, que não estão atualmente disponíveis com kubectl. Você pode usar [kubelogin](https://github.com/Azure/kubelogin) para aceder ao cluster com login principal de serviço não interativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o Controlo de Acesso Baseado em Função AZure.][azure-ad-rbac]
 * Utilize [kubelogin](https://github.com/Azure/kubelogin) para aceder a funcionalidades de autenticação Azure que não estão disponíveis em kubectl.

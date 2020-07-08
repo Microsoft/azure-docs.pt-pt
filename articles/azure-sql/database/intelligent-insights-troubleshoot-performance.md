@@ -2,7 +2,7 @@
 title: Resolução de problemas de desempenho com o Intelligent Insights
 description: A Intelligent Insights ajuda-o a resolver problemas na Base de Dados Azure SQL e nos problemas de desempenho geridos do Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: da29b5427b2258a32e87977289689949a47f3d8e
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743444"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986392"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Resolução de problemas Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho com Insights Inteligentes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -328,7 +328,7 @@ Aceda a Insights Inteligentes através do portal Azure indo ao Azure SQL Analyti
 
 Insights Inteligentes geralmente precisam de uma hora de tempo para realizar a análise da causa raiz do problema de desempenho. Se não conseguir localizar o seu problema em Insights Inteligentes e é fundamental para si, utilize a Loja de Consultas para identificar manualmente a causa principal do problema de desempenho. (Normalmente, estas questões têm menos de uma hora de idade.) Para obter mais informações, consulte [o desempenho do Monitor utilizando a Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda [conceitos de Insights Inteligentes.](intelligent-insights-overview.md)
 - Utilize o [registo de diagnósticos de desempenho de Insights Inteligentes](intelligent-insights-use-diagnostics-log.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1dcc91c6a7b823cd89b3ce4bf4d611b9923f87d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558717"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024466"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -39,6 +39,7 @@ Os administradores podem optar por impor um ou mais controlos ao conceder o aces
 - [Requerem o dispositivo híbrido Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Requera uma aplicação de cliente aprovada](app-based-conditional-access.md)
 - [Pedir uma política de proteção de aplicações](app-protection-based-conditional-access.md)
+- [Requerem alteração da palavra-passe](#require-password-change)
 
 Quando os administradores optam por combinar estas opções, podem escolher os seguintes métodos:
 
@@ -135,11 +136,26 @@ Esta definição aplica-se às seguintes aplicações de clientes:
 
 Consulte o artigo, [Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional](app-protection-based-conditional-access.md) para exemplos de configuração.
 
+### <a name="require-password-change"></a>Requerem alteração da palavra-passe 
+
+Quando o risco do utilizador é detetado, utilizando as condições de política de risco do utilizador, os administradores podem optar por alterar de forma segura a palavra-passe utilizando a palavra-passe de autosserviço AZure AD. Se o risco do utilizador for detetado, os utilizadores podem efetuar uma palavra-passe de autosserviço reposta para autorreparação, isto irá encerrar o evento de risco do utilizador para evitar ruídos desnecessários para os administradores. 
+
+Quando um utilizador é solicitado a alterar a sua palavra-passe, primeiro será necessário para completar a autenticação de vários fatores. Deverá certificar-se de que todos os seus utilizadores se registaram para autenticação de vários fatores, para que estejam preparados caso o risco seja detetado para a sua conta.  
+
+> [!WARNING]
+> Os utilizadores devem ter-se registado previamente para reiniciar a palavra-passe de autosserviço antes de desencadear a política de risco do utilizador. 
+
+Existe uma restrição de casal quando configura uma política usando o controlo de mudança de senha.  
+
+1. A política deve ser atribuída a "todas as aplicações em nuvem". Isto impede que um intruso utilize uma aplicação diferente para alterar a palavra-passe do utilizador e redefinir o risco de conta, simplesmente assinando numa aplicação diferente. 
+1. A alteração da palavra-passe não pode ser utilizada com outros controlos, como exigir um dispositivo compatível.  
+1. O controlo de alteração de palavra-passe só pode ser utilizado com a condição de atribuição de utilizadores e grupos, a condição de atribuição de aplicações em nuvem (que deve ser definida para todos) e as condições de risco do utilizador. 
+
 ### <a name="terms-of-use"></a>Termos de utilização
 
 Se a sua organização criou termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenção. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [termos de utilização do Azure Ative Directory](terms-of-use.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Acesso Condicional: Controlos de sessão](concept-conditional-access-session.md)
 

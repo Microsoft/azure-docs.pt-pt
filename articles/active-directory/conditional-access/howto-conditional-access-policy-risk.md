@@ -1,89 +1,73 @@
 ---
-title: Acesso Condicional - Acesso Condicional baseado em risco - Diretório Ativo Azure
-description: Criar políticas de acesso condicional para permitir melhorias na Proteção de Identidade às políticas
+title: Acesso Condicional baseado no risco de acesso - Diretório Ativo Azure
+description: Criar políticas de acesso condicional usando o risco de acesso à proteção de identidade
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9cfba377aba30d4687bab4ba7c5a311c70c4905
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995161"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024366"
 ---
-# <a name="conditional-access-risk-based-conditional-access"></a>Acesso Condicional: Acesso Condicional baseado no risco
+# <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acesso Condicional: Acesso condicional baseado no risco de inscrição
 
-As organizações com licenças Azure AD Premium P2 podem criar políticas de Acesso Condicional incorporando deteções de risco de Proteção de Identidade Azure AD. Existem três políticas padrão que podem ser ativadas fora da caixa. 
+A maioria dos utilizadores tem um comportamento normal que pode ser controlado. Quando fugirem a esta norma, pode ser arriscado permitir-lhes iniciar sessão. Pode querer bloquear esse utilizador ou talvez apenas pedir-lhes para realizar a autenticação de vários fatores para provar que são realmente quem dizem ser. 
 
-* Exija que todos os utilizadores se registem para autenticação multi-factor Azure.
-* Exija uma alteração de senha para utilizadores de alto risco.
-* Requerer a autenticação de vários fatores para utilizadores com risco de inscrição média ou elevada.
+Um risco de entrada representa a probabilidade de um dado pedido de autenticação não ser autorizado pelo proprietário da identidade. As organizações com licenças Azure AD Premium P2 podem criar políticas de acesso condicional que incorporam [deteções de risco de acesso à identidade Azure AD.](../identity-protection/concept-identity-protection-risks.md#sign-in-risk)
 
-## <a name="require-all-users-to-register-for-azure-multi-factor-authentication"></a>Exigir que todos os utilizadores se registem para autenticação multi-factor Azure
+Existem dois locais onde esta apólice pode ser atribuída. As organizações devem escolher uma das seguintes opções para permitir uma política de acesso condicional baseada no risco de entrada que exija uma alteração segura da palavra-passe.
 
-Ativar esta política exigirá que todos os utilizadores se registem para autenticação multi-factor Azure no prazo de 14 dias. 
+## <a name="enable-with-conditional-access-policy"></a>Ativar com política de acesso condicional
+
+1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Selecione **Nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
+1. Em **Atribuições**, selecione **Utilizadores e grupos**.
+   1. Em **Incluir**, selecione **Todos os utilizadores**.
+   1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
+   1. Selecione **Done** (Concluído).
+1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**.
+1. Em **Condições**  >  **Risco do utilizador**, definir **Configurar** para **Sim**. Em **Selecione o nível de risco de inscrição esta política aplicar-se-á a** 
+   1. Selecione **Alto** e **Médio**.
+   1. Selecione **Done** (Concluído).
+1. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.
+1. Confirme as suas definições e defina **Ativar** a política para **on**.
+1. Selecione **Criar** para criar para ativar a sua política.
+
+## <a name="enable-through-identity-protection"></a>Ativar através da Proteção de Identidade
 
 1. Inicie sessão no **portal do Azure**.
-1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
-1. Clique em **Registo na MFA**.
-1. Em **Atribuições,** selecione **Utilizadores**.
-   1. Em **Incluir,** selecione **Todos os utilizadores**.
-   1. Em **Excluir**, **selecione Selecione utilizadores excluídos,** escolha as contas de acesso de emergência ou break-glass da sua organização e selecione **Select**. 
+1. Selecione **Todos os serviços**e, em seguida, navegue **para Azure AD Identity Protection**.
+1. Selecione **a política de risco de inscrição**.
+1. Em **Atribuições**, selecione **Utilizadores.**
+   1. Em **Incluir**, selecione **Todos os utilizadores**.
+   1. Em **'Excluir'**( **Selecione Selecionar utilizadores excluídos),** escolha o acesso de emergência da sua organização ou contas de break-glass e selecione **Select**.
    1. Selecione **Done** (Concluído).
-1. Definir a política de **aplicação** para **ligado**.
-1. Clique em **Guardar**.
-
-## <a name="require-a-password-change-high-risk-users"></a>Exigir uma alteração de senha utilizadores de alto risco
-
-A Microsoft trabalha com investigadores, entidades responsáveis pela aplicação da lei, várias equipas de segurança da Microsoft e outras origens fidedignas para localizar os pares de nome de utilizador e palavra-passe. Quando um destes pares corresponde a uma conta no seu ambiente, pode ser acionada uma alteração de palavra-passe baseada em risco, com a política seguinte.
-
-1. Inicie sessão no **portal do Azure**.
-1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
-1. Clique na política de **risco do Utilizador**.
-1. Em **Atribuições**, selecione **Utilizadores**
-   1. Em **Incluir,** selecione **Todos os utilizadores**.
-   1. Em **Excluir**, **selecione Selecione utilizadores excluídos,** escolha as contas de acesso de emergência ou break-glass da sua organização e selecione **Select**.
-   1. Selecione **Done** (Concluído).
-1. Em **Condições,** selecione **o risco do utilizador**e, em seguida, escolha **High**.
-   1. Clique em **Selecionar** e depois **Feito**.
-1. No acesso **dos controlos,**  >  **Access**escolha permitir **o acesso**e, em seguida, selecione Exigir alteração **de palavra-passe**.
-   1. Clique em **Selecionar**.
-1. Definir a política de **aplicação** para **ligado**.
-1. Clique em **Guardar**.
-
-## <a name="require-mfa-medium-or-high-sign-in-risk-users"></a>Exigir utilizadores de risco de inscrição média ou alta de MFA
-
-A maioria dos utilizadores tem um comportamento normal que pode ser controlado. Quando fugirem a esta norma, pode ser arriscado permitir-lhes iniciar sessão. Pode querer bloquear esse utilizador ou talvez pedir-lhes que realizem a autenticação de vários fatores para provar que são realmente quem dizem ser. Para ativar uma política que exija a MFA quando é detetado um risco de início de sessão, ative a política seguinte.
-
-1. Inicie sessão no **portal do Azure**.
-1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
-1. Clique na **política de risco de iniciar sessão**
-1. Em **Atribuições**, selecione **Utilizadores**
-   1. Em **Incluir,** selecione **Todos os utilizadores**.
-   1. Em **Excluir**, **selecione Selecione utilizadores excluídos,** escolha as contas de acesso de emergência ou break-glass da sua organização e selecione **Select**.
-   1. Selecione **Done** (Concluído).
-1. Em **Condições**, selecione **o risco de iniciar sessão**e, em seguida, escolha Médio e **superior**.
-   1. Clique em **Selecionar** e depois **Feito**.
-1. No acesso **dos controlos,**  >  **Access**escolha permitir **o acesso**e, em seguida, selecione **Exigir autenticação de vários fatores**.
-   1. Clique em **Selecionar**.
-1. Definir a política de **aplicação** para **ligado**.
-1. Clique em **Guardar**.
+1. Em **Condições**, selecione **o risco de inscrição,** em seguida, escolha Médio e **superior**.
+   1. **Selecione Selecione**e, em **seguida, Feito**.
+1. No **Acesso ao**  >  **Controlo**, escolha **Permitir o acesso**e, em seguida, selecione **Requera a autenticação multi-factor**.
+   1. Selecione **Selecionar**.
+1. Definir **a política de execução** para **on**.
+1. Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determine o impacto utilizando o modo apenas de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Acesso Condicional baseado no risco do utilizador](howto-conditional-access-policy-risk-user.md)
 
-[Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
 
-[Como funciona: Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)
+[Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
 [O que é o Azure Active Directory Identity Protection?](../identity-protection/overview.md)

@@ -2,7 +2,7 @@
 title: Use a Azure Resource Health para monitorizar a saúde da base de dados
 description: Use a Azure Resource Health para monitorizar a base de dados Azure SQL e a saúde da Azure SQL Managed Instance, ajuda-o a diagnosticar e obter suporte quando um problema de Azure impacta os seus recursos SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ea7709d1385eff3d538d69b25a9b31b88e7b904
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718007"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986957"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize a Saúde dos Recursos para resolver problemas de conectividade para a Base de Dados Azure SQL e para a Azure SQL Gestão de Instâncias
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ A infraestrutura Azure realiza periodicamente a manutenção planeada – a atua
 
 As reconfigurações são consideradas condições transitórias e são esperadas de tempos a tempos. Estes eventos podem ser desencadeados por falhas de equilíbrio de carga ou software/hardware. Qualquer aplicação de produção de clientes que se conecte a uma base de dados em nuvem deve implementar uma lógica robusta de [relembramento](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)de conexão , uma vez que ajudaria a mitigar estas situações e deve geralmente tornar os erros transparentes para o utilizador final.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a lógica de reorientação para erros transitórios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Resolução de problemas, diagnóstico e prevenção de erros de ligação SQL](troubleshoot-common-connectivity-issues.md).

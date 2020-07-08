@@ -6,17 +6,17 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 088639674a3f3a15d33f73fd6f602b3cf1313a65
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 8accb29907bde53baf7f175dd1d36a9a2e1fe66b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85512658"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984692"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace
 
-Este artigo descreve como criar e publicar uma oferta de módulos Internet of Things (IoT) Edge para o Azure Marketplace. Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Este artigo descreve como criar e publicar uma oferta de módulos Internet of Things (IoT) Edge para o Azure Marketplace. Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
@@ -50,10 +50,10 @@ A página **geral da Oferta** mostra uma representação visual dos passos neces
 
 Esta página inclui links para executar operações nesta oferta com base na seleção que faz. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar oferta de rascunho](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Se a oferta for ao vivo - [Pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em pré-visualização - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Se a oferta for um rascunho - [Eliminar oferta de projeto)](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for ao vivo - [Pare de vender a oferta)](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval))
+- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação.](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
@@ -65,12 +65,12 @@ Ao publicar a sua oferta no mercado com o Partner Center, pode conectá-la opcio
 
 1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. O Partner Center suporta os seguintes sistemas crm:
 
-    - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para Envolvimento com o Cliente
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dinâmica 365](commercial-marketplace-lead-management-instructions-dynamics.md) para Envolvimento com o Cliente
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Ponto Final https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar dados de chumbo do cliente e exporte os dados para o seu sistema CRM.
+    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [o Ponto Final https](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de chumbo do cliente e exporte os dados para o seu sistema CRM.
 
 2. Ligue a sua oferta ao destino principal ao publicar no Partner Center.
 3. Confirme se a ligação ao destino de chumbo está configurada corretamente. Depois de publicá-lo no Partner Center, validaremos a ligação e enviaremos um teste. Enquanto pré-visualiza a oferta antes de entrar em direto, também pode testar a sua ligação de chumbo tentando comprar a oferta no ambiente de pré-visualização.
@@ -78,9 +78,9 @@ Ao publicar a sua oferta no mercado com o Partner Center, pode conectá-la opcio
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [FAQs de gestão de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
+- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
 **Selecione Guardar o projeto** antes de continuar.
@@ -91,7 +91,12 @@ Esta página permite definir as categorias utilizadas para agrupar a sua oferta 
 
 #### <a name="category"></a>Categoria
 
-Selecione um mínimo de uma e um máximo de cinco categorias. Estas categorias são usadas para colocar a sua oferta nas áreas de pesquisa de marketplace apropriadas e são mostradas na página de detalhes da sua oferta. Na descrição da oferta, explique como a sua oferta suporta estas categorias. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria **de módulo IoT Edge da Internet of Things**   >.
+Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
+
+- Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+
+Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md) No mercado, os módulos IoT Edge são sempre apresentados na categoria de módulos **Internet of Things**  >  **IoT Edge.**  
 
 #### <a name="legal"></a>Legal
 
@@ -104,7 +109,7 @@ Deve fornecer termos e condições para a oferta. Tem duas opções:
 
 Oferecemos um modelo de Contrato Padrão para ajudar a facilitar transações no mercado comercial. Pode optar por oferecer a sua solução ao abrigo do Contrato Padrão, que os clientes só precisam de verificar e aceitar uma vez. Esta é uma boa opção se você não quiser criar termos e condições personalizados.
 
-Para saber mais sobre o Contrato Padrão, consulte o [Contrato Padrão para o Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Também pode descarregar o PDF [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) (certifique-se de que o seu bloqueador pop-up está desligado).
+Para saber mais sobre o Contrato Padrão, consulte o [Contrato Padrão para o Microsoft Commercial Marketplace](../standard-contract.md). Também pode descarregar o PDF [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) (certifique-se de que o seu bloqueador pop-up está desligado).
 
 Para utilizar o Contrato Padrão, selecione **o Use the Standard Contract para a** caixa de verificação do mercado comercial da Microsoft e, em seguida, clique em **Aceitar**.
 
@@ -126,7 +131,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -183,7 +188,7 @@ Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Mark
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
-Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing best practices](../gtm-offer-listing-best-practices.md).
 
 ### <a name="marketplace-images"></a>Imagens do mercado
 
@@ -224,7 +229,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Nome
+6. Name
 7. Resumo
 8. Descrição
 9. Ligações úteis
@@ -246,7 +251,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
-1. Nome
+1. Name
 2. Descrição
 3. Ligações úteis
 4. Capturas de ecrã
@@ -315,9 +320,9 @@ Este separador permite-lhe configurar quais as nuvens em que o plano está dispo
 
 #### <a name="azure-regions"></a>Regiões do Azure
 
-Todos os planos para ofertas de módulos IoT Edge são automaticamente disponibilizados no **Azure Global.**  O seu plano pode ser usado por clientes em todas as regiões globais do Azure que utilizam o mercado. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
+Todos os planos para ofertas de módulos IoT Edge são automaticamente disponibilizados no **Azure Global.**  O seu plano pode ser usado por clientes em todas as regiões globais do Azure que utilizam o mercado. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](../marketplace-geo-availability-currencies.md)
 
-Selecione a opção [do Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) para fazer a sua solução aparecer aqui. Esta é uma nuvem governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais, bem como parceiros elegíveis para servi-los. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA). Antes [de publicar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) no Governo Azure, teste e confirme a sua solução nessa área, uma vez que os resultados podem ser diferentes. Para encenar e testar a sua solução, solicite uma conta de teste do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selecione a opção [do Governo Azure](../../azure-government/documentation-government-welcome.md) para fazer a sua solução aparecer aqui. Esta é uma nuvem governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais, bem como parceiros elegíveis para servi-los. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA). Antes [de publicar](../../azure-government/documentation-government-manage-marketplace-partners.md) no Governo Azure, teste e confirme a sua solução nessa área, uma vez que os resultados podem ser diferentes. Para encenar e testar a sua solução, solicite uma conta de teste do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Depois de o seu plano ser publicado e disponível numa região específica, não pode remover essa região.
@@ -385,7 +390,7 @@ O tipo de oferta **de módulo IoT Edge** é um tipo específico de recipiente qu
 
 Após a publicação da oferta, a sua imagem de contentor IoT Edge é copiada para o Azure Marketplace num registo específico de contentores públicos. Todos os pedidos dos utilizadores da Azure para utilizar o seu módulo são servidos a partir do registo público de contentores Azure Marketplace, e não do seu registo privado de contentores.
 
-Pode direcionar várias plataformas e fornecer várias versões da imagem do seu módulo com etiquetas. Para saber mais sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
+Pode direcionar várias plataformas e fornecer várias versões da imagem do seu módulo com etiquetas. Para saber mais sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge](create-iot-edge-module-asset.md).
 
 ### <a name="image-repository-details"></a>Detalhes do repositório de imagem
 
@@ -395,11 +400,11 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 **ID de assinatura Azure**: Forneça o ID de subscrição onde o uso do recurso é reportado e os serviços são faturados para o Registo do Contentor Azure que inclui a sua imagem de recipiente. Pode encontrar este ID na [página de Subscrições](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal Azure.
 
-**Nome do grupo de recursos Azure**: Forneça o nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) que contém o Registo do Contentor Azure com a sua imagem de recipiente. O grupo de recursos deve estar acessível no ID de assinatura (acima). Pode encontrar o nome na página [dos grupos de Recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal Azure.
+**Nome do grupo de recursos Azure**: Forneça o nome do [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contém o Registo do Contentor Azure com a sua imagem de recipiente. O grupo de recursos deve estar acessível no ID de assinatura (acima). Pode encontrar o nome na página [dos grupos de Recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal Azure.
 
-**Nome do registo do contentor Azure**: Forneça o nome do Registo do [Contentor Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro) que tem a sua imagem de recipiente. O registo do contentor deve estar presente no grupo de recursos Azure que forneceu anteriormente. Forneça apenas o nome do registo, não o nome completo do servidor de login. Certifique-se de omitir **azurecr.io** do nome. Pode encontrar o nome do registo na [página de Registos de Contentores](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal Azure.
+**Nome do registo do contentor Azure**: Forneça o nome do Registo do [Contentor Azure](../../container-registry/container-registry-intro.md) que tem a sua imagem de recipiente. O registo do contentor deve estar presente no grupo de recursos Azure que forneceu anteriormente. Forneça apenas o nome do registo, não o nome completo do servidor de login. Certifique-se de omitir **azurecr.io** do nome. Pode encontrar o nome do registo na [página de Registos de Contentores](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal Azure.
 
-**Nome de utilizador Admin para o Registo do Contentor Azure**: Forneça o nome de utilizador de [administração](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
+**Nome de utilizador admin para o registo do contentor Azure**: Forneça o [nome de utilizador administrativo](../../container-registry/container-registry-authentication.md#admin-account)) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
 
@@ -417,13 +422,13 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 2. Nome de utilizador
 3. Palavra-passe
 
-**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](https://docs.microsoft.com/azure/container-registry/container-registry-repositories) Note que depois do nome estar definido, não pode ser alterado. Use um nome único para cada oferta na sua conta.
+**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Note que depois do nome estar definido, não pode ser alterado. Use um nome único para cada oferta na sua conta.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Etiquetas de imagem para novas versões da sua oferta
 
 Os clientes devem poder obter automaticamente atualizações do Mercado Azure quando publicar uma atualização. Se não quiserem atualizar, devem poder manter-se numa versão específica da sua imagem. Pode fazê-lo adicionando novas etiquetas de imagem sempre que fizer uma atualização à imagem.
 
-**Etiqueta de imagem**. Este campo deve incluir uma **etiqueta mais recente** que aponta para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando com xx.xx.xx, onde xx é um número). Os clientes devem usar [tags manifestas](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta manifesto também devem ser adicionadas para que possamos carregá-las. Todas as tags manifesto (exceto a última etiqueta) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta mais recente aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis etiquetas precisam de ser adicionadas a este campo. Para obter mais detalhes sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
+**Etiqueta de imagem**. Este campo deve incluir uma **etiqueta mais recente** que aponta para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando com xx.xx.xx, onde xx é um número). Os clientes devem usar [tags manifestas](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta manifesto também devem ser adicionadas para que possamos carregá-las. Todas as tags manifesto (exceto a última etiqueta) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta mais recente aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis etiquetas precisam de ser adicionadas a este campo. Para obter mais detalhes sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge.](create-iot-edge-module-asset.md)
 
 ### <a name="default-deployment-settings-optional"></a>Definições de implementação predefinidos (opcional)
 
@@ -431,7 +436,7 @@ Defina as definições mais comuns para implantar o seu módulo IoT Edge. Otimiz
 
 **Rotas predefinidos**. O IoT Edge Hub gere a comunicação entre módulos, o Hub IoT e dispositivos. Pode definir rotas para a entrada e saída de dados entre os módulos e o IoT Hub, o que lhe dá a flexibilidade para enviar mensagens onde precisam de ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional. As rotas são construídas com par de nome/valor. Pode definir até cinco nomes de rota padrão, cada um com até 512 caracteres de comprimento.
 
-Certifique-se de que utiliza a [sintaxe](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) de rota correta no valor da sua rota (normalmente definida como FROM/message/* INTO $upstream). Isto significa que quaisquer mensagens enviadas por quaisquer módulos vão para o seu Hub IoT. Para se referir ao seu módulo, utilize o seu nome de módulo predefinido, que será o seu **Nome de Oferta,** sem espaços ou caracteres especiais. Para se referir a outros módulos que ainda não são conhecidos, utilize a convenção <FROM_MODULE_NAME> para informar os seus clientes de que precisam de atualizar esta informação. Para mais informações sobre as rotas IoT Edge, consulte [as rotas de Declarar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+Certifique-se de que utiliza a [sintaxe](../../iot-edge/module-composition.md#declare-routes)de rota correta) no valor da sua rota (normalmente definida como FROM/message/* INTO $upstream). Isto significa que quaisquer mensagens enviadas por quaisquer módulos vão para o seu Hub IoT. Para se referir ao seu módulo, utilize o seu nome de módulo predefinido, que será o seu **Nome de Oferta,** sem espaços ou caracteres especiais. Para se referir a outros módulos que ainda não são conhecidos, utilize a convenção <FROM_MODULE_NAME> para informar os seus clientes de que precisam de atualizar esta informação. Para mais informações sobre as rotas IoT Edge, consulte [rotas de Declaração).](../../iot-edge/module-composition.md#declare-routes)
 
 Por exemplo, se o módulo ContosoModule ouve as entradas nos contosoInput e os dados de saída no ContosoOutput, faz sentido definir as seguintes duas rotas predefinidos:
 
@@ -440,7 +445,7 @@ Por exemplo, se o módulo ContosoModule ouve as entradas nos contosoInput e os d
 - #2 nome: FromContosoModuleToCloud
 - Valor #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Propriedades desejadas por módulos predefinidos**twin . Um módulo twin é um documento JSON no IoT Hub que armazena a informação do estado para uma instância de módulo, incluindo propriedades desejadas. As propriedades desejadas são utilizadas juntamente com propriedades reportadas para sincronizar a configuração ou condições do módulo. O backend da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alteração nas propriedades desejadas. As propriedades desejadas são criadas utilizando até cinco pares de nome/valor e cada valor predefinido deve ser inferior a 512 caracteres. Pode definir até cinco propriedades desejadas por gémeos de nome/valor. Os valores das propriedades duplas desejadas devem ser válidos JSON, não escapados, sem matrizes com uma hierarquia aninhada máxima de quatro níveis. Num cenário em que um parâmetro exigido para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão. Para saber mais sobre as propriedades duplas desejadas, consulte [Definir ou atualizar as propriedades desejadas.](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)
+**Propriedades desejadas por módulos predefinidos**twin . Um módulo twin é um documento JSON no IoT Hub que armazena a informação do estado para uma instância de módulo, incluindo propriedades desejadas. As propriedades desejadas são utilizadas juntamente com propriedades reportadas para sincronizar a configuração ou condições do módulo. O backend da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alteração nas propriedades desejadas. As propriedades desejadas são criadas utilizando até cinco pares de nome/valor e cada valor predefinido deve ser inferior a 512 caracteres. Pode definir até cinco propriedades desejadas por gémeos de nome/valor. Os valores das propriedades duplas desejadas devem ser válidos JSON, não escapados, sem matrizes com uma hierarquia aninhada máxima de quatro níveis. Num cenário em que um parâmetro exigido para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão. Para saber mais sobre as propriedades duplas desejadas, consulte [Definir ou atualizar as propriedades desejadas).](../../iot-edge/module-composition.md#define-or-update-desired-properties)
 
 Por exemplo, se um módulo suporta uma taxa de atualização dinâmicamente configurável usando propriedades duplas desejadas, faz sentido definir a seguinte propriedade padrão dupla desejada:
 
@@ -478,6 +483,6 @@ Para submeter a oferta de publicação, **selecione Publicar**.
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)

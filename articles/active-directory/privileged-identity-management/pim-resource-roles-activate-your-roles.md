@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37ca85c37f126ccbe84a2c9fc4ca14abcfd50f4a
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743869"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023886"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Ativar os meus recursos Azure na Gestão de Identidade Privilegiada
 
@@ -42,13 +42,15 @@ Quando precisa assumir uma função de recurso Azure, pode solicitar a ativaçã
 
 1. Selecione **funções de recurso Azure** para ver uma lista das suas funções de recurso Azure elegíveis.
 
-   ![Os meus papéis - Página de funções de recursos Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Os meus papéis - Página de funções de recursos Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. Na lista de **funções de recursos Azure,** encontre o papel que pretende ativar.
 
     ![Funções de recursos Azure - A minha lista de funções elegíveis](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. **Selecione Ativar** para abrir o painel Ativar.
+1. **Selecione Ativar** para abrir a página Ativar.
+
+     ![O painel de ativação aberto com âmbito, hora de início, duração e razão](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Se a sua função necessitar de autenticação multi-factor, **selecione Verifique a sua identidade antes de prosseguir**. Só tem de autenticar uma vez por sessão.
 
@@ -72,27 +74,9 @@ Quando precisa assumir uma função de recurso Azure, pode solicitar a ativaçã
 
 1. **Selecione Ativar**.
 
-    Se a função não necessitar de aprovação, é ativada e adicionada à lista de funções ativas. Se quiser utilizar o papel, siga os passos na secção seguinte.
-
     Se a [função necessitar de aprovação](pim-resource-roles-approval-workflow.md) para ser ativada, aparecerá uma notificação no canto superior direito do seu navegador informando-o de que o pedido está pendente de aprovação.
 
     ![O pedido de ativação está pendente de notificação de aprovação](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Use uma função imediatamente após a ativação
-
-Em caso de atraso após a ativação, siga estes passos depois de ativar para utilizar imediatamente as suas funções de recurso Azure.
-
-1. Abrir Azure AD Gestão de Identidade Privilegiada.
-
-1. Selecione **as minhas funções** para ver uma lista das suas funções elegíveis de Azure AD e funções de recursos Azure.
-
-1. Selecione **funções de recurso Azure**.
-
-1. Selecione o separador **funções Ative.**
-
-1. Uma vez que o papel esteja ativo, assine fora do portal e volte a entrar.
-
-    O papel deve agora estar disponível para ser utilizado.
 
 ## <a name="view-the-status-of-your-requests"></a>Ver o estado dos seus pedidos
 
@@ -127,12 +111,9 @@ Se não necessitar de ativação de uma função que exija aprovação, pode can
 Quando ativar uma função na Gestão de Identidade Privilegiada, a ativação pode não se propagar instantaneamente a todos os portais que requerem o papel privilegiado. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a sua ativação for adiada, eis o que deve fazer.
 
 1. Termine sessão no portal do Azure e, em seguida, inicie sessão novamente.
-
-    Quando ativar uma função de recurso Azure, verá as fases da sua ativação. Quando todas as fases estiverem concluídas, verá a ligação **Terminar sessão**. Pode usar este link para assinar. Isto resolverá a maioria dos casos para atraso de ativação.
-
 1. Na Gestão de Identidade Privilegiada, verifique se está listado como membro do papel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Alargar ou renovar funções de recursos do Azure na Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Ativar os meus papéis de AD Azure em Gestão de Identidade Privilegiada](pim-how-to-activate-role.md)

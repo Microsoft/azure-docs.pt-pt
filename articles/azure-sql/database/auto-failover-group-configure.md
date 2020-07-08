@@ -3,7 +3,7 @@ title: Configure um grupo de failover
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Saiba como configurar um grupo de auto-failover para uma Base de Dados Azure SQL (única e agrupada) e SQL Managed Instance, utilizando o portal Azure, o Azure CLI e o PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 32543dffa492770d7217fb07652e41baf603ebcc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250915"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987135"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -679,7 +679,7 @@ O ponto final do ouvinte é na forma `fog-name.database.windows.net` de, e é vi
 
 - A remoção de um grupo de failover para uma base de dados única ou agrupada não para a replicação e não elimina a base de dados replicada. Terá de parar manualmente a geo-replicação e eliminar a base de dados do servidor secundário se pretender adicionar uma base de dados única ou agrupada a um grupo de failover depois de ter sido removida. Se não o fizer, pode resultar num erro semelhante ao `The operation cannot be performed due to multiple errors` de tentar adicionar a base de dados ao grupo de failover.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter etapas detalhadas que configuram um grupo de failover, consulte os seguintes tutoriais:
 

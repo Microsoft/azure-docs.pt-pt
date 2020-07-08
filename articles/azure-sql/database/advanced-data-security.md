@@ -2,7 +2,7 @@
 title: Segurança de dados avançada
 description: Saiba mais sobre a funcionalidade de descoberta e classificação de dados sensíveis, gestão das vulnerabilidades da sua base de dados e deteção de atividades anómalas que possam indicar uma ameaça à sua base de dados na Base de Dados Azure SQL, Azure SQL Managed Instance ou Azure Synapse.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: ''
 ms.custom: sqldbrb=2
@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 5a732683b52885173a60563f436b6ab01ea00710
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 53765ee97f0f253db4df4ecca3c1c90d6068fb07
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254111"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983999"
 ---
 # <a name="advanced-data-security"></a>Segurança de dados avançada
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -74,7 +74,7 @@ As definições avançadas de segurança de dados para o seu servidor ou instân
 
 ![Definições de base de dados](./media/advanced-data-security/database_settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Classificação & data Discovery](data-discovery-and-classification-overview.md)
 - Saiba mais sobre [a avaliação da vulnerabilidade](sql-vulnerability-assessment.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 080f1a55e70946281a11af44176600abfc5bc0e2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 5793e1659f18818b85748dc0f2979895318ea913
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515720"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985412"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acesso Azure Data Lake Storage Gen1 a partir de VMs dentro de um Azure VNET
 Azure Data Lake Storage Gen1 é um serviço PaaS que funciona em endereços IP da Internet públicos. Qualquer servidor que possa ligar-se à Internet pública pode normalmente ligar-se aos pontos finais da Azure Data Lake Storage Gen1. Por padrão, todos os VMs que estão em VNETs Azure podem aceder à Internet e, portanto, podem aceder a Azure Data Lake Storage Gen1. No entanto, é possível configurar VMs num VNET para não ter acesso à Internet. Para estes VMs, o acesso ao Azure Data Lake Storage Gen1 também é restrito. O bloqueio do acesso público à Internet dos VMs em VNETs Azure pode ser feito utilizando qualquer uma das seguintes abordagens:
@@ -31,14 +31,18 @@ Neste artigo, você aprenderá como permitir o acesso ao Azure Data Lake Storage
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Permitir a conectividade com a Azure Data Lake Storage Gen1 a partir de VMs com conectividade restrita
 Para aceder ao Azure Data Lake Storage Gen1 a partir desses VMs, deve configurá-los para aceder ao endereço IP para a região onde está disponível a conta Azure Data Lake Storage Gen1. Pode identificar os endereços IP das regiões da sua conta de Armazenamento de Dados Lake Gen1, resolvendo os nomes DNS das suas contas `<account>.azuredatalakestore.net` (). Para resolver os nomes DNS das suas contas, pode utilizar ferramentas como **o nslookup**. Abra um pedido de comando no seu computador e execute o seguinte comando:
 
-    nslookup mydatastore.azuredatalakestore.net
+```console
+nslookup mydatastore.azuredatalakestore.net
+```
 
 A saída assemelha-se ao seguinte. O valor contra a propriedade **Address** é o endereço IP associado à sua conta Desembrulhamento gen1.
 
-    Non-authoritative answer:
-    Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
-    Address:  104.44.88.112
-    Aliases:  mydatastore.azuredatalakestore.net
+```output
+Non-authoritative answer:
+Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
+Address:  104.44.88.112
+Aliases:  mydatastore.azuredatalakestore.net
+```
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Permitir a conectividade dos VMs restringidos pela utilização de NSG
@@ -50,7 +54,7 @@ Quando as rotas, quer as UDRs quer as rotas trocadas pelo BGP, são usadas para 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Permitir a conectividade dos VMs restritos através da utilização do ExpressRoute
 Quando um circuito ExpressRoute é configurado, os servidores no local podem aceder ao Data Lake Storage Gen1 através do espreitamento público. Mais detalhes sobre a configuração do ExpressRoute para o espreitamento público estão disponíveis nas [FAQs ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteger dados armazenados no Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 1349ec3fc0fe9b5db60af883558a9d0aed5ee612
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392187"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023589"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Além das duas chaves principais da conta cosmos DB, existem duas chaves só de 
 
 As chaves principais, secundárias, lidas apenas e as teclas principais de leitura podem ser recuperadas e regeneradas usando o portal Azure. Para obter instruções, consulte [ver, copiar e regenerar as teclas de acesso](manage-with-cli.md#regenerate-account-key).
 
-![Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados NoSQL":::
 
 ### <a name="key-rotation"></a>Rotação de chaves<a id="key-rotation"></a>
 
@@ -173,7 +173,7 @@ O Azure Cosmos DB permite-lhe pesquisar, selecionar, modificar e eliminar quaisq
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a segurança da base de dados [cosmos, consulte a segurança da Cosmos DB Database](database-security.md).
 - Para aprender a construir fichas de autorização DB da Azure Cosmos, consulte [o Controlo de Acesso na Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

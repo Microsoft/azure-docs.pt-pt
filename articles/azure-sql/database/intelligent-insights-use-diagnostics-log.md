@@ -2,7 +2,7 @@
 title: Registo de diagnósticos de desempenho de Insights Inteligentes
 description: Intelligent Insights fornece um registo de diagnóstico de Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 2088f007be1542defed6f8c1a3aa42233b3ef9ee
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 398a96dc505309e565b13cb42f610d8571b9413e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743427"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986332"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Utilize o registo de diagnósticos de desempenho de Insights Inteligentes da Base de Dados Azure SQL e dos problemas de desempenho da Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -140,7 +140,7 @@ A última parte do registo de desempenho dos Insights Inteligentes diz respeito 
 
 Pode utilizar o registo de desempenho do Intelligent Insights com [registos do Azure Monitor]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para capacidades de alerta e reporte personalizadas de DevOps.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre conceitos inteligentes de [insights.](intelligent-insights-overview.md)
 - Saiba como [resolver problemas de desempenho com Insights Inteligentes.](intelligent-insights-troubleshoot-performance.md)

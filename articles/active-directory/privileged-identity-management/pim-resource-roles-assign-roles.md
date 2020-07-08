@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dceb7dc6ce6f2b97bbaad0b2db129611833eb30f
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743835"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023776"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada
 
@@ -28,7 +28,7 @@ O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) pode ger
 
 - Proprietário
 - Administrador de Acesso de Utilizador
-- Contribuinte
+- Contribuidor
 - Administrador de Segurança
 - Gestor de Segurança
 
@@ -47,33 +47,31 @@ Siga estes passos para tornar um utilizador elegível para um papel de recurso A
 
 1. Selecione **recursos Azure**.
 
-1. Utilize o **filtro De recurso** para filtrar a lista de recursos geridos.
+1. Use o filtro de recursos para encontrar os recursos geridos que procura.
 
     ![Lista de recursos da Azure para gerir](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Selecione o recurso que pretende gerir, como um grupo de subscrição ou gestão.
+1. Selecione o recurso que pretende conseguir abrir a página de visão geral do recurso.
 
-1. Em Gestão, selecione **Roles** para ver a lista de papéis para recursos Azure.
+1. Em **Gestão**, **selecione Roles** para ver a lista de funções para recursos Azure.
 
     ![Funções de recursos Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. **Selecione Adicionar membro** para abrir o painel de atribuição Nova.
+1. **Selecione Adicionar atribuições** para abrir o painel **de atribuições Adicionar.**
 
-1. **Selecione selecionar uma função** para abrir o painel de funções Selecione.
+1. **Selecione selecionar uma função** para abrir a página **De função.**
 
     ![Novo painel de atribuição](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
 1. Selecione uma função que pretende atribuir e, em seguida, clique em **Selecionar**.
 
-    O painel Select um membro ou painel de grupo abre.
+    **O painel Select um membro ou painel** de grupo abre.
 
 1. Selecione um membro ou grupo que pretende atribuir à função e, em seguida, clique em **Select**.
 
     ![Selecione um membro ou painel de grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    O painel de definições de membro abre.-
-
-1. Na lista de **tipos de atribuição,** selecione **Elegível** ou **Ativo**.
+1. No **separador Definições,** na lista de **tipos de atribuição,** selecione **Elegível** ou **Ativo**.
 
     ![Painel de configurações de membros](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,19 +81,11 @@ Siga estes passos para tornar um utilizador elegível para um papel de recurso A
 
     - As atribuições **ativas** não requerem que o membro execute qualquer ação para usar o papel. Os membros designados como ativos têm sempre os privilégios atribuídos ao papel.
 
-1. Se a atribuição deve ser permanente (permanentemente elegível ou permanentemente atribuída), selecione a caixa de verificação **Permanente.**
+1. Para especificar uma duração específica da atribuição, altere as datas e horários de início e fim.
 
-    Dependendo das definições de função, a caixa de verificação pode não aparecer ou pode ser indificável.
+1. Quando terminar, **selecione Atribuir**.
 
-1. Para especificar uma duração específica da atribuição, limpe a caixa de verificação e modifique as caixas de início e/ou de fim e hora.
-
-    ![Definições de membros - data e hora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Quando terminar, selecione **'Fazer' ( 'Fazer' ( "Fazer")**
-
-    ![Nova atribuição - Adicionar](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. Para criar a nova atribuição de funções, **selecione Add**. É apresentada uma notificação do estado.
+1. Após a criação da nova atribuição de funções, é apresentada uma notificação de estado.
 
     ![Nova atribuição - Notificação](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -107,9 +97,9 @@ Siga estes passos para atualizar ou remover uma atribuição de função existen
 
 1. Selecione **recursos Azure**.
 
-1. Selecione o recurso que pretende gerir, como um grupo de subscrição ou gestão.
+1. Selecione o recurso que pretende conseguir abrir a sua página geral.
 
-1. Em Gestão, selecione **Roles** para ver a lista de papéis para recursos Azure.
+1. Em **Gestão**, **selecione Roles** para ver a lista de funções para recursos Azure.
 
     ![Funções de recursos Azure - Selecione função](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
@@ -123,7 +113,7 @@ Siga estes passos para atualizar ou remover uma atribuição de função existen
 
     Para obter informações sobre o alargamento de uma atribuição de funções, consulte [alargar ou renovar funções de recurso Azure na Gestão de Identidade Privilegiada.](pim-resource-roles-renew-extend.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Alargar ou renovar funções de recursos do Azure na Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)

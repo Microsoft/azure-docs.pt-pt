@@ -1,28 +1,33 @@
 ---
-title: Conceito - Controlos de segurança para o Serviço de Nuvem de primavera Azure
-description: Utilize controlos de segurança incorporados no Serviço de Nuvem de primavera Azure.
+title: Conceito - Controlos de segurança para O Serviço de Nuvem de primavera Azure
+description: Utilize controlos de segurança incorporados no Serviço de Nuvem de primavera do Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 5b459ef57d0e8a22ce1cd53f56c44d31e53c7c93
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594989"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984828"
 ---
-# <a name="security-controls-for-azure-spring-cloud-service"></a>Controlos de segurança para o Serviço de Nuvem de primavera Azure
-Os controlos de segurança são integrados no Serviço de Nuvem de primavera Azure.
+# <a name="security-controls-for-azure-spring-cloud-service"></a>Controlos de segurança do Serviço Azure Spring Cloud
+Os controlos de segurança são incorporados no Azure Spring Cloud Service.
 
-Um controlo de segurança é uma qualidade ou característica de um serviço Azure que contribui para a capacidade do serviço de prevenir, detetar e responder a vulnerabilidades de segurança.  Para cada controlo, usamos *Sim* ou *Não* para indicar se está atualmente em vigor para o serviço.  Utilizamos *N/A* para um controlo que não é aplicável ao serviço. 
+Um controlo de segurança é uma qualidade ou característica de um serviço Azure que contribui para a capacidade do serviço de prevenir, detetar e responder a vulnerabilidades de segurança.  Para cada controlo, utilizamos *Sim* ou *Não* para indicar se está atualmente em vigor para o serviço.  Utilizamos *N/A* para um controlo que não é aplicável ao serviço. 
 
-**Controlos de segurança de proteção de dados**
+**Controlos de segurança da proteção de dados**
 
-| Controlo de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentation |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | O utilizador carregou fonte e artefactos, definições do servidor config, definições de aplicativos e dados em armazenamento persistente são armazenados no Armazenamento Azure, que encripta automaticamente o conteúdo em repouso.<br><br>A cache do servidor Config, os binários de tempo de funcionamento construídos a partir de fonte supértuada e os registos de aplicação durante o período de vida da aplicação são guardados para o Disco Gerido pelo Azure, que encripta automaticamente o conteúdo em repouso.<br><br>As imagens de contentores construídas a partir da fonte carregada pelo utilizador são guardadas no Registo de Contentores Azure, que encripta automaticamente o conteúdo da imagem em repouso. | [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (Encriptação do Armazenamento do Azure para dados inativos)<br><br>[Encriptação do lado do servidor dos discos geridos pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption)<br><br>[Armazenamento de imagem de contentor no Registo de Contentores de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-storage) |
-| Encriptação em transiente | Sim | Os pontos finais da aplicação do utilizador utilizam https para o tráfego de entrada por defeito. |  |
-| Chamadas api encriptadas | Sim | As chamadas de gestão para configurar o serviço Azure Spring Cloud ocorrem através de chamadas do Gestor de Recursos Azure através de HTTPS. | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
+| Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Sim | Fontes e artefactos carregados pelo utilizador, configurações de servidores config, definições de aplicações e dados em armazenamento persistente são armazenados no Azure Storage, que encripta automaticamente o conteúdo em repouso.<br><br>Cache do servidor Config, binários de tempo de execução construídos a partir de fontes carregadas e registos de aplicações durante o tempo de vida útil da aplicação são guardados para O Disco Gerido pelo Azure, que encripta automaticamente o conteúdo em repouso.<br><br>As imagens de contentores construídas a partir de uma fonte de carregamento do utilizador são guardadas no Registo do Contentor Azure, que encripta automaticamente o conteúdo da imagem em repouso. | [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (Encriptação do Armazenamento do Azure para dados inativos)<br><br>[Encriptação do lado do servidor dos discos geridos pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption)<br><br>[Armazenamento de imagem de contentor no registo do contentor de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-storage) |
+| Encriptação em transitório | Sim | Os pontos finais públicos da aplicação do utilizador utilizam HTTPS para tráfego de entrada por padrão. |  |
+| Chamadas da API encriptadas | Sim | As chamadas de gestão para configurar o serviço Azure Spring Cloud ocorrem através de chamadas do Azure Resource Manager através de HTTPS. | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
 
+**Controlos de segurança de acesso à rede**
+
+| Controlo de segurança | Sim/Não | Notas | Documentation |
+|:-------------|:-------|:-------------------------------|:----------------------|
+| Etiqueta de serviço | Sim | Utilize a etiqueta de serviço **AzureSpringCloud** para definir controlos de acesso à rede de saída em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de rede ou [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags), para permitir o tráfego para aplicações Azure Spring Cloud.<br><br>*Nota:* Atualmente apenas a nova instância de serviço Azure Spring Cloud criada após 2020/07/07 suporta a tag de serviço **AzureSpringCloud.** | [Etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

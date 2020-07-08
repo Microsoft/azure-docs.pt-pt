@@ -12,12 +12,12 @@ ms.date: 06/08/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1604e132cb77fbb2a2a1033a1f23f70dd3e6b8b9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355969"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024236"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar o início de sessão único baseado em SAML para aplicações que não estão na galeria
 
@@ -28,7 +28,7 @@ Quando [adiciona uma aplicação](add-gallery-app.md) de galeria ou uma [aplica�
 
 Para configurar o único sinal de INSCRIÇão da SAML para uma aplicação sem galeria sem código de escrita, é necessário ter uma subscrição AD Azure e a aplicação deve apoiar o SAML 2.0. Para mais informações sobre as versões AD do Azure, visite [os preços da AD Azure](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte [uma aplicação não-galeria](add-non-gallery-app.md).
 
@@ -42,7 +42,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte 
 
 3. Na secção **'Gerir',** selecione **'Único's sign-on'**. 
 
-   - Note que existem alguns cenários em que a opção **de inscrição única** não estará presente. Por exemplo, se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única está configurada no portal **de registo da App** e não aparecerá na navegação sob **aplicações da Enterprise.** Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
+   - Note que existem alguns cenários em que a opção **de inscrição única** não estará presente. Por exemplo, se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não aparecerá na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) . Para saber mais sobre os padrões SSO, consulte https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) . Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
 4. Selecione **SAML**. Aparece **a configuração de um único sign-on com SAML - página de pré-visualização.**
 
@@ -162,7 +162,7 @@ Se aparecer uma mensagem de erro, complete os seguintes passos:
 
 Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)

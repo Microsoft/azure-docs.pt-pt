@@ -3,8 +3,8 @@ title: Nível de serviço critical de negócios
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Conheça o nível de serviço crítico de negócios para Azure SQL Database e Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: c619a9b295f77d4af39332e12ff5dec263025f5f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 0067811316a8afd26828050d81215ecb5748c841
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322072"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986706"
 ---
 # <a name="business-critical-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Business Critical tier - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

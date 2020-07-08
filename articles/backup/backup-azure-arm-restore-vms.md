@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: e279d08a9c766c95be663cfa959007671ae212de
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 00b0f7313ba77037d90dcdb8ed04e5f61e335c55
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130573"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023334"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -195,6 +195,7 @@ Há uma série de cenários comuns em que poderá ser necessário restaurar os V
 **Grupo de Segurança de Rede (NSG) em NIC/Subnet** | A cópia de segurança Azure VM suporta backup e restaurar informações NSG no nível Vnet, subnet e NIC.
 **VMs de fixação de zona** | Se você apoiar um Azure VM que está preso a uma zona (com Azure Backup), então você pode restaurá-lo na mesma zona onde foi fixado. [Saiba mais](https://docs.microsoft.com/azure/availability-zones/az-overview)
 **Restaurar VM em qualquer conjunto de disponibilidade** | Ao restaurar um VM do portal, não há opção para escolher um conjunto de disponibilidade. Um VM restaurado não tem um conjunto de disponibilidade. Se utilizar a opção de disco de restauro, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) quando criar um VM a partir do disco utilizando o modelo ou PowerShell fornecido.
+**Restaurar VMs especiais como SQL VMs** | Se você fizer o backup de um SQL VM usando a cópia de segurança Azure VM e, em seguida, utilizar a opção de restauro VM ou criar um VM após restaurar os discos, então o VM recém-criado deve ser registado com o fornecedor SQL como mencionado [aqui.](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash) Isto converterá o VM restaurado num SQL VM.
 
 ## <a name="track-the-restore-operation"></a>Acompanhe a operação de restauro
 
@@ -250,7 +251,7 @@ Há uma série de coisas a notar depois de restaurar um VM:
 - Se restaurar um VM para o mesmo grupo de recursos com o mesmo nome que o VM originalmente apoiado, a cópia de segurança continua no VM após a restauração.
 - Se restaurou o VM a um grupo de recursos diferente ou especificou um nome diferente para o VM restaurado, precisa de configurar a cópia de segurança para o VM restaurado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se sentir dificuldades durante o processo de restauro, [reveja](backup-azure-vms-troubleshoot.md#restore) questões e erros comuns.
 - Depois que o VM é restaurado, aprenda sobre [a gestão de máquinas virtuais](backup-azure-manage-vms.md)

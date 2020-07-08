@@ -3,12 +3,12 @@ title: Importar imagens de contentor
 description: Importar imagens de contentores para um registo de contentores Azure utilizando APIs Azure, sem necessidade de executar comandos Docker.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80051929"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023521"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 
@@ -72,13 +72,13 @@ az acr import \
 
 ### <a name="import-from-microsoft-container-registry"></a>Importação do Registo de Contentores da Microsoft
 
-Por exemplo, importe a mais recente imagem do Núcleo do Servidor do Windows do `windows` repositório no Registo de Contentores da Microsoft.
+Por exemplo, importe a `ltsc2019` imagem do Núcleo do Servidor do Windows do `windows` repositório no Registo de Contentores da Microsoft.
 
 ```azurecli
 az acr import \
 --name myregistry \
---source mcr.microsoft.com/windows/servercore:latest \
---image servercore:latest
+--source mcr.microsoft.com/windows/servercore:ltsc2019 \
+--image servercore:ltsc2019
 ```
 
 ## <a name="import-from-another-azure-container-registry"></a>Importação de outro registo de contentores Azure
@@ -146,7 +146,7 @@ az acr import \
   --password <password>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre a importação de imagens de contentores para um registo de contentores Azure a partir de um registo público ou outro registo privado. Para opções adicionais de importação de imagem, consulte a referência do comando [de importação az acr.][az-acr-import] 
 

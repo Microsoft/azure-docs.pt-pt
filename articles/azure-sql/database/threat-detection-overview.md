@@ -1,9 +1,9 @@
 ---
-title: Advanced Threat Protection
+title: Proteção Avançada Contra Ameaças
 titleSuffix: Azure SQL Database, SQL Managed Instance, & Azure Synapse Analytics
 description: A Advanced Threat Protection deteta atividades anómalas de bases de dados que indiquem potenciais ameaças à segurança na Base de Dados Azure SQL, na Instância Gerida Azure SQL e na Azure Synapse Analytics.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: ''
 ms.custom: sqldbrb=2
@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: 351c37d20360518e5cd341fd6e14d25c62e87c08
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 822d4267d5b163ddda50302e2caea5c3ade3b7c4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321537"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985376"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção Avançada de Ameaças para Base de Dados Azure SQL, SqL Gerd instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

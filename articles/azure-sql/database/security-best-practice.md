@@ -2,7 +2,7 @@
 title: Livro de jogadas para abordar requisitos comuns de segurança
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Este artigo fornece requisitos de segurança comuns e boas práticas na Base de Dados Azure SQL e na Azure SQL Gestd Instance
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 author: VanMSFT
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 5a35d9f9ff611576f26a55cb5792bc4b1718bee0
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323846"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986787"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,8 +59,6 @@ Salvo indicação em contrário, recomendamos que siga todas as melhores prátic
 - [Práticas de Segurança Operacional da Microsoft (OSA):](https://www.microsoft.com/securityengineering/osa/practices)Prática #1-6 e #9
 - [NIST Publicação Especial 800-53 Controlos de Segurança](https://nvd.nist.gov/800-53): AC-5, AC-6
 - [DCI:](https://www.pcisecuritystandards.org/document_library)6.3.2, 6.4.2
-
-### <a name="feedback"></a>Comentários
 
 Pretendemos continuar a atualizar as recomendações e as melhores práticas aqui enumeradas. Forneça a entrada ou quaisquer correções para este documento utilizando o link **Feedback** na parte inferior deste artigo.
 
@@ -141,7 +139,7 @@ A autenticação multi-factor Azure ajuda a fornecer segurança adicional, exigi
   - Utilize autenticação interativa suportada em Ferramentas de Dados do Servidor SQL (SSDT). Consulte o artigo, [suporte ao Diretório Ativo Azure em Ferramentas de Dados do Servidor SQL (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Utilize outras ferramentas SQL que suportem a autenticação multi-factor.
     - Suporte ao assistente SSMS para base de dados de exportação/extração/implantação  
-    - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): opção '/ua'
+    - [sqlpackage.exe: ](https://docs.microsoft.com/sql/tools/sqlpackage)opção '/ua'
     - [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility): opção -G (interativo)
     - [bcp Utilitário](https://docs.microsoft.com/sql/tools/bcp-utility): opção -G (interativo)
 

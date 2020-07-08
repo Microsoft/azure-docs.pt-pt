@@ -3,7 +3,7 @@ title: Visão geral da segurança
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Saiba mais sobre segurança na Base de Dados Azure SQL e na Azure SQL Managed Instance, incluindo como difere do SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 78af56e0b6f9e8e195ab77fdc57da336dd170c25
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255063"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986853"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -152,7 +152,7 @@ Para mais informações, consulte [Começar com a descoberta e classificação d
 
 Além das funcionalidades e funcionalidades acima referidas que podem ajudar a sua aplicação a cumprir vários requisitos de segurança, a Azure SQL Database também participa em auditorias regulares, tendo sido certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma discussão sobre a utilização de logins, contas de utilizador, funções de base de dados e permissões na Base de Dados SQL e na SQL Managed Instance, consulte [Gerir logins e contas de utilizador.](logins-create-manage.md)
 - Para uma discussão sobre a auditoria da base de dados, consulte [a auditoria.](../../azure-sql/database/auditing-overview.md)

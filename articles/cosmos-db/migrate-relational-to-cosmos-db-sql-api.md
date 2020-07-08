@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: f79ad56d8083e7ef75279eb2a07e1d35a50c45b5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 860b78df8df0d3c6946785a94e40141689278cd0
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261108"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023147"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrar dados relacionais de um a poucos para a conta Azure Cosmos DB SQL API
 
@@ -48,8 +48,7 @@ FROM Orders o;
 
 Os resultados desta consulta seriam abaixo: 
 
-![Detalhes do pedido](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png#lightbox)
-
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="Detalhes do pedido" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
 
 Idealmente, pretende utilizar uma única atividade de cópia da Azure Data Factory (ADF) para consultar os dados sql como fonte e escrever a saída diretamente para a pia Azure Cosmos DB como objetos JSON apropriados. Atualmente, não é possível realizar a transformação JSON necessária numa única atividade de cópia. Se tentarmos copiar os resultados da consulta acima num contentor API API AZure Cosmos DB SQL, veremos o campo OrderDetails como uma propriedade de corda do nosso documento, em vez da matriz JSON esperada.
 
@@ -340,6 +339,6 @@ Em qualquer uma das abordagens, no final, devemos ser devidamente guardados embu
 
 :::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Databricks":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Conheça [a modelação de dados em Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
 * Saiba [como modelar e dividir dados sobre a Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)

@@ -2,8 +2,8 @@
 title: Tecnologias dentro da memória
 description: As tecnologias de memória melhoram consideravelmente o desempenho das cargas de trabalho transacionais e analíticas na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: ''
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: c5208edc6038db0f9d45bb8fe10f3a96b5051b4c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560560"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985195"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimizar o desempenho utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -74,7 +74,7 @@ Para obter mais informações sobre a memória no SQL Server, consulte:
 - [Guia de Índices de Colunas](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - Processamento híbrido transacional/analítico (HTAP), também conhecido como [análise operacional em tempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-## <a name="in-memory-oltp"></a>OLTP dentro da memória
+## <a name="in-memory-oltp"></a>OLTP na Memória
 
 A tecnologia In-Memory OLTP fornece operações de acesso a dados extremamente rápidas mantendo todos os dados na memória. Também utiliza índices especializados, compilação nativa de consultas e acesso a dados sem fecho para melhorar o desempenho da carga de trabalho OLTP. Existem duas formas de organizar os seus dados OLTP in-memory:
 
@@ -187,7 +187,7 @@ Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indispon
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart 1: In-Memory OLTP Technologies para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Utilize o OLTP in-memory numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
@@ -212,6 +212,6 @@ Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indispon
 
 ### <a name="tools"></a>Ferramentas
 
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

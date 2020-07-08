@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 52b97e772897289f0c54c4520da7d7af80f44dc3
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 06/17/2020
+ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213732"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984275"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
-Este artigo descreve como publicar uma oferta de serviço de consultoria para o [Microsoft AppSource](https://appsource.microsoft.com/) ou [para o Azure Marketplace.](https://azuremarketplace.microsoft.com/) Ofertas de serviços de consultoria de listas baseadas no Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e na Power Platform no AppSource. O serviço List Consulting oferece-se com base no Microsoft Azure no Azure Marketplace. Antes de começar, [crie uma conta de marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Este artigo descreve como publicar uma oferta de serviço de consultoria para o [Microsoft AppSource](https://appsource.microsoft.com/) ou [para o Azure Marketplace.](https://azuremarketplace.microsoft.com/) Ofertas de serviços de consultoria de listas baseadas no Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e na Power Platform no AppSource. O serviço List Consulting oferece-se com base no Microsoft Azure no Azure Marketplace. Antes de começar, [crie uma conta de marketplace comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
-Antes de criar a sua oferta, reveja os pré-requisitos em [pré-requisitos de serviço de Consultoria.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites)
+Antes de criar a sua oferta, reveja os pré-requisitos em [pré-requisitos de serviço de Consultoria.](consulting-service-prerequisites.md)
 
 ## <a name="publishing-benefits"></a>Benefícios de publicação
 
@@ -63,12 +63,12 @@ Ao publicar a sua oferta no mercado com o Partner Center, _deve_ conectá-la a u
 
 1. Selecione **Connect** para especificar para onde deseja que enviemos os leads do cliente. O Partner Center suporta os seguintes sistemas:
 
-    - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para Envolvimento com o Cliente
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dinâmica 365](commercial-marketplace-lead-management-instructions-dynamics.md) para Envolvimento com o Cliente
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Ponto Final https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar dados de chumbo do cliente e exporte os dados para o seu sistema CRM.
+    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [o Ponto Final https](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de chumbo do cliente e exporte os dados para o seu sistema CRM.
 
 2. Ligue a sua oferta ao destino principal ao publicar no Partner Center.
 3. Confirme se a ligação ao destino de chumbo está configurada corretamente. Depois de publicá-lo no Partner Center, validaremos a ligação e enviaremos um teste. Enquanto pré-visualiza a oferta antes de entrar em direto, também pode testar a sua ligação de chumbo tentando comprar a oferta no ambiente de pré-visualização.
@@ -76,9 +76,9 @@ Ao publicar a sua oferta no mercado com o Partner Center, _deve_ conectá-la a u
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [FAQs de gestão de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
+- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado)
 
 **Selecione Guardar o projeto** antes de continuar.
@@ -96,10 +96,19 @@ Esta página permite definir o produto primário que o seu serviço de consultor
     - **Prova de conceito**: Uma implementação de âmbito limitado para determinar se uma solução satisfaz os requisitos do cliente.
     - **Workshop**: Um compromisso interativo realizado nas instalações de um cliente. Pode envolver formação, briefings, avaliações ou demonstrações construídas com base nos dados ou ambiente do cliente.
 
-3. Se selecionar um produto primário do **Azure,** selecione até três **Áreas de Solução.** Estes facilitam a vida dos clientes no Azure Marketplace. Se não escolheste o Azure, salta este passo.
-4. Se selecionar um produto primário _diferente_ do Azure, selecione até três **produtos aplicáveis.** Estes facilitam a vida dos clientes no AppSource. Para mais detalhes, consulte [as Diretrizes de Listagem de Serviços de Consultoria de Consultoria da Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-5. Selecione até seis **Indústrias a** que a sua oferta se aplica. Isto facilitará aos clientes a sua oferta.
-6. Adicione três **Competências** que a sua empresa ganhou para exibir na sua listagem de oferta de serviço de consultoria. Pelo menos uma competência é necessária, com exceção dos MSPs expert da Azure e dos MSPs de rede Azure.
+3. Se selecionar **o Azure** como produto primário, selecione até três **Áreas de Solução**. Estes facilitam a vida dos clientes no Azure Marketplace. Se não escolheste o Azure, salta este passo.
+
+    | Área de Solução | | | |
+    | --- | --- | --- | --- |
+    | Análise | Cópia de segurança | DevOps | Migração |
+    | Modernização da App | Macrodados | Recuperação Após Desastre | Redes |
+    | Arquivo | Plataforma de Dados | Identidade | Segurança |
+    | IA + Machine Learning | Gestão de Datacenter | Internet das Coisas | Armazenamento |
+
+1. Se selecionou **o Azure** como produto primário, tem a opção de selecionar até seis **Indústrias**. Estes facilitam a vida dos clientes no Azure Marketplace. Consulte a lista completa de indústrias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md) Se não escolheste o Azure, salta este passo.
+1. Se selecionar um produto primário *diferente* do Azure, selecione até três **produtos aplicáveis.** Estes facilitam a vida dos clientes no AppSource. Para mais detalhes, consulte [as Diretrizes de Listagem de Serviços de Consultoria de Consultoria da Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+1. Se selecionou um produto primário *diferente* do Azure, tem a opção de selecionar até **duas Indústrias** e **duas Verticais** para cada indústria. Estes facilitam a vida dos clientes no AppSource. Consulte a lista completa de indústrias e verticais na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
+1. Adicione três **Competências** que a sua empresa ganhou para exibir na sua listagem de oferta de serviço de consultoria. Pelo menos uma competência é necessária, com exceção dos MSPs expert da Azure e dos MSPs de rede Azure.
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -122,7 +131,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 4. Setores
 5. Nome da oferta
 6. Resumo
-7. Description
+7. Descrição
 8. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
@@ -137,7 +146,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 4. Setores
 5. Nome da oferta
 6. Resumo
-7. Description
+7. Descrição
 8. Screenshots/vídeos
 9. Documentos
 
@@ -155,7 +164,7 @@ O nome:
 
 Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -230,8 +239,8 @@ Depois de ter completado todas as secções necessárias da oferta, pode submete
 4. Quando estiver pronto, **selecione Submeter.**
 5. A página **geral da Oferta** mostra em que fase de publicação está a sua oferta.
 
-Para obter mais informações sobre quanto tempo pode esperar que a sua oferta esteja em cada fase editorial, consulte [o estado de publicação da sua oferta de Mercado Comercial.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status)
+Para obter mais informações sobre quanto tempo pode esperar que a sua oferta esteja em cada fase editorial, consulte [o estado de publicação da sua oferta de Mercado Comercial.](publishing-status.md)
 
 ## <a name="update-your-existing-consulting-service-offers"></a>Atualize as suas ofertas de serviços de consultoria existentes
 
-- [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Atualizar uma oferta existente no mercado comercial](update-existing-offer.md)

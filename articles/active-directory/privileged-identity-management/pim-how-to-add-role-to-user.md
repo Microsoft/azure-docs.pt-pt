@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dbb985ece8e5b6df3ef3f29a997af5212404ad
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84742696"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024198"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de Azure AD em Gestão de Identidade Privilegiada
 
@@ -53,15 +53,13 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
     ![Funções do Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. **Selecione Adicionar membro** para abrir a nova página de **atribuição.**
+1. **Selecione Adicionar atribuições** para abrir a página **de atribuições adicionar.**
 
-1. **Selecione selecionar uma função** para abrir a página De função.
+1. **Selecione selecionar uma função** para abrir a página **De função.**
 
     ![Novo painel de atribuição](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Selecione uma função que pretende atribuir e, em seguida, clique em **Selecionar**.
-
-1. Selecione um membro a quem pretende atribuir à função e, em seguida, **selecione Select**.
+1. Selecione uma função que pretende atribuir, selecione um membro a quem pretende atribuir para o papel e, em seguida, selecione **Next**.
 
 1. Na lista de **tipos de atribuição** no painel de **definições de adesão,** selecione **Elegível** ou **Ativo**.
 
@@ -69,15 +67,11 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
     - As atribuições **ativas** não requerem que o membro execute qualquer ação para usar o papel. Os membros designados como ativos têm sempre os privilégios atribuídos ao papel.
 
-1. Se a atribuição deve ser permanente (permanentemente elegível ou permanentemente atribuída), selecione a caixa de verificação **Permanente.**
-
-    Dependendo das definições de função, a caixa de verificação pode não aparecer ou pode ser indificável.
-
-1. Para especificar uma duração específica da atribuição, limpe a caixa de verificação e modifique as caixas de início e/ou de fim e hora. Quando terminar, selecione **'Fazer' ( 'Fazer' ( "Fazer")**
+1. Para especificar uma duração específica da atribuição, adicione uma data de início e fim e caixas de hora. Quando terminar, **selecione Atribuir** para criar a nova atribuição de funções.
 
     ![Definições de membros - data e hora](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Para criar a nova atribuição de funções, **selecione Add**. É apresentada uma notificação do estado.
+1. Após a atribuição da função, é apresentada uma notificação do estado de atribuição.
 
     ![Nova atribuição - Notificação](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 1. Agora que o utilizador é elegível para o papel, informe-os de que podem ativá-lo de acordo com as instruções em Ativar as [minhas funções de AD Azure em Gestão de Identidade Privilegiada.](pim-how-to-activate-role.md)
 
-    Os administradores elegíveis são convidados a registar-se para autenticação multi-factor Azure (MFA) durante a ativação. Se um utilizador não puder registar-se no MFA, ou estiver a utilizar uma conta Microsoft (por @outlook.com exemplo), tem de os tornar permanentes em todas as suas funções.
+    Os administradores elegíveis são convidados a registar-se para autenticação multi-factor Azure durante a ativação. Se um utilizador não puder registar-se no MFA, ou estiver a utilizar uma conta Microsoft (por @outlook.com exemplo), tem de os tornar permanentes em todas as suas funções.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tornar uma atribuição de papel permanente
 
@@ -215,7 +209,7 @@ Siga estes passos para atribuir a função de Administrador de Acesso ao Utiliza
 
  ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar configurações de função de administrador a Ad AD em Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

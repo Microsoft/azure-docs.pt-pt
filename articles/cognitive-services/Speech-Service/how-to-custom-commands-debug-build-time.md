@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604697"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023130"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Depurar erros ao autorizar uma aplicação de Comandos Personalizados
 
@@ -24,7 +24,7 @@ Este artigo descreve como depurar quando vê erros ao construir a aplicação Co
 ## <a name="errors-when-creating-an-application"></a>Erros ao criar uma aplicação
 Os Comandos Personalizados também criam uma aplicação no [LUIS](https://www.luis.ai/) ao criar uma aplicação de Comandos Personalizados. 
 
-[O LUIS limita 500 aplicações por recurso de autoria.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits) A criação da aplicação LUIS poderá falhar se estiver a utilizar um recurso de autoria que já tenha 500 aplicações. 
+[O LUIS limita 500 aplicações por recurso de autoria.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits) A criação da aplicação LUIS poderá falhar se estiver a utilizar um recurso de autoria que já conta com 500 aplicações. 
 
 Certifique-se de que o recurso de autoria LUIS selecionado tem menos de 500 aplicações. Caso contrário, pode criar um novo recurso de autoria LUIS, mudar para outro, ou tentar limpar as suas aplicações LUIS.  
 
@@ -32,20 +32,20 @@ Certifique-se de que o recurso de autoria LUIS selecionado tem menos de 500 apli
 ### <a name="cant-delete-luis-application"></a>Não pode apagar a aplicação LUIS
 Ao eliminar uma aplicação de Comandos Personalizados, os Comandos Personalizados podem também tentar eliminar a aplicação LUIS associada à aplicação Comandos Personalizados.
 
-Se a eliminação da aplicação LUIS falhou, por favor, vá à sua conta [LUIS](https://www.luis.ai/) para eliminá-las manualmente.
+Se a supressão da aplicação LUIS falhou, vá à sua conta [LUIS](https://www.luis.ai/) para eliminá-las manualmente.
 
 ### <a name="toomanyrequests"></a>TooManyRequests
-Quando tenta eliminar uma grande quantidade de aplicações de uma só vez, é provável que veja erros de 'TooManyRequests'. Isto significa que os seus pedidos de supressão são estrangulados pelo Azure. 
+Quando tenta eliminar um grande número de aplicações de uma só vez, é provável que veja erros de 'TooManyRequests'. Estes erros significam que os seus pedidos de supressão são estrangulados pelo Azure. 
 
-Por favor, refresque a sua página e tente eliminar menos aplicações.
+Refresque a sua página e tente eliminar menos aplicações.
 
 ## <a name="errors-when-modifying-an-application"></a>Erros ao modificar uma aplicação
 
 ### <a name="cant-delete-a-parameter-or-a-web-endpoint"></a>Não é possível eliminar um parâmetro ou um Ponto Final web
-Não é permitido apagar um parâmetro quando este está a ser utilizado. Por favor, remova qualquer referência do parâmetro em quaisquer respostas de fala, frases de amostra, condições, ações e tente novamente.
+Não é permitido apagar um parâmetro quando este está a ser utilizado. Remova qualquer referência do parâmetro em quaisquer respostas da fala, frases de amostra, condições, ações e tente novamente.
 
 ### <a name="cant-delete-a-web-endpoint"></a>Não é possível eliminar um Web Endpoint
-Não está autorizado a eliminar um Ponto Final web quando este estiver a ser utilizado. Por favor, remova qualquer ação **call Web Endpoint** que utilize este Web Endpoint antes de remover um Ponto Final web.
+Não está autorizado a eliminar um Ponto Final web quando este estiver a ser utilizado. Remova qualquer ação **call Web Endpoint** que utilize este Web Endpoint antes de remover um Ponto Final web.
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar uma aplicação
 ### <a name="built-in-intents"></a>Intenções incorporadas
@@ -53,13 +53,13 @@ LUIS tem intençãos incorporadas Sim/Sem intenções. Tendo frases de amostra c
 
 | Palavra-chave | Variações | 
 | ------- | --------- | 
-| Yes | Claro, ok. |
-| No | Não, não. | 
+| Sim | Claro, ok. |
+| Não | Não, não. | 
 
 ### <a name="common-sample-sentences"></a>Frases-amostra comuns
 Os Comandos Personalizados não permitem frases comuns de amostra partilhadas entre diferentes comandos. O treino de uma aplicação pode falhar se algumas frases de amostra de um comando já estiverem definidas noutro comando. 
 
-Por favor, certifique-se de que não tem frases comuns partilhadas entre diferentes comandos. 
+Certifique-se de que não tem frases comuns partilhadas entre diferentes comandos. 
 
 Para obter as melhores práticas de equilibrar as suas frases de amostra em diferentes comandos, consulte [as melhores práticas do LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)
 
@@ -82,18 +82,20 @@ Por exemplo, pode definir um parâmetro {veículo} para as frases de exemplo aba
 | Reserve um voo | Reserve um {veículo} |
 | Reserve um táxi | Reserve um {veículo} |
 
-Para as melhores práticas de treino do LUIS, consulte [as melhores práticas do LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)
+Para as melhores práticas de treino do LUIS, consulte [as melhores práticas de LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)
 
 ## <a name="cant-update-luis-key"></a>Não é possível atualizar a chave LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Reatribuir ao recurso de autoria E0
 A LUIS não suporta a reatribuição da aplicação LUIS ao recurso de autoria E0.
 
-Se precisar de alterar o seu recurso de autoria de F0 para E0, ou mudar para um recurso E0 diferente, por favor recrie a aplicação.
+Se precisar de alterar o seu recurso de autoria de F0 para E0, ou mudar para um recurso E0 diferente, recrie a aplicação. 
+
+Para exportar rapidamente uma aplicação existente e importá-la para uma nova aplicação, consulte a [Implementação Contínua com Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### <a name="save-button-is-disabled"></a>O botão de poupança está desativado
 Se nunca atribuir um recurso de previsão LUIS à sua aplicação, o botão Guardar será desativado quando tentar alterar o seu recurso de autoria sem adicionar um recurso de previsão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

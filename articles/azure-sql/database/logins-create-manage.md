@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Saiba como a Azure SQL Database, SQL Managed Instance e Azure Synapse autenticam os utilizadores para acesso através de logins e contas de utilizador. Saiba também como conceder funções de base de dados e permissões explícitas para autorizar logins e utilizadores a realizar ações e dados de consulta.
 keywords: segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: ebd55151a4b1656ec1187117b7c4b6da9d37e161
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298469"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986288"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à base de dados SQL, à SqL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -169,6 +169,6 @@ Deverá familiarizar-se com as seguintes funcionalidades que podem ser utilizada
 - A [Máscara de Dados](dynamic-data-masking-overview.md) pode ser utilizada para limitar a exposição de dados confidenciais.
 - Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral de todas as funcionalidades de segurança da Azure SQL Database e sql Managed Instance, consulte [a visão geral de Segurança](security-overview.md).

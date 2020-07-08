@@ -3,7 +3,7 @@ title: Elevada disponibilidade
 titleSuffix: Azure SQL Database and SQL Managed Instance
 description: Conheça a Base de Dados Azure SQL e o serviço SQL Managed Instance com elevadas capacidades de disponibilidade
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 7ed23f192fc173c1c9802593ed7a043fabd765c2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254604"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985334"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -106,7 +106,7 @@ Uma falha pode ser iniciada usando REST API ou PowerShell. Para REST API, consul
 
 A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Está dependente do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para uma maior tolerância a falhas. Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

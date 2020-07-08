@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ecc38633d8081f9060f2c1877f129378fac68f6e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5077e71eda42aa3b48cda2b39b60efc19bddd8a5
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696268"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985538"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
 
@@ -53,7 +53,9 @@ Para utilizar os cmdlets, tem primeiro de iniciar súm na sua conta Azure a part
 
 Para exportar a sua experiência preditiva, utilize [este código de amostra.](https://github.com/ritwik20/AzureML-WebServices) Depois de criar o ficheiro .exe a partir do código, pode escrever:
 
-    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```azurepowershell
+C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```
 
 Executar a aplicação cria um modelo JSON de serviço web. Para utilizar o modelo para implementar um serviço web, deve adicionar as seguintes informações:
 
@@ -68,13 +70,15 @@ Adicione-os ao modelo JSON como crianças do nó *Propriedades* ao mesmo nível 
 
 Eis um exemplo:
 
-    "StorageAccount": {
-            "name": "YourStorageAccountName",
-            "key": "YourStorageAccountKey"
-    },
-    "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
-    }
+```json
+"StorageAccount": {
+        "name": "YourStorageAccountName",
+        "key": "YourStorageAccountKey"
+},
+"CommitmentPlan": {
+    "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+}
+```
 
 Consulte os seguintes artigos e código de amostra para mais detalhes:
 

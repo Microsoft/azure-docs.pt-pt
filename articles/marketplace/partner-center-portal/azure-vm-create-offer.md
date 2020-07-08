@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 38228e7080cb0bdead2f2b3490729702d923ae36
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 499c7e9e4ca4ab5db02c566830738f0ceb07e40d
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85504904"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984655"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
 Este artigo descreve como criar e publicar uma oferta de máquina virtual Azure ao [Azure Marketplace.](https://azuremarketplace.microsoft.com/) Aborda máquinas virtuais baseadas no Windows e linux que contêm um sistema operativo, um disco rígido virtual (VHD) e até 16 discos de dados. 
 
-Antes de começar, [Crie uma conta de marketplace comercial no Partner Center.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Antes de começar, [Crie uma conta de marketplace comercial no Partner Center.](create-account.md) Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="introduction"></a>Introdução
 
@@ -31,21 +31,21 @@ Ao publicar as suas ofertas no Azure Marketplace, pode:
 - Obtenha pistas de alta qualidade destes mercados.
 - Obtenha os seus serviços promovidos pelas equipas de vendas e televendas da Microsoft.
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
-Se ainda não o fez, reveja o [guia de publicação da oferta de máquinas Virtuais](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) e este material Azure Virtual Machine:
+Se ainda não o fez, reveja o [guia de publicação da oferta de máquinas Virtuais](../marketplace-virtual-machines.md) e este material Azure Virtual Machine:
 
 - Guias quickstart
   - [Modelos de arranque rápido Azure](https://azure.microsoft.com/resources/templates/)
   - [Modelos de arranque rápido GitHub Azure](https://github.com/azure/azure-quickstart-templates)
-- Tutoriais
-  - [VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-  - [VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+- Tutorials (Tutoriais)
+  - [VMs do Linux](../../virtual-machines/linux/tutorial-manage-vm.md)
+  - [VMs do Windows](../../virtual-machines/windows/tutorial-manage-vm.md)
 - Amostras
-  - [Amostras de CLI Azure para LMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
-  - [Azure PowerShell para LMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
-  - [Amostras de CLI Azure para VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-  - [Azure PowerShell para VMs windows](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
+  - [Amostras de CLI Azure para LMs Linux](../../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell para LMs Linux](../../virtual-machines/linux/powershell-samples.md)
+  - [Amostras de CLI Azure para VMs do Windows](../../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell para VMs windows](../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Fundamentos do conhecimento técnico
 
@@ -86,14 +86,14 @@ Selecione **Criar** para gerar a oferta e continuar.
 
 ### <a name="test-drive"></a>Versão de Teste
 
-Um *Test Drive* é uma ótima maneira de mostrar a sua oferta a potenciais clientes. Dá-lhes a opção de "experimentar antes de comprar", o que pode ajudar a aumentar as suas conversões e gerar leads altamente qualificados. Para mais informações, veja [o que é um Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Um *Test Drive* é uma ótima maneira de mostrar a sua oferta a potenciais clientes. Dá-lhes a opção de "experimentar antes de comprar", o que pode ajudar a aumentar as suas conversões e gerar leads altamente qualificados. Para mais informações, veja [o que é um Test Drive?](../what-is-test-drive.md)
 
 Para ativar uma Unidade de Teste durante um período de tempo fixo, selecione a caixa de **verificação de acionamento de teste.** Para remover o Test Drive da sua oferta, limpe a caixa de verificação.
 
 Recursos adicionais de Test Drive:
 
 - [Melhores práticas técnicas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Melhores práticas de marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Melhores práticas de marketing](../what-is-test-drive.md)
 - [Descarregue a visão geral do Test Drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) Ficheiro PDF (certifique-se de que o seu bloqueador pop-up está desligado).
 
 ### <a name="customer-leads"></a>Ligações ao cliente
@@ -101,12 +101,12 @@ Recursos adicionais de Test Drive:
 Ao publicar a sua oferta no mercado comercial com o Partner Center, conecte-a ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém manifestar interesse ou utilizar o seu produto. É necessária uma ligação a um CRM se pretender ativar uma Unidade de Teste (ver a secção anterior). Caso contrário, a ligação a um CRM é opcional.
 
 1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. O Partner Center suporta os seguintes sistemas crm:
-    - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para envolvimento com o cliente
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dinâmica 365](commercial-marketplace-lead-management-instructions-dynamics.md) para envolvimento com o cliente
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Se o seu sistema CRM não estiver listado aqui, utilize [o armazenamento da Tabela Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou um ponto final [HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar os dados de chumbo do seu cliente. Em seguida, exporte os dados para o seu sistema crm.
+    > Se o seu sistema CRM não estiver listado aqui, utilize [o armazenamento da Tabela Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou um ponto final [HTTPS](commercial-marketplace-lead-management-instructions-https.md) para armazenar os dados de chumbo do seu cliente. Em seguida, exporte os dados para o seu sistema crm.
 
 1. Ligue a sua oferta ao destino principal quando estiver a publicar no Partner Center.
 1. Confirme se a ligação ao destino de chumbo está configurada corretamente. Depois de publicá-lo no Partner Center, a Microsoft valida a ligação e envia-lhe uma pista de teste. Enquanto está a pré-visualizar a oferta antes de entrar em direto, também pode testar a sua ligação de chumbo tentando implementar a oferta no ambiente de pré-visualização.
@@ -116,11 +116,16 @@ Ao publicar a sua oferta no mercado comercial com o Partner Center, conecte-a ao
 
 ## <a name="properties"></a>Propriedades
 
-Na página **Propriedades,** define as categorias e indústrias que são usadas para agrupar a sua oferta no Azure Marketplace, a sua versão de candidatura e os contratos legais que suportam a sua oferta.
+Na página **Propriedades,** define as categorias que são usadas para agrupar a sua oferta no Azure Marketplace, a sua versão de candidatura e os contratos legais que suportam a sua oferta.
 
-### <a name="categories"></a>Categorias
+### <a name="category"></a>Categoria
 
-Selecione um mínimo de uma e um máximo de cinco categorias. Utiliza estas categorias para colocar a sua oferta nas áreas de pesquisa apropriadas do Azure Marketplace. Na descrição da oferta, explique como a sua oferta suporta estas categorias. As ofertas de máquinas virtuais aparecem na categoria **Compute** no Azure Marketplace.
+Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
+
+- Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+
+Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md) As ofertas de máquinas virtuais aparecem sempre na categoria **Compute** no Azure Marketplace.
 
 ### <a name="legal"></a>Legal
 
@@ -143,7 +148,7 @@ Deve fornecer condições e condições de oferta aos seus clientes. Tem duas op
   > [!NOTE]
   > Depois de publicar uma oferta utilizando o Contrato Padrão para o mercado comercial, não pode usar os seus próprios termos e condições personalizados. Pode oferecer uma solução nos termos e condições do Contrato Padrão ou dos seus próprios termos e condições.
 
-  Para mais informações, consulte [o Standard Contract para o mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/standard-contract) Descarregue o ficheiro PDF [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) (certifique-se de que o seu bloqueador pop-up está desligado).
+  Para mais informações, consulte [o Standard Contract para o mercado comercial da Microsoft.](../standard-contract.md) Descarregue o ficheiro PDF [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) (certifique-se de que o seu bloqueador pop-up está desligado).
 
   **Alterações padrão do contrato**
 
@@ -175,7 +180,7 @@ Na página de **listagem da Oferta,** define os detalhes da oferta, tais como no
 
 ### <a name="marketplace-details"></a>Detalhes do mercado
 
-#### <a name="name"></a>Nome
+#### <a name="name"></a>Name
 
 O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo é preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente. O nome:
 
@@ -221,7 +226,7 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de apoio.
 
 Forneça informações de contacto para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
 
-- Nome
+- Name
 - E-mail
 - Telefone
 
@@ -229,7 +234,7 @@ Forneça informações de contacto para os parceiros da Microsoft utilizarem qua
 
 Forneça informações de contacto para que a Microsoft possa utilizar quando houver problemas com a sua oferta, incluindo problemas com a certificação. Esta informação não está listada no Azure Marketplace.
 
-- Nome
+- Name
 - E-mail
 - Telefone
 
@@ -259,7 +264,7 @@ Adicione cinco imagens que mostram como a sua oferta funciona. Cada screenshot d
 
 Adicione até cinco vídeos que demonstram a sua oferta. Os vídeos devem ser hospedados num serviço de vídeo externo. Insira o nome de cada vídeo, endereço web e uma imagem PNG de miniatura do vídeo em 1280 &times; 720 pixels.
 
-Para obter recursos adicionais de listagem de mercado, consulte [as melhores práticas para anúncios de oferta de mercado.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+Para obter recursos adicionais de listagem de mercado, consulte [as melhores práticas para anúncios de oferta de mercado.](../gtm-offer-listing-best-practices.md)
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -324,11 +329,11 @@ Se tiver mais do que um plano do mesmo tipo e as embalagens forem idênticas ent
 
 O seu plano deve ser disponibilizado em pelo menos uma região de Azure.
 
-Selecione a opção **Azure Global** para disponibilizar o seu plano aos clientes de todas as regiões da Azure Global que tenham integração comercial no mercado. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
+Selecione a opção **Azure Global** para disponibilizar o seu plano aos clientes de todas as regiões da Azure Global que tenham integração comercial no mercado. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](../marketplace-geo-availability-currencies.md)
 
-Selecione a opção **do Governo Azure** para disponibilizar o seu plano na região do [Governo Azure.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) Esta região fornece acesso controlado a clientes de entidades federais, estaduais, locais ou tribais dos EUA, bem como a parceiros elegíveis para os servir. Você, como editora, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas. O Governo Azure utiliza datacenters e redes fisicamente isoladas (localizadas apenas nos EUA).
+Selecione a opção **do Governo Azure** para disponibilizar o seu plano na região do [Governo Azure.](../../azure-government/documentation-government-welcome.md) Esta região fornece acesso controlado a clientes de entidades federais, estaduais, locais ou tribais dos EUA, bem como a parceiros elegíveis para os servir. Você, como editora, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas. O Governo Azure utiliza datacenters e redes fisicamente isoladas (localizadas apenas nos EUA).
 
-Antes de publicar para o [Governo Azure,](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)teste e valide o seu plano no ambiente, porque certos pontos finais podem diferir. Para configurar e testar o seu plano, solicite uma conta de teste na página de teste do [Governo Microsoft Azure.](https://azure.microsoft.com/global-infrastructure/government/request/)
+Antes de publicar para o [Governo Azure,](../../azure-government/documentation-government-manage-marketplace-partners.md)teste e valide o seu plano no ambiente, porque certos pontos finais podem diferir. Para configurar e testar o seu plano, solicite uma conta de teste na página de teste do [Governo Microsoft Azure.](https://azure.microsoft.com/global-infrastructure/government/request/)
 
 > [!NOTE]
 > Depois de o seu plano ser publicado e disponível numa região específica de Azure, não pode remover essa região.
@@ -420,7 +425,7 @@ Se a sua máquina virtual deve ser usada apenas indiretamente quando é referenc
 
 ### <a name="technical-configuration"></a>Configuração técnica
 
-Forneça as imagens e outras propriedades técnicas que estejam associadas a este plano. Para obter mais informações, consulte [Criar um ativo técnico Azure VM](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Forneça as imagens e outras propriedades técnicas que estejam associadas a este plano. Para obter mais informações, consulte [Criar um ativo técnico Azure VM](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > O **separador de configuração técnica** não é apresentado se configurar este plano para reutilizar pacotes de outro plano no separador **de configuração do Plano.**
@@ -454,7 +459,7 @@ Para **suporte rede acelerada**, selecione se o seu VM suporta [rede acelerada](
 Forneça uma versão em disco e a assinatura de acesso partilhado (SAS) URI para as imagens de máquinas virtuais. Adicione até 16 discos de dados para cada imagem VM. Forneça apenas uma nova versão de imagem por plano numa submissão especificada. Depois de uma imagem ter sido publicada, não pode editá-la, mas pode eliminá-la. A eliminação de uma versão impede que os utilizadores novos e já existentes implementem uma nova instância da versão eliminada.
 
 - **Versão do disco**: A versão da imagem que está a fornecer.
-- **SAS URI**: A localização na sua conta de armazenamento Azure onde guardou o sistema operativo VHD.
+- **SAS URI**: A localização na sua conta de armazenamento Azure onde guardou o sistema operativo VHD. Para aprender a obter um SAS URI, consulte [obter a assinatura de acesso partilhado URI para a sua imagem VM](get-sas-uri.md).
 - As imagens de disco de dados são também URIs de acesso partilhado VHD que são armazenados nas suas contas de armazenamento Azure.
 - Adicione apenas uma imagem por submissão num plano.
 
@@ -470,13 +475,13 @@ Expanda o alcance da sua oferta disponibilizando-a aos parceiros do programa [Cl
 
 ## <a name="test-drive"></a>Versão de Teste
 
-Crie uma demonstração, ou *Test Drive,* que permite que os clientes experimentem a sua oferta por um período de tempo fixo antes de comprá-la. Para criar um ambiente de demonstração para os seus [clientes, consulte as ofertas de Test Drive no mercado comercial.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)
+Crie uma demonstração, ou *Test Drive,* que permite que os clientes experimentem a sua oferta por um período de tempo fixo antes de comprá-la. Para criar um ambiente de demonstração para os seus [clientes, consulte as ofertas de Test Drive no mercado comercial.](test-drive.md)
 
 Para ativar uma Unidade de Teste, selecione a caixa **de verificação de unidade de teste** no painel de **configuração da Oferta.** Para remover o Test Drive da sua oferta, limpe a caixa de verificação.
 
 Recursos adicionais de Test Drive:
 
-- [Melhores práticas de marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Melhores práticas de marketing](../what-is-test-drive.md)
 - [Melhores práticas técnicas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Visão geral do Test Drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) Ficheiro PDF (certifique-se de que o seu bloqueador pop-up está desligado)
 
@@ -511,10 +516,10 @@ A página **geral da Oferta** mostra uma representação visual dos passos, tant
 
 Esta página também inclui links para ajudá-lo a trabalhar com a oferta, dependendo do seu estado:
 
-- Se a oferta for um rascunho: [Eliminar a oferta de rascunho](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Se a oferta for ao vivo: [Pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em [pré-visualização: Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Se ainda não tiver concluído a assinatura da editora: [Cancelar a publicação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Se a oferta for um rascunho: [Eliminar proposta de rascunho)](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for ao vivo: [Pare de vender a oferta)](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em [pré-visualização: Go-live](publishing-status.md#publisher-approval))
+- Se ainda não tiver concluído a assinatura do editor: [Cancelar a publicação](update-existing-offer.md#cancel-publishing))
 
 ## <a name="marketplace-examples"></a>Exemplos de mercado
 
@@ -561,7 +566,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
-1. Nome
+1. Name
 2. Descrição
 3. Ligações úteis
 4. Screenshots/vídeos
@@ -587,4 +592,4 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 ## <a name="next-step"></a>Passo seguinte
 
-- [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Atualizar uma oferta existente no mercado comercial](update-existing-offer.md)

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d8b50bfdd894d36b96fb3a53eab7c43c5b1fe11a
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782114"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024575"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena
 
@@ -46,7 +46,7 @@ Há três formas de verificar se um pedido está em quarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Porque é que o meu pedido está em quarentena?
 
-|Description|Ação Recomendada|
+|Descrição|Ação Recomendada|
 |---|---|
 |**Problema de conformidade SCIM:** Foi devolvida uma resposta HTTP/404 Não Encontrada em vez da resposta HTTP/200 OK esperada. Neste caso, o serviço de fornecimento de Ad Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Consulte a secção de credenciais de administração para ver se o pedido requer especificar o URL do inquilino e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor da aplicação para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar o acesso ao pedido de destino, recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Navegue para a secção de credenciais de administração da configuração de provisionamento UI e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para quaisquer etapas adicionais necessárias.|
@@ -75,3 +75,6 @@ Depois de resolver o problema, reinicie o trabalho de provisão. Algumas altera�
 - Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá controlo total sobre o que reinicia. Pode optar por limpar as cauções (reiniciar o contador de cauções que se acumula para o estado de quarentena), limpar a quarentena (para remover a aplicação da quarentena) ou marcas de água límpias. utilize o seguinte pedido:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+Substitua "{id}" pelo valor do ID da aplicação e substitua "{jobId}" pelo [ID do trabalho de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+

@@ -278,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Cópia de segurança sob pedido da partição
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: Ver e editar uma cópia de segurança do Reliable Collections offline
+              href: backup-explorer.md
         - name: CodePackages do Inicializador
           href: initializer-codepackages.md
         - name: RunToCompletion
@@ -466,7 +468,7 @@
               href: service-fabric-reliable-services-configuration.md
             - name: Enviar notificações
               href: service-fabric-reliable-services-notifications.md
-            - name: Cópia de segurança e restauro
+            - name: Criar cópias de segurança e restauro
               href: service-fabric-reliable-services-backup-restore.md
         - name: Criar um serviço do Reliable Actors
           items:

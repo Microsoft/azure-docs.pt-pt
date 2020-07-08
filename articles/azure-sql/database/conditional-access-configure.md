@@ -1,8 +1,9 @@
 ---
 title: Acesso Condicional
 description: Saiba como configurar o Acesso Condicional para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: conceptual
 author: GithubMirek
@@ -11,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 96ba8dac13e2044d3e561a931e4e8d0760e75050
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 67fef7b192caf064cd7c3b4b6af8923b153ee5b1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195479"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985351"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso Condicional com Base de Dados Azure SQL e Azure Synapse Analytics
 
@@ -59,6 +60,6 @@ A aplicação selecionada (Azure SQL Database) utilizando o Azure AD Premium, ag
 
 Para questões sobre a Base de Dados Azure SQL e Azure Synapse relativas à autenticação de vários fatores, contacte <MFAforSQLDB@microsoft.com> .  
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 Para obter um tutorial, consulte [Secure your database in SQL Database](secure-database-tutorial.md).

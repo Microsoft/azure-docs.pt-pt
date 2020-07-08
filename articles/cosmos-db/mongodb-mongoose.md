@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 05298ac0b76f93ba8249cc72910d33b58a9889e4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2ccd352950117d8427809616f78f4a0691319cdf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263131"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023674"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ligue uma aplicação Node.js Mongoose à Azure Cosmos DB
 
@@ -194,7 +194,7 @@ Esta secção explora como conseguir isso com a API da Azure Cosmos DB para a Mo
 
 1. Agora, entrando no portal Azure, nota-se duas coleções criadas na Cosmos DB.
 
-    ![Node.js tutorial - Screenshot do portal Azure, mostrando uma conta DB Azure Cosmos, com vários nomes de coleção em destaque - Base de dados de nó][multiple-coll]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js tutorial - Screenshot do portal Azure, mostrando uma conta DB Azure Cosmos, com vários nomes de coleção em destaque - Base de dados de nó":::
 
 1. Finalmente, vamos ler os dados da Cosmos DB. Uma vez que estamos a utilizar o modelo operativo Mongoose predefinido, as leituras são idênticas a quaisquer outras leituras com o Mongoose.
 
@@ -299,7 +299,7 @@ Aqui, vamos criar um modelo de objeto base, definir uma chave diferenciadora e a
 
 1. Agora, se voltar ao portal do Azure, poderá notar que tem apenas uma coleção chamada ```alldata``` com os dados de «Family» e «VacationDestinations».
 
-    ![Node.js tutorial - Screenshot do portal Azure, mostrando uma conta DB Azure Cosmos, com o nome da coleção em destaque - Base de dados de nó][alldata]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js tutorial - Screenshot do portal Azure, mostrando uma conta DB Azure Cosmos, com o nome da coleção em destaque - Base de dados de nó":::
 
 1. Além disso, repare que cada objeto tem outro atributo denominado ```__type```, que ajuda a diferenciar entre os dois modelos de objeto diferentes.
 
@@ -317,12 +317,10 @@ Como pode ver, é fácil trabalhar com os discriminadores do Mongoose. Portanto,
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para a MongoDB.
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) com API da Azure Cosmos DB para a MongoDB.
 - Explore [as amostras](mongodb-samples.md) do MongoDB com a API da Azure Cosmos para a MongoDB.
 
-[alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
 [dbleveltp]: ./media/mongodb-mongoose/db-level-throughput.png

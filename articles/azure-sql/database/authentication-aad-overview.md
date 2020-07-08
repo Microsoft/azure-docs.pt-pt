@@ -2,7 +2,7 @@
 title: Autenticação do Azure Active Directory
 description: Saiba como utilizar o Azure Ative Directy para autenticação com Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: b89e86a50bc3d248cf1278c3f36d2ed945fead2b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195533"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984780"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utilize a autenticação do Diretório Ativo Azure
 
@@ -161,7 +161,7 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 - A autenticação Azure AD é suportada para Azure SQL Database e Azure Synapse utilizando o portal Azure **Import Database** e as lâminas **de base de dados de exportação.** A importação e exportação utilizando a autenticação Azure AD também é suportada por um comando PowerShell.
 - A autenticação AZure AD é suportada para base de dados SQL, SQL Managed Instance e Azure Synapse com a utilização do CLI. Para obter mais informações, consulte [a autenticação Configure E gere a autenticação AD do Azure com base de dados SQL ou Azure Synapse](authentication-aad-configure.md) e [SQL Server - servidor az sql](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a criar e povoar uma instância AD Azure e, em seguida, configugá-la com Azure SQL Database, SQL Managed Instance, ou Azure Synapse, ver [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL, SQL Managed Instance ou Azure Synapse](authentication-aad-configure.md).
 - Para um tutorial de utilização de principais servidores AD (logins) com SQL Managed Instance, consulte [os principais dos servidores AD do Azure (logins) com sql Managed Instance](../managed-instance/aad-security-configure-tutorial.md)

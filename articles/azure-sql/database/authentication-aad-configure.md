@@ -3,7 +3,7 @@ title: Configurar a autenticação do Azure Active Directory
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Saiba como ligar à Base de Dados SQL, sql Managed Instance e Azure Synapse Analytics utilizando a autenticação do Azure Ative Directory, depois de configurar a Azure AD.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: eaad361ba82ee6adf139174c728c2ef9ffa94849
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310908"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984905"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -188,7 +188,7 @@ Para obter um administrador AD Azure, execute os seguintes comandos Azure PowerS
 
 Os cmdlets utilizados para a prestação e gestão do administrador AdD Ad para a sua SQL Managed Instance estão listados na tabela seguinte:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Disposições um administrador AD Azure para a SQL Managed Instance na subscrição atual. (Deve ser da subscrição atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador AD Azure para a SqL Managed Instance na subscrição atual. |
@@ -216,7 +216,7 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 Também pode providenciar um administrador AD AD Azure para a SqL Managed Instance, chamando os seguintes comandos CLI:
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[az sql mi ad-admin criar](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Disposições um administrador do Azure Ative Directory para a SqL Managed Instance (deve ser da subscrição atual). |
 |[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Remove um administrador do Azure Ative Directory para a SQL Managed Instance. |
@@ -279,7 +279,7 @@ Para executar os cmdlets PowerShell, é necessário ter o Azure PowerShell insta
 
 Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a Base de Dados SQL e Azure Synapse:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse.|
@@ -293,7 +293,7 @@ As seguintes disposições de script um grupo de administrador AD Azure nomeado 
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou o Nome Principal do Utilizador. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"`` . Para grupos AZure AD apenas o nome de exibição Azure AD é suportado.
+O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou o Nome Principal do Utilizador. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos AZure AD apenas o nome de exibição Azure AD é suportado.
 
 > [!NOTE]
 > O comando Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` não o impede de aducionar administradores AZure AD para utilizadores não apoiados. Um utilizador não suportado pode ser a provisionado, mas não pode ligar-se a uma base de dados.
@@ -324,7 +324,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 Pode providenciar um administrador AD Azure, chamando os seguintes comandos CLI:
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[az sql servidor ad-admin criar](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 |[ad-ad-admin do servidor az sql](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. |
@@ -343,7 +343,7 @@ Para obter mais informações sobre os comandos CLI, consulte [o servidor Az Sql
 Em todas as máquinas clientes, a partir das quais as suas aplicações ou utilizadores se ligam à Base de Dados SQL ou à Azure Synapse utilizando identidades AD Azure, deve instalar o seguinte software:
 
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
-- Biblioteca de autenticação do Diretório Ativo Azure para O Servidor SQL *(ADAL. DLL).* Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém o *ADAL. Biblioteca DLL.*
+- Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL* (ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Controlador ODBC 17 para sql server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
@@ -351,9 +351,9 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 Pode cumprir estes requisitos através de:
 
 - A instalação da versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ou das Ferramentas de [Dados do Servidor SQL](/sql/ssdt/download-sql-server-data-tools-ssdt) satisfaz o requisito .NET Framework 4.6.
-  - O SSMS instala a versão x86 da *ADAL. DLL.*
-  - A SSDT instala a versão amd64 da *ADAL. DLL.*
-  - O mais recente Visual Studio de [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumpre o requisito .NET Framework 4.6, mas não instala a versão amd64 necessária da *ADAL. DLL.*
+  - O SSMS instala a versão x86 do *ADAL.DLL*.
+  - A SSDT instala a versão amd64 do *ADAL.DLL*.
+  - O mais recente Visual Studio de [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumpre o requisito .NET Framework 4.6, mas não instala a versão amd64 necessária de *ADAL.DLL*.
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Criar utilizadores contidos mapeados para identidades AD Azure
 
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).

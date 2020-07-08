@@ -2,19 +2,20 @@
 title: Resolver problemas comuns de ligação para a Base de Dados SQL do Azure
 description: Fornece medidas para resolver problemas de conexão Azure SQL Database e resolver outros problemas específicos da Base de Dados Azure SQL ou da Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e22f962c69091e783b8f6ab55905a02025213f5e
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321398"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985229"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Problemas de conectividade de resolução de problemas e outros erros com Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +28,7 @@ A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serv
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista de códigos de erro transitórios
 
-| Código de erro | Gravidade | Description |
+| Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir a base de dados "%&#x2a;ls" solicitada pelo login. O login falhou. Para mais informações, consulte [Errors 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |O serviço encontrou um erro no processamento do seu pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está em baixo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de falha. O código de erro (%d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou falha que ocorreu. Alguns exemplos dos códigos de erro estão incorporados na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão liga-o automaticamente a uma cópia saudável da sua base de dados. A sua aplicação deve apanhar o erro 40197, registar o código de erro incorporado (%d) dentro da mensagem para resolução de problemas e tentar reconectar-se à Base de Dados SQL até que os recursos estejam disponíveis e a sua ligação seja novamente estabelecida. Para obter mais informações, consulte [erros transitórios.](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)|
@@ -295,7 +296,7 @@ Para um procedimento aprofundado de resolução de problemas, vê [a minha consu
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabela de mensagens de erro de governação de recursos adicionais
 
-| Código de erro | Gravidade | Description |
+| Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 10928 |20 |Identificação de recursos: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [os limites de recursos da Base de Dados SQL para bases de dados individuais e agrizadas.](resource-limits-logical-server.md)<br/><br/>O ID de recursos indica o recurso que atingiu o limite. Para os fios dos trabalhadores, o ID de recurso = 1. Para sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
 | 10929 |20 |Identificação de recursos: %d. A garantia mínima %s é %d, o limite máximo é de %d, e a utilização atual para a base de dados é de %d. No entanto, o servidor encontra-se atualmente demasiado ocupado para suportar pedidos superiores a %d para esta base de dados. O ID de recursos indica o recurso que atingiu o limite. Para os fios dos trabalhadores, o ID de recurso = 1. Para sessões, o ID de recurso = 2. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). <br/>Caso contrário, tente de novo mais tarde. |
@@ -310,7 +311,7 @@ Para um procedimento aprofundado de resolução de problemas, vê [a minha consu
 
 Os seguintes erros estão relacionados com a criação e utilização de piscinas elásticas:
 
-| Código de erro | Gravidade | Description | Ação corretiva |
+| Código de erro | Gravidade | Descrição | Ação corretiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |A piscina elástica atingiu o seu limite de armazenamento. A utilização do armazenamento para a piscina elástica não pode exceder (%d) MBs. Tentar escrever dados para uma base de dados quando o limite de armazenamento do pool elástico tiver sido atingido. Para obter informações sobre os limites de recursos, consulte: <br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites à base de vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md). <br/> |Considere aumentar os DTUs de e/ou adicionar armazenamento à piscina elástica, se possível, a fim de aumentar o seu limite de armazenamento, reduzir o armazenamento utilizado por bases de dados individuais dentro da piscina elástica ou remover bases de dados da piscina elástica. Para dimensionamento elástico da piscina, consulte [os recursos elásticos da piscina.](elastic-pool-scale.md)|
 | 10929 | 16 |A garantia mínima %s é %d, o limite máximo é de %d, e a utilização atual para a base de dados é de %d. No entanto, o servidor encontra-se atualmente demasiado ocupado para suportar pedidos superiores a %d para esta base de dados. Para obter informações sobre os limites de recursos, consulte: <br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites à base de vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md). <br/> Caso contrário, tente de novo mais tarde. DTU /vCore min por base de dados; DTU /vCore max por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados da piscina elástica tentou ultrapassar o limite da piscina. |Considere aumentar os DTUs ou vCores da piscina elástica, se possível, para aumentar o seu limite de trabalhadores, ou remover bases de dados da piscina elástica. |
@@ -372,7 +373,7 @@ Para obter orientações adicionais sobre o desempenho de afinação, consulte o
 
 ## <a name="steps-to-fix-common-connection-issues"></a>Steps to fix common connection issues (Passos para corrigir problemas de ligação comuns)
 
-1. Certifique-se de que o TCP/IP está ativado como protocolo de cliente no servidor de aplicações. Para mais informações, consulte os protocolos de [clientes configurar.](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols) Nos servidores de aplicações onde não tenha ferramentas SQL instaladas, verifique se o TCP/IP está ativado através da execução **de cliconfg.exe** (utilitário sql Server Client Network).
+1. Certifique-se de que o TCP/IP está ativado como protocolo de cliente no servidor de aplicações. Para mais informações, consulte os protocolos de [clientes configurar.](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols) Nos servidores de aplicações onde não tenha ferramentas SQL instaladas, verifique se o TCP/IP está ativado executando **cliconfg.exe** (utilitário sql Server Client Network).
 2. Verifique o fio de ligação da aplicação para se certificar de que está configurado corretamente. Por exemplo, certifique-se de que a cadeia de ligação especifica a porta correta (1433) e o nome do servidor totalmente qualificado.
 Consulte [informações de ligação](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
 3. Tente aumentar o valor do tempo limite de ligação. Recomendamos a utilização de um tempo de ligação de pelo menos 30 segundos.

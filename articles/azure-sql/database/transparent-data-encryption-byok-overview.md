@@ -1,8 +1,9 @@
 ---
 title: Encriptação de dados transparentes gerida pelo cliente (TDE)
 description: Traga o suporte da sua própria chave (BYOK) para encriptação de dados transparentes (TDE) com cofre de chave Azure para base de dados SQL e Azure Synapse Analytics. TDE com visão geral byok, benefícios, como funciona, considerações e recomendações.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
@@ -11,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 51187a81865d9efa098e2c25cccdead01ed6dc74
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321313"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985314"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparentes Azure SQL com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,6 +30,9 @@ Para a Azure SQL Database e Azure Synapse Analytics, o protetor TDE é definido 
 
 > [!IMPORTANT]
 > Para aqueles que usam O TDE gerido pelo serviço que gostariam de começar a usar o TDE gerido pelo cliente, os dados permanecem encriptados durante o processo de comutação, e não há tempo de inatividade nem reencriminação dos ficheiros da base de dados. Mudar de uma chave gerida pelo serviço para uma chave gerida pelo cliente só requer a reencriminação do DEK, que é uma operação rápida e online.
+
+> [!NOTE]
+> Para fornecer aos clientes do Azure SQL duas camadas de encriptação de dados em repouso, a encriptação da infraestrutura (utilizando o algoritmo de encriptação AES-256) com as teclas geridas pela plataforma está a ser lançada. Isto fornece uma camada de encriptação de adição em repouso juntamente com TDE com chaves geridas pelo cliente, que já está disponível. Neste momento, os clientes devem solicitar acesso a esta capacidade. Se estiver interessado nesta capacidade, AzureSQLDoubleEncryptionAtRest@service.microsoft.com contacte.
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Benefícios do TDE gerido pelo cliente
 
@@ -127,7 +131,7 @@ Após o acesso à chave ser restaurado, a tomada de base de dados online requer 
 
 - Se o acesso à chave for restaurado dentro de 8 horas, a base de dados curar-se-á automaticamente dentro de uma hora.
 
-- Se o acesso à chave for restaurado após mais de 8 horas, a cicatrização automática não é possível e trazer a base de dados de volta requer passos adicionais no portal e pode demorar um tempo significativo dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas**. Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
+- Se o acesso à chave for restaurado mais de 8 horas depois, não será possível realizar a autorrecuperação. Além disso, recuperar a base de dados requer passos adicionais no portal e pode demorar bastante tempo, dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas**. Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revogação acidental do acesso ao protetor TDE
 

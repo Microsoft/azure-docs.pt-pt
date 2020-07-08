@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9186922803c287f2aa17c151590a0c1b590619d3
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 5d5396b6fa45f8af3d2f20a6c2425e99a4e36db0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85511334"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985003"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando Java
 > [!div class="op_single_selector"]
@@ -38,39 +38,45 @@ Neste artigo, você aprende sobre como usar o Java SDK para fazer a autenticaç�
 
 2. Adicione as seguintes dependências ao ficheiro **pom.xml** do Maven. Adicione o seguinte corte antes da **\</project>** etiqueta:
    
-        <dependencies>
-          <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.2.3</version>
-          </dependency>
-          <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.21</version>
-          </dependency>
-        </dependencies>
+    ```xml
+    <dependencies>
+      <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-data-lake-store-sdk</artifactId>
+        <version>2.2.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-nop</artifactId>
+        <version>1.7.21</version>
+      </dependency>
+    </dependencies>
+    ```
    
     A primeira dependência é usar o Data Lake Storage Gen1 SDK ( `azure-data-lake-store-sdk` ) do repositório de maven. A segunda dependência é para especificar a arquitetura de registo (`slf4j-nop`) a utilizar para esta aplicação. O Data Lake Storage Gen1 SDK utiliza fachada de registo [SLF4J,](https://www.slf4j.org/) que permite escolher entre uma série de quadros populares de registo, como Log4j, Java logging, Logback, etc., ou nenhum registo. Neste exemplo, vamos desativar o registo e, por conseguinte, utilizar o enlace **slf4j-nop**. Para utilizar outras opções de registo na sua aplicação, clique [aqui](https://www.slf4j.org/manual.html#projectDep).
 
 3. Adicione as seguintes declarações de importação à aplicação.
 
-        import com.microsoft.azure.datalake.store.ADLException;
-        import com.microsoft.azure.datalake.store.ADLStoreClient;
-        import com.microsoft.azure.datalake.store.DirectoryEntry;
-        import com.microsoft.azure.datalake.store.IfExists;
-        import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
-        import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
+    ```java
+    import com.microsoft.azure.datalake.store.ADLException;
+    import com.microsoft.azure.datalake.store.ADLStoreClient;
+    import com.microsoft.azure.datalake.store.DirectoryEntry;
+    import com.microsoft.azure.datalake.store.IfExists;
+    import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
+    import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
+    ```
 
 4. Utilize o seguinte corte na sua aplicação Java para obter ficha para a aplicação nativa ative directory que criou anteriormente utilizando o `DeviceCodeTokenProvider` . Substitua **o FILL-IN-HERE** pelos valores reais da aplicação nativa do Azure Ative Directory.
 
-        private static String nativeAppId = "FILL-IN-HERE";
+    ```java
+    private static String nativeAppId = "FILL-IN-HERE";
             
-        AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
+    AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
+    ```
 
 O Data Lake Storage Gen1 SDK fornece métodos convenientes que permitem gerir os tokens de segurança necessários para falar com a conta Gen1 de armazenamento de data lake. No entanto, o SDK não impõe que sejam utilizados apenas estes métodos. Pode utilizar também qualquer outro meio para obter um token, como utilizar o [SDK do Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) ou o seu próprio código personalizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a usar a autenticação do utilizador final para autenticar com a Azure Data Lake Storage Gen1 utilizando Java SDK. Agora pode olhar para os seguintes artigos que falam sobre como usar o Java SDK para trabalhar com a Azure Data Lake Storage Gen1.
 
 * [Operações de dados em Data Lake Storage Gen1 usando Java SDK](data-lake-store-get-started-java-sdk.md)

@@ -2,8 +2,8 @@
 title: Planeamento para eventos de manutenção da Azure
 description: Saiba como preparar eventos de manutenção planeados na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
-ms.openlocfilehash: 524eaa0cfd2137f2b88102bfa5c514d5248cc743
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 5bdc3eb8c118c19f90ce1fd92ac5ee156719dacd
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718636"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987223"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Plano para eventos de manutenção Azure em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,7 +43,7 @@ Em média, ocorrem 1,7 eventos de manutenção planeados todos os meses.
 
 Se a sua base de dados estiver a registar falhas de login, verifique a janela [de Saúde](../../service-health/resource-health-overview.md#get-started) de Recursos no [portal Azure](https://portal.azure.com) para obter o estado atual. A secção De Histórico de Saúde contém a razão de inatividade para cada evento (quando disponível).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Saúde dos Recursos](resource-health-to-troubleshoot-connectivity.md) para Azure SQL Database e Azure SQL Managed Instance.
 - Para obter mais informações sobre a lógica de relemissão, consulte [a lógica retry para erros transitórios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
