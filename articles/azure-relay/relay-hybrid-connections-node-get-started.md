@@ -4,10 +4,10 @@ description: Escreva uma aplicação de consola Node.js para Websockets de Liga�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 86897c0a752e4203537135dbac68cc0b4c1da44c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316926"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Começa com o Relay Hybrid Connections WebSockets em Node.js
@@ -55,7 +55,7 @@ Para enviar mensagens para o Reencaminhamento, escreva uma aplicação de consol
 
 Parabéns, criou uma aplicação de Ligações Híbridas ponto a ponto com o Node.js!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste quickstart, criou Node.js aplicações de clientes e servidores que utilizavam WebSockets para enviar e receber mensagens. A funcionalidade Ligações Híbridas do Azure Relay também suporta a utilização de HTTP para enviar e receber mensagens. Para aprender a utilizar HTTP com Ligações Híbridas Azure Relay, consulte o [Node.js http quickstart](relay-hybrid-connections-http-requests-node-get-started.md).
 
 Neste arranque rápido, usou Node.js para criar aplicações de clientes e servidores. Para aprender a escrever aplicações de clientes e servidores utilizando o [.NET WebSockets quickstart](relay-hybrid-connections-dotnet-get-started.md) ou o [quickstart .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

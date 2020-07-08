@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar o acesso a partir de pontos fi
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: de4c5c6ddc658aab549ccf6960edbca3285e338d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312846"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos Azure 
@@ -81,7 +81,7 @@ Um ponto final privado é uma interface de rede que o liga de forma privada e se
 Para mais informações, consulte [Como configurar pontos finais privados para um centro de eventos](private-link-service.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Como configurar firewall IP para um centro de eventos](event-hubs-ip-filtering.md)

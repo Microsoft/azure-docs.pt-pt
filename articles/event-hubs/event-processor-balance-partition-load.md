@@ -4,10 +4,10 @@ description: Descreve como equilibrar a carga de partição em várias instânci
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314982"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrar a carga de partição em vários casos da sua aplicação
@@ -85,7 +85,7 @@ Quando o ponto de verificação é realizado para marcar um evento como processa
 
 Por predefinição, a função que processa os eventos é chamada sequencialmente para uma determinada partição. Eventos subsequentes e chamadas para esta função a partir da mesma fila de partição nos bastidores, à medida que a bomba de evento continua a funcionar em segundo plano em outros fios. Note que eventos de diferentes divisórias podem ser processados simultaneamente e qualquer estado partilhado que seja acedido através de divisórias tem que ser sincronizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes arranques rápidos:
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)

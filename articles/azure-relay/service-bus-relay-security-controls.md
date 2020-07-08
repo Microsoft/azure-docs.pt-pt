@@ -4,10 +4,10 @@ description: Estes artigos fornecem uma lista de controlos de segurança incorpo
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316626"
 ---
 # <a name="security-controls-for-azure-relay"></a>Controlos de segurança para Azure Relay
@@ -18,44 +18,44 @@ Este artigo documenta os controlos de segurança incorporados no Azure Relay.
 
 ## <a name="network"></a>Rede
 
-| Controlo de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentation |
 |---|---|--|--|
-| Suporte ao ponto final de serviço| No |  |   |
-| Isolamento de rede e suporte de firewall| No |  |   |
+| Suporte ao ponto final de serviço| Não |  |   |
+| Isolamento de rede e suporte de firewall| Não |  |   |
 | Suporte de túneis forçados| N/D | Relé é o túnel TLS  |   |
 
 ## <a name="monitoring--logging"></a>Monitorização & registos
 
-| Controlo de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentation |
 |---|---|--|--|
-| Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Yes | |   |
-| Registo e auditoria de avião de controlo e gestão| Yes | Através do [Gestor de Recursos Azure.](../azure-resource-manager/index.yml) |   |
-| Registo e auditoria de planos de dados| Yes | Sucesso de ligação /falha e erros e registados.  |   |
+| Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Sim | |   |
+| Registo e auditoria de avião de controlo e gestão| Sim | Através do [Gestor de Recursos Azure.](../azure-resource-manager/index.yml) |   |
+| Registo e auditoria de planos de dados| Sim | Sucesso de ligação /falha e erros e registados.  |   |
 
 ## <a name="identity"></a>Identidade
 
-| Controlo de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentation |
 |---|---|--|--|
-| Autenticação| Yes | Via SAS. | [Autenticação e autorização do Relé Azure](relay-authentication-and-authorization.md) |
-| Autorização|  Yes | Via SAS. | [Autenticação e autorização do Relé Azure](relay-authentication-and-authorization.md) |
+| Autenticação| Sim | Via SAS. | [Autenticação e autorização do Relé Azure](relay-authentication-and-authorization.md) |
+| Autorização|  Sim | Via SAS. | [Autenticação e autorização do Relé Azure](relay-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controlo de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentation |
 |---|---|--|--|
 | Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft |  N/D | O retransmissor é uma tomada web e não persiste em dados. |   |
-| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | No | Utiliza apenas certificados Microsoft TLS.  |   |
+| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Não | Utiliza apenas certificados Microsoft TLS.  |   |
 | Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |   |
-| Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Yes | O serviço requer TLS. |   |
-| Chamadas da API encriptadas| Yes | HTTPS. |
+| Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Sim | O serviço requer TLS. |   |
+| Chamadas da API encriptadas| Sim | HTTPS. |
 
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controlo de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentation |
 |---|---|--|--|
-| Suporte de gestão de configuração (versão da configuração, etc.)| Yes | Através do [Gestor de Recursos Azure.](../azure-resource-manager/index.yml)|   |
+| Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Através do [Gestor de Recursos Azure.](../azure-resource-manager/index.yml)|   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../security/fundamentals/security-controls.md)

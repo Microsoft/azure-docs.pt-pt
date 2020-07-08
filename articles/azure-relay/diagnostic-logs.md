@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de todos os registos de ativid
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314894"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Ativar registos de diagnóstico para ligações híbridas Azure Relay
@@ -52,7 +52,7 @@ As novas definições fazem efeito em cerca de 10 minutos. Os registos são apre
 ## <a name="schema-for-hybrid-connections-events"></a>Schema para eventos de conexões híbridas
 As cordas JSON do registo de eventos de ligações híbridas incluem os elementos listados na tabela seguinte:
 
-| Name | Description |
+| Name | Descrição |
 | ------- | ------- |
 | ResourceId | Azure Resource Manager resource ID |
 | ActivityId | Identificação interna, usada para identificar a operação especificada. Pode também ser conhecido como "TrackingId" |
@@ -80,7 +80,7 @@ Aqui está um evento de conexões híbridas de amostra no formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventos e operações capturados em registos de diagnóstico
 
-| Operação | Description | 
+| Operação | Descrição | 
 | --------- | ----------- | 
 | Autorizações Destruídas | A autorização falhou.|
 | InvalidSasToken | Ficha SAS inválida. | 
@@ -105,7 +105,7 @@ Aqui está um evento de conexões híbridas de amostra no formato JSON.
 | SenderSentHttpRequest | O remetente enviou um pedido HTTP. | 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a Azure Relay, consulte:
 

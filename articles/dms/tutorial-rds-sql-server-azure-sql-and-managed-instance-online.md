@@ -13,17 +13,17 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 20ca7f1d9c8322fe9a4d5dd784768bdaaf7cd0d7
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314933"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o Servidor RDS SQL para a base de dados Azure SQL ou uma instância gerida Azure SQL online usando DMS
 
 Pode utilizar o Serviço de Migração da Base de Dados Azure para migrar as bases de dados de uma instância do Servidor RDS SQL para [a Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/) ou uma [Instância Gerida Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com tempo de inatividade mínimo. Neste tutorial, migra a base de **dados Adventureworks2012** restaurada para uma instância do SERVIDOR RDS SQL do SQL Server 2012 (ou mais tarde) para a Base de Dados SQL ou uma SqL Managed Instance utilizando o Serviço de Migração da Base de Dados Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie uma base de dados na Base de Dados Azure SQL ou numa SqL Managed Instance. 
 > * Utilizar o Assistente de Migração de Dados para migrar o esquema de exemplo.
@@ -250,7 +250,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 4. **Selecione Guardar**, depois de definir as **seguintes definições avançadas de migração on-line**.
 
-    | Definição | Description |
+    | Definição | Descrição |
     | ------------- | ------------- |
     | **Número máximo de tabelas para carregar em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades específicas de migração com base em quaisquer migrações de POC. |
     | **Quando a tabela de origem é truncada** | Especifica se o DMS trunca a tabela-alvo durante a migração. Esta definição pode ser útil se uma ou mais tabelas forem truncadas como parte do processo de migração. |
@@ -292,7 +292,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
 
     ![Estado da Atividade - concluído](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-completed.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre questões e limitações conhecidas na realização de migrações online para Azure, consulte o artigo [Questões conhecidas e soluções alternativas com migrações online.](known-issues-azure-sql-online.md)
 * Para obter informações sobre o Serviço de Migração de Bases de Dados, consulte o artigo [O que é o Serviço de Migração da Base de Dados?](https://docs.microsoft.com/azure/dms/dms-overview)

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314039"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais IoT Hub
@@ -93,7 +93,7 @@ Numa solução IoT, fica um *gateway de campo* entre os seus dispositivos e os s
 
 Você pode usar [Azure IoT Edge](/azure/iot-edge/) para implementar um gateway de campo. O IoT Edge oferece funcionalidades como comunicações multiplexing de vários dispositivos para a mesma ligação IoT Hub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Outros tópicos de referência neste guia de desenvolvimento do IoT Hub incluem:
 

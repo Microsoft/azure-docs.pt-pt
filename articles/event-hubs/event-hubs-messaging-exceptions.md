@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de exceções de mensagens Azure Even
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ce9e1bcd1f9e4d196d03d55374af8b1c86651851
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314620"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs exceções de mensagens - .NET
@@ -116,7 +116,7 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como mover um espaço de nome Azure Event Hu
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312962"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um espaço de nomes Azure Event Hubs para outra região
@@ -18,8 +18,8 @@ Existem vários cenários em que você gostaria de mover o seu espaço de nomes 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que os serviços e funcionalidades que a sua conta utiliza são suportados na região alvo.
-- Para funcionalidades de pré-visualização, certifique-se de que a sua subscrição está em whitelist para a região alvo.
+- Garanta que os serviços e as funcionalidades que a conta utiliza são suportados na região de destino.
+- Para as funcionalidades de pré-visualização, garanta que a subscrição está na lista de permissões da região de destino.
 - Se tiver **uma funcionalidade de captura** ativada para centros de eventos no espaço de nomes, mova o [Azure Storage ou a Azure Data Lake Store Gen 2](../storage/common/storage-account-move.md) ou [a Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) antes de mover o espaço de nomes do Event Hubs. Também pode mover o grupo de recursos que contém espaços de nome de Storage e Event Hubs para a outra região, seguindo passos semelhantes aos descritos neste artigo. 
 - Se o espaço de nomes do Event Hubs estiver num **cluster de Clusters de Eventos,** [crie um cluster dedicado](event-hubs-dedicated-cluster-create-portal.md) na **região alvo** antes de passar por etapas neste artigo. Também pode usar o [modelo de arranque rápido no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) para criar um cluster Desaquitro de Eventos. No modelo, remova a parte do espaço de nome do JSON para criar apenas o cluster. 
 
@@ -46,15 +46,15 @@ Para começar, exporte um modelo de Gestor de Recursos. Este modelo contém defi
 Implemente o modelo para criar um espaço de nomes de Centros de Eventos na região alvo. 
 
 
-1. No portal do Azure, selecione **Criar um recurso**.
+1. No portal Azure, selecione **Criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, escreva **implementação de modelo** e prima **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
 
-3. Selecione **Implementação de modelo**.
+3. Selecione **a implementação do modelo**.
 
 4. Selecione **Criar**.
 
-5. Selecione **Crie o seu próprio modelo no editor**.
+5. Selecione **Construa o seu próprio modelo no editor.**
 
 6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js**no** ficheiro que descarregou na última secção.
 
@@ -88,7 +88,7 @@ Implemente o modelo para criar um espaço de nomes de Centros de Eventos na regi
     
     6. Agora, **selecione Select Purchase** para iniciar o processo de implementação. 
 
-## <a name="discard-or-clean-up"></a>Descartar ou limpar
+## <a name="discard-or-clean-up"></a>Eliminar ou limpar
 Após a implementação, se quiser recomeçar, pode eliminar o **espaço de nomes target Event Hubs**e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
 
 Para comprometer as alterações e completar o movimento de um espaço de nomes de Event Hubs, elimine o **espaço de nomes de Centros de Eventos de origem**. Certifique-se de que processou todos os eventos no espaço de nomes antes de apagar o espaço de nomes. 
@@ -103,7 +103,7 @@ Para eliminar um espaço de nomes de Event Hubs (fonte ou alvo) utilizando o por
 
 3. Na página **Eliminar Recursos*** verifique os recursos selecionados e confirme a eliminação digitando **sim**, e, em seguida, selecione **Delete**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você mudou um espaço de nome Azure Event Hubs de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 

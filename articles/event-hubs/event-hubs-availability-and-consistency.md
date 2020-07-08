@@ -4,10 +4,10 @@ description: Como fornecer a quantidade máxima de disponibilidade e consistênc
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 497a6e7430c4e6f8e29f903294ca94a4cb23012b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85315781"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
@@ -138,7 +138,7 @@ await producer.SendAsync(data);
 
 Este exemplo envia o seu evento para uma das divisórias disponíveis no seu centro de eventos e define o número de sequência correspondente a partir da sua aplicação. Esta solução requer que o estado seja mantido pela sua aplicação de processamento, mas dá aos seus remetentes um ponto final mais provável de estar disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Visão geral do serviço do Event Hubs](event-hubs-what-is-event-hubs.md)

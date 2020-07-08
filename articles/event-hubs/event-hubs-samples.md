@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de amostras para Azure Event Hubs que
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85315509"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios de Git com amostras para Azure Event Hubs 
@@ -54,7 +54,7 @@ Você pode encontrar amostras Azure PowerShell para Azure Event Hubs no [reposit
 ## <a name="apache-kafka-samples"></a>Amostras de Apache Kafka
 Você pode encontrar amostras para o evento Hubs para Apache Kafka recurso no [repositório azure-event-para-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode saber mais sobre os Centros de Eventos nos seguintes artigos:
 
 - [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)

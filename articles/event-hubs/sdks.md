@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre SDKs clientes para Azure Ev
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312554"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - SDKs de clientes
@@ -20,7 +20,7 @@ Este artigo fornece as seguintes informações para os SDKs apoiados por Azure E
 ## <a name="client-sdks"></a>SDKs do Cliente
 A tabela seguinte descreve todos os clientes atualmente disponíveis Azure Event Hubs. Embora algumas destas bibliotecas também incluam funcionalidades de gestão limitadas, existem também bibliotecas específicas dedicadas a operações de gestão. O foco principal destas bibliotecas é **enviar e receber mensagens** de um centro de eventos.
 
-| Idioma | Pacote | Referência | 
+| Linguagem | Pacote | Referência | 
 | -------- | ------- | --------------- | 
 | . Padrão NET **(mais recente** e suporta o quadro .NET Core e .NET) | [Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) |<ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs)</li><li>[Tutorial](get-started-dotnet-standard-send-v2.md)</li></ul> |
 |       | [Azure.Messaging.EventHubs.Processor](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor)</li><li>[Tutorial](get-started-dotnet-standard-send-v2.md)</li></ul> |
@@ -39,12 +39,12 @@ A tabela seguinte descreve todos os clientes atualmente disponíveis Azure Event
 ## <a name="management-sdks"></a>SDKs de gestão
 A tabela que se segue lista todas as bibliotecas específicas da gestão atualmente disponíveis. Nenhuma destas bibliotecas contém operações de tempo de execução, e têm como único propósito **gerir entidades do Event Hubs.**
 
-| Idioma | Pacote | Referência | 
+| Linguagem | Pacote | Referência | 
 | -------- | ------- | --------------- | 
 | .NET Standard | [Microsoft.Azure.Management.EventHub](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) |<ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.Management.EventHub)</li><li>[Tutorial](get-started-dotnet-standard-send-v2.md)</li></ul> |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

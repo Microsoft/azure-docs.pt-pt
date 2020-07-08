@@ -5,10 +5,10 @@ services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314382"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
@@ -48,7 +48,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
-| Nome da Métrica | Description |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | OuvinteConnections-Sucesso  | O número de ligações de ouvintes bem sucedidas efetuadas ao Azure Relay durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |OuvinteConnections-ClientError |O número de erros do cliente nas ligações dos ouvintes durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
@@ -65,7 +65,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 ## <a name="memory-usage-metrics"></a>Métricas de utilização da memória
 
-| Nome da Métrica | Description |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |BytesTransferido |O número de bytes transferidos durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 
@@ -73,11 +73,11 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 O Azure Relay suporta as seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às suas métricas é opcional. Se não adicionar dimensões, as métricas são especificadas ao nível do espaço de identificação. 
 
-|Nome de dimensão|Description|
+|Nome de dimensão|Descrição|
 | ------------------- | ----------------- |
 |Nome de Entidade| A Azure Relay suporta entidades de mensagens sob o espaço de nome.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a [visão geral da Monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

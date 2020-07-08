@@ -4,10 +4,10 @@ description: Saiba como expor um serviço WCF no local a uma aplicação web na 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314414"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF no local a uma aplicação web na nuvem utilizando o Azure Relay
@@ -35,7 +35,7 @@ Faça as seguintes tarefas neste tutorial:
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 * Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
+* [Visual Studio 2015 ou mais tarde](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
 * Azure SDK para .NET. Instale-o a partir da [página de transferências SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Como o Reencaminhamento do Azure ajuda com soluções híbridas
@@ -50,7 +50,7 @@ Os arquitetos de soluções estão a começar a utilizar a nuvem para um process
 
 Neste tutorial, cria-se um website ASP.NET que lhe permite ver uma lista de produtos na página de inventário do produto.
 
-![Cenário][0]
+![Scenario][0]
 
 O tutorial parte do princípio de que tem informações do produto num sistema no local existente e utiliza o Reencaminhamento do Azure para chegar a esse sistema. Um serviço web que funciona numa simples aplicação de consola simula esta situação. Contém um conjunto de produtos na memória. Pode executar esta aplicação de consola no seu próprio computador e implementar a função web no Azure. Ao fazê-lo, verá como o papel web que funciona no datacenter Azure chama para o seu computador. Esta chamada acontece mesmo que o seu computador esteja quase certamente por trás de pelo menos uma firewall e uma camada de tradução de endereços de rede (NAT).
 
@@ -465,7 +465,7 @@ No navegador, atualize a página **ProdutosPortal.** Cada vez que atualiza a pá
 
 ![Saída atualizada][38]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avançar para o tutorial seguinte:
 

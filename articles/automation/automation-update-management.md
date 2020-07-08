@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316402"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
@@ -166,11 +166,11 @@ Para obter mais informações sobre atualizações de pacotes de gestão, consul
 
 A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão suporta:
 
-| Origem ligada | Suportado | Description |
+| Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -207,7 +207,7 @@ Siga as instruções em [computadores Connect sem acesso](../azure-monitor/platf
 
 A tabela a seguir define as classificações que a Atualização de Gestão suporta para atualizações do Windows. 
 
-|Classificação  |Description  |
+|Classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico e não relacionado com a segurança.        |
 |Atualizações de segurança     | Uma atualização para um problema específico do produto, relacionado com a segurança.        |
@@ -220,7 +220,7 @@ A tabela a seguir define as classificações que a Atualização de Gestão supo
 
 A tabela seguinte define as classificações suportadas para atualizações do Linux.
 
-|Classificação  |Description  |
+|Classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas e de segurança     | Atualizações para um problema específico ou para um problema específico do produto, relacionado com a segurança.         |
 |Outras atualizações     | Todas as outras atualizações que não são de natureza crítica ou que não são atualizações de segurança.        |
@@ -260,7 +260,7 @@ Aqui estão as formas de permitir a gestão de atualização e selecionar máqui
 * [De navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
 * [De uma conta de Automação Azure](automation-onboard-solutions.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter detalhes sobre o trabalho com a Update Management, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
 

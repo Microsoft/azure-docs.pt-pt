@@ -4,10 +4,10 @@ description: Este artigo descreve como utilizar regras de firewall para permitir
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f5fca44c56982e368b762a0b9b3418f1175f7de0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314853"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configure firewall IP para um espaço de nome Azure Relay
@@ -123,7 +123,7 @@ Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre outras funcionalidades relacionadas com a segurança da rede, consulte [a segurança da rede](network-security.md).
 
 

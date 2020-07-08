@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85313221"
 ---
 Num dispositivo Azure Stack Edge que tem a função de computação configurada, um subconjunto de comandos docker está disponível para monitorizar ou resolver problemas. Para ver uma lista de comandos disponíveis, [ligue-se à interface PowerShell](#connect-to-the-powershell-interface) e utilize a `dkrdbe` função.
@@ -37,7 +37,7 @@ Commands:
 ```
 A tabela a seguir tem uma breve descrição dos comandos disponíveis `dkrdbe` para:
 
-|command  |Description |
+|command  |Descrição |
 |---------|---------|
 |`image`     | Gerir imagens. Para remover imagens não utilizadas, utilize:`dkrdbe image prune -a -f`       |
 |`images`     | Listar imagens         |

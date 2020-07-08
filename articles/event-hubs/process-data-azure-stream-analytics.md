@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como processar dados do seu centro de evento
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312894"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Processar dados do seu centro de eventos usando a Azure Stream Analytics 
@@ -77,5 +77,5 @@ O seu trabalho Azure Stream Analytics falha em três unidades de streaming (SUs)
 
 ![Unidades de streaming de escala](./media/process-data-azure-stream-analytics/scale.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre consultas stream analytics, consulte [Stream Analytics Query Language](/stream-analytics-query/built-in-functions-azure-stream-analytics)
