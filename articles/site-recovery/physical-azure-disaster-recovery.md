@@ -8,17 +8,16 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699911"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Confiússe de desastre para Azure para servidores físicos no local
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
 
-Este tutorial mostra-lhe como configurar a recuperação de desastres de servidores físicos windows e Linux para Azure. Neste tutorial, vai aprender a:
+Este tutorial mostra-lhe como configurar a recuperação de desastres de servidores físicos windows e Linux para Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar pré-requisitos do Azure e no local
@@ -185,6 +184,6 @@ Ativar a replicação de cada servidor.
 
 Para monitorizar os servidores que adiciona, pode verificar a última vez que os descobertos são os últimos contactos dos **servidores**de  >  **configuração.** Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Faça um exercício de recuperação de desastres.](tutorial-dr-drill-azure.md)

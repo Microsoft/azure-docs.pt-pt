@@ -4,10 +4,9 @@ description: Saiba mais sobre a embalagem de uma aplicação Azure Service Fabri
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84701052"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
@@ -224,7 +223,7 @@ Para o fornecimento do pacote, utilize a disposição externa, que requer a info
 >[!NOTE]
 > O provisionamento baseado no caminho relativo da loja de imagens não suporta `sfpkg` ficheiros atualmente. Portanto, o `sfpkg` não deve ser copiado para a loja de imagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Implementar e remover aplicações][10] descreve como usar o PowerShell para gerir instâncias de aplicação
 

@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: e49462612b58163c2ac51b78584761d0d8b8bd06
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700570"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Criar ou modificar um persco direto utilizando o portal Azure
@@ -21,7 +20,7 @@ Este artigo descreve como criar um Microsoft Direct a espreitar para um Forneced
 
 Se preferir, pode completar este guia utilizando a Azure [PowerShell](howto-direct-powershell.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 * Reveja os [pré-requisitos](prerequisites.md) e o [passo de observação direto](walkthrough-direct-all.md) antes de iniciar a configuração.
 * Se já tem ligações diretas de observação com a Microsoft que não são convertidas em recursos Azure, consulte [Converter um legado Direto a espreitar para um recurso Azure utilizando o portal](howto-legacy-direct-portal.md).
 
@@ -74,7 +73,7 @@ Como Fornecedor de Serviços de Internet ou Fornecedor de Troca de Internet, pod
 ## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>Desprovisionar um olhar direto
 [!INCLUDE [peering-direct-delete-portal](./includes/delete.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar ou modificar o Persto cambial utilizando o portal](howto-exchange-portal.md)
 * [Converter um legado Exchange olhando para um recurso Azure usando o portal](howto-legacy-exchange-portal.md)

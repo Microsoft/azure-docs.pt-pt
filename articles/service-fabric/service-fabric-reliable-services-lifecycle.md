@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699792"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida dos serviços fiáveis
@@ -126,7 +125,7 @@ Lidar com as exceções que vêm da utilização do `ReliableCollections` em con
   - Falhas no `OnCloseAsync()` caminho resultam na `OnAbort()` chamada, que é uma oportunidade de última oportunidade para o serviço limpar e libertar quaisquer recursos que tenham reclamado. Isto é geralmente chamado quando uma falha permanente é detetada no nó, ou quando o Tecido de Serviço não consegue gerir de forma fiável o ciclo de vida da instância de serviço devido a falhas internas.
   - `OnChangeRoleAsync()`é chamada quando a réplica de serviço imponente está mudando de papel, por exemplo para primária ou secundária. Réplicas primárias recebem o estado de escrita (são permitidas a criar e escrever para Coleções Fiáveis). As réplicas secundárias recebem o estado de leitura (só podem ler-se das coleções fiáveis existentes). A maioria dos trabalhos num serviço estatal é realizada na réplica primária. Réplicas secundárias podem realizar validação apenas de leitura, geração de relatórios, mineração de dados ou outros trabalhos apenas de leitura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Introdução a Serviços Fiáveis](service-fabric-reliable-services-introduction.md)
 - [Início rápido dos Serviços Fiáveis](service-fabric-reliable-services-quick-start.md)
 - [Réplicas e instâncias](service-fabric-concepts-replica-lifecycle.md)

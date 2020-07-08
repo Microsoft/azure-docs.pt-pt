@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 1c0620875e7da4582156080c4a52fd6fbe0e573c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700251"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Criar ou modificar um persco de troca utilizando o PowerShell
@@ -21,7 +20,7 @@ Este artigo descreve como criar um microsoft exchange espreitando usando cmdlets
 
 Se preferir, pode completar este guia utilizando o [portal](howto-exchange-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 * Reveja os [pré-requisitos](prerequisites.md) e o [Persimento do Persimento cambial](walkthrough-exchange-all.md) antes de iniciar a configuração.
 * Se já tem perscos de Troca com a Microsoft que não são convertidos para recursos Azure, consulte [Converter um legado Exchange olhando para um recurso Azure utilizando o PowerShell](howto-legacy-exchange-powershell.md).
 
@@ -49,7 +48,7 @@ Se preferir, pode completar este guia utilizando o [portal](howto-exchange-porta
 
 [!INCLUDE [peering-exchange-delete](./includes/delete.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar ou modificar um espreitamento direto utilizando o PowerShell](howto-direct-powershell.md)
 * [Converter um legado Espreitar diretamente para um recurso Azure utilizando o PowerShell](howto-legacy-direct-powershell.md)

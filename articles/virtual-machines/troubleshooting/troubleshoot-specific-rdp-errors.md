@@ -16,10 +16,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84701886"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas para uma VM do Windows no Azure
@@ -104,7 +103,7 @@ Todos os computadores Windows têm um grupo local de utilizadores de desktop rem
 
 Certifique-se de que a conta que está a utilizar para se ligar tem direitos de entrada no Ambiente de Trabalho Remoto. Como solução alternativa, utilize uma conta de administrador de domínio ou local para ligar ao Ambiente de Trabalho Remoto. Para adicionar a conta desejada ao grupo local de utilizadores de desktop remoto, utilize o snap-in do Microsoft Management Console **(Ferramentas de Sistema > Grupos > Grupos > locais > Utilizadores remotos de ambiente de trabalho).**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se nenhum destes erros ocorrer e tiver um problema desconhecido com a ligação utilizando RDP, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Para obter etapas de resolução de problemas no acesso a aplicações em execução num VM, consulte [o acesso de Resolução de Problemas a uma aplicação em execução num VM Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

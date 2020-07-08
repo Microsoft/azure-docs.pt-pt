@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699821"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
@@ -41,7 +40,7 @@ StatefulRunAsyncSlowCancellation é emitido sempre que um pedido de cancelamento
 ## <a name="performance-counters"></a>Contadores de desempenho
 O tempo de execução dos Serviços Fiáveis define as seguintes categorias de contadores de desempenho:
 
-| Categoria | Description |
+| Categoria | Descrição |
 | --- | --- |
 | Replicador transacional de tecido de serviço |Contadores específicos do Replicador Transacional de Tecido de Serviço Azure |
 | TStore de tecido de serviço |Contadores específicos da Azure Service Fabric TStore |
@@ -95,7 +94,7 @@ No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação
 
 O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Service Fabric Transactional Replicator` categoria
 
- Nome do contador | Description |
+ Nome do contador | Descrição |
 | --- | --- |
 | Iniciar operações txn/seg | O número de novas transações escritas criadas por segundo.|
 | Txn Operações/seg | O número de operações de adição/atualização/eliminação efetuadas em coleções fiáveis por segundo.|
@@ -108,12 +107,12 @@ O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Serv
 
 O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Service Fabric TStore` categoria
 
- Nome do contador | Description |
+ Nome do contador | Descrição |
 | --- | --- |
 | Contagem de artigos | O número de artigos na loja.|
 | Tamanho do Disco | O tamanho total do disco, em bytes, dos ficheiros de verificação da loja.|
 | Checkpoint File Write Bytes/seg | O número de bytes escritos por segundo para o ficheiro de verificação mais recente.|
 | Copy Disk Transfer Bytes/seg | O número de bytes de disco lidos (na réplica primária) ou escritos (numa réplica secundária) por segundo durante uma cópia da loja.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

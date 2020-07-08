@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700502"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir as topologias da Tempestade Apache em Azure HDInsight
@@ -172,7 +171,7 @@ O Storm UI fornece uma interface web para trabalhar com topologias de execução
 
 A página principal do UI da tempestade fornece as seguintes informações:
 
-| Section | Description |
+| Section | Descrição |
 | --- | --- |
 | Resumo do cluster| Informação básica sobre o aglomerado de tempestades. |
 | Resumo de Nimbus | Uma lista de informações básicas do Nimbus. |
@@ -188,7 +187,7 @@ A página principal da Storm UI é semelhante a esta página web:
 
 A seleção de um link da secção **de resumo topologia** apresenta as seguintes informações sobre a topologia:
 
-| Section | Description |
+| Section | Descrição |
 | --- | --- |
 | Resumo da topologia | Informação básica sobre a topologia. |
 | Ações de topologia| Ações de gestão que pode fazer pela topologia. As ações disponíveis são descritas mais tarde nesta secção. |
@@ -205,7 +204,7 @@ A página de resumo da topologia da tempestade é semelhante a esta página web:
 
 Na secção **de ações de Topologia,** pode selecionar os seguintes botões para fazer uma ação:
 
-| Botão | Description |
+| Botão | Descrição |
 | --- | --- |
 | Ativar | Retoma o processamento de uma topologia desativada. |
 | Desativar | Pausa numa topologia de corrida. |
@@ -219,7 +218,7 @@ Na secção **de ações de Topologia,** pode selecionar os seguintes botões pa
 
 A seleção de um bico nas secções **Descascados** ou **Parafusos** apresenta as seguintes informações sobre o item selecionado:
 
-| Section | Description |
+| Section | Descrição |
 | --- | --- |
 | Resumo do componente | Informações básicas sobre o bico ou parafuso. |
 | Ações componentes | **Botões Debug** e **Stop Debug.** |
@@ -249,7 +248,7 @@ O URI base para o REST API nos clusters HDInsight baseados em Linux está dispon
 
 Pode encontrar o nome de domínio totalmente qualificado (FQDN) para o nó da cabeça do cluster de várias maneiras:
 
-| Método de descoberta FQDN | Description |
+| Método de descoberta FQDN | Descrição |
 | --- | --- |
 | Sessão SSH | Utilize o comando `headnode -f` de uma sessão de SSH para o cluster. |
 | Teia Ambari | Na página web do cluster Ambari `https://CLUSTERNAME.azurehdinsight.net` (), selecione **Serviços** a partir do topo da página e, em seguida, selecione **Storm**. A partir do separador **Resumo,** selecione **Storm UI Server**. O FQDN do nó que acolhe a API storm ui e rest é apresentado no topo da página. |
@@ -266,7 +265,7 @@ Os pedidos à API REST devem utilizar *a autenticação básica,* pelo que tem d
 
 As informações que são devolvidas da API REST só podem ser utilizáveis dentro do cluster. Por exemplo, o nome de domínio totalmente qualificado (FQDN) devolvido para servidores [Apache ZooKeeper](https://zookeeper.apache.org/) não está acessível a partir da internet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [desenvolver topologias baseadas em Java usando Apache Maven.](apache-storm-develop-java-topology.md)
 

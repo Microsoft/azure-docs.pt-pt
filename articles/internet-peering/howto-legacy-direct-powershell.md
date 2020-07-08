@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 803d2a09fb4114dae36dcb6147139c7b657501f8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700132"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Converter um legado Espreitar diretamente para um recurso Azure utilizando o PowerShell
@@ -21,7 +20,7 @@ Este artigo descreve como converter um legado existente Espreitando diretamente 
 
 Se preferir, pode completar este guia utilizando o [portal](howto-legacy-direct-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 * Reveja os [pré-requisitos](prerequisites.md) e o [passo de observação direto](walkthrough-direct-all.md) antes de iniciar a configuração.
 
 ### <a name="work-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
@@ -120,6 +119,6 @@ Get-Help Get-AzPeering -detailed
 
 Para obter mais informações, consulte [as PERGUNTAS Frequentes de Observação da Internet.](faqs.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar ou modificar um espreitamento direto utilizando o PowerShell](howto-direct-powershell.md)

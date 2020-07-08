@@ -8,10 +8,9 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700604"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilidade Azure Cosmos DB Gremlin
@@ -71,5 +70,5 @@ O motor Azure Cosmos DB Graph segue de perto a especificação de passos travers
 
     Pode rever o desempenho das consultas utilizando o passo `executionProfile()` [Gremlin](gráfico-execução-execução-profile.md.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Visite a página [de voz do utilizador da Cosmos DB](https://feedback.azure.com/forums/263030-azure-cosmos-db) para partilhar feedback e ajudar a equipa a focar-se em funcionalidades importantes para si.

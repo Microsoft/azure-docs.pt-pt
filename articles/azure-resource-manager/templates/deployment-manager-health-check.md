@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702555"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir o lançamento da integração sanitária ao Azure Deployment Manager (visualização pública)
@@ -152,7 +151,7 @@ Neste ponto, o Azure Deployment Manager sabe como consultar a saúde do seu serv
     1. Se em algum momento for detetada uma resposta pouco saudável, o Gestor de Implementação Azure irá parar todo o lançamento e devolver a resposta REST carregando os sinais de serviço pouco saudáveis.
     1. Uma vez terminada a duração do Estado Saudável, o healthCheck está completo e a implementação continua até ao passo seguinte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre como integrar a monitorização de saúde no Azure Deployment Manager. Dirija-se ao próximo artigo para aprender a implementar com o Gestor de Implementação.
 

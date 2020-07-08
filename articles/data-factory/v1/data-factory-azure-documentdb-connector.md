@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702299"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para a Azure Cosmos DB usando a Azure Data Factory
@@ -58,8 +57,8 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **DocumentDb** |Yes |
-| conexãoStragem |Especifique as informações necessárias para ligar à base de dados DB do Azure Cosmos. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **DocumentDb** |Sim |
+| conexãoStragem |Especifique as informações necessárias para ligar à base de dados DB do Azure Cosmos. |Sim |
 
 Exemplo:
 
@@ -82,7 +81,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| coleçãoName |Nome da coleção de documentos da Cosmos DB. |Yes |
+| coleçãoName |Nome da coleção de documentos da Cosmos DB. |Sim |
 
 Exemplo:
 
@@ -123,8 +122,8 @@ No caso de atividade de Copy quando a fonte é do tipo **DocumentDbCollectionSou
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| consulta |Especifique a consulta para ler dados. |Linha de consulta suportada por Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se não for especificado, a declaração SQL que é executada:`select <columns defined in structure> from mycollection` |
-| nestingSeparator |Personagem especial para indicar que o documento está aninhado |Qualquer personagem. <br/><br/>AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de nidificaçãoSeparator, que é "". nos exemplos acima. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela. |No |
+| consulta |Especifique a consulta para ler dados. |Linha de consulta suportada por Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a declaração SQL que é executada:`select <columns defined in structure> from mycollection` |
+| nestingSeparator |Personagem especial para indicar que o documento está aninhado |Qualquer personagem. <br/><br/>AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de nidificaçãoSeparator, que é "". nos exemplos acima. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela. |Não |
 
 **DocumentDbCollectionSink** suporta as seguintes propriedades:
 
@@ -132,7 +131,7 @@ No caso de atividade de Copy quando a fonte é do tipo **DocumentDbCollectionSou
 | --- | --- | --- | --- |
 | nestingSeparator |Um carácter especial no nome da coluna de origem indica que o documento aninhado é necessário. <br/><br/>Por exemplo: `Name.First` na tabela de saída produz-se a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Nome": {<br/>    "Primeiro": "John"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor predefinido é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor predefinido é `.` (ponto). |
 | escreverBatchSize |Número de pedidos paralelos ao serviço DB da Azure Cosmos para criar documentos.<br/><br/>Pode afinar o desempenho ao copiar dados de/para Cosmos DB utilizando esta propriedade. Pode esperar um melhor desempenho quando aumentar o writeBatchSize porque são enviados pedidos mais paralelos à Cosmos DB. No entanto, terá de evitar estrangulamentos que possam passar a mensagem de erro: "A taxa de pedido é grande".<br/><br/>O estrangulamento é decidido por uma série de fatores, incluindo a dimensão dos documentos, o número de termos em documentos, a política de indexação da recolha de destinos, etc. Para operações de cópia, pode utilizar uma melhor recolha (por exemplo, S3) para ter o maior rendimento disponível (2.500 unidades de pedido/segundo). |Número inteiro |Não (predefinição: 5) |
-| escreverBatchTimeout |Tempo de espera para a operação terminar antes que se esmua. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |No |
+| escreverBatchTimeout |Tempo de espera para a operação terminar antes que se esmua. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 ## <a name="importexport-json-documents"></a>Documentos JSON de importação/exportação
 Utilizando este conector Cosmos DB, pode facilmente

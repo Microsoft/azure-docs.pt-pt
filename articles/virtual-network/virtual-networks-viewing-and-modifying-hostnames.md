@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702844"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visualização e modificação de hostnames
@@ -52,7 +51,7 @@ A partir de um cliente REST, siga estas instruções:
 ## <a name="modifying-a-hostname"></a>Modificar um nome de anfitrião
 Pode modificar o nome de anfitrião para qualquer máquina virtual ou instância de função carregando um ficheiro de configuração de serviço modificado ou renomeando o computador a partir de uma sessão de Ambiente de Trabalho Remoto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Resolução de nomes (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Esquema de Configuração de Serviço Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)

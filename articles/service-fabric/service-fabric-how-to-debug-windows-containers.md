@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84701154"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Debug Recipientes Windows em Tecido de Serviço Azure usando Visual Studio 2019
@@ -71,5 +70,5 @@ Abaixo está uma lista de limitações conhecidas com depurações de contentore
 
     O Visual Studio suporta os tipos de consolas e ASP.NET de projetos para .NET e .NET Core.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre as capacidades do Tecido de Serviço e dos recipientes, consulte a [visão geral dos recipientes de Tecido de Serviço.](service-fabric-containers-overview.md)
