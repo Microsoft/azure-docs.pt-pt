@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 05/29/2020
-  ms.openlocfilehash: b60e20bdb5dcb35cdeadb6f8d1b6862192a0916a
-  ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+  ms.openlocfilehash: 13e69e5f45244be79d06b0014d32e5c8192c777c
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84345211"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86038077"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -42,15 +42,15 @@ conceptualContent:
   items:
   - title: Gestão de aplicações
     links:
-    - url: ./manage-apps/what-is-single-sign-on.md
-      itemType: concept
-      text: O que é o Início de Sessão Único (SSO)?
-    - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
-      itemType: concept
+    - url: ./manage-apps/what-is-application-management.md
+      itemType: overview
+      text: O que é a gestão de aplicações?
+    - url: ./manage-apps/view-applications-portal.md
+      itemType: quickstart
+      text: Ver as aplicações que estão a utilizar o seu inquilino para gestão de identidades
+    - url: ./manage-apps/add-application-portal-setup-sso.md
+      itemType: quickstart
       text: Configurar o SSO baseado em SAML
-    - url: ./manage-apps/application-proxy.md
-      itemType: concept
-      text: Proxy de Aplicações para aplicações no local
     footerLink:
       url: ./manage-apps/index.yml
       text: Ver mais

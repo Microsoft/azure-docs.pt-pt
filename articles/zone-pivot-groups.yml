@@ -462,12 +462,16 @@ groups:
     title: C#
   - id: programming-language-nodejs
     title: Node.js
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
   - id: programming-language-swift
-    title: Swift
+    title: Swift (iOS)
 metadata:
-  ms.openlocfilehash: ceda3e5420ca1f8743ad1d23f06e5652d9b2e4e8
-  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+  ms.openlocfilehash: 1b217a4cece304da740c5402c8ae1665404a7d91
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/01/2020
-  ms.locfileid: "84266139"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86040542"

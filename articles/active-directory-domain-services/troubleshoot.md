@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ea8492ff5a25eb72b0a842c4da82ed78c89863f8
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733828"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039573"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e etapas de resolução de problemas para os serviços de domínio do diretório ativo Azure
 
@@ -137,15 +137,15 @@ Se um ou mais utilizadores do seu inquilino AD Azure não puderem entrar no dom�
     
       * Implementou ou atualizou para o [mais recente lançamento recomendado do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * Configuraste o Azure AD Connect para [realizar uma sincronização completa.][hybrid-phs]
-      * Dependendo do tamanho do seu diretório, pode demorar algum tempo para que as contas de utilizador e as hashes credenciais estejam disponíveis em Azure AD DS. Certifique-se de que espera o suficiente antes de tentar autenticar contra o domínio gerido.
-      * Se o problema persistir após verificar os passos anteriores, tente reiniciar o *Microsoft Azure AD Sync Service*. A partir do seu servidor Azure AD Connect, abra um pedido de comando e execute os seguintes comandos:
+      * Dependendo do tamanho do seu diretório, pode demorar algum tempo para que as contas de utilizador e as hashes credenciais estejam disponíveis no domínio gerido. Certifique-se de que espera o suficiente antes de tentar autenticar contra o domínio gerido.
+      * Se o problema persistir após verificar os passos anteriores, tente reiniciar o *Microsoft Azure AD Sync Service*. A partir do seu servidor Azure AD Connect, abra um pedido de comando e, em seguida, execute os seguintes comandos:
     
         ```console
         net stop 'Microsoft Azure AD Sync'
         net start 'Microsoft Azure AD Sync'
         ```
 
-    * **Contas exclusivamente na nuvem**: Se a conta de utilizador afetada for uma conta de utilizador exclusivamente na nuvem, certifique-se de que o utilizador alterou a [sua palavra-passe depois de ter ativado o Azure AD DS][cloud-only-passwords]. Esta redefinição de palavra-passe faz com que os hashes credenciais necessários para que os Serviços de Domínio AD AZure sejam gerados.
+    * **Contas exclusivamente na nuvem**: Se a conta de utilizador afetada for uma conta de utilizador exclusivamente na nuvem, certifique-se de que o utilizador alterou a [sua palavra-passe depois de ter ativado o Azure AD DS][cloud-only-passwords]. Esta redefinição de palavra-passe faz com que os hashes credenciais necessários para o domínio gerido sejam gerados.
 
 * **Verifique se a conta do utilizador está ativa:** Por padrão, cinco tentativas de senha inválidas no prazo de 2 minutos no domínio gerido fazem com que uma conta de utilizador fique bloqueada durante 30 minutos. O utilizador não pode fazer o s.assal com a conta enquanto a conta estiver bloqueada. Após 30 minutos, a conta do utilizador é desbloqueada automaticamente.
   * As tentativas de palavra-passe inválidas no domínio gerido não bloqueiam a conta de utilizador no Azure AD. A conta de utilizador está bloqueada apenas dentro do domínio gerido. Verifique o estado da conta de utilizador na *Consola Administrativa de Diretório Ativo (ADAC)* utilizando o [VM de gestão,][management-vm]não em Azure AD.
@@ -167,7 +167,7 @@ A conta de utilizador permanece no estado desativado no domínio gerido, mesmo q
 
 Para remover totalmente uma conta de utilizador de um domínio gerido, elimine o utilizador permanentemente do seu inquilino AD Azure utilizando o cmdlet [Remove-MsolUser][Remove-MsolUser] PowerShell com o `-RemoveFromRecycleBin` parâmetro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se continuar a ter problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

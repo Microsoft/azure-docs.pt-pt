@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 097159a1cbe87add5267d763e20e1bebb6cc5b3a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734542"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040049"
 ---
 # <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de passwords e de conta em domínios geridos por Serviços de Domínio de Diretório Ativo
 
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como criar e configurar uma política de senha de grão f
 > [!NOTE]
 > As políticas de palavra-passe só estão disponíveis para domínios geridos criados utilizando o modelo de implementação do Gestor de Recursos. Para domínios geridos mais antigos criados utilizando o Classic, [migrar do modelo de rede virtual Clássico para o Gestor de Recursos.][migrate-from-classic]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -127,7 +127,7 @@ Para criar uma política de palavra-passe personalizada, utilize as Ferramentas 
 
 1. Com o nome do grupo selecionado agora apresentado na secção **Aplica-se diretamente,** selecione **OK** para guardar a sua política de palavra-passe personalizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as políticas de senha e utilizar o Ative Directory Administration Center, consulte os seguintes artigos:
 

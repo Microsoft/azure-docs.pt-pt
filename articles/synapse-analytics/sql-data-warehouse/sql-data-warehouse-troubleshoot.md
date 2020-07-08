@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: b2ae3aa77383888c320ed58e03e73b2e306feeba
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213776"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039029"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Resolução de problemas Synapse SQL em Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Este artigo lista problemas comuns de resolução de problemas no SQL da Sinapse
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | falha no início de sessão do utilizador "NT AUTHORITY\ANONYMOUS LOGON". (Microsoft SQL Server, Error: 18456) | Este erro ocorre quando um utilizador AZure AD tenta ligar-se à base de dados principal, mas não tem um utilizador em mestre.  Para corrigir este problema, especifique o pool SQL a que pretende ligar na hora da ligação ou adicione o utilizador à base de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para mais detalhes. |
 | o principal do servidor "MyUserName" não consegue aceder à base de dados "mestra" no contexto de segurança atual. Não é possível abrir a base de dados predefinida do utilizador. O início de sessão falhou. O início de sessão falhou para o utilizador"MyUserName". (Microsoft SQL Server, Error: 916) | Este erro ocorre quando um utilizador AZure AD tenta ligar-se à base de dados principal, mas não tem um utilizador em mestre.  Para corrigir este problema, especifique o pool SQL a que pretende ligar na hora da ligação ou adicione o utilizador à base de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para mais detalhes. |
-| Erro do CTAIP                                                  | Este erro pode ocorrer quando um login foi criado na base de dados principal do servidor SQL, mas não na base de dados SQL.  Se encontrar este erro, veja o artigo [Visão geral](sql-data-warehouse-overview-manage-security.md) de Segurança.  Este artigo explica como criar um login e um utilizador em master, e depois como criar um utilizador na base de dados SQL. |
+| Erro do CTAIP                                                  | Este erro pode ocorrer quando um login foi criado na base de dados principal sql Database, mas não na base de dados SQL específica.  Se encontrar este erro, veja o artigo [Visão geral](sql-data-warehouse-overview-manage-security.md) de Segurança.  Este artigo explica como criar um login e um utilizador na base de dados principal e, em seguida, como criar um utilizador numa base de dados SQL. |
 | Bloqueado por Firewall                                          | As piscinas SQL estão protegidas por firewalls para garantir que apenas endereços IP conhecidos tenham acesso a uma base de dados. As firewalls são seguras por padrão, o que significa que deve ativar explicitamente e endereço IP ou intervalo de endereços antes de poder ligar.  Para configurar a sua firewall para acesso, siga os passos no acesso à firewall do [servidor Configure para](create-data-warehouse-portal.md) o seu cliente IP nas [instruções de Provisionamento](create-data-warehouse-portal.md). |
 | Não é possível ligar-se com a ferramenta ou o condutor                           | A piscina Sinaapse SQL recomenda a utilização [de SSMS,](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [SSDT para Visual Studio,](sql-data-warehouse-install-visual-studio.md)ou [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar os seus dados. Para obter mais informações sobre os condutores e ligar-se à Azure Synapse, consulte [os artigos drivers for Azure Synapse](sql-data-warehouse-connection-strings.md) e [Connect to Azure Synapse.](sql-data-warehouse-connect-overview.md) |
 
@@ -59,7 +59,7 @@ Este artigo lista problemas comuns de resolução de problemas no SQL da Sinapse
 | Msg 40847: Não foi possível efetuar a operação porque o servidor excederia a quota permitida da Unidade de Transação de Bases de Dados de 45000. | Ou reduz a [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) da base de dados que está a tentar criar ou [solicitar um aumento de quota.](sql-data-warehouse-get-started-create-support-ticket.md) |
 | Investigação da utilização do espaço                              | Consulte [os tamanhos da tabela](sql-data-warehouse-tables-overview.md#table-size-queries) para entender a utilização do espaço do seu sistema. |
 | Ajudar na gestão de tabelas                                    | Consulte o artigo [de visão geral](sql-data-warehouse-tables-overview.md) da Tabela para obter ajuda na gestão das suas tabelas.  Este artigo também inclui ligações a tópicos mais detalhados como [tipos de dados de tabela,](sql-data-warehouse-tables-data-types.md) [Distribuição de uma tabela,](sql-data-warehouse-tables-distribute.md) [Indexação de uma tabela,](sql-data-warehouse-tables-index.md) [Partição de uma tabela,](sql-data-warehouse-tables-partition.md) [Manutenção de estatísticas de tabelas](sql-data-warehouse-tables-statistics.md) e [tabelas temporárias.](sql-data-warehouse-tables-temporary.md) |
-| A barra de avanço transparente de encriptação de dados (TDE) não está a ser atualizada no portal Azure | Pode ver o estado do TDE através da [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+| A barra de avanço transparente de encriptação de dados (TDE) não está a ser atualizada no portal Azure | Pode ver o estado do TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
 ## <a name="differences-from-sql-database"></a>Diferenças da Base de Dados SQL
 
@@ -72,7 +72,7 @@ Este artigo lista problemas comuns de resolução de problemas no SQL da Sinapse
 | Limitações de procedimentos armazenados          | Consulte [as limitações do procedimento armazenadas](sql-data-warehouse-develop-stored-procedures.md#limitations) para compreender algumas das limitações dos procedimentos armazenados. |
 | Os UDFs não suportam declarações SELECT | Esta é uma limitação atual dos nossos UDFs.  Consulte [a função CREATE](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para a sintaxe que suportamos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais ajuda na procura de solução para o seu problema, aqui estão alguns outros recursos que pode tentar.
 

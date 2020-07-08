@@ -13,6 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dac1d66242dc88c1b2d96c7af1930e36f225ff4e
 ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86040508"

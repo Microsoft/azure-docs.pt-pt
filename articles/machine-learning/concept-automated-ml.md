@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: cec4213cc9b4d40707607b00ef96761e69438ee2
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210257"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041732"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
-Machine learning automatizado, também referido como ML automatizado ou AutoML, é o processo de automatização das tarefas morosas e iterativas do desenvolvimento de modelos de aprendizagem automática. Permite que cientistas de dados, analistas e desenvolvedores construam modelos ML com alta escala, eficiência e produtividade, ao mesmo tempo que sustentam a qualidade do modelo. O ML automatizado baseia-se numa descoberta da nossa divisão de [Pesquisa microsoft.](https://arxiv.org/abs/1705.05355)
+Machine learning automatizado, também referido como ML automatizado ou AutoML, é o processo de automatização das tarefas morosas e iterativas do desenvolvimento de modelos de aprendizagem automática. Permite que cientistas de dados, analistas e desenvolvedores construam modelos ML com alta escala, eficiência e produtividade, ao mesmo tempo que sustentam a qualidade do modelo. O ML automatizado baseia-se numa descoberta da nossa divisão de [Pesquisa microsoft.](https://www.microsoft.com/research/project/automl/)
 
 O desenvolvimento de modelos de aprendizagem automática tradicional é intensivo em recursos, requerendo conhecimento e tempo significativos de domínio para produzir e comparar dezenas de modelos. Com machine learning automatizado, você vai acelerar o tempo que leva para obter modelos ML prontos para produção com grande facilidade e eficiência.
 
@@ -118,7 +118,7 @@ Para experiências automatizadas de machine learning, a caracterização é apli
 
 Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a funcionarem bem. Durante o treino de modelo, uma das seguintes técnicas de escala ou normalização será aplicada a cada modelo. Saiba como o AutoML ajuda a [prevenir dados sobreajustes e desequilibrados](concept-manage-ml-pitfalls.md) nos seus modelos.
 
-|Normalização &nbsp; & de escala &nbsp;| Description |
+|Normalização &nbsp; & de escala &nbsp;| Descrição |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar as características removendo a média e a escala para a variação da unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma as características escalando cada recurso pelo mínimo e máximo da coluna  |
@@ -269,7 +269,7 @@ Veja como converter para o formato ONNX [neste exemplo de caderno Jupyter](https
 
 O tempo de execução ONNX também suporta C#, para que possa utilizar o modelo construído automaticamente nas suas aplicações C# sem qualquer necessidade de recoding ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a inferencção dos modelos ONNX com o tempo de execução ONNX C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Existem vários recursos para te pôr a funcionar com o AutoML. 
 

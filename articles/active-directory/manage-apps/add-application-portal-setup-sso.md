@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 727e51c535eaade4cd229ee10ab92e6306d4cf42
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f90edf525a8deb35376d6637090e7b424b2fd658
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956123"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038995"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único Sign-on (SSO) para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)
 
@@ -47,13 +47,13 @@ Para configurar um único sinal de inscrição para uma aplicação:
 1. No portal AD Azure, selecione **as aplicações Enterprise** e, em seguida, encontre e selecione a aplicação que pretende configurar para um único s-on.
 2. Na secção Gerir, selecione **'Único's sign-on'** para abrir o painel de propriedades para edição.
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Mostra a única página de configuração de inscrição no portal AD AZure.":::
-3. Selecione SAML para abrir a página de configuração SSO. Neste exemplo, a aplicação que estamos a configurar para sSO é o GitHub. Após a configuração do GitHub, os seus utilizadores poderão inscrever-se no GitHub usando as suas credenciais do nosso inquilino AZure AD.
+3. Selecione SAML para abrir a página de configuração SSO. Neste exemplo, a aplicação que estamos a configurar para sSO é o GitHub. Após a configuração do GitHub, os seus utilizadores poderão inscrever-se no GitHub usando as suas credenciais do seu inquilino AZure AD.
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Mostra a única página de configuração de sign-on no GitHub.":::
-4. O processo de configuração de uma aplicação para utilizar a Azure AD para SSO baseado em SAML varia consoante a aplicação. Note que há uma ligação com a orientação para o GitHub. Pode encontrar guias para outras aplicações em:https://docs.microsoft.com/azure/active-directory/saas-apps/
+4. O processo de configuração de uma aplicação para utilizar o Azure AD para SSO baseado em SAML varia consoante a aplicação. Note que há uma ligação com a orientação para o GitHub. Pode encontrar guias para outras aplicações em:https://docs.microsoft.com/azure/active-directory/saas-apps/
 5. Siga o guia para configurar o SSO para a aplicação. Muitas aplicações têm requisitos específicos de subscrição para a funcionalidade SSO. Por exemplo, o GitHub requer uma subscrição da Enterprise.
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Mostra a opção de inscrição única na subscrição da Enterprise da página de preços do GitHub.":::
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Eliminar uma aplicação](delete-application-portal.md)

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1afe92720997ede327f098b9a435d00842ae201e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 862b3056445bddb358e6485ce5fec4de4d53eace
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322145"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039284"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
@@ -62,7 +62,7 @@ Dependendo de vários fatores relacionados com os seus dados, a utilização do 
 1. Criar a fonte de dados:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
+    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,8 +80,8 @@ Dependendo de vários fatores relacionados com os seus dados, a utilização do 
 
 3. Crie o indexante dando-lhe um nome e referindo a fonte de dados e o índice alvo:
 
-    ```
-    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
+   ```
+    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -90,12 +90,14 @@ Dependendo de vários fatores relacionados com os seus dados, a utilização do 
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 Um indexante criado desta forma não tem um horário. Funciona automaticamente uma vez quando é criado. Pode executá-lo novamente a qualquer momento usando um pedido **de indexante executado:**
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
+```
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
+```
 
 Pode personalizar vários aspetos do comportamento do indexante, tais como o tamanho do lote e quantos documentos podem ser ignorados antes que uma execução indexante falhe. Para obter mais informações, consulte [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -103,11 +105,14 @@ Poderá ter de permitir que os serviços da Azure se conectem à sua base de dad
 
 Para monitorizar o estado do indexante e o histórico de execução (número de itens indexados, falhas, etc.), utilize um pedido **de estado indexante:**
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
+```
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
+```
 
 A resposta deve ser semelhante à seguinte:
 
+```
     {
         "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
@@ -138,6 +143,7 @@ A resposta deve ser semelhante à seguinte:
             ... earlier history items
         ]
     }
+```
 
 O histórico de execução contém até 50 das execuções mais recentes concluídas, que são ordenadas na ordem cronológica inversa (de modo que a última execução vem em primeiro lugar na resposta).
 Informações adicionais sobre a resposta podem ser encontradas no [Estado do Indexante](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
@@ -145,7 +151,8 @@ Informações adicionais sobre a resposta podem ser encontradas no [Estado do In
 ## <a name="run-indexers-on-a-schedule"></a>Executar indexadores em um horário
 Também pode organizar o indexante para funcionar periodicamente num horário. Para isso, adicione a propriedade do **horário** ao criar ou atualizar o indexante. O exemplo abaixo mostra um pedido DEP para atualizar o indexante:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+```
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -154,6 +161,7 @@ Também pode organizar o indexante para funcionar periodicamente num horário. P
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 O parâmetro **de intervalo** é necessário. O intervalo refere-se ao tempo entre o início de duas execuções indexantes consecutivas. O menor intervalo permitido é de 5 minutos; o mais longo é um dia. Deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601).](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) O padrão para isto é: `P(nD)(T(nH)(nM))` . Exemplos: `PT15M` por cada 15 minutos, `PT2H` por cada 2 horas.
 
@@ -168,7 +176,7 @@ A Azure Cognitive Search usa **indexação incremental** para evitar ter que rei
 ### <a name="sql-integrated-change-tracking-policy"></a>Política integrada de rastreio de alterações DA SQL
 Se a sua base de dados SQL suportar o rastreio de [alterações,](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)recomendamos a utilização **da Política integrada de rastreio de alterações SQL.** Esta é a política mais eficiente. Além disso, permite que a Azure Cognitive Search identifique linhas eliminadas sem ter de adicionar uma coluna explícita de "soft delete" à sua mesa.
 
-#### <a name="requirements"></a>Requisitos 
+#### <a name="requirements"></a>Requirements 
 
 + Requisitos de versão da base de dados:
   * SQL Server 2012 SP3 e mais tarde, se estiver a utilizar o SQL Server em VMs Azure.
@@ -181,6 +189,7 @@ Se a sua base de dados SQL suportar o rastreio de [alterações,](https://docs.m
 
 Para utilizar esta política, crie ou atualize a sua fonte de dados desta forma:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -190,6 +199,7 @@ Para utilizar esta política, crie ou atualize a sua fonte de dados desta forma:
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+```
 
 Ao utilizar a política integrada de rastreio de alterações SQL, não especifique uma política separada de deteção de eliminação de dados - esta política tem suporte incorporado para identificar linhas eliminadas. No entanto, para que as eliminações sejam detetadas "automagicamente", a chave de documento no seu índice de pesquisa deve ser a mesma que a chave primária na tabela SQL. 
 
@@ -202,7 +212,7 @@ Ao utilizar a política integrada de rastreio de alterações SQL, não especifi
 
 Esta política de deteção de alterações baseia-se numa coluna de "marca de água elevada" que captura a versão ou hora em que uma linha foi atualizada pela última vez. Se estiver a usar uma vista, deve usar uma política de marca de água elevada. A coluna de alta marca de água deve satisfazer os seguintes requisitos.
 
-#### <a name="requirements"></a>Requisitos 
+#### <a name="requirements"></a>Requirements 
 
 * Todos os inserções especificam um valor para a coluna.
 * Todas as atualizações para um item também alteram o valor da coluna.
@@ -216,6 +226,7 @@ Esta política de deteção de alterações baseia-se numa coluna de "marca de �
 
 Para utilizar uma política de marca de água elevada, crie ou atualize a sua fonte de dados desta forma:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -226,6 +237,7 @@ Para utilizar uma política de marca de água elevada, crie ou atualize a sua fo
            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
+```
 
 > [!WARNING]
 > Se a tabela de origem não tiver um índice na coluna de alta marca de água, as consultas utilizadas pelo indexante SQL podem esgotar-se. Em particular, a `ORDER BY [High Water Mark Column]` cláusula requer que um índice seja executado de forma eficiente quando a tabela contém muitas linhas.
@@ -243,11 +255,13 @@ Se estiver a utilizar um tipo [de dados de partilha de linha](https://docs.micro
 
 Para ativar esta funcionalidade, crie ou atualize o indexante com a seguinte configuração:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
     }
+```
 
 <a name="queryTimeout"></a>
 
@@ -255,11 +269,13 @@ Para ativar esta funcionalidade, crie ou atualize o indexante com a seguinte con
 
 Se encontrar erros de tempo limite, pode utilizar a definição de configuração do `queryTimeout` indexante para definir o tempo limite de consulta para um valor superior ao tempo limite de 5 minutos predefinido. Por exemplo, para definir o tempo limite para 10 minutos, criar ou atualizar o indexante com a seguinte configuração:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 <a name="disableOrderByHighWaterMarkColumn"></a>
 
@@ -267,11 +283,13 @@ Se encontrar erros de tempo limite, pode utilizar a definição de configuraçã
 
 Também pode desativar a `ORDER BY [High Water Mark Column]` cláusula. No entanto, isto não é recomendado porque se a execução do indexante for interrompida por um erro, o indexante tem de reencampor todas as linhas se for executado mais tarde - mesmo que o indexante já tenha processado quase todas as linhas até ao momento em que foi interrompido. Para desativar a `ORDER BY` cláusula, utilize a `disableOrderByHighWaterMarkColumn` definição na definição do indexante:  
 
+```
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
     }
+```
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Política de deteção de eliminação de colunas soft delete
 Quando as linhas são eliminadas da tabela de origem, provavelmente também pretende eliminar essas linhas do índice de pesquisa. Se utilizar a política de rastreio de alterações integrada SQL, esta é cuidada por si. No entanto, a política de rastreio de mudanças de marca de água alta não o ajuda com linhas apagadas. O que fazer?
@@ -280,6 +298,7 @@ Se as linhas forem fisicamente removidas da mesa, a Azure Cognitive Search não 
 
 Ao utilizar a técnica de eliminação suave, pode especificar a política de eliminação suave da seguinte forma ao criar ou atualizar a fonte de dados:
 
+```
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -288,6 +307,7 @@ Ao utilizar a técnica de eliminação suave, pode especificar a política de el
            "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
+```
 
 O **softDeleteMarkerValue** deve ser uma corda – use a representação de cordas do seu valor real. Por exemplo, se tiver uma coluna de inteiros onde as linhas apagadas são marcadas com o valor 1, utilize `"1"` . Se tiver uma coluna BIT onde as linhas apagadas são marcadas com o valor verdadeiro booleano, use a corda literal `True` ou , a caixa não `true` importa.
 
@@ -318,11 +338,13 @@ Indexante SQL expõe várias definições de configuração:
 
 Estas definições são utilizadas no `parameters.configuration` objeto na definição do indexante. Por exemplo, para definir o tempo limite de consulta para 10 minutos, criar ou atualizar o indexante com a seguinte configuração:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 ## <a name="faq"></a>FAQ
 
@@ -352,13 +374,13 @@ Depende. Para indexação completa de uma tabela ou vista, pode utilizar uma ré
 
 Para indexação incremental, a Azure Cognitive Search suporta duas políticas de deteção de alterações: rastreio integrado de alterações SQL e Marca de Alta Água.
 
-Nas réplicas apenas de leitura, a base de dados SQL não suporta o rastreio integrado de alterações. Portanto, deve usar a política da Marca de Alta Água. 
+Nas réplicas apenas de leitura, a BASE de Dados SQL não suporta o rastreio integrado de alterações. Portanto, deve usar a política da Marca de Alta Água. 
 
 A nossa recomendação padrão é usar o tipo de dados de partilha de linha para a coluna de alta marca de água. No entanto, a utilização da versão de linha `MIN_ACTIVE_ROWVERSION` baseia-se na função, que não é suportada em réplicas apenas de leitura. Portanto, deve apontar o indexante para uma réplica primária se estiver a utilizar a versão de linha.
 
 Se tentar utilizar a versão de linha numa réplica apenas de leitura, verá o seguinte erro: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"A utilização de uma coluna de remar para o rastreio de alterações não é suportada em réplicas de disponibilidade secundária (apenas de leitura). Por favor, atualize a fonte de dados e especifique uma ligação à réplica de disponibilidade primária. A propriedade 'Updateability' da base de dados atual é 'READ_ONLY'".
 
 **P: Posso usar uma coluna alternativa de não-rowversão para rastreamento de alta marca de água?**
 

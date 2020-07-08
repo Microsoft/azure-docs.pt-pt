@@ -5,15 +5,15 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 92c878497f16162f46f4da34501885b73ff85dfc
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306939"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042085"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Resolução de problemas de fornecimento de VM com cloud-init
 
@@ -27,13 +27,13 @@ Alguns exemplos, de questões relacionadas com o provisionamento:
 - A rede não está configurada corretamente
 - Swap de ficheiros ou falhas de partição
 
-Este artigo percorre-o como resolver problemas. Para obter mais detalhes aprofundados, consulte [como funciona o cloud-init](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
+Este artigo percorre-o como resolver problemas. Para obter mais detalhes aprofundados, consulte [o mergulho profundo de nuvem.](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive)
 
 ## <a name="step-1-test-the-deployment-without-customdata"></a>Passo 1: Testar a implementação sem personalizarData
 
 A Cloud-init pode aceitar o customData, que lhe é transmitido, quando o VM é criado. Em primeiro lugar, deve certificar-se de que isto não está a causar problemas com as implementações. Tente a provisionar o VM sem passar em qualquer configuração. Se encontrar que o VM não fornece, continue com os passos abaixo, se encontrar a configuração que está a passar não está a ser aplicada, passo [4](). 
 
-## <a name="step-2-review-image-requirements-are-satisfied"></a>Passo 2: Os requisitos de imagem de revisão estão satisfeitos
+## <a name="step-2-review-image-requirements"></a>Passo 2: Rever os requisitos de imagem
 A principal causa da falha de provisão de VM é que a imagem de SO não satisfaz os pré-requisitos para correr em Azure. Certifique-se de que as suas imagens estão devidamente preparadas antes de tentar foreá-las em Azure. 
 
 
@@ -59,22 +59,16 @@ Enquanto o VM está em funcionamento, você precisará dos registos do VM para e
 
 - [Ativar o Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de criar o VM e depois [vê-los](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante a bota.
 
-- [Prenda e monte manualmente o disco de SO](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux) a um vm em funcionamento para extrair troncos - Reparação Azure VM
-
-Colete estes registos:
+- [Executar A AZ VM Reparação](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) para anexar e montar o disco OS, que lhe permitirá recolher estes registos:
 ```bash
+/var/log/cloud-init*
 /var/log/waagent*
 /var/log/syslog*
 /var/log/rsyslog*
 /var/log/messages*
 /var/log/kern*
 /var/log/dmesg*
-/var/log/dpkg*
-/var/log/yum*
-/var/log/cloud-init*
 /var/log/boot*
-/var/log/auth*
-/var/log/secure*
 ```
 Para iniciar a resolução inicial de problemas, comece com os registos de insípição de nuvens e compreenda onde ocorreu a falha, em seguida, use os outros troncos para mergulhar profundamente, e fornecer insights adicionais. 
 * /var/log/cloud-init.log
@@ -136,6 +130,6 @@ Nem todas as falhas no nebulosidade resulta numa falha fatal no fornecimento. Po
 - Deve também verificar a configuração de `customData` dados que foi fornecida ao VM, isto está localizado em `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt` .
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se ainda não consegue isolar o porquê de a cloud-init não ter executado a configuração, precisa de olhar mais de perto para o que acontece em cada fase de cloud-init e quando os módulos são executados. Consulte [mergulhar mais profundamente na configuração do cloud-init](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive) para obter mais informações. 
+Se ainda não consegue isolar o porquê de a cloud-init não ter executado a configuração, precisa de olhar mais de perto para o que acontece em cada fase de cloud-init e quando os módulos são executados. Consulte [mergulhar mais profundamente na configuração do cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) para obter mais informações. 

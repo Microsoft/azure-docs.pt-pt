@@ -4,14 +4,14 @@ description: Este artigo explica os diferentes erros de dados de entrada e saíd
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/27/2020
-ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133809"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041052"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
@@ -287,7 +287,7 @@ Consulte [o Troubleshoot Azure Stream Analytics utilizando registos de diagnóst
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolução de problemas Azure Stream Analytics usando registos de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 

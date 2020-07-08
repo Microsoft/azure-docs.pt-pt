@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a1a652c19d624d6faf941de84bcf74dd8613152
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734254"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039845"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e credenciais são sincronizados num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -64,12 +64,14 @@ A tabela a seguir ilustra como os atributos específicos para objetos do utiliza
 | país |co |
 | departamento |departamento |
 | displayName |displayName |
+| empregadodid |employeeId |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | nomeDado |nomeDado |
 | jobTitle |título |
 | correio |correio |
 | mailSemame |msds-AzureADMailNickname |
 | mailSemame |SAMAccountName (às vezes pode ser autogerado) |
+| gestor |gestor |
 | dispositivo móvel |dispositivo móvel |
 | objectid |msds-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
@@ -77,6 +79,7 @@ A tabela a seguir ilustra como os atributos específicos para objetos do utiliza
 | físicoDeliveryOfficeName |físicoDeliveryOfficeName |
 | código postal |código postal |
 | preferiuLanguage |preferiuLanguage |
+| proxyAddresses | proxyAddresses |
 | state |SC |
 | streetAddress |streetAddress |
 | surname |sn |
@@ -95,6 +98,7 @@ A tabela a seguir ilustra como os atributos específicos para objetos de grupo e
 | mailSemame |msds-AzureADMailNickname |
 | objectid |msds-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
+| proxyAddresses | proxyAddresses |
 | securityEnabled |tipodeGrupo |
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Sincronização de AD DS nas instalações para Azure AD e Azure AD DS
@@ -140,7 +144,7 @@ Para ambientes Azure AD apenas na nuvem, [os utilizadores devem redefinir/altera
 
 Para contas híbridas de utilizadores sincronizadas a partir do ambiente AD DS no local utilizando o Azure AD Connect, é necessário [configurar o Azure AD Connect para sincronizar hashes de palavra-passe nos formatos compatíveis com NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as especificidades da sincronização da palavra-passe, consulte [como funciona a sincronização de hash de palavra-passe com o Azure AD Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 

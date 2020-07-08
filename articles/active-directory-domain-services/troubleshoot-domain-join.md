@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 07006de016ba956c02cbd5f527417df3bdc2f723
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734049"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039692"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de resolução de domínios com um domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -30,11 +30,11 @@ Quando tentar juntar-se a uma máquina virtual (VM) ou ligar uma aplicação a u
 
 Se o VM não conseguir encontrar o domínio gerido, normalmente existe um problema de ligação de rede ou configuração. Reveja as seguintes etapas de resolução de problemas para localizar e resolver o problema:
 
-1. Certifique-se de que o VM está ligado à mesma, ou a uma rede virtual esprevada que está ativada para Azure AD DS. Caso contrário, o VM não consegue encontrar e ligar-se ao domínio para se juntar.
+1. Certifique-se de que o VM está ligado à mesma rede virtual que o domínio gerido. Caso contrário, o VM não consegue encontrar e ligar-se ao domínio para se juntar.
     * Se o VM não estiver ligado à mesma rede virtual, confirme que o espremiamento de rede virtual ou a ligação VPN estão *Ativos* ou *Ligados* para permitir que o tráfego flua corretamente.
 1. Tente pingar o domínio usando o nome de domínio do domínio gerido, tais como `ping aaddscontoso.com` .
     * Se a resposta ao ping falhar, tente verificar os endereços IP para o domínio apresentado na página geral do portal para o seu domínio gerido, tais como `ping 10.0.0.4` .
-    * Se conseguir verificar com sucesso o endereço IP, mas não o domínio, o DNS pode estar configurado incorretamente. Certifique-se de que configura os servidores DNS de domínio gerido para a rede virtual.
+    * Se conseguir verificar com sucesso o endereço IP, mas não o domínio, o DNS pode estar configurado incorretamente. Certifique-se de que configura os [servidores DNS de domínio gerido para a rede virtual][configure-dns].
 1. Tente lavar a cache de resolver DNS na máquina virtual, tal como `ipconfig /flushdns` .
 
 ### <a name="network-security-group-nsg-configuration"></a>Configuração do Grupo de Segurança de Rede (NSG)
@@ -53,12 +53,12 @@ Se receber uma caixa de diálogo que pede credenciais para se juntar ao domínio
 
 Para resolver problemas relacionados com as credenciais, reveja as seguintes etapas de resolução de problemas:
 
-1. Tente utilizar o formato UPN para especificar credenciais, tais como `dee@aaddscontoso.onmicrosoft.com` . Certifique-se de que este UPN está configurado corretamente no Azure AD.
+1. Tente utilizar o formato UPN para especificar credenciais, tais como `dee@contoso.onmicrosoft.com` . Certifique-se de que este UPN está configurado corretamente no Azure AD.
     * O *NOME SAMAccount* para a sua conta pode ser autogerido se houver vários utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo. Portanto, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
 1. Tente usar as credenciais para uma conta de utilizador que faz parte do domínio gerido para juntar VMs ao domínio gerido.
 1. Certifique-se de que [ativou a sincronização da palavra-passe][enable-password-sync] e esperou o tempo suficiente para que a sincronização inicial da palavra-passe se completasse.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma compreensão mais profunda dos processos do Ative Directory como parte da operação de união de domínios, consulte as questões de [Junção e autenticação][join-authentication-issues].
 
@@ -68,6 +68,7 @@ Se ainda tiver problemas em juntar o seu VM ao domínio gerido, [encontre ajuda 
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[configure-dns]: tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network
 
 <!-- EXTERNAL LINKS -->
 [join-authentication-issues]: /previous-versions/windows/it-pro/windows-2000-server/cc961817(v=technet.10)
