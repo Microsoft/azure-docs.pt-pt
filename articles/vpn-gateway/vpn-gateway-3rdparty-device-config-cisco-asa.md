@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986096"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração da amostra: Dispositivo Cisco ASA (IKEv2/no BGP)
@@ -27,7 +26,7 @@ Este artigo fornece configurações de amostra para ligar dispositivos Cisco Ada
 | Modelo testado           | ASA 5505                          |
 | Versão testada         | 9.2                               |
 | Versão IKE            | IKEv2                             |
-| BGP                    | No                                |
+| BGP                    | Não                                |
 | Tipo de gateway Azure VPN | Gateway VPN baseado em rotas           |
 |                        |                                   |
 
@@ -300,5 +299,5 @@ Utilize os seguintes comandos ASA para fins de depuragem:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para configurar as instalações cruzadas ativas ativas e as ligações VNet-to-VNet, consulte as [portas VPN ativas ativas .](vpn-gateway-activeactive-rm-powershell.md)

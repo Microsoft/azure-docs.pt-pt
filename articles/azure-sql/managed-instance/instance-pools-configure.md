@@ -13,10 +13,9 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708812"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementar Azure SQL Gestd Instance para uma piscina de instância
@@ -30,11 +29,11 @@ A tabela a seguir mostra as operações disponíveis relacionadas com os pools d
 
 |Comando|Portal do Azure|PowerShell|
 |:---|:---|:---|
-|Criar uma piscina de exemplos|Não|Yes|
-|Atualizar uma piscina de instância (número limitado de propriedades)|Não |Yes |
-|Verifique uma instância de utilização da piscina e propriedades|Não|Yes |
-|Excluir uma piscina de instância|Não|Yes|
-|Criar um caso gerido dentro de uma piscina de exemplo|Não|Yes|
+|Criar uma piscina de exemplos|Não|Sim|
+|Atualizar uma piscina de instância (número limitado de propriedades)|Não |Sim |
+|Verifique uma instância de utilização da piscina e propriedades|Não|Sim |
+|Excluir uma piscina de instância|Não|Sim|
+|Criar um caso gerido dentro de uma piscina de exemplo|Não|Sim|
 |Atualizar o uso do recurso para uma instância gerida|Sim |Sim|
 |Verifique a utilização e as propriedades para uma instância gerida|Sim|Sim|
 |Apagar uma instância gerida da piscina|Sim|Sim|
@@ -43,7 +42,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas com os pools d
 
 Comandos [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)disponíveis:
 
-|Cmdlet |Description |
+|Cmdlet |Descrição |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Cria uma piscina SQL Managed Instance. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Devolve informações sobre uma piscina de casos. |
@@ -253,7 +252,7 @@ Para mover as bases de dados existentes:
 Se existirem várias bases de dados, repita o processo para cada base de dados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).
 - Para obter mais informações sobre a configuração VNet, consulte [a configuração VNet de instância gerida SQL](connectivity-architecture-overview.md).

@@ -6,48 +6,47 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84021386"
 ---
 # <a name="color-materials"></a>Materiais de cor
 
-*Os materiais* de cor são um dos tipos de [material](../../concepts/materials.md) suportado na renderização remota azure. São usados para [malshes](../../concepts/meshes.md) que não devem receber qualquer tipo de iluminação, mas sim ser sempre com pleno brilho. Pode ser o caso de materiais 'brilhantes', como painéis de automóveis, lâmpadas ou dados que já incorporam iluminação estática, como modelos obtidos através da [fotogrammetria.](https://en.wikipedia.org/wiki/Photogrammetry)
+*Os materiais de* cor são um dos tipos de [material](../../concepts/materials.md) suportado na renderização remota Azure. São utilizados para [malhas](../../concepts/meshes.md) que não devem receber qualquer tipo de iluminação, mas sim estar sempre com brilho total. Este pode ser o caso de materiais "brilhantes", como painéis de automóveis, lâmpadas ou dados que já incorporam iluminação estática, como modelos obtidos através de [fotogrammetria.](https://en.wikipedia.org/wiki/Photogrammetry)
 
-Os materiais de cor são mais eficientes para renderizar do que [os materiais PBR](pbr-materials.md) devido ao seu modelo de sombreado mais simples. Também suportam diferentes modos de transparência.
+Os materiais de cor são mais eficientes para renderizar do que [os materiais PBR](pbr-materials.md) devido ao seu modelo de sombreamento mais simples. Apoiam igualmente diferentes modos de transparência.
 
 ## <a name="common-material-properties"></a>Propriedades materiais comuns
 
 Estas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou * :::no-loc text="vertex"::: cores*. Se a *transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com `1` um significado totalmente opaco e `0` com um significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou * :::no-loc text="vertex"::: as cores.* Se *a transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com significado totalmente `1` opaco e `0` significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Como os materiais de cor não refletem o ambiente, um material de cor totalmente transparente torna-se invisível. Isto é diferente para [materiais PBR.](pbr-materials.md)
 
 * **albedoMap:** Uma [textura 2D](../../concepts/textures.md) para valores de albedo por pixel.
 
-* **alfaClipEnabled** e **alphaClipThreshold:** Se *alphaClipEnabled* for verdadeiro, todos os pixels onde o valor alfa albedo é inferior ao *alfaClipThreshold* não serão desenhados. O recorte alfa pode ser usado mesmo sem permitir a transparência e é muito mais rápido de renderizar. No entanto, os materiais recortados alfa são ainda mais lentos para renderizar do que materiais totalmente opacos. Por padrão, o recorte alfa é desativado.
+* **alphaClipEnabled** e **alphaClipThreshold:** Se *alfaClipEnabled* for verdadeiro, todos os pixels onde o valor alfa albedo é inferior ao *alphaClipThreshold* não serão desenhados. O recorte alfa pode ser usado mesmo sem permitir a transparência e é muito mais rápido de renderizar. No entanto, os materiais alfa cortados são ainda mais lentos a renderizar do que materiais totalmente opacos. Por defeito, o recorte alfa é desativado.
 
-* **textureCoordinateScale** e **textureCoordinateOffset:** A balança é multiplicada nas coordenadas de textura UV, a compensação é adicionada a ela. Pode ser usado para esticar e deslocar as texturas. A escala predefinida é (1, 1) e a compensação é (0,0).
+* **textureCoordinateScale** e **textureCoordinateOffset:** A escala é multiplicada nas coordenadas de textura UV, o offset é adicionado a ele. Pode ser usado para esticar e deslocar as texturas. A escala predefinida é (1, 1) e a offset é (0,0).
 
-* **useVertexColor:** Se a malha contiver :::no-loc text="vertex"::: cores e esta opção estiver ativada, a cor das malhas :::no-loc text="vertex"::: é multiplicada no *albedoColor* e *albedoMap*. Por predefinição, *o VertexColor* está desativado.
+* **useVertexColor:** Se a malha contiver :::no-loc text="vertex"::: cores e esta opção estiver ativada, a cor das malhas :::no-loc text="vertex"::: é multiplicada no *albedoColor* e *albedoMap.* Por *utilização predefinidaVertexColor* é desativado.
 
-* **isDoubleSided:** Se a dupla faceta for verdadeira, os triângulos com este material são renderizados mesmo que a câmara esteja a olhar para as suas faces traseiras. Por defeito, esta opção está desativada. Ver também [ :::no-loc text="Single-sided"::: renderização.](single-sided-rendering.md)
+* **isDoubleSided:** Se a dupla faceta for verdadeira, os triângulos com este material são renderizados mesmo que a câmara esteja a olhar para as suas faces traseiras. Por predefinição, esta opção é desativada. Ver também [ :::no-loc text="Single-sided"::: renderização.](single-sided-rendering.md)
 
-## <a name="color-material-properties"></a>Propriedades de material de cor
+## <a name="color-material-properties"></a>Propriedades de materiais de cor
 
 As seguintes propriedades são específicas dos materiais de cor:
 
-* **vertexMix:** Este valor entre `0` e `1` especifica quão fortemente a :::no-loc text="vertex"::: cor numa [malha](../../concepts/meshes.md) contribui para a cor final. Pelo valor padrão de 1, a :::no-loc text="vertex"::: cor é multiplicada na cor do albedo completamente. Com um valor de 0, as :::no-loc text="vertex"::: cores são totalmente ignoradas.
+* **vertexMix:** Este valor entre `0` e `1` especifica quão fortemente a :::no-loc text="vertex"::: cor numa [malha](../../concepts/meshes.md) contribui para a cor final. Pelo valor padrão de 1, a :::no-loc text="vertex"::: cor é multiplicada na cor albedo completamente. Com um valor de 0, as :::no-loc text="vertex"::: cores são ignoradas inteiramente.
 
 * **transparênciaMode:** Ao contrário dos [materiais PBR,](pbr-materials.md)os materiais de cor distinguem entre diferentes modos de transparência:
 
-  1. **Opaco:** O modo predefinido desativa a transparência. No entanto, o recorte alfa ainda é possível, e deve ser preferido, se for suficiente.
+  1. **Opaco:** O modo predefinido desativa a transparência. O recorte alfa ainda é possível, no entanto, e deve ser preferido, se for suficiente.
   
-  1. **AlfaBlended:** Este modo é semelhante ao modo de transparência dos materiais PBR. Deve ser usado para materiais transparentes como vidro.
+  1. **AlfaBlended:** Este modo é semelhante ao modo de transparência para materiais PBR. Deve ser utilizado para materiais transparentes como vidro.
 
   1. **Aditivo:** Este modo é o modo de transparência mais simples e eficiente. A contribuição do material é adicionada à imagem renderizada. Este modo pode ser utilizado para simular objetos brilhantes (mas ainda transparentes), como marcadores utilizados para realçar objetos importantes.
 

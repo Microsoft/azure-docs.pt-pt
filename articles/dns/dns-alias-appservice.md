@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710546"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos web Azure equilibrados na zona apex
@@ -134,7 +133,7 @@ Agora adicione um recorde de pseudónimo para o ápice da zona.
 
    |Name  |Tipo  |Conjunto de recordes de pseudónimos  |Tipo de pseudónimo  |Recurso azul|
    |---------|---------|---------|---------|-----|
-   |@     |A|Yes|Recurso azul|Gestor de Tráfego - o seu perfil|
+   |@     |A|Sim|Recurso azul|Gestor de Tráfego - o seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste as suas aplicações web
@@ -152,7 +151,7 @@ Agora pode testar para se certificar de que pode chegar à sua aplicação web e
 9. Feche o seu navegador web e espere alguns minutos.
 10. Inicie o seu navegador web e navegue para o seu domínio. Deve voltar a ver a página de aplicações web padrão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os registos de pseudónimos, consulte os seguintes artigos:
 

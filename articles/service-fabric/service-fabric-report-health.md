@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392646"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de saúde personalizados do Service Fabric
@@ -292,7 +291,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 Envie relatórios de saúde usando REST com pedidos POST que vão para a entidade desejada e têm no organismo a descrição do relatório de saúde. Por exemplo, ver como enviar relatórios de [saúde](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) do cluster REST ou [relatórios de saúde do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Todas as entidades são apoiadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Com base nos dados de saúde, os escritores de serviços e os administradores de cluster/aplicação podem pensar em formas de consumir a informação. Por exemplo, podem estabelecer alertas baseados no estado de saúde para apanhar problemas graves antes de provocarem interrupções. Os administradores também podem configurar sistemas de reparação para corrigir problemas automaticamente.
 
 [Introdução à monitorização da saúde do tecido de serviço](service-fabric-health-introduction.md)

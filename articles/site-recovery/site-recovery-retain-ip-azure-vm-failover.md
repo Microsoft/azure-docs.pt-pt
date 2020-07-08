@@ -7,10 +7,9 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710206"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante a falha
@@ -161,6 +160,6 @@ A empresa B não pode falhar com aplicações isoladas ao nível da sub-rede. Is
  - Para a resiliência da aplicação a Empresa B terá de colocar cada aplicação no seu próprio Azure VNet dedicado.
  - Com cada aplicação num VNet separado, a Empresa B pode falhar em aplicações isoladas e encaminhar ligações de origem para a região alvo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça os [planos de recuperação.](site-recovery-create-recovery-plans.md)

@@ -4,10 +4,9 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84655620"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
@@ -74,7 +73,7 @@ Aqui está o que é suportado se você quiser apoiar VMs Azure:
 
 Aqui está o que é suportado se quiser apoiar as máquinas Linux:
 
-**Tipo de backup** | **Linux (Azure endossado)**
+**Tipo de cópia de segurança** | **Linux (Azure endossado)**
 --- | ---
 **Backup direto da máquina de acesso ao local que está a executar o Linux** | Não suportado. O agente MARS só pode ser instalado em máquinas Windows.
 **Usando a extensão do agente para apoiar o Azure VM que está a executar o Linux** | Backup consistente com aplicações utilizando [scripts personalizados.](backup-azure-linux-app-consistent.md)<br/><br/> Recuperação ao nível do ficheiro.<br/><br/> Restaurar criando um VM a partir de um ponto de recuperação ou disco.

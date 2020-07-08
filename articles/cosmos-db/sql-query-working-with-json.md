@@ -1,35 +1,34 @@
 ---
 title: Trabalhar com a JSON em Azure Cosmos DB
-description: Aprenda sobre a consulta e aceda às propriedades da JSON aninhada e use personagens especiais em Azure Cosmos DB
+description: Saiba como consultar e aceder a propriedades aninhadas da JSON e usar personagens especiais em Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
 ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83699118"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhar com a JSON em Azure Cosmos DB
 
-Na API SQL (Core) da Azure Cosmos DB, os itens são armazenados como JSON. O sistema de tipo e expressões são restritos a lidar apenas com tipos JSON. Para mais informações, consulte a [especificação JSON](https://www.json.org/).
+Na API SQL (Core) da Azure Cosmos DB, os itens são armazenados como JSON. O sistema de tipo e expressões são restritos a lidar apenas com tipos de JSON. Para mais informações, consulte a [especificação JSON.](https://www.json.org/)
 
-Vamos resumir alguns aspetos importantes de trabalhar com a JSON:
+Vamos resumir alguns aspetos importantes do trabalho com a JSON:
 
-- Os objetos JSON começam sempre com uma `{` cinta esquerda e terminam com uma cinta `}` direita
+- Os objetos JSON sempre começam com uma `{` cinta esquerda e terminam com uma `}` cinta direita
 - Você pode ter propriedades JSON [aninhadas](#nested-properties) dentro umas das outras
-- Os valores de propriedade da JSON podem ser matrizes
-- Os nomes de propriedade da JSON são sensíveis ao caso
-- O nome da propriedade JSON pode ser qualquer valor de string (incluindo espaços ou caracteres que não são letras)
+- Os valores de propriedade JSON podem ser matrizes
+- Os nomes de propriedade json são sensíveis a casos
+- O nome da propriedade JSON pode ser qualquer valor de cadeia (incluindo espaços ou caracteres que não são letras)
 
 ## <a name="nested-properties"></a>Propriedades aninhadas
 
-Pode aceder à JSON aninhada utilizando um acessório de pontos. Você pode usar propriedades JSON aninhadas nas suas consultas da mesma forma que você pode usar quaisquer outras propriedades.
+Pode aceder a JSON aninhado utilizando um acessório de pontos. Pode utilizar propriedades JSON aninhadas nas suas consultas da mesma forma que pode utilizar quaisquer outras propriedades.
 
-Aqui está um documento com a aninhada JSON:
+Aqui está um documento com aninhado JSON:
 
 ```JSON
 {
@@ -45,9 +44,9 @@ Aqui está um documento com a aninhada JSON:
 }
 ```
 
-Neste caso, as propriedades e propriedades `state` `country` `city` estão todas aninhadas dentro da `address` propriedade.
+Neste caso, os `state` `country` , e propriedades `city` estão todos aninhados dentro da `address` propriedade.
 
-O exemplo seguinte projeta duas propriedades aninhadas: `f.address.state` e `f.address.city` .
+O exemplo a seguir projeta duas propriedades aninhadas: `f.address.state` e `f.address.city` .
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -66,7 +65,7 @@ Os resultados são:
 
 ## <a name="working-with-arrays"></a>Trabalhar com matrizes
 
-Além das propriedades aninhadas, a JSON também suporta matrizes.
+Além de propriedades aninhadas, jSON também suporta matrizes.
 
 Aqui está um documento de exemplo com uma matriz:
 
@@ -98,7 +97,7 @@ FROM Families f
 WHERE f.children[0].givenName = "Jesse"
 ```
 
-Na maioria dos casos, no entanto, você usará uma [subqueria](sql-query-subquery.md) ou [auto-juntar-se-á](sql-query-join.md) ao trabalhar com matrizes.
+Na maioria dos casos, no entanto, você usará um [sublote ou](sql-query-subquery.md) [auto-junção](sql-query-join.md) quando trabalhar com matrizes.
 
 Por exemplo, aqui está um documento que mostra o saldo diário da conta bancária de um cliente.
 
@@ -127,7 +126,7 @@ Por exemplo, aqui está um documento que mostra o saldo diário da conta bancár
 }
 ```
 
-Se quisesse fazer uma consulta que mostrasse a todos os clientes que tinham um saldo negativo em algum momento, poderia usar [existem](sql-query-subquery.md#exists-expression) com uma subqueria:
+Se quiser fazer uma consulta que mostrasse todos os clientes que tinham um saldo negativo em algum momento, poderia usar [a EXISTÊNCIA](sql-query-subquery.md#exists-expression) com uma subquery:
 
 ```sql
 SELECT c.id
@@ -141,7 +140,7 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Palavras-chave reservadas e caracteres especiais em JSON
 
-Pode aceder a propriedades utilizando o operador de propriedade `[]` citado. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais, ou tem o mesmo nome que uma palavra-chave SQL ou palavra reservada.
+Pode aceder a propriedades utilizando o operador de propriedade `[]` citado. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contenha espaços, caracteres especiais, ou tenha o mesmo nome que uma palavra-chave SQL ou palavra reservada.
 
 Por exemplo, aqui está um documento com uma propriedade nomeada `order` e uma propriedade que contém caracteres `price($)` especiais:
 
@@ -174,7 +173,7 @@ O resultado é:
 Syntax error, incorrect syntax near 'order'
 `
 
-Deve reescrever as mesmas consultas que as seguintes:
+Deve reescrever as mesmas consultas que abaixo:
 
 ```sql
 SELECT * FROM c WHERE c["order"].orderId = "12345"
@@ -186,7 +185,7 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 
 ## <a name="json-expressions"></a>Expressões JSON
 
-A projeção também apoia as expressões JSON, como mostra o seguinte exemplo:
+A projeção também suporta expressões JSON, como mostra o seguinte exemplo:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -206,7 +205,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a `SELECT` cláusula precisa de criar um objeto JSON, e uma vez que a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito `$1` . A seguinte consulta devolve duas variáveis implícitas de argumentos: `$1` e `$2` .
+No exemplo anterior, a `SELECT` cláusula precisa de criar um objeto JSON, e uma vez que a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito `$1` . A seguinte consulta devolve duas variáveis implícitas de argumento: `$1` e `$2` .
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -231,11 +230,11 @@ Os resultados são:
 
 ## <a name="aliasing"></a>Aliasing
 
-Pode explicitamente alias valores em consultas. Se uma consulta tiver duas propriedades com o mesmo nome, use o pseudónimo para mudar o nome de uma ou ambas as propriedades para que sejam desambiguadas no resultado projetado.
+Pode explicitamente alias valores em consultas. Se uma consulta tiver duas propriedades com o mesmo nome, use o pseudónimo para renomear uma ou ambas as propriedades para que sejam desambiguadas no resultado projetado.
 
 ### <a name="examples"></a>Exemplos
 
-A `AS` palavra-chave utilizada para aliasing é opcional, como mostra o seguinte exemplo ao projetar o segundo valor `NameInfo` como:
+A `AS` palavra-chave utilizada para o aliasing é opcional, como mostra o exemplo a seguir ao projetar o segundo valor como `NameInfo` :
 
 ```sql
     SELECT
@@ -261,7 +260,7 @@ Os resultados são:
 
 ### <a name="aliasing-with-reserved-keywords-or-special-characters"></a>Aliasing com palavras-chave reservadas ou caracteres especiais
 
-Não pode usar o pseudónimo para projetar um valor como nome de propriedade com um espaço, caráter especial ou palavra reservada. Se quisesse alterar a projeção de um valor para, por exemplo, ter um nome de propriedade com um espaço, poderia usar uma [expressão JSON](#json-expressions).
+Não pode usar o pseudónimo para projetar um valor como nome de propriedade com um espaço, caráter especial ou palavra reservada. Se quiser alterar a projeção de um valor para, por exemplo, ter um nome de propriedade com um espaço, pode utilizar uma [expressão JSON.](#json-expressions)
 
 Eis um exemplo:
 
@@ -273,8 +272,8 @@ Eis um exemplo:
     WHERE f.id = "AndersenFamily"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [ONDE a cláusula](sql-query-where.md)
+- [Cláusula ONDE](sql-query-where.md)

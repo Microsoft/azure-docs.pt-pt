@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
 ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984620"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Ligue as portas VPN da Azure a vários dispositivos VPN baseados em políticas no local utilizando o PowerShell
@@ -68,7 +67,7 @@ O fluxo de trabalho para permitir esta conectividade:
 3. Aplique a política quando criar uma ligação S2S ou VNet-to-VNet e **ative os seletores de tráfego baseados** em políticas na ligação.
 4. Se a ligação já estiver criada, pode aplicar ou atualizar a política para uma ligação existente.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
@@ -204,7 +203,7 @@ A seguinte linha mostra se os seletores de tráfego baseados em políticas são 
       Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
       ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter os passos.
 
 Reveja também [a política de Configuração IPsec/IKE para ligações S2S VPN ou VNet-to-VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter mais detalhes sobre as políticas IPsec/IKE personalizadas.

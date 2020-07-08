@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392578"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
@@ -872,7 +871,7 @@ System.Hosting informa um aviso se as capacidades do nó não estiverem definida
 * **Propriedade**: **ResourceGovernance**.
 * **Próximos passos**: A forma preferida de ultrapassar este problema é alterar o manifesto de cluster para permitir a deteção automática dos recursos disponíveis. Outra forma é atualizar o manifesto do cluster com capacidades de nó corretamente especificadas para estas métricas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Ver relatórios de saúde do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 * [Como reportar e verificar a saúde do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

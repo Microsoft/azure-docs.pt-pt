@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: cherylmc
 ms.openlocfilehash: d917bc1d52cc2a43e87affcc9c5e3c2ab533da07
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984874"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar os ficheiros de configuração do cliente VPN para configurações P2S de autenticação de certificado nativa do Azure
@@ -206,7 +205,7 @@ Se ainda não tiver gerado certificados, utilize os seguintes passos:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Volte ao artigo para completar a [sua configuração P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

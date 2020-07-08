@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987044"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados da Hive usando a Azure Data Factory 
@@ -50,24 +49,24 @@ As seguintes propriedades são suportadas para o serviço ligado à Hive:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Colmeia** | Yes |
-| anfitrião | Endereço IP ou nome de anfitrião do servidor Hive, separado por ';' para vários anfitriões (apenas quando o serviçoDiscoveryMode estiver ativado).  | Yes |
-| porta | A porta TCP que o servidor Hive utiliza para ouvir as ligações do cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Yes |
-| serverType | O tipo de servidor hive. <br/>Os valores permitidos são: **HiveServer1,** **HiveServer2,** **HiveThriftServer** | No |
-| thriftTransportProtocol | O protocolo de transporte para usar na camada Thrift. <br/>Os valores permitidos são: **Binário,** **SASL,** **HTTP** | No |
-| authenticationType | O método de autenticação utilizado para aceder ao servidor Hive. <br/>Os valores permitidos são: **Anónimo**, **Nome de Utilizador,** **UsernameAndPassword**, **WindowsAzureHDInsightService**. A autenticação kerberos não é suportada agora. | Yes |
-| serviçoDiscoveryMode | verdadeiro para indicar usando o serviço ZooKeeper, falso não.  | No |
-| zooKeeperNameSpace | O espaço de nome no ZooKeeper sob o qual são adicionados nós do Hive Server 2.  | No |
-| useNativeQuery | Especifica se o condutor utiliza consultas nativas de HiveQL ou as converte numa forma equivalente no HiveQL.  | No |
-| o nome de utilizador | O nome de utilizador que usa para aceder ao Hive Server.  | No |
-| palavra-passe | A palavra-passe correspondente ao utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| httpPath | O URL parcial correspondente ao servidor Hive.  | No |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
-| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | No |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | No |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | No |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade tipo deve ser definida para: **Colmeia** | Sim |
+| anfitrião | Endereço IP ou nome de anfitrião do servidor Hive, separado por ';' para vários anfitriões (apenas quando o serviçoDiscoveryMode estiver ativado).  | Sim |
+| porta | A porta TCP que o servidor Hive utiliza para ouvir as ligações do cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
+| serverType | O tipo de servidor hive. <br/>Os valores permitidos são: **HiveServer1,** **HiveServer2,** **HiveThriftServer** | Não |
+| thriftTransportProtocol | O protocolo de transporte para usar na camada Thrift. <br/>Os valores permitidos são: **Binário,** **SASL,** **HTTP** | Não |
+| authenticationType | O método de autenticação utilizado para aceder ao servidor Hive. <br/>Os valores permitidos são: **Anónimo**, **Nome de Utilizador,** **UsernameAndPassword**, **WindowsAzureHDInsightService**. A autenticação kerberos não é suportada agora. | Sim |
+| serviçoDiscoveryMode | verdadeiro para indicar usando o serviço ZooKeeper, falso não.  | Não |
+| zooKeeperNameSpace | O espaço de nome no ZooKeeper sob o qual são adicionados nós do Hive Server 2.  | Não |
+| useNativeQuery | Especifica se o condutor utiliza consultas nativas de HiveQL ou as converte numa forma equivalente no HiveQL.  | Não |
+| o nome de utilizador | O nome de utilizador que usa para aceder ao Hive Server.  | Não |
+| palavra-passe | A palavra-passe correspondente ao utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| httpPath | O URL parcial correspondente ao servidor Hive.  | Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | Não |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 **Exemplo:**
 
@@ -98,7 +97,7 @@ Para copiar dados da Hive, defina a propriedade tipo do conjunto de dados para a
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **HiveObject** | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **HiveObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
 | table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa, incluindo a parte do esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não (se for especificada "consulta" na fonte de atividade) |
@@ -130,7 +129,7 @@ Para copiar dados da Hive, desa estale o tipo de origem na atividade de cópia p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **HiveSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **HiveSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -170,5 +169,5 @@ Para copiar dados da Hive, desa estale o tipo de origem na atividade de cópia p
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

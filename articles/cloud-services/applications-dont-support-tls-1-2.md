@@ -1,5 +1,5 @@
 ---
-title: Problemas de resolução de problemas causados por aplicações que não suportam TLS 1.2 [ Microsoft Docs
+title: Problemas de resolução de problemas causados por aplicações que não suportam TLS 1.2 Microsoft Docs
 description: Problemas de resolução de problemas causados por aplicações que não suportam TLS 1.2
 services: cloud-services
 documentationcenter: ''
@@ -13,30 +13,29 @@ ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
 ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683785"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Aplicações de resolução de problemas que não suportam TLS 1.2
-Este artigo descreve como permitir os protocolos TLS mais antigos (TLS 1.0 e 1.1), bem como aplicar suites de cifra legacy para suportar os protocolos adicionais no serviço de nuvem Do Windows Server 2019 e funções de trabalhador. 
+Este artigo descreve como ativar os protocolos TLS mais antigos (TLS 1.0 e 1.1) bem como aplicar suítes de cifra legado para suportar os protocolos adicionais no serviço de cloud do Windows Server 2019 e funções de trabalhador. 
 
-Entendemos que enquanto estamos a tomar medidas para deprenciar tLS 1.0 e TLS 1.1, os nossos clientes podem precisar de apoiar os protocolos mais antigos e as suites de cifra até que possam planear a sua depreciação.  Embora não recomendemos a reativação destes valores legados, estamos a fornecer orientação para ajudar os clientes. Encorajamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
+Entendemos que, embora estejamos a tomar medidas para depreciar os TLS 1.0 e TLS 1.1, os nossos clientes poderão ter de suportar os protocolos mais antigos e as suites de cifra até poderem planear a sua depreciação.  Embora não recomendemos a reedição destes valores antigos, estamos a fornecer orientações para ajudar os clientes. Encorajamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
 
 > [!NOTE]
-> O lançamento do Os Family 6 aplica o TLS 1.2 desativando explicitamente o TLS 1.0 e 1.1 e definindo um conjunto específico de suites de cifra. Para mais informações sobre as famílias do Os Convidado, consulte [as notícias de lançamento do Guest OS](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> O lançamento do Guest OS Family 6 impõe o TLS 1.2 desativando explicitamente os TLS 1.0 e 1.1 e definindo um conjunto específico de suites de cifra. Para mais informações sobre as famílias de Guest OS veja as [notícias de lançamento do Guest OS](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
 
 
-## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Largando o suporte para TLS 1.0, TLS 1.1 e suites de cifra mais antigas 
-Em apoio ao nosso compromisso de usar encriptação de melhor classe, a Microsoft anunciou planos para começar a migração longe de TLS 1.0 e 1.1 em junho de 2017.   Desde o anúncio inicial, a Microsoft anunciou a nossa intenção de desativar a Transport Layer Security (TLS) 1.0 e 1.1 por padrão nas versões suportadas do Microsoft Edge e do Internet Explorer 11 no primeiro semestre de 2020.  Anúncios semelhantes da Apple, Google e Mozilla indicam o rumo para onde a indústria se dirige.   
+## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Suporte para suítes TLS 1.0, TLS 1.1 e suites de cifra mais antigas 
+Em apoio ao nosso compromisso de usar a encriptação de melhor classe, a Microsoft anunciou planos para iniciar a migração longe dos TLS 1.0 e 1.1 em junho de 2017.   Desde o anúncio inicial, a Microsoft anunciou a nossa intenção de desativar a Segurança da Camada de Transporte (TLS) 1.0 e 1.1 por padrão nas versões suportadas do Microsoft Edge e do Internet Explorer 11 no primeiro semestre de 2020.  Anúncios semelhantes da Apple, Google e Mozilla indicam o rumo que a indústria está a tomar.   
 
 Para mais informações, consulte [Preparação para TLS 1.2 no Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
 ## <a name="tls-configuration"></a>Configuração TLS  
-A imagem do servidor de nuvem Windows Server 2019 está configurada com TLS 1.0 e TLS 1.1 desativados ao nível do registo. Isto significa que as aplicações implementadas nesta versão do Windows E utilizando a stack do Windows para negociação de TLS não permitirão a comunicação TLS 1.0 e TLS 1.1.   
+A imagem do servidor de nuvem do Windows Server 2019 está configurada com TLS 1.0 e TLS 1.1 desativados ao nível do registo. Isto significa que as aplicações implementadas nesta versão do Windows E utilizando a stack do Windows para negociação TLS não permitirão a comunicação TLS 1.0 e TLS 1.1.   
 
-O servidor também vem com um conjunto limitado de suítes cifra: 
+O servidor também vem com um conjunto limitado de suítes cifras: 
 
 ```
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
@@ -51,7 +50,7 @@ O servidor também vem com um conjunto limitado de suítes cifra:
 
 ## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Passo 1: Criar o script PowerShell para ativar TLS 1.0 e TLS 1.1 
 
-Utilize o seguinte código como exemplo para criar um script que permita os protocolos mais antigos e as suites de cifra. Para efeitos desta documentação, este script será nomeado: **TLSsettings.ps1**. Guarde este script no seu ambiente de trabalho local para facilitar o acesso em etapas posteriores. 
+Use o seguinte código como exemplo para criar um script que permita os protocolos mais antigos e suítes de cifra. Para efeitos desta documentação, este roteiro será nomeado: **TLSsettings.ps1**. Guarde este script no seu ambiente de trabalho local para facilitar o acesso em etapas posteriores. 
 
 
 ```Powershell
@@ -273,7 +272,7 @@ If ($reboot) {
 
 ## <a name="step-2-create-a-command-file"></a>Passo 2: Criar um ficheiro de comando 
 
-Crie um ficheiro CMD chamado **RunTLSSettings.cmd** utilizando o abaixo. Guarde este script no seu ambiente de trabalho local para facilitar o acesso em etapas posteriores. 
+Crie um ficheiro CMD chamado **RunTLSSettings.cmd** utilizando o seguinte. Guarde este script no seu ambiente de trabalho local para facilitar o acesso em etapas posteriores. 
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -298,9 +297,9 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Passo 3: Adicione a tarefa de arranque à definição de serviço do papel (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Passo 3: Adicione a tarefa de arranque à definição de serviço da função (csdef) 
 
-Adicione o seguinte corte ao ficheiro de definição de serviço existente. 
+Adicione o seguinte corte ao seu ficheiro de definição de serviço existente. 
 
 ```
     <Startup> 
@@ -309,7 +308,7 @@ Adicione o seguinte corte ao ficheiro de definição de serviço existente.
     </Startup> 
 ```
 
-Eis um exemplo que mostra tanto o papel do trabalhador como o papel web. 
+Aqui está um exemplo que mostra tanto o papel dos trabalhadores como o papel web. 
 
 ```
 <?xmlversion="1.0"encoding="utf-8"?> 
@@ -343,22 +342,22 @@ Eis um exemplo que mostra tanto o papel do trabalhador como o papel web.
 
 1) No Estúdio Visual, clique à direita no seu WebRole ou WorkerRole
 2) Selecione **Adicionar**
-3) Selecione **item existente**
-4) No explorador de ficheiros, navegue para o seu ambiente de trabalho onde guardou os ficheiros **TLSsettings.ps1** e **RunTLSSettings.cmd** 
+3) **Selecione item existente**
+4) No explorador de ficheiros, navegue para o seu ambiente de trabalho onde guardou os **ficheirosTLSsettings.ps1** e **RunTLSSettings.cmd** 
 5) Selecione os dois ficheiros para adicioná-los ao seu projeto Cloud Services
 
-## <a name="step-5-enable-copy-to-output-directory"></a>Passo 5: Ativar a cópia para o diretório de saída
+## <a name="step-5-enable-copy-to-output-directory"></a>Passo 5: Ativar a cópia para o Diretório de Saída
 
-Para garantir que os scripts são carregados com todas as atualizações empurradas do Estúdio Visual, a definição *de Copy para Output Directory* precisa de ser definida para Copy *Always*
+Para garantir que os scripts são carregados com cada atualização empurrada do Estúdio Visual, a definição *Copy to Output Directory* precisa de ser definida para *Copiar Sempre*
 
-1) Sob a sua Role web ou Role worker, clique à direita em RunTLSSettings.cmd
-2) Selecione **Propriedades**
-3) No separador de propriedades, altere *Copiar para Diretório de Saída* para Copiar *Sempre"*
+1) Sob o seu WebRole ou WorkerRole, clique à direita em RunTLSSettings.cmd
+2) Selecione **propriedades**
+3) No separador propriedades, *altere copy to Output Directory* para *Copy Always"*
 4) Repita os passos para **TLSsettings.ps1**
 
 ## <a name="step-6-publish--validate"></a>Passo 6: Publicar & Validar
 
-Agora que os passos acima estão completos, publique a atualização para o seu serviço de cloud existente. 
+Agora que os passos acima foram concluídos, publique a atualização para o seu Serviço Cloud existente. 
 
 Pode utilizar [SSLLabs](https://www.ssllabs.com/) para validar o estado TLS dos seus pontos finais 
 

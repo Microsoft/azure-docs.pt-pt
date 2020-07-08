@@ -17,10 +17,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764813"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Como permitir que as aplicações de clientes nativos interajam com aplicações de procuração
@@ -120,7 +119,7 @@ As informações necessárias no código de amostra podem ser encontradas no por
 
 Depois de editar o código MSAL com estes parâmetros, os seus utilizadores podem autenticar para aplicações de clientes nativos mesmo quando estão fora da rede corporativa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o fluxo de aplicações nativas, consulte [aplicações nativas no Azure Ative Directory](../azuread-dev/native-app.md).
 

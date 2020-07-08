@@ -3,12 +3,11 @@ title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para a Azure delegada gestão de recursos.
 ms.date: 05/04/2020
 ms.topic: how-to
-ms.openlocfilehash: f1aef8bbf5279891fb8edf2222cc1dda3326bdd6
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.openlocfilehash: 214a71faca59072660f1e1f413cb107d8e8f6fc9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920900"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -18,7 +17,7 @@ Neste artigo, você aprenderá a publicar uma oferta de Serviço Gerido público
 
 Precisa de ter uma conta válida [no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se ainda não tiver uma conta, o processo de inscrição irá [levá-lo](https://aka.ms/joinmarketplace) através dos passos de criação de uma conta no Partner Center e inscrição no programa Mercado Comercial.
 
-De acordo com os [requisitos de certificação do Serviço Gerido,](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements)você deve ter um [nível](https://docs.microsoft.com/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido.
+De acordo com os [requisitos de certificação do Serviço Gerido,](/legal/marketplace/certification-policies#7004-business-requirements)você deve ter um [nível](/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido.
 
 O seu ID da Microsoft Partner Network (MPN) será [automaticamente associado às](../../billing/billing-partner-admin-link-started.md) ofertas que publicar para acompanhar o seu impacto através dos compromissos com os clientes.
 
@@ -29,7 +28,7 @@ O seu ID da Microsoft Partner Network (MPN) será [automaticamente associado às
 
 Para instruções detalhadas sobre como criar a sua oferta, incluindo todas as informações e bens que necessitará de fornecer, consulte [Create a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Para saber mais sobre o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Deve também rever as [políticas de certificação](https://docs.microsoft.com/legal/marketplace/certification-policies)do mercado comercial, nomeadamente a secção [serviços geridos.](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)
+Para saber mais sobre o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Deve também rever as [políticas de certificação](/legal/marketplace/certification-policies)do mercado comercial, nomeadamente a secção [serviços geridos.](/legal/marketplace/certification-policies#700-managed-services)
 
 Uma vez que um cliente adicione a sua oferta, eles serão capazes de delegar uma ou mais subscrições ou grupos de recursos, que serão então [a bordo para a gestão de recursos delegados Azure.](#the-customer-onboarding-process)
 
@@ -47,7 +46,7 @@ Pode [publicar uma versão atualizada da sua oferta a](../..//marketplace/partne
 Depois de um cliente adicionar a sua oferta, eles serão capazes [de delegar uma ou mais subscrições específicas ou grupos de recursos](view-manage-service-providers.md#delegate-resources), que serão então a bordo para a gestão de recursos delegados Azure. Se um cliente aceitar uma oferta mas ainda não tiver delegado quaisquer recursos, verá uma nota no topo da secção de **ofertas** do Fornecedor da página de prestadores de [**serviços**](view-manage-service-providers.md) no portal Azure.
 
 > [!IMPORTANT]
-> A delegação deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha o [papel incorporado do Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
+> A delegação deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha o [papel incorporado do Proprietário](../../role-based-access-control/built-in-roles.md#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
 
 Uma vez que o cliente delega uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição), o fornecedor de recursos **Microsoft.ManagedServices** será registado para essa subscrição, e os utilizadores no seu inquilino poderão aceder aos recursos delegados de acordo com as autorizações da sua oferta.
 

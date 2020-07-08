@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763402"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Azure Ative Directory
@@ -76,6 +75,6 @@ Quando um utilizador autorizado clica num destes links específicos da aplicaç�
 
 Estas ligações utilizam os mesmos mecanismos de controlo de acesso que o painel de acesso e o Office 365, e apenas os utilizadores ou grupos que tenham sido designados para a aplicação no portal Azure poderão autenticar com sucesso. No entanto, qualquer utilizador que não seja autorizado verá uma mensagem explicando que não lhes foi concedido acesso, e é-lhes dado um link para carregar o painel de acesso para visualizar as aplicações disponíveis para as quais têm acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para planos de implantação, consulte [os planos de implantação do Azure Ative Directory](../fundamentals/active-directory-deployment-plans.md)

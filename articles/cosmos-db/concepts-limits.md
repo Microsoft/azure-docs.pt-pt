@@ -7,10 +7,9 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391847"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
@@ -211,7 +210,7 @@ A tabela que se segue lista os limites para as [contas de nível livre do Azure 
 
   Para além do acima referido, os [limites da conta Per aplicam-se](#per-account-limits) também às contas de nível livre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre os conceitos fundamentais da Cosmos DB, [distribuição global](distribute-data-globally.md) e [partição](partitioning-overview.md) e [produção a provisionada.](request-units.md)
 

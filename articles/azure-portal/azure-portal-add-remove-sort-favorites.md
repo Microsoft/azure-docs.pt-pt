@@ -11,10 +11,9 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764133"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Adicione, remova e reorganize os favoritos
@@ -63,7 +62,7 @@ Pode alterar a ordem de que os seus serviços favoritos estão listados. Basta a
 
 1. Enquanto continua a segurar, arraste o item para o topo dos **Favoritos** e, em seguida, solte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para criar um espaço de trabalho focado no projeto, consulte [Criar e partilhar dashboards no portal Azure](../azure-portal/azure-portal-dashboards.md)
 * Descubra mais como fazer no [portal Azure como fazer séries de vídeo](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)

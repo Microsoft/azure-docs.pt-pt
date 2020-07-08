@@ -4,10 +4,9 @@ description: Este artigo fornece uma visão geral das entidades de mensagens Azu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7d6dbbd0a8cf5699c2cdca34ebeca6773c1fbf6e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337206"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
@@ -62,7 +61,7 @@ Para obter um exemplo completo de trabalho, consulte a [amostra TopicSubscriptio
 
 Para obter mais informações sobre possíveis valores de filtro, consulte a documentação para as classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction.](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações e exemplos de utilização de mensagens Service Bus, consulte os seguintes tópicos avançados:
 

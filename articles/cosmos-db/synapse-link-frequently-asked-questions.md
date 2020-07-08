@@ -6,16 +6,15 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: d16da1588c2fa90c4a40a829ed660fd089ff29ac
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921187"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 
-Azure Synapse Link for Azure Cosmos DB cria uma integração apertada entre Azure Cosmos DB e Azure Synapse Analytics. Permite que os clientes corram quase análises em tempo real sobre os seus dados operacionais com isolamento total do desempenho das suas cargas de trabalho transacionais e sem um gasoduto ETL. Este artigo responde a perguntas comumente sobre Synapse Link para Azure Cosmos DB.
+Azure Synapse Link for Azure Cosmos DB cria uma integração apertada entre Azure Cosmos DB e Azure Synapse Analytics. Permite que os clientes corram quase análises em tempo real sobre os seus dados operacionais com isolamento total do desempenho das suas cargas de trabalho transacionais e sem um gasoduto ETL. Este artigo responde a perguntas mais frequentes sobre o Synapse Link para o Azure Cosmos DB.
 
 ## <a name="general-faq"></a>FAQs Gerais
 
@@ -29,6 +28,9 @@ Ao planear configurar uma conta Azure Cosmos multi-região com suporte analític
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Posso optar por permitir a Synapse Link apenas para determinadas regiões e não para todas as regiões numa configuração de contas multi-região?
 No lançamento de pré-visualização, quando o Synapse Link está ativado para uma conta multi-região, a loja analítica é criada em todas as regiões. Os dados subjacentes são otimizados para a produção e consistência transacional na loja transacional.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>A cópia de segurança e a restauração são suportadas para contas do Synapse Link ativadas?
+Na pré-visualização, para o Synapse Link as contas de base de dados ativadas, a cópia de segurança e a restauração de contentores não são suportadas. Se tiver cargas de trabalho de produção que exijam cópias de segurança e restaurar a funcionalidade, recomendamos que não ative o Synapse Link nessas contas de base de dados. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Posso desativar a funcionalidade Synapse Link para a minha conta Azure Cosmos?
 Atualmente, após a capacidade do Synapse Link ser ativada ao nível de conta, não poderá desativá-la.  Se quiser desligar a capacidade, tem de eliminar e recriar uma nova conta Azure Cosmos.
@@ -127,7 +129,7 @@ Um recipiente de loja transacional será representado com o seguinte ícone:
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Como é que se passam as credenciais de Azure Cosmos dB do Synapse Studio?
 Atualmente, as credenciais DB da Azure Cosmos são passadas enquanto criam o serviço ligado pelo utilizador que tem acesso às bases de dados DB do Azure Cosmos. O acesso a essa loja está disponível para outros utilizadores que tenham acesso ao espaço de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça os [benefícios do Synapse Link](synapse-link.md#synapse-link-benefits)
 

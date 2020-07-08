@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 17cbf4f7b0ae31b0523a0fbea0c1cae8f83b234b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920355"
 ---
 # <a name="responsible-machine-learning-ml"></a>Aprendizagem Automática Responsável (ML)
 
@@ -36,7 +35,7 @@ Ao longo do desenvolvimento e utilização dos sistemas de IA, a confiança deve
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpretar e explicar o comportamento do modelo
 
-É difícil explicar ou os sistemas de caixa preta podem ser problemáticos porque dificulta que as partes interessadas, como desenvolvedores de sistemas, reguladores, utilizadores e decisores empresariais, compreendam porque é que os sistemas tomam determinadas decisões. Alguns sistemas de IA são mais explicáveis do que outros e às vezes há uma troca entre um sistema com maior precisão e um que é mais explicável.
+É difícil explicar ou os sistemas de caixas opacas podem ser problemáticos porque dificulta que as partes interessadas, como desenvolvedores de sistemas, reguladores, utilizadores e decisores empresariais, compreendam porque é que os sistemas tomam determinadas decisões. Alguns sistemas de IA são mais explicáveis do que outros e às vezes há uma troca entre um sistema com maior precisão e um que é mais explicável.
 
 Para construir sistemas de IA interpretáveis, utilize [o InterpretML,](https://github.com/interpretml/interpret)um pacote de código aberto construído pela Microsoft. [A InterpretML pode ser utilizada dentro da Azure Machine Learning](how-to-machine-learning-interpretability.md) para [interpretar e explicar os seus modelos de aprendizagem automática,](how-to-machine-learning-interpretability-aml.md)incluindo [modelos automatizados de aprendizagem automática.](how-to-machine-learning-interpretability-automl.md)
 
@@ -68,7 +67,7 @@ Nos cenários tradicionais, os dados brutos são armazenados em ficheiros e base
 
 Documentar a informação certa no processo de aprendizagem automática é fundamental para tomar decisões responsáveis em cada fase. As folhas de dados são uma forma de documentar os ativos de aprendizagem automática que são usados e criados como parte do ciclo de vida de aprendizagem automática.
 
-Os modelos tendem a ser considerados como "caixas negras" e muitas vezes há pouca informação sobre elas. Como os sistemas de aprendizagem automática estão a tornar-se mais abrangentes e são utilizados para a tomada de decisões, a utilização de folhas de dados é um passo para o desenvolvimento de sistemas de aprendizagem automática mais responsáveis.
+Os modelos tendem a ser considerados como "caixas opacas" e muitas vezes há pouca informação sobre elas. Como os sistemas de aprendizagem automática estão a tornar-se mais abrangentes e são utilizados para a tomada de decisões, a utilização de folhas de dados é um passo para o desenvolvimento de sistemas de aprendizagem automática mais responsáveis.
 
 Algumas informações do modelo que pode querer documentar como parte de uma folha de dados:
 

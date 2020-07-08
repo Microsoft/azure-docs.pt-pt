@@ -11,10 +11,9 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
 ms.openlocfilehash: 2f4e9841a44252829fae283a12ba804219204022
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84321551"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Configure proteção avançada de ameaças para base de dados Azure SQL

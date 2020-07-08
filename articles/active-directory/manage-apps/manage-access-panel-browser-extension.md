@@ -16,10 +16,9 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16abfbeacd972ee8b0ab55f09945e687c95f0093
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763266"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Resolução de problemas da extensão do painel de acesso para o Internet Explorer

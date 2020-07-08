@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
 ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987151"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configure capturas de pacotes para gateways VPN
@@ -66,6 +65,6 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - A duração mínima de captura do pacote é de 600 segundos. Ter uma duração de captura de pacote mais curta pode não fornecer dados completos devido a problemas de sincronização entre vários componentes no caminho.
 - Os ficheiros de dados de captura de pacotes são gerados no formato PCAP. Utilize o Wireshark ou outras aplicações comumente disponíveis para abrir ficheiros PCAP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Gateway VPN, consulte [Sobre o Gateway VPN](vpn-gateway-about-vpngateways.md)

@@ -15,10 +15,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764779"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Abóbada de senha para um único sinal com Proxy de aplicação
@@ -66,7 +65,7 @@ Já devia ter publicado e testado a sua aplicação com o Application Proxy. Cas
 
 Vá ao portal My Apps. Faça o seu sômis com as suas credenciais (ou as credenciais para uma conta de teste que configura com acesso). Assim que se ter assinado com sucesso, clique no ícone da aplicação. Isto pode desencadear a instalação da extensão do navegador My Apps Secure Sign-in. Se o seu utilizador tiver credenciais predefinidas, a autenticação da aplicação deverá acontecer automaticamente, caso contrário deverá especificar o nome de utilizador ou a palavra-passe pela primeira vez. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre outras formas de implementar [o único sign-on](what-is-single-sign-on.md)
 - Saiba mais [sobre considerações de segurança para aceder remotamente a apps com Proxy de aplicações AD AZure](application-proxy-security.md)
