@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 3eb429c4981cbc548c7d68c788008b841ff5d33e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85484082"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025595"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -20,10 +20,6 @@ A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados
 A encriptação de dados com as teclas geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single está definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) de propriedade do cliente e gerida pelo cliente. A chave de encriptação chave (KEK) e a chave de encriptação de dados (DEK) é descrita mais detalhadamente mais tarde neste artigo.
 
 Key Vault é um sistema de gestão de chaves externo baseado na nuvem. É altamente disponível e fornece armazenamento escalável e seguro para chaves criptográficas RSA, opcionalmente apoiado por módulos de segurança de hardware validados FIPS 140-2 Nível 2 (HSMs). Não permite o acesso direto a uma chave armazenada, mas fornece serviços de encriptação e desencriptação a entidades autorizadas. O Key Vault pode gerar a chave, importá-la ou [transferi-la de um dispositivo HSM no local.](../key-vault/key-Vault-hsm-protected-keys.md)
-
-
-> [!NOTE]
-> Esta capacidade está atualmente a ser lançada globalmente e estará em breve disponível em todas as regiões. Se não o vir na sua região, AskAzureDBforPostgreSQL@service.microsoft.com contacte.
 
 > [!NOTE]
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para servidor Single PostgreSQL suporta os níveis de preços "Final Geral" e "Memory Optimized".
@@ -136,7 +132,7 @@ Para evitar problemas durante a configuração da encriptação de dados gerida 
 Para a Base de Dados Azure para PostgreSQL, o suporte para encriptação de dados em repouso usando a chave gerida pelos clientes (CMK) tem poucas limitações -
 
 * O suporte para esta funcionalidade está limitado aos níveis de preços otimizados para **fins gerais** e **memória.**
-* Esta funcionalidade é suportada apenas em regiões e servidores que suportam armazenamento até 16TB. Para a lista de regiões de Azure que suportam o armazenamento até 16TB, consulte a secção de armazenamento em documentação [aqui](concepts-pricing-tiers.md#storage)
+* Esta funcionalidade é suportada apenas em regiões e servidores que suportam armazenamento até 16 TB. Para a lista de regiões de Azure que suportam o armazenamento até 16TB, consulte a secção de armazenamento em documentação [aqui](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
     > - Todos os novos servidores PostgreSQL criados nas regiões acima listadas, o suporte para encriptação com as chaves do gestor de clientes está **disponível**. O servidor Point In Time Restored (PITR) ou a réplica de leitura não se qualificam embora, em teoria, sejam "novos".
@@ -144,16 +140,7 @@ Para a Base de Dados Azure para PostgreSQL, o suporte para encriptação de dado
 
 * A encriptação só é suportada com a chave criptográfica RSA 2048.
 
-## <a name="infrastructure-double-encryption"></a>Infraestrutura Dupla encriptação
-A Azure Database for PostgreSQL utiliza encriptação de armazenamento [de dados em repouso](concepts-security.md#at-rest) para dados usando as chaves geridas da Microsoft. Os dados, incluindo cópias de segurança, são encriptados no disco e esta encriptação está sempre acesa e não pode ser desativada. A encriptação utiliza o módulo criptográfico validado FIPS 140-2 e uma cifra AES de 256 bits para a encriptação de armazenamento Azure. 
-
-A encriptação dupla de infraestrutura adiciona uma segunda camada de encriptação usando um módulo criptográfico validado FIPS 140-2 e um algoritmo de encriptação diferente que dá camada adicional de proteção para os seus dados em repouso. A chave utilizada na infraestrutura A encriptação dupla também é gerida pelo serviço. Isto não está *ligado* por padrão, uma vez que terá impacto no desempenho devido à camada adicional de encriptação. 
-
-   > [!NOTE]
-   > - Esta funcionalidade ainda não se encontra disponível globalmente. 
-   > - O suporte para esta funcionalidade está limitado aos níveis de preços otimizados para **fins gerais** e **memória.**
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como configurar a [encriptação de dados com uma chave gerida pelo cliente para a sua base de dados Azure para o servidor Single PostgreSQL utilizando o portal Azure](howto-data-encryption-portal.md).
 
