@@ -9,12 +9,12 @@ ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 4c4ac1d332c4348941963b90d25aefb4fdf30ce4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560227"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955544"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -134,7 +134,7 @@ conda install <package> -n py35
 
 Se estiver numa interface gráfica ou tiver o reencaminhamento X11, pode introduzir **o pycharm** para abrir o PyCharm Python IDE. Pode utilizar os editores de texto predefinidos. Além disso, você pode usar Spyder, um Python IDE que está agregado com as distribuições de Anaconda Python. Spyder precisa de um ambiente de trabalho gráfico ou de encaminhamento X11. O ambiente de trabalho gráfico tem um atalho para o Spyder.
 
-## <a name="jupyter-notebook"></a>Bloco de notas do Jupyter
+## <a name="jupyter-notebook"></a>Caderno Jupyter
 
 A distribuição da Anaconda também vem com um caderno Jupyter, um ambiente para partilhar código e análise. O caderno Jupyter é acedido através do JupyterHub. Faça sedundo usando o seu nome de utilizador e senha linux local.
 
@@ -224,7 +224,7 @@ As bibliotecas estão disponíveis em R e Python para acesso à base de dados:
 * Em R, pode utilizar o pacote RODBC ou o pacote dplyr para consultar ou executar declarações SQL no servidor de base de dados.
 * Em Python, a biblioteca pyodbc fornece acesso de base de dados com ODBC como a camada subjacente.  
 
-## <a name="azure-tools"></a>Ferramentas azul
+## <a name="azure-tools"></a>Ferramentas do Azure
 
 As seguintes ferramentas Azure são instaladas no VM:
 
@@ -263,8 +263,10 @@ O VM vem com ferramentas de machine learning e algoritmos que foram pré-compila
 * **Python**: Anaconda Python vem agregado com algoritmos de aprendizagem automática com bibliotecas como Scikit-learn. Pode instalar outras bibliotecas utilizando o `pip install` comando.
 * **LightGBM**: Uma estrutura rápida, distribuída e de alto desempenho de gradiente com base em algoritmos de árvores de decisão.
 * **R**: Uma rica biblioteca de funções de machine learning está disponível para as bibliotecas pré-instaladas inclui lm, glm, randomForest e rpart. Pode instalar outras bibliotecas executando este comando:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Aqui estão algumas informações adicionais sobre as três primeiras ferramentas de aprendizagem automática na lista.
 
@@ -344,6 +346,6 @@ Agora uma interface gráfica abre com um conjunto de separadores. Utilize os seg
 
 Pode sair do Rattle e do R. Agora pode modificar o script R gerado. Ou, use o script como está, e execute-o a qualquer hora para repetir tudo o que foi feito dentro da UI Rattle. Especialmente para principiantes em R, esta é uma forma de fazer rapidamente análises e machine learning numa interface gráfica simples, enquanto gera código automaticamente em R para modificar ou aprender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Tem perguntas adicionais? Considere criar um [bilhete de apoio.](https://azure.microsoft.com/support/create-ticket/)

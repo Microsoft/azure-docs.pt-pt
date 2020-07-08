@@ -11,12 +11,12 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 429ba2ae44788430bfa9d308b8de5daff25954d0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711175"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955595"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ver e apagar dados de utilizadores no produto da Galeria Azure AI
 
@@ -45,11 +45,13 @@ As respostas do catálogo são devolvidas no formato JSON.
 ### <a name="get-an-author-id"></a>Obter uma iD de autor
 O ID do autor baseia-se no endereço de e-mail utilizado na publicação na Galeria Azure AI. Não muda.
 
-1.    Inscreva-se na [Galeria Azure AI.](https://gallery.azure.ai/)
-2.    Clique na imagem do perfil no canto superior direito e, em seguida, o nome da conta para carregar a sua página de perfil.
-3.    O URL na barra de endereços apresenta o ID alfanumérico que se segue `authorId=` . Por exemplo, para o URL:`https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
-        
-    ID do autor:`99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1. Inscreva-se na [Galeria Azure AI.](https://gallery.azure.ai/)
+2. Clique na imagem do perfil no canto superior direito e, em seguida, o nome da conta para carregar a sua página de perfil.
+3. O URL na barra de endereços apresenta o ID alfanumérico que se segue `authorId=` . Por exemplo, para o URL:\
+    `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+
+    ID do autor:\
+    `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### <a name="get-your-access-token"></a>Obtenha o seu token de acesso
 
@@ -67,16 +69,17 @@ Para obter um token de acesso, você precisa inspecionar o `DataLabAccessToken` 
 ### <a name="view-user-information"></a>Ver informações do utilizador
 Utilizando o ID do autor que obteve nos passos anteriores, veja as informações no perfil de um utilizador substituindo `[AuthorId]` no seguinte URL:
 
-    https://catalog.cortanaanalytics.com/users/[AuthorID]
+`https://catalog.cortanaanalytics.com/users/[AuthorID]`
 
 Por exemplo, este pedido de URL:
-    
-    https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
+
+`https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 Devolve uma resposta como:
 
-    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
-
+```json
+{"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+```
 
 ### <a name="view-public-entities"></a>Ver entidades públicas
 
@@ -84,11 +87,11 @@ O Catálogo API armazena informações sobre entidades publicadas na Galeria Azu
 
 Para ver as entidades publicadas, visite o seguinte URL, substituindo `[AuthorId]` pelo ID de autor obtido em [Obter um ID de autor](#get-an-author-id) acima.
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
 Por exemplo:
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 
 ### <a name="view-unlisted-and-public-entities"></a>Ver entidades não cotadas e públicas
 

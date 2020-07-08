@@ -1,6 +1,6 @@
 ---
-title: Personalizando as predefinições padrão do media encoder [ Microsoft Docs
-description: Este tópico mostra como realizar codificação avançada personalizando predefinições de tarefa sintetizadas de Media Encoder Standard. O tópico mostra como usar os Media Services .NET SDK para criar uma tarefa e trabalho de codificação. Também mostra como fornecer predefinições personalizadas para o trabalho de codificação.
+title: Personalizar predefinições padrão media encoder / Microsoft Docs
+description: Este tópico mostra como executar codificação avançada personalizando predefinições de tarefas Media Encoder Standard. O tópico mostra como usar os Serviços de Comunicação Social .NET SDK para criar uma tarefa e trabalho de codificação. Também mostra como fornecer predefinições personalizadas para o trabalho de codificação.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251248"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956724"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>Personalizando predefinições padrão de codificador de mídia  
+# <a name="customizing-media-encoder-standard-presets"></a>Personalização de predefinições padrão media Encoder  
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra como realizar uma codificação avançada com o Media Encoder Standard (MES) utilizando um preset personalizado. O artigo utiliza .NET para criar uma tarefa de codificação e um trabalho que executa esta tarefa.  
+Este artigo mostra como realizar codificação avançada com a Media Encoder Standard (MES) utilizando uma predefinição personalizada. O artigo utiliza .NET para criar uma tarefa de codificação e um trabalho que executa esta tarefa.  
 
-Este artigo mostra-lhe como personalizar um preset tomando o preset [De Bitrate Múltiplo H264 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e reduzindo o número de camadas. O artigo de [predefinições de predefinições do Media Encoder Standard](media-services-advanced-encoding-with-mes.md) de Personalização demonstra predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
+Este artigo mostra-lhe como personalizar uma predefinição tomando o [Bitrate Múltiplo H264 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzindo o número de camadas. O artigo [de predefinição de pré-sintonias do Media Encoder de Personalização](media-services-advanced-encoding-with-mes.md) demonstra predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 > [!NOTE]
-> As predefinições personalizadas descritas neste artigo não podem ser utilizadas em transformações de [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos CLI. Consulte a [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
+> As predefinições personalizadas descritas neste artigo não podem ser utilizadas nas transformações [dos Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos CLI. Consulte a [orientação de migração de V2 a V3](../latest/migrate-from-v2-to-v3.md) para mais detalhes.
 
-## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Personalizar um predefinição MES
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Personalizar uma predefinição MES
 
-### <a name="original-preset"></a>Predefinido original
+### <a name="original-preset"></a>Predefinição original
 
-Guarde o JSON definido no artigo [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) em algum ficheiro com extensão .json. Por exemplo, **CustomPreset_JSON.json.**
+Guarde o JSON definido no artigo [bitrate múltiplo H264 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) em algum ficheiro com extensão .json. Por exemplo, **CustomPreset_JSON.js.**
 
-### <a name="customized-preset"></a>Preset personalizado
+### <a name="customized-preset"></a>Predefinição personalizada
 
-Abra o ficheiro **CustomPreset_JSON.json** e remova as três primeiras camadas de **H264Layers** para que o seu ficheiro se pareça com este.
+Abra a **CustomPreset_JSON.jsno** ficheiro e remova as três primeiras camadas dos **H264Layers** para que o seu ficheiro fique assim.
 
 ```json 
     {  
@@ -113,16 +113,18 @@ Abra o ficheiro **CustomPreset_JSON.json** e remova as três primeiras camadas d
     }  
 ```
 
-## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com Serviços de Media .NET SDK
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com Serviços de Mídia .NET SDK
 
-O exemplo de código que se segue utiliza media services .NET SDK para executar as seguintes tarefas:
+O seguinte exemplo de código utiliza os Serviços de Comunicação Social .NET SDK para executar as seguintes tarefas:
 
 - Criar um trabalho de codificação.
-- Obtenha uma referência ao codificador Padrão do Codificador De Media.
-- Carregue o preconjunto JSON personalizado que criou na secção anterior. 
-  
-        // Load the JSON from the local file.
-        string configuration = File.ReadAllText(fileName);  
+- Obtenha uma referência ao codificar Media Encoder Standard.
+- Carregue a predefinição JSON personalizada que criou na secção anterior. 
+
+    ```csharp
+    // Load the JSON from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
 
 - Adicione uma tarefa de codificação ao trabalho. 
 - Especifique o ativo de entrada a codificar.
@@ -264,9 +266,9 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-- [Como codificar com uma transformação personalizada usando cli](../latest/custom-preset-cli-howto.md)
+- [Como codificar com uma transformação personalizada usando o CLI](../latest/custom-preset-cli-howto.md)
 - [Codificação com os Serviços de Multimédia do Azure v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

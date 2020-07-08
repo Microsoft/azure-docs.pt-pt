@@ -4,15 +4,15 @@ description: Este artigo fornece detalhes técnicos relativos à distribuição 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 161927e02782a294165b0304c259a63f8336067c
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118139"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955918"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição global de dados com Azure Cosmos DB - sob o capot
 
@@ -79,7 +79,7 @@ A consistência limitada garante que todas as leituras estarão dentro dos prefi
 
 A semântica dos cinco modelos de consistência em Cosmos DB são descritas [aqui,](consistency-levels.md)e matematicamente descritas usando uma especificação TLA+ de alto nível [aqui](https://github.com/Azure/azure-cosmos-tla).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, aprenda a configurar a distribuição global utilizando os seguintes artigos:
 

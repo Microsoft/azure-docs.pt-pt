@@ -1,7 +1,7 @@
 ---
-title: Ler texto a partir de imagens e documentos - Visão de Computador
+title: Reconhecimento de Caracteres Óticos (OCR) - Visão computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados com o reconhecimento de caracteres óticos (OCR) e texto a partir de imagens e documentos para texto impresso e manuscrito usando a API de Visão Computacional.
+description: Conceitos relacionados com o reconhecimento de caracteres óticos (OCR) a partir de imagens e documentos com texto impresso e manuscrito utilizando a API de Visão Computacional.
 services: cognitive-services
 author: msbbonsu
 manager: netahw
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: d1c642a660b24cfc54c9c4308b8956582e13d50a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560797"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954745"
 ---
-# <a name="read-text-from-images-and-documents"></a>Ler texto a partir de imagens e documentos
+# <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
 
 A Visão Computacional inclui novas capacidades de reconhecimento de caracteres óticos baseados em aprendizagem profunda (OCR) que extraem texto impresso ou manuscrito a partir de imagens e documentos PDF. A Visão Computacional extrai texto de documentos analógicos (imagens, documentos digitalizados) e documentos digitalizados. Pode extrair texto de imagens na natureza, como fotos de placas ou contentores com números de série, bem como de documentos - faturas, contas, relatórios financeiros, artigos e muito mais. Esta funcionalidade OCR está disponível como parte do serviço gerido na nuvem ou nas instalações (contentores). Além disso, suporta redes virtuais e pontos finais privados para atender às necessidades de conformidade e privacidade da sua empresa.
 
@@ -91,7 +91,7 @@ A leitura também está disponível como um recipiente Docker (pré-visualizaç�
 
 A [API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) utiliza um modelo de reconhecimento mais antigo, suporta apenas imagens e executa de forma sincronizada, regressando imediatamente com o texto detetado. Suporta [mais línguas](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) do que ler API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [API De Leitura 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)REST .
 - Siga o [quickstart de texto extrato](./QuickStarts/CSharp-hand-text.md) para implementar OCR usando C#, Java, JavaScript ou Python juntamente com a REST API.

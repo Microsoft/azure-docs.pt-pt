@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/9/2020
-ms.openlocfilehash: 95891e35d2f30bfceb6282c6d9b3f9e7e21b3df8
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660884"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954199"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
 
 Pode criar uma Base de Dados Azure para servidor MariaDB num dos três níveis de preços diferentes: Básico, Propósito Geral e Memória Otimizada. Os níveis de preços são diferenciados pela quantidade de cálculo em vCores que podem ser a provisionados, memória por vCore e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são abastados ao nível do servidor MariaDB. Um servidor pode ter uma ou muitas bases de dados.
 
-|    | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Recurso | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Geração computacional | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Os recursos compute são fornecidos como vCores, que representam o CPU lógico d
 
 O armazenamento que o seu fornecimento é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MariaDB. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MariaDB. A quantidade total de armazenamento que fornece também define a capacidade de E/S disponível para o seu servidor.
 
-|    | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Atributos de armazenamento   | Básica | Fins Gerais | Otimizada para Memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento de Finalidade Geral | Armazenamento de Finalidade Geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
@@ -63,7 +63,7 @@ Pode monitorizar o seu consumo de E/S no portal Azure ou utilizando comandos Azu
 
 Estamos a aumentar os limites de armazenamento nos nossos níveis otimizados de Finalidade Geral e Memória. Os servidores recém-criados que optam pela pré-visualização podem prever até 16 TB de armazenamento. A escala de IOPS a uma proporção de 3:1 até 20.000 IOPS. Tal como acontece com o armazenamento geralmente disponível, pode adicionar capacidade de armazenamento adicional após a criação do servidor, e permitir que o sistema cresça armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho.
 
-|              | **Finalidade Geral** | **Memória Otimizada** |
+| Atributos de armazenamento | Fins Gerais | Otimizada para Memória |
 |:-------------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Azure Premium | Armazenamento Azure Premium |
 | Tamanho do armazenamento | 32 GB a 16 TB| 32 a 16 TB |
@@ -91,7 +91,7 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança. Saiba mais sobre backups no [artigo de conceitos.](concepts-backup.md)
 

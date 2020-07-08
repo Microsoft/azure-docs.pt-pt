@@ -3,12 +3,12 @@ title: Suporte para avaliação do servidor físico em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação do servidor físico com a Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: e60dc12b1f710fe771b90352872eb7113951a65d
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 1ceea394bd46f6ca239393f0e8367a028cd578f0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080515"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955357"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -34,8 +34,8 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implementação de servidor físico**       | O servidor físico pode ser autónomo ou implantado num cluster. |
-| **Permissões**           | **Janelas:** Tem de ser um administrador de domínio ou administrador local em todos os servidores windows que pretende descobrir. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho. <br/><br/> **Linux:** Precisa de uma conta raiz nos servidores Linux que pretende descobrir. |
-| **Sistema operativo** | Todos os sistemas operativos podem ser avaliados para migração. |
+| **Permissões**           | **Janelas:** Tem de ser um administrador de domínio em todos os servidores do Windows que pretende descobrir. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho. <br/><br/> **Linux:** Precisa de uma conta raiz nos servidores Linux que pretende descobrir. |
+| **Sistema operativo** | Todos os sistemas operativos, com exceção do Windows Server 2003 e do SUSE Linux, podem ser avaliados para migração. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
@@ -72,6 +72,6 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Prepare-se para a avaliação do servidor físico.](tutorial-prepare-physical.md)

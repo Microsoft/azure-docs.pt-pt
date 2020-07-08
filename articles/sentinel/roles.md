@@ -5,7 +5,7 @@ services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
-manager: angrobe
+manager: rkarlin
 ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,70 +13,84 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 9fa10dd1b278b48eb714affb74af59140c8baa09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: a43b2282974e30cfcf9fa6950e32008c06da98d2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259342"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956802"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões em Azure Sentinel
 
-O Azure Sentinel utiliza [o Controlo de Acesso Baseado em Função (RBAC),](../role-based-access-control/role-assignments-portal.md)para fornecer [funções incorporadas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
+O Azure Sentinel utiliza [o Controlo de Acesso Baseado em Fun (RBAC)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções incorporadas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
 
-Utilizando o RBAC, pode utilizar e criar funções dentro da sua equipa de operações de segurança para conceder acesso adequado ao Azure Sentinel. Com base nos papéis, você tem um controlo fino sobre o que os utilizadores com acesso ao Azure Sentinel podem ver. Pode atribuir funções DE RBAC diretamente no espaço de trabalho Azure Sentinel, ou a um grupo de subscrição ou recursos a que o espaço de trabalho pertence.
+Utilize o RBAC para criar e atribuir funções dentro da sua equipa de operações de segurança para conceder acesso adequado ao Azure Sentinel. As diferentes funções dão-lhe um controlo fino sobre o que os utilizadores do Azure Sentinel podem ver e fazer. As funções RBAC podem ser atribuídas diretamente no espaço de trabalho do Azure Sentinel (ver nota abaixo), ou num grupo de subscrição ou recursos a que o espaço de trabalho pertence, ao qual o Azure Sentinel herdará.
 
-Existem três papéis específicos de Azure Sentinel embutidos.  
+## <a name="roles-for-working-in-azure-sentinel"></a>Papéis para trabalhar em Azure Sentinel
+
+### <a name="azure-sentinel-specific-roles"></a>Funções específicas de Azure Sentinel
+
+Há três funções dedicadas ao Azure Sentinel.
+
 **Todas as funções incorporadas Azure Sentinel concedem acesso aos dados no seu espaço de trabalho Azure Sentinel.**
-- [Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- [Colaborador Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
-Além dos papéis de RBAC dedicados a Azure Sentinel, existem funções de Azure e Log Analytics RBAC que podem conceder um conjunto mais alargado de permissões que incluem acesso ao seu espaço de trabalho Azure Sentinel e outros recursos:
+- [O Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) pode ver dados, incidentes, livros e outros recursos do Azure Sentinel.
+
+- [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) pode, para além do acima referido, gerir incidentes (atribuir, dispensar, etc.)
+
+- [O Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) pode, para além do acima referido, criar e editar livros de trabalho, regras de análise e outros recursos do Azure Sentinel.
+
+> [!NOTE]
+>
+> - Para obter melhores resultados, estas funções devem ser atribuídas no **grupo de recursos** que contém o espaço de trabalho Azure Sentinel. Desta forma, as funções aplicar-se-ão a todos os recursos que são utilizados para apoiar o Azure Sentinel, uma vez que esses recursos também deverão ser colocados nesse mesmo grupo de recursos.
+>
+> - Outra opção é atribuir as funções diretamente no **espaço de trabalho** Azure Sentinel. Se o fizer, também deve atribuir as mesmas funções no **recurso de solução** SecurityInsights nesse espaço de trabalho. Você pode precisar atribuí-los em outros recursos também, e você precisará estar constantemente gerindo atribuições de funções em recursos.
+
+### <a name="additional-roles-and-permissions"></a>Papéis e permissões adicionais
+
+Os utilizadores com requisitos de trabalho específicos podem ter de ser atribuídos a funções adicionais ou permissões específicas para realizarem as suas tarefas.
+
+- Trabalhar com livros de jogadas para automatizar respostas a ameaças
+
+    Azure Sentinel usa **livros para** resposta automatizada de ameaças. Os playbooks são construídos em **Azure Logic Apps,** e são um recurso Azure separado. É melhor atribuir a membros específicos da sua equipa de operações de segurança a capacidade de utilizar aplicações lógicas para operações de orquestração, automação e resposta (SOAR). Pode utilizar a função [De Contribuinte de Aplicações Lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função de Operador de [Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para a utilização de playbooks.
+
+- Ligação de fontes de dados ao Azure Sentinel
+
+    Para que um utilizador adicione **conectores de dados,** tem de atribuir permissões de escrita ao utilizador no espaço de trabalho do Azure Sentinel. Além disso, note as permissões adicionais necessárias para cada conector, conforme listado na página de conector relevante.
+
+Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed-actions).
+
+### <a name="other-roles-you-might-see-assigned"></a>Outros papéis que pode ver atribuídos
+
+Ao atribuir funções RBAC específicas do Azure Sentinel, poderá encontrar outras funções de RBAC Azure e Log Analytics que possam ter sido atribuídas aos utilizadores para outros fins. Deve estar ciente de que estas funções concedem um conjunto mais alargado de permissões que incluem acesso ao seu espaço de trabalho Azure Sentinel e outros recursos:
 
 - **Funções Azure:** [Proprietário,](../role-based-access-control/built-in-roles.md#owner) [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)e [Leitor.](../role-based-access-control/built-in-roles.md#reader) As funções Azure concedem acesso a todos os seus recursos Azure, incluindo espaços de trabalho log analytics e recursos Azure Sentinel.
 
--   **Funções de Log Analytics:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), Log Analytics [Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). As funções de Log Analytics concedem acesso em todos os seus espaços de trabalho Log Analytics. 
+- **Funções de Log Analytics:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) e Log Analytics [Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). As funções de Log Analytics concedem acesso aos seus espaços de trabalho Log Analytics. 
 
-> [!NOTE]
-> As funções do Log Analytics também concedem acesso à leitura em todos os recursos do Azure, mas apenas atribuirão permissões de escrita aos recursos do Log Analytics.
-
-
-Por exemplo, um utilizador que seja designado com funções **de Azure Sentinel Reader** e **Azure Contributor** (não **Azure Sentinel Contributor),** poderá editar dados em Azure Sentinel, embora apenas tenham permissões **do Sentinel Reader.** Portanto, se pretender conceder permissões a um utilizador apenas no Azure Sentinel, deve remover cuidadosamente as permissões prévias deste utilizador, certificando-se de que não quebra qualquer papel de permissão necessária para outro recurso.
-
-> [!NOTE]
->- Azure Sentinel usa livros para resposta automatizada de ameaças. Os playbooks aproveitam as Azure Logic Apps e são um recurso Azure separado. É melhor atribuir membros específicos da sua equipa de operações de segurança com a opção de utilizar aplicações lógicas para operações de orquestração, automação e resposta (SOAR). Pode utilizar o papel [de colaborador da Aplicação Lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou o papel de operador da [Aplicação Lógica](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para a utilização de playbooks.
->- Para adicionar conectores de dados, as funções necessárias para cada conector são por tipo de conector e estão listadas na página de conector relevante. Além disso, para ligar qualquer fonte de dados, deve ter permissão de escrita no espaço de trabalho Azure Sentinel.
-
-
+Por exemplo, um utilizador a quem é atribuído o papel **de Azure Sentinel Reader,** mas não o papel **de Contribuinte Azure Sentinel,** ainda poderá editar itens em Azure Sentinel se for atribuído o papel **de Contribuinte** ao nível de Azure. Portanto, se pretender conceder permissões a um utilizador apenas no Azure Sentinel, deve remover cuidadosamente as permissões prévias deste utilizador, certificando-se de que não quebra qualquer acesso necessário a outro recurso.
 
 ## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
-A tabela seguinte exibe funções e permitiu ações no Azure Sentinel. Um X indica que a ação é permitida para esse papel.
+A tabela seguinte resume os papéis e permitiu ações em Azure Sentinel. 
 
-| Função | Criar e executar livros de reprodução| Criar e editar dashboards, regras analíticas e outros recursos Azure Sentinel | Gerir incidentes (dispensar, atribuir, etc.) | Ver dados, incidentes, dashboards e outros recursos do Azure Sentinel |
-|--- |---|---|---|---|
-| Azure Sentinel Reader | -- | -- | -- | X |
-| Azure Sentinel Responder|--|--| X | X |
-| Colaborador Azure Sentinel | -- | X | X | X |
-| Azure Sentinel Contributor + Colaborador de Aplicação Lógica | X | X | X | X |
+| Função | Criar e executar livros de reprodução| Criar e editar livros, regras analíticas e outros recursos do Azure Sentinel | Gerir incidentes (dispensar, atribuir, etc.) | Ver dados, incidentes, livros e outros recursos do Azure Sentinel |
+|---|---|---|---|---|
+| Azure Sentinel Reader | -- | -- | -- | &#10003; |
+| Azure Sentinel Responder | -- | -- | &#10003; | &#10003; |
+| Colaborador Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
+| Azure Sentinel Contributor + Colaborador de Aplicação Lógica | &#10003; | &#10003; | &#10003; | &#10003; |
 
+## <a name="custom-roles-and-advanced-rbac"></a>Papéis personalizados e RBAC avançado
 
-> [!NOTE]
-> - Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua o papel de contribuinte Azure Sentinel apenas aos utilizadores que necessitem de criar regras ou dashboards.
-> - Recomendamos que desempate permissões para o Azure Sentinel no âmbito do grupo de recursos, para que o utilizador possa ter acesso a todos os espaços de trabalho do Azure Sentinel no mesmo grupo de recursos.
->
-## <a name="building-custom-rbac-roles"></a>Criar funções RBAC personalizadas
+- Além disso, ou em vez de utilizar funções RBAC incorporadas, pode criar papéis RBAC personalizados para Azure Sentinel. Os papéis rbac personalizados para O Azure Sentinel são criados da mesma forma que cria outros papéis [Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) [personalizados, baseados em permissões específicas para Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-Além disso, ou em vez de utilizar funções RBAC incorporadas, pode criar papéis RBAC personalizados para Azure Sentinel. Os papéis rbac personalizados para O Azure Sentinel são criados da mesma forma que cria outros papéis [Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) [personalizados, baseados em permissões específicas para Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- Pode utilizar o controlo avançado de acesso baseado em funções do Log Analytics através dos dados do seu espaço de trabalho Azure Sentinel. Isto inclui tanto o RBAC baseado em dados como o RBAC centrado em recursos. Para obter mais informações sobre as funções de Log Analytics, consulte [Gerir os dados de registo e os espaços de trabalho no Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
-## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>RBAC avançado nos dados armazenados no Azure Sentinel
-  
-Pode utilizar o controlo avançado de acesso baseado em funções do Log Analytics através dos dados do seu espaço de trabalho Azure Sentinel. Isto inclui tanto o controlo de acesso baseado em funções por tipo de dados como o controlo de acesso baseado em funções centrada em recursos. Para obter mais informações sobre as funções de Log Analytics, consulte [Gerir os dados de registo e os espaços de trabalho no Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+## <a name="next-steps"></a>Próximos passos
 
-## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a trabalhar com papéis para os utilizadores do Azure Sentinel e o que cada papel permite que os utilizadores façam.
 
 * [Azure Sentinel Blog](https://aka.ms/azuresentinelblog). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

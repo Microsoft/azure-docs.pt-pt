@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267618"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955171"
 ---
 # <a name="monitor-azure-storage"></a>Monitor Azure Storage
 
@@ -78,7 +78,9 @@ Todos os outros pedidos anónimos falhados não estão registados. Para obter um
 
 As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas tem de criar uma definição de diagnóstico para recolher registos de recursos ou reencaizá-los para fora do Azure Monitor. Para que o processo crie uma definição de diagnóstico utilizando o portal Azure, o Azure CLI ou PowerShell, consulte [criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Quando criar uma definição de diagnóstico, escolha o tipo de armazenamento para o qual pretende ativar os registos, tais como uma bolha, fila, mesa ou ficheiro. Se criar a definição de diagnóstico no portal Azure, pode selecionar o recurso a partir de uma lista. Se utilizar o PowerShell ou o Azure CLI, tem de utilizar o ID de recurso do tipo de armazenamento. Pode encontrar o ID de recursos no portal Azure abrindo a página **Propriedades** da sua conta de armazenamento.
+Quando criar uma definição de diagnóstico, escolha o tipo de armazenamento para o qual pretende ativar os registos, tais como uma bolha, fila, mesa ou ficheiro. Data Lake Storage Gen2 não aparece como um tipo de armazenamento. Isto porque o Data Lake Storage Gen2 é um conjunto de capacidades disponíveis para o armazenamento blob. 
+
+Se criar a definição de diagnóstico no portal Azure, pode selecionar o recurso a partir de uma lista. Se utilizar o PowerShell ou o Azure CLI, tem de utilizar o ID de recurso do tipo de armazenamento. Pode encontrar o ID de recursos no portal Azure abrindo a página **Propriedades** da sua conta de armazenamento.
 
 Também tem de especificar as categorias de operações para as quais pretende recolher registos. As categorias de Azure Storage estão listadas nesta tabela.
 
@@ -344,6 +346,8 @@ Os dados são armazenados nestas tabelas.
 |StorageQueueLogs | Registos que descrevem a atividade nas filas.|
 |ArmazenamentoTableLogs| Registos que descrevem a atividade nas tabelas.|
 
+Os registos para data lake storage Gen2 não aparecem numa tabela dedicada. Isso é porque o Data Lake Storage Gen2 não é serviço. É um conjunto de capacidades que podes ativar numa conta de armazenamento Blob. Se tiver ativado essas capacidades, os registos continuarão a aparecer na tabela StorageBlobLogs. 
+
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Consultas de Azure Storage Log Analytics no Azure Monitor
 
 Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar as suas contas de Armazenamento Azure. Estas consultas funcionam com a [nova linguagem.](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
@@ -402,7 +406,7 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
 
 Não. O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma referência dos registos e métricas criados pela Azure Storage, consulte [a referência de dados de monitorização do armazenamento Azure](monitor-storage-reference.md).
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).

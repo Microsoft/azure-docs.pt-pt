@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: a5348379979b14f321cbe4f32d6107fdfe7a4639
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8e1fd7e839c50458ddcfc9f83d152d7b45cd6672
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661075"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956258"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -68,6 +68,11 @@ A Recuperação do Local suporta a replicação de qualquer carga de trabalho em
 Configurações da máquina | As máquinas que se replicam em Azure devem satisfazer os [requisitos do Azure.](#azure-vm-requirements)
 Carga de trabalho da máquina | A Recuperação do Local suporta a replicação de qualquer carga de trabalho em execução numa máquina suportada. [Saiba mais](https://aka.ms/asr_workload).
 Nome da máquina | Certifique-se de que o nome de exibição da máquina não cai em [nomes de recursos reservados do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Os nomes de volume lógico não são sensíveis a casos. Certifique-se de que não há dois volumes num dispositivo com o mesmo nome. Ex: Volumes com nomes "voLUME1", "volume1" não podem ser protegidos através da Recuperação do Local de Azure.
+
+### <a name="for-windows"></a>Para Windows
+
+**Sistema operativo** | **Detalhes**
+--- | ---
 Windows Server 2019 | Suportado a partir do [rollup 34](https://support.microsoft.com/help/4490016) da Atualização (versão 9.22 do serviço mobility) em diante.
 Windows Server 2016 64-bit | Suportado para Server Core, Servidor com Experiência de Ambiente de Trabalho.
 Windows Server 2012 R2 / Windows Server 2012 | Suportado.
@@ -75,12 +80,17 @@ Windows Server 2008 R2 com SP1 em diante. | Suportado.<br/><br/> A partir da ver
 Windows Server 2008 com SP2 ou mais tarde (64-bit/32-bit) |  Apoiado apenas para a migração. [Saiba mais](migrate-tutorial-windows-server-2008.md).<br/><br/> A partir da versão [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) do agente de serviço mobility, precisa de [atualização de stack de manutenção (SSU)](https://support.microsoft.com/help/4493730) e [atualização SHA-2](https://support.microsoft.com/help/4474419) instalada nas máquinas SP2 do Windows 2008. O ISHA-1 não é suportado a partir de setembro de 2019, e se a assinatura de código SHA-2 não estiver ativada, a extensão do agente não instalará/atualizará como esperado. Saiba mais sobre [a atualização e requisitos SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 Windows 10, Windows 8.1, Windows 8 | Suportado.
 Windows 7 com SP1 64-bit | Suportado a partir do [rollup 36](https://support.microsoft.com/help/4503156) da Atualização (versão 9.22 do serviço mobility) em diante. </br></br> A partir das [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) do agente de serviço de Mobilidade, precisa de [atualização de stack de manutenção (SSU)](https://support.microsoft.com/help/4490628) e [atualização SHA-2](https://support.microsoft.com/help/4474419) instalada nas máquinas SP1 do Windows 7.  O SHA-1 não é suportado a partir de setembro de 2019, e se a assinatura de código SHA-2 não estiver ativada, a extensão do agente não instalará/atualizará como esperado. Saiba mais sobre [a atualização e requisitos SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+
+### <a name="for-linux"></a>Para Linux
+
+**Sistema operativo** | **Detalhes**
+--- | ---
 Linux | Apenas um sistema de 64 bits é suportado. Sistema de 32 bits não é suportado.<br/><br/>Todos os servidores Linux devem ter [componentes do Linux Integration Services (LIS) instalados.](https://www.microsoft.com/download/details.aspx?id=55106) É necessário iniciar o servidor em Azure após o teste failover/failover. Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure. <br/><br/> As orquestras de recuperação do site falham em executar servidores Linux em Azure. No entanto, os fornecedores do Linux podem limitar o suporte apenas a versões de distribuição que não tenham atingido o fim de vida.<br/><br/> Nas distribuições linux, apenas os núcleos de stock que fazem parte da versão/atualização da versão menor de distribuição são suportados.<br/><br/> A atualização de máquinas protegidas nas principais versões de distribuição do Linux não é suportada. Para atualizar, desativar a replicação, atualizar o sistema operativo e, em seguida, voltar a ativar a replicação.<br/><br/> [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte ao Linux e à tecnologia open-source em Azure.
-Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1 <br/> Poucos núcleos mais antigos em servidores com red hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes linux de integração (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
-Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.8<br/> <br/> 8.0 a 8.1<br/><br/> Poucos núcleos mais antigos em servidores que executam CentOS 5.2-5.11 & 6.1-6.10 não possuem [componentes do Linux Integration Services (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
+Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/> Poucos núcleos mais antigos em servidores com red hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes linux de integração (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
+Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.8<br/> <br/> 8.0, 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/><br/> Poucos núcleos mais antigos em servidores que executam CentOS 5.2-5.11 & 6.1-6.10 não possuem [componentes do Linux Integration Services (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
 Ubuntu | Ubuntu 14.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions) </br> Ubuntu 18.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x,* 8. *versões x* [(versões de kernel suportadas pela revisão)](#debian-kernel-versions)
-SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> O upgrade de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportado. Para atualizar, desative a replicação e reativa após a atualização.
+SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> O upgrade de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportado. Para atualizar, desative a replicação e reativa após a atualização.
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)
 
 > [!Note]
@@ -90,46 +100,42 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Lançamento apoiado** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-14.04 LTS | [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/) | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
+14.04 LTS | [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609) | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
 14.04 LTS | [9.31][9.31 UR] | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
 14.04 LTS | [9.30][9.30 UR] | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
-14.04 LTS | [9.29][9.29 UR]| 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
 |||
+16.04 LTS | [9.34](https://support.microsoft.com/help/4570609) | 4.4.0-21-genérico a 4.4.0-178-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-101-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1083-azure |
 16.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-genérico a 4.4.0-178-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-99-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1082-azure|
 16.04 LTS | [9.32][9.32 UR] | 4.4.0-21-genérico a 4.4.0-171-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-74-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1066-azure|
 16.04 LTS | [9.31][9.31 UR] | 4.4.0-21-genérico a 4.4.0-170-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-72-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1063-azure|
-16.04 LTS | [9.30][9.30 UR] | 4.4.0-21-genérico a 4.4.0-166-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-66-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1061-azure|
-16.04 LTS | [9.29][9.29 UR] | 4.4.0-21-genérico a 4.4.0-164-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-64-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1059-azure|
 |||
+18.04 LTS | [9.34](https://support.microsoft.com/help/4570609) | 4.15.0-20-genérico a 4.15.0-101-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-48-genérico </br> 5.3.0-19 genérico a 5.3.0-53-genérico </br> 4.15.0-1009-azure para 4.15.0-1083-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1022-azure|
 18.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-genérico a 4.15.0-99-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-47-genérico </br> 5.3.0-19-genérico a 5.3.0-51-genérico </br> 4.15.0-1009-azure para 4.15.0-1082-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1020-azure|
 18.04 LTS | [9.32][9.32 UR]| 4.15.0-20-genérico a 4.15.0-74-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-37-genérico </br> 5.3.0-19 genérico a 5.3.0-24-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1028-azure </br> 5.3.0-1007-azure para 5.3.0-1009-azure|
 18.04 LTS | [9.31][9.31 UR]| 4.15.0-20-genérico a 4.15.0-72-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-37-genérico </br> 5.3.0-19 genérico a 5.3.0-24-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1025-azure </br> 5.3.0-1007-azure|
-18.04 LTS | [9.30][9.30 UR] | 4.15.0-20-genérico a 4.15.0-66-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-32-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1023-azure|
-18.04 LTS | [9.29][9.29 UR] | 4.15.0-20-genérico a 4.15.0-62-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-27-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1018-azure|
 
 ### <a name="debian-kernel-versions"></a>Versões de kernel debian
 
 
 **Lançamento apoiado** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-Debian 7 | [9.29][9.29 UR], [9.30][9.30 UR], [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/)| 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609)| 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.30][9.30 UR], [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/) | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
-Debian 8 | [9.29][9.29 UR] | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.9-amd64 |
+Debian 8 | [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 versões de kernel suportadas
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.34](https://support.microsoft.com/help/4570609) | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.13-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32, [9.33](https://support.microsoft.com/help/4564347/) | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.30 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.23-azure  |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 versões de kernel suportado
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.34](https://support.microsoft.com/help/4570609)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.30-azure 
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9.33](https://support.microsoft.com/help/4564347/) | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.30-azure |
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587) </br></br> 4.12.14-5.5-azure para 4.12.14-8.22-azure
 

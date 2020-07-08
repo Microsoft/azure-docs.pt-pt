@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/24/2020
+ms.date: 07/04/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd170d505286d57f383af50da282e120167fe499
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 6f2462e9bba909099ea3bb2910e26596427c0a4e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367364"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954303"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -55,14 +55,6 @@ Uma série de documentos leva-o através da SAP HANA on Azure (Grandes Instânci
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA em máquinas virtuais Azure
 Esta secção da documentação abrange diferentes aspetos da SAP HANA. Como pré-requisito, deve estar familiarizado com os principais serviços da Azure que prestam serviços elementares da Azure IaaS. Então, você precisa de conhecimento de Azure compute, armazenamento e networking. Muitos destes assuntos são tratados no guia de [planeamento Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)relacionado com a NETWeaver. 
-
-Para obter informações sobre a HANA sobre Azure, consulte os seguintes artigos e seus subartículos:
-
-- [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
-- [SAP HANA alta disponibilidade para máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
-- [Alta disponibilidade de SAP HANA em máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Guia de backup para SAP HANA em máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-
 
  
 
@@ -112,6 +104,8 @@ Para obter informações sobre a integração dos serviços Azure em componentes
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 7/04/2020: Lançamento do [monitor Azure para soluções SAP (pré-visualização)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-overview)
+- 07/01/2020: Sugerir configuração de armazenamento menos dispendiosa com base na funcionalidade de rebentamento de armazenamento premium Azure nas [configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 
 - 06/24/2020: Alteração na [criação do Pacemaker no SLES em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para lançar o novo agente melhorado da cerca de Azure e uma configuração STONITH mais resistente para dispositivos, com base no Agente da Cerca de Azure 
 - 06/24/2020: Alteração na [configuração do Pacemaker na RHEL em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para lançar uma configuração STONITH mais resistente
 - 06/23/2020: Alterações ao planeamento e implementação de [máquinas virtuais Azure para](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) guia e introdução de tipos de armazenamento [Azure para](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) guia de carga SAP

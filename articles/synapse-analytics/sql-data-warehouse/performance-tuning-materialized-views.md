@@ -1,5 +1,5 @@
 ---
-title: Otimização do desempenho com vistas materializadas
+title: Melodia de desempenho com vistas materializadas
 description: Recomendações e considerações que deve conhecer ao utilizar pontos de vista materializados para melhorar o seu desempenho de consulta.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,14 +10,14 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d33c9af2c66f04bc981ce92c6283e9d836f3f199
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204579"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956394"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
+# <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
 
 Vistas materializadas na piscina Synapse SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute as orientações gerais sobre a utilização de pontos de vista materializados.
 
@@ -364,6 +364,6 @@ Verifique novamente o plano de execução da consulta original.  Agora o número
 
 Com vistas materializadas, a mesma consulta corre muito mais rápido sem qualquer alteração de código.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento da piscina Synapse SQL.](sql-data-warehouse-overview-develop.md)

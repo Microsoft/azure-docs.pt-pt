@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: 760720d133dc382ba7af4aa5f0519d4d918e93cd
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322214"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954116"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato de registo de auditoria de base de dados SQL
 
@@ -31,7 +31,7 @@ Os registos de auditoria armazenados no armazém da Azure Blob são armazenados 
 
 Por exemplo, para a base de dados `Database1` sobre o seguinte é um caminho válido `Server1` possível:
 
-    Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+`Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel`
 
 [Os registos de auditoria de réplicas apenas](read-scale-out.md) de leitura são armazenados no mesmo recipiente. A hierarquia do diretório dentro do contentor é do formulário `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/` . O nome do ficheiro Blob partilha o mesmo formato. Os Registos de Auditoria de Réplicas só de Leitura são armazenados no mesmo recipiente.
 
@@ -46,7 +46,7 @@ Os eventos de auditoria são escritos para log analytics espaço de trabalho def
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campos de registo de auditoria
 
-| Nome (blob) | Nome (Centros de Eventos/Análise de Registo) | Description | Tipo de blob | Hubs de eventos/tipo de Analítica de Log |
+| Nome (blob) | Nome (Centros de Eventos/Análise de Registo) | Descrição | Tipo de blob | Hubs de eventos/tipo de Analítica de Log |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID da ação | varchar(4) | string |
 | action_name | action_name_s | Nome da ação | N/D | string |
