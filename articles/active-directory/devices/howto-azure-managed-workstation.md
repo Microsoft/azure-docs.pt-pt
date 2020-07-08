@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252785"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementar uma estação de trabalho segura e gerida pelo Azure
@@ -33,16 +32,16 @@ Selecione um perfil antes de implementar a solução. Pode utilizar vários perf
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Utilizador em Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
 | Gerido por intune | Sim | Sim | Sim | Sim | Sim | Sim |
-| Dispositivo - Azure AD registrado | Yes |  |  |  |  | |   |
+| Dispositivo - Azure AD registrado | Sim |  |  |  |  | |   |
 | Dispositivo - Azure AD juntou-se |   | Sim | Sim | Sim | Sim | Sim |
-| Linha de base de segurança intune aplicada |   | Yes <br> (Melhorado) | Yes <br> (Alta Segurança) | Yes <br> (NCSC) | Yes <br> (Seguro) | ND |
+| Linha de base de segurança intune aplicada |   | Sim <br> (Melhorado) | Sim <br> (Alta Segurança) | Sim <br> (NCSC) | Sim <br> (Seguro) | ND |
 | Hardware cumpre padrões seguros do Windows 10 |   | Sim | Sim | Sim | Sim | Sim |
 | Microsoft Defender ATP ativado |   | Sim  | Sim | Sim | Sim | Sim |
 | Remoção dos direitos de administração |   |   | Sim  | Sim | Sim | Sim |
 | Implementação utilizando o Microsoft Autopilot |   |   | Sim  | Sim | Sim | Sim |
 | Aplicativos instalados apenas pela Intune |   |   |   | Sim | Sim |Sim |
 | URLs restritos à lista aprovada |   |   |   | Sim | Sim |Sim |
-| Internet bloqueada (entrada/saída) |   |   |   |  |  |Yes |
+| Internet bloqueada (entrada/saída) |   |   |   |  |  |Sim |
 
 > [!NOTE]
 > Nos dispositivos de orientação de estação de trabalho seguros serão **atribuídos** perfis e políticas. Os utilizadores não terão as políticas aplicadas diretamente, permitindo que a partilha de dispositivos (dispositivos partilhados) esteja em vigor. Se uma estação de trabalho segura não for partilhada na sua implementação, ou forem necessárias políticas individuais de utilizador, a atribuição dos perfis de política do utilizador pode ser atribuída ao utilizador e ao dispositivo. 
@@ -61,7 +60,7 @@ Quando cria a conta de administrador de estação de trabalho segura, expõe a c
 
 Requerem autenticação de vários fatores, pelo menos para os seus administradores. Consulte [O MFA baseado na nuvem](../authentication/howto-mfa-getstarted.md) para obter orientação de implementação.
 
-### <a name="azure-ad-users-and-groups"></a>Utilizadores e grupos AD Azure
+### <a name="azure-ad-users-and-groups"></a>Utilizadores e grupos do Azure Active Directory
 
 1. A partir do portal Azure, navegue para **Utilizadores do Azure Ative Directory**  >  **Users**  >  **Novo utilizador**.
 1. Crie o administrador do seu dispositivo seguindo os passos no tutorial do [utilizador create](/Intune/quickstart-create-user).
@@ -458,7 +457,7 @@ O registo de aplicações estará disponível no espaço de trabalho selecionado
 * Gerir a [deteção e resposta do ponto final](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 * Monitorize perfis com [monitorização do perfil Intune.](/intune/device-profile-monitor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o Microsoft Intune.](/intune/index)
 * Compreenda [o anúncio do Azure.](../index.yml)

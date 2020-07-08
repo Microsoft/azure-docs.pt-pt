@@ -7,15 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791151"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contentores e bases de dados da Azure Cosmos com produção de escala automática
 
-O Azure Cosmos DB permite-lhe definir o rendimento padrão (manual) ou auto-escala nas suas bases de dados e contentores. Este artigo descreve os benefícios e a utilização de casos de produção de autoescala. 
+O Azure Cosmos DB permite definir o débito aprovisionado padrão (manual) ou de dimensionamento automático nas bases de dados e nos contentores. Este artigo descreve os benefícios e os casos de utilização do débito aprovisionado de dimensionamento automático. 
 
 A produção de autoescalação é adequada para cargas de trabalho críticas de missão que têm padrões de tráfego variáveis ou imprevisíveis, e requerem SLAs em alto desempenho e escala. 
 
@@ -63,11 +62,11 @@ Utilize o [portal Azure](how-to-provision-autoscale-throughput.md#enable-autosca
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Limites de produção e armazenamento para autoescalação
 
-Por qualquer `Tmax` valor, a base de dados ou o contentor podem armazenar um total de `0.01 * Tmax GB` . Após esta quantidade de armazenamento ser atingida, o MÁXIMO RU/s será automaticamente aumentado com base no novo valor de armazenamento, sem qualquer impacto na sua aplicação. 
+Por qualquer `Tmax` valor, a base de dados ou o contentor podem armazenar um total de `0.01 * Tmax GB` . Depois de atingir esta quantidade de armazenamento, a RU/s máxima aumenta automaticamente com base no novo valor de armazenamento, sem afetar a aplicação. 
 
-Por exemplo, se começar com um MÁXIMO RU/s de 50.000 RU/s (balanças entre 5000 - 50.000 RU/s), pode armazenar até 500 GB de dados. Se exceder 500 GB - por exemplo, o armazenamento é agora de 600 GB, o novo máximo RU/s será de 60.000 RU/s (balanças entre 6000 - 60.000 RU/s).
+Por exemplo, se começar com uma RU/s máxima de 50 000 RU/s (que dimensiona entre 5000 e 50 000 RU/s), poderá armazenar até 500 GB de dados. Se exceder os 500 GB, por exemplo, se o armazenamento for agora de 600 GB, a nova RU/s máxima será de 60 000 RU/s (que dimensiona entre 6000 e 60 000 RU/s).
 
-Quando utilizar a produção de nível de base de dados com autoescala, pode ter os primeiros 25 contentores a partilhar um RU/s máximo de escala automática de 4000 (balanças entre 400 - 4000 RU/s), desde que não exceda 40 GB de armazenamento. Consulte esta [documentação](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) para obter mais informações.
+Quando utilizar o débito ao nível da base de dados com o dimensionamento automático, pode ter os primeiros 25 contentores a partilhar uma RU/s máxima de dimensionamento automático de 4000 (que dimensiona entre 400 e 4000 RU/s), desde que não exceda os 40 GB de armazenamento. Consulte esta [documentação](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) para obter mais informações.
 
 ## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Comparação – contentores configurados com produção manual vs autoescala
 Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md) sobre como escolher entre a produção padrão (manual) e a produção de autoescalação.  
@@ -80,7 +79,7 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 | **Preços** | Paga-se os RU/s manualmente a provisionados por hora, utilizando a [taxa standard (manual) RU/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Paga-se por hora o maior RU/s que o sistema aumentou até dentro de uma hora. <br/><br/> Para contas de uma única região de escrita, você paga os RU/s utilizados por hora, utilizando a [taxa de RU/s de escala automática por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de escrita, não há qualquer custo extra para a autoescala. Você paga a produção usada por hora usando o mesmo [r/s multi-mestre por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja as [FAQ de escala automática.](autoscale-faq.md)
 * Saiba como escolher entre a [produção manual e autoescala.](how-to-choose-offer.md)

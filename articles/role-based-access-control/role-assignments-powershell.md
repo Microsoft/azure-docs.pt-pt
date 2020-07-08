@@ -15,10 +15,9 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84790896"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Adicione ou remova atribuições de funções Azure usando Azure PowerShell
@@ -227,7 +226,7 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 
 Se receber a mensagem de erro: "As informações fornecidas não mapeiam para uma atribuição de funções", certifique-se de que também especifica os `-Scope` parâmetros ou `-ResourceGroupName` parâmetros. Para mais informações, consulte [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [List Azure fun assignments using Azure PowerShell](role-assignments-list-powershell.md)
 - [Tutorial: Conceder a um grupo acesso aos recursos da Azure utilizando a Azure PowerShell](tutorial-role-assignments-group-powershell.md)

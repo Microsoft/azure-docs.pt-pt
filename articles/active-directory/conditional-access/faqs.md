@@ -13,10 +13,9 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253244"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Perguntas de acesso condicionado a Azure Ative
@@ -61,6 +60,6 @@ Depois de permitir algumas políticas de acesso condicional ao inquilino em Micr
 
 Para ver os separadores afetados tem de utilizar o cliente web do Teams no Edge, No Internet Explorer ou no Chrome com a extensão das Contas Windows 10 instalada. Alguns separadores dependem da autenticação web, o que não funciona no cliente de desktop da Microsoft Teams quando o Acesso Condicional está ativado. A Microsoft está a trabalhar com parceiros para ativar estes cenários. Até à data, permitimos scenrarios envolvendo Planner, OneNote e Stream.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para configurar políticas de acesso condicional para o seu ambiente, consulte as [melhores práticas de acesso condicional no Diretório Ativo Azure.](best-practices.md) 

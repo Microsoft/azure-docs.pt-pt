@@ -12,10 +12,9 @@ ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253125"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicação Daemon que chama APIs web
@@ -59,7 +58,7 @@ Para os desenvolvedores, a experiência de ponta a ponta para este cenário tem 
 - A configuração da [aplicação](./scenario-daemon-app-configuration.md) necessita de fornecer credenciais de clientes partilhadas com a Azure AD durante o registo da candidatura.
 - O [âmbito](scenario-daemon-acquire-token.md#scopes-to-request) utilizado para adquirir um símbolo com o fluxo de credenciais do cliente tem de ser um âmbito estático.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Daemon app - registo de aplicativos](./scenario-daemon-app-registration.md)

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253142"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolução de problemas utilizando a ferramenta What If em Acesso Condicional
@@ -102,7 +101,7 @@ Na lista de políticas aplicáveis ao utilizador selecionado, também pode encon
 
 Na lista de políticas que não se aplicam ao seu utilizador, pode e também encontrar as razões pelas quais estas políticas não se aplicam. Para cada política enumerada, a razão representa a primeira condição que não foi satisfeita. Uma possível razão para uma política que não é aplicada é uma política de deficientes, porque não são mais avaliadas.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Mais informações sobre a aplicação da política de acesso condicional podem ser encontradas usando o modo de relatório de políticas apenas usando [insights de acesso condicional e relatórios](howto-conditional-access-insights-reporting.md).
 - Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte as políticas comuns de [Acesso Condicional.](concept-conditional-access-policy-common.md) 

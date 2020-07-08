@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7986ca441f7d274670d8fa0238e7dcfa01497b6f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253176"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir MFA para acesso a partir de redes não fidedquipantes com Acesso Condicional   
@@ -67,6 +66,6 @@ Em vez de tentar definir quais são todos os locais que não são de confiança,
 
 Com a abordagem descrita neste artigo, pode agora configurar uma política de acesso condicional para locais não fidedignais. Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte [Como implementar uma nova política.](best-practices.md#how-should-you-deploy-a-new-policy) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser saber mais sobre o Acesso Condicional, veja [o que é o Acesso Condicional no Diretório Ativo Azure?](../active-directory-conditional-access-azure-portal.md)

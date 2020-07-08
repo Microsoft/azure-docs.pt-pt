@@ -16,10 +16,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84790709"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
@@ -223,7 +222,7 @@ Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overv
 
 Um leitor pode clicar no separador **funcionalidades** da Plataforma e, em seguida, clicar **em Todas as definições** para visualizar algumas definições relacionadas com uma aplicação de função (semelhante a uma aplicação web), mas não consegue modificar nenhuma destas definições. Para aceder a estas funcionalidades, necessitará da função [Colaboradora.](built-in-roles.md#contributor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
 - [Adicione ou remova atribuições de funções Azure usando o portal Azure](role-assignments-portal.md)

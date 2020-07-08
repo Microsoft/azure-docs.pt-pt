@@ -10,13 +10,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 3f97db2e2722d16c3fa780dbe7205813c0e75420
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: 2c9bb4bbf52c968afe267bfa3e2b8d6dae980833
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801626"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
 
@@ -24,7 +23,7 @@ ms.locfileid: "84655581"
 
 As aplicações em nuvem são complexas e têm muitas partes móveis. Os monitores fornecem dados para ajudar a garantir que as suas aplicações permanecem em funcionamento em um estado saudável. Os monitores também ajudam a evitar potenciais problemas e a resolver problemas. Pode utilizar dados de monitorização para obter informações profundas sobre as suas aplicações. Este conhecimento ajuda-o a melhorar o desempenho da aplicação e a manutenção. Também ajuda a automatizar ações que de outra forma requerem intervenção manual.
 
-O Azure Monitor fornece métricas e registos de infraestrutura de nível base para a maioria dos serviços Azure. Os registos de diagnóstico Azure são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. A Azure Data Factory pode escrever registos de diagnóstico no Azure Monitor. Para uma introdução e demonstração de sete minutos desta funcionalidade, veja o seguinte vídeo:
+O Azure Monitor fornece métricas e registos de infraestrutura de nível base para a maioria dos serviços Azure. Os registos de diagnóstico Azure são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. A Azure Data Factory (ADF) pode escrever registos de diagnóstico no Azure Monitor. Para uma introdução e demonstração de sete minutos desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
@@ -60,8 +59,13 @@ Crie ou adicione definições de diagnóstico para a sua fábrica de dados.
 
 1. Dê um nome à sua definição, selecione **Enviar para registar análises**e, em seguida, selecione um espaço de trabalho no **Log Analytics Workspace**.
 
-    * No modo _Específico de Recursos,_ os registos de diagnóstico da Azure Data Factory fluem para as tabelas _ADFPipelineRun,_ _ADFTriggerRun_e _ADFActivityRun._
     * No modo _Azure-Diagnostics,_ os registos de diagnóstico fluem para a tabela _AzureDiagnostics._
+
+    * No modo _Específico de Recursos,_ os registos de diagnóstico da Azure Data Factory fluem para o _ADFActivityRun_, _ADFPipelineRun_, _ADFTriggerRun,_ _ADFSSISIntegrationRuntimeLogs_, _ADFSSISPackageEventMessageContext,_ _ADFSSISPackageEventMessages_, _ADFSSISPackageExecutableStatistics_, _ADFSSISPackageExecutionComponentPhaseses_, e _ADFSSISPackageExecutionDataStatistics._
+
+      Pode selecionar vários registos relevantes para as suas cargas de trabalho para enviar para as tabelas 'Registar Analytics'. Por exemplo, se não utilizar os Serviços de Integração do Servidor SQL (SSIS) de todo, não precisa de selecionar quaisquer registos SSIS. Se pretender registar operações de funcionação /stop/manutenção da SSIS Integration, pode selecionar registos de IR SSIS. Se invocar execuções de pacotes SSIS apenas via T-SQL, pode selecionar apenas registos de pacotes SSIS. Se invocar execuções de pacotes SSIS através de atividades do Pacote SSIS executadas em oleodutos ADF, pode selecionar todos os registos.
+
+    * Se selecionar _AllMetrics_, as métricas para a contagem/tamanho da entidade ADF, operações/oleoduto/gatilho, utilização do CPU de integração (IR) utilização/memória/contagem/fila de nó, bem como para execuções de pacotes SSIS e operações de arranque/paragem do SSIS IR serão disponibilizadas para monitorizar/levantar alertas.
 
    ![Nomeie as suas definições e selecione um espaço de trabalho de análise de log-analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -115,26 +119,36 @@ Pode visualizar as métricas anteriores, olhar para as consultas por trás desta
 > [!NOTE]
 > A Azure Data Factory Analytics (Preview) envia registos de diagnóstico para tabelas de destino _específicas de recursos._ Pode escrever consultas com as seguintes tabelas: _ADFPipelineRun,_ _ADFTriggerRun_e _ADFActivityRun_.
 
-
 ## <a name="data-factory-metrics"></a>Métricas da Fábrica de Dados
 
 Com o Monitor, pode ganhar visibilidade no desempenho e saúde das suas cargas de trabalho Azure. O tipo mais importante de dados do Monitor é a métrica, que também é chamada de contador de desempenho. As métricas são emitidas pela maioria dos recursos Azure. O Monitor fornece várias formas de configurar e consumir estas métricas para monitorização e resolução de problemas.
 
-A versão 2 da Azure Data Factory emite as seguintes métricas.
+Estas são algumas das métricas emitidas pela versão 2 da Azure Data Factory:
 
-| **Métrica**           | **Nome de exibição métrica**         | **Unidade** | **Tipo de agregação** | **Descrição**                                       |
-|----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRuns | Pipeline bem sucedido executa métricas | Contagem    | Total                | O número total de gasodutos que foi bem sucedido dentro de uma janela de um minuto. |
-| PipelineFailedRuns   | Gasoduto falhado executa métricas    | Contagem    | Total                | O número total de gasodutos que falhou dentro de um minuto.    |
-| AtividadeSSucceedEdRuns | A atividade bem sucedida executa métricas | Contagem    | Total                | O número total de operações é bem sucedido dentro de uma janela de um minuto.  |
-| AtividadeFailedRuns   | Atividade falhada executa métricas    | Contagem    | Total                | O número total de atividades que falharam dentro de um minuto.     |
-| TriggerSucceeddRuns | O gatilho bem sucedido executa métricas  | Contagem    | Total                | O número total de disparos que foi bem sucedido dentro de uma janela de um minuto.   |
-| TriggerFailedRuns    | O gatilho falhado executa métricas     | Contagem    | Total                | O número total de disparos que falharam dentro de um minuto.      |
+| **Métrica**                           | **Nome de exibição métrica**                  | **Unidade** | **Tipo de agregação** | **Descrição**                |
+|--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
+| AtividadesCanceledRuns                 | Atividade cancelada executa métricas           | Contagem    | Total                | O número total de operações que foram canceladas dentro de um minuto. |
+| AtividadeFailedRuns                   | Atividade falhada executa métricas             | Contagem    | Total                | O número total de atividades que falharam dentro de um minuto. |
+| AtividadeSSucceedEdRuns                | A atividade bem sucedida executa métricas          | Contagem    | Total                | O número total de operações é bem sucedido dentro de uma janela de um minuto. |
+| PipelineCanceledRuns                 | Gasoduto cancelado executa métricas           | Contagem    | Total                | O número total de gasodutos que foram cancelados dentro de um minuto. |
+| PipelineFailedRuns                   | Gasoduto falhado executa métricas             | Contagem    | Total                | O número total de gasodutos que falhou dentro de um minuto. |
+| PipelineSucceededRuns                | Pipeline bem sucedido executa métricas          | Contagem    | Total                | O número total de gasodutos que foi bem sucedido dentro de uma janela de um minuto. |
+| TriggerCanceledRuns                  | Gatilho cancelado executa métricas            | Contagem    | Total                | O número total de disparos que foram cancelados dentro de um minuto. |
+| TriggerFailedRuns                    | O gatilho falhado executa métricas              | Contagem    | Total                | O número total de disparos que falharam dentro de um minuto. |
+| TriggerSucceeddRuns                 | O gatilho bem sucedido executa métricas           | Contagem    | Total                | O número total de disparos que foi bem sucedido dentro de uma janela de um minuto. |
+| SSISIntegrationRuntimeStartCanceled  | Métricas de arranque do IR SSIS canceladas           | Contagem    | Total                | O número total de iniciais do SSIS IR que foram cancelados dentro de um minuto. |
+| SSISIntegrationRuntimeStartFailed    | Métricas falhadas do SSIS IR             | Contagem    | Total                | O número total de IR SSIS começa que falhou dentro de um minuto. |
+| SSISIntegrationRuntimeStartSucceed | Métricas de arranque do SSIS IR sucederam          | Contagem    | Total                | O número total de SSIS IR começa que conseguiu dentro de um minuto. |
+| SSISIntegrationRuntimestopStuck      | Métricas de paragem do IR SSIS presos               | Contagem    | Total                | O número total de paragens de IR SSIS que estavam presas dentro de uma janela de um minuto. |
+| SSISIntegrationRuntimestopsucceed  | Métricas de paragem do IR SSIS bem sucedidas           | Contagem    | Total                | O número total de paragens SSIS IR que foi bem sucedida dentro de um minuto. |
+| SSISPackageExecutionCanceled         | Métricas de execução de pacotes SSIS canceladas  | Contagem    | Total                | O número total de execuções de pacotes SSIS que foram canceladas dentro de um minuto. |
+| SSISPackageExecutionFailed           | Métricas de execução de pacote ssis falhados    | Contagem    | Total                | O número total de execuções de pacotes SSIS que falharam dentro de um minuto. |
+| SSISPackageExecutionSucceed        | Métricas de execução de pacote ssis bem sucedidas | Contagem    | Total                | O número total de execuções de pacotes SSIS que foram bem sucedidas dentro de um minuto. |
 
 Para aceder às métricas, preencha as instruções na [plataforma de dados Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 > [!NOTE]
-> Apenas são emitidas atividades completas, desencadeadas e eventos de gasodutos. Em curso e as corridas de caixa de areia/depurg **não** são emitidas. 
+> Apenas são emitidas atividades completas, desencadeadas e eventos de gasodutos. Em curso e as corridas de caixa de areia/depurg **não** são emitidas. Por outro lado, são emitidos todos os eventos das execuções de pacotes SSIS, incluindo os que estão concluídos, em curso, e invocados via T-SQL sobre o SSMS/SQL Server Agent/outras ferramentas designadas ou como executados desencadeados/sandbox/depurg das atividades do Pacote Executo SSIS em oleodutos ADF.
 
 ## <a name="data-factory-alerts"></a>Alertas de fábrica de dados
 
@@ -262,7 +276,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 200 ok.
 
-
 ```json
 {
     "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
@@ -373,7 +386,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     },
     "identity": null
 }
-
 ```
 Para obter mais informações, consulte [Definições de Diagnóstico](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
@@ -507,7 +519,6 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
       "SystemParameters": {}
     }
 }
-
 ```
 
 | Propriedade | Tipo | Descrição | Exemplo |
@@ -525,6 +536,280 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 |**triggerEvent**| String | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
 |**começar**| String | A hora de início do disparo do gatilho no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
 |**estado**| String | O estado final mostrando se o gatilho disparou com sucesso. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
+
+#### <a name="ssis-integration-runtime-log-attributes"></a>Atributos de registo de runtime de integração SSIS
+
+Estes são os atributos/propriedades de registo das operações de início/paragem/manutenção da SSIS Integration.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "resultType": "",
+   "properties": {
+      "message": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Propriedade                   | Tipo   | Descrição                                                   | Exemplo                        |
+| -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
+| **tempo**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | String | O nome da sua operação SSIS IR                            | `Start/Stop/Maintenance` |
+| **categoria**               | String | A categoria de registos de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
+| **correlationId**          | String | O ID único para rastrear uma determinada operação             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
+| **dataFactoryName**        | String | O nome da sua ADF                                          | `MyADFv2` |
+| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                      | `MySSISIR` |
+| **nível**                  | String | O nível de registos de diagnóstico                                  | `Informational` |
+| **resultType**             | String | O resultado da sua operação SSIS IR                          | `Started/InProgress/Succeeded/Failed` |
+| **Mensagem**                | String | A mensagem de saída da sua operação SSIS IR                  | `The stopping of your SSIS integration runtime has succeeded.` |
+| **recursosId**             | String | O ID único do seu recurso ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### <a name="ssis-event-message-context-log-attributes"></a>Atributos de registo de registo de mensagem de evento SSIS
+
+Estes são os atributos/propriedades de registo de condições relacionadas com mensagens de eventos geradas pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes às [do catálogo SSIS (SSISDB) de tabela/visualização](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) de mensagem de evento que mostra valores de tempo de execução de muitas propriedades de pacoteS SSIS. São geradas quando seleciona `Basic/Verbose` o nível de registo e é útil para depurar/verificar conformidade.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "operationId": "",
+      "contextDepth": "",
+      "packagePath": "",
+      "contextType": "",
+      "contextSourceName": "",
+      "contextSourceId": "",
+      "propertyName": "",
+      "propertyValue": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Propriedade                   | Tipo   | Descrição                                                          | Exemplo                        |
+| -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
+| **tempo**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **categoria**               | String | A categoria de registos de diagnóstico                                      | `SSISPackageEventMessageContext` |
+| **correlationId**          | String | O ID único para rastrear uma determinada operação                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | O nome da sua ADF                                                 | `MyADFv2` |
+| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                             | `MySSISIR` |
+| **nível**                  | String | O nível de registos de diagnóstico                                         | `Informational` |
+| **operationId**            | String | O ID único para rastrear uma determinada operação no SSISDB          | `1`(1 significa operações relacionadas com pacotes que não são armazenados no SSISDB) |
+| **contextDepth**           | String | A profundidade do contexto da sua mensagem de evento                              | `0`(0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro, e aumenta à medida que o contexto está mais longe do erro) |
+| **packagePath**            | String | O caminho do objeto do pacote como fonte de contexto de mensagem de evento      | `\Package` |
+| **type de contexto**            | String | O tipo de objeto pacote como fonte de contexto de mensagem de evento      | `60`(ver [mais tipos de contexto)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks) |
+| **nome de contextoSourceName**      | String | O nome do objeto do pacote como fonte de contexto de mensagem de evento      | `MyPackage` |
+| **contextSourceId**        | String | O ID único do objeto do pacote como fonte de contexto de mensagem de evento | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
+| **nome de propriedade**           | String | O nome da propriedade do pacote para a fonte de contexto de mensagem do seu evento   | `DelayValidation` |
+| **propriedadeValue**          | String | O valor da propriedade do pacote para a fonte de contexto de mensagem do seu evento  | `False` |
+| **recursosId**             | String | O ID único do seu recurso ADF                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### <a name="ssis-event-messages-log-attributes"></a>Atributos de registo de mensagens de evento SSIS
+
+Estes são os atributos/propriedades de registo de mensagens de eventos geradas pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes às [mensagens de evento SSISDB/visualização](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) que mostram o texto/metadados detalhados das mensagens de evento. São gerados em qualquer nível de registo, `None` exceto.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "operationId": "",
+      "messageTime": "",
+      "messageType": "",
+      "messageSourceType": "",
+      "message": "",
+      "packageName": "",
+      "eventName": "",
+      "messageSourceName": "",
+      "messageSourceId": "",
+      "subcomponentName": "",
+      "packagePath": "",
+      "executionPath": "",
+      "threadId": ""
+   }
+}
+```
+
+| Propriedade                   | Tipo   | Descrição                                                        | Exemplo                        |
+| -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
+| **tempo**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **categoria**               | String | A categoria de registos de diagnóstico                                    | `SSISPackageEventMessages` |
+| **correlationId**          | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | O nome da sua ADF                                               | `MyADFv2` |
+| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                           | `MySSISIR` |
+| **nível**                  | String | O nível de registos de diagnóstico                                       | `Informational` |
+| **operationId**            | String | O ID único para rastrear uma determinada operação no SSISDB        | `1`(1 significa operações relacionadas com pacotes que não são armazenados no SSISDB) |
+| **hora da mensagem**            | String | O momento em que a sua mensagem de evento é criada em formato UTC          | `2017-06-28T21:00:27.3534352Z` |
+| **mensagemType**            | String | O tipo da sua mensagem de evento                                     | `70`(ver [mais tipos de mensagens)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
+| **mensagemSourceType**      | String | O tipo de origem da sua mensagem de evento                              | `20`(ver [mais tipos de origem de mensagens)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
+| **Mensagem**                | String | O texto da sua mensagem de evento                                     | `MyPackage:Validation has started.` |
+| **nome de pacote**            | String | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
+| **nome de evento**              | String | O nome do evento relacionado em tempo de execução                                 | `OnPreValidate` |
+| **nome de mensagemSourceName**      | String | O nome do componente do pacote como fonte de mensagem do evento         | `Data Flow Task` |
+| **mensagemSourceId**        | String | O ID único do componente do pacote como fonte de mensagem do evento    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
+| **subcomponenteName**       | String | O nome do componente de fluxo de dados como fonte de mensagem de evento       | `SSIS.Pipeline` |
+| **packagePath**            | String | O caminho do objeto pacote como fonte de mensagem de evento            | `\Package\Data Flow Task` |
+| **execuçãoAata**          | String | O caminho completo do pacote dos pais para o componente executado            | `\Transformation\Data Flow Task`(Este caminho também captura iterações de componentes) |
+| **threadId**               | String | O ID único de fio executado quando a sua mensagem de evento é registada | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
+
+#### <a name="ssis-executable-statistics-log-attributes"></a>Atributos de registo de registo de estatísticas executáveis SSIS
+
+Estes são os atributos/propriedades de registo de estatísticas executáveis geradas pelas execuções de pacotes SSIS no seu SSIS IR, onde os executáveis são contentores/tarefas em fluxos de controlo de pacotes. Transmitem informações semelhantes às [do SSISDB que executam a tabela/visualização](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) que mostra uma linha para cada execução executável, incluindo as suas iterações. São gerados em qualquer nível de registo, exceto `None` e úteis para identificar estrangulamentos/falhas de nível de tarefa.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "executionId": "",
+      "executionPath": "",
+      "startTime": "",
+      "endTime": "",
+      "executionDuration": "",
+      "executionResult": "",
+      "executionValue": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Propriedade                   | Tipo   | Descrição                                                      | Exemplo                        |
+| -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
+| **tempo**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **categoria**               | String | A categoria de registos de diagnóstico                                  | `SSISPackageExecutableStatistics` |
+| **correlationId**          | String | O ID único para rastrear uma determinada operação                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | O nome da sua ADF                                             | `MyADFv2` |
+| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                         | `MySSISIR` |
+| **nível**                  | String | O nível de registos de diagnóstico                                     | `Informational` |
+| **execuçãoId**            | String | O ID único para rastrear uma execução particular no SSISDB      | `1`(1 significa execuções relacionadas com pacotes que não são armazenados no SSISDB) |
+| **execuçãoAata**          | String | O caminho completo do pacote dos pais para o componente executado          | `\Transformation\Data Flow Task`(Este caminho também captura iterações de componentes) |
+| **startTime**              | String | O tempo em que o executável entra na fase de pré-execução no formato UTC  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | String | O tempo em que o executável entra na fase pós-execução no formato UTC | `2017-06-28T21:00:27.3534352Z` |
+| **execuçãoDuration**      | String | O tempo de execução do executável em milissegundos                   | `1,125` |
+| **resultadosResult**        | String | O resultado de correr executável                                 | `0`(0 significa sucesso, 1 significa falha, 2 significa conclusão e 3 significa cancelamento) |
+| **execuçãoValue**         | String | O valor definido pelo utilizador devolvido por execução executável            | `1` |
+| **recursosId**             | String | O ID único do seu recurso ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### <a name="ssis-execution-component-phases-log-attributes"></a>Atributos de registo de fases de execução SSIS
+
+Estes são os atributos/propriedades de registo de estatísticas de tempo de execução para componentes de fluxo de dados gerados pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes às [fases de execução do SSISDB, tabela/visualização](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) que mostra o tempo gasto pelos componentes do fluxo de dados em todas as fases de execução. São geradas quando seleciona `Performance/Verbose` o nível de registo e é útil para capturar estatísticas de execução de fluxo de dados.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "executionId": "",
+      "packageName": "",
+      "taskName": "",
+      "subcomponentName": "",
+      "phase": "",
+      "startTime": "",
+      "endTime": "",
+      "executionPath": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Propriedade                   | Tipo   | Descrição                                                         | Exemplo                        |
+| -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
+| **tempo**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **categoria**               | String | A categoria de registos de diagnóstico                                     | `SSISPackageExecutionComponentPhases` |
+| **correlationId**          | String | O ID único para rastrear uma determinada operação                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | O nome da sua ADF                                                | `MyADFv2` |
+| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                            | `MySSISIR` |
+| **nível**                  | String | O nível de registos de diagnóstico                                        | `Informational` |
+| **execuçãoId**            | String | O ID único para rastrear uma execução particular no SSISDB         | `1`(1 significa execuções relacionadas com pacotes que não são armazenados no SSISDB) |
+| **nome de pacote**            | String | O nome do seu ficheiro de pacote executado                              | `MyPackage.dtsx` |
+| **nome de tarefaName**               | String | O nome da tarefa de fluxo de dados executado                                 | `Data Flow Task` |
+| **subcomponenteName**       | String | O nome da componente de fluxo de dados                                     | `Derived Column` |
+| **fase**                  | String | O nome da fase de execução                                         | `AcquireConnections` |
+| **startTime**              | String | O momento em que a fase de execução começa no formato UTC                  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | String | O momento em que a fase de execução termina em formato UTC                    | `2017-06-28T21:00:27.3534352Z` |
+| **execuçãoAata**          | String | O caminho da execução para a tarefa de fluxo de dados                            | `\Transformation\Data Flow Task` |
+| **recursosId**             | String | O ID único do seu recurso ADF                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### <a name="ssis-execution-data-statistics-log-attributes"></a>Atributos de registo de estatísticas de execução SSIS
+
+Estes são os atributos/propriedades de registo de movimentos de dados através de cada perna de gasodutos de fluxo de dados, de componentes a montante a jusante, gerados por execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes às [estatísticas de execução do SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) que mostram a contagem de dados movidos através de tarefas de fluxo de dados. São geradas quando seleciona `Verbose` o nível de registo e é útil para calcular o fluxo de dados.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "executionId": "",
+      "packageName": "",
+      "taskName": "",
+      "dataflowPathIdString": "",
+      "dataflowPathName": "",
+      "sourceComponentName": "",
+      "destinationComponentName": "",
+      "rowsSent": "",
+      "createdTime": "",
+      "executionPath": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Propriedade                     | Tipo   | Descrição                                                        | Exemplo                        |
+| ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
+| **tempo**                     | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**            | String | Isto está definido para`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **categoria**                 | String | A categoria de registos de diagnóstico                                    | `SSISPackageExecutionDataStatistics` |
+| **correlationId**            | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**          | String | O nome da sua ADF                                               | `MyADFv2` |
+| **integraçãoRuntimeName**   | String | O nome do seu SSIS IR                                           | `MySSISIR` |
+| **nível**                    | String | O nível de registos de diagnóstico                                       | `Informational` |
+| **execuçãoId**              | String | O ID único para rastrear uma execução particular no SSISDB        | `1`(1 significa execuções relacionadas com pacotes que não são armazenados no SSISDB) |
+| **nome de pacote**              | String | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
+| **nome de tarefaName**                 | String | O nome da tarefa de fluxo de dados executado                                | `Data Flow Task` |
+| **dataflowPathIdString**     | String | O ID único para rastrear o caminho do fluxo de dados                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
+| **dataflowMarme**         | String | O nome do caminho do fluxo de dados                                         | `ADO NET Source Output` |
+| **fonteComponentName**      | String | O nome do componente de fluxo de dados que envia dados                    | `SQLDB Table3` |
+| **destinoComponentName** | String | O nome da componente de fluxo de dados que recebe dados                 | `Derived Column` |
+| **linhasSent**                 | String | O número de linhas enviadas por componente de origem                        | `500` |
+| **createdTime**              | String | O tempo em que os valores da linha são obtidos em formato UTC                | `2017-06-28T21:00:27.3534352Z` |
+| **execuçãoAata**            | String | O caminho da execução para a tarefa de fluxo de dados                           | `\Transformation\Data Flow Task` |
+| **recursosId**               | String | O ID único do seu recurso ADF                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="log-analytics-schema"></a>Log Analytics schema
 
@@ -548,6 +833,65 @@ Log Analytics herda o esquema do Monitor com as seguintes exceções:
     | $.properties.SystemParameters | Sistemaparmetros | Dinâmica |
     | Propriedades. Etiquetas | Etiquetas | Dinâmica |
 
+## <a name="monitor-ssis-operations-with-azure-monitor"></a>Monitorizar as operações do SSIS com o Azure Monitor
+
+Para levantar & deslocar as suas cargas de trabalho dos Serviços de Integração de Servidores SQL (SSIS), pode [providenciar o tempo de execução de integração SSIS (IR) na Azure Data Factory (ADF)](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) que suporta:
+
+- Pacotes de execução implantados no catálogo SSIS (SSISDB) hospedados pelo servidor de base de dados Azure SQL/Gestão de Instâncias (Modelo de Implementação de Projetos)
+- Executando pacotes implantados no sistema de ficheiros, ficheiros Azure ou base de dados do SQL Server (MSDB) hospedada por Azure SQL Managed Instance (Modelo de Implementação de Pacotes)
+
+Uma vez previsto, pode [verificar o estado operacional do SSIS **Monitor** IR utilizando o Azure PowerShell ou no centro monitor do portal ADF](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). Com o Modelo de Implementação do Projeto, os registos de execução de pacotes SSIS são armazenados em tabelas/vistas internas SSISDB, para que possam ser consultados, analisados e apresentados visualmente usando ferramentas designadas como SQL Server Management Studio (SSMS). Com o Modelo de Implementação de Pacotes, os registos de execução de pacotes SSIS podem ser armazenados no sistema de ficheiros/Ficheiros Azure como ficheiros CSV que ainda precisam de ser analisados e processados utilizando outras ferramentas designadas antes de poderem ser consultados, analisados e apresentados visualmente.
+
+Agora, com a integração do [Azure Monitor,](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) todas as métricas e registos gerados a partir de operações de IR SSIS e execuções de pacotes SSIS podem ser consultados, analisados e apresentados visualmente no portal Azure, enquanto os alertas também podem ser levantados sobre eles.
+
+### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>Configurar configurações de diagnóstico e espaço de trabalho para operações SSIS
+
+Para enviar todas as métricas e registos gerados a partir de operações SSIS IR e execuções de pacotes SSIS para o Azure Monitor, siga as instruções passo a passo fornecidas para [configurar as definições de diagnóstico e espaço de trabalho para o seu ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
+
+### <a name="ssis-operational-metrics"></a>Métricas operacionais do SSIS
+
+As [métricas](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) operacionais do SSIS são contadores de desempenho/valores numéricos que descrevem o estado das operações de arranque/paragem do SSIS IR e as execuções de pacotes SSIS num determinado momento. Fazem parte das [métricas ADF no Azure Monitor,](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)incluindo as da contagem/tamanho/tamanho da entidade ADF, atividade/pipeline/gatilho, e utilização do CPU/memória/contagem/fila de nó.
+
+Ao configurar as definições de diagnóstico e espaço de trabalho para o seu ADF no Azure Monitor, selecionar a caixa de verificação _AllMetrics_ tornará métricas operacionais SSIS disponíveis para [análise interativa utilizando o Azure Metrics Explorer,](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) [apresentação no painel Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), e alerta em tempo quase [real](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
+
+![Nomeie as suas definições e selecione um espaço de trabalho de análise de log-analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="ssis-operational-alerts"></a>Alertas operacionais do SSIS
+
+Para elevar os alertas sobre as métricas operacionais do SSIS a partir do portal ADF, [selecione a página de **métricas alerts &** do hub do **Monitor** ADF e siga as instruções passo a passo fornecidas](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts).
+
+![Elevação dos alertas operacionais do SSIS do portal ADF](media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png)
+
+Para elevar os alertas sobre as métricas operacionais do SSIS a partir do portal Azure, [selecione a página **alertas** do hub do **Monitor** Azure e siga as instruções passo a passo fornecidas](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-alerts).
+
+![Elevação dos alertas operacionais do SSIS a partir do portal Azure](media/data-factory-monitor-oms/azure-monitor-alerts-ssis.png)
+
+### <a name="ssis-operational-logs"></a>Registos operacionais do SSIS
+
+Os registos operacionais SSIS são [eventos gerados](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) pelas operações do SSIS IR e execuções de pacotes SSIS que fornecem contexto/informação suficiente sobre quaisquer questões identificadas e são úteis para a análise de causas de raiz. 
+
+Quando configurar as definições de diagnóstico e espaço de trabalho para o seu ADF no Azure Monitor, pode selecionar os registos operacionais do SSIS relevantes e [enviá-los](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)para o Log Analytics que é baseado no Azure Data Explorer, onde serão disponibilizados para análise utilizando linguagem de consulta [rica,](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)apresentação no painel de [instrumentos Azure,](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)e alerta em tempo quase real.
+
+![Nomeie as suas definições e selecione um espaço de trabalho de análise de log-analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+Os esquemas e o conteúdo dos registos de execução de pacotes SSIS no Azure Monitor e no Log Analytics são semelhantes aos das tabelas/vistas internas do SSISDB.
+
+| Categorias de registos do Monitor Azure          | Registar tabelas de analíticas                     | Tabelas/vistas internas SSISDB              |
+| ------------------------------------- | ---------------------------------------- | ----------------------------------------- |
+| `SSISIntegrationRuntimeLogs`          | `ADFSSISIntegrationRuntimeLogs`          |                                           |
+| `SSISPackageEventMessageContext`      | `ADFSSISPackageEventMessageContext`      | `[internal].[event_message_context]`      |
+| `SSISPackageEventMessages`            | `ADFSSISPackageEventMessages`            | `[internal].[event_messages]`             |
+| `SSISPackageExecutableStatistics`     | `ADFSSISPackageExecutableStatistics`     | `[internal].[executable_statistics]`      |
+| `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
+| `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
+
+Para obter mais informações sobre atributos/propriedades de registo operacional SSIS, consulte [esquemas de Azure Monitor e Log Analytics para ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
+
+Os registos de execução de pacotes SSIS selecionados são sempre enviados para o Log Analytics independentemente dos seus métodos de invocação, por exemplo, em Ferramentas de Dados do Servidor SQL (SSDT) ativadas pelo Azure, via T-SQL em SSMS/SQL Server Agent/outras ferramentas designadas, ou como executados desencadeados/sandbox/depurg das atividades do Pacote SSIS executado em oleodutos ADF.
+
+Ao consultar os registos de execução do pacote SSIS no Logs Analytics, pode juntar-se a eles utilizando propriedades OperationId/ExecutionId/CorrelationId. OperationId/ExecutionId são sempre definidos para 1 para todas as operações/execuções relacionadas com pacotes **não** armazenados no SSISDB.
+
+![Consulta de registos de execução de pacote sSIS no Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
 
 ## <a name="next-steps"></a>Próximos passos
 [Monitorize e gere os oleodutos programáticamente](monitor-programmatically.md)

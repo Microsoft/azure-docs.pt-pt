@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions
 ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194840"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobreprimido pontos finais predefinidos
@@ -25,7 +24,7 @@ Para enviar dados do Application Insights para determinadas regiões, terá de s
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> O ficheiro applicationinsights.config é automaticamente substituído sempre que uma atualização SDK é realizada. Depois de realizar uma atualização SDK certifique-se de reentrar nos valores específicos do ponto final da região.
+> O ficheiro applicationinsights.config é automaticamente substituído sempre que uma atualização SDK é executada. Depois de realizar uma atualização SDK certifique-se de reentrar nos valores específicos do ponto final da região.
 
 ```xml
 <ApplicationInsights>
@@ -49,7 +48,7 @@ Para enviar dados do Application Insights para determinadas regiões, terá de s
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Modifique o ficheiro appsettings.json no seu projeto da seguinte forma para ajustar o ponto final principal:
+Modifique a appsettings.jsno ficheiro do seu projeto da seguinte forma para ajustar o ponto final principal:
 
 ```json
 "ApplicationInsights": {
@@ -178,7 +177,7 @@ Se utilizar atualmente a [API de Insights de Aplicação,](https://dev.applicati
 > [!NOTE]
 > Atualmente, a monitorização baseada em agentes/extensões codeless para os Serviços de Aplicações Azure não é **suportada** nestas regiões. Assim que esta funcionalidade estiver disponível este artigo será atualizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre as modificações personalizadas para o Governo Azure, consulte as orientações detalhadas para [a monitorização e gestão do Azure.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)
 - Para saber mais sobre a Azure China, consulte o [Azure China Playbook](https://docs.microsoft.com/azure/china/).

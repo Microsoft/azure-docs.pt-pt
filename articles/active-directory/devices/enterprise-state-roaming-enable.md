@@ -13,10 +13,9 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253006"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
@@ -90,7 +89,7 @@ Os dados que não foram acedidos há um ano ("o período de retenção") serão 
 
 A política de retenção de dados não é configurável. Uma vez eliminados permanentemente os dados, não é recuperável. No entanto, os dados das definições são eliminados apenas a partir da nuvem da Microsoft, e não do dispositivo do utilizador final. Se algum dispositivo voltar a ligar-se ao serviço Enterprise State Roaming, as definições são novamente sincronizadas e armazenadas na nuvem da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral do Roaming de Estado Empresarial](enterprise-state-roaming-overview.md)
 * [FAQ de definições e roaming de dados](enterprise-state-roaming-faqs.md)

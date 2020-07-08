@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791627"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Suporte API em Azure Static Web Apps Preview com Funções Azure
@@ -38,7 +37,7 @@ A azure Static Web Apps fornece uma API através de Funções Azure. As capacida
   - Todos os [outros gatilhos e encadernações de funções Azure,](../azure-functions/functions-triggers-bindings.md#supported-bindings) com exceção das ligações de saída, são restritos.
 - Os registos só estão disponíveis se adicionar [Insights de Aplicação](../azure-functions/functions-monitoring.md) à sua aplicação Funções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicionar uma API](add-api.md)

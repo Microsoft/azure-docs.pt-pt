@@ -16,10 +16,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 68b1cdede5fddd0bf74571da1924e0059a21d3af
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791814"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Ver registos de atividade para alterações do RBAC do Azure
@@ -43,7 +42,7 @@ A forma mais fácil de dar início a este processo é ver os registos de ativida
 
 O registo de atividade no portal tem vários filtros. Aqui estão os filtros relacionados com o Azure RBAC:
 
-| Filtro | Valor |
+| Filtrar | Valor |
 | --------- | --------- |
 | Categoria de eventos | <ul><li>Administrativa</li></ul> |
 | Operação | <ul><li>Criar atribuição de funções</li><li>Eliminar atribuição de funções</li><li>Criar ou atualizar a definição de função personalizada</li><li>Eliminar definição de função personalizada</li></ul> |
@@ -148,6 +147,6 @@ AzureActivity
 
 ![Registos de atividades usando o portal Advanced Analytics - screenshot](./media/change-history-report/azure-log-analytics.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Ver eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Monitorizar a Atividade de Subscrição com o Registo de Atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

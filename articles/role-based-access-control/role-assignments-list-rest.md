@@ -16,10 +16,9 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84790981"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>ListE Azure atribui funções utilizando a API REST
@@ -54,7 +53,7 @@ No Azure RBAC, para listar o acesso, lista as atribuições de funções. Para l
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de funções.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | `$filter=atScope()` | Lista atribuições de funções apenas para o âmbito especificado, não incluindo as atribuições de funções em subscópios. |
     > | `$filter=assignedTo('{objectId}')` | Lista atribuições de funções para um utilizador especificado ou principal de serviço.<br/>Se o utilizador for membro de um grupo que tem uma atribuição de funções, essa atribuição de funções também está listada. Este filtro é transitório para grupos, o que significa que se o utilizador é membro de um grupo e esse grupo é membro de outro grupo que tem uma atribuição de papel, essa atribuição de funções também está listada.<br/>Este filtro só aceita um ID de objeto para um utilizador ou um principal de serviço. Não se pode passar uma identificação de objeto para um grupo. |
@@ -90,7 +89,7 @@ O seguinte mostra um exemplo da saída:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)
 - [Referência AZURE REST API](/rest/api/azure/)

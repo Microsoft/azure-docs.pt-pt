@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 2211747d274282429ed24c7b16ce64230a0674ea
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
-ms.translationtype: MT
+ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801925"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -136,7 +135,7 @@ Quando o fluxo volta para si mesmo, o fluxo de saída parece originar-se do VM p
 
 O sintoma para este cenário é intervalos intermitentes de ligação quando o fluxo volta ao mesmo backend que originou o fluxo. As soluções comuns incluem a inserção de uma camada de procuração por trás do balanceador de carga interno e a utilização de regras de estilo Direct Server Return (DSR). Para obter mais informações, consulte [Multiple Frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Pode combinar um Balancer de Carga interno com qualquer procuração de terceiros ou utilizar o Gateway de [Aplicação](../application-gateway/application-gateway-introduction.md) interno para cenários de procuração com HTTP/HTTPS. Embora possa utilizar um Balancer de Carga público para mitigar esta questão, o cenário resultante é propenso à [exaustão do SNAT](load-balancer-outbound-connections.md#snat). Evite esta segunda abordagem, a menos que seja cuidadosamente gerida.
+Pode combinar um Balancer de Carga interno com qualquer procuração de terceiros ou utilizar o Gateway de [Aplicação](../application-gateway/application-gateway-introduction.md) interno para cenários de procuração com HTTP/HTTPS. Embora possa utilizar um Balancer de Carga público para mitigar esta questão, o cenário resultante é propenso à [exaustão do SNAT](load-balancer-outbound-connections.md). Evite esta segunda abordagem, a menos que seja cuidadosamente gerida.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintoma: Não é possível alterar a porta de backend para a regra LB existente de um equilibrador de carga que tem conjunto de escala VM implantado na piscina de backend. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa : A porta de backend não pode ser modificada para uma regra de equilíbrio de carga que é utilizada por uma sonda de saúde para o balanceador de carga referenciado pelo Conjunto de Escala VM.
@@ -151,7 +150,7 @@ Se decidir abrir um caso de apoio, recolhê as seguintes informações para uma 
 - Utilize a PSPing de um dos VMs de backend dentro da VNet para testar a resposta da porta da sonda (exemplo: psping 10.0.0.4:3389) e resultados recorde. 
 - Se não for recebida qualquer resposta nestes testes de ping, faça um rastreio de Netsh simultâneo no VM de backend e no VM de teste VNet enquanto corre PsPing, então pare o rastreio de Netsh. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).
 

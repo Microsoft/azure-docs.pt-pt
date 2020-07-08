@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 06/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: fe223030b98f95036f01cf69babdeb8a9a84dc2d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.openlocfilehash: b317c2a43352a750d4700fad56d5f7d741b2cc7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85242064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805451"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -23,7 +22,7 @@ ms.locfileid: "85242064"
 |Tamanho mínimo AzureFirewallSubnet |/26|
 |Gama portuária em regras de rede e aplicação|1 - 65535|
 |Endereços IP públicos|250 no máximo. Todos os endereços IP públicos podem ser usados nas regras do DNAT e todos contribuem para portas SNAT disponíveis.|
-|Endereços IP em grupos IP|50 Grupos IP ou menos: máximo 5000 endereços IP individuais cada instância de firewall.<br>51 - 100 Grupos IP: 500 endereço IP individual cada instância de firewall.<br><br>Para mais informações consulte [Grupos IP (pré-visualização) em Azure Firewall](../articles/firewall/ip-groups.md#ip-address-limits)
+|Endereços IP em grupos IP|Máximo de 100 grupos IP por firewall.<br>Máximo de 5000 endereços IP individuais ou prefixos IP por cada Grupo IP.<br><br>Para mais informações consulte [grupos IP em Azure Firewall](../articles/firewall/ip-groups.md#ip-address-limits).
 |Tabela de rota|Por padrão, a AzureFirewallSubnet tem uma rota de 0.0.0.0/0 com o valor NextHopType definido para a **Internet**.<br><br>O Azure Firewall deve ter conectividade direta na Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isso com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet. Por defeito, o Azure Firewall não suporta a escavação forçada para uma rede no local.<br><br>No entanto, se a sua configuração necessitar de um túnel forçado para uma rede no local, a Microsoft irá apoiá-la caso a caso. Contacte o Suporte para que possamos rever o seu caso. Se for aceite, permitiremos a sua subscrição e garantiremos que a conectividade de Internet de firewall necessária seja mantida.|
 
 <sup>1</sup> Se precisar de aumentar estes limites, contacte o Suporte Azure.

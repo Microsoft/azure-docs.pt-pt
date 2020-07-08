@@ -14,10 +14,9 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84732111"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos e permissões de registo de pedidos no Azure Ative Directory
@@ -167,7 +166,7 @@ Concede as mesmas permissões que microsoft.diretório/aplicações/permissões/
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie funções personalizadas utilizando [o portal Azure, Azure AD PowerShell e Graph API](roles-create-custom.md)
 - [Ver as atribuições para um papel personalizado](roles-view-assignments.md)

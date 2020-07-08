@@ -4,10 +4,9 @@ description: As definições de Política Azure têm vários efeitos que determi
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791423"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
@@ -546,7 +545,7 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Description |
+|Operação |Descrição |
 |-|-|
 |addOrReplace |Adiciona a etiqueta definida e valor ao recurso, mesmo que a etiqueta já exista com um valor diferente. |
 |Adicionar |Adiciona a etiqueta definida e valor ao recurso. |
@@ -628,7 +627,7 @@ Se tanto a política 1 como a política 2 tiveram efeito de negação, a situaç
 
 Cada atribuição é avaliada individualmente. Como tal, não há uma oportunidade para um recurso escapar através de uma lacuna de diferenças de âmbito. Considera-se **cumulativo o**resultado líquido das definições de política de camadas. A título de exemplo, se ambas as políticas 1 e 2 tivessem um efeito de negação, um recurso seria bloqueado pelas definições políticas sobrepostas e contraditórias. Se ainda precisar do recurso para ser criado no âmbito alvo, reveja as exclusões de cada atribuição para validar as atribuições políticas certas estão a afetar os âmbitos certos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).

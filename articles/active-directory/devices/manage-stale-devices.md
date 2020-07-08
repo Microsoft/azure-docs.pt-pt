@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252700"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos em Azure AD
@@ -180,6 +179,6 @@ Qualquer autenticação em que esteja a ser utilizado um dispositivo para autent
 - **Dispositivo associado ao Azure AD** - os utilizadores não podem utilizar o dispositivo para iniciarem sessão. 
 - **Dispositivos móveis** - o utilizador não pode aceder aos recursos do Azure AD, como o Office 365. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)

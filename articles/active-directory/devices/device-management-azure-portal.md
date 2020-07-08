@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253159"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades do dispositivo utilizando o portal Azure
@@ -226,6 +225,6 @@ Além dos filtros, pode procurar entradas específicas.
 
 ![Registos de auditoria](./media/device-management-azure-portal/65.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como gerir dispositivos em Azure AD](manage-stale-devices.md)

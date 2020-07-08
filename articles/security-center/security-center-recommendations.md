@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
 ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791389"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
@@ -69,7 +68,7 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
 >[!NOTE] 
 > Consulte [os modelos clássicos e de implementação do Gestor de Recursos](../azure-classic-rm.md) para obter recursos da Azure.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, foi apresentado às recomendações de segurança no Centro de Segurança. Para aprender a remediar as recomendações:
 

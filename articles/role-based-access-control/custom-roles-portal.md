@@ -13,10 +13,9 @@ ms.workload: identity
 ms.date: 04/30/2020
 ms.author: rolyon
 ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791202"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure através do portal do Azure
@@ -33,7 +32,7 @@ Para criar funções personalizadas, é necessário:
 
 O Azure tem milhares de permissões que pode potencialmente incluir no seu papel personalizado. Aqui estão quatro formas de determinar as permissões que pretende adicionar à sua função personalizada:
 
-| Método | Description |
+| Método | Descrição |
 | --- | --- |
 | Olhe para os papéis existentes | Pode olhar para os papéis existentes para ver que permissões estão a ser usadas. Para mais informações, consulte [as funções incorporadas do Azure.](built-in-roles.md) |
 | Procure permissões por palavra-chave | Quando criar uma função personalizada utilizando o portal Azure, pode procurar permissões através de palavras-chave. Por exemplo, pode procurar por *máquinas virtuais* ou permissões *de faturação.* Esta funcionalidade de pesquisa é descrita mais tarde no [Passo 4: Permissões](#step-4-permissions). |
@@ -345,7 +344,7 @@ Siga estes passos para ver os seus papéis personalizados.
 
     Pode levar alguns minutos para que o seu papel personalizado seja completamente apagado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Criar um papel personalizado Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas Azure](custom-roles.md)

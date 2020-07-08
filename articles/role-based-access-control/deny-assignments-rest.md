@@ -16,10 +16,9 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791916"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Lista Azure nega atribuições usando a API REST
@@ -80,7 +79,7 @@ Para obter informações sobre uma missão de negação, você deve ter:
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de negar.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | (sem filtro) | Lista todas as atribuições negam em, acima, e abaixo do âmbito especificado. |
     > | `$filter=atScope()` | As listas negam atribuições apenas para o âmbito especificado e acima. Não inclui as atribuições de negação em subscópios. |
@@ -102,14 +101,14 @@ Para obter informações sobre uma missão de negação, você deve ter:
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de negar. É necessário um filtro.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | `$filter=atScope()` | A lista nega atribuições apenas para o âmbito de raiz. Não inclui as atribuições de negação em subscópios. |
     > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Lista negar atribuições com o nome especificado. |
 
 1. Remova o acesso elevado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Compreenda que Azure nega atribuições](deny-assignments.md)
 - [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md) (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)

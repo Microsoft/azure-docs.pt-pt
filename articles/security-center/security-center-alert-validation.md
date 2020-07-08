@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791185"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alertas (ficheiro de teste EICAR) no Centro de Segurança Azure
@@ -68,7 +67,7 @@ Se estiver a utilizar a funcionalidade de pré-visualização do Security Center
 
 Para obter mais informações sobre a integração do Serviço Azure Kubernetes e do Centro de Segurança Azure, consulte [este artigo.](azure-kubernetes-service-integration.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
 * [Validação da deteção de ameaças de cofre de chave Azure no Centro de Segurança Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)

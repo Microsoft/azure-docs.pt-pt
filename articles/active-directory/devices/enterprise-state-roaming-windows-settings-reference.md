@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252972"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
@@ -28,10 +27,10 @@ Consulte a tabela seguinte para obter um resumo dos dispositivos e tipos de cont
 
 | Tipo de conta e operação | Ambiente de trabalho | Móvel |
 | --- | --- | --- |
-| Diretório Ativo Azure: sincronização |Yes |No |
+| Diretório Ativo Azure: sincronização |Sim |Não |
 | Diretório Ativo Azure: backup/restauro |Não |Não |
 | Conta Microsoft: sincronização |Sim |Sim |
-| Conta Microsoft: backup/restauro |No |Yes |
+| Conta Microsoft: backup/restauro |Não |Sim |
 
 ## <a name="what-is-backup"></a>O que é reserva?
 
@@ -75,7 +74,7 @@ As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 | Contas : **outras**definições de conta |X |X | |
 | **Banda larga móvel avançada**: Nome da rede de partilha de ligação à Internet (permite a autodiscovery de hotspots Wi-Fi móveis via Bluetooth) |X |X |Palavras-passe |
 | **Dados da aplicação**: aplicações individuais podem sincronizar dados |sincronização de backup |sincronização de backup |interno |
-| **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outro |
+| **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outros |
 | **Bluetooth**: todas as definições Bluetooth |X |X | |
 | **Pedido de comando**: Iniciar definições "Predefinições" |sincronizar |X |interno |
 | **Credenciais**: Cacifo credencial |sincronizar |sincronizar |palavra-passe |
@@ -184,6 +183,6 @@ As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 
 Versão so suportada mínima da Atualização de Criadores do Windows (Build 15063). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral, consulte [a visão geral do roaming do estado da empresa.](enterprise-state-roaming-overview.md)

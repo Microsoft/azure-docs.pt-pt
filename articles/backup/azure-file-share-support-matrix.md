@@ -4,12 +4,11 @@ description: Fornece um resumo das configurações e limitações de suporte ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3d9c9e4518ea6cd53c1f1d5e4a50040e3cf025b4
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85443320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806876"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
@@ -23,7 +22,7 @@ A azure file shares backup está disponível em todas as **regiões, exceto:** A
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Regiões apoiadas para proteção acidental de eliminação
 
-West Central EUA, Austrália Sudeste , Canadá Central
+West Central EUA, Austrália Sudeste ,Canadá Central
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
@@ -85,7 +84,7 @@ West Central EUA, Austrália Sudeste , Canadá Central
 | Restauro de ações completas | Pode restaurar a partilha completa do ficheiro para a localização original ou alternativa |
 | Restauro do nível do item | Pode restaurar ficheiros e pastas individuais para a localização original ou alternativa |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Saiba como restaurar as [ações de ficheiros Azure](restore-afs.md)

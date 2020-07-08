@@ -15,10 +15,9 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791797"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
@@ -125,8 +124,8 @@ Só pode haver um Administrador de Serviço por Subscrição Azure. A alteraçã
 
 | Conta de Administrador de Conta | Pode alterar o Administrador de Serviço para uma conta Microsoft diferente? | Pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório? | Pode alterar o Administrador de Serviço para uma conta AD Azure num diretório diferente? |
 | --- | --- | --- | --- |
-| Conta Microsoft | Yes | Não | Não |
-| Conta do Azure AD | Sim | Sim | No |
+| Conta Microsoft | Sim | Não | Não |
+| Conta do Azure AD | Sim | Sim | Não |
 
 Se o Administrador de Conta for uma conta AD Azure, pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório, mas não num diretório diferente. Por exemplo, abby@contoso.com pode alterar o Administrador de Serviço para , mas não pode alterar o Administrador de Serviço para a bob@contoso.com menos que tenha uma presença no john@notcontoso.com john@notcontoso.com diretório contoso.com.
 
@@ -148,7 +147,7 @@ Siga estes passos para ver o Administrador de Conta.
 
     ![Screenshot mostrando o administrador de conta](./media/classic-administrators/account-admin.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Adicione ou remova atribuições de funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)

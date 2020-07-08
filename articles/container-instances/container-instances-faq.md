@@ -4,12 +4,11 @@ description: Respostas para perguntas frequentes relacionadas com o serviço de 
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 64dcd3da42083401d7086c1db6f3f930beb9a76d
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806606"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
@@ -27,7 +26,7 @@ O tamanho da sua imagem do recipiente tem impacto no tempo que leva a ser implan
 
 Porque um dos principais determinantes dos tempos de implantação é o tamanho da imagem, procure formas de reduzir o tamanho. Remova as camadas de que não precisa, ou reduza o tamanho das camadas na imagem (escolhendo uma imagem de SO base mais leve). Por exemplo, se estiver a executar recipientes Linux, considere usar o Alpine como a sua imagem base em vez de um Servidor Ubuntu completo. Da mesma forma, para recipientes Windows, utilize uma imagem base do Nano Server, se possível. 
 
-Deve também consultar a lista de imagens pré-em cache em Imagens de Contentores Azure, disponíveis através da [Lista cached Images](/rest/api/container-instances/listcachedimages) API. Pode ser capaz de trocar uma camada de imagem por uma das imagens pré-em cache. 
+Deve também consultar a lista de imagens pré-em cache em Imagens de Contentores Azure, disponíveis através da [Lista cached Images](/rest/api/container-instances/location/listcachedimages) API. Pode ser capaz de trocar uma camada de imagem por uma das imagens pré-em cache. 
 
 Consulte [orientações](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) mais detalhadas sobre a redução do tempo de arranque do contentor.
 

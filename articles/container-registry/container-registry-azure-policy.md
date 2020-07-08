@@ -4,10 +4,9 @@ description: Atribuir políticas incorporadas na Política Azure para auditar o 
 ms.topic: article
 ms.date: 06/11/2020
 ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791899"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Conformidade de auditoria dos registos de contentores da Azure utilizando a Política Azure
@@ -85,7 +84,7 @@ az policy state list \
  --resource-group myresourcegroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [definições](../governance/policy/concepts/definition-structure.md) e [efeitos](../governance/policy/concepts/effects.md)da Política Azure .
 

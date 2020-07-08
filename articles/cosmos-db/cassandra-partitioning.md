@@ -7,12 +7,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 566be788066db54f827bb4d6e46f0d832755ce26
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806837"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partição em Azure Cosmos DB Cassandra API
 
@@ -27,7 +26,7 @@ Do ponto de vista do desenvolvedor, a partição comporta-se da mesma forma para
 
 Em Azure Cosmos DB, cada máquina em que as divisórias são armazenadas é por si só referida como uma [divisória física.](partition-data.md#physical-partitions) A partição física é semelhante a uma Máquina Virtual; uma unidade computacional dedicada, ou conjunto de recursos físicos. Cada divisória armazenada nesta unidade de computação é referida como uma [partição lógica](partition-data.md#logical-partitions) em Azure Cosmos DB. Se já conhece Apache Cassandra, pode pensar em divisórias lógicas da mesma forma que pensa em divisórias regulares em Cassandra. 
 
-Apache Cassandra recomenda um limite de 100-MB sobre o tamanho de um dado que pode ser armazenado numa divisória. A API cassandra para Azure Cosmos DB permite até 20 GB por partição lógica, e até 50GB de dados por partição física. Em Azure Cosmos DB, ao contrário de Apache Cassandra, a capacidade de computação disponível na partição física é expressa usando uma única métrica chamada unidades de [pedido,](request-units.md)que lhe permite pensar na sua carga de trabalho em termos de pedidos (leituras ou escritos) por segundo, em vez de núcleos, memória ou IOPS. Isto pode tornar o planeamento de capacidade mais simples, uma vez que você entenda o custo de cada pedido. Cada divisória física pode ter até 10000 RUs de computação disponíveis. Você pode aprender mais sobre opções de escalabilidade lendo o nosso artigo em [escala elástica](manage-scale-cassandra.md) em Cassandra API. 
+Apache Cassandra recomenda um limite de 100-MB sobre o tamanho de um dado que pode ser armazenado numa divisória. A API cassandra para Azure Cosmos DB permite até 20 GB por partição lógica, e até 30GB de dados por partição física. Em Azure Cosmos DB, ao contrário de Apache Cassandra, a capacidade de computação disponível na partição física é expressa usando uma única métrica chamada unidades de [pedido,](request-units.md)que lhe permite pensar na sua carga de trabalho em termos de pedidos (leituras ou escritos) por segundo, em vez de núcleos, memória ou IOPS. Isto pode tornar o planeamento de capacidade mais simples, uma vez que você entenda o custo de cada pedido. Cada divisória física pode ter até 10000 RUs de computação disponíveis. Você pode aprender mais sobre opções de escalabilidade lendo o nosso artigo em [escala elástica](manage-scale-cassandra.md) em Cassandra API. 
 
 Em Azure Cosmos DB, cada partição física consiste num conjunto de réplicas, também conhecidas como conjuntos de réplicas, com pelo menos 4 réplicas por partição. Isto contrasta com Apache Cassandra, onde é possível definir um fator de replicação de 1. No entanto, isto leva a uma baixa disponibilidade se o único nó com os dados descer. Na API de Cassandra há sempre um fator de replicação de 4 (quórum de 3). A Azure Cosmos DB gere automaticamente os conjuntos de réplicas, enquanto estes precisam de ser mantidos usando várias ferramentas em Apache Cassandra. 
 
@@ -110,7 +109,7 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY ((firstname, lastname), id) );
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a partição e a escala horizontal em Azure Cosmos DB](partition-data.md).
 * Conheça a [produção a provisionada em Azure Cosmos DB](request-units.md).

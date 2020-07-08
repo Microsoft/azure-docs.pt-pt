@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791576"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
@@ -402,7 +401,7 @@ Abaixo está um ficheiro manifesto de amostra para o pacote de desenho da amostr
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez que o seu pacote De desenho satisfaça os requisitos, poderá utilizar o [serviço de Conversão Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote num conjunto de dados do mapa. Em seguida, pode utilizar o conjunto de dados para gerar um mapa interior utilizando o módulo De Mapas Interiores. Saiba mais sobre a utilização do módulo Mapas Interiores lendo os seguintes artigos:
 
