@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61e772d7a55577c263edc83ccface31932f5b2dd
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85358366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849876"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Azure Ative Directory: Quickstart
 
@@ -153,13 +153,17 @@ Em segundo lugar, pode criar e executar um script de implementação sem supervi
 1. Executar o seguinte comando para instalar um Agente de Autenticação: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q` .
 2. Pode registar o Agente de Autenticação com o nosso serviço utilizando o Windows PowerShell. Crie um objeto powerShell Credentials `$cred` que contenha um nome de utilizador e senha de utilizador de administrador global para o seu inquilino. Executar o seguinte comando, substituição *\<username\>* *\<password\>* e:
 
-        $User = "<username>"
-        $PlainPassword = '<password>'
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```powershell
+  $User = "<username>"
+  $PlainPassword = '<password>'
+  $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```
 3. Vá a **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** e executar o seguinte script usando o `$cred` objeto que criou:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```powershell
+  RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```
 
 >[!IMPORTANT]
 >Se um Agente de Autenticação for instalado numa Máquina Virtual, não é possível clonar a Máquina Virtual para configurar outro Agente de Autenticação. Este método não é **suportado.**
@@ -168,7 +172,7 @@ Em segundo lugar, pode criar e executar um script de implementação sem supervi
 
 Smart Lockout ajuda a bloquear maus atores que estão a tentar adivinhar as palavras-passe dos seus utilizadores ou a usar métodos de força bruta para entrar. Ao configurar as definições de Bloqueio Inteligente em AD Azure e/ou configurações de bloqueio apropriadas no Ative Directory, os ataques podem ser filtrados antes de chegarem ao Ative Directory. Leia [este artigo](../authentication/howto-password-smart-lockout.md) para saber mais sobre como configurar as definições de Smart Lockout no seu inquilino para proteger as suas contas de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Migrar de AD FS para Autenticação Pass-through](https://aka.ms/adfstoptadp) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de Bloqueio Inteligente no seu inquilino para proteger as contas do utilizador.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários suportados com a Autenticação Pass-through e quais não são.

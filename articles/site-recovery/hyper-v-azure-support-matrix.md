@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 1fee761c8377824773fa56ba25edd2a779c33547
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: da2cc3dade843b1ea207eb4ec5bf33a41a289d7e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851487"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -68,7 +68,7 @@ Rede de anfitriões: IPv4 | Sim | Sim
 Rede de anfitriões: IPv6 | Não | Não
 Rede VM convidada: NIC Teaming | Não | Não
 Rede VM convidada: IPv4 | Sim | Sim
-Rede VM convidada: IPv6 | No | Yes
+Rede VM convidada: IPv6 | Não | Sim
 Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | Não | Não
 Rede VM convidada: Multi-NIC | Sim | Sim
@@ -137,9 +137,10 @@ Blobs de blocos | Não | Não
 Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas para falhas a gerir discos)| Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim | Sim
+Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
-Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | No
+Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
 
 
 ## <a name="azure-compute-features"></a>Características do cálculo Azure
@@ -195,5 +196,5 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres dos Hiper-V VMs no local.

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: d4e21e03770591229416c1f70bbd5a715b43362c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: c6ff105a03181b588a9074675c97930696ac5e87
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850202"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para Azure Cosmos DB Java SDK v4
 
@@ -20,8 +20,8 @@ ms.locfileid: "85263471"
 > * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](performance-tips-async-java.md)
 > * [SDK v2 Java síncrono](performance-tips-java.md)
-> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [SDK v2 de .NET](performance-tips.md)
+> * [SDK .NET v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [SDK .NET v2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -324,7 +324,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
 ## <a name="indexing-policy"></a>Política de indexação
  
-* **Excluir caminhos não-ausados da indexação para escritas mais rápidas**
+* **Excluir os caminhos não utilizados da indexação para assegurar escritas mais rápidas**
 
     A política de indexação da Azure Cosmos DB permite especificar quais os caminhos documentais a incluir ou excluir da indexação, alavancando caminhos de indexação (setIncludedPaths e setExcludedPaths). A utilização de percursos de indexação pode oferecer um melhor desempenho de escrita e um menor armazenamento de índices para cenários em que os padrões de consulta são conhecidos previamente, uma vez que os custos de indexação estão diretamente correlacionados com o número de caminhos únicos indexados. Por exemplo, o seguinte código mostra como excluir uma secção inteira dos documentos (também conhecido como subtree) de indexação usando o wildcard "*".
 
@@ -374,9 +374,11 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     Quando um cliente tenta exceder a produção reservada para uma conta, não há degradação de desempenho no servidor e não há uso da capacidade de produção para além do nível reservado. O servidor terminará preventivamente o pedido com RequestRateTooLarge (código de estado HTTP 429) e devolverá o cabeçalho [x-ms-ms-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) indicando a quantidade de tempo, em milissegundos, que o utilizador deve esperar antes de reatar o pedido.
 
+    ```xml
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
+    ```
 
     Os SDKs capturam implicitamente esta resposta, respeitam o cabeçalho especificado pelo servidor e recaem o pedido. A menos que a sua conta esteja a ser acedida simultaneamente por vários clientes, a próxima repetição será bem sucedida.
 
@@ -388,6 +390,6 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos. Idealmente, arquiteta a sua aplicação e fluxos de trabalho para que o seu tamanho de artigo seja ~1KB, ou ordem ou magnitude semelhante. Para aplicações sensíveis à latência, devem ser evitados grandes itens - os documentos multi-MB irão abrandar a sua aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

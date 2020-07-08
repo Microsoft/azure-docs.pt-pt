@@ -10,43 +10,43 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 5f66e29e4c1bc85981202251e0de8288f4baee4e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851312"
 ---
 # <a name="add-interaction-rules"></a>Adicionar regras de interação
 
-Neste artigo, aprende-se sobre **regras de interação.** Estas são regras adicionais para lidar com situações mais específicas ou complexas. Enquanto você é livre de autorizar suas próprias regras de interação personalizada, neste artigo, você faz uso de regras de interação para os seguintes cenários direcionados:
+Neste artigo, aprende-se sobre *regras de interação.* Estas regras adicionais lidam com situações mais específicas ou complexas. Pode autorizar as suas próprias regras de interação personalizadas, mas neste artigo utiliza as regras de interação para os seguintes cenários direcionados:
 
 * Confirmando comandos
 * Adicionar uma correção de um passo aos comandos
 
-Consulte a secção [de referências](./custom-commands-references.md) para saber mais sobre as regras de interação.
+Para saber mais sobre regras de interação, aceda à secção [de referências.](./custom-commands-references.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve ter completado os passos nos seguintes artigos:
+Deve ter terminado os passos nos seguintes artigos:
 > [!div class="checklist"]
-> * [Como: Criar aplicação com comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Como: Adicionar parâmetros aos comandos](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Criar uma aplicação com comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Adicionar parâmetros aos comandos](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Adicionar confirmações a um comando
 
 Para adicionar uma confirmação, utilize o comando **SetTemperature.** Para obter confirmação, cria regras de interação utilizando os seguintes passos.
 
-1. Selecione **SetTemperature** command a partir do painel esquerdo.
-2. Adicione regras de interação selecionando **Adicione** no painel central e, em seguida, selecione **regras de interação**  >  **Confirme o comando**.
+1. Selecione o **comando SetTemperature** no painel esquerdo.
+1. Adicione as regras de interação selecionando **Adicione** no painel central. Em seguida, selecione **regras de interação**  >  **Confirme o comando**.
 
-    Isto irá adicionar 3 regras de interação Esta regra pedirá ao utilizador que confirme a data e hora do alarme e espera uma confirmação (sim/não) para a próxima volta.
+    Esta ação adiciona três regras de interação. Esta regra pede ao utilizador que confirme a data e a hora do alarme e espera uma confirmação (sim/não) para a próxima volta.
 
-    1. Modificar a regra de interação **do Comando Confirmar** de acordo com a seguinte configuração
-        1. **Nome** do renome para **`Confirm Temperature`** .
-        1. Adicione uma nova condição como- **Parâmetros necessários > Temperatura**
-        1. Adicione uma nova ação **como- Tipo > Enviar `Are you sure you want to set the temperature as {Temperature} degrees?` resposta à fala >**
-        1. Deixe o valor padrão de **Espera de confirmação do utilizador** na secção de expectativas.
+    1. Modificar a regra de interação **do comando Confirmar** de acordo com a seguinte configuração:
+        1. **Nome** do nome para **confirmar a temperatura**.
+        1. Adicione uma nova condição como **parâmetros necessários**  >  **Temperatura**.
+        1. Adicione uma nova ação como resposta **de**fala Type  >  **Send**  >  **Tem a certeza de que pretende definir a temperatura como graus {Temperatura} ?**
+        1. Deixe o valor padrão de **Espera de confirmação do utilizador** na secção **Expectativas.**
       
          > [!div class="mx-imgBorder"]
          > ![Criar resposta de parâmetros necessária](media/custom-speech-commands/add-validation-set-temperature.png)
@@ -54,94 +54,94 @@ Para adicionar uma confirmação, utilize o comando **SetTemperature.** Para obt
 
     1. Modificar a regra **de interação de Confirmação conseguiu** lidar com uma confirmação bem sucedida (o utilizador disse que sim).
       
-          1. Modificar **nome** para **`Confirmation temperature succeeded`** .
+          1. Modificar **Nome** para **a temperatura de confirmação conseguiu**.
           1. Deixar a confirmação já existente foi uma condição **de sucesso.**
-          1. Adicione uma nova condição como- **Tipo > Parâmetros necessários > temperatura**
+          1. Adicione uma nova **Type**condição como  >  **parâmetros tipo exigidos**  >  **Temperatura**.
           1. Deixe o valor padrão do **estado pós-execução** como regras de **conclusão executar**.
 
-    1. Modifique a **Confirmação negada** (o utilizador disse não) para lidar com cenários quando a confirmação for negada.
+    1. Modifique a regra **de interação negada** por Confirmação para lidar com cenários quando a confirmação é negada (o utilizador disse não).
 
-          1. Modificar **nome** para **`Confirmation temperature denied`** .
+          1. Modificar **Nome** para **a temperatura de confirmação negada**.
           1. Deixe a **confirmação** já existente foi negada condição.
-          1. Adicione uma nova condição como- **Tipo > Parâmetros necessários > temperatura**
-          1. Adicione uma nova ação **como- Tipo > Enviar `No problem. What temperature then?` resposta à fala >**
+          1. Adicione uma nova **Type**condição como  >  **parâmetros tipo exigidos**  >  **Temperatura**.
+          1. Adicione uma nova ação como **Tipo**  >  **Enviar resposta de fala**Sem  >  **problema. Que temperatura então?**
           1. Deixe o valor predefinido do **estado de pós-execução** como **Esperar pela entrada do utilizador**.
 
 > [!IMPORTANT]
-> Neste artigo, usou a capacidade de confirmação incorporada. Em alternativa, também pode conseguir o mesmo adicionando as regras de interação uma a uma, manualmente.
+> Neste artigo, usou a capacidade de confirmação incorporada. Também pode adicionar manualmente regras de interação uma a uma.
    
 
 ### <a name="try-out-the-changes"></a>Experimente as alterações
 
-Selecione **Train,** aguarde o treino completo e selecione **Teste**.
+Selecione **Train,** aguarde que o treino termine e selecione **Teste**.
 
-- Entrada: temperatura definida para 80 graus
-- Saída: ok 80?
-- Entrada: Não
-- Saída: sem problema. qual a temperatura, então?
-- Entrada: 83 graus
-- Saída: ok 83?
-- Entrada: Sim
-- Saída: Ok, ajustar a temperatura para 83 graus
+- **Entrada**: Definir a temperatura a 80 graus.
+- **Saída:** OK 80?
+- **Entrada**: Não.
+- **Saída**: Sem problema. Que temperatura então?
+- **Entrada:** 83 graus.
+- **Saída:** OK 83?
+- **Entrada**: Sim.
+- **Saída:** OK, regulação da temperatura para 83 graus.
 
 
-## <a name="implementing-corrections-in-a-command"></a>Implementação de correções num comando
+## <a name="implement-corrections-in-a-command"></a>Implementar correções num comando
 
-Nesta secção, configura-se uma correção de um passo, que é utilizada uma vez que a ação de cumprimento já tenha sido executada. Também vê um exemplo de como a correção é ativada por padrão no caso de o comando ainda não estar cumprido. Para adicionar uma correção quando o comando não estiver concluído, adicione um novo parâmetro **AlarmTone**.
+Nesta secção, configura-se uma correção de um passo, que é utilizada após a execução da ação de cumprimento. Também vê um exemplo de como uma correção é ativada por padrão no caso de o comando ainda não estar cumprido. Para adicionar uma correção quando o comando não estiver concluído, adicione o novo parâmetro **AlarmTone**.
 
-Selecione o comando **SetAlarm** a partir do painel esquerdo e adicione um novo parâmetro **AlarmTone**.
+Selecione o comando **SetAlarm** a partir do painel esquerdo e adicione o novo parâmetro **AlarmTone**.
         
-- **Nome** > `AlarmTone`
-- **Tipo** > Cadeia
-- **Valor Predefinido** > `Chimes`
-- **Configuração** > Aceitar valores de entrada predefinidos do catálogo interno
-- **Valores de entrada predefinidos**  >  `Chimes` , e `Jingle` `Echo` . Cada uma como entradas predefinidas individuais.
+- **Nome**  >  **AlarmTone**
+- **Tipo**  >  **Corda**
+- **Valor Predefinido**  >  **Sinos**
+- **Configuração**  >  **Aceitar valores de entrada predefinidos do catálogo interno**
+- **Valores de entrada predefinidos**  >  **Chimes,** **Jingle,** e **Echo** como entradas predefinidas individuais
 
 
-Em seguida, atualize a resposta para o parâmetro DataTime para `Ready to set alarm with tone as {AlarmTone}. For what time?` . Em seguida, modifique a regra de conclusão da seguinte forma.
+Em seguida, atualize a resposta para o parâmetro **DateTime** **para Ready para definir o alarme com o tom como {AlarmTone}. Para que horas?** Em seguida, modifique a regra de conclusão da seguinte forma:
 
 1. Selecione a regra de conclusão existente **ConfirmationResponse**.
-1. No painel direito, paire sobre a ação existente e selecione o botão **Editar.**
-1. Atualizar a resposta da fala para`Ok, alarm set for {DateTime}. The alarm tone is {AlarmTone}.`
+1. No painel direito, paire sobre a ação existente e **selecione Editar.**
+1. Atualize a resposta da fala para **OK, definido de alarme para {DateTime}. O sinal de alarme é {AlarmTone}.**
 
 ### <a name="try-out-the-changes"></a>Experimente as alterações
 
-Selecione **Train,** aguarde até que o treino termine e selecione **Teste**.
+Selecione **Train,** aguarde que o treino termine e selecione **Teste**.
 Experimente as seguintes declarações:
 
-- Entrada: definir um alarme
-- Saída: Pronto para definir o alarme com tom como Chimes. Para que horas?
-- Entrada: defina um alarme com tom como jingle para amanhã às 9:00
-- Saída: Ok, alarme definido para 2020-05-30 09:00:00. O tom de alarme é jingle.
+- **Entrada**: Desemote um alarme.
+- **Saída**: Pronto para definir o alarme com tom como Chimes. Para que horas?
+- **Entrada**: Defina um alarme com o tom como Jingle para amanhã às 9 h.
+- **Saída**: OK, alarme definido para 2020-05-30 09:00:00. O tom de alarme é Jingle.
 
 > [!IMPORTANT]
-> Note como o sinal de alarme poderia ser alterado sem qualquer configuração explícita num comando em curso, ou seja, quando o comando ainda não estava concluído. **A correção é ativada por padrão para todos os parâmetros de comando, independentemente do número de turno se o comando ainda estiver por cumprir.**
+> O tom de alarme poderia ser alterado sem qualquer configuração explícita num comando contínuo, por exemplo, quando o comando ainda não estava terminado. *Uma correção é ativada por padrão para todos os parâmetros de comando, independentemente do número de turno se o comando ainda estiver por cumprir.*
 
 ### <a name="correction-when-command-is-completed"></a>Correção quando o comando estiver concluído
 
-A plataforma Comandos Personalizados também fornece a capacidade de correção de um passo mesmo quando o comando foi concluído. Mas esta funcionalidade não é ativada por padrão e deve ser explicitamente configurada. Utilize os seguintes passos para configurar uma correção de um passo.
+A plataforma Comandos Personalizados também fornece a capacidade para uma correção de um passo, mesmo quando o comando foi concluído. Esta funcionalidade não é ativada por defeito. Deve ser explicitamente configurado. Utilize os seguintes passos para configurar uma correção de um passo.
 
 1. No comando **SetAlarm,** adicione uma regra de interação do **comando anterior** do tipo Update para atualizar o alarme previamente definido. Mude o **Name** nome predefinido da regra de interação para **atualizar o alarme anterior**.
 1. Deixar a condição **predefinida O comando anterior tem de ser atualizado** como está.
-1.  Adicione uma nova condição como **tipo > parâmetro > data.**
-1. Adicione uma nova ação como **Type > Enviar resposta de fala `Updating previous alarm time to {DateTime}.` > editor simples >**
-1. Deixe o valor padrão do estado de execução pós-execução como **comando concluído**.
+1. Adicione uma nova condição como hora de data do parâmetro exigido do **tipo**  >  **Required Parameter**  >  **DateTime**.
+1. Adicione uma nova ação como **Tipo**  >  **Enviar resposta de discurso**Simples  >  **editor**Atualizar o  >  **tempo de alarme anterior para {DateTime}.**
+1. Deixe o valor padrão do **estado de pós-execução** como **comando concluído**.
 
 ### <a name="try-out-the-changes"></a>Experimente as alterações
 
-Selecione **Train,** aguarde o treino completo e selecione **Teste**.
+Selecione **Train,** aguarde que o treino termine e selecione **Teste**.
 
-- Entrada: definir um alarme
-- Saída: Pronto para definir o alarme com tom como Chimes. Que horas?
-- Entrada: defina um alarme com tom como jingle para amanhã às 9:00
-- Saída: Ok, alarme definido para 2020-05-21 09:00:00. O tom de alarme é jingle.
-- Entrada: não, 8 da manhã
-- Saída: Atualização do tempo de alarme anterior para 2020-05-29 08:00.
+- **Entrada**: Desemote um alarme.
+- **Saída**: Pronto para definir o alarme com tom como Chimes. Para que horas?
+- **Entrada**: Defina um alarme com o tom como Jingle para amanhã às 9 h.
+- **Saída**: OK, alarme definido para 2020-05-21 09:00:00. O tom de alarme é Jingle.
+- **Entrada**: Não, 8 da manhã.
+- **Saída**: Atualização do tempo de alarme anterior para 2020-05-29 08:00.
 
 > [!NOTE]
-> Numa aplicação real, na secção Ações desta regra de correção, também terá de enviar uma atividade ao cliente ou chamar um ponto final HTTP para atualizar o tempo de alarme no seu sistema. Esta ação deve ser singularmente responsável por apenas atualizar o tempo de alarme e não qualquer outro atributo do comando, neste caso o tom de alarme.
+> Numa aplicação real, na secção **Ações** desta regra de correção, também terá de enviar uma atividade ao cliente ou chamar um ponto final HTTP para atualizar o tempo de alarme no seu sistema. Esta ação deve ser exclusivamente responsável pela atualização da hora de alarme e não de qualquer outro atributo do comando. Neste caso, seria o sinal de alarme.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como: Adicionar modelos de geração de linguagem para respostas de fala](./how-to-custom-commands-add-language-generation-templates.md)

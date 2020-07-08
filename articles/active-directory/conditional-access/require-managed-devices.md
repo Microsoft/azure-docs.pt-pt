@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690582638451f1691b2ed7a4d0d4d6a7880fd80a
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849937"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos geridos para acesso a aplicações em nuvem com acesso condicional
 
@@ -96,12 +96,34 @@ Para um dispositivo que está marcado como conforme, pode assumir que:
 - A informação da sua empresa está protegida ajudando a controlar a forma como a sua força de trabalho acede e partilha
 - O dispositivo e as suas aplicações estão em conformidade com os requisitos de segurança da empresa
 
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Cenário: Requer a inscrição de dispositivos para dispositivos iOS e Android
+
+Neste cenário, a Contoso decidiu que todo o acesso móvel aos recursos do Office 365 deve utilizar um dispositivo matriculado. Todos os seus utilizadores já fazem sessão com credenciais AD AZure e têm licenças que incluem Azure AD Premium P1 ou P2 e Microsoft Intune.
+
+As organizações devem completar os seguintes passos para exigir a utilização de um dispositivo móvel matriculado.
+
+1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Selecione **Nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
+1. Em **Atribuições**, selecione **Utilizadores e grupos**
+   1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
+   1. Selecione **Done** (Concluído).
+1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
+1. Em **Condições**, selecione **plataformas do Dispositivo**.
+   1. **Desconfigure** para **Sim**.
+   1. Incluir **Android** e **iOS.**
+1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
+   - **Exigir que o dispositivo seja marcado como conforme**
+1. Confirme as suas definições e defina **Ativar** a política para **on**.
+1. Selecione **Criar** para criar e ativar a sua política.
+
 ### <a name="known-behavior"></a>Comportamento conhecido
 
 Ao utilizar o [fluxo OAuth do código do dispositivo,](../develop/v2-oauth2-device-code.md)o controlo de concessão do dispositivo gerido requerido ou a condição do estado do dispositivo não é suportado. Isto porque o dispositivo que executa a autenticação não pode fornecer o estado do seu dispositivo ao dispositivo que fornece um código e o estado do dispositivo no token está bloqueado ao dispositivo que executa a autenticação. Utilize o controlo de concessão de autenticação multi-factor requerendo.
 
 No Windows 7, iOS, Android, macOS e alguns navegadores web de terceiros, a Azure AD identifica o dispositivo usando um certificado de cliente que é a provisionado quando o dispositivo está registado no Azure AD. Quando um utilizador entra pela primeira vez através do navegador, o utilizador é solicitado a selecionar o certificado. O utilizador final deve selecionar este certificado antes de poder continuar a utilizar o navegador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Antes de configurar uma política de acesso condicional baseada no dispositivo no seu ambiente, deve dar uma olhada nas [melhores práticas de acesso condicional no Diretório Ativo Azure](best-practices.md).

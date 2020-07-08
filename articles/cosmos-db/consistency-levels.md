@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5b80a0b03959ec3fba90ed21e291c1fd021916c2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851700"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -31,7 +31,7 @@ A consistência da leitura aplica-se a uma única operação de leitura enquadra
 
 ## <a name="configure-the-default-consistency-level"></a>Configurar o nível de consistência predefinido
 
-Pode configurar o nível de consistência padrão na sua conta Azure Cosmos a qualquer momento. O nível de consistência padrão configurado na sua conta aplica-se a todas as bases de dados e contentores da Azure Cosmos nessa conta. Todas as leituras e consultas emitidas contra um contentor ou uma base de dados utilizam por defeito o nível de consistência especificado. Para saber mais, consulte como [configurar o nível de consistência padrão](how-to-manage-consistency.md#configure-the-default-consistency-level).
+Pode configurar o nível de consistência padrão na sua conta Azure Cosmos a qualquer momento. O nível de consistência padrão configurado na sua conta aplica-se a todas as bases de dados e contentores da Azure Cosmos nessa conta. Todas as leituras e consultas emitidas contra um contentor ou uma base de dados utilizam por defeito o nível de consistência especificado. Para saber mais, consulte como [configurar o nível de consistência padrão](how-to-manage-consistency.md#configure-the-default-consistency-level). Também pode anular o nível de consistência predefinido para um pedido específico, para saber mais, ver como anular o artigo [de nível de consistência predefinido.](how-to-manage-consistency.md?#override-the-default-consistency-level)
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantias associadas aos níveis de consistência
 
@@ -108,7 +108,7 @@ Para saber mais sobre conceitos de consistência, leia os seguintes artigos:
 - [Probabilistic Bounded Staleness (PBS) para Quórums Parciais Práticos](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente Consistente - Revisitado](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os níveis de consistência no Azure Cosmos DB, leia os seguintes artigos:
 

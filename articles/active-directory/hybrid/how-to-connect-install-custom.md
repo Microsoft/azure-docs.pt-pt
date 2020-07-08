@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7fafd556add81d089dc67f0a4f9428de6d1b5e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850167"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -230,12 +230,7 @@ Num computador que tem as ferramentas de gestão de Política de Grupo.
 1.  Abrir as Ferramentas de Gestão da Política de Grupo
 2.  Edite a Política de grupo que será aplicada a todos os utilizadores. Por exemplo, a Política de Domínio Predefinida.
 3.  Navegue até **Configuração de Utilizador\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controlo da Internet\Página de Segurança** e selecione **Site para a Lista de Atribuições de Zona** de acordo com a imagem abaixo.
-4.  Ative a política e introduza os seguintes itens na caixa de diálogo.
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
+4.  Ativar a apólice e inserir um nome de valor `https://autologon.microsoftazuread-sso.com` e valor na caixa de `1` diálogo.
 5.  Deve ter um aspeto semelhante ao seguinte:  
 ![Zonas da Intranet](./media/how-to-connect-install-custom/sitezone.png)
 
@@ -415,7 +410,7 @@ Por fim, tem de eliminá-la.  Para tal, pode utilizar o **Microsoft SQL Server M
 
 Depois de eliminar a base de dados **ADSync**, pode clicar no botão **instalar** para repetir a instalação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Uma vez concluída a instalação, termine e inicie novamente sessão no Windows antes de utilizar o Synchronization Service Manager ou Editor de Regras de Sincronização.
 
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).

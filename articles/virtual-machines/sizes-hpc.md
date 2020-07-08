@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 961e5a0febc0212b8a747b052b3fd6f696689351
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 2d52287d1c343ada58ed4f7e5e1d3e85a4e7162e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850447"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -38,13 +38,13 @@ A maioria dos tamanhos HPC VM (HBv2, HB, HC, H16r, H16mr, A8 e A9) apresentam um
 Esta interface permite que as instâncias com capacidade RDMA se comuniquem através de uma rede InfiniBand (IB), operando a taxas HDR para HBv2, taxas EDR para hb, HC, FDR para máquinas virtuais de série H16r, H16mr e RDMA, e taxas QDR para A8 e A9 VMs. Estas capacidades de RDMA podem aumentar a escalabilidade e desempenho de certas aplicações de Interface de Passagem de Mensagens (MPI). Para obter mais informações sobre a velocidade, consulte os detalhes nas tabelas desta página.
 
 > [!NOTE]
-> Em Azure HPC, existem duas classes de VMs dependendo se são SR-IOV habilitados para InfiniBand. Atualmente, o SR-IOV para InfiniBand ativado VMs são: HBv2, HB, HC e NCv3. O resto dos VMs ativados pela InfiniBand não estão ativados com SR-IOV.
+> Em Azure HPC, existem duas classes de VMs dependendo se são SR-IOV habilitados para InfiniBand. Atualmente, o SR-IOV para VMs ativados pela InfiniBand são: HBv2, HB, HC, NCv3 e NDv2. O resto dos VMs ativados pela InfiniBand não estão ativados com SR-IOV.
 > O RDMA sobre o IB é suportado para todos os VMs capazes de RDMA.
 > O IP sobre o IB só é suportado nos VMs ativados pelo SR-IOV.
 
-- **Sistema operativo** - O Linux é muito bem suportado para VMs HPC, distros como CentOS, RHEL, Ubuntu, SUSE são comuns. No que diz respeito ao suporte ao Windows, o Windows Server 2016 é suportado em todos os VMs da série HPC. Windows Server 2012 R2, Windows Server 2012 também são suportados nos VMs não ativados não-SR-IOV.
+- **Sistema operativo** - O Linux é muito bem suportado para VMs HPC; distros como CentOS, RHEL, Ubuntu, SUSE são comumente usados. No que diz respeito ao suporte ao Windows, o Windows Server 2016 e as versões mais recentes são suportadas em todos os VMs da série HPC. Windows Server 2012 R2, Windows Server 2012 também são suportados nos VMs não-SR-IOV ativados (H16r, H16mr, A8 e A9). Note que [o Windows Server 2012 R2 não é suportado em HBv2 e outros VMs com mais de 64 núcleos (virtuais ou físicos).](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
 
-- **MPI** - O SR-IOV permitiu que os tamanhos VM em Azure (HBv2, HB, HC, NCv3) permitam que quase qualquer sabor de MPI seja usado com Mellanox OFED.
+- **MPI** - O SR-IOV permitiu que os tamanhos VM em Azure (HBv2, HB, HC, NCv3, NDv2) permitam que quase qualquer sabor de MPI seja usado com Mellanox OFED.
 Em VMs não-SR-IOV habilitados, implementações de MPI suportadas utilizam a interface Microsoft Network Direct (ND) para comunicar entre VMs. Assim, apenas as versões Microsoft MPI (MS-MPI) 2012 R2 ou posterior e Intel MPI 5.x são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do INTEL MPI podem ou não ser compatíveis com os controladores Azure RDMA.
 
 - **InfiniBandDriver<Linux. Windows> extensão VM** - Em VMs com capacidade RDMA, adicione o InfiniBandDriver<Linux/ Windows> extensão para ativar a InfiniBand. No Linux, a extensão InfiniBandDriverLinux VM instala os controladores Mellanox OFED (em VMs SR-IOV) para a conectividade RDMA. No Windows, a extensão VM InfiniBandDriverWindows instala controladores Windows Network Direct (em VMs não-SR-IOV) ou condutores Mellanox OFED (em VMs SR-IOV) para conectividade RDMA.

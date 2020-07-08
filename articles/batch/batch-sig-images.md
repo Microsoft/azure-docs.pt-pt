@@ -1,19 +1,19 @@
 ---
-title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina personalizada
-description: As imagens personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Batch.
+title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
+description: As piscinas de imagem personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Lote.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 8e81d0954d391210563641531b4c572325ae946f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851712"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina personalizada
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
-Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual, especifica uma imagem VM que fornece o sistema operativo para cada nó de computação na piscina. Pode criar um conjunto de máquinas virtuais com uma imagem suportada do Azure Marketplace ou criar uma imagem personalizada com a Galeria de [Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md)
+Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual, especifica uma imagem VM que fornece o sistema operativo para cada nó de computação na piscina. Pode criar um conjunto de máquinas virtuais com uma imagem Azure Marketplace suportada ou criar uma imagem personalizada com uma [imagem da Galeria de Imagens Partilhada.](../virtual-machines/windows/shared-image-galleries.md)
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Benefícios da Galeria de Imagens Partilhadas
 
@@ -30,7 +30,7 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode pro
 - **Pré-instalar aplicações.** A pré-instalação de aplicações no disco OS é mais eficiente e menos propensa a erros do que a instalação de aplicações depois de ter previsto os nós computacionais com uma tarefa inicial.
 - **Copie grandes quantidades de dados uma vez.** Faça parte dos dados estáticos da imagem partilhada gerida copiando-a para os discos de dados de uma imagem gerida. Isto só precisa ser feito uma vez e disponibilizar dados para cada nó da piscina.
 - **Cresça piscinas para tamanhos maiores.** Com a Galeria de Imagens Partilhadas, pode criar piscinas maiores com as suas imagens personalizadas juntamente com mais réplicas de Imagem Partilhada.
-- **Melhor desempenho do que imagem personalizada.** Usando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência ociosa VM é até 30% mais curta.
+- **Melhor desempenho do que usar apenas uma imagem gerida como uma imagem personalizada.** Para um pool de imagem personalizado image shared Image, o tempo para alcançar o estado estável é até 25% mais rápido e a latência ociosa VM é até 30% mais curta.
 - **Imagem de versão e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagens contém informações sobre o porquê da imagem ter sido criada, para que é o SISTEMA e informação sobre a utilização da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para obter mais informações, consulte [as definições de imagem.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -47,9 +47,9 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode pro
 
 Se utilizar uma aplicação AD Azure para criar um pool de imagens personalizado com uma imagem da Galeria de Imagens Partilhada, essa aplicação deve ter recebido um [papel incorporado Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que lhe dá acesso à Imagem Partilhada. Pode conceder este acesso no portal Azure navegando na Imagem Partilhada, selecionando o **controlo de acesso (IAM)** e adicionando uma atribuição de funções para a aplicação.
 
-## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
+## <a name="prepare-a-shared-image"></a>Preparar uma imagem partilhada
 
-Em Azure, pode preparar uma imagem personalizada a partir de:
+Em Azure, pode preparar uma imagem partilhada a partir de uma imagem gerida, que pode ser criada a partir de:
 
 - Instantâneos de um sistema operativo EZure VM e discos de dados
 - Um VM Azure generalizado com discos geridos

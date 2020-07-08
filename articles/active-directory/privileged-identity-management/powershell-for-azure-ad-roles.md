@@ -16,12 +16,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 284e05e372ef18877f02d11525fd70b0ecf977b1
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 8e3791da8f8a990f62de0052e1662fd6037e936b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849285"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para funções de AD Azure em Gestão de Identidade Privilegiada
 
@@ -36,14 +36,18 @@ Este artigo contém instruções para a utilização de cmdlets PowerShell (Azur
 
 1. Instale o módulo de pré-visualização AZure AD
 
-        Install-module AzureADPreview
+    ```powershell
+    Install-module AzureADPreview
+    ```
 
 1. Certifique-se de que tem as permissões de função necessárias antes de prosseguir. Se estiver a tentar executar tarefas de gestão como dar uma atribuição de funções ou atualizar a definição de funções, certifique-se de que tem o cargo de administrador global ou de administrador privilegiado. Se estiver apenas a tentar ativar a sua própria atribuição, não são necessárias permissões para além das permissões do utilizador predefinidas.
 
 1. Ligue-se ao Azure AD.
 
-        $AzureAdCred = Get-Credential  
-        Connect-AzureAD -Credential $AzureAdCred
+    ```powershell
+    $AzureAdCred = Get-Credential  
+    Connect-AzureAD -Credential $AzureAdCred
+    ```
 
 1. Encontre a identificação do inquilino para a sua organização Azure AD indo para **a Azure Ative Directory**  >  **Properties**  >  **ID**. Na secção cmdlets, utilize este ID sempre que precisar de fornecer os recursosId.
 
@@ -58,7 +62,9 @@ Use o cmdlet seguinte para obter todos os papéis AD Azure incorporados e person
 
 O papelDefinitionId é específico da sua organização Azure AD e é diferente do papelDefinitionId devolvido pela API de gestão de funções.
 
-    Get-AzureADMSPrivilegedRoleDefinition -ProviderId aadRoles -ResourceId 926d99e7-117c-4a6a-8031-0cc481e9da26
+```powershell
+Get-AzureADMSPrivilegedRoleDefinition -ProviderId aadRoles -ResourceId 926d99e7-117c-4a6a-8031-0cc481e9da26
+```
 
 Resultado:
 
@@ -68,15 +74,21 @@ Resultado:
 
 Utilize o cmdlet seguinte para recuperar todas as atribuições de funções na sua organização Azure AD.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
+```
 
 Utilize o cmdlet seguinte para recuperar todas as atribuições de funções para um determinado utilizador. Esta lista também é conhecida como "Os meus papéis" no portal AD A. A única diferença aqui é que adicionou um filtro para o iD do sujeito. O ID do sujeito neste contexto é o ID do utilizador ou o ID do grupo.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 
+```
 
 Utilize o cmdlet seguinte para recuperar todas as atribuições de funções para um papel específico. O papelDefinitionId aqui é o ID que é devolvido pelo cmdlet anterior.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "roleDefinitionId eq '0bb54a22-a3df-4592-9dc7-9e1418f0f61c'"
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "roleDefinitionId eq '0bb54a22-a3df-4592-9dc7-9e1418f0f61c'"
+```
 
 Os cmdlets resultam numa lista de objetos de atribuição de funções apresentados abaixo. O ID do sujeito é o ID do utilizador do utilizador a quem a função é atribuída. O estado de atribuição pode ser ativo ou elegível. Se o utilizador estiver ativo e houver um ID no campo LinkedEligibleRoleAssignmentId, isso significa que a função está atualmente ativada.
 
@@ -88,14 +100,18 @@ Resultado:
 
 Utilize o cmdlet seguinte para criar uma atribuição elegível.
 
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'ff690580-d1c6-42b1-8272-c029ded94dec' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "dsasdsas" 
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'ff690580-d1c6-42b1-8272-c029ded94dec' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "dsasdsas" 
+```
 
 O calendário, que define o início e o fim da atribuição, é um objeto que pode ser criado como o seguinte exemplo:
 
-    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
-    $schedule.Type = "Once"
-    $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-    $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+```powershell
+$schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
+$schedule.Type = "Once"
+$schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+$schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+```
 > [!Note]
 > Se o valor do fim DoteTime estiver definido para nula, indica uma atribuição permanente.
 
@@ -103,7 +119,9 @@ O calendário, que define o início e o fim da atribuição, é um objeto que po
 
 Utilize o cmdlet seguinte para ativar uma atribuição elegível.
 
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas" 
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+``` 
 
 Este cmdlet é quase idêntico ao cmdlet para criar uma atribuição de funções. A diferença-chave entre os cmdlets é que para o parâmetro -Tipo, a ativação é "userAdd" em vez de "adminAdd". A outra diferença é que o parâmetro -Estado de Atribuição é "Ativo" em vez de "Elegível".
 
@@ -116,7 +134,9 @@ Este cmdlet é quase idêntico ao cmdlet para criar uma atribuição de funçõe
 
 Utilize o cmdlet seguinte para obter todas as definições de funções na sua organização Azure AD.
 
-    Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+```powershell
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+```
 
 Há quatro objetos principais na configuração. Apenas três destes objetos são atualmente utilizados pela PIM. As definições de ativação do UserMember são configurações de ativação, as definições de atribuição de adminEligibles são definições de atribuição para atribuições elegíveis, e as AdminmememberSettings são definições de atribuição para atribuições ativas.
 
@@ -124,14 +144,18 @@ Há quatro objetos principais na configuração. Apenas três destes objetos sã
 
 Para atualizar a definição de funções, tem de obter o objeto de definição existente para uma determinada função e fazer alterações:
 
-    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-    $setting.UserMemberSetting.justificationRule = '{"required":false}'
+```powershell
+$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+$setting.UserMemberSetting.justificationRule = '{"required":false}'
+```
 
 Em seguida, pode ir em frente e aplicar a definição a um dos objetos para um papel particular, como mostrado abaixo. O ID aqui é o ID de definição de função que pode ser recuperado do resultado do cmdlet de definições de função da lista.
 
-    Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+```powershell
+Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)

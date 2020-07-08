@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0f0b3488bd34a31002449b9b7635064d5d835072
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851278"
 ---
 # <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
 
@@ -81,6 +81,8 @@ Se nomear as suas bolhas usando um delimiter, então pode optar por listar as bo
 Por predefinição, uma operação de listagem devolve bolhas numa listagem plana. Numa listagem plana, as bolhas não são organizadas por diretório virtual.
 
 O exemplo a seguir lista as bolhas no recipiente especificado utilizando uma listagem plana, com um tamanho de segmento opcional especificado, e escreve o nome blob para uma janela da consola.
+
+Se ativou a funcionalidade de espaço hierárquico na sua conta, os diretórios não são virtuais. Em vez disso, são objetos concretos e independentes. Portanto, os diretórios aparecem na lista como bolhas de comprimento zero.
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 

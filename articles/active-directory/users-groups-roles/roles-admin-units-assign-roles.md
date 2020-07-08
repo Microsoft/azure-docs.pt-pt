@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b29ddd5c46f8d6def7e598b7ed443892b345c18
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 578fb481ec858e65ede49bdce2d8bc26470aa2ca
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84732315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850766"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -29,7 +29,7 @@ Para obter os passos que se preparem para utilizar o PowerShell e o Microsoft Gr
 
 ## <a name="roles-available"></a>Funções disponíveis
 
-Função  |  Description
+Função  |  Descrição
 ----- |  -----------
 Administrador de Autenticação  |  Tem acesso a visualização, definição e reposição de informações do método de autenticação para qualquer utilizador não administrativo apenas na unidade administrativa atribuída.
 Administrador de Grupos  |  Pode gerir todos os aspetos de grupos e grupos configurações como a definição e expiração apenas na unidade administrativa atribuída.
@@ -52,25 +52,29 @@ Selecione a função a atribuir e, em seguida, **selecione atribuir atribuiçõe
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    $AdminUser = Get-AzureADUser -ObjectId 'janedoe@fabidentity.onmicrosoft.com'
-    $uaRoleMemberInfo = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo -Property @{ObjectId = $AdminUser.ObjectId}
-    Add-AzureADScopedRoleMembership -RoleObjectId $UserAdminRole.ObjectId -ObjectId $administrative unitObj.ObjectId -RoleMemberInfo  $uaRoleMemberInfo
+```powershell
+$administrative = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$AdminUser = Get-AzureADUser -ObjectId 'janedoe@fabidentity.onmicrosoft.com'
+$uaRoleMemberInfo = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo -Property @{ObjectId = $AdminUser.ObjectId}
+Add-AzureADScopedRoleMembership -RoleObjectId $UserAdminRole.ObjectId -ObjectId $administrative unitObj.ObjectId -RoleMemberInfo  $uaRoleMemberInfo
+```
 
 A secção realçada pode ser alterada conforme necessário para o ambiente específico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    Http request
-    POST /administrativeUnits/{id}/scopedRoleMembers
+```http
+Http request
+POST /administrativeUnits/{id}/scopedRoleMembers
     
-    Request body
-    {
-      "roleId": "roleId-value",
-      "roleMemberInfo": {
-        "id": "id-value"
-      }
-    }
+Request body
+{
+  "roleId": "roleId-value",
+  "roleMemberInfo": {
+    "id": "id-value"
+  }
+}
+```
 
 ## <a name="list-the-scoped-admins-on-an-au"></a>Listar os administradores de âmbito numa AU
 
@@ -80,18 +84,22 @@ Todas as atribuições de funções escruladas com um âmbito de unidade adminis
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    Get-AzureADScopedRoleMembership -ObjectId $administrative unitObj.ObjectId | fl *
+```powershell
+$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+Get-AzureADScopedRoleMembership -ObjectId $administrative unitObj.ObjectId | fl *
+```
 
 A secção realçada pode ser alterada conforme necessário para o ambiente específico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    Http request
-    GET /administrativeUnits/{id}/scopedRoleMembers
-    Request body
-    {}
+```http
+Http request
+GET /administrativeUnits/{id}/scopedRoleMembers
+Request body
+{}
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resolução de problemas das unidades administrativas e FAQ](roles-admin-units-faq-troubleshoot.md)

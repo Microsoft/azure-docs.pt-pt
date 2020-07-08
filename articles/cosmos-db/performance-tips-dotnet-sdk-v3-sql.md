@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: ce0bc73fd21210e7cd5cd48c8134abd5f014b026
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850253"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
 > [!div class="op_single_selector"]
-> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [SDK v2 de .NET](performance-tips.md)
+> * [SDK .NET v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [SDK .NET v2](performance-tips.md)
 > * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](performance-tips-async-java.md)
 > * [SDK v2 Java síncrono](performance-tips-java.md)
@@ -55,7 +55,7 @@ Se estiver a testar em níveis de produção elevados (mais de 50.000 RU/s), a a
 > [!NOTE] 
 > O uso elevado do CPU pode causar um aumento da latência e solicitar exceções no tempo limite.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 <a id="direct-connection"></a>
 
 **Política de ligação: Utilize o modo de ligação direta**
@@ -99,7 +99,7 @@ Como o TCP é suportado apenas em modo direto, se utilizar o modo gateway, o pro
 
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="A política de conexão DB Azure Cosmos" border="false":::
 
-**Exaustão do porto efémero**
+**Exaustão de portas efémeras**
 
 Se vir um elevado volume de ligação ou um elevado uso da porta nas suas instâncias, verifique primeiro se as instâncias do seu cliente são singletons. Por outras palavras, as instâncias do cliente devem ser únicas para o tempo de vida da aplicação.
 
@@ -201,7 +201,7 @@ Ver [Aumentar o número de threads/tarefas](#increase-threads) na secção de Ne
 
 ## <a name="indexing-policy"></a>Política de indexação
  
-**Excluir caminhos não-ausados da indexação para escritas mais rápidas**
+**Excluir os caminhos não utilizados da indexação para assegurar escritas mais rápidas**
 
 A política de indexação DB do Azure Cosmos também permite especificar quais os caminhos documentais a incluir ou excluir da indexação utilizando caminhos de indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludeedPaths). Indexar apenas os caminhos de que necessita pode melhorar o desempenho da escrita, reduzir a carga RU nas operações de escrita e reduzir o armazenamento de índices para cenários em que os padrões de consulta são conhecidos previamente. Isto porque os custos de indexação estão correlacionados diretamente com o número de caminhos únicos indexados. Por exemplo, este código mostra como excluir uma secção inteira dos documentos (uma subtree) de indexação utilizando o wildcard "*":
 
@@ -247,9 +247,11 @@ A taxa de pedido devolvida neste cabeçalho é uma fração da sua produção pr
 
 Quando um cliente tenta exceder a produção reservada para uma conta, não há degradação de desempenho no servidor e não há uso da capacidade de produção para além do nível reservado. O servidor terminará preventivamente o pedido com o RequestRateTooLarge (código de estado HTTP 429). Retornará um cabeçalho [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) que indica o tempo, em milissegundos, que o utilizador deve esperar antes de tentar novamente o pedido.
 
+```xml
     HTTP Status 429,
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
+```
 
 Os SDKs capturam implicitamente esta resposta, respeitam o cabeçalho especificado pelo servidor e recaem o pedido. A menos que a sua conta esteja a ser acedida simultaneamente por vários clientes, a próxima repetição será bem sucedida.
 
@@ -263,7 +265,7 @@ O comportamento de relembolso automatizado ajuda a melhorar a resiliência e a u
 
 A taxa de pedido (isto é, o custo de processamento de pedido) de uma determinada operação está diretamente relacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações em pequenos documentos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para uma aplicação de amostra que é usada para avaliar Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte testes de [desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

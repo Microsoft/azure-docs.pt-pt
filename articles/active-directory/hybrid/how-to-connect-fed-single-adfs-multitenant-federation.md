@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f289d1467528bdb38e05e6a8de28ae9fe526592
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849891"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 
@@ -58,12 +58,16 @@ O emitente na definição da federação de domínio será alterado para \: "htt
  
 No sessão de powershell do Azure AD execute os seguintes passos: ligar ao Azure Active Directory que contém o domínio fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Converta o domínio gerido fabrikam.com para federado:
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 A operação acima irá federar o domínio fabrikam.com com o mesmo AD FS. Pode verificar as definições de domínio com o Get-MsolDomainFederationSettings para ambos os domínios.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Ligar o Active Directory ao Azure Active Directory](whatis-hybrid-identity.md)

@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidade para Hadoop - Azure HDInsight
-description: Saiba como os clusters HDInsight melhoram a fiabilidade e a disponibilidade utilizando um nó de cabeça adicional. Saiba como isso afeta os serviços hadoop, como Ambari e Hive, bem como como ligar individualmente a cada nó de cabeça usando SSH.
+description: Saiba como os clusters HDInsight melhoram a fiabilidade e a disponibilidade utilizando um nó adicional na cabeça. Saiba como isso afeta os serviços hadoop, como a Ambari e a Hive, bem como como conectar-se individualmente a cada nó de cabeça usando SSH.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,74 +9,74 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849659"
 ---
-# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Apache Hadoop no HDInsight
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight
 
-Os clusters HDInsight fornecem dois nós de cabeça para aumentar a disponibilidade e fiabilidade dos serviços e postos de trabalho apache hadoop.
+Os clusters HDInsight fornecem dois nós de cabeça para aumentar a disponibilidade e fiabilidade dos serviços e empregos da Apache Hadoop em funcionamento.
 
-Hadoop obtém alta disponibilidade e fiabilidade replicando serviços e dados em vários nós em um cluster. No entanto, as distribuições padrão de Hadoop normalmente têm apenas um nó de cabeça. Qualquer interrupção do nó da cabeça pode fazer com que o aglomerado pare de funcionar. O HDInsight fornece dois headnodes para melhorar a disponibilidade e fiabilidade de Hadoop.
+Hadoop obtém alta disponibilidade e fiabilidade replicando serviços e dados em vários nós num cluster. No entanto, as distribuições padrão de Hadoop normalmente têm apenas um nó de cabeça. Qualquer paragem do nó de cabeça única pode fazer com que o cluster deixe de funcionar. O HDInsight fornece dois headnodes para melhorar a disponibilidade e fiabilidade da Hadoop.
 
-## <a name="availability-and-reliability-of-nodes"></a>Disponibilidade e fiabilidade dos nódosos
+## <a name="availability-and-reliability-of-nodes"></a>Disponibilidade e fiabilidade dos nosdes
 
-Os nós de um cluster HDInsight são implementados utilizando máquinas virtuais Azure. As seguintes secções discutem os tipos individuais de nó utilizados com o HDInsight.
+Os nós num cluster HDInsight são implementados usando máquinas virtuais Azure. As secções seguintes discutem os tipos individuais de nós utilizados com HDInsight.
 
 > [!NOTE]  
-> Nem todos os tipos de nós são usados para um tipo de cluster. Por exemplo, um cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós utilizados pelos tipos de cluster HDInsight, consulte a secção de tipos de Cluster dos [clusters Hadoop baseados em Linux no documento HDInsight.](hdinsight-hadoop-provision-linux-clusters.md#cluster-type)
+> Nem todos os tipos de nó são utilizados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós utilizados pelos tipos de cluster HDInsight, consulte a secção de tipos de clusters dos [clusters Hadoop baseados em Create Linux no documento HDInsight.](hdinsight-hadoop-provision-linux-clusters.md#cluster-type)
 
-### <a name="head-nodes"></a>Nódosos da cabeça
+### <a name="head-nodes"></a>Nó de cabeça
 
-Para garantir uma elevada disponibilidade de serviços Hadoop, o HDInsight fornece dois nós de cabeça. Ambos os nós da cabeça estão ativos e em funcionamento dentro do cluster HDInsight simultaneamente. Alguns serviços, como o Apache HDFS ou o Apache Hadoop YARN, só estão 'activos' num nó de cabeça a qualquer momento. Outros serviços, como o HiveServer2 ou o Hive MetaStore, estão ativos em ambos os nós de cabeça ao mesmo tempo.
+Para garantir uma elevada disponibilidade dos serviços Hadoop, o HDInsight fornece dois nós de cabeça. Ambos os nós de cabeça estão ativos e a funcionar dentro do cluster HDInsight simultaneamente. Alguns serviços, como o Apache HDFS ou o Apache Hadoop YARN, são apenas 'ativos' num nó de cabeça a qualquer momento. Outros serviços como HiveServer2 ou Hive MetaStore estão ativos em ambos os nós da cabeça ao mesmo tempo.
 
-Para obter os nomes de anfitriões para diferentes tipos de nó no seu cluster, utilize a [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
+Para obter os nomes de anfitriões para diferentes tipos de nó no seu cluster, utilize a [API Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Não associe o valor numérico ao facto de um nó ser primário ou secundário. O valor numérico só está presente para fornecer um nome único para cada nó.
 
-### <a name="nimbus-nodes"></a>Nódeos Nimbus
+### <a name="nimbus-nodes"></a>Nimbus Nodes
 
-Os nós de Nimbus estão disponíveis com aglomerados de tempestade Apache. Os nódosos Nimbus fornecem uma funcionalidade semelhante ao Hadoop JobTracker distribuindo e monitorizando o processamento através dos nódos os trabalhadores. HDInsight fornece dois nós Nimbus para aglomerados de tempestade
+Os nós Nimbus estão disponíveis com aglomerados de tempestade Apache. Os nós Nimbus fornecem uma funcionalidade semelhante ao Hadoop JobTracker distribuindo e monitorizando o processamento através dos nós dos trabalhadores. HDInsight fornece dois nó de Nimbus para aglomerados de tempestade
 
-### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper sossega
+### <a name="apache-zookeeper-nodes"></a>Nódoa de Zookeeper Apache
 
-Os nódosos [do ZooKeeper](https://zookeeper.apache.org/) são usados para a eleição de líderes de serviços principais em narizes de cabeça. Também estão habituados a garantir que os serviços, os nós de dados (trabalhadores) e os gateways sabem em que cabeça um diretor de um serviço principal está ativo. Por padrão, o HDInsight fornece três nós zooKeeper.
+Os nós [do ZooKeeper](https://zookeeper.apache.org/) são usados para a eleição de líderes de serviços mestres em nós de cabeça. Também são usados para garantir que os serviços, os nós de dados (trabalhadores) e gateways sabem em que nó de cabeça um serviço principal está ativo. Por padrão, o HDInsight fornece três nós ZooKeeper.
 
-### <a name="worker-nodes"></a>Nódosos operários
+### <a name="worker-nodes"></a>Nódoas operárias
 
-Os nós dos trabalhadores realizam a análise real de dados quando um trabalho é submetido ao cluster. Se um nó de trabalhador falhar, a tarefa que estava a desempenhar é submetida a outro nó operário. Por padrão, o HDInsight cria quatro nós de trabalhador. Pode alterar este número de acordo com as suas necessidades durante e após a criação do cluster.
+Os nós dos trabalhadores realizam a análise real de dados quando um trabalho é submetido ao cluster. Se um nó de trabalhador falhar, a tarefa que estava a desempenhar é submetida a outro nó de trabalhador. Por padrão, o HDInsight cria quatro nós de trabalhadores. Pode alterar este número de acordo com as suas necessidades durante e após a criação do cluster.
 
 ### <a name="edge-node"></a>nó de borda
 
-Um nó de borda não participa ativamente na análise de dados dentro do cluster. É usado por desenvolvedores ou cientistas de dados quando trabalha com Hadoop. O nó de borda vive na mesma Rede Virtual Azure que os outros nós do cluster, e pode aceder diretamente a todos os outros nós. O nó de borda pode ser usado sem tirar recursos de serviços hadoop críticos ou trabalhos de análise.
+Um nó de borda não participa ativamente na análise de dados dentro do cluster. É usado por desenvolvedores ou cientistas de dados quando trabalham com Hadoop. O nó de borda vive na mesma Rede Virtual Azure que os outros nós no cluster, e pode aceder diretamente a todos os outros nós. O nó de borda pode ser usado sem tirar recursos de serviços críticos de Hadoop ou trabalhos de análise.
 
-Atualmente, os Serviços ML no HDInsight é o único tipo de cluster que fornece um nó de borda por padrão. Para os serviços ML no HDInsight, o nó de borda é usado código R teste localmente no nó antes de o submeter ao cluster para processamento distribuído.
+Atualmente, mL Services on HDInsight é o único tipo de cluster que fornece um nó de borda por padrão. Para serviços ML em HDInsight, o nó de borda é usado test R código localmente no nó antes de submetê-lo ao cluster para processamento distribuído.
 
 Para obter informações sobre a utilização de um nó de borda com outros tipos de cluster, consulte os nós de borda de utilização no documento [HDInsight.](hdinsight-apps-use-edge-node.md)
 
-## <a name="accessing-the-nodes"></a>Acesso aos nódosos
+## <a name="accessing-the-nodes"></a>Acedendo aos nosdes
 
-O acesso ao cluster através da internet é fornecido através de uma porta de entrada pública. O acesso limita-se à ligação aos nós da cabeça e, se existir, o nó de borda. O acesso aos serviços que correm nos nóóis de cabeça não é afetado por ter vários nódosos de cabeça. As rotas de gateway pública solicitam ao nó de cabeça que acolhe o serviço solicitado. Por exemplo, se apache Ambari está atualmente hospedado no nó de cabeça secundário, as rotas de gateway solicitam ambari para esse nó.
+O acesso ao cluster através da internet é fornecido através de uma porta de entrada pública. O acesso limita-se à ligação aos nós da cabeça e, se existir, ao nó de borda. O acesso aos serviços que correm nos nós da cabeça não é afetado por múltiplos nós da cabeça. As vias de entrada pública solicitam ao nó de cabeça que acolhe o serviço solicitado. Por exemplo, se o Apache Ambari está atualmente hospedado no nó de cabeça secundária, as rotas de gateway chegam solicitações de Ambari para esse nó.
 
-O acesso ao portal público está limitado aos portos 443 (HTTPS), 22 e 23.
+O acesso ao portão público está limitado às portas 443 (HTTPS), 22 e 23.
 
 |Porta |Descrição |
 |---|---|
-|443|Usado para aceder a Ambari e outras APIs web UI ou REST hospedados nos nós da cabeça.|
-|22|Usado para aceder ao nó da cabeça primária ou nó de borda com SSH.|
-|23|Usado para aceder ao nó de cabeça secundário com SSH. Por exemplo, `ssh username@mycluster-ssh.azurehdinsight.net` liga-se ao nó principal da cabeça do cluster chamado **mycluster**.|
+|443|Usado para aceder a Ambari e outras UI web ou REST APIs hospedados nos nós da cabeça.|
+|22|Usado para aceder ao nó primário da cabeça ou no nó de borda com SSH.|
+|23|Usado para aceder ao nó de cabeça secundária com SSH. Por exemplo, `ssh username@mycluster-ssh.azurehdinsight.net` liga-se ao nó primário da cabeça do cluster chamado **mycluster**.|
 
-Para obter mais informações sobre a utilização do SSH, consulte o SSH use com o documento [HDInsight.](hdinsight-hadoop-linux-use-ssh-unix.md)
+Para obter mais informações sobre a utilização do SSH, consulte o [SSH de utilização com](hdinsight-hadoop-linux-use-ssh-unix.md) o documento HDInsight.
 
-### <a name="internal-fully-qualified-domain-names-fqdn"></a>Nomes de domínio internos totalmente qualificados (FQDN)
+### <a name="internal-fully-qualified-domain-names-fqdn"></a>Nomes de domínios internos totalmente qualificados (FQDN)
 
-Os nós de um cluster HDInsight têm um endereço IP interno e FQDN que só podem ser acedidos a partir do cluster. Ao aceder aos serviços no cluster utilizando o endereço FQDN ou IP interno, deve utilizar a Ambari para verificar o IP ou o FQDN para utilizar ao aceder ao serviço.
+Os nós num cluster HDInsight têm um endereço IP interno e FQDN que só podem ser acedidos a partir do cluster. Ao aceder aos serviços no cluster utilizando o endereço FQDN ou IP interno, deverá utilizar Ambari para verificar o IP ou FQDN para utilizar ao aceder ao serviço.
 
-Por exemplo, o serviço Apache Oozie só pode funcionar `oozie` num nó de cabeça, e usar o comando de uma sessão SSH requer o URL para o serviço. Este URL pode ser recuperado de Ambari utilizando o seguinte comando:
+Por exemplo, o serviço Apache Oozie só pode funcionar com um nó de cabeça, e usar o `oozie` comando de uma sessão de SSH requer o URL para o serviço. Este URL pode ser recuperado de Ambari utilizando o seguinte comando:
 
 ```bash
 export password='PASSWORD'
@@ -85,94 +85,94 @@ export clusterName="CLUSTERNAME"
 curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 ```
 
-Este comando devolve um valor semelhante ao seguinte, que `oozie` contém o URL interno para utilizar com o comando:
+Este comando devolve um valor semelhante ao seguinte, que contém o URL interno para usar com o `oozie` comando:
 
 ```output
 "oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
-Para obter mais informações sobre o trabalho com a Ambari REST API, consulte [Monitor e Gerencie o HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Para obter mais informações sobre o trabalho com a API Ambari REST, consulte [Monitor e Manage HDInsight utilizando a API Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-### <a name="accessing-other-node-types"></a>Acesso a outros tipos de nó
+### <a name="accessing-other-node-types"></a>Aceder a outros tipos de nó
 
-Pode ligar-se a nós que não são diretamente acessíveis através da internet utilizando os seguintes métodos:
+Pode ligar-se a nós que não são acessíveis diretamente através da internet utilizando os seguintes métodos:
 
 |Método |Descrição |
 |---|---|
-|SSH|Uma vez ligado a um nó de cabeça utilizando SSH, pode então utilizar SSH do nó da cabeça para se ligar a outros nós do cluster. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-|Túnel SSH|Se precisa de aceder a um serviço web hospedado num dos nós que não está exposto à internet, tem de utilizar um túnel SSH. Para mais informações, consulte o [Utilize um túnel SSH com documento HDInsight.](hdinsight-linux-ambari-ssh-tunnel.md)|
-|Rede Virtual do Azure|Se o seu cluster HDInsight fizer parte de uma Rede Virtual Azure, qualquer recurso na mesma Rede Virtual pode aceder diretamente a todos os nós do cluster. Para mais informações, consulte o Plano uma rede virtual para o documento [HDInsight.](hdinsight-plan-virtual-network-deployment.md)|
+|SSH|Uma vez ligado a um nó de cabeça utilizando SSH, pode então utilizar SSH do nó da cabeça para ligar a outros nós no cluster. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Túnel SSH|Se precisar de aceder a um serviço web hospedado num dos nós que não está exposto à internet, deve utilizar um túnel SSH. Para obter mais informações, consulte o [Use um túnel SSH com documento HDInsight.](hdinsight-linux-ambari-ssh-tunnel.md)|
+|Rede Virtual do Azure|Se o seu cluster HDInsight fizer parte de uma Rede Virtual Azure, qualquer recurso na mesma Rede Virtual pode aceder diretamente a todos os nós do cluster. Para obter mais informações, consulte o Plano de Uma rede virtual para o documento [HDInsight.](hdinsight-plan-virtual-network-deployment.md)|
 
-## <a name="how-to-check-on-a-service-status"></a>Como verificar o estado do serviço
+## <a name="how-to-check-on-a-service-status"></a>Como verificar o estado de serviço
 
-Para verificar o estado dos serviços que funcionam nos nós da cabeça, utilize o Ambari Web UI ou a Ambari REST API.
+Para verificar o estado dos serviços que funcionam nos nós da cabeça, utilize o Ambari Web UI ou a API Ambari REST.
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-O Ambari Web UI `https://CLUSTERNAME.azurehdinsight.net`é visível em . Substitua o **CLUSTERNAME** pelo nome do seu cluster. Se solicitado, introduza as credenciais de utilizador http para o seu cluster. O nome de utilizador 'HTTP' predefinido é **administrador** e a palavra-passe é a palavra-passe que introduziu ao criar o cluster.
+O Ambari Web UI é visível em `https://CLUSTERNAME.azurehdinsight.net` . Substitua **o CLUSTERNAME** pelo nome do seu cluster. Se solicitado, insira as credenciais de utilizador HTTP para o seu cluster. O nome de utilizador HTTP predefinido é **administrador** e a palavra-passe é a palavra-passe que introduziu ao criar o cluster.
 
-Quando chega à página ambari, os serviços instalados estão listados à esquerda da página.
+Quando chega à página Ambari, os serviços instalados estão listados à esquerda da página.
 
-![Apache Ambari instalou serviços](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
+![Serviços instalados apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
-Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o estado. Quaisquer alertas relacionados com um serviço podem ser vistos utilizando o link **Alertas** na parte superior da página.  Ambari oferece vários alertas predefinidos.
+Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o estado. Quaisquer alertas relacionados com um serviço podem ser vistos usando o link **Alertas** no topo da página.  Ambari oferece vários alertas predefinidos.
 
 Os seguintes alertas ajudam a monitorizar a disponibilidade de um cluster:
 
 | Nome do Alerta                               | Descrição                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Estado do Monitor Métrico                    | Este alerta indica o estado do processo do Monitor de Métricas determinado pelo script de estado do monitor.                                                                                   |
+| Estado do monitor métrico                    | Este alerta indica o estado do processo do Monitor métrico determinado pelo script de estado do monitor.                                                                                   |
 | Batimento cardíaco do agente Ambari                   | Este alerta é acionado se o servidor tiver perdido o contacto com um agente.                                                                                                                        |
-| Processo do servidor zookeeper                 | Este alerta de nível de hospedeiro é desencadeado se o processo do servidor ZooKeeper não puder ser determinado a estar em cima e a ouvir na rede.                                                               |
-| Estado do servidor de metadados IOCache           | Este alerta de nível de anfitrião é desencadeado se o Servidor de Metadados IOCache não puder estar determinado a estar de pé e responder aos pedidos do cliente                                                            |
-| JournalNode Web UI                       | Este alerta de nível de hospedeiro é desencadeado se o JournalNode Web UI estiver inacessível.                                                                                                                 |
-| Servidor Spark2 Thrift                     | Este alerta de nível de hospedeiro é acionado se o Spark2 Thrift Server não puder ser determinado a subir.                                                                                                |
-| Processo de servidor de histórico                   | Este alerta de nível de hospedeiro é desencadeado se o processo do History Server não puder ser estabelecido para estar em cima e ouvir na rede.                                                                |
-| Web UI do servidor de história                    | Este alerta de nível de anfitrião é desencadeado se o Web UI do Servidor de História estiver inacessível.                                                                                                              |
-| `ResourceManager`Web UI                   | Este alerta de nível de `ResourceManager` hospedeiro é acionado se o UI web estiver inacessível.                                                                                                             |
-| Resumo da Saúde nodeManager               | Este alerta de nível de serviço é desencadeado se houver NodeManagers pouco saudáveis                                                                                                                    |
-| Web UI da linha do tempo da aplicação                      | Este alerta de nível de anfitrião é desencadeado se o Web UI do servidor de linha de linha do tempo da aplicação estiver inacessível.                                                                                                         |
-| Resumo da Saúde dataNode                  | Este alerta de nível de serviço é desencadeado se não houver DataNodes saudáveis                                                                                                                       |
-| NameNode Web UI                          | Este alerta de nível de hospedeiro é acionado se o NameNode Web UI for inacessível.                                                                                                                    |
-| Processo de controlo de failover do ZooKeeper    | Este alerta de nível de hospedeiro é desencadeado se o processo do Controlador de Failover do ZooKeeper não puder ser confirmado para estar em cima e ouvir na rede.                                                   |
-| Oozie Server Web UI                      | Este alerta de nível de anfitrião é acionado se o Web UI do servidor Oozie estiver inacessível.                                                                                                                |
-| Estado do servidor Oozie                      | Este alerta de nível de anfitrião é desencadeado se o servidor Oozie não puder estar determinado a estar de pé e responder aos pedidos do cliente.                                                                      |
-| Processo de Metaloja da Colmeia                   | Este alerta de nível de hospedeiro é desencadeado se o processo da Hive Metastore não puder ser determinado a estar em cima e a ouvir na rede.                                                                 |
-| Processo HiveServer2                      | Este alerta de nível de anfitrião é desencadeado se o HiveServer não puder estar determinado a estar de pé e responder aos pedidos do cliente.                                                                        |
-| Estado do servidor webhcat                    | Este alerta de nível de `templeton` hospedeiro é acionado se o estado do servidor não estiver saudável.                                                                                                            |
-| Por cento dos servidores do ZooKeeper disponíveis      | Este alerta é desencadeado se o número de servidores do ZooKeeper no cluster for maior do que o limiar crítico configurado. Agrega os resultados dos controlos do processo zookeeper.     |
-| Spark2 Livy Server                       | Este alerta de nível de hospedeiro é desencadeado se o Servidor Livy2 não puder estar determinado a estar de pé.                                                                                                        |
-| Servidor de História Spark2                    | Este alerta de nível de hospedeiro é desencadeado se o Spark2 History Server não puder estar determinado a estar em alta.                                                                                               |
-| Processo de Colecionador de Métricas                | Este alerta é desencadeado se o Collector de Métricas não puder ser confirmado para estar em cima e ouvir na porta configurada durante um número de segundos igual ao limiar.                                 |
-| Colecionador de Métricas - Processo Master HBase | Este alerta é desencadeado se os processos principais do Coletor de Métricas não puderem ser confirmados para estarem em cima e ouvir na rede o limiar crítico configurado, dado em segundos. |
-| Monitores de métricas por cento disponíveis       | Este alerta é desencadeado se uma percentagem dos processos do Monitor de Métricas não estiver em cima e a ouvir na rede os limiares de advertência e críticos configurados.                             |
-| Gestores de nó disponíveis           | Este alerta é desencadeado se o número de NodeManagers no cluster for superior ao limiar crítico configurado. Agrega os resultados dos controlos de processo noDeManager.        |
-| Saúde nodeManager                       | Este alerta de nível de anfitrião verifica a propriedade de saúde do nó disponível a partir do componente NodeManager.                                                                                              |
-| NodeManager Web UI                       | Este alerta de nível de anfitrião é acionado se o NodeManager Web UI estiver inacessível.                                                                                                                 |
-| NomeNode Alta Disponibilidade Saúde        | Este alerta de nível de serviço é acionado se o Nome Denome Ativo ou o Nome de Standby Node não estiverem em funcionamento.                                                                                     |
-| Processo datanode                         | Este alerta de nível de hospedeiro é desencadeado se os processos de DataNode individuais não puderem ser estabelecidos para estarem em cima e ouvir na rede.                                                         |
-| DataNode Web UI                          | Este alerta de nível de hospedeiro é desencadeado se o DataNode Web UI estiver inacessível.                                                                                                                    |
-| Por cento de revistas disponíveis           | Este alerta é desencadeado se o número de JournalNodes no cluster for maior do que o limiar crítico configurado. Agrega os resultados dos controlos do processo JournalNode.        |
-| Por cento dataNodes disponíveis              | Este alerta é desencadeado se o número de DataNodes no cluster for maior do que o limiar crítico configurado. Agrega os resultados dos controlos do processo DataNode.              |
-| Estado do servidor zeppelin                   | Este alerta de nível de anfitrião é desencadeado se o servidor Zeppelin não puder estar determinado a estar de pé e responder aos pedidos do cliente.                                                                   |
-| Processo Interativo HiveServer2          | Este alerta de nível de anfitrião é desencadeado se o HiveServerInteractive não puder estar determinado a estar de pé e responder aos pedidos do cliente.                                                             |
-| Aplicação LLAP                         | Este alerta é desencadeado se a Aplicação LLAP não puder estar determinada a levantar-se e responder aos pedidos.                                                                                    |
+| Processo do servidor zookeeper                 | Este alerta de nível de anfitrião é acionado se o processo do servidor ZooKeeper não puder ser determinado a estar ligado e a ouvir na rede.                                                               |
+| Estado do servidor de metadados ioCache           | Este alerta de nível de anfitrião é desencadeado se o Servidor de Metadados IOCache não puder ser determinado a estar de pé e responder às solicitações dos clientes                                                            |
+| JournalNode Web UI                       | Este alerta de nível de anfitrião é acionado se o UI Web JournalNode estiver inacessível.                                                                                                                 |
+| Servidor Spark2 Thrift                     | Este alerta de nível de anfitrião é acionado se o Servidor Spark2 Thrift não puder ser determinado a estar de pé.                                                                                                |
+| Processo do servidor de história                   | Este alerta de nível de anfitrião é desencadeado se o processo do History Server não puder ser estabelecido para estar ligado e ouvir na rede.                                                                |
+| UI web do servidor histórico                    | Este alerta de nível de anfitrião é acionado se o UI web do servidor de história for inacessível.                                                                                                              |
+| `ResourceManager`Web UI                   | Este alerta de nível de anfitrião é acionado se o `ResourceManager` UI web for inacessível.                                                                                                             |
+| Resumo da Saúde NodeManager               | Este alerta de nível de serviço é desencadeado se houver NodeManagers pouco saudáveis                                                                                                                    |
+| App Timeline Web UI                      | Este alerta de nível de anfitrião é desencadeado se o Web UI do Servidor de Timeline da aplicação estiver inacessível.                                                                                                         |
+| Resumo da saúde dataNode                  | Este alerta de nível de serviço é desencadeado se houver DataNodes pouco saudáveis                                                                                                                       |
+| NomeNode Web UI                          | Este alerta de nível de anfitrião é acionado se o II Web NameNode estiver inacessível.                                                                                                                    |
+| Processo do controlador de falha do ZooKeeper    | Este alerta de nível de anfitrião é desencadeado se o processo do Controlador de Falha do ZooKeeper não puder ser confirmado para estar ligado e a ouvir na rede.                                                   |
+| Oozie Server Web UI                      | Este alerta de nível de anfitrião é acionado se o UI Web do servidor Oozie não for acessível.                                                                                                                |
+| Estado do servidor de Oozie                      | Este alerta de nível de anfitrião é desencadeado se o servidor Oozie não puder ser determinado a estar em pé e a responder aos pedidos do cliente.                                                                      |
+| Processo de Metásta de Colmeia                   | Este alerta de nível de anfitrião é desencadeado se o processo de Metastessão de Colmeia não puder ser determinado a estar de pé e a ouvir na rede.                                                                 |
+| Processo HiveServer2                      | Este alerta de nível de anfitrião é desencadeado se o HiveServer não puder ser determinado a estar de pé e responder aos pedidos do cliente.                                                                        |
+| Estado do servidor WebHCat                    | Este alerta de nível de anfitrião é acionado se o estado do `templeton` servidor não for saudável.                                                                                                            |
+| Por cento servidores zookeeper disponíveis      | Este alerta é desencadeado se o número de servidores do ZooKeeper no cluster for maior do que o limiar crítico configurado. Agrega os resultados das verificações do processo ZooKeeper.     |
+| Servidor Spark2 Livy                       | Este alerta de nível de anfitrião é acionado se o Servidor Livy2 não puder ser determinado a levantar-se.                                                                                                        |
+| Servidor histórico Spark2                    | Este alerta de nível de anfitrião é acionado se o Servidor histórico spark2 não puder ser determinado a estar em pé.                                                                                               |
+| Processo de colecionador de métricas                | Este alerta é acionado se o Coletor de Métricas não puder ser confirmado para estar levantado e a ouvir na porta configurada por um número de segundos igual ao limiar.                                 |
+| Colecionador de Métricas - HBase Master Process | Este alerta é acionado se os processos principais HBase do Colecionador de Métricas não puderem ser confirmados para estarem ligados e a ouvir na rede o limiar crítico configurado, dado em segundos. |
+| Monitores por cento disponíveis       | Este alerta é desencadeado se uma percentagem dos processos do Metrics Monitor não estiver em cima e a ouvir na rede para os limiares de alerta e críticos configurados.                             |
+| Por cento NodeManagers disponíveis           | Este alerta é desencadeado se o número de NodeManagers no cluster for maior do que o limiar crítico configurado. Agrega os resultados das verificações do processo NodeManager.        |
+| NodeManager Health                       | Este alerta de nível de anfitrião verifica a propriedade de saúde do nó disponível a partir do componente NodeManager.                                                                                              |
+| NodeManager Web UI                       | Este alerta de nível de anfitrião é acionado se o UI Web NodeManager não for acessível.                                                                                                                 |
+| NomeNode Alta Disponibilidade Saúde        | Este alerta de nível de serviço é acionado se o Nome Activonode ou o Nome de StandbyNode não estiverem em execução.                                                                                     |
+| Processo DataNode                         | Este alerta de nível de anfitrião é desencadeado se os processos dataNode individuais não puderem ser estabelecidos para estar em pé e ouvir na rede.                                                         |
+| DataNode Web UI                          | Este alerta de nível de anfitrião é acionado se o UI Web DataNode estiver inacessível.                                                                                                                    |
+| Por cento DiárioNodes disponíveis           | Este alerta é desencadeado se o número de Diárionodes no cluster for maior do que o limiar crítico configurado. Agrega os resultados das verificações do processo JournalNode.        |
+| Por cento DataNodes Disponíveis              | Este alerta é desencadeado se o número de DataNodes no cluster for maior do que o limiar crítico configurado. Agrega os resultados das verificações do processo DataNode.              |
+| Estado do servidor zeppelin                   | Este alerta de nível de anfitrião é desencadeado se o servidor Zeppelin não puder ser determinado a estar em pé e a responder aos pedidos do cliente.                                                                   |
+| Processo Interativo HiveServer2          | Este alerta de nível de anfitrião é desencadeado se o HiveServerInteractive não puder ser determinado a estar em pé e a responder aos pedidos do cliente.                                                             |
+| Aplicação LLAP                         | Este alerta é desencadeado se a Aplicação LLAP não puder ser determinada a levantar-se e responder aos pedidos.                                                                                    |
 
 Pode selecionar cada serviço para ver mais informações sobre o mesmo.
 
-Embora a página de serviço forneça informações sobre o estado e configuração de cada serviço, não fornece informações sobre qual o nó de cabeça em que o serviço está em execução. Para ver esta informação, utilize o link **Hosts** na parte superior da página. Esta página exibe anfitriões dentro do cluster, incluindo os nós da cabeça.
+Embora a página de serviço forneça informações sobre o estado e a configuração de cada serviço, não fornece informações sobre qual o nó de cabeça em que o serviço está em execução. Para ver esta informação, utilize o link **Hosts** no topo da página. Esta página apresenta anfitriões dentro do cluster, incluindo os nós da cabeça.
 
-![Apache Ambari headnode anfitrião da lista](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
+![Lista de anfitriões do cabeça de Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
-A seleção do link para um dos nóóis de cabeça mostra os serviços e componentes em funcionamento nesse nó.
+Selecionar o link para um dos nós da cabeça mostra os serviços e componentes em execução nesse nó.
 
-![Estatuto do componente Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
+![Estatuto de componente Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
-Para obter mais informações sobre a utilização de Ambari, consulte [monitor e gerencie o HDInsight utilizando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+Para obter mais informações sobre a utilização de Ambari, consulte [o Monitor e gere o HDInsight utilizando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
-A Ambari REST API está disponível através da internet. O gateway público HDInsight lida com pedidos de encaminhamento para o nó de cabeça que está atualmente hospedando a API REST.
+A Ambari REST API está disponível através da internet. O gateway público HDInsight lida com pedidos de encaminhamento para o nó de cabeça que está atualmente a hospedar a API REST.
 
 Pode utilizar o seguinte comando para verificar o estado de um serviço através da API Ambari REST:
 
@@ -180,11 +180,11 @@ Pode utilizar o seguinte comando para verificar o estado de um serviço através
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 ```
 
-* Substitua a **palavra-passe** com a palavra-passe da conta http (administradora).
+* Substitua **a palavra-passe** do utilizador HTTP (administrador).
 * Substitua **CLUSTERNAME** pelo nome do cluster.
-* Substitua o **SERVICENAME** pelo nome do serviço que pretende verificar o estado.
+* Substitua o **SERVICENAME** pelo nome do serviço que pretende verificar o estado de.
 
-Por exemplo, para verificar o estado do serviço **HDFS** num cluster denominado **mycluster,** com uma palavra-passe de **senha,** utilizaria o seguinte comando:
+Por exemplo, para verificar o estado do serviço **HDFS** num cluster chamado **mycluster**, com uma palavra-passe , utilizaria o seguinte comando: **password**
 
 ```bash
 curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
@@ -205,83 +205,85 @@ A resposta é semelhante à seguinte JSON:
 
 O URL diz-nos que o serviço está atualmente a funcionar num nó de cabeça chamado **mycluster.wutj3h4ic1zejluqhxzvckxq0g**.
 
-O Estado diz-nos que o serviço está a funcionar, ou **OSTARTED.**
+O Estado diz-nos que o serviço está atualmente em funcionamento, ou **INICIADO.**
 
-Se não souber quais os serviços instalados no cluster, pode utilizar o seguinte comando para recuperar uma lista:
+Se não souber que serviços estão instalados no cluster, pode utilizar o seguinte comando para recuperar uma lista:
 
 ```bash
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 ```
 
-Para obter mais informações sobre o trabalho com a Ambari REST API, consulte [Monitor e Gerencie o HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Para obter mais informações sobre o trabalho com a API Ambari REST, consulte [Monitor e Manage HDInsight utilizando a API Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Componentes de serviço
 
-Os serviços podem conter componentes que deseja verificar o estado individualmente. Por exemplo, o HDFS contém o componente NameNode. Para visualizar informações sobre um componente, o comando seria:
+Os serviços podem conter componentes que pretende verificar individualmente. Por exemplo, o HDFS contém o componente NameNode. Para ver informações sobre um componente, o comando seria:
 
 ```bash
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 ```
 
-Se não souber quais os componentes fornecidos por um serviço, pode utilizar o seguinte comando para recuperar uma lista:
+Se não souber que componentes são fornecidos por um serviço, pode utilizar o seguinte comando para recuperar uma lista:
 
 ```bash
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 ```
 
-## <a name="how-to-access-log-files-on-the-head-nodes"></a>Como aceder a ficheiros de registo nos nóóis da cabeça
+## <a name="how-to-access-log-files-on-the-head-nodes"></a>Como aceder a ficheiros de registo nos nos nosmes da cabeça
 
 ### <a name="ssh"></a>SSH
 
-Enquanto está ligado a um nó de cabeça através do SSH, os ficheiros de registo podem ser encontrados em **/var/log**. Por exemplo, **/var/log/hadoop-fios/fios** contêm registos para o ARN.
+Enquanto ligados a um nó de cabeça através de SSH, os ficheiros de registo podem ser encontrados em **/var/log**. Por exemplo, **/var/log/hadoop-yarn/yarn** contêm registos para YARN.
 
 Cada nó de cabeça pode ter entradas de registo únicas, por isso deve verificar os registos em ambos.
 
 ### <a name="sftp"></a>SFTP
 
-Também pode ligar-se ao nó principal utilizando o Protocolo de Transferência de Ficheiros SSH ou o Protocolo de Transferência de Ficheiros Seguros (SFTP) e transferir os ficheiros de registo diretamente.
+Também pode ligar-se ao nó de cabeça utilizando o Protocolo de Transferência de Ficheiros SSH ou o Protocolo de Transferência de Ficheiros Seguro (SFTP) e fazer o download dos ficheiros de registo diretamente.
 
-Semelhante à utilização de um cliente SSH, ao ligar-se ao cluster deve fornecer o nome da conta de utilizador SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a palavra-passe para a conta quando solicitado `-i` ou forneça uma chave pública utilizando o parâmetro.
+Semelhante à utilização de um cliente SSH, ao ligar-se ao cluster deve fornecer o nome da conta de utilizador SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a palavra-passe para a conta quando solicitada, ou forneça uma chave pública utilizando o `-i` parâmetro.
 
-Uma vez ligado, é-lhe apresentado um `sftp>` pedido. A partir desta solicitação, pode alterar diretórios, fazer upload e transferir ficheiros. Por exemplo, os seguintes comandos mudam de diretórios para o diretório **/var/log/hadoop/hdfs** e, em seguida, descarregue todos os ficheiros no diretório.
+Uma vez ligado, é-lhe apresentado um `sftp>` pedido. A partir desta solicitação, pode alterar diretórios, carregar e descarregar ficheiros. Por exemplo, os seguintes comandos mudam os diretórios para o diretório **/var/log/hadoop/hdfs** e, em seguida, descarregam todos os ficheiros no diretório.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
-Para obter uma lista de `help` comandos disponíveis, insira no `sftp>` momento.
+Para obter uma lista de comandos disponíveis, `help` insira no `sftp>` aviso.
 
 > [!NOTE]  
-> Existem também interfaces gráficas que permitem visualizar o sistema de ficheiros quando ligado sFTP. Por exemplo, o [MobaXTerm](https://mobaxterm.mobatek.net/) permite-lhe navegar no sistema de ficheiros utilizando uma interface semelhante ao Windows Explorer.
+> Existem também interfaces gráficas que permitem visualizar o sistema de ficheiros quando conectado usando sFTP. Por exemplo, [o MobaXTerm](https://mobaxterm.mobatek.net/) permite-lhe navegar no sistema de ficheiros utilizando uma interface semelhante ao Windows Explorer.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]  
-> Para aceder aos ficheiros de registo utilizando ambari, deve utilizar um túnel SSH. As interfaces web dos serviços individuais não são expostas publicamente na Internet. Para obter informações sobre a utilização de um túnel SSH, consulte o documento de [túnel SSH de utilização.](hdinsight-linux-ambari-ssh-tunnel.md)
+> Para aceder aos ficheiros de registo usando ambari, tem de utilizar um túnel SSH. As interfaces web para cada serviço não são expostas publicamente na Internet. Para obter informações sobre a utilização de um túnel SSH, consulte o documento [de túnel SSH use.](hdinsight-linux-ambari-ssh-tunnel.md)
 
-A partir do Ambari Web UI, selecione o serviço para o que pretende visualizar registos (por exemplo, YARN). Em seguida, utilize **ligações rápidas** para selecionar qual o nó de cabeça para ver os registos.
+A partir do Ambari Web UI, selecione o serviço para o quais deseja visualizar registos (por exemplo, YARN). Em seguida, utilize **Links Rápidos** para selecionar qual nó de cabeça para visualizar os registos.
 
-![Usando ligações rápidas para ver registos](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
+![Usando links rápidos para visualizar registos](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho do nó
 
-O tamanho de um nó só pode ser selecionado durante a criação do cluster. Pode encontrar uma lista dos diferentes tamanhos vm disponíveis para HDInsight na página de [preços HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+O tamanho de um nó só pode ser selecionado durante a criação do cluster. Pode encontrar uma lista dos diferentes tamanhos VM disponíveis para HDInsight na [página de preços hdInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um cluster, pode especificar o tamanho dos nós. As seguintes informações fornecem orientações sobre como especificar o tamanho utilizando o [portal Azure,](https://portal.azure.com/) [o módulo Azure PowerShell Az](/powershell/azureps-cmdlets-docs)e o [Azure CLI:](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Ao criar um cluster, pode especificar o tamanho dos nós. As seguintes informações fornecem orientações sobre como especificar o tamanho utilizando o [portal Azure](https://portal.azure.com/), [módulo Azure PowerShell Az](/powershell/azureps-cmdlets-docs), e o [Azure CLI:](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-* **Portal Azure**: Ao criar um cluster, pode definir o tamanho dos nós utilizados pelo cluster:
+* **Portal azul**: Ao criar um cluster, pode definir o tamanho dos nosmos utilizados pelo cluster:
 
-    ![Imagem do assistente de criação de cluster com seleção de tamanho do nó](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
+    ![Imagem do assistente de criação de cluster com seleção de tamanho de nó](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **Azure CLI**: [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) Ao utilizar o comando, pode definir o tamanho da cabeça, `--headnode-size`dos `--workernode-size`pés `--zookeepernode-size` de trabalho e do ZooKeeper utilizando os parâmetros e parâmetros.
+* **Azure CLI**: Ao utilizar o [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando, pode definir o tamanho dos nós da cabeça, do trabalhador e do ZooKeeper utilizando os `--headnode-size` , e os `--workernode-size` `--zookeepernode-size` parâmetros.
 
-* **Azure PowerShell**: Ao utilizar o cmdlet [New-AzHDInsightCluster,](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) pode definir o tamanho dos nós `-HeadNodeSize`da `-WorkerNodeSize`cabeça, do trabalhador e do ZooKeeper utilizando os parâmetros e `-ZookeeperNodeSize` parâmetros.
+* **Azure PowerShell**: Ao utilizar o cmdlet [New-AzHDInsightCluster,](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) pode definir o tamanho da cabeça, do trabalhador e dos nós do ZooKeeper utilizando os , `-HeadNodeSize` e `-WorkerNodeSize` `-ZookeeperNodeSize` parâmetros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 
-* [Referência de repouso Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instale e configure o Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Instale e configure o módulo Azure PowerShell Az](/powershell/azure/overview)
-* [Gerir o HDInsight usando Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
+* [Referência Apache Ambari REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Instalar e configurar o Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instalar e configurar módulo Azure PowerShell Az](/powershell/azure/overview)
+* [Gerir HDInsight usando Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Provision Clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 7d3fff80dcae3f97ca947504390ebc4a824e5f0d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851643"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de networking do Azure
 
@@ -90,7 +90,7 @@ O serviço Azure Peering melhora a conectividade do cliente com os serviços na 
 
 Esta secção descreve serviços de networking em Azure que ajudam a proteger os seus recursos de rede - Proteja as suas aplicações utilizando qualquer ou uma combinação destes serviços de rede em Azure - Private Link, proteção DDoS, Firewall, Grupos de Segurança de Rede, Firewall de Aplicação Web e Pontos Finais de Rede Virtual.
 
-|Serviço|Por que usar?|Cenário|
+|Serviço|Por que usar?|Scenario|
 |---|---|---|
 |[Proteção DDoS](#ddosprotection) |Alta disponibilidade para as suas aplicações com proteção contra taxas de tráfego IP em excesso|[Gerir a proteção Azure DDoS](../virtual-network/manage-ddos-protection.md)|
 |[Firewall de Aplicações Web](#waf)|<p>[Azure WAF com Application Gateway](../web-application-firewall/ag/ag-overview.md) fornece proteção regional a entidades em espaço de endereço público e privado</p><p>[A Azure WAF com Porta Frontal](../web-application-firewall/afds/afds-overview.md) fornece proteção na borda da rede para os pontos finais públicos.</p>|<p>[Configurar regras de proteção de bots](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configurar código de resposta personalizado](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configurar regras de restrição ip](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Regra limite de taxa de configuração](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
@@ -139,12 +139,12 @@ O tráfego entre a sua rede virtual e o serviço percorre a rede de espinha dors
 
 Esta secção descreve os serviços de networking em Azure que ajudam a entregar aplicações - Rede de Entrega de Conteúdos, Serviço de Porta Frontal Azure, Gestor de Tráfego, Balanceador de Carga e Gateway de Aplicações.
 
-|Serviço|Por que usar?|Cenário|
+|Serviço|Por que usar?|Scenario|
 |---|---|---|
-|[Rede de Entrega de Conteúdos](#cdn)|Fornece conteúdo de largura de banda alta aos utilizadores. Os CDNs armazenam conteúdo em cache em servidores de borda em locais de ponto de presença (POP) que estão perto dos utilizadores finais, para minimizar a latência|<p>[Adicione CDN a uma aplicação web](../cdn/cdn-add-to-web-app.md)</p> <p>[- Aceder a bolhas de armazenamento utilizando um domínio personalizado Azure CDN sobre HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Adicione um domínio personalizado ao seu ponto final Azure CDN](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Configure HTTPS on an Azure CDN custom domain](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) (Configurar HTTPS num domínio personalizado da CDN do Azure)</p>|
-|[Azure Front Door Service](#frontdoor)|Permite-lhe definir, gerir e monitorizar o encaminhamento global para o seu tráfego web, otimizando para o melhor desempenho e falha global instantânea para uma elevada disponibilidade.|<p>[Adicionar um domínio personalizado ao Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configurar HTTPS em um domínio personalizado da porta da frente](../frontdoor/front-door-custom-domain-https.md)</p><p>[Configurar a política de firewall de aplicação web de geo filtragem](../frontdoor/front-door-tutorial-geo-filtering.md)|
+|[Rede de Entrega de Conteúdos](#cdn)|Fornece conteúdo de largura de banda alta aos utilizadores. Os CDNs armazenam conteúdo em cache em servidores de borda em locais de ponto de presença (POP) que estão perto dos utilizadores finais, para minimizar a latência|<p>[Adicione CDN a uma aplicação web](../cdn/cdn-add-to-web-app.md)</p> <p>[- Aceder a bolhas de armazenamento utilizando um domínio personalizado Azure CDN sobre HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Adicionar um domínio personalizado ao seu ponto final da CDN do Azure](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Configurar HTTPS num domínio personalizado da CDN do Azure](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
+|[Azure Front Door Service](#frontdoor)|Permite-lhe definir, gerir e monitorizar o encaminhamento global para o seu tráfego web, otimizando para o melhor desempenho e falha global instantânea para uma elevada disponibilidade.|<p>[Adicionar um domínio personalizado ao Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configurar HTTPS num domínio personalizado do Front Door](../frontdoor/front-door-custom-domain-https.md)</p><p>[Configurar a política de firewall de aplicação web de geo filtragem](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Gestor de Tráfego](#trafficmanager)|Distribui tráfego com base em DNS a serviços em todas as regiões globais do Azure, ao mesmo tempo que proporciona elevada disponibilidade e capacidade de resposta|<p> [Encaminhar o tráfego de baixa latência](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Encaminhar o tráfego para um ponto final prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Controlar o tráfego com pontos de extremidade ponderados](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Tráfego de rotas baseado na localização geográfica do ponto final](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Encaminhar tráfego com base na sub-rede do utilizador](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Balanceador de Carga](#loadbalancer)|Proporciona um equilíbrio regional de carga, encaminhando o tráfego através das zonas de disponibilidade e para os seus VNets. Proporciona um equilíbrio interno de cargas, encaminhando o tráfego através e entre os seus recursos para construir a sua aplicação regional.|<p> [Balancear carga de tráfego de internet para VMs](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Tráfego de equilíbrio de carga através de VMs dentro de uma rede virtual](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Tráfego portuário para uma porta específica em VMs específicos](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configurar regras de equilíbrio e saída de carga](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Balanceador de Carga](#loadbalancer)|Proporciona um equilíbrio regional de carga, encaminhando o tráfego através das zonas de disponibilidade e para os seus VNets. Proporciona um equilíbrio interno de cargas, encaminhando o tráfego através e entre os seus recursos para construir a sua aplicação regional.|<p> [Balancear carga de tráfego de internet para VMs](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Tráfego de equilíbrio de carga através de VMs dentro de uma rede virtual](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Tráfego portuário para uma porta específica em VMs específicos](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configurar regras de equilíbrio e saída de carga](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
 |[Gateway de Aplicação](#applicationgateway)|O Gateway de Aplicação do Azure é um balanceador de carga do tráfego da Web que lhe permite gerir o tráfego para as suas aplicações Web.|<p>[Direcionar o tráfego Web com o Gateway de Aplicação do Azure](../application-gateway/quick-create-portal.md)</p><p>[Tutorial: Configurar um gateway de aplicações com rescisão de TLS usando o portal Azure](../application-gateway/create-ssl-portal.md)</p><p>[Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](../application-gateway/create-url-route-portal.md) </p>|
 |
 
@@ -185,7 +185,7 @@ O diagrama seguinte mostra o encaminhamento baseado em url path com o Applicatio
 ## <a name="network-monitoring-services"></a><a name="monitor"></a>Serviços de monitorização da rede
 Esta secção descreve os serviços de networking em Azure que ajudam a monitorizar os recursos da sua rede - Monitor de Rede, Monitor ExpressRoute, Monitor Azure e Virtual Network TAP.
 
-|Serviço|Por que usar?|Cenário|
+|Serviço|Por que usar?|Scenario|
 |---|---|---|
 |[Observador de Rede](#networkwatcher)|Ajuda a monitorizar e resolver problemas de conectividade, ajuda a diagnosticar problemas de VPN, NSG e encaminhamento, captura pacotes no seu VM, automatiza ferramentas de diagnóstico usando funções Azure e Aplicações Lógicas|<p>[Diagnosticar problema de filtragem de tráfego de VM](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnosticar problema de encaminhamento de VM](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Monitorizar comunicações entre VMs](../network-watcher/connection-monitor.md)</p><p>[Diagnosticar problemas de comunicação entre redes](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Registar tráfego de rede de e para uma VM](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
 |[ExpressRoute Monitor](#expressroutemonitor)|Fornece monitorização em tempo real do desempenho, disponibilidade e utilização da rede, ajuda na auto-descoberta da topologia da rede, proporciona um isolamento mais rápido de falhas, deteta problemas de rede transitórios, ajuda a analisar características históricas de desempenho da rede, suporta multi-subscrição|<p>[Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)</p><p>[Monitorização, métricas e alertas do ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
@@ -208,7 +208,7 @@ A imagem que se segue mostra como funciona a rede virtual TAP.
 
 Para mais informações, consulte [O que é a Rede Virtual TAP.](../virtual-network/virtual-network-tap-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie o seu primeiro VNet e conecte alguns VMs ao mesmo, completando os passos no Create o seu primeiro artigo [de rede virtual.](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 - Ligue o computador a um VNet completando os passos no [Configure um artigo de ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

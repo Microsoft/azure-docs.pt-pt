@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 40d1efd5d5e8dc5fed07bf5b9ab1cfa70927b5cf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84732587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850895"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerir os seus utilizadores com o Meu Pessoal (pré-visualização)
 
@@ -32,7 +32,7 @@ A autenticação por SMS para os utilizadores é uma funcionalidade de pré-visu
 
 O meu pessoal baseia-se em unidades administrativas (UA), que são um contentor de recursos que podem ser utilizados para restringir o âmbito de controlo administrativo de uma missão. No My Staff, as UA são usadas para definir um subconjunto de utilizadores de uma organização, como uma loja ou departamento. Então, por exemplo, um gestor de equipa poderia ser atribuído a um papel cujo âmbito é uma ou mais AUs. No exemplo abaixo, foi-lhe atribuída a função de Administração de Autenticação, e as três AUs são o âmbito do papel. Para obter mais informações sobre unidades administrativas, consulte [a gestão de unidades administrativas no Diretório Ativo Azure.](directory-administrative-units.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -71,9 +71,10 @@ Recomendamos vivamente que proteja o Meu Pessoal utilizando [políticas de acess
 1. Instale os [cmdlets Beta PowerShell do Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
 1. Execute os seguintes comandos:
 
-        Connect-Graph -Scopes "Directory.AccessAsUser.All"
-        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
+   ```powershell
+   Connect-Graph -Scopes "Directory.AccessAsUser.All"
+   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+   ```
 1. Crie uma política de acesso condicional que se aplique à aplicação da nuvem My Staff.
 
     ![Criar uma política de acesso condicional para a aplicação My Staff](media/my-staff-configure/conditional-access.png)
@@ -118,7 +119,7 @@ Para gerir o número de telefone de um utilizador, deve ser-lhe atribuída uma d
 - [Administrador de autenticação privilegiada](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Administrador global](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Pesquisa
 
 Pode pesquisar por AUs e utilizadores na sua organização utilizando a barra de pesquisa em My Staff. Pode pesquisar em todos os Utilizadores e Utilizadores da sua organização, mas só pode fazer alterações aos utilizadores que se encontrem numa AU sobre a qual lhe foram dadas permissões de administração.
 
@@ -128,7 +129,7 @@ Também pode pesquisar por um utilizador dentro de uma AU. Para isso, utilize a 
 
 Pode ver os registos de auditoria das ações tomadas no Meu Pessoal no portal Azure Ative Directory. Se um registo de auditoria foi gerado por uma ação tomada no My Staff, verá isso indicado em DETALHES ADICIONAIS no evento de auditoria.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Documentação do [meu pessoal](../user-help/my-staff-team-manager.md) 
  [Documentação das unidades administrativas](directory-administrative-units.md)

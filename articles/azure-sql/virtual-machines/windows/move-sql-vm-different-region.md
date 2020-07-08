@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bc65e34fa16312b54fc8a346c561ab128424ab26
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851804"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Mover um SQL Server VM para outra região dentro de Azure com recuperação do site Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Prepare tanto a fonte SQL Server VM como a região alvo para a mudança.
     - A Azure Site Recovery descobre e cria automaticamente uma rede virtual quando ativa a replicação para o VM de origem. Também pode pré-criar uma rede e atribuí-la ao VM no fluxo do utilizador para permitir a replicação. É necessário criar manualmente quaisquer outros recursos na região alvo.
 - Para criar os recursos de rede mais utilizados que são relevantes para si com base na configuração VM de origem, consulte a seguinte documentação: 
     - [Grupos de segurança de rede](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Equilibrador de carga](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Equilibrador de carga](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Endereço IP público](../../../virtual-network/virtual-network-public-ip-address.md)
     - Para obter quaisquer componentes de rede adicionais, consulte a [documentação de networking](../../../virtual-network/virtual-networks-overview.md).
 - Crie manualmente uma rede de não produção na região alvo se quiser testar a configuração antes de realizar a última mudança para a região alvo. Recomendamos este passo porque garante uma interferência mínima com a rede de produção. 

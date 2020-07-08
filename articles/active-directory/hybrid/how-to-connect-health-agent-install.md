@@ -16,18 +16,18 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10e6d3a419bdf8b14675f0edabd63ed4b4f4b86f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 86e7f1fc18738eef39f8ec29da8763b862cdcc2b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849974"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
 Este documento descreve a instalação e a configuração dos Agentes do Azure AD Connect Health. Pode transferir os agentes de [aqui](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect Health.
 
@@ -329,19 +329,25 @@ Tem as seguintes opções para configurar o Agente do Azure AD Connect Health pa
 
 As definições de proxy de HTTP do Internet Explorer podem ser importadas para serem utilizadas pelos Agentes do Azure AD Connect Health. Em cada um dos servidores que executem o Agente de estado de funcionamento, execute o seguinte comando do PowerShell:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```
 
 ##### <a name="import-from-winhttp"></a>Importar do WinHTTP
 
 As definições de proxy de WinHTTP podem ser importadas para serem utilizadas pelos Agentes do Azure AD Connect Health. Em cada um dos servidores que executem o Agente de estado de funcionamento, execute o seguinte comando do PowerShell:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```
 
 #### <a name="specify-proxy-addresses-manually"></a>Especificar manualmente endereços Proxy
 
 Pode especificar manualmente um servidor proxy em cada servidor que executa o Agente de Estado de Funcionamento, através do seguinte comando do PowerShell:
 
-    Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```powershell
+Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```
 
 Exemplo: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
@@ -352,15 +358,17 @@ Exemplo: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 
 Pode limpar a configuração de proxy existente ao executar o seguinte comando:
 
-    Set-AzureAdConnectHealthProxySettings -NoProxy
-
+```powershell
+Set-AzureAdConnectHealthProxySettings -NoProxy
+```
 
 ### <a name="read-current-proxy-settings"></a>Ler as definições de proxy atuais
 
 Pode ler as definições de proxy atualmente configuradas ao executar o seguinte comando:
 
-    Get-AzureAdConnectHealthProxySettings
-
+```powershell
+Get-AzureAdConnectHealthProxySettings
+```
 
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Testar a conectividade ao Serviço Azure AD Connect Health
 
@@ -368,7 +376,9 @@ Pode ler as definições de proxy atualmente configuradas ao executar o seguinte
 
 Se o agente não conseguir enviar dados para o serviço do Azure AD Connect Health durante mais de duas horas, é apresentado o alerta no portal “Os dados do Serviço de Estado de Funcionamento não estão atualizados”. Pode confirmar se o agente do Azure AD Connect Health consegue carregar dados para este serviço ao executar o seguinte comando do PowerShell:
 
-    Test-AzureADConnectHealthConnectivity -Role ADFS
+```powershell
+Test-AzureADConnectHealthConnectivity -Role ADFS
+```
 
 O parâmetro de função toma atualmente os seguintes valores:
 
