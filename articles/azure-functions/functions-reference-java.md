@@ -3,12 +3,12 @@ title: Referência do desenvolvedor java para funções Azure
 description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: b3404920dda9225b289d82013d29c35a1297ec32
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340339"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057607"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvedores de Java funções Azure Functions
 
@@ -50,20 +50,6 @@ mvn archetype:generate \
 
 Para começar a usar este arquétipo, consulte o [arranque rápido de Java.](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) 
 
-## <a name="create-kotlin-functions-preview"></a>Criar funções Kotlin (pré-visualização)
-
-Há também um arquétipo Maven para gerar funções kotlin. Este arquétipo, atualmente em pré-visualização, é publicado sob o seguinte _grupoId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-O seguinte comando gera um novo projeto de função Java utilizando este arquétipo:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-Para começar a usar este arquétipo, consulte o [quickstart Kotlin](functions-create-first-kotlin-maven.md).
-
 ## <a name="folder-structure"></a>Estrutura de pasta
 
 Aqui está a estrutura de pasta de um projeto Azure Functions Java:
@@ -90,9 +76,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-_* O projeto Kotlin parece muito semelhante uma vez que ainda é Maven_
-
-Pode utilizar um ficheiro [host.json](functions-host-json.md) partilhado para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.java) e ficheiro de configuração de ligação (função.json).
+Pode utilizar umahost.jspartilhada [no](functions-host-json.md) ficheiro para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.java) e ficheiro de configuração de ligação (function.js).
 
 Pode colocar mais do que uma função num projeto. Evite colocar as suas funções em frascos separados. O `FunctionApp` directório-alvo é o que é implementado na sua aplicação de função em Azure.
 
@@ -103,7 +87,7 @@ Pode colocar mais do que uma função num projeto. Evite colocar as suas funçõ
 Utilize as anotações java incluídas no pacote [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) para ligar entradas e saídas aos seus métodos. Para mais informações, consulte os [documentos de referência de Java.](/java/api/com.microsoft.azure.functions.annotation)
 
 > [!IMPORTANT] 
-> Tem de configurar uma conta de Armazenamento Azure no seu [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) para executar o armazenamento Azure Blob, o armazenamento da fila Azure ou os gatilhos de armazenamento da mesa Azure localmente.
+> Tem de configurar uma conta de Armazenamento Azure no seu [local.settings.js](/azure/azure-functions/functions-run-local#local-settings-file) para executar o armazenamento Azure Blob, o armazenamento da fila Azure ou os gatilhos de armazenamento da Mesa Azure localmente.
 
 Exemplo:
 
@@ -203,7 +187,7 @@ Para converter dados de entrada para POJO, [o azure-functions-java-worker](https
 
 ### <a name="binary-data"></a>Dados binários
 
-Ligue entradas ou saídas binárias `byte[]` para, definindo o `dataType` campo na sua função.json para `binary` :
+Ligue entradas ou saídas binárias `byte[]` para, definindo o `dataType` campo no seu function.jspara `binary` :
 
 ```java
    @FunctionName("BlobTrigger")
@@ -348,7 +332,7 @@ Invoca esta função num HttpRequest. Escreve vários valores para o armazenamen
 | `HttpRequestMessage<T>`  |    Acionador HTTP     | Obtém método, cabeçalhos ou consultas |
 | `HttpResponseMessage` | Vinculação de saída HTTP | Estatuto de devolução que não seja 200   |
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Metadados
 
 Poucos gatilhos enviam [metadados de gatilho](/azure/azure-functions/functions-triggers-bindings) juntamente com dados de entrada. Pode utilizar a anotação `@BindingName` para se ligar aos metadados.
 

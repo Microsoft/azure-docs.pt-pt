@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84b94240431026020d3de793d56853a7d92a6f14
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463853"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057981"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância de processador de mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
-> * [DESCANSE](media-services-rest-get-media-processor.md)
+> * [REST](media-services-rest-get-media-processor.md)
 > 
 > 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Nos Serviços de Mídia um processador de mídia é um componente que lida com uma tarefa de processamento específica, como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Normalmente cria um processador de mídia quando está a criar uma tarefa para codificar, encriptar ou converter o formato de conteúdo sonoro.
 
 ## <a name="azure-media-processors"></a>Processadores de mídia Azure 
@@ -42,16 +42,18 @@ O seguinte tópico fornece listas de processadores de mídia:
 
 O seguinte método mostra como obter uma instância de processador de mídia. O exemplo de código pressupõe a utilização de uma variável de nível de módulo denominada **_context** para referenciar o contexto do servidor como descrito na secção [Como: Ligar-se a Serviços de Mídia Programáticamente](media-services-use-aad-auth-to-access-ams-api.md).
 
-    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+```csharp
+private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+{
+    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-        if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+    if (processor == null)
+    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-        return processor;
-    }
+    return processor;
+}
+```
 
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

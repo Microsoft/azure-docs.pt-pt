@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285151"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057964"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace Comercial
 
@@ -37,20 +37,29 @@ Quando estiver pronto para publicar a sua oferta atualizada, selecione **Publica
 > [!IMPORTANT]
 > Tem de rever a pré-visualização da sua oferta assim que estiver disponível e selecione **Go-live** para publicar a sua oferta atualizada para o seu público pretendido (público ou privado).
 
+## <a name="add-a-plan-to-an-existing-offer"></a>Adicione um plano a uma oferta existente
+
+Para adicionar um novo plano dentro de uma oferta já publicada:
+
+1. Com a página geral da **Oferta** para a sua oferta existente aberta, vá à página **de visão geral** do Plano e, em seguida, selecione Criar novo **plano**.
+1. Crie um novo plano de acordo com as [diretrizes](./create-new-saas-offer.md#plan-overview) utilizando o modelo de preços dos **planos existentes.**
+1. **Selecione Guardar o projeto** depois de alterar o nome do plano. 
+1. **Selecione Publicar** quando estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](#review-and-publish-an-updated-offer)** abre e fornece um estado de conclusão para as suas atualizações.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano dentro de uma oferta existente
 
 Para fazer alterações a um plano dentro de uma oferta já publicada:
 
-- Com a página **de visão geral da Oferta** aberta para a sua oferta existente, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos**.
-- Pode optar por selecionar o modelo **de modelo de plano,** **preço**ou **Disponibilidade.** *Atualmente, os planos só estão disponíveis em inglês (Estados Unidos)*.
-- **Selecione Guardar** depois de escoar as alterações necessárias ao nome do plano, descrição, preços ou disponibilidade do público. 
-- **Selecione Publicar** assim que estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](#review-and-publish-an-updated-offer)** abrirá e fornecerá um estado de conclusão para as suas atualizações.
+1. Com a página geral da **Oferta** para a sua oferta existente aberta, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos**.
+1. Pode optar por selecionar o modelo **de modelo de plano,** **preço**ou **Disponibilidade.** *Atualmente, os planos estão disponíveis apenas em inglês (Estados Unidos)*.
+1. **Selecione Guardar** depois de escoar quaisquer alterações necessárias ao nome do plano, descrição ou disponibilidade do público. 
+1. **Selecione Publicar** quando estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](#review-and-publish-an-updated-offer)** abre e fornece um estado de conclusão para as suas atualizações.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Compare as alterações às ofertas de mercado
 
-Pode auditar as alterações que faz a uma oferta [publicada](#compare-changes-to-published-offer) ou [de pré-visualização](#compare-changes-to-a-preview-offer) antes de as fazer ao vivo usando **Compare.**
+Pode auditar as alterações que faz a uma oferta [publicada](#compare-changes-to-published-offer) ou [de pré-visualização](#compare-changes-to-a-preview-offer) antes de as tornar ao vivo utilizando **o Compare**.
 
->[!NOTE]
+> [!NOTE]
 > Uma oferta publicada é uma oferta que foi publicada com sucesso para Preview ou Live state.
 
 Veja abaixo as informações gerais de auditoria:
@@ -122,9 +131,9 @@ Depois de confirmar que pretende eliminar o projeto de plano, o plano deixará d
 
 Para cancelar uma oferta com a **Publicação em curso:**
 
-- Selecione o nome da oferta para abrir a página **geral da Oferta.**
-- Selecione **Cancelar a publicação** do canto superior direito da página.
-- Confirme que deseja impedir que a oferta seja publicada.
+1. Selecione o nome da oferta para abrir a página **geral da Oferta.**
+1. Selecione **Cancelar a publicação** do canto superior direito da página.
+1. Confirme que deseja impedir que a oferta seja publicada.
 
 Se quiser publicar a oferta mais tarde, terá de começar o processo de publicação.
 
@@ -158,6 +167,6 @@ Para atualizar e sincronizar o público privado para o seu plano):
 
 **O público privado sincronizado** publicará apenas as alterações ao seu público privado, sem publicar quaisquer outras atualizações que possa ter feito à oferta de projeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Consulte o estado editorial da sua oferta de Mercado Comercial](./publishing-status.md)

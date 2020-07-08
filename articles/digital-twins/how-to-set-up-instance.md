@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9489b9e1afe5e42121f61a3b0b50b28b2401bd3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392289"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057488"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Configurar um exemplo de Gémeos Digitais Azure
 
@@ -24,19 +24,19 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="set-up-an-azure-digital-twins-instance"></a>Configurar um exemplo de Gémeos Digitais Azure
 
-Em seguida, executar os seguintes comandos para criar um novo grupo de recursos Azure para uso neste como-fazer, e, em seguida, criar uma nova instância de Azure Digital Twins neste grupo de recursos.
+Em seguida, irá criar um novo grupo de recursos Azure para uso neste como-fazer. Em seguida, pode **criar uma nova instância de Azure Digital Twins** dentro desse grupo de recursos. 
+
+Também terá de fornecer um nome para o seu exemplo e escolher uma região para a implantação. Para ver que regiões suportam a Azure Digital Twins, visite [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
+
+>[!NOTE]
+> O nome do novo caso deve ser único dentro da região (o que significa que se outra instância Azure Digital Twins naquela região já estiver a usar o nome que escolher, terá de escolher um nome diferente).
+
+Criar o grupo de recursos e a instância com os seguintes comandos:
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
-
-> [!TIP]
-> Para obter uma lista de nomes da região de Azure que podem ser passados em comandos no CLI Azure, executar este comando:
-> ```azurecli
-> az account list-locations -o table
-> ```
-> Para ver que regiões suportam a Azure Digital Twins, visite [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
 
 O resultado destes comandos é algo parecido com isto, fornecendo informações sobre os recursos que criou:
 
@@ -55,9 +55,11 @@ Para utilizar a Azure Digital Twins com uma aplicação para clientes, também t
 
 #### <a name="assign-yourself-a-role"></a>Atribua-se um papel
 
-Crie uma atribuição de papel para si mesmo, utilizando o seu e-mail associado ao inquilino da AAD na sua assinatura Azure. 
+Crie uma atribuição de papel para si no caso Azure Digital Twins, utilizando o seu e-mail associado ao inquilino da AAD na sua assinatura Azure. 
 
-Em primeiro lugar, certifique-se de que é classificado como proprietário na sua assinatura Azure. Pode verificar isto utilizando o `az role assignment list --assignee <your-Azure-email>` comando e verificar se o valor do nome *dedefinição* é *proprietário.* Como proprietário na subscrição, pode utilizar o seguinte comando para atribuir o seu utilizador a uma função de proprietário para a sua instância Azure Digital Twins:
+Para poder fazê-lo, tem de ser classificado como proprietário na sua assinatura Azure. Pode verificar isto executando o `az role assignment list --assignee <your-Azure-email>` comando e verificando na saída que o valor do *nome dedefinição* é *Proprietário*. Se descobrir que o valor é *Contribuinte* ou algo diferente do *Proprietário,* contacte o seu administrador de subscrição com o poder de conceder permissões na sua subscrição para elevar o seu papel.
+
+Como proprietário na subscrição, pode utilizar o seguinte comando para atribuir o seu utilizador a uma função de proprietário para a sua instância Azure Digital Twins:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
@@ -74,7 +76,7 @@ O resultado deste comando é informação sobre a função que criou.
 
 Agora tens uma instância do Azure Digital Twins pronta para ir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como configurar e autenticar uma aplicação do cliente para trabalhar com o seu exemplo:
 * [Como fazer: Autenticar uma aplicação de cliente](how-to-authenticate-client.md)

@@ -4,12 +4,12 @@ description: Aprenda a criar o seu primeiro modelo de Gestor de Recursos Azure u
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80153357"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057454"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implementar modelos ARM utilizando o IntelliJ IDEA
 
@@ -78,7 +78,7 @@ Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início 
 > [!NOTE]
 > Note que eliminar uma implantação não eliminará os recursos criados pela implantação. Por favor, elimine o grupo de recursos correspondente ou recursos específicos se já não precisar deles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O principal foco deste artigo é usar o IntelliJ IDEA para implementar um modelo existente a partir de modelos Azure Quickstart. Também aprendeu a ver e atualizar uma implementação existente no Azure. Os modelos de Início Rápido do Azure poderão não fornecer-lhe tudo o que precisa. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiantes:
 
@@ -86,4 +86,4 @@ O principal foco deste artigo é usar o IntelliJ IDEA para implementar um modelo
 > [Tutoriais para principiantes](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Visite Java no centro de Azure Dev](https://docs.microsoft.com/azure/java)
+> [Visite Java no centro de Azure Dev](/azure/java)

@@ -4,12 +4,12 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: dd3b9b8eca4f1eab66f8982b22be5941d082b229
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506179"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057437"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre recuperação do local de Azure
 
@@ -22,11 +22,16 @@ Este artigo resume perguntas frequentes sobre a Recuperação do Sítio Azure. P
 ## <a name="general"></a>Geral
 
 ### <a name="what-does-site-recovery-do"></a>O que faz a Recuperação de Sites?
+
 A Recuperação do Site contribui para a estratégia de continuidade do seu negócio e recuperação de desastres (BCDR), orquestrando e automatizando a replicação de VMs Azure entre regiões, máquinas virtuais no local e servidores físicos para a Azure, e máquinas no local para um centro de dados secundário. [Saiba mais](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Posso proteger uma máquina virtual que tem um disco Docker?
 
 Não, este é um cenário não apoiado.
+
+### <a name="what-does-site-recovery-do-to-ensure-data-integrity"></a>O que faz a Recuperação do Site para garantir a integridade dos dados?
+
+Existem várias medidas tomadas pela Recuperação do Local para garantir a integridade dos dados. É estabelecida uma ligação segura entre todos os serviços utilizando o protocolo HTTPS. Isto garante que qualquer malware ou entidades externas não podem adulterar os dados. Outra medida tomada é a utilização de cheques. A transferência de dados entre a fonte e o alvo é executada através da computação de dados entre eles. Isto garante que os dados transferidos são consistentes.
 
 ## <a name="service-providers"></a>Fornecedores de serviços
 
@@ -272,6 +277,6 @@ Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a 
 
 [Conheça novas](site-recovery-whats-new.md) atualizações e [obtenha informações sobre rollup](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Leia a [Descrição geral da Recuperação de Sites](site-recovery-overview.md)
 

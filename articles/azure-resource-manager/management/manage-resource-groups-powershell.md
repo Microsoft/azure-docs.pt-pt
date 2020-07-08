@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f18eea697e875cc926e8fbaa0f61cf2d4639be0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706499"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057522"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerir os grupos de recursos do Azure Resource Manager utilizando o Azure PowerShell
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre como o Azure Resource Manager ordena a supre
 
 Consulte [recursos de implantação para um grupo de recursos existente.](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group)
 
-Para validar uma implementação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Para validar uma implementação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementar um grupo de recursos e recursos
 
@@ -219,9 +219,9 @@ Para obter mais informações, consulte [exportação única e multi-recursos pa
 
 [O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).
-- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](/azure/azure-resource-manager/)
+- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](../index.yml)
 - Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte [a referência do modelo](/azure/templates/).

@@ -3,12 +3,12 @@ title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualem ou apaguem recursos críticos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: e9591c8b32808c3b11eb478b7f52a171cefc587d
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975610"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057590"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -226,24 +226,28 @@ az lock delete --ids $lockid
 
 ## <a name="rest-api"></a>API REST
 
-Pode bloquear recursos implantados com a [API REST para bloqueios de gestão](https://docs.microsoft.com/rest/api/resources/managementlocks). A API REST permite-lhe criar e eliminar fechaduras e recuperar informações sobre fechaduras existentes.
+Pode bloquear recursos implantados com a [API REST para bloqueios de gestão](/rest/api/resources/managementlocks). A API REST permite-lhe criar e eliminar fechaduras e recuperar informações sobre fechaduras existentes.
 
 Para criar uma fechadura, corra:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 O âmbito pode ser uma subscrição, grupo de recursos ou recurso. O nome do cadeado é o que quiser chamar de fechadura. Para a versão api, utilize **2016-09-01**.
 
 No pedido, inclua um objeto JSON que especifica as propriedades para o bloqueio.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    }
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a organizar logicamente os seus recursos, consulte [Usando tags para organizar os seus recursos.](tag-resources.md)
 * Pode aplicar restrições e convenções em toda a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../../governance/policy/overview.md) (O que é o Azure Policy?).

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: jgao
-ms.openlocfilehash: e3d0c3493039a1c4cda2bec0d949e610321f6c57
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: b3de286bbf4513d252b42304cdc667877c72f6da
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373816"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057420"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -74,10 +74,10 @@ O recurso de script de implantação só está disponível nas regiões onde o A
 
   ---
 
-- **Azure PowerShell** ou **Azure CLI**. Para obter uma lista de versões Azure PowerShell suportadas, consulte [aqui;](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list) para uma lista de versões Azure CLI suportadas, consulte [aqui](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+- **Azure PowerShell** ou **Azure CLI**. Consulte uma lista de [versões Azure PowerShell suportadas](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões Azure CLI suportadas](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
     >[!IMPORTANT]
-    > O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR) . Leva cerca de um mês para certificar uma imagem CLI para o script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se for utilizada uma versão não suportada, a lista de mensagens de erro lista as versões suportadas.
+    > O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR) . Leva cerca de um mês para certificar uma imagem CLI para o script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se for utilizada uma versão não suportada, a lista de mensagens de erro lista as versões suportadas.
 
     Não precisa destas versões para implementar modelos. Mas estas versões são necessárias para testar scripts de implementação localmente. Consulte [a instalação do módulo Azure PowerShell](/powershell/azure/install-az-ps). Podes usar uma imagem pré-configurada do Docker.  Consulte [o ambiente de desenvolvimento Configure](#configure-development-environment).
 
@@ -601,7 +601,7 @@ Também é necessário configurar a partilha de ficheiros para montar o diretór
 
 Depois de o script ser testado com sucesso, pode usá-lo como um script de implementação nos seus modelos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 
