@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 681b81fa7f6ce74f7e48eb518a2c951e94c4b00d
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848478"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Multi-Factor Authentication do Azure
 
@@ -73,9 +73,13 @@ Tem de instalar manualmente a seguinte biblioteca:
 
 Todos os que usam a extensão NPS devem ser sincronizados com o Azure Ative Directory usando o Azure AD Connect, e devem estar registados para MFA.
 
-Quando instalar a extensão, precisa do diretório e credenciais de administração para o seu inquilino AD Azure. Pode encontrar o seu iD de diretório no [portal Azure](https://portal.azure.com). Inscreva-se como administrador. Procure e selecione o **Diretório Ativo Azure**e, em seguida, selecione **Propriedades**. Copie o GUID na caixa **de identificação** do diretório e guarde-o. Você usa este GUID como iD do inquilino quando instala a extensão NPS.
+Quando instalar a extensão, precisa da *identificação* do inquilino e credenciais de administração para o seu inquilino AD Azure. Para obter a iD do inquilino, complete os seguintes passos:
 
-![Encontre o seu ID do Diretório sob propriedades do Azure Ative Directory](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global do inquilino Azure.
+1. Procure e selecione o **Diretório Ativo Azure**.
+1. Na página **geral,** é mostrada a informação do *Arrendatário.* Ao lado do ID do *inquilino,* selecione o ícone **Copy,** como mostra o seguinte exemplo de imagem:
+
+   ![Obter a ID do Inquilino do portal Azure](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>Requisitos de rede
 
@@ -206,7 +210,7 @@ A menos que queira utilizar os seus próprios certificados (em vez dos certifica
    ```
 
 4. Inscreva-se no Azure AD como administrador.
-5. PowerShell pede a identificação do seu inquilino. Utilize o Diretório ID GUID que copiou do portal Azure na secção pré-requisitos.
+5. PowerShell pede a identificação do seu inquilino. Utilize o *ID* GUID do inquilino que copiou do portal Azure na secção pré-requisitos.
 6. PowerShell mostra uma mensagem de sucesso quando o script está terminado.  
 
 Repita estes passos em quaisquer servidores NPS adicionais que pretenda configurar para equilibrar a carga.
@@ -367,7 +371,7 @@ Recomenda-se que as suites de cifra mais antigas e mais fracas sejam desativadas
 
 Orientações adicionais de resolução de problemas e possíveis soluções podem ser encontradas no artigo [Resolver mensagens de erro da extensão NPS para autenticação multi-factor Azure](howto-mfa-nps-extension-errors.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral e configuração do Servidor de Política de Rede no Servidor do Windows](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 

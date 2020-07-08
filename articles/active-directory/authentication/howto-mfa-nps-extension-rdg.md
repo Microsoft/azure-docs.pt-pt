@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5ef454871f242adb9de5e5c567c1a76e00478cc
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848749"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integre a sua infraestrutura Remote Desktop Gateway utilizando a extensão do Network Policy Server (NPS) e a AZure AD
 
@@ -115,16 +115,15 @@ Siga os passos em [O que significa Azure Multi-Factor Authentication para mim?](
 
 Esta secção fornece instruções para configurar a infraestrutura RDS para utilizar o Azure MFA para autenticação do cliente com o Gateway de Secretária Remota.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Adquirir Diretório Ativo Azure GUID ID
+### <a name="acquire-azure-active-directory-tenant-id"></a>Adquirir ID do inquilino do Azure Ative Directory
 
-Como parte da configuração da extensão NPS, você precisa fornecer credenciais de administração e o ID AD Azure para o seu inquilino AZURE AD. Os passos seguintes mostram-lhe como obter a identificação do inquilino.
+Como parte da configuração da extensão NPS, você precisa fornecer credenciais de administração e o ID AD Azure para o seu inquilino AZURE AD. Para obter a iD do inquilino, complete os seguintes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global do inquilino Azure.
 1. No menu do portal Azure, selecione **Azure Ative Directory,** ou procure e selecione **O Diretório Ativo Azure** a partir de qualquer página.
-1. Selecione **Propriedades**.
-1. Na lâmina Propriedades, ao lado do ID do Diretório, clique no ícone **Copy,** como mostrado abaixo, para copiar o ID para a área de transferência.
+1. Na página **geral,** é mostrada a informação do *Arrendatário.* Ao lado do ID do *inquilino,* selecione o ícone **Copy,** como mostra o seguinte exemplo de imagem:
 
-   ![Obter a ID do Diretório do portal Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Obter a ID do Inquilino do portal Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instale a extensão NPS
 
@@ -167,9 +166,9 @@ Para utilizar o script, forneça a extensão com as suas credenciais Azure AD Ad
 
    ![Autenticação para Azure AD em PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. Quando solicitado, cole o ID do Diretório que copiou para a área de transferência mais cedo e prima **ENTER**.
+1. Quando solicitado, cole o *ID* do inquilino que copiou para a área de transferência mais cedo, e prima **ENTER**.
 
-   ![Inserindo o ID do Diretório no PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Inserindo o ID do inquilino em PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. O script cria um certificado auto-assinado e executa outras alterações de configuração. A saída deve ser como a imagem mostrada abaixo.
 
@@ -386,7 +385,7 @@ A imagem abaixo do Microsoft Message Analyzer mostra o tráfego de rede filtrado
 
 ![Microsoft Message Analyzer mostrando tráfego filtrado](./media/howto-mfa-nps-extension-rdg/image36.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md) (Como obter a Multi-Factor Authentication do Azure)
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ac046f3480b08fdc3b8d582d9e724f4b9b93d5
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848447"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de Aplicações e as mensagens de erro
 
@@ -43,7 +43,9 @@ Por exemplo, se publicar o caminho `https://yourapp/app` mas a aplicação ligar
 
 Se o registo falhar durante a instalação do assistente do Conector, existem duas formas de ver o motivo da avaria. Ou procure no registo de eventos sob **Aplicações e Registos de Serviços\Microsoft\AadApplicationProxy\Connector\Admin**, ou executar o seguinte comando Windows PowerShell:
 
-    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```powershell
+Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```
 
 Assim que encontrar o erro do Conector a partir do registo de eventos, utilize esta tabela de erros comuns para resolver o problema:
 
@@ -87,7 +89,7 @@ Esta lista cobre erros que os utilizadores finais podem encontrar quando tentam 
 
 Se encontrar um erro ou problema com o Azure AD Application Proxy que não esteja listado neste guia de resolução de problemas, gostaríamos de saber. Envie um e-mail para a nossa equipa de [comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro que encontrou.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Ativar o Proxy de Aplicações para O Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 * [Publicar aplicações com o Proxy da Aplicação](application-proxy-add-on-premises-application.md)
 * [Ativar um único sinal](application-proxy-configure-single-sign-on-with-kcd.md)

@@ -1,23 +1,23 @@
 ---
-title: Gerir trabalhos de backup usando a API REST
-description: Neste artigo, aprenda a rastrear e gerir backups e restaurar os trabalhos de Backup Azure usando a Rest API.
+title: Gerir trabalhos de backup usando REST API
+description: Neste artigo, aprenda a rastrear e gerir backup e restaurar os trabalhos de Azure Backup usando a REST API.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273530"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847773"
 ---
-# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Rastrear backup e restaurar postos de trabalho usando a API REST
+# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe o backup e restaure os trabalhos usando a API REST
 
-O serviço de backup Azure desencadeia trabalhos que funcionam em segundo plano em vários cenários, tais como desencadear backup, restaurar operações, desativar o backup. Estes trabalhos podem ser rastreados usando as suas identificações.
+O serviço Azure Backup desencadeia trabalhos que funcionam em segundo plano em vários cenários, tais como desencadear backup, restaurar operações, desativar o backup. Estes trabalhos podem ser rastreados usando as suas identificações.
 
-## <a name="fetch-job-information-from-operations"></a>Buscar informações sobre emprego das operações
+## <a name="fetch-job-information-from-operations"></a>Recolher informações sobre o trabalho das operações
 
-Uma operação como o dedisparomento de cópia de segurança irá sempre devolver um JOBID. Por exemplo: A resposta final de uma operação de [backup de gatilho REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
+Uma operação como o detonamento de backup irá sempre devolver um trabalhoID. Por exemplo: A resposta final de uma [operação de backup de backup de gatilho REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
 
 ```http
 {
@@ -33,21 +33,21 @@ Uma operação como o dedisparomento de cópia de segurança irá sempre devolve
 }
 ```
 
-O trabalho de backup Azure VM é identificado por campo "jobId" e pode ser rastreado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando um simples pedido *GET.*
+O trabalho de backup Azure VM é identificado pelo campo "jobId" e pode ser rastreado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando um simples pedido *GET.*
 
-## <a name="tracking-the-job"></a>Rastreando o trabalho
+## <a name="tracking-the-job"></a>A acompanhar o trabalho
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-O `{jobName}` "jobId" mencionado acima. A resposta é sempre de 200 OK com o campo "status" indicando o estado atual do trabalho. Uma vez "Concluído" ou "CompletedWithWarnings", a secção 'ExtendedInfo' revela mais detalhes sobre o trabalho.
+O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o estado atual do trabalho. Uma vez "Concluído" ou "Concluído com Os Avisos", a secção 'ExtendedInfo' revela mais detalhes sobre o trabalho.
 
 ### <a name="response"></a>Resposta
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     | [Recurso de Emprego](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Resposta de exemplo
 

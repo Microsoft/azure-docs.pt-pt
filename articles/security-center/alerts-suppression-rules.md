@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 8644a4e7dc8973775d952581bfc57d266c79f1a5
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849019"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Suprimir alertas da proteção de ameaças do Centro de Segurança Azure
 
@@ -43,7 +43,7 @@ As suas regras de supressão definem os critérios para os quais os alertas deve
 > [!CAUTION]
 > Suprimir alertas de segurança reduz a proteção contra ameaças do Centro de Segurança. Deve verificar cuidadosamente o impacto potencial de qualquer regra de supressão e monitorizá-la ao longo do tempo.
 
-[![Página de alertas do Centro de Segurança Azure com opções de supressão de alertas](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![Criar regra de supressão de alerta](media\alerts-suppression-rules\create-suppression-rule.gif)
 
 ## <a name="create-a-suppression-rule"></a>Criar uma regra de supressão
 
@@ -152,7 +152,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](https://docs.microsoft.com/rest/api/securitycenter/) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu as regras de supressão no Azure Security Center que automaticamente descartam alertas indesejados.
 
