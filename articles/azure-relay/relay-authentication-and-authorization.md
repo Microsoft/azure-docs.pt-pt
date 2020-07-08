@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da autenticação da Assinatur
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316944"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização do Relé Azure
@@ -35,7 +35,7 @@ Para aceder a uma entidade, o cliente requer um token SAS gerado usando uma [reg
 
 O suporte de autenticação SAS para Azure Relay está incluído nas versões Azure .NET SDK 2.0 e posterior. O SAS inclui suporte para uma [Regra de Poliétula Desauthorization.](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) Todas as APIs que aceitam uma cadeia de ligação como parâmetro incluem suporte para cordas de conexão SAS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Continuar a ler [Autenticação de autocarro de serviço com assinaturas de acesso partilhado](../service-bus-messaging/service-bus-sas.md) para mais detalhes sobre o SAS.
 - Consulte o guia de [protocolo de conexões híbridas Azure Relay](relay-hybrid-connections-protocol.md) para obter informações detalhadas sobre a capacidade de conexões híbridas.

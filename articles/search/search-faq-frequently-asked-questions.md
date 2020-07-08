@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes (FAQ)
+title: Perguntas Frequentes (FAQ)
 titleSuffix: Azure Cognitive Search
 description: Obtenha respostas a perguntas comuns sobre o serviço microsoft Azure Cognitive Search, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
 manager: nitinme
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317230"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search - perguntas frequentes (FAQ)
@@ -97,12 +97,12 @@ Saiba mais sobre [enriquecimento incremental](cognitive-search-incremental-index
 
 A maioria dos clientes escolhe campos dedicados em vez de uma coleção quando se trata de apoiar diferentes locais (idiomas) no mesmo índice. Os campos específicos do local possibilitam a atribuição de um analisador apropriado. Por exemplo, atribuir o Analisador Francês da Microsoft a um campo que contenha cordas francesas. Também simplifica a filtragem. Se você sabe que uma consulta é iniciada em uma página fr-fr, você pode limitar os resultados da pesquisa a este campo. Ou criar um [perfil de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar ao campo mais peso relativo. A Azure Cognitive Search suporta mais de [50 analisadores linguísticos](https://docs.microsoft.com/azure/search/search-language-support) para escolher.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A sua pergunta é sobre uma funcionalidade ou funcionalidade em falta? Solicite a funcionalidade no site da [Voz do Utilizador.](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
  [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)  
- [O que é a Pesquisa Cognitiva do Azure?](search-what-is-azure-search.md)
+ [O que é Azure Cognitive Search?](search-what-is-azure-search.md)

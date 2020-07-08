@@ -4,10 +4,10 @@ description: Saiba como integrar o Azure Relay com o Azure Private Link Service
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317316"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integre o Relé Azure com Link Privado Azure (Pré-visualização)
@@ -158,9 +158,9 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do espaço de identificação Azure Relay. |
+| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do espaço de identificação Azure Relay. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário do espaço de nome Azure Relay. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do espaço de identificação Azure Relay, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |

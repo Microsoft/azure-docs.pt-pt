@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral das APIs disponíveis do Azure
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316951"
 ---
 # <a name="available-relay-apis"></a>APIs de retransmissão disponível
@@ -44,7 +44,7 @@ Os `hyco-ws` `hyco-websocket` módulos e módulos alteram os `ws` populares e os
 
 Detalhes sobre esses módulos podem ser encontrados no repositório [azure-relay-node](https://github.com/Azure/azure-relay-node) GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Azure Relay, visite estes links:
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)

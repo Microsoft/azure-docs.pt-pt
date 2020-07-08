@@ -4,10 +4,10 @@ description: Este artigo fornece uma passagem que mostra como criar um espaço d
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 4c26928d2ee53a5c76ff982b5d57b59f9a7a8ab8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316996"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um espaço de nomes de Reencaminhamento com o Portal do Azure
@@ -23,7 +23,7 @@ O espaço de nomes é um controlo do âmbito do contentor para todos os componen
 
 Parabéns! Criou um espaço de nomes do reencaminhamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Começar com .NET](relay-hybrid-connections-dotnet-get-started.md)

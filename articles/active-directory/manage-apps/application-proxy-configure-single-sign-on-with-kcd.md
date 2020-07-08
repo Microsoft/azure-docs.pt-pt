@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317530"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos Restrita Delegação para um único sign-on para as suas apps com Proxy de aplicação
@@ -152,7 +152,7 @@ Se for utilizada a identidade de login delegada, o valor pode não ser único em
 Se houver um erro no processo SSO, aparece no registo de eventos da máquina do conector, conforme explicado na [resolução de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 No então, em alguns casos, o pedido é enviado com sucesso para o pedido de backend, enquanto esta aplicação responde em várias outras respostas HTTP. A resolução de problemas destes casos deve começar por examinar o número do evento 24029 na máquina de conector no registo de eventos de sessão de procuração de aplicação. A identidade do utilizador que foi utilizada para a delegação aparece no campo "utilizador" dentro dos detalhes do evento. Para ligar o registo de sessão, selecione **Mostrar registos analíticos e depurar** no menu de visualização do espectador do evento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como configurar um pedido de procuração de aplicação para utilizar a delegação restrita kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)

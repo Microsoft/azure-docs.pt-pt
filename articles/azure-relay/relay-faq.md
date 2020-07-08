@@ -4,10 +4,10 @@ description: Este artigo fornece respostas a algumas das perguntas frequentes so
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317025"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes de retransmissão de Azure
@@ -122,7 +122,7 @@ As Assinaturas de Acesso Partilhado (SAS) são um mecanismo de autenticação ba
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível branquear os pontos finais da lista branca?
 Sim. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a whitelisting DNS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
 * [Começar com .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Nó](relay-hybrid-connections-node-get-started.md)

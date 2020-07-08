@@ -9,10 +9,10 @@ author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
 ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317298"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas de Azure
@@ -26,7 +26,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 ## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
-> | Papel incorporado | Description | ID |
+> | Papel incorporado | Descrição | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
 > | [Contribuinte](#contributor) | Permite-lhe gerir tudo, exceto conceder acesso aos recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -199,7 +199,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 ## <a name="general"></a>Geral
 
 
-### <a name="contributor"></a>Contribuinte
+### <a name="contributor"></a>Contribuidor
 
 Permite-lhe gerir tudo, exceto conceder acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
 
@@ -8387,7 +8387,7 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 }
 ```
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 
 ### <a name="biztalk-contributor"></a>Colaborador bizTalk
@@ -8534,7 +8534,7 @@ Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a e
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções personalizadas Azure](custom-roles.md)
