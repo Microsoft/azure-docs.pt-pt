@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd71789d6c2fb54007f3d6623ba8d14f98383b5a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027652"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Shopify Plus
 
@@ -102,7 +103,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | ---------------| --------------- | --------- |
     | e-mail | | user.mail |
 
-1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
+1. Altere o formato **de identificação do nome** para **persistente.** Selecione a opção **Identificador de Utilizador Único (ID)** e, em seguida, selecione o formato **de identificador nome.** Selecione **Persistente** para esta opção. Guarde as alterações.
+1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 

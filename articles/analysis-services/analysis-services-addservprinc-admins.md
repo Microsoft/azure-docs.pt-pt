@@ -4,19 +4,23 @@ description: Saiba como adicionar um principal de serviço de automação à fun
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697526"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077563"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
 
- Para automatizar tarefas sem supervisão do PowerShell, um diretor de serviço deve ter privilégios de administrador de **servidores** no servidor de Serviços de Análise a ser gerido. Este artigo descreve como adicionar um principal de serviço à função de administradores do servidor num servidor Azure AS. Pode fazê-lo usando o SQL Server Management Studio ou um modelo de Gestor de Recursos.
+ Para automatizar tarefas sem supervisão do PowerShell, um diretor de serviço deve ter privilégios de administrador de **servidores** no servidor de Serviços de Análise a ser gerido. Este artigo descreve como adicionar um principal de serviço à função de administradores do servidor num servidor Azure AS. Pode fazê-lo usando o SQL Server Management Studio ou um modelo de Gestor de Recursos. 
+
+> [!NOTE]
+> Os princípios de serviço devem ser adicionados diretamente à função de administrador do servidor. Adicionar um principal de serviço a um grupo de segurança e, em seguida, adicionar que o grupo de segurança à função de administrador do servidor não é suportado. 
 
 ## <a name="before-you-begin"></a>Before you begin
 Antes de completar esta tarefa, deve ter um diretor de serviço registado no Azure Ative Directory.

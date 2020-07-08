@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232858"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075761"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Manage HDInsight clusters by using the Apache Ambari Web UI (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 
@@ -49,7 +49,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 
 ![Visão geral do painel de ambari de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|Item |Description |
+|Item |Descrição |
 |---|---|
 |Logotipo Ambari|Abre o painel de instrumentos, que pode ser utilizado para monitorizar o cluster.|
 |Nome do cluster # ops|Mostra o número de operações Ambari em curso. Selecionar o nome do cluster ou **# ops** apresenta uma lista de operações de fundo.|
@@ -58,7 +58,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 |Serviços|Definições de informação e configuração para os serviços no cluster.|
 |Anfitriões|Definições de informação e configuração para os nós no cluster.|
 |Alertas|Um registo de informações, avisos e alertas críticos.|
-|Admin|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Administrador|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão de administração|Gestão Ambari, configurações do utilizador e assine.|
 
 ## <a name="monitoring"></a>Monitorização
@@ -153,7 +153,7 @@ A página **hostes** lista todos os anfitriões no cluster. Para gerir os anfitr
 
 2. Utilize o menu **Ações** para selecionar a ação que deseja fazer:
 
-    |Item |Description |
+    |Item |Descrição |
     |---|---|
     |Inicie todos os componentes|Inicie todos os componentes do hospedeiro.|
     |Parar todos os componentes|Pare todos os componentes do hospedeiro.|
@@ -215,7 +215,7 @@ As seguintes operações de Ambari não são suportadas na HDInsight:
 
 * __Mover o serviço de Coletor Métricas__. Ao visualizar informações sobre o serviço Metrics Collector, uma das ações disponíveis no menu De ações de Serviço é o __coletor Move Metrics__. Esta ação não é apoiada com HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) com HDInsight.
 * [Use Apache Ambari to optimize HDInsight cluster configurations](./hdinsight-changing-configs-via-ambari.md) (Utilizar o Apache Ambari para otimizar as configurações do cluster do HDInsight)

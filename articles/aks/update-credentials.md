@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dcbd91063d4f36c4d78023b6548db0c968eda74
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905379"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077699"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -30,6 +30,16 @@ Quando pretender atualizar as credenciais de um cluster AKS, pode optar por:
 
 * atualizar as credenciais para o principal de serviço existente utilizado pelo cluster, ou
 * criar um chefe de serviço e atualizar o cluster para usar estas novas credenciais.
+
+### <a name="check-the-expiration-date-of-your-service-principal"></a>Verifique a data de validade do seu serviço principal
+
+Para verificar a data de validade do seu principal serviço, utilize o comando da lista de [credenciais az ad spdential.][az-ad-sp-credential-list] O exemplo a seguir obtém o ID principal de serviço para o cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup* usando o comando [az aks show.][az-aks-show] O ID principal de serviço é definido como uma variável chamada *SP_ID* para uso com o comando [da lista de credenciais ad sp.][az-ad-sp-credential-list]
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
 
 ### <a name="reset-existing-service-principal-credential"></a>Repor a credencial principal do serviço existente
 
@@ -88,7 +98,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 Leva alguns momentos para que as credenciais principais do serviço sejam atualizadas na AKS.
@@ -120,4 +130,5 @@ Neste artigo, o principal de serviço do cluster AKS em si e as Aplicações de 
 [aad-integration]: azure-ad-integration.md
 [create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

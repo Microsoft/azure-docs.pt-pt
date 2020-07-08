@@ -11,11 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983377"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075438"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -42,6 +43,16 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 A pré-estreia de Live Video Analytics no IoT Edge tornou-se pública. Para obter mais informações, consulte [as notas de lançamento.](../live-video-analytics-edge/release-notes.md)
 
 Live Video Analytics on IoT Edge é uma expansão para a família Media Service. Permite-lhe analisar vídeo ao vivo com modelos de IA à sua escolha nos seus próprios dispositivos de borda, e capturar e gravar opcionalmente esse vídeo. Agora pode construir aplicativos com análise de vídeo em tempo real no limite sem se preocupar com a complexidade de construir e operar um pipeline de vídeo ao vivo.
+
+### <a name="search-by-topics"></a>Pesquisar por tópicos
+
+Agora pode utilizar a API de pesquisa para procurar vídeos com tópicos específicos (apenas API).
+
+Os tópicos são adicionados como parte do `textScope` (parâmetro opcional). Consulte [a API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para mais detalhes.  
+
+### <a name="labels-enhancement"></a>Melhoria dos rótulos
+
+O tagger da etiqueta foi atualizado e agora inclui mais etiquetas visuais que podem ser identificadas.
 
 ## <a name="may-2020"></a>Maio de 2020
 

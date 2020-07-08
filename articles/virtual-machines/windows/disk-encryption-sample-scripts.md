@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085710"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076764"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de exemplo do Azure Disk Encryption 
 
@@ -76,22 +76,30 @@ Configure a definição da política do grupo BitLocker **BitLocker,** que encon
 ### <a name="install-bitlocker-feature-components"></a>Instalar componentes de funcionalidade BitLocker
 Para o Windows Server 2012 e mais tarde, utilize o seguinte comando:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 Para o Windows Server 2008 R2, utilize o seguinte comando:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Prepare o volume de SO para BitLocker utilizando`bdehdcfg`
 Para comprimir a partição de SO e preparar a máquina para BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se necessário:
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet 
+```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Proteja o volume de SO utilizando o BitLocker
 Utilize o [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comando para ativar a encriptação no volume de arranque utilizando um protetor de teclas externo. Coloque também a chave externa (.ficheiro bek) na unidade ou volume externos. A encriptação é ativada no volume de sistema/arranque após o próximo reboot.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
 > Prepare o VM com um VHD de dados/recursos separados para obter a chave externa utilizando o BitLocker.

@@ -5,11 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para utilizar 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340842"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077852"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas de programador no Serviço Azure Kubernetes (AKS)
 
@@ -100,7 +101,7 @@ Manchas e tolerâncias são usadas para isolar logicamente os recursos com um co
 Vejamos um exemplo de nós com uma grande quantidade de memória. Estes nós podem dar preferência a cápsulas que solicitam uma elevada quantidade de memória. Para garantir que os recursos não ficam parados, também permitem que outras cápsulas corram.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Uma especificação do pod adiciona então a `nodeSelector` propriedade para definir um seletor de nó que corresponda ao conjunto de etiquetas num nó:

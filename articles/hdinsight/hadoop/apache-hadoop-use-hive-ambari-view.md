@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 832caaed0816e3dd7d177f634209dea42e5312c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6490292ef898e00c7677c829be41f3b06c638164
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192685"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076611"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -60,7 +60,7 @@ Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apach
 
     Estas declarações fazem as seguintes ações:
 
-    |Declaração | Description |
+    |Declaração | Descrição |
     |---|---|
     |MESA DE LANÇAMENTO|Elimina a tabela e o ficheiro de dados, caso a tabela já exista.|
     |CRIAR TABELA EXTERNA|Cria uma nova tabela "externa" na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
@@ -157,7 +157,7 @@ Para obter mais informações sobre a utilização de UDFs com Hive em HDInsight
 
 Pode alterar várias definições de Hive, tais como alterar o motor de execução da Colmeia de Tez (o padrão) para MapReduce.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para informações gerais sobre a Colmeia em HDInsight:
 

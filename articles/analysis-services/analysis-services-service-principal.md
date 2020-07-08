@@ -4,15 +4,15 @@ description: Saiba como criar um principal serviço para automatizar tarefas adm
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f2ffd1ea098bcf98e25958ca40318a65b0ef6605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077376"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -38,7 +38,7 @@ As credenciais e certificados principais do serviço podem ser armazenados de fo
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Adicione os principais de serviço ao papel de administração do servidor
 
-Antes de poder utilizar um principal de serviço para operações de gestão de servidores de serviços de análise, deve adicioná-lo à função de administrador do servidor. Para saber mais, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
+Antes de poder utilizar um principal de serviço para operações de gestão de servidores de serviços de análise, deve adicioná-lo à função de administrador do servidor. Os princípios de serviço devem ser adicionados diretamente à função de administrador do servidor. Adicionar um principal de serviço a um grupo de segurança e, em seguida, adicionar que o grupo de segurança à função de administrador do servidor não é suportado. Para saber mais, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Principais de serviço em cadeias de ligação
 

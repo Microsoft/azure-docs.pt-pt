@@ -3,8 +3,8 @@ title: Economize custos de cálculo com capacidade reservada
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Saiba como comprar a Azure SQL Database e a SQL Managed Instance reservada capacidade para economizar nos seus custos de computação.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
-ms.openlocfilehash: 1a733ea631b5c11b9686682420311a0d35cf46a5
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 81e3547dbd86c840baed8e044a84afd3b63f5be5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718579"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075778"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Economize custos para recursos com capacidade reservada - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -44,13 +44,13 @@ Por exemplo, suponhamos que você está executando um propósito geral, Gen5 –
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel **de Reservas de Compra,** selecione **SQL Database** para adquirir uma nova reserva para a Base de Dados SQL.
-4. Preencha os campos necessários. Bases de dados existentes (individuais ou ag requeridas) ou casos geridos que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real de bases de dados ou casos geridos que obtenham o desconto depende do âmbito e quantidade selecionados.
+4. Preencha os campos necessários. Bases de dados existentes na Base de Dados SQL e SQL Managed Instance que correspondem aos atributos que seleciona qualificam para obter o desconto de capacidade reservado. O número real de bases de dados ou casos geridos que obtenham o desconto depende do âmbito e quantidade selecionados.
 
     ![Screenshot antes de submeter a compra de capacidade reservada](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
 
     A tabela a seguir descreve os campos necessários.
     
-    | Campo      | Description|
+    | Campo      | Descrição|
     |------------|--------------|
     |Subscrição|A subscrição utilizada para pagar a reserva de capacidade. O método de pagamento da subscrição é cobrado os custos iniciais da reserva. O tipo de subscrição deve ser um acordo de empresa (número de oferta MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (número de oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|
     |Âmbito       |O âmbito da reserva vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar  <br/><br/>**Partilhado**, o desconto de reserva vCore é aplicado na base de dados ou caso gerido em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.<br/><br/>**Subscrição única**, o desconto de reserva vCore é aplicado nas bases de dados ou casos geridos nesta subscrição. <br/><br/>**Grupo de recursos únicos**, o desconto de reserva é aplicado às instâncias de bases de dados ou instâncias geridas na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.|

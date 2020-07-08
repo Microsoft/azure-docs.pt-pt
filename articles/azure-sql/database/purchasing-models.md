@@ -3,8 +3,8 @@ title: Modelos de compra
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Conheça os modelos de compra que estão disponíveis para Azure SQL Database e Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: f54af4832f2885611420c33209ca873bc5cd5908
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: a11894eb94b73d8d31ca7135be2ba9c05eca5e04
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718874"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075889"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,6 +41,10 @@ A tabela e gráfico a seguir comparam e contrastam os modelos de compra baseados
 ||||  
 
 ![Comparação de modelos de preços](./media/purchasing-models/pricing-model.png)
+
+Quer otimizar e economizar nos gastos na nuvem?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="compute-costs"></a>Custos de computação
 
@@ -164,7 +168,7 @@ Não. Não precisas de desligar a aplicação. Os novos níveis de serviço ofer
 
 Sim, pode converter facilmente a sua base de dados para qualquer objetivo de desempenho suportado utilizando o portal Azure, PowerShell, O CLI Azure, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre o modelo de compra baseado em vCore, consulte [o modelo de compra baseado em vCore.](service-tiers-vcore.md)
 - Para obter mais informações sobre o modelo de compra baseado na DTU, consulte o [modelo de compra baseado na DTU.](service-tiers-dtu.md)

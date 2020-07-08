@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 5527a27ab94c350a345bb916206057069c3d16da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82723171"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077223"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Como monitorizar a disponibilidade do cluster com registos do Azure Monitor em HDInsight
 
@@ -38,7 +38,7 @@ Uma vez ativada a integração do registo do Monitor Azure (isto pode demorar al
 
 Os registos listam uma série de consultas de amostra, tais como:
 
-| Nome de consulta                      | Description                                                               |
+| Nome de consulta                      | Descrição                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilidade de computadores hoje    | Mapear o número de computadores que enviam registos, a cada hora                     |
 | Liste batimentos cardíacos                 | Listar todos os batimentos cardíacos do computador da última hora                           |
@@ -120,7 +120,7 @@ Selecionando em um agrupamento de severidade (ou **seja, Sev 1,** como acima sal
 
 ![Log Analytics workspace sev um alerta](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Disponibilidade do cluster - Apache Ambari](./hdinsight-cluster-availability.md)
-* [Utilizar os registos do Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+* [Utilize registos do Monitor Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)

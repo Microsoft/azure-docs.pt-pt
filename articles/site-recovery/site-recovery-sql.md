@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bdca30c82b31bda2e843b3712cfbe772952f3e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016479"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077308"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -37,7 +38,7 @@ SQL Server em uma infraestrutura Azure como uma máquina virtual de serviço (Ia
 SQL Server em um Azure IaaS VM ou no local.| [Agrupamento de failover (Sempre na FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | O tempo que demorou a falhar entre os nós. | Porque Always On FCI utiliza armazenamento partilhado, a mesma visão da instância de armazenamento está disponível no failover.
 SQL Server em um Azure IaaS VM ou no local.| [Espelhamento da base de dados (modo de alto desempenho)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | O tempo necessário para forçar o serviço, que usa o servidor de espelhos como um servidor de espera quente. | A replicação é assíncronea. A base de dados de espelhos pode ficar um pouco atrás da base de dados principal. O lag é tipicamente pequeno. Mas pode tornar-se grande se o sistema do servidor principal ou de espelho estiver sob uma carga pesada.<br/><br/>O envio de registos pode ser um suplemento para o espelhamento da base de dados. É uma alternativa favorável ao espelho da base de dados assíncronos.
 SQL como plataforma como um serviço (PaaS) em Azure.<br/><br/>Este tipo de implantação inclui bases de dados individuais e piscinas elásticas. | Georreplicação ativa | 30 segundos após o disparo do failover.<br/><br/>Quando o failover é ativado para uma das bases de dados secundárias, todos os outros secundários estão automaticamente ligados à nova primária. | RPO de cinco segundos.<br/><br/>A geo-replicação ativa utiliza a tecnologia Always On do SQL Server. Reproduz assincroticamente transações comprometidas na base de dados primária para uma base de dados secundária usando o isolamento instantâneo.<br/><br/>Os dados secundários garantem nunca ter transações parciais.
-SQL como PaaS configurado com geo-replicação ativa em Azure.<br/><br/>Este tipo de implementação inclui uma base de dados SQL gerida por instâncias, piscinas elásticas e bases de dados individuais. | Grupos de ativação pós-falha automática | RTO de uma hora. | RPO de cinco segundos.<br/><br/>Os grupos de falha automática fornecem a semântica do grupo em cima da geo-replicação ativa. Mas o mesmo mecanismo de replicação assíncronos é usado.
+SQL como PaaS configurado com geo-replicação ativa em Azure.<br/><br/>Este tipo de implantação inclui casos geridos, piscinas elásticas e bases de dados individuais. | Grupos de ativação pós-falha automática | RTO de uma hora. | RPO de cinco segundos.<br/><br/>Os grupos de falha automática fornecem a semântica do grupo em cima da geo-replicação ativa. Mas o mesmo mecanismo de replicação assíncronos é usado.
 SQL Server em um Azure IaaS VM ou no local.| Replicação com recuperação do local de Azure | O RTO é tipicamente inferior a 15 minutos. Para saber mais, leia o [RTO SLA fornecido pela Recuperação do Local.](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) | Uma hora para a consistência da aplicação e cinco minutos para a consistência do acidente. Se procura rpo mais baixo, use outras tecnologias BCDR.
 
 > [!NOTE]
@@ -148,7 +149,7 @@ A Recuperação do Site não fornece suporte de cluster de hóspedes ao replicar
 
 Para os clusters SQL Server Standard, o failback após uma falha não planeada requer uma cópia de segurança do SQL Server e restauro. Esta operação é feita desde a instância do espelho até ao aglomerado original com o restaumento do espelho.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>Como é que o SQL Server é licenciado quando usado na Recuperação do Site?
 

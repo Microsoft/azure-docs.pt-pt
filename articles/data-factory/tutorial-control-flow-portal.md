@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253669"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077661"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    O nome da fábrica de dados Azure deve ser **globalmente único.** Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *O nome da fábrica de dados "ADFTutorialDataFactory" não está disponível.*
+
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
 4. No **Grupo de Recursos**, siga um destes passos:
 
@@ -202,10 +203,11 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
    ![Novo serviço ligado do Armazenamento do Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Introduza `@pipeline().parameters.sourceBlobContainer` para a pasta e `emp.txt` para o nome do ficheiro. Utilize o parâmetro de pipeline sourceBlobContainer para definir o caminho da pasta do conjunto de dados.
 
-   ![Definições do conjunto de dados de origem](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Mude para o separador **Pipeline** (ou) clique no pipeline na vista de árvore. Confirme que **SourceBlobDataset** está selecionado em **Conjunto de Dados de Origem**.
+    ![Definições do conjunto de dados de origem](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Mude para o separador **Pipeline** (ou) clique no pipeline na vista de árvore. Confirme que **SourceBlobDataset** está selecionado em **Conjunto de Dados de Origem**.
+      
+   ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. Na janela de propriedades, mude para o separador **Sink** e clique em **+ Novo** em **Conjunto de Dados de Sink**. Vai criar um conjunto de dados de sink para a atividade Copy neste passo de forma semelhante à forma como criou o conjunto de dados de origem.
 
@@ -329,7 +331,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     ![Erro da execução da atividade](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes:
 
 > [!div class="checklist"]

@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791491"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078430"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -218,3 +219,7 @@ Não, a transferência de um Grupo IP para outro grupo de recursos não é supor
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>O que é o TCP Idle Timeout para Azure Firewall?
 
 Um comportamento padrão de uma firewall de rede é garantir que as ligações TCP são mantidas vivas e fechá-las rapidamente se não houver atividade. O tempo limite de funcionamento da Azure Firewall TCP é de quatro minutos. Esta definição não é configurável. Se um período de inatividade for maior do que o valor de tempo limite, não há garantia de que a sessão TCP ou HTTP seja mantida. Uma prática comum é usar um TCP de vida. Esta prática mantém a ligação ativa por um período mais longo. Para obter mais informações, consulte os [exemplos .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Posso implantar o Azure Firewall sem um endereço IP público?
+
+Não, atualmente tem de implantar o Azure Firewall com um endereço IP público.

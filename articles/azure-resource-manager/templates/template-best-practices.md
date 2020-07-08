@@ -3,12 +3,12 @@ title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: c00a3a1162ffec4ce89c43ef2f76796fb5943438
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254094"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058066"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -230,7 +230,7 @@ As seguintes informações podem ser úteis quando se trabalha com [recursos:](t
    * [Configurar o acesso winrm para VMs em Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Permitir o acesso externo ao seu VM utilizando o portal Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Permitir o acesso externo ao seu VM utilizando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Permitir o acesso externo ao seu Linux VM utilizando o Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Permitir o acesso externo ao seu Linux VM utilizando o Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
 
 * O **domínio Propriedade DeNameLabel** para endereços IP públicos deve ser único. O **valor de domínioNabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Como a função **un uniqueString** gera uma cadeia de 13 caracteres de comprimento, o parâmetro **dnsPrefixString** está limitado a 50 caracteres:
 
@@ -278,7 +278,7 @@ O kit de ferramentas de teste do modelo ARM é um script que verifica se o seu m
 
 Depois de ter concluído o seu modelo, execute o kit de ferramentas de teste para ver se existem formas de melhorar a sua implementação. Para obter mais informações, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre a estrutura do ficheiro do modelo, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 * Para recomendações sobre como construir modelos que funcionam em todos os ambientes de nuvem Azure, consulte [modelos de DESENVOLVIMENTO ARM para a consistência da nuvem.](templates-cloud-consistency.md)

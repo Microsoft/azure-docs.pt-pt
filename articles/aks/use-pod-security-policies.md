@@ -3,15 +3,23 @@ title: Utilize políticas de segurança do pod no Serviço Azure Kubernetes (AKS
 description: Saiba como controlar as admissões de pod usando PodSecurityPolicy no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bd4e1b85513ed5473b4136b458d20fef4faa79c
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.date: 06/30/2020
+ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374496"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077631"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
+
+<!--
+> [!WARNING]
+> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
+> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
+
+**This document and feature are set for deprecation.**
+-->
 
 Para melhorar a segurança do seu cluster AKS, pode limitar quais as cápsulas que podem ser programadas. Os pods que solicitam recursos que não permite não podem funcionar no cluster AKS. Você define este acesso usando políticas de segurança de pod. Este artigo mostra-lhe como usar as políticas de segurança do pod para limitar a implementação de cápsulas em AKS.
 
@@ -21,7 +29,7 @@ Para melhorar a segurança do seu cluster AKS, pode limitar quais as cápsulas q
 > * [Políticas de apoio da AKS][aks-support-policies]
 > * [FAQ de suporte Azure][aks-faq]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -106,7 +114,7 @@ A política *privilegiada* de segurança do pod é aplicada a qualquer utilizado
 kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
-Como mostrado na seguinte saída condensada, o ClusterRole *restrito da PSP* é atribuído a qualquer *sistema:utilizadores autenticados.* Esta capacidade proporciona um nível básico de restrições sem que as suas políticas sejam definidas.
+Como mostrado na seguinte saída condensada, o ClusterRole *privilegiado da PSP* é atribuído a qualquer *sistema:utilizadores autenticados.* Esta capacidade proporciona um nível básico de privilégio sem que as suas políticas sejam definidas.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +172,7 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Teste a criação de uma cápsula privilegiada
 
-Vamos primeiro testar o que acontece quando se marca uma cápsula com o contexto de segurança de `privileged: true` . Este contexto de segurança aumenta os privilégios da cápsula. Na secção anterior que mostrou as políticas de segurança da cápsula AKS padrão, a política *restrita* deve negar este pedido.
+Vamos primeiro testar o que acontece quando se marca uma cápsula com o contexto de segurança de `privileged: true` . Este contexto de segurança aumenta os privilégios da cápsula. Na secção anterior que mostrou as políticas de segurança da cápsula AKS padrão, a política de *privilégios* deve negar este pedido.
 
 Crie um ficheiro com o nome `nginx-privileged.yaml` e cole o seguinte manifesto YAML:
 
@@ -199,7 +207,7 @@ A cápsula não chega à fase de agendamento, por isso não há recursos para ap
 
 ## <a name="test-creation-of-an-unprivileged-pod"></a>Criação de teste de uma cápsula desprivilegiada
 
-No exemplo anterior, a especificação da vagem solicitou uma escalada privilegiada. Este pedido é negado pela política de segurança *restrita* por defeito, pelo que a cápsula não é programada. Vamos tentar agora executar o mesmo casulo NGINX sem o pedido de escalada de privilégio.
+No exemplo anterior, a especificação da vagem solicitou uma escalada privilegiada. Este pedido é negado pela política de segurança do pod do *privilégio* padrão, pelo que a cápsula não é agendada. Vamos tentar agora executar o mesmo casulo NGINX sem o pedido de escalada de privilégio.
 
 Crie um ficheiro com o nome `nginx-unprivileged.yaml` e cole o seguinte manifesto YAML:
 
@@ -232,7 +240,7 @@ A cápsula não chega à fase de agendamento, por isso não há recursos para ap
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Teste de criação de um casulo com um contexto específico do utilizador
 
-No exemplo anterior, a imagem do recipiente tentou automaticamente utilizar a raiz para ligar o NGINX à porta 80. Este pedido foi negado pela política de segurança *restrita* por defeito, pelo que a cápsula não começa. Vamos tentar agora executar o mesmo pod NGINX com um contexto específico do utilizador, como `runAsUser: 2000` .
+No exemplo anterior, a imagem do recipiente tentou automaticamente utilizar a raiz para ligar o NGINX à porta 80. Este pedido foi negado pela política de segurança do pod do *privilégio* padrão, pelo que a cápsula não começa. Vamos tentar agora executar o mesmo pod NGINX com um contexto específico do utilizador, como `runAsUser: 2000` .
 
 Crie um ficheiro com o nome `nginx-unprivileged-nonroot.yaml` e cole o seguinte manifesto YAML:
 
@@ -298,7 +306,7 @@ Crie a política utilizando o comando [de aplicação de kubectl][kubectl-apply]
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Para visualizar as políticas disponíveis, utilize o [kubectl obter][kubectl-get] o comando da PSP, como mostra o exemplo seguinte. Compare a política *privilegiada da PSP* com a política *restrita* de incumprimento que foi aplicada nos exemplos anteriores para criar uma vagem. Apenas o uso da escalada *PRIVADA* é negado pela sua política. Não existem restrições ao utilizador ou grupo para a política *de negação da PSP.*
+Para visualizar as políticas disponíveis, utilize o [kubectl obter][kubectl-get] o comando da PSP, como mostra o exemplo seguinte. Compare a política *privilegiada da PSP* com a política de *privilégios* de incumprimento que foi aplicada nos exemplos anteriores para criar uma vagem. Apenas o uso da escalada *PRIVADA* é negado pela sua política. Não existem restrições ao utilizador ou grupo para a política *de negação da PSP.*
 
 ```console
 $ kubectl get psp
@@ -417,7 +425,7 @@ Por fim, elimine o espaço *de nomes psp-aks:*
 kubectl delete namespace psp-aks
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como criar uma política de segurança de pod para impedir o uso de acesso privilegiado. Existem muitas funcionalidades que uma política pode impor, como o tipo de volume ou o utilizador RunAs. Para obter mais informações sobre as opções disponíveis, consulte os documentos de referência da [política de segurança da cápsula Kubernetes.][kubernetes-policy-reference]
 

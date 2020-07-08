@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 634c8b118a9d1f041e536f17cc9588f3a85fa4d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321830"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076662"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web do Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
 
@@ -41,8 +41,8 @@ Para ler os dados da tabela Azure SQL:
 6. No nome do **servidor base de dados**, **nome de base de dados,** **nome de utilizador** **e** password, introduza as informações adequadas para a sua base de dados.
 7. No campo de consulta de base de dados, insira a seguinte consulta.
 
-     selecionar [idade],
-
+    ```tsql
+     select [age],
         [workclass],
         [fnlwgt],
         [education],
@@ -57,7 +57,8 @@ Para ler os dados da tabela Azure SQL:
         [hours-per-week],
         [native-country],
         [income]
-     a partir de dbo.censusdata;
+     from dbo.censusdata;
+    ```
 8. Na parte inferior da tela de experiência, clique em **Executar**.
 
 ## <a name="create-the-predictive-experiment"></a>Criar a experiência preditiva
@@ -105,13 +106,15 @@ Para implementar como um Serviço Web Clássico e criar uma aplicação para con
 8. Atualize o valor da variável *apiKey* com a chave API guardada anteriormente.
 9. Localize a declaração de pedido e atualize os valores dos Parâmetros do Serviço Web que são transmitidos aos módulos *de Dados de Importação* e *Exportação.* Neste caso, você usa a consulta original, mas define um novo nome de mesa.
 
-        var request = new BatchExecutionRequest()
-        {
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable2" },
-            }
-        };
+    ```csharp
+    var request = new BatchExecutionRequest()
+    {
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable2" },
+        }
+    };
+    ```
 10. Execute a aplicação.
 
 Após a conclusão da execução, é adicionada uma nova tabela à base de dados que contém os resultados da pontuação.
@@ -133,15 +136,17 @@ Para implementar como um Novo Serviço Web e criar uma aplicação para consumi-
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na secção **informações de consumo básico.**
 9. Localize a declaração *de pontuaçãoRequest* e atualize os valores dos Parâmetros do Serviço Web que são transmitidos aos módulos *de Dados de Importação* e *Exportação.* Neste caso, você usa a consulta original, mas define um novo nome de mesa.
 
-        var scoreRequest = new
+    ```csharp
+    var scoreRequest = new
+    {
+        Inputs = new Dictionary<string, StringTable>()
         {
-            Inputs = new Dictionary<string, StringTable>()
-            {
-            },
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable3" },
-            }
-        };
+        },
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable3" },
+        }
+    };
+    ```
 10. Execute a aplicação.
 
