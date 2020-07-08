@@ -1,7 +1,7 @@
 ---
 title: Metas de escalabilidade e desempenho para contas de armazenamento padrão
 titleSuffix: Azure Storage
-description: Conheça a escalabilidade e os alvos de desempenho para contas de armazenamento padrão.
+description: Saiba mais sobre a escalabilidade e os objetivos de desempenho para contas de armazenamento padrão.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,10 +10,9 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 817e11fdf70c8043d2eb860fe15cc0a7907c6656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750641"
 ---
 # <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>Metas de escalabilidade e desempenho para contas de armazenamento padrão
@@ -24,7 +23,7 @@ ms.locfileid: "75750641"
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Metas de escalabilidade para o fornecedor de recursos de armazenamento Azure](../common/scalability-targets-resource-provider.md)
 - [Limites e quotas de subscrição do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Site-to-Site VPN desliga-se intermitentemente
-description: Aprenda a resolver o problema em que a ligação VPN site-to-site se desligou regularmente.
+title: Resolução de problemas Azure Site-to-Site VPN desliga intermitentemente
+description: Saiba como resolver o problema em que a ligação VPN site-to-site foi desligada regularmente.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: chadmath
@@ -9,15 +9,14 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75862565"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Resolução de problemas: Azure Site-to-Site VPN desliga-se intermitentemente
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Resolução de problemas: A VPN Site a Site do Azure desliga-se de forma intermitente
 
-Pode experimentar o problema de que uma nova ou existente ligação VPN site-to-site da Microsoft Azure não é estável ou se desliga regularmente. Este artigo fornece passos de resolução de problemas para ajudá-lo a identificar e resolver a causa do problema. 
+Pode sentir o problema de que uma ligação VPN VPN site-to-site do Microsoft Azure não seja estável ou desconecta regularmente. Este artigo fornece medidas de resolução de problemas para ajudá-lo a identificar e resolver a causa do problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -25,47 +24,47 @@ Pode experimentar o problema de que uma nova ou existente ligação VPN site-to-
 
 ### <a name="prerequisite-step"></a>Passo pré-requisito
 
-Verifique o tipo de gateway da rede virtual Azure:
+Verifique o tipo de gateway de rede virtual Azure:
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
-2. Consulte a página **de visão geral** do portal de rede virtual para obter informações sobre o tipo.
+1. Ir para o [portal Azure.](https://portal.azure.com)
+2. Consulte a página **geral** do gateway de rede virtual para obter informações sobre o tipo.
     
     ![A visão geral do portal](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Passo 1 Verifique se o dispositivo VPN no local é validado
 
-1. Verifique se está a utilizar um [dispositivo VPN validado e versão do sistema operativo](vpn-gateway-about-vpn-devices.md#devicetable). Se o dispositivo VPN não for validado, poderá ter de contactar o fabricante do dispositivo para ver se existe algum problema de compatibilidade.
-2. Certifique-se de que o dispositivo VPN está corretamente configurado. Para mais informações, consulte as amostras de [configuração do dispositivo de edição](vpn-gateway-about-vpn-devices.md#editing).
+1. Verifique se está a utilizar um [dispositivo VPN validado e uma versão do sistema operativo.](vpn-gateway-about-vpn-devices.md#devicetable) Se o dispositivo VPN não for validado, poderá ter de contactar o fabricante do dispositivo para ver se existe algum problema de compatibilidade.
+2. Certifique-se de que o dispositivo VPN está corretamente configurado. Para obter mais informações, consulte [as amostras de configuração do dispositivo de edição](vpn-gateway-about-vpn-devices.md#editing).
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>Passo 2 Verifique as definições da Associação de Segurança (para gateways de rede virtual Azure baseados em políticas)
 
-1. Certifique-se de que a rede virtual, as subredes e as gamas na definição de gateway de **rede local** no Microsoft Azure são iguais à configuração no dispositivo VPN no local.
-2. Verifique se as definições da Associação de Segurança correspondem.
+1. Certifique-se de que a rede virtual, sub-redes e.variações na definição **de gateway de rede local** no Microsoft Azure são as mesmas que a configuração no dispositivo VPN no local.
+2. Verifique se as definições da Associação de Segurança coincidem.
 
-### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Passo 3 Verifique as rotas definidas pelo utilizador ou grupos de segurança da rede na subnet gateway
+### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Passo 3 Verifique as rotas definidas pelo utilizador ou os grupos de segurança da rede na sub-rede Gateway
 
-Uma rota definida pelo utilizador na subnet gateway pode estar a restringir algum tráfego e a permitir outro tráfego. Isto faz com que pareça que a ligação VPN não é fiável para algum tráfego e boa para outros. 
+Uma rota definida pelo utilizador na sub-rede gateway pode estar a restringir algum tráfego e a permitir outro tráfego. Isto faz parecer que a ligação VPN não é fiável para algum tráfego e é boa para outros. 
 
-### <a name="step-4-check-the-one-vpn-tunnel-per-subnet-pair-setting-for-policy-based-virtual-network-gateways"></a>Passo 4 Verifique a definição "um túnel VPN por Subnet Pair" (para gateways de rede virtual baseados em políticas)
+### <a name="step-4-check-the-one-vpn-tunnel-per-subnet-pair-setting-for-policy-based-virtual-network-gateways"></a>Passo 4 Verifique a definição "um túnel VPN por par de sub-redes" (para portais de rede virtuais baseados em políticas)
 
-Certifique-se de que o dispositivo VPN no local está definido para ter **um túnel VPN por par de sub-redes** para gateways de rede virtual baseados em políticas.
+Certifique-se de que o dispositivo VPN no local está definido para ter **um túnel VPN por par de sub-redes** para gateways de rede virtuais baseados em políticas.
 
-### <a name="step-5-check-for-security-association-limitation-for-policy-based-virtual-network-gateways"></a>Passo 5 Verificar a limitação da associação de segurança (para gateways de rede virtual baseados em políticas)
+### <a name="step-5-check-for-security-association-limitation-for-policy-based-virtual-network-gateways"></a>Passo 5 Verifique a limitação da associação de segurança (para gateways de rede virtuais baseados em políticas)
 
-O gateway da rede virtual baseado em políticas tem limite de 200 pares de subnet Security Association. Se o número de subredes de rede virtual Azure multiplicadas vezes pelo número de subredes locais for superior a 200, vê-se subredes esporádicas desligadas.
+O gateway de rede virtual baseado em políticas tem um limite de 200 pares da Associação de Segurança sub-rede. Se o número de sub-redes de rede virtuais Azure multiplicado por tempos pelo número de sub-redes locais for superior a 200, vê-se a desconexão de sub-redes esporádicas.
 
-### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Passo 6 Verifique o endereço de interface externa do dispositivo VPN no local
+### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Passo 6 Verifique no local endereço de interface externa do dispositivo VPN
 
-- Se o endereço IP virado para a Internet do dispositivo VPN estiver incluído na definição de gateway da **rede local** em Azure, poderá experimentar desconexões esporádicas.
-- A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver tradução de endereços de rede (NAT) ou firewall entre a Internet e o dispositivo.
--  Se configurar o Clustering firewall para ter um IP virtual, tem de quebrar o cluster e expor o aparelho VPN diretamente a uma interface pública com a quais o gateway possa interagir.
+- Se o endereço IP virado para a Internet do dispositivo VPN estiver incluído na definição **de gateway de rede local** em Azure, poderá experimentar desconexões esporádicas.
+- A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver tradução de endereço de rede (NAT) ou firewall entre a Internet e o dispositivo.
+-  Se configurar o Cluster de Firewall para ter um IP virtual, tem de quebrar o cluster e expor o aparelho VPN diretamente a uma interface pública com a que o gateway pode interagir.
 
-### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Passo 7 Verifique se o dispositivo VPN no local tem o Perfeito Segredo Avançado ativado
+### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Passo 7 Verifique se o dispositivo VPN no local tem o sigilo perfeito para a frente ativado
 
-A função **de Sigilo Avançado Perfeito** pode causar os problemas de desconexão. Se o dispositivo VPN tiver **o Segredo perfeito** para a frente ativado, desative a funcionalidade. Em seguida, [atualize a política de gateway iPsec](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy)da rede virtual .
+A função **de sigilo perfeito para a frente** pode causar os problemas de desconexão. Se o dispositivo VPN tiver **o Sigilo perfeito para a frente** ativado, desative a funcionalidade. Em seguida, [atualize a política virtual de gateway IPsec](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Configure uma ligação Site-a-Site a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Configure uma ligação site-a-local a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configure a política IPsec/IKE para ligações VPN site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 

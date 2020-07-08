@@ -1,5 +1,5 @@
 ---
-title: Controlos de segurança para a Gestão da API Azure
+title: Controlos de segurança para a Azure API Management
 description: Uma lista de controlos de segurança para avaliar a Gestão da API
 services: api-management
 author: vladvino
@@ -8,68 +8,67 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75751134"
 ---
-# <a name="security-controls-for-api-management"></a>Controlos de segurança para gestão da API
+# <a name="security-controls-for-api-management"></a>Controlos de segurança para a Gestão da API
 
-Este artigo documenta os controlos de segurança incorporados na Gestão API.
+Este artigo documenta os controlos de segurança incorporados na API Management.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controlo de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentation |
 |---|---|--|--|
-| Suporte final de serviço| Não | |  |
+| Suporte ao ponto final de serviço| Não | |  |
 | Suporte à injeção VNet| Sim | |  |
-| Isolamento da rede e suporte de firewalling| Sim | Utilizando grupos de segurança em rede (NSG) e Gateway de Aplicações Azure (ou outro aparelho de software) respectivamente. |  |
-| Apoio de túnel forçado| Sim | A rede Azure fornece túneis forçados. |  |
+| Isolamento de rede e suporte de firewall| Sim | Utilizando grupos de segurança de rede (NSG) e Azure Application Gateway (ou outro aparelho de software) respectivamente. |  |
+| Suporte de túneis forçados| Sim | A ligação em rede Azure fornece túneis forçados. |  |
 
-## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
+## <a name="monitoring--logging"></a>Monitorização & registos
 
-| Controlo de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentation |
 |---|---|--|--|
-| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | | |
-| Registo e auditoria de planos de controlo e gestão| Sim | [Registos de atividade do Monitor Azure](../azure-monitor/platform/platform-logs-overview.md) | |
-| Registo e auditoria de planos de dados| Sim | [Registos de diagnóstico do Monitor Azure](../azure-monitor/platform/platform-logs-overview.md) e (opcionalmente) [Insights de aplicação azure](../azure-monitor/app/app-insights-overview.md).  | |
+| Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Sim | | |
+| Registo e auditoria de avião de controlo e gestão| Sim | [Registos de atividade do Monitor Azure](../azure-monitor/platform/platform-logs-overview.md) | |
+| Registo e auditoria de planos de dados| Sim | [Registos de diagnóstico do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md) e (opcionalmente) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  | |
 
 
 ## <a name="identity"></a>Identidade
 
-| Controlo de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentation |
 |---|---|--|--|
 | Autenticação| Sim | |  |
 | Autorização| Sim | |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controlo de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentation |
 |---|---|--|--|
-| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | Dados sensíveis, tais como certificados, chaves e valores de nome secreto, são encriptados com chaves geridas pelo serviço, por chave de instância de serviço. |  |
-| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Não | Todas as chaves de encriptação são por instância de serviço e são geridas pelo serviço. |  |
+| Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Sim | Dados sensíveis, tais como certificados, chaves e valores de nome secreto são encriptados com chaves geridas pelo serviço, por instância de serviço. |  |
+| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Não | Todas as chaves de encriptação são por instância de serviço e são geridas pelo serviço. |  |
 | Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |  |
-| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Sim | [A](../expressroute/index.yml) encriptação Express Route e VNet é fornecida pela [rede Azure.](../virtual-network/index.yml) |  |
-| Chamadas api encriptadas| Sim | As chamadas de avião de gestão são feitas através [do Azure Resource Manager](../azure-resource-manager/index.yml) sobre o TLS. É necessário um token web JSON válido (JWT).  As chamadas de avião de dados podem ser asseguradas com TLS e um dos mecanismos de autenticação suportados (por exemplo, certificado de cliente ou JWT). |   |
+| Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Sim | [A encriptação Express Route](../expressroute/index.yml) e VNet é fornecida pela [rede Azure](../virtual-network/index.yml). |  |
+| Chamadas da API encriptadas| Sim | As chamadas de avião de gestão são feitas através [do Azure Resource Manager](../azure-resource-manager/index.yml) sobre o TLS. É necessário um token web JSON válido (JWT).  As chamadas de plano de dados podem ser asseguradas com TLS e um dos mecanismos de autenticação suportados (por exemplo, certificado de cliente ou JWT). |   |
  |
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controlo de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentation |
 |---|---|--|--|
-| Suporte de gestão de configuração (versão de configuração, etc.)| Sim | Utilização do Kit de [Recursos DevOps de Gestão API Azure](https://aka.ms/apimdevops) |  |
+| Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Utilizando o [Kit de Recursos de Gestão de API da Azure](https://aka.ms/apimdevops) |  |
 
 ## <a name="vulnerability-scans-false-positives"></a>Vulnerabilidade digitaliza falsos positivos
 
-Esta secção documenta vulnerabilidades comuns que não afetam a Gestão da API azure.
+Esta secção documenta vulnerabilidades comuns que não afetam a Azure API Management.
 
 | Vulnerabilidade               | Descrição                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sangramento de bilhete (CVE-2016-9244) | Ticketbleed é vulnerabilidade na implementação da extensão TLS SessionTicket encontrada em alguns produtos F5. Permite a fuga ("sangramento") de até 31 bytes de dados provenientes de memória não inicializada. Isto é causado pela pilha TLS acolchoando um ID de sessão, passado do cliente, com dados para torná-lo 32 bits de comprimento. |
+| Ticketbleed (CVE-2016-9244) | A ticketbleed é uma vulnerabilidade na implementação da extensão TLS SessionTicket encontrada em alguns produtos F5. Permite a fuga ("sangramento") de até 31 bytes de dados de memória não iniializada. Isto é causado pela pilha TLS acolchoando um ID de sessão, passado do cliente, com dados para torná-lo 32 bits de comprimento. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)
+- Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../security/fundamentals/security-controls.md)

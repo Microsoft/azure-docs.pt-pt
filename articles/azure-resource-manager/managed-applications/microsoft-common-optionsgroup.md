@@ -1,20 +1,19 @@
 ---
-title: Elemento UI do OptionsGroup
-description: Descreve o elemento Microsoft.Common.OptionsGroup UI para o portal Azure. Permite que os utilizadores selecionem a partir das opções disponíveis ao implementar uma aplicação gerida.
+title: OpçõesGrupo elemento UI
+description: Descreve o elemento UI do Microsoft.Common.OptionsGroup para o portal Azure. Permite que os utilizadores selecionem entre as opções disponíveis ao implementar uma aplicação gerida.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652349"
 ---
-# <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI
+# <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI elemento
 
-Um controlo de seleção com uma fileira de opções disponíveis.
+Um controlo de seleção com uma linha de opções disponíveis.
 
 ## <a name="ui-sample"></a>Amostra de UI
 
@@ -54,11 +53,11 @@ Um controlo de seleção com uma fileira de opções disponíveis.
 
 ## <a name="remarks"></a>Observações
 
-- A etiqueta `constraints.allowedValues` para é o texto de exibição para um item, e o seu valor é o valor de saída do elemento quando selecionado.
-- Se especificado, o valor predefinido `constraints.allowedValues`deve ser um rótulo presente em . Se não especificado, o `constraints.allowedValues` primeiro item é selecionado por padrão. O valor predefinido é **nulo.**
+- O rótulo para `constraints.allowedValues` é o texto do visor de um item, e o seu valor é o valor de saída do elemento quando selecionado.
+- Se especificado, o valor predefinido deve ser um rótulo presente em `constraints.allowedValues` . Se não for especificado, o primeiro item `constraints.allowedValues` é selecionado por predefinição. O valor por defeito é **nulo.**
 - `constraints.allowedValues`deve ter pelo menos um item.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

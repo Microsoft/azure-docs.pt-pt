@@ -1,6 +1,6 @@
 ---
-title: Synchronize utilizadores de Diretório Ativo Azure para cluster HDInsight
-description: Sincronizar utilizadores autenticados do Diretório Ativo Azure para um cluster HDInsight.
+title: Sincronizar os utilizadores do Azure Ative Directory para o cluster HDInsight
+description: Sincronizar os utilizadores autenticados do Azure Ative Directory para um cluster HDInsight.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,33 +9,32 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: 299d242c38152db6a471159d1f3d2803598c1832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75744857"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
 
-Os [clusters HDInsight com pacote de segurança empresarial (ESP)](hdinsight-domain-joined-introduction.md) podem usar autenticação forte com utilizadores do Azure Ative Directory (Azure AD), bem como utilizar políticas *de controlo de acesso baseados em papéis* (RBAC). À medida que adiciona utilizadores e grupos ao Azure AD, pode sincronizar os utilizadores que precisam de acesso ao seu cluster.
+[Os clusters HDInsight com Pacote de Segurança Empresarial (ESP)](hdinsight-domain-joined-introduction.md) podem usar autenticação forte com utilizadores do Azure Ative Directory (Azure AD), bem como usar políticas *de controlo de acesso baseado em funções* (RBAC). À medida que adiciona utilizadores e grupos ao Azure AD, pode sincronizar os utilizadores que precisam de acesso ao seu cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não o fez, [crie um cluster HDInsight com pacote](hdinsight-domain-joined-configure.md)de segurança empresarial .
+Se ainda não o fez, [crie um cluster HDInsight com o Pacote de Segurança Empresarial.](hdinsight-domain-joined-configure.md)
 
-## <a name="add-new-azure-ad-users"></a>Adicione novos utilizadores de Anúncios Azure
+## <a name="add-new-azure-ad-users"></a>Adicionar novos utilizadores AD Azure
 
-Para ver os seus anfitriões, abra a Ambari Web UI. Cada nó será atualizado com novas definições de upgrade não atendidas.
+Para ver os seus anfitriões, abra a UI da Web Ambari. Cada nó será atualizado com novas definições de atualização não acompanhadas.
 
-1. A partir do [portal Azure,](https://portal.azure.com)navegue até ao diretório Azure AD associado ao seu cluster ESP.
+1. A partir do [portal Azure,](https://portal.azure.com)navegue até ao diretório AD Azure associado ao seu cluster ESP.
 
-2. **Selecione todos os utilizadores** do menu à esquerda e, em seguida, selecione Novo **utilizador**.
+2. Selecione **Todos os utilizadores** do menu à esquerda e, em seguida, selecione **Novo utilizador**.
 
     ![Utilizadores e grupos do portal Azure](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. Complete o novo formulário de utilizador. Selecione grupos criados para atribuir permissões baseadas em clusters. Neste exemplo, crie um grupo chamado "HiveUsers", ao qual pode atribuir novos utilizadores. As [instruções de exemplo](hdinsight-domain-joined-configure.md) para a criação `HiveUsers` `AAD DC Administrators`de um cluster ESP incluem a adição de dois grupos, e .
+3. Preencha o novo formulário de utilizador. Selecione os grupos que criou para atribuir permissões baseadas em clusters. Neste exemplo, crie um grupo chamado "HiveUsers", ao qual pode atribuir novos utilizadores. As [instruções](hdinsight-domain-joined-configure.md) de exemplo para a criação de um cluster ESP incluem a adição de dois grupos `HiveUsers` e `AAD DC Administrators` .
 
-    ![Grupos selecionados pelo utilizador do portal Azure](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
+    ![Painel de utilizadores do portal Azure seleciona grupos](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
 4. Selecione **Criar**.
 
@@ -43,15 +42,15 @@ Para ver os seus anfitriões, abra a Ambari Web UI. Cada nó será atualizado co
 
 Os grupos de utilizadores especificados durante o processo de criação de clusters são sincronizados nesse momento. A sincronização de utilizadores ocorre automaticamente uma vez por hora. Para sincronizar imediatamente os utilizadores, ou para sincronizar um grupo diferente dos grupos especificados durante a criação do cluster, utilize a API Ambari REST.
 
-O método seguinte utiliza post com a Ambari REST API. Para mais informações, consulte [Gerir os clusters HDInsight utilizando a API De Repouso Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+O seguinte método utiliza POST com a API Ambari REST. Para obter mais informações, consulte [gerir os clusters HDInsight utilizando a API Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-1. Utilize [o comando ssh](hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu cluster. Edite o comando `CLUSTERNAME` abaixo substituindo pelo nome do seu cluster e, em seguida, introduza o comando:
+1. Utilize [o comando ssh](hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu cluster. Edite o comando abaixo substituindo `CLUSTERNAME` pelo nome do seu cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Depois de autenticar, insira o seguinte comando:
+1. Após autenticação, insira o seguinte comando:
 
     ```bash
     curl -u admin:PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -120,34 +119,34 @@ O método seguinte utiliza post com a Ambari REST API. Para mais informações, 
     }
     ```
 
-1. Este resultado mostra que o estado é **COMPLETO**, foi criado um novo utilizador e foi atribuído ao utilizador uma adesão. Neste exemplo, o utilizador é atribuído ao grupo LDAP sincronizado "HiveUsers", uma vez que o utilizador foi adicionado a esse mesmo grupo em Azure AD.
+1. Este resultado mostra que o estado é **COMPLETO**, um novo utilizador foi criado, e o utilizador foi atribuído a uma adesão. Neste exemplo, o utilizador é atribuído ao grupo LDAP sincronizado "HiveUsers", uma vez que o utilizador foi adicionado ao mesmo grupo em Azure AD.
 
     > [!NOTE]  
-    > O método anterior apenas sincroniza os grupos AD Azure especificados na propriedade do grupo de **utilizadores Access** das definições de domínio durante a criação do cluster. Para mais informações, consulte [criar um cluster HDInsight](domain-joined/apache-domain-joined-configure.md).
+    > O método anterior apenas sincroniza os grupos AZure AD especificados na propriedade do grupo de **utilizadores Access** das definições de domínio durante a criação do cluster. Para obter mais informações, consulte [criar um cluster HDInsight](domain-joined/apache-domain-joined-configure.md).
 
-## <a name="verify-the-newly-added-azure-ad-user"></a>Verifique o recém-adicionado utilizador da AD Azure
+## <a name="verify-the-newly-added-azure-ad-user"></a>Verifique o recém-adicionado utilizador AZure AD
 
-Abra a [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar se o novo utilizador da AD Azure foi adicionado. Aceda ao Ambari Web UI navegando até **`https://CLUSTERNAME.azurehdinsight.net`**. Introduza o nome de utilizador e a palavra-passe do administrador do cluster.
+Abra o [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar se o novo utilizador AD Azure foi adicionado. Aceda ao UI web Ambari navegando para **`https://CLUSTERNAME.azurehdinsight.net`** . Introduza o nome de utilizador e a palavra-passe do administrador do cluster.
 
-1. A partir do painel ambari, selecione **Manage Ambari** sob o menu **de administração.**
+1. A partir do painel Ambari, **selecione Manage Ambari** no menu **de administração.**
 
-    ![Painel Apache Ambari Gere ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
+    ![Painel Apache Ambari Gerencie Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
 2. Selecione **Utilizadores** no grupo de **menus User + Group Management** no lado esquerdo da página.
 
     ![Menu de utilizadores e grupos HDInsight](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
-3. O novo utilizador deve ser listado na tabela Utilizadores. O Tipo está `LDAP` definido `Local`em vez de .
+3. O novo utilizador deve ser listado dentro da tabela Utilizadores. O Tipo está definido para `LDAP` e não `Local` .
 
-    ![Visão geral da página dos utilizadores de anúncios HDInsight](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
+    ![Visão geral da página dos utilizadores do HDInsight aad](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
-## <a name="log-in-to-ambari-as-the-new-user"></a>Inicie sessão em Ambari como o novo utilizador
+## <a name="log-in-to-ambari-as-the-new-user"></a>Faça login em Ambari como o novo utilizador
 
-Quando o novo utilizador (ou qualquer outro utilizador de domínio) inicia sessão na Ambari, utilizam o nome completo do utilizador da AD Azure e credenciais de domínio.  Ambari exibe um pseudónimo de utilizador, que é o nome de exibição do utilizador em Azure AD.
-O novo utilizador de `hiveuser3@contoso.com`exemplo tem o nome de utilizador . Em Ambari, este novo `hiveuser3` utilizador aparece como mas o `hiveuser3@contoso.com`utilizador entra em Ambari como .
+Quando o novo utilizador (ou qualquer outro utilizador de domínio) entra em Ambari, utiliza o seu nome de utilizador completo Azure AD e credenciais de domínio.  Ambari exibe um pseudónimo do utilizador, que é o nome de exibição do utilizador em Azure AD.
+O novo utilizador de exemplo tem o nome de `hiveuser3@contoso.com` utilizador. Em Ambari, este novo utilizador aparece como `hiveuser3` mas o utilizador entra em Ambari como `hiveuser3@contoso.com` .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-* [Configure as políticas da Hive Apache no HDInsight com esp](hdinsight-domain-joined-run-hive.md)
+* [Configure as políticas da Colmeia Apache em HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
 * [Gerir clusters HDInsight com ESP](hdinsight-domain-joined-manage.md)
 * [Autorizar utilizadores a Apache Ambari](hdinsight-authorize-users-to-ambari.md)

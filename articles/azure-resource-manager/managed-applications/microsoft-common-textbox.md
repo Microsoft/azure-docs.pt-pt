@@ -1,20 +1,19 @@
 ---
 title: Elemento UI textBox
-description: Descreve o elemento Microsoft.Common.TextBox UI para o portal Azure. Utilize para adicionar texto não formado.
+description: Descreve o elemento UI microsoft.common.textbox para o portal Azure. Utilize para adicionar texto não testado.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: e9f084badda9ea1905e43c6f00b29aaf957a6dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652284"
 ---
-# <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI
+# <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI elemento
 
-Um controlo que pode ser usado para editar texto não formado.
+Um controlo que pode ser usado para editar texto não testado.
 
 ## <a name="ui-sample"></a>Amostra de UI
 
@@ -46,12 +45,12 @@ Um controlo que pode ser usado para editar texto não formado.
 
 ## <a name="remarks"></a>Observações
 
-- Se `constraints.required` for definido como **verdadeiro,** então a caixa de texto deve ter um valor para validar com sucesso. O valor predefinido é **falso**.
-- `constraints.regex`é um padrão de expressão regular JavaScript. Se especificado, então o valor da caixa de texto deve corresponder ao padrão para validar com sucesso. O valor predefinido é **nulo.**
-- `constraints.validationMessage`é uma corda para exibir quando o valor da caixa de texto falha na validação. Se não especificadas, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor predefinido é **nulo.**
-- É possível especificar um `constraints.regex` valor `constraints.required` para quando é definido como **falso**. Neste cenário, não é necessário um valor para que a caixa de texto validar com sucesso. Se um for especificado, deve corresponder ao padrão de expressão regular.
+- Se `constraints.required` for definida como **verdadeira,** a caixa de texto deve ter um valor para validar com sucesso. O valor predefinido é **falso**.
+- `constraints.regex`é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com sucesso. O valor por defeito é **nulo.**
+- `constraints.validationMessage`é uma cadeia para exibir quando o valor da caixa de texto falha na validação. Se não for especificado, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor por defeito é **nulo.**
+- É possível especificar um valor para `constraints.regex` quando é definido como `constraints.required` **falso**. Neste cenário, não é necessário um valor para que a caixa de texto valide com sucesso. Se for especificado, deve corresponder ao padrão de expressão regular.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

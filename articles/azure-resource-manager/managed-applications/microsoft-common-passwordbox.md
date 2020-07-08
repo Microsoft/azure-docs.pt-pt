@@ -1,18 +1,17 @@
 ---
-title: Elemento UI passwordBox
-description: Descreve o elemento Microsoft.Common.PasswordBox UI para o portal Azure. Permite que os utilizadores forneçam um valor secreto ao implementarem aplicações geridas.
+title: Elemento UI da PasswordBox
+description: Descreve o elemento UI Microsoft.Common.PasswordBox para o portal Azure. Permite que os utilizadores forneçam um valor secreto ao implementar aplicações geridas.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652310"
 ---
-# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI
+# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox uI elemento
 
 Um controlo que pode ser usado para fornecer e confirmar uma senha.
 
@@ -51,11 +50,11 @@ Um controlo que pode ser usado para fornecer e confirmar uma senha.
 
 ## <a name="remarks"></a>Observações
 
-- Este elemento não suporta `defaultValue` a propriedade.
-- Para obter `constraints`detalhes de implementação de , consulte [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Se `options.hideConfirmation` for definido como **verdadeiro,** a segunda caixa de texto para confirmar a palavra-passe do utilizador está escondida. O valor predefinido é **falso**.
+- Este elemento não suporta a `defaultValue` propriedade.
+- Para obter detalhes de implementação `constraints` de , consulte [Microsoft.Common.TextBox](microsoft-common-textbox.md).
+- Se `options.hideConfirmation` estiver definido como **verdadeiro,** a segunda caixa de texto para confirmar a palavra-passe do utilizador está escondida. O valor predefinido é **falso**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

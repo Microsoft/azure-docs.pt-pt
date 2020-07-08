@@ -1,46 +1,45 @@
 ---
-title: Parceiros de Monitorização de Tecidos de Serviço Azure
+title: Parceiros de monitorização de tecidos de serviço Azure
 description: Saiba como monitorizar aplicações, clusters e infraestruturas do Azure Service Fabric com soluções de monitorização de parceiros.
 author: srrengar
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645723"
 ---
-# <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de Monitorização de Tecidos de Serviço Azure
+# <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de monitorização de tecidos de serviço Azure
 
-Este artigo ilustra como se pode monitorizar as suas aplicações, clusters e infraestruturas de Tecido de Serviço com um punhado de soluções parceiras. Trabalhámos com cada um dos parceiros abaixo para criar ofertas integradas para o Service Fabric.
+Este artigo ilustra como se pode monitorizar as suas aplicações de Tecido de Serviço, clusters e infraestruturas com um punhado de soluções parceiras. Trabalhámos com cada um dos parceiros abaixo para criar ofertas integradas para o Service Fabric.
 
 ## <a name="dynatrace"></a>Dynatrace
 
-A nossa integração com a Dynatrace fornece muitas funcionalidades fora da caixa para monitorizar os seus clusters de Tecido de Serviço. A instalação do Dynatrace OneAgent nas suas instâncias VMSS dá-lhe contadores de desempenho e uma topologia da implementação do seu Tecido de Serviço até ao nível da App. A Dynatrace também é uma ótima escolha para a monitorização no local. Confira mais funcionalidades listadas no [anúncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instruções](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para ativar a Dynatrace no seu cluster. 
+A nossa integração com a Dynatrace fornece muitas funcionalidades fora da caixa para monitorizar os seus clusters de Tecido de Serviço. A instalação do Dynatrace OneAgent nas suas instâncias VMSS dá-lhe contadores de desempenho e uma topologia da sua implementação de Tecido de Serviço até ao nível da App. A Dynatrace é também uma ótima escolha para a monitorização no local. Confira mais das funcionalidades listadas no [anúncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instruções](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para ativar a Dynatrace no seu cluster. 
 
 ## <a name="datadog"></a>Datadog
 
-Datadog tem uma extensão para VMSS tanto para casos Windows como Linux. Utilizando o Datadog pode recolher registos de eventos do Windows e, assim, recolher eventos da plataforma Service Fabric no Windows. Consulte aqui as instruções sobre como enviar os seus dados de diagnóstico para o [Datadog](https://www.datadoghq.com/blog/azure-monitoring-enhancements/#integrate-with-azure-service-fabric).
+Datadog tem uma extensão para VMSS tanto para as instâncias Windows como Linux. Utilizando o Datadog, pode recolher registos de eventos do Windows e, assim, recolher eventos da plataforma Service Fabric no Windows. Consulte aqui as instruções sobre como enviar os seus dados de diagnóstico para o [Datadog.](https://www.datadoghq.com/blog/azure-monitoring-enhancements/#integrate-with-azure-service-fabric)
 
 ## <a name="appdynamics"></a>AppDynamics
 
-A integração do Tecido de Serviço com a AppDynamics está ao nível da aplicação. Ao atualizar variáveis ambientais e utilizar o App Dynamics NuGets, pode enviar a telemetria da aplicação para a AppDynamics. Consulte estas [instruções](https://docs.appdynamics.com/display/AZURE/Install+AppDynamics+for+Azure+Service+Fabric) para como integrar as suas aplicações .NET Service Fabric com a AppDynamics.
+A integração do Tecido de Serviço com a AppDynamics está ao nível da aplicação. Ao atualizar variáveis ambientais e utilizando o App Dynamics NuGets, pode enviar telemetria de aplicação para AppDynamics. Consulte estas [instruções](https://docs.appdynamics.com/display/AZURE/Install+AppDynamics+for+Azure+Service+Fabric) sobre como integrar as suas aplicações .NET Service Fabric com AppDynamics.
 
 ## <a name="new-relic"></a>New Relic
 
-A New Relic é outra ferramenta de Gestão de Desempenho de Aplicações que se integra bem com aplicações de Tecido de Serviço. Pode instalar os pacotes New Relic NuGet e adicionar variáveis ambientais específicas nos seus ficheiros manifestos para enviar a sua aplicação para a New Relic. Consulte estas [instruções](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric) para ativar a telemetria New Relic para as suas aplicações .NET Service Fabric.
+A New Relic é outra ferramenta de Gestão de Desempenho de Aplicações que se integra bem com aplicações de Tecido de Serviço. Pode instalar os pacotes New Relic NuGet e adicionar variáveis ambientais específicas nos seus ficheiros manifestos para enviar a telemetria da sua aplicação para a Nova Relíquia. Consulte estas [instruções](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric) para ativar a telemetria New Relic para as suas aplicações .NET Service Fabric.
 
 ## <a name="elk"></a>ALCE 
 
-A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Logstash e Kibana. Ao utilizar estas tecnologias em combinação, pode recolher, armazenar e analisar dados de monitorização e diagnóstico de Tecidos de Serviço. Temos aqui um tutorial para como fazê-lo com [aplicações](service-fabric-tutorial-java-elk.md)java nativas de Tecido de Serviço. 
+A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Logstash e Kibana. Ao utilizar estas tecnologias em combinação, pode recolher, armazenar e analisar dados de monitorização e diagnóstico do Service Fabric. Temos um tutorial para como fazê-lo com aplicações java nativas do Service Fabric [aqui.](service-fabric-tutorial-java-elk.md) 
 
-## <a name="humio"></a>Humio
+## <a name="humio"></a>Rio Humio
 
-Humio é um serviço de recolha de registos que pode recolher registos das suas aplicações e eventos da Service Fabric na nuvem ou no local em tempo real. Além da observabilidade ao vivo, a Humio oferece capacidades de análise e visualização de última geração para visualizar e recolher informações dos seus diagnósticos. Humio tem planos de preços eficazes em termos de custos e é construído à escala, mantendo a sua velocidade rápida de sumução. Integra-se diretamente com eventos da plataforma Service Fabric e telemetria de aplicações. Pode ler mais sobre a integração humio e de tecido de serviço [aqui](https://github.com/humio/service-fabric-humio).
+Humio é um serviço de recolha de registos que pode recolher registos das suas aplicações e eventos a partir de Service Fabric na nuvem ou no local em tempo real. Além da observabilidade ao vivo, Humio oferece capacidades de análise e visualização de última geração para visualizar e recolher informações a partir dos seus diagnósticos. Humio tem planos de preços eficazes e é construído à escala, mantendo a sua velocidade de iluminação rápida. Integra-se diretamente com eventos da plataforma Service Fabric e telemetria de aplicação. Pode ler mais sobre a integração do Humio and Service Fabric [aqui.](https://github.com/humio/service-fabric-humio)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha uma [visão geral da monitorização e diagnósticos](service-fabric-diagnostics-overview.md) em Tecido de Serviço
-* Saiba como [diagnosticar cenários comuns](service-fabric-diagnostics-common-scenarios.md) com as nossas ferramentas de primeiro partido
+* Saiba como [diagnosticar cenários comuns](service-fabric-diagnostics-common-scenarios.md) com as nossas primeiras ferramentas partidárias

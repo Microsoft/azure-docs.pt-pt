@@ -1,38 +1,37 @@
 ---
-title: Alterar as definições do FabricTransport
-description: Aprenda a configurar as definições de comunicação do ator Azure Service Fabric para diferentes configurações de ator.
+title: Alterar definições de FabricTransport
+description: Saiba como configurar as definições de comunicação do ator Azure Service Fabric para diferentes configurações de atores.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645587"
 ---
-# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configure as definições de FabricTransport para atores fiáveis
+# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurar configurações fabricTransport para atores fiáveis
 
 Aqui estão as definições que pode configurar:
 - C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
-Pode modificar a configuração padrão do FabricTransport de forma sonoridade.
+Pode modificar a configuração padrão do FabricTransport de forma a seguir.
 
 ## <a name="assembly-attribute"></a>Atributo de montagem
 
-O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) precisa de ser aplicado nas assembleias de serviço do cliente do ator e do ator.
+O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) tem de ser aplicado nas assembleias de atendimento do cliente e do ator.
 
-O exemplo que se segue mostra como alterar o valor padrão das definições de Tempo de funcionamento do FabricTransport:
+O exemplo a seguir mostra como alterar o valor predefinido das definições fabricTransport OperationTimeout:
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   O segundo exemplo altera os valores predefinidos do FabricTransport MaxMessageSize e do OperationTimeoutInSeconds.
+   Segundo exemplo altera valores predefinidos do FabricTransport MaxMessageSize e OperationTimeoutInSeconds.
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -41,17 +40,17 @@ O exemplo que se segue mostra como alterar o valor padrão das definições de T
 
 ## <a name="config-package"></a>Pacote Config
 
-Pode utilizar uma [embalagem de config](service-fabric-application-and-service-manifests.md) para modificar a configuração predefinida.
+Pode utilizar um [pacote config](service-fabric-application-and-service-manifests.md) para modificar a configuração predefinida.
 
 > [!IMPORTANT]
-> Nos nós linux, os certificados devem ser formatados em PEM. Para saber mais sobre a localização e configuração de certificados para o Linux, consulte [os certificados de Configuração no Linux](./service-fabric-configure-certificates-linux.md). 
+> Nos nós Linux, os certificados devem ser formatados por PEM. Para saber mais sobre a localização e configuração de certificados para Linux, consulte [os certificados de configuração no Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configure as definições de FabricTransport para o serviço de ator
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configurar configurações FabricTransport para o serviço de ator
 
-Adicione uma secção De AmbienteS no ficheiro definições.xml.
+Adicione uma secção TransportSettings no ficheiro settings.xml.
 
-Por defeito, o código do&lt;ator&gt;procura o Nome da Secção como " ActorName TransportSettings". Se isso não for encontrado, verifica o Nome da Secção como "Ambientes de Transporte".
+Por predefinição, o código do ator procura o Nome da Secção como " &lt; ActorName &gt; TransportSettings". Se isso não for encontrado, verifica se o Nome da Secção é como "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -68,9 +67,9 @@ Por defeito, o código do&lt;ator&gt;procura o Nome da Secção como " ActorName
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Configure as definições de FabricTransport para a montagem do cliente ator
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Configurar as definições do FabricTransport para a montagem do cliente do ator
 
-Se o cliente não estiver a funcionar como parte&lt;de um&gt;serviço, pode criar um ficheiro " Client Exe Name .xml" no mesmo local que o ficheiro cliente .exe. Em seguida, adicione uma secção De AmbienteS nesse ficheiro. O Nome da Secção deve ser "TransportSettings".
+Se o cliente não estiver a funcionar como parte de um serviço, pode criar um &lt; ficheiro "Client Exe Name &gt;.settings.xml" no mesmo local que o ficheiro cliente .exe. Em seguida, adicione uma secção TransportSettings nesse ficheiro. O Nome da Secção deve ser "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -90,9 +89,9 @@ Se o cliente não estiver a funcionar como parte&lt;de um&gt;serviço, pode cria
   </Settings>
    ```
 
-* Configurar definições de Transporte de Tecido para serviço/cliente de ator seguro com certificado secundário.
-  As informações do certificado secundário podem ser adicionadas adicionando certificado de parâmetroFindValuebySecondary.
-  Abaixo está o exemplo para as Definições de Transporte de Ouvintes.
+* Configurar definições de FabricTransport para Serviço de Ator Seguro/Cliente com Certificado Secundário.
+  As informações sobre certificados secundários podem ser adicionadas adicionando o parâmetro CertificateFindValuebySecondary.
+  Abaixo está o exemplo para os Listener TransportSettings.
 
   ```xml
   <Section Name="TransportSettings">
@@ -106,7 +105,7 @@ Se o cliente não estiver a funcionar como parte&lt;de um&gt;serviço, pode cria
   <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
   </Section>
    ```
-   Abaixo está o exemplo para as Definições de Transporte de Clientes.
+   Abaixo está o exemplo para os Clientes TransportSettings.
 
   ```xml
   <Section Name="TransportSettings">
@@ -120,9 +119,9 @@ Se o cliente não estiver a funcionar como parte&lt;de um&gt;serviço, pode cria
   <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
   </Section>
    ```
-  * Configurar as definições de transporte de tecido para assegurar o serviço de ator/cliente usando o nome do assunto.
-    O utilizador precisa de fornecer findType como FindBySubjectName,adicionar CertificateIssuerThumbprints e CertificateRemoteCommonNames valores.
-    Abaixo está o exemplo para as Definições de Transporte de Ouvintes.
+  * Configurar definições de FabricTransport para garantir o serviço de ator/cliente usando o nome do sujeito.
+    O utilizador precisa de fornecer findType como FindBySubjectName,adicionar CertificadoIssuerThumbprints e CertificateRemoteCommonNames valores.
+    Abaixo está o exemplo para os Listener TransportSettings.
 
     ```xml
     <Section Name="TransportSettings">
@@ -136,7 +135,7 @@ Se o cliente não estiver a funcionar como parte&lt;de um&gt;serviço, pode cria
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-    Abaixo está o exemplo para as Definições de Transporte de Clientes.
+    Abaixo está o exemplo para os Clientes TransportSettings.
 
   ```xml
    <Section Name="TransportSettings">

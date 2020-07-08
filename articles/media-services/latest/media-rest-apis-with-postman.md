@@ -1,6 +1,6 @@
 ---
-title: Configure Postman para Azure Media Services v3 REST API chamadas
-description: Este artigo mostra-lhe como configurar o Carteiro para que possa ser usado para ligar para a Azure Media Services (AMS) REST APIs.
+title: Configure Carteiro para Azure Media Services v3 REST API calls
+description: Este artigo mostra-lhe como configurar o Carteiro para que possa ser usado para chamar APIs de REST da Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,28 +14,27 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75779642"
 ---
-# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Postman para Serviços de Media v3 CHAMADAS REST API
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
 
-Este artigo mostra-lhe como configurar **o Carteiro** para que possa ser usado para ligar para a Azure Media Services (AMS) REST APIs. O artigo mostra como importar ambiente e ficheiros de recolha para **o Carteiro.** A coleção contém definições agrupadas de pedidos HTTP que chamam Azure Media Services (AMS) REST APIs. O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
+Este artigo mostra-lhe como configurar **o Carteiro** para que possa ser usado para chamar APIs de REST da Azure Media Services (AMS). O artigo mostra como importar ambiente e recolha de ficheiros para **o Carteiro.** A coleção contém definições agrupadas de pedidos HTTP que chamam Azure Media Services (AMS) REST APIs. O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
 
-Antes de começar a desenvolver, reveja [o Desenvolvimento com Media Services v3 APIs](media-services-apis-overview.md).
+Antes de começar a [desenvolver,reveja o Desenvolvimento com os Serviços de Media v3 APIs.](media-services-apis-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Media Services.](create-account-cli-how-to.md) Lembre-se do nome do grupo de recursos e do nome da conta Media Services. 
+- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
 - Obtenha informações necessárias para aceder a [APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plugin REST ou **Telerik Fiddler**. 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Código de Estúdio Visual** com o plugin REST ou o **Fiddler Telerik**. 
 
 > [!IMPORTANT]
-> Rever convenções de [nomeação.](media-services-apis-overview.md#naming-conventions)
+> Rever [convenções de nomeação](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Transferir ficheiros do Postman
 
@@ -76,9 +75,9 @@ Clone o repositório do GitHub que contém os ficheiros de ambiente e coleção 
 
 ## <a name="get-azure-ad-token"></a>Obter o Token do Microsoft Azure AD 
 
-Antes de começar a manipular os recursos da AMS v3, precisa de obter e definir o Token Azure AD para autenticação principal de serviço.
+Antes de começar a manipular os recursos AMS v3, precisa de obter e definir Azure AD Token para a Autenticação Principal do Serviço.
 
-1. Na janela esquerda da aplicação Postman, selecione "Step 1: Get AAD Auth token".
+1. Na janela esquerda da aplicação Postman, selecione "Passo 1: Obter ficha AAD Auth".
 2. Em seguida, selecione "Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço".
 3. Prima **Enviar**.
 
@@ -94,16 +93,16 @@ Antes de começar a manipular os recursos da AMS v3, precisa de obter e definir 
 
 ## <a name="troubleshooting"></a>Resolução de problemas 
 
-* Se a sua aplicação falhar com "HTTP 504: Gateway Timeout", certifique-se de que a variável de localização não foi explicitamente fixada para um valor diferente da localização esperada da conta media Services. 
-* Se tiver um erro de "conta não encontrada", consulte também para se certificar de que a propriedade de localização na mensagem Body JSON está definida para o local onde a conta de Media Services se encontra. 
+* Se a sua aplicação falhar com "HTTP 504: Gateway Timeout", certifique-se de que a variável de localização não foi explicitamente definida para outro valor que não a localização esperada da conta Serviços de Comunicação. 
+* Se obtém um erro de "conta não encontrada", verifique também se a propriedade de localização na mensagem Body JSON está definida para o local onde se encontra a conta dos Serviços de Comunicação Social. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-- [Faça upload de ficheiros numa conta de Serviços de Media - REST](upload-files-rest-how-to.md)
-- [Criar filtros com Serviços de Media - REST](filters-dynamic-manifest-rest-howto.md)
+- [Faça upload de ficheiros numa conta de Serviços de Comunicação Social - REST](upload-files-rest-how-to.md)
+- [Criar filtros com Serviços de Mídia - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Transmita ficheiros com REST](stream-files-tutorial-with-rest.md).  
-- [Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+- [Transmitir ficheiros com REST](stream-files-tutorial-with-rest.md).  
+- [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
