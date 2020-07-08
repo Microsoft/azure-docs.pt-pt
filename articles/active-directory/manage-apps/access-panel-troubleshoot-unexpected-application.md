@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22ba0709f4c5ca2294f515bdf1a96bff661b7293
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84760835"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como as aplicações aparecem no painel de acesso
@@ -153,5 +153,5 @@ abrir um bilhete de apoio com as seguintes informações, se disponível:
 
 -   Traços de violino
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

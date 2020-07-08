@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84805321"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob (pré-visualização)
@@ -39,7 +39,7 @@ Cada instantâneo blob pode ter a sua própria chave de encriptação.
 
 Para chamadas REST, os clientes podem usar os seguintes cabeçalhos para passar de forma segura informações das chaves de encriptação num pedido de armazenamento blob:
 
-|Cabeçalho do Pedido | Description |
+|Cabeçalho do Pedido | Descrição |
 |---------------|-------------|
 |`x-ms-encryption-key` |Requerido tanto para escrever como ler pedidos. Um valor chave de encriptação AES-256 codificado pela Base64. |
 |`x-ms-encryption-key-sha256`| Requerido tanto para escrever como ler pedidos. O SHA256 codificado pela Base64 da chave de encriptação. |
@@ -74,7 +74,7 @@ Para rodar uma chave de encriptação que foi usada para encriptar uma bolha, de
 >
 > Certifique-se de proteger a chave de encriptação que fornece num pedido de armazenamento Blob numa loja de chaves segura como o Azure Key Vault. Se tentar uma operação de escrita num recipiente ou numa bolha sem a chave de encriptação, a operação falhará e perderá o acesso ao objeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Especifique uma chave fornecida pelo cliente num pedido de armazenamento blob com .NET](../blobs/storage-blob-customer-provided-key.md)
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)

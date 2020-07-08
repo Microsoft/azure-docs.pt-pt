@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
 ms.openlocfilehash: 76c65d194d03dd1b7ff4cc2f3b45d84ff7909968
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753365"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Criar um inquilino de Diretório Ativo Azure para ligações de protocolos OpenVPN VPN do utilizador
@@ -93,6 +93,6 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 8. Configurar a autenticação Azure AD para VPN do utilizador e atribuí-la a um Hub Virtual seguindo os passos na [autenticação Configure Azure AD para ligação ponto-a-local ao Azure](virtual-wan-point-to-site-azure-ad.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para se ligar à sua rede virtual, deve criar e configurar um perfil de cliente VPN e associá-lo a um Centro Virtual. Consulte [a autenticação AD configurada para a ligação ponto-a-local ao Azure](virtual-wan-point-to-site-azure-ad.md).

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: a83a050b65f5673a86dd07ec13842f6009d2c8dc
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753345"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Seleção de caminhos azure em vários links ISP
@@ -43,6 +43,6 @@ Este número mostra multi-link num site que se liga ao Azure Virtual WAN. Neste 
 
 * É importante notar que o Hub VPN Virtual utiliza ecMP (encaminhamento multi-percurso de custo igual) em todos os túneis de terminação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver [a Azure FAQ](virtual-wan-faq.md).

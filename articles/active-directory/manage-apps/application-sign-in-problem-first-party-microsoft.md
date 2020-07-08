@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84759288"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de sessão numa aplicação da Microsoft
@@ -528,6 +528,6 @@ O acesso à aplicação pode ser bloqueado porque a operação de consentimento 
 
 -   Pode também aplicar este consentimento ao nível do administrador, seguindo as instruções ao abrigo do **Pedido, as permissões de uma** secção de administração de diretórios de [Utilização do ponto final](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)de consentimento de administração .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Usando o ponto final de consentimento administrativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

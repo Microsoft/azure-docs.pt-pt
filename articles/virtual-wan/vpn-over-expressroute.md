@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84749588"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Encriptação ExpressRoute: IPsec over ExpressRoute for Virtual WAN
@@ -54,7 +54,7 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 > Se publicitar os *mesmos* prefixos sobre as ligações ExpressRoute e VPN, a Azure utilizará o caminho ExpressRoute diretamente sem proteção VPN.
 >
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
@@ -237,6 +237,6 @@ Quando já não precisar destes recursos, pode utilizar [o Remove-AzResourceGrou
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo ajuda-o a criar uma ligação VPN sobre o expressRoute peering privado usando O WAN Virtual. Para saber mais sobre o WAN virtual e funcionalidades relacionadas, consulte a visão geral do [WAN virtual.](virtual-wan-about.md)

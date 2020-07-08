@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69f5196484b841e8f0de72ce52ae48e00963f6f5
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84761000"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Uma aplicação atribuída não aparece no painel de acesso
@@ -670,6 +670,6 @@ Para atribuir uma licença a um grupo, siga os passos abaixo:
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Adicionar novos utilizadores ao Azure Active Directory](./../fundamentals/add-users-azure-active-directory.md)
 

@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c63137c6943d9adc0ea7c19f7551d1f31587f42a
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84765000"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Como configurar uma aplicação de procuração de aplicação
@@ -67,6 +67,6 @@ Se encontrar problemas no upload do seu certificado, procure as mensagens de err
 
 A mensagem de erro é exibida no canto superior direito enquanto tenta fazer o upload do certificado. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Publicar aplicações com o Proxy da Aplicação do Azure AD](application-proxy-add-on-premises-application.md)

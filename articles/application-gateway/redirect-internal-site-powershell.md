@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: victorh
 ms.openlocfilehash: ab1cedf324c0391ce54773202b030b519c3e4766
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84804265"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicações com reorientação interna usando Azure PowerShell
@@ -298,7 +298,7 @@ Introduza o nome de domínio na barra de endereço do seu browser. Como, por exe
 
 Altere o endereço para o seu outro domínio, por exemplo, `https://www.contoso.org` e deverá ver se o tráfego foi redirecionado de volta para o ouvinte para www \. contoso.com.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a:
 

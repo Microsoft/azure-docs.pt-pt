@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753549"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor do GPU da NVIDIA para o Linux
@@ -83,7 +83,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 Todas as configurações são opcionais. O comportamento predefinido é não atualizar o núcleo se não for necessário para a instalação do condutor, instalar o mais recente controlador suportado e o conjunto de ferramentas CUDA (conforme aplicável).
 
-| Name | Description | Valor Predefinido | Valores válidos | Tipo de Dados |
+| Name | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o núcleo mesmo que não for necessário para a instalação do condutor | false | TRUE, false | boolean |
 | motoristaVersão | NV: Versão do controlador GRID<br> Versão NC/ND: Kit de ferramentas CUDA. Os controladores mais recentes da CUDA escolhida são instalados automaticamente. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
@@ -201,7 +201,7 @@ A saída de execução de extensão é registada no seguinte ficheiro. Consulte 
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades de máquina virtual para Linux.](features-linux.md)
 
 Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../linux/sizes-gpu.md)

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 2efee29ba709607e1e7935215ca7689a39966de1
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764167"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo de inatividade ao nível do diretório
@@ -46,7 +46,7 @@ A definição entra em vigor para novas sessões. Não se aplicará imediatament
 > Se um Administrador Global tiver configurado uma definição de tempo limite de nível de diretório, os utilizadores podem anular a política e definir a sua própria duração de inscrição inativa. No entanto, o utilizador deve escolher um intervalo de tempo inferior ao definido ao nível do diretório pelo Administrador Global.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Definir as preferências do portal do Azure](set-preferences.md)
 * [Exportar ou eliminar as definições de utilizador](azure-portal-export-delete-settings.md)

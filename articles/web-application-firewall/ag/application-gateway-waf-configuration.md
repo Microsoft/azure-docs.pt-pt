@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84752478"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho e listas de exclusão de pedidos de Web Application Firewall
@@ -100,6 +100,6 @@ O Firewall de Aplicação Web permite-lhe configurar limites de tamanho de pedid
 
 A WAF também oferece um botão configurável para ligar ou desligar a inspeção do corpo do pedido. Por predefinição, a inspeção do corpo de pedido está ativada. Se a inspeção do corpo do pedido for desligada, a WAF não avalia o conteúdo do corpo de mensagens HTTP. Nestes casos, a WAF continua a impor as regras da WAF em cabeçalhos, cookies e URI. Se a inspeção do corpo do pedido for desligada, então o campo de tamanho do corpo de pedido máximo não é aplicável e não pode ser definido. Desligar a inspeção do corpo de pedido permite que mensagens superiores a 128 KB sejam enviadas para a WAF, mas o corpo da mensagem não é inspecionado para obter vulnerabilidades.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar as definições de WAF, pode aprender a visualizar os seus registos WAF. Para mais informações, consulte os [diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).

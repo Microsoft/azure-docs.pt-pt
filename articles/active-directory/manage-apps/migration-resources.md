@@ -13,17 +13,17 @@ ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fe21b6509080e88c63d9c02c8116f3882fb64dd
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763113"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para aplicações migratórias para o Azure Ative Directory
 
 Recursos para ajudá-lo a migrar o acesso e autenticação da aplicação ao Azure Ative Directory (Azure AD). Faça este pequeno levantamento ( https://aka.ms/AppsMigrationFeedback) para fornecer feedback sobre a sua experiência migrando aplicações para Azure AD (incluindo bloqueadores para migração, necessidade de ferramentas/orientação, ou razões para manter o seu IDP no local). 
 
-| Recurso  | Description  |
+| Recurso  | Descrição  |
 |:-----------|:-------------|
 |[Migrando as suas apps para Azure AD](https://aka.ms/migrateapps/whitepaper) | Este livro branco apresenta os benefícios da migração e descreve como planear a migração em quatro fases claramente delineadas: descoberta, classificação, migração e gestão em curso. Você será guiado através de como pensar sobre o processo e dividir o seu projeto em peças fáceis de consumir. Ao longo do documento estão ligações a recursos importantes que o ajudarão ao longo do caminho. |
 |[Guia de solução: Aplicativos migratórios dos Serviços da Federação de Diretórios Ativos (AD FS) para Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Este guia de solução acompanha-o pelas mesmas quatro fases de planeamento e execução de um projeto de migração de aplicações descrito a um nível mais elevado no papel branco migratório. Neste guia, você aprenderá a aplicar essas fases ao objetivo específico de mover uma aplicação de Azure Directory Federated Services (AD FS) para Azure AD.|

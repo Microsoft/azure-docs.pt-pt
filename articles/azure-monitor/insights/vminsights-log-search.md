@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803970"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Azure Monitor para VMs
@@ -112,7 +112,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra 
 |:--|:--|
 |MaliciousIp |O endereço RemoteIp |
 |IndicadorThreadType |O indicador de ameaça detetado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining,* *Darknet*, *DDos,* *MaliciousUrl,* *Malware*, *Phishing,* *Proxy,* *PUA,* *Watchlist*.   |
-|Description |Descrição da ameaça observada. |
+|Descrição |Descrição da ameaça observada. |
 |TLPLevel |O nível do Protocolo de Semáforos (TLP) é um dos valores definidos, *Branco,* *Verde,* *Âmbar,* *Vermelho.* |
 |Confiança |Os valores são *0 a 100.* |
 |Gravidade |Os valores são *0 - 5,* onde *5* é o mais grave e *0* não é nada grave. O valor predefinido é *de 3*.  |
@@ -233,7 +233,7 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Grupo | Processar nome de grupo. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | A hora de início da piscina do processo |
 |FirstPid | O primeiro PID na piscina de processos |
-|Description | A descrição do processo |
+|Descrição | A descrição do processo |
 |CompanyName | O nome da empresa |
 |Nome interno | O nome interno |
 |NomeDoProduto | O nome do produto |
@@ -451,7 +451,7 @@ Os registos com um tipo de *InsightsMetrics* têm dados de desempenho do sistema
 
 Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* estão listados na tabela seguinte:
 
-| Espaço de Nomes | Name | Description | Unidade | Etiquetas |
+| Espaço de Nomes | Name | Descrição | Unidade | Etiquetas |
 |:---|:---|:---|:---|:---|
 | Computador    | Heartbeat             | Batimento cardíaco do computador                        | | |
 | Memória      | DisponívelMB           | Bytes disponíveis para memória                    | Megabytes      | memorySizeMB - Tamanho total da memória|
@@ -471,7 +471,7 @@ Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* es
 | LógicaDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountId - ID do monte do dispositivo |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../../azure-monitor/log-query/get-started-portal.md) o Log Analytics no portal Azure para escrever consultas de registo.
 

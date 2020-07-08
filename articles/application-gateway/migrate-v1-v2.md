@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84804403"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar gateway de aplicações Azure e Firewall de aplicação web de v1 para v2
@@ -25,7 +25,7 @@ Há duas fases numa migração:
 
 Este artigo abrange a migração de configuração. A migração do tráfego de clientes varia consoante o seu ambiente específico. No entanto, [são fornecidas](#migrate-client-traffic)algumas recomendações gerais de alto nível.
 
-## <a name="migration-overview"></a>Descrição geral da migração
+## <a name="migration-overview"></a>Descrição geral da Migração
 
 Um script Azure PowerShell está disponível que faz o seguinte:
 
@@ -198,6 +198,6 @@ Não. Atualmente o script não suporta certificados em KeyVault. No entanto, ist
   
 Pode contactar o Suporte Azure sob o tema "Configuração e Configuração/Migração para V2 SKU". Saiba mais sobre [o suporte do Azure aqui.](https://azure.microsoft.com/support/options/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre o Gateway de Aplicações v2](application-gateway-autoscaling-zone-redundant.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: ec31d8b0b2cc672b65d0c25a4a902befd8693d41
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781009"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento Azure Blob como fonte de grade de eventos
@@ -28,7 +28,7 @@ Este artigo fornece as propriedades e esquema para eventos de armazenamento de b
 
 Estes eventos são desencadeados quando um cliente cria, substitui ou elimina uma bolha chamando APIs blob REST.
 
- |Nome do evento |Description|
+ |Nome do evento |Descrição|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Acionado quando uma bolha é criada ou substituída. <br>Especificamente, este evento é desencadeado quando os clientes usam o `PutBlob` `PutBlockList` , ou `CopyBlob` operações que estão disponíveis na API Blob REST.   |
  |**Microsoft.Storage.BlobDeleted** |Acionado quando uma bolha é apagada. <br>Especificamente, este evento é desencadeado quando os clientes ligam para a `DeleteBlob` operação que está disponível na API Blob REST. |
@@ -40,7 +40,7 @@ Estes eventos são desencadeados quando um cliente cria, substitui ou elimina um
 
 Estes eventos são desencadeados se você ativar um espaço hierárquico de nomes na conta de armazenamento, e os clientes ligam para Azure Data Lake Storage Gen2 REST APIs. Para obter mais informações sobre a Azure Data Lake Storage Gen2, consulte [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-|Nome do evento|Description|
+|Nome do evento|Descrição|
 |----------|-----------|
 |**Microsoft.Storage.BlobCreated** | Acionado quando uma bolha é criada ou substituída. <br>Especificamente, este evento é desencadeado quando os clientes usam o `CreateFile` e `FlushWithClose` operações que estão disponíveis na API de Armazenamento de Data Lake De Azure. |
 |**Microsoft.Storage.BlobDeleted** |Acionado quando uma bolha é apagada. <br>Especificamente, este evento também é desencadeado quando os clientes ligam para a `DeleteFile` operação que está disponível na API de Armazenamento de Data Lake De Azure. |
@@ -292,14 +292,14 @@ Se a conta de armazenamento blob tiver um espaço hierárquico de nomes, os dado
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento de armazenamento de bolhas. |
+| dados | objeto | Dados do evento de armazenamento de bolhas. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
@@ -333,7 +333,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Modelo de gestor de recursos: Criar armazenamento e subscrição blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
 | [Visão geral: reagir a eventos de armazenamento blob](../storage/blobs/storage-blob-event-overview.md) | Visão geral da integração do armazenamento blob com grade de eventos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

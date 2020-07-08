@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84760444"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolução de problemas Kerberos limitou configurações da delegação para aplicação proxy
@@ -168,6 +168,6 @@ Se ainda não conseguir fazer progressos, o suporte da Microsoft pode ajudá-lo.
 - A Azure Application Proxy solicita um bilhete Kerberos antes de enviar o seu pedido para um pedido. Algumas aplicações de terceiros não gostam deste método de autenticação. Estas aplicações esperam que as negociações mais convencionais se realizem. O primeiro pedido é anónimo, o que permite que a aplicação responda com os tipos de autenticação que suporta através de um 401.
 - A autenticação multi-hop é comumente usada em cenários onde uma aplicação é hierárquica, com uma extremidade traseira e extremidade frontal, onde ambos requerem autenticação, como os SqL Server Reporting Services. Para configurar o cenário multi-hop, consulte o artigo [Dedesema restrita de Kerberos pode exigir transição de protocolo em cenários multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configure o KCD num domínio gerido](../../active-directory-domain-services/deploy-kcd.md).

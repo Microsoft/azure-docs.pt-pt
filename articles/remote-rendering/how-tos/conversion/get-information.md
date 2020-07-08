@@ -6,10 +6,10 @@ ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84805016"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
@@ -125,7 +125,7 @@ Esta secção regista informações calculadas a partir do ativo convertido.
 * `recenteringOffset`: Quando a `recenterToOrigin` opção nas [conversõesEção](configure-model-conversion.md) estiver ativada, este valor é a tradução que moveria o modelo convertido de volta à sua posição original.
 * `boundingBox`: Os limites do modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conversão de modelo](model-conversion.md)
 * [Configurar a conversão de modelos](configure-model-conversion.md)

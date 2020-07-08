@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
 ms.openlocfilehash: a5361df9e9cfc9f5d299d494ed634dcaaaf2e707
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753611"
 ---
 # <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Gerar e exportar certificados para ligações VPN do utilizador
@@ -22,6 +22,6 @@ Tem de executar os passos deste artigo num computador que executa o Windows 10 o
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue com os [passos DE WAN Virtual para a ligação VPN do utilizador](virtual-wan-about.md)

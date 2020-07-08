@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a8a748b11e695041aa6baece381bc8d7d068992
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84760920"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problema na utilização do acesso a aplicações self-service
@@ -98,5 +98,5 @@ abrir um bilhete de apoio com as seguintes informações, se disponível:
 
 -   Traços de violino
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)

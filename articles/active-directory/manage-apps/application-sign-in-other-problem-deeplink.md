@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c68143dabd9b047a8d6cc37ccac770b7d954656
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84759492"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas de inscrição numa aplicação utilizando um deeplink
@@ -277,5 +277,5 @@ abrir um bilhete de apoio com as seguintes informações, se disponível:
 
 -   Traços de violino
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Fornecer um único s-on às suas apps com Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)

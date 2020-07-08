@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84760185"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uma aplicação de procuração de aplicação leva muito tempo a carregar
@@ -39,5 +39,5 @@ Pode haver centros de dados Azure que ainda não incluem Application Proxy, mas 
 
 A Microsoft está a trabalhar em capacidades adicionais para melhorar a latência. Assim que estas melhorias estiverem disponíveis, a documentação será atualizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)

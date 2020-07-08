@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45124862fffa3a1ef6f601733407fbbea4eb5e74
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84762977"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Como atribuir utilizadores a aplicações
@@ -60,5 +60,5 @@ Para que um utilizador aceda a uma aplicação, deve primeiro ser-lhe atribuído
 
 10. Um utilizador [consente com uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) por si mesmo, inscrevendo-se na aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753773"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN e apoio ao trabalho remoto
@@ -49,7 +49,7 @@ Tem duas opções aqui:
 
 O BASIC Virtual WAN fornece apenas VPN site-to-site. Para que os utilizadores remotos se conectem, terá de atualizar o WAN virtual para o WAN virtual padrão. Para obter passos para atualizar um WAN virtual, consulte [upgrade de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md)
 
-## <a name="additional-information"></a><a name="other considerations"></a>Informação adicional
+## <a name="additional-information"></a><a name="other considerations"></a>Informações adicionais
 
 O WAN virtual suporta um hub por região/localização. Para obter informações sobre a localização, consulte os [parceiros e locais do Virtual WAN.](virtual-wan-locations-partners.md) Cada hub suporta até 10.000 ligações remotas de utilizador, 1.000 ligações de filial, quatro circuitos ExpressRoute e até 500 ligações de Rede Virtual. À medida que aumenta os utilizadores remotos, se tiver alguma dúvida, não hesite em procurar ajuda enviando um e-mail para azurevirtualwan@microsoft.com . Se necessitar de apoio técnico, certifique-se de abrir um bilhete de apoio a partir do portal Azure e a ajuda estará a caminho.
 

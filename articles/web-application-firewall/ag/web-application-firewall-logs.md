@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753592"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Registos de recursos para firewall de aplicação web Azure
@@ -87,7 +87,7 @@ O Azure gera o registo de atividade por predefinição. Os registos são preserv
 
 O registo de acesso só é gerado se o tiver ativado em cada instância do Gateway de Aplicação, conforme detalhado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou a sessão. Cada acesso do Gateway de Aplicações é registado no formato JSON, como mostra o seguinte exemplo para v1:
 
-|Valor  |Description  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Aplicação Gateway instância que serviu o pedido.        |
 |clientIP     | IP originária do pedido.        |
@@ -131,7 +131,7 @@ O registo de acesso só é gerado se o tiver ativado em cada instância do Gatew
 ```
 Para o Gateway de Aplicações e WAF v2, os registos mostram um pouco mais de informação:
 
-|Valor  |Description  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Aplicação Gateway instância que serviu o pedido.        |
 |clientIP     | IP originária do pedido.        |
@@ -185,7 +185,7 @@ Para o Gateway de Aplicações e WAF v2, os registos mostram um pouco mais de in
 O registo de desempenho só é gerado se o tiver ativado em cada instância do Gateway de Aplicação, conforme detalhado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou a sessão. Os dados do registo de desempenho são gerados em intervalos de 1 minuto. Está disponível apenas para o V1 SKU. Para o v2 SKU, utilize [métricas](../../application-gateway/application-gateway-metrics.md) para dados de desempenho. Os seguintes dados são registados:
 
 
-|Valor  |Description  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     |  Aplicação Gateway exemplo para o qual os dados de desempenho estão a ser gerados. Para um gateway de aplicação de várias instâncias, há uma linha por exemplo.        |
 |saudávelHostCount     | Número de anfitriões saudáveis na piscina de fundo.        |
@@ -222,7 +222,7 @@ O registo de desempenho só é gerado se o tiver ativado em cada instância do G
 O registo de firewall só é gerado se o tiver ativado para cada porta de entrada de aplicação, conforme detalhado nos passos anteriores. Este registo também requer que a firewall da aplicação web esteja configurada num gateway de aplicações. Os dados são armazenados na conta de armazenamento que especificou quando ativou a sessão. Os seguintes dados são registados:
 
 
-|Valor  |Description  |
+|Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Aplicação Gateway exemplo para o qual os dados de firewall estão a ser gerados. Para um gateway de aplicação de várias instâncias, há uma linha por exemplo.         |
 |clienteIp     |   IP originária do pedido.      |
@@ -302,7 +302,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicámos um modelo de Gestor de Recursos que instala e executa o popular analisador [de registos GoAccess](https://goaccess.io/) para Registos de Acesso gateway de aplicações. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como Visitantes Exclusivos, Ficheiros Solicitados, Anfitriões, Sistemas Operativos, Navegadores, códigos de Estado HTTP e muito mais. Para mais detalhes, consulte o [ficheiro Readme na pasta do modelo Do Gestor de Recursos no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Visualizar registos de contador e evento utilizando [registos do Monitor Azure](../../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualize o seu registo de atividades Azure com o](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) post de blog power BI.

@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: mblythe
 ms.openlocfilehash: 248c643c5f1865451abbe201e7033efedb8a7e39
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763946"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportar ou eliminar as definições de utilizador
@@ -41,7 +41,7 @@ Pode utilizar configurações e funcionalidades no portal Azure para criar uma e
 
       A tabela que se segue descreve estas ações.
 
-      | Ação | Description |
+      | Ação | Descrição |
       | --- | --- |
       | **Exportar todas as configurações** | Cria um ficheiro *.json* que contém as definições do utilizador como o seu tema de cor, favoritos e dashboards privados.|
       | **Eliminar todas as definições e dashboards privados** | Elimina todos os links para dashboards privados e outras definições personalizadas que fez ao portal. |
@@ -51,7 +51,7 @@ Pode utilizar configurações e funcionalidades no portal Azure para criar uma e
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções](azure-portal-dashboard-share-access.md)
 * [Adicione, remova e reorganize os favoritos](azure-portal-add-remove-sort-favorites.md)

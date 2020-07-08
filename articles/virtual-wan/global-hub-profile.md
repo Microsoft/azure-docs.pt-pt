@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 4/20/2020
 ms.author: alzam
 ms.openlocfilehash: be2ea92ddbcce7c1e0ab5ba7d172cda0e05984fa
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753385"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Faça o download de um perfil global ou baseado em hub para clientes VPN de utilizador
@@ -49,6 +49,6 @@ O perfil aponta para um único centro. O utilizador só pode ligar-se ao hub em 
 
    ![Perfil do centro 3](./media/global-hub-profile/download.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).

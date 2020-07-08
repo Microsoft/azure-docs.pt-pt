@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791129"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilizando o visualizador de erro de desenho de mapas Azure
@@ -29,7 +29,7 @@ Antes de conseguir descarregar o Visualizador de Erro de Desenho, terá de o faz
 
 Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Download
 
 1. Faça o upload do seu pacote Drawing para o serviço Azure Maps Creator para obter um `udid` para o pacote carregado. Para obter etapas sobre como carregar um pacote, consulte [o Upload de um pacote de desenho](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
@@ -88,7 +88,7 @@ Assim que o _ConversionWarningsAndErrors.jsem_ cargas de ficheiros, verá uma li
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App de visualizador de erro de desenho - erros e avisos":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez que o seu [pacote De desenho satisfaça os requisitos,](drawing-requirements.md)pode utilizar o [serviço Azure Maps Dataset](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote Drawing num conjunto de dados. Em seguida, pode utilizar o módulo web Indoor Maps para desenvolver a sua aplicação. Saiba mais lendo os seguintes artigos:
 

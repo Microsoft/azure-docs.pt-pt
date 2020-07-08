@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84762127"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
@@ -260,7 +260,7 @@ Ao planear utilizar Funções Duradouras para uma aplicação de produção, é 
 
 A tabela seguinte mostra os números *máximos* de produção esperados para os cenários previamente descritos. "Instance" refere-se a uma única instância de uma função orquestradora que funciona num único pequeno[(A1](../../virtual-machines/sizes-previous-gen.md)) VM em Azure App Service. Em todos os casos, presume-se que as [sessões prolongadas](#orchestrator-function-replay) estão habilitados. Os resultados reais podem variar dependendo do trabalho de CPU ou I/S realizado pelo código de função.
 
-| Cenário | Débito máximo |
+| Scenario | Débito máximo |
 |-|-|
 | Execução de atividade sequencial | 5 atividades por segundo, por exemplo |
 | Execução paralela da atividade (fan-out) | 100 atividades por segundo, por exemplo |
@@ -273,7 +273,7 @@ A tabela seguinte mostra os números *máximos* de produção esperados para os 
 
 Se não estiver a ver os números de produção que espera e o uso do CPU e da memória parece saudável, verifique se a causa está relacionada com [a saúde da sua conta de armazenamento.](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) A extensão funções duradouras pode colocar carga significativa numa conta de Armazenamento Azure e cargas suficientemente elevadas podem resultar em estrangulamento da conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conheça a recuperação de desastres e geo-distribuição](durable-functions-disaster-recovery-geo-distribution.md)

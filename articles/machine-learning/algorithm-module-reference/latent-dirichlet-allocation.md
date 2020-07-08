@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84751685"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de atribuição de Dirichlet Latent
@@ -181,7 +181,7 @@ Após a cálculo dos índices de termo, uma medida de semelhança baseada na dis
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo
 
-|Name|Tipo|Intervalo|Opcional|Predefinição|Description|  
+|Name|Tipo|Intervalo|Opcional|Predefinição|Descrição|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Colunas-alvo(s)|Seleção de Colunas||Necessário|CadeiaFeature|Nome ou índice da coluna-alvo.|  
 |Número de tópicos para modelar|Número inteiro|[1;1000]|Necessário|5|Modele a distribuição do documento contra os tópicos N.|  
@@ -203,7 +203,7 @@ Após a cálculo dos índices de termo, uma medida de semelhança baseada na dis
 |Número de bits de haxixe|Número inteiro|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **falso**|12|Número de bits a utilizar durante o hashing da funcionalidade.|   
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

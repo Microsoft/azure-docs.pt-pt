@@ -8,10 +8,10 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 582e7ea4e954a1aa5ee27314d038601f7e26c61e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803936"
 ---
 # <a name="format-of-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Formato de registos de recursos do Azure Monitor arquivados numa conta de armazenamento
@@ -132,7 +132,7 @@ Só precisa de fazer atualizações se tiver ferramentas personalizadas que inge
 
 As ferramentas personalizadas devem ser atualizadas para lidar tanto com o formato atual como com o formato JSON Lines acima descrito. Isto irá garantir que quando os dados começarem a aparecer no novo formato, as suas ferramentas não se quebram.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre arquivar registos de recursos de recursos para uma conta de armazenamento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Saiba mais sobre [arquivar dados de registo de atividades para uma conta de armazenamento](./../../azure-monitor/platform/archive-activity-log.md)

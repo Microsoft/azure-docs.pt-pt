@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4387a3ca02297311cd9ab025c315ca3324cbbbe
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84760410"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema de adicionar uma aplicação da Galeria AD AZure

@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1c5a003eb113289bcb798423ff649b944dcf186
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84761073"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso a aplicações self-service
@@ -85,5 +85,5 @@ Assim que concluir a configuração da aplicação self-service, os utilizadores
 
 Estas aprovações suportam apenas fluxos de trabalho de homologação únicas, o que significa que se especificar vários aprovadores, qualquer aprovante pode aprovar o acesso à aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)
