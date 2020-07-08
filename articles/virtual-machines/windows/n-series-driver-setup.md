@@ -11,10 +11,9 @@ ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5dfcb4abc7a6859955bc36fad2cee893a78c79cd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84726570"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU da NVIDIA em VMs da série N que executam o Windows 
@@ -64,7 +63,7 @@ Para instalar a mais recente extensão 1.1 HpcVMDrivers numa VM existente com ca
 A rede RDMA suporta o tráfego de Interface de Passagem de Mensagens (MPI) para aplicações em execução com [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ou Intel MPI 5.x. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Os desenvolvedores que coam aplicações aceleradas pela GPU para os GPUs da NVIDIA Tesla também podem descarregar e instalar o mais recente [KIT de Ferramentas CUDA](https://developer.nvidia.com/cuda-downloads). Para mais informações, consulte o [Guia de Instalação da CUDA.](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)
 

@@ -9,10 +9,9 @@ ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 54674be0010bd062cfe6263db4167a24805a9e5a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84727131"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configure filtros de rota para o espreocupar a Microsoft: Portal Azure
@@ -60,7 +59,7 @@ Para conseguir ligar-se com sucesso aos serviços através do estomamento da Mic
 
 -  Deve fixar o filtro de rota ao circuito ExpressRoute.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, certifique-se de que cumpre os seguintes critérios:
 

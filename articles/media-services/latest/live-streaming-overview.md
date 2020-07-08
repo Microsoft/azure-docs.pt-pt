@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
 ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418148"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
@@ -79,9 +78,9 @@ A transcrição ao vivo é uma característica que pode usar com eventos ao vivo
 
 Para compreender o fluxo de trabalho em streaming ao vivo nos Serviços de Media v3, tem primeiro de rever e compreender os seguintes conceitos: 
 
-- [Pontos finais de streaming](streaming-endpoint-concept.md)
-- [Eventos ao vivo e saídas ao vivo](live-events-outputs-concept.md)
-- [Localizadores de streaming](streaming-locators-concept.md)
+- [Pontos finais de transmissões em fluxo](streaming-endpoint-concept.md)
+- [Eventos em direto e saídas em direto](live-events-outputs-concept.md)
+- [Localizadores de transmissão em fluxo](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Etapas gerais
 
@@ -121,7 +120,7 @@ O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ati
 - [Estados e faturação](live-event-states-billing.md)
 - [Latência](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
 
@@ -129,7 +128,7 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Arranque rápido de streaming ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

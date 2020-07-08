@@ -16,10 +16,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84342600"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
@@ -112,7 +111,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 
 Para utilizar o BYOL com um SQL Server VM, tem de ter uma licença para SQL Server Standard ou Enterprise and [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção necessária através de alguns programas de licenciamento de volume e uma compra opcional com outros. O nível de preços fornecido através dos programas de licenciamento de volume varia, com base no tipo de acordo e na quantidade e ou compromisso com o SQL Server. Mas, como regra geral, trazer a sua própria licença para cargas de trabalho contínuas de produção tem os seguintes benefícios:
 
-| Benefício BYOL | Description |
+| Benefício BYOL | Descrição |
 |-----|-----|
 | **Poupança de custos** | O [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) oferece até 55% de poupança. Para mais informações, consulte [o modelo de licenciamento da Switch](licensing-model-azure-hybrid-benefit-ahb-change.md) |
 | **Réplica secundária passiva livre** | Outro benefício de trazer a sua própria licença é o [licenciamento gratuito para uma réplica secundária passiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fins de alta disponibilidade. Isto reduz para metade o custo de licenciamento de uma implementação altamente disponível do SQL Server (por exemplo, usando sempre grupos de disponibilidade). Os direitos de execução do secundário passivo são fornecidos através do benefício de Garantia de Software de Fail-Over Servers. |

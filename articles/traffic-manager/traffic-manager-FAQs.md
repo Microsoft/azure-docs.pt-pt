@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
 ms.openlocfilehash: 28453af7eb38f4195774d70c5960eacc8467dedd
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84417009"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego frequentemente perguntas (FAQ)
@@ -59,7 +58,7 @@ Como explicado em [Como funciona o Gestor de Tráfego,](../traffic-manager/traff
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Posso usar o Traffic Manager com um nome de domínio "nu"?
 
-Yes. Para aprender a criar um registo de pseudónimo para o seu nome de domínio apex para fazer referência a um perfil do Gestor de Tráfego Azure, consulte [um registo de pseudónimo para suportar nomes de domínio apex com Gestor de Tráfego](../dns/tutorial-alias-tm.md).
+Sim. Para aprender a criar um registo de pseudónimo para o seu nome de domínio apex para fazer referência a um perfil do Gestor de Tráfego Azure, consulte [um registo de pseudónimo para suportar nomes de domínio apex com Gestor de Tráfego](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gestor de Tráfego considera o endereço da sub-rede do cliente ao manusear consultas de DNS? 
 
@@ -310,7 +309,7 @@ Para outros tipos de pontos finais, é possível utilizar o Traffic Manager com 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Posso utilizar o Gestor de Tráfego com slots de 'Staging' do Serviço de Nuvem?
 
-Yes. As ranhuras de 'staging' do Serviço de Nuvem podem ser configuradas no Gestor de Tráfego como pontos finais externos. Os controlos de saúde ainda são cobrados à taxa Azure Endpoints.
+Sim. As ranhuras de 'staging' do Serviço de Nuvem podem ser configuradas no Gestor de Tráfego como pontos finais externos. Os controlos de saúde ainda são cobrados à taxa Azure Endpoints.
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>O Gestor de Tráfego suporta pontos finais IPv6?
 
@@ -351,7 +350,7 @@ Também pode utilizar o Azure Monitor para acompanhar a saúde dos seus pontos f
 
 ### <a name="can-i-monitor-https-endpoints"></a>Posso monitorizar os pontos finais do HTTPS?
 
-Yes. O Gestor de Tráfego suporta sondagens sobre HTTPS. Configurar **HTTPS** como o protocolo na configuração de monitorização.
+Sim. O Gestor de Tráfego suporta sondagens sobre HTTPS. Configurar **HTTPS** como o protocolo na configuração de monitorização.
 
 O gestor de tráfego não pode fornecer qualquer validação de certificado, incluindo:
 
@@ -412,7 +411,7 @@ Quando um ponto final de aplicação web Azure é interrompido O Gestor de Tráf
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Posso utilizar o Traffic Manager mesmo que a minha aplicação não tenha suporte para HTTP ou HTTPS?
 
-Yes. Pode especificar o TCP como o protocolo de monitorização e o Gestor de Tráfego pode iniciar uma ligação TCP e aguardar uma resposta a partir do ponto final. Se o ponto final responder ao pedido de ligação com uma resposta para estabelecer a ligação, dentro do período de tempo limite, então esse ponto final é marcado como saudável.
+Sim. Pode especificar o TCP como o protocolo de monitorização e o Gestor de Tráfego pode iniciar uma ligação TCP e aguardar uma resposta a partir do ponto final. Se o ponto final responder ao pedido de ligação com uma resposta para estabelecer a ligação, dentro do período de tempo limite, então esse ponto final é marcado como saudável.
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Que respostas específicas são necessárias a partir do ponto final durante a utilização do controlo TCP?
 
@@ -472,7 +471,7 @@ Pode nidificar perfis até 10 níveis de profundidade. Não são permitidos "loo
 
 ### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Posso misturar outros tipos de pontos finais com perfis infantis aninhados, no mesmo perfil de Gerente de Tráfego?
 
-Yes. Não existem restrições na forma como combina pontos finais de diferentes tipos dentro de um perfil.
+Sim. Não existem restrições na forma como combina pontos finais de diferentes tipos dentro de um perfil.
 
 ### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Como é que o modelo de faturação se aplica aos perfis de Nested?
 

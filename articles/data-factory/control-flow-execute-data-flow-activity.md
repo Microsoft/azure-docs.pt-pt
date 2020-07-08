@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
 ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84726978"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
@@ -56,10 +55,10 @@ Utilize a atividade do Fluxo de Dados para transformar e mover dados através de
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-fluxo de dados | A referência ao Fluxo de Dados a ser executado | DataFlowReference | Yes
-integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | No
-compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | No
-compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | No
+fluxo de dados | A referência ao Fluxo de Dados a ser executado | DataFlowReference | Sim
+integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | Não
+compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | Não
+compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | Não
 staging.linkedService | Se estiver a utilizar uma fonte ou pia SQL DW, a conta de armazenamento utilizada para a paragem da PolyBase | LinkedServiceReference | Só se o fluxo de dados ler ou escrever para um SQL DW
 staging.folderPath | Se estiver a utilizar uma fonte OU pia SQL DW, o caminho da pasta na conta de armazenamento de bolhas utilizada para a paragem do PolyBase | String | Só se o fluxo de dados ler ou escrever para um SQL DW
 
@@ -155,7 +154,7 @@ Para obter o número de linhas lidas de uma fonte chamada "fonte1" que foi usada
 > [!NOTE]
 > Se uma pia tiver zero linhas escritas, não aparecerá em métricas. A existência pode ser verificada utilizando a `contains` função. Por exemplo, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` verificará se alguma linha foi escrita para afundar1.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver atividades de fluxo de controlo suportadas pela Data Factory: 
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84417944"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades do dispositivo do Hub IoT em massa
@@ -133,7 +132,7 @@ while(true)
 }
 ```
 
-O trabalho armazena a sua produção no recipiente de bolhas fornecido como uma bolha de bloco com os dispositivos de **nome.txt**. Os dados de saída consistem em dados de dispositivo serializados JSON, com um dispositivo por linha.
+O trabalho armazena a sua produção no recipiente de bolhas fornecido como uma bolha de bloco com o nome **devices.txt**. Os dados de saída consistem em dados de dispositivo serializados JSON, com um dispositivo por linha.
 
 O exemplo a seguir mostra os dados de saída:
 
@@ -219,7 +218,7 @@ Tenha cuidado com o método **ImportDevicesAsync** porque, além de a provisiona
 
 O método **ImportDevicesAsync** tem dois parâmetros:
 
-* Uma *corda* que contém um URI de um recipiente de bolhas [de armazenamento Azure](../storage/index.yml) para usar como *entrada* para o trabalho. Este URI deve conter um token SAS que concede acesso ao recipiente. Este recipiente deve conter uma bolha com os **dispositivos de nome.txt** que contém os dados do dispositivo serializados para importar para o seu registo de identidade. Os dados de importação devem conter informações do dispositivo no mesmo formato JSON que o **trabalho ExportImportDevice** utiliza quando cria uma bolha **de dispositivos.txt.** O token SAS deve incluir estas permissões:
+* Uma *corda* que contém um URI de um recipiente de bolhas [de armazenamento Azure](../storage/index.yml) para usar como *entrada* para o trabalho. Este URI deve conter um token SAS que concede acesso ao recipiente. Este recipiente deve conter uma bolha com o nome **devices.txt** que contenha os dados do dispositivo serializados para importar para o seu registo de identidade. Os dados de importação devem conter informações do dispositivo no mesmo formato JSON que o **trabalho ExportImportDevice** utiliza quando cria uma **bolhadevices.txt.** O token SAS deve incluir estas permissões:
 
    ```csharp
    SharedAccessBlobPermissions.Read
@@ -261,7 +260,7 @@ Se o ficheiro de importação incluir metadados duplos, então este metadados su
 
 Utilize a importação opcional **PropriedadeMode** nos dados de serialização de importação para cada dispositivo para controlar o processo de importação por dispositivo. A **propriedade importMode** tem as seguintes opções:
 
-| importMode | Description |
+| importMode | Descrição |
 | --- | --- |
 | **createOrUpdate** |Se um dispositivo não existir com o **ID**especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
 | **criar** |Se um dispositivo não existir com o **ID**especificado, está recentemente registado. <br/>Se o dispositivo já existir, é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
@@ -423,7 +422,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a realizar operações a granel contra o registo de identidade num centro de IoT. Muitas destas operações, incluindo como mover dispositivos de um hub para outro, são usadas nos [dispositivos de Gestão registados na secção de hub IoT de Como Clonar um Hub IoT](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
 

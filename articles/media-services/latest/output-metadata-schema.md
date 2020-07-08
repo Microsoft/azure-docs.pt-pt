@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
 ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418716"
 ---
 # <a name="output-metadata"></a>Metadados de saída
@@ -26,7 +25,7 @@ Um trabalho de codificação está associado a um ativo de entrada (ou ativos) n
 
 Os Serviços de Comunicação Social não verificam preventivamente os ativos de entrada para gerar metadados. Os metadados de entrada são gerados apenas como um artefacto quando um ativo de entrada é processado num trabalho. Daí que este artefacto seja escrito para o ativo de saída. Diferentes ferramentas são usadas para gerar metadados para ativos de entrada e ativos de saída. Portanto, os metadados de entrada têm um esquema ligeiramente diferente dos metadados de saída.
 
-Este artigo discute os elementos e tipos do esquema JSON em que se baseiam os metadados de saída &lt; (source_file_name &gt; _manifest.json). <!--For information about the file that contains metadata about the input asset, see [Input metadata](input-metadata-schema.md).  -->
+Este artigo discute os elementos e tipos do esquema JSON no qual se baseiam os metadados de saída &lt; (source_file_name &gt;_manifest.js). <!--For information about the file that contains metadata about the input asset, see [Input metadata](input-metadata-schema.md).  -->
 
 Pode encontrar o código de esquema completo e o exemplo JSON no final deste artigo.  
 
@@ -34,7 +33,7 @@ Pode encontrar o código de esquema completo e o exemplo JSON no final deste art
 
 Cobrança de entradas do AssetFile para o trabalho de codificação.  
 
-| Name | Description |
+| Name | Descrição |
 | --- | --- |
 | **Origens** |Recolha de ficheiros de meios de entrada/fonte, que foram processados para produzir este AssetFile.<br />Exemplo: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas num formato de recipiente apropriado. <br />Ver [VideoTracks](#videotracks). |
@@ -47,7 +46,7 @@ Cobrança de entradas do AssetFile para o trabalho de codificação.
 
 Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas num formato de recipiente apropriado. O elemento **VideoTracks** representa uma coleção de todas as faixas de vídeo.  
 
-| Name | Description |
+| Name | Descrição |
 | --- | --- |
 | **ID**<br /> Necessário |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. <br /><br />Exemplo: `"Id": 1`|
 | **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
@@ -65,7 +64,7 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 
 Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercaladas num formato de recipiente apropriado. O elemento **AudioTracks** representa uma coleção de todas aquelas faixas de áudio.  
 
-| Name  | Description |
+| Name  | Descrição |
 | --- | --- |
 | **ID**<br />Necessário  |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|
@@ -258,6 +257,6 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)

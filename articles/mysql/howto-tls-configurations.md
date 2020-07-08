@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.openlocfilehash: bdf2d2756db8e24c158c5571277986ac2a590048
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418660"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Configurar definições de TLS na Base de Dados Azure para o MySQL utilizando o portal Azure
@@ -43,6 +42,6 @@ Siga estes passos para definir a versão mínima TLS do servidor MySQL:
 
     ![Base de Dados Azure para o sucesso da configuração mySQL TLS](./media/howto-tls-configurations/setting-tls-value-success.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como criar alertas em métricas](howto-alert-on-metric.md)

@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418765"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias suportadas para Registos de Recursos Azure
@@ -67,7 +66,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |DscNodeStatus|Estado do nó Dsc|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAcounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batcontas ch/batch
 
 |Categoria|Nome de exibição de categoria|
 |---|---|
@@ -297,7 +296,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |Operações de Serviço|Operações de Serviço|
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseSacons
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/base de dadosAcontas
 
 |Categoria|Nome de exibição de categoria|
 |---|---|

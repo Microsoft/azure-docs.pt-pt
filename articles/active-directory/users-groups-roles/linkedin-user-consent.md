@@ -14,10 +14,9 @@ ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c35204e37e3aae930577697779b8f945c4fbfbcb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84727216"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn liga a partilha e consentimento de dados
@@ -78,6 +77,6 @@ Os dados acedidos a partir da Microsoft não são armazenados permanentemente co
 
 Para obter mais informações sobre a utilização de dados pessoais do LinkedIn, consulte a Política de [Privacidade linkedIn](https://www.linkedin.com/legal/privacy-policy). Para os serviços linkedIn, transferência de dados e armazenamento, os dados podem fluir da União Europeia para os Estados Unidos e voltar, e a sua privacidade está protegida como descrito nas [transferências de dados da União Europeia.](https://www.linkedin.com/help/linkedin/answer/62533)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [LinkedIn nas aplicações da Microsoft com o seu trabalho ou conta escolar](https://www.linkedin.com/help/linkedin/answer/84077)

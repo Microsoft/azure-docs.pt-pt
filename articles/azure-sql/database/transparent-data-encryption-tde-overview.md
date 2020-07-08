@@ -13,10 +13,9 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
 ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986941"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
@@ -99,7 +98,7 @@ Para configurar o TDE através do PowerShell, tem de estar ligado como Propriet�
 
 Utilize os seguintes cmdlets para a Base de Dados Azure SQL e para a Azure Synapse:
 
-| Cmdlet | Description |
+| Cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Permite ou desativa encriptação de dados transparente para uma base de dados.|
 | [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Obtém o estado de encriptação de dados transparente para uma base de dados. |
@@ -120,7 +119,7 @@ Gerir o TDE utilizando o Transact-SQL.
 
 Ligue-se à base de dados utilizando um login que seja um administrador ou membro da função **dbmanager** na base de dados principal.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 | [ALTER DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) | DEFINIR ENCRIPTAÇÃO ON/OFF encripta ou desencripta uma base de dados |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Devolve informações sobre o estado de encriptação de uma base de dados e as chaves de encriptação da base de dados associadas |
@@ -136,7 +135,7 @@ Gerir o TDE utilizando a API REST.
 Para configurar o TDE através da API REST, tem de estar ligado como Proprietário, Colaborador ou Gestor de Segurança da SQL.
 Utilize o seguinte conjunto de comandos para Azure SQL Database e Azure Synapse:
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[Criar ou atualizar servidor](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Adiciona uma identidade do Azure Ative Directory a um servidor. (usado para conceder acesso ao Cofre-Chave)|
 |[Criar ou atualizar chave de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Adiciona uma chave do Cofre chave a um servidor.|
