@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 00b4306340e9888ea5a794c7940a021674060e05
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856971"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Cache para Redis.
@@ -177,7 +177,7 @@ Para obter informações sobre a utilização do Azure Cache para Redis com Powe
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>O que fazem as opções de configuração StackExchange.Redis?
 StackExchange.Redis tem muitas opções. Esta secção fala sobre algumas das configurações comuns. Para obter informações mais detalhadas sobre as opções StackExchange.Redis, consulte a [configuração StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Description | Recomendação |
+| ConfigurationOptions | Descrição | Recomendação |
 | --- | --- | --- |
 | AbortOnConnectFail |Quando definido como verdadeiro, a ligação não se reconectará após uma falha de rede. |Definido como falso e deixe o StackExchange.Redis reconectar-se automaticamente. |
 | ConnectRetry |O número de vezes para repetir tentativas de ligação durante a ligação inicial. |Consulte as seguintes notas para obter orientação. |
@@ -213,22 +213,23 @@ Uma das grandes coisas sobre o Redis é que há muitos clientes que apoiam muita
 ### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Há algum emulador local para o Azure Cache para o Redis?
 Não existe nenhum emulador local para a Azure Cache para Redis, mas pode executar a versão MSOpenTech de redis-server.exe a partir das ferramentas da [linha de comando Redis](https://github.com/MSOpenTech/redis/releases/) na sua máquina local e conectá-la para obter uma experiência semelhante a um emulador de cache local, como mostra o seguinte exemplo:
 
-    private static Lazy<ConnectionMultiplexer>
-          lazyConnection = new Lazy<ConnectionMultiplexer>
-        (() =>
-        {
-            // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-            return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-        });
+```csharp
+private static Lazy<ConnectionMultiplexer>
+      lazyConnection = new Lazy<ConnectionMultiplexer>
+    (() =>
+    {
+        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+    });
 
-        public static ConnectionMultiplexer Connection
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+```
 
 Pode configurar opcionalmente um ficheiro [redis.conf](https://redis.io/topics/config) para combinar mais de perto as [definições de cache padrão](cache-configure.md#default-redis-server-configuration) para o seu Azure Cache on-line para Redis, se desejar.
 
@@ -366,10 +367,12 @@ Basicamente, significa que quando o número de threads Busy é maior do que os t
 
 Se olharmos para uma mensagem de erro de exemplo do StackExchange.Redis (construa 1.0.450 ou mais tarde), verá que agora imprime as estatísticas da ThreadPool (ver detalhes do IOCP e do WORKER abaixo).
 
+```output
     System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
     queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
 
 No exemplo anterior, pode ver-se que para o fio DO IOCP existem seis fios ocupados e o sistema está configurado para permitir quatro fios mínimos. Neste caso, o cliente provavelmente teria visto dois atrasos de 500 ms, porque 6 > 4.
 

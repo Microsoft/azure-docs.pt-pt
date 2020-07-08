@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8b823ea97e39dfa05295449fd5a039d2b9debdfa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: f707ccaaf150f4dbd799ca56bf823968a6889a4b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856579"
 ---
 Este artigo fornece-lhe uma visão geral das funcionalidades de disponibilidade das máquinas virtuais Azure (VMs).
 
@@ -70,6 +70,6 @@ Os VMs dentro de um conjunto de disponibilidade também são distribuídos autom
 
 ![Conjuntos de disponibilidade](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode agora começar a utilizar estas funcionalidades de redundância e disponibilidade para criar o seu ambiente do Azure. Para informações relativas a melhores práticas, veja [Melhores Práticas de Disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
 

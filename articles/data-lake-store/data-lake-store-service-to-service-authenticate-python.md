@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: c97de3eabb895d55d8b69e6a17619508f6b817ed
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 279397f7eac62c1286db96d837539be196c838f8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857142"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -82,30 +82,34 @@ pip install azure-datalake-store
 
 Utilize este corte para autenticar com a Azure AD para operações de gestão de conta na Data Lake Storage Gen1, como criar uma conta Gen1 de armazenamento de data lake, eliminar uma conta Gen1 de armazenamento de dados, etc. O seguinte corte pode ser usado para autenticar a sua aplicação não interativamente, utilizando o segredo do cliente para uma aplicação/diretor de serviço de uma aplicação "Web App" Azure Ad existente.
 
-    authority_host_uri = 'https://login.microsoftonline.com'
-    tenant = '<TENANT>'
-    authority_uri = authority_host_uri + '/' + tenant
-    RESOURCE = 'https://management.core.windows.net/'
-    client_id = '<CLIENT_ID>'
-    client_secret = '<CLIENT_SECRET>'
+```python
+authority_host_uri = 'https://login.microsoftonline.com'
+tenant = '<TENANT>'
+authority_uri = authority_host_uri + '/' + tenant
+RESOURCE = 'https://management.core.windows.net/'
+client_id = '<CLIENT_ID>'
+client_secret = '<CLIENT_SECRET>'
 
-    context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
-    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
+context = adal.AuthenticationContext(authority_uri, api_version=None)
+mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
+```
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Autenticação de serviço para serviço com segredo do cliente para operações de sistema de ficheiros
 
 Utilize o seguinte corte para autenticar com a Azure AD para operações de sistema de ficheiros na Data Lake Storage Gen1, como criar pasta, ficheiro de upload, etc. O seguinte corte pode ser usado para autenticar a sua aplicação não interativamente, utilizando o segredo do cliente para uma aplicação/diretor de serviço. Utilize esta opção com uma ”Aplicação Web“ do Azure AD existente.
 
-    tenant = '<TENANT>'
-    RESOURCE = 'https://datalake.azure.net/'
-    client_id = '<CLIENT_ID>'
-    client_secret = '<CLIENT_SECRET>'
+```python
+tenant = '<TENANT>'
+RESOURCE = 'https://datalake.azure.net/'
+client_id = '<CLIENT_ID>'
+client_secret = '<CLIENT_SECRET>'
 
-    adlCreds = lib.auth(tenant_id = tenant,
-                    client_secret = client_secret,
-                    client_id = client_id,
-                    resource = RESOURCE)
+adlCreds = lib.auth(tenant_id = tenant,
+                client_secret = client_secret,
+                client_id = client_id,
+                resource = RESOURCE)
+```
 
 <!-- ## Service-to-service authentication with certificate for account management
 
@@ -123,7 +127,7 @@ Use this snippet to authenticate with Azure AD for account management operations
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
     credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a usar a autenticação de serviço-a-serviço para autenticar com data lake storage Gen1 usando Python. Agora pode olhar para os seguintes artigos que falam sobre como usar Python para trabalhar com data lake storage gen1.
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 usando Python](data-lake-store-get-started-python.md)

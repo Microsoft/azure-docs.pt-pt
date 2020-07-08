@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 08b5e915902fb4e2002bd20699cdaca9f0f35e3e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 725490316ef4fcbce197d5a29b7665b7de7014c9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857124"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 usando REST API
 > [!div class="op_single_selector"]
@@ -34,19 +34,23 @@ Neste artigo, você aprende a usar a API REST para fazer autenticação de servi
 
 Neste cenário, a aplicação fornece as suas próprias credenciais para a realização das operações. Para isso, deve emitir um pedido DE POST como o mostrado no seguinte corte:
 
-    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-      -F grant_type=client_credentials \
-      -F resource=https://management.core.windows.net/ \
-      -F client_id=<CLIENT-ID> \
-      -F client_secret=<AUTH-KEY>
+```console
+curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+  -F grant_type=client_credentials \
+  -F resource=https://management.core.windows.net/ \
+  -F client_id=<CLIENT-ID> \
+  -F client_secret=<AUTH-KEY>
+```
 
 A saída do pedido inclui um token de autorização (denotado pela `access-token` saída abaixo) que posteriormente passa com as suas chamadas REST API. Guarde o símbolo de autenticação num ficheiro de texto; você vai precisar dele ao fazer chamadas REST para Data Lake Storage Gen1.
 
-    {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```output
+{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```
 
 Este artigo utiliza a abordagem **não interativa**. Para obter mais informações sobre a abordagem não interativa (chamadas serviço a serviço), veja [Chamadas serviço a serviço utilizando credenciais](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar a autenticação de serviço-a-serviço para autenticar com a Data Lake Storage Gen1 utilizando a API REST. Agora pode olhar para os seguintes artigos que falam sobre como usar a API REST para trabalhar com a Data Lake Storage Gen1.
 

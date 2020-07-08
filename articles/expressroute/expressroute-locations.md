@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/12/2020
+ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: c4ad466a8c643c1922749f6afd694255b75176b1
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 42c8dd298c1fa0de04449945c7bb82e8b8bd6ff0
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856607"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -44,7 +44,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | --- | --- | --- |
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Camberra, Camberra2 |
 | **Europa** | França Central, França Sul, Alemanha Norte, Alemanha West Central, Norte da Europa, Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido Oeste, Reino Unido Sul, Europa Ocidental |Amesterdão, Amesterdão2, Berlim, Copenhague, Dublin, Frankfurt, Genebra, Londres, Londres2, Marselha, Milão, Munique, Newport(País de Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
-| **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
+| **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Minneapolis, Nova Iorque, Queretaro (México), San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
 | **Ásia** | Ásia Leste, Ásia Sudeste | Banguecoque, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Singapura, Singapura2, Taipei |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio, Tóquio2 |
@@ -96,11 +96,11 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **China Unicom Global** |Suportado |Suportado | Singapura2 |
 | **[Telecomunicações Chunghwa](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Suportado |Suportado |Taipé |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Suportado |Suportado |Miami |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington DC |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Chicago, Dublin, Frankfurt, Londres, Londres2, Newport, Nova Iorque, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapura2, Tóquio, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Suportado |Suportado |Amsterdam2, Frankfurt, Marselha|
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Suportado |Suportado |Amesterdão2, Dubai2, Frankfurt, Marselha, Mumbai, Munique, Nova Iorque |
 | **[Devoli](https://devoli.com/expressroute)** | Suportado |Suportado | Auckland |
 | **du datamena** |Suportado |Suportado | Dubai2 |
 | **eir** |Suportado |Suportado |Dublin|
@@ -162,7 +162,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Telus](https://www.telus.com)** |Suportado |Suportado |Montreal |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Suportado | Suportado | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Suportado |Suportado |Dallas|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Suportado |Suportado |Dallas, Queretaro (México)|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Suportado |Suportado |São Paulo |
 | **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Suportado | Suportado | Rio Banguecoque |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong SAR, Londres, Mumbai, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington DC |
@@ -360,7 +360,7 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 

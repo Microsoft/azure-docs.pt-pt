@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1cd5ead1604f47f07aa9d517f679850fcea8d897
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856369"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global de rede de trânsito e WAN Virtual
 
@@ -47,7 +47,7 @@ Na arquitetura Azure Virtual WAN, os hubs WAN virtuais são a provisionados nas 
 
 Você pode estabelecer um WAN virtual criando um único hub WAN virtual na região que tem o maior número de porta-vozes (ramos, VNets, utilizadores), e, em seguida, conectando os raios que estão em outras regiões ao centro. Esta é uma boa opção quando uma pegada empresarial está principalmente numa região com alguns raios remotos.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Conectividade hub-to-hub (Pré-visualização)
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Conectividade hub-to-hub
 
 Uma pegada de nuvem empresarial pode abranger várias regiões em nuvem e é ideal (em termos de latência) aceder à nuvem a partir de uma região mais próxima do seu site físico e dos seus utilizadores. Um dos princípios fundamentais da arquitetura global da rede de trânsito é permitir a conectividade entre todos os pontos finais da rede de nuvem e no local. Isto significa que o tráfego de um ramo que está ligado à nuvem numa região pode chegar a outro ramo ou um VNet numa região diferente usando conectividade hub-to-hub ativada pela [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 
@@ -168,7 +168,7 @@ Se já existir uma rota predefinida aprendida (via BGP) pelo Centro Virtual a pa
 > Atualmente não existe opção de selecionar firewall ou Azure Firewall (e Fornecedor de Segurança Fidedigna) para tráfego ligado à Internet originário de Vnets, Branches ou Utilizadores. A rota padrão aprendida com a definição do Azure Firewall Manager é sempre preferida sobre a rota padrão aprendida a partir de um dos ramos.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Crie uma ligação utilizando o Virtual WAN e implementar a firewall Azure no(s) hub(s) VWAN.
 

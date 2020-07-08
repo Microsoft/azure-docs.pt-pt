@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919911"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
@@ -82,7 +82,7 @@ O nível de nível de bolha permite-lhe enviar dados para o nível de acesso à 
 A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Ao sobrepor uma bolha no nível quente ou fresco, a bolha recém-criada herda o nível da bolha que foi substituída a menos que o novo nível de acesso blob seja explicitamente definido na criação. Se uma bolha estiver no nível de arquivo, não pode ser substituída, por isso carregar a mesma bolha não é permitido neste cenário. 
 
 > [!NOTE]
-> O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Também não é possível alterar atualmente o nível de uma bolha de bloco que tem instantâneos.
+> O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos.
 
 ### <a name="blob-lifecycle-management"></a>Gestão do ciclo de vida blob
 
@@ -274,7 +274,7 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 O armazenamento de dados juntamente com outros limites são definidos ao nível da conta e não por nível de acesso. Pode optar por utilizar todo o seu limite num só nível ou nos três níveis. Para obter mais informações, consulte [os objetivos de Escalabilidade e desempenho para as contas de armazenamento padrão.](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento de GPv2 e Blob
 

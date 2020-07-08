@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: bf193859c140001def83a18ca7965d9cbd312b02
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918767"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -69,8 +69,8 @@ O [ponto final compatível com o Event Hub incorporado](iot-hub-devguide-message
 O [filtro IP](iot-hub-ip-filtering.md) do IoT Hub também não controla o acesso do público ao ponto final incorporado. Para bloquear completamente o acesso da rede pública ao seu hub IoT, deve: 
 
 1. Configure o acesso ao ponto final privado para o IoT Hub
-1. Desligue o acesso à rede pública utilizando o filtro IP para bloquear todo o IP
-1. Desligue o ponto final do Event Hub [incorporado, configurando o encaminhamento para não enviar dados para o mesmo](iot-hub-devguide-messages-d2c.md)
+1. [Desligue o acesso à rede pública](iot-hub-public-network-access.md) ou utilize o filtro IP para bloquear todo o IP
+1. Pare de usar o ponto final do Event Hub [incorporado, configurando o encaminhamento para não enviar dados para o mesmo](iot-hub-devguide-messages-d2c.md)
 1. Desligue a rota de [retorno](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Configure a saída para outros recursos da Azure usando [o serviço de confiança da Microsoft](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
@@ -285,7 +285,7 @@ Para Python, baixe a nossa versão limitada do GitHub.
     > pip instalar ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Use os links abaixo para saber mais sobre as funcionalidades do IoT Hub:
 

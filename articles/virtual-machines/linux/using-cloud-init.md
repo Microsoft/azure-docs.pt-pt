@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: c16343b412cd9164df84ea140e9bc5368890cc3e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bebf4967d96177038aba64be59d43f49458b82be
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920184"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para [configurar](https://cloudinit.readthedocs.io) uma máquina virtual (VM) ou uma escala de máquina virtual em tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram a provisionados pela Azure.  
@@ -46,38 +46,52 @@ Existem duas fases para disponibilizar cloud-init para o endossado Linux distro 
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim | sim - suporte da versão do pacote: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 7.7 suportam cloud-init, esta será removida a 1 de setembro de 2020) | sim - suporte da versão do pacote: *18.5-6.el7*|
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de setembro de 2020) | N/D |
 |RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | sim | sim - suporte da versão do pacote: *18.5-6.el7*|
 |RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | sim | sim - suporte da versão do pacote: *18.5-6.el7*|
 |RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | sim | sim - suporte da versão do pacote: *18.5-6.el7*|
 |RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | sim | sim - suporte da versão do pacote: *18.5-6.el7*|
 |RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | sim  | sim - suporte da versão do pacote: *18.5-6.el7*|
-|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportam cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020|
-|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportam cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020 |
+|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | sim (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportam cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020|
+|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | sim (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportam cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020 |
 
-As imagens RedHat:RHEL 7.8 e 8.2 (Gen1 e Gen2) são avisíssimas usando a nuvem.
+* Todas as imagens RedHat:RHEL 7.8 e 8.2 (Gen1 e Gen2) são avisadas usando a nuvem.
 
 ### <a name="centos"></a>CentOS
 
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens CentOS 7.7 suportam cloud-init, esta será removida a 1 de setembro de 2020) | sim - suporte da versão do pacote:`18.5-3.el7.centos`|
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de setembro de 2020) | N/D |
+|OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
+|OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
+|OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
+|OpenLogic 7.7 (Gen2) |CentOS-HPC | 7_7-gen2 |7.6.2020062601 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
+|OpenLogic 8.1 |CentOS | 8_1 |8.1.2020062400 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
+|OpenLogic 8.1 (Gen2) |CentOS | 8_1-gen2 |8.1.2020062401 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
+|OpenLogic 8.1 |CentOS-HPC | 8_1 |8.1.2020062400 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
+|OpenLogic 8.1 (Gen2) |CentOS-HPC:8_1-gen2 | 8_1-gen2 |8.1.2020062401 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
 
-* CentOS 7.7 imagens que serão ativadas em nuvem ativadas aqui em junho de 2020 
-* As imagens CentOS 7.8 são avisadas com recurso a cloud-init.
-
+* Todas as imagens OpenLogic:CentOS 7.8 e 8.2 (Gen1 e Gen2) são ateadas com recurso a cloud-init.
 
 ### <a name="oracle"></a>Oracle
 
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oráculo 7.7 |Oráculo-Linux |77-ci |7.7.01| imagem de pré-visualização (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens Oracle 7.7 suportam cloud-init, esta será removida em meados de 2020, aviso será dado) | não, na pré-visualização, o pacote é: *18.5-3.0.1.el7*
+|Oráculo 7.7 |Oráculo-Linux |77-ci |7.7.01| imagem de pré-visualização (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens Oracle 7.7 suportam cloud-init, esta será removida em meados de 2020, aviso será dado) | não, na pré-visualização, o pacote é: *18.5-3.0.1.el7*
 
 ### <a name="suse-sles"></a>SUSE SLES
-| Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
-|:--- |:--- |:--- |:--- |:--- |:--- |
-|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |cloud-init-preview| Consulte [o blog SUSE cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) para obter mais detalhes | Não, na pré-estreia. |
-|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |gen2 nuvem-init-pré-visualização| Consulte [o blog SUSE cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) para obter mais detalhes | Não, na pré-estreia. |
+Estas imagens SLES foram atualizadas para a oferta usando o cloud-init, as variantes de imagem Gen2 também foram atualizadas.
+* suse:sles-15-sp1-{basic/byos/hpc/hpc-byos/chost-byos}:gen1:2020.06.10
+* suse:sles-sap-15-sp1:gen1:2020.06.10
+* suse:sles-sap-15-sp1-byos:gen1:2020.06.10
+* suse:manager-proxy-4-byos:gen1:2020.06.10
+* suse:manager-server-4-byos:gen1:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:15:2020.06.10
+* suse:sles-12-sp5:gen1:2020.06.10
+* suse:sles-12-sp5{-byos/basic/hpc-byos/hpc}:gen1:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
 
 
 ### <a name="debian"></a>Debian
@@ -146,7 +160,7 @@ Uma vez que o VM tenha sido a provisionado, o cloud-init irá percorrer todos os
 
 Para obter mais detalhes sobre a exploração madeireira em nuvem, consulte a [documentação cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Problemas de resolução de problemas com a nuvem init](cloud-init-troubleshooting.md).
 

@@ -1,88 +1,100 @@
 ---
 title: 'Azure ExpressRoute: Amostras de configuração do router - NAT'
-description: Esta página fornece amostras de configuração de router para routers Cisco e Juniper.
+description: Esta página fornece amostras de configuração de routers para routers Cisco e Juniper.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 3393c661240ae5619597256a6691ae43608d622b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74072102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856712"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Amostras de configuração do router para configurar e gerir NAT
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Amostras de configuração do router para configurar e gerir o NAT
 
-Esta página fornece amostras de configuração NAT para routers da série Cisco ASA e Juniper SRX ao trabalhar com o ExpressRoute. Destinam-se a ser amostras apenas para orientação e não devem ser utilizadas como está. Pode trabalhar com o seu fornecedor para criar configurações adequadas para a sua rede.
+Esta página fornece amostras de configuração NAT para routers da série Cisco ASA e Juniper SRX quando trabalham com o ExpressRoute. Estas destinam-se a ser apenas amostras para orientação e não devem ser utilizadas como está. Pode trabalhar com o seu fornecedor para criar configurações apropriadas para a sua rede.
 
 > [!IMPORTANT]
-> As amostras nesta página destinam-se exclusivamente a orientação. Tem de trabalhar com a equipa técnica/de vendas do seu fornecedor e com a sua equipa de networking para criar configurações adequadas para atender às suas necessidades. A Microsoft não suportará problemas relacionados com configurações listadas nesta página. Deve contactar o fornecedor do seu dispositivo para obter problemas de suporte.
+> As amostras desta página destinam-se a ser apenas para orientação. Tem de trabalhar com a equipa técnica/de vendas do seu fornecedor e com a sua equipa de networking para apresentar configurações adequadas para atender às suas necessidades. A Microsoft não irá suportar problemas relacionados com as configurações listadas nesta página. Deve contactar o seu fornecedor de dispositivos para obter problemas de suporte.
 > 
 > 
 
-* As amostras de configuração do router abaixo aplicam-se aos pares do Azure Public e da Microsoft. Não deve configurar o NAT para o peering privado azure. Reveja [os pares expressRoute](expressroute-circuit-peerings.md) e [os requisitos do ExpressRoute NAT](expressroute-nat.md) para mais detalhes.
+* As amostras de configuração do router abaixo aplicam-se aos perstos do Azure Public e da Microsoft. Não deve configurar o NAT para o Azure. Reveja [os requisitos ExpressRoute](expressroute-circuit-peerings.md) e [ExpressRoute NAT](expressroute-nat.md) para obter mais detalhes.
 
-* Deve utilizar piscinas IP NAT separadas para conectividade com a internet e expressRoute. A utilização do mesmo pool IP NAT através da internet e expressRoute resultará em encaminhamento assimétrico e perda de conectividade.
+* Deve utilizar piscinas NAT IP separadas para conectividade com a internet e o ExpressRoute. A utilização do mesmo pool NAT IP através da internet e o ExpressRoute resultará num encaminhamento assimétrico e perda de conectividade.
 
 
 ## <a name="cisco-asa-firewalls"></a>Firewalls Cisco ASA
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuração PAT para tráfego da rede de clientes para a Microsoft
-    object network MSFT-PAT
-      range <SNAT-START-IP> <SNAT-END-IP>
+
+```console
+object network MSFT-PAT
+  range <SNAT-START-IP> <SNAT-END-IP>
 
 
-    object-group network MSFT-Range
-      network-object <IP> <Subnet_Mask>
+object-group network MSFT-Range
+  network-object <IP> <Subnet_Mask>
 
-    object-group network on-prem-range-1
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-1
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem-range-2
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-2
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem
-      network-object object on-prem-range-1
-      network-object object on-prem-range-2
+object-group network on-prem
+  network-object object on-prem-range-1
+  network-object object on-prem-range-2
 
-    nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+```
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuração PAT para tráfego da Microsoft para a rede de clientes
 
 **Interfaces e Direção:**
 
-    Source Interface (where the traffic enters the ASA): inside
-    Destination Interface (where the traffic exits the ASA): outside
+Interface de origem (onde o tráfego entra na ASA): dentro da Interface de Destino (onde o tráfego sai da ASA): fora
 
 **Configuração:**
 
 Piscina NAT:
 
-    object network outbound-PAT
-        host <NAT-IP>
+```console
+object network outbound-PAT
+    host <NAT-IP>
+```
 
-Servidor de destino:
+Servidor alvo:
 
-    object network Customer-Network
-        network-object <IP> <Subnet-Mask>
+```console
+object network Customer-Network
+    network-object <IP> <Subnet-Mask>
+```
 
-Grupo de objetos para endereços IP do cliente
+Grupo de Objetos para Endereços IP do cliente:
 
-    object-group network MSFT-Network-1
-        network-object <MSFT-IP> <Subnet-Mask>
+```console
+object-group network MSFT-Network-1
+    network-object <MSFT-IP> <Subnet-Mask>
 
-    object-group network MSFT-PAT-Networks
-        network-object object MSFT-Network-1
+object-group network MSFT-PAT-Networks
+    network-object object MSFT-Network-1
+```
 
 Comandos NAT:
 
-    nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```console
+nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```
 
 
 ## <a name="juniper-srx-series-routers"></a>Routers da série Juniper SRX
 ### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Criar interfaces Ethernet redundantes para o cluster
+
+```console
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -112,17 +124,50 @@ Comandos NAT:
             }
         }
     }
-
+```
 
 ### <a name="2-create-two-security-zones"></a>2. Criar duas zonas de segurança
-* Zona de confiança para rede interna e Zona Deconfiança para rede externa virada para routers Edge
+* Zona de confiança para rede interna e Zona de Untrust para rede externa virada para routers edge
 * Atribuir interfaces apropriadas às zonas
 * Permitir serviços nas interfaces
 
-    segurança { zonas { Security-zone Trust { host-inbound-traffic { system-services { ping;                   } protocolos { bgp;                   } Interfaces { reth0.100;               } zona de segurança Untrust { host-inbound-traffic { system-services { ping;                   } protocolos { bgp;                   } Interfaces { reth1.100;               }           }       }   }
+```console
+    security {
+        zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
+```
 
 
 ### <a name="3-create-security-policies-between-zones"></a>3. Criar políticas de segurança entre zonas
+
+```console
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -151,12 +196,13 @@ Comandos NAT:
             }
         }
     }
+```
 
-
-### <a name="4-configure-nat-policies"></a>4. Configurar as políticas nat
+### <a name="4-configure-nat-policies"></a>4. Configure as políticas de NAT
 * Crie duas piscinas NAT. Um será usado para o tráfego NAT de saída para a Microsoft e outro da Microsoft para o cliente.
 * Criar regras para o NAT o respetivo tráfego
-  
+
+```console
        security {
            nat {
                source {
@@ -211,11 +257,14 @@ Comandos NAT:
                }
            }
        }
+```
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configure BGP para anunciar prefixos seletivos em cada sentido
-Consulte as amostras na página de amostras de [configuração de Encaminhamento.](expressroute-config-samples-routing.md)
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configure bGP para anunciar prefixos seletivos em cada direção
+Consulte as amostras na página [de amostras de configuração de encaminhamento.](expressroute-config-samples-routing.md)
 
 ### <a name="6-create-policies"></a>6. Criar políticas
+
+```console
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -309,7 +358,8 @@ Consulte as amostras na página de amostras de [configuração de Encaminhamento
             }
         }
     }
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja [FAQ do ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
 

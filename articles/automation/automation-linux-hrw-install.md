@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: c569c83ed0bc5d78f0e5670c802188ee9fd8fd53
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0fc7951411f1c8956b4816f9031a8b7c26594b42
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340799"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856131"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -30,17 +30,17 @@ Se não tiver um espaço de trabalho do Azure Monitor Log Analytics, reveja a or
 
 Se tiver um espaço de trabalho, mas não estiver ligado à sua conta de Automação, permitir uma funcionalidade de Automação adiciona funcionalidade para a Azure Automation, incluindo suporte para o Trabalhador de Runbook Híbrido. Quando ativa uma das funcionalidades da Azure Automation no seu espaço de trabalho Log Analytics, especificamente [Gestão de Atualização](automation-update-management.md) ou [Rastreio e Inventário de Alterações,](change-tracking.md)os componentes do trabalhador são automaticamente empurrados para a máquina do agente.
 
-   Para adicionar a função de Gestão de Atualização ao seu espaço de trabalho, execute o seguinte cmdlet PowerShell:
+Para adicionar a função de Gestão de Atualização ao seu espaço de trabalho, execute o seguinte cmdlet PowerShell:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```
 
-   Para adicionar a função de Rastreio e Inventário de Alterações ao seu espaço de trabalho, execute o seguinte cmdlet PowerShell:
+Para adicionar a função de Rastreio e Inventário de Alterações ao seu espaço de trabalho, execute o seguinte cmdlet PowerShell:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
@@ -82,11 +82,11 @@ Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tip
 
 |Tipo de livro de execução | Suportado |
 |-------------|-----------|
-|Python 2 |Yes |
+|Python 2 |Sim |
 |PowerShell |Sim<sup>1</sup> |
-|Fluxo de Trabalho do PowerShell |No |
-|Gráficos |No |
-|Fluxo de trabalho gráfico powershell |No |
+|Fluxo de Trabalho do PowerShell |Não |
+|Gráficos |Não |
+|Fluxo de trabalho gráfico powershell |Não |
 
 <sup>1</sup> Os livros powerShell requerem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
 
@@ -166,7 +166,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 Para remover um grupo híbrido de runbook worker de máquinas Linux, você usa os mesmos passos que para um grupo de trabalhadores híbridos Windows. Ver [Remover um grupo de trabalhadores híbridos](automation-windows-hrw-install.md#remove-a-hybrid-worker-group).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a configurar os seus livros para automatizar processos no seu datacenter no local ou noutro ambiente em nuvem, consulte [runbooks Runbooks num Trabalhador de Runbook Híbrido](automation-hrw-run-runbooks.md).
 

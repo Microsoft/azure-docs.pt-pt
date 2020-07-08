@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9b99f7fa88dc933c32077d273221d8551270529c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855672"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Utilize o serviço Azure Import/Export para cópia offline de dados para data lake storage gen1
 
@@ -31,17 +31,16 @@ Antes de começar, deve ter o seguinte:
 
 Antes de utilizar o serviço De importação/exportação, quebre o ficheiro de dados para ser transferido **em cópias com menos de 200 GB** de tamanho. A ferramenta de importação não funciona com ficheiros superiores a 200 GB. Neste artigo, dividimos o ficheiro em pedaços de 100 GB cada. Pode fazê-lo usando [Cygwin.](https://cygwin.com/install.html) Cygwin apoia os comandos Linux. Neste caso, utilize o seguinte comando:
 
-    split -b 100m 319GB.tsv
+```console
+split -b 100m 319GB.tsv
+```
 
 A operação dividida cria ficheiros com os seguintes nomes.
 
-    319GB.tsv-part-aa
-
-    319GB.tsv-part-ab
-
-    319GB.tsv-part-ac
-
-    319GB.tsv-part-ad
+* *319GB.tsv-part-aa*
+* *319GB.tsv-part-ab*
+* *319GB.tsv-part-ac*
+* *319GB.tsv-part-ad*
 
 ## <a name="get-disks-ready-with-data"></a>Prepare os discos com dados
 
@@ -219,7 +218,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics com data lake storage gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

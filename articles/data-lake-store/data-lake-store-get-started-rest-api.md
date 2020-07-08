@@ -6,16 +6,16 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: cc3f848dc0718e1d721cecbfeb53ca034580ae81
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: fc3f3fb0b6bb67239d6c1952d3e128076ce45aaf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85509259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857190"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gestão de conta na Azure Data Lake Storage Gen1 utilizando a API REST
 > [!div class="op_single_selector"]
-> * [SDK .NET](data-lake-store-get-started-net-sdk.md)
+> * [SDK do .NET](data-lake-store-get-started-net-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -40,35 +40,43 @@ Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.mi
 
 Utilize o seguinte comando cURL. Substitua **\<yourstoragegen1name>** o nome da Gen1 de armazenamento de dados.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+```console
+curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+```
 
 No comando acima, substitua \<`REDACTED`\> pelo token de autorização obtido anteriormente. O payload do pedido para este comando está contido no ficheiro **input.json** fornecido para o parâmetro `-d` acima. O conteúdo do ficheiro input.json assemelha-se ao seguinte fragmento:
 
-    {
-    "location": "eastus2",
-    "tags": {
-        "department": "finance"
-        },
-    "properties": {}
-    }    
+```json
+{
+"location": "eastus2",
+"tags": {
+    "department": "finance"
+    },
+"properties": {}
+}
+```
 
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Excluir uma conta Gen1 de armazenamento de data lake
 Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
 Utilize o seguinte comando cURL para eliminar uma conta Gen1 de armazenamento de data lake. Substitua **\<yourstoragegen1name>** o nome da sua conta Gen1 de armazenamento de dados.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
+```console
+curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
+```
 
 Deve ver um resultado como o seguinte fragmento:
 
-    HTTP/1.1 200 OK
-    ...
-    ...
+```output
+HTTP/1.1 200 OK
+...
+...
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando a API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Referência Azure Data Lake Storage Gen1 REST API Referência](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Aplicações Open Source Big Data compatíveis com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

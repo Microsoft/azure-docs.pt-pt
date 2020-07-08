@@ -3,12 +3,12 @@ title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Saiba como embarcar um cliente para a Azure delegada gestão de recursos, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: dc8156307a91a0d9fd598f330b4fbc28223e4483
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920921"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -126,17 +126,17 @@ O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira
 
 |Para embarcar isto  |Use este modelo de Gestor de Recursos Azure  |E modificar este arquivo de parâmetros |
 |---------|---------|---------|
-|Subscrição   |[delegadoResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegadoResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Grupo de recursos   |[rg DelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rg DelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Vários grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Subscrição   |[delegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Grupo de recursos   |[rgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Vários grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
 > O processo aqui descrito requer uma implementação separada do nível de subscrição para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa implementação de nível de subscrição.
 >
 > São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente**.
 
-O exemplo a seguir mostra um ficheiro **delegado modificadoResourceManagement.parameters.json** que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
+O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada **no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
 
 ```json
 {
@@ -189,7 +189,7 @@ O exemplo a seguir mostra um ficheiro **delegado modificadoResourceManagement.pa
 }
 ```
 
-A última autorização no exemplo acima adiciona um **principalid** com a função de Administrador de Acesso ao Utilizador (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir esta função, deve incluir a propriedade **delegadoRoleDefinitionIds** e uma ou mais funções incorporadas. O utilizador criado nesta autorização poderá atribuir estas funções incorporadas a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) no arrendatário do cliente, o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md) Nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
+A última autorização no exemplo acima adiciona um **principalid** com a função de Administrador de Acesso ao Utilizador (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir esta função, deve incluir a propriedade **delegadoRoleDefinitionIds** e uma ou mais funções incorporadas. O utilizador criado nesta autorização poderá atribuir estas funções incorporadas a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) no arrendatário do cliente, o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md)  O utilizador também é capaz de criar incidentes de suporte.  Nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
@@ -198,9 +198,9 @@ Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do 
 Por se trata de uma implementação de nível de subscrição, não pode ser iniciada no portal Azure. A colocação pode ser feita utilizando PowerShell ou Azure CLI, como mostrado abaixo.
 
 > [!IMPORTANT]
-> Esta implementação ao nível de subscrição deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha a [função de Proprietário incorporada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
+> Esta implementação ao nível de subscrição deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha a [função de Proprietário incorporada](../../role-based-access-control/built-in-roles.md#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
 >
-> Se a subscrição foi criada através do [programa Cloud Solution Provider (CSP),](../concepts/cloud-solution-provider.md)qualquer utilizador que tenha o papel de Agente [Administrativo](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu inquilino fornecedor de serviços pode realizar a implementação.
+> Se a subscrição foi criada através do [programa Cloud Solution Provider (CSP),](../concepts/cloud-solution-provider.md)qualquer utilizador que tenha o papel de Agente [Administrativo](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu inquilino fornecedor de serviços pode realizar a implementação.
 
 ### <a name="powershell"></a>PowerShell
 

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador de entrada NGINX para uma rede interna privada num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: ca804849001ec99f077397fb9fbee2aae7bc2e18
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.date: 07/02/2020
+ms.openlocfilehash: 8f1a538364284863cbfe3786213434b14918f214
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920240"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada para uma rede virtual interna no Serviço Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Também pode:
 - [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
 - Crie um controlador ingress que utilize o Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX e o gestor de certificados. Para obter mais informações sobre a configuração e utilização do Helm, consulte [instalar aplicações com Helm in Azure Kubernetes Service (AKS)][use-helm].
 
@@ -58,6 +58,9 @@ O controlador de entrada também tem de estar agendado num nó do Linux. Os nós
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -327,7 +330,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

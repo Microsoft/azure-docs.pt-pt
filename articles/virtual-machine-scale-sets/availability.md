@@ -1,20 +1,20 @@
 ---
-title: Opções de disponibilidade para conjuntos de escala de máquinas virtuais Azure
-description: Conheça as funcionalidades de disponibilidade para executar conjuntos de escala de máquinas virtuais do Windows em Azure
+title: Opções de disponibilidade para conjuntos de escala de máquina virtual Azure
+description: Saiba mais sobre as funcionalidades de disponibilidade para executar conjuntos de escala de máquina virtual do Windows em Azure
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 11/05/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5a0d020e8efdd64a06616d0acfe458148d22de50
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ed1b5ae4f0e1bd134fa09955203b1b04a06ac1c6
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856585"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade das máquinas virtuais no Azure
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f5a6180fa939699f752678271fbddfb8328a1afe
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c83323ff7b951892b96d49f3173c022592aac331
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84883934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920173"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
@@ -44,7 +44,9 @@ Agora que criámos um grupo de recursos para os nossos perfis CDN e demos a noss
 
 Crie uma pasta para armazenar a sua aplicação.  A partir de uma consola com as ferramentas Node.js no seu caminho atual, desacorda a sua localização atual para esta nova pasta e inicialize o seu projeto executando:
 
-    npm init
+```console
+npm init
+```
 
 Em seguida, ser-lhe-á apresentada uma série de perguntas para rubricar o seu projeto.  Para **o ponto de entrada,** este tutorial utiliza *app.js*.  Podem ver as minhas outras escolhas no exemplo seguinte.
 
@@ -52,8 +54,10 @@ Em seguida, ser-lhe-á apresentada uma série de perguntas para rubricar o seu p
 
 O nosso projeto está agora rubricado com uma *packages.jsarquivada.*  O nosso projeto vai usar algumas bibliotecas Azure contidas em pacotes NPM.  Usaremos o tempo de execução do cliente Azure para Node.js (ms-rest-azure) e a Biblioteca de Clientes Azure CDN para Node.js (azure-arm-cd).  Vamos adicioná-los ao projeto como dependências.
 
-    npm install --save ms-rest-azure
-    npm install --save azure-arm-cdn
+```console
+npm install --save ms-rest-azure
+npm install --save azure-arm-cdn
+```
 
 Depois de as embalagens serem feitas para instalar, o *package.jsno* ficheiro deve parecer semelhante a este exemplo (os números das versões podem diferir):
 

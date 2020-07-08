@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a63b7af1cf29f120f41bd03ed51b5114fa85fa02
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: ed973b6ea5bbcd2b23e30d381e909ef2ab03b917
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921673"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Patching automatizado para servidor SQL em máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -105,10 +105,13 @@ Depois de a provisionar o seu SQL VM, utilize o PowerShell para configurar o Pat
 
 No exemplo seguinte, o PowerShell é utilizado para configurar patching automatizado num VM do servidor SQL existente. O comando **New-AzVMSqlServerAutoPatchingConfig** configura uma nova janela de manutenção para atualizações automáticas.
 
-    $vmname = "vmname"
-    $resourcegroupname = "resourcegroupname"
-    $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-s Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+```azurepowershell
+$vmname = "vmname"
+$resourcegroupname = "resourcegroupname"
+$aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+s
+Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+```
 
 > [!IMPORTANT]
 > Se a extensão ainda não estiver instalada, a instalação reinicia o SQL Server.

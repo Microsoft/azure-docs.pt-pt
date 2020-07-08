@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: f604d1d054717e426fcb02271b3a2aa06c6489b6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856911"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para Spark on HDInsight e Azure Data Lake Storage Gen1
 
@@ -55,26 +55,30 @@ Existem algumas formas gerais de aumentar a concordância para os trabalhos inte
 
 **Passo 3: Definir executor-núcleos** – Para cargas de trabalho intensivas de I/O que não têm operações complexas, é bom começar com um elevado número de núcleos executor para aumentar o número de tarefas paralelas por executor. Definir os núcleos do executor para 4 é um bom começo.
 
-    executor-cores = 4
+```console
+executor-cores = 4
+```
+
 Aumentar o número de núcleos de executor vai dar-lhe mais paralelismo para que possa experimentar com diferentes núcleos de executor. Para trabalhos que tenham operações mais complexas, deve reduzir o número de núcleos por executor. Se os núcleos de executor forem definidos acima de 4, então a recolha de lixo pode tornar-se ineficiente e degradar o desempenho.
 
 **Passo 4: Determinar a quantidade de memória YARN no cluster** – Esta informação está disponível em Ambari. Navegue até YARN e veja o separador Contigs. A memória YARN é apresentada nesta janela.
 Note que enquanto estiver na janela, também pode ver o tamanho padrão do recipiente YARN. O tamanho do recipiente YARN é o mesmo que a memória por parâmetro executor.
 
-    Total YARN memory = nodes * YARN memory per node
+Total da memória YARN = nós * memória YARN por nó
+
 **Passo 5: Calcular executores numéricos**
 
 **Calcular a restrição** de memória - O parâmetro de executores num é limitado pela memória ou pelo CPU. A restrição de memória é determinada pela quantidade de memória YARN disponível para a sua aplicação. Pegue a memória total de YARN e divida-a por memória executora. O constrangimento precisa de ser desdimensionado para o número de apps, pelo que dividimos pelo número de apps.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps
+Restrição de memória = (memória total de YARN / memória executora) / # de apps
+
 **Calcular a restrição do CPU** - A restrição do CPU é calculada como o núcleo virtual total dividido pelo número de núcleos por executor. Existem 2 núcleos virtuais para cada núcleo físico. À semelhança do constrangimento de memória, dividimos pelo número de aplicações.
 
-    virtual cores = (nodes in cluster * # of physical cores in node * 2)
-    CPU constraint = (total virtual cores / # of cores per executor) / # of apps
+núcleos virtuais = (nós em cluster * # de núcleos físicos em nó * 2) restrição CPU = (núcleos virtuais totais / # de núcleos por executor) / # de apps
+
 **Definir executores num** - O parâmetro de executores num é determinado tomando o mínimo da restrição de memória e da restrição do CPU. 
 
-    num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)
-Definir um maior número de executores num não aumenta necessariamente o desempenho. Deve considerar que adicionar mais executores adicionará despesas adicionais para cada executor adicional, o que pode potencialmente degradar o desempenho. Os executores numisãos são limitados pelos recursos do cluster.
+executores num = Min (núcleos virtuais totais / # de núcleos por executor, memória YARN disponível / executor-memória) Definir um maior número de executores num não aumenta necessariamente o desempenho. Deve considerar que adicionar mais executores adicionará despesas adicionais para cada executor adicional, o que pode potencialmente degradar o desempenho. Os executores numisãos são limitados pelos recursos do cluster.
 
 ## <a name="example-calculation"></a>Cálculo de exemplo
 
@@ -84,30 +88,28 @@ Digamos que atualmente tem um cluster composto por nós 8 D4v2 que está a execu
 
 **Passo 2: Definir memória executora** – por exemplo, determinamos que 6GB de memória executor será suficiente para trabalho intensivo de I/O.
 
-    executor-memory = 6GB
+```console
+executor-memory = 6GB
+```
+
 **Passo 3: Definir executor-núcleos** – Uma vez que este é um trabalho intensivo de I/O, podemos definir o número de núcleos para cada executor para quatro. A definição de núcleos por executor a maiores de quatro pode causar problemas na recolha de lixo.
 
-    executor-cores = 4
+```console
+executor-cores = 4
+```
+
 **Passo 4: Determinar a quantidade de memória YARN em cluster** – Navegamos em Ambari para descobrir que cada D4v2 tem 25GB de memória YARN. Uma vez que existem 8 nós, a memória YARN disponível é multiplicada por 8.
 
-    Total YARN memory = nodes * YARN memory* per node
-    Total YARN memory = 8 nodes * 25 GB = 200 GB
+Total da memória YARN = nó * memória YARN* por nó Total YARN memória = 8 nosdes * 25 GB = 200 GB
+
 **Passo 5: Calcular os executores num** - O parâmetro de executores num é determinado tomando o mínimo da restrição de memória e a restrição do CPU dividida pelo # das aplicações em execução em Spark.
 
 **Calcular a restrição de memória** – A restrição de memória é calculada como a memória total de YARN dividida pela memória por executor.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps 
-    Memory constraint = (200 GB / 6 GB) / 2
-    Memory constraint = 16 (rounded)
-**Calcular a restrição do CPU** - A restrição do CPU é calculada como o núcleo total de fios dividido pelo número de núcleos por executor.
-    
-    YARN cores = nodes in cluster * # of cores per node * 2
-    YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
-    CPU constraint = (total YARN cores / # of cores per executor) / # of apps
-    CPU constraint = (128 / 4) / 2
-    CPU constraint = 16
+Restrição de memória = (memória total de YARN / memória executora) / # de apps Restrições de memória = (200 GB / 6 GB) / 2 Restrição de memória = 16 (arredondado) **Calcular a restrição do CPU** - A restrição do CPU é calculada como o núcleo total de fios dividido pelo número de núcleos por executor.
+
+Yarn cores = nós em cluster * # de núcleos por nó * 2 núcleos DE YARN = 8 nós * 8 núcleos por D14 * 2 = 128 CPU restrição = (núcleos yarn totais / # de núcleos por executor) / # de apps CPU restrição = (128 / 4) / 2 restrições cpU = 16
+
 **Definir executores num-executores**
 
-    num-executors = Min (memory constraint, CPU constraint)
-    num-executors = Min (16, 16)
-    num-executors = 16
+executores num = Min (restrição de memória, restrição de CPU) num-executor = Min (16, 16) num-executores = 16

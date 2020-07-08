@@ -3,12 +3,12 @@ title: Adicione proprietários e utilizadores em Azure DevTest Labs Microsoft Do
 description: Adicione proprietários e utilizadores em Azure DevTest Labs usando o portal Azure ou PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 180c46480d099de4537216a59f0a2b9ab13d5d40
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: d5e7a166f9b79e2ff46f5874d53a40ed16750100
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855698"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar proprietários e utilizadores em Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -22,14 +22,14 @@ Existem três funções principais que pode atribuir a um utilizador:
 
 * Proprietário
 * Utilizador de Laboratórios DevTest
-* Contribuinte
+* Contribuidor
 
 A tabela a seguir ilustra as ações que podem ser executadas pelos utilizadores em cada uma destas funções:
 
 | **Ações que os utilizadores neste papel podem desempenhar** | **Utilizador de Laboratórios DevTest** | **Proprietário** | **Contribuinte** |
 | --- | --- | --- | --- |
 | **Tarefas de laboratório** | | | |
-| Adicionar utilizadores a um laboratório |Não |Yes |Não |
+| Adicionar utilizadores a um laboratório |Não |Sim |Não |
 | Atualizar definições de custos |Não |Sim |Sim |
 | **Tarefas de base VM** | | | |
 | Adicione e remova imagens personalizadas |Não |Sim |Sim |
@@ -77,29 +77,31 @@ Pode recuperar o `subscriptionId` `labResourceGroup` , e `labName` valores da l�
 > 
 > 
 
-    # Add an external user in DevTest Labs user role to a lab
-    # Ensure that guest users can be added to the Azure Active directory:
-    # https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+```azurepowershell
+# Add an external user in DevTest Labs user role to a lab
+# Ensure that guest users can be added to the Azure Active directory:
+# https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
-    # Values to change
-    $subscriptionId = "<Enter Azure subscription ID here>"
-    $labResourceGroup = "<Enter lab's resource name here>"
-    $labName = "<Enter lab name here>"
-    $userDisplayName = "<Enter user's display name here>"
+# Values to change
+$subscriptionId = "<Enter Azure subscription ID here>"
+$labResourceGroup = "<Enter lab's resource name here>"
+$labName = "<Enter lab name here>"
+$userDisplayName = "<Enter user's display name here>"
 
-    # Log into your Azure account
-    Connect-AzAccount
+# Log into your Azure account
+Connect-AzAccount
 
-    # Select the Azure subscription that contains the lab. 
-    # This step is optional if you have only one subscription.
-    Select-AzSubscription -SubscriptionId $subscriptionId
+# Select the Azure subscription that contains the lab. 
+# This step is optional if you have only one subscription.
+Select-AzSubscription -SubscriptionId $subscriptionId
 
-    # Retrieve the user object
-    $adObject = Get-AzADUser -SearchString $userDisplayName
+# Retrieve the user object
+$adObject = Get-AzADUser -SearchString $userDisplayName
 
-    # Create the role assignment. 
-    $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+# Create the role assignment. 
+$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+```
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Adicionar um proprietário ou utilizador ao nível de subscrição
 As permissões azure são propagadas do âmbito dos pais para o âmbito da criança em Azure. Portanto, os proprietários de uma assinatura Azure que contém laboratórios são automaticamente proprietários desses laboratórios. Também possuem os VMs e outros recursos criados pelos utilizadores do laboratório, e o serviço Azure DevTest Labs. 

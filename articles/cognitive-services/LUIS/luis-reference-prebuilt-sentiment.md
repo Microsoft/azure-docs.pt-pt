@@ -1,7 +1,7 @@
 ---
 title: Análise de sentimento - LUIS
 titleSuffix: Azure Cognitive Services
-description: Se a análise do sentimento estiver configurada, a resposta do JSON inclui a análise de sentimentos.
+description: Se a análise do sentimento estiver configurada, a resposta do JSON LUIS inclui a análise do sentimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,26 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/22/2019
+ms.date: 07/01/2020
 ms.author: diberry
-ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2d15170e3785d8978b9cb21eae3b94b002f9172e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857166"
 ---
 # <a name="sentiment-analysis"></a>Análise de sentimentos
-Se a análise do sentimento estiver configurada, a resposta do JSON inclui a análise de sentimentos. Saiba mais sobre a análise de sentimentos na documentação do [Text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+Se a análise do sentimento estiver configurada, a resposta do JSON LUIS inclui a análise do sentimento. Saiba mais sobre a análise de sentimento na documentação [text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
 
+LUIS usa Text Analytics V2. 
 
-## <a name="resolution-for-sentiment"></a>Resolução de sentimento
+## <a name="resolution-for-sentiment"></a>Resolução para o sentimento
 
-Os dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados.
+Os dados do sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados.
 
 #### <a name="english-language"></a>[Língua inglesa](#tab/english)
 
-Quando a `en-us`cultura é, a resposta é:
+Quando a cultura `en-us` é, a resposta é:
 
 ```JSON
 "sentimentAnalysis": {
@@ -37,7 +38,7 @@ Quando a `en-us`cultura é, a resposta é:
 }
 ```
 
-#### <a name="other-languages"></a>[Outras línguas](#tab/other-languages)
+#### <a name="other-languages"></a>[Outras linguagens](#tab/other-languages)
 
 Para todas as outras culturas, a resposta é:
 
@@ -48,7 +49,7 @@ Para todas as outras culturas, a resposta é:
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 

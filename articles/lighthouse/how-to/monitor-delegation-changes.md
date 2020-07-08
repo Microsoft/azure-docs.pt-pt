@@ -3,12 +3,12 @@ title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
 ms.date: 03/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5bb299f85074675b1d02943ee623394a7deff000
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919131"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -73,7 +73,7 @@ Depois de ter criado a sua conta principal de serviço e atribuído a função d
 
 Uma vez criada uma nova conta principal de serviço com o monitor de acesso do Leitor ao âmbito de raiz do seu inquilino gerente, pode usá-la para consultar e reportar sobre a atividade da delegação no seu inquilino. 
 
-[Este script Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) pode ser usado para consultar o último dia de atividade e relatórios sobre quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem sucedidas). Questiona os dados do [Registo de Atividades](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) do Arrendatário e, em seguida, constrói os seguintes valores para reportar sobre as delegações adicionadas ou removidas:
+[Este script Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) pode ser usado para consultar o último dia de atividade e relatórios sobre quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem sucedidas). Questiona os dados do [Registo de Atividades](/rest/api/monitor/TenantActivityLogs/List) do Arrendatário e, em seguida, constrói os seguintes valores para reportar sobre as delegações adicionadas ou removidas:
 
 - **DelegadoResourceId**: O ID do grupo de subscrição ou recursos delegados
 - **CustomerTenantId**: O ID do inquilino do cliente
@@ -156,7 +156,7 @@ else
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como embarcar clientes na [gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).

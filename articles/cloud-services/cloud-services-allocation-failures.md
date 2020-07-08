@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921602"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Resolução de problemas com a falha de atribuição quando implementar os Serviços Cloud no Azure
 ## <a name="summary"></a>Resumo
@@ -41,7 +41,7 @@ Quando um pedido de atribuição é fixado a um cluster, há uma maior probabili
 ### <a name="error-message"></a>Mensagem de Erro
 Pode ver a seguinte mensagem de erro:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "A operação Azure '{operation id}' falhou com o código Compute.ConstrainedAllocationFailed. Detalhes: A atribuição falhou; incapaz de satisfazer constrangimentos a pedido. A implementação do novo serviço solicitada está vinculada a um Grupo de Afinidade, tem como destino uma Rede Virtual ou há uma implementação existente neste serviço alojado. Qualquer uma destas condições limita a nova implantação a recursos específicos da Azure. Tente novamente mais tarde ou tente reduzir o tamanho da VM ou o número de instâncias de função. Em alternativa, se possível, eliminar os constrangimentos acima referidos ou tentar implantar-se numa região diferente."
 
 ### <a name="common-issues"></a>Problemas Comuns
 Eis os cenários comuns de atribuição que fazem com que um pedido de atribuição seja fixado a um único cluster.

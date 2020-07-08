@@ -3,12 +3,12 @@ title: Conceder permissões de utilizadores a políticas específicas de laborat
 description: Saiba como conceder permissões de utilizadores a políticas específicas de laboratório em Laboratórios DevTest com base nas necessidades de cada utilizador
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: de9510ec77c009bad293ce5435eba8d20fd7e667
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cfacba2a7cdba20bd5a05c9ca5898194c31c2e68
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855773"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizadores a políticas específicas de laboratório
 ## <a name="overview"></a>Descrição geral
@@ -34,36 +34,42 @@ Depois de configurar os cmdlets Azure PowerShell, pode executar as seguintes tar
 
 O seguinte script PowerShell ilustra exemplos de como executar estas tarefas:
 
-    # List all the operations/actions for a resource provider.
-    Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
+```azurepowershell
+# List all the operations/actions for a resource provider.
+Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
-    # List actions in a particular role.
-    (Get-AzRoleDefinition "DevTest Labs User").Actions
+# List actions in a particular role.
+(Get-AzRoleDefinition "DevTest Labs User").Actions
 
-    # Create custom role.
-    $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
-    $policyRoleDef.Id = $null
-    $policyRoleDef.Name = "Policy Contributor"
-    $policyRoleDef.IsCustom = $true
-    $policyRoleDef.AssignableScopes.Clear()
-    $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
-    $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
-    $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
+# Create custom role.
+$policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
+$policyRoleDef.Id = $null
+$policyRoleDef.Name = "Policy Contributor"
+$policyRoleDef.IsCustom = $true
+$policyRoleDef.AssignableScopes.Clear()
+$policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
+$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
+$policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
+```
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Atribuir permissões a um utilizador para uma política específica usando funções personalizadas
 Uma vez definidas as suas funções personalizadas, pode atribuí-las aos utilizadores. Para atribuir uma função personalizada a um utilizador, tem primeiro de obter o **ObjectId** que representa esse utilizador. Para isso, utilize o **cmdlet Get-AzADUser.**
 
 No exemplo seguinte, o **ObjectId** do utilizador *SomeUser* é 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
-    PS C:\>Get-AzADUser -SearchString "SomeUser"
+```azurepowershell
+PS C:\>Get-AzADUser -SearchString "SomeUser"
 
-    DisplayName                    Type                           ObjectId
-    -----------                    ----                           --------
-    someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
+DisplayName                    Type                           ObjectId
+-----------                    ----                           --------
+someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
+```
 
 Uma vez que tenha o **ObjectId** para o utilizador e um nome de função personalizado, pode atribuir essa função ao utilizador com o cmdlet **New-AzRoleAssignment:**
 
-    PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+```azurepowershell
+PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+```
 
 No exemplo anterior, é utilizada a política **AllowedVmSizesInLab.** Pode utilizar qualquer uma das seguintes polícias:
 
@@ -74,7 +80,7 @@ No exemplo anterior, é utilizada a política **AllowedVmSizesInLab.** Pode util
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de ter concedido permissões de utilizadores a políticas específicas de laboratório, eis alguns próximos passos a considerar:
 
 * [Acesso seguro a um laboratório](devtest-lab-add-devtest-user.md)

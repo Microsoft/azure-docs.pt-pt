@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856724"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -73,7 +73,7 @@ Os Serviços Cognitivos, como um grupo de serviços, não podem exigir nenhum, a
 
 ### <a name="no-additional-training-data-required"></a>Não são necessários dados adicionais de formação
 
-Os serviços que fornecem um modelo totalmente treinado podem ser tratados como uma _caixa preta._ Não precisas de saber como funcionam ou que dados foram usados para os treinar. Leva os seus dados a um modelo totalmente treinado para obter uma previsão. 
+Os serviços que fornecem um modelo totalmente treinado podem ser tratados como uma _caixa opaca._ Não precisas de saber como funcionam ou que dados foram usados para os treinar. Leva os seus dados a um modelo totalmente treinado para obter uma previsão. 
 
 ### <a name="some-or-all-training-data-required"></a>Alguns ou todos os dados de formação necessários
 
@@ -93,16 +93,16 @@ Os dados a seguir categorizam cada serviço pelo tipo de dados que permite ou re
 |--|--|--|--|
 |[Detetor de Anomalias](./Anomaly-Detector/overview.md)|x|x|x|
 |Pesquisa do Bing |x|||
-|[Imagem Digitalizada](./Computer-vision/Home.md)|x|||
+|[Visão computacional](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Visão Personalizada](./Custom-Vision-Service/home.md)||x||
-|[Rostos](./Face/Overview.md)|x|x||
+|[Face](./Face/Overview.md)|x|x||
 |[Reconhecedor de Formato](./form-recognizer/overview.md)||x||
 |[Leitura Avançada](./immersive-reader/overview.md)|x|||
 |[Reconhecedor de Tinta Digital](./Ink-recognizer/overview.md)|x|x||
 |[Compreensão de Idiomas (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizador](./personalizer/what-is-personalizer.md)|x*|x*|x|
-|[QnA Maker](./QnAMaker/Overview/overview.md)||x||
+|[Fabricante QnA](./QnAMaker/Overview/overview.md)||x||
 |[Orador Reconhecedor](./speaker-recognition/home.md)||x||
 |[Discurso Texto-a-discurso (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Discurso Discurso-a-texto (STT)](speech-service/speech-to-text.md)|x|x||
@@ -131,12 +131,12 @@ Serviços Cognitivos que fornecem modelos exportados para outras ferramentas de 
 |--|--|
 |[Visão Personalizada](./custom-vision-service/home.md)|[Exportação](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, CoreML para iOS11, ONNX para Windows ML|
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Guia de Arquitetura - Quais são os produtos de aprendizagem automática na Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine learning - Introdução à aprendizagem profunda vs. aprendizagem automática](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Crie a sua conta de Serviço Cognitivo no [portal Azure](cognitive-services-apis-create-account.md) ou com [o Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
 * Aprenda a [autenticar](authentication.md) um Serviço Cognitivo.

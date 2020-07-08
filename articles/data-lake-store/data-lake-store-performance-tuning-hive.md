@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 819e158ce2613441efdf2177d50fc8e7989bf68f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855758"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para a Colmeia em HDInsight e Azure Data Lake Storage Gen1
 
@@ -55,17 +55,15 @@ As cargas de trabalho intensivas de I/O podem beneficiar de um maior paralelismo
 
 O número simultâneo de tarefas em execução ou paralelismo será limitado pela memória total do YARN.  O número de contentores DE FIOS ditará quantas tarefas simultâneas podem ser executadas.  Para encontrar a memória yarn por nó, você pode ir a Ambari.  Navegue até YARN e veja o separador Configs.  A memória YARN é apresentada nesta janela.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Total da memória yarn = nós * memória YARN por nó Número de contentores YARN = Total memória YARN / Tamanho do recipiente Tez
+
 A chave para melhorar o desempenho usando a Data Lake Storage Gen1 é aumentar a conúnquidade o mais possível.  O Tez calcula automaticamente o número de tarefas que devem ser criadas para que não seja necessário defini-lo.   
 
 ## <a name="example-calculation"></a>Cálculo de exemplo
 
 Digamos que tem um aglomerado de 8 nó D14.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Total da memória YARN = nós * memória YARN por nó Memória TOTAL YARN = 8 nós * 96GB = Número de 768GB de contentores DE FIOS = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>Limitações
 

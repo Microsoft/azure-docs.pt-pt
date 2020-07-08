@@ -3,12 +3,12 @@ title: Crie artefactos personalizados para a sua máquina virtual DevTest Labs M
 description: Aprenda a autorar os seus próprios artefactos para usar com a Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f33b6da3354dc3caf9376f249b802d324aa3148c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857021"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Crie artefactos personalizados para a sua máquina virtual DevTest Labs
 
@@ -24,52 +24,56 @@ Pode utilizar *artefactos* para implantar e configurar a sua aplicação depois 
 ## <a name="artifact-definition-file-format"></a>Formato de ficheiro de definição de artefacto
 O exemplo a seguir mostra as secções que compõem a estrutura básica de um ficheiro de definição:
 
-    {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-      "title": "",
-      "description": "",
-      "iconUri": "",
-      "targetOsType": "",
-      "parameters": {
-        "<parameterName>": {
-          "type": "",
-          "displayName": "",
-          "description": ""
-        }
-      },
-      "runCommand": {
-        "commandToExecute": ""
+```json
+  {
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "",
+    "description": "",
+    "iconUri": "",
+    "targetOsType": "",
+    "parameters": {
+      "<parameterName>": {
+        "type": "",
+        "displayName": "",
+        "description": ""
       }
+    },
+    "runCommand": {
+      "commandToExecute": ""
     }
+  }
+```
 
 | Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
-| $schema |No |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudá-lo a testar a validade do ficheiro de definição. |
-| título |Yes |O nome do artefacto exposto no laboratório. |
-| descrição |Yes |Descrição do artefacto exibido no laboratório. |
-| iconUri |No |URI do ícone exibido no laboratório. |
-| targetOsType |Yes |Sistema operativo do VM onde o artefacto está instalado. As opções suportadas são Windows e Linux. |
-| parâmetros |No |Valores fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda-o a personalizar o seu artefacto. |
-| runCommand |Yes |O comando de instalação de artefactos que é executado num VM. |
+| $schema |Não |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudá-lo a testar a validade do ficheiro de definição. |
+| título |Sim |O nome do artefacto exposto no laboratório. |
+| descrição |Sim |Descrição do artefacto exibido no laboratório. |
+| iconUri |Não |URI do ícone exibido no laboratório. |
+| targetOsType |Sim |Sistema operativo do VM onde o artefacto está instalado. As opções suportadas são Windows e Linux. |
+| parâmetros |Não |Valores fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda-o a personalizar o seu artefacto. |
+| runCommand |Sim |O comando de instalação de artefactos que é executado num VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros de artefactos
 Na secção de parâmetros do ficheiro de definição, especifique quais os valores que um utilizador pode inserir quando instala um artefacto. Pode consultar estes valores no comando de instalação de artefactos.
 
 Para definir parâmetros, utilize a seguinte estrutura:
 
-    "parameters": {
-      "<parameterName>": {
-        "type": "<type-of-parameter-value>",
-        "displayName": "<display-name-of-parameter>",
-        "description": "<description-of-parameter>"
-      }
+```json
+  "parameters": {
+    "<parameterName>": {
+      "type": "<type-of-parameter-value>",
+      "displayName": "<display-name-of-parameter>",
+      "description": "<description-of-parameter>"
     }
+  }
+```
 
 | Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
-| tipo |Yes |Tipo de valor do parâmetro. Consulte a seguinte lista para os tipos permitidos. |
-| displayName |Yes |Nome do parâmetro que é apresentado a um utilizador em laboratório. |
-| descrição |Yes |Descrição do parâmetro que é apresentado no laboratório. |
+| tipo |Sim |Tipo de valor do parâmetro. Consulte a seguinte lista para os tipos permitidos. |
+| displayName |Sim |Nome do parâmetro que é apresentado a um utilizador em laboratório. |
+| descrição |Sim |Descrição do parâmetro que é apresentado no laboratório. |
 
 Os tipos permitidos são:
 
@@ -115,12 +119,14 @@ A lista que se segue mostra funções comuns:
 
 O exemplo a seguir mostra como usar expressões e funções para construir um valor:
 
-    runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
-    , ' -RawPackagesList ', parameters('packages')
-    , ' -Username ', parameters('installUsername')
-    , ' -Password ', parameters('installPassword'))]"
-    }
+```json
+  runCommand": {
+      "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+  , ' -RawPackagesList ', parameters('packages')
+  , ' -Username ', parameters('installUsername')
+  , ' -Password ', parameters('installPassword'))]"
+  }
+```
 
 ## <a name="create-a-custom-artifact"></a>Criar um artefacto personalizado
 
@@ -142,5 +148,5 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 * [Como diagnosticar falhas de artefactos em Laboratórios DevTest](devtest-lab-troubleshoot-artifact-failure.md)
 * [Junte um VM a um domínio de Diretório Ativo existente usando um modelo de Gestor de Recursos em Laboratórios DevTest](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Aprenda a [adicionar um repositório de artefactos Git a um laboratório.](devtest-lab-add-artifact-repo.md)
