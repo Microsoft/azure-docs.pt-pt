@@ -4,18 +4,18 @@ description: Saiba como se preparar para a avaliação/migração de VMware VMs 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771194"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109581"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
 Este artigo ajuda-o a preparar-se para a avaliação e migração de VMware VMs para Azure utilizando [a Azure Migrate.](migrate-services-overview.md)
 
-Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMware VMs. Neste tutorial, vai aprender a:
+Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMware VMs. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
@@ -64,7 +64,7 @@ Para registar o aparelho, a sua conta Azure necessita de permissões para criar 
 Conceder permissões à conta da seguinte forma:
 
 1. Certifique-se de ser inquilino ou administrador global. Em seguida, em Azure AD, navegue para **Azure Ative Directory**  >  **Users**  >  **User Settings**.
-2. Desaprote as **inscrições** da App para **Sim.** Esta é uma definição padrão que não é sensível. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Desaprote as **inscrições** da App para **Sim.** Esta é uma definição padrão que não é sensível. [Saiba mais](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Permissões AD AZure](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Conceder permissões à conta da seguinte forma:
 
 #### <a name="method-2-assign-application-developer-role"></a>Método 2: Atribuir função de desenvolvedor de aplicações
 
-Em alternativa, o administrador inquilino/global pode atribuir o papel de Desenvolvedor de Aplicações a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) sobre a atribuição de um papel.
+Em alternativa, o administrador inquilino/global pode atribuir o papel de Desenvolvedor de Aplicações a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) sobre a atribuição de um papel.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Atribuir permissões para criar um Cofre de Chaves
 
@@ -188,7 +188,7 @@ Pode migrar VMware VMs usando [migração sem agentes ou baseada em agentes.](se
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial:
 

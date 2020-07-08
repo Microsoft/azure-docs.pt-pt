@@ -1,34 +1,28 @@
 ---
 title: Exemplos do Azure PowerShell - Event Grid | Microsoft Docs
-description: Este artigo inclui uma tabela com links para as amostras de script seletiva Azure PowerShell para a Rede de Eventos Azure.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
-ms.devlang: na
+description: Este artigo inclui uma tabela com links para amostras de scripts Azure PowerShell para Azure Event Grid.
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: c3dea89b609dadb4cac26537c6669f5c7806f94e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/07/2020
+ms.openlocfilehash: 89945d9fc3558b8e14303aebe9ef593fbd792761
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76717522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108112"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Exemplos do Azure PowerShell para o Event Grid
 
 A tabela seguinte inclui ligações para exemplos do Azure PowerShell para o Event Grid.
 
-| | |
-|-|-|
-|**Assinaturas da Grelha de Eventos**||
-| [Subscrever uma subscrição do Azure](scripts/event-grid-powershell-azure-subscription.md)| Subscreve eventos para uma subscrição do Azure. |
-| [Subscrever o Armazenamento de blobs](scripts/event-grid-powershell-blob.md)| Subscreve eventos para uma conta de armazenamento de Blobs. |
-| [Subscrever um tópico personalizado](scripts/event-grid-powershell-subscribe-custom-topic.md)| Subscreve eventos para um tópico personalizado. |
-| [Subscrever um grupo de recursos](scripts/event-grid-powershell-resource-group.md)| Subscreve eventos para um grupo de recursos. |
-| [Subscrever grupo de recursos e filtrar um recurso](scripts/event-grid-powershell-resource-group-filter.md)| Subscreve eventos de um grupo de recursos e filtra eventos de um recurso. |
-|**Tópicos do Event Grid**||
-| [Criar um tópico personalizado](scripts/event-grid-powershell-create-custom-topic.md) | Cria um tópico personalizado do Event Grid e devolve o ponto final e a chave.  |
-| | |
+## <a name="event-grid-subscriptions"></a>Assinaturas de Grade de Eventos
+
+- [Subscreva a subscrição do Azure](scripts/event-grid-powershell-azure-subscription.md) - Subscreva eventos para uma subscrição do Azure. 
+- [Subscreva o armazenamento blob](scripts/event-grid-powershell-blob.md) - Subscreva eventos para uma conta de armazenamento Blob.
+- [Subscreva o tópico personalizado](scripts/event-grid-powershell-subscribe-custom-topic.md) - Subscreva eventos para um tópico personalizado. 
+- [Subscreva o grupo de recursos](scripts/event-grid-powershell-resource-group.md) - Subscreva eventos para um grupo de recursos. 
+- [Subscreva o grupo de recursos e filtre por um recurso](scripts/event-grid-powershell-resource-group-filter.md) - Subscreva eventos para um grupo de recursos e filtra eventos para um recurso. 
+
+## <a name="event-grid-topics"></a>Tópicos da Grelha de Eventos
+
+- [Crie um tópico personalizado -](scripts/event-grid-powershell-create-custom-topic.md) Cria um tópico personalizado da Grade de Eventos e devolve o ponto final e a chave.  
+
