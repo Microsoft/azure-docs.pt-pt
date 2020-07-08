@@ -1,5 +1,5 @@
 ---
-title: Portal de utilizadores para O Servidor Azure MFA - Diretório Ativo Azure
+title: Portal do utilizador para Azure MFA Server - Azure Ative Directory
 description: Introdução ao Azure MFA e ao portal de utilizador.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680910"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
@@ -29,9 +28,9 @@ Os Administradores do portal de Utilizador podem ser configurados e ser-lhes con
 Dependendo do seu ambiente, poderá implementar o portal de utilizador no mesmo servidor que o Servidor Multi-Factor Authentication ou noutro servidor com acesso à Internet.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes do dia 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
-![Sessão de sessão do Portal do Utilizador do Servidor MFA na página](./media/howto-mfaserver-deploy-userportal/portal.png)
+![Início do Portal do Utilizador do Servidor MFA na página](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > O portal de utilizador apenas está disponível com o Servidor Multi-Factor Authentication. Se utilizar o Multi-Factor Authentication na cloud, refira o artigo [Set-up your account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md) (Configurar a conta para verificação de dois passos) ou [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md) (Gerir as definições de verificação em dois passos) aos seus utilizadores.
@@ -43,11 +42,11 @@ Em ambos os cenários, se o SDK do Serviço Web do Multi-Factor Authentication d
 1. Abra a consola do Servidor Multi-Factor Authentication.
 2. Aceda ao **SDK do Serviço Web** e selecione **Instalar SDK do Serviço Web**.
 3. Conclua a instalação com as predefinições, a menos que tenha de as alterar por algum motivo.
-4. Ligue um Certificado TLS/SSL ao site no IIS.
+4. Ligue um certificado TLS/SSL ao site no IIS.
 
-Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar o SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-O Serviço Web SDK deve ser protegido com um certificado TLS/SSL. Pode utilizar um certificado autoassinado para este fim. Importe o certificado para a loja "Trusted Root Certification Authorities" da conta de Computador Local no servidor web do Portal do Utilizador para que confie nesse certificado ao iniciar a ligação TLS.
+O Serviço Web SDK deve ser protegido com um certificado TLS/SSL. Pode utilizar um certificado autoassinado para este fim. Importe o certificado na loja "Autoridades de Certificação de Raiz Fidedigna" da conta de Computador Local no servidor web do Portal do Utilizador, de modo a confiar nesse certificado ao iniciar a ligação TLS.
 
 ![SDK do Serviço Web de configuração do Servidor MFA](./media/howto-mfaserver-deploy-userportal/sdk.png)
 
@@ -57,23 +56,23 @@ Os pré-requisitos seguintes são precisos para instalar o portal de utilizador 
 
 * IIS, incluindo compatibilidade base meta para ASP.NET e IIS 6 (para IIS 7 ou posterior)
 * Uma conta com direitos de administrador para o computador e Domínio, se aplicável. A conta necessita permissões para criar grupos de segurança do Active Directory.
-* Proteja o portal do utilizador com um certificado TLS/SSL.
-* Fixe o Serviço Web de Autenticação Azure Multi-Factor SDK com um certificado TLS/SSL.
+* Fixe o portal do utilizador com um certificado TLS/SSL.
+* Proteja o Serviço Web de Autenticação Multi-Factor Azure SDK com um certificado TLS/SSL.
 
 Para implementar o portal de utilizador, siga estes passos:
 
 1. Abra a consola do Servidor Multi-Factor Authentication do Azure, clique no ícone do **Portal de Utilizador**, no menu à esquerda e clique em **Instalar o Portal de Utilizador**.
 2. Conclua a instalação com as predefinições, a menos que tenha de as alterar por algum motivo.
-3. Ligue um Certificado TLS/SSL ao site no IIS
+3. Ligue um certificado TLS/SSL ao site no IIS
 
    > [!NOTE]
-   > Este Certificado TLS/SSL é geralmente um Certificado TLS/SSL assinado publicamente.
+   > Este Certificado TLS/SSL é geralmente um certificado TLS/SSL assinado publicamente.
 
-4. Abra um navegador web a partir de qualquer computador e navegue para o URL onde o portal do utilizador foi instalado (Exemplo: `https://mfa.contoso.com/MultiFactorAuth` ). Certifique-se de que não são apresentados erros ou avisos de certificado.
+4. Abra um navegador web a partir de qualquer computador e navegue até ao URL onde o portal do utilizador foi instalado (Exemplo: `https://mfa.contoso.com/MultiFactorAuth` ). Certifique-se de que não são apresentados erros ou avisos de certificado.
 
 ![Instalação do Portal de Utilizador do Servidor MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar o SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Implementar no portal do utilizador num servidor separado
 
@@ -85,19 +84,19 @@ Se a sua organização utiliza a aplicação Microsoft Authenticator como um dos
 * Instale o portal de utilizador num servidor Web com acesso à Internet com Serviços de Informação Internet (IIS) da Microsoft 6.x ou superior.
 * Ao utilizar o IIS 6.x, certifique-se de que ASP.NET v2.0.50727 está instalado, registado e definido como **Permitido**.
 * Ao utilizar o IIS 7.x ou superior, IIS, incluindo compatibilidade base meta para Autenticação Básica, ASP.NET e IIS 6.
-* Proteja o portal do utilizador com um certificado TLS/SSL.
-* Fixe o Serviço Web de Autenticação Azure Multi-Factor SDK com um certificado TLS/SSL.
-* Certifique-se de que o portal do utilizador pode ligar-se ao Serviço Web de Autenticação De Vários Fatores Azure SDK sobre TLS/SSL.
+* Fixe o portal do utilizador com um certificado TLS/SSL.
+* Proteja o Serviço Web de Autenticação Multi-Factor Azure SDK com um certificado TLS/SSL.
+* Certifique-se de que o portal do utilizador pode ligar-se ao Serviço Web de Autenticação Multi-Factor Azure em relação ao TLS/SSL.
 * Certifique-se de que o portal de utilizador consegue comunicar com o SDK do Serviço Web do Multi-Factor Authentication do Azure com as credenciais de uma conta de serviço no grupo de segurança “PhoneFactor Admins”. Esta conta de serviço e o grupo devem existir no Active Directory se o Servidor Multi-Factor Authentication do Azure estiver em execução num servidor associado a um domínio. Esta conta de serviço e o grupo existem localmente no Servidor Multi-Factor Authentication do Azure se não estiver associado a um domínio.
 
 Instalar o portal de utilizador num servidor diferente do Servidor Multi-Factor Authentication do Azure requer os seguintes passos:
 
 1. **No servidor MFA**, navegue para o caminho de instalação (Exemplo: C:\Ficheiros de Programas\Servidor Multi-Factor Authentication), e copie o ficheiro **MultiFactorAuthenticationUserPortalSetup64** para uma localização acessível ao servidor com acesso à Internet onde será instalado.
 2. **No servidor Web com acesso à Internet**, execute o ficheiro de instalação MultiFactorAuthenticationUserPortalSetup64 como administrador, altere o Site e o diretório Virtual para um nome abreviado, se o pretender.
-3. Ligue um Certificado TLS/SSL ao site no IIS.
+3. Ligue um certificado TLS/SSL ao site no IIS.
 
    > [!NOTE]
-   > Este Certificado TLS/SSL é geralmente um Certificado TLS/SSL assinado publicamente.
+   > Este Certificado TLS/SSL é geralmente um certificado TLS/SSL assinado publicamente.
 
 4. Navegue até **C:\inetpub\wwwroot\MultiFactorAuth**
 5. Edite o ficheiro Web.Config no Bloco de notas
@@ -108,9 +107,9 @@ Instalar o portal de utilizador num servidor diferente do Servidor Multi-Factor 
     * Procure o valor `https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx` e altere este URL de marcador de posição para o URL do SDK do Serviço Web que instalámos no passo 2.
     * Guarde o ficheiro Web.Config e feche o Bloco de notas.
 
-6. Abra um navegador web a partir de qualquer computador e navegue para o URL onde o portal do utilizador foi instalado (Exemplo: `https://mfa.contoso.com/MultiFactorAuth` ). Certifique-se de que não são apresentados erros ou avisos de certificado.
+6. Abra um navegador web a partir de qualquer computador e navegue até ao URL onde o portal do utilizador foi instalado (Exemplo: `https://mfa.contoso.com/MultiFactorAuth` ). Certifique-se de que não são apresentados erros ou avisos de certificado.
 
-Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar o SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições do portal de utilizador no Servidor Multi-Factor Authentication do Azure
 
@@ -118,7 +117,7 @@ Agora que o portal de utilizador está instalado, tem de configurar o Servidor M
 
 1. Na consola do Servidor Multi-Factor Authentication do Azure, clique no ícone **Portal de Utilizador**. No separador Definições, introduza o URL do portal de utilizador na caixa de texto **URL do Portal de Utilizador**. Se a funcionalidade de e-mail tiver sido ativada, este URL vai ser incluído nos e-mails que são enviados aos utilizadores quando forem importados para o Servidor Multi-Factor Authentication do Azure.
 2. Escolha as definições que pretende utilizar no Portal de Utilizador. Por exemplo, se os utilizadores tiverem permissão para escolher os métodos de autenticação deles, certifique-se de que **Permitir que os utilizadores selecionem o método** está marcado, juntamente com os métodos que podem escolher.
-3. Defina quem devem ser administradores no separador **Administradores.** Pode criar permissões administrativas granulares utilizando as caixas de verificação e as quedas nas caixas Add/Edit.
+3. Defina quem deve ser administrador no **separador Administradores.** Pode criar permissões administrativas granulares utilizando as caixas de verificação e as desistências nas caixas De Adicionar/Editar.
 
 Configuração opcional:
 
@@ -146,7 +145,7 @@ O Servidor Multi-Factor Authentication do Azure fornece várias opções para o 
 | Ativar registo | Ativar o registo no portal de utilizador. Os ficheiros de registo estão localizados em: C:\Programas\Microsoft Files\Servidor Multi-Factor Authentication\Registos. |
 
 > [!IMPORTANT]
-> A partir de março de 2019, as opções de chamada telefónica não estarão disponíveis para os utilizadores do MFA Server em inquilinos adatos azure gratuitos/experimentais. As mensagens SMS não são afetadas por esta mudança. A chamada telefónica continuará disponível para os utilizadores em inquilinos da AD Azure pagos. Esta mudança só afeta os inquilinos azure free/trial.
+> A partir de março de 2019, as opções de chamadas telefónicas não estarão disponíveis para os utilizadores do MFA Server em inquilinos AD Azure gratuitos/testados. As mensagens SMS não são afetadas por esta alteração. O telefonema continuará disponível para os utilizadores dos inquilinos pagos da AD Azure. Esta alteração só afeta inquilinos gratuitos/experimentais da Azure AD.
 
 Estas definições ficam visíveis para o utilizador no portal assim que forem ativadas e iniciarem sessão no portal de utilizador.
 
@@ -154,7 +153,7 @@ Estas definições ficam visíveis para o utilizador no portal assim que forem a
 
 ### <a name="self-service-user-enrollment"></a>Inscrição de utilizador self-service
 
-Se pretender que os seus utilizadores iniciem sessão e se inscrevam, tem de selecionar os **utilizadores do Permitir em sessão** e permitir que as opções de **inscrição** do utilizador no separador Definições.
+Se pretender que os seus utilizadores iniciem sessão e se inscrevam, tem de selecionar o **Permitir que os utilizadores iniciem sessão** e permita que as opções **de inscrição** dos utilizadores no separador Definições.
 
 Por exemplo, quando um utilizador inicia sessão no portal de utilizador pela primeira vez, é direcionado para a página de Configuração de Utilizador do Multi-Factor Authentication do Azure. Dependendo de como tiver configurado o Multi-Factor Authentication do Azure, o utilizador poderá conseguir selecionar o método de autenticação.
 
@@ -162,11 +161,11 @@ Se o utilizador selecionar o método de autenticação Chamada de Voz ou tiver s
 
 ![Registar números de telefone primários e de cópia de segurança](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página pede-lhe que crie um PIN. Depois de introduzir os seus números de telefone e PIN (se aplicável), o utilizador clica no botão **Call Me Now to Authenticate.** A Autenticação De Vários Fatores Azure realiza uma verificação de chamada telefónica para o número de telefone primário do utilizador. O utilizador tem de atender a chamada e introduzir o PIN (se aplicável), e premir # para avançar para o próximo passo do processo de autoinscrição.
+Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página pede-lhe que crie um PIN. Depois de introduzir os seus números de telefone e PIN (se aplicável), o utilizador clica no botão **Call Me Now para Autenticar.** A Azure Multi-Factor Authentication realiza uma verificação de chamada telefónica para o número de telefone primário do utilizador. O utilizador tem de atender a chamada e introduzir o PIN (se aplicável), e premir # para avançar para o próximo passo do processo de autoinscrição.
 
-Se o utilizador selecionar o método de autenticação por Mensagem SMS ou tiver sido pré-configurado para utilizar este método, a página pede-lhe o respetivo número de telemóvel. Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página também lhe pede para introduzir um PIN.  Depois de introduzir o seu número de telefone e PIN (se aplicável), o utilizador clica no botão **Text Me Now para Autenticar.** A Autenticação Multi-Factor Azure realiza uma verificação sms para o telemóvel do utilizador. O utilizador recebe a mensagem de texto com um código de acesso de uso individual (OTP) e, em seguida, responde à mensagem com esse OTP e o respetivo PIN (se aplicável).
+Se o utilizador selecionar o método de autenticação por Mensagem SMS ou tiver sido pré-configurado para utilizar este método, a página pede-lhe o respetivo número de telemóvel. Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página também lhe pede para introduzir um PIN.  Depois de introduzir o seu número de telefone e PIN (se aplicável), o utilizador clica no botão **Text Me Now para Autenticar.** A Azure Multi-Factor Authentication realiza uma verificação SMS para o telemóvel do utilizador. O utilizador recebe a mensagem de texto com um código de acesso de uso individual (OTP) e, em seguida, responde à mensagem com esse OTP e o respetivo PIN (se aplicável).
 
-![Verificação do portal do utilizador utilizando SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![Verificação do portal do utilizador usando SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Se o utilizador selecionar o método de verificação de Aplicação Móvel, a página pede-lhe que instale a aplicação Microsoft Authenticator no dispositivo e que gere um código de ativação. Depois de instalar a aplicação, o utilizador clica no botão Gerar Código de Ativação.
 
@@ -175,7 +174,7 @@ Se o utilizador selecionar o método de verificação de Aplicação Móvel, a p
 
 A página apresenta então um código de ativação e um URL, juntamente com uma imagem de código de barras. Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página também lhe pede para introduzir um PIN. O utilizador introduz o código de ativação e o URL na aplicação Microsoft Authentication ou utiliza o leitor de código de barras para ler a imagem de código de barras e clica no botão Ativar.
 
-Após a ativação estar concluída, o utilizador clica no botão **Autenticar-me Agora**. A Autenticação Multi-Factor Azure realiza uma verificação na aplicação móvel do utilizador. O utilizador tem de introduzir o PIN (se aplicável), e premir o botão Autenticar na aplicação móvel para avançar para o próximo passo do processo de autoinscrição.
+Após a ativação estar concluída, o utilizador clica no botão **Autenticar-me Agora**. A Azure Multi-Factor Authentication realiza uma verificação da aplicação móvel do utilizador. O utilizador tem de introduzir o PIN (se aplicável), e premir o botão Autenticar na aplicação móvel para avançar para o próximo passo do processo de autoinscrição.
 
 Se os administradores tiverem configurado o Servidor Multi-Factor Authentication do Azure para recolher perguntas e respostas de segurança, o utilizador é então direcionado para a página Perguntas de Segurança. O utilizador tem de selecionar quatro perguntas de segurança e fornecer respostas às perguntas selecionadas.
 
@@ -183,6 +182,6 @@ Se os administradores tiverem configurado o Servidor Multi-Factor Authentication
 
 A autoinscrição do utilizador está agora concluída e o utilizador tem sessão iniciada no portal de utilizador. Os utilizadores podem voltar a iniciar sessão no portal de utilizador em qualquer altura no futuro para alterar os números de telefone, PINs, métodos de autenticação e perguntas de segurança, se for permitido alterar os seus métodos pelos administradores deles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implemente o Serviço Web de Aplicações Móveis do Servidor Multi-Factor Authentication do Azure](howto-mfaserver-deploy-mobileapp.md)

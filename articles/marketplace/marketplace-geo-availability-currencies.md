@@ -1,6 +1,6 @@
 ---
 title: Disponibilidade geográfica e suporte cambial para o mercado comercial da Microsoft
-description: A disponibilidade geográfica e o apoio cambial às transações no mercado comercial
+description: Disponibilidade geográfica e apoio cambial para transações no mercado comercial
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
 ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83657868"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e apoio cambial para o mercado comercial
 
-As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal como definidas pelo endereço de faturação do cliente, e as transações podem ser concluídas em 17 moedas. A tabela abaixo lista cada localização geográfica suportada, o seu [código alfa ISO 3166 de dois dígitos,](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
+As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme definido pelo endereço de faturação do cliente, e as transações podem ser concluídas em 17 moedas. A tabela abaixo lista cada localização geográfica suportada, o seu [código alfa ISO 3166 de dois dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
 
 |   Nome país/região               |   ISO-2   |   Moeda   |
 |-------------------------------------|-----------|--------------|
@@ -141,7 +140,7 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Suécia                              | SE        | SEK          |
 | Suíça                         | CH        | CHF          |
 | Taiwan                              | TW        | TWD          |
-| Tajiquistão                          | Rio TJ        | USD          |
+| Tajiquistão                          | TJ        | USD          |
 | Tanzânia                            | TZ        | USD          |
 | Tailândia                            | TH        | USD          |
 | Trindade e Tobago                 | TT        | USD          |
@@ -149,7 +148,7 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Turquia                              | TR        | USD          |
 | Turquemenistão                        | TM        | USD          |
 | Cidade do Vaticano (Santa Sé)             | VA        | EUR          |
-| Ilhas Virgens dos Estados Unidos | VI        | USD          |
+| Ilhas Virgens Dos Estados Unidos | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucrânia                             | UA        | USD          |
 | Emirados Árabes Unidos                | AE        | USD          |
@@ -159,11 +158,11 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Usbequistão                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |
 | Vietname                             | VN        | USD          |
-| Iémen                               | Ye        | USD          |
+| Iémen                               | YE        | USD          |
 | Zâmbia                              | ZM        | USD          |
 | Zimbabué                            | ZW        | USD          |
 |   |   |   |
 
-\*Para os clientes no Brasil, o Marketplace através da Cloud Solution Providers (CSP) utiliza USD.
+\*Para clientes no Brasil, o Marketplace através da Cloud Solution Providers (CSP) utiliza USD.
 
-\** Imagens VM gratuitas e BYOL apenas.
+\** Apenas imagens VM grátis e BYOL.

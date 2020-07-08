@@ -1,5 +1,5 @@
 ---
-title: Ligue um dispositivo Azure Sphere na Central Azure IoT [ Microsoft Docs
+title: Ligue um dispositivo Azure Sphere no Azure IoT Central Microsoft Docs
 description: Saiba como ligar um dispositivo Azure Sphere (DevKit) a uma aplicação Azure IoT Central.
 services: iot-central
 ms.service: iot-central
@@ -8,27 +8,26 @@ ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
 ms.openlocfilehash: a42b483a5ca4b4948f14c1ccbf0b7af6e49224bb
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83715070"
 ---
-# <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ligue um dispositivo Azure Sphere à sua aplicação Central Azure IoT
+# <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ligue um dispositivo Azure Sphere à sua aplicação Azure IoT Central
 
 *Este artigo aplica-se aos desenvolvedores de dispositivos.*
 
 Este artigo mostra-lhe como ligar um dispositivo Azure Sphere (DevKit) a uma aplicação Azure IoT Central.
 
-A Esfera Azure é uma plataforma de aplicação segura e de alto nível com funcionalidades de comunicação e segurança incorporadas para dispositivos ligados à Internet. Inclui uma unidade de microcontrolador de crossover (MCU) segura, conectada e crossover (MCU), um sistema operativo baseado em Linux (OS) personalizado, e um serviço de segurança baseado na nuvem que fornece segurança contínua e renovável. Para mais informações, veja [o que é a Esfera Azure?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)
+A Azure Sphere é uma plataforma de aplicação segura e de alto nível com funcionalidades de comunicação e segurança incorporadas para dispositivos ligados à Internet. Inclui uma unidade de microcontrolador de cruzamento (MCU) segura, conectada e crossover, um sistema operativo personalizado baseado em Linux (OS) e um serviço de segurança baseado na nuvem que fornece segurança contínua e renovável. Para mais informações, veja [o que é Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)
 
-Os kits de [desenvolvimento da Esfera Azure](https://azure.microsoft.com/services/azure-sphere/get-started/) fornecem tudo o que precisa para começar a prototipagem e desenvolver aplicações da Esfera Azure. A Central Azure IoT com a Esfera Azure permite uma pilha de ponta a ponta para uma solução IoT. A Azure Sphere fornece o suporte do dispositivo e a IoT Central como uma plataforma de aplicação IoT gerida por código zero.
+[Os kits de desenvolvimento da Azure Sphere](https://azure.microsoft.com/services/azure-sphere/get-started/) fornecem tudo o que precisa para começar a prototipagem e desenvolver aplicações da Esfera Azure. Azure IoT Central com Esfera Azure permite uma pilha de ponta a ponta para uma Solução IoT. A Azure Sphere fornece o suporte do dispositivo e a IoT Central como uma plataforma de aplicação IoT gerida por código zero.
 
 Neste artigo de como fazer, você:
 
-- Crie um dispositivo Azure Sphere na IoT Central utilizando o modelo de dispositivo Azure Sphere DevKit a partir da biblioteca.
-- Prepare o dispositivo Azure Sphere DevKit para o Azure IoT.
-- Ligue o Azure Sphere DevKit à Central Azure IoT.
+- Crie um dispositivo Azure Sphere em IoT Central utilizando o modelo de dispositivo Azure Sphere DevKit da biblioteca.
+- Prepare o dispositivo Azure Sphere DevKit para Azure IoT.
+- Ligue o DevKit da Esfera azul ao Azure IoT Central.
 - Veja a telemetria do dispositivo na IoT Central.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,30 +36,30 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
 - Uma aplicação Azure IoT Central.
 - Visual Studio 2019, versão 16.4 ou mais tarde.
-- Um kit de [desenvolvimento Azure Sphere MT3620 da Seeed Studios.](https://docs.microsoft.com/azure-sphere/hardware/mt3620-reference-board-design)
+- Um [kit de desenvolvimento Azure Sphere MT3620 da Seeed Studios.](https://docs.microsoft.com/azure-sphere/hardware/mt3620-reference-board-design)
 
 > [!NOTE]
-> Se não tiver um dispositivo físico, depois do primeiro passo salte para a última secção para experimentar um dispositivo simulado.
+> Se não tiver um dispositivo físico, depois do primeiro passo, salte para a última secção para experimentar um dispositivo simulado.
 
-## <a name="create-the-device-in-iot-central"></a>Crie o dispositivo em IoT Central
+## <a name="create-the-device-in-iot-central"></a>Crie o dispositivo na IoT Central
 
-Para criar um dispositivo Azure Sphere em IoT Central:
+Para criar um dispositivo Azure Sphere na IoT Central:
 
-1. Na sua aplicação Azure IoT Central, selecione o separador **Modelos** de Dispositivo e selecione **+ Novo**. Na secção Utilize um modelo de **dispositivo em destaque,** selecione Dispositivo de **amostra de esfera azul**.
+1. Na sua aplicação Azure IoT Central, selecione o **separador Modelos de Dispositivo** e selecione **+ Novo**. Na secção **Utilize um modelo de dispositivo em destaque**, selecione O Dispositivo de Amostra da Esfera **azul**.
 
-    :::image type="content" source="media/howto-connect-sphere/sphere-create-template.png" alt-text="Modelo de dispositivo para DevKit esfera Azure":::
+    :::image type="content" source="media/howto-connect-sphere/sphere-create-template.png" alt-text="Modelo de dispositivo para Azure Sphere DevKit":::
 
-1. No modelo do dispositivo, edite a vista chamada **Visão Geral** para mostrar **Temperatura** e Pressão do **Botão**.
+1. No modelo do dispositivo, edite a vista chamada **Visão Geral** para mostrar **temperatura** e **pressão de botão**.
 
-1. Selecione o tipo de visualização de **Dispositivo de Edição e Dados de Nuvem** para adicionar outra vista que mostre o LED de **estado**de leitura/escrita . Arraste a propriedade **LED de Estado** para o retângulo vazio e pontilhado no lado direito do formulário. Selecione **Guardar**.
+1. Selecione o **tipo de visualização do dispositivo de edição e da nuvem** para adicionar outra vista que mostre o LED de estado **de**leitura/escrita . Arraste a propriedade **Status LED** para o retângulo vazio e pontilhado no lado direito do formulário. Selecione **Guardar**.
 
-## <a name="prepare-the-device"></a>Preparar o dispositivo
+## <a name="prepare-the-device"></a>Prepare o dispositivo
 
-Antes de poder ligar o dispositivo Azure Sphere DevKit à IoT Central, é necessário [configurar o ambiente de dispositivo e desenvolvimento.](https://github.com/Azure/azure-sphere-samples/tree/master/Samples/AzureIoT)
+Antes de poder ligar o dispositivo Azure Sphere DevKit à IoT Central, é necessário [configurar o dispositivo e o ambiente de desenvolvimento](https://github.com/Azure/azure-sphere-samples/tree/master/Samples/AzureIoT).
 
 ## <a name="connect-the-device"></a>Ligue o dispositivo
 
-Para permitir que a amostra se coneca à IoT Central, deve [configurar uma aplicação Central Azure IoT e, em seguida, modificar o manifesto de aplicação da amostra](https://aka.ms/iotcentral-sphere-git-readme).
+Para permitir que a amostra se conecte à IoT Central, deve [configurar uma aplicação Azure IoT Central e, em seguida, modificar o manifesto de aplicação da amostra](https://aka.ms/iotcentral-sphere-git-readme).
 
 ## <a name="view-the-telemetry-from-the-device"></a>Ver a telemetria do dispositivo
 
@@ -74,15 +73,15 @@ Se não tiver um dispositivo físico Azure Sphere DevKit, pode criar um disposit
 
 Para criar um dispositivo simulado:
 
-- Selecione **dispositivos > esfera Azure IoT**
+- **Selecione dispositivos > esfera Azure IoT**
 - Selecione **+ Novo**.
-- Introduza um ID único **do dispositivo** e um nome de **dispositivo**amigável .
-- Ativar a definição **simulada.**
+- Introduza um **ID de dispositivo** único e um nome de **dispositivo**amigável .
+- Ativar a **definição simulada.**
 - Selecione **Criar**.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Se é um desenvolvedor de dispositivos, alguns sugeriu que os próximos passos são para:
+Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 
-- Ler sobre [conectividade do dispositivo na Central Azure IoT](./concepts-get-connected.md)
+- Leia sobre [a conectividade do dispositivo no Azure IoT Central](./concepts-get-connected.md)
 - Saiba como monitorizar a [conectividade do dispositivo utilizando o Azure CLI](./howto-monitor-devices-azure-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: Start-up os saturação de problemas – capacidade de instalação do Windows Update
+title: Start start-up de SISTEMA de Resolução de Problemas – Capacidade de instalação do Windows Update
 description: Passos para resolver problemas em que o Windows Update (KB) obtém um erro e fica sem resposta num VM Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -15,25 +15,24 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
 ms.openlocfilehash: bb7b641a7169c6577320f07a964d278ac1727b1c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664698"
 ---
-# <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Start-up os saturação de problemas – capacidade de instalação do Windows Update
+# <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Start start-up de SISTEMA de Resolução de Problemas – Capacidade de instalação do Windows Update
 
-Este artigo fornece passos para resolver problemas numa máquina virtual Azure (VM) onde o Windows Update (KB) obtém um erro e fica sem resposta.
+Este artigo fornece medidas para resolver problemas numa máquina virtual Azure (VM) onde o Windows Update (KB) obtém um erro e fica sem resposta.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar os diagnósticos do Boot para visualizar a imagem do VM, verá que a imagem mostra o Windows Update (KB) em andamento, mas falha ndo com o código de erro: **C01A001D**. A imagem que se segue mostra o Windows Update (KB) preso com a mensagem "Error C01A001D aplicando operação de atualização ##### de ##############":
+Quando utilizar diagnósticos boot para visualizar a imagem do VM, verá que a imagem mostra o Windows Update (KB) em andamento, mas falhando com o código de erro: **C01A001D**. A imagem a seguir mostra o Windows Update (KB) preso com a mensagem "Error C01A001D applying update operation ##### of #######)":
 
-![O Windows Update (KB) está preso à mensagem: "Error C01A001D aplicando a operação de atualização X de Y (Z)".](./media/troubleshoot-windows-update-installation-capacity/1.png)
+![O Windows Update (KB) está preso à mensagem: "Erro C01A001D aplicando a operação de atualização X de Y (Z)".](./media/troubleshoot-windows-update-installation-capacity/1.png)
 
 ## <a name="cause"></a>Causa
 
-Nesta situação, o sistema operativo (OS) não consegue concluir uma instalação do Windows Update (KB), uma vez que não é possível criar um ficheiro central no sistema de ficheiros. Com base neste código de erro, o sistema operativo não consegue escrever ficheiros no disco.
+Nesta situação, o sistema operativo (OS) não consegue completar uma instalação do Windows Update (KB), uma vez que não é possível criar um ficheiro principal no sistema de ficheiros. Com base neste código de erro, o sistema operativo não consegue gravar ficheiros para o disco.
 
 ## <a name="solution"></a>Solução
 
@@ -45,61 +44,61 @@ Nesta situação, o sistema operativo (OS) não consegue concluir uma instalaç�
 1. Reconstruir o VM.
 
 > [!NOTE]
-> Ao deparar-se com este erro, o Os convidado não está operacional. Problemas resolvem este problema em modo offline para resolver este problema.
+> Ao encontrar este erro, o SO convidado não está operacional. Resolver problemas em modo offline para resolver este problema.
 
-### <a name="create-and-access-a-repair-vm"></a>Criar e aceder a um VM de reparação
+### <a name="create-and-access-a-repair-vm"></a>Criar e Aceder a um VM de reparação
 
 1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
-1. Utilizando a ligação remota de ambiente de trabalho, ligue-se ao VM de reparação.
+1. Utilizando ligação de ambiente de trabalho remoto, ligue-se ao VM de reparação.
 
-### <a name="free-up-space-on-the-disk"></a>Free Up Space no disco
+### <a name="free-up-space-on-the-disk"></a>Espaço livre no disco
 
 Para resolver o problema:
 
-- Redimensione o disco até 1 TB se já não estiver no tamanho máximo de 1 TB.
+- Redimensione o disco até 1 TB se ainda não estiver no tamanho máximo de 1 TB.
 - Faça uma limpeza de disco.
-- Desfragmentar a unidade.
+- Des-fragmentar a unidade.
 
-1. Verifique se o disco está cheio. Se o tamanho do disco for inferior a 1 TB, expanda-o até um máximo de 1 TB [utilizando powerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
-1. Se o disco já for de 1 TB, terá de efetuar uma limpeza do disco.
-   1. Retire o disco de dados [do VM partido](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-   1. Fixe o disco de dados [a um VM funcional](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
-   1. Utilize a [ferramenta de limpeza](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) do disco para libertar espaço.
-1. Uma vez terminada a redimensionamento e a limpeza, desfragmente a unidade utilizando o seguinte comando:
+1. Verifique se o disco está cheio. Se o tamanho do disco for inferior a 1 TB, expanda-o até um máximo de 1 TB [utilizando o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Se o disco já estiver em 1 TB, terá de efetuar uma limpeza de disco.
+   1. Retire o disco de dados [do VM quebrado](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
+   1. Anexar o disco de dados [a um VM funcional](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+   1. Utilize a [ferramenta De Limpeza de Discos](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para libertar espaço.
+1. Uma vez terminada a redimensionamento e a limpeza, desa fragmentar a unidade utilizando o seguinte comando:
 
    ```
    defrag <LETTER ASSIGN TO THE OS DISK>: /u /x /g
    ```
    
-Dependendo do nível de fragmentação, a desfragmentação pode levar várias horas.
+Dependendo do nível de fragmentação, a deses fragmentação pode demorar várias horas.
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Ativar a consola em série e a recolha de despejo de memória
 
-**Recomendado**: Antes de reconstruir o VM, ative a consola em série e a recolha de despejo de memória executando o seguinte script:
+**Recomendado:** Antes de reconstruir o VM, ative a coleção de consola em série e de despejo de memória executando o seguinte script:
 
-1. Abra uma sessão de instrução de comando elevado como Administrador.
+1. Abra uma sessão de pedido de comando elevado como administrador.
 1. Execute os seguintes comandos:
 
-   **Ativar a consola em série:**
+   **Ativar a Consola em Série:**
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
 
-1. Verifique se o espaço livre no disco OS é maior do que o tamanho da memória (RAM) no VM.
+1. Verifique se o espaço livre no disco de so é maior do que o tamanho da memória (RAM) no VM.
 
-   Se não houver espaço suficiente no disco OS, altere a localização onde o ficheiro de despejo de memória será criado e consulte esse local para qualquer disco de dados ligado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua **%SystemRoot%** pela letra de unidade do disco de dados, tais como **F:**, nos seguintes comandos.
+   Se não houver espaço suficiente no disco de so, altere o local onde o ficheiro de despejo de memória será criado e encaminhe essa localização para qualquer disco de dados anexado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua **%SystemRoot%** pela letra de acionamento do disco de dados, como **F:**, nos seguintes comandos.
 
-   Configuração sugerida para ativar o despejo de OS:
+   Configuração sugerida para permitir o despejo de OS:
 
-    **Carregue o disco OS quebrado:**
+    **Carregue o disco de oss quebrado:**
 
    ```
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Ativar no ControlSet001:**
+   **Ativar no ControlSet001**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -107,7 +106,7 @@ Dependendo do nível de fragmentação, a desfragmentação pode levar várias h
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Ativar o ControlSet002:**
+   **Ativar no ControlSet002:**
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -115,7 +114,7 @@ Dependendo do nível de fragmentação, a desfragmentação pode levar várias h
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Descarregar disco osso quebrado:**
+   **Descarregar disco de OS quebrado:**
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM

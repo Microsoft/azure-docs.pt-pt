@@ -1,43 +1,42 @@
 ---
 title: Elevada disponibilidade e recuperação após desastre
-description: Saiba como conceber a sua aplicação Batch para uma paragem regional.
+description: Saiba como desenhar a sua aplicação batch para uma paragem regional.
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725742"
 ---
 # <a name="design-your-application-for-high-availability"></a>Conceber a sua aplicação para elevada disponibilidade
 
-Azure Batch é um serviço regional. O lote está disponível em todas as regiões do Azure, mas quando uma conta de Lote é criada deve ser associada a uma região. Todas as operações para a conta Batch aplicam-se então a essa região. Por exemplo, piscinas e máquinas virtuais associadas (VMs) são criadas na mesma região que a conta Batch.
+Azure Batch é um serviço regional. O lote está disponível em todas as regiões do Azure, mas quando uma conta Batch é criada deve ser associada a uma região. Todas as operações para a conta Batch aplicam-se então a essa região. Por exemplo, piscinas e máquinas virtuais associadas (VMs) são criadas na mesma região que a conta Batch.
 
-Ao conceber uma aplicação que utilize o Batch, deve considerar a possibilidade de o Lote não estar disponível numa região. É possível encontrar uma situação rara em que há um problema com a região como um todo, todo o serviço de Lote na região, ou um problema com a sua conta de Lote específica.
+Ao conceber uma aplicação que utilize o Batch, deve considerar a possibilidade de o Batch não estar disponível numa região. É possível encontrar uma situação rara em que há um problema com a região como um todo, todo o serviço Batch na região, ou um problema com a sua conta específica do Batch.
 
-Se a aplicação ou solução que utiliza o Batch tiver sempre de estar disponível, então deve ser concebida para falhar noutra região ou ter sempre a carga de trabalho dividida entre duas ou mais regiões. Ambas as abordagens requerem pelo menos duas contas de Lote, com cada conta localizada numa região diferente.
+Se a aplicação ou solução que utiliza o Lote tiver sempre de estar disponível, então deve ser concebida para falhar para outra região ou ter sempre a carga de trabalho dividida entre duas ou mais regiões. Ambas as abordagens requerem pelo menos duas contas de Lote, com cada conta localizada numa região diferente.
 
-## <a name="multiple-batch-accounts-in-multiple-regions"></a>Contas de Lote Múltiplas em várias regiões
+## <a name="multiple-batch-accounts-in-multiple-regions"></a>Várias contas de Lote em várias regiões
 
-A utilização de várias contas do Batch em várias regiões fornece a capacidade de a sua aplicação continuar a funcionar se uma conta de Lote noutra região ficar indisponível. A utilização de várias contas é especialmente importante se a sua aplicação precisar de estar altamente disponível.
+A utilização de várias contas batch em várias regiões fornece a capacidade para a sua aplicação continuar a funcionar se uma conta Batch noutra região ficar indisponível. A utilização de várias contas é especialmente importante se a sua aplicação necessitar de estar altamente disponível.
 
-Em alguns casos, uma aplicação pode ser concebida para sempre utilizar duas ou mais regiões. Por exemplo, quando se precisa de uma quantidade considerável de capacidade, a utilização de várias regiões pode ser necessária para lidar com uma aplicação em larga escala ou para atender ao crescimento futuro.
+Em alguns casos, uma aplicação pode ser concebida para utilizar sempre duas ou mais regiões. Por exemplo, quando se precisa de uma quantidade considerável de capacidade, pode ser necessário utilizar várias regiões para lidar com uma aplicação em larga escala ou atender ao crescimento futuro.
 
-## <a name="design-considerations-for-providing-failover"></a>Considerações de conceção para fornecer failover
+## <a name="design-considerations-for-providing-failover"></a>Considerações de design para a prestação de failover
 
-Um ponto-chave a ter em conta ao proporcionar a capacidade de falhar a uma região alternativa é que todos os componentes de uma solução devem ser considerados; não basta simplesmente ter uma segunda conta batch. Por exemplo, na maioria das aplicações do Batch, é necessária uma conta de armazenamento Azure, com a conta de armazenamento e a conta batch a necessitarem de estar na mesma região para um desempenho aceitável.
+Um ponto-chave a ter em conta quando se proporciona a capacidade de falhar numa região alternativa é que todos os componentes de uma solução devem ser considerados; não é suficiente ter simplesmente uma segunda conta batch. Por exemplo, na maioria das aplicações do Batch, é necessária uma conta de armazenamento Azure, com a conta de armazenamento e a conta Batch a precisarem de estar na mesma região para um desempenho aceitável.
 
-Considere os seguintes pontos ao conceber uma solução que possa falhar:
+Considere os seguintes pontos ao desenhar uma solução que possa falhar:
 
-- Pré-criar todas as contas necessárias em cada região, como a conta Batch e a conta de armazenamento. Muitas vezes não há qualquer encargo por ter contas criadas, apenas quando há dados armazenados ou a conta é usada.
+- Pré-criar todas as contas necessárias em cada região, como a conta Batch e a conta de armazenamento. Muitas vezes não há qualquer encargo por ter contas criadas, apenas quando há dados armazenados ou a conta é utilizada.
 - Certifique-se de que as quotas são definidas nas contas com antecedência, para que possa alocar o número necessário de núcleos utilizando a conta Batch.
 - Utilize modelos e/ou scripts para automatizar a implementação da aplicação numa região.
-- Mantenha os binários de aplicação e os dados de referência atualizados em todas as regiões. Manter-se atualizado garantirá que a região pode ser trazida online rapidamente sem ter que esperar pelo upload e implementação de ficheiros. Por exemplo, se uma aplicação personalizada para instalar em nós de piscina for armazenada e referenciada utilizando pacotes de aplicação Batch, então quando uma nova versão da aplicação for produzida, deve ser enviada para cada conta do Batch e referenciada pela configuração do pool (ou fazer da nova versão a versão padrão).
-- Na aplicação que chama Lote, armazenamento e quaisquer outros serviços, facilmente troca clientes ou a carga para a região diferente.
-- As melhores práticas para garantir que uma falha será bem sucedida é mudar frequentemente para uma região alternativa como parte do funcionamento normal. Por exemplo, com duas implantações em regiões distintas, a transição para a região alternativa todos os meses.
+- Mantenha binários de aplicações e dados de referência atualizados em todas as regiões. Manter-se atualizado garantirá que a região pode ser trazida on-line rapidamente sem ter que esperar pelo upload e implementação de ficheiros. Por exemplo, se uma aplicação personalizada para instalar nos nós de piscina for armazenada e referenciada utilizando pacotes de aplicações Batch, então quando uma nova versão da aplicação é produzida, deve ser carregada em cada conta batch e referenciada pela configuração do pool (ou fazer da nova versão a versão padrão).
+- Na aplicação chamando Batch, armazenamento e quaisquer outros serviços, facilmente trocam clientes ou a carga para a região diferente.
+- Uma boa prática para garantir que um fracasso seja bem sucedido é a transição frequente para uma região alternativa como parte do funcionamento normal. Por exemplo, com duas implantações em regiões distintas, a transição para a região alternativa todos os meses.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre a criação de contas de Lote com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)ou a API de gestão de [Lotes.](batch-management-dotnet.md)
-- As quotas por defeito estão associadas a uma conta Batch; [este artigo](batch-quota-limit.md) detalha os valores das quotas por defeito e descreve como as quotas podem ser aumentadas.
+- Saiba mais sobre a criação de contas batch com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)ou a [API de gestão de lotes.](batch-management-dotnet.md)
+- As quotas predefinidas estão associadas a uma conta Batch; [este artigo](batch-quota-limit.md) detalha os valores de quota padrão e descreve como as quotas podem ser aumentadas.

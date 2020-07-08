@@ -1,6 +1,6 @@
 ---
-title: Recolher métricas vM do Windows no Monitor Azure com modelo
-description: Envie métricas de SO para a loja de bases de dados métrica seletiva do Monitor Azure utilizando um modelo de Gestor de Recursos para uma máquina virtual do Windows
+title: Colete métricas de VM do Windows no Monitor Azure com modelo
+description: Envie métricas de SO para a loja de base de dados métrica do Azure Monitor utilizando um modelo de Gestor de Recursos para uma máquina virtual windows
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,54 +8,53 @@ ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
 ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650554"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Envie métricas de SO para a loja métrica Do Monitor Azure utilizando um modelo de Gestor de Recursos Azure para uma máquina virtual windows
-Os dados de desempenho do os so de hóspedes das máquinas virtuais Azure não são recolhidos automaticamente como [outras métricas](../insights/monitor-azure-resource.md#monitoring-data)da plataforma. Instale a [extensão](diagnostics-extension-overview.md) de diagnóstico do Monitor Azure para recolher as métricas de SO dos hóspedes na base de dados das métricas para que possa ser usada com todas as funcionalidades das Métricas do Monitor Azure, incluindo alertas em tempo quase real, gráficos, encaminhamento e acesso a partir de uma API REST. Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows para a base de dados de métricas usando um modelo de Gestor de Recursos. 
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Envie métricas de SO para a loja métrica do Azure Monitor utilizando um modelo de Gestor de Recursos Azure para uma máquina virtual Windows
+Os dados de desempenho do os hóspedes AS das máquinas virtuais Azure não são recolhidos automaticamente como [outras métricas da plataforma.](../insights/monitor-azure-resource.md#monitoring-data) Instale a [extensão](diagnostics-extension-overview.md) de diagnóstico do Azure Monitor para recolher as métricas de SO dos hóspedes na base de dados de métricas para que possa ser utilizada com todas as funcionalidades de Azure Monitor Metrics, incluindo alerta em tempo real, gráfico, encaminhamento e acesso a partir de uma API REST. Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows para a base de dados de métricas usando um modelo de Gestor de Recursos. 
 
 > [!NOTE]
-> Para mais detalhes sobre a configuração da extensão de diagnóstico para recolher as métricas de SO dos hóspedes utilizando o portal Azure, consulte instalar e configurar a extensão de [diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md).
+> Para obter mais informações sobre a configuração da extensão de diagnóstico para recolher as métricas de SO dos hóspedes utilizando o portal Azure, consulte [instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md).
 
 
-Se você é novo em modelos de Gestor de Recursos, aprenda sobre implementações de [modelos](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.
+Se você é novo em modelos de Gestor de Recursos, aprenda sobre [implementações de modelos](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A sua subscrição deve ser registada na [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- A sua subscrição deve estar registada no [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- É necessário instalar o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview)
+- Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instaladas.
 
 - O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](metrics-custom-overview.md#supported-regions) 
 
 
-## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Monitor Azure como um sumidouro de dados
-A extensão Azure Diagnostics utiliza uma funcionalidade chamada "data sinks" para encaminhar métricas e registos para diferentes locais. Os seguintes passos mostram como usar um modelo de Gestor de Recursos e PowerShell para implementar um VM utilizando o novo sumidouro de dados "Azure Monitor".
+## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um sumidouro de dados
+A extensão Azure Diagnostics utiliza uma funcionalidade chamada "sumidouros de dados" para encaminhar métricas e registos para diferentes locais. Os passos a seguir mostram como utilizar um modelo de Gestor de Recursos e PowerShell para implantar um VM utilizando o novo lava-dados "Azure Monitor".
 
-## <a name="author-resource-manager-template"></a>Modelo de Gestor de Recursos de Autor
+## <a name="author-resource-manager-template"></a>Modelo de gestor de recursos de autor
 Para este exemplo, pode utilizar um modelo de amostra disponível ao público. Os modelos de partida estão em https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows .
 
-- **Azuredeploy.json** é um modelo de Gestor de Recursos reconfigurado para a implantação de uma máquina virtual.
+- **Azuredeploy.jsé** um modelo pré-configurado de Gestor de Recursos para a implementação de uma máquina virtual.
 
-- **Azuredeploy.parímetros.json** é um ficheiro de parâmetros que armazena informações como o nome de utilizador e a palavra-passe que gostaria de definir para o seu VM. Durante a implementação, o modelo do Gestor de Recursos utiliza os parâmetros definidos neste ficheiro.
+- **Azuredeploy.parameters.jsé** um ficheiro de parâmetros que armazena informações como o nome de utilizador e a palavra-passe que gostaria de definir para o seu VM. Durante a implementação, o modelo de Gestor de Recursos utiliza os parâmetros definidos neste ficheiro.
 
-Descarregue e guarde ambos os ficheiros localmente.
+Faça o download e guarde ambos os ficheiros localmente.
 
-### <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy.parameters.json
-Abra o ficheiro *azuredeploy.parameters.json*
+### <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy.parameters.jsem
+Abra a *azuredeploy.parameters.jsno* arquivo
 
-1. Introduza valores para **administradorUsername** e **administradorPassword** para o VM. Estes parâmetros são utilizados para o acesso remoto ao VM. Para evitar que o seu VM seja sequestrado, NÃO utilize os valores deste modelo. Os bots digitalizam a internet para saber nomes de utilizadores e palavras-passe em repositórios públicos do GitHub. É provável que estejam a testar VMs com estes incumprimentos.
+1. Introduza valores para **administradorUsername** e **adminPassword** para o VM. Estes parâmetros são utilizados para o acesso remoto ao VM. Para evitar que o seu VM seja sequestrado, NÃO utilize os valores deste modelo. Os bots digitalizam a internet para obter nomes de utilizadores e palavras-passe em repositórios públicos do GitHub. É provável que estejam a testar VMs com estes padrão.
 
-1. Crie um nome único para o VM.
+1. Crie um nome de dnsname único para o VM.
 
-### <a name="modify-azuredeployjson"></a>Modificar azuredeploy.json
+### <a name="modify-azuredeployjson"></a>Modificar azuredeploy.jsem
 
-Abra o ficheiro *azuredeploy.json*
+Abra a *azuredeploy.jsno* arquivo
 
-Adicione um ID de conta de armazenamento à secção **variáveis** do modelo após a entrada para **armazenamentoAccountName.**
+Adicione um ID de conta de armazenamento à secção de **variáveis** do modelo após a entrada para **armazenamentoName.**
 
 ```json
 // Find these lines.
@@ -66,7 +65,7 @@ Adicione um ID de conta de armazenamento à secção **variáveis** do modelo ap
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-Adicione esta extensão de Identidade de Serviço Gerida (MSI) ao modelo no topo da secção de **recursos.** A extensão garante que o Monitor Azure aceita as métricas que estão a ser emitidas.
+Adicione esta extensão de Identidade de Serviço Gerido (MSI) ao modelo no topo da secção de **recursos.** A extensão garante que o Azure Monitor aceita as métricas que estão a ser emitidas.
 
 ```json
 //Find this code.
@@ -91,7 +90,7 @@ Adicione esta extensão de Identidade de Serviço Gerida (MSI) ao modelo no topo
     },
 ```
 
-Adicione a configuração **de identidade** ao recurso VM para garantir que o Azure atribui uma identidade de sistema à extensão MSI. Este passo garante que o VM pode emitir métricas de hóspedes sobre si mesmo para o Monitor Azure.
+Adicione a configuração **de identidade** ao recurso VM para garantir que o Azure atribui uma identidade do sistema à extensão MSI. Este passo garante que o VM pode emitir métricas de hóspedes sobre si mesmo para o Azure Monitor.
 
 ```json
 // Find this section
@@ -122,7 +121,7 @@ Adicione a configuração **de identidade** ao recurso VM para garantir que o Az
     ...
 ```
 
-Adicione a seguinte configuração para ativar a extensão de Diagnóstico numa máquina virtual do Windows. Para uma simples máquina virtual baseada em Recursos, podemos adicionar a configuração de extensão à matriz de recursos para a máquina virtual. A linha "afunda" &mdash; "AzMonSink" e a correspondente "SinksConfig" mais tarde na secção &mdash; permitem a extensão de emitir métricas diretamente para o Monitor Azure. Sinta-se à vontade para adicionar ou remover os contadores de desempenho conforme necessário.
+Adicione a seguinte configuração para ativar a extensão de Diagnóstico numa máquina virtual Do Windows. Para uma simples máquina virtual baseada em Gestor de Recursos, podemos adicionar a configuração de extensão à matriz de recursos para a máquina virtual. A linha "afunda" &mdash; "AzMonSink" e o correspondente "SinksConfig" mais tarde na secção &mdash; permitem que a extensão emita métricas diretamente ao Monitor Azure. Sinta-se livre para adicionar ou remover contadores de desempenho conforme necessário.
 
 
 ```json
@@ -231,15 +230,15 @@ Guarde e feche os dois ficheiros.
 ## <a name="deploy-the-resource-manager-template"></a>Implementar o modelo de Gestor de Recursos
 
 > [!NOTE]
-> Deve estar a executar a versão de extensão de Diagnóstico Sinuoso Azure 1.5 ou superior e ter a **versão automáticaUpgradeMinorVersion**: propriedade definida para 'verdadeira' no seu modelo de Gestor de Recursos. Azure então carrega a extensão adequada quando inicia o VM. Se não tiver estas definições no seu modelo, altere-as e recoloque o modelo.
+> Tem de estar a executar a versão de extensão Azure Diagnostics 1.5 ou superior e tem a **versão autoUpgradeMinorVersion**: propriedade definida como 'verdadeira' no seu modelo de Gestor de Recursos. Azure carrega então a extensão adequada quando inicia o VM. Se não tiver estas definições no seu modelo, altere-as e reimplante o modelo.
 
 
 Para implementar o modelo de Gestor de Recursos, aproveitamos o Azure PowerShell.
 
 1. Inicie o PowerShell.
 1. Faça login no Azure utilizando `Login-AzAccount` .
-1. Obtenha a sua lista de subscrições utilizando `Get-AzSubscription` .
-1. Detete a subscrição que está a usar para criar/atualizar a máquina virtual em:
+1. Obtenha a sua lista de subscrições `Get-AzSubscription` utilizando.
+1. Desave a subscrição que está a utilizar para criar/atualizar a máquina virtual em:
 
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
@@ -250,7 +249,7 @@ Para implementar o modelo de Gestor de Recursos, aproveitamos o Azure PowerShell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Lembre-se de [utilizar uma região azure que esteja ativada para métricas personalizadas](metrics-custom-overview.md).
+   > Lembre-se de [utilizar uma região Azure que está ativada para métricas personalizadas](metrics-custom-overview.md).
 
 1. Executar os seguintes comandos para implantar o VM utilizando o modelo de Gestor de Recursos.
    > [!NOTE]
@@ -260,30 +259,30 @@ Para implementar o modelo de Gestor de Recursos, aproveitamos o Azure PowerShell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
-1. Após o sucesso da sua implantação, o VM deve estar no portal Azure, emitindo métricas ao Monitor Azure.
+1. Após a sua implantação ter sucesso, o VM deve estar no portal Azure, emitindo métricas para o Azure Monitor.
 
    > [!NOTE]
-   > Pode ter erros em torno do vmSkuSize selecionado. Se isto acontecer, volte ao ficheiro azuredeploy.json e atualize o valor padrão do parâmetro vmSkuSize. Neste caso, recomendamos tentar "Standard_DS1_v2").
+   > Pode encontrar erros em torno do vmSkuSize selecionado. Se isso acontecer, volte ao seu azuredeploy.jsno ficheiro e atualize o valor padrão do parâmetro vmSkuSize. Neste caso, recomendamos tentar "Standard_DS1_v2").
 
-## <a name="chart-your-metrics"></a>Mapeie as suas métricas
+## <a name="chart-your-metrics"></a>Mapear as suas métricas
 
 1. Inicie sessão no portal do Azure.
 
 2. No menu esquerdo, selecione **Monitor**.
 
-3. Na página Monitor, selecione **Métricas**.
+3. Na página Monitor, selecione **Métricas.**
 
    ![Página de métricas](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
 
-4. Mude o período de agregação para **30 minutos**.
+4. Altere o período de agregação para **durar 30 minutos**.
 
-5. No menu de desistência de recursos, selecione o VM que criou. Se não alterou o nome no modelo, deve ser *SimpleWinVM2*.
+5. No menu suspenso de recursos, selecione o VM que criou. Se não alterou o nome no modelo, deve ser *SimpleWinVM2*.
 
-6. No menu de lançamento dos espaços de nome, **selecione azure.vm.windows.windows.guest**
+6. No menu drop-down dos espaços de nome, selecione **azure.vm.windows.guest**
 
-7. No menu de descida de métricas, selecione ** \% Memory Committed Bytes in Use**.
+7. No menu de entrega de métricas, selecione **Memory \% Committed Bytes in Use**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
 

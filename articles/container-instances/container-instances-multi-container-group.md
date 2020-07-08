@@ -1,41 +1,40 @@
 ---
 title: Tutorial - Implementar grupo multi-contentores - modelo
-description: Neste tutorial, você aprende a implantar um grupo de contentores com vários contentores em Instâncias de Contentores Azure usando um modelo de Gestor de Recursos Azure com o Azure CLI.
+description: Neste tutorial, você aprende a implantar um grupo de contentores com vários recipientes em Instâncias de Contentores Azure usando um modelo de Gestor de Recursos Azure com o CLI Azure.
 ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
 ms.openlocfilehash: b08a974cbbdc9e4bdf1594672f82748bfabe88b4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653525"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar um grupo multi-contentor usando um modelo de Gestor de Recursos
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar um grupo multi-contentores usando um modelo de Gestor de Recursos
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 
-As instâncias de contentores Azure suportam a colocação de vários contentores num único hospedeiro utilizando um grupo de [contentores](container-instances-container-groups.md). Um grupo de contentores é útil na construção de um sidecar de aplicação para a exploração madeireira, monitorização ou qualquer outra configuração em que um serviço precise de um segundo processo anexado.
+Azure Container Instances suporta a colocação de múltiplos contentores num único hospedeiro utilizando um [grupo de contentores](container-instances-container-groups.md). Um grupo de contentores é útil quando se constrói um sidecar de aplicação para registo, monitorização ou qualquer outra configuração em que um serviço precise de um segundo processo anexado.
 
-Neste tutorial, siga os passos para executar uma configuração simples de dois contentores, implantando um modelo de Gestor de Recursos Azure utilizando o Azure CLI. Saiba como:
+Neste tutorial, segue os passos para executar uma configuração simples de dois contentores sidecar, implantando um modelo de Gestor de Recursos Azure utilizando o CLI Azure. Saiba como:
 
 > [!div class="checklist"]
 > * Configure um modelo de grupo multi-contentores
-> * Implementar o grupo de contentores
-> * Ver os troncos dos recipientes
+> * Desdobre o grupo de contentores
+> * Ver os registos dos contentores
 
-Um modelo de Gestor de Recursos pode ser facilmente adaptado para cenários quando você precisa implementar recursos de serviço adicionais Azure (por exemplo, uma partilha de Ficheiros Azure ou uma rede virtual) com o grupo de contentores. 
+Um modelo de Gestor de Recursos pode ser facilmente adaptado para cenários quando é necessário implementar recursos adicionais de serviço Azure (por exemplo, uma partilha de Ficheiros Azure ou uma rede virtual) com o grupo de contentores. 
 
 > [!NOTE]
 > Atualmente, os grupos multi-contentores estão restritos aos contentores Linux. 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="configure-a-template"></a>Configurar um modelo
+## <a name="configure-a-template"></a>Configure um modelo
 
 Comece por copiar o seguinte JSON num novo ficheiro chamado `azuredeploy.json` . Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
 
@@ -43,7 +42,7 @@ Comece por copiar o seguinte JSON num novo ficheiro chamado `azuredeploy.json` .
 code azuredeploy.json
 ```
 
-Este modelo de Gestor de Recursos define um grupo de contentores com dois contentores, um endereço IP público e duas portas expostas. O primeiro contentor do grupo executa uma aplicação web virada para a Internet. O segundo contentor, o sidecar, faz um pedido http para a aplicação web principal através da rede local do grupo.
+Este modelo de Gestor de Recursos define um grupo de contentores com dois contentores, um endereço IP público e duas portas expostas. O primeiro recipiente do grupo executa uma aplicação web virada para a Internet. O segundo contentor, o sidecar, faz um pedido HTTP à aplicação web principal através da rede local do grupo.
 
 ```JSON
 {
@@ -131,7 +130,7 @@ Este modelo de Gestor de Recursos define um grupo de contentores com dois conten
 }
 ```
 
-Para utilizar um registo de imagem de recipiente privado, adicione um objeto ao documento JSON com o seguinte formato. Para um exemplo, implementação desta configuração, consulte a documentação de referência do [modelo ACI Resource Manager.][template-reference]
+Para utilizar um registo de imagem de contentor privado, adicione um objeto ao documento JSON com o seguinte formato. Para uma implementação por exemplo desta configuração, consulte a documentação de referência do [modelo do Gestor de Recursos ACI.][template-reference]
 
 ```JSON
 "imageRegistryCredentials": [
@@ -151,7 +150,7 @@ Crie um grupo de recursos com o comando [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Desloque o modelo com a implementação do [grupo AZ criar][az-group-deployment-create] comando.
+Implementar o modelo com a implementação do [grupo az criar][az-group-deployment-create] comando.
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
@@ -161,13 +160,13 @@ Dentro de alguns segundos, deverá receber uma resposta inicial do Azure.
 
 ## <a name="view-deployment-state"></a>Ver estado de implantação
 
-Para ver o estado da implantação, utilize o seguinte comando de demonstração de [contentores az:][az-container-show]
+Para visualizar o estado da implantação, utilize o seguinte comando [de demonstração de contentores az:][az-container-show]
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Se quiser ver a aplicação em execução, navegue para o seu endereço IP no seu browser. Por exemplo, o IP está `52.168.26.124` neste exemplo de saída:
+Se você quiser ver a aplicação de execução, navegue para o seu endereço IP no seu navegador. Por exemplo, o IP está `52.168.26.124` nesta saída de exemplo:
 
 ```bash
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -177,7 +176,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Ver registos de contentor
 
-Ver a saída de registo de um recipiente utilizando o comando de troncos de [recipiente az.][az-container-logs] O `--container-name` argumento especifica o recipiente a partir do qual puxar troncos. Neste exemplo, o `aci-tutorial-app` recipiente é especificado.
+Ver a saída de registo de um recipiente utilizando o comando [de registos de contentores az.][az-container-logs] O `--container-name` argumento especifica o recipiente a partir do qual puxar os troncos. Neste exemplo, `aci-tutorial-app` o recipiente é especificado.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -192,7 +191,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver os troncos do recipiente do sidecar, faça um comando semelhante especificando o `aci-tutorial-sidecar` recipiente.
+Para ver os registos do contentor do sidecar, executar um comando semelhante especificando o `aci-tutorial-sidecar` recipiente.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -218,20 +217,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como pode ver, o sidecar está periodicamente a fazer um pedido http para a aplicação web principal através da rede local do grupo para garantir que está em funcionamento. Este exemplo do sidecar poderia ser expandido para desencadear um alerta se recebesse um código de resposta HTTP diferente de `200 OK` .
+Como pode ver, o sidecar está periodicamente a fazer um pedido HTTP à aplicação web principal através da rede local do grupo para garantir que está em funcionamento. Este exemplo sidecar pode ser expandido para desencadear um alerta se receber um código de resposta HTTP diferente de `200 OK` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, usou um modelo de Gestor de Recursos Azure para implantar um grupo multi-contentores em Instâncias de Contentores Azure. Aprendeu a:
+Neste tutorial, você usou um modelo de Gestor de Recursos Azure para implantar um grupo multi-contentor em Instâncias de Contentores Azure. Aprendeu a:
 
 > [!div class="checklist"]
 > * Configure um modelo de grupo multi-contentores
-> * Implementar o grupo de contentores
-> * Ver os troncos dos recipientes
+> * Desdobre o grupo de contentores
+> * Ver os registos dos contentores
 
-Para amostras adicionais de modelo, consulte os modelos do [Gestor de Recursos Azure para as instâncias](container-instances-samples-rm.md)do contentor azure .
+Para amostras adicionais do modelo, consulte [os modelos do Gestor de Recursos Azure para instâncias de contentores Azure](container-instances-samples-rm.md).
 
-Também pode especificar um grupo multi-contentor usando um [ficheiro YAML](container-instances-multi-container-yaml.md). Devido à natureza mais concisa do formato YAML, a implantação com um ficheiro YAML é uma boa escolha quando a sua implementação inclui apenas instâncias de contentores.
+Também pode especificar um grupo multi-contentores utilizando um [ficheiro YAML](container-instances-multi-container-yaml.md). Devido à natureza mais concisa do formato YAML, a implantação com um ficheiro YAML é uma boa escolha quando a sua implantação inclui apenas instâncias de contentores.
 
 
 <!-- LINKS - Internal -->

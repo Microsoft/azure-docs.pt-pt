@@ -1,6 +1,6 @@
 ---
-title: Começar com a entrega de conteúdos a pedido usando o REST [ Microsoft Docs
-description: Este tutorial acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdo sonoro com a Azure Media Services utilizando a REST API.
+title: Começar com a entrega de conteúdos a pedido usando REST / Microsoft Docs
+description: Este tutorial acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdos a pedido com a Azure Media Services utilizando a REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,20 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 46d00df4970a7268c9856de6d7c090f2deffc7ea
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83654533"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdo a pedido usando o REST  
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdos a pedido usando REST  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Este quickstart acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdos video-on-demand (VoD) utilizando a Azure Media Services (AMS) REST APIs.
+Este quickstart acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdos Video-on-Demand (VoD) utilizando APIs DE REST DO Azure Media Services (AMS).
 
-O tutorial apresenta o fluxo de trabalho básico dos Media Services, os objetos de programação mais comuns e as tarefas necessárias para o desenvolvimento dos Media Services. No final do tutorial, é possível transmitir ou descarregar progressivamente um ficheiro de mídia de amostra que fez upload, codificado e descarregado.
+O tutorial apresenta o fluxo de trabalho básico dos Media Services, os objetos de programação mais comuns e as tarefas necessárias para o desenvolvimento dos Media Services. No final do tutorial, é possível fazer streaming ou descarregar progressivamente um ficheiro de mídia de amostra que carregou, codifica e descarregou.
 
 A imagem seguinte mostra alguns objetos mais frequentemente utilizados ao desenvolver aplicações VoD contra o modelo OData dos Serviços de Multimédia.
 
@@ -37,33 +36,33 @@ Clique na imagem para visualizá-lo tamanho completo.
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-São necessários os seguintes pré-requisitos para começar a desenvolver-se com os Serviços de Media com APIs REST.
+São necessários os seguintes pré-requisitos para começar a desenvolver-se com serviços de mídia com APIs REST.
 
 * Uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
-* Compreensão de como se desenvolver com a Media Services REST API. Para mais informações, consulte a Visão [Geral da API](media-services-rest-how-to-use.md)do Media Services REST .
-* Uma aplicação à sua escolha que pode enviar pedidos e respostas HTTP. Este tutorial usa [Fiddler.](https://www.telerik.com/download/fiddler)
+* Compreensão de como desenvolver com a API dos Serviços de Media REST. Para mais informações, consulte a [visão geral da API dos Serviços de Comunicação Social.](media-services-rest-how-to-use.md)
+* Uma aplicação à sua escolha que pode enviar pedidos e respostas HTTP. Este tutorial usa [o Violinista.](https://www.telerik.com/download/fiddler)
 
 As seguintes tarefas são mostradas neste arranque rápido.
 
 1. Iniciar pontos finais de transmissão em fluxo (com o portal do Azure).
-2. Ligue-se à conta de Serviços de Media com a REST API.
-3. Crie um novo ativo e faça upload de um ficheiro de vídeo com a REST API.
-4. Codifique o ficheiro fonte num conjunto de ficheiros MP4 bitrate adaptativo com a API REST.
-5. Publique o ativo e obtenha URLs de streaming e descarregamento progressivo com REST API.
+2. Ligue-se à conta dos Serviços de Comunicação social com a REST API.
+3. Crie um novo ativo e carreque um ficheiro de vídeo com a REST API.
+4. Codificar o ficheiro de origem num conjunto de ficheiros MP4 de bitrate adaptativo com API REST.
+5. Publique o ativo e obtenha URLs de streaming e download progressivo com REST API.
 6. Reproduzir os conteúdos.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no local por muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-Para mais detalhes sobre as entidades AMS REST utilizadas neste artigo, consulte [a Referência aPi da Azure Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Consulte também os [conceitos azure Media Services.](media-services-concepts.md)
+Para mais informações sobre as entidades AMS REST utilizadas neste artigo, consulte [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Consulte também os [conceitos Azure Media Services.](media-services-concepts.md)
 
 >[!NOTE]
->Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md).
+>Ao aceder a entidades nos Serviços de Media, deve definir campos e valores específicos de cabeçalho nos seus pedidos HTTP. Para obter mais informações, consulte [Configuração para Serviços de Mídia REST Desenvolvimento da API](media-services-rest-how-to-use.md).
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Iniciar pontos finais de transmissão em fluxo com o portal do Azure
 
-Ao trabalhar com a Azure Media Services, um dos cenários mais comuns é entregar vídeo através de streaming de bitrate adaptativo. Os Serviços de Multimédia fornecem um empacotamento dinâmico, o que lhe permite entregar os seus conteúdos codificados em MP4 de velocidade de transmissão adaptável em formatos de transmissão em fluxo suportados pelos Serviços de Multimédia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter de armazenar versões pré-empacotadas de cada um destes formatos de transmissão em fluxo.
+Ao trabalhar com a Azure Media Services, um dos cenários mais comuns é a entrega de vídeo através de streaming de bitrate adaptativo. Os Serviços de Multimédia fornecem um empacotamento dinâmico, o que lhe permite entregar os seus conteúdos codificados em MP4 de velocidade de transmissão adaptável em formatos de transmissão em fluxo suportados pelos Serviços de Multimédia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter de armazenar versões pré-empacotadas de cada um destes formatos de transmissão em fluxo.
 
 >[!NOTE]
 >Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
@@ -79,26 +78,26 @@ Para iniciar o ponto final de transmissão em fluxo, faça o seguinte:
 4. Clique no ícone Início.
 5. Clique no botão Guardar para guardar as alterações.
 
-## <a name="connect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Ligue-se à conta de Serviços de Media com a REST API
+## <a name="connect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Ligue-se à conta dos Serviços de Comunicação social com a REST API
 
-Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como ligar à AMS API, consulte [Aceda à API dos Serviços de Media Azure com autenticação AD Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Crie um novo ativo e carregue um ficheiro de vídeo com a REST API
+## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Crie um novo ativo e carreque um ficheiro de vídeo com a REST API
 
-Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elemento. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são enviados para o ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
+Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elemento. A entidade **Do Ativo** pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são enviados para o ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
-Um dos valores que tem de fornecer ao criar um ativo são as opções de criação de ativos. A propriedade **Options** é um valor de enumeração que descreve as opções de encriptação com as que um Ativo pode ser criado. Um valor válido é um dos valores da lista abaixo, e não uma combinação de valores desta lista:
+Um dos valores que tem de fornecer ao criar um ativo são as opções de criação de ativos. A propriedade **Options** é um valor de enumeração que descreve as opções de encriptação com as qual um Ativo pode ser criado. Um valor válido é um dos valores da lista abaixo, e não uma combinação de valores desta lista:
 
-* **Nenhuma.**  =  **0** - Não é utilizada encriptação. Ao utilizar esta opção, o seu conteúdo não está protegido em trânsito ou em repouso no armazenamento.
+* **Nenhum.**  =  **0** - Não é utilizada encriptação. Ao utilizar esta opção, o seu conteúdo não está protegido em trânsito ou em repouso no armazenamento.
     Se planear distribuir um MP4 utilizando uma transferência progressiva, utilize esta opção.
-* **ArmazenamentoEncriptado**  =  **1** - Encripta o seu conteúdo claro localmente utilizando encriptação de bits AES-256 e, em seguida, envia-o para o Armazenamento Azure onde é armazenado encriptado em repouso. Os elementos protegidos com Encriptação do Storage são desencriptados automaticamente e colocados num sistema de ficheiros encriptados antes da codificação, sendo opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal caso de utilização da Encriptação do Storage ocorre quando pretende proteger os seus ficheiros de multimédia de entrada de alta qualidade inativos no disco com uma encriptação forte.
-* **Encriptação comumProtegida**  =  **2** - Utilize esta opção se estiver a carregar conteúdo que já foi encriptado e protegido com encriptação comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DrM PlayReady).
-* **EnvelopeEncryptionProtegido**  =  **4** - Utilize esta opção se estiver a carregar HLS encriptado com AES. Os ficheiros devem ter sido codificados e encriptados pelo Transform Manager.
+* **ArmazenamentoEncrypted**  =  **1** - Criptografa o seu conteúdo claro localmente utilizando encriptação de bits AES-256 e, em seguida, envia-o para o Azure Storage, onde é armazenado encriptado em repouso. Os elementos protegidos com Encriptação do Storage são desencriptados automaticamente e colocados num sistema de ficheiros encriptados antes da codificação, sendo opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal caso de utilização da Encriptação do Storage ocorre quando pretende proteger os seus ficheiros de multimédia de entrada de alta qualidade inativos no disco com uma encriptação forte.
+* **CommonEncrypationProtegado**  =  **2** - Utilize esta opção se estiver a carregar conteúdo que já tenha sido encriptado e protegido com Encriptação Comum ou PlayReady DRM (por exemplo, Streaming Suave protegido com PlayReady DRM).
+* **EnvelopeEncrypationProtegido**  =  **4** – Utilize esta opção se estiver a carregar o HLS encriptado com AES. Os ficheiros devem ter sido codificados e encriptados pelo Transform Manager.
 
-### <a name="create-an-asset"></a>Criar um ativo
-Um ativo é um recipiente para vários tipos ou conjuntos de objetos em Media Services, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na Rest API, a criação de um Ativo requer o envio de pedido de CORREIO para os Serviços de Media e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
+### <a name="create-an-asset"></a>Criar um recurso
+Um ativo é um recipiente para vários tipos ou conjuntos de objetos em Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na API REST, a criação de um Ativo requer o envio de um pedido de CORREIO aos Serviços de Comunicação Social e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
 
-O exemplo que se segue mostra como criar um ativo.
+O exemplo a seguir mostra como criar um ativo.
 
 **Pedido de HTTP**
 
@@ -117,9 +116,9 @@ O exemplo que se segue mostra como criar um ativo.
     {"Name":"BigBuckBunny.mp4", "Options":"0"}
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, o seguinte é devolvido:
+Se for bem sucedido, é devolvido o seguinte:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -149,10 +148,10 @@ Se for bem sucedido, o seguinte é devolvido:
        "StorageAccountName":"storagetestaccount001"
     }
 
-### <a name="create-an-assetfile"></a>Criar um AssetFile
-A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio que é armazenado num recipiente de bolha. Um ficheiro de ativo está sempre associado a um ativo, e um ativo pode conter um ou muitos AssetFiles. A tarefa Do Codificador de Serviços de Media falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de blob.
+### <a name="create-an-assetfile"></a>Criar um Ficheiro de Ativos
+A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio que é armazenado num recipiente de bolhas. Um ficheiro de ativos está sempre associado a um ativo, e um ativo pode conter um ou muitos Ficheiros De Ativos. A tarefa Media Services Encoder falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de bolhas.
 
-Depois de enviar o seu ficheiro de mídia digital para um recipiente blob, utiliza o pedido **MERGE** HTTP para atualizar o AssetFile com informações sobre o seu ficheiro de mídia (como mostrado mais tarde no tópico).
+Depois de fazer o upload do seu ficheiro de mídia digital para um recipiente blob, utilize o pedido **MERGE** HTTP para atualizar o AssetFile com informações sobre o seu ficheiro de media (como mostrado mais tarde no tópico).
 
 **Pedido de HTTP**
 
@@ -176,7 +175,7 @@ Depois de enviar o seu ficheiro de mídia digital para um recipiente blob, utili
     }
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -211,10 +210,10 @@ Depois de enviar o seu ficheiro de mídia digital para um recipiente blob, utili
     }
 
 
-### <a name="creating-the-accesspolicy-with-write-permission"></a>Criação da Política de Acesso com permissão por escrito
-Antes de enviar quaisquer ficheiros para o armazenamento de blob, delineie os direitos de política de acesso para escrever a um ativo. Para tal, PUBLIQUE um pedido http para o conjunto de entidades AccessPolicies. Defina um valor de DuraçãoInMinutes após a criação ou receba uma mensagem de erro do Servidor Interno 500 de volta em resposta. Para obter mais informações sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+### <a name="creating-the-accesspolicy-with-write-permission"></a>Criar a AccessPolicy com permissão de escrita
+Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os direitos de política de acesso para escrever a um ativo. Para isso, publique um pedido HTTP à entidade AccessPolicies. Defina um valor DurationInMinutes após a criação ou receberá uma mensagem de erro do Servidor Interno de 500 em resposta. Para mais informações sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
-O exemplo que se segue mostra como criar uma Política de Acesso:
+O exemplo a seguir mostra como criar uma Política de Acesso:
 
 **Pedido de HTTP**
 
@@ -231,9 +230,9 @@ O exemplo que se segue mostra como criar uma Política de Acesso:
 
     {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"}
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, devolve-se a seguinte resposta:
+Se for bem sucedida, a seguinte resposta é devolvida:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -261,7 +260,7 @@ Se for bem sucedido, devolve-se a seguinte resposta:
 
 ### <a name="get-the-upload-url"></a>Obtenha o URL de upload
 
-Para receber o URL de upload real, crie um Localizador SAS. Os localizadores definem o tempo de início e o tipo de ponto final de ligação para clientes que desejam aceder a Ficheiros num Ativo. Pode criar várias entidades localizadoras para um dado par accessPolicy e Asset para lidar com diferentes pedidos e necessidades do cliente. Cada um destes Localizadores utiliza o valor StartTime mais o valor DurationInMinutes da AccessPolicy para determinar o tempo que um URL pode ser usado. Para mais informações, consulte [O Localizador.](https://docs.microsoft.com/rest/api/media/operations/locator)
+Para receber o URL de upload real, crie um localizador SAS. Os localizadores definem a hora de início e o tipo de ponto final de ligação para os clientes que pretendem aceder aos Ficheiros num Ativo. Pode criar várias entidades de Localizador para um dado par accessPolicy e Ativo para lidar com diferentes pedidos e necessidades do cliente. Cada um destes Localizadores utiliza o valor StartTime mais o valor DurationInMinutes da AccessPolicy para determinar o tempo de utilização de um URL. Para mais informações, consulte [o Localizador.](https://docs.microsoft.com/rest/api/media/operations/locator)
 
 Um URL SAS tem o seguinte formato:
 
@@ -269,11 +268,11 @@ Um URL SAS tem o seguinte formato:
 
 São aplicáveis algumas considerações:
 
-* Não pode ter mais de cinco localizadores únicos associados a um dado Ativo de uma só vez. 
-* Se necessitar de fazer o upload dos seus ficheiros imediatamente, deverá definir o seu valor Inicial para cinco minutos antes da hora atual. Isto porque pode haver um desvio de relógio entre a sua máquina cliente e os Serviços de Media. Além disso, o seu valor startTime deve estar no seguinte formato DateTime: YYYY-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
-* Pode haver um atraso de 30-40 segundos após a criação de um Localizador para quando estiver disponível para utilização. Este problema aplica-se tanto aos [localizadores de URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) como aos Localizadores de Origem.
+* Não é possível ter mais de cinco localizadores únicos associados a um dado Ativo ao mesmo tempo. 
+* Se precisar de fazer o upload dos seus ficheiros imediatamente, deverá definir o valor startTime para cinco minutos antes da hora atual. Isto porque pode haver um desvio no relógio entre a máquina do seu cliente e os Serviços de Comunicação Social. Além disso, o seu valor StartTime deve estar no seguinte formato DateTime: YYYYY-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
+* Pode haver um atraso de 30-40 segundos após a criação de um Localizador para quando estiver disponível para utilização. Esta questão aplica-se tanto aos localizadores [DE URL e](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) Origem SAS.
 
-O exemplo seguinte mostra como criar um localizador de URL SAS, tal como definido pela propriedade Tipo no organismo de pedido ("1" para um localizador SAS e "2" para um localizador de origem a pedido). A propriedade **Path** devolvida contém o URL que deve utilizar para fazer o upload do seu ficheiro.
+O exemplo a seguir mostra como criar um localizador DE URL SAS, tal como definido pela propriedade Tipo no corpo de pedido ("1" para um localizador SAS e "2" para um localizador de origem on-demand). A propriedade **Path** devolvida contém o URL que deve usar para fazer o upload do seu ficheiro.
 
 **Pedido de HTTP**
 
@@ -296,9 +295,9 @@ O exemplo seguinte mostra como criar um localizador de URL SAS, tal como definid
     }
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, devolve-se a seguinte resposta:
+Se for bem sucedida, a seguinte resposta é devolvida:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -328,18 +327,18 @@ Se for bem sucedido, devolve-se a seguinte resposta:
        "Name":null
     }
 
-### <a name="upload-a-file-into-a-blob-storage-container"></a>Faça upload de um ficheiro num recipiente de armazenamento de bolhas
-Uma vez que tenha o conjunto AccessPolicy e Locator, o ficheiro real é enviado para um recipiente de armazenamento de blob Azure utilizando as APIs DE REPOUSO DE ARMAZENAMENTO Azure. Tem de carregar os ficheiros como blocos. As bolhas de página não são suportadas pela Azure Media Services.  
+### <a name="upload-a-file-into-a-blob-storage-container"></a>Faça o upload de um ficheiro num recipiente de armazenamento de bolhas
+Uma vez definido o conjunto AccessPolicy e Localizador, o ficheiro real é enviado para um recipiente de armazenamento de bolhas Azure utilizando as APIs de ARMAZENAMENTO Azure. Tens de carregar os ficheiros como blocos. As bolhas de página não são suportadas pela Azure Media Services.  
 
 > [!NOTE]
-> Tem de adicionar o nome de ficheiro do ficheiro que pretende enviar para o valor **do Caminho** do Localizador recebido na secção anterior. Por exemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
+> Tem de adicionar o nome do ficheiro para o ficheiro que pretende enviar para o valor **do Caminho** localizador recebido na secção anterior. Por exemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
-Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-### <a name="update-the-assetfile"></a>Atualizar o Ficheiro de Ativos
-Agora que fez o upload do seu ficheiro, atualize a informação do tamanho do FileAsset (e outras). Por exemplo:
+### <a name="update-the-assetfile"></a>Atualizar o AssetFile
+Agora que fez o upload do seu ficheiro, atualize as informações do tamanho (e outras) do tamanho do FileAsset. Por exemplo:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -360,9 +359,9 @@ Agora que fez o upload do seu ficheiro, atualize a informação do tamanho do Fi
     }
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, o seguinte é devolvido:
+Se for bem sucedido, é devolvido o seguinte:
 
     HTTP/1.1 204 No Content
     ...
@@ -380,9 +379,9 @@ Se for bem sucedido, o seguinte é devolvido:
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, o seguinte é devolvido:
+Se for bem sucedido, é devolvido o seguinte:
 
     HTTP/1.1 204 No Content
     ...
@@ -398,25 +397,25 @@ Se for bem sucedido, o seguinte é devolvido:
     x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, o seguinte é devolvido:
+Se for bem sucedido, é devolvido o seguinte:
 
     HTTP/1.1 204 No Content
     ...
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificar o ficheiro de origem para um conjunto de ficheiros MP4 de velocidade de transmissão adaptável
 
-Depois de ingerir ativos nos Serviços de Media, os meios de comunicação podem ser codificados, transmuxados, marcados com água, e assim por diante, antes de serem entregues aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são chamadas Jobs e cada Trabalho é composto por Tarefas atómicas que [Task](https://docs.microsoft.com/rest/api/media/operations/task) fazem o trabalho real no ficheiro Ativo (para mais informações, ver [Descrições de Tarefas, Trabalho).](https://docs.microsoft.com/rest/api/media/operations/job)
+Depois de ingerir Ativos nos Serviços de Media, os meios de comunicação podem ser codificados, transmuxados, marcados a água, e assim por diante, antes de serem entregues aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são chamadas jobs e cada Job é composto por Tarefas atómicas que fazem o trabalho real no ficheiro Ativo (para mais informações, ver [Job](https://docs.microsoft.com/rest/api/media/operations/job), Descrições [de tarefas).](https://docs.microsoft.com/rest/api/media/operations/task)
 
-Como já foi referido, ao trabalhar com a Azure Media Services um dos cenários mais comuns é entregar streaming de bitrate adaptativo aos seus clientes. Os Serviços de Media podem embalar dinamicamente um conjunto de ficheiros MP4 bitrate adaptativo num dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Como já foi mencionado anteriormente, ao trabalhar com a Azure Media Services um dos cenários mais comuns é entregar o streaming de bitrate adaptativo aos seus clientes. Os Serviços de Mídia podem embalar dinamicamente um conjunto de ficheiros MP4 de bitrate adaptativo num dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
-A secção seguinte mostra como criar um trabalho que contenha uma tarefa de codificação. A tarefa especifica transcodificar o ficheiro mezanino num conjunto de MP4 bitrate adaptativo utilizando **o Media Encoder Standard**. A secção mostra também como monitorizar o progresso do processamento de postos de trabalho. Quando o trabalho estiver concluído, poderá criar localizadores que sejam necessários para ter acesso aos seus bens.
+A seguinte secção mostra como criar um trabalho que contenha uma tarefa de codificação. A tarefa especifica para transcodificar o ficheiro mezanino num conjunto de MP4s de bitrate adaptativo utilizando **o Media Encoder Standard**. A secção também mostra como monitorizar o progresso do processamento de trabalho. Quando o trabalho estiver concluído, poderá criar localizadores necessários para ter acesso aos seus bens.
 
 ### <a name="get-a-media-processor"></a>Obtenha um processador de mídia
-Nos Serviços de Media, um processador de mídia é um componente que lida com uma tarefa de processamento específica, como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Para a tarefa de codificação mostrada neste tutorial, vamos usar a Norma Media Encoder.
+Nos Serviços de Comunicação Social, um processador de mídia é um componente que lida com uma tarefa de processamento específica, como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Para a tarefa de codificação mostrada neste tutorial, vamos usar o Media Encoder Standard.
 
-O código seguinte solicita a identificação do codificador.
+O seguinte código solicita a identificação do codificador.
 
 **Pedido de HTTP**
 
@@ -430,7 +429,7 @@ O código seguinte solicita a identificação do codificador.
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -460,9 +459,9 @@ O código seguinte solicita a identificação do codificador.
     }
 
 ### <a name="create-a-job"></a>Criar uma tarefa
-Cada Trabalho pode ter uma ou mais Tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, pode criar Jobs e as suas tarefas relacionadas de uma de duas formas: As tarefas podem ser definidas inline através da propriedade de navegação de Tarefas em entidades de Trabalho, ou através do processamento de lotes OData. O Media Services SDK utiliza o processamento de lotes. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidas inline. Para obter informações sobre o processamento de lotes, consulte [o Processamento de Lote de Dados Abertos (OData).](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)
+Cada Trabalho pode ter uma ou mais Tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, pode criar Jobs e as suas tarefas conexas de uma de duas formas: As tarefas podem ser definidas em linha através da propriedade de navegação tasks em entidades job, ou através do processamento de lotes OData. O Media Services SDK utiliza o processamento de lote. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidas em linha. Para obter informações sobre o processamento de lotes, consulte [o processo de processamento do lote do Protocolo de Dados Abertos (OData).](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)
 
-O exemplo que se segue mostra-lhe como criar e publicar um Trabalho com uma Tarefa definida para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições](https://msdn.microsoft.com/library/mt269960) de tarefa suportadas pelo processador Media Encoder Standard.  
+O exemplo a seguir mostra-lhe como criar e publicar um Job com um conjunto de Tarefas para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições de tarefa](https://msdn.microsoft.com/library/mt269960) suportadas pelo processador Media Encoder Standard.  
 
 **Pedido de HTTP**
 
@@ -496,9 +495,9 @@ O exemplo que se segue mostra-lhe como criar e publicar um Trabalho com uma Tare
        ]
     }
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, devolve-se a seguinte resposta:
+Se for bem sucedida, a seguinte resposta é devolvida:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -558,34 +557,34 @@ Se for bem sucedido, devolve-se a seguinte resposta:
     }
 
 
-Há algumas coisas importantes a notar em qualquer pedido de emprego:
+Há algumas coisas importantes a notar em qualquer pedido de Trabalho:
 
-* As propriedades do TaskBody DEVEM utilizar o XML literal para definir o número de ativos de entrada ou de saída utilizados pela Tarefa. O artigo task contém a Definição De Schema XML para o XML.
-* Na definição TaskBody, cada valor interior para `<inputAsset>` e deve ser definido como `<outputAsset>` JobInputAsset(valor) ou JobOutputAsset (valor).
-* Uma tarefa pode ter vários ativos de produção. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa num trabalho.
-* Pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
+* As propriedades taskBody DEVEM usar XML literal para definir o número de entradas ou ativos de saída que são utilizados pela Tarefa. O artigo de Tarefa contém a Definição de Esquema XML para o XML.
+* Na definição TaskBody, cada valor interior `<inputAsset>` para e deve ser definido como `<outputAsset>` JobInputAsset (valor) ou JobOutputAsset (valor).
+* Uma tarefa pode ter múltiplos ativos de saída. Um JobOutputAsset(x) só pode ser utilizado uma vez como saída de uma tarefa num trabalho.
+* Pode especificar JobInPutAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
-* O parâmetro de valor que passa para JobInputAsset ou JobOutputAsset representa o valor de índice para um Ativo. Os Ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição da entidade Job.
+* O parâmetro de valor que passa para JobInputAsset ou JobOutputAsset representa o valor de índice de um Ativo. Os Ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição da entidade Job.
 
 > [!NOTE]
-> Uma vez que os Serviços de Media são construídos no OData v3, os ativos individuais nas coleções de propriedades de navegação InputMediaAssets e OutputMediaAssets são referenciados através de um par de nomes "__metadata : uri".
+> Como os Serviços de Mídia são construídos no OData v3, os ativos individuais em InputMediaAssets e as coleções de propriedades de navegação OutputMediaAssets são referenciados através de um par de valor-nome "__metadata : uri".
 >
 >
 
-* O InputMediaAssets mapeia um ou mais Ativos que criou nos Serviços de Media. OutputMediaAssets são criados pelo sistema. Não referem um ativo existente.
-* OutputMediaAssets pode ser nomeado usando o atributo assetName. Se este atributo não estiver presente, então o nome do OutputMediaAsset é qualquer que seja o valor de texto interno do `<outputAsset>` elemento com um sufixo do valor do Nome de Trabalho, ou o valor do Id de Trabalho (no caso em que a propriedade Nome não está definida). Por exemplo, se definir um valor para o nome do ativo para "Sample", então a propriedade OutputMediaAsset Name será definida para "Sample". No entanto, se não definisse um valor para o assetName, mas definisse o nome de trabalho para "NewJob", então o nome OutputMediaAsset seria "JobOutputAsset(valor)_NewJob".
+* O InputMediaAssets mapeia para um ou mais Ativos que criou nos Serviços de Media. Os OutputMediaAssets são criados pelo sistema. Não fazem referência a um ativo existente.
+* OutputMediaAssets pode ser nomeado usando o atributo nome de ativo. Se este atributo não estiver presente, então o nome do OutputMediaAsset é qualquer que seja o valor de texto interno `<outputAsset>` do elemento com um sufixo do valor do Nome do Trabalho, ou o valor do ID de trabalho (no caso em que a propriedade Name não está definida). Por exemplo, se definir um valor para o nome de activonaminação para "Sample", então a propriedade Do Nome Do Comunicado de Saída será definida como "Amostra". No entanto, se não estabeleceu um valor para o nome de ativo, mas definiu o nome de trabalho para "NewJob", então o Nome Do Comunicado de Saída seria "JobOutputAsset (valor)_NewJob".
 
-    O exemplo que se segue mostra como definir o atributo do nome do ativo:
+    O exemplo a seguir mostra como definir o atributo nome de ativo:
 
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
 * Para permitir o acorrentamento de tarefas:
 
-  * Um trabalho deve ter pelo menos duas tarefas.
-  * Deve haver pelo menos uma tarefa cujo contributo é o resultado de outra tarefa no trabalho.
+  * Um trabalho deve ter pelo menos duas tarefas
+  * Deve haver pelo menos uma tarefa cuja contribuição é a saída de outra tarefa no trabalho.
 
-Para mais informações consulte, [Criar um Trabalho de Codificação com os Serviços de Media REST API](media-services-rest-encode-asset.md).
+Para mais informações consulte, [Criar um Trabalho de Codificação com os Serviços de Mídia REST API](media-services-rest-encode-asset.md).
 
-### <a name="monitor-processing-progress"></a>Monitorizar o progresso do processamento
+### <a name="monitor-processing-progress"></a>Monitor processamento progresso
 Pode recuperar o estatuto de Trabalho utilizando a propriedade do Estado, como mostra o seguinte exemplo:
 
 **Pedido de HTTP**
@@ -601,9 +600,9 @@ Pode recuperar o estatuto de Trabalho utilizando a propriedade do Estado, como m
     Content-Length: 0
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
-Se for bem sucedido, devolve-se a seguinte resposta:
+Se for bem sucedida, a seguinte resposta é devolvida:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -620,10 +619,10 @@ Se for bem sucedido, devolve-se a seguinte resposta:
     {"d":{"State":2}}
 
 
-### <a name="cancel-a-job"></a>Cancelar um trabalho
-A Media Services permite-lhe cancelar trabalhos de funcionamento através da função CancelJob. Esta chamada devolve um código de erro de 400 se tentar cancelar um Trabalho quando o seu estado for cancelado, cancelando, error ou terminado.
+### <a name="cancel-a-job"></a>Cancelar um emprego
+Os Serviços de Comunicação Social permitem-lhe cancelar a execução de postos de trabalho através da função CancelJob. Esta chamada devolve um código de erro 400 se tentar cancelar um Job quando o seu estado é cancelado, cancelado, erro ou terminado.
 
-O exemplo que se segue mostra como ligar para o CancelJob.
+O exemplo a seguir mostra como ligar para o CancelJob.
 
 **Pedido de HTTP**
 
@@ -637,15 +636,15 @@ O exemplo que se segue mostra como ligar para o CancelJob.
     Host: wamsbayclus001rest-hs.net
 
 
-Se for bem sucedido, um código de resposta 204 é devolvido sem corpo de mensagem.
+Se for bem sucedido, um código de resposta de 204 é devolvido sem corpo de mensagem.
 
 > [!NOTE]
-> Deve codificar o id de trabalho (normalmente nb:jid:UUID: somevalue) ao passá-lo como parâmetro para o CancelJob.
+> Deve codificar o id de trabalho (normalmente nb:jid:UUID: somevalue) ao passá-lo como parâmetro para CancelJob.
 >
 >
 
 ### <a name="get-the-output-asset"></a>Obtenha o ativo de saída
-O código seguinte mostra como solicitar o ativo de saída Id.
+O código que se segue mostra como solicitar o ID do ativo de saída.
 
 **Pedido de HTTP**
 
@@ -660,7 +659,7 @@ O código seguinte mostra como solicitar o ativo de saída Id.
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
-**Resposta HTTP**
+**RESPOSTA HTTP**
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -692,11 +691,11 @@ O código seguinte mostra como solicitar o ativo de saída Id.
        ]
     }
 
-## <a name="publish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publique o ativo e obtenha URLs de streaming e descarregamento progressivo com REST API
+## <a name="publish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publique o ativo e obtenha URLs de streaming e download progressivo com REST API
 
 Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia. 
 
-Assim que criar os localizadores, pode construir os URLs que são usados para transmitir ou descarregar os seus ficheiros.
+Assim que criar os localizadores, pode construir os URLs que são utilizados para transmitir ou descarregar os seus ficheiros.
 
 >[!NOTE]
 >Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
@@ -719,14 +718,14 @@ Um URL de SAS utilizado para transferir ficheiros tem o seguinte formato:
 
 Esta secção mostra como executar as seguintes tarefas necessárias para "publicar" os seus ativos.  
 
-* Criação da Política de Acesso com permissão de leitura
-* Criação de um URL SAS para descarregar conteúdo
+* Criar a AccessPolicy com permissão de leitura
+* Criar um URL SAS para descarregar conteúdo
 * Criar um URL de origem para streaming de conteúdos
 
-### <a name="creating-the-accesspolicy-with-read-permission"></a>Criação da Política de Acesso com permissão de leitura
-Antes de descarregar ou transmitir qualquer conteúdo de mídia, primeiro defina uma Política de Acesso com permissões de leitura e crie a entidade localizador apropriada que especifica o tipo de mecanismo de entrega que pretende ativar para os seus clientes. Para obter mais informações sobre os imóveis disponíveis, consulte [AccessPolicy Entity Properties](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+### <a name="creating-the-accesspolicy-with-read-permission"></a>Criar a AccessPolicy com permissão de leitura
+Antes de descarregar ou transmitir qualquer conteúdo de mídia, primeiro defina uma AccessPolicy com permissões de leitura e crie a entidade localizadora adequada que especifica o tipo de mecanismo de entrega que pretende ativar para os seus clientes. Para obter mais informações sobre os imóveis disponíveis, consulte [AccessPolicy Entity Properties.](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties)
 
-O exemplo que se segue mostra como especificar a Política de Acesso para permissões de leitura para um determinado Ativo.
+O exemplo a seguir mostra como especificar a AccessPolicy para obter permissões de leitura para um determinado Ativo.
 
     POST https://wamsbayclus001rest-hs.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json
@@ -741,15 +740,15 @@ O exemplo que se segue mostra como especificar a Política de Acesso para permis
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-Se for bem sucedido, um código de sucesso de 201 é devolvido descrevendo a entidade AccessPolicy que criou. Em seguida, utiliza o Id accessPolicy juntamente com o Id de ativo do ativo que contém o ficheiro que pretende entregar (como um ativo de saída) para criar a entidade Locator.
+Se for bem sucedido, é devolvido um código de sucesso de 201 descrevendo a entidade AccessPolicy que criou. Em seguida, utiliza o AccessPolicy Id juntamente com o ID de ativo do ativo que contém o ficheiro que pretende entregar (como um ativo de saída) para criar a entidade Localizador.
 
 > [!NOTE]
-> Este fluxo de trabalho básico é o mesmo que carregar um ficheiro ao ingerir um Ativo (como foi discutido anteriormente neste tópico). Além disso, como o upload de ficheiros, se você (ou seus clientes) precisar de aceder imediatamente aos seus ficheiros, detete o seu valor StartTime para cinco minutos antes da hora atual. Esta ação é necessária porque pode haver um desvio de relógio entre o cliente e os Serviços de Media. O valor startTime deve estar no seguinte formato DateTime: YYYY-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+> Este fluxo de trabalho básico é o mesmo que carregar um ficheiro ao ingerir um Ativo (como foi discutido anteriormente neste tópico). Além disso, tal como o upload de ficheiros, se você (ou os seus clientes) precisar de aceder imediatamente aos seus ficheiros, desafine o valor startTime para cinco minutos antes da hora atual. Esta ação é necessária porque pode haver distorção do relógio entre o cliente e os Serviços de Media. O valor StartTime deve estar no seguinte formato DateTime: YYYYY-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
 >
 >
 
-### <a name="creating-a-sas-url-for-downloading-content"></a>Criação de um URL SAS para descarregar conteúdo
-O código que se segue mostra como obter um URL que pode ser usado para descarregar um ficheiro de mídia criado e carregado anteriormente. O AccessPolicy tem conjunto de permissões de leitura e o caminho do Localizador refere-se a um URL de descarregamento SAS.
+### <a name="creating-a-sas-url-for-downloading-content"></a>Criar um URL SAS para descarregar conteúdo
+O código que se segue mostra como obter um URL que pode ser usado para descarregar um ficheiro de mídia criado e carregado anteriormente. O AccessPolicy leu permissões definidas e o caminho do localizador refere-se a um URL de descarregamento SAS.
 
     POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -764,7 +763,7 @@ O código que se segue mostra como obter um URL que pode ser usado para descarre
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 
-Se for bem sucedido, devolve-se a seguinte resposta:
+Se for bem sucedida, a seguinte resposta é devolvida:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -806,22 +805,22 @@ Se for bem sucedido, devolve-se a seguinte resposta:
        }
     }
 
-A propriedade **"Caminho** Devolvido" contém o URL SAS.
+A propriedade **Caminho** devolvido contém o URL SAS.
 
 > [!NOTE]
-> Se descarregar conteúdo encriptado de armazenamento, deve descografá-lo manualmente antes de o renderizar, ou utilizar o Processador de Desencriptação de Armazenamento numa tarefa de processamento para obter ficheiros processados de forma clara para um OutputAsset e, em seguida, transferir a partir desse Ativo. Para obter mais informações sobre o processamento, consulte Criar um Trabalho de Codificação com a Media Services REST API. Além disso, os localizadores de URL SAS não podem ser atualizados depois de terem sido criados. Por exemplo, não é possível reutilizar o mesmo Localizador com um valor inicial atualizado. Isto deve-se à forma como os URLs SAS são criados. Se pretender aceder a um ativo para download depois de expirado um Locator, então terá de criar um novo com um novo StartTime.
+> Se descarregar o conteúdo encriptado de armazenamento, deve desencriptar manualmente antes de o renderizar, ou utilizar o MediaProcessor de desencriptação de armazenamento numa tarefa de processamento para desativar ficheiros processados na clara para um OutputAsset e, em seguida, transferir a partir desse Ativo. Para obter mais informações sobre o processamento, consulte criar um Trabalho de Codificação com a API dos Serviços de Mídia. Além disso, os localizadores DE URL SAS não podem ser atualizados depois de terem sido criados. Por exemplo, não é possível reutilizar o mesmo Localizador com um valor StartTime atualizado. Isto é devido à forma como os URLs SAS são criados. Se pretender aceder a um ativo para download depois de expirado um Localizador, então tem de criar um novo com um novo StartTime.
 >
 >
 
 ### <a name="download-files"></a>Transferir ficheiros
-Assim que tiver o conjunto AccessPolicy e Locator, pode descarregar ficheiros utilizando as APIs REST REST de Armazenamento Azure.  
+Assim que tiver o conjunto AccessPolicy e Localizador, pode descarregar ficheiros utilizando as APIs de REPOUSO de Armazenamento Azure.  
 
 > [!NOTE]
-> Tem de adicionar o nome de ficheiro do ficheiro que pretende transferir para o valor **Do** Caminho do Localizador recebido na secção anterior. Por exemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
+> Tem de adicionar o nome do ficheiro para o ficheiro que pretende transferir para o valor **do Caminho** do Localizador recebido na secção anterior. Por exemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
-Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Como resultado do trabalho de codificação que realizou anteriormente (codificação em conjunto DEMP4 adaptativo), tem vários ficheiros MP4 que pode descarregar progressivamente. Por exemplo:    
+Como resultado do trabalho de codificação que realizou anteriormente (codificando no conjunto MP4 adaptativo), tem vários ficheiros MP4 que pode descarregar progressivamente. Por exemplo:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -839,8 +838,8 @@ Como resultado do trabalho de codificação que realizou anteriormente (codifica
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-### <a name="creating-a-streaming-url-for-streaming-content"></a>Criar um URL de streaming para streaming de conteúdos
-O seguinte código mostra como criar um localizador de URL de streaming:
+### <a name="creating-a-streaming-url-for-streaming-content"></a>Criação de um URL de streaming para streaming de conteúdos
+O seguinte código mostra como criar um localizador url de streaming:
 
     POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -855,7 +854,7 @@ O seguinte código mostra como criar um localizador de URL de streaming:
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 
-Se for bem sucedido, devolve-se a seguinte resposta:
+Se for bem sucedida, a seguinte resposta é devolvida:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -897,7 +896,7 @@ Se for bem sucedido, devolve-se a seguinte resposta:
        }
     }
 
-Para transmitir um URL de origem smooth streaming num leitor de streaming de mídia, deve anexar a propriedade Path com o nome do ficheiro manifesto Smooth Streaming, seguido de "/manifesto".
+Para transmitir um URL de origem de streaming suave num leitor de multimédia de streaming, tem de anexar a propriedade Path com o nome do ficheiro manifesto De Streaming Suave, seguido de "/manifesto".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
@@ -905,7 +904,7 @@ Para transmitir HLS, apêndice (formato=m3u8-aapl) após o "/manifesto".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-Para transmitir mPEG DASH, apêndice (formato=mpd-time-csf) após o "/manifesto".
+Para transmitir MPEG DASH, apêndice (formato=mpd-time-csf) após o "/manifesto".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
@@ -913,7 +912,7 @@ Para transmitir mPEG DASH, apêndice (formato=mpd-time-csf) após o "/manifesto"
 ## <a name="play-your-content"></a><a id="play"></a>Jogue o seu conteúdo
 Para transmitir o seu vídeo, utilize o [Leitor dos Media Services do Azure](https://aka.ms/azuremediaplayer).
 
-Para testar o download progressivo, colhe um URL num browser (por exemplo, IE, Chrome, Safari).
+Para testar o download progressivo, cole um URL num browser (por exemplo, IE, Chrome, Safari).
 
 ## <a name="next-steps-media-services-learning-paths"></a>Passos Seguintes: percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

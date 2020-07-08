@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas problemas com problemas de agente de atualização do Windows na Automação Azure
-description: Este artigo diz como resolver problemas com o agente de atualização do Windows durante a Atualização.
+title: Problemas de agente de atualização do Windows na Azure Automation
+description: Este artigo diz como resolver problemas e resolver problemas com o agente de atualização do Windows durante a Gestão de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -10,19 +10,18 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680839"
 ---
-# <a name="troubleshoot-windows-update-agent-issues"></a>Problemas problemas com problemas com o agente de atualização do Windows
+# <a name="troubleshoot-windows-update-agent-issues"></a>Resolver problemas do agente de atualização do Windows
 
-Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (saudável) durante uma implementação de Gestão de Atualização. Pode verificar a saúde de um agente do Trabalhador do Runbook Híbrido windows para determinar o problema subjacente. Seguem-se os três estados de prontidão para uma máquina:
+Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (saudável) durante uma implementação de Gestão de Atualização. Pode verificar a saúde de um agente do Windows Hybrid Runbook Worker para determinar o problema subjacente. Seguem-se os três estados de prontidão para uma máquina:
 
-* Ready: The Hybrid Runbook Worker está implantado e foi visto pela última vez há menos de uma hora.
-* Desligado: O Trabalhador híbrido do livro de corridas está implantado e foi visto pela última vez há mais de uma hora.
-* Não configurado: O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou a implementação.
+* Pronto: O Trabalhador de Runbook Híbrido está implantado e foi visto pela última vez há menos de uma hora.
+* Desligado: O Trabalhador de Runbook Híbrido está implantado e foi visto pela última vez há mais de uma hora.
+* Não configurado: O Trabalhador de Runbook Híbrido não foi encontrado ou ainda não terminou a implantação.
 
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
@@ -30,89 +29,89 @@ Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (s
 Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline). 
 
 > [!NOTE]
-> O script de resolução de problemas inclui agora verificações para os Serviços de Atualização do Servidor do Windows (WSUS) e para as chaves de descarregamento automático e instalação. 
+> O script de resolução de problemas inclui agora verificações para serviços de atualização do Servidor do Windows (WSUS) e para a carga automática e instalação de teclas. 
 
 ## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 
-Para máquinas Azure, pode lançar a página Do Agente de Atualização de Problemas selecionando o link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal. Para máquinas não-Azure, o link leva-o a este artigo. Consulte [o Troubleshoot offline](#troubleshoot-offline) para filmar uma máquina não-Azure.
+Para as máquinas Azure, pode lançar a página 'Relatório de Atualização de Resolução de Problemas', selecionando a ligação **'Resolução de Problemas'** na coluna **'Actualização' de Prontidão** do Agente de Atualização no portal. Para máquinas não-Azure, o link leva-o a este artigo. Consulte [a resolução de problemas offline](#troubleshoot-offline) para resolver problemas com uma máquina não-Azure.
 
-![Screenshot da lista de Gestão de Atualizações de máquinas virtuais](../media/update-agent-issues/vm-list.png)
+![Screenshot da lista de atualizações de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Para verificar a saúde do Trabalhador do Livro De Execução Híbrido, o VM deve estar em execução. Se o VM não estiver a funcionar, aparece um botão **VM.**
+> Para verificar a saúde do Trabalhador de Runbook Híbrido, o VM deve estar a funcionar. Se o VM não estiver em funcionamento, aparece um botão Iniciar o botão **VM.**
 
-Na página do Agente de Atualização de Problemas, selecione **verificações de executar** para iniciar o resolução de problemas. O resoluto de problemas usa [o Comando de Execução](../../virtual-machines/windows/run-command.md) para executar um guião na máquina, para verificar dependências. Quando o resoluto de problemas estiver terminado, devolve o resultado dos cheques.
+Na página 'Relatório de Atualização de Resolução de **Problemas',** selecione Verificações de execução para iniciar o resolução de problemas. O resolução de problemas usa [o Comando de Execução](../../virtual-machines/windows/run-command.md) para executar um script na máquina, para verificar as dependências. Quando a resolução de problemas estiver terminada, devolve o resultado dos controlos.
 
-![Screenshot da página do Agente de Atualização de Problemas](../media/update-agent-issues/troubleshoot-page.png)
+![Screenshot da página do Agente de Atualização de Resolução de Problemas](../media/update-agent-issues/troubleshoot-page.png)
 
-Os resultados são mostrados na página quando estão prontos. As secções de verificação mostram o que está incluído em cada cheque.
+Os resultados são apresentados na página quando estão prontos. As secções de verificação mostram o que está incluído em cada cheque.
 
-![Screenshot do agente de atualização de problemas verifica](../media/update-agent-issues/update-agent-checks.png)
+![Screenshot das verificações do Agente de Atualização de Resolução de Problemas](../media/update-agent-issues/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>Verificações de pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A verificação do sistema operativo verifica se o Trabalhador do Livro híbrido está a executar um dos sistemas operativos apresentados na tabela seguinte.
+A verificação do sistema operativo verifica se o Trabalhador de Runbook Híbrido está a executar um dos sistemas operativos apresentados na tabela seguinte.
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2012 e mais tarde |.NET Quadro 4.6 ou posterior é necessário. ([Descarregue o .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> É necessário o Windows PowerShell 5.1.  (Baixar a Estrutura de Gestão de[Janelas 5.1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
+|Windows Server 2012 e mais tarde |.NET Quadro 4.6 ou posteriormente é necessário. [(Descarregue o quadro .NET](/dotnet/framework/install/guide-for-developers).)<br/> É necessário windows PowerShell 5.1.  (Baixar[o Quadro de Gestão do Windows 5.1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
 
-### <a name="net-462"></a>.net 4.6.2
+### <a name="net-462"></a>.NET 4.6.2
 
-A verificação de quadro .NET verifica que o sistema tem [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) ou posteriormente instalado.
+A verificação do quadro .NET verifica se o sistema tem [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) ou posteriormente instalado.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-A verificação wmf verifica que o sistema tem a versão necessária da Estrutura de Gestão do Windows (WMF), que é a Estrutura de Gestão do [Windows 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+A verificação do WMF verifica que o sistema tem a versão necessária do Quadro de Gestão do Windows (WMF), que é o [Quadro de Gestão do Windows 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
-Esta verificação determina se está a utilizar o TLS 1.2 para encriptar as suas comunicações. O TLS 1.0 já não é suportado pela plataforma. Utilize o TLS 1.2 para comunicar com a Atualização.
+Esta verificação determina se está a utilizar o TLS 1.2 para encriptar as suas comunicações. O TLS 1.0 já não é suportado pela plataforma. Utilize o TLS 1.2 para comunicar com a Gestão de Atualização.
 
 ## <a name="connectivity-checks"></a>Verificações de conectividade
 
 ### <a name="registration-endpoint"></a>Ponto final de inscrição
 
-Esta verificação determina se o agente pode comunicar corretamente com o serviço do agente.
+Esta verificação determina se o agente pode comunicar corretamente com o serviço de agente.
 
-As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker comunique com o ponto final de registo. Para que uma lista de endereços e portas seja aberta, consulte [o planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de procuração e firewall devem permitir que o agente híbrido runbook worker comunique com o ponto final de registo. Para que uma lista de endereços e portas abra, consulte [o planeamento da Rede](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Ponto final de operações
 
-Esta verificação determina se o agente pode comunicar corretamente com o Serviço de Dados do Funcionano de Trabalho.
+Esta verificação determina se o agente pode comunicar corretamente com o Serviço de Dados de Tempo de Trabalho.
 
-As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker se comunique com o Serviço de Dados do Tempo de Execução de Emprego. Para que uma lista de endereços e portas seja aberta, consulte [o planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de procuração e firewall devem permitir que o agente híbrido do Trabalhador do Runbook comunique com o Serviço de Dados de Tempo de Trabalho. Para que uma lista de endereços e portas abra, consulte [o planeamento da Rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-## <a name="vm-service-health-checks"></a>Verificações de saúde de serviço VM
+## <a name="vm-service-health-checks"></a>Verificações de saúde do serviço VM
 
 ### <a name="monitoring-agent-service-status"></a>Estado do serviço do agente de monitorização
 
-Esta verificação determina se o agente Log Analytics para Windows `healthservice` () está a funcionar na máquina. Para saber mais sobre a resolução de problemas do serviço, consulte [o agente Log Analytics para windows não está a funcionar](hybrid-runbook-worker.md#mma-not-running).
+Esta verificação determina se o agente Log Analytics para `healthservice` Windows () está a funcionar na máquina. Para saber mais sobre a resolução de problemas do serviço, consulte [o agente Log Analytics para windows não está a funcionar](hybrid-runbook-worker.md#mma-not-running).
 
-Para reinstalar o agente Log Analytics para Windows, consulte [Instalar o agente para windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para reinstalar o agente Log Analytics para windows, consulte [instalar o agente para windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Eventos de serviço de agente de monitorização
 
-Esta verificação determina se quaisquer eventos de 4502 aparecem no registo do Gestor de Operações Azure na máquina nas últimas 24 horas.
+Esta verificação determina se 4502 eventos aparecem no Registo do Gestor de Operações do Azure na máquina nas últimas 24 horas.
 
-Para saber mais sobre este evento, consulte o [Evento 4502 no registo do Gestor](hybrid-runbook-worker.md#event-4502) de Operações para este evento.
+Para saber mais sobre este evento, consulte o [Evento 4502 no registo do Gestor de Operações](hybrid-runbook-worker.md#event-4502) para este evento.
 
 ## <a name="access-permissions-checks"></a>Verificações de permissões de acesso
 
 > [!NOTE]
-> O resoluto de problemas atualmente não encaminha o tráfego através de um servidor proxy se um estiver configurado.
+> O problema atualmente não encaminha o tráfego através de um servidor de procuração se um estiver configurado.
 
-### <a name="crypto-folder-access"></a>Acesso a pasta Crypto
+### <a name="crypto-folder-access"></a>Acesso à pasta Crypto
 
-A verificação de acesso da pasta Crypto determina se a conta do sistema local tem acesso a C:\ProgramData\Microsoft\Crypto\RSA.
+A verificação de acesso à pasta Crypto determina se a conta do sistema local tem acesso a C:\ProgramData\Microsoft\Crypto\RSA.
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Resolução de problemas offline
 
-Você pode usar o resoludor de problemas em um Hybrid Runbook Worker offline executando o script localmente. Obtenha o seguinte script na Galeria PowerShell: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, deve ter WMF 4.0 ou posteriormente instalado. Para descarregar a versão mais recente do PowerShell, consulte [a instalação de várias versões do PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+Pode utilizar o resolução de problemas num Trabalhador de Runbook Híbrido offline executando o script localmente. Obtenha o seguinte script na PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, você deve ter WMF 4.0 ou mais tarde instalado. Para descarregar a versão mais recente do PowerShell, consulte [instalar várias versões do PowerShell.](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)
 
-A saída deste guião parece ser o seguinte exemplo:
+A saída deste script parece ser o seguinte exemplo:
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -206,6 +205,6 @@ CheckResultMessageId        : TlsVersionCheck.Passed.EnabledByDefault
 CheckResultMessageArguments : {}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Problemas problemas híbridos do trabalhador](hybrid-runbook-worker.md)do livro de corridas.
+[Problemas com o trabalhador do runbook híbrido.](hybrid-runbook-worker.md)

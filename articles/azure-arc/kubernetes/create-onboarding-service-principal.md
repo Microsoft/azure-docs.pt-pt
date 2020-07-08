@@ -1,31 +1,30 @@
 ---
-title: Criar um diretor de serviço de embarque ativado por Arco Azul (Pré-visualização)
+title: Criar um principal de serviço de embarque ativado pelo Arco Azure (Pré-visualização)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: 'Criar um Diretor de Serviço de Embarque ativado por Arco Azure '
+description: 'Criar um diretor de serviço de bordo ativado pelo Arco Azure '
 keywords: Kubernetes, Arc, Azure, contentores
 ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725606"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um diretor de serviço de embarque ativado por Arco Azul (Pré-visualização)
+# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um principal de serviço de embarque ativado pelo Arco Azure (Pré-visualização)
 
 ## <a name="overview"></a>Descrição geral
 
-É possível utilizar os principais de serviços que têm uma atribuição de funções com privilégios limitados para embarcar em clusters Kubernetes para o Azure Arc. Isto é útil na integração contínua e na implantação contínua de oleodutos (CI/CD) como os Oleodutos Azure e as Ações GitHub.
+É possível usar os principais de serviço tendo uma atribuição de papel com privilégios limitados para embarcar clusters Kubernetes para Azure Arc. Isto é útil em gasodutos de integração contínua e implementação contínua (CI/CD) como Azure Pipelines e GitHub Actions.
 
-Os seguintes passos proporcionam uma passagem pela utilização de diretores de serviço para embarcar em clusters Kubernetes para Azure Arc.
+Os passos seguintes proporcionam uma passagem pela utilização de princípios de serviço para a bordo de aglomerados de Kubernetes para Azure Arc.
 
-## <a name="create-a-new-service-principal"></a>Criar um novo Diretor de Serviço
+## <a name="create-a-new-service-principal"></a>Criar um novo diretor de serviços
 
-Crie um novo Diretor de Serviço com um nome informativo. Note que este nome deve ser único para o seu inquilino do Diretório Ativo Azure:
+Criar um novo Diretor de Serviços com um nome informativo. Note que este nome deve ser exclusivo para o seu inquilino Azure Ative Directory:
 
 ```console
 az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
@@ -45,11 +44,11 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Atribuir permissões
 
-Depois de criar o novo Diretor de Serviço, atribuir o papel "Azure Arc for Kubernetes Onboarding" ao recém-criado diretor. Este é um papel azure incorporado com permissões limitadas, que apenas permite ao principal registar clusters para Azure. O principal não pode atualizar, excluir ou modificar quaisquer outros clusters ou recursos dentro da subscrição.
+Depois de criar o novo Diretor de Serviços, atribua o papel de "Azure Arc for Kubernetes Onboarding" ao recém-criado diretor. Este é um papel de Azure incorporado com permissões limitadas, que apenas permite ao diretor registar clusters para Azure. O principal não pode atualizar, eliminar ou modificar quaisquer outros clusters ou recursos dentro da subscrição.
 
-Dadas as capacidades limitadas, os clientes podem facilmente reutilizar este principal para a bordo de vários clusters.
+Dadas as capacidades limitadas, os clientes podem facilmente reutilizar este principal para embarcar em vários clusters.
 
-As permissões podem ser ainda limitadas através da aprovação do argumento adequado `--scope` ao atribuir o papel. Isto permite que os clientes restringam o registo do cluster. Os seguintes cenários são suportados por vários `--scope` parâmetros:
+As permissões podem ser ainda mais limitadas ao passar o argumento adequado `--scope` ao atribuir o papel. Isto permite que os clientes restringam o registo de cluster. Os seguintes cenários são suportados por `--scope` vários parâmetros:
 
 | Recurso  | Argumento `scope`| Efeito |
 | ------------- | ------------- | ------------- |
@@ -78,9 +77,9 @@ az role assignment create \
 }
 ```
 
-## <a name="use-service-principal-with-the-azure-cli"></a>Utilizar o Serviço Principal com o Azure CLI
+## <a name="use-service-principal-with-the-azure-cli"></a>Utilizar o diretor de serviço com o Azure CLI
 
-Referência ao recém-criado Diretor de Serviço:
+Referência ao recém-criado Diretor de Serviços:
 
 ```console
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
@@ -89,4 +88,4 @@ az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Use a Política Azure para governar a configuração do cluster](./use-azure-policy.md)
+* [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

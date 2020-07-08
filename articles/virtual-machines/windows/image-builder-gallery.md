@@ -1,5 +1,5 @@
 ---
-title: Utilize o Azure Image Builder com uma galeria de imagens para VMs windows (pré-visualização)
+title: Use O Azure Image Builder com uma galeria de imagens para VMs do Windows (pré-visualização)
 description: Crie versões de imagem da Azure Shared Gallery utilizando o Azure Image Builder e o Azure PowerShell.
 author: cynthn
 ms.author: cynthn
@@ -8,44 +8,43 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656666"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Crie uma imagem do Windows e distribua-a para uma Galeria de Imagem Partilhada 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Partilhadas 
 
-Este artigo é para lhe mostrar como pode usar o Azure Image Builder, e o Azure PowerShell, para criar uma versão de imagem numa Galeria de [Imagem Partilhada,](shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando o [Azure CLI](../linux/image-builder-gallery.md).
+Este artigo é para lhe mostrar como pode usar o Azure Image Builder, e a Azure PowerShell, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando o [Azure CLI](../linux/image-builder-gallery.md).
 
-Vamos usar um modelo .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vamos descarregar e editar uma versão local do modelo, por isso este artigo é escrito usando a sessão local powerShell.
+Vamos usar um modelo .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [armTemplateWinSIG.jsem](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vamos descarregar e editar uma versão local do modelo, por isso este artigo é escrito usando a sessão local do PowerShell.
 
-Para distribuir a imagem para uma Galeria de Imagem Partilhada, o modelo utiliza a [SharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
+Para distribuir a imagem por uma Galeria de Imagens Partilhadas, o modelo utiliza [a SharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
 
-O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando de sysprep genérico, que você pode [substituir](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
+O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando genérico sysprep, que pode [ser sobreposto](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
 
-Esteja ciente de quantas vezes coloca as personalizações em camadas. Pode executar o comando Sysprep até 8 vezes numa única imagem do Windows. Depois de executar o Sysprep 8 vezes, deve recriar a sua imagem do Windows. Para mais informações, consulte [Limites sobre quantas vezes pode executar sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Esteja ciente de quantas vezes você camada personalizações. Pode executar o comando Sysprep até 8 vezes numa única imagem do Windows. Depois de executar o Sysprep 8 vezes, tem de recriar a sua imagem do Windows. Para mais informações, consulte [Limites sobre quantas vezes pode executar sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-features"></a>Registe as características
-Para utilizar o Azure Image Builder durante a pré-visualização, é necessário registar a nova funcionalidade.
+## <a name="register-the-features"></a>Registar as funcionalidades
+Para utilizar o Azure Image Builder durante a pré-visualização, tem de registar a nova funcionalidade.
 
 ```powershell
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-Verifique o estado do registo da funcionalidade.
+Verifique o estado do registo de funcionalidades.
 
 ```powershell
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-Espere até `RegistrationState` passar para o próximo `Registered` passo.
+Espere até `RegistrationState` `Registered` passar ao próximo passo.
 
-Verifique as inscrições do seu fornecedor. Certifique-se de que cada devolução de cada `Registered` retorna.
+Verifique as inscrições do seu fornecedor. Certifique-se de que cada uma `Registered` regressa.
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
@@ -54,7 +53,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Prop
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Se não `Registered` regressarem, utilize o seguinte para registar os prestadores:
+Se não `Registered` regressarem, utilize o seguinte para registar os fornecedores:
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -65,7 +64,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## <a name="create-variables"></a>Criar variáveis
 
-Vamos usar algumas peças de informação repetidamente, por isso vamos criar algumas variáveis para armazenar essa informação. Substitua os valores pelas variáveis, como e, com a `username` `vmpassword` sua própria informação.
+Vamos usar algumas informações repetidamente, por isso vamos criar algumas variáveis para armazenar essa informação. Substitua os valores das variáveis, como `username` `vmpassword` e, por sua própria informação.
 
 ```powershell
 # Get existing context
@@ -98,7 +97,7 @@ New-AzResourceGroup `
 
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída ao utilizador e definir permissões no grupo de recursos
-O Image Builder utilizará a [identidade de utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) fornecida para injetar a imagem na Galeria de Imagem Partilhada Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para realizar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
+O Image Builder utilizará a [identidade do utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
 
 ```powershell
 # setup role def names, these need to be unique
@@ -117,9 +116,9 @@ $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageR
 ```
 
 
-### <a name="assign-permissions-for-identity-to-distribute-images"></a>Atribuir permissões para identidade para distribuir imagens
+### <a name="assign-permissions-for-identity-to-distribute-images"></a>Atribuir permissões de identidade para distribuir imagens
 
-Este comando irá descarregar um modelo de Definição de Role Definição Azure e atualizar o modelo com os parâmetros especificados anteriormente.
+Este comando irá descarregar um modelo de Definição de Papel Azure e atualizar o modelo com os parâmetros especificados anteriormente.
 
 ```powershell
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
@@ -143,11 +142,11 @@ https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 ```
 
 
-## <a name="create-the-shared-image-gallery"></a>Criar a Galeria de Imagem Partilhada
+## <a name="create-the-shared-image-gallery"></a>Criar a Galeria de Imagens Partilhadas
 
-Para utilizar o Image Builder com uma galeria de imagens partilhada, é necessário ter uma galeria de imagens e definição de imagem existentes. O Image Builder não irá criar a galeria de imagens e a definição de imagem para si.
+Para utilizar o Image Builder com uma galeria de imagens partilhada, é necessário ter uma galeria de imagens e definição de imagem existente. O Image Builder não criará a galeria de imagens e a definição de imagem para si.
 
-Se ainda não tem uma definição de galeria e imagem para usar, comece por criá-las. Primeiro, crie uma galeria de imagens.
+Se ainda não tem uma definição de galeria e imagem para usar, comece por criá-las. Primeiro, criar uma galeria de imagens.
 
 ```powershell
 # Image gallery name
@@ -180,9 +179,9 @@ New-AzGalleryImageDefinition `
 
 
 
-## <a name="download-and-configure-the-template"></a>Descarregue e configure o modelo
+## <a name="download-and-configure-the-template"></a>Descarregue e configuure o modelo
 
-Descarregue o modelo .json e configure-o com as suas variáveis.
+Descarregue o modelo .json e configuure-o com as suas variáveis.
 
 ```powershell
 
@@ -235,9 +234,9 @@ Invoke-AzResourceAction `
    -Action Run
 ```
 
-Criar a imagem e replicá-la a ambas as regiões pode demorar algum tempo. Espere até que esta peça esteja terminada antes de passar para a criação de um VM.
+Criar a imagem e replicá-la em ambas as regiões pode demorar algum tempo. Aguarde até que esta peça esteja terminada antes de passar a criar um VM.
 
-Para obter informações sobre as opções de automatização do estado de construção da imagem, consulte o [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) para este modelo no GitHub.
+Para obter informações sobre opções para automatizar o estado de construção de imagem, consulte o [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) para este modelo no GitHub.
 
 
 ## <a name="create-the-vm"></a>Crie a VM
@@ -252,7 +251,7 @@ $imageVersion = Get-AzGalleryImageVersion `
    -GalleryImageDefinitionName $imageDefName
 ```
 
-Criar o VM na segunda região que fosse a imagem foi replicada.
+Criar o VM na segunda região que era a imagem foi replicado.
 
 ```powershell
 $vmResourceGroup = "myResourceGroup"
@@ -289,36 +288,36 @@ New-AzVM -ResourceGroupName $vmResourceGroup -Location $replRegion2 -VM $vmConfi
 ```
 
 ## <a name="verify-the-customization"></a>Verifique a personalização
-Crie uma ligação Remote Desktop ao VM utilizando o nome de utilizador e a palavra-passe que definiu quando criou o VM. No interior do VM, abra um pedido cmd e escreva:
+Crie uma ligação de ambiente de trabalho remoto ao VM utilizando o nome de utilizador e a palavra-passe que definiu quando criou o VM. Dentro do VM, abra um pedido de cmd e escreva:
 
 ```console
 dir c:\
 ```
 
-Devia ver um diretório chamado que foi criado durante a personalização da `buildActions` imagem.
+Você deve ver um diretório chamado `buildActions` que foi criado durante a personalização da imagem.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se quiser agora tentar repersonalizar a versão de imagem para criar uma nova versão da mesma imagem, **ignore este passo** e continue a utilizar o [Azure Image Builder para criar outra versão](image-builder-gallery-update-image-version.md)de imagem .
+Se pretender agora tentar re-personalizar a versão de imagem para criar uma nova versão da mesma imagem, **ignore este passo** e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 
 
-Isto irá apagar a imagem que foi criada, juntamente com todos os outros ficheiros de recursos. Certifique-se de que está terminado com esta implantação antes de apagar os recursos.
+Isto irá eliminar a imagem que foi criada, juntamente com todos os outros ficheiros de recursos. Certifique-se de que terminou com esta implantação antes de apagar os recursos.
 
-Elimine primeiro o modelo do grupo de recursos, caso contrário, o grupo de recursos de encenação *(IT_*) utilizado pelo AIB não será limpo.
+Elimine primeiro o modelo de grupo de recursos, caso contrário o grupo de recursos de preparação *(IT_*) utilizado pelo AIB não será limpo.
 
-Obtenha O ResourceID do modelo de imagem. 
+Obtenha o RecursoID do modelo de imagem. 
 
 ```powerShell
 $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
 ```
 
-Eliminar o modelo de imagem.
+Apague o modelo de imagem.
 
 ```powerShell
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 ```
 
-Eliminar a atribuição de papéis
+Eliminar atribuição de funções
 
 ```powerShell
 Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
@@ -330,7 +329,7 @@ remover definições
 Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
-excluir identidade
+apagar identidade
 
 ```powerShell
 Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
@@ -344,4 +343,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para aprender a atualizar a versão de imagem que criou, consulte [o Use Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
+Para aprender a atualizar a versão de imagem que criou, consulte [Use Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).

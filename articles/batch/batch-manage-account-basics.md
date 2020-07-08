@@ -1,17 +1,16 @@
 ---
 title: Gerir a sua conta
-description: Saiba o que inclui uma conta Azure Batch
+description: Saiba o que compreende uma conta Azure Batch
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6ef87fab099c6ff7402b351664ee15a198d69a4b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83722971"
 ---
-# <a name="manage-your-batch-account"></a>Gerir a sua conta Lote
+# <a name="manage-your-batch-account"></a>Gerencie a sua conta Batch
 
 Uma conta do Batch é uma entidade identificada exclusivamente no âmbito do serviço Batch. Todo o processamento está associado a uma conta do Batch.
 
@@ -19,25 +18,25 @@ Pode criar uma conta do Azure Batch através do [portal do Azure](batch-account-
 
 Pode executar várias cargas de trabalho do Batch numa única conta do Batch ou distribuí-las entre contas do Batch que estejam na mesma subscrição, mas em diferentes regiões do Azure.
 
-## <a name="components-of-the-batch-account"></a>Componentes da conta Lote
+## <a name="components-of-the-batch-account"></a>Componentes da conta Batch
 
-A conta Batch permite-lhe executar trabalhos de computação em grande escala paralelas e de alta performance (HPC) de forma eficiente em Azure. Dentro da conta que gere:
+A conta Batch permite-lhe executar trabalhos de lote paralelos e de alto desempenho em grande escala (HPC) em Azure. Dentro da conta que gere:
 
 - As aplicações que está a executar
 
-- A atribuição de piscinas e nósos dentro de piscinas
+- A atribuição de piscinas e nódes dentro de piscinas
 
-- O número e os tipos de tarefas 
+- O número e tipos de tarefas 
 
-- A entrada e a saída de dados. Não precisa de instalar software adicional para gerir tarefas.
+- A entrada e saída de dados. Não é necessário instalar software adicional para gerir tarefas.
 
-- Quando criar a conta Batch, é-lhe pedido que lhe atribua um nome. Este nome é o seu ID e uma vez atribuído não pode ser alterado.
+- Quando cria a conta Batch, é-lhe pedido que lhe atribua um nome. Este nome é o seu ID e uma vez atribuído não pode ser alterado.
 
-- Para alterar o nome de uma conta, é necessário apagá-la e criar uma nova conta De lote.
+- Para alterar o nome de uma conta, tem de a eliminar e criar uma nova conta Batch.
 
 - A conta é criada dentro da subscrição que pretende utilizar.
 
-- Utilize a conta para identificar e recuperar as chaves da conta primária e secundária de qualquer conta do Lote dentro da sua subscrição.
+- Utilize a conta para identificar e recuperar chaves de conta primária e secundária de qualquer conta Batch dentro da sua subscrição.
 
 - A conta mantém informações sobre a atribuição de piscinas e quotas fundamentais.  
 
@@ -47,8 +46,8 @@ A conta Batch permite-lhe executar trabalhos de computação em grande escala pa
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Crie uma conta Batch utilizando o [portal Azure](batch-account-create-portal.md).
-- Crie uma conta Batch programáticamente, como na [biblioteca Batch Management .NET](batch-management-dotnet.md).
-- [Configure ou desative o acesso remoto aos nódosos de computação numa piscina de Lote Azure](pool-endpoint-configuration.md).
-- [Executar tarefas de preparação de emprego e libertação de emprego em nódos de computação batch](batch-job-prep-release.md)
+- Criar uma conta Batch utilizando o [portal Azure.](batch-account-create-portal.md)
+- Crie uma conta Batch programáticamente, tal como com a [biblioteca Batch Management .NET](batch-management-dotnet.md).
+- [Configure ou desative o acesso remoto aos nós computacional numa piscina Azure Batch](pool-endpoint-configuration.md).
+- [Executar tarefas de preparação de emprego e de libertação de emprego nos nosm de computação batch](batch-job-prep-release.md)
 

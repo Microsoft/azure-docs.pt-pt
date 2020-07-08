@@ -1,38 +1,37 @@
 ---
 title: Resolver problemas do Azure FarmBeats
-description: Este artigo descreve como resolver problemas com a Azure FarmBeats.
+description: Este artigo descreve como resolver problemas a Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656812"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
-Este artigo fornece soluções para questões comuns da Azure FarmBeats. Para obter ajuda adicional, contacte o nosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para farmbeatssupport@microsoft.com .
+Este artigo fornece soluções para problemas comuns do Azure FarmBeats. Para obter ajuda adicional, contacte o nosso [Fórum de Apoio](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para farmbeatssupport@microsoft.com .
 
 > [!NOTE]
-  > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote para priorizar o apoio a organizações críticas de saúde e segurança. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) mais informações. Terá de solicitar que os VMs sejam alocados à conta do Lote para executar em sucesso os postos de trabalho.
+  > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote para priorizar o apoio a organizações críticas de saúde e segurança. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) mais informações. Terá de solicitar que os VM sejam atribuídos à conta Batch para executar empregos com sucesso.
 
 ## <a name="install-issues"></a>Instalar problemas
 
   > [!NOTE]
-  > Se estiver a reiniciar a instalação devido a um erro, certifique-se de eliminar o **Grupo de Recursos** ou eliminar todos os recursos do Grupo de Recursos antes de reiniciar a instalação.
+  > Se estiver a reiniciar a instalação devido a um erro, certifique-se de eliminar o **Grupo de Recursos** ou de eliminar todos os recursos do Grupo de Recursos antes de voltar a ativar a instalação.
 
-### <a name="invalid-sentinel-credentials"></a>Credenciais Sentinelinas inválidas
+### <a name="invalid-sentinel-credentials"></a>Credenciais sentinelas inválidas
 
-As credenciais Sentinel fornecidas durante a instalação estão incorretas. Reiniciar a instalação com as credenciais corretas.
+As credenciais Sentinel fornecidas durante a instalação estão incorretas. Reinicie a instalação com as credenciais corretas.
 
-### <a name="the-regional-account-quota-of-batch-accounts-for-the-specified-subscription-has-been-reached"></a>O contingente de conta regional das Contas de Lote para a subscrição especificada foi atingido
+### <a name="the-regional-account-quota-of-batch-accounts-for-the-specified-subscription-has-been-reached"></a>A quota de conta regional das contas de lote para a subscrição especificada foi alcançada
 
-Aumente a quota ou elimine as contas de lote não utilizadas e reinicie a instalação.
+Aumente a quota ou elimine as contas de lote não reutilizadas e reinicie a instalação.
 
-### <a name="invalid-resource-group-location"></a>Localização do grupo de recursos inválido
+### <a name="invalid-resource-group-location"></a>Localização inválida do grupo de recursos invá
 
 Certifique-se de que o **Grupo de Recursos** está no mesmo local que a **Região** especificada durante a instalação.
 
@@ -42,40 +41,40 @@ Contacte-nos com os seguintes detalhes:
 
 - O seu ID de subscrição
 - Nome do Grupo de Recursos
-- Siga os passos abaixo para anexar o ficheiro de registo para a falha de implantação:
+- Siga os passos abaixo para anexar o ficheiro de registo para a falha de implementação:
 
     1. Navegue para o **Grupo de Recursos** no portal Azure.
 
-    2. Selecione **As implementações** na secção **Definições** do lado esquerdo.
+    2. Selecione **Implementações** na secção **Definições** do lado esquerdo.
 
-    3. Para cada implementação que mostrar **Failed**, selecione através dos detalhes e descarregue os detalhes da implementação. Prenda este ficheiro ao correio.
+    3. Para cada implementação que mostrar **Falhado,** selecione para os detalhes e descarregue os detalhes da implementação. Anexe este ficheiro ao correio.
 
-## <a name="sensor-telemetry"></a>Telemetria do sensor
+## <a name="sensor-telemetry"></a>Telemetria sensorial
 
-### <a name="cant-view-telemetry-data"></a>Não se pode ver dados de telemetria
+### <a name="cant-view-telemetry-data"></a>Não é possível ver dados de telemetria
 
-**Sintoma**: Dispositivos ou sensores estão implantados e ligou farmBeats com o seu parceiro de dispositivo, mas não pode obter ou ver dados de telemetria no FarmBeats.
+**Sintoma**: Dispositivos ou sensores são implantados e ligou FarmBeats ao seu parceiro de dispositivo, mas não consegue obter ou visualizar dados de telemetria em FarmBeats.
 
 **Ação corretiva**
 
 1. Vá ao seu grupo de recursos FarmBeats Datahub.
-2. Selecione o Site de **Eventos** (DatafeedEventHubNamespace) e, em seguida, verifique o número de mensagens que chegam.
+2. Selecione o **Centro de Eventos** (DatafeedEventHubNamespace) e, em seguida, verifique o número de mensagens recebidas.
 3. Efetue um dos seguintes procedimentos:
 
-   - Se não houver *mensagens de entrada,* contacte o parceiro do dispositivo.  
-   - Se houver *mensagens de entrada,* contacte-nos com os registos do Datahub e do Acelerador e a telemetria capturada.
+   - Se não houver *mensagens recebidas,* contacte o seu parceiro de dispositivo.  
+   - Se houver *mensagens recebidas,* contacte-nos com os seus registos Datahub e Accelerator e capture a telemetria.
 
 Para entender como descarregar registos, aceda à secção ["Recolher registos manualmente".](#collect-logs-manually)  
 
-### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível visualizar dados de telemetria depois de ingerir dados históricos/de streaming dos seus sensores
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível ver dados de telemetria depois de ingerir dados históricos/de streaming dos seus sensores
 
-**Sintoma**: Dispositivos ou sensores são implantados e você criou os dispositivos/sensores em FarmBeats e ingerido telemetria para o EventHub, mas você não pode obter ou ver dados de telemetria em FarmBeats.
+**Sintoma**: Dispositivos ou sensores são implantados, e você criou os dispositivos/sensores em FarmBeats e ingeriu telemetria para o EventHub, mas você não pode obter ou ver dados de telemetria em FarmBeats.
 
 **Ação corretiva**
 
-1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo para o seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga estes [passos](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
+1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo ao seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga estes [passos](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
 
-2. Certifique-se de que utilizou o formato de mensagem telemetria correto:
+2. Certifique-se de que utilizou o formato correto da mensagem de telemetria:
 
 ```json
 {
@@ -100,44 +99,44 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 }
 ```
 
-### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Não tenha a cadeia de conexão Azure Event Hubs
+### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Não tem a cadeia de conexão Azure Event Hubs
 
 **Ação corretiva**
 
-1. Em Datahub Swagger, vá à API partner.
-2. Selecione **Tente**  >  **Try it out**  >  **executar**.
+1. Em Datahub Swagger, vá à API parceira.
+2. **Selecione**  >  **Experimente executar**  >  **Execute**.
 
 > [!NOTE]
-> A identificação do parceiro de sensores que te interessa.
+> A identificação do parceiro do parceiro de sensores que lhe interessa.
 
-3. Volte para a API partner e selecione ** \< Get/ID>**.
-4. Especifique o ID do parceiro a partir do passo 3 e, em seguida, selecione **Executar**.
+3. Volte para a API do Parceiro e selecione **Get/ \<ID> **.
+4. Especifique o ID do parceiro a partir do passo 3 e, em seguida, **selecione Executar**.
 
-   A resposta DaPI deve ter a cadeia de ligação Do Event Hubs.
+   A resposta da API deve ter a cadeia de ligação Event Hubs.
 
 ### <a name="device-appears-offline"></a>Dispositivo aparece offline
 
-**Sintomas**: Os dispositivos estão instalados e ligou o FarmBeats ao seu parceiro de dispositivo. Os dispositivos estão online e enviam dados de telemetria, mas parecem offline.
+**Sintomas**: Os dispositivos estão instalados e ligaste o FarmBeats ao teu parceiro de dispositivo. Os dispositivos estão online e a enviar dados de telemetria, mas parecem offline.
 
 **Ação corretiva** O intervalo de reporte não está configurado para este dispositivo. Para definir o intervalo de reporte, contacte o fabricante do dispositivo. 
 
-### <a name="error-deleting-a-device"></a>Erro ao apagar um dispositivo
+### <a name="error-deleting-a-device"></a>Erro de eliminação de um dispositivo
 
-Enquanto está a apagar um dispositivo, pode encontrar um dos seguintes cenários de erro comuns:  
+Enquanto está a apagar um dispositivo, poderá encontrar um dos seguintes cenários de erro comuns:  
 
-**Mensagem**: "O dispositivo é referenciado nos sensores: Existem um ou mais sensores associados ao dispositivo. Apague os sensores e, em seguida, apague o dispositivo."  
+**Mensagem**: "O dispositivo é referenciado nos sensores: Existem um ou mais sensores associados ao dispositivo. Elimine os sensores e, em seguida, elimine o dispositivo."  
 
-**Significando:** O dispositivo está associado a múltiplos sensores que são implantados na exploração.
+**Significado:** O dispositivo está associado a múltiplos sensores que são implantados na quinta.
 
 **Ação corretiva**  
 
 1. Elimine os sensores associados ao dispositivo através do Acelerador.  
-2. Se quiser associar os sensores a um dispositivo diferente, peça ao seu parceiro do dispositivo para fazer o mesmo.  
-3. Elimine o dispositivo utilizando uma `DELETE API` chamada e coloque o parâmetro de força como *verdadeiro*.  
+2. Se pretender associar os sensores a um dispositivo diferente, peça ao seu parceiro de dispositivo para fazer o mesmo.  
+3. Elimine o dispositivo utilizando uma `DELETE API` chamada e desate o parâmetro de força como *verdadeiro*.  
 
-**Mensagem**: "O dispositivo é referenciado em dispositivos como ParentDeviceId: Existem um ou mais dispositivos que estão associados a este dispositivo como dispositivos infantis. Apague-os e, em seguida, apague este dispositivo."  
+**Mensagem**: "O dispositivo é referenciado em dispositivos como ParentDeviceId: Existem um ou mais dispositivos que estão associados a este dispositivo como dispositivos infantis. Apague-os e, em seguida, elimine este dispositivo."  
 
-**Ou seja:** O seu dispositivo tem outros dispositivos associados.  
+**Ou seja:** O seu dispositivo tem outros dispositivos associados a ele.  
 
 **Ação corretiva**
 
@@ -145,172 +144,172 @@ Enquanto está a apagar um dispositivo, pode encontrar um dos seguintes cenário
 2. Elimine o dispositivo específico.  
 
     > [!NOTE]
-    > Não é possível apagar um dispositivo se os sensores estiverem associados a ele. Para obter mais informações sobre como eliminar os sensores associados, consulte a secção **de sensores Delete** in [Get dados de sensores dos parceiros de sensores](get-sensor-data-from-sensor-partner.md).
-    > Os parceiros não têm permissão para apagar um dispositivo ou sensor. Só os administradores têm permissão para apagar.
+    > Não é possível apagar um dispositivo se os sensores estiverem associados. Para obter mais informações sobre como eliminar sensores associados, consulte a secção **de sensores Delete** in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
+    > Os parceiros não têm permissão para eliminar um dispositivo ou sensor. Só os Administradores têm permissão para apagar.
 
-## <a name="issues-with-jobs"></a>Questões com emprego
+## <a name="issues-with-jobs"></a>Problemas com empregos
 
-### <a name="farmbeats-internal-error"></a>Erro interno FarmBeats
+### <a name="farmbeats-internal-error"></a>Erro interno do FarmBeats
 
-**Mensagem**: "FarmBeats erro interno, consulte guia de resolução de problemas para mais detalhes."
+**Mensagem**: "FarmBeats erro interno, consulte o guia de resolução de problemas para obter mais detalhes."
 
-**Ação corretiva** Esta questão pode resultar de uma falha temporária no gasoduto de dados. Criar o trabalho de novo. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
+**Ação corretiva** Esta questão pode resultar de uma falha temporária no gasoduto de dados. Criar o trabalho de novo. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
 
 ## <a name="accelerator-troubleshooting"></a>Resolução de problemas do acelerador
 
 ### <a name="access-control"></a>Controlo de acesso
 
-**Emissão**: Recebe um erro enquanto adiciona uma atribuição de funções.
+**Problema**: Recebe um erro enquanto adiciona uma atribuição de função.
 
-**Mensagem**: "Não foram encontrados utilizadores correspondentes."
+**Mensagem:**"Não foram encontrados utilizadores correspondentes."
 
-**Ação corretiva** Verifique o ID de e-mail para o qual está a tentar adicionar uma atribuição de funções. O ID de e-mail deve ser uma correspondência exata do ID, que está registado para esse utilizador no Diretório Ativo. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
+**Ação corretiva** Verifique o ID de e-mail para o qual está a tentar adicionar uma atribuição de funções. O ID de e-mail deve ser uma correspondência exata do ID, que está registado para esse utilizador no Diretório Ativo. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Incapaz de iniciar sessão no Acelerador
 
 **Mensagem**: "Erro: Não está autorizado a ligar para o serviço. Contacte o administrador para obter autorização."
 
-**Ação corretiva** Peça ao administrador que o autorize a aceder à implementação do FarmBeats. Isto pode ser feito fazendo uma publicação das APIs de Atribuição de Funções ou através do Controlo de Acesso no painel **definições** no Acelerador.  
+**Ação corretiva** Peça ao administrador que o autorize a aceder à implantação farmbeats. Isto pode ser feito fazendo um POST das APIs de Assinatura de Função ou através do Controlo de Acesso no painel **de Definições** no Acelerador.  
 
-Se já lhe foi concedido acesso e enfrentando este erro, tente novamente refrescando a página. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
+Se já lhe foi concedido acesso e enfrentar este erro, tente novamente refrescando a página. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
 
-![Project FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Projeto FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Problemas de acelerador  
 
-**Problema**: Recebeu um erro acelerador de causa indeterminada.
+**Problema**: Recebeu um erro de aceleração de causa indeterminada.
 
-**Mensagem**: "Erro: Ocorreu um erro desconhecido".
+**Mensagem**: "Erro: ocorreu um erro desconhecido."
 
-**Ação corretiva** Este erro ocorre se deixar a página inativa por muito tempo. Atualize a página. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
+**Ação corretiva** Este erro ocorre se deixar a página inativa por muito tempo. Atualize a página. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
 
 **Problema**: FarmBeats Accelerator não está a mostrar a versão mais recente, mesmo depois de ter atualizado o FarmBeatsDeployment.
 
 **Ação corretiva** Este erro ocorre devido à persistência do trabalhador de serviço no navegador. Faça o seguinte:
 
-1. Feche todos os separadores do navegador que tenham o Acelerador aberto e feche a janela do navegador.
-2. Inicie uma nova instância do navegador e recarregue o Acelerador URI. Esta ação carrega a nova versão do Acelerador.
+1. Feche todos os separadores de navegador que tenham o Accelerator aberto e feche a janela do navegador.
+2. Inicie uma nova instância do navegador e recarregue o Accelerator URI. Esta ação carrega a nova versão do Acelerador.
 
 ## <a name="sentinel-imagery-related-issues"></a>Sentinela: Questões relacionadas com imagens
 
 ### <a name="wrong-username-or-password"></a>Nome de utilizador errado ou senha
 
-**Mensagem de falha de emprego**: "A autenticação total é necessária para aceder a este recurso."
+**Mensagem de insuficiência de emprego**: "A autenticação total é necessária para aceder a este recurso."
 
-**Ação corretiva**: Faça um dos seguintes:
+**Ação corretiva**: Faça uma das seguintes:
 
-- Atualizar FarmBeats com o nome de utilizador/senha correto utilizando os passos abaixo e voltar a tentar o trabalho.
+- Atualize FarmBeats com o nome de utilizador/palavra-passe correto utilizando os passos abaixo e reveja o trabalho.
 
   **Atualizar nome de utilizador Sentinel**
 
-    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+    1. Inscreva-se no [portal Azure](https://portal.azure.com).
     2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
-    3. Selecione armazenamento da conta de armazenamento***** > **contentores-ficheiros**  >  **de preparação**  >  **to_vm**  >  **config.ini**
-    4. **Selecione Editar**
-    5. Atualize o nome de utilizador na secção sentinel_account
+    3. Selecione armazenamento de conta de armazenamento***** > **contentores**de  >  **ficheiros de lote**  >  **to_vm**  >  **config.ini**
+    4. Selecione **Editar**
+    5. Atualizar o nome de utilizador na secção sentinel_account
 
-  **Atualizar palavra-passe do Sentinel**
+  **Atualizar palavra-passe sentinela**
 
-    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+    1. Inscreva-se no [portal Azure](https://portal.azure.com).
     2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
-    3. Selecione keyvault-*****
-    4. Selecione Políticas de Acesso em Definições
-    5. **Selecione Adicionar Política de Acesso**
-    6. Use **a gestão secreta** para configurar a partir do modelo e adicione-se ao Principal
-    7. Selecione **Adicionar**, e, em seguida, selecione **Guardar** na página Políticas de **Acesso**
-    8. Selecione **Segredos** em **Definições**
-    9. Selecione **Palavra-passe sentinela**
-    10. Crie uma nova versão do valor e ative-a.
+    3. Selecione keyvault-****
+    4. Selecione políticas de acesso em definições
+    5. Selecione **Adicionar Política de Acesso**
+    6. Use **a gestão secreta** para configurar do modelo e adicione-se ao Principal
+    7. Selecione **Adicionar**e, em seguida, selecione **Guardar** na página **'Políticas de Acesso'**
+    8. Selecione **segredos** em **Definições**
+    9. Selecione **palavra-passe sentinela**
+    10. Crie uma nova versão do valor e ative-o.
 
-- Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e depois verificar se o trabalho é bem sucedido.
+- Re-executar o trabalho falhado, ou executar um trabalho de índice de satélite para um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
 
-### <a name="sentinel-hub-wrongurlor-site-not-accessible"></a>Centro Sentinel: URL errado ou site não acessível
+### <a name="sentinel-hub-wrongurlor-site-not-accessible"></a>Centro sentinela: URL errado ou site não acessível
 
-Mensagem de **insucesso de emprego:**"Oops, algo correu mal. A página a que estava a tentar aceder está (temporariamente) indisponível."
+**Mensagem de insuficiência de emprego:**"Oops, algo correu mal. A página a que estava a tentar aceder está (temporariamente) indisponível."
 
 **Ação corretiva:**
 
-1. Abra o [Sentinel](https://scihub.copernicus.eu/dhus/) no seu navegador para ver se o site está acessível.
+1. Abra [o Sentinel](https://scihub.copernicus.eu/dhus/) no seu browser para ver se o site está acessível.
 2. Se o site não estiver acessível, verifique se qualquer firewall, rede da empresa ou outro software de bloqueio está impedindo o acesso ao site e, em seguida, tome as medidas necessárias para permitir o URL Sentinel. 
-3. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.  
+3. Re-executar o trabalho falhado, ou executar um trabalho de índice de satélite para um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Servidor Sentinel: Para baixo para manutenção
 
-**Mensagem de falha de emprego**: "O Centro de Acesso Aberto Copernicus estará de volta em breve! Desculpe pelo inconveniente, estamos fazendo alguma manutenção no momento. Estaremos de volta on-line em breve! 
+**Mensagem de insucesso de emprego**: "O Copernicus Open Access Hub estará de volta em breve! Desculpe pelo inconveniente, estamos a fazer alguma manutenção no momento. Vamos estar de volta on-line em breve! 
 
 **Ação corretiva:**
 
-Este problema pode ocorrer se alguma atividade de manutenção estiver sendo feita no servidor Sentinel.
+Este problema pode ocorrer se estiverem a ser feitas atividades de manutenção no servidor Sentinel.
 
-1. Se algum trabalho ou oleoduto falhar porque a manutenção está a ser realizada, reenvie o trabalho após algum tempo. 
+1. Se algum trabalho ou gasoduto falhar porque a manutenção está a ser realizada, reenvia o trabalho após algum tempo. 
 
    Para obter informações sobre quaisquer atividades de manutenção planeadas ou não planeadas do Sentinel, aceda ao site [Copernicus Open Access Hub News.](https://scihub.copernicus.eu/news/)  
 
-2. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
+2. Re-executar o trabalho falhado, ou executar um trabalho de índice de satélite para um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinela: Número máximo de ligações alcançadas
 
-**Mensagem de falha de emprego**: "Número máximo de dois fluxos simultâneos alcançados pelo \< 'username>'."
+**Mensagem de insuficiência de emprego**: "Número máximo de dois fluxos simultâneos alcançados pelo utilizador ' ' \<username> ."
 
-**Significa:** Se um trabalho falhar porque o número máximo de ligações foi atingido, a mesma conta Sentinel está a ser utilizada em múltiplos postos de trabalho.
+**Ou seja:** Se um trabalho falhar porque o número máximo de ligações foi atingido, a mesma conta Sentinel está a ser utilizada em múltiplos postos de trabalho.
 
-**Ação corretiva**: Tente qualquer uma das seguintes seguintes:
+**Ação corretiva**: Experimente qualquer uma das seguintes:
 
-* Espere que os outros trabalhos terminem antes de reexecutar o trabalho falhado.
-* Crie uma nova conta Sentinel e, em seguida, atualize o nome de utilizador sentinel e a palavra-passe no FarmBeats.
+* Espere que os outros trabalhos terminem antes de recandidatar o trabalho falhado.
+* Crie uma nova conta Sentinel e, em seguida, atualize o nome de utilizador sentinel e a palavra-passe em FarmBeats.
 
 ### <a name="sentinel-server-refused-connection"></a>Servidor Sentinel: Ligação recusada
 
-**Mensagem de falha de emprego**: "O servidor recusou a ligação a: http://172.30.175.69:8983/solr/dhus ."
+**Mensagem de falha de emprego**: "Servidor recusou ligação em: http://172.30.175.69:8983/solr/dhus ."
 
-**Ação corretiva**: Este problema pode ocorrer se alguma atividade de manutenção estiver a ser feita no servidor Sentinel.
+**Ação corretiva**: Este problema pode ocorrer se estiverem a ser feitas atividades de manutenção no servidor Sentinel.
 
-1. Se algum trabalho ou oleoduto falhar porque a manutenção está a ser realizada, reenvie o trabalho após algum tempo.
+1. Se algum trabalho ou gasoduto falhar porque a manutenção está a ser realizada, reenvia o trabalho após algum tempo.
 
    Para obter informações sobre quaisquer atividades de manutenção planeadas ou não planeadas do Sentinel, aceda ao site [Copernicus Open Access Hub News.](https://scihub.copernicus.eu/news/)  
 
-2. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
+2. Re-executar o trabalho falhado, ou executar um trabalho de índice de satélite para um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
 
 ### <a name="soil-moisture-map-has-white-areas"></a>Mapa da humidade do solo tem áreas brancas
 
-**Emissão**: O mapa da humidade do **solo** foi gerado, mas o mapa tem principalmente áreas brancas.
+**Edição**: O **mapa da humidade do solo** foi gerado, mas o mapa tem principalmente áreas brancas.
 
-**Ação corretiva**: Esta questão pode ocorrer se os índices de satélite gerados para o tempo para o qual o mapa foi solicitado tiver valores NDVI inferiores a 0,3. Para mais informações, visite [o Guia Técnico do Sentinel.](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)
+**Ação corretiva**: Esta questão pode ocorrer se os índices de satélite gerados pelo tempo para o qual o mapa foi solicitado ndvi mentem valores inferiores a 0,3. Para mais informações, visite [o Guia Técnico da Sentinela.](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)
 
-1. Refaça o trabalho para uma gama de datas diferente e verifique se os valores NDVI nos índices de satélite são superiores a 0,3.
+1. Volte a fazer o trabalho para um intervalo de datas diferente e verifique se os valores NDVI nos índices de satélite são superiores a 0,3.
 
 ## <a name="collect-logs-manually"></a>Recolher registos manualmente
 
-[Instale e implemente o Azure Storage Explorer.]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+[Instale e instale o Explorador de Armazenamento Azure]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Recolher registos de trabalho na Azure Data Factory ou registos do Serviço de Aplicações no Datahub
+### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Recolher registos de trabalho da Azure Data Factory ou registos de Serviços de Aplicações no Datahub
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
-3. No painel do **Grupo de Recursos,** procure a conta de armazenamento de *datahublogs. \* * Por exemplo, *datahublogsmvxmq*.  
-4. Na coluna **Nome,** selecione a conta de armazenamento para visualizar o painel de **instrumentos da Conta de Armazenamento.**
-5. No painel **datahubblogs, \* ** selecione **Open in Explorer** para ver a aplicação Open **Azure Storage Explorer.**
-6. No painel esquerdo, selecione **Blob Containers**, e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
+3. No painel de instrumentos **do Grupo de Recursos,** procure a conta de armazenamento *de datahublogs. \* * Por exemplo, *datahublogsmvxmq*.  
+4. Na coluna **Nome,** selecione a conta de armazenamento para visualizar o painel **de instrumentos da Conta de Armazenamento.**
+5. No painel **de \* datahubblogs,** selecione **Open in Explorer** para ver a aplicação Open **Azure Storage Explorer.**
+6. No painel esquerdo, selecione **Blob Containers**e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
 7. Selecione **Baixar** e transferir os registos para uma pasta local na sua máquina.
 
-    ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Projeto FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
-### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Recolher registos de trabalho na Azure Data Factory ou registos do Serviço de Aplicações para Acelerador
+### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Recolher registos de trabalho da Azure Data Factory ou registos de Serviço de Aplicações para Acelerador
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Na caixa **de pesquisa,** procure o grupo de recursos do Acelerador FarmBeats.
-3. No painel do **Grupo de Recursos,** procure a conta de *armazenamento. \* * Por exemplo, *storagedop4k \* *.
-4. Selecione a conta de armazenamento na coluna **Nome** para visualizar o painel de **instrumentos da Conta de Armazenamento.**
-5. No painel de **armazenamento, \* ** selecione **Open in Explorer** para abrir a aplicação Azure Storage Explorer.
-6. No painel esquerdo, selecione **Blob Containers**, e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
+2. Na caixa **de pesquisa,** procure o grupo de recursos farmbeats accelerator.
+3. No painel de instrumentos **do Grupo de Recursos,** procure * \* a* conta de armazenamento. Por exemplo, *armazenamento 4k \* *.
+4. Selecione a conta de armazenamento na coluna **Nome** para ver o painel **de instrumentos da Conta de Armazenamento.**
+5. No painel **de armazenamento, \* ** selecione Open in **Explorer** para abrir a aplicação Azure Storage Explorer.
+6. No painel esquerdo, selecione **Blob Containers**e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
 7. Selecione **Baixar** e transferir os registos para uma pasta local na sua máquina.
 
 ## <a name="high-cpu-usage"></a>Elevada utilização da CPU
 
-**Erro**: Recebe um alerta de e-mail que se refere a um alerta de utilização de **CPU .**
+**Erro**: Recebe um alerta de e-mail que se refere a um **Alerta de Utilização de CPU Elevado**.
 
 **Ação corretiva:**
 
 1. Vá ao seu grupo de recursos FarmBeats Datahub.
 2. Selecione o **serviço App**.  
-3. Vá à página de preços do Serviço de [Aplicações](https://azure.microsoft.com/pricing/details/app-service/windows/)e, em seguida, selecione um nível de preços apropriado.
+3. Vá à página de preços do [Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/windows/)de escala e, em seguida, selecione um nível de preços apropriado.
