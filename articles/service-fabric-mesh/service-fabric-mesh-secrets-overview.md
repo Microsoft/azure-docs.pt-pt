@@ -1,31 +1,30 @@
 ---
-title: Armazenar e usar segredos de aplicação de malha de tecido de tecido de serviço azure
-description: Service Fabric Mesh suporta Segredos como recursos Azure. Aqui está como armazenar e gerir segredos com as suas aplicações de Malha de Tecido de Serviço.
+title: Armazenar e usar segredos de aplicação de malha de malha de tecido de serviço Azure
+description: A Malha de Tecido de Serviço suporta segredos como recursos Azure. Aqui está como armazenar e gerir segredos com as suas aplicações de Malha de Tecido de Serviço.
 author: erikadoyle
 ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: da4eaa34840f14714616b85e24fd62cf65602b84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277623"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Segredos de aplicação de malha de tecido de serviço
-Service Fabric Mesh suporta Segredos como recursos Azure. Um segredo de malha de tecido de serviço pode ser qualquer informação sensível de texto, tais como cordas de ligação de armazenamento, palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura.
+A Malha de Tecido de Serviço suporta segredos como recursos Azure. Um segredo de malha de tecido de serviço pode ser qualquer informação de texto sensível, como cadeias de ligação de armazenamento, palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura.
 
-![Visão geral dos segredos da malha][sf-mesh-secrets-overview]
+![Visão geral dos segredos de malha][sf-mesh-secrets-overview]
 
 ## <a name="mesh-secrets-resources"></a>Recursos de segredos de malha
-Uma aplicação de malha secreta consiste em:
-* Um recurso **Secrets,** que é um recipiente que armazena segredos de texto. Os segredos contidos no recurso **Secrets** são armazenados e transmitidos de forma segura.
-* Um ou mais **recursos Secrets/Values** que estão armazenados no contentor de recursos **Secrets.** Cada recurso **Secrets/Values** distingue-se por um número de versão.
+Uma aplicação de malha Secreta consiste em:
+* Um recurso **Secrets,** que é um recipiente que armazena segredos de texto. Os segredos **contidos** no recurso Secrets são armazenados e transmitidos de forma segura.
+* Um ou mais recursos **Secrets/Values** que estão armazenados no contentor de recursos **Secrets.** Cada recurso **Segredos/Valores** distingue-se por um número de versão.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 Para saber mais sobre os Segredos de Malha de Tecido de Serviço, consulte:
-- [Gerir os segredos de aplicação da malha de tecido de serviço](service-fabric-mesh-howto-manage-secrets.md)
-- [Introdução ao modelo de recurso de tecido de serviço](service-fabric-mesh-service-fabric-resources.md)
+- [Gerir segredos de aplicação de malha de tecido de serviço](service-fabric-mesh-howto-manage-secrets.md)
+- [Introdução ao Modelo de Recursos de Tecido de Serviço](service-fabric-mesh-service-fabric-resources.md)
 
 <!-- pics -->
 [sf-mesh-secrets-overview]: ./media/service-fabric-mesh-secrets-overview/MeshAppSecretsOverview.png

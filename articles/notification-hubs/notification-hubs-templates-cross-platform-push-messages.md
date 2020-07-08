@@ -1,6 +1,6 @@
 ---
-title: Modelos de Hubs de Notificação Azure
-description: Saiba usar modelos para Centros de Notificação Azure.
+title: Modelos de hubs de notificação Azure
+description: Saiba como usar modelos para Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,26 +17,25 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263749"
 ---
 # <a name="templates"></a>Modelos
 
-Os modelos permitem que uma aplicação do cliente especifique o formato exato das notificações que pretende receber. Usando modelos, uma aplicação pode realizar vários benefícios diferentes, incluindo o seguinte:
+Os modelos permitem que uma aplicação do cliente especifique o formato exato das notificações que pretende receber. Utilizando modelos, uma aplicação pode realizar vários benefícios diferentes, incluindo os seguintes:
 
 - Um backend agnóstico de plataforma
 - Notificações personalizadas
 - Independência da versão do cliente
 - Localização fácil
 
-Esta secção fornece dois exemplos aprofundados de como usar modelos para enviar notificações agnósticas de plataforma direcionadas para todos os seus dispositivos através de plataformas, e personalizar a notificação de transmissão para cada dispositivo.
+Esta secção fornece dois exemplos aprofundados de como usar modelos para enviar notificações agnósticas da plataforma direcionadas a todos os seus dispositivos através de plataformas e para personalizar a notificação de transmissão para cada dispositivo.
 
 ## <a name="using-templates-cross-platform"></a>Usando modelos cross-platform
 
-A forma padrão de enviar notificações push é enviar, para cada notificação que deve ser enviada, uma carga útil específica para serviços de notificação da plataforma (WNS, APNS). Por exemplo, para enviar um alerta para a APNS, a carga útil é um objeto JSON do seguinte formulário:
+A forma padrão de enviar notificações push é enviar, para cada notificação que deve ser enviada, uma carga útil específica para os serviços de notificação da plataforma (WNS, APNS). Por exemplo, para enviar um alerta para a APNS, a carga útil é um objeto JSON do seguinte formulário:
 
 ```json
 {"aps": {"alert" : "Hello!" }}
@@ -54,23 +53,23 @@ Para enviar uma mensagem de torrada semelhante numa aplicação da Windows Store
 </toast>
 ```
 
-Pode criar cargas similares para as plataformas MPNS (Windows Phone) e FCM (Android).
+Pode criar cargas similares para plataformas MPNS (Windows Phone) e FCM (Android).
 
-Este requisito obriga o backend da aplicação a produzir diferentes cargas para cada plataforma, e efetivamente torna o backend responsável por parte da camada de apresentação da app. Algumas preocupações incluem localização e layouts gráficos (especialmente para aplicações da Windows Store que incluem notificações para vários tipos de azulejos).
+Esta exigência obriga o backend da app a produzir cargas diferentes para cada plataforma, e efetivamente torna o backend responsável por parte da camada de apresentação da app. Algumas preocupações incluem localização e layouts gráficos (especialmente para aplicações Windows Store que incluem notificações para vários tipos de azulejos).
 
-A funcionalidade de modelo De Logir Hubs permite a uma aplicação de cliente criar registos especiais, chamados registos de modelos, que incluem, além do conjunto de tags, um modelo. A função de modelo De Logir Hubs permite que uma aplicação de cliente associe dispositivos com modelos quer esteja a trabalhar com Instalações (preferidas) ou Registos. Tendo em conta os exemplos de carga útil anteriores, a única informação independente da plataforma é a mensagem de alerta real (Olá!). Um modelo é um conjunto de instruções para o Centro de Notificação sobre como formatar uma mensagem independente da plataforma para o registo dessa aplicação específica do cliente. No exemplo anterior, a mensagem independente da plataforma `message = Hello!`é uma única propriedade: .
+A funcionalidade de modelo 'Hubs' de notificação permite a uma aplicação do cliente criar registos especiais, chamados registos de modelos, que incluem, além do conjunto de tags, um modelo. A funcionalidade de modelo 'Hubs de Notificação' permite que uma aplicação do cliente associe dispositivos com modelos quer esteja a trabalhar com Instalações (preferenciais) ou Registos. Tendo em conta os exemplos anteriores da carga útil, a única informação independente da plataforma é a mensagem de alerta real (Olá!). Um modelo é um conjunto de instruções para o Centro de Notificação sobre como formatar uma mensagem independente da plataforma para o registo dessa aplicação específica do cliente. No exemplo anterior, a mensagem independente da plataforma é uma única propriedade: `message = Hello!` .
 
-A imagem seguinte ilustra o processo:
+A imagem a seguir ilustra o processo:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
-O modelo para o registo de aplicações para clientes iOS é o seguinte:
+O modelo para o registo de aplicações do cliente iOS é o seguinte:
 
 ```json
 {"aps": {"alert": "$(message)"}}
 ```
 
-O modelo correspondente para a aplicação de cliente da Windows Store é:
+O modelo correspondente para a aplicação cliente da Windows Store é:
 
 ```xml
 <toast>
@@ -82,15 +81,15 @@ O modelo correspondente para a aplicação de cliente da Windows Store é:
 </toast>
 ```
 
-Note que a mensagem real é substituída pela expressão $(mensagem). Esta expressão instrui o Centro de Notificação, sempre que envia uma mensagem para este registo específico, para construir uma mensagem que a siga e alterna no valor comum.
+Note que a mensagem real é substituída pela expressão $(mensagem). Esta expressão instrui o Centro de Notificação, sempre que envia uma mensagem a este registo em particular, para construir uma mensagem que a siga e que comuta no valor comum.
 
-Se estiver a trabalhar com o modelo de instalação, a chave de instalação "modelos" contém um JSON de vários modelos. Se estiver a trabalhar com o modelo de registo, a aplicação do cliente pode criar múltiplas inscrições para utilizar vários modelos; por exemplo, um modelo para mensagens de alerta e um modelo para atualizações de azulejos. As aplicações ao cliente também podem misturar registos nativos (registos sem modelo) e registos de modelos.
+Se estiver a trabalhar com o modelo de instalação, a tecla "modelos" de instalação contém um JSON de vários modelos. Se estiver a trabalhar com o modelo De Registo, a aplicação do cliente pode criar vários registos de forma a utilizar vários modelos; por exemplo, um modelo para mensagens de alerta e um modelo para atualizações de azulejos. As aplicações do cliente também podem misturar registos nativos (registos sem modelo) e registos de modelos.
 
-O Centro de Notificação envia uma notificação para cada modelo sem considerar se pertencem à mesma aplicação de cliente. Este comportamento pode ser usado para traduzir notificações independentes da plataforma em mais notificações. Por exemplo, a mesma mensagem independente da plataforma para o Centro de Notificação pode ser perfeitamente traduzida num alerta de torrada e numa atualização de azulejos, sem exigir que o backend esteja ciente do mesmo. Algumas plataformas (por exemplo, iOS) podem colapsar várias notificações para o mesmo dispositivo se forem enviadas num curto espaço de tempo.
+O Centro de Notificações envia uma notificação para cada modelo sem considerar se pertencem à mesma aplicação do cliente. Este comportamento pode ser usado para traduzir notificações independentes da plataforma em mais notificações. Por exemplo, a mesma mensagem independente da plataforma para o Centro de Notificação pode ser traduzida perfeitamente num alerta de torradas e numa atualização de azulejos, sem que seja necessário que o backend esteja ciente do mesmo. Algumas plataformas (por exemplo, iOS) podem colapsar várias notificações para o mesmo dispositivo se forem enviadas num curto espaço de tempo.
 
 ## <a name="using-templates-for-personalization"></a>Usando modelos para personalização
 
-Outra vantagem na utilização de modelos é a capacidade de utilizar centros de notificação para realizar personalização por registo de notificações. Por exemplo, considere uma aplicação meteorológica que exibe um azulejo com as condições meteorológicas num local específico. Um utilizador pode escolher entre graus Celsius ou Fahrenheit, e uma previsão de um ou cinco dias. Utilizando modelos, cada instalação de aplicação de cliente pode registar-se para o formato necessário (1 dia Celsius, 1 dia Fahrenheit, 5 dias Celsius, 5 dias Fahrenheit), e fazer com que o backend envie uma única mensagem que contenha todas as informações necessárias para preencher esses modelos (por exemplo, uma previsão de cinco dias com graus Celsius e Fahrenheit).
+Outra vantagem na utilização de modelos é a capacidade de usar Os Centros de Notificação para realizar a personalização por registo de notificações. Por exemplo, considere uma aplicação meteorológica que exibe um azulejo com as condições meteorológicas num local específico. Um utilizador pode escolher entre graus Celsius ou Fahrenheit, e uma previsão de um ou cinco dias. Utilizando modelos, cada instalação de aplicativos do cliente pode registar-se para o formato necessário (1 dia Celsius, 1 dia Fahrenheit, 5 dias Celsius, 5 dias Fahrenheit), e ter o backend enviar uma única mensagem que contenha todas as informações necessárias para preencher esses modelos (por exemplo, uma previsão de cinco dias com graus Celsius e Fahrenheit).
 
 O modelo para a previsão de um dia com temperaturas Celsius é o seguinte:
 
@@ -119,35 +118,35 @@ A mensagem enviada para o Centro de Notificação contém todas as seguintes pro
 </table><br/>
 ```
 
-Ao utilizar este padrão, o backend apenas envia uma única mensagem sem ter de armazenar opções específicas de personalização para os utilizadores da aplicação. A imagem seguinte ilustra este cenário:
+Ao utilizar este padrão, o backend apenas envia uma única mensagem sem ter de armazenar opções específicas de personalização para os utilizadores da aplicação. A seguinte imagem ilustra este cenário:
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Como registar modelos
 
-Para se registar com modelos utilizando o modelo de instalação (preferido), ou o modelo de registo, consulte [gestão de registos](notification-hubs-push-notification-registration-management.md).
+Para registar-se com os modelos utilizando o modelo de instalação (preferencial), ou o modelo de Registo, consulte [Gestão de Registos.](notification-hubs-push-notification-registration-management.md)
 
-## <a name="template-expression-language"></a>Linguagem de expressão do modelo
+## <a name="template-expression-language"></a>Linguagem de expressão de modelo
 
-Os modelos estão limitados aos formatos de documentos XML ou JSON. Além disso, você só pode colocar expressões em lugares particulares; por exemplo, atributos de nó ou valores para XML, valores de propriedade de cordas para JSON.
+Os modelos estão limitados aos formatos de documentos XML ou JSON. Além disso, só se podem colocar expressões em locais específicos; por exemplo, atributos ou valores de nó para XML, valores de propriedade de cadeia para JSON.
 
-A tabela seguinte mostra a linguagem permitida em modelos:
+A tabela a seguir mostra o idioma permitido nos modelos:
 
 | Expressão       | Descrição |
 | ---------------- | --- |
-| $(adereço)          | Referência a uma propriedade de evento com o nome dado. Os nomes de propriedade não são sensíveis a casos. Esta expressão resolve-se no valor de texto da propriedade ou numa cadeia vazia se a propriedade não estiver presente. |
-| $(prop, n)       | Como acima, mas o texto é explicitamente recortado em caracteres n, por exemplo $(título, 20) clips o conteúdo da propriedade do título em 20 caracteres. |
-| . (adereço, n)       | Como acima, mas o texto é sufixo com três pontos à medida que é cortado. O tamanho total da corda cortada e do sufixo não excede os caracteres n. . (título, 20) com uma propriedade de entrada de "Esta é a linha do título" resulta **neste é o título...** |
-| %(prop)          | Semelhante a $(nome), exceto que a saída é codificada por URI. |
-| #(adereço)          | Usado em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Esta função funciona exatamente da mesma forma que $(prop) previamente especificado, exceto quando utilizada em modelos JSON (por exemplo, modelos apple). Neste caso, se esta função não estiver rodeada por "{'",}"" (por exemplo, 'myJsonProperty' : '#(nome)'), e avalia um número em formato Javascript, por exemplo,\. regexp: (0&#124; (&#91;1-9&#93;&#91;0-9&#93;*),&#91;0-9&#93;+)? (e&#124;E)(&#124;-)?&#91;0-9&#93;+)?, então a saída JSON é um número.<br><br>Por exemplo, 'crachá: '#(nome)' torna-se 'crachá': 40 (e não '40'). |
-| 'texto' ou "texto" | Um literal. Os literais contêm texto arbitrário incluído em cotações individuais ou duplas. |
-| expr1 + expr2    | O operador de constcatenação juntando duas expressões numa única corda. |
+| $(adereço)          | Referência a uma propriedade do evento com o nome próprio. Os nomes das propriedades não são sensíveis a casos. Esta expressão resolve-se no valor de texto da propriedade ou numa cadeia vazia se a propriedade não estiver presente. |
+| $(prop, n)       | Como acima, mas o texto é explicitamente cortado em n caracteres, por exemplo $(título, 20) clips o conteúdo da propriedade título em 20 caracteres. |
+| . (adereço, n)       | Como acima, mas o texto é sufixado com três pontos à medida que é cortado. O tamanho total da corda cortada e do sufixo não excede os caracteres n. . (título, 20) com uma propriedade de entrada de "This is the title line" resulta em **This is the title...** |
+| %(prop)          | Semelhante a $(nome), exceto que a saída é codificada URI. |
+| #(prop)          | Usado em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Esta função funciona exatamente da mesma forma que o $(prop) previamente especificado, exceto quando usado em modelos JSON (por exemplo, modelos apple). Neste caso, se esta função não estiver rodeada de "{'}" (por exemplo, 'myJsonProperty' : '#(nome)'), e avaliar um número em formato Javascript, por exemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)(&#91;\. 0-9&#93;+).)(&#91;0-9&#93;e&#124;E) (+&#124;-)?&#91;0-9&#93;+)?, então a saída JSON é um número.<br><br>Por exemplo, 'badge: '#(nome)' torna-se 'badge' : 40 (e não '40'). |
+| 'texto' ou "texto" | Um literal. Os literais contêm texto arbitrário incluído em cotações simples ou duplas. |
+| expr1 + expr2    | O operador de concatenação junta duas expressões numa única corda. |
 
 As expressões podem ser qualquer uma das formas anteriores.
 
-Quando se utiliza a concatenação, toda a expressão deve estar rodeada de `{}`. Por exemplo, `{$(prop) + ‘ - ’ + $(prop2)}`.
+Ao utilizar a concatenação, toda a expressão deve estar rodeada de `{}` . Por exemplo, `{$(prop) + ‘ - ’ + $(prop2)}`.
 
-Por exemplo, o seguinte modelo não é um modelo XML válido:
+Por exemplo, o modelo a seguir não é um modelo XML válido:
 
 ```xml
 <tile>
@@ -171,6 +170,6 @@ Como explicado anteriormente, quando se utiliza a concatenação, as expressões
 </tile>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Conheça os Centros de Notificação Azure](notification-hubs-push-notification-overview.md)
+[Saiba mais sobre os Hubs de Notificação Azure](notification-hubs-push-notification-overview.md)

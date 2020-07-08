@@ -1,26 +1,25 @@
 ---
-title: Automate o registo e a descoberta do serviço de automatização
-description: Saiba automatizar a descoberta e o registo de serviços através do Registo de Serviço sinuoso da Spring Cloud
+title: Automatizar registo de serviço e descoberta
+description: Saiba como automatizar a descoberta e o registo do serviço usando o Registo de Serviços de Nuvem de primavera
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76278864"
 ---
-# <a name="discover-and-register-your-spring-cloud-services"></a>Descubra e registe os seus serviços de Nuvem de primavera
+# <a name="discover-and-register-your-spring-cloud-services"></a>Descubra e registe os seus serviços cloud de primavera
 
-Service Discovery é um requisito chave para uma arquitetura baseada em microserviços.  Configurar cada cliente manualmente leva tempo e introduz a possibilidade de erro humano.  O Registo de Serviço sinuoso da Nuvem de primavera de Azure resolve este problema.  Uma vez configurado, um servidor de Registo de Serviço controlará o registo e a descoberta do serviço para os microserviços da sua aplicação. O servidor do Registo de Serviços mantém um registo dos microserviços implantados, permite o equilíbrio de carga do lado do cliente e dissocia os prestadores de serviços dos clientes sem depender do DNS.
+A Service Discovery é um requisito fundamental para uma arquitetura baseada em microservices.  Configurar cada cliente manualmente leva tempo e introduz a possibilidade de erro humano.  O Registo de Serviços de Nuvem de Azure Spring resolve este problema.  Uma vez configurado, um servidor de Registo de Serviço controlará o registo do serviço e a descoberta dos microserviços da sua aplicação. O servidor de Registo de Serviços mantém um registo dos microserviços implantados, permite o equilíbrio de carga do lado do cliente e dissocia os prestadores de serviços dos clientes sem depender de DNS.
 
-## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registe a sua aplicação através do Registo de Serviço sinuoso da Nuvem de primavera
+## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registe a sua aplicação usando o Registo de Serviços de Nuvem de primavera
 
-Antes que a sua aplicação possa gerir o registo e a descoberta do serviço através do Registo de Serviço seleções da Spring Cloud, várias dependências devem ser incluídas no ficheiro *pom.xml* da aplicação.
-Inclua dependências para *spring-cloud-starter-netflix-eureka-client* e *spring-cloud-starter-azure-spring-cloud-client* to your *pom.xml*
+Antes da sua aplicação poder gerir o registo e descoberta do serviço usando o Registo de Serviços da Nuvem de primavera, várias dependências devem ser incluídas no ficheiro *pom.xml* da aplicação.
+Inclua dependências para *o* seu *cliente depom.xml* *spring-cloud-starter-azure-spring-cloud-client*
 
 ```xml
     <dependency>
@@ -52,6 +51,6 @@ Finalmente, adicionamos uma anotação à classe de nível superior da sua aplic
     }
  ```
 
-O ponto final do servidor do serviço da Nuvem de primavera será injetado como uma variável ambiental na sua aplicação.  Os microserviços poderão agora registar-se no servidor do Registo de Serviços e descobrir outros microserviços dependentes.
+O ponto final do servidor do serviço de cloud spring cloud será injetado como uma variável ambiental na sua aplicação.  Os microserviços poderão agora registar-se no servidor do Registo de Serviços e descobrir outros microserviços dependentes.
 
-Note que pode demorar alguns minutos para que as alterações se propaguem do servidor para todos os microserviços.
+Note que pode levar alguns minutos para que as alterações se propaguem do servidor para todos os microserviços.

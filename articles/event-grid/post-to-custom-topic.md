@@ -1,6 +1,6 @@
 ---
-title: Post event to custom Azure Event Grid topic
-description: Este artigo descreve como publicar um evento num tópico personalizado. Mostra o formato dos dados do post e do evento.
+title: Evento de post para personalizar o tópico da Grelha de Eventos Azure
+description: Este artigo descreve como publicar um evento para um tópico personalizado. Mostra o formato dos dados do post e do evento.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,31 +9,30 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721562"
 ---
-# <a name="post-to-custom-topic-for-azure-event-grid"></a>Post to custom topic for Azure Event Grid
+# <a name="post-to-custom-topic-for-azure-event-grid"></a>Post para tópico personalizado para Azure Event Grid
 
-Este artigo descreve como publicar um evento num tópico personalizado. Mostra o formato dos dados do post e do evento. O [Acordo de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) aplica-se apenas a publicações que correspondam ao formato esperado.
+Este artigo descreve como publicar um evento para um tópico personalizado. Mostra o formato dos dados do post e do evento. O [Acordo de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) aplica-se apenas a publicações que correspondam ao formato esperado.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="endpoint"></a>Ponto Final
 
-Ao enviar o HTTP POST para um tópico `https://<topic-endpoint>?api-version=2018-01-01`personalizado, utilize o formato URI: .
+Ao enviar o HTTP POST para um tópico personalizado, utilize o formato URI: `https://<topic-endpoint>?api-version=2018-01-01` .
 
-Por exemplo, um URI `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`válido é: .
+Por exemplo, um URI válido é: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 
-Para obter o ponto final para um tópico personalizado com o Azure CLI, use:
+Para obter o ponto final para um tópico personalizado com Azure CLI, use:
 
 ```azurecli-interactive
 az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "endpoint"
 ```
 
-Para obter o ponto final para um tópico personalizado com o Azure PowerShell, use:
+Para obter o ponto final para um tópico personalizado com a Azure PowerShell, use:
 
 ```powershell
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
@@ -41,17 +40,17 @@ Para obter o ponto final para um tópico personalizado com o Azure PowerShell, u
 
 ## <a name="header"></a>Cabeçalho
 
-No pedido, inclua um `aeg-sas-key` valor cabeçalho nomeado que contém uma chave para autenticação.
+No pedido, inclua um valor de cabeçalho nomeado `aeg-sas-key` que contém uma chave para a autenticação.
 
-Por exemplo, um valor `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`de cabeçalho válido é .
+Por exemplo, um valor de cabeçalho válido é `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==` .
 
-Para obter a chave para um tópico personalizado com o Azure CLI, use:
+Para obter a chave para um tópico personalizado com Azure CLI, use:
 
 ```azurecli
 az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --query "key1"
 ```
 
-Para obter a chave para um tópico personalizado com powerShell, use:
+Para obter a chave para um tópico personalizado com PowerShell, use:
 
 ```powershell
 (Get-AzEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
@@ -59,7 +58,7 @@ Para obter a chave para um tópico personalizado com powerShell, use:
 
 ## <a name="event-data"></a>Dados do evento
 
-Para tópicos personalizados, os dados de alto nível contêm os mesmos campos que os eventos definidos por recursos padrão. Uma dessas propriedades é uma propriedade de dados que contém propriedades únicas para o tópico personalizado. Como editor de eventos, determina as propriedades desse objeto de dados. Utilize o seguinte esquema:
+Para tópicos personalizados, os dados de alto nível contêm os mesmos campos que os eventos definidos por recursos padrão. Uma dessas propriedades é uma propriedade de dados que contém propriedades únicas ao tópico personalizado. Como editor de eventos, você determina as propriedades para esse objeto de dados. Utilize o seguinte esquema:
 
 ```json
 [
@@ -76,10 +75,10 @@ Para tópicos personalizados, os dados de alto nível contêm os mesmos campos q
 ]
 ```
 
-Para obter uma descrição destas propriedades, consulte o esquema do [evento Azure Event Grid](event-schema.md). Ao publicar eventos para um tópico de grelha de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização).
+Para uma descrição destas propriedades, consulte [o esquema de eventos da Azure Event Grid](event-schema.md). Ao publicar eventos num tópico de grelha de evento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização).
 
 > [!NOTE]
-> Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço de Disponibilidade Geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos superiores a 64 KB são carregados em incrementos de 64 KB. 
+> Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Os eventos com mais de 64 KB são carregados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -105,9 +104,9 @@ Depois de publicar no ponto final do tópico, recebe uma resposta. A resposta é
 |---------|---------|
 |Êxito  | 200 OK  |
 |Os dados do evento têm formato incorreto | 400 Mau Pedido |
-|Chave de acesso inválida | 401 Não autorizado |
+|Chave de acesso inválida | 401 Não Autorizado |
 |Ponto final incorreto | 404 Não Encontrado |
-|Matriz ou evento excede limites de tamanho | 413 Carga útil demasiado grande |
+|Matriz ou evento excede limites de tamanho | 413 Carga Útil Demasiado Grande |
 
 Para erros, o corpo da mensagem tem o seguinte formato:
 
@@ -124,8 +123,8 @@ Para erros, o corpo da mensagem tem o seguinte formato:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter informações sobre a monitorização das entregas de eventos, consulte a entrega de [mensagens Monitor Event Grid](monitor-event-delivery.md).
-* Para mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
+* Para obter informações sobre a monitorização das entregas de eventos, consulte [a entrega de mensagens monitor a Grelha de Eventos](monitor-event-delivery.md).
+* Para obter mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

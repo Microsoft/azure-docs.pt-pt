@@ -1,6 +1,6 @@
 ---
-title: Erros de estrangulamento de resolução de problemas em Azure Microsoft Docs
-description: Erros de estrangulamento, tentativas e recuos na Azure Compute.
+title: Resolução de problemas de estrangulamento em Azure Microsoft Docs
+description: Erros de estrangulamento, retração e recuo no Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
@@ -14,33 +14,32 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045353"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolver erros de limitação da API 
 
-Os pedidos da Azure Compute podem ser estrangulados numa subscrição e numa base por região para ajudar no desempenho global do serviço. Garantimos que todas as chamadas para o Fornecedor de Recursos da Computação Azure (CRP), que gere recursos sob o nome Microsoft.Compute não excedam a taxa máxima permitida de pedidos de API. Este documento descreve a aceleração da API, detalhes sobre como resolver problemas e as melhores práticas para evitar ser estrangulado.  
+Os pedidos do Azure Compute podem ser acelerados numa subscrição e numa base por região para ajudar no desempenho global do serviço. Garantimos que todas as chamadas para o Azure Compute Resource Provider (CRP), que gere recursos sob o microsoft.Compute namespace não excedem a taxa máxima de pedido de API permitida. Este documento descreve o estrangulamento da API, detalhes sobre como resolver problemas de estrangulamento, e as melhores práticas para evitar ser estrangulado.  
 
-## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Estrangulamento por Azure Resource Manager vs Fornecedores de Recursos  
+## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Throttling por Azure Resource Manager vs Fornecedores de Recursos  
 
-Como porta da frente do Azure, o Gestor de Recursos Azure faz a autenticação e a validação de primeira ordem e o estrangulamento de todos os pedidos de API que chegam. Os limites da taxa de chamada do Gestor de Recursos Azure e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
+Como porta da frente para a Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e o estrangulamento de todos os pedidos de API que chegam. Os limites de taxa de chamada do Gestor de Recursos Azure e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui.](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling)
  
-Quando um cliente DaPi Azure obtém um erro de estrangulamento, o estatuto HTTP é de 429 Pedidos Demasiados. Para entender se o estrangulamento do pedido é feito pelo Gestor de Recursos Azure ou por um fornecedor de recursos subjacente, como o CRP, inspecione os `x-ms-ratelimit-remaining-subscription-reads` pedidos de GET e `x-ms-ratelimit-remaining-subscription-writes` os cabeçalhos de resposta para pedidos não GET. Se a contagem de chamadas restante se aproximar de 0, o limite geral de chamada da subscrição definido pelo Gestor de Recursos Azure foi atingido. As atividades de todos os clientes de subscrição são contadas em conjunto. Caso contrário, a aceleração provém do fornecedor de recursos-alvo `/providers/<RP>` (o abordado pelo segmento do URL de pedido). 
+Quando um cliente AZure API obtém um erro de estrangulamento, o estado HTTP é 429 Pedidos demasiados. Para entender se o estrangulamento do pedido é feito pelo Azure Resource Manager ou por um fornecedor de recursos subjacente como o CRP, inspecione os `x-ms-ratelimit-remaining-subscription-reads` pedidos get e `x-ms-ratelimit-remaining-subscription-writes` cabeçalhos de resposta para pedidos não GET. Se a contagem de chamadas restante se aproximar de 0, o limite geral de chamada definido pelo Azure Resource Manager foi atingido. As atividades de todos os clientes por subscrição são contadas em conjunto. Caso contrário, o estrangulamento provém do fornecedor de recursos-alvo (o abordado pelo `/providers/<RP>` segmento do URL de pedido). 
 
-## <a name="call-rate-informational-response-headers"></a>Cabeçalhos de resposta informativa da taxa de chamada 
+## <a name="call-rate-informational-response-headers"></a>Cabeçalhos informativos de resposta informativa de taxa de chamada 
 
 | Cabeçalho                            | Formato de valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-restante-recurso |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas restantes da API para a política de estrangulamento que cobre o balde de recursos ou grupo de operação, incluindo o alvo deste pedido                                                                   |
-| x-ms-request-charge               | ```<count>```                             | 1                                     | O número de chamadas conta "cobrado" para este pedido http para o limite da política aplicável. Este é mais tipicamente 1. Os pedidos de lote, tais como para escalar um conjunto de escala de máquina virtual, podem carregar várias contagens. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | O número de chamadas conta "cobrado" para este pedido HTTP para o limite da apólice aplicável. Este é mais tipicamente 1. Os pedidos de lote, tais como para escalar um conjunto de escala de máquina virtual, podem carregar várias contagens. |
 
 
-Note que um pedido de API pode ser sujeito a múltiplas políticas de estrangulamento. Haverá um `x-ms-ratelimit-remaining-resource` cabeçalho separado para cada política. 
+Note que um pedido de API pode ser submetido a múltiplas políticas de estrangulamento. Haverá um `x-ms-ratelimit-remaining-resource` cabeçalho separado para cada política. 
 
-Aqui está uma resposta da amostra para eliminar o pedido de conjunto de escala de máquina virtual.
+Aqui está uma resposta de amostra para eliminar o pedido de conjunto de escala de máquina virtual.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -49,9 +48,9 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-## <a name="throttling-error-details"></a>Detalhes do erro de estrangulamento
+## <a name="throttling-error-details"></a>Detalhes de erro de estrangulamento
 
-O estatuto de 429 HTTP é geralmente utilizado para rejeitar um pedido porque um limite de taxa de chamada é atingido. Uma resposta típica de erro de estrangulamento do Provedor de Recursos Compute será como o exemplo abaixo (apenas são mostrados cabeçalhos relevantes):
+O estatuto 429 HTTP é geralmente utilizado para rejeitar um pedido porque um limite de taxa de chamada é atingido. Uma resposta típica de erro de estrangulamento do Fornecedor de Recursos Compute será semelhante ao exemplo abaixo (apenas são mostrados cabeçalhos relevantes):
 
 ```
 HTTP/1.1 429 Too Many Requests
@@ -73,31 +72,31 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-A política com a contagem de chamadas restante de 0 é a que se deve ao qual o erro de estrangulamento é devolvido. Neste caso, `HighCostGet30Min`isto é. O formato geral do corpo de resposta é o formato de erro aPI geral do Gestor de Recursos Azure (conformante com OData). O código de `OperationNotAllowed`erro principal, é o único Que o Fornecedor de Recursos computacionais usa para reportar erros de estrangulamento (entre outros tipos de erros do cliente). A `message` propriedade do(s) erro interno contém uma estrutura JSON serializada com os detalhes da violação do estrangulamento.
+A política com a contagem de chamadas restantes de 0 é a que é devido à qual o erro de estrangulamento é devolvido. Neste caso, isto `HighCostGet30Min` é. O formato geral do corpo de resposta é o formato de erro AZure Resource Manager API (conformante com OData). O código de erro principal, `OperationNotAllowed` é o que o Compute Resource Provider utiliza para reportar erros de estrangulamento (entre outros tipos de erros do cliente). A `message` propriedade do(s) erro interior(s) contém uma estrutura JSON serializada com os detalhes da violação de estrangulamento.
 
-Como ilustrado acima, cada erro de `Retry-After` estrangulamento inclui o cabeçalho, que fornece o número mínimo de segundos que o cliente deve esperar antes de voltar a experimentar o pedido. 
+Como ilustrado acima, cada erro de estrangulamento inclui o `Retry-After` cabeçalho, que fornece o número mínimo de segundos que o cliente deve esperar antes de voltar a julgar o pedido. 
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taxa de chamada da API e analisador de erros de estrangulamento
-Uma versão de pré-visualização de uma funcionalidade de resolução de problemas está disponível para a API do fornecedor de recursos Compute. Estes cmdlets PowerShell fornecem estatísticas sobre a taxa de pedido de API por intervalo de tempo por operação e violações estranguladas por grupo de operação (política):
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+Uma versão de pré-visualização de uma funcionalidade de resolução de problemas está disponível para a API do fornecedor de recursos compute. Estes cmdlets PowerShell fornecem estatísticas sobre a taxa de pedido de API por intervalo de tempo por operação e violações de estrangulamento por grupo de operação (política):
+-   [Exportação-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Exportação-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
-As estatísticas de chamadas da API podem fornecer uma grande visão sobre o comportamento do(s) cliente(s) de uma subscrição e permitir uma fácil identificação dos padrões de chamada que causam estrangulamento.
+As estatísticas de chamadas da API podem fornecer uma grande visão sobre o comportamento do cliente(s) de uma subscrição e permitir uma identificação fácil de padrões de chamada que causam estrangulamento.
 
-Uma limitação do analisador por enquanto é que não conta pedidos para tipos de recursos de disco e instantâneo (em suporte a discos geridos). Uma vez que recolhe dados da telemetria da CRP, também não pode ajudar a identificar erros de estrangulamento da ARM. Mas estes podem ser facilmente identificados com base nos distintos cabeçalhos de resposta arm, como discutido anteriormente.
+Uma limitação do analisador por enquanto é que não conta pedidos de tipos de recursos de disco e instantâneo (em suporte a discos geridos). Uma vez que recolhe dados da telemetria da CRP, também não pode ajudar a identificar erros de estrangulamento da ARM. Mas estes podem ser facilmente identificados com base nos distintos cabeçalhos de resposta da ARM, como discutido anteriormente.
 
-Os cmdlets PowerShell estão usando um serviço REST API, que pode ser facilmente chamado diretamente pelos clientes (embora ainda sem suporte formal). Para ver o formato de pedido HTTP, execute os cmdlets com o interruptor -Debug ou bise na sua execução com o Fiddler.
+Os cmdlets PowerShell estão a utilizar uma API de serviço REST, que pode ser facilmente chamada diretamente pelos clientes (embora ainda sem suporte formal). Para ver o formato de pedido HTTP, executa os cmdlets com -Debug switch ou bisbilhota a sua execução com o Violinista.
 
 
 ## <a name="best-practices"></a>Melhores práticas 
 
-- Não tente voltar a tentar erros de Serviço Azure API incondicionalmente e/ou imediatamente. Uma ocorrência comum é que o código do cliente entre num ciclo de repetição rápida ao encontrar um erro que não é retentor. As tentativas acabarão por esgotar o limite de chamada permitido para o grupo da operação alvo e afetar outros clientes da subscrição. 
-- Em casos de automação aPI de grande volume, considere implementar a auto-estrangulamento proativa do lado do cliente quando a contagem de chamadas disponível para um grupo de operação-alvo descer abaixo de algum limiar baixo. 
-- Ao rastrear operações de asincronização, respeite as dicas do cabeçalho Retry-After. 
-- Se o código do cliente necessitar de informações sobre uma máquina virtual em particular, questione que a VM diretamente em vez de listar todos os VMs no grupo de recursos contendo ou em toda a subscrição e, em seguida, escolher o VM necessário do lado do cliente. 
-- Se o código do cliente precisar de VMs, discos e instantâneos de uma localização específica do Azure, utilize a forma baseada na `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` localização da consulta em vez de consultar todos os VMs de subscrição e, em seguida, filtrar por localização do lado do cliente: consulta aos pontos finais regionais do Fornecedor de Recursos computacional. 
--   Ao criar ou atualizar recursos API em particular, VMs e conjuntos de escala de máquinas virtuais, é muito mais eficiente `provisioningState`acompanhar a operação de sincronia devolvida até à conclusão do que fazer as sondagens sobre o próprio URL de recursos (com base no ).
+- Não relemque os erros de API de serviço Azure incondicionalmente e/ou imediatamente. Uma ocorrência comum é que o código do cliente entre num ciclo rápido de retagem quando se depara com um erro que não é retível. As retrações acabarão por esgotar o limite de chamada permitido para o grupo da operação-alvo e impactar outros clientes da subscrição. 
+- Em casos de automação de API de grande volume, considere implementar o auto-estrangulamento do lado do cliente proactivo quando a contagem de chamadas disponíveis para um grupo de operação alvo cai abaixo de algum limiar baixo. 
+- Ao rastrear as operações de async, respeite as dicas do cabeçalho Retry-After. 
+- Se o código do cliente precisar de informações sobre uma máquina virtual em particular, consulta-se que vM diretamente em vez de listar todos os VMs no grupo de recursos contendo ou toda a subscrição e, em seguida, escolher o VM necessário do lado do cliente. 
+- Se o código do cliente necessitar de VMs, discos e instantâneos a partir de uma localização específica do Azure, utilize a forma baseada na localização da consulta em vez de consultar todos os VMs de subscrição e, em seguida, filtrar por localização do lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta aos pontos finais regionais do Fornecedor de Recursos Compute. 
+-   Ao criar ou atualizar recursos da API em particular, VMs e conjuntos de escala de máquinas virtuais, é muito mais eficiente acompanhar a operação de assíon devolvido até à conclusão do que fazer sondagens sobre o próprio URL de recursos (com base no `provisioningState` ).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre a orientação de retry para outros serviços em Azure, consulte [a orientação de Retry para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Para obter mais informações sobre a orientação de retíria para outros serviços em Azure, consulte [a orientação da Retry para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

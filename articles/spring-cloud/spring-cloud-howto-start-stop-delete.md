@@ -1,19 +1,18 @@
 ---
-title: Inicie, pare e elimine a sua aplicação Azure Spring Cloud [ Microsoft Docs
-description: Como iniciar, parar e apagar a sua aplicação Azure Spring Cloud
+title: Iniciar, parar e apagar a sua aplicação Azure Spring Cloud / Microsoft Docs
+description: Como começar, parar e eliminar a sua aplicação Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.openlocfilehash: daa549e248668add54530e90174134c4e0059b3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76276824"
 ---
-# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Inicie, pare e elimine a sua aplicação Azure Spring Cloud
+# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Iniciar, parar e eliminar a sua aplicação Azure Spring Cloud
 
 Este guia explica como alterar o estado de uma aplicação em Azure Spring Cloud utilizando o portal Azure ou o Azure CLI.
 
@@ -21,23 +20,23 @@ Este guia explica como alterar o estado de uma aplicação em Azure Spring Cloud
 
 Depois de implementar uma aplicação, pode iniciar, parar e eliminá-la utilizando o portal Azure.
 
-1. Vá à sua instância de serviço Azure Spring Cloud no portal Azure.
-1. Selecione o separador Painel de **Aplicação.**
+1. Aceda ao seu serviço Azure Spring Cloud no portal Azure.
+1. Selecione o **separador 'Dashboard' de aplicação.**
 1. Selecione a aplicação cujo estado pretende alterar.
-1. Na página **'Visão Geral'** para essa aplicação, selecione **Start/Stop,** **Restart**, or **Delete**.
+1. Na página **'Visão Geral'** para essa aplicação, selecione **Iniciar/Parar,** **Reiniciar**ou **Eliminar**.
 
 ## <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
 > [!NOTE]
-> Pode utilizar parâmetros opcionais e configurar os predefinições com o CLI Azure. Saiba mais sobre o Azure CLI lendo a [nossa documentação de referência.](spring-cloud-cli-reference.md)  
+> Pode utilizar parâmetros opcionais e configurar predefinições com o Azure CLI. Saiba mais sobre o Azure CLI lendo a [nossa documentação de referência.](spring-cloud-cli-reference.md)  
 
-Em primeiro lugar, instale a extensão azure Spring Cloud para o CLI Azure da seguinte forma:
+Primeiro, instale a extensão Azure Spring Cloud para o Azure CLI da seguinte forma:
 
 ```azurecli
 az extension add --name spring-cloud
 ```
 
-Em seguida, selecione qualquer uma destas operações azure CLI:
+Em seguida, selecione qualquer uma destas operações do Azure CLI:
 
 * Para iniciar a sua candidatura:
 
