@@ -1,5 +1,5 @@
 ---
-title: Navegadores suportados pela Web SDK / Microsoft Azure Maps
+title: Web SDK suportado navegadores Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre navegadores suportados para Microsoft Azure Maps Web SDK e como verificar se um navegador é um navegador suportado.
 author: rbrundritt
 ms.author: richbrun
@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988792"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browsers suportados por SDK web
 
-O Azure Maps Web SDK fornece uma função de ajudante chamada [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Esta função deteta se um navegador web tem o conjunto mínimo de funcionalidades Do WebGL necessárias para suportar o carregamento e renderização do controlo do mapa. Aqui está um exemplo de como usar a função:
+O Azure Maps Web SDK fornece uma função de ajudante chamada [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Esta função deteta se um navegador web tem o conjunto mínimo de funcionalidades WebGL necessárias para suportar o carregamento e a prestação do controlo do mapa. Aqui está um exemplo de como usar a função:
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -38,9 +37,9 @@ O Azure Maps Web SDK suporta os seguintes navegadores de ambiente de trabalho:
 - Mozilla Firefox (versão atual e anterior)
 - Apple Safari (Mac OS X) (versão atual e anterior)
 
-Consulte também os [navegadores legados Target](#Target-Legacy-Browsers) mais tarde neste artigo.
+Consulte também [navegadores legados target](#Target-Legacy-Browsers) mais tarde neste artigo.
 
-## <a name="mobile"></a>Telemóvel
+## <a name="mobile"></a>Móvel
 
 O Azure Maps Web SDK suporta os seguintes navegadores móveis:
 
@@ -48,31 +47,31 @@ O Azure Maps Web SDK suporta os seguintes navegadores móveis:
   - Versão atual do Chrome no Android 6.0 e mais tarde
   - Chrome WebView no Android 6.0 e mais tarde
 - iOS
-  - Mobile Safari na versão atual e anterior do iOS
-  - UIWebView e WKWebView sobre a versão principal atual e anterior do iOS
+  - Mobile Safari na versão principal atual e anterior do iOS
+  - UIWebView e WKWebView na versão principal atual e anterior do iOS
   - Versão atual do Chrome para iOS
 
 > [!TIP]
-> Se estiver a incorporar um mapa dentro de uma aplicação móvel utilizando um controlo WebView, poderá preferir utilizar o [pacote nPM do Azure Maps Web SDK](https://www.npmjs.com/package/azure-maps-control) em vez de se referir à versão do SDK que está alojada na Rede de Entrega de Conteúdos Azure. Esta abordagem reduz o tempo de carregamento porque o SDK já está no dispositivo do utilizador e não precisa de ser descarregado no momento de funcionar.
+> Se estiver a incorporar um mapa dentro de uma aplicação móvel utilizando um controlo WebView, talvez prefira utilizar o [pacote npm do Azure Maps Web SDK](https://www.npmjs.com/package/azure-maps-control) em vez de fazer referência à versão do SDK que está hospedado na Rede de Entrega de Conteúdos Azure. Esta abordagem reduz o tempo de carregamento porque o SDK já se encontra no dispositivo do utilizador e não precisa de ser descarregado no tempo de execução.
 
 ## <a name="nodejs"></a>Node.js
 
-Os seguintes módulos Web SDK também são suportados no Node.js:
+Os seguintes módulos Web SDK também são suportados em Node.js:
 
-- Módulo de serviços[(módulo de documentação](how-to-use-services-module.md) | [npm)](https://www.npmjs.com/package/azure-maps-rest)
+- Módulo de serviços[(módulo npm documentação)](how-to-use-services-module.md)  |  [npm module](https://www.npmjs.com/package/azure-maps-rest)
 
-## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Navegadores legados-alvo
+## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Navegadores legados alvo
 
-Você pode querer direcionar navegadores mais antigos que não suportam WebGL ou que têm apenas suporte limitado para o mesmo. Nestes casos, recomendamos que utilize os serviços do Azure Maps juntamente com um controlo de mapas de código aberto como [o Folheto](https://leafletjs.com/). Segue-se um exemplo:
+Você pode querer direcionar navegadores mais antigos que não suportam WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que utilize os serviços Azure Maps juntamente com um controlo de mapas de código aberto como [o Folheto](https://leafletjs.com/). Eis um exemplo:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mapas Azure + Folheto" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps +</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>Folheto de Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte os Mapas Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure + Folheto</a> by Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Azure Maps Web SDK:
 

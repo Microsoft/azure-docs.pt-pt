@@ -1,6 +1,6 @@
 ---
-title: Lotação de saída em Azure Event Grid IoT Edge [ Microsoft Docs
-description: Lotação de saída em Rede de Eventos na Borda IoT.
+title: Lote de saída em Azure Event Grid IoT Edge / Microsoft Docs
+description: Lote de saída em Grade de Eventos em IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,50 +10,49 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841752"
 ---
 # <a name="output-batching"></a>Criação de batches de saída
 
-A Event Grid tem suporte para entregar mais de um evento num único pedido de entrega. Esta funcionalidade permite aumentar a entrega global sem pagar as despesas gerais http/pedido. O lote amento é desligado por padrão e pode ser ligado por subscrição.
+A Event Grid tem suporte para entregar mais do que um evento num único pedido de entrega. Esta funcionalidade permite aumentar a produção global sem pagar as despesas gerais de pedido http. O lote é desligado por predefinição e pode ser ligado por subscrição.
 
 > [!WARNING]
-> A duração máxima permitida para processar cada pedido de entrega não se altera, embora o código de subscrição tenha potencialmente de fazer mais trabalho por pedido em lota. O tempo de entrega é de60 segundos.
+> A duração máxima permitida para processar cada pedido de entrega não muda, mesmo que o código do assinante tenha potencialmente de fazer mais trabalho por pedido em lotado. O prazo de entrega é de 60 segundos.
 
-## <a name="batching-policy"></a>Política de lotação
+## <a name="batching-policy"></a>Política de loteamento
 
-O comportamento de lotação da Rede de Eventos pode ser personalizado por assinante, ajustando as seguintes duas definições:
+O comportamento de loteamento da Grelha de Eventos pode ser personalizado por subscritor, ajustando as seguintes duas definições:
 
 * Eventos máximos por lote
 
-  Esta definição estabelece um limite superior ao número de eventos que podem ser adicionados a um pedido de entrega loteado.
+  Esta definição estabelece um limite superior para o número de eventos que podem ser adicionados a um pedido de entrega em lote.
 
-* Tamanho do lote preferido em kilobytes
+* Tamanho do lote preferido em quilobytes
 
   Este botão é usado para controlar ainda mais o número máximo de quilobytes que podem ser enviados por pedido de entrega
 
-## <a name="batching-behavior"></a>Comportamento de lotação
+## <a name="batching-behavior"></a>Comportamento de loteamento
 
-* Todos ou nenhum
+* Tudo ou nenhum
 
-  A Grelha de Eventos funciona com semântica total ou nenhuma. Não suporta o sucesso parcial de uma entrega de lote. Os assinantes devem ter o cuidado de pedir apenas o máximo de eventos por lote que puderem manusear razoavelmente em 60 segundos.
+  A Grade de Eventos funciona com semântica total ou nenhuma. Não suporta o sucesso parcial de uma entrega de lote. Os assinantes devem ter o cuidado de pedir apenas o máximo de eventos por lote que possam manusear razoavelmente em 60 segundos.
 
 * Lote otimista
 
-  As definições de política de loteamento não são limites rigorosos para o comportamento do loteamento, e são respeitadas com o melhor esforço. A taxas baixas de eventos, você observará frequentemente o tamanho do lote sendo inferior aos eventos máximos solicitados por lote.
+  As definições da política de loteamento não são limites rigorosos no comportamento do lote, e são respeitados com o melhor esforço. A baixas taxas de evento, você frequentemente observará o tamanho do lote sendo inferior aos eventos máximos solicitados por lote.
 
 * O padrão está definido para OFF
 
-  Por predefinição, a Grelha de Eventos só adiciona um evento a cada pedido de entrega. A forma de ligar o lote é definir qualquer uma das definições mencionadas anteriormente no artigo no evento subscrição JSON.
+  Por predefinição, a Grade de Eventos apenas adiciona um evento a cada pedido de entrega. A forma de ligar o lote é definir qualquer uma das definições mencionadas anteriormente no artigo na subscrição do evento JSON.
 
 * Valores predefinidos
 
-  Não é necessário especificar ambas as definições (Eventos máximos por lote e tamanho aproximado em bytes de quilo) ao criar uma subscrição de evento. Se apenas uma definição estiver definida, a Grelha de Eventos utiliza valores predefinidos (configuráveis). Consulte as seguintes secções para os valores predefinidos e como os substituir.
+  Não é necessário especificar ambas as definições (Eventos máximos por lote e tamanho do lote aproximado em bytes de quilo) ao criar uma subscrição de eventos. Se apenas uma definição for definida, a Grelha de Eventos utiliza valores predefinidos (configuráveis). Consulte as seguintes secções para os valores predefinidos e como sobreponhá-las.
 
-## <a name="turn-on-output-batching"></a>Ligar o lote de saída
+## <a name="turn-on-output-batching"></a>Ligue o lote de saída
 
 ```json
 {
@@ -73,20 +72,20 @@ O comportamento de lotação da Rede de Eventos pode ser personalizado por assin
 }
 ```
 
-## <a name="configuring-maximum-allowed-values"></a>Configurar valores máximos permitidos
+## <a name="configuring-maximum-allowed-values"></a>Configuração dos valores máximos permitidos
 
-As seguintes definições de tempo de implementação controlam o valor máximo permitido na criação de uma subscrição de evento.
+As seguintes definições de tempo de implementação controlam o valor máximo permitido ao criar uma subscrição de evento.
 
 | Nome da Propriedade | Descrição |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido `PreferredBatchSizeInKilobytes` para o botão. Padrão `1033`.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido `MaxEventsPerBatch` para o botão. Padrão `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido para o `PreferredBatchSizeInKilobytes` botão. Predefinição `1033` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para o `MaxEventsPerBatch` botão. Predefinição `50` .
 
-## <a name="configuring-runtime-default-values"></a>Configurar os valores padrão do tempo de execução
+## <a name="configuring-runtime-default-values"></a>Configurar valores de incumprimento do tempo de execução
 
-As seguintes definições de tempo de implementação controlam o valor predefinido de cada botão quando não é especificado na Subscrição do Evento. Para reiterar, deve ser definido pelo menos um botão na Subscrição do Evento para ligar o comportamento do loteamento.
+As seguintes definições de tempo de implementação controlam o valor predefinido de cada botão quando este não está especificado na Subscrição do Evento. Para reiterar, pelo menos um botão deve ser ajustado na Subscrição do Evento para ligar o comportamento do lote.
 
 | Nome da Propriedade | Descrição |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo do `MaxEventsPerBatch` pedido de entrega quando apenas é especificado. Padrão `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a `MaxBatchSizeInBytes` adicionar a um lote quando apenas é especificado. Padrão `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo do pedido de entrega quando apenas `MaxEventsPerBatch` é especificado. Predefinição `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a adicionar a um lote quando apenas `MaxBatchSizeInBytes` é especificado. Predefinição `10` .

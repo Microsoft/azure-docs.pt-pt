@@ -1,76 +1,75 @@
 ---
-title: Monitorize as mensagens B2B utilizando o Monitor Azure
-description: Mensagens AS2, X12 e EDIFACT, através da criação de registos do Monitor Do Azure e da recolha de dados de diagnóstico para aplicações lógicas do Azure
+title: Monitorar mensagens B2B utilizando o Monitor Azure
+description: Resolução de problemas as mensagens AS2, X12 e EDIFACT, criando registos do Azure Monitor e recolhendo dados de diagnóstico para apps Azure Logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76907984"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar registos do Monitor Azure e recolher dados de diagnóstico para mensagens B2B em Aplicações Lógicas Azure
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar os registos do Azure Monitor e recolher dados de diagnóstico para mensagens B2B no Azure Logic Apps
 
-Depois de configurar a comunicação B2B entre parceiros comerciais na sua conta de integração, esses parceiros podem trocar mensagens utilizando protocolos como AS2, X12 e EDIFACT. Para verificar se esta comunicação funciona da forma que espera, pode configurar [registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md) para a sua conta de integração. [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes de nuvem e no local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Monitor Azure, pode registar e armazenar dados sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num espaço de [trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Para mensagens, o registo também recolhe informações como:
+Depois de configurar a comunicação B2B entre parceiros comerciais na sua conta de integração, esses parceiros podem trocar mensagens utilizando protocolos como AS2, X12 e EDIFACT. Para verificar se esta comunicação funciona da forma que espera, pode configurar [registos do Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para a sua conta de integração. [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode gravar e armazenar dados sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/platform/resource-logs-collect-workspace.md) Para mensagens, o registo também recolhe informações como:
 
 * Contagem de mensagens e estado
-* Estatuto de reconhecimento
-* Correlações entre mensagens e agradecimentos
+* Estatuto de agradecimento
+* Correlações entre mensagens e reconhecimentos
 * Descrições detalhadas de erros para falhas
 
-O Azure Monitor permite-lhe criar consultas de [registo](../azure-monitor/log-query/log-query-overview.md) para o ajudar a encontrar e rever esta informação. Também pode utilizar estes dados de [diagnóstico com outros serviços Azure,](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data)como o Azure Storage e o Azure Event Hubs.
+O Azure Monitor permite criar [consultas de registo](../azure-monitor/log-query/log-query-overview.md) para o ajudar a encontrar e rever estas informações. Também pode [utilizar estes dados de diagnóstico com outros serviços Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), como o Azure Storage e o Azure Event Hubs.
 
-Para configurar o registo da sua conta de integração, [instale a solução Logic Apps B2B](#install-b2b-solution) no portal Azure. Esta solução fornece informações agregadas para eventos de mensagens B2B. Em seguida, para permitir a exploração madeireira e criar consultas para estas informações, [crie registos do Monitor Azure](#set-up-resource-logs).
+Para configurar o registo da sua conta de integração, [instale a solução Logic Apps B2B](#install-b2b-solution) no portal Azure. Esta solução fornece informações agregadas para eventos de mensagens B2B. Em seguida, para permitir o registo e a criação de consultas para esta informação, crie [registos do Azure Monitor](#set-up-resource-logs).
 
-Este artigo mostra como permitir o registo do Azure Monitor para a sua conta de integração.
+Este artigo mostra como ativar o registo do Azure Monitor para a sua conta de integração.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Log Analytics. Se não tiver um espaço de trabalho de Log Analytics, aprenda [a criar um espaço](../azure-monitor/learn/quick-create-workspace.md)de trabalho log Analytics .
+* Uma área de trabalho do Log Analytics. Se não tiver um espaço de trabalho log analytics, aprenda [a criar um espaço de trabalho Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-* Uma aplicação lógica que é configurada com o registo do Monitor Azure e envia essa informação para um espaço de trabalho do Log Analytics. Aprenda [a configurar registos do Monitor Azure para a sua aplicação lógica](../logic-apps/monitor-logic-apps.md).
+* Uma aplicação lógica que foi criada com o registo do Azure Monitor e envia essa informação para um espaço de trabalho do Log Analytics. Saiba [como configurar os registos do Azure Monitor para a sua aplicação lógica.](../logic-apps/monitor-logic-apps.md)
 
-* Uma conta de integração que está ligada à sua aplicação lógica. Saiba como ligar a sua conta de [integração à sua aplicação lógica.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* Uma conta de integração que está ligada à sua aplicação lógica. Saiba [como ligar a sua conta de integração à sua aplicação lógica.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 <a name="install-b2b-solution"></a>
 
-## <a name="install-logic-apps-b2b-solution"></a>Instalar aplicações lógicas B2B solução
+## <a name="install-logic-apps-b2b-solution"></a>Instalar a solução B2B de Apps Lógicas
 
-Antes de os registos do Azure Monitor poderem rastrear as mensagens B2B para a sua aplicação lógica, adicione a solução **Logic Apps B2B** ao seu espaço de trabalho Log Analytics.
+Antes que os registos do Azure Monitor possam rastrear as mensagens B2B para a sua aplicação lógica, adicione a solução **Logic Apps B2B** ao seu espaço de trabalho Log Analytics.
 
-1. Na caixa de pesquisa do portal `log analytics workspaces` [Azure,](https://portal.azure.com)introduza, e, em seguida, selecione espaços de trabalho Log **Analytics**.
+1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com)insira `log analytics workspaces` e, em seguida, selecione **log analytics espaços de trabalho**.
 
    ![Selecione "Log Analytics workspaces"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. Em espaços de **trabalho Log Analytics,** selecione o seu espaço de trabalho.
+1. Nos **espaços de trabalho do Log Analytics,** selecione o seu espaço de trabalho.
 
    ![Selecione o seu espaço de trabalho Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. No painel overview, em **Iniciar-se com** > soluções de monitorização de Log Analytics**Configure**, selecione **Soluções de Visualização**.
+1. No painel de visão geral, em **Iniciar com**  >  **soluções de monitorização**de configuração log Analytics, selecione **Ver soluções**.
 
    ![No painel de visão geral, selecione "Ver soluções"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
-1. No painel de visão geral, selecione **Adicionar**.
+1. No painel de visão geral, **selecione Adicionar**.
 
-   ![No painel de visão geral, adicione nova solução](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
+   ![No painel geral, adicione nova solução](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Depois do **Marketplace** abrir, na caixa `logic apps b2b`de pesquisa, introduza, e selecione **Logic Apps B2B**.
+1. Depois de o **Marketplace** abrir, na caixa de pesquisa, insira `logic apps b2b` e selecione **As Aplicações Lógicas B2B**.
 
-   ![Do Marketplace, selecione "Logic Apps Management"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
+   ![A partir do Marketplace, selecione "Logic Apps Management"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
-1. No painel de descrição da solução, selecione **Criar**.
+1. No painel de descrição da solução, **selecione Criar**.
 
-   ![Selecione "Create" para adicionar solução "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
+   ![Selecione "Criar" para adicionar solução "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
 
-1. Reveja e confirme o espaço de trabalho do Log Analytics onde pretende instalar a solução e selecione **Criar** novamente.
+1. Reveja e confirme o espaço de trabalho Log Analytics onde pretende instalar a solução e selecione **Criar** novamente.
 
-   ![Selecione "Create" para "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
+   ![Selecione "Criar" para "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
 
    Depois de o Azure implementar a solução para o grupo de recursos Azure que contém o seu espaço de trabalho Log Analytics, a solução aparece no painel de resumo do seu espaço de trabalho. Quando as mensagens B2B são processadas, a contagem de mensagens neste painel é atualizada.
 
@@ -80,15 +79,15 @@ Antes de os registos do Azure Monitor poderem rastrear as mensagens B2B para a s
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurar registos do Monitor Azure
 
-Pode ativar o registo do Monitor Azure diretamente da sua conta de integração.
+Pode ativar o registo do Azure Monitor diretamente a partir da sua conta de integração.
 
 1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua conta de integração.
 
    ![Encontre e selecione a sua conta de integração](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
 
-1. No menu da sua conta de integração, em **Monitorização,** selecione **definições**de diagnóstico . **Selecione Adicionar definição de diagnóstico**.
+1. No menu da sua conta de integração, em **Monitorização,** selecione **Definições de Diagnóstico**. **Selecione Adicionar a definição de diagnóstico**.
 
-   ![Em "Monitorização", selecione "Definições de Diagnóstico"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
+   ![Em "Monitorização", selecione "Definições de diagnóstico"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
 
 1. Para criar a definição, siga estes passos:
 
@@ -96,49 +95,49 @@ Pode ativar o registo do Monitor Azure diretamente da sua conta de integração.
 
    1. Selecione **Enviar para Registar Análises**.
 
-   1. Para **subscrição,** selecione a subscrição Azure que esteja associada ao seu espaço de trabalho Log Analytics.
+   1. Para **Subscrição**, selecione a subscrição Azure que está associada ao seu espaço de trabalho Log Analytics.
 
-   1. Para **log analytics workspace,** selecione o espaço de trabalho que pretende utilizar.
+   1. Para **Log Analytics Workspace,** selecione o espaço de trabalho que pretende utilizar.
 
-   1. Em **registo,** selecione a categoria **IntegrationAccountTrackingEvents,** que especifica a categoria de evento que pretende gravar.
+   1. No **registo**, selecione a categoria **IntegrationAccountTrackingEvents,** que especifica a categoria de evento que pretende gravar.
 
    1. Quando tiver terminado, selecione **Guardar**.
 
    Por exemplo: 
 
-   ![Configurar registos do Monitor Azure para recolher dados de diagnóstico](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
+   ![Configurar registos do Azure Monitor para recolher dados de diagnóstico](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
 <a name="view-message-status"></a>
 
 ## <a name="view-message-status"></a>Ver estado da mensagem
 
-Após a sua aplicação lógica, pode visualizar o estado e os dados sobre essas mensagens no seu espaço de trabalho Log Analytics.
+Após a execução da sua aplicação lógica, pode visualizar o estado e os dados sobre essas mensagens no seu espaço de trabalho Log Analytics.
 
-1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com) encontre e abra o seu espaço de trabalho Log Analytics.
+1. Na caixa de pesquisa [do portal Azure,](https://portal.azure.com) encontre e abra o seu espaço de trabalho Log Analytics.
 
-1. No menu do seu espaço de trabalho, selecione **Workspace resumo** > **Aplicações Lógica B2B**.
+1. No menu do seu espaço de trabalho, selecione **Workspace Resumo**  >  **Logic Apps B2B**.
 
    ![Painel de resumo do espaço de trabalho](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
    > [!NOTE]
-   > Se o azulejo Logic Apps B2B não mostrar imediatamente os resultados após uma corrida, tente selecionar **Refresh** ou esperar por um curto período de tempo antes de tentar novamente.
+   > Se o azulejo das Aplicações Lógicas B2B não apresentar imediatamente resultados após uma execução, tente selecionar **Refresh** ou aguarde um curto período de tempo antes de tentar novamente.
 
-   Por padrão, o azulejo **Logic Apps B2B** mostra dados baseados num único dia. Para alterar o âmbito de dados para um intervalo diferente, selecione o controlo de âmbito na parte superior da página:
+   Por padrão, o azulejo **de Aplicações Lógicas B2B** mostra dados baseados num único dia. Para alterar o âmbito de dados para um intervalo diferente, selecione o controlo de âmbito no topo da página:
 
-   ![Alterar intervalo](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
+   ![Intervalo de alteração](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
 
-1. Após a visualização do painel de dados do estado da mensagem, pode visualizar mais detalhes para um tipo específico de mensagem, que mostra dados baseados num único dia. Selecione o azulejo para **AS2,** **X12**, ou **EDIFACT**.
+1. Depois de aparecer o painel de estado da mensagem, pode ver mais detalhes para um tipo de mensagem específico, que mostra dados baseados num único dia. Selecione o azulejo para **AS2,** **X12**ou **EDIFACT**.
 
-   ![Ver estados para mensagens](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
+   ![Ver statuses para mensagens](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
 
-   Uma lista de mensagens aparece para o seu azulejo escolhido. Por exemplo, aqui está o que uma lista de mensagens AS2 pode parecer:
+   Aparece uma lista de mensagens para o seu azulejo escolhido. Por exemplo, aqui está o que uma lista de mensagens AS2 pode parecer:
 
    ![Estados e detalhes para mensagens AS2](./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png)
 
-   Para saber mais sobre as propriedades para cada tipo de mensagem, consulte estas descrições da propriedade da mensagem:
+   Para saber mais sobre as propriedades de cada tipo de mensagem, consulte estas descrições da propriedade da mensagem:
 
-   * [Propriedades de mensagem AS2](#as2-message-properties)
-   * [Propriedades da mensagem X12](#x12-message-properties)
+   * [Propriedades de mensagens AS2](#as2-message-properties)
+   * [Propriedades de mensagens X12](#x12-message-properties)
    * [Propriedades de mensagens EDIFACT](#EDIFACT-message-properties)
 
 <!--
@@ -176,20 +175,20 @@ Para cada tipo de mensagem, aqui estão as descrições da propriedade e formato
 
 <a name="as2-message-properties"></a>
 
-### <a name="as2-message-property-descriptions"></a>Descrições da propriedade da mensagem AS2
+### <a name="as2-message-property-descriptions"></a>Descrições de propriedade de mensagens AS2
 
 Aqui estão as descrições da propriedade para cada mensagem AS2.
 
 | Propriedade | Descrição |
 |----------|-------------|
-| **Remetente** | O parceiro convidado especificado em **Definições de Receção**, ou o parceiro anfitrião especificado em **Definições** de Envio para um acordo AS2 |
-| **Recetor** | O parceiro anfitrião especificado nas Definições de **Receção,** ou o parceiro convidado especificado em **Definições** de Envio para um acordo AS2 |
-| **Aplicação Lógica** | A aplicação lógica onde as ações AS2 são configuradas |
-| **Estado** | O estado da mensagem AS2 <br>Sucesso = Recebido ou enviado uma mensagem AS2 válida. Não está preparada nenhuma MDN. <br>Sucesso = Recebido ou enviado uma mensagem AS2 válida. A MDN é configurada e recebida, ou a MDN é enviada. <br>Failed = Recebeu uma mensagem AS2 inválida. Não está preparada nenhuma MDN. <br>Pendente = Recebido ou enviado uma mensagem AS2 válida. A MDN está preparada e espera-se a MDN. |
-| **ACK** | O estado da mensagem MDN <br>Aceite = Recebida ou enviada um MDN positivo. <br>Pendente = À espera de receber ou enviar um MDN. <br>Rejeitado = Recebido ou enviado um MDN negativo. <br>Não é necessário = MDN não está estabelecido no acordo. |
+| **Remetente** | O parceiro convidado especificado em **Definições de Receção**, ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo AS2 |
+| **Recetor** | O parceiro anfitrião especificado em **Definições de Receção**, ou o parceiro convidado especificado em **Definições de Envio** para um acordo AS2 |
+| **App Lógica** | A aplicação lógica onde as ações do AS2 são criadas |
+| **Estado** | O estado da mensagem AS2 <br>Sucesso = Recebeu ou enviou uma mensagem AS2 válida. Não está configurado nenhum MDN. <br>Sucesso = Recebeu ou enviou uma mensagem AS2 válida. A MDN é configurada e recebida, ou a MDN é enviada. <br>Falhou = Recebeu uma mensagem AS2 inválida. Não está configurado nenhum MDN. <br>Pendente = Recebeu ou enviou uma mensagem AS2 válida. A MDN está configurada, e a MDN é esperada. |
+| **Rio ACK** | O estado da mensagem MDN <br>Aceite = Recebido ou enviado um MDN positivo. <br>Pendente = Esperando para receber ou enviar um MDN. <br>Rejeitado = Recebido ou enviado um MDN negativo. <br>Não É Necessário = MDN não está estabelecido no acordo. |
 | **Direção** | A direção da mensagem AS2 |
 | **ID de rastreio** | O ID que correlaciona todos os gatilhos e ações numa aplicação lógica |
-| **ID da Mensagem** | O ID de mensagem AS2 dos cabeçalhos de mensagem AS2 |
+| **ID da Mensagem** | O ID de mensagem AS2 dos cabeçalhos de mensagens AS2 |
 | **Carimbo de data/hora** | O momento em que a ação AS2 processou a mensagem |
 |||
 
@@ -209,23 +208,23 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 <a name="x12-message-properties"></a>
 
-### <a name="x12-message-property-descriptions"></a>Descrições da propriedade da mensagem X12
+### <a name="x12-message-property-descriptions"></a>Descrições da propriedade de mensagens X12
 
 Aqui estão as descrições da propriedade para cada mensagem X12.
 
 | Propriedade | Descrição |
 |----------|-------------|
-| **Remetente** | O parceiro convidado especificado em **Definições de Receção**, ou o parceiro anfitrião especificado em **Definições** de Envio para um acordo X12 |
-| **Recetor** | O parceiro anfitrião especificado nas Definições de **Receção,** ou o parceiro convidado especificado em **Definições** de Envio para um acordo X12 |
-| **Aplicação Lógica** | A aplicação lógica onde as ações X12 são configuradas |
-| **Estado** | O estado da mensagem X12 <br>Sucesso = Recebido ou enviado uma mensagem X12 válida. Não está preparado nenhum ack funcional. <br>Sucesso = Recebido ou enviado uma mensagem X12 válida. O ack funcional é configurado e recebido, ou um ack funcional é enviado. <br>Failed = Recebido ou enviado uma mensagem X12 inválida. <br>Pendente = Recebido ou enviado uma mensagem X12 válida. O ack funcional está configurado, e espera-se um ack funcional. |
-| **ACK** | Estado funcional de Ack (997) <br>Aceite = Recebida ou enviada um ack funcional positivo. <br>Rejeitado = Recebido ou enviado um ack funcional negativo. <br>Pendente = Esperando um ack funcional mas não recebido. <br>Pendente = Gerou um ack funcional mas não pode enviar para o parceiro. <br>Não é necessário = O ack funcional não está configurado. |
+| **Remetente** | O parceiro convidado especificado em **Configurações de Receção**, ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo X12 |
+| **Recetor** | O parceiro anfitrião especificado em **'Receber Definições'** ou o parceiro convidado especificado em **Definições de Envio** para um acordo X12 |
+| **App Lógica** | A aplicação lógica onde as ações X12 são criadas |
+| **Estado** | O estado da mensagem X12 <br>Sucesso = Recebeu ou enviou uma mensagem X12 válida. Não está configurado nenhum ack funcional. <br>Sucesso = Recebeu ou enviou uma mensagem X12 válida. Ack funcional é configurada e recebida, ou é enviada uma ack funcional. <br>Falhado = Recebeu ou enviou uma mensagem X12 inválida. <br>Pendente = Recebeu ou enviou uma mensagem X12 válida. Ack funcional é configurado, e espera-se um ack funcional. |
+| **Rio ACK** | Estado funcional do Ack (997) <br>Aceite = Recebido ou enviado um ack funcional positivo. <br>Rejeitado = Recebido ou enviado um ack funcional negativo. <br>Pendente = Esperando um ack funcional mas não recebido. <br>Pendente = Gerou um ack funcional mas não pode enviar para o parceiro. <br>Não É Necessário = Ack funcional não é configurado. |
 | **Direção** | A direção da mensagem X12 |
 | **ID de rastreio** | O ID que correlaciona todos os gatilhos e ações numa aplicação lógica |
 | **Tipo Msg** | O tipo de mensagem EDI X12 |
 | **ICN** | O Número de Controlo de Intercâmbio para a mensagem X12 |
-| **TSCN** | O número de controlo de conjunto de transações para a mensagem X12 |
-| **Carimbo de data/hora** | O momento em que a ação X12 processou a mensagem |
+| **TSCN** | O número de controlo do conjunto de transações para a mensagem X12 |
+| **Carimbo de data/hora** | O tempo em que a ação X12 processou a mensagem |
 |||
 
 <!--
@@ -244,23 +243,23 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 <a name="EDIFACT-message-properties"></a>
 
-### <a name="edifact-message-property-descriptions"></a>Descrições de propriedades de mensagens EDIFACT
+### <a name="edifact-message-property-descriptions"></a>Descrições de propriedade de mensagens EDIFACT
 
 Aqui estão as descrições da propriedade para cada mensagem EDIFACT.
 
 | Propriedade | Descrição |
 |----------|-------------|
-| **Remetente** | O parceiro convidado especificado em **Definições de Receção**, ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo EDIFACT |
-| **Recetor** | O parceiro anfitrião especificado em **Definições de Receção**, ou o parceiro convidado especificado em **Definições** de Envio para um acordo EDIFACT |
-| **Aplicação Lógica** | A aplicação lógica onde as ações edifact são criadas |
-| **Estado** | O estado da mensagem EDIFACT <br>Sucesso = Recebido ou enviado uma mensagem EDIFACT válida. Não está preparado nenhum ack funcional. <br>Sucesso = Recebido ou enviado uma mensagem EDIFACT válida. O ack funcional é configurado e recebido, ou um ack funcional é enviado. <br>Falhado = Recebido ou enviado uma mensagem EDIFACT inválida <br>Pendente = Recebido ou enviado uma mensagem EDIFACT válida. O ack funcional está configurado, e espera-se um ack funcional. |
-| **ACK** | Estado funcional de Ack (CONTRL) <br>Aceite = Recebida ou enviada um ack funcional positivo. <br>Rejeitado = Recebido ou enviado um ack funcional negativo. <br>Pendente = Esperando um ack funcional mas não recebido. <br>Pendente = Gerou um ack funcional mas não pode enviar para o parceiro. <br>Não é necessário = Ack funcional não está configurado. |
+| **Remetente** | O parceiro convidado especificado em **Definições de Receção,** ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo EDIFACT |
+| **Recetor** | O parceiro anfitrião especificado em **Definições de Receção,** ou o parceiro convidado especificado em **Definições de Envio** para um acordo EDIFACT |
+| **App Lógica** | A aplicação lógica onde as ações do EDIFACT são criadas |
+| **Estado** | O estado da mensagem EDIFACT <br>Sucesso = Recebeu ou enviou uma mensagem EDIFACT válida. Não está configurado nenhum ack funcional. <br>Sucesso = Recebeu ou enviou uma mensagem EDIFACT válida. Ack funcional é configurada e recebida, ou é enviada uma ack funcional. <br>Falhado = Recebido ou enviado uma mensagem EDIFACT inválida <br>Pendente = Recebeu ou enviou uma mensagem EDIFACT válida. Ack funcional é configurado, e espera-se um ack funcional. |
+| **Rio ACK** | Estado funcional do Ack (CONTRL) <br>Aceite = Recebido ou enviado um ack funcional positivo. <br>Rejeitado = Recebido ou enviado um ack funcional negativo. <br>Pendente = Esperando um ack funcional mas não recebido. <br>Pendente = Gerou um ack funcional mas não pode enviar para o parceiro. <br>Não É Necessário = Ack funcional não está configurado. |
 | **Direção** | A direção da mensagem EDIFACT |
 | **ID de rastreio** | O ID que correlaciona todos os gatilhos e ações numa aplicação lógica |
 | **Tipo Msg** | O tipo de mensagem EDIFACT |
-| **ICN** | O Número de Controlo de Intercâmbio para a mensagem EDIFACT |
-| **TSCN** | O número de controlo de conjunto de transações para a mensagem EDIFACT |
-| **Carimbo de data/hora** | O momento em que a ação EDIFACT processou a mensagem |
+| **ICN** | O Número de Controlo Intercambial da mensagem EDIFACT |
+| **TSCN** | O número de controlo do conjunto de transações para a mensagem EDIFACT |
+| **Carimbo de data/hora** | O tempo em que a ação EDIFACT processou a mensagem |
 |||
 
 <!--
@@ -277,6 +276,6 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 |||
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar consultas de monitorização e rastreio](../logic-apps/create-monitoring-tracking-queries.md)

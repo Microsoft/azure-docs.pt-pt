@@ -1,96 +1,95 @@
 ---
-title: Tecido de serviço Azure CLI-sfctl rpm
-description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para o serviço de reparação.
+title: Azure Service Fabric CLI-sfctl rpm
+description: Saiba mais sobre o sfctl, a interface de linha de comando do Azure Service Fabric. Inclui uma lista de comandos para o serviço de gerente de reparação.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76904940"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
-Consulta e envie comandos para o serviço de reparação.
+Consultar e enviar comandos para o serviço de gerente de reparação.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| aprovar a força | Força a aprovação da tarefa de reparação. |
+| aprovar força | Força a aprovação da tarefa de reparação dada. |
 | delete | Elimina uma tarefa de reparação completa. |
-| list | Obtém uma lista de tarefas de reparação que combinam com os filtros. |
+| list | Obtém uma lista de tarefas de reparação correspondentes aos filtros dados. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm aprovar força
-Força a aprovação da tarefa de reparação.
+Força a aprovação da tarefa de reparação dada.
 
-Esta API suporta a plataforma Service Fabric; não se destina a ser utilizado diretamente a partir do seu código.
+Esta API suporta a plataforma Service Fabric; não se destina a ser usado diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --task-id [Obrigatório] | A identificação da tarefa de reparação. |
-| -versão | O número atual da versão atual da tarefa de reparação. Se não for zero, o pedido só será bem sucedido se este valor corresponder à versão atual real da tarefa de reparação. Se zero, então não é realizada verificação da versão. |
+| -versão | O número atual da versão da tarefa de reparação. Se não for zero, o pedido só será bem sucedido se este valor corresponder à versão atual da tarefa de reparação. Se zero, então não é feita nenhuma verificação de versão. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 ## <a name="sfctl-rpm-delete"></a>sfctl rpm apagar
 Elimina uma tarefa de reparação completa.
 
-Esta API suporta a plataforma Service Fabric; não se destina a ser utilizado diretamente a partir do seu código.
+Esta API suporta a plataforma Service Fabric; não se destina a ser usado diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --task-id [Obrigatório] | A identificação da tarefa de reparação completa a eliminar. |
-| -versão | O número atual da versão atual da tarefa de reparação. Se não for zero, o pedido só será bem sucedido se este valor corresponder à versão atual real da tarefa de reparação. Se zero, então não é realizada verificação da versão. |
+| -versão | O número atual da versão da tarefa de reparação. Se não for zero, o pedido só será bem sucedido se este valor corresponder à versão atual da tarefa de reparação. Se zero, então não é feita nenhuma verificação de versão. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 ## <a name="sfctl-rpm-list"></a>sfctl rpm lista
-Obtém uma lista de tarefas de reparação que combinam com os filtros.
+Obtém uma lista de tarefas de reparação correspondentes aos filtros dados.
 
-Esta API suporta a plataforma Service Fabric; não se destina a ser utilizado diretamente a partir do seu código.
+Esta API suporta a plataforma Service Fabric; não se destina a ser usado diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --filtro executor | O nome do executor de reparação cujas alegadas tarefas devem ser incluídas na lista. |
-| --filtro do estado | Um bitwise-OR dos seguintes valores, especificando quais os estados de tarefa saem incluídos na lista de resultados. <ul><li>1 - Criado</li><li>2 - Reclamado</li><li>4 - Preparação</li><li>8 - Aprovado</li><li>16 - Execução</li><li>32 - Restauro</li><li>64 - Concluído</li></ul>
-| --task-id-filter | O prefixo de id de tarefa de reparação a combinar. |
+| --executor-filtro | O nome do executor de reparações cujas tarefas reclamadas devem ser incluídas na lista. |
+| --estado-filtro | Um pouco de OR dos seguintes valores, especificando quais estados de tarefa devem ser incluídos na lista de resultados. <ul><li>1 - Criado</li><li>2 - Reclamado</li><li>4 - Preparação</li><li>8 - Aprovado</li><li>16 - Execução</li><li>32 - Restaurar</li><li>64 - Concluído</li></ul>
+| --filtro de id-id de tarefa | O prefixo de identificação da tarefa de reparação a ser igualado. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Passos seguintes
-- [Configurar](service-fabric-cli.md) o CLI de tecido de serviço.
-- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Próximos passos
+- [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .

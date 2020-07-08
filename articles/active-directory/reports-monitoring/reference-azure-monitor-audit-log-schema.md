@@ -1,6 +1,6 @@
 ---
-title: Interprete o esquema de registo de auditoria do Azure Ative Directory no Monitor Azure [ Microsoft Docs
-description: Descreva o esquema de registo de auditoria da AD Azure para utilização no Monitor Azure
+title: Interprete o esquema de registo de auditoria do Azure Ative Directory no Azure Monitor Microsoft Docs
+description: Descreva o esquema de registo de auditoria AZure AD para utilização no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,15 +18,14 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68987944"
 ---
-# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interprete o esquema de registos de auditoria da AD Azure no Monitor Azure (pré-visualização)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria AZure AD no Azure Monitor (pré-visualização)
 
-Este artigo descreve o esquema de registo de auditoria azure ative directory (Azure AD) no Azure Monitor. Cada entrada individual de registo é armazenada como texto e formatada como uma bolha JSON, como mostram os dois exemplos seguintes: 
+Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no Azure Monitor. Cada entrada de registo individual é armazenada como texto e formatada como uma bolha JSON, como mostrado nos dois exemplos seguintes: 
 
 ```json
 { 
@@ -145,38 +144,38 @@ Este artigo descreve o esquema de registo de auditoria azure ative directory (Az
 
 ```
 
-## <a name="field-and-property-descriptions"></a>Descrições de campo e propriedade
+## <a name="field-and-property-descriptions"></a>Descrições de campo e de propriedade
 
 | Nome do campo | Descrição |
 |------------|-------------|
 | hora       | A data e a hora (UTC). |
 | operationName | O nome da operação. |
 | operationVersion | A versão REST API que é solicitada pelo cliente. |
-| categoria | Atualmente, a *Auditoria* é o único valor suportado. |
-| inquilinoId | O inquilino GUID que está associado aos registos. |
-| resultType | O resultado da operação. O resultado pode ser *Sucesso* ou *Fracasso.* |
-| resultSignature |  Este campo está desmapeado, e podeignorá-lo com segurança. | 
-| resultDescription | Uma descrição adicional do resultado, quando disponível. | 
-| durationMs |  Este campo está desmapeado, e podeignorá-lo com segurança. |
+| categoria | Atualmente, *a Auditoria* é o único valor suportado. |
+| inquilinoId | O inquilino GUID que está associado com os troncos. |
+| resultType | O resultado da operação. O resultado pode ser *sucesso* ou *fracasso.* |
+| resultSignature |  Este campo não está mapeado, e pode ignorá-lo com segurança. | 
+| resultDescription | Uma descrição adicional do resultado, sempre que disponível. | 
+| durationMs |  Este campo não está mapeado, e pode ignorá-lo com segurança. |
 | callerIpAddress | O endereço IP do cliente que fez o pedido. | 
-| correlationId | Um GUID opcional que é passado pelo cliente. Pode ajudar a relacionar as operações do lado do cliente com operações do lado do servidor e é útil quando está a rastrear registos que abrangem serviços. |
-| identidade | A identidade do símbolo que foi apresentado quando fez o pedido. A identidade pode ser uma conta de utilizador, conta de sistema ou diretor de serviço. |
-| nível | O tipo de mensagem. Para registos de auditoria, o nível é sempre *Informativo*. |
-| localização | A localização do centro de dados. |
+| correlationId | Um GUID opcional que é passado pelo cliente. Pode ajudar a correlacionar as operações do lado do cliente com as operações do lado do servidor e é útil quando está a rastrear registos que abrangem os serviços. |
+| identidade | A identidade do símbolo que foi apresentado quando fez o pedido. A identidade pode ser uma conta de utilizador, conta do sistema ou principal serviço. |
+| nível | O tipo de mensagem. Para os registos de auditoria, o nível é sempre *Informativo.* |
+| localização | A localização do datacenter. |
 | propriedades | Lista as propriedades suportadas que estão relacionadas com um registo de auditoria. Para mais informações, consulte a mesa ao lado. | 
 
 <br>
 
 | Nome da propriedade | Descrição |
 |---------------|-------------|
-| Categoria AuditEvent | O tipo de evento de auditoria. Pode ser Gestão de *Utilizadores,* Gestão de *Aplicações,* ou outro tipo.|
+| AuditEventCategoria | O tipo de evento de auditoria. Pode ser *Gestão de Utilizadores,* *Gestão de Aplicações,* ou outro tipo.|
 | Tipo de Identidade | O tipo pode ser *Aplicação* ou *Utilizador.* |
-| Tipo de Operação | O tipo pode ser *Adicionar,* *Atualizar,* *Eliminar*. ou *Outros.* |
-| Tipo de recurso-alvo | Especifica o tipo de recurso-alvo em que a operação foi executada. O tipo pode ser *Aplicação,* *Utilizador,* *Função,* *Política* | 
-| Nome de recurso-alvo | O nome do recurso alvo. Pode ser um nome de aplicação, um nome de papel, um nome principal do utilizador ou um nome principal do serviço. |
-| alvos adicionais | Lista quaisquer propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores estão listados no *targetUpdatedProperties*. | 
+| Tipo de operação | O tipo pode ser *Adicionar*, *Atualizar*, *Eliminar*. ou *Outros*. |
+| Tipo de recurso alvo | Especifica o tipo de recurso-alvo em que a operação foi realizada. O tipo pode ser *Aplicação,* *Utilizador,* *Papel,* *Política* | 
+| Nome do recurso alvo | O nome do recurso alvo. Pode ser um nome de aplicação, um nome de papel, um nome principal do utilizador ou um nome principal de serviço. |
+| adicionalsagets | Lista quaisquer propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores estão listados no *âmbito das Propriedades Dedada.* | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)
 * [Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)

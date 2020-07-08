@@ -1,74 +1,73 @@
 ---
-title: Tecido de serviço Azure CLI-sfctl é
-description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerir infraestruturas.
+title: Azure Service Fabric CLI-sfctl é
+description: Saiba mais sobre o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para a gestão de infraestruturas.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906089"
 ---
 # <a name="sfctl-is"></a>sfctl is
-Consulta e envie comandos para o serviço de infraestrutura.
+Consultar e enviar comandos para o serviço de infraestrutura.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
 | command | Invoca um comando administrativo sobre a instância do Serviço de Infraestruturas. |
-| consulta | Invoca uma consulta apenas para leitura sobre a instância do serviço de infraestruturas. |
+| consulta | Invoca uma consulta apenas de leitura sobre a dada instância de serviço de infraestrutura. |
 
 ## <a name="sfctl-is-command"></a>sfctl é comando
 Invoca um comando administrativo sobre a instância do Serviço de Infraestruturas.
 
-Para clusters que tenham um ou mais casos do Serviço de Infraestruturas configurados, esta API fornece uma forma de enviar comandos específicos de infraestruturas para uma determinada instância do Serviço de Infraestruturas. Os comandos disponíveis e os respetivos formatos de resposta variam consoante a infraestrutura em que o cluster está a funcionar. Esta API suporta a plataforma Service Fabric; não se destina a ser utilizado diretamente a partir do seu código.
+Para os clusters que têm um ou mais casos do Serviço de Infraestruturas configurados, esta API fornece uma forma de enviar comandos específicos da infraestrutura para uma instância específica do Serviço de Infraestruturas. Os comandos disponíveis e os seus formatos de resposta correspondentes variam consoante a infraestrutura em que o cluster está em execução. Esta API suporta a plataforma Service Fabric; não se destina a ser usado diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --comando [Obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
-| --serviço-id | A identidade do serviço de infraestruturas. <br><br> Este é o nome completo do serviço\:de infraestruturas sem o regime URI de tecido. Este parâmetro necessário apenas para o cluster que tem mais de um exemplo de serviço de infraestrutura em funcionamento. |
-| --timeout -t | Padrão\: 60. |
+| --serviço-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestruturas sem o \: regime URI do tecido. Este parâmetro requer apenas para o cluster que tem mais de um caso de serviço de infraestrutura em funcionamento. |
+| --timeout -t | Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 ## <a name="sfctl-is-query"></a>sfctl é consulta
-Invoca uma consulta apenas para leitura sobre a instância do serviço de infraestruturas.
+Invoca uma consulta apenas de leitura sobre a dada instância de serviço de infraestrutura.
 
-Para clusters que tenham um ou mais casos do Serviço de Infraestruturas configurados, esta API fornece uma forma de enviar consultas específicas de infraestruturas para um determinado exemplo do Serviço de Infraestruturas. Os comandos disponíveis e os respetivos formatos de resposta variam consoante a infraestrutura em que o cluster está a funcionar. Esta API suporta a plataforma Service Fabric; não se destina a ser utilizado diretamente a partir do seu código.
+Para os agrupamentos que têm um ou mais casos do Serviço de Infraestruturas configurados, esta API fornece uma forma de enviar consultas específicas de infraestrutura para uma instância específica do Serviço de Infraestruturas. Os comandos disponíveis e os seus formatos de resposta correspondentes variam consoante a infraestrutura em que o cluster está em execução. Esta API suporta a plataforma Service Fabric; não se destina a ser usado diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --comando [Obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
-| --serviço-id | A identidade do serviço de infraestruturas. <br><br> Este é o nome completo do serviço\:de infraestruturas sem o regime URI de tecido. Este parâmetro necessário apenas para o cluster que tem mais de um exemplo de serviço de infraestrutura em funcionamento. |
-| --timeout -t | Padrão\: 60. |
+| --serviço-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestruturas sem o \: regime URI do tecido. Este parâmetro requer apenas para o cluster que tem mais de um caso de serviço de infraestrutura em funcionamento. |
+| --timeout -t | Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Passos seguintes
-- [Instale](service-fabric-cli.md) o CLI de tecido de serviço.
-- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Próximos passos
+- [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .

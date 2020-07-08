@@ -1,5 +1,5 @@
 ---
-title: Configure webhook autenticação de assinante - Azure Event Grid IoT Edge [ Microsoft Docs
+title: Configure a autenticação de subscritores do webhook - Azure Event Grid IoT Edge ! Microsoft Docs
 description: Configurar a autenticação de subscritor do webhook
 author: VidyaKukke
 manager: rajarv
@@ -10,17 +10,16 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 101dcae5870322878cec48098f2efae32cc68c14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841735"
 ---
 # <a name="configure-webhook-subscriber-authentication"></a>Configurar a autenticação de subscritor do webhook
 
-Este guia dá exemplos das possíveis configurações de subscritores do webhook para um módulo De Rede de Eventos. Por predefinição, apenas são aceites pontos finais HTTPS para assinantes webhook. O módulo Event Grid rejeitará se o assinante apresentar um certificado auto-assinado.
+Este guia dá exemplos das possíveis configurações de subscritores do Webhook para um módulo de Grade de Eventos. Por padrão, apenas os pontos finais HTTPS são aceites para assinantes webhook. O módulo 'Grade de Eventos' rejeitará se o assinante apresentar um certificado auto-assinado.
 
-## <a name="allow-only-https-subscriber"></a>Permitir apenas subscritor HTTPS
+## <a name="allow-only-https-subscriber"></a>Permitir apenas assinante HTTPS
 
 ```json
  {
@@ -45,9 +44,9 @@ Este guia dá exemplos das possíveis configurações de subscritores do webhook
  ```
 
 >[!NOTE]
->Desloque a propriedade `outbound__webhook__allowUnknownCA` apenas em `true` ambientes de teste, uma vez que normalmente pode usar certificados auto-assinados. Para cargas de trabalho de produção recomendamos que sejam configuradas como **falsas**.
+>Descreva a propriedade `outbound__webhook__allowUnknownCA` `true` apenas em ambientes de teste, pois normalmente pode utilizar certificados auto-assinados. Para cargas de trabalho de produção, recomendamos que sejam **falsas.**
 
-## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir o assinante HTTPS, mas não a validação de certificados de salto
+## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir o assinante HTTPS mas ignorar validação de certificado
 
 ```json
  {
@@ -60,7 +59,7 @@ Este guia dá exemplos das possíveis configurações de subscritores do webhook
  ```
 
 >[!NOTE]
->Desloque a propriedade `outbound__webhook__skipServerCertValidation` apenas em `true` ambientes de teste, uma vez que poderá não apresentar um certificado que precisa de ser autenticado. Para cargas de trabalho de produção recomendamos que sejam definidos para **falsos**
+>Desaprova a propriedade `outbound__webhook__skipServerCertValidation` `true` apenas em ambientes de teste, uma vez que pode não estar a apresentar um certificado que precisa de ser autenticado. Para cargas de trabalho de produção recomendamos que sejam definidos como **falsos**
 
 ## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Permitir http e HTTPS com certificados auto-assinados
 
@@ -75,4 +74,4 @@ Este guia dá exemplos das possíveis configurações de subscritores do webhook
  ```
 
 >[!NOTE]
->Detete `outbound__webhook__httpsOnly` `false` a propriedade apenas em ambientes de teste, pois você pode querer trazer um assinante HTTP primeiro. Para cargas de trabalho de produção recomendamos que sejam definidos como **verdadeiros**
+>Desaprote a propriedade `outbound__webhook__httpsOnly` `false` apenas em ambientes de teste, pois é possível que queira apresentar primeiro um assinante HTTP. Para cargas de trabalho de produção recomendamos que sejam definidos como **verdadeiros**

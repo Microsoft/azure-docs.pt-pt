@@ -1,70 +1,69 @@
 ---
-title: Transações e modos de bloqueio em coleções fiáveis
+title: Transações e Modos de Bloqueio em Coleções Fiáveis
 description: Azure Service Fabric Reliable State Manager and Reliable Collections Transactions and Locking.
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938916"
 ---
-# <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Fiáveis de Tecido de Serviço Azure
+# <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Azure Service Fabric Reliable Collections
 
 ## <a name="transaction"></a>Transação
 
-Uma transação é uma sequência de operações realizadas como uma única unidade lógica de trabalho. Exibe as propriedades comuns de [ACID](https://en.wikipedia.org/wiki/ACID) *(atómico,* *consistência,* *isolamento,* *durabilidade)* das transações de base de dados:
+Uma transação é uma sequência de operações realizadas como uma única unidade lógica de trabalho. Apresenta as propriedades [acid](https://en.wikipedia.org/wiki/ACID) comuns *(atomicidade,* *consistência,* *isolamento,* *durabilidade)* das transações de base de dados:
 
 * **Atomicidade**: Uma transação deve ser uma unidade atómica de trabalho. Por outras palavras, ou todas as suas modificações de dados são realizadas, ou nenhuma delas é realizada.
 * **Consistência**: Quando concluída, uma transação deve deixar todos os dados num estado consistente. Todas as estruturas internas de dados devem estar corretas no final da transação.
-* **Isolamento**: As modificações efetuadas por transações simultâneas devem ser isoladas das modificações efetuadas por quaisquer outras transações simultâneas. O nível de isolamento utilizado para uma operação dentro de um [ITransac é](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) determinado pelo [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que executa a operação.
-* **Durabilidade**: Após a conclusão de uma transação, os seus efeitos encontram-se permanentemente em vigor no sistema. As modificações persistem mesmo em caso de falha do sistema.
+* **Isolamento:** As modificações efetuadas por transações simultâneas devem ser isoladas das modificações efetuadas por quaisquer outras transações simultâneas. O nível de isolamento utilizado para uma operação no âmbito de uma [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) é determinado pelo [Estado IReliable](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que realiza a operação.
+* **Durabilidade**: Após a conclusão de uma transação, os seus efeitos encontram-se permanentemente no sistema. As modificações persistem mesmo em caso de falha do sistema.
 
 ### <a name="isolation-levels"></a>Níveis de isolamento
 
 O nível de isolamento define o grau em que a transação deve ser isolada das modificações efetuadas por outras transações.
 Existem dois níveis de isolamento que são suportados em Coleções Fiáveis:
 
-* **Leitura repetível**: Especifica que as declarações não podem ler dados que foram modificados mas ainda não cometidos por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual termine.
-* **Instantâneo**: Especifica que os dados lidos por qualquer declaração de uma transação são a versão transaccionalmente consistente dos dados que existiam no início da operação.
+* **Repetível Read**: Especifica que as declarações não podem ler dados que foram modificados mas ainda não cometidos por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação em curso até que a transação atual termine.
+* **Snapshot**: Especifica que os dados lidos por qualquer declaração numa transação é a versão transaccionalmente consistente dos dados que existiam no início da transação.
   A transação só pode reconhecer modificações de dados que foram cometidas antes do início da transação.
-  As modificações de dados efetuadas por outras transações após o início da transação atual não são visíveis em declarações executadas na transação atual.
-  O efeito é como se as declarações de uma transação obtivessem uma imagem instantânea dos dados comprometidos tal como existiam no início da operação.
+  As modificações de dados efetuadas por outras transações após o início da transação corrente não são visíveis às declarações executadas na transação em curso.
+  O efeito é como se as declarações numa transação obtenham uma imagem instantânea dos dados cometidos tal como existiam no início da transação.
   As fotos são consistentes em coleções fiáveis.
 
 As Coleções Fiáveis escolhem automaticamente o nível de isolamento a utilizar para uma determinada operação de leitura, dependendo da operação e do papel da réplica no momento da criação da transação.
-Segue-se a tabela que retrata os padrãos de nível de isolamento para operações fiáveis de Dicionário e Fila.
+Segue-se a tabela que retrata os padrãos de nível de isolamento para operações de Dicionário Fiável e Fila.
 
-| Operação \ Papel | Primária | Secundária |
+| Operação \ Função | Primário | Secundária |
 | --- |:--- |:--- |
-| Leitura de entidade única |Leitura repetível |Instantâneo |
-| Enumeração, Conde |Instantâneo |Instantâneo |
+| Leitura de Entidade Única |Leitura repetível |Instantâneo |
+| Enumeração, Contagem |Instantâneo |Instantâneo |
 
 > [!NOTE]
-> Exemplos comuns para `IReliableDictionary.TryGetValueAsync`operações de entidade única são , `IReliableQueue.TryPeekAsync`.
+> Exemplos comuns para Operações de Entidade Única `IReliableDictionary.TryGetValueAsync` são, `IReliableQueue.TryPeekAsync` . .
 > 
 
-Tanto o Dicionário Fiável como o suporte fiável da fila *leia as suas escritas.*
-Por outras palavras, qualquer escrita dentro de uma transação será visível para uma seguinte leitura que pertence à mesma transação.
+Tanto o Dicionário Fiável como o suporte de fila fiável *lêem as suas escritas*.
+Por outras palavras, qualquer escrita dentro de uma transação será visível a uma leitura seguinte que pertence à mesma transação.
 
 ## <a name="locks"></a>Bloqueios
 
-Em Coleções Fiáveis, todas as transações implementam rigorosos bloqueios de duas fases: uma transação não liberta os cadeados que adquiriu até que a transação termine com um aborto ou um compromisso.
+Nas Coleções Fiáveis, todas as transações implementam um rigoroso bloqueio de duas fases: uma transação não liberta os cadeados que adquiriu até que a transação termine com um aborto ou um compromisso.
 
-O Dicionário Fiável utiliza o bloqueio de nível de linha para todas as operações de entidade única.
-A fila fiável troca a moeda por propriedade rígida de Operações FIFO.
-A Fila Fiável utiliza fechaduras de `TryPeekAsync` nível `TryDequeueAsync` de funcionamento que permitem uma transação com e/ou e uma transação com `EnqueueAsync` de cada vez.
-Note que para preservar fIFO, se a `TryPeekAsync` ou `TryDequeueAsync` alguma vez observar `EnqueueAsync`que a fila fiável está vazia, também bloqueará .
+O Dicionário Fiável utiliza o bloqueio ao nível da linha para todas as operações de entidade única.
+A Fila Fiável negoceia a conusncy por uma propriedade fifo transacional rigorosa.
+A Fila Fiável utiliza bloqueios de nível de operação permitindo uma transação com `TryPeekAsync` e/ou `TryDequeueAsync` uma transação com `EnqueueAsync` cada vez.
+Note que para preservar o FIFO, se um `TryPeekAsync` ou alguma vez observar que a Fila Fiável está `TryDequeueAsync` vazia, eles também vão bloquear `EnqueueAsync` .
 
 As operações de escrita levam sempre fechaduras exclusivas.
-Para as operações de leitura, o bloqueio depende de alguns fatores:
+Para operações de leitura, o bloqueio depende de alguns fatores:
 
-- Qualquer operação de leitura feita com o isolamento snapshot está livre de bloqueios.
-- Qualquer operação de Leitura Repetível por padrão leva fechaduras partilhadas.
-- No entanto, para qualquer operação de leitura que suporte a Leitura Repetível, o utilizador pode solicitar um bloqueio de atualização em vez do bloqueio partilhado.
-Um bloqueio de atualização é um bloqueio assimétrico usado para evitar uma forma comum de impasse que ocorre quando várias transações bloqueiam recursos para potenciais atualizações mais tarde.
+- Qualquer operação de leitura feita com isolamento snapshot está isenta de bloqueio.
+- Qualquer operação de Reposição Repetível por predefinição requer fechaduras partilhadas.
+- No entanto, para qualquer operação de leitura que suporte a Leitura Repetível, o utilizador pode solicitar um bloqueio de Atualização em vez do bloqueio Partilhado.
+Um bloqueio de atualização é um bloqueio assimétrico usado para evitar uma forma comum de impasse que ocorre quando várias transações bloqueiam recursos para potenciais atualizações numa altura posterior.
 
 A matriz de compatibilidade do bloqueio pode ser encontrada na tabela seguinte:
 
@@ -74,15 +73,15 @@ A matriz de compatibilidade do bloqueio pode ser encontrada na tabela seguinte:
 | Atualizar |Sem conflitos |Sem conflitos |Conflito |Conflito |
 | Exclusivo |Sem conflitos |Conflito |Conflito |Conflito |
 
-O argumento do timeout em Reliable Collections APIs é usado para deteção de impasse.
+O argumento de tempo limite em APIs de Cobranças Fiáveis é utilizado para a deteção de impasses.
 Por exemplo, duas transações (T1 e T2) estão a tentar ler e atualizar o K1.
-É possível que eles impossibilitem, porque ambos acabam por ter a fechadura partilhada.
-Neste caso, uma ou ambas as operações vão esgotar-se. Este cenário, um bloqueio de atualização poderia evitar tal impasse.
+É possível que fiquem num impasse, porque ambos acabam por ter a fechadura partilhada.
+Neste caso, uma ou ambas as operações vão esgotar-se. Neste cenário, uma fechadura de atualização poderia evitar tal impasse.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notificações de Serviços Fiáveis](service-fabric-reliable-services-notifications.md)
-* [Backup e restauro de Serviços Fiáveis (recuperação de desastres)](service-fabric-reliable-services-backup-restore.md)
-* [Configuração fiável do Gestor do Estado](service-fabric-reliable-services-configuration.md)
-* [Referência do desenvolvedor para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Backup e restauro dos Serviços Fiáveis (recuperação de desastres)](service-fabric-reliable-services-backup-restore.md)
+* [Configuração fiável do Gestor de Estado](service-fabric-reliable-services-configuration.md)
+* [Referência do programador para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

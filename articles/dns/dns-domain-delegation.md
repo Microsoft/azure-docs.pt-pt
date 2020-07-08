@@ -1,5 +1,5 @@
 ---
-title: Visão geral da delegação do DNS azure
+title: Visão geral da delegação do Azure DNS
 description: Compreenda como alterar a delegação de domínios e utilizar servidores de nomes de DNS do Azure para fornecer o alojamento de domínios.
 services: dns
 author: rohinkoul
@@ -8,10 +8,9 @@ ms.date: 2/19/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76939041"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegação de zonas DNS com o DNS do Azure
@@ -28,7 +27,7 @@ O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia come
 
 **Entidade de registo de domínios** - uma entidade de registo de domínios é uma empresa que pode fornecer nomes de domínios de Internet. Esta entidade irá verificar se o domínio da Internet que pretende utilizar está disponível e permite-lhe que o compre. Assim que o nome de domínio estiver registado, será o proprietário legal do mesmo. Se já tiver um domínio da Internet, irá utilizar a entidade de registo de domínios atual para delegar ao DNS do Azure.
 
-Para obter mais informações sobre os registos de domínio acreditados, consulte os [registos acreditados](https://www.icann.org/registrar-reports/accredited-list.html)pela ICANN .
+Para obter mais informações sobre os registos de domínio acreditados, consulte [os registos acreditados da ICANN.](https://www.icann.org/registrar-reports/accredited-list.html)
 
 ### <a name="resolution-and-delegation"></a>Resolução e delegação
 
@@ -54,18 +53,18 @@ A imagem seguinte mostra um exemplo de consulta DNS. As contoso.net e partners.c
 1. O cliente pede `www.partners.contoso.net` a partir do respetivo servidor DNS local.
 2. O servidor DNS local não tem o registo, por isso faz um pedido ao respetivo servidor de nomes de raiz.
 3. O servidor de nomes de raiz não tem o registo, mas sabe o endereço do servidor de nomes `.net`, e fornece esse endereço ao servidor DNS
-4. O servidor DNS local envia `.net` o pedido para o servidor de nome.
-5. O `.net` servidor de nomes não tem o `contoso.net` registo, mas conhece o endereço do servidor de nomes. Neste caso, responde com o endereço do servidor de nome para a zona DNS alojada no DNS Azure.
-6. O servidor DNS local envia o pedido `contoso.net` para o servidor de nome para a zona hospedada em DNS Azure.
-7. A `contoso.net` zona não tem o registo, `partners.contoso.net` mas conhece o servidor de nome saise e responde com o endereço. Neste caso, é uma zona DNS alojada em Azure DNS.
-8. O servidor DNS local envia o pedido `partners.contoso.net` para o servidor de nome para a zona.
+4. O servidor DNS local envia o pedido para o `.net` servidor de nomes.
+5. O `.net` servidor de nomes não tem o registo, mas conhece o endereço do servidor de `contoso.net` nomes. Neste caso, responde com o endereço do servidor de nomes da zona DNS hospedada no DNS.
+6. O servidor DNS local envia o pedido para o servidor de nomes para a `contoso.net` zona hospedada no Azure DNS.
+7. A zona `contoso.net` não tem o registo, mas conhece o servidor de `partners.contoso.net` nomes e responde com o endereço. Neste caso, é uma zona DNS hospedada no Azure DNS.
+8. O servidor DNS local envia o pedido para o servidor de nomes para a `partners.contoso.net` zona.
 9. A `partners.contoso.net` zona tem o registo A e responde com o endereço IP.
 10. O servidor DNS local fornece o endereço IP ao cliente
 11. O cliente liga-se ao site `www.partners.contoso.net`.
 
 Cada delegação, na verdade, tem duas cópias dos registos NS; uma na zona principal a apontar para a subordinada e outra na própria zona subordinada. A zona “contoso.net” contém os registos NS para “contoso.net” (além dos registos NS em “net”). Estes são designados registos NS autoritativos e residem no vértice da zona subordinada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [delegar o domínio no DNS do Azure](dns-delegate-domain-azure-dns.md)
 

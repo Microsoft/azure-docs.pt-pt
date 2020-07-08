@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas Azure IoT Hub erro 404001 DispositivoNotFound
-description: Entenda como corrigir o erro 404001 DispositivoNotFound
+title: Resolução de problemas Erro do Hub Azure IoT 404001 DeviceNotFound
+description: Entenda como corrigir erro 404001 DeviceNotFound
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -9,15 +9,14 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 15aa21c2ec2c11bb251f7208fd22c92ceb859d6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76960831"
 ---
 # <a name="404001-devicenotfound"></a>404001 DeviceNotFound
 
-Este artigo descreve as causas e soluções para **erros 404001 DispositivoNotFound.**
+Este artigo descreve as causas e soluções para **erros 404001 DeviceNotFound.**
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -29,4 +28,4 @@ A operação falhou porque o dispositivo não pode ser encontrado pelo IoT Hub. 
 
 ## <a name="solution"></a>Solução
 
-Registe o ID do dispositivo que usou e tente novamente.
+Registe a identificação do dispositivo que usou e tente novamente.
