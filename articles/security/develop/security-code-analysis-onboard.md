@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362062"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
@@ -92,7 +92,7 @@ Depois de instalar a extensão, as tarefas seguras de construção de desenvolvi
 > - Algumas tarefas de construção de Azure DevOps não são suportadas quando executadas através de um oleoduto de libertação. Mais especificamente, a Azure DevOps não suporta tarefas que publiquem artefactos dentro de um oleoduto de lançamento.
 > - Para obter uma lista de variáveis pré-finadas na Azure DevOps Team Build que pode especificar como parâmetros, consulte [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a configuração das tarefas de construção, consulte o nosso [guia de configuração](security-code-analysis-customize.md) ou [guia de configuração YAML](yaml-configuration.md).
 

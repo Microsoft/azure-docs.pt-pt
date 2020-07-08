@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 900471675c0e77cc5d82641fead3f019a0fa90c8
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358689"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect sync: Executar o assistente de instalação uma segunda vez
@@ -89,7 +89,7 @@ Esta opção permite alterar o método de entrada do utilizador de e para a sinc
 
 Para obter mais informações sobre esta opção, consulte [o início de sôm.](plan-connect-user-signin.md#changing-the-user-sign-in-method)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre o modelo de configuração utilizado pela sincronização Azure AD Connect in [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
 **Tópicos de visão geral**

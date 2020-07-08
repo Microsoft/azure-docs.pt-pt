@@ -9,10 +9,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362344"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
@@ -266,7 +266,7 @@ Também pode interagir com os utilizadores no anfitrião da sessão:
 
     - Limiar: Mais de 2000 ms é marcado como insalubre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como monitorizar os registos de atividade no [Use diagnostics com Log Analytics](diagnostics-log-analytics-2019.md).
 - Leia sobre cenários de erro comuns e como corrigi-los em [Identificar e diagnosticar problemas](diagnostics-role-service-2019.md).

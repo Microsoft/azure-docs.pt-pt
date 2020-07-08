@@ -11,10 +11,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 06/05/2020
 ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361647"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 

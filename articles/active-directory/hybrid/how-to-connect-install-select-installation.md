@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358706"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecionar o tipo de instalação a utilizar para o Azure AD Connect
@@ -74,5 +74,5 @@ Se está atualmente a utilizar o Azure AD Sync, então pode seguir os [mesmos pa
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrar do FIM2010 ou MIM2016
 Se está atualmente a usar o Gestor de Identidade da Vanguarda 2010 ou o Microsoft Identity Manager 2016 com o Azure AD Connector, então a sua única opção é uma migração. Siga os passos descritos na [migração do balanço.](how-to-upgrade-previous-version.md#swing-migration) Nos passos, substitua qualquer menção do Azure AD Sync pelo FIM2010/MIM2016.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Dependendo da opção selecionada para utilizar, utilize a tabela de conteúdos à esquerda para encontrar o seu artigo com os passos detalhados.

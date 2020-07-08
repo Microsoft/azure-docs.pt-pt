@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
 ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361392"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver

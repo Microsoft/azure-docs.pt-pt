@@ -9,13 +9,13 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361154"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar a autenticação multi-factor do Azure para o Windows Virtual Desktop
+# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar o Multi-Factor Authentication do Microsoft Azure para o Windows Virtual Desktop
 
 O cliente Windows para Windows Virtual Desktop é uma excelente opção para integrar o Windows Virtual Desktop com a sua máquina local. No entanto, ao configurar a sua conta virtual do Windows desktop no Cliente Windows, existem certas medidas que terá de tomar para se manter a si e aos seus utilizadores seguros.
 
@@ -59,7 +59,7 @@ Esta secção irá mostrar-lhe como criar uma política de Acesso Condicional qu
 9. Confirme as suas definições e defina **Ativar** a política para **on**.
 10. **Selecione Criar** para ativar a sua política.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre as políticas de Acesso Condicional](../active-directory/conditional-access/concept-conditional-access-policies.md)
 

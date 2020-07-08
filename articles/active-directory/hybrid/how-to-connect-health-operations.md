@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cc7c256ca6866e5b981f8740c9953534d830316
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359165"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
@@ -112,7 +112,7 @@ A Azure AD Connect Health suporta as seguintes funções incorporadas:
 | Função | Permissões |
 | --- | --- |
 | Proprietário |Os proprietários podem gerir o *acesso* (por exemplo, atribuir uma função a um utilizador ou grupo), *ver todas as informações* (por exemplo, ver alertas) a partir do portal e *alterar definições* (por exemplo, notificações de email) dentro do Azure AD Connect Health. <br>Por padrão, os administradores globais da Azure AD são atribuídos a esta função, e isso não pode ser alterado. |
-| Contribuinte |Os contribuintes podem *visualizar todas as informações* (por exemplo, ver alertas) a partir do portal e *alterar definições* (por exemplo, notificações de e-mail) dentro do Azure AD Connect Health. |
+| Contribuidor |Os contribuintes podem *visualizar todas as informações* (por exemplo, ver alertas) a partir do portal e *alterar definições* (por exemplo, notificações de e-mail) dentro do Azure AD Connect Health. |
 | Leitor |Os leitores podem *ver todas as informações* (por exemplo, ver alertas) a partir do portal dentro do Azure AD Connect Health. |
 
 Todas as outras funções (como Administradores de Acesso ao Utilizador ou Utilizadores de Laboratórios DevTest) não têm qualquer impacto no acesso dentro do Azure AD Connect Health, mesmo que as funções estejam disponíveis na experiência do portal.
@@ -166,7 +166,7 @@ Pode remover um utilizador ou um grupo adicionado ao Azure AD Connect Health RBA
 
 [//]: # (Fim da secção RBAC)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)

@@ -17,10 +17,10 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1983b5090604516265ea8e041ac68200ca2dc7b5
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359590"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado TLS/SSL para uma exploração de Serviços da Federação de Diretórios Ativos (AD FS)
@@ -105,7 +105,7 @@ Depois de concluir a configuração, o Azure AD Connect apresenta a mensagem que
 
     Remover o servidor da lista no Azure AD Connect não o remove na configuração AD FS. Azure AD Connect referências AD FS (Windows Server 2016 ou superior) para qualquer informação sobre a quinta. Se o servidor ainda estiver presente na configuração AD FS, será listado novamente na lista.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure AD Connect e federação](how-to-connect-fed-whatis.md)
 - [Gestão e personalização de Serviços da Federação de Diretórios Ativos com Azure AD Connect](how-to-connect-fed-management.md)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cedf1419a763fe0b0f528bee6e1b48e435ec0e2a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360032"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opções de dispositivo
@@ -43,7 +43,7 @@ A documentação que se segue fornece informações sobre as várias opções do
 2.  Depois de fornecer as credenciais para Azure AD, pode escolher a operação a ser executada na página de opções do Dispositivo.
     ![Operações de dispositivos](./media/how-to-connect-device-options/deviceoptionsselection.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure Hybrid Azure AD juntar-se](../device-management-hybrid-azuread-joined-devices-setup.md)
 * [Configurar / Desativar a writeback do dispositivo](how-to-connect-device-writeback.md)

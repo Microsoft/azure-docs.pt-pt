@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361579"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
@@ -38,7 +38,7 @@ O Uptime SLA está disponível em regiões públicas onde [a AKS é apoiada.](ht
 
 Uptime SLA é uma funcionalidade paga e ativada por cluster. Os preços de SLA de uptime são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver [os detalhes dos preços do Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Instale a versão [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.8.0 ou posterior
 
@@ -122,7 +122,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize [Zonas de disponibilidade][availability-zones] para aumentar a disponibilidade com as cargas de trabalho do cluster AKS.
 

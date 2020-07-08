@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362130"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registos de auditoria na Base de Dados Azure para o MySQL
@@ -47,7 +47,7 @@ Outros parâmetros que pode ajustar incluem:
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
 
-Os registos de auditoria são integrados com registos de diagnóstico do Monitor Azure. Uma vez que tenha ativado os registos de auditoria no seu servidor MySQL, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre como ativar registos de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Os registos de auditoria estão integrados nos Registos de Diagnósticos do Azure Monitor. Depois de ter ativado os registos de auditoria no servidor MySQL, pode emiti-los para os registos do Azure Monitor, os Hubs de Eventos ou o Armazenamento Azure. Para saber mais sobre como ativar registos de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Esquemas de Registos de Diagnóstico
 
@@ -194,6 +194,6 @@ Assim que os seus registos de auditoria forem canalizados para Registos do Monit
     | order by TimeGenerated asc nulls last
     ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como configurar registos de auditoria no portal Azure](howto-configure-audit-logs-portal.md)

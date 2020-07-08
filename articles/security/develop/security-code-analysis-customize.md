@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362096"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de construção
@@ -191,7 +191,7 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as nossas [opções DE PÓS-Análise YAML](yaml-configuration.md#post-analysis-task)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre a configuração baseada em YAML, consulte o nosso [guia de configuração YAML](yaml-configuration.md).
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa763c875b06bd7e22be0e814838f2e79b24e283
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358026"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory
@@ -68,7 +68,7 @@ Pode combinar a autenticação pass-through com a [função 'Sign-On' sem emenda
 - A instalação de vários agentes proporciona uma elevada disponibilidade de pedidos de inscrição.
 - [Protege as](../authentication/howto-password-smart-lockout.md) suas contas no local contra ataques de senhas de força bruta na nuvem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart](how-to-connect-pta-quick-start.md) - Levante-se e execute a autenticação pass-through Azure.
 - [Migrar de AD FS para Autenticação Pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.

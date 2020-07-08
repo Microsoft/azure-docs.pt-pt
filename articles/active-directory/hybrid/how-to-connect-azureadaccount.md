@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: e4f31c560fe3dd91689b361ed520e466fd52da1c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360015"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe da conta do Conector do Azure AD
@@ -46,7 +46,7 @@ Evento 6900 O servidor encontrou um erro inesperado ao processar uma notificaç�
 ---
 Erro do evento 659 enquanto recupera a configuração da sincronização da política de palavra-passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Credenciais de validação de erros. AADSTS50054: A palavra-passe antiga é utilizada para autenticação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 **Tópicos de visão geral**
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)

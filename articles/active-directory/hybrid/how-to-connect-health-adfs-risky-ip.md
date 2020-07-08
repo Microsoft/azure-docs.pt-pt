@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359353"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
@@ -116,6 +116,6 @@ Deve adicionar um endereço IP malicioso identificado à firewall ou bloqueá-lo
 É necessária a permissão Administrador Global ou [Leitor de Segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Contacte o administrador global para obter acesso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)

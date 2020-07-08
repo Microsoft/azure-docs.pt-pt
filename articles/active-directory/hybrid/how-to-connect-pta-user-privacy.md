@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358128"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do Utilizador e Autenticação Pass-through do Azure Active Directory
@@ -105,6 +105,6 @@ Para agendar este roteiro para correr a cada 48 horas siga estes passos:
 
 Se o registo de auditoria estiver ativado, este produto poderá gerar registos de segurança para os seus Controladores de Domínio. Para saber mais sobre a configuração das políticas de auditoria, leia este [artigo.](https://technet.microsoft.com/library/dd277403.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)
 * [**Resolução de problemas**](tshoot-connect-pass-through-authentication.md) - Aprenda a resolver problemas comuns com a funcionalidade.

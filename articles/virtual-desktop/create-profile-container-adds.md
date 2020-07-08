@@ -9,10 +9,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362446"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
@@ -236,7 +236,7 @@ Para verificar o seu perfil:
 
     Se tudo estiver bem montado, deve ver um **Diretório** com um nome formatado assim: `<user SID>-<username>` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se procura formas alternativas de criar recipientes de perfil FSLogix, confira os seguintes artigos:
 

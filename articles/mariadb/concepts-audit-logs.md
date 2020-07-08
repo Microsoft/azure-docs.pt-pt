@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362429"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registos de auditoria na Base de Dados Azure para MariaDB
@@ -46,7 +46,7 @@ Outros parâmetros que pode ajustar incluem:
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
 
-Os registos de auditoria são integrados com registos de diagnóstico do Monitor Azure. Uma vez que tenha ativado os registos de auditoria no seu servidor MariaDB, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre como ativar registos de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Os registos de auditoria estão integrados nos Registos de Diagnósticos do Azure Monitor. Depois de ter ativado os registos de auditoria no servidor MariaDB, pode emiti-los para os registos do Azure Monitor, os Hubs de Eventos ou o Armazenamento Azure. Para saber mais sobre como ativar registos de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Esquemas de Registos de Diagnóstico
 
@@ -164,6 +164,6 @@ Assim que os seus registos de auditoria forem canalizados para Registos do Monit
     | order by TimeGenerated asc nulls last
     ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como configurar registos de auditoria no portal Azure](howto-configure-audit-logs-portal.md)

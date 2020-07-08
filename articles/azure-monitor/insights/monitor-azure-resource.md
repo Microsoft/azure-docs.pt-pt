@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361960"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorização dos recursos do Azure com o Azure Monitor
@@ -161,6 +161,6 @@ Utilize **alertas** do menu de um recurso para visualizar alertas e gerir as reg
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [serviços, esquemas e categorias de Registos de Recursos Azure](../platform/diagnostic-logs-schema.md) para obter detalhes de registos de recursos para diferentes serviços Azure.  

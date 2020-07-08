@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58e779e6feeba27711a1746fbf7d6878725790fa
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358009"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
@@ -234,7 +234,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Revir as chaves de desencriptação Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função 'Sign-On' sem emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.

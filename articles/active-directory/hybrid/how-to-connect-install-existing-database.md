@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23bcb63b6b499e72cb43089659e513d276bd8306
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358978"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com uma base de dados ADSync existente
@@ -99,7 +99,7 @@ Utilize a tabela abaixo para verificar quaisquer passos adicionais necessários.
 |Autenticação pass-through e placa de trabalho único|Atualize o sinal no método para corresponder à configuração do seu servidor de sincronização ativo.  Se isto não for seguido antes de promover o servidor para a autenticação primária, a autenticação pass-through juntamente com o Seamless Single Sign on será desativada e o seu inquilino poderá ficar bloqueado se não tiver sincronização de haxixe de palavra-passe como sinal de back-up na opção. Note também que quando ativar a autenticação pass-through no modo de preparação, um novo agente de autenticação será instalado, registado e executado como um agente de alta disponibilidade que aceitará assinar nos pedidos.|
 |Federação com o PingFederate|As autenticações Azure continuarão a utilizar a política PingFederate configurada para o seu servidor de sincronização ativa.  Pode alterar opcionalmente o método de inscrição para PingFederate em preparação para o seu servidor de espera tornando-se a instância de sincronização ativa.  Este passo pode ser adiado até que você precise de federar domínios adicionais com PingFederate.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 - Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).

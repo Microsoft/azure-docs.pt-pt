@@ -11,10 +11,10 @@ ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361870"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Liste atribuições de funções Azure usando o portal Azure
@@ -185,7 +185,7 @@ Siga estes passos para descarregar atribuições de funções num âmbito.
 
     ![Descarregue atribuições de funções como CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione ou remova atribuições de funções Azure usando o portal Azure](role-assignments-portal.md)
 - [Resolução de problemas Azure RBAC](troubleshooting.md)

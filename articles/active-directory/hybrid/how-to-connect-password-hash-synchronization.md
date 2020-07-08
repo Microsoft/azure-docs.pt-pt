@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358567"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
@@ -231,7 +231,7 @@ Para obter informações sobre segurança e FIPS, consulte [a sincronização de
 ## <a name="troubleshoot-password-hash-synchronization"></a>Sincronização de hash de palavra-passe de resolução de problemas
 Se tiver problemas com a sincronização de hash de palavra-passe, consulte [a sincronização de hash da palavra-passe de resolução de problemas](tshoot-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Azure AD Connect sincronização: Personalizar opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 * [Obtenha um plano de implementação passo a passo para migrar da ADFS para a sincronização de hash password](https://aka.ms/authenticationDeploymentPlan)

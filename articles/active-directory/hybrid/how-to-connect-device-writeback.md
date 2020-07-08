@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360134"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a gravação do dispositivo
@@ -129,6 +129,6 @@ Verifique a configuração no Ative Directory:
 * [Gestão de risco com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Criação de Acesso Condicional no local utilizando o registo de dispositivos de diretório ativo Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
 

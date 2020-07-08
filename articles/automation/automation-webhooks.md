@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361681"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
@@ -29,7 +29,7 @@ A tabela a seguir descreve as propriedades que deve configurar para um webhook.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
+| Name |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
 | URL |URL do webhook. Este é o endereço único que um cliente chama com um HTTP POST para iniciar o livro de aplicação ligado ao webhook. É gerado automaticamente quando se cria o webhook. Não é possível especificar uma URL personalizada. <br> <br> O URL contém um símbolo de segurança que permite a um sistema de terceiros invocar o livro de bordo sem mais autenticação. Por esta razão, deve tratar o URL como uma palavra-passe. Por razões de segurança, só pode ver o URL no portal Azure ao criar o webhook. Note o URL num local seguro para utilização futura. |
 | Data de validade | Data de validade do webhook, após o qual já não pode ser utilizado. Pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
 | Ativado | Definição indicando se o webhook é ativado por padrão quando é criado. Se definir esta propriedade para Disabled, nenhum cliente pode usar o webhook. Você pode definir esta propriedade quando você criar o webhook ou qualquer outro tempo após a sua criação. |
@@ -242,6 +242,6 @@ A imagem que se segue mostra o pedido enviado do Windows PowerShell e a resposta
 
 ![Botão Webhooks](media/automation-webhooks/webhook-request-response.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para ativar um livro de bordo a partir de um alerta, consulte [Utilize um alerta para acionar um livro de execução da Azure Automation](automation-create-alert-triggered-runbook.md).

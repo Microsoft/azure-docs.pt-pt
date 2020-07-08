@@ -11,10 +11,10 @@ ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362254"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicione ou remova atribuições de funções Azure usando o portal Azure
@@ -206,7 +206,7 @@ No Azure RBAC, para remover o acesso de um recurso Azure, remove-se uma atribui�
 
    ![Mensagem Remover atribuição de função](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Liste atribuições de funções Azure usando o portal Azure](role-assignments-list-portal.md)
 - [Tutorial: Conceder acesso a um utilizador aos recursos do Azure através do portal Azure](quickstart-assign-role-user-portal.md)

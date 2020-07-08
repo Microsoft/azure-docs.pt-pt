@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359964"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configure pedidos de pedidos de candidaturas com a Azure Ative Directory
@@ -220,7 +220,7 @@ Para emitir nomes de grupo a serem devolvidos no formato netbiosDomain\samAccoun
  }
  ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicionar autorização usando grupos & grupos reclamam a uma aplicação web core ASP.NET (amostra de código)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
 - [Atribuir um utilizador ou grupo a uma aplicação empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358723"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
@@ -129,7 +129,7 @@ Para saber mais, consulte:
 Para obter mais informações, consulte a MSDN sobre o [elemento de procuração predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 * Opcional: Uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes

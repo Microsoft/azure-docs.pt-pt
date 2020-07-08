@@ -8,10 +8,10 @@ ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361477"
 ---
 # <a name="connecting-to-servers"></a>Ligar aos servidores
@@ -77,7 +77,7 @@ Utilize a conta do Windows a executar o processo atual.
 Com versões mais antigas do Excel, os utilizadores podem ligar-se a um servidor Azure Analysis Services utilizando um ficheiro De Ligação de Dados do Office (.odc). Para saber mais, consulte [Criar um ficheiro De Ligação de Dados do Office (.odc).](analysis-services-odc.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Conecte-se com o Excel](analysis-services-connect-excel.md)    
 [Conecte-se com Power BI](analysis-services-connect-pbi.md)   

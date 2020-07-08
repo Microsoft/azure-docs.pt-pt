@@ -16,10 +16,10 @@ ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d3e952d79698d128b5f2b7d9a8ac465c57754bc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359250"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catálogo de alerta de saúde Azure Ative Directory Connect 
@@ -109,5 +109,5 @@ Os alertas Azure AD Connect Health são resolvidos com uma condição de sucesso
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)

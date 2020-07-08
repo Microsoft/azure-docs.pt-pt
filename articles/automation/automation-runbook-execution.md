@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361630"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
@@ -226,7 +226,7 @@ Outra opção é otimizar um runbook utilizando livros infantis. Por exemplo, o 
 
 A utilização de livros infantis diminui o tempo total para o livro de bordo dos pais completar. O seu runbook pode utilizar o [cmdlet Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) para verificar o estado do trabalho de um livro de aplicação de crianças se ainda tiver mais operações após a conclusão da criança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar com um livro de execução PowerShell, consulte [Tutorial: Crie um livro de execução PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para trabalhar com runbooks, consulte [Gerir os runbooks na Azure Automation.](manage-runbooks.md)

@@ -17,10 +17,10 @@ ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1a3b07dadba17f72f6f4c5765787c7122eebaa89
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361409"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
@@ -2005,7 +2005,7 @@ Os pontos-chave da Alta Disponibilidade para sistemas SAP em Azure são:
 * O backup das instâncias de diálogo SAP faz pouco sentido, uma vez que é geralmente mais rápido para recolocar instâncias de diálogo simples.
 * O backup do VM, que contém o diretório global do sistema SAP e com ele todos os perfis das diferentes instâncias, faz sentido e deve ser realizado com o Windows Backup ou, por exemplo, alcatrão no Linux. Uma vez que existem diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2), que facilitam o back up utilizando as versões mais recentes do Windows Server, recomendamos executar o Windows Server 2012 (R2) como sistema operativo para hóspedes do Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia os artigos:
 
 - [Implementação de máquinas virtuais Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)

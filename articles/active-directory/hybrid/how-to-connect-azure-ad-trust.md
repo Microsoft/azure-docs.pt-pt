@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360100"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerir a confiança do AD FS com o Azure AD com o Azure AD Connect
@@ -119,5 +119,5 @@ Pode restaurar as regras de transformação da emissão usando os passos sugerid
 > [!NOTE]
 > Certifique-se de que as suas regras adicionais não entram em conflito com as regras configuradas pelo Azure AD Connect.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Gerir e personalizar serviços da Federação de Diretórios Ativos utilizando o Azure AD Connect](how-to-connect-fed-management.md)

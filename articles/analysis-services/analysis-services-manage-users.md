@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361494"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
@@ -76,7 +76,7 @@ As funções a este nível aplicam-se aos utilizadores ou contas que precisam de
   
  Por padrão, quando cria um novo projeto de modelo tabular, o projeto modelo não tem quaisquer funções. As funções podem ser definidas utilizando a caixa de diálogo Role Manager no Estúdio Visual. Quando as funções são definidas durante o design do projeto do modelo, são aplicadas apenas à base de dados do espaço de trabalho do modelo. Quando o modelo é implantado, as mesmas funções são aplicadas ao modelo implantado. Depois de implementado um modelo, os administradores de servidores e de bases de dados podem gerir funções e membros utilizando SSMS. Para saber mais, consulte [Gerir as funções de base de dados e os utilizadores.](analysis-services-database-users.md)
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerir o acesso a recursos com grupos Azure Ative Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gerir funções de base de dados e utilizadores](analysis-services-database-users.md)  

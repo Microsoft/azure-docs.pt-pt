@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6efff54d2c28659af27161ab4cd4753302210006
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358417"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação pass-through do Diretório Ativo Azure: Limitações atuais
@@ -53,7 +53,7 @@ Os seguintes cenários _não_ são suportados:
 > [!NOTE]
 > Ativar a sincronização de Hash da Password dá-lhe a opção de autenticação por failover se a sua infraestrutura no local estiver interrompida. Esta falha de autenticação pass-through para sincronização de hash password não é automática. Terá de mudar manualmente o método de inscrição através do Azure AD Connect. Se o servidor que executa o Azure AD Connect se desligar, necessitará da ajuda do Microsoft Support para desligar a Autenticação Pass-through.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Início rápido](how-to-connect-pta-quick-start.md): Levante-se e corra com autenticação pass-through Azure.
 - [Migrar de AD FS para Autenticação Pass-through](https://aka.ms/ADFSTOPTADPDownload) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de Bloqueio Inteligente no seu inquilino para proteger as contas do utilizador.

@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361324"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Sobre a Análise do Código de Segurança da Microsoft
@@ -104,7 +104,7 @@ Pode configurar esta tarefa para quebrar a construção para problemas encontrad
 >[!NOTE]
 >Por design, cada tarefa de construção tem sucesso se a tarefa terminar com sucesso. Isto é verdade se uma ferramenta encontra ou não problemas, para que a construção possa ser concluída permitindo que todas as ferramentas sejam executadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter instruções sobre como embarcar e instalar a Microsoft Security Code Analysis, consulte o nosso [guia de embarque e instalação](security-code-analysis-onboard.md).
 

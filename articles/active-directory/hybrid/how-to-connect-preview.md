@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bb7305fe8ee96697c5c8b2172e32a2a97e5bd6c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358434"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre funcionalidades na pré-visualização
@@ -36,7 +36,7 @@ Implementamos um novo ponto final (API) para o Azure AD Connect que melhora o de
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Continue a sua [instalação personalizada de Azure AD Connect](how-to-connect-install-custom.md).
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

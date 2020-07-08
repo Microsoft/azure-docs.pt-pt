@@ -7,10 +7,10 @@ ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 87342dcd316b0364522baa01e632b704665c998e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85363769"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>O que é auto-instrumentação ou anexação codeless - Azure Monitor Application Insights?
@@ -65,7 +65,7 @@ Pode facilmente ativar a monitorização dos [servidores Windows no local para a
 ## <a name="other-environments"></a>Outros ambientes
 O versátil agente autónomo java trabalha em qualquer ambiente, não há necessidade de instrumentar o seu código. [Siga o guia](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) para ativar o Application Insights e leia sobre as incríveis capacidades do agente Java. O agente está em pré-visualização pública e disponível em todas as regiões. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral de insights de aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 * [Mapa de aplicação](./../../azure-monitor/app/app-map.md)

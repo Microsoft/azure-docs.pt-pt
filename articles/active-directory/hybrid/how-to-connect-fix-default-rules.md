@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359760"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
@@ -190,7 +190,7 @@ Note que na regra modificada, o `msExchMailboxGuid` atributo é alterado para o 
  
 Para corrigir as suas regras para alterá-las de volta para as definições predefinidas, elimine a regra modificada e ative a regra por defeito. Certifique-se de que não perde a personalização que está a tentar alcançar. Quando estiver pronto, faça **a sincronização completa.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições expressas](how-to-connect-install-express.md)
 - [Definições personalizadas](how-to-connect-install-custom.md)

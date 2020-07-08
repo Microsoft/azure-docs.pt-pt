@@ -8,17 +8,17 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361562"
 ---
 # <a name="connect-with-excel"></a>Ligar com o Excel
 
 Uma vez criado um servidor e implantado um modelo tabular, os clientes podem conectar-se e começar a explorar dados. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 A conta com que insinou deve pertencer a uma função de base de dados modelo com, pelo menos, permissões de leitura. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador). 
 
@@ -40,7 +40,7 @@ A ligação a um servidor no Excel é suportada utilizando o Get Data no Excel 2
     ![Conecte-se a partir do modelo de seleção do Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Bibliotecas de clientes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Gerencie o seu servidor](analysis-services-manage.md)     

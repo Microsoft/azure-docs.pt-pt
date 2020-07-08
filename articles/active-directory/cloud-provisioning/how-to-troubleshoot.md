@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360797"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Resolução de problemas de provisão de nuvens
@@ -22,7 +22,7 @@ O fornecimento de nuvens toca muitas coisas diferentes e tem muitas dependência
 
 ## <a name="common-troubleshooting-areas"></a>Áreas comuns de resolução de problemas
 
-|Nome|Descrição|
+|Name|Descrição|
 |-----|-----|
 |[Problemas com o agente](#agent-problems)|Verifique se o agente foi instalado corretamente e que comunica com o Azure Ative Directory (Azure AD).|
 |[Problemas de sincronização de objetos](#object-synchronization-problems)|Utilize registos de provisionamento para resolver problemas de sincronização de objetos.|
@@ -206,7 +206,7 @@ Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Ta
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

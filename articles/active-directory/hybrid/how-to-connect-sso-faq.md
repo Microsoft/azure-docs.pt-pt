@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357941"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
@@ -147,7 +147,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    **Passo 3. Elimine manualmente a `AZUREADSSO` conta do computador de cada floresta AD que vê listada.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [**Quickstart**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - [**Mergulho Profundo Técnico**](how-to-connect-sso-how-it-works.md) - Entenda como funciona esta funcionalidade.

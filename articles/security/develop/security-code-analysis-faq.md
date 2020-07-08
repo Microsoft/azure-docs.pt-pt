@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362079"
 ---
-# <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+# <a name="frequently-asked-questions"></a>Perguntas frequentes
 Tem perguntas? Consulte as seguintes FAQ para mais informações.
 
 ## <a name="general-faq"></a>FAQs Gerais
@@ -218,7 +218,7 @@ Para obter as versões mais recentes do compilador C#, vá ao [Microsoft.Net.Com
 
 A tarefa de construção de Roslyn Analyzers precisa de consultar a Azure DevOps para o registo MSBuild a partir da tarefa de construção do MSBuild. Se a tarefa do analisador for executado imediatamente após a tarefa MSBuild, o registo ainda não estará disponível. Coloque outras tarefas entre a tarefa MSBuild e a tarefa Roslyn Analyzers. Exemplos de outras tarefas incluem BinSkim e Anti-Malware Scanner.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de assistência adicional, o Microsoft Security Code Analysis Support está disponível de segunda a sexta-feira das 9:00 às 17:00 horas do Pacífico.
 
