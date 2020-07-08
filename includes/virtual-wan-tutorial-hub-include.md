@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,20 +9,20 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184161"
 ---
 Um centro contém o portal. Depois de criar o hub, vai ser cobrado pelo hub, mesmo que não anexe quaisquer sites. Leva 30 minutos para criar o centro e a porta de entrada.
 
-1. Localize o WAN Virtual que criou. Na página Wan Virtual, sob a secção de **arquitetura Virtual WAN,** clique em **Hubs**.
-2. Na página Hubs, clique em **+New Hub** para abrir a página **Create virtual hub.**
-3. Na página **Create virtual hub,** complete os seguintes campos:
+1. Localize o WAN virtual que criou. Na página Virtual WAN, na secção **de arquitetura Virtual WAN,** clique em **Hubs**.
+2. Na página Hubs, clique **em +New Hub** para abrir a página **do hub virtual Create.**
+3. Na página **do hub virtual Create,** complete os seguintes campos:
 
    * Localização
-   * Nome
+   * Name
    * Espaço de endereços privados do Hub
 
 Clique em **Confirmar** para criar o hub. Clique em **Refresh** para ver o hub na página **Hubs.**

@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194923"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Empurre os dados para um índice de pesquisa cognitiva Azure utilizando a Azure Data Factory
@@ -57,9 +57,9 @@ A tabela seguinte fornece descrições para elementos JSON específicos do servi
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Yes |
-| url | URL para o serviço de pesquisa. | Yes |
-| chave | Chave de administração para o serviço de pesquisa. | Yes |
+| tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Sim |
+| url | URL para o serviço de pesquisa. | Sim |
+| key | Chave de administração para o serviço de pesquisa. | Sim |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -67,8 +67,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Yes |
-| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Yes |
+| tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Sim |
+| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -78,8 +78,8 @@ Para a Atividade de Cópia, quando a pia é do tipo **AzureSearchIndexSink,** as
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | -------- | ----------- | -------------- | -------- |
-| Escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| Fusão (padrão)<br/>Carregar| No |
-| WriteBatchsize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes. | De 1 a 1.000. O valor predefinido é de 1000. | No |
+| Escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| Fusão (padrão)<br/>Carregar| Não |
+| WriteBatchsize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes. | De 1 a 1.000. O valor predefinido é de 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 AzureSearchSinksersers ao escrever dados. Por outras palavras, ao escrever um documento, se a chave de documento já existe no índice de pesquisa, a Azure Cognitive Search atualiza o documento existente em vez de lançar uma exceção de conflito.
@@ -99,12 +99,12 @@ A tabela seguinte especifica se um tipo de dados de pesquisa cognitiva Azure é 
 
 | Tipo de dados de pesquisa cognitiva Azure | Suportado em Azure Cognitive Search Sink |
 | ---------------------- | ------------------------------ |
-| Cadeia | Y |
-| Int32 | Y |
-| Int64 | Y |
-| Double | Y |
-| Booleano | Y |
-| DataTimeOffset | Y |
+| String | S |
+| Int32 | S |
+| Int64 | S |
+| Double | S |
+| Booleano | S |
+| DataTimeOffset | S |
 | Matriz de Cordas | N |
 | GeografiaPoint | N |
 
@@ -290,7 +290,7 @@ Também pode mapear colunas de conjunto de dados de origem para colunas a partir
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Consulte o guia de [desempenho e afinação da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber sobre os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) e várias formas de otimizá-lo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 * [Copiar tutorial de atividade](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instruções passo a passo para a criação de um oleoduto com uma Atividade de Cópia.

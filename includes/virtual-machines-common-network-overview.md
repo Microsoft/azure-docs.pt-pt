@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84237675"
 ---
 Quando cria uma máquina virtual (VM) do Azure, tem de criar uma [rede virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) ou de utilizar uma VNet já existente. Também tem de decidir como pretende que se faça o acesso às VMs na VNet. É importante [planear antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e ter a certeza de que compreende os [limites dos recursos de rede](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
@@ -34,11 +34,11 @@ Para além destes recursos básicos, também deve considerar estes recursos opci
 
 ## <a name="network-interfaces"></a>Interfaces de rede
 
-Uma [interface de rede (NIC)](../articles/virtual-network/virtual-network-network-interface.md) é a interligação entre uma VM e uma rede virtual (VNet). As VMs têm de ter, pelo menos, uma NIC, mas podem ter mais, dependendo do tamanho da VM que criar. Saiba quantos NICs cada tamanho VM suporta para [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
+Uma [interface de rede (NIC)](../articles/virtual-network/virtual-network-network-interface.md) é a interligação entre um VM e uma rede virtual (VNet). As VMs têm de ter, pelo menos, uma NIC, mas podem ter mais, dependendo do tamanho da VM que criar. Saiba quantas NICs cada tamanho de VM suporta no [Windows](../articles/virtual-machines/windows/sizes.md) ou no [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Pode criar um VM com vários NICs e adicionar ou remover NICs através do ciclo de vida de um VM. Vários NICs permitem que um VM se conecte a diferentes sub-redes e envie ou receba tráfego através da interface mais apropriada. VMs com qualquer número de interfaces de rede podem existir no mesmo conjunto de disponibilidade, até o número suportado pelo tamanho VM. 
+Pode criar uma VM com várias NICs e adicionar ou remover NICs ao longo do ciclo de vida de uma VM. Várias NICs permitem que uma VM se ligue a diferentes sub-redes e envie ou receba tráfego através da interface mais apropriada. Podem existir VMs com qualquer número de interfaces de rede no mesmo conjunto de disponibilidade, até ao número suportado pelo tamanho da VM. 
 
-Cada NIC ligada a uma VM tem de existir na mesma localização e subscrição que a VM. Cada NIC deve estar ligada a uma VNet que exista na mesma localização e subscrição do Azure que essa NIC. Pode alterar a sub-rede a que um VM está ligado após a sua criação, mas não pode alterar o VNet. Cada NIC ligado a um VM é atribuído um endereço MAC que não muda até que o VM seja eliminado.
+Cada NIC ligada a uma VM tem de existir na mesma localização e subscrição que a VM. Cada NIC deve estar ligada a uma VNet que exista na mesma localização e subscrição do Azure que essa NIC. Pode alterar a sub-rede à qual uma VM é ligada depois de ser criada, mas não pode alterar a VNet. Atribui-se um endereço MAC a cada NIC ligada a uma VM, o qual não muda até a VM ser eliminada.
 
 Esta tabela lista os métodos que pode utilizar para criar uma interface de rede.
 
@@ -167,7 +167,7 @@ Esta tabela lista os métodos que pode utilizar para criar uma VM numa VNet.
 | [CLI do Azure](../articles/virtual-machines/linux/create-cli-complete.md) | Crie e ligue um VM a um Vnet, subnet e NIC que constroem como passos individuais. |
 | [Modelo](../articles/virtual-machines/windows/ps-template.md) | Utilize [Very simple deployment of a Windows VM (Implementação muito simples de uma VM do Windows)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como guia para implementar uma VM através de um modelo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para passos específicos em VM sobre como gerir redes virtuais Azure para VMs, consulte os tutoriais [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) ou [Linux.](../articles/virtual-machines/linux/tutorial-virtual-network.md)
 
 Existem também tutoriais sobre como carregar VMs de equilíbrio e criar aplicações altamente disponíveis para [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) ou [Linux.](../articles/virtual-machines/linux/tutorial-load-balancer.md)

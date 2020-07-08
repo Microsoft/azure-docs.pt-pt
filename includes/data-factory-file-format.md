@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70166764"
 ---
 ## <a name="specifying-formats"></a>Especificar formatos
@@ -69,7 +69,7 @@ Para utilizar um `escapeChar` em vez de `quoteChar`, substitua a linha por `quot
 * Está a copiar de um ficheiro de texto e quer ignorar algumas linhas no início que não contêm dados nem informações de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a ignorar. Se o resto do ficheiro contiver uma linha de cabeçalho, também pode especificar `firstRowAsHeader`. Se as propriedades `skipLineCount` e `firstRowAsHeader` forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada
 
 ### <a name="specifying-jsonformat"></a>Especificar JsonFormat
-Para **importar/exportar ficheiros JSON como está dentro/a partir de Azure Cosmos DB,** consulte a secção de [documentos JSON de Importação/Exportação](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) no conector Azure Cosmos DB com detalhes.
+Para **importar/exportar ficheiros JSON como-é dentro/de Azure Cosmos DB**, consulte a secção [de documentos JSON de importação/exportação](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) no conector DB Azure Cosmos com detalhes.
 
 Se quiser analisar os ficheiros JSON ou escrever os dados em formato JSON, defina a propriedade `format` `type` como **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
@@ -214,7 +214,7 @@ e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Veja Especificar a definição da estrutura para conjuntos de dados retangulares para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar a **matriz[x].propriedade** para extrair valor da propriedade dada a partir do objeto xth, ou pode usar **matriz[*].propriedade** para encontrar o valor de qualquer objeto que contenha tal propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode usar **array[x].property** para extrair valor da propriedade dada a partir do xth objeto, ou pode usar **array[*].property** para encontrar o valor de qualquer objeto que contenha tal propriedade.
 
 ```json
 "properties": {

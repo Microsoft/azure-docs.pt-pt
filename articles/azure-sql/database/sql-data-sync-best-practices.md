@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196359"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Melhores práticas da Sincronização de Dados SQL do Azure 
@@ -195,7 +195,7 @@ Para evitar grupos de sincronização desatualizados:
 
 Em algumas circunstâncias, não registar uma base de dados com um agente cliente pode causar a falha da sincronização.
 
-#### <a name="scenario"></a>Cenário
+#### <a name="scenario"></a>Scenario
 
 1. O sync group A foi criado utilizando uma instância SQL Database e uma base de dados SQL Server, que está associada ao agente local 1.
 2. A mesma base de dados no local está registada com o agente local 2 (este agente não está associado a nenhum grupo de sincronização).
@@ -228,7 +228,7 @@ Se tiver um esquema complexo para sincronizar, poderá encontrar um "tempo limit
 
 Para mitigar este problema, por favor, dimensione a sua base de dados de metadados sincronizados para ter um SKU mais elevado, como o S3. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o SQL Data Sync, consulte:
 
 -   Visão geral - [Sync dados em várias bases de dados de nuvem e no local com Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
