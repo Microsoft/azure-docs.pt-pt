@@ -2,7 +2,7 @@
 title: Ajuste de monitorização e desempenho
 description: Uma visão geral das capacidades de monitorização e afinação de desempenho e metodologia na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 7ac3a2947c84eca0e22e0888495f9992222d4dd6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220535"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982173"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorização e afinação de desempenho na Base de Dados Azure SQL e na Azure SQL Gestão de Instâncias
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -93,7 +93,7 @@ Transmita métricas e registos de recursos para [o Azure Storage](../../azure-mo
 
 Além disso, pode utilizar [eventos estendidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) no SQL Server para monitorização e resolução de problemas avançados. A arquitetura de eventos alargados permite que os utilizadores recolham tanto ou tão poucos dados quanto necessários para resolver problemas ou identificar um problema de desempenho. Para obter informações sobre a utilização de eventos alargados na Base de Dados Azure SQL, consulte [eventos estendidos na Base de Dados Azure SQL](xevent-db-diff-from-svr.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre recomendações inteligentes de desempenho para bases de dados individuais e agramadas, consulte [recomendações de desempenho do conselheiro de base de dados](database-advisor-implement-performance-recommendations.md).
 - Para obter mais informações sobre a monitorização automática do desempenho da base de dados com diagnósticos automatizados e análise de causa de raiz de problemas de desempenho, consulte [Azure SQL Intelligent Insights](intelligent-insights-overview.md).

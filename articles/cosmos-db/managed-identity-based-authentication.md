@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: d5aef82fe29ec544e29d7c65950e719110ad276a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391864"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970965"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 
@@ -40,10 +40,10 @@ Neste passo, irá atribuir uma identidade gerida pelo sistema à sua aplicação
 
 Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da aplicação de funções. A Azure Cosmos DB tem múltiplos papéis incorporados que pode atribuir à identidade gerida. Para esta solução, utilizará as seguintes duas funções:
 
-|Papel incorporado  |Description  |
+|Papel incorporado  |Descrição  |
 |---------|---------|
 |[Colaborador de Conta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerir as contas de DB da Azure Cosmos. Permite a recuperação de teclas de leitura/escrita. |
-|[Cosmos DB Leitor de Conta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta DB da Azure Cosmos. Permite a recuperação das chaves de leitura. |
+|[Papel do leitor de conta de cosm de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta DB da Azure Cosmos. Permite a recuperação das chaves de leitura. |
 
 > [!IMPORTANT]
 > O suporte ao controlo de acesso baseado em funções na Azure Cosmos DB aplica-se apenas às operações de controlo do avião. As operações de plano de dados são asseguradas através de chaves principais ou fichas de recursos. Para saber mais, consulte o Acesso Seguro ao artigo [dados.](secure-access-to-data.md)
@@ -198,7 +198,7 @@ namespace Monitor
 
 Está agora pronto para implementar a [sua aplicação de função.](../azure-functions/functions-create-first-function-vs-code.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Autenticação baseada em certificados com Azure Cosmos DB e Azure Ative Directory](certificate-based-authentication.md)
 * [Chaves DB Secure Azure Cosmos usando cofre de chave Azure](access-secrets-from-keyvault.md)

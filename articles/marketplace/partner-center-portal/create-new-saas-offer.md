@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: f214dbbc1991e64f86890687523be256c69e46d3
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.date: 06/17/2020
+ms.openlocfilehash: 3393fb6e33cbf80db68c49ac31edb54de35bae64
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374275"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980601"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Criar uma nova oferta saaS no mercado comercial
 
@@ -76,7 +76,7 @@ A venda através da Microsoft proporciona uma melhor descoberta e aquisição de
 Para listar o Software como um Serviço (SaaS) oferece com o Mercado Comercial no Partner Center, devem ser cumpridos os seguintes critérios:
 
 - A sua oferta deve utilizar [o Azure Ative Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para gestão de identidade e autenticação.
-- A sua oferta deve utilizar [APIs de Cumprimento saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrar-se no Azure Marketplace.
+- A sua oferta deve utilizar [APIs de Cumprimento saas](pc-saas-fulfillment-api-v2.md) para integrar-se no Azure Marketplace.
 
 #### <a name="saas-pricing-and-billing-options"></a>Opções de preços e faturação de SaaS
 
@@ -96,10 +96,9 @@ Trata-se de uma repartição de custos e pagamentos para demonstrar o modelo da 
 |Microsoft paga-lhe 80% do custo da sua licença <br>**Para aplicações SaaS qualificadas, a Microsoft paga 90% do custo da sua licença*|$80,00 por mês <br>*$* 90.00 por mês*|
 
 - Neste exemplo, a Microsoft fatura $100,00 ao cliente pela sua licença de software e paga $80,00 à editora.
-- Os parceiros que se qualificaram para a Taxa reduzida de **Serviço do Mercado** verão uma taxa de transação reduzida nas ofertas do SaaS de maio de 2019 até junho de 2020. Neste cenário, a Microsoft cobra 100,00 dólares pela sua licença de software e paga 90,00 dólares à editora.
 
 > [!NOTE]
-> **Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no nosso Mercado Comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua oferta se qualifique, pelo menos uma das suas ofertas deve ter sido designada pela Microsoft como sendo ou ip co-sell pronto ou IP co-sell priorizado. A elegibilidade deve ser satisfeita pelo menos cinco (5) dias úteis antes do final de cada mês civil, a fim de receber esta taxa reduzida de serviço do Mercado para o mês.  A Taxa reduzida de Serviço do Mercado não se aplica a VMs, Apps Geridas ou quaisquer outros produtos disponibilizados através do nosso Mercado Comercial. A Taxa reduzida de Serviço do Mercado só estará disponível para ofertas qualificadas para taxas de licença cobradas pela Microsoft entre 1 de maio de 2019 e 30 de junho de 2020. Após este tempo, a Taxa de Serviço do Mercado voltará ao seu valor normal.
+> **Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como sendo ou IP co-sell pronto ou IP co-sell priorizado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço do Mercado não se aplica a VMs, Apps Geridas ou quaisquer outros produtos disponibilizados através do mercado comercial.
 
 ### <a name="list-through-microsoft"></a>Lista através da Microsoft
 
@@ -109,11 +108,11 @@ Promova o seu negócio com a Microsoft criando uma listagem de marketplace. Sele
 
 #### <a name="get-it-now-free"></a>Obtê-lo agora (grátis)
 
-Enuncia gratuitamente a sua oferta aos *clientes,* fornecendo um endereço válido (a começar por *http* ou https ), onde podem obter um teste através [da autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Por exemplo, `https://contoso.com/saas-app`.
+Enuncia gratuitamente a sua oferta aos *clientes,* fornecendo um endereço válido (a começar por *http* ou https ), onde podem obter um teste através [da autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). Por exemplo, `https://contoso.com/saas-app`.
 
 #### <a name="free-trial-listing"></a>Ensaio gratuito (listagem)
 
-Enuncia a sua oferta aos clientes com um link para um teste gratuito, fornecendo um endereço válido (a começar por *http* ou *https*), onde podem obter um teste através [de autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Por exemplo, `https://contoso.com/trial/saas-app`. Os testes gratuitos de listagem de ofertas são criados, geridos e configurados pelo seu serviço e não têm subscrições geridas pela Microsoft.
+Enuncia a sua oferta aos clientes com um link para um teste gratuito, fornecendo um endereço válido (a começar por *http* ou *https*), onde podem obter um teste através [de autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). Por exemplo, `https://contoso.com/trial/saas-app`. Os testes gratuitos de listagem de ofertas são criados, geridos e configurados pelo seu serviço e não têm subscrições geridas pela Microsoft.
 
 > [!NOTE]
 > Os tokens que a sua aplicação receberá através do seu link de teste só podem ser utilizados para obter informações do utilizador através do Azure AD para automatizar a criação de conta na sua app. As Contas Microsoft (MSA) não são suportadas para autenticação utilizando este token.
@@ -140,7 +139,7 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Description
+9. Descrição
 10. Screenshots/vídeos
 11. Documentos
 
@@ -157,15 +156,15 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 
 ## <a name="enable-a-test-drive"></a>Ativar uma unidade de teste
 
-Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando numa maior conversão e na geração de leads altamente qualificados. [Saiba mais sobre test drives](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando numa maior conversão e na geração de leads altamente qualificados. [Saiba mais sobre test drives](../what-is-test-drive.md).
 
 Para ativar uma unidade de teste durante um período de tempo fixo, selecione a caixa de **verificação de acionamento de test drive.** Para remover o test drive da sua oferta, limpe esta caixa de verificação.
 
-Para obter informações adicionais, consulte [Test drive a sua oferta no mercado comercial.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)
+Para obter informações adicionais, consulte [Test drive a sua oferta no mercado comercial.](test-drive.md)
 
 ### <a name="test-drive-resources"></a>Recursos de test drive
 
-- [Melhores práticas de marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [O que é uma versão de teste?](../what-is-test-drive.md)
 - [Melhores práticas técnicas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; certifique-se de que o seu bloqueador pop-up está desligado)
 
@@ -174,8 +173,8 @@ Para obter informações adicionais, consulte [Test drive a sua oferta no mercad
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Recursos adicionais de gestão de chumbo
-- [FAQs de gestão de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Visão geral da gestão de chumbo Um Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 **Selecione Guardar o projeto** antes de continuar.
@@ -186,11 +185,18 @@ Esta página pede-lhe que defina as categorias e indústrias usadas para agrupar
 
 ### <a name="category"></a>Categoria
 
-Selecione pelo menos uma e até três categorias para agrupar a sua oferta nas áreas de pesquisa adequadas ao mercado. Descreva como a sua oferta suporta estas categorias na descrição da oferta.
+A sua oferta será publicada no AppSource ou no Azure Marketplace, dependendo das capacidades de transação associadas à sua oferta e à sua seleção de categorias. Consulte [a Comparação do Microsoft AppSource e do Azure Marketplace](../comparing-appsource-azure-marketplace.md) para obter mais detalhes. Selecione categorias e subcategorias que melhor se alinham com a sua oferta e o seu público pretendido. Selecione:
+
+- Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+
+Consulte a lista completa de categorias e subcategorias aplicáveis a cada Montra em [Ofertas Listando As Melhores Práticas.](../gtm-offer-listing-best-practices.md)
 
 ### <a name="industries"></a>Setores
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+
+A seleção da indústria aplica-se apenas às ofertas publicadas no AppSource.
 
 ### <a name="app-version"></a>Versão da aplicação
 
@@ -252,11 +258,11 @@ Forneça detalhes a serem exibidos no mercado, incluindo descrições da sua ofe
 
 - **Nome** (obrigatório) – O nome aqui definido aparecerá como o título da sua lista de ofertas no mercado(s) que escolheu. O nome é pré-voizado com base na sua entrada anterior **da Nova Oferta.** O nome pode ser marcado. Não pode conter emojis (a menos que sejam símbolos de marca e direitos de autor) e deve ser limitado a 50 caracteres.
 - **Resumo** (obrigatório) – Forneça uma breve descrição da sua oferta para ser usada nos resultados de pesquisa de listagem de mercado. Pode entrar até 100 caracteres de texto neste campo.
-- **Descrição** (obrigatória) – Forneça uma descrição da sua oferta a ser exibida na(s) lista(s) visão geral do mercado. Considere incluir uma proposta de valor, benefícios-chave, qualquer categoria ou associações do setor, oportunidades de compra na aplicação, quaisquer divulgações necessárias e um link para aprender mais. Podem ser introduzidos até 3.000 caracteres de texto neste campo, incluindo marcação. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação.](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)
+- **Descrição** (obrigatória) – Forneça uma descrição da sua oferta a ser exibida na(s) lista(s) visão geral do mercado. Considere incluir uma proposta de valor, benefícios-chave, qualquer categoria ou associações do setor, oportunidades de compra na aplicação, quaisquer divulgações necessárias e um link para aprender mais. Podem ser introduzidos até 3.000 caracteres de texto neste campo, incluindo marcação. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação.](/windows/uwp/publish/write-a-great-app-description)
 - **Pedir palavras-chave** de pesquisa – Introduza até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta no mercado(s).
 - **Iniciar instruções (necessárias)** – Explique como configurar e começar a usar a sua app para potenciais clientes.  Este quickstart pode conter links para documentação online mais detalhada. Podem ser inseridos até 3.000 caracteres de texto neste campo.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 
 Este campo é obrigatório.
 
@@ -267,7 +273,7 @@ Este campo é obrigatório.
 #### <a name="links"></a>Ligações
 
 - **Política de Privacidade** (obrigatório) – Ligue-se à política de privacidade da sua organização. Você é responsável por garantir que a sua app cumpre as leis e regulamentos de privacidade, e por fornecer uma política de privacidade válida
-- **CSP Program Marketing Materials** (opcional) – Forneça uma ligação aos materiais de marketing se optar por alargar a sua oferta ao programa [Cloud Solution Provider (CSP).](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) A CSP alarga a sua oferta a um leque mais alargado de clientes qualificados, permitindo aos parceiros da CSP agregar, comercializar e revender a sua oferta. Estes revendedores precisarão de acesso a materiais para comercializar a sua oferta. Para mais informações, consulte [os Serviços Go-To-Market.](https://partner.microsoft.com/reach-customers/gtm)
+- **CSP Program Marketing Materials** (opcional) – Forneça uma ligação aos materiais de marketing se optar por alargar a sua oferta ao programa [Cloud Solution Provider (CSP).](../cloud-solution-providers.md) A CSP alarga a sua oferta a um leque mais alargado de clientes qualificados, permitindo aos parceiros da CSP agregar, comercializar e revender a sua oferta. Estes revendedores precisarão de acesso a materiais para comercializar a sua oferta. Para mais informações, consulte [os Serviços Go-To-Market.](https://partner.microsoft.com/reach-customers/gtm)
 - **Links Úteis** (opcional) – Documentos complementares opcionais sobre a sua aplicação ou serviços relacionados listados através da prestação de um **Título** e **URL.** Adicione links úteis adicionais clicando **+ Adicione um URL**.
 
 #### <a name="contact-information"></a>Informações de contacto
@@ -296,7 +302,7 @@ Este campo é obrigatório.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
-- [Melhores práticas para anúncios de oferta de mercado](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Melhores práticas para anúncios de oferta de mercado](../gtm-offer-listing-best-practices.md)
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -327,11 +333,11 @@ Diagramas e explicações detalhadas que descrevem a utilização dos campos rec
 
 - **URL da página de aterragem** (obrigatório) – Defina o URL do site SaaS (por exemplo: `https://contoso.com/signup` ) que os clientes finais aterrarão após adquirirem a sua oferta no mercado e desencadeando o processo de configuração a partir da recém-criada subscrição SaaS.  Este URL será chamado com o parâmetro de identificação de compra de mercado que identifica exclusivamente a compra específica do cliente final SaaS.  Tem de trocar este token pelos correspondentes dados de subscrição do SaaS utilizando a API [de resolução.](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription)  Esses detalhes e quaisquer outros que deseje recolher devem ser usados como parte de uma página web interativa do cliente construída na sua experiência para completar o registo final do cliente e ativar a sua compra.  Nesta página, o utilizador deve inscrever-se através de uma autenticação de um clique utilizando o Azure Ative Directory (Azure AD). <br> <br> Este URL com o parâmetro de identificação de compra de mercado também será chamado quando o cliente final lançar a experiência Managed SaaS do portal Azure ou M365 Admin Center. Você deve lidar com ambos os fluxos, quando o token é fornecido pela primeira vez após a compra para novos clientes e quando é fornecido para o cliente existente que gere o seu SaaS. <br> <br> A página de Aterragem que configura aqui deve estar a funcionar 24 horas por dia, 7 horas por dia. Esta é a única forma de ser notificado sobre novas compras das suas ofertas SaaS efetuadas no mercado, ou pedidos de configuração de uma subscrição ativa de uma oferta.
 
-- **Connection webhook** (obrigatório) – Para todos os eventos assíncronos que a Microsoft precisa de lhe enviar (por exemplo, a subscrição do SaaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento. <br> <br> O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, pois esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado.  Se ainda não tiver um sistema webhook no lugar, a configuração mais simples é ter uma App lógica http Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, `https://prod-1westus.logic.azure.com:443/work` ). Para obter mais informações, consulte [Call, Trigger ou nestflows com pontos finais HTTP em aplicações lógicas.](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)
+- **Connection webhook** (obrigatório) – Para todos os eventos assíncronos que a Microsoft precisa de lhe enviar (por exemplo, a subscrição do SaaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento. <br> <br> O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, pois esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado.  Se ainda não tiver um sistema webhook no lugar, a configuração mais simples é ter uma App lógica http Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, `https://prod-1westus.logic.azure.com:443/work` ). Para obter mais informações, consulte [Call, Trigger ou nestflows com pontos finais HTTP em aplicações lógicas.](../../logic-apps/logic-apps-http-endpoint.md)
 
-- **ID do inquilino Azure AD** (obrigatório) – Dentro do portal Azure, exigimos que [crie uma app Azure Ative Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a ligação entre os nossos dois serviços por trás de uma comunicação autenticada. Para encontrar o [ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)do inquilino, vá ao seu Diretório Ativo Azure e selecione **Propriedades**, em seguida, procure o número de ID do **Diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID do inquilino Azure AD** (obrigatório) – Dentro do portal Azure, exigimos que [crie uma app Azure Ative Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a ligação entre os nossos dois serviços por trás de uma comunicação autenticada. Para encontrar o ID do [inquilino),](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número **de ID** do Diretório listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID da aplicação AD AZure** (obrigatório) – Também precisa do seu [ID de aplicação.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Para obter o seu valor, vá ao seu Diretório Ativo Azure e selecione **registos de Aplicações,** em seguida, procure o número **de ID da aplicação** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **ID da aplicação AD AZure** (obrigatório) – Também precisa do seu [ID de aplicação).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para obter o seu valor, vá ao seu Diretório Ativo Azure e selecione **registos de Aplicações,** em seguida, procure o número **de ID da aplicação** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 >[!Note]
 >O ID da aplicação AZure está associado ao seu ID de editor na sua conta Partner Center.  Certifique-se de que o mesmo ID de aplicação é usado em todas as suas ofertas.
@@ -423,7 +429,7 @@ Pode configurar um teste gratuito para cada plano da sua oferta aqui. Selecione 
 >[!NOTE]
 >Uma vez publicada a sua oferta transacionável com um teste gratuito, não pode ser desativada para esse plano. Certifique-se de que esta definição está correta para a primeira publicação para evitar ter de recriar o plano.
 
-Para obter informações sobre subscrições de clientes que atualmente participam num teste gratuito, utilize a nova propriedade API `isFreeTrial` , que será marcada como verdadeira ou falsa. Para mais informações, consulte a [API de Assinatura SaaS Get](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+Para obter informações sobre subscrições de clientes que atualmente participam num teste gratuito, utilize a nova propriedade API `isFreeTrial` , que será marcada como verdadeira ou falsa. Para mais informações, consulte a [API de Assinatura SaaS Get](pc-saas-fulfillment-api-v2.md#get-subscription).
 
 >[!NOTE]
 >Os ensaios gratuitos não são apoiados para planos que alavancam o serviço de medição do mercado.

@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a70534f91584f72ad81b71913c48062e51a324d3
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052733"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971118"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -603,9 +603,9 @@ Todas as [funções do modelo do Gestor de Recursos](../../../azure-resource-man
 > [!NOTE]
 > Estas funções ainda estão disponíveis na `details.deployment.properties.template` parte da implementação do modelo numa definição de política **de implementaçãoIfNotExists.**
 
-A função a seguir está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure:
+A função a seguir está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure (modelo ARM):
 
-- `utcNow()`- Ao contrário de um modelo de Gestor de Recursos, esta propriedade pode ser usada fora _do padrãoValue._
+- `utcNow()`- Ao contrário de um modelo ARM, esta propriedade pode ser usada fora _do padrãoValue_.
   - Devolve uma corda que está definida para a data e hora atuais no formato Universal ISO 8601 DateTime 'yyyy-MM-ddTHH:mm:ss.fffffZ'
 
 As seguintes funções só estão disponíveis nas regras políticas:
@@ -734,7 +734,7 @@ Esta regra da amostra verifica quaisquer correspondências de **ipRules \[ \* \]
 
 Para mais informações, consulte [a avaliação do \* pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

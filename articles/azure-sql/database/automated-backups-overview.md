@@ -3,7 +3,7 @@ title: Backups automáticos e geo-redundantes
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Azure SQL Database e Azure SQL Managed Instance criam automaticamente uma cópia de segurança da base de dados local a cada poucos minutos e utilizam o armazenamento geo-redundante de acesso de leitura Azure para geo-redundância.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: sqldbrb=2
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 06/04/2020
-ms.openlocfilehash: 41df5190f2a7435ad91de94cb6f407037e1783a2
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667833"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983110"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -52,11 +52,11 @@ Pode tentar a configuração de backup e restaurar as operações utilizando os 
 
 | | Portal do Azure | Azure PowerShell |
 |---|---|---|
-| Alterar a retenção de backup | [Base de dados única](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância gerida](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de dados única](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Alterar a retenção de backup a longo prazo | [Base de dados única](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Caso gerido - N/A  | [Base de dados única](long-term-backup-retention-configure.md)<br/>Caso gerido - N/A  |
-| Restaurar uma base de dados a partir de um ponto no tempo | [Base de dados única](recovery-using-backups.md#point-in-time-restore) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Restaurar uma base de dados eliminada | [Base de dados única](recovery-using-backups.md) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Restaurar uma base de dados a partir do armazenamento da Azure Blob | Base de dados única - N/A <br/>Caso gerido - N/A  | Base de dados única - N/A <br/>[Instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Alterar a retenção de backup** | [Base de dados única](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância gerida](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de dados única](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Alterar a retenção de backup a longo prazo** | [Base de dados única](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Caso gerido - N/A  | [Base de dados única](long-term-backup-retention-configure.md)<br/>Caso gerido - N/A  |
+| **Restaurar uma base de dados a partir de um ponto no tempo** | [Base de dados única](recovery-using-backups.md#point-in-time-restore) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restaurar uma base de dados eliminada** | [Base de dados única](recovery-using-backups.md) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restaurar uma base de dados a partir do armazenamento da Azure Blob** | Base de dados única - N/A <br/>Caso gerido - N/A  | Base de dados única - N/A <br/>[Instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Agendamento de backup
 

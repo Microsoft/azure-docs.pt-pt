@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4f7c83df738b72d57719de9b9ef650d119ac5dc4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255165"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970489"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -22,12 +22,12 @@ Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região supo
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
-Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a utilizar o Agente de Backup do Microsoft Azure, pode registar até 50 agentes MARS por abóbada. E pode registar 50 servidores MABS/DPM num cofre.
+Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a utilizar o Agente de Backup do Microsoft Azure, pode registar até 50 agentes MARS por cofre. E pode registar 50 servidores MABS/DPM num cofre.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantas origens de dados/itens podem ser protegidos num cofre?
 
 Pode proteger até 2000 origens de dados/itens em todas as cargas de trabalho (VM IaaS, SQL, AFS, etc.) num cofre.
-Por exemplo, se já tiver protegido 500 VMs e 400 partilhas dos Ficheiros do Azure no cofre, só poderá proteger até 1100 bases de dados SQL nesse mesmo cofre.
+Por exemplo, se já protegeu 500 VMs e 400 Azure Files no cofre, só pode proteger até 1100 bases de dados SQL nele.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quantas políticas posso criar por cofre?
 
@@ -47,12 +47,16 @@ Não. Os dados da cópia de segurança armazenados num cofre não podem ser movi
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso mudar do GRS para o LRS após uma cópia de segurança?
 
-Não. Os cofres dos Serviços de Recuperação só podem alterar as opções de armazenamento antes do armazenamento de uma cópia de segurança.
+O tipo de replicação de armazenamento por padrão é definido para armazenamento geo-redundante (GRS). Uma vez configurada a cópia de segurança, a opção de modificar é desativada e não pode ser alterada.
+
+![Tipo de replicação de armazenamento](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, então veja [Como mudar de GRS para LRS após configurar o backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso fazer um Restauro ao Nível dos Itens (ILR) em VMs com cópia de segurança num cofre de Serviços de Recuperação?
 
 - O ILR é suportado nas VMs do Azure com cópia de segurança efetuada pela cópia de segurança da VM do Azure. Para obter mais informações, veja este [artigo](backup-azure-restore-files-from-vm.md)
-- O ILR não é suportado para pontos de recuperação online de VMs no local com cópia de segurança efetuada pelo Azure Backup Server ou pelo System Center DPM.
+- O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure backup Server ou System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 
@@ -216,7 +220,7 @@ A chave de encriptação deve ter, pelo menos, 16 caracteres se estiver a utiliz
 
 Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de segurança. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se tiver colocado a chave num local incorreto, a Microsoft não poderá recuperar os dados da cópia de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras FAQs:
 

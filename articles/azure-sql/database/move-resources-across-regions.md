@@ -3,7 +3,7 @@ title: Mover recursos para uma nova região
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Saiba como mover a sua base de dados ou gerir a sua área de dados para outra região.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: d56eed01d3f93dcf2153bdec2c465d5d5e67a1e7
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 46b95c438830a488494d50308d71a115d6f0da42
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718653"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982191"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para a nova região - Azure SQL Database & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -193,6 +193,6 @@ Uma vez terminada a mudança, retire os recursos da região de origem para evita
 1. Eliminar a instância gerida pela fonte utilizando [remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance).
 1. Remova quaisquer recursos adicionais no grupo de recursos, tais como o cluster virtual, a rede virtual e o grupo de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerencie](manage-data-after-migrating-to-database.md) a sua base de dados depois de ter sido migrada.

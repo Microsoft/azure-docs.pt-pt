@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Saiba como a Azure SQL Database e a SQL Managed Instance suportam a continuidade do negócio na nuvem e a recuperação de bases de dados e ajude a manter as aplicações em nuvem crítica da missão em funcionamento.
 keywords: continuidade empresarial, continuidade empresarial na nuvem, recuperação de base de dados após desastre, recuperação de base de dados
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 8312fe1370ded990bd3523d531d168fd2cac5564
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189769"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982477"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,14 +65,14 @@ Se o período máximo de retenção de backup suportado para a restauração pon
 
 |                                              | Georreplicação | Grupos de ativação pós-falha  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Ativação pós-falha automática                           |     Não          |      Yes         |
-| Falha em várias bases de dados simultaneamente  |     Não          |      Yes         |
-| O utilizador deve atualizar a cadeia de ligação após o failover      |     Yes         |      Não          |
-| Suporte de instância gerida sql                   |     Não          |      Yes         |
-| Pode estar na mesma região que as primárias             |     Yes         |      Não          |
-| Múltiplas réplicas                            |     Yes         |      Não          |
-| Suporta escala de leitura                          |     Sim         |      Sim         |
-| &nbsp; | &nbsp; | &nbsp; |
+| **Ativação pós-falha automática**                          |     Não          |      Sim         |
+| **Falha em várias bases de dados simultaneamente**  |     Não          |      Sim         |
+| **O utilizador deve atualizar a cadeia de ligação após o failover**      |     Sim         |      Não          |
+| **Suporte de instância gerida sql**                   |     Não          |      Sim         |
+| **Pode estar na mesma região que as primárias**             |     Sim         |      Não          |
+| **Múltiplas réplicas**                            |     Sim         |      Não          |
+| **Suporta escala de leitura**                          |     Sim         |      Sim         |
+
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
 
@@ -152,6 +152,6 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 
 Por vezes, uma aplicação deve ser retirada offline devido à manutenção planeada, como uma atualização de aplicações. [Gerir atualizações de aplicações](manage-application-rolling-upgrade.md) descreve como usar a geo-replicação ativa para permitir atualizações rolantes da sua aplicação em nuvem para minimizar o tempo de inatividade durante as atualizações e fornecer um caminho de recuperação se algo correr mal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma discussão de considerações de design de aplicações para bases de dados únicas e para piscinas elásticas, consulte [Design uma aplicação para recuperação de desastres em nuvem](designing-cloud-solutions-for-disaster-recovery.md) e [estratégias elásticas de recuperação de desastres em piscinas.](disaster-recovery-strategies-for-applications-with-elastic-pool.md)

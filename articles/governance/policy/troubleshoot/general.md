@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 868b8c53a120ebdb6a35806538e02af39e25c338
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234178"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970846"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -28,7 +28,7 @@ A localização dos detalhes de erro depende da ação que causa o erro.
 
 #### <a name="issue"></a>Problema
 
-A Azure Policy usa [pseudónimos](../concepts/definition-structure.md#aliases) para mapear propriedades do Gestor de Recursos.
+A Azure Policy usa [pseudónimos](../concepts/definition-structure.md#aliases) para mapear propriedades do Gestor de Recursos Azure.
 
 #### <a name="cause"></a>Causa
 
@@ -103,7 +103,7 @@ A mensagem de erro de uma atribuição de política de negação inclui a defini
 
 #### <a name="issue"></a>Problema
 
-A Azure Policy suporta uma série de funções e funções do modelo do Gestor de Recursos que só estão disponíveis numa definição de política. O Gestor de Recursos processa estas funções como parte de uma implementação em vez de como parte de uma definição de política.
+A Azure Policy suporta uma série de funções e funções do Azure Resource Manager (modelo ARM) que só estão disponíveis numa definição de política. O Gestor de Recursos processa estas funções como parte de uma implementação em vez de como parte de uma definição de política.
 
 #### <a name="cause"></a>Causa
 
@@ -148,10 +148,10 @@ O Gráfico helm com o nome `azure-policy-addon` já foi instalado ou parcialment
 
 Siga as instruções para [remover a Política de Azure para o add-on de Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on)e, em seguida, repercuta o `helm install azure-policy-addon` comando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-- Obtenha respostas de especialistas através do [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-policy.html).
+- Obtenha respostas de especialistas através do [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 - Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

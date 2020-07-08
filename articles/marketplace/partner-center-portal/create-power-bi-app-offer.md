@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 0a247626566a4b0156d879954bf6734d248f01d8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513514"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980357"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Criar uma aplicação Power BI para o Microsoft AppSource
 
 Este artigo descreve como criar e publicar uma oferta de aplicação Power BI ao Microsoft [AppSource.](https://appsource.microsoft.com/)
 
-Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
@@ -55,10 +55,10 @@ Esta página mostra uma representação visual dos passos necessários para publ
 
 Inclui links para realizar operações nesta oferta com base na seleção que faz. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar oferta de rascunho](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Se a oferta for ao vivo - [Pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em pré-visualização - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Se ainda não completou a assinatura da editora - [Cancele a publicação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Se a oferta for um rascunho - [Eliminar oferta de projeto)](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for ao vivo - [Pare de vender a oferta)](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval))
+- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação)](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
@@ -68,12 +68,12 @@ Ao publicar a sua oferta no mercado com o Partner Center, deve conectá-la ao se
 
 1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. O Partner Center suporta os seguintes sistemas crm:
 
-    - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para Envolvimento com o Cliente
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dinâmica 365](commercial-marketplace-lead-management-instructions-dynamics.md) para Envolvimento com o Cliente
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Ponto Final https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar dados de chumbo do cliente. Em seguida, exporte os dados para o seu sistema crm.
+    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [o Ponto Final https](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de chumbo do cliente. Em seguida, exporte os dados para o seu sistema crm.
 
 2. Ligue a sua oferta ao destino principal ao publicar no Partner Center.
 3. Confirme se a ligação ao destino de chumbo está configurada corretamente. Depois de publicá-lo no Partner Center, validaremos a ligação e enviaremos um teste. Enquanto pré-visualiza a oferta antes de entrar em direto, também pode testar a sua ligação de chumbo tentando comprar a oferta no ambiente de pré-visualização.
@@ -81,9 +81,9 @@ Ao publicar a sua oferta no mercado com o Partner Center, deve conectá-la ao se
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [FAQs de gestão de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
+- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (certifique-se de que o seu bloqueador pop-up está desligado)
 
 **Selecione Guardar o projeto** antes de continuar.
@@ -94,33 +94,16 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 
 ### <a name="category"></a>Categoria
 
-Selecione um mínimo de um e um máximo de três categorias. Estas categorias são usadas para colocar a sua oferta nas áreas de pesquisa de marketplace apropriadas e são mostradas na página de detalhes da sua oferta. Na descrição da oferta, explique como a sua oferta suporta estas categorias.
+Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
+
+- Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+
+Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
 ### <a name="industry"></a>Setor
 
-Opcionalmente, selecione até duas indústrias e duas verticais sob cada indústria. Enquanto as categorias são usadas para exibir a sua oferta, a indústria e as verticais são usadas em filtros de pesquisa e são aplicadas na Montra. Se a sua oferta tiver como alvo uma indústria específica e/ou vertical, utilize a descrição da oferta para explicar como a sua oferta suporta as indústrias ou verticais selecionadas. Se a sua oferta não for específica da indústria, deixe esta secção em branco.
-
-> [!NOTE]
-> À medida que trabalhamos para introduzir novas indústrias e verticais para melhorar a experiência de descoberta da oferta, algumas indústrias ou verticais podem ainda não ser visíveis na Montra. Indústrias e verticais marcadas com um (*) estarão disponíveis numa data futura. Todas as ofertas publicadas são detetáveis através da pesquisa de palavras-chave.
-<p>&nbsp;
-
-| **Setor** | **Subindústria** |
-| --- | --- |
-| *Automóvel | *Automóvel |
-| Agricultura | *Outros - Nãoegmentado |
-| Distribuição | *Atacado<br>Envio de encomendas e pacotes |
-| Education | *Ensino <br> Superior* Ensino Básico e Secundário / K-12<br>*Bibliotecas e Museus |
-| Serviços Financeiros | *Mercados Bancários <br> e De Capitais* Seguro |
-| Governo | *Defesa e Inteligência (costumava chamar-se <br> Segurança Nacional e Pública)* Segurança Pública e Justiça<br>*Governo Civil |
-| Cuidados de saúde (costumava chamar-se Saúde) | *Pagador de <br> Saúde* Provedor de Saúde<br>*Farmacêutica |
-| Fabrico e Recursos (usado para ser chamado de Fabricação) | *Química e Agroquímica <br> * Fabrico discreto<br>*Energia |
-| Retalho e Bens de Consumo (costumava ser chamado de Retalho) | *Bens <br> de Consumo* Retalhistas |
-| *Media and Communications (costumava chamar-se Media and Entertainment) | *Media e <br> Entretenimento* Telecomunicações |
-| Serviços Profissionais | *Legal <br> * Serviços Profissionais de Parceiros |
-| *Arquitetura e Construção (usado para ser chamado de Engenharia de Arquitetura) | *Outros - Nãoegmentado |
-| *Hospitalidade e Viagens | *Hotéis <br> e Lazer* Viagens e Transportes<br>*Restaurantes e Serviços Alimentares |
-| *Outras Indústrias do Sector Público | *Silvicultura e <br> Pesca* Sem fins lucrativos |
-| *Imobiliário | *Outros - Nãoegmentado |
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="legal"></a>Legal
 
@@ -163,7 +146,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 10. Descrição
 11. Screenshots/vídeos
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -240,7 +223,7 @@ Adicione até cinco vídeos que demonstram a sua oferta. Insira o nome do vídeo
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
-Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing best practices](../gtm-offer-listing-best-practices.md).
 
 ## <a name="technical-configuration"></a>Configuração técnica
 

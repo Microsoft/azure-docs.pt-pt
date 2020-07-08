@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 99c9a9ac742981734daf107d73c9cec8777dc642
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85257538"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970812"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada de ameaças do Microsoft Defender com Centro de Segurança Azure
 
@@ -46,8 +46,14 @@ Ao integrar o Defender ATP com o Azure Security Center, também pode beneficiar 
 
 O Microsoft Defender ATP no Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1. Para VMs Azure você precisa de uma subscrição standard tier e para VMs não-Azure você precisa de nível Standard apenas no nível de espaço de trabalho.
 
-> [!NOTE]
-> Quando utiliza o Azure Security Center para monitorizar os servidores, um inquilino ATP do Microsoft Defender é automaticamente criado e os dados ATP do Microsoft Defender são armazenados na Europa por padrão. Se precisar de mover os seus dados para outro local, tem de contactar o Microsoft Support para reiniciar o inquilino. A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC.
+A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC.
+
+## <a name="data-storage-location"></a>Localização de armazenamento de dados
+
+Quando utiliza o Azure Security Center para monitorizar os servidores, é criado automaticamente um inquilino ATP do Microsoft Defender. Os dados recolhidos pelo Microsoft Defender ATP são armazenados na geolocalização do inquilino identificado durante o provisionamento. Os dados dos clientes em forma pseudónimo também podem ser armazenados nos sistemas centrais de armazenamento e processamento nos Estados Unidos. 
+
+Uma vez configurados, não é possível alterar o local onde os seus dados são armazenados. Se precisar de mover os seus dados para outro local, contacte o Microsoft Support para redefinir o inquilino.
+
 
 ## <a name="onboarding-servers-to-security-center"></a>Inclusão de servidores no Centro de Segurança 
 
@@ -105,7 +111,7 @@ Para gerar um alerta de teste ATP do Microsoft Defender benigno:
 
 1. A partir da janela de investigação, selecione o link para ir ao portal ATP do Microsoft Defender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Plataformas e funcionalidades suportadas pelo Centro de Segurança do Azure](security-center-os-coverage.md)
 - [Definição de políticas de segurança no Azure Security Center](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

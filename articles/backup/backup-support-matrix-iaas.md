@@ -1,41 +1,41 @@
 ---
 title: Matriz de suporte da cópia de segurança de uma VM do Azure
-description: Fornece um resumo das definições de suporte e limitações ao apoiar os VMs Azure com o serviço de backup Azure.
+description: Fornece um resumo das definições e limitações de suporte ao fazer o backup dos VMs Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 904240e066a83fa1278d663b8614b5b9269ba4d3
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849421"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970676"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
-Pode utilizar o [serviço de backup Azure](backup-overview.md) para fazer backup nas instalações de máquinas e cargas de trabalho, e máquinas virtuais Azure (VMs). Este artigo resume as definições e limitações de suporte quando faz backup de VMs Azure com Backup Azure.
+Pode utilizar o [serviço de backup Azure](backup-overview.md) para fazer backup em máquinas e cargas de trabalho no local e máquinas virtuais Azure (VMs). Este artigo resume as definições e limitações de suporte quando faz backup de VMs Azure com Azure Backup.
 
-Outras matrizes de apoio:
+Outras matrizes de suporte:
 
-- [Matriz geral de suporte](backup-support-matrix.md) para Backup Azure
-- [Matriz de suporte](backup-support-matrix-mabs-dpm.md) para backup do servidor de backup do Azure/System Center Data Protection Manager (DPM)
-- [Matriz de suporte](backup-support-matrix-mars-agent.md) para backup com o agente microsoft Azure Recovery Services (MARS)
+- [Matriz de suporte geral](backup-support-matrix.md) para backup Azure
+- [Matriz de suporte](backup-support-matrix-mabs-dpm.md) para backup Azure servidor / Gestor de Proteção de Dados do Centro de Sistema (DPM)
+- [Matriz de suporte](backup-support-matrix-mars-agent.md) para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-Eis como pode fazer backup e restaurar os VMs Azure com o serviço de backup Azure.
+Eis como pode recuar e restaurar os VMs Azure com o serviço Azure Backup.
 
-**Cenário** | **Cópia de segurança** | **Agente** |**Restauro**
+**Cenário** | **Cópia de segurança** | **Agente** |**Restaurar**
 --- | --- | --- | ---
-Backup direto dos VMs Azure  | Apoia todo o VM.  | Não é necessário um agente adicional no VM Azure. A Azure Backup instala e utiliza uma extensão do [agente Azure VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que está a funcionar no VM. | Restaurar da seguinte forma:<br/><br/> - **Criar um VM básico.** Isto é útil se o VM não tiver uma configuração especial, como vários endereços IP.<br/><br/> - **Restaurar o disco VM**. Restaurar o disco. Em seguida, anexe-o a um VM existente, ou crie um novo VM a partir do disco utilizando o PowerShell.<br/><br/> - **Substitua o disco VM**. Se existir um VM e utilizar discos geridos (não encriptados), pode restaurar um disco e utilizá-lo para substituir um disco existente no VM.<br/><br/> - **Restaurar ficheiros/pastas específicos**. Pode restaurar ficheiros/pastas de um VM em vez de todo o VM.
-Backup direto de VMs Azure (apenas Windows)  | Volte a fazer um backfiles/pastas/volume específicos. | Instale o agente dos Serviços de [Recuperação Azure.](backup-azure-file-folder-backup-faq.md)<br/><br/> Pode executar o agente MARS juntamente com a extensão de reserva para o agente Azure VM fazer o backup do VM ao nível de ficheiro/pasta. | Restaurar pastas/ficheiros específicos.
-Backup Azure VM para servidor de backup  | Back up ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados de aplicações para O DPM do System Center ou para o Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS, em seguida, recua para o cofre de reserva. | Instale o agente de proteção DPM/MABS no VM. O agente MARS está instalado em DPM/MABS.| Restaurar ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados da aplicação.
+Backup direto dos VMs Azure  | Apoie todo o VM.  | Não é necessário nenhum agente adicional no Azure VM. A Azure Backup instala e utiliza uma extensão ao [agente Azure VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que está em execução no VM. | Restaurar da seguinte forma:<br/><br/> - **Criar um VM básico.** Isto é útil se o VM não tiver configuração especial, como vários endereços IP.<br/><br/> - **Restaurar o disco VM**. Restaurar o disco. Em seguida, prenda-o a um VM existente, ou crie um novo VM a partir do disco utilizando o PowerShell.<br/><br/> - **Substitua o disco VM**. Se existir um VM e utilizar discos geridos (não encriptados), pode restaurar um disco e usá-lo para substituir um disco existente no VM.<br/><br/> - **Restaurar ficheiros/pastas específicos**. Pode restaurar ficheiros/pastas a partir de um VM em vez de de todo o VM.
+Backup direto dos VMs Azure (apenas Windows)  | Fazer o back up ficheiros/pastas/volume específicos. | Instale o [agente dos Serviços de Recuperação Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> Pode executar o agente MARS ao lado da extensão de reserva para o agente Azure VM fazer cópia de segurança do VM ao nível de ficheiro/pasta. | Restaurar pastas/ficheiros específicos.
+Faça backup Azure VM para servidor de backup  | Fazer a ressalto de ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados da aplicação para System Center DPM ou para Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS, em seguida, recua para o cofre de reserva. | Instale o agente de proteção DPM/MABS no VM. O agente MARS está instalado no DPM/MABS.| Restaurar ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados de aplicativos.
 
-Saiba mais sobre a cópia de segurança [utilizando um servidor](backup-architecture.md#architecture-back-up-to-dpmmabs) de backup e sobre os [requisitos de suporte](backup-support-matrix-mabs-dpm.md).
+Saiba mais sobre a cópia de segurança [utilizando um servidor de backup](backup-architecture.md#architecture-back-up-to-dpmmabs) e sobre os [requisitos de suporte](backup-support-matrix-mabs-dpm.md).
 
 >[!NOTE]
 > **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**
 >
->Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM juntos utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão de disco, obtém-se a opção de fazer backup de um ou alguns dos muitos discos de dados de um VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurado sabotado a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto a partir do instantâneo como do cofre.
+>Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM em conjunto utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão do disco, obtém-se uma opção de backup de um ou alguns dos muitos discos de dados num VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurados a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto do instantâneo como do cofre.
 >
 >**Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com**
 
@@ -43,205 +43,199 @@ Saiba mais sobre a cópia de segurança [utilizando um servidor](backup-architec
 
 **Ação** | **Suporte**
 --- | ---
-Back up a VM que é vM desligado/offline | Suportado.<br/><br/> O snapshot é consistente apenas com acidentes, não consistente com aplicações.
-Volte a subir os discos após migrar para discos geridos | Suportado.<br/><br/> Os reforços continuarão a funcionar. nenhuma ação necessária.
-Back up gerido discos após ativar bloqueio de grupo de recursos | Não suportado.<br/><br/> O Azure Backup não pode eliminar os pontos de restauro mais antigos, e as cópias de segurança começarão a falhar quando o limite máximo dos pontos de restauro for atingido.
-Modificar a política de backup para um VM | Suportado.<br/><br/> O VM será apoiado utilizando as definições de horário e retenção em nova política. Se as definições de retenção forem estendidas, os pontos de recuperação existentes são marcados e mantidos. Se forem reduzidos, os pontos de recuperação existentes serão podados no próximo trabalho de limpeza e eventualmente eliminados.
+Suporte um VM que é desligado/offline VM | Suportado.<br/><br/> O snapshot é apenas consistente com falhas, não consistente com aplicações.
+Faça o back up discos após migrar para discos geridos | Suportado.<br/><br/> O reforço vai continuar a trabalhar. nenhuma ação necessária.
+Faça o back up discos geridos após permitir o bloqueio do grupo de recursos | Não suportado.<br/><br/> O Azure Backup não consegue eliminar os pontos de restauro mais antigos e as cópias de segurança começarão a falhar quando o limite máximo dos pontos de restauro for atingido.
+Modificar a política de backup para um VM | Suportado.<br/><br/> O VM será apoiado utilizando as definições de programação e retenção em nova política. Se as definições de retenção forem estendidas, os pontos de recuperação existentes são marcados e mantidos. Se forem reduzidos, os pontos de recuperação existentes serão podados no próximo trabalho de limpeza e eventualmente eliminados.
 Cancele um trabalho de reserva| Suportado durante o processo de instantâneo.<br/><br/> Não suportado quando a foto está sendo transferida para o cofre.
-Apoiar o VM para uma região ou subscrição diferente |Não suportado.<br><br>Para fazer backup com sucesso, as máquinas virtuais devem estar na mesma subscrição que o cofre para cópia de segurança.
-Backups por dia (através da extensão Azure VM) | Um reforço programado por dia.<br/><br/>O serviço De backup Azure suporta até nove backups a pedido por dia, mas a Microsoft recomenda não mais do que quatro backups diários a pedido para garantir o melhor desempenho.
+Apoiar o VM numa região ou subscrição diferente |Não suportado.<br><br>Para fazer uma cópia de segurança com sucesso, as máquinas virtuais devem estar na mesma subscrição que o cofre para cópia de segurança.
+Backups por dia (através da extensão Azure VM) | Um reforço programado por dia.<br/><br/>O serviço Azure Backup suporta até nove backups a pedido por dia, mas a Microsoft recomenda não mais do que quatro backups diários a pedido para garantir o melhor desempenho.
 Backups por dia (através do agente MARS) | Três reforços programados por dia.
 Backups por dia (via DPM/MABS) | Dois reforços programados por dia.
-Backup mensal/anual| Não suportado ao apoiar-se com a extensão Azure VM. Só diariamente e semanalmente é apoiado.<br/><br/> Pode configurar a política de retenção de backups diários/semanais para o período de retenção mensal/anual.
-Regulação automática do relógio | Não suportado.<br/><br/> A Cópia de Segurança Azure não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de um VM.<br/><br/>  Modifique a política manualmente conforme necessário.
-[Funcionalidades de segurança para backup híbrido](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |Desativar as funcionalidades de segurança não é suportado.
-Apoiar o VM cujo tempo de máquina é alterado | Não suportado.<br/><br/> Se o tempo da máquina for alterado para uma data futura após permitir a cópia de segurança para esse VM; No entanto, mesmo que a mudança de tempo seja revertida, o reforço bem sucedido não está garantido.  
+Backup mensal/anual| Não suportado quando se apoia com a extensão Azure VM. Apenas diariamente e semanalmente é suportado.<br/><br/> Pode definir a política para reter backups diários/semanais para o período de retenção mensal/anual.
+Regulação automática do relógio | Não suportado.<br/><br/> O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de um VM.<br/><br/>  Modifique a apólice manualmente, se necessário.
+[Funcionalidades de segurança para backup híbrido](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |Não é suportado por desativação de funcionalidades de segurança.
+Apoiar o VM cujo tempo de máquina foi alterado | Não suportado.<br/><br/> Se o tempo da máquina for alterado para uma data futura depois de permitir a cópia de segurança para esse VM; No entanto, mesmo que a mudança de tempo seja revertida, o backup bem sucedido não é garantido.  
 
-## <a name="operating-system-support-windows"></a>Suporte do sistema operativo (Windows)
+## <a name="operating-system-support-windows"></a>Suporte ao sistema operativo (Windows)
 
-A tabela seguinte resume os sistemas operativos suportados ao apoiar os VMs do Windows Azure.
+A tabela seguinte resume os sistemas operativos suportados ao fazer o backup dos VMs windows Azure.
 
-**Cenário** | **Apoio ao OS**
+**Cenário** | **Suporte ao OS**
 --- | ---
-Back up com extensão de agente Azure VM | - Cliente windows 10 (apenas 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM e SP1 Standard)  <br/><br/> - Windows Server 2008 (apenas 64 bits)
-Back up with MARS agent | Sistemas operativos [suportados.](backup-support-matrix-mars-agent.md#supported-operating-systems)
-Back up com DPM/MABS | Sistemas operativos suportados para backup com [MABS](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
+Apoiar com a extensão do agente Azure VM | - Cliente Do Windows 10 (apenas 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM e SP1 Standard)  <br/><br/> - Windows Server 2008 (apenas 64 bits)
+Voltar para o agente MARS | [Sistemas](backup-support-matrix-mars-agent.md#supported-operating-systems) operativos suportados.
+Voltar para cima com dPM/MABS | Sistemas operativos suportados para cópias de segurança com [MABS](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
 O Azure Backup não suporta sistemas operativos de 32 bits.
 
 ## <a name="support-for-linux-backup"></a>Suporte para backup Linux
 
-Aqui está o que é suportado se quiser esquelhá-lo máquinas Linux.
+Aqui está o que é suportado se quiser apoiar as máquinas Linux.
 
 **Ação** | **Suporte**
 --- | ---
-Back up Linux Azure VMs com o agente Linux Azure VM | Cópia de segurança consistente.<br/><br/> Backup consistente com aplicativos usando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Durante a restauração, pode criar um novo VM, restaurar um disco e usá-lo para criar um VM, ou restaurar um disco e usá-lo para substituir um disco num VM existente. Também pode restaurar ficheiros e pastas individuais.
-Back up Linux Azure VMs com agente MARS | Não suportado.<br/><br/> O agente MARS só pode ser instalado em máquinas Windows.
-Back up Linux Azure VMs com DPM/MABS | Não suportado.
+Apoie os VMs Linux Azure com o agente Linux Azure VM | Arquivar cópias de segurança consistentes.<br/><br/> Cópia de segurança consistente com aplicações utilizando [scripts personalizados.](backup-azure-linux-app-consistent.md)<br/><br/> Durante a restauração, pode criar um novo VM, restaurar um disco e usá-lo para criar um VM, ou restaurar um disco e usá-lo para substituir um disco num VM existente. Também pode restaurar ficheiros e pastas individuais.
+Apoiar os VMs linux Azure com agente MARS | Não suportado.<br/><br/> O agente MARS só pode ser instalado em máquinas Windows.
+Apoiar os VMs Linux Azure com DPM/MABS | Não suportado.
 
-## <a name="operating-system-support-linux"></a>Suporte do sistema operativo (Linux)
+## <a name="operating-system-support-linux"></a>Suporte ao sistema operativo (Linux)
 
-Para backups Azure VM Linux, o Azure Backup suporta a lista de distribuições linux [endossadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). Tenha em atenção o seguinte:
+Para backups Azure VM Linux, a Azure Backup suporta a lista de distribuições Linux [endossadas pela Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). Tenha em atenção o seguinte:
 
-- O Azure Backup não suporta o Núcleo OS Linux.
+- O Azure Backup não suporta o Core OS Linux.
 - O Azure Backup não suporta sistemas operativos de 32 bits.
-- Outras distribuições linux trazem-nos até ao momento em que o [agente Azure VM para o Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) esteja disponível no VM, e enquanto python for suportado.
-- O Azure Backup não suporta um Linux VM configurado por procuração se não tiver a versão 2.7 da Python instalada.
+- Outras distribuições linux próprias podem funcionar desde que o [agente Azure VM para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) esteja disponível no VM, e enquanto python for suportado.
+- O Azure Backup não suporta um Linux VM configurado por procuração se não tiver a versão Python 2.7 instalada.
 
-## <a name="backup-frequency-and-retention"></a>Frequência e retenção de cópias de segurança
+## <a name="backup-frequency-and-retention"></a>Frequência e retenção de backup
 
 **Definição** | **Limites**
 --- | ---
-Pontos máximos de recuperação por instância protegida (máquina/carga de trabalho) | 9999.
+Pontos de recuperação máximos por instância protegida (máquina/carga de trabalho) | 9999.
 Prazo máximo de validade para um ponto de recuperação | Sem limite.
-Frequência máxima de reserva para o cofre (extensão Azure VM) | Uma vez por dia.
-Frequência máxima de reserva para o cofre (agente MARS) | Três reforços por dia.
-Frequência máxima de backup para DPM/MABS | A cada 15 minutos para o Servidor SQL.<br/><br/> Uma vez por hora para outras cargas de trabalho.
-Retenção de pontos de recuperação | Diariamente, semanalmente, mensalmente e anualmente.
+Frequência máxima de backup para o cofre (extensão Azure VM) | Uma vez por dia.
+Frequência máxima de backup para cofre (agente MARS) | Três reforços por dia.
+Frequência máxima de backup para DPM/MABS | A cada 15 minutos para o SQL Server.<br/><br/> Uma vez por hora para outras cargas de trabalho.
+Retenção de pontos de recuperação | Diariamente, semanalmente, mensal e anualmente.
 Período de retenção máximo | Depende da frequência de reserva.
-Pontos de recuperação no disco DPM/MABS | 64 para servidores de ficheiros e 448 para servidores de aplicações.<br/><br/> Os pontos de recuperação de fitas são ilimitados para o DPM no local.
+Pontos de recuperação no disco DPM/MABS | 64 para servidores de ficheiros e 448 para servidores de aplicações.<br/><br/> Os pontos de recuperação de fita são ilimitados para DPM no local.
 
-## <a name="supported-restore-methods"></a>Métodos de restauro suportados
+## <a name="supported-restore-methods"></a>Métodos de restauro apoiados
 
-**Restaurar a opção** | **Detalhes**
+**Opção de restauro** | **Detalhes**
 --- | ---
-**Crie uma nova VM** | Rapidamente cria e obtém um VM básico em funcionamento a partir de um ponto de restauro.<br/><br/> Pode especificar um nome para o VM, selecionar o grupo de recursos e a rede virtual (VNet) em que será colocado, e especificar uma conta de armazenamento para o VM restaurado. O novo VM deve ser criado na mesma região que a fonte VM.
-**Restaurar disco** | Restaura um disco VM, que pode ser usado para criar um novo VM.<br/><br/> O Azure Backup fornece um modelo para o ajudar a personalizar e criar um VM. <br/><br> O trabalho de restauro gera um modelo que pode descarregar e usar para especificar as definições personalizadas de VM e criar um VM.<br/><br/> Os discos são copiados para o Grupo de Recursos que especifica.<br/><br/> Em alternativa, pode ligar o disco a um VM existente ou criar um novo VM utilizando o PowerShell.<br/><br/> Esta opção é útil se quiser personalizar o VM, adicionar configurações de configuração que não estavam lá no momento da cópia de segurança, ou adicionar configurações que devem ser configuradas usando o modelo ou PowerShell.
-**Substituir os existentes** | Pode restaurar um disco e usá-lo para substituir um disco no VM existente.<br/><br/> O VM atual deve existir. Se foi apagado, esta opção não pode ser usada.<br/><br/> O Azure Backup tira uma foto do VM existente antes de substituir o disco e armazena-o no local de paragem que especifica. Os discos existentes ligados ao VM são substituídos pelo ponto de restauro selecionado.<br/><br/> O instantâneo é copiado para o cofre, e mantido de acordo com a política de retenção. <br/><br/> Após a operação de substituição do disco, o disco original é mantido no grupo de recursos. Pode optar por eliminar manualmente os discos originais se não forem necessários. <br/><br/>A substituição existente é suportada para VMs geridos não encriptados. Não é suportado para discos não geridos, [VMs generalizados,](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)ou para VMs [criados usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauro tiver discos mais ou menos do que o VM atual, então o número de discos no ponto de restauro apenas refletirá a configuração VM.<br><br> A substituição existente não é suportada por VMs com recursos ligados (como [identidade gerida atribuída](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pelo utilizador ou Key [Vault)](https://docs.microsoft.com/azure/key-vault/key-vault-overview)porque a aplicação de backup do cliente não tem permissões sobre estes recursos enquanto executa o restauro.
-**Região Transversal (região secundária)** | A restauração da Região Transversal pode ser usada para restaurar os VMs azure na região secundária, que é uma [região de pares Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)<br><br> Você pode restaurar todos os VMs Azure para o ponto de recuperação selecionado se o backup for feito na região secundária.<br><br> Esta funcionalidade está disponível para as opções abaixo:<br> * [Criar um VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Restaurar discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Atualmente não apoiamos a opção De substituição dos [discos existentes.](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks)<br><br> Permissões<br> A operação de restauro na região secundária pode ser realizada por Administradores de Backup e administradores de aplicações.
+**Crie uma nova VM** | Rapidamente cria e obtém um VM básico a funcionar a partir de um ponto de restauro.<br/><br/> Pode especificar um nome para o VM, selecionar o grupo de recursos e a rede virtual (VNet) no qual será colocado e especificar uma conta de armazenamento para o VM restaurado. O novo VM deve ser criado na mesma região que a VM de origem.
+**Restaurar disco** | Restaura um disco VM, que pode ser usado para criar um novo VM.<br/><br/> O Azure Backup fornece um modelo para ajudá-lo a personalizar e criar um VM. <br/><br> O trabalho de restauro gera um modelo que pode descarregar e usar para especificar as definições de VM personalizadas e criar um VM.<br/><br/> Os discos são copiados para o Grupo de Recursos que especifica.<br/><br/> Em alternativa, pode ligar o disco a um VM existente ou criar um novo VM utilizando o PowerShell.<br/><br/> Esta opção é útil se pretender personalizar o VM, adicionar definições de configuração que não estavam lá no momento da cópia de segurança, ou adicionar definições que devem ser configuradas usando o modelo ou PowerShell.
+**Substituir os existentes** | Pode restaurar um disco e usá-lo para substituir um disco no VM existente.<br/><br/> O VM atual deve existir. Se for apagado, esta opção não pode ser usada.<br/><br/> O Azure Backup tira uma fotografia do VM existente antes de substituir o disco e armazena-o no local de preparação que especifica. Os discos existentes ligados ao VM são substituídos pelo ponto de restauro selecionado.<br/><br/> O instantâneo é copiado para o cofre, e mantido de acordo com a política de retenção. <br/><br/> Após a operação do disco de substituição, o disco original é mantido no grupo de recursos. Pode optar por eliminar manualmente os discos originais se não forem necessários. <br/><br/>A substituição existente é suportada por VMs geridos não encriptados. Não é suportado para discos não geridos, [VMs generalizados,](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)ou para VMs [criados usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauro tiver mais ou menos discos do que o VM atual, então o número de discos no ponto de restauração só refletirá a configuração VM.<br><br> Substituir os VM existentes por recursos ligados (como [identidade gerida atribuída pelo utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ou Key [Vault)](https://docs.microsoft.com/azure/key-vault/key-vault-overview)porque a aplicação de clientes de backup não tem permissões sobre estes recursos enquanto executa a restauração.
+**Região Transversal (região secundária)** | A restauração da Região Transversal pode ser usada para restaurar os VMs Azure na região secundária, que é uma [região emparelhada Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)<br><br> Pode restaurar todos os VMs Azure para o ponto de recuperação selecionado se a cópia de segurança for feita na região secundária.<br><br> Esta funcionalidade está disponível para as opções abaixo:<br> * [Criar um VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Restaurar Discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Atualmente, não apoiamos a opção [Substituir discos existentes.](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks)<br><br> Permissões<br> A operação de restauro na região secundária pode ser realizada por administradores de backup e administradores de aplicações.
 
-## <a name="support-for-file-level-restore"></a>Suporte para restauro ao nível de ficheiros
+## <a name="support-for-file-level-restore"></a>Suporte para restauro ao nível do ficheiro
 
-**Restauro** | **Apoiado**
+**Restaurar** | **Suportado**
 --- | ---
-Restaurar ficheiros através de sistemas operativos | Pode restaurar ficheiros em qualquer máquina que tenha o mesmo (ou compatível) SISTEMA que o VM suportado. Consulte a [tabela Os Compatível](backup-azure-restore-files-from-vm.md#system-requirements).
+Restaurar ficheiros através de sistemas operativos | Pode restaurar ficheiros em qualquer máquina que tenha o mesmo (ou compatível) SO que o VM de back-up. Consulte a [tabela oss compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar ficheiros de VMs encriptados | Não suportado.
-Restaurar ficheiros de contas de armazenamento restritas de rede | Não suportado.
-Restaurar ficheiros em VMs utilizando espaços de armazenamento do Windows | Restaurar não suportado no mesmo VM.<br/><br/> Em vez disso, restaure os ficheiros num VM compatível.
-Restaurar ficheiros em Linux VM utilizando matrizes LVM/raid | Restaurar não suportado no mesmo VM.<br/><br/> Restaurar num VM compatível.
+Restaurar ficheiros a partir de contas de armazenamento restritas à rede | Não suportado.
+Restaurar ficheiros em VMs usando espaços de armazenamento do Windows | Restaurar não suportado no mesmo VM.<br/><br/> Em vez disso, restaure os ficheiros num VM compatível.
+Restaurar ficheiros em Linux VM usando matrizes LVM/raid | Restaurar não suportado no mesmo VM.<br/><br/> Restaurar num VM compatível.
 Restaurar ficheiros com definições especiais de rede | Restaurar não suportado no mesmo VM. <br/><br/> Restaurar num VM compatível.
 
-## <a name="support-for-vm-management"></a>Apoio à gestão vm
+## <a name="support-for-vm-management"></a>Apoio à gestão de VM
 
-A tabela seguinte resume o suporte para backup durante as tarefas de gestão vm, tais como adicionar ou substituir discos VM.
+A tabela seguinte resume o suporte para cópias de segurança durante as tarefas de gestão de VM, tais como a adição ou substituição de discos VM.
 
-**Restauro** | **Apoiado**
+**Restaurar** | **Suportado**
 --- | ---
 Restaurar através da subscrição/região/zona. | Não suportado.
 Restaurar a um VM existente | Utilize a opção de substituição do disco.
-Restaurar o disco com conta de armazenamento ativada para encriptação do serviço de armazenamento Azure (SSE) | Não suportado.<br/><br/> Restaurar para uma conta que não tenha SSE ativada.
-Restaurar as contas de armazenamento mistas |Não suportado.<br/><br/> Com base no tipo de conta de armazenamento, todos os discos restaurados serão premium ou standard, e não misturados.
-Restaurar o VM diretamente para um conjunto de disponibilidade | Para discos geridos, pode restaurar o disco e utilizar a opção de disponibilidade definida no modelo.<br/><br/> Não suportado para discos não geridos. Para discos não geridos, restaure o disco e, em seguida, crie um VM no conjunto de disponibilidade.
-Restaurar a cópia de segurança de VMs não geridos após a modernização para VM gerido| Suportado.<br/><br/> Pode restaurar discos e, em seguida, criar um VM gerido.
-Restaurar o VM para restaurar o ponto antes do VM ser migrado para discos geridos | Suportado.<br/><br/> Restaurá-lo em discos não geridos (predefinidos), converter os discos restaurados para o disco gerido e criar um VM com os discos geridos.
+Restaurar o disco com conta de armazenamento ativada para encriptação do serviço de armazenamento Azure (SSE) | Não suportado.<br/><br/> Restaurar a uma conta que não tenha SSE ativada.
+Restaurar para contas de armazenamento misto |Não suportado.<br/><br/> Com base no tipo de conta de armazenamento, todos os discos restaurados serão premium ou standard, e não misturados.
+Restaurar vM diretamente para um conjunto de disponibilidade | Para discos geridos, pode restaurar o disco e utilizar a opção definida pela disponibilidade no modelo.<br/><br/> Não suportado por discos não geridos. Para discos não geridos, restaure o disco e, em seguida, crie um VM no conjunto de disponibilidade.
+Restaurar o backup de VMs não geridos após a atualização para a gestão de VM| Suportado.<br/><br/> Pode restaurar os discos e, em seguida, criar um VM gerido.
+Restaurar vM para restaurar o ponto antes do VM foi migrado para discos geridos | Suportado.<br/><br/> Restaura para discos não geridos (predefinição), converte os discos restaurados para o disco gerido e cria um VM com os discos geridos.
 Restaurar um VM que foi apagado. | Suportado.<br/><br/> Pode restaurar o VM a partir de um ponto de recuperação.
-Restaurar um VM controlador de domínio (DC) que faz parte de uma configuração multi-DC através do portal | Suportado se restaurar o disco e criar um VM utilizando o PowerShell.
-Restaurar vM em diferentes redes virtuais |Suportado.<br/><br/> A rede virtual deve estar na mesma subscrição e região.
+Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração multi-DC através do portal | Suportado se restaurar o disco e criar um VM utilizando o PowerShell.
+Restaurar VM em diferentes redes virtuais |Suportado.<br/><br/> A rede virtual deve estar na mesma subscrição e região.
 
-## <a name="vm-compute-support"></a>Suporte computacional VM
+## <a name="vm-compute-support"></a>Suporte ao cálculo VM
 
 **Computação** | **Suporte**
 --- | ---
-Tamanho da VM |Qualquer tamanho De VM Azure com pelo menos 2 núcleos CPU e RAM de 1-GB.<br/><br/> [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Back up VMs em [conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Suportado.<br/><br/> Não é possível restaurar um VM num conjunto disponível utilizando a opção para criar rapidamente um VM. Em vez disso, quando restaurar o VM, restaure o disco e use-o para implantar um VM, ou restaurar um disco e usá-lo para substituir um disco existente.
-VMs de back up que são implantados com [Hybrid Use Benefit (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Suportado.
-Back up VMs que são implantados em um conjunto de [escala](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |Não suportado.
-VMs de reserva que são implantados do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado pela Microsoft, terceiros) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros no VM, só pode restaurar um Sistema operativo compatível (não um Sistema operativo anterior ou posterior). Não restauramos os VMs do Azure Marketplace apoiados como VMs, uma vez que estes precisam de informações de compra, mas apenas como Discos.
-VMs de back up que são implantados a partir de uma imagem personalizada (terceiros) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros no VM, só pode restaurar um Sistema operativo compatível (não um Sistema operativo anterior ou posterior).
-Back up VMs que são migrados para Azure| Suportado.<br/><br/> Para fazer o apoio ao VM, o agente VM deve ser instalado na máquina migrada.
-Apoiar a consistência multi-VM | A Azure Backup não fornece dados e consistência de aplicação em vários VMs.
-Backup com [Definições de Diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Sem apoio. <br/><br/> Se a restauração do VM Azure com configurações de diagnóstico for acionada utilizando a [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, então o restauro falha.
-Restauro de VMs com fixação de zonas | Suportado (para VM que é apoiado após janeiro de 2019 e onde a [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) está disponível).<br/><br/>Atualmente, apoiamos o restauro para a mesma zona que está presa em VMs. No entanto, se a zona não estiver disponível, a restauração falha.
-Gen2 VMs | Suportado <br> O Azure Backup suporta backup e restauro de [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando estes VMs são restaurados do ponto de recuperação, são restaurados como [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
+Tamanho da VM |Qualquer tamanho Azure VM com pelo menos 2 núcleos CPU e RAM de 1 GB.<br/><br/> [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+Apoiar VMs em [conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Suportado.<br/><br/> Não é possível restaurar um VM num conjunto disponível utilizando a opção de criar rapidamente um VM. Em vez disso, quando restaurar o VM, restaure o disco e use-o para implantar um VM, ou restaurar um disco e usá-lo para substituir um disco existente.
+Back up VMs que são implantados com [Benefício de Utilização Híbrida (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Suportado.
+Apoiar VMs que são implantados em um [conjunto de escala](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |Não suportado.
+Back up VMs que são implantados a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado pela Microsoft, terceiros) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros sobre o VM, só pode restaurar um SISTEMA compatível (não um SO anterior ou posterior). Não restauramos os VMs do Azure Marketplace apoiados como VMs, pois estes precisam de informações de compra, mas apenas como Discos.
+Back up VMs que são implantados a partir de uma imagem personalizada (terceiro) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros sobre o VM, só pode restaurar um SISTEMA compatível (não um SO anterior ou posterior).
+Back up VMs que são migrados para Azure| Suportado.<br/><br/> Para fazer uma proteção do VM, o agente VM tem de ser instalado na máquina migratória.
+Apoiar consistência multi-VM | O Azure Backup não fornece consistência de dados e aplicações em vários VMs.
+Backup com [Definições de Diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Sem apoio. <br/><br/> Se a restauração do VM Azure com definições de diagnóstico for acionada utilizando a opção [Create New,](backup-azure-arm-restore-vms.md#create-a-vm) então a restauração falha.
+Restauro de VMs fixados em zona | Suportado (para VM que é apoiado após janeiro de 2019 e onde estão disponíveis [zona de disponibilidade).](https://azure.microsoft.com/global-infrastructure/availability-zones/)<br/><br/>Atualmente, apoiamos o restauro para a mesma zona que está presa em VMs. No entanto, se a zona não estiver disponível, o restauro falha.
+GMs gen2 | Suportado <br> A Azure Backup suporta cópia de segurança e restauro de [VMs da Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando estes VMs são restaurados a partir do ponto de recuperação, são restaurados como [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
+Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><br> Suportado para VMs geridos.
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados Azure VM | O apoio ao backup de VMs Azure com até 32 discos está em pré-visualização pública [nestas regiões.](#backup-of-azure-virtual-machines-with-up-to-32-disks)<br><br> O suporte para backup de VMs Azure com discos não geridos ou VMs clássicos é de até 16 discos.
-Tamanho do disco de dados | O tamanho do disco individual pode ser até 32 TB e um máximo de 256 TB combinado para todos os discos de um VM.
+Discos de dados Azure VM | O apoio ao backup dos VMs Azure com até 32 discos está em pré-visualização pública em todas as regiões, exceto National Clouds (Governo Azure, Azure China e Azure Alemanha).<br><br> O suporte para cópia de segurança de VMs Azure com discos não geridos ou VMs clássicos é apenas de 16 discos.
+Tamanho do disco de dados | O tamanho do disco individual pode ser até 32 TB e um máximo de 256 TB combinados para todos os discos num VM.
 Tipo de armazenamento | HDD padrão, SSD padrão, SSD premium.
 Managed disks | Suportado.
-Discos encriptados | Suportado.<br/><br/> Os VMs Azure ativados com encriptação de disco Azure podem ser apoiados (com ou sem a aplicação Azure AD).<br/><br/> VMs encriptados não podem ser recuperados ao nível de ficheiro/pasta. Tens de recuperar todo o VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidos pelo Azure Backup.
-Discos com acelerador de escrita ativado | Não suportado.<br/><br/> A cópia de segurança Azure exclui automaticamente os discos com o Acelerador de Escrita (WA) ativado durante a cópia de segurança. Uma vez que não estão apoiados, não poderá restaurar estes discos a partir de Pontos de Recuperação do VM. <br><br> **Nota importante:** As máquinas virtuais com discos WA precisam de conectividade de internet para uma cópia de segurança bem sucedida (mesmo que esses discos estejam excluídos da cópia de segurança.)
-Back up & Restaurar VMs/discos duplicados | O Azure Backup não suporta a duplicação. Para mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - O Azure Backup não desfaz a duplicação de VMs no cofre dos Serviços de Recuperação <br/> <br/>  - Se houver VMs em estado de desduplicação durante a restauração, os ficheiros não podem ser restaurados, uma vez que o cofre não compreende o formato. No entanto, poderá realizar com sucesso a restauração completa do VM.
+Discos encriptados | Suportado.<br/><br/> Os VMs Azure ativados com encriptação de disco Azure podem ser apoiados (com ou sem a aplicação AD AZure).<br/><br/> Os VMs encriptados não podem ser recuperados ao nível do ficheiro/pasta. Tens de recuperar todo o VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidos por Azure Backup.
+Discos com acelerador de escrita ativados | Não suportado.<br/><br/> A cópia de segurança Azure exclui automaticamente os discos com o Write Accelerator (WA) ativado durante a cópia de segurança. Uma vez que não estão apoiados, não será capaz de restaurar estes discos a partir de Pontos de Recuperação do VM. <br><br> **Nota importante:** As máquinas virtuais com discos WA precisam de conectividade com a Internet para uma cópia de segurança bem sucedida (mesmo que esses discos estejam excluídos da cópia de segurança.)
+Retrocede & Restaurar VMs/discos desduplicados | A Azure Backup não suporta a desduplicação. Para mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - A Azure Backup não desduplica através de VMs no cofre dos Serviços de Recuperação <br/> <br/>  - Se houver VMs em estado de desduplicação durante a restauração, os ficheiros não podem ser restaurados, uma vez que o cofre não entende o formato. No entanto, poderá realizar com sucesso a restauração completa do VM.
 Adicione o disco ao VM protegido | Suportado.
-Redimensionar o disco em VM protegido | Suportado.
-Armazenamento compartilhado| Não é suportado o backup de VMs utilizando volume partilhado de cluster (CSV) ou servidor de ficheiroscale-out. É provável que os escritores de CSV falhem durante o backup. No restauro, os discos que contenham volumes CSV podem não surgir.
+Redimensione o disco em VM protegido | Suportado.
+Armazenamento compartilhado| Não é suportado o backup de VMs utilizando o Cluster Shared Volume (CSV) ou o Servidor de Ficheiros Scale-Out. É provável que os escritores do CSV falhem durante o backup. No restauro, os discos que contêm volumes de CSV podem não aparecer.
 [Discos partilhados](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Não suportado.
-
-### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Backup de máquinas virtuais Azure com até 32 discos
-
-O Azure Backup suporta agora a cópia de segurança dos VMs Azure com até 32 discos anexados.  Esta característica está em pré-visualização pública nos EUA Centrais Ocidentais, Canadá Central, Ásia Sudeste, Brasil Sul, Canadá Leste, França Central, França Sul, Índia Central, Índia Sul, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, África do Sul Norte, Reino Unido Sul, Reino Unido Oeste, Austrália Leste.  Se estiver interessado nesta funcionalidade noutras regiões, inscreva-se para a pré-visualização limitada escrevendo-nos em AskAzureBackupTeam@microsoft.com .  
-
->[!NOTE]
->O Azure Backup apenas suporta até 16 discos para VMs Azure com discos não geridos ou VMs clássicos.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
 
 **Componente** | **Suporte**
 --- | ---
-Número de interfaces de rede (NICs) | Até ao número máximo de NICs suportados para um tamanho vm azure específico.<br/><br/> Os NICs são criados quando o VM é criado durante o processo de restauro.<br/><br/> O número de NICs no VM restaurado espelha o número de NICs no VM quando ativava a proteção. Remover NICs depois de ativar a proteção não afeta a contagem.
-Equilibrador de carga externo/interno |Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre restaurar VMs com configurações especiais de rede.
-Múltiplos endereços IP reservados |Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre restaurar VMs com configurações especiais de rede.
-VMs com vários adaptadores de rede| Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre restaurar VMs com configurações especiais de rede.
+Número de interfaces de rede (NICs) | Até ao máximo o número de NICs suportados para um tamanho Azure VM específico.<br/><br/> Os NICs são criados quando o VM é criado durante o processo de restauração.<br/><br/> O número de NICs no VM restaurado espelha o número de NICs no VM quando ativa a proteção. Remover OS NICs depois de ativar a proteção não afeta a contagem.
+Balanceador de carga externo/interno |Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre a restauração de VMs com configurações especiais de rede.
+Vários endereços IP reservados |Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre a restauração de VMs com configurações especiais de rede.
+VMs com vários adaptadores de rede| Suportado. <br/><br/> [Saiba mais](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre a restauração de VMs com configurações especiais de rede.
 VMs com endereços IP públicos| Suportado.<br/><br/> Associe um endereço IP público existente com o NIC, ou crie um endereço e associe-o ao NIC após a restauração.
-Grupo de segurança de rede (NSG) em NIC/subnet. |Suportado.
-Endereço IP estático | Não suportado.<br/><br/> Um novo VM que é criado a partir de um ponto de restauro é atribuído um endereço IP dinâmico.<br/><br/> Para VMs clássicos, não pode fazer o back-up de um VM com um endereço IP reservado e sem ponto final definido.
-Endereço IP dinâmico |Suportado.<br/><br/> Se o NIC na fonte VM utilizar endereços IP dinâmicos, por padrão, o NIC no VM restaurado também o utilizará.
-Traffic Manager do Azure| Suportado.<br/><br/>Se o VM apoiado estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
+Grupo de segurança de rede (NSG) em NIC/sub-rede. |Suportado.
+Endereço IP estático | Não suportado.<br/><br/> Um novo VM que é criado a partir de um ponto de restauro é atribuído um endereço IP dinâmico.<br/><br/> Para VMs clássicos, não é possível fazer uma reserva de VM com um endereço IP reservado e sem ponto final definido.
+Endereço IP dinâmico |Suportado.<br/><br/> Se o NIC na fonte VM utilizar um endereço IP dinâmico, por predefinição o NIC no VM restaurado também o utilizará.
+Traffic Manager do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
 DNS do Azure |Suportado.
 DNS Personalizado |Suportado.
 Conectividade de saída via http proxy | Suportado.<br/><br/> Um representante autenticado não é apoiado.
-Pontos finais de serviço de rede virtual| Suportado.<br/><br/> As definições de firewall e de armazenamento de rede virtual devem permitir o acesso de todas as redes.
+Pontos finais de serviço de rede virtual| Suportado.<br/><br/> As definições de firewall e de armazenamento de rede virtuais devem permitir o acesso de todas as redes.
 
-## <a name="vm-security-and-encryption-support"></a>Suporte de segurança e encriptação VM
+## <a name="vm-security-and-encryption-support"></a>Suporte de segurança e encriptação vM
 
-A Azure Backup suporta encriptação para dados em trânsito e em repouso:
+O Azure Backup suporta encriptação para dados em trânsito e em repouso:
 
 Tráfego de rede para Azure:
 
-- O tráfego de backup dos servidores para o cofre dos Serviços de Recuperação é encriptado utilizando o Advanced Encryption Standard 256.
-- Os dados de cópia de segurança são enviados sobre um link HTTPS seguro.
-- Os dados de backup são armazenados no cofre dos Serviços de Recuperação de forma encriptada.
-- Só tem a frase-passe para desbloquear estes dados. A Microsoft não pode desencriptar os dados de cópia de segurança em nenhum momento.
+- O tráfego de backup dos servidores para o cofre dos Serviços de Recuperação é encriptado utilizando o Padrão de Encriptação Avançada 256.
+- Os dados de cópia de segurança são enviados por um link HTTPS seguro.
+- Os dados de cópia de segurança são armazenados no cofre dos Serviços de Recuperação sob forma encriptada.
+- Só você tem a palavra-passe para desbloquear estes dados. A Microsoft não pode desencriptar os dados de backup em nenhum momento.
 
   > [!WARNING]
-  > Depois de montar o cofre, só tem acesso à chave de encriptação. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver deslocada, a Microsoft não pode recuperar os dados de backup.
+  > Depois de configurar o cofre, só tem acesso à chave de encriptação. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver extraviada, a Microsoft não poderá recuperar os dados de backup.
 
 Segurança de dados:
 
-- Ao fazer backup de VMs Azure, é necessário configurar a encriptação *dentro* da máquina virtual.
-- O Azure Backup suporta a Encriptação azure disk, que utiliza o BitLocker em máquinas virtuais do Windows e nos **dm-criptografias** em máquinas virtuais Linux.
+- Ao fazer o backup dos VMs Azure, é necessário configurar a encriptação *dentro* da máquina virtual.
+- O Azure Backup suporta a Encriptação do Disco Azure, que utiliza o BitLocker em máquinas virtuais do Windows e **nós, a dm-crypt** em máquinas virtuais Linux.
 - No back-end, o Azure Backup utiliza a [encriptação do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md), que protege os dados inativos.
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-No local máquinas Windows sem DPM/MABS | ![Sim][green] | ![Sim][green]
+Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
 VMs do Azure | ![Sim][green] | ![Sim][green]
-VMs no local/Azure com DPM | ![Sim][green] | ![Sim][green]
-VMs no local/Azure com MABS | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
-## <a name="vm-compression-support"></a>Suporte de compressão VM
+## <a name="vm-compression-support"></a>Suporte à compressão VM
 
-O backup suporta a compressão do tráfego de reserva, tal como resumido na tabela seguinte. Tenha em atenção o seguinte:
+A cópia de segurança suporta a compressão do tráfego de backup, tal como resumida na tabela seguinte. Tenha em atenção o seguinte:
 
 - Para os VMs Azure, a extensão VM lê os dados diretamente da conta de armazenamento Azure sobre a rede de armazenamento. Não é necessário comprimir este tráfego.
 - Se estiver a utilizar DPM ou MABS, pode poupar largura de banda comprimindo os dados antes de ser apoiado em DPM/MABS.
 
-**Máquina** | **Compressa para MABS/DPM (TCP)** | **Compressa ao cofre (HTTPS)**
+**Máquina** | **Comprimir para MABS/DPM (TCP)** | **Comprimir para cofre (HTTPS)**
 --- | --- | ---
-No local máquinas Windows sem DPM/MABS | ND | ![Yes][green]
+Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-VMs no local/Azure com DPM | ![Yes][green] | ![Sim][green]
-VMs no local/Azure com MABS | ![Yes][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Back up VMs Azure](backup-azure-arm-vms-prepare.md).
+- [Apoiar os VMs do Azure.](backup-azure-arm-vms-prepare.md)
 - [Faça o backup das máquinas do Windows diretamente,](tutorial-backup-windows-server-to-azure.md)sem um servidor de reserva.
-- [Configurar o MABS](backup-azure-microsoft-azure-backup.md) para obter cópias de segurança para o Azure e, em seguida, fazer backup das cargas de trabalho para o MABS.
-- [Instale dPM](backup-azure-dpm-introduction.md) para reforços para Azure, e, em seguida, faça backup de cargas para DPM.
+- [Crie mABS](backup-azure-microsoft-azure-backup.md) para apoio ao Azure e, em seguida, faça o backup das cargas de trabalho para o MABS.
+- [Confiem dPM](backup-azure-dpm-introduction.md) para apoio ao Azure e, em seguida, rememtra as cargas de trabalho para dPM.
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png

@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: bc3411a926e71c88f0b4e4f84fcdf083b519f46a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323557"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971186"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a sua base de dados MySQL para a Dase de Dados do Azure para MySQL através da funcionalidade de captura e restauro
 Este artigo explica duas formas comuns de fazer o back backs de apoio e restaurar as bases de dados na sua Base de Dados Azure para o MySQL
 - Despejar e restaurar a partir da linha de comando (usando mysqldump) 
 - Despejar e restaurar usando PHPMyAdmin 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Para passar por este guia, você precisa ter:
 - [Criar Base de Dados Azure para servidor MySQL - Portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - utilitário de linha de comando [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) instalado numa máquina.
@@ -67,7 +67,11 @@ Os parâmetros a fornecer são:
 - [backupfile.sql] O nome de ficheiro para a sua base de dados 
 - [--opt] A opção mysqldump 
 
-Por exemplo, para fazer o back-up de uma base de dados chamada 'testdb' no seu servidor MySQL com o nome de utilizador 'testuser' e sem palavra-passe para um ficheiro testdb_backup.sql, utilize o seguinte comando. O comando reensi para `testdb` um ficheiro chamado , que contém todas as `testdb_backup.sql` declarações SQL necessárias para recriar a base de dados. 
+Por exemplo, para fazer o back-up de uma base de dados chamada 'testdb' no seu servidor MySQL com o nome de utilizador 'testuser' e sem palavra-passe para um ficheiro testdb_backup.sql, utilize o seguinte comando. O comando reensi para `testdb` um ficheiro chamado , que contém todas as `testdb_backup.sql` declarações SQL necessárias para recriar a base de dados. Certifique-se de que o nome de utilizador 'testuser' tem pelo menos o privilégio SELECT para mesas de despejo, SHOW VIEW para vistas despejadas, TRIGGER para gatilhos despejados e TABELAS DE BLOQUEIO se a opção de transação única não for utilizada.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,7 +100,7 @@ Adicione as informações de ligação na sua bancada MySQL Workbench.
 Para preparar o target Azure Database para o servidor MySQL para cargas de dados mais rápidas, os seguintes parâmetros e configuração do servidor precisam de ser alterados.
 - max_allowed_packet – definido para 1073741824 (ou seja, 1GB) para evitar qualquer problema de transbordo devido a longas filas.
 - slow_query_log – definido para OFF para desligar o registo de consulta lenta. Isto eliminará a sobrecarga causada por uma consulta lenta durante as cargas de dados.
-- query_store_capture_mode – definir ambos para ZERO para desligar a Loja de Consultas. Isto eliminará as despesas gerais causadas pelas atividades de amostragem pela Query Store.
+- query_store_capture_mode – definido para ZERO para desligar a Loja de Consultas. Isto eliminará as despesas gerais causadas pelas atividades de amostragem pela Query Store.
 - innodb_buffer_pool_size – Escalar o servidor para 32 vCore Memory Optimized SKU do nível de Preços do portal durante a migração para aumentar o innodb_buffer_pool_size. Innodb_buffer_pool_size só podem ser aumentados aumentando o cálculo para a Base de Dados Azure para o servidor MySQL.
 - innodb_io_capacity & innodb_io_capacity_max - Altere para 9000 a partir dos parâmetros do Servidor no portal Azure para melhorar a utilização do IO para otimizar a velocidade de migração.
 - innodb_write_io_threads & innodb_write_io_threads - Altere para 4 a partir dos parâmetros do Servidor no portal Azure para melhorar a velocidade de migração.

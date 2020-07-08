@@ -3,7 +3,7 @@ title: Orientação de afinação de desempenho para aplicações e bases de dad
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Saiba mais sobre afinação de aplicações e bases de dados para desempenho na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
-ms.openlocfilehash: 50322f69ff1cbb58cd5461646ca057718696e0eb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 793010ba9eaea32256796f5fcd42d1c469eb7917
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193880"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981988"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonize aplicações e bases de dados para desempenho em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -265,7 +265,7 @@ Algumas aplicações são intensivas. Por vezes, pode reduzir a carga total de I
 
 Algumas aplicações de base de dados têm cargas de trabalho pesadas. As camadas de caching podem reduzir a carga na base de dados e podem potencialmente reduzir o tamanho do cálculo necessário para suportar uma base de dados utilizando a Base de Dados Azure SQL e a Azure SQL Managed Instance. Com [a Azure Cache para Redis,](https://azure.microsoft.com/services/cache/)se tiver uma carga de trabalho pesada de leitura, pode ler os dados uma vez (ou talvez uma vez por máquina de nível de aplicação, dependendo da configuração), e, em seguida, armazenar esses dados fora da sua base de dados. Esta é uma forma de reduzir a carga da base de dados (CPU e ler IO), mas há um efeito na consistência transacional porque os dados que estão a ser lidos a partir da cache podem estar dessincronizados com os dados na base de dados. Embora em muitas aplicações algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Deve compreender completamente quaisquer requisitos de aplicação antes de implementar uma estratégia de caching de nível de aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre os níveis de serviço baseados na DTU, consulte o [modelo de compra baseado na DTU.](service-tiers-dtu.md)
 - Para obter mais informações sobre os níveis de serviço baseados em vCore, consulte [o modelo de compra baseado em vCore.](service-tiers-vcore.md)

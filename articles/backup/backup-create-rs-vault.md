@@ -1,71 +1,33 @@
 ---
-title: Criar cofres dos Serviços de Recuperação
-description: Neste artigo, aprenda a criar cofres dos Serviços de Recuperação que armazenam os backups e pontos de recuperação.
-ms.reviewer: sogup
+title: Criar e configurar cofres dos Serviços de Recuperação
+description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de Recuperação que armazenam os backups e pontos de recuperação.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ac30a57dcbceb4616961c9d100e6ac8639ef2172
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391065"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970536"
 ---
-# <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+# <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
-Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup que estão associadas às máquinas virtuais protegidas.
-
-Para criar um cofre dos Serviços de Recuperação:
-
-1. Inscreva-se na sua subscrição no [portal Azure.](https://portal.azure.com/)
-
-2. No menu à esquerda, selecione **Todos os serviços**.
-
-    ![Selecione Todos os serviços](./media/backup-create-rs-vault/click-all-services.png)
-
-3. Na caixa de diálogo **de todos os serviços,** insira **os Serviços de Recuperação.** A lista de filtros de recursos de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação.**
-
-    ![Insira e escolha cofres dos Serviços de Recuperação](./media/backup-create-rs-vault/all-services.png)
-
-    A lista de cofres dos Serviços de Recuperação na subscrição aparece.
-
-4. No painel de **cofres dos Serviços de Recuperação,** selecione **Add**.
-
-    ![Adicione um cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/add-button-create-vault.png)
-
-    A caixa de diálogo do **cofre dos Serviços de Recuperação** abre. Fornecer valores para o **Nome,** **Assinatura,** **Grupo de Recursos**e **Localização.**
-
-    ![Configure o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-
-   - **Nome**: Introduza um nome amigável para identificar o cofre. O nome deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes.
-   - **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure.
-   - **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Localização**: Selecione a região geográfica para o cofre. Para criar um cofre para proteger máquinas virtuais, o cofre **deve** estar na mesma região que as máquinas virtuais.
-
-      > [!IMPORTANT]
-      > Se não tiver a certeza da localização do seu VM, feche a caixa de diálogo. Vá à lista de máquinas virtuais no portal. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Crie o cofre no primeiro local, antes de criar o cofre para outro local. Não há necessidade de especificar contas de armazenamento para armazenar os dados de reserva. O cofre dos Serviços de Recuperação e o serviço de backup Azure tratam-no automaticamente.
-      >
-      >
-
-5. Quando estiver pronto para criar o cofre dos Serviços de Recuperação, selecione **Criar**.
-
-    ![Criar o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/click-create-button.png)
-
-    Pode levar algum tempo a criar o cofre dos Serviços de Recuperação. Monitorize as notificações de estado na área **de Notificações** no canto superior direito do portal. Depois do seu cofre ser criado, está visível na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Refresh**.
-
-     ![Refresque a lista de cofres de reserva](./media/backup-create-rs-vault/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="set-storage-redundancy"></a>Definir redundância de armazenamento
 
 O Azure Backup manuseia automaticamente o armazenamento para o cofre. Tem de especificar como é que o armazenamento é replicado.
 
->[!NOTE]
->As definições de replicação de armazenamento para o cofre não são relevantes para a cópia de segurança da partilha de ficheiros Azure, uma vez que a solução atual é baseada em instantâneos e não há dados transferidos para o cofre. As imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com reserva.
+> [!NOTE]
+> Alterar **o tipo de replicação de armazenamento** (localmente redundante/ geo-redundante) para um cofre de serviços de recuperação tem de ser feito antes de configurar cópias de segurança no cofre. Uma vez configurada cópia de segurança, a opção de modificar é desativada.
+>
+>- Se ainda não configurar a cópia de segurança, [siga estes passos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para rever e modificar as definições.
+>- Se já configuraram o backup e têm de passar de GRS para LRS, então [revejam estas soluções alternativas.](#how-to-change-from-grs-to-lrs-after-configuring-backup)
 
 1. No painel **Cofres dos Serviços de Recuperação**, clique em novo cofre. Na secção **Definições,** clique em **Propriedades**.
-2. Em **Propriedades**, em **Configuração de Cópia de Segurança,** clique em **Atualização**.
+1. Em **Propriedades**, em **Configuração de Cópia de Segurança,** clique em **Atualização**.
 
-3. Selecione o tipo de replicação de armazenamento e clique em **Guardar**.
+1. Selecione o tipo de replicação de armazenamento e clique em **Guardar**.
 
      ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -73,8 +35,8 @@ O Azure Backup manuseia automaticamente o armazenamento para o cofre. Tem de esp
    - Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure.
    - Saiba mais sobre [a redundância geo](../storage/common/storage-redundancy-grs.md) e [local.](../storage/common/storage-redundancy-lrs.md)
 
-> [!NOTE]
-> Alterar o tipo de **replicação** de armazenamento (localmente redundante/ geo-redundante) para um cofre de serviços de recuperação tem de ser feito antes de configurar cópias de segurança no cofre. Uma vez configurada cópia de segurança, a opção para modificar é desativada e não pode alterar o **tipo de replicação de armazenamento**.
+>[!NOTE]
+>As definições de replicação de armazenamento para o cofre não são relevantes para a cópia de segurança da partilha de ficheiros Azure, uma vez que a solução atual é baseada em instantâneos e não há dados transferidos para o cofre. As imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com reserva.
 
 ## <a name="set-cross-region-restore"></a>Definir restauro da região de cruz
 
@@ -95,7 +57,7 @@ Para este processo, existem implicações nos preços tal como está ao nível d
 >- CRR é uma função de opt-in de nível de abóbada para qualquer cofre GRS (desligado por defeito).
 >- Depois de optar, pode levar até 48 horas para que os itens de reserva estejam disponíveis em regiões secundárias.
 >- Atualmente, a CRR é suportada apenas para o Tipo de Gestão de Backup - ARM Azure VM (o clássico Azure VM não será suportado).  Quando os tipos de gestão adicionais suportam o CRR, então serão **automaticamente** matriculados.
->- A Cross Region Restore não pode ser revertida para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez. 
+>- A Cross Region Restore não pode ser revertida para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez.
 
 ### <a name="configure-cross-region-restore"></a>Conigure Região Cruzada Restaurar
 
@@ -120,11 +82,58 @@ Saiba como monitorizar a [região secundária restaurar os postos de trabalho.](
 
 Recomendamos vivamente que reveja as definições predefinidos para **o tipo de replicação de armazenamento** e as **definições de segurança** antes de configurar cópias de segurança no cofre.
 
-- **O tipo de replicação de armazenamento** por padrão é definido para **Geo-redundante**. Uma vez configurada a cópia de segurança, a opção de modificação é desativada. Siga estes [passos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para rever e modificar as definições.
+- **O tipo de replicação de armazenamento** por padrão é definido para **Geo-redundante** (GRS). Uma vez configurada a cópia de segurança, a opção de modificação é desativada.
+  - Se ainda não configurar a cópia de segurança, [siga estes passos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para rever e modificar as definições.
+  - Se já configuraram o backup e têm de passar de GRS para LRS, então [revejam estas soluções alternativas.](#how-to-change-from-grs-to-lrs-after-configuring-backup)
 
-- **A eliminação suave** por padrão está **ativada** em cofres recém-criados para proteger os dados de cópias de segurança de eliminações acidentais ou maliciosas. Siga estes [passos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para rever e modificar as definições.
+- **A eliminação suave** por padrão está **ativada** em cofres recém-criados para proteger os dados de cópias de segurança de eliminações acidentais ou maliciosas. [Siga estes passos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para rever e modificar as definições.
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>Como mudar de GRS para LRS após configurar backup
+
+Antes de decidir passar de GRS para armazenamento localmente redundante (LRS), reveja as compensações entre custos mais baixos e maior durabilidade de dados que se adequam ao seu cenário. Se tens de passar de GRS para LRS, então tens duas opções. Dependem dos requisitos do seu negócio para reter os dados de backup:
+
+- [Não precisa preservar dados anteriores de back-up](#dont-need-to-preserve-previous-backed-up-data)
+- [Deve preservar dados anteriores de back-up](#must-preserve-previous-backed-up-data)
+
+#### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Não precisa preservar dados anteriores de back-up
+
+Para proteger as cargas de trabalho num novo cofre LRS, a proteção atual e os dados terão de ser eliminados no cofre GRS e cópias de segurança configuradas novamente.
+
+>[!WARNING]
+>A seguinte operação é destrutiva e não pode ser desfeita. Todos os dados de backup e itens de backup associados ao servidor protegido serão permanentemente eliminados. Avance com cuidado.
+
+Parar e eliminar a proteção atual no cofre GRS:
+
+1. Desative a exclusão suave nas propriedades do cofre GRS. Siga [estes passos](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para desativar a eliminação suave.
+
+1. Pare a proteção e elimine as cópias de segurança do cofre GRS existente. No menu do painel de instrumentos Vault, selecione **Itens de reserva**. Os itens listados aqui que precisam de ser transferidos para o cofre LRS devem ser removidos juntamente com os seus dados de reserva. Veja como [eliminar itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [elimine itens protegidos no local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+1. Se está a planear mover as ações de ficheiros AFS (Azure), os servidores SQL ou os servidores SAP HANA, então também terá de os desregistar. No menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup**. Veja como [desregistritar o servidor SQL,](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance) [não registe uma conta de armazenamento associada às ações de ficheiros Azure,](manage-afs-backup.md#unregister-a-storage-account)e [não registe uma instância SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+1. Assim que forem removidos do cofre GRS, continuem a configurar os backups para a sua carga de trabalho no novo cofre LRS.
+
+#### <a name="must-preserve-previous-backed-up-data"></a>Deve preservar dados anteriores de back-up
+
+Se precisar de manter os dados protegidos atuais no cofre GRS e continuar a proteção num novo cofre LRS, existem opções limitadas para algumas das cargas de trabalho:
+
+- Para o MARS, pode [parar a proteção com os dados de retenção](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) e registar o agente no novo cofre LRS.
+
+  - O serviço de backup Azure continuará a reter todos os pontos de recuperação existentes do cofre GRS.
+  - Terá de pagar para manter os pontos de recuperação no cofre da GRS.
+  - Só poderá restaurar os dados de apoio para pontos de recuperação não percebidos no cofre grs.
+  - Uma nova réplica inicial dos dados terá de ser criada no cofre LRS.
+
+- Para um Azure VM, pode [parar a proteção com os dados de retenção](backup-azure-manage-vms.md#stop-protecting-a-vm) para o VM no cofre GRS, mover o VM para outro grupo de recursos e, em seguida, proteger o VM no cofre LRS. Consulte [orientação e limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover um VM para outro grupo de recursos.
+
+  Um VM só pode ser protegido num cofre de cada vez. No entanto, o VM do novo grupo de recursos pode ser protegido no cofre LRS, uma vez que é considerado um VM diferente.
+
+  - O serviço de backup Azure irá manter os pontos de recuperação que foram apoiados no cofre GRS.
+  - Terá de pagar para manter os pontos de recuperação no cofre GRS (ver [preços de backup do Azure](azure-backup-pricing.md) para mais detalhes).
+  - Poderá restaurar o VM, se necessário, do cofre grs.
+  - A primeira cópia de segurança no cofre LRS do VM no novo recurso será uma réplica inicial.
+
+
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos Serviços de Recuperação.
 [Saiba mais](backup-azure-delete-vault.md) Apagar cofres dos Serviços de Recuperação.

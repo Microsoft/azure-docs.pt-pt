@@ -6,19 +6,19 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b938e514be163789d8a8fc25327f5dabe49ce4c3
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 0a2696da70a785fc1da6bfd2c7b0cabae1a89197
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515797"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980698"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
 Este tópico explica como criar uma nova oferta Dynamics 365 para Operações. [O Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) é um serviço de planeamento de recursos empresariais (ERP) que suporta financiamento avançado, operações, fabricação e gestão de cadeias de fornecimento. Todas as ofertas para a Dynamics 365 for Operations devem passar pelo nosso processo de certificação.
 
-Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 >[!NOTE]
 > Uma vez publicada uma oferta, as edições à oferta feita no Partner Center só serão atualizadas no sistema e nas frentes da loja após a reedição. Certifique-se de que submete a oferta para publicação depois de escrita.
@@ -71,28 +71,9 @@ Recolher informações de contacto com o cliente ligando o seu sistema de Gestã
 
 ### <a name="test-drive"></a>Unidade de teste
 
-Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando numa maior conversão e na geração de leads altamente qualificados. [Saiba mais sobre test drives](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando numa maior conversão e na geração de leads altamente qualificados. Para saber mais, comece com [o que é test drive](../what-is-test-drive.md).
 
-Para ativar uma unidade de teste durante um período de tempo fixo, selecione a caixa de **verificação de acionamento de test drive.** Para remover o test drive da sua oferta, limpe esta caixa de verificação. Configure o ambiente de test drive na secção [técnica de configuração da unidade de teste](#test-drive-technical-configuration) mais tarde neste tópico.
-
-Para obter informações adicionais, consulte [Test drive a sua oferta no mercado comercial.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)
-
-#### <a name="type-of-test-drive"></a>Tipo de unidade de teste
-
-Selecione entre as seguintes opções:
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** – Um modelo de implementação que contém todos os recursos Azure que compõem a sua solução. Os produtos que se adequam a este cenário utilizam apenas recursos Azure.
-- **[Dinâmica 365 para Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** – Microsoft acolhe e mantém o serviço de test drive (incluindo fornecimento e implantação) para um sistema de planeamento de recursos empresariais business Central (finanças, operações, cadeia de fornecimento, CRM, etc.).  
-- **[Dinâmica 365 para o Envolvimento do Cliente](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** – a Microsoft acolhe e mantém o serviço de test drive (incluindo fornecimento e implementação) para um sistema de Envolvimento do Cliente (vendas, serviço, serviço de projeto, serviço de campo, etc.).  
-- **[Dinâmica 365 para Operações](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** – A Microsoft acolhe e mantém o serviço de test drive (incluindo fornecimento e implantação) para um sistema de planeamento de recursos empresariais de Finanças e Operações (finanças, operações, fabricação, cadeia de fornecimento, etc.).
-- **[Aplicação lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** – Um modelo de implementação que abrange todas as arquiteturas complexas de soluções. Quaisquer produtos personalizados devem utilizar este tipo de Test Drive.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** – Uma ligação incorporada a um dashboard personalizado. Os produtos que pretendam demonstrar um power bi visual interativo devem utilizar este tipo de Test Drive. Tudo o que precisa para carregar aqui é o seu URL de POWER BI incorporado.
-
-#### <a name="additional-test-drive-resources"></a>Recursos adicionais de test drive
-
-- [Melhores práticas de marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Melhores práticas técnicas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; certifique-se de que o seu bloqueador pop-up está desligado)
+Para ativar uma unidade de teste durante um período de tempo fixo, selecione a caixa de **verificação de acionamento de test drive.** Para remover o test drive da sua oferta, limpe esta caixa de verificação.
 
 ### <a name="customer-leads"></a>Ligações ao cliente
 
@@ -108,7 +89,12 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 
 ### <a name="category"></a>Categoria
 
-Selecione um mínimo de um e um máximo de três categorias. Estas categorias serão usadas para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Certifique-se de chamar a atenção para o suporte da sua oferta nestas categorias na descrição da oferta.
+Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
+
+- Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+
+Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
 ### <a name="industry"></a>Setor
 
@@ -150,7 +136,7 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 9. Screenshots/vídeos
 10. Descrição
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -221,7 +207,7 @@ Pode, opcionalmente, adicionar até quatro vídeos que demonstrem a sua oferta. 
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
-[Melhores práticas para anúncios de oferta de mercado](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+[Melhores práticas para anúncios de oferta de mercado](../gtm-offer-listing-best-practices.md)
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -259,6 +245,7 @@ Esta página define os detalhes técnicos utilizados para se ligar à sua oferta
 Forneça o identificador de solução (GUID) para a sua solução.
 
 Para encontrar o seu identificador de solução:
+
 1. Nos Serviços de Ciclo de Vida da Microsoft Dynamics (LCS), selecione **Gestão de Soluções.**
 2. Selecione a sua solução e, em seguida, procure o **identificador de solução** na **visão geral**do pacote. Se o identificador estiver em branco, **selecione Editar** e volte a publicar o seu pacote e tente novamente.
 
@@ -268,101 +255,13 @@ Selecione a versão da Dynamics 365 para Finanças e Operações com a qual esta
 
 **Selecione Guardar o projeto** antes de continuar.
 
-## <a name="test-drive-technical-configuration"></a>Configuração técnica de unidade de teste
+## <a name="test-drive-technical-configuration"></a>Configuração técnica da versão de teste
 
-Esta página permite-lhe configurar uma demonstração ("test drive") que permite que os clientes experimentem a sua oferta antes de a comprar. Saiba mais no artigo [O que é Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Esta página permite-lhe configurar uma demonstração ("test drive") que permite que os clientes experimentem a sua oferta antes de a comprar. Saiba mais no [que é test drive](../what-is-test-drive.md).
 
 Para ativar uma unidade de teste, selecione a caixa **de verificação de unidade de teste** no separador de [configuração 'Oferta'.](#test-drive) Para remover o test drive da sua oferta, limpe esta caixa de verificação.
 
-Estão disponíveis os seguintes tipos de test drives, cada um com os seus próprios requisitos de configuração técnica.
-
-- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
-- [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
-- [Aplicativo lógico](#technical-configuration-for-logic-app-test-drive)
-- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (configuração técnica não necessária)
-
-### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Configuração técnica para unidade de teste do Azure Resource Manager
-
-Um modelo de implantação que contém todos os recursos Azure que compõem a sua solução. Os produtos que se adequam a este cenário utilizam apenas recursos Azure. Saiba mais sobre a configuração de uma [unidade de teste Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
-
-- **Regiões (necessárias)** – Atualmente existem 26 regiões apoiadas pelo Azure onde o seu test drive pode ser disponibilizado. Normalmente, você vai querer disponibilizar o seu test drive nas regiões onde você antecipa o maior número de clientes, para que eles possam selecionar a região mais próxima para o melhor desempenho. Terá de se certificar de que a sua subscrição pode implementar todos os recursos necessários em cada uma das regiões que está a selecionar.
-
-- **Instâncias** – Selecione o tipo (quente ou frio) e o número de instâncias disponíveis, que serão multiplicadas pelo número de regiões onde a sua oferta está disponível.
-
-    **Quente** – Este tipo de ocorrência é implantado e aguarda acesso por região selecionada. Os clientes podem aceder instantaneamente a casos *quentes* de um test drive, em vez de terem de esperar por uma implementação. A troca é que estes casos estão sempre a funcionar na sua subscrição do Azure, por isso incorrerão num custo de uptime maior. É altamente recomendado ter pelo menos um caso *Hot,* uma vez que a maioria dos clientes não quer esperar por implementações completas, resultando numa entrega no uso do cliente se não houver nenhuma instância *Hot* disponível.
-
-    **Frio** – Este tipo de ocorrência representa o número total de casos que podem ser implantados por região. As instâncias frias requerem que todo o modelo do Gestor de Recursos de Test Drive implemente quando um cliente solicita o test drive, por isso as instâncias *de frio* são muito mais lentas a carregar do que as instâncias *hot.* A troca é que só tem de pagar a duração do test drive, *nem* sempre está a funcionar na sua subscrição Azure como numa instância *Hot.*
-
-- **Test drive Modelo de Gestor de Recursos Azure** – Carreque o .zip contendo o seu modelo de Gestor de Recursos Azure.  Saiba mais sobre a criação de um modelo de Gestor de Recursos Azure no artigo de arranque rápido [Criar e implementar modelos de Gestor de Recursos Azure utilizando o portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-
-- **Duração do test drive** (obrigatório) – Introduza o tempo de duração em que a Unidade de Teste se mantenha ativa, em 4 de horas. A Unidade de Teste termina automaticamente após o fim deste período de tempo. Esta duração só pode ser fixada por um número inteiro de horas (por exemplo, "2"; "1,5" não é válido).
-
-### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configuração técnica para unidade de teste Dynamics 365
-
-A Microsoft pode remover a complexidade da configuração de um test drive hospedando e mantendo o fornecimento e implementação de serviço usando este tipo de test drive. A configuração para este tipo de test drive hospedado é a mesma, independentemente de o test drive estar direcionado para um público de Business Central, Customer Engagement ou Operations.
-
-- **Unidades de teste simultâneas máximas** (necessárias) – Desaprova o número máximo de clientes que podem utilizar o seu test drive de uma só vez. Cada utilizador simultâneo consumirá uma licença Dynamics 365 enquanto o test drive estiver ativo, pelo que terá de garantir que tem licenças suficientes para suportar o limite máximo definido. Valor recomendado de 3-5.
-
-- **Duração do test drive** (obrigatório) – Introduza o tempo de duração em que a Unidade de Teste se mantenha ativa definindo o número de horas. Depois destas horas, a sessão terminará e deixará de consumir uma das suas licenças. Recomendamos um valor de 2-24 horas dependendo da complexidade da sua oferta. Esta duração só pode ser fixada por um número inteiro de horas (por exemplo, "2"; "1,5" não é válido).  O utilizador pode solicitar uma nova sessão se ficar sem tempo e quiser aceder novamente ao test drive.
-
-- **URL de exemplo** (obrigatório) – O URL onde o cliente iniciará o seu test drive. Tipicamente, o URL da sua instância Dynamics 365 executa a sua aplicação com dados de amostra instalados (por exemplo, `https://testdrive.crm.dynamics.com` ).
-
-- **Exemplo Web API URL** (obrigatório) – Recupere o URL da Web API para a sua instância Dynamics 365, iniciando sessão na sua conta Microsoft 365 e navegando para **Configurações**  >  **Desativação**  >  **Desenvolvimento Recursos Desinsusitados Desemintado Recursos**Web  >  **API (SERVICE Root URL)**), copiar o URL encontrado aqui (por exemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
-
-- **Nome de função** (obrigatório) – Forneça o nome da função de segurança que definiu no seu test drive Dynamics 365 personalizado. Isto será atribuído ao utilizador durante a sua unidade de teste (por exemplo, função de test-drive).
-
-### <a name="technical-configuration-for-logic-app-test-drive"></a>Configuração técnica para unidade de teste de aplicativo Logic
-
-Quaisquer produtos personalizados devem usar este tipo de modelo de implementação de test drive, que engloba uma variedade de arquiteturas complexas de soluções. Para mais informações sobre a configuração de unidades de teste da Aplicação Lógica, visite [Operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Envolvimento com o Cliente](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) no GitHub.
-
-- **Região** (lista de dropdown necessária e de seleção única) – Atualmente existem 26 regiões apoiadas pelo Azure onde o seu test drive pode ser disponibilizado. Os recursos para a sua aplicação Logic serão implementados na região que selecionar. Se a sua Aplicação Lógica tiver quaisquer recursos personalizados armazenados numa região específica, certifique-se de que a região está selecionada aqui. A melhor forma de garantir que tem recursos personalizados para a sua região disponível é implementar totalmente a sua App Lógica localmente na sua subscrição Azure no portal e verificar se funciona corretamente antes de escamar esta seleção.
-
-- **Unidades de teste simultâneas máximas** (necessárias) – Desaprova o número máximo de clientes que podem utilizar o seu test drive de uma só vez. Estes test drives já estão implantados, permitindo que os clientes acedam instantaneamente aos mesmos sem esperar por uma implantação.
-
-- **Duração do test drive** (obrigatório) – Introduza o tempo de duração em que a Unidade de Teste se mantenha ativa, em 4 de horas. A unidade de teste termina automaticamente após o fim deste período de tempo.
-
-- **Nome do grupo de recursos Azure** (obrigatório) – Introduza o nome do [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) onde o seu test drive logic App é guardado.
-
-- **Nome da aplicação lógica Azure** (obrigatório) – Introduza o nome da aplicação Logic que atribui a unidade de teste ao utilizador. Esta aplicação Logic deve ser guardada no grupo de recursos Azure acima.
-
-- **Deprovision logic app name** (required) – Introduza o nome da app Logic que desprovisiona a unidade de teste assim que o cliente estiver terminado. Esta aplicação Logic deve ser guardada no grupo de recursos Azure acima.
-
-### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Configuração técnica não necessária para as unidades de teste Power BI
-
-Os produtos que pretendam demonstrar um power bi visual interativo podem usar um link incorporado para partilhar um dashboard personalizado como o seu test drive, sem necessidade de mais configurações técnicas. Saiba mais sobre a configuração de aplicações de modelo[Power BI.](https://docs.microsoft.com/power-bi/service-template-apps-overview)
-
-### <a name="deployment-subscription-details"></a>Detalhes da subscrição de implementação
-
-Para implementar a Unidade de Teste em seu nome, crie e forneça uma assinatura Azure separada e única. (Não é necessário para os test drives Power BI).
-
-- **ID de subscrição Azure** (obrigatório para o Azure Resource Manager e aplicações Lógica) – Introduza o ID de subscrição para garantir o acesso aos serviços de conta Azure para reportar e faturar o uso de recursos. Recomendamos que considere [criar uma subscrição Azure separada](https://docs.microsoft.com/azure/billing/billing-create-subscription) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador apresentará o seu ID de subscrição (como "a83645ac-1234-5ab6-6789-1h234g764ghty").
-
-- **ID do inquilino da Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades**, em seguida, procure o número de ID do **diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar o ID do inquilino da sua organização usando o seu endereço de nome de domínio em [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
-
-- **Nome do inquilino Azure AD** (obrigatório para Dynamic 365) – Insira o seu nome Azure Ative Directory (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o nome do seu inquilino será listado no nome da sua conta.
-
-- **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **as inscrições da App**, em seguida, procure o número de **ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
-
-- **Azure AD app cliente secreto** (obrigatório) – Insira o [segredo do seu cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)de aplicação AZure. Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu esquerdo, selecione **as inscrições da App**e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo de cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** em seguida, escolha **Adicionar**. Certifique-se de copiar o valor. (Não navegue para longe da página antes de tomar nota do valor ou não terá acesso ao valor.)
-
-**Selecione Guardar o projeto** antes de continuar.
-
-### <a name="test-drive-marketplace-listings"></a>Listas de mercado de unidade de teste
-
-A opção **de listagem marketplace** encontrada no separador Test **drive** exibe os idiomas em que o seu test drive está disponível. Atualmente, **o inglês (Estados Unidos)** é o único local disponível. Selecione o nome do idioma para introduzir informações que descrevem a experiência do test drive.
-
-- **Descrição** (obrigatória) – Descreva o seu test drive, o que será demonstrado, objetivos para o utilizador experimentar, funcionalidades a explorar e quaisquer informações relevantes para ajudar o utilizador a determinar se deve adquirir a sua oferta. Podem ser inseridos até 3.000 caracteres de texto neste campo.
-
-- **Informação de acesso** (necessária para o Azure Resource Manager e unidades de teste lógica) – Explique o que um cliente precisa de saber para aceder e utilizar este test drive. Caminhe por um cenário para usar a sua oferta e exatamente o que o cliente deve saber para aceder a funcionalidades ao longo do test drive. Podem ser inseridos até 10.000 caracteres de texto neste campo.
-
-- **Manual do Utilizador** (obrigatório) – Uma análise aprofundada da sua experiência de test drive. O Manual do Utilizador deve cobrir exatamente o que pretende que o cliente ganhe ao experimentar o test drive e servir de referência para quaisquer questões que possam ter. O ficheiro deve estar em formato PDF e ser nomeado (255 caracteres no máximo) após o upload.
-
-- **Vídeos** (opcional) – Os vídeos podem ser carregados para o YouTube ou Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa ver um walk-through de informações para ajudá-los a entender melhor o test drive, incluindo como usar com sucesso as características da sua oferta e entender cenários que realçam os seus benefícios.
-  - **Nome** (obrigatório)
-  - **URL** (obrigatório; YouTube ou Vimeo apenas)
-  - **Miniatura** (imagem deve estar no formato PNG e 533 x 324 pixels)
-
-**Selecione Guardar o projeto** antes de continuar.
+Quando terminar de configurar o seu test drive, **selecione Guardar o rascunho** antes de continuar.
 
 ## <a name="supplemental-content"></a>Conteúdo suplementar
 

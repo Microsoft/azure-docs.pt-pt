@@ -3,12 +3,12 @@ title: Criar grupos de gestão para organizar recursos - Azure Governance
 description: Saiba como criar grupos de gestão Azure para gerir múltiplos recursos usando o portal, Azure PowerShell e Azure CLI.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0abecf02062dd4461274a9bc3722d46e6e7cc3d1
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220748"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971141"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gestão para a organização e gestão de recursos
 
@@ -21,7 +21,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
 Qualquer utilizador Azure AD no arrendatário pode criar um grupo de gestão sem que o grupo de gestão escreva a permissão atribuída a esse utilizador. Este novo grupo de gestão será filho do Grupo de Gestão de Raízes e o criador receberá uma atribuição de função de "Proprietário". O serviço de grupo de gestão permite esta capacidade para que as atribuições de funções não sejam necessárias ao nível da raiz. Nenhum utilizadores tem acesso ao Grupo de Gestão de Raízes quando este é criado. Para evitar o obstáculo de encontrar os Azure AD Global Admins para começar a usar grupos de gestão, permitimos a criação dos grupos de gestão iniciais na raiz  
 nível.
 
-Pode criar o grupo de gestão utilizando o portal, um [modelo de Gestor de Recursos,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)PowerShell ou Azure CLI.
+Pode criar o grupo de gestão utilizando o portal, um [modelo Azure Resource Manager,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)PowerShell ou Azure CLI.
 
 ### <a name="create-in-portal"></a>Criar em portal
 
@@ -90,7 +90,7 @@ Nos exemplos anteriores, o novo grupo de gestão é criado no âmbito do grupo d
 az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

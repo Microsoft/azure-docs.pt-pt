@@ -3,18 +3,18 @@ title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e valide automaticamente os recursos.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 04ec27216a3e9d59da21ef80948ef8620234e575
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194421"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970948"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
 À medida que progride na sua jornada com a Cloud Governance, você vai querer passar de gestão manual de cada definição de política no portal Azure ou através dos vários SDKs para algo mais manejável e repetível à escala empresarial. Duas das abordagens predominantes para gerir sistemas em escala na nuvem são:
 
-- Infraestrutura como Código: A prática de tratar o conteúdo que define os seus ambientes, desde modelos de Gestor de Recursos até definições de Política Azure a Azure Blueprints, como código fonte.
+- Infraestrutura como Código: A prática de tratar o conteúdo que define os seus ambientes, desde modelos de Gestor de Recursos Azure (modelos ARM) até definições de Política Azure para Azure Blueprints, como código fonte.
 - DevOps: A união de pessoas, processos e produtos para permitir a entrega contínua de valor aos nossos utilizadores finais.
 
 A política como Código é a combinação destas ideias. Essencialmente, mantenha as definições de política no controlo de origem e sempre que uma alteração é feita, teste e valide essa mudança. No entanto, esta não deve ser a extensão das políticas de envolvimento com infraestruturas como Código ou DevOps.
@@ -115,7 +115,7 @@ Depois de concluídos todos os portões de validação, atualize a atribuição 
 
 ## <a name="process-integrated-evaluations"></a>Avaliações integradas do processo
 
-O fluxo geral de trabalho para a Política como Código destina-se a desenvolver e implementar políticas e iniciativas para um ambiente em escala. No entanto, a avaliação de políticas deve fazer parte do processo de implementação de qualquer fluxo de trabalho que implemente ou crie recursos em Azure, tais como implementar aplicações ou executar modelos de Gestor de Recursos para criar infraestruturas.
+O fluxo geral de trabalho para a Política como Código destina-se a desenvolver e implementar políticas e iniciativas para um ambiente em escala. No entanto, a avaliação de políticas deve fazer parte do processo de implantação de qualquer fluxo de trabalho que implemente ou crie recursos em Azure, tais como a implementação de aplicações ou a execução de modelos ARM para criar infraestruturas.
 
 Nestes casos, após a aplicação ou implantação da infraestrutura a um grupo de subscrição de teste ou de recursos, deve ser feita uma avaliação das políticas para esse âmbito de verificação de todas as políticas e iniciativas existentes. Embora possam ser configurados como **enforcementMode** _desativado_ em tal ambiente, é útil saber cedo se uma aplicação ou implantação de infraestrutura está violando as definições políticas precocemente. Esta avaliação política deve, portanto, ser um passo nesses fluxos de trabalho e falhar nas implementações que criam recursos não conformes.
 
@@ -123,7 +123,7 @@ Nestes casos, após a aplicação ou implantação da infraestrutura a um grupo 
 
 Este artigo abrange o fluxo de trabalho geral para a Política como Código e também onde a avaliação das políticas deve fazer parte de outros fluxos de trabalho de implantação. Este fluxo de trabalho pode ser usado em qualquer ambiente que suporte passos scripted e automação com base em gatilhos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Conheça a [estrutura de atribuição de políticas.](./assignment-structure.md)

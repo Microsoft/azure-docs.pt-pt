@@ -2,19 +2,19 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 1ae0512f1d82da09c9e77b43ba57acb0cde11f5a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/06/2020
+ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391201"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981661"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
 Sempre que implementa um modelo, as informações sobre a implementação são escritas para o histórico de implementação. Cada grupo de recursos está limitado a 800 implementações no seu histórico de implantação.
 
-O Azure Resource Manager em breve começará a eliminar automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro.
+O Azure Resource Manager em breve começará a eliminar automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro. **Esta funcionalidade ainda não foi adicionada ao Azure. Estamos a notificá-lo desta próxima mudança, caso queira optar.**
 
 > [!NOTE]
 > Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.
@@ -38,7 +38,7 @@ Quando se dá a uma implantação o mesmo nome que um na história, repõe-se o 
 
 Pode optar por não excluir as supressões automáticas da história. **Utilize esta opção apenas quando pretender gerir o histórico de implementação por si mesmo.** O limite de 800 destacamentos na história ainda está imposto. Se exceder 800 implementações, receberá um erro e a sua implantação falhará.
 
-Para desativar as eliminações automáticas, registe a bandeira da `Microsoft.Resources/DisableDeploymentGrooming` funcionalidade. Quando regista a bandeira de funcionalidade, opta por não excluir as supressões automáticas para toda a subscrição do Azure. Não pode optar por apenas um determinado grupo de recursos.
+Para desativar as eliminações automáticas, registe a bandeira da `Microsoft.Resources/DisableDeploymentGrooming` funcionalidade. Quando regista a bandeira de funcionalidade, opta por não excluir as supressões automáticas para toda a subscrição do Azure. Não pode optar por apenas um determinado grupo de recursos. Para reencontrar as supressões automáticas, desmarça a bandeira de características.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -54,6 +54,8 @@ Para ver o estado atual da sua subscrição, utilize:
 Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName DisableDeploymentGrooming
 ```
 
+Para reencar as supressões automáticas, utilize Azure REST API ou Azure CLI.
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para O Azure CLI, utilize [o registo de recursos Az](/cli/azure/feature#az-feature-register).
@@ -66,6 +68,12 @@ Para ver o estado atual da sua subscrição, utilize:
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
+```
+
+Para reencontrar as supressões automáticas, utilize [o registo de recurso az](/cli/azure/feature#az-feature-unregister).
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -82,8 +90,14 @@ Para ver o estado atual da sua subscrição, utilize:
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
+Para reencar as supressões automáticas reensáveis, utilize [funcionalidades - Não registar](/rest/api/resources/features/unregister)
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01
+```
+
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a visualização do histórico de implementação, consulte [o histórico de implementação da Azure Resource Manager](deployment-history.md).

@@ -1,14 +1,14 @@
 ---
 title: Extensão da política Azure para Código do Estúdio Visual
-description: Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos.
+description: Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos Azure.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 94d865e4a810fbebd8495153f97f9d1e3227e8af
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888512"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970761"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
 
@@ -121,7 +121,7 @@ Os clientes com centenas ou milhares de recursos numa única subscrição podem 
 
 ## <a name="discover-aliases-for-resource-properties"></a>Descubra pseudónimos para propriedades de recursos
 
-Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na visão de árvore, a extensão Azure Policy abre o ficheiro JSON representando esse recurso e todos os seus valores de propriedade do Gestor de Recursos.
+Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na visão de árvore, a extensão Azure Policy abre o ficheiro JSON representando esse recurso e todos os seus valores de propriedade Azure Resource Manager.
 
 Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propriedade do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso é um `Microsoft.Compute/virtualMachines` tipo de recurso e as **propriedades.storageProfile.imageReference.offer** propriedade está sobreda. Pairar mostra os pseudónimos correspondentes.
 
@@ -156,7 +156,7 @@ Ao selecionar uma política ou atribuição, seja através da interface de pesqu
 
 A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

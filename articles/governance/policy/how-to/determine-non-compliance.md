@@ -1,22 +1,21 @@
 ---
 title: Determinar as causas da não conformidade
 description: Quando um recurso não é conforme, existem muitas razões possíveis. Aprenda a descobrir o que causou o incumprimento.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 05405671900e8734ee1536cfc00fd5203a145124
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168561"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970778"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
 Quando um recurso Azure é determinado a não cumprir uma regra política, é útil entender com que parte da regra o recurso não está em conformidade. Também é útil entender que mudança alterou um recurso previamente conforme para torná-lo incompatível. Há duas maneiras de encontrar esta informação:
 
-> [!div class="checklist"]
-> - [Detalhes de conformidade](#compliance-details)
-> - [Alterar história (Pré-visualização)](#change-history)
+- [Detalhes de conformidade](#compliance-details)
+- [Alterar história (Pré-visualização)](#change-history)
 
 ## <a name="compliance-details"></a>Detalhes de conformidade
 
@@ -105,7 +104,7 @@ A seguinte matriz mapeia cada _razão_ possível para a [condição](../concepts
 |O valor atual não deve corresponder ao valor-alvo por casos insensíveis. |notMatchInsensitively ou **não** corresponderInsensitively |
 |Nenhum dos recursos relacionados corresponde aos detalhes do efeito na definição de política. |Um recurso do tipo definido em **então.details.type** e relacionado com o recurso definido na **parte** da regra política não existe. |
 
-## <a name="compliance-details-for-guest-configuration"></a>Detalhes de conformidade para configuração de hóspedes
+## <a name="compliance-details-for-guest-configuration"></a>Detalhes de conformidade da Configuração de Convidado
 
 Para as políticas _de auditIfNotExists_ na categoria _Configuração_ de Convidados, pode haver várias configurações avaliadas dentro do VM e você precisará ver detalhes por definição. Por exemplo, se estiver a auditar uma lista de políticas de passwords e apenas uma delas tiver estatuto Não conforme, terá de saber quais as políticas específicas de _palavra-passe_que estão fora de conformidade e porquê.
 
@@ -190,7 +189,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Alterar história (Pré-visualização)
 
-Como parte de uma nova **pré-visualização pública,** os últimos 14 dias de história da mudança estão disponíveis para todos os recursos Azure que suportam [a eliminação completa do modo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma mudança foi detetada e um _diff visual_ para cada mudança. Uma deteção de alterações é desencadeada quando as propriedades do Gestor de Recursos são adicionadas, removidas ou alteradas.
+Como parte de uma nova **pré-visualização pública,** os últimos 14 dias de história da mudança estão disponíveis para todos os recursos Azure que suportam [a eliminação completa do modo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma mudança foi detetada e um _diff visual_ para cada mudança. Uma deteção de alterações é desencadeada quando as propriedades do Gestor de Recursos Azure são adicionadas, removidas ou alteradas.
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 

@@ -2,8 +2,8 @@
 title: Importar um ficheiro BACPAC para criar uma base de dados na Base de Dados Azure SQL
 description: Crie uma nova base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance a partir de um ficheiro BACPAC.
 services: sql-database
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-db-mi
+ms.subservice: migrate
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 81a77e3a5fac19b4d6116a74221d3506d603bff9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7bca179f3140a64923af71199fe4a1db48d2065c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218820"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982342"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Importe um ficheiro BACPAC para uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,7 @@ O [portal Azure](https://portal.azure.com) *suporta apenas* a criação de uma �
 Para migrar uma base de dados para uma [Instância Gerida Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) a partir de um ficheiro BACPAC, utilize o SQL Server Management Studio ou o SQLPackage, utilizando o portal Azure ou Azure PowerShell não está atualmente suportado.
 
 > [!NOTE]
-> As máquinas que processam pedidos de importação/exportação apresentados através do portal Azure ou da PowerShell precisam de armazenar o ficheiro BACPAC, bem como ficheiros temporários gerados pelo Quadro de Aplicação de Nível de Dados (DacFX). O espaço em disco necessário varia significativamente entre bases de dados com o mesmo tamanho e pode exigir espaço em disco até 3 vezes o tamanho da base de dados. As máquinas que executam o pedido de importação/exportação têm apenas 450GB de espaço em disco local. Como resultado, alguns pedidos podem falhar com o erro `There is not enough space on the disk` . Neste caso, a solução é para executar sqlpackage.exe em uma máquina com espaço suficiente em disco local. Encorajamos a utilização da SqlPackage para importar/exportar bases de dados superiores a 150GB para evitar este problema.
+> As máquinas que processam pedidos de importação/exportação apresentados através do portal Azure ou da PowerShell precisam de armazenar o ficheiro BACPAC, bem como ficheiros temporários gerados pelo Quadro de Aplicação de Nível de Dados (DacFX). O espaço em disco necessário varia significativamente entre bases de dados com o mesmo tamanho e pode exigir espaço em disco até 3 vezes o tamanho da base de dados. As máquinas que executam o pedido de importação/exportação têm apenas 450GB de espaço em disco local. Como resultado, alguns pedidos podem falhar com o erro `There is not enough space on the disk` . Neste caso, a solução é para executar sqlpackage.exe numa máquina com espaço suficiente em disco local. Encorajamos a utilização da SqlPackage para importar/exportar bases de dados superiores a 150GB para evitar este problema.
 
 1. Para importar de um ficheiro BACPAC para uma nova base de dados única utilizando o portal Azure, abra a página do servidor apropriada e, em seguida, na barra de ferramentas, selecione **Import database**.  
 
@@ -87,7 +87,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [Uma SqL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) não suporta atualmente a migração de uma base de dados para uma base de dados de casos a partir de um ficheiro BACPAC utilizando a Azure PowerShell. Para importar para uma SQL Managed Instance, use o SQL Server Management Studio ou o SQLPackage.
 
 > [!NOTE]
-> As máquinas que processam pedidos de importação/exportação apresentados através do portal ou powershell precisam de armazenar o ficheiro bacpac, bem como ficheiros temporários gerados pelo Data-Tier Application Framework (DacFX). O espaço do disco necessário varia significativamente entre DBs com o mesmo tamanho e pode levar até 3 vezes o tamanho da base de dados. As máquinas que executam o pedido de importação/exportação têm apenas 450GB de espaço em disco local. Como resultado, alguns pedidos podem falhar com o erro "Não há espaço suficiente no disco". Neste caso, a solução é para executar sqlpackage.exe em uma máquina com espaço suficiente em disco local. Ao importar/exportar bases de dados superiores a 150GB, utilize a SqlPackage para evitar este problema.
+> As máquinas que processam pedidos de importação/exportação apresentados através do portal ou powershell precisam de armazenar o ficheiro bacpac, bem como ficheiros temporários gerados pelo Data-Tier Application Framework (DacFX). O espaço do disco necessário varia significativamente entre DBs com o mesmo tamanho e pode levar até 3 vezes o tamanho da base de dados. As máquinas que executam o pedido de importação/exportação têm apenas 450GB de espaço em disco local. Como resultado, alguns pedidos podem falhar com o erro "Não há espaço suficiente no disco". Neste caso, a solução é para executar sqlpackage.exe numa máquina com espaço suficiente em disco local. Ao importar/exportar bases de dados superiores a 150GB, utilize a SqlPackage para evitar este problema.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -155,7 +155,7 @@ Também pode utilizar estes assistentes.
 - [Assistente de aplicação de nível de dados de importação no SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
 - [Sql Server Import and Export Wizard](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como ligar e consultar uma base de dados na Base de Dados Azure SQL, consulte [Quickstart: Azure SQL Database: Use SQL Server Management Studio para ligar e consultar dados](connect-query-ssms.md).
 - Para saber mais sobre a migração com ficheiros BACPAC num blogue da Equipa de Aconselhamento ao Cliente do SQL Server, consulte [Migrating from SQL Server to Azure SQL Database using BACPAC Files (Migrar a partir do SQL Server para a Base de Dados SQL do Azure com Ficheiros BACPAC)](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).

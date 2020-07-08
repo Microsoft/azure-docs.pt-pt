@@ -1,14 +1,15 @@
 ---
-title: Tipos de recursos suportados do Gestor de Recursos
-description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e Change History.
+title: Tipos de recursos suportados do Gestor de Recursos Azure
+description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
 ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: a4679c9e1ecaef34445a7283e0d58ab78cb61ab0
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.custom: generated
+ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424300"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970574"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -87,11 +88,11 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.baremetal/consolas
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
-- microsoft.batch/lotaccounts
+- microsoft.batcontas ch/batch
 - microsoft.batchai/clusters
 - microsoft.batchai/fileservers
-- microsoft.batchai/jobs
-- microsoft.batchai/workspaces
+- microsoft.batchai/empregos
+- microsoft.batchai/espaço de trabalho
 - microsoft.bingmaps/mapapis
 - microsoft.biztalkservices/biztalk
 - microsoft.blockchain/blockchainmembers
@@ -196,7 +197,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.devtestlab/labs/virtualmachines
 - microsoft.devtestlab/horários
 - microsoft.digitaltwins/digitaltwinsinstances
-- microsoft.documentdb/databaseaccounts
+- microsoft.doccontas umentdb/base de dados
 - microsoft.domainregistration/domínios
 - microsoft.enterpriseknowledgegraph/services
 - microsoft.eventgrid/domínios
@@ -485,7 +486,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.security/regulatórios padrões/regulatórios
 - microsoft.security/regulamentstandards/regulatorycompliancecontrols/regulatórios
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [língua de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)
