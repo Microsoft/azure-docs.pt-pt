@@ -4,19 +4,19 @@ description: Aprenda a executar uma migração baseada em agentes de VMware VMs 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: b01665e6ddb78ff95714004f4dbe5c97574aa5fb
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769749"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119264"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
 Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferramenta [Azure Migrate:Server Migration,](migrate-services-overview.md#azure-migrate-server-migration-tool) com migração baseada em agentes.  Também pode migrar VMware VMs usando migração baseada em agentes. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
 
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
 > * Preparem-se para a migração baseada em agentes. Crie uma conta VMware para que a Azure Migrate possa descobrir máquinas para migração. Crie uma conta para que o agente de serviço de Mobilidade possa instalar nas máquinas que pretende migrar e preparar uma máquina para funcionar como o aparelho de replicação.
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este tutorial, [reveja](migrate-architecture.md) a arquitetura migratória baseada em agentes VMware.
+Antes de iniciar este tutorial, [reveja](./agent-based-migration-architecture.md) a arquitetura migratória baseada em agentes VMware.
 
 ## <a name="prepare-azure"></a>Preparar o Azure
 
@@ -150,7 +150,7 @@ Se tiver um projeto, adicione a ferramenta da seguinte forma:
 3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
 4. No **âmbito do Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
 
-    ! [Descubra e avalie os servidores] (../media/tutorial-migrate-vmware-agent/assess-migrate.png
+    ![Descubra e avalie servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
 
 1. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 2. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
@@ -355,7 +355,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Para a replicação para a máquina no local.
     - Remove a máquina da contagem de **servidores replicantes** em Azure Migrate: Migração do servidor.
     - Limpa a informação do estado de replicação para o VM.
-2. Instale o Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou o agente [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nas máquinas migratórias.
+2. Instale o Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) ou o agente [Linux](../virtual-machines/extensions/agent-linux.md) nas máquinas migratórias.
 3. Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web.
 4. Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
 5. Corte o tráfego para o exemplo de Azure VM migrado.
@@ -381,16 +381,16 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
-    - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Implemente o [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
+    - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:
-    - Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
+    - Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
 
 
- ## <a name="next-steps"></a>Passos seguintes
+ ## <a name="next-steps"></a>Próximos passos
 
-Investigue a [jornada de migração](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.
+Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

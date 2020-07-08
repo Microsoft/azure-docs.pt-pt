@@ -6,11 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 80692cce114b18148340cfbe9070123c6990b708
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055788"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118516"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilize a referência do modelo do Gestor de Recursos
 
@@ -35,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Código do Estúdio Visual para criar modelos ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 

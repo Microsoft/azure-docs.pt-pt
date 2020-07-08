@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: d9300d3bbc5e6432e16f7656c7b4764df9b759cb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558579"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114215"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -105,29 +105,29 @@ A tabela seguinte resume os campos de ficheiros a preencher:
 
 **Nome do campo** | **Obrigatório** | **Detalhes**
 --- | --- | ---
-**Nome do servidor** | Yes | Recomendamos especificar o nome de domínio totalmente qualificado (FQDN).
-**Endereço IP** | No | Endereço do servidor.
-**Núcleos** | Yes | Número de núcleos de processador atribuídos ao servidor.
-**Memória** | Yes | RAM total, em MB, alocado ao servidor.
-**Nome do SO** | Yes | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contenham os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
-**Versão do SO** | No | Versão do sistema operativo do servidor.
-**Arquitetura de OS** | No | Arquitetura de SERVIDOR OS <br/> Valores válidos são: x64, x86, amd64, 32-bit ou 64-bit
-**Número de discos** | No | Não é necessário se forem fornecidos detalhes individuais do disco.
-**Disco 1 tamanho**  | No | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode somar até oito discos.
-**Disk 1 ler ops** | No | Operações de leitura de disco por segundo.
-**Disk 1 escrever ops** | No | Operações de escrita de disco por segundo.
-**Produção de leitura de disco 1** | No | Dados lidos a partir do disco por segundo, em MB por segundo.
-**Saída de escrita do disco 1** | No | Dados escritos para disco por segundo, em MB por segundo.
-**Percentagem de utilização do CPU** | No | Percentagem de CPU usado.
-**Percentagem de utilização da memória** | No | Percentagem de RAM usado.
-**Total de discos lêem ops** | No | Operações de leitura de discos por segundo.
-**Os discos totais escrevem ops** | No | Operações de gravação de discos por segundo.
-**Total de discos lêem produção** | No | Dados lidos a partir do disco, em MB por segundo.
-**Total de discos escrevem produção** | No | Dados escritos para o disco, em MB por segundo.
-**Rede Em produção** | No | Dados recebidos pelo servidor, em MB por segundo.
-**Produção de Rede Para Fora** | No | Dados transmitidos pelo servidor, em MB por segundo.
-**Tipo de firmware** | No | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
-**Endereço MAC**| No | Endereço MAC do servidor.
+**Nome do servidor** | Sim | Recomendamos especificar o nome de domínio totalmente qualificado (FQDN).
+**Endereço IP** | Não | Endereço do servidor.
+**Núcleos** | Sim | Número de núcleos de processador atribuídos ao servidor.
+**Memória** | Sim | RAM total, em MB, alocado ao servidor.
+**Nome do SO** | Sim | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contenham os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
+**Versão do SO** | Não | Versão do sistema operativo do servidor.
+**Arquitetura de OS** | Não | Arquitetura de SERVIDOR OS <br/> Valores válidos são: x64, x86, amd64, 32-bit ou 64-bit
+**Número de discos** | Não | Não é necessário se forem fornecidos detalhes individuais do disco.
+**Disco 1 tamanho**  | Não | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode somar até oito discos.
+**Disk 1 ler ops** | Não | Operações de leitura de disco por segundo.
+**Disk 1 escrever ops** | Não | Operações de escrita de disco por segundo.
+**Produção de leitura de disco 1** | Não | Dados lidos a partir do disco por segundo, em MB por segundo.
+**Saída de escrita do disco 1** | Não | Dados escritos para disco por segundo, em MB por segundo.
+**Percentagem de utilização do CPU** | Não | Percentagem de CPU usado.
+**Percentagem de utilização da memória** | Não | Percentagem de RAM usado.
+**Total de discos lêem ops** | Não | Operações de leitura de discos por segundo.
+**Os discos totais escrevem ops** | Não | Operações de gravação de discos por segundo.
+**Total de discos lêem produção** | Não | Dados lidos a partir do disco, em MB por segundo.
+**Total de discos escrevem produção** | Não | Dados escritos para o disco, em MB por segundo.
+**Rede Em produção** | Não | Dados recebidos pelo servidor, em MB por segundo.
+**Produção de Rede Para Fora** | Não | Dados transmitidos pelo servidor, em MB por segundo.
+**Tipo de firmware** | Não | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
+**Endereço MAC**| Não | Endereço MAC do servidor.
 
 
 ### <a name="add-operating-systems"></a>Adicionar sistemas operativos
@@ -183,7 +183,7 @@ Pode criar dois tipos de avaliações utilizando a Avaliação do Servidor.
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
 **VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. (concepts-assessment-calculation.md)
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 ### <a name="sizing-criteria"></a>Critérios de dimensionamento
 
@@ -424,7 +424,7 @@ Os nomes do sistema operativo fornecidos no CSV devem coincidir ou conter os nom
    :::column-end:::
 :::row-end:::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial:
 

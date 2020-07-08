@@ -5,11 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d44fb593cda60c8cc556ffeb5cb3b36163c6bcc3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120131"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementar extensões de máquinas virtuais com modelos ARM
 
@@ -29,7 +30,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Código do Estúdio Visual para criar modelos ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```console

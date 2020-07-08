@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar máquinas físicas para Azure com 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 38f1c67bdd3b280640e9be54fd677e2b403eb78b
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116102"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para Azure
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como migrar máquinas como servidores físicos para Azure
 - Migrar VMs em nuvens públicas como Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
 
-Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Prepare-se para utilizar o Azure com a Azure Migrate:Migração do servidor.
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Antes de começar este tutorial, tem de:
 
-[Reveja](migrate-architecture.md) a arquitetura da migração.
+[Reveja](./agent-based-migration-architecture.md) a arquitetura da migração.
 
 ## <a name="prepare-azure"></a>Preparar o Azure
 
@@ -172,7 +172,7 @@ Nas máquinas que pretende migrar, tem de instalar o agente de serviço de Mobil
 
 1. Inscreva-se no aparelho de replicação.
 2. Navegue para **%ProgramData%\ASR\home\home\svsystems\pushinstallsvc\repositório**.
-3. Encontre o instalador para o sistema operativo e versão da máquina. Rever [sistemas operativos suportados.](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) 
+3. Encontre o instalador para o sistema operativo e versão da máquina. Rever [sistemas operativos suportados.](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) 
 4. Copie o ficheiro do instalador para a máquina que pretende migrar.
 5. Certifique-se de que tem a frase-passe gerada quando lançou o aparelho.
     - Guarde o ficheiro num ficheiro de texto temporário na máquina.
@@ -334,7 +334,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Para a replicação para a máquina no local.
     - Remove a máquina da contagem de **servidores replicantes** em Azure Migrate: Migração do servidor.
     - Limpa a informação do estado de replicação para a máquina.
-2. Instale o Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou o agente [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nas máquinas migratórias.
+2. Instale o Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) ou o agente [Linux](../virtual-machines/extensions/agent-linux.md) nas máquinas migratórias.
 3. Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web.
 4. Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
 5. Corte o tráfego para o exemplo de Azure VM migrado.
@@ -348,14 +348,14 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
-    - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Implemente o [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
+    - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:
-    - Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
+    - Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Investigue a [jornada de migração](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.
+Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

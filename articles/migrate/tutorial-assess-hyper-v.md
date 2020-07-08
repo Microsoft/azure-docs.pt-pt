@@ -4,19 +4,19 @@ description: Descreve como avaliar em locais Hiper-V VMs para migração para Az
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 4c95916bf5f92f8a82b9dfae50aa311891857e7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106491"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114249"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs hiper-V com avaliação do servidor Azure Migrate
 
 Este artigo mostra-lhe como avaliar em locais Hiper-VMs, utilizando a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
@@ -100,13 +100,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
     - Para a nuvem pública de Azure:
 
-        **Cenário** | **Transferir** | **SHA256**
+        **Cenário** | **Transferência** | **SHA256**
         --- | --- | ---
         Hiper-V (8,93 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
 
     - Para o Governo de Azure:
 
-        **Cenário*** | **Transferir** | **SHA256**
+        **Cenário*** | **Transferência** | **SHA256**
         --- | --- | ---
         Hiper-V (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae4689408e43ab55ff397b77200b92121972e683f9aa3
 
@@ -130,7 +130,7 @@ Importe o ficheiro descarregado e crie o VM.
 2. No **Choose Import Type,** clique **em Copiar a máquina virtual (crie um novo ID único)**. Em seguida, clique em **Seguinte**.
 3. No **Destino Escolha,** deixe a definição predefinida. Clique em **Seguinte**.
 4. Nas **pastas de armazenamento,** deixe a definição predefinida. Clique em **Seguinte**.
-5. In **Choose Network**, especifique o interruptor virtual que o VM irá utilizar. O switch precisa de conectividade na Internet para enviar dados para o Azure. [Saiba](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) como criar um interruptor virtual.
+5. In **Choose Network**, especifique o interruptor virtual que o VM irá utilizar. O switch precisa de conectividade na Internet para enviar dados para o Azure. [Saiba](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) como criar um interruptor virtual.
 6. Em **Resumo,** reveja as definições. Em seguida, clique em **Concluir**.
 7. No Hyper-V Manager > **Máquinas Virtuais,** inicie o VM.
 
@@ -322,7 +322,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial:
 

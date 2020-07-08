@@ -1,18 +1,14 @@
 ---
 title: Recuperação de desastres para tópicos personalizados na Grelha de Eventos do Azure
 description: Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa região.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/21/2020
-ms.author: femila
-ms.openlocfilehash: d2b6d8f8433d1eef34e554b0e0fccbf8b2cbab94
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/07/2020
+ms.openlocfilehash: 1ee9c9566a70ba104f6c12866a631061672cb0c0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557782"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115086"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos
 A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa determinada região.
@@ -207,7 +203,7 @@ Há muitas maneiras de estender esta amostra com base nas suas necessidades. Par
 
 Da mesma forma, pode querer implementar uma lógica de failback baseada nas suas necessidades específicas. Se a publicação no centro de dados mais próximo é fundamental para reduzir a latência, pode sondar periodicamente a api de saúde de um tópico que falhou. Uma vez saudável de novo, saberá que é seguro falhar no centro de dados mais próximo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [receber eventos num ponto final http](./receive-events.md)
 - Descubra como [encaminhar eventos para Conexões Híbridas](./custom-event-to-hybrid-connection.md)

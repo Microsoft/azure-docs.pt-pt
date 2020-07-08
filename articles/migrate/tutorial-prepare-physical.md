@@ -4,20 +4,20 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113256"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para Azure
 
 Este artigo descreve como se preparar para a avaliação dos servidores físicos no local com [a Azure Migrate](migrate-services-overview.md).
 
-[A Azure Migrate](migrate-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar aplicações, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV). 
+[A Azure Migrate](./migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar aplicações, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV). 
 
-Este tutorial é o primeiro de uma série que mostra como avaliar servidores físicos com Azure Migrate. Neste tutorial, vai aprender a:
+Este tutorial é o primeiro de uma série que mostra como avaliar servidores físicos com Azure Migrate. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Prepara o Azure. Configure as permissões para a sua conta Azure e recursos para trabalhar com a Azure Migrate.
@@ -75,11 +75,11 @@ O arrendatário/administrador global pode conceder permissões da seguinte forma
     ![Permissões AD AZure](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Esta é uma definição padrão que não é sensível. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Esta é uma definição padrão que não é sensível. [Saiba mais](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 #### <a name="assign-application-developer-role"></a>Atribuir função de Desenvolvedor de Aplicações
 
-O administrador inquilino/global pode atribuir o papel de Desenvolvedor de Aplicações a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+O administrador inquilino/global pode atribuir o papel de Desenvolvedor de Aplicações a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 
 ## <a name="prepare-azure-for-physical-server-migration"></a>Prepare o Azure para a migração de servidores físicos
@@ -159,7 +159,7 @@ Reveja os requisitos para a migração de servidores físicos.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial:
 

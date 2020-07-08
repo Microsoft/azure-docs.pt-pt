@@ -1,31 +1,27 @@
 ---
 title: Exemplos de modelos do Azure Resource Manager - Event Grid | Microsoft Docs
-description: Este artigo fornece uma lista de amostras de modelo de gestor de recursos Azure para a Grelha de Eventos Azure no GitHub.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
-ms.devlang: na
+description: Este artigo fornece uma lista de amostras de modelos do Azure Resource Manager para Azure Event Grid no GitHub.
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 38d8db0bcc504760595fe51b63072f63e785577a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/07/2020
+ms.openlocfilehash: 910012adf2dc930e6f1a26f1a7fc41f5ed0580c9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76720627"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119060"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Modelos do Azure Resource Manager para Event Grid
 
-Para que a sintaxe e as propriedades da JSON utilizem num modelo, consulte os tipos de [recursos Microsoft.EventGrid](/azure/templates/microsoft.eventgrid/allversions). A tabela seguinte inclui ligações para modelos do Azure Resource Manager para o Event Grid.
+Para que a sintaxe JSON e as propriedades utilizem num modelo, consulte os [tipos de recursos Microsoft.EventGrid](/azure/templates/microsoft.eventgrid/allversions). A tabela seguinte inclui ligações para modelos do Azure Resource Manager para o Event Grid.
 
-| | |
-|-|-|
-|**Assinaturas da Grelha de Eventos**||
-| [Tópico personalizado e subscrição com o ponto final do WebHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid)| Implementa um tópico personalizado do Event Grid. Cria uma subscrição para esse tópico personalizado que utiliza um ponto final do WebHook. |
-| [Subscrição do tópico personalizado com ponto final do EventHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Cria uma subscrição do Event Grid para um tópico personalizado. A subscrição utiliza um Hub de Eventos para o ponto final. |
-| [Subscrição do Azure ou subscrição do grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook)| Subscreve eventos de um grupo de recursos ou subscrição do Azure. O grupo de recursos que especificar como destino durante a implementação é a origem de eventos. A subscrição utiliza um WebHook para o ponto final. |
-| [Conta de armazenamento de blobs e subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage)| Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. |
-| | |
+## <a name="event-grid-subscriptions"></a>Assinaturas de Grade de Eventos
+- [Tópico personalizado e subscrição com o ponto final webHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) - Implementa um tópico personalizado da Grade de Eventos. Cria uma subscrição para esse tópico personalizado que utiliza um ponto final do WebHook. 
+- [Subscrição de tópico personalizado com o ponto final do EventHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler) - Cria uma subscrição de Grade de Eventos para um tópico personalizado. A subscrição utiliza um Hub de Eventos para o ponto final. 
+- [Subscrição de azure ou subscrição do grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) - Subscreve eventos para um grupo de recursos ou subscrição Azure. O grupo de recursos que especificar como destino durante a implementação é a origem de eventos. A subscrição utiliza um WebHook para o ponto final. 
+- [Conta de armazenamento blob e subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) - Implementa uma conta de armazenamento Azure Blob e subscreve eventos para essa conta de armazenamento. 
+
+## <a name="next-steps"></a>Próximos passos
+Consulte as seguintes amostras:
+
+- [Exemplos do PowerShell](powershell-samples.md)
+- [Amostras de CLI](cli-samples.md)

@@ -1,19 +1,14 @@
 ---
 title: 'Tutorial: Enviar dados do Event Hubs para o armazém de dados - Grade de Eventos'
 description: 'Tutorial: Descreve como usar a Azure Event Grid e os Centros de Eventos para migrar dados para um Armazém de Dados SQL. Utiliza uma Função Azure para recuperar um ficheiro Captura.'
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.author: spelluru
-ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 07/07/2020
+ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117564"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
 A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados desde o armazenamento de blobs até um Armazém de Dados SQL.
@@ -312,7 +307,7 @@ O Event Grid distribui dados de eventos para os subscritores. O exemplo a seguir
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre as diferenças dos serviços de mensagens do Azure, veja [Escolher entre os serviços do Azure que entregam mensagens](compare-messaging-services.md).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

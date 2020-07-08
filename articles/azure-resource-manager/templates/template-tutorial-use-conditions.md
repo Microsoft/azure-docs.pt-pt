@@ -1,24 +1,24 @@
 ---
-title: Use condição em modelos
-description: Saiba como implementar recursos do Azure com base em condições. Mostra como implantar um novo recurso ou usar um recurso existente.
+title: Condição de uso em modelos
+description: Saiba como implementar recursos do Azure com base em condições. Mostra como implantar um novo recurso ou utilizar um recurso existente.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185035"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119315"
 ---
-# <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Use a condição nos modelos ARM
+# <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Condição de utilização em modelos ARM
 
-Aprenda a implementar recursos Azure com base em condições num modelo de Gestor de Recursos Azure (ARM).
+Saiba como implementar recursos Azure com base em condições num modelo Azure Resource Manager (ARM).
 
 No tutorial [Definir a ordem de implementação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, é utilizada uma conta de armazenamento existente com o nome fornecido.
 
-![Diagrama de condição de utilização do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
+![Diagrama de condição do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -28,33 +28,33 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar o modelo
 > * Limpar recursos
 
-Este tutorial abrange apenas um cenário básico de utilização de condições. Para obter mais informações, consulte:
+Este tutorial cobre apenas um cenário básico de utilização de condições. Para obter mais informações, consulte:
 
-* [Estrutura de ficheiro de modelo: Condição](conditional-resource-deployment.md).
-* [Implante condicionalmente um recurso num modelo ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Estrutura de arquivo de modelo: Condição](conditional-resource-deployment.md).
+* [Implementar condicionalmente um recurso num modelo ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Função do modelo: Se](./template-functions-logical.md#if).
 * [Funções de comparação para modelos ARM](./template-functions-comparison.md)
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para mais informações, consulte [Tutorial: Integre o Cofre chave Azure na implementação](./template-tutorial-use-key-vault.md)do modelo ARM . Também recomendamos que atualize a palavra-passe a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre o cofre da chave azul na implementação do modelo ARM](./template-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
 1. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -64,8 +64,8 @@ Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar
 1. Selecione **Abrir** para abrir o ficheiro.
 1. Existem seis recursos definidos pelo modelo:
 
-   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
-   * [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Storage/storageAcounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
    * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
    * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
    * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
@@ -73,7 +73,7 @@ Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar
 
     É útil rever a referência do modelo antes de personalizar um modelo.
 
-1. Selecione **Guardar Ficheiros**>**Para** guardar uma cópia do ficheiro para o computador local com o nome **azuredeploy.json**.
+1. Selecione **File** > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
 
 ## <a name="modify-the-template"></a>Modificar o modelo
 
@@ -88,9 +88,9 @@ Este é o procedimento para fazer as alterações:
 1. Substitua as três **variáveis ('storageAccountName')** por **parâmetros ('storageAccountName')** em todo o modelo.
 1. Remova a definição de variável seguinte:
 
-    ![Diagrama de condição de utilização do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Diagrama de condição do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
-1. Adicione os seguintes dois parâmetros ao início da secção de parâmetros:
+1. Adicione os dois parâmetros seguintes ao início da secção de parâmetros:
 
     ```json
     "storageAccountName": {
@@ -105,7 +105,7 @@ Este é o procedimento para fazer as alterações:
     },
     ```
 
-    Prima **[ALT]+[SHIFT]+F** para formatar o modelo em Código de Estúdio Visual.
+    Prima **[ALT]+[SHIFT]+F** para formatar o modelo no Código do Estúdio Visual.
 
     A definição de parâmetros atualizada assemelha-se a:
 
@@ -122,7 +122,7 @@ Este é o procedimento para fazer as alterações:
     A definição de conta de armazenamento atualizada assemelha-se a:
 
     ![Condição de utilização do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-1. Atualize a propriedade **storageUri** da definição de recurso virtual da máquina com o seguinte valor:
+1. Atualizar a propriedade **de armazenamentoUri** da definição de recurso de máquina virtual com o seguinte valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -134,18 +134,18 @@ Este é o procedimento para fazer as alterações:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Inscreva-se na [Casca de Nuvem Azure](https://shell.azure.com)
+1. Inscreva-se na [Azure Cloud Shell](https://shell.azure.com)
 
-1. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
+1. Escolha o seu ambiente preferido selecionando **PowerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
 
-    ![Ficheiro de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+    ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de fazer o upload do ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
     > [!IMPORTANT]
-    > O nome da conta do Storage tem de ser exclusivo em todo o Azure. O nome deve ter apenas letras ou números minúsculos. Não pode ser mais do que 24 caracteres. O nome da conta de armazenamento é o nome do projeto com "loja" anexado. Certifique-se de que o nome do projeto e o nome da conta de armazenamento gerado satisfazem os requisitos de nome da conta de armazenamento.
+    > O nome da conta do Storage tem de ser exclusivo em todo o Azure. O nome deve ter apenas letras ou números minúsculos. Não pode ter mais de 24 caracteres. O nome da conta de armazenamento é o nome do projeto com "store" anexado. Certifique-se de que o nome do projeto e o nome da conta de armazenamento gerado satisfazem os requisitos do nome da conta de armazenamento.
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
@@ -174,11 +174,11 @@ Este é o procedimento para fazer as alterações:
     > [!NOTE]
     > A implementação falhar se **newOrExisting** for **New** (Novo), mas a conta de armazenamento com o nome de conta de armazenamento especificado já existe.
 
-Tente fazer outra implementação com o novo conjunto **OrExisting** para "existente" e especificar uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
+Tente fazer outra implementação com **o novo ConjuntoOrExisting** para "existente" e especifique uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **Experimente-o** para abrir a Cloud Shell. Para colar o script PowerShell, clique na vidraça da direita e, em seguida, **selecione Pasta**.
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **Experimente-o** para abrir o Cloud Shell. Para colar o script PowerShell, clique com o botão direito da vidraça e, em seguida, **selecione Pasta**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"
@@ -189,7 +189,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, desenvolveu um modelo que permite que os utilizadores optem entre criar uma conta de armazenamento nova e utilizar uma conta de armazenamento existente. Para saber como obter segredos a partir do Azure Key Vault e utilizá-los como palavras-passe na implementação do modelo, veja:
 

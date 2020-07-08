@@ -4,11 +4,12 @@ description: Aprenda a construir, testar e implementar continuamente modelos de 
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 55fd66a002584a5181eacebc84cbd1b732510120
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055754"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118924"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do Gestor de Recursos Azure com Pipelines Azure
 
@@ -39,7 +40,7 @@ Para concluir este artigo, precisa de:
 * **Uma conta GitHub,** onde a utiliza para criar um repositório para os seus modelos. Caso não tenha uma, pode [criá-la gratuitamente](https://github.com). Para obter mais informações sobre a utilização de repositórios GitHub, consulte [os repositórios Build GitHub](/azure/devops/pipelines/repos/github).
 * **Instale git**. Esta instrução tutorial usa *Git Bash* ou *Git Shell.* Para obter instruções, consulte [instalar o Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Uma organização da Azure DevOps.** Caso não tenha uma, pode criá-la gratuitamente. Ver [Criar uma organização ou coleção de projetos.](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* (opcional) **Código de estúdio visual com extensão de Ferramentas do Gestor de Recursos**. Consulte [o Código do Estúdio Visual para criar modelos de Gestor de Recursos Azure](use-vs-code-to-create-template.md).
+* (opcional) **Código de estúdio visual com extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório do GitHub
 
