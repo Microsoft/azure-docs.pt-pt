@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: b0cdff2ce71fb63194933bdfed26da16fdebcca7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602589"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilize o Link Privado Azure para ligar de forma segura as redes ao Azure Monitor
 
@@ -123,7 +123,7 @@ Agora que tem recursos ligados ao seu AMPLS, crie um ponto final privado para li
 
    a.    Escolha a **rede virtual** e **a sub-rede** que pretende ligar aos recursos do Monitor Azure. 
  
-   b.    Escolha **Sim** para **Integrar com a zona privada de DNS,** e deixe-o criar automaticamente uma nova Zona Privada de DNS. 
+   b.    Escolha **Sim** para **Integrar com a zona privada de DNS,** e deixe-o criar automaticamente uma nova Zona Privada de DNS. As zonas de DNS reais podem ser diferentes das mostradas na imagem abaixo. 
  
    c.    Clique em **Rever + criar**.
  
@@ -233,6 +233,6 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 
 Se estiver a ligar-se aos recursos do Monitor Azure através de uma Ligação Privada, o tráfego para estes recursos deve passar pelo ponto final privado que está configurado na sua rede. Para ativar o ponto final privado, atualize as definições de DNS como explicado no [Connect para um ponto final privado](#connect-to-a-private-endpoint). Alguns navegadores usam as suas próprias definições de DNS em vez das que define. O navegador pode tentar ligar-se aos pontos finais públicos do Azure Monitor e contornar totalmente o Link Privado. Verifique se as definições dos seus navegadores não se sobrepõem ou cache as definições de DNS antigas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [armazenamento privado](private-storage.md)
