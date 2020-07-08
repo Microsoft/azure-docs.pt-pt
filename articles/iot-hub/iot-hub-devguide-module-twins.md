@@ -1,18 +1,18 @@
 ---
 title: Compreenda os gémeos módulos Azure IoT Hub Microsoft Docs
 description: Developer guide - use gémeos módulos para sincronizar dados de estado e de configuração entre o IoT Hub e os seus dispositivos
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 9d45da11b26a3c16c2be544fa449bdf36c0bcd25
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610154"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e usar gémeos módulos no IoT Hub
 
@@ -236,35 +236,45 @@ Os [SDKs de dispositivo Azure IoT](iot-hub-devguide-sdks.md) facilitam a utiliza
 
 Etiquetas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* **Teclas**: Todas as teclas em objetos JSON são cordas DE CÓDIGO UTF-8 sensíveis à caixa. Os caracteres permitidos excluem caracteres de controlo UNICODE (segmentos C0 e C1) `.` e, SP e `$` .
+* **Teclas**: Todas as teclas em objetos JSON são UTF-8 codificadas, sensíveis a maiísso e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controlo UNICODE (segmentos C0 e C1) `.` `$` e, e SP.
 
 * **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: boolean, número, corda, objeto. Não são permitidas matrizes.
 
     * Os números inteiros podem ter um valor mínimo de -4503599627370496 e um valor máximo de 4503599627370495.
 
-    * Os valores das cordas são UTF-8 codificados e podem ter um comprimento máximo de 512 bytes.
+    * Os valores das cordas são UTF-8 codificados e podem ter um comprimento máximo de 4 KB.
 
-* **Profundidade**: Todos os objetos JSON em etiquetas, propriedades desejadas e reportadas podem ter uma profundidade máxima de 5. Por exemplo, o seguinte objeto é válido:
+* **Profundidade**: A profundidade máxima dos objetos JSON em etiquetas, propriedades desejadas e propriedades reportadas é de 10. Por exemplo, o seguinte objeto é válido:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Tamanho gémeo do módulo
 
@@ -345,7 +355,7 @@ As propriedades do módulo twin desejadas e reportadas não têm ETags, mas têm
 
 As versões também são úteis quando um agente de observação (como a app do módulo que observa as propriedades desejadas) deve conciliar as corridas entre o resultado de uma operação de recuperação e uma notificação de atualização. A secção [Fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) fornece mais informações. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais do IoT Hub:
 

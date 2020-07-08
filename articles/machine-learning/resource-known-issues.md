@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 678a605ce1585b58cfc5f9aaea3423efa8d53ad3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610071"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -46,16 +46,16 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
 
    Esta é uma limitação conhecida do pip, uma vez que não tem uma dependência funcional quando se instala como uma única linha. A primeira dependência única é a única que olha. 
 
-   No código seguinte `azure-ml-datadrift` e `azureml-train-automl` ambos são instalados utilizando uma instalação de pip de linha única. 
+   No código seguinte `azureml-datadrift` e `azureml-train-automl` ambos são instalados utilizando uma instalação de pip de linha única. 
      ```
-       pip install azure-ml-datadrift, azureml-train-automl
+       pip install azureml-datadrift, azureml-train-automl
      ```
-   Para este exemplo, digamos que `azure-ml-datadrift` requer versão > 1.0 e `azureml-train-automl` requer versão < 1.2. Se a versão mais recente `azure-ml-datadrift` for 1.3, então ambos os pacotes serão atualizados para 1.3, independentemente da exigência do `azureml-train-automl` pacote para uma versão mais antiga. 
+   Para este exemplo, digamos que `azureml-datadrift` requer versão > 1.0 e `azureml-train-automl` requer versão < 1.2. Se a versão mais recente `azureml-datadrift` for 1.3, então ambos os pacotes serão atualizados para 1.3, independentemente da exigência do `azureml-train-automl` pacote para uma versão mais antiga. 
 
    Para garantir que as versões apropriadas são instaladas para as suas embalagens, instale usando várias linhas como no código seguinte. A ordem não é um problema aqui, uma vez que pip explicitamente desvaloriza como parte da próxima chamada de linha. E assim, as dependências de versão apropriadas são aplicadas.
     
      ```
-        pip install azure-ml-datadrift
+        pip install azureml-datadrift
         pip install azureml-train-automl 
      ```
      
@@ -320,7 +320,7 @@ Se efetuar uma operação de gestão num alvo de computação a partir de um tra
 
 Por exemplo, receberá um erro se tentar criar ou anexar um alvo de cálculo a partir de um Pipeline ML que é submetido para execução remota.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

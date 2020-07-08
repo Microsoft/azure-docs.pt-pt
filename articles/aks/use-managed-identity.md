@@ -4,14 +4,14 @@ description: Saiba como utilizar identidades geridas no Serviço Azure Kubernete
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/30/2020
 ms.author: mlearned
-ms.openlocfilehash: 5854f512eb5a85430fbf95499274187a6d66016c
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610290"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -19,7 +19,7 @@ Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o proved
 
 *As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. A rotação credencial para o MI ocorre automaticamente a cada 46 dias de acordo com o padrão do Azure Ative Directory. A AKS utiliza tipos de identidade geridos atribuídos pelo sistema e atribuídos pelo utilizador. Estas identidades são atualmente imutáveis. Para saber mais, leia sobre [identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Deve ter o seguinte recurso instalado:
 
@@ -38,18 +38,18 @@ A AKS usa várias identidades geridas para serviços incorporados e addons.
 
 | Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
 |----------------------------|-----------|----------|
-| Avião de controlo | não visível | Utilizado pela AKS para gerir recursos de networking, por exemplo, criar um equilibrador de carga para entradas, IP público, etc.| Papel contribuinte para o grupo de recursos nó | Atualmente, não é suportado
+| Plano de controlo | não visível | Utilizado pela AKS para gerir recursos de networking, por exemplo, criar um equilibrador de carga para entradas, IP público, etc.| Papel contribuinte para o grupo de recursos nó | Atualmente, não é suportado
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | Função do leitor para grupo de recursos de nó | Atualmente, não é suportado
-| Add-on | AzurenPM | Nenhuma identidade necessária | ND | No
-| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy | Nenhuma identidade necessária | ND | No
-| Add-on | Calico | Nenhuma identidade necessária | ND | No
-| Add-on | Dashboard | Nenhuma identidade necessária | ND | No
-| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | No
-| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | No
-| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | No
-| Add-on | Nó virtual (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | No
+| Add-on | AzurenPM | Nenhuma identidade necessária | ND | Não
+| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy | Nenhuma identidade necessária | ND | Não
+| Add-on | Calico | Nenhuma identidade necessária | ND | Não
+| Add-on | Dashboard | Nenhuma identidade necessária | ND | Não
+| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | Não
+| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | Não
+| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | Não
+| Add-on | Nó virtual (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | Não
 
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas
@@ -105,3 +105,9 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 O cluster será criado em poucos minutos. Em seguida, pode implementar as suas cargas de trabalho de aplicação para o novo cluster e interagir com ele, tal como fez com os clusters AKS baseados em serviços.
+
+## <a name="next-steps"></a>Próximos passos
+* Utilize [os modelos Azure Resource Manager (ARM)][aks-arm-template] para criar clusters ativados pela Identidade Gerida.
+
+<!-- LINKS - external -->
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters

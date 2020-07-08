@@ -4,15 +4,15 @@ description: Pode configurar intervalos de endereço IP para SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 96b06e21d6e81010109ed8314980f34db0100e3b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610528"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Gamas de endereços IP privados Azure Firewall SNAT
 
@@ -73,6 +73,6 @@ Pode utilizar o portal Azure para especificar intervalos de endereços IP privad
 1. Por predefinição, **o IANAPrivateRanges** está configurado.
 2. Edite os intervalos de endereço IP privados para o seu ambiente e, em seguida, **selecione Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o túnel forçado Azure Firewall](forced-tunneling.md).

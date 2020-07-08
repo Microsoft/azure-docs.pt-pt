@@ -6,13 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: 660645f69126d631a8190ce2bfd99f6fd9949db8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.topic: how-to
+ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610664"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar e configurar firewall Azure usando Azure PowerShell
 
@@ -256,6 +256,6 @@ Pode manter os seus recursos de firewall para o próximo tutorial, ou se já nã
 Remove-AzResourceGroup -Name Test-FW-RG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

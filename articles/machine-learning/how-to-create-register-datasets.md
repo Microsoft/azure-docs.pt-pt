@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 02/10/2020
-ms.openlocfilehash: 4035570ec00e7a9c3e606e583acf50db7fab79b6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/29/2020
+ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610715"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -42,7 +42,7 @@ Com conjuntos de dados de aprendizagem automática Azure, pode:
 * O [Azure Machine Learning SDK para Python instalado,](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)que inclui o pacote de conjuntos de dados azureml.
 
 > [!NOTE]
-> Algumas classes de conjuntos de dados têm dependências do pacote [azureml-dataprep.](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Algumas classes de conjuntos de dados têm dependências do pacote [azureml-dataprep,](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) que só é compatível com Python de 64 bits. Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="compute-size-guidance"></a>Orientação do tamanho do cálculo
 
@@ -305,7 +305,11 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="access-datasets-in-a-virtual-network"></a>Aceder a conjuntos de dados numa rede virtual
+
+Se o seu espaço de trabalho estiver numa rede virtual, tem de configurar o conjunto de dados para saltar a validação. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como treinar com conjuntos de dados.](how-to-train-with-datasets.md)
 * Utilize machine learning automatizado para [treinar com OsDatasets Tabular](https://aka.ms/automl-dataset).

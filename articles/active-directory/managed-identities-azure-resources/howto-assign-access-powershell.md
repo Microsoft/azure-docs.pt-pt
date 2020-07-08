@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cba16f59944f94d505dd3da92e00830885ce86cf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: a9fcca72234340a6284dbba5443ae6fb735d4a04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608284"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerido a um recurso utilizando o PowerShell
 
@@ -52,7 +52,7 @@ Depois de ter ativado a identidade gerida num recurso Azure, [como um Azure VM:]
     New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Identidade gerida para visão geral dos recursos da Azure](overview.md)
 - Para permitir a identidade gerida num Azure VM, consulte [identidades geridas configure para recursos Azure num VM Azure utilizando o PowerShell](qs-configure-powershell-windows-vm.md).

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: a4cbe49efd605e2104dbbc9f389a85e8fc4c468e
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611361"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -98,7 +98,7 @@ Erro 60028: "A descoberta não pôde ser iniciada por causa de um erro. A opera�
 - Se houver um erro de validação, reveja a orientação de remediação para corrigir os erros e, em seguida, tente a opção **Salvar e iniciar novamente** a opção de descoberta.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: A operação AD Azure falhou 
-Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Faça um dos seguintes:
+Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Execute um dos seguintes procedimentos:
 
 - Certifique-se de que a conta de utilizador que inicia a descoberta é a mesma que foi utilizada para registar o aparelho.
 - Fornecer permissões de acesso à aplicação Azure Ative para a conta do utilizador para as quais a operação de descoberta está a falhar.
@@ -143,6 +143,10 @@ Se os VM descobertos não aparecerem no portal ou se os dados de VM estiverem de
 ## <a name="deleted-vms-appear-in-portal"></a>VMs eliminados aparecem no portal
 
 Se apagar VMs e ainda aparecerem no portal, aguarde 30 minutos. Se ainda aparecerem, refresque-se como descrito acima.
+
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede nos meus servidores físicos
+
+Isto pode acontecer se o servidor físico tiver virtualização Hiper-V ativada. Devido a uma lacuna no produto, a produção da rede é capturada nos adaptadores de rede virtuais descobertos.
 
 ## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Erro: O ficheiro carregado não está no formato esperado
 Algumas ferramentas têm definições regionais que criam o ficheiro CSV com o ponto e vírgula como delimitador. Altere as definições para garantir que o delimitador é uma vírgula.

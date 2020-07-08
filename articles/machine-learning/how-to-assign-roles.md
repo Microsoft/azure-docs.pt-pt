@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: eaa78637a2a88c1fceddf5b7ac9cd928ed8a444a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609253"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -62,6 +62,11 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 > [!NOTE]
 > O comando "az ml workspace share" não funciona para conta federada pela Azure Ative Directory B2B. Por favor, use o portal Azure UI em vez de comandar.
 
+
+## <a name="azure-machine-learning-operations"></a>Operações de Aprendizagem automática Azure
+
+Azure Machine Learning em ações incorporadas para muitas operações e tarefas. Para obter uma lista completa, consulte [as operações dos fornecedores de recursos da Azure.](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+
 ## <a name="create-custom-role"></a>Criar função personalizada
 
 Se os papéis incorporados forem insuficientes, pode criar papéis personalizados. As funções personalizadas podem ter lido, escrito, apagado e computado permissões de recursos nesse espaço de trabalho. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico do grupo de recursos ou a um nível de subscrição específico.
@@ -90,7 +95,8 @@ Para criar um papel personalizado, primeiro construa um ficheiro JSON de defini�
 }
 ```
 
-Pode alterar o `AssignableScopes` campo para definir o âmbito desta função personalizada ao nível da subscrição, ao nível do grupo de recursos ou a um nível específico de espaço de trabalho.
+> [!TIP]
+> Pode alterar o `AssignableScopes` campo para definir o âmbito desta função personalizada ao nível da subscrição, ao nível do grupo de recursos ou a um nível específico de espaço de trabalho.
 
 Esta função personalizada pode fazer tudo no espaço de trabalho, exceto nas seguintes ações:
 
@@ -113,10 +119,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 Para obter mais informações sobre funções personalizadas, consulte [as funções personalizadas para recursos Azure](/azure/role-based-access-control/custom-roles).
 
-Para obter mais informações sobre as operações (ações) utilizáveis com funções personalizadas, consulte [as operações do fornecedor de recursos.](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
-
-
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>P. Quais são as permissões necessárias para realizar várias ações no serviço de Aprendizagem automática Azure?
@@ -129,7 +132,7 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Criar novo cluster computacional | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
 | Criar novo VM de Caderno | Não é necessária | Proprietário ou colaborador | Não é possível |
 | Criar nova instância computacional | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
-| Atividade de plano de dados como submeter, aceder a dados, implementar modelo ou publicar pipeline | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/*/write` <br/> Note que também precisa de uma datastore registada no espaço de trabalho para permitir que o MSI aceda a dados na sua conta de armazenamento. |
+| Atividade de plano de dados como submeter, aceder a dados, implementar modelo ou publicar pipeline | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/*/write` <br/> Também precisa de uma datastore registada no espaço de trabalho para permitir que a MSI aceda aos dados na sua conta de armazenamento. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>P. Como posso listar todas as funções personalizadas na minha assinatura?
@@ -142,7 +145,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>P. Como encontro a definição de papel para um papel na minha subscrição?
 
-No Azure CLI, executar o seguinte comando. Note que `<role-name>` deve estar no mesmo formato devolvido pelo comando acima.
+No Azure CLI, executar o seguinte comando. O `<role-name>` deve estar no mesmo formato devolvido pelo comando acima.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -156,7 +159,7 @@ No Azure CLI, executar o seguinte comando.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Note que precisa de permissões em todo o âmbito da sua nova definição de função. Por exemplo, se esta nova função tiver um alcance em três subscrições, você precisa ter permissões nas três subscrições. 
+Precisa de permissões em todo o âmbito da sua nova definição de papel. Por exemplo, se esta nova função tiver um alcance em três subscrições, você precisa ter permissões nas três subscrições. 
 
 > [!NOTE]
 > As atualizações de funções podem demorar 15 minutos a uma hora a aplicar-se em todas as atribuições de funções nesse âmbito.
@@ -171,7 +174,7 @@ Sim, pode definir um papel que impede a atualização da edição do espaço de 
 Precisa de permissões de nível de subscrição para realizar qualquer operação relacionada com quotas no espaço de trabalho. Isto significa que definir a quota de nível de subscrição ou a quota de nível de espaço de trabalho para os seus recursos de computação geridos só pode acontecer se tiver permissões de escrita no âmbito de subscrição. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
 - [Executar de forma segura experiências e inferência/pontuação dentro de uma rede virtual](how-to-enable-virtual-network.md)

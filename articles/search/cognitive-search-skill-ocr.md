@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a672db649323a82c75a7e8c0cd6556eadce8089d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609355"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade cognitiva OCR
 
-A habilidade **de reconhecimento de caracteres óticos (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em Serviços Cognitivos. As habilidades **OCR** mapeiam para a seguinte funcionalidade:
+A habilidade **de reconhecimento de caracteres óticos (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) nos Serviços Cognitivos. As habilidades **OCR** mapeiam para a seguinte funcionalidade:
 
-+ Para inglês, espanhol, alemão, francês, italiano, português e holandês, é utilizada a nova API ["Read".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
-+ Para todas as outras línguas, é utilizada a API ["OCR".](../cognitive-services/computer-vision/concept-recognizing-text.md)
++ A API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) é utilizada para outras línguas que não o inglês. 
++ Para inglês, utiliza-se a nova API ["Read".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
 
 A habilidade **OCR** extrai texto de ficheiros de imagem. Os formatos de ficheiros suportados incluem:
 
@@ -208,7 +208,7 @@ O exemplo de skillset acima pressupõe que existe um campo de imagens normalizad
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Habilidade TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

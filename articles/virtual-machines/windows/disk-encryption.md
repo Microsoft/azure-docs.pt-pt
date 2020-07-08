@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: a66af3f74dbb88818f2490bdfbcbc12284652551
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c3a73028350054d54c6714107bfdfa7ead3ee4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610451"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -87,41 +87,7 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurar o cofre da chave Azure e o DiskEncryptionSet
 
-1. Certifique-se de que instalou a versão mais recente [do Azure PowerShell,](/powershell/azure/install-az-ps)e está a fazer sôs o seu contrato com a Connect-AzAccount
-
-1. Crie uma instância de Azure Key Vault e chave de encriptação.
-
-    Ao criar a instância Key Vault, deve ativar a proteção de eliminação e purga suave. A eliminação suave garante que o Cofre de Chaves detém uma chave eliminada durante um determinado período de retenção (padrão de 90 dias). A proteção da purga garante que uma chave eliminada não pode ser eliminada permanentemente até que o período de retenção caduque. Estas definições protegem-no de perder dados devido à eliminação acidental. Estas definições são obrigatórias quando se utiliza um Cofre-Chave para encriptar discos geridos.
-    
-    ```powershell
-    $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
-    $keyVaultName="yourKeyVaultName"
-    $keyName="yourKeyName"
-    $keyDestination="Software"
-    $diskEncryptionSetName="yourDiskEncryptionSetName"
-
-    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnableSoftDelete -EnablePurgeProtection
-
-    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
-    ```
-
-1.    Crie um exemplo de um DiskEncryptionSet. 
-    
-        ```powershell
-        $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
-        
-        $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
-        ```
-
-1.    Conceda ao diskEncrypationSet acesso ao cofre de chaves.
-
-        > [!NOTE]
-        > Pode levar alguns minutos para o Azure criar a identidade do seu DiskEncryptionSet no seu Diretório Ativo Azure. Se tiver um erro como "Não é possível encontrar o objeto Ative Directory" ao executar o seguinte comando, aguarde alguns minutos e tente novamente.
-        
-        ```powershell  
-        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-        ```
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Criar um VM utilizando uma imagem do Marketplace, encriptando o SISTEMA e os discos de dados com chaves geridas pelo cliente
 
@@ -259,14 +225,7 @@ Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $Reso
 
 #### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Encontre o estado da encriptação do lado do servidor de um disco
 
-```PowerShell
-$ResourceGroupName="yourResourceGroupName"
-$DiskName="yourDiskName"
-
-$disk=Get-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName
-$disk.Encryption.Type
-
-```
+[!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
 
 > [!IMPORTANT]
 > As chaves geridas pelo cliente dependem de identidades geridas para recursos Azure, uma característica do Azure Ative Directory (Azure AD). Ao configurar as chaves geridas pelo cliente, uma identidade gerida é automaticamente atribuída aos seus recursos sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou o disco gerido de um diretório AD Azure para outro, a identidade gerida associada aos discos geridos não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte [a transferência de uma subscrição entre os diretórios AD da Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -280,7 +239,7 @@ $disk.Encryption.Type
 
 [A Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aproveita a funcionalidade [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) do Windows para encriptar discos geridos com chaves geridas pelo cliente dentro do VM do hóspede.  A encriptação do lado do servidor com as teclas geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de OS para os seus VMs encriptando dados no serviço de Armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Explore os modelos do Gestor de Recursos Azure para criar discos encriptados com chaves geridas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o cofre de chave do Azure?](../../key-vault/general/overview.md)

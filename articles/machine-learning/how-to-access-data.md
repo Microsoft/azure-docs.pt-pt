@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 07d2326d6677ccba93e2d3173bf8abccf309fe70
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: cb52935b731a507d2408d174a5aa571fb2bfc973
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609270"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Após a criação da datastore, esta validação é realizada apenas para métod
 
 Todos os métodos de registo estão na [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) classe e têm o `register_azure_*` formulário.
 > [!IMPORTANT]
-> Se a sua conta de armazenamento estiver numa rede virtual, apenas a criação de datas **através do SDK** é suportada.
+> Se planeia criar uma loja de dados para contas de armazenamento que se encontram numa rede virtual, consulte os dados do Access numa secção de rede virtual.
 
 Pode encontrar a informação necessária para preencher o `register_azure_*()` método no [portal Azure](https://portal.azure.com).
 
@@ -185,7 +185,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Crie uma nova loja de dados em alguns passos no estúdio Azure Machine Learning:
 
 > [!IMPORTANT]
-> Se a sua conta de armazenamento estiver numa rede virtual, apenas a criação de datas [através do SDK](#python-sdk) é suportada. 
+> Se a sua conta de armazenamento de dados estiver numa rede virtual, são necessários passos de configuração adicionais para garantir que o estúdio tem acesso aos seus dados. Consulte [Isolamento de rede & privacidade] (como activar-virtual-network.md#machine-learning-studio) para garantir que as etapas de configuração apropriadas são aplicadas. 
 
 1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Datastores** no painel esquerdo em **Manage**.
@@ -201,7 +201,7 @@ Pode encontrar a informação de que necessita para preencher o formulário no [
 > [!IMPORTANT]
 > Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como sincronizar as suas credenciais atualizadas com [estes passos.](how-to-change-storage-access-key.md) 
 
-O exemplo a seguir demonstra como é a forma quando cria uma loja de dados azure blob: 
+O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azure blob**: 
     
 ![Formulário para uma nova datastore](media/how-to-access-data/new-datastore-form.png)
 
@@ -292,13 +292,18 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 A Azure Machine Learning fornece várias formas de usar os seus modelos para pontuar. Alguns destes métodos não fornecem acesso a datastores. Utilize a seguinte tabela para entender quais os métodos que lhe permitem aceder às datastores durante a pontuação:
 
-| Método | Acesso à loja de dados | Description |
+| Método | Acesso à loja de dados | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](how-to-use-parallel-run-step.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
 | [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso às datastores, poderá ser capaz de criar código personalizado utilizando o Azure SDK relevante para aceder aos dados. Por exemplo, o [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que pode utilizar para aceder a dados armazenados em bolhas ou ficheiros.
+
+
+## <a name="access-data-in-a-virtual-network"></a>Aceder a dados numa rede virtual
+
+Se o seu armazenamento estiver por detrás de uma rede virtual, deve realizar etapas de configuração adicionais para que o seu espaço de trabalho e datastore acedam aos seus dados. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 <a name="move"></a>
 
@@ -308,7 +313,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-train-ml-models.md)

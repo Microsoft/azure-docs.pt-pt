@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d754b02566c3026b908ab0a3254db3113cd225
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84727437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611293"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Ative Directory
 
@@ -120,7 +120,7 @@ Atualizar a atribuição de licença num utilizador faz com que o cálculo do en
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicençaAssignmentAttributeConcurrencyExcepção em registos de auditoria
 
 **Problema:** O utilizador tem LicençaAssignmentAttributeConcurrencyExcepção para atribuição de licença em registos de auditoria.
-Quando o licenciamento baseado em grupo tenta processar a atribuição simultânea de licença da mesma licença a um utilizador, esta exceção é registada no utilizador. Isto geralmente acontece quando um utilizador é membro de mais de um grupo com a mesma licença atribuída. O AZure AD tentará novamente processar a licença do utilizador e resolverá o problema. Não é necessária nenhuma ação por parte do cliente para corrigir este problema.
+Quando o licenciamento baseado em grupo tenta processar a atribuição simultânea de licença da mesma licença a um utilizador, esta exceção é registada no utilizador. Isto geralmente acontece quando um utilizador é membro de mais de um grupo com a mesma licença atribuída. O Azure AD tentará novamente processar a licença do utilizador e resolverá o problema. Não é necessária nenhuma ação por parte do cliente para corrigir este problema.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Mais de uma licença de produto atribuída a um grupo
 
@@ -173,7 +173,7 @@ Dependendo dos passos que tomou para resolver os erros, pode ser necessário aci
 
 Por exemplo, depois de resolver o problema de endereço de procuração duplicado para um utilizador afetado, tem de ativar o processamento do utilizador. Para reprocessar um utilizador, vá ao painel de utilizador, abra **licenças**e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outros cenários para a gestão de licenças através de grupos, consulte o seguinte:
 

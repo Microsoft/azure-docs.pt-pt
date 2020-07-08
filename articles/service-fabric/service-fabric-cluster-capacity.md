@@ -1,206 +1,196 @@
 ---
-title: Planeamento da capacidade de cluster de tecido de serviço
-description: Considerações de planeamento de capacidade de cluster de tecido de serviço. Níveis de nós, operações, durabilidade e fiabilidade
+title: Considerações de planeamento da capacidade do cluster de tecidos de serviço
+description: Tipos de nó, durabilidade, fiabilidade e outras coisas a ter em conta ao planear o seu cluster de Tecido de Serviço.
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: sfrev
+ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610545"
 ---
-# <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade de cluster de tecido de serviço
-Para qualquer implementação de produção, o planeamento da capacidade é um passo importante. Aqui estão alguns dos itens que você tem que considerar como parte desse processo.
+# <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento da capacidade do cluster de tecidos de serviço
 
-* O número de tipos de nós que o seu cluster precisa para começar
-* As propriedades de cada tipo de nó (tamanho, primário, virado para a internet, número de VMs, etc.)
-* As características de fiabilidade e durabilidade do cluster
+O planeamento da capacidade do cluster é importante para cada ambiente de produção de Tecidos de Serviço. As principais considerações incluem:
 
-> [!NOTE]
-> Deve rever minimamente todos os valores de política **não permitidos** durante o planeamento. Isto é para garantir que define os valores adequadamente e para atenuar a queima do seu cluster mais tarde devido a configurações de configuração do sistema imutáveis. 
-> 
+* **Número inicial e propriedades dos tipos de *nó de* cluster**
 
-Revejamos brevemente cada um destes itens.
+* ** *Nível* de durabilidade de cada tipo de nó,** que determina os privilégios de tecido de serviço VM dentro da infraestrutura Azure
 
-## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>O número de tipos de nós que o seu cluster precisa para começar
-Primeiro, tens de descobrir para que o cluster que estás a criar vai ser usado.  Que tipo de aplicações está a planear implementar neste cluster? Se não é claro sobre o propósito do cluster, provavelmente ainda não está pronto para entrar no processo de planeamento de capacidades.
+* ** *Nível* de fiabilidade do cluster,** que determina a estabilidade dos serviços de sistema de tecido de serviço e a função global de cluster
 
-Estabeleça o número de tipos de nó que o seu cluster precisa para começar.  Cada tipo de nó é mapeado para um conjunto de escala de máquina virtual. Cada tipo de nó pode então ser aumentado ou reduzido verticalmente de forma independente, pode ter conjuntos diferentes de portas abertas e ter métricas de capacidade diferente. Assim, a decisão do número de tipos de nó resume-se essencialmente às seguintes considerações:
+Este artigo irá acompanhá-lo através dos pontos de decisão significativos para cada uma destas áreas.
 
-* A sua aplicação tem vários serviços, e algum deles precisa de ser público ou virado para a internet? As aplicações típicas contêm um serviço de gateway frontal que recebe entrada de um cliente e um ou mais serviços de back-end que comunicam com os serviços front-end. Então, neste caso, acabas por ter pelo menos dois tipos de nós.
-* Os seus serviços (que compõem a sua aplicação) têm diferentes necessidades de infraestrutura, tais como maiores ciclos de RAM ou CPU mais elevados? Por exemplo, vamos assumir que a aplicação que pretende implementar contém um serviço frontal e um serviço de back-end. O serviço frontal pode funcionar em VMs menores (tamanhos VM como D2) que têm portas abertas à internet.  O serviço back-end, no entanto, é intensivo em computação e precisa de funcionar em VMs maiores (com tamanhos VM como D4, D6, D15) que não estão virados para a internet.
-  
-  Neste exemplo, embora possa decidir colocar todos os serviços num só tipo de nó, recomendamos que os coloque num cluster com dois tipos de nó.  Isto permite que cada tipo de nó tenha propriedades distintas, como conectividade de internet ou tamanho VM. O número de VMs também pode ser dimensionado de forma independente.  
-* Porque não pode prever o futuro, vá com factos que conhece, e escolha o número de tipos de nós que as suas aplicações precisam para começar. Pode sempre adicionar ou remover os tipos de nó mais tarde. Um cluster de tecido de serviço deve ter pelo menos um tipo de nó.
+## <a name="initial-number-and-properties-of-cluster-node-types"></a>Número inicial e propriedades dos tipos de nó de cluster
 
-## <a name="the-properties-of-each-node-type"></a>As propriedades de cada tipo de nó
-O **tipo de nó** pode ser visto como equivalente a papéis em Serviços cloud. Os tipos de nó definem os tamanhos vm, o número de VMs e as suas propriedades. Todos os tipos de nó que são definidos num cluster de tecido de serviço mapeia para um conjunto de escala de [máquina virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
-Cada tipo de nó é um conjunto de escala distinto e pode ser escalado para cima ou para baixo independentemente, ter diferentes conjuntos de portas abertas, e ter métricas de capacidade diferentes. Para obter mais informações sobre as relações entre tipos de nó e conjuntos de escala de máquinas virtuais, como pDR numa das instâncias, como abrir novas portas, e assim por diante, consulte tipos de nó de [cluster de tecido de serviço.](service-fabric-cluster-nodetypes.md)
+Um *tipo de nó* define o tamanho, número e propriedades para um conjunto de nós (máquinas virtuais) no cluster. Cada tipo de nó que é definido num conjunto de clusters de tecido de serviço para um [conjunto de escala de máquina virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
-Um cluster de tecido de serviço pode consistir em mais do que um tipo de nó. Nesse caso, o cluster é composto por um tipo primário de nó e um ou mais tipos de nó não primário.
+Como cada tipo de nó é um conjunto de escala distinta, pode ser dimensionado para cima ou para baixo independentemente, ter diferentes conjuntos de portas abertas, e ter métricas de capacidade diferentes. Para obter mais informações sobre a relação entre os tipos de nós e os conjuntos de balanças de máquinas virtuais, consulte [os tipos de nó de aglomerado de tecido de serviço](service-fabric-cluster-nodetypes.md).
 
-Um único tipo de nó não pode escalar de forma fiável para além de 100 nós por escala de máquina virtual definida para aplicações SF; alcançar mais de 100 nós de forma fiável, exigirá que adicione conjuntos adicionais de escala de máquina virtual.
+Cada cluster requer um **tipo de nó primário,** que executa serviços críticos de sistema que fornecem capacidades de plataforma de Tecido de Serviço. Embora seja possível também utilizar os tipos de nó primários para executar as suas aplicações, é recomendado dedicar-lhes apenas a executar serviços do sistema.
 
-### <a name="primary-node-type"></a>Tipo de nó primário
+**Os tipos de nó não primários** podem ser usados para definir funções de aplicação (como serviços *frontais* e *back-end)* e para isolar fisicamente os serviços dentro de um cluster. Os aglomerados de tecido de serviço podem ter zero ou mais tipos de nó não primários.
 
-Os serviços de sistema Service Fabric (por exemplo, o serviço Cluster Manager ou o serviço Image Store) são colocados no tipo de nó primário. 
+O tipo de nó primário é configurado utilizando o `isPrimary` atributo sob a definição do tipo nó no modelo de implementação do Gestor de Recursos Azure. Consulte o [objeto NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa das propriedades do tipo nó. Por exemplo, use, abra qualquer *AzureDeploy.jsem* ficheiros em [amostras de cluster de Tecido de Serviço](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e encontre na *página* a procura do `nodetTypes` objeto.
 
-![Screenshot de um cluster que tem dois tipos de nó][SystemServices]
+### <a name="node-type-planning-considerations"></a>Considerações de planeamento do tipo nó
 
-* O **tamanho mínimo de VMs** para o tipo de nó primário é determinado pelo nível de **durabilidade** que escolher. O nível de durabilidade padrão é Bronze. Consulte [as características de durabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) para obter mais detalhes.  
-* O **número mínimo de VMs** para o tipo de nó primário é determinado pelo nível de **fiabilidade** que escolher. O nível de fiabilidade padrão é Silver. Consulte [as características de fiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.  
+O número de tipos de nós iniciais depende da finalidade do seu agrupamento e das aplicações e serviços que o executam. Considere as perguntas seguintes:
 
-A partir do modelo de Gestor de Recursos Azure, `isPrimary` o tipo de nó primário é configurado com o atributo sob a [definição](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)do tipo nó .
+* ***A sua aplicação tem vários serviços, e algum deles precisa de ser público ou com a internet?***
 
-### <a name="non-primary-node-type"></a>Tipo de nó não primário
+    As aplicações típicas contêm um serviço de gateway frontal que recebe entrada de um cliente, e um ou mais serviços de back-end que comunicam com os serviços front-end, com ligação em rede separada entre os serviços front-end e back-end. Estes casos normalmente requerem três tipos de nó: um tipo de nó primário e dois tipos de nó não primário (um para o serviço frontal e traseiro).
 
-Em um aglomerado com vários tipos de nó, há um tipo de nó primário e o resto não são primários.
+* ***Os serviços que compõem a sua aplicação têm diferentes necessidades de infraestrutura, como maiores ciclos de RAM ou CPU mais elevados?***
 
-* O **tamanho mínimo de VMs** para tipos de nó não primários é determinado pelo nível de **durabilidade** que escolher. O nível de durabilidade padrão é Bronze. Para obter mais informações, consulte [as características de durabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).  
-* O **número mínimo de VMs** para tipos de nó não primárioé um. No entanto, deve escolher este número com base no número de réplicas da aplicação/serviços que pretende executar neste tipo de nó. O número de VMs num nó pode ser aumentado depois de ter implantado o cluster.
+    Muitas vezes, o serviço frontal pode funcionar em VMs menores (tamanhos VM como D2) que têm portas abertas para a internet.  Os serviços de back-end computacionalmente intensivos podem ter de funcionar em VMs maiores (com tamanhos VM como D4, D6, D15) que não são virados para a Internet. A definição de diferentes tipos de nós para estes serviços permite-lhe fazer uma utilização mais eficiente e segura dos VMs de tecido de serviço subjacentes, e permite-lhes dimensioná-los de forma independente. Para obter mais informações sobre a quantidade de recursos que precisará, consulte [o planeamento da capacidade para aplicações de Tecidos de Serviço](service-fabric-capacity-planning.md)
 
-## <a name="the-durability-characteristics-of-the-cluster"></a>Caraterísticas de durabilidade do cluster
-O nível de durabilidade é utilizado para indicar ao sistema os privilégios que os seus VMs têm com a infraestrutura Azure subjacente. No tipo de nó primário, este privilégio permite ao Service Fabric interromper qualquer pedido de infraestrutura de nível VM (como um reboot vM, reimagem VM ou migração VM) que impactam os requisitos de quórum para os serviços do sistema e seus serviços estatais. Nos tipos de nó não primário, este privilégio permite ao Service Fabric interromper quaisquer pedidos de infraestrutura de nível VM (como reboot vM, reimagem vm e migração VM) que impactam os requisitos de quórum para os seus serviços de estado.
+* ***Algum dos seus serviços de candidatura terá de ultrapassar os 100 nós?***
 
-| Nível de durabilidade  | Número mínimo exigido de VMs | VM SKUs suportado                                                                  | Atualizações que faz para o seu conjunto de escala de máquina virtual                               | Atualizações e manutenção iniciadas pelo Azure                                                              | 
+    Um único tipo de nó não pode escalar de forma fiável para além de 100 nós por escala de máquina virtual definida para aplicações de Tecido de Serviço. A execução de mais de 100 nós requer conjuntos de escala de máquinas virtuais adicionais (e, portanto, tipos adicionais de nós).
+
+* ***O seu cluster vai percorrer as Zonas de Disponibilidade?***
+
+    O Service Fabric suporta clusters que se estendem por [zonas de disponibilidade,](../availability-zones/az-overview.md) implantando tipos de nós que estão presos a zonas específicas, garantindo uma elevada disponibilidade das suas aplicações. As Zonas de Disponibilidade requerem planeamento adicional do tipo de nó e requisitos mínimos. Para mais detalhes, consulte [topologia recomendada para o tipo de nó primário de conjuntos de tecido de serviço que se estendem por zonas de disponibilidade.](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones) 
+
+Ao determinar o número e as propriedades dos tipos de nós para a criação inicial do seu cluster, tenha em mente que pode sempre adicionar, modificar ou remover tipos de nó (não primários) uma vez que o seu cluster é implantado. [Os tipos de nó primários também podem ser modificados](service-fabric-scale-up-node-type.md) em clusters de execução (embora tais operações exijam muito planeamento e cautela em ambientes de produção).
+
+Uma outra consideração para as propriedades do tipo nó é o nível de durabilidade, que determina privilégios que os VMs de um tipo de nó têm dentro da infraestrutura Azure. Utilize o tamanho dos VMs que escolhe para o seu cluster e a contagem de exemplos que atribui para os tipos individuais de nó para ajudar a determinar o nível de durabilidade adequado para cada um dos seus tipos de nós, conforme descrito a seguir.
+
+## <a name="durability-characteristics-of-the-cluster"></a>Características de durabilidade do cluster
+
+O *nível de durabilidade* designa os privilégios que os seus VMs de tecido de serviço têm com a infraestrutura Azure subjacente. Este privilégio permite que o Service Fabric faça uma pausa em qualquer pedido de infraestrutura de nível VM (como reiniciar, reimagem ou migração) que impacte os requisitos do quórum para os serviços de sistema service fabric e seus serviços estatais.
+
+> [!IMPORTANT]
+> O nível de durabilidade é definido por tipo de nó. Se não houver nenhuma especificada, o nível *de bronze* será usado, no entanto não fornece upgrades automáticos de SO. *A* durabilidade prateada ou *dourada* é recomendada para cargas de trabalho de produção.
+
+A tabela abaixo lista os níveis de durabilidade do Tecido de Serviço, os seus requisitos e acessibilidades.
+
+| Nível de durabilidade  | Número mínimo exigido de VMs | Tamanhos VM suportados                                                                  | Atualizações que faz para o seu conjunto de escala de máquina virtual                               | Atualizações e manutenção iniciadas pela Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser adiado até ser aprovado pelo cluster Service Fabric | Pode ser pausado por 2 horas por UD para permitir tempo adicional para as réplicas recuperarem de falhas anteriores |
-| Silver           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser adiado até ser aprovado pelo cluster Service Fabric | Não pode ser adiado por qualquer período significativo de tempo                                                    |
-| Bronze           | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será adiado pelo cluster Service Fabric           | Não pode ser adiado por qualquer período significativo de tempo                                                    |
+| Gold             | 5                              | Tamanhos de nó completo dedicados a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser adiado até ser aprovado pelo cluster de Tecido de Serviço | Pode ser pausado por 2 horas por domínio de upgrade para permitir que as réplicas recuperem de falhas anteriores |
+| Silver           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser adiado até ser aprovado pelo cluster de Tecido de Serviço | Não pode ser adiado por um período significativo de tempo                                                    |
+| Bronze          | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será adiado pelo cluster de tecido de serviço           | Não pode ser adiado por um período significativo de tempo                                                    |
 
 > [!WARNING]
-> Os tipos de nó que correm com durabilidade de Bronze não obtêm _privilégios._ Isto significa que os trabalhos de infraestrutura que impactam as suas cargas horárias não serão interrompidos ou atrasados, o que poderá afetar as suas cargas de trabalho. Utilize apenas bronze para tipos de nó que executam apenas cargas de trabalho apátridas. Para cargas de trabalho de produção, recomenda-se a execução de Prata ou superior. 
-> 
-> Independentemente de qualquer nível de durabilidade, a operação de [deatribuição](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) no Conjunto de Escala VM destruirá o cluster
+> Com a durabilidade do Bronze, a atualização automática de imagem de SO não está disponível. Embora [a Aplicação de Orquestração patch](service-fabric-patch-orchestration-application.md) (destinada apenas a clusters hospedados não-Azure) não seja *recomendada* para níveis de prata ou maior durabilidade, é a sua única opção para automatizar atualizações do Windows no que diz respeito aos domínios de upgrade do Service Fabric.
 
-**Vantagens da utilização dos níveis de durabilidade de Prata ou Ouro**
- 
-- Reduz o número de passos necessários numa operação de escala (isto é, a desativação do nó e o Remove-ServiceFabricNodeState são chamados automaticamente).
-- Reduz o risco de perda de dados devido a uma operação de mudança de VM SKU iniciada pelo cliente ou às operações de infraestrutura Azure.
+> [!IMPORTANT]
+> Independentemente do nível de durabilidade, executar uma operação [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) num conjunto de escala de máquina virtual destruirá o cluster.
 
-**Desvantagens da utilização dos níveis de durabilidade de Prata ou Ouro**
- 
-- As implementações para o seu conjunto de máquinas virtuais e outros recursos azure relacionados podem ser adiadas, podem esgotar-se ou podem ser totalmente bloqueadas por problemas no seu cluster ou ao nível da infraestrutura. 
-- Aumenta o número de [eventos de ciclo](service-fabric-reliable-services-lifecycle.md) de vida de réplica (por exemplo, swaps primários) devido a desativações automáticas do nó durante as operações de infraestrutura azure.
-- Retira os nódosos de serviço por períodos de tempo, enquanto as atualizações de software da plataforma Azure ou as atividades de manutenção de hardware estão a ocorrer. Pode ver nós com estado incapacitante/desativado durante estas atividades. Isto reduz temporariamente a capacidade do seu cluster, mas não deve afetar a disponibilidade do seu cluster ou aplicações.
+### <a name="bronze"></a>Bronze
 
-### <a name="recommendations-for-when-to-use-silver-or-gold-durability-levels"></a>Recomendações para quando utilizar níveis de durabilidade de Prata ou Ouro
+Os tipos de nó que correm com durabilidade de Bronze não obtêm privilégios. Isto significa que os trabalhos de infraestrutura que impactam as suas cargas de trabalho não serão interrompidos ou atrasados. Utilize durabilidade de Bronze para tipos de nó que só funcionam cargas apátridas. Para cargas de trabalho de produção, recomenda-se a execução de Prata ou superior.
 
-Use durabilidade prateada ou dourada para todos os tipos de nós que acolhem serviços estatais que espera escalar (reduzir a contagem de casos vm) com frequência, e prefere que as operações de implantação sejam atrasadas e a capacidade de ser reduzida em favor da simplificação destas operações de escala. Os cenários de escala para fora (adicionando casos de VMs) não jogam na sua escolha do nível de durabilidade, só a escala-in faz.
+### <a name="silver-and-gold"></a>Prata e Ouro
+
+Use a durabilidade prateada ou dourada para todos os tipos de nó que acolhem serviços estatais que espera escalar frequentemente, e onde deseja que as operações de implantação sejam atrasadas e a capacidade seja reduzida em favor da simplificação do processo. Os cenários de escala não devem afetar a sua escolha do nível de durabilidade.
+
+#### <a name="advantages"></a>Vantagens
+
+* Reduz o número de etapas necessárias para operações de escala (desativação do nó e remoção-serviceFabricNodeState são chamados automaticamente).
+* Reduz o risco de perda de dados devido às operações de alteração do tamanho de VM no local e às operações de infraestrutura Azure.
+
+#### <a name="disadvantages"></a>Desvantagens
+
+* As implementações em conjuntos de escala de máquinas virtuais e outros recursos Azure relacionados podem ser retardados, ser retardados ou ser bloqueados inteiramente por problemas no seu cluster ou ao nível da infraestrutura.
+* Aumenta o número de [eventos de ciclo de vida réplica](service-fabric-reliable-services-lifecycle.md) (por exemplo, swaps primários) devido a desativações automatizadas de nó durante as operações de infraestrutura do Azure.
+* Retira os nós de serviço por períodos de tempo enquanto ocorrem atualizações de software da plataforma Azure ou atividades de manutenção de hardware. Pode ver nós com estatuto Desativado/Deficiente durante estas atividades. Isto reduz temporariamente a capacidade do seu cluster, mas não deve afetar a disponibilidade do seu cluster ou aplicações.
+
+#### <a name="best-practices-for-silver-and-gold-durability-node-types"></a>Melhores práticas para os tipos de nó de durabilidade prata e ouro
+
+Siga estas recomendações para a gestão de tipos de nó com durabilidade prateada ou dourada:
+
+* Mantenha sempre o seu cluster e aplicações saudáveis, e certifique-se de que as aplicações respondem a todos os [eventos de ciclo de vida de réplica de serviço](service-fabric-reliable-services-lifecycle.md) (como réplica em construção está preso) em tempo útil.
+* Adotar formas mais seguras de alterar o tamanho de um VM (escala para cima/para baixo). Mudar o tamanho VM de um conjunto de escala de máquina virtual requer um planeamento cuidadoso e cuidado. Para mais detalhes, consulte [Scale up a Service Fabric nódoa](service-fabric-scale-up-node-type.md)
+* Mantenha uma contagem mínima de cinco nós para qualquer conjunto de balança de máquina virtual que tenha um nível de durabilidade de Ouro ou Prata ativado. O seu cluster entrará em estado de erro se escalar abaixo deste limiar, e terá de limpar manualmente o estado `Remove-ServiceFabricNodeState` () para os nós removidos.
+* Cada escala de máquina virtual definida com nível de durabilidade Prata ou Ouro deve mapear para o seu próprio tipo de nó no cluster de Tecido de Serviço. O mapeamento de vários conjuntos de escala de máquina virtual para um único tipo de nó impedirá que a coordenação entre o cluster de Tecido de Serviço e a infraestrutura Azure funcione corretamente.
+* Não elimine instâncias VM aleatórias, utilize sempre a escala de escala de máquina virtual em características. A supressão de instâncias VM aleatórias tem o potencial de criar desequilíbrios no caso VM espalhados por [domínios de atualização](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e [domínios de avarias](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Este desequilíbrio pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio entre as instâncias de serviço/réplicas de serviço.
+* Se utilizar a Autoscale, estabeleça as regras de modo a que as operações (remoção de instâncias VM) sejam feitas apenas um nó de cada vez. Reduzir mais de um caso de cada vez não é seguro.
+* Se eliminar ou translocar VMs no tipo de nó primário, nunca reduza a contagem de VMs atribuídos abaixo do que o nível de fiabilidade requer. Estas operações serão bloqueadas indefinidamente numa escala definida com um nível de durabilidade de Prata ou Ouro.
 
 ### <a name="changing-durability-levels"></a>Alteração dos níveis de durabilidade
-- Tipos de nó com níveis de durabilidade de Prata ou Ouro não podem ser desclassificados para Bronze.
-- A atualização de Bronze para Prata ou Ouro pode demorar algumas horas.
-- Ao alterar o nível de durabilidade, certifique-se de atualizá-lo tanto na configuração de extensão de tecido de serviço no seu recurso de conjunto de escala de máquina virtual, como na definição do tipo de nó no seu recurso de cluster De Serviço. Estes valores devem coincidir.
 
-### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendações operacionais para o tipo de nó que definiu para o nível de durabilidade prata ou ouro.
+Dentro de determinadas restrições, o nível de durabilidade do tipo nó pode ser ajustado:
 
-- Mantenha o seu cluster e aplicações saudáveis a todo o momento, e certifique-se de que as aplicações respondem a todos os [eventos](service-fabric-reliable-services-lifecycle.md) de ciclo de vida de réplica de Serviço (como réplica em construção está preso) em tempo oportuno.
-- Adote formas mais seguras de fazer uma alteração VM SKU (Escala para cima/para baixo): Alterar o VM SKU de um conjunto de escala de máquina virtual requer uma série de passos e considerações. Aqui está o processo que pode seguir para evitar questões comuns.
-    - Para tipos de nó não **primários:** Recomenda-se que crie um novo conjunto de escala de máquina virtual, modifique a restrição de colocação de serviço para incluir o novo tipo de conjunto/nó de escala de máquina virtual e, em seguida, reduza a contagem de tempo de escala de máquina virtual antiga para zero, um nó de cada vez (isto é para garantir que a remoção dos nós não impacte a fiabilidade do cluster).
-    - **Para o tipo de nó primário:** Se o VM SKU que selecionou estiver na capacidade e quiser mudar para um VM SKU maior, siga a nossa orientação sobre [escalavertical para um tipo de nó primário](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+* Os tipos de nó com níveis de durabilidade de Prata ou Ouro não podem ser desclassificados para Bronze.
+* A modernização de Bronze a Prata ou Ouro pode demorar algumas horas.
+* Ao alterar o nível de durabilidade, certifique-se de atualizá-lo tanto na configuração de extensão do Tecido de Serviço no seu recurso de definição de escala de máquina virtual como na definição do tipo nó no seu recurso de cluster de Tecido de Serviço. Estes valores devem coincidir.
 
-- Mantenha uma contagem mínima de cinco nódosos para qualquer conjunto de escala de máquina virtual que tenha um nível de durabilidade de Ouro ou Prata ativado.
-- Cada escala de máquina virtual definida com nível de durabilidade Prata ou Ouro deve mapear para o seu próprio tipo de nó no cluster De Tecido de Serviço. Mapear vários conjuntos de escala de máquinavirtual para um único nó impedirá a coordenação entre o cluster de tecido de serviço e a infraestrutura Azure de funcionar corretamente.
-- Não elimine casos de VM aleatórios, utilize sempre a escala de conjunto de máquinas virtuais na função. A eliminação de casos de VM aleatórios tem o potencial de criar desequilíbrios na instância VM espalhada pela UD e FD. Este desequilíbrio pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio entre as instâncias de serviço/réplicas do serviço.
-- Se utilizar a Escala Automática, então estabeleça as regras que escalam (remoção de instâncias VM) são feitas apenas um nó de cada vez. Reduzir mais do que um caso de cada vez não é seguro.
-- Se apagar ou vender VMs no tipo de nó primário, nunca deve reduzir a contagem de VMs atribuídos abaixo do que o nível de fiabilidade requer. Estas operações serão bloqueadas indefinidamente numa escala definida com um nível de durabilidade de Prata ou Ouro.
+Outra consideração quando o planeamento de capacidade é o nível de fiabilidade para o seu cluster, que determina a estabilidade dos serviços do sistema e o seu cluster global, como descrito na secção seguinte.
 
-## <a name="the-reliability-characteristics-of-the-cluster"></a>As características de fiabilidade do cluster
-O nível de fiabilidade é utilizado para definir o número de réplicas dos serviços do sistema que pretende executar neste cluster no tipo de nó primário. Quanto mais o número de réplicas, mais fiáveis estão os serviços do sistema no seu cluster.  
+## <a name="reliability-characteristics-of-the-cluster"></a>Características de fiabilidade do cluster
+
+O *nível de fiabilidade* do cluster determina o número de réplicas de serviços de sistema que estão a funcionar no tipo de nó primário do cluster. Quanto mais réplicas, mais fiáveis são os serviços de sistema (e, portanto, o cluster como um todo).
+
+> [!IMPORTANT]
+> O nível de fiabilidade é definido ao nível do cluster e determina o número mínimo de nós do tipo de nó primário. As cargas de trabalho de produção requerem um nível de fiabilidade de Prata (maior ou igual a cinco nós) ou superior.  
 
 O nível de fiabilidade pode assumir os seguintes valores:
 
-* Platinum - Executar os serviços do Sistema com uma contagem de nove conjuntos de réplicas de nove
-* Gold - Executar os serviços do Sistema com uma contagem de sete conjuntos de réplicas alvo
-* Silver - Executar os serviços do Sistema com uma contagem de cinco conjuntos de réplicas alvo 
-* Bronze - Executar os serviços do Sistema com uma contagem de três conjuntos de réplicas alvo
+* **Platinum** - Serviços de sistema executados com réplica de meta contagem de nove
+* **Ouro** - Serviços de sistema executados com réplica de sete alvos
+* **Prata** - Serviços de sistema executados com réplica de cinco alvos
+* **Bronze** - Serviços de sistema executados com réplica de réplica de três
 
-> [!NOTE]
-> O nível de fiabilidade que escolher determina o número mínimo de nós que o seu tipo de nó primário deve ter. 
-> 
-> 
+Aqui está a recomendação sobre a escolha do nível de fiabilidade. O número de nós de sementes é também definido para o número mínimo de nós para um nível de fiabilidade.
 
-### <a name="recommendations-for-the-reliability-tier"></a>Recomendações para o nível de fiabilidade
 
-Quando aumenta ou diminui o tamanho do seu cluster (a soma das instâncias VM em todos os tipos de nós), tem de atualizar a fiabilidade do seu cluster de um nível para outro. Ao fazê-lo, os upgrades de cluster necessários para alterar a contagem de conjuntos de réplicas de serviços do sistema. Aguarde que a atualização em curso esteja concluída antes de fazer quaisquer outras alterações no cluster, como adicionar nós.  Pode monitorizar o progresso da atualização no Service Fabric Explorer ou executando [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
-
-Aqui está a recomendação sobre a escolha do nível de fiabilidade.  O número de nós de sementes também está definido para o número mínimo de nós para um nível de fiabilidade.  Por exemplo, para um cluster com fiabilidade gold existem 7 nós de sementes.
-
-| **Número de nós de cluster** | **Nível de Fiabilidade** |
+| **Número de nós** | **Nível de fiabilidade** |
 | --- | --- |
-| 1 |Não especifique o parâmetro do Nível de Fiabilidade, o sistema calcula-o |
-| 3 |Bronze |
-| 5 ou 6|Silver |
-| 7 ou 8 |Gold |
-| 9 e para cima |Platina |
+| 1 | *Não especifique o `reliabilityLevel` parâmetro: o sistema calcula-o.* |
+| 3 | Bronze |
+| 5 ou 6| Silver |
+| 7 ou 8 | Gold |
+| 9 e mais | Platina |
 
-## <a name="primary-node-type---capacity-guidance"></a>Tipo de nó primário - orientação de capacidade
+Quando aumentar ou diminuir o tamanho do seu cluster (a soma de instâncias VM em todos os tipos de nó), considere atualizar a fiabilidade do seu cluster de um nível para outro. Ao fazê-lo, desencadeia-se as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas de serviços do sistema. Aguarde que a atualização em curso esteja concluída antes de escla lor o cluster, como adicionar nós.  Pode monitorizar o progresso da atualização no Service Fabric Explorer ou executando [o Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-Aqui está a orientação para o planeamento da capacidade do tipo nó primário:
+### <a name="capacity-planning-for-reliability"></a>Planeamento de capacidade para a fiabilidade
 
-- **Número de casos vm para executar qualquer carga de trabalho de produção em Azure:** Deve especificar um tamanho mínimo do nó primário de 5 e um nível de fiabilidade de prata.  
-- **Número de casos vm para executar cargas** de trabalho de teste em Azure Pode especificar um tamanho mínimo do nó primário de 1 ou 3. O cluster de um nó, corre com uma configuração especial e assim, a escala para fora desse cluster não é suportada. O cluster de um nó, não tem fiabilidade e, por isso, no seu modelo de Gestor de Recursos, tem de remover/não especificar essa configuração (não configurar o valor de configuração não é suficiente). Se configurar o cluster de um nó configurado via portal, então a configuração é automaticamente cuidada. Um e três aglomerados de nós não são suportados para a execução de cargas de trabalho de produção. 
-- **VM SKU:** O tipo principal de nó é onde os serviços do sistema funcionam, por isso o VM SKU que escolher para ele, deve ter em conta a carga máxima total que planeia colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer aqui - Pense no tipo de nó primário como os seus "Pulmões", é o que fornece oxigénio ao seu cérebro, e assim se o cérebro não tiver oxigénio suficiente, o seu corpo sofre. 
+As necessidades de capacidade do seu cluster serão determinadas pelos seus requisitos específicos de carga de trabalho e fiabilidade. Esta secção fornece orientações gerais para ajudá-lo a começar com o planeamento de capacidades.
 
-Uma vez que as necessidades de capacidade de um cluster são determinadas pela carga de trabalho que planeia executar no cluster, não podemos fornecer-lhe orientação qualitativa para a sua carga de trabalho específica, no entanto aqui está a orientação ampla para ajudá-lo a começar
+#### <a name="virtual-machine-sizing"></a>Tamanho de máquina virtual
 
-Para cargas de trabalho de produção: 
+**Para cargas de trabalho de produção, o tamanho VM recomendado (SKU) é Standard D2_V2 (ou equivalente) com um mínimo de 50 GB de SSD local.** Recomenda-se um mínimo de 50 GB de SSD local, no entanto algumas cargas de trabalho (como as que executam contentores windows) exigirão discos maiores. Ao escolher [outros tamanhos de VM](../virtual-machines/sizes-general.md) para cargas de trabalho de produção, tenha em mente os seguintes constrangimentos:
 
-- Recomenda-se dedicar os seus clusters ao nó primário aos serviços do sistema e utilizar restrições de colocação para implementar a sua aplicação em Nótipos secundários.
-- O VM SKU recomendado é Standard D2_V2 ou equivalente com um mínimo de 50 GB de SSD local.
-- A utilização mínima suportada VM SKU é Standard_D2_V3 ou Standard D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
-- A nossa recomendação é de um mínimo de 50 GB. Para as suas cargas de trabalho, especialmente quando se executam recipientes Windows, são necessários discos maiores. 
-- Os VM SKUs de núcleo parcial como o Standard A0 não são suportados para cargas de trabalho de produção.
-- Uma série VM SKUs não é suportada para cargas de trabalho de produção por razões de desempenho.
-- Os VM sde baixa prioridade não são apoiados.
+- Os tamanhos de VM do núcleo parcial como o Standard A0 não são suportados.
+- *Série A* Os tamanhos VM não são suportados por razões de desempenho.
+- Os VM de baixa prioridade não são suportados.
+
+#### <a name="primary-node-type"></a>Tipo de nó primário
+
+**As cargas de trabalho** de produção em Azure requerem um mínimo de cinco nós primários (instâncias VM) e um nível de fiabilidade de Prata. É recomendado dedicar o tipo de nó primário de cluster aos serviços do sistema, e usar restrições de colocação para implementar a sua aplicação em tipos de nó secundário.
+
+**As cargas de trabalho** de teste em Azure podem executar um mínimo de um ou três nós primários. Para configurar um cluster de um nó, certifique-se de que a `reliabilityLevel` definição é completamente omitida no seu modelo de Gestor de Recursos (especificar o valor da corda vazia `reliabilityLevel` não é suficiente). Se configurar o cluster de um nó configurado com o portal Azure, esta configuração é feita automaticamente.
 
 > [!WARNING]
-> Alterar o tamanho vm sKU do nó primário em um cluster de funcionamento, é uma operação de escala, e documentado em [escala de escala de máquina virtual para fora](virtual-machine-scale-set-scale-node-type-scale-out.md) documentação.
+> Os clusters de um nó funcionam com uma configuração especial sem fiabilidade e onde a escala não é suportada.
 
-## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Tipo de nó não primário - orientação de capacidade para cargas de trabalho audais
+#### <a name="non-primary-node-types"></a>Tipos de nó não primários
 
-Esta orientação destina-se a cargas de trabalho audais utilizando [coleções fiáveis](service-fabric-choose-framework.md) de tecido de serviço ou atores fiáveis que você está executando no tipo de nó não primário.
+O número mínimo de nós para um tipo de nó não primário depende do nível de [durabilidade](#durability-characteristics-of-the-cluster) específico do tipo nó. Deve planear o número de nós (e nível de durabilidade) com base no número de réplicas de aplicações ou serviços que pretende executar para o tipo de nó, e dependendo se a carga de trabalho é declarada ou apátrida. Tenha em mente que pode aumentar ou diminuir o número de VMs num nó a qualquer momento depois de ter implantado o cluster.
 
-**Número de casos vm:** Para cargas horárias de produção que são imponentes, recomenda-se que as execute com uma contagem mínima e de réplica de 5. Isto significa que em estado constante acaba-se com uma réplica (de um conjunto de réplicas) em cada domínio de avaria e domínio de atualização. Todo o conceito de nível de fiabilidade para o tipo de nó primário é uma forma de especificar esta definição para os serviços do sistema. Assim, a mesma consideração aplica-se também aos seus serviços estatais.
+##### <a name="stateful-workloads"></a>Cargas de trabalho imponentes
 
-Assim, para as cargas de trabalho de produção, o tamanho mínimo recomendado não primário do nó é 5, se estiver a executar cargas de trabalho audais nele.
+Para cargas de trabalho de produção imponentes utilizando coleções fiáveis do Service Fabric [ou atores fiáveis,](service-fabric-choose-framework.md)recomenda-se uma contagem mínima e de réplica de cinco. Com isto, em estado estável, acaba-se com uma réplica (a partir de um conjunto de réplicas) em cada domínio de avaria e domínio de upgrade. Em geral, utilize o nível de fiabilidade que definiu para os serviços do sistema como um guia para a contagem de réplicas que utiliza para os seus serviços estatais.
 
-**VM SKU:** Este é o tipo de nó onde os seus serviços de aplicação estão em execução, por isso o VM SKU que escolher para ele, deve ter em conta a carga máxima que planeia colocar em cada Nó. As necessidades de capacidade do tipo de nó, é determinada pela carga de trabalho que planeia executar no cluster, por isso não podemos fornecer-lhe orientação qualitativa para a sua carga de trabalho específica, no entanto aqui está a orientação ampla para ajudá-lo a começar
+##### <a name="stateless-workloads"></a>Cargas de trabalho apátridas
 
-Para cargas de trabalho de produção 
+Para as cargas de trabalho de produção apátridas, o tamanho mínimo suportado do nó não primário é três para manter o quórum, no entanto é recomendado um tamanho do tipo nó de cinco.
 
-- O VM SKU recomendado é Standard D2_V2 ou equivalente com um mínimo de 50 GB de SSD local.
-- A utilização mínima suportada VM SKU é Standard_D2_V3 ou Standard D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
-- Os VM SKUs de núcleo parcial como o Standard A0 não são suportados para cargas de trabalho de produção.
-- Uma série VM SKUs não é suportada para cargas de trabalho de produção por razões de desempenho.
+## <a name="next-steps"></a>Próximos passos
 
-## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Tipo de nó não primário - orientação de capacidade para cargas de trabalho apátridas
+Antes de configurar o seu cluster, reveja as `Not Allowed` [políticas de atualização](service-fabric-cluster-fabric-settings.md) do cluster para atenuar ter de recriar o seu cluster mais tarde devido a definições de configuração do sistema imutáveis.
 
-Esta orientação de cargas de trabalho apátridas que você está executando no tipo de nó não primário.
+Para obter mais informações sobre o planeamento de clusters, consulte:
 
-**Número de casos vm:** Para cargas de trabalho de produção apátridas, o tamanho mínimo do nó não primário suportado é 2. Isto permite-lhe executar duas instâncias apátridas da sua aplicação e permitir que o seu serviço sobreviva à perda de uma instância VM. 
-
-**VM SKU:** Este é o tipo de nó onde os seus serviços de aplicação estão em execução, por isso o VM SKU que escolher para ele, deve ter em conta a carga máxima que planeia colocar em cada Nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que planeia executar no cluster. Não podemos fornecer-lhe orientação qualitativa para a sua carga de trabalho específica.  No entanto, aqui está a orientação ampla para ajudá-lo a começar.
-
-Para cargas de trabalho de produção 
-
-- O VM SKU recomendado é Standard D2_V2 ou equivalente. 
-- A utilização mínima suportada VM SKU é Standard D1 ou Standard D1_V2 ou equivalente. 
-- Os VM SKUs de núcleo parcial como o Standard A0 não são suportados para cargas de trabalho de produção.
-- Uma série VM SKUs não é suportada para cargas de trabalho de produção por razões de desempenho.
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-
-## <a name="next-steps"></a>Passos seguintes
-Assim que terminar o planeamento da sua capacidade e configurar um cluster, leia o seguinte:
-
-* [Segurança do cluster de tecido de serviço](service-fabric-cluster-security.md)
-* [Escala de cluster de tecido de serviço](service-fabric-cluster-scaling.md)
+* [Planeamento e dimensionamento de computação](service-fabric-best-practices-capacity-scaling.md)
+* [Planeamento de capacidade para aplicações de Tecido de Serviço](service-fabric-capacity-planning.md)
 * [Planeamento de recuperação de desastres](service-fabric-disaster-recovery.md)
-* [Relação dos Nótipos com o conjunto de escala de máquina virtual](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png

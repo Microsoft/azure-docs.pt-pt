@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: a6e7e01917ac6499b9836b460077a5513782a4ce
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610851"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -34,7 +34,7 @@ Data Sync usa um hub e falou topologia para sincronizar dados. Define uma das ba
 
 - A **Base de Dados do Hub** deve ser uma Base de Dados Azure SQL.
 - As **bases de dados dos membros** podem ser bases de dados na Base de Dados Azure SQL ou em casos de SQL Server.
-- A **Base de Dados de Sincronização** contém os metadados e o registo para o Data Sync. A Base de Dados de Sincronização tem de ser uma Base de Dados Azure SQL localizada na mesma região que a Base de Dados do Hub. A Base de Dados de Sincronização é criada pelo cliente e detida pelo cliente.
+- A **Base de Dados de Metadados de Sincronização** contém os metadados e o registo para o Data Sync. A Base de Dados de Metadados de Sincronização tem de ser uma Base de Dados Azure SQL localizada na mesma região que a Base de Dados do Hub. A Sync Metadata Database é criada pelo cliente e detida pelo cliente. Só pode ter uma Base de Dados de Metadados de Sincronização por região e subscrição. Sync Medata Database não pode ser eliminado ou renomeado enquanto existem grupos de sincronização ou agentes de sincronização. A Microsoft recomenda criar uma nova base de dados vazia para utilização como Base de Dados de Metadados de Sincronização. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente.
 
 > [!NOTE]
 > Se estiver a utilizar uma base de dados no local como base de dados de membros, tem de [instalar e configurar um agente de sincronização local.](sql-data-sync-sql-server-configure.md#add-on-prem)
@@ -58,7 +58,7 @@ O Data Sync é útil nos casos em que os dados precisam de ser mantidos atualiza
 
 Data Sync não é a solução preferida para os seguintes cenários:
 
-| Cenário | Algumas soluções recomendadas |
+| Scenario | Algumas soluções recomendadas |
 |----------|----------------------------|
 | Recuperação Após Desastre | [Backups geo-redundantes do Azure](automated-backups-overview.md) |
 | Escala de leitura | [Utilize réplicas apenas de leitura para carregar cargas de trabalho de consulta apenas de leitura (pré-visualização)](read-scale-out.md) |
@@ -155,7 +155,7 @@ O Data Sync não consegue sincronizar apenas colunas de leitura ou geradas pelo 
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitações nas dimensões do serviço e da base de dados
 
-| **Dimensões**                                                  | **Limite**              | **Solução alternativa**              |
+| **Dimensões**                                                  | **Limite**              | **Solução**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Número máximo de grupos de sincronização a que qualquer base de dados pode pertencer.       | 5                      |                             |
 | Número máximo de pontos finais num único grupo de sincronização              | 30                     |                             |
@@ -236,7 +236,11 @@ Sim. SQL Data Sync suporta a colagem nos seguintes cenários:
 
 A Federation Root Database pode ser utilizada no Serviço de Sincronização de Dados SQL sem qualquer limitação. Não é possível adicionar o ponto final da Base de Dados Federada à versão atual do SQL Data Sync.
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Posso utilizar o Data Sync para sincronizar os dados exportados da Dynamics 365 utilizando a sua própria base de dados (BYOD) ?
+
+O Dynamics 365 traz a sua própria funcionalidade de base de dados permite aos administradores exportar entidades de dados da aplicação para a sua própria base de dados Microsoft Azure SQL. O Data Sync pode ser utilizado para sincronizar estes dados noutras bases de dados se os dados forem exportados através de **um impulso incremental** (o impulso total não é suportado) e permitir que os **gatilhos na base de dados-alvo** sejam definidos como **sim**.
+
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="update-the-schema-of-a-synced-database"></a>Atualizar o esquema de uma base de dados sincronizada
 

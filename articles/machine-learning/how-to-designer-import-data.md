@@ -1,7 +1,7 @@
 ---
 title: Importar dados
 titleSuffix: Azure Machine Learning
-description: Saiba como importar os seus dados para o designer Azure Machine Learning de várias fontes de dados.
+description: Saiba como importar dados para o designer de Aprendizagem automática Azure de várias fontes de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 386da835c239953066bf47ee670f7fb27c7b04f4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610953"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importe os seus dados para o designer de machine learning Azure (pré-visualização)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Dados de importação para o designer de aprendizagem automática Azure (pré-visualização)
 
 Neste artigo, aprende-se a importar os seus próprios dados no designer para criar soluções personalizadas. Há duas formas de importar dados para o designer: 
 
@@ -90,6 +90,10 @@ O designer usa um tipo de dados interno para passar dados entre módulos. Pode c
 
 Os módulos no designer são limitados pelo tamanho do alvo do cálculo. Para conjuntos de dados maiores, deve utilizar um recurso de computação Azure Machine Learning maior. Para obter mais informações sobre o cálculo Azure Machine Learning, veja [quais são os alvos de computação em Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="access-data-in-a-virtual-network"></a>Aceder a dados numa rede virtual
+
+Se o seu espaço de trabalho estiver numa rede virtual, deve executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#machine-learning-studio).
+
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda o básico do designer com [Tutorial: Predict automobile price with the designer.](tutorial-designer-automobile-price-train-score.md)

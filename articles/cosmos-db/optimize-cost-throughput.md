@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: afbf0bee86a3d600892ed562ee939d48168ddfdc
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85112944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610732"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
 
@@ -155,7 +155,7 @@ Os seguintes passos ajudam-no a tornar as suas soluções altamente escaláveis 
 
 1. Se tiver sobressaída significativamente a produção de contentores e bases de dados, deverá rever as RUs a provisionadas vs e afinar as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de produção reservada exigida pela sua aplicação é registar a taxa RU da unidade de pedido associada à execução de operações típicas contra um contentor ou base de dados representativo da Azure Cosmos utilizado pela sua aplicação e, em seguida, estimar o número de operações que espera realizar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para aprender a estimar os custos ru de consultas programáticas ou usando o portal consulte [Otimizar o custo das consultas.](online-backup-and-restore.md) 
+2. Um método para estimar a quantidade de produção reservada exigida pela sua aplicação é registar a taxa RU da unidade de pedido associada à execução de operações típicas contra um contentor ou base de dados representativo da Azure Cosmos utilizado pela sua aplicação e, em seguida, estimar o número de operações que espera realizar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para aprender a estimar os custos ru de consultas programáticas ou usando o portal consulte [Otimizar o custo das consultas.](optimize-cost-queries.md) 
 
 3. Outra forma de obter operações e os seus custos em RUs é permitindo registos do Azure Monitor, o que lhe dará a repartição da operação/duração e a taxa de pedido. A Azure Cosmos DB fornece taxa de pedido para cada operação, para que cada carga de operação possa ser armazenada a partir da resposta e depois usada para análise. 
 
@@ -173,7 +173,7 @@ Os seguintes passos ajudam-no a tornar as suas soluções altamente escaláveis 
 
 10. Com a capacidade reservada da Azure Cosmos, você pode obter descontos significativos até 65% durante três anos. O modelo de capacidade reservada da Azure Cosmos DB é um compromisso inicial sobre as unidades de pedidos necessárias ao longo do tempo. Os descontos são hierárquicos de modo a que quanto mais unidades de pedido utilizar durante um período mais longo, mais o seu desconto será. Estes descontos são aplicados imediatamente. Quaisquer RUs utilizados acima dos seus valores provisões são cobrados com base no custo de capacidade não reservado. Consulte [a capacidade reservada da Cosmos DB)](cosmos-db-reserved-capacity.md)para mais detalhes. Considere a capacidade reservada de compra para reduzir ainda mais os seus custos de produção provisões.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, pode proceder para saber mais sobre a otimização de custos na Azure Cosmos DB com os seguintes artigos:
 

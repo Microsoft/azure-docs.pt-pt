@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5f7b923cf9d4a07004d5c59a7afcdeb4b8f5ae54
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: f5ec088132ac339cd6e3673c9cbb628feb2c4ba8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392221"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609287"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -26,7 +26,12 @@ A versão API do plano de controlo mais atual para pré-visualização pública 
 
 Para utilizar as APIs do plano de controlo:
 * Pode ligar diretamente para as APIs, referindo-se à mais recente [pasta Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repo também inclui uma pasta de exemplos que mostram o uso.
-* Atualmente pode aceder a SDKs para controlar APIs em [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1), [Python,](https://pypi.org/project/azure-mgmt-digitaltwins/)ou [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins).
+* Atualmente você pode aceder ADKs para controlar APIs em...
+  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) [(fonte)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)
+  - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) [(fonte)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins)
+  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([fonte)](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins)
+  - [Ir - fonte](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
 
 Também pode exercer APIs de controlo do plano interagindo com as Gémeas Digitais Azure através do [portal Azure](https://portal.azure.com) e [CLI](how-to-use-cli.md).
 
@@ -45,8 +50,8 @@ Para utilizar as APIs do plano de dados:
    - referenciando a mais recente [pasta Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Este repo também inclui uma pasta de exemplos que mostram o uso. 
    - visualização da [documentação de referência](https://docs.microsoft.com/rest/api/azure-digitaltwins/)da API .
 * Pode utilizar o .NET (C#) SDK. Atualmente, este é o único SDK publicado para interagir com estas APIs. Para utilizar o .NET SDK...
-   - você pode encontrar a fonte SDK, incluindo uma pasta de amostras, em GitHub: [Azure IoT Digital Twins biblioteca cliente para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - pode ver o pacote no NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+   - você pode encontrar a fonte SDK, incluindo uma pasta de amostras, em GitHub: [Azure IoT Digital Twins biblioteca cliente para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - pode ver a [documentação de referência do SDK.](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview)
    - pode ver informações detalhadas e exemplos de utilização continuando na secção [.NET (C#) SDK (plano de dados)](#net-c-sdk-data-plane) deste artigo.
 * Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest](how-to-create-custom-sdks.md).
@@ -283,7 +288,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como usar as APIs para criar um exemplo de Azure Digital Twins:
 * [Como fazer: Criar um exemplo de Gémeos Digitais Azure](how-to-set-up-instance.md)

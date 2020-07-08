@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 960e013413f0d057556337428556ee6c06b8fc06
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610222"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Prepare a Windows VHD or VHDX to upload to Azure  (Preparar um VHD ou um VHDX do Windows para carregamento para o Azure)
 
@@ -423,7 +423,7 @@ Idealmente, deve manter a máquina atualizada ao *nível*do patch . Se isto não
 
 |        Componente        |     Binário     | Windows 7 SP1, Windows Server 2008 R2 SP1 |       Windows 8, Windows Server 2012        | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 |      Windows 10 v1703      | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 | ----------------------- | -------------- | ----------------------------------------- | ------------------------------------------- | ----------------------------------- | ------------------------------------------- | -------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Armazenamento                 | disco.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061          | -                                           | -                          | -                                           | -                                           |
+| Armazenamento                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061          | -                                           | -                          | -                                           | -                                           |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.332             | -                                           | -                                           |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                   | -                                           | -                          | -                                           | -                                           |
@@ -448,7 +448,7 @@ Idealmente, deve manter a máquina atualizada ao *nível*do patch . Se isto não
 | Principal                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
 | Serviços de Ambiente de Trabalho Remoto | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850          | 10.0.14393.0 - KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
-|                         | chamado.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
+|                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726          | 10.0.14393.594 - KB4022715                  | -                          | -                                           | -                                           |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
@@ -478,6 +478,9 @@ Para criar uma imagem generalizada, é preciso executar o Sysprep. Para obter ma
 
 Nem todas as funções ou aplicações instaladas num computador baseado no Windows suportam imagens generalizadas. Antes de utilizar este procedimento, certifique-se de que a Sysprep suporta o papel do computador. Para obter mais informações, consulte [o suporte do Sysprep para as funções do servidor.](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
+Em particular, a Sysprep exige que as unidades sejam totalmente desencriptadas antes da execução. Se tiver ativado a encriptação no seu VM, desative-a antes de executar o Sysprep.
+
+
 ### <a name="generalize-a-vhd"></a>Generalizar um VHD
 
 >[!NOTE]
@@ -496,7 +499,7 @@ Nem todas as funções ou aplicações instaladas num computador baseado no Wind
 Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar um VM a partir de um disco generalizado, consulte [o Upload a Generalized VHD e use-o para criar um novo VM em Azure](sa-upload-generalized.md).
 
 >[!NOTE]
-> Um ficheiro personalizado *sem supervisão.xml* não é suportado. Embora suportemos a propriedade **adicional deUnattendContent,** que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell no](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) ficheiro sem *supervisão.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [o Globalcontent adicional](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [o exemplo adicional daUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Um ficheiro *unattend.xml* personalizado não é suportado. Embora suportemos a propriedade **adicional deUnattendContent,** que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no ficheiro *unattend.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [o Globalcontent adicional](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [o exemplo adicional daUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="complete-the-recommended-configurations"></a>Complete as configurações recomendadas
 

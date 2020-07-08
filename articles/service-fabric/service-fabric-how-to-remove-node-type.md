@@ -1,67 +1,67 @@
 ---
-title: Remova um nó em Tecido de Serviço Azure [ Microsoft Docs
-description: Aprenda a remover um tipo de nó de um cluster de tecido de serviço em funcionamento em Azure.
+title: Remova um nó no tecido de serviço Azure / Microsoft Docs
+description: Aprenda a remover um tipo de nó de um cluster de tecido de serviço em execução em Azure.
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9562c09fe99372a9b1106d3ae891f65663cf307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610110"
 ---
-# <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó de tecido de serviço
-Este artigo descreve como escalar um cluster de tecido de serviço Azure removendo um tipo de nó existente de um cluster. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede, nas quais os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamado de nó. Os conjuntos de escala de máquinas virtuais são um recurso de computação Azure que utiliza para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó pode então ser gerido separadamente. Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizontalmente removendo um tipo de nó (conjunto de escala de máquina virtual) e todos os seus nós.  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
+# <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um nó de tecido de serviço
+Este artigo descreve como escalar um cluster de tecido de serviço Azure removendo um tipo de nó existente de um cluster. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamada de nó. Os conjuntos de escala de máquinas virtuais são um recurso computacional Azure que utiliza para implementar e gerir uma coleção de máquinas virtuais como conjunto. Todos os tipos de nó definidos num cluster Azure [são configurado como um conjunto de escala separada](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode então ser gerido separadamente. Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizontalmente removendo um tipo de nó (conjunto de balança de máquina virtual) e todos os seus nós.  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a funcionar no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
 
 > [!WARNING]
-> Não é recomendável utilizar esta abordagem para remover um tipo de nó de um cluster de produção frequentemente utilizado. É um comando perigoso pois elimina o recurso de conjunto de escala de máquina virtual por trás do tipo de nó. 
+> Não é aconselhável utilizar esta abordagem para remover um nó de um aglomerado de produção. É um comando perigoso, uma vez que elimina o recurso de escala de máquina virtual por trás do tipo de nó. 
 
 ## <a name="durability-characteristics"></a>Características de durabilidade
-A segurança é prioritária em relação à velocidade quando se utiliza Remove-AzServiceFabricNodeType. O tipo de nó deve ser de prata ou [ouro,](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)porque:
-- O bronze não lhe dá garantias sobre a poupança de informações do Estado.
-- Durabilidade prateada e dourada prendem qualquer alteração ao conjunto de escala.
-- O ouro também lhe dá controlo sobre as atualizações do Azure por baixo do conjunto de escala.
+A segurança é prioritária sobre a velocidade quando se utiliza remove-AzServiceFabricNodeType. O tipo de nó deve ser nível de durabilidade prateado ou [dourado,](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster)porque:
+- O Bronze não lhe dá quaisquer garantias sobre a poupança de informações do Estado.
+- A durabilidade prateada e dourada prende qualquer alteração no conjunto de escala.
+- O ouro também lhe dá controlo sobre as atualizações Azure por baixo do conjunto de escala.
 
-Service Fabric "orquestra" alterações e atualizações subjacentes para que os dados não se percam. No entanto, ao remover um nó tipo com durabilidade de Bronze, pode perder informações do Estado. Se estiver a remover um nó primário e a sua aplicação for apátrida, o Bronze é aceitável. Quando executa cargas de trabalho audais na produção, a configuração mínima deve ser silver. Da mesma forma, para cenários de produção o tipo principal de nó deve ser sempre Prata ou Ouro.
+O Tecido de Serviço "orquestra" alterações e atualizações subjacentes para que os dados não se percam. No entanto, quando remover um nó com durabilidade de Bronze, pode perder informações do estado. Se estiver a remover um nó primário e a sua aplicação for apátrida, o Bronze é aceitável. Quando se tem cargas de trabalho declaradas em produção, a configuração mínima deve ser Silver. Da mesma forma, para cenários de produção, o tipo de nó primário deve ser sempre prata ou ouro.
 
 ### <a name="more-about-bronze-durability"></a>Mais sobre a durabilidade do Bronze
 
-Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente. O Serviço Fabric não prende nenhuma atualização de conjunto de nóesbronze, pelo que todos os VMs descem imediatamente. Se tivesse algo audabil izado nesses nós, os dados estão perdidos. Mesmo que fosse apátrida, todos os nós do Tecido de Serviço participam no ringue, para que um bairro inteiro possa estar perdido, o que pode desestabilizar o aglomerado em si.
+Ao remover um nó que seja bronze, todos os nós do tipo nó descem imediatamente. O Tecido de Serviço não prende nenhuma escala de nós de bronze, assim todos os VMs descem imediatamente. Se tivesse algo de sossídico nesses nós, os dados perdem-se. Agora, mesmo que fosses apátrida, todos os nós do Tecido de Serviço participam no ringue, para que um bairro inteiro possa estar perdido, o que pode desestabilizar o próprio aglomerado.
 
 ## <a name="remove-a-node-type"></a>Remover um tipo de nó
 
 1. Por favor, cuide destes pré-requisitos antes de iniciar o processo.
 
     - O aglomerado é saudável.
-    - Ainda haverá capacidade suficiente após a remoção do tipo do nó, por exemplo. número de nós para colocar a contagem de réplicas necessária.
+    - Continuará a haver capacidade suficiente após a remoção do tipo nó, por exemplo. número de nós para colocar a contagem de réplicas necessária.
 
-2. Mova todos os serviços que têm restrições de colocação para utilizar o tipo de nó fora do tipo de nó.
+2. Mova todos os serviços que tenham restrições de colocação para utilizar o tipo de nó fora do tipo de nó.
 
-    - Modificar a Aplicação /Manifesto de Serviço para deixar de fazer referência ao tipo de nó.
-    - Implemente a mudança.
+    - Modificar aplicação / Manifesto de serviço para deixar de fazer referência ao tipo de nó.
+    - Desdobre a mudança.
 
     Em seguida, valide que:
-    - Todos os serviços acima modificados já não estão a funcionar no nó pertencente ao nó.
+    - Todos os serviços modificados acima já não estão a funcionar no nó pertencente ao tipo nó.
     - Todos os serviços são saudáveis.
 
 3. Desmarcar o tipo de nó como não primário (saltar para tipos de nó não primários)
 
-    - Localize o modelo do Gestor de Recursos Azure utilizado para a implantação.
+    - Localize o modelo do Gestor de Recursos Azure utilizado para a implementação.
     - Encontre a secção relacionada com o tipo de nó na secção Tecido de Serviço.
-    - Mudar é propriedade primária para falso. ** Não retire a secção relacionada com o tipo de nó nesta tarefa.
-    - Implemente o modelo modificado do Gestor de Recursos Azure. ** Dependendo da configuração do cluster, este passo pode demorar algum tempo.
+    - A alteração é propriedadeprimária para falsa. ** Não retire a secção relacionada com o tipo de nó nesta tarefa.
+    - Implemente o modelo de Gestor de Recursos Azure modificado. ** Dependendo da configuração do cluster, este passo pode demorar algum tempo.
     
     Em seguida, valide que:
-    - Secção de tecido de serviço no Portal indica que cluster está pronto.
-    - O aglomerado é saudável.
-    - Nenhum dos nós pertencentes ao nó está marcado como Nó de Sementes.
+    - A Secção de Tecido de Serviço no Portal indica que o cluster está pronto.
+    - O agrupamento é saudável.
+    - Nenhum dos nós pertencentes ao tipo nó está marcado como Nó de Semente.
 
 4. Desative os dados para o tipo de nó.
 
-    Ligue-se ao cluster utilizando o PowerShell e, em seguida, executar o seguinte passo.
+    Ligue ao cluster utilizando o PowerShell e, em seguida, corra o passo seguinte.
     
     ```powershell
     $nodeType = "" # specify the name of node type
@@ -78,12 +78,12 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     }
     ```
 
-    - Para a durabilidade do bronze, espere que todos os nós vão para o estado de deficientes
-    - Para a durabilidade de prata e ouro, alguns nós entrarão para deficientes e o resto estará em estado de desativação. Verifique o separador de detalhes dos nós em estado de desativação, se todos eles estão presos em garantir quórum para divisórias de serviço de infraestrutura, então é seguro continuar.
+    - Para a durabilidade do bronze, espere que todos os nós entrem em estado de desativação
+    - Para a durabilidade da prata e do ouro, alguns nós vão para deficientes e o resto estará em estado incapacitante. Verifique os detalhes do separador dos nós em estado incapacitante, se todos estiverem presos em garantir o quórum para as divisórias de serviço de infraestrutura, então é seguro continuar.
 
 5. Pare os dados para o tipo de nó.
 
-    Ligue-se ao cluster utilizando o PowerShell e, em seguida, executar o seguinte passo.
+    Ligue ao cluster utilizando o PowerShell e, em seguida, corra o passo seguinte.
     
     ```powershell
     foreach($node in $nodes)
@@ -97,11 +97,11 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     }
     ```
     
-    Espere até que todos os nós para o tipo de nó estejam marcados para baixo.
+    Aguarde até que todos os nós para o tipo de nó estejam marcados para baixo.
     
 6. Remova os dados para o tipo de nó.
 
-    Ligue-se ao cluster utilizando o PowerShell e, em seguida, executar o seguinte passo.
+    Ligue ao cluster utilizando o PowerShell e, em seguida, corra o passo seguinte.
     
     ```powershell
     foreach($node in $nodes)
@@ -115,14 +115,14 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     }
     ```
 
-    Espere até que todos os nós sejam removidos do aglomerado. Os nódosos não devem ser exibidos no SFX.
+    Aguarde até que todos os nós sejam removidos do aglomerado. Os nós não devem ser apresentados em SFX.
 
-7. Retire o tipo do nó da secção de tecido de serviço.
+7. Retire o tipo de nó da secção de tecido de serviço.
 
-    - Localize o modelo do Gestor de Recursos Azure utilizado para a implantação.
+    - Localize o modelo do Gestor de Recursos Azure utilizado para a implementação.
     - Encontre a secção relacionada com o tipo de nó na secção Tecido de Serviço.
     - Retire a secção correspondente ao tipo de nó.
-    - Apenas para aglomerados de prata e maior durabilidade, atualize o recurso de cluster no `applicationDeltaHealthPolicies` modelo `properties` e configure as políticas de saúde para ignorar a saúde da aplicação do tecido:/Sistema, adicionando sob o recurso cluster como indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de saúde. 
+    - Apenas para aglomerados prateados e de durabilidade mais elevados, atualize o recurso de cluster no modelo e configuure as políticas de saúde para ignorar a saúde da aplicação do tecido:/Saúde da aplicação do sistema adicionando `applicationDeltaHealthPolicies` sob o recurso de cluster como indicado `properties` abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de saúde. 
  
  
      ```json
@@ -158,23 +158,23 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     },
     ```
 
-    - Implemente o modelo modificado do Gestor de Recursos Azure. ** Este passo vai demorar um pouco, geralmente até duas horas. Esta atualização irá alterar as definições para o Serviço de Infraestruturas, pelo que é necessário um reinício do nó. Neste caso `forceRestart` é ignorado. 
-    O parâmetro `upgradeReplicaSetCheckTimeout` especifica o tempo máximo que o Tecido de Serviço espera que uma partição esteja em estado seguro, se não já em estado seguro. Uma vez que as verificações de segurança passam para todas as divisórias num nó, o Tecido de Serviço procede com a atualização do nó.
-    O valor do `upgradeTimeout` parâmetro pode ser reduzido para 6 horas, mas para a segurança máxima devem ser utilizadas 12 horas.
+    - Implemente o modelo de Gestor de Recursos Azure modificado. ** Este passo vai demorar um pouco, normalmente até duas horas. Esta atualização irá alterar as definições para o InfrastructureService, pelo que é necessário um reinício do nó. Neste caso `forceRestart` é ignorado. 
+    O parâmetro `upgradeReplicaSetCheckTimeout` especifica o tempo máximo que o Service Fabric espera que uma partição esteja num estado seguro, se não já em estado seguro. Uma vez que as verificações de segurança passam para todas as divisórias num nó, o Tecido de Serviço procede com a atualização desse nó.
+    O valor do parâmetro `upgradeTimeout` pode ser reduzido para 6 horas, mas para segurança máxima devem ser utilizados 12 horas.
 
     Em seguida, valide que:
-    - Serviço De recurso de tecido no portal mostra pronto.
+    - O Recurso de Tecido de Serviço no portal mostra-se pronto.
 
 8. Remova todas as referências aos recursos relativos ao tipo de nó.
 
-    - Localize o modelo do Gestor de Recursos Azure utilizado para a implantação.
-    - Remova o conjunto de escala de máquina virtual e outros recursos relacionados com o tipo de nó do modelo.
-    - Implementar as alterações.
+    - Localize o modelo do Gestor de Recursos Azure utilizado para a implementação.
+    - Remova o conjunto de balanças de máquina virtual e outros recursos relacionados com o tipo de nó do modelo.
+    - Implemente as alterações.
 
     Em seguida:
-    - Aguarde a colocação completa.
+    - Aguarde que a implantação esteja concluída.
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [as características](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)de durabilidade do cluster.
-- Saiba mais sobre [tipos de nó e conjuntos](service-fabric-cluster-nodetypes.md)de escala de máquina virtual.
-- Saiba mais sobre [a escala de cluster de tecido de serviço.](service-fabric-cluster-scaling.md)
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais sobre [as características de durabilidade do](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster)cluster.
+- Saiba mais sobre [os tipos de nós e os conjuntos de balanças de máquinas virtuais.](service-fabric-cluster-nodetypes.md)
+- Saiba mais sobre [o dimensionamento do cluster de tecido de serviço.](service-fabric-cluster-scaling.md)

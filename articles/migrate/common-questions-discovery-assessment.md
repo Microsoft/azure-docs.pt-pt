@@ -3,12 +3,12 @@ title: Perguntas sobre a descoberta, avaliação e análise de dependência em A
 description: Obtenha respostas a perguntas comuns sobre a descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: abcc84ae376e165eb0d677694acbd7d42a2efd8c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610307"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -29,10 +29,34 @@ Reveja as regiões suportadas em [clouds públicas](migrate-support-matrix.md#su
 
 Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 1000 servidores físicos utilizando um único aparelho. Se tiver mais máquinas, leia sobre [o escalonamento de uma avaliação de Hiper-V,](scale-hyper-v-assessment.md) [escalonando uma avaliação de VMware,](scale-vmware-assessment.md)ou [escalando uma avaliação do servidor físico](scale-physical-assessment.md).
 
+## <a name="how-do-i-choose-the-assessment-type"></a>Como escolho o tipo de avaliação?
+
+- Utilize **avaliações de VM do Azure** quando pretender avaliar os seus [VMs VMs, VMs](how-to-set-up-appliance-vmware.md) [hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure. [Saiba mais](concepts-assessment-calculation.md)
+
+- Utilize avaliações **da Solução VMware Azure (AVS)** quando pretender avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+- Pode utilizar um grupo comum com máquinas VMware apenas para executar ambos os tipos de avaliações. Note que se estiver a fazer avaliações AVS em Azure Migrate pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+
+## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Não consigo ver alguns grupos quando estou a criar uma avaliação da Solução VMware (AVS) do Azure VMware
+
+- A avaliação do AVS pode ser feita em grupos que têm apenas máquinas VMware. Por favor, remova qualquer máquina não-VMware do grupo se pretender realizar uma avaliação AVS.
+- Se estiver a realizar avaliações AVS em Azure Migrate pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+
+## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Como selecionar o nível FTT-RAID na avaliação AVS?
+
+O motor de armazenamento utilizado em AVS é vSAN. as polícias de armazenamento vSAN definem os requisitos de armazenamento para as suas máquinas virtuais. Estas políticas garantem o nível de serviço necessário para os seus VMs porque determinam como o armazenamento é atribuído ao VM. Estas são as combinações FTT-Raid disponíveis: 
+
+**Falhas na toleração (FTT)** | **Configuração RAID** | **Anfitriões mínimos necessários** | **Consideração de dimensionamento**
+--- | --- | --- | --- 
+1 | RAID-1 (Espelhamento) | 3 | Um VM de 100GB consumiria 200GB.
+1 | RAID-5 (Codificação de Apagação) | 4 | Um VM de 100GB consumiria 133.33GB
+2 | RAID-1 (Espelhamento) | 5 | Um VM de 100GB consumiria 300GB.
+2 | RAID-6 (Codificação de Apagação) | 6 | Um VM de 100GB consumiria 150GB.
+3 | RAID-1 (Espelhamento) | 7 | Um VM de 100GB consumiria 400GB.
+
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Governo de Azure.
 
 Os tipos de VM apoiados para avaliação e migração dependem da disponibilidade na localização do Governo de Azure. Pode [rever e comparar](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) tipos de VM no Governo Azure.
-
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>O tamanho do meu VM mudou. Posso fazer uma avaliação de novo?
 
@@ -47,7 +71,7 @@ O aparelho Azure Migrate recolhe continuamente informações sobre o ambiente no
 
 Sim, a Azure Migrate requer o vCenter Server num ambiente VMware para realizar a descoberta. A Azure Migrate não suporta a descoberta de anfitriões ESXi que não são geridos pelo vCenter Server.
 
-## <a name="what-are-the-sizing-options"></a>Quais são as opções de dimensionamento?
+## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Quais são as opções de dimensionamento numa avaliação de VM Azure?
 
 Com o tamanho de as-on-ins, Azure Migrate não considera os dados de desempenho de VM para avaliação. Azure Migrate avalia os tamanhos de VM com base na configuração no local. Com o dimensionamento baseado no desempenho, o dimensionamento baseia-se em dados de utilização.
 
@@ -59,18 +83,18 @@ Da mesma forma, o tamanho do disco depende de critérios de dimensionamento e ti
 - Se os critérios de dimensionamento forem baseados no desempenho e o tipo de armazenamento for automático, a Azure Migrate tem em conta os valores de IOPS e de produção do disco quando identifica o tipo de disco-alvo (Standard ou Premium).
 - Se os critérios de dimensionamento forem baseados no desempenho e o tipo de armazenamento for Premium, a Azure Migrate recomenda um SKU de disco Premium baseado no tamanho do disco no local. A mesma lógica aplica-se ao tamanho do disco quando o dimensionamento é as-no-nas-instalações e o tipo de armazenamento é Standard ou Premium.
 
-## <a name="does-performance-history-and-utilization-affect-sizing"></a>O histórico de desempenho e a utilização afetam o tamanho?
+## <a name="does-performance-history-and-utilization-affect-sizing-in-an-azure-vm-assessment"></a>O histórico de desempenho e a utilização afetam o dimensionamento numa avaliação de VM do Azure?
 
-Sim, o histórico de desempenho e a utilização afetam o tamanho em Azure Migrate.
+Sim, o histórico de desempenho e a utilização afetam o dimensionamento numa avaliação de VM Azure.
 
 ### <a name="performance-history"></a>Histórico de desempenho
 
 Apenas para o tamanho baseado no desempenho, a Azure Migrate recolhe o histórico de desempenho das máquinas no local e, em seguida, usa-a para recomendar o tamanho VM e o tipo de disco em Azure:
 
 1. O aparelho traça o perfil contínuo do ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos.
-1. O aparelho enrola as amostras recolhidas de 20 segundos e utiliza-as para criar um único ponto de dados a cada 15 minutos.
-1. Para criar o ponto de dados, o aparelho seleciona o valor máximo de todas as amostras de 20 segundos.
-1. O aparelho envia o ponto de dados para Azure.
+2. O aparelho enrola as amostras recolhidas de 20 segundos e utiliza-as para criar um único ponto de dados a cada 15 minutos.
+3. Para criar o ponto de dados, o aparelho seleciona o valor máximo de todas as amostras de 20 segundos.
+4. O aparelho envia o ponto de dados para Azure.
 
 ### <a name="utilization"></a>Utilização
 
@@ -80,11 +104,17 @@ Por exemplo, se definir a duração do desempenho para um dia e o valor percenti
 
 A utilização do valor percentil 95 garante que os forasteiros são ignorados. Os outliers podem ser incluídos se o seu Azure Migrate usar o percentil 99. Para escolher o pico de utilização para o período sem perder nenhum outliers, coloque Azure Migrate para usar o percentil 99.
 
+
 ## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Como as avaliações baseadas nas importações são diferentes das avaliações com fonte de descoberta como aparelho?
 
-As avaliações baseadas nas importações são avaliações criadas com máquinas que são importadas para a Azure Migrate utilizando um ficheiro CSV. Apenas quatro campos são obrigatórios para importar: nome do servidor, núcleos, memória e sistema operativo. Aqui estão algumas coisas a notar: 
+As avaliações de VM Azure baseadas em importação são avaliações criadas com máquinas que são importadas para a Azure Migrate utilizando um ficheiro CSV. Apenas quatro campos são obrigatórios para importar: nome do servidor, núcleos, memória e sistema operativo. Aqui estão algumas coisas a notar: 
  - Os critérios de prontidão são menos rigorosos nas avaliações baseadas nas importações no parâmetro do tipo de arranque. Se o tipo de arranque não for fornecido, presume-se que a máquina tem o tipo de arranque BIOS e a máquina não está marcada como **Conditionally Ready**. Em avaliações com fonte de descoberta como aparelho, a prontidão é marcada como **Conditionally Ready** se o tipo de arranque estiver em falta. Esta diferença no cálculo da prontidão deve-se ao facto de os utilizadores não terem toda a informação sobre as máquinas nas fases iniciais do planeamento migratório quando as avaliações baseadas nas importações forem efetuadas. 
  - As avaliações de importação baseadas no desempenho utilizam o valor de utilização fornecido pelo utilizador para cálculos de tamanho correto. Uma vez que o valor de utilização é fornecido pelo utilizador, o histórico de **desempenho** e as opções **de utilização por percentil** são desativadas nas propriedades de avaliação. Em avaliações com fonte de descoberta como aparelho, o valor percentil escolhido é colhido a partir dos dados de desempenho recolhidos pelo aparelho.
+
+## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Porque é que o instrumento de migração sugerido na avaliação do AVS baseado nas importações é marcado como desconhecido?
+
+Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão numa avaliação AVS é desconhecida. No entanto, para máquinas VMware, é aconselhável utilizar a solução VMWare Hybrid Cloud Extension (HCX). [Saiba mais.](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation)
+
 
 ## <a name="what-is-dependency-visualization"></a>O que é visualização de dependência?
 
@@ -158,6 +188,6 @@ Para visualização sem agente, pode ver o mapa de dependência de um único ser
 
 Pode [visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) para grupos que tenham até 10 VMs. Se tiver um grupo com mais de 10 VMs, recomendamos que divida o grupo em grupos mais pequenos e, em seguida, visualize as dependências.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia a visão geral do [Azure Migrate](migrate-services-overview.md).

@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9bfe8c9e0dc9aa6711ce46096e7a4df695bf18
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4761ea8affa85e30ee95f5fc2a665df12dfa128d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609234"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador utilizando o CLI Azure
 
@@ -82,7 +82,7 @@ az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 > [!NOTE]
 > A eliminação de uma identidade gerida atribuída pelo utilizador não removerá a referência de qualquer recurso a que tenha sido atribuído. Por favor, remova-os de VM/VMSS usando o `az vm/vmss identity remove` comando
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista completa dos comandos de identidade do Azure CLI, consulte [a identidade az](/cli/azure/identity).
 

@@ -4,15 +4,15 @@ description: Neste artigo, você aprende a configurar SQL FQDNs em regras de apl
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: e7b21a4ebf18cad51898e3a83b622e518c6b391e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610511"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurar regras de aplicação Azure Firewall com SQL FQDNs
 
@@ -61,6 +61,6 @@ Se utilizar portas não padrão para o tráfego SQL IaaS, pode configurar essas 
 4. Aceda ao SQL a partir de uma máquina virtual num VNet que filtra o tráfego através da firewall. 
 5. Valide que [os registos da Azure Firewall](log-analytics-samples.md) mostrem que o tráfego é permitido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os modos de procuração e redireccionamento [sql, consulte a arquitetura de conectividade Azure SQL Database](../azure-sql/database/connectivity-architecture.md).

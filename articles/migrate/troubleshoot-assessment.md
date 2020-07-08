@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 5323e54a81c7123e3e60f69d05accef9a63c7bc4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611378"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -47,8 +47,14 @@ VM com núcleos e memória necessários não encontrados | O Azure não consegui
 Não foi possível determinar a adequação da VM por causa de um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação de um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação de um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+Nenhum tamanho VM encontrado para a moeda de oferta Instância Reservada | Máquina marcada Não é adequada porque o tamanho VM não foi encontrado para a combinação selecionada de RI, oferta e moeda. Editar as propriedades de avaliação para escolher as combinações válidas e recalcular a avaliação. 
+Protocolo de Internet pronto condicionalmente | Apenas aplicável às avaliações da Azure VMware Solution (AVS). O AVS não suporta o fator endereços de internet IPv6.Contacte a equipa AVS para obter orientação de reparação se a sua máquina for detetada com o IPv6.
 
-## <a name="linux-vms-are-conditionally-ready"></a>Os VMs do Linux estão "condicionadomente prontos"
+## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importações marcada como desconhecida
+
+Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão dentro e a avaliação AVS é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMWare Hybrid Cloud Extension (HCX). [Saiba mais.](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation)
+
+## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Os VMs do Linux estão "condicionadomente prontos" numa avaliação do Azure VM
 
 No caso de VMware e VMs hiper-V, a avaliação do servidor marca os VMs do Linux como "condicionadomente prontos" devido a uma lacuna conhecida na Avaliação do Servidor. 
 
@@ -61,7 +67,7 @@ No caso de VMware e VMs hiper-V, a avaliação do servidor marca os VMs do Linux
 Esta lacuna pode ser resolvida permitindo a descoberta de [aplicações](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) nos VMware VMs. A Avaliação do Servidor utiliza o sistema operativo detetado a partir do VM utilizando as credenciais de hóspedes fornecidas. Estes dados do sistema operativo identificam as informações adequadas do SISTEMA no caso dos VMs windows e Linux.
 
 
-## <a name="azure-skus-bigger-than-on-premises"></a>SKUs Azure maior do que no local
+## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs Azure maiores do que no local numa avaliação de Azure VM
 
 A avaliação do servidor Azure Migrate poderá recomendar SKUs Azure VM com mais núcleos e memória do que a atribuição atual no local com base no tipo de avaliação:
 
@@ -79,7 +85,7 @@ Temos um VM no local com quatro núcleos e oito GB de memória, com 50% de utili
 - Se a avaliação for baseada no desempenho, com base na utilização eficaz do CPU e da memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% da memória de 8 GB * 1,3 = memória de 5,3 GB), recomenda-se o VM SKU mais barato de quatro núcleos (contagem de núcleos suportado mais próximo) e oito GB de memória (tamanho de memória suportado mais próximo).
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o dimensionamento de avaliação.
 
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKUs de disco azul maior do que no local
+## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs de disco azul maior do que no local numa avaliação de VM Azure
 
 A avaliação do servidor Azure Migrate pode recomendar um disco maior com base no tipo de avaliação.
 - O tamanho do disco na Avaliação do Servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
@@ -97,16 +103,37 @@ A Avaliação do Servidor informa "PercentagemOfCoresUtilizedMissing" ou "Percen
 - Se algum dos contadores de desempenho estiver em falta, a Avaliação do Servidor Azure Migrate recai sobre os núcleos e memória atribuídos, e recomenda um tamanho VM correspondente.
 - Se todos os balcões de desempenho estiverem em falta, certifique-se de que os requisitos de acesso portuário para avaliação estão cumpridos. Saiba mais sobre os requisitos de acesso à porta para [avaliação de VMware,](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access) [Hiper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) e servidor [físico.](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access)
 
-## <a name="is-the-operating-system-license-included"></a>A licença do sistema operativo está incluída?
+## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>A licença do sistema operativo está incluída numa avaliação do Azure VM?
 
 A Azure Migrate Server Assessment considera atualmente o custo da licença do sistema operativo apenas para máquinas Windows. Os custos de licença das máquinas Linux não são considerados atualmente.
 
-## <a name="how-does-performance-based-sizing-work"></a>Como funciona o dimensionamento baseado no desempenho?
+## <a name="how-does-performance-based-sizing-work-in-an-azure-vm-assessment"></a>Como funciona o dimensionamento baseado no desempenho numa avaliação de VM Azure?
 
 A Avaliação do Servidor recolhe continuamente os dados de desempenho das máquinas no local e utiliza-os para recomendar o SKU da VM e o SKU do disco no Azure. [Saiba como os](concepts-assessment-calculation.md#calculate-sizing-performance-based) dados baseados no desempenho são recolhidos.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Porque é que a minha avaliação mostra um aviso de que foi criada com uma combinação inválida de Instâncias Reservadas, Uptime VM e Discount (%)?
 Quando seleciona 'Instâncias Reservadas', o 'Desconto (%)» e as propriedades de 'uptime' VM não são aplicáveis. Como a sua avaliação foi criada com uma combinação inválida destas propriedades, os botões de edição e recalculação são desativados. Por favor, crie uma nova avaliação. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2131554).
+
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede nos meus servidores físicos
+
+Isto pode acontecer se o servidor físico tiver virtualização Hiper-V ativada. Nestes servidores, devido a uma lacuna no produto, a Azure Migrate descobre atualmente tanto os adaptadores de rede física como virtual. A produção da rede é capturada apenas nos adaptadores de rede virtuais descobertos.
+
+## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>Recomendado Azure VM SKU para o meu servidor físico é enorme
+
+Isto pode acontecer se o servidor físico tiver virtualização Hiper-V ativada. Nestes servidores, a Azure Migrate descobre atualmente os adaptadores de rede física e virtual. Daí, o não. dos adaptadores de rede descobertos é maior do que o real. À medida que a Avaliação do Servidor escolhe um VM Azure que pode suportar o número necessário de adaptadores de rede, isto pode potencialmente resultar num VM de grandes dimensões. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) sobre o impacto do não. de adaptadores de rede no dimensionamento. Esta é uma lacuna de produtos que será resolvida daqui para a frente.
+
+## <a name="readiness-category-not-ready-for-my-physical-server"></a>Categoria de prontidão "Não está pronto" para o meu servidor físico
+
+A categoria de prontidão pode ser incorretamente marcada como "Não Pronto" no caso de um servidor físico que tenha a virtualização Hyper-V ativada. Nestes servidores, devido a uma lacuna no produto, a Azure Migrate descobre atualmente tanto os adaptadores físicos como os adaptadores virtuais. Daí, o não. dos adaptadores de rede descobertos é maior do que o real. Tanto nas instalações como nas avaliações baseadas no desempenho, a Avaliação do Servidor escolhe um VM Azure que pode suportar o número necessário de adaptadores de rede. Se se descobrir que o número de adaptadores de rede é superior a 32, o máximo não. dos NICs suportados em VMs Azure, a máquina será marcada "Não está pronta".  [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) sobre o impacto do não. de NICs no tamanho.
+
+
+## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Número de NICs descobertos superior ao real para servidores físicos
+
+Isto pode acontecer se o servidor físico tiver virtualização Hiper-V ativada. Nestes servidores, a Azure Migrate descobre atualmente tanto os adaptadores físicos como os adaptadores virtuais. Daí, o não. dos NICs descobertos é maior do que o real.
+
+
+## <a name="low-confidence-rating-on-physical-server-assessments"></a>Baixa classificação de confiança nas avaliações de servidores físicos
+O rating é atribuído com base na disponibilidade de pontos de dados necessários para calcular a avaliação. No caso de servidores físicos que tenham a virtualização Hiper-V ativada, existe uma lacuna conhecida do produto devido à qual a baixa classificação de confiança pode ser incorretamente atribuída a avaliações físicas do servidor. Nestes servidores, a Azure Migrate descobre atualmente tanto os adaptadores físicos como os adaptadores virtuais. A produção da rede é capturada nos adaptadores de rede virtuais descobertos, mas não nos adaptadores de rede física. Devido à ausência de pontos de dados nos adaptadores de rede física, a classificação de confiança pode ser impactada, resultando numa classificação baixa. Esta é uma lacuna de produtos que será resolvida daqui para a frente.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualização da dependência no Governo de Azure
 
@@ -182,6 +209,6 @@ Recolher registos de tráfego de rede da seguinte forma:
 - Para os VMs Hiper-V, os dados do sistema operativo são recolhidos a partir do anfitrião Hyper-V
 - Para servidores físicos, é recolhido do servidor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar](how-to-create-assessment.md) ou [personalizar](how-to-modify-assessment.md) uma avaliação.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 4e5969b4c3a42fc8a2c4b1cd537c22a4422ca131
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85269030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610868"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios
 
@@ -53,11 +53,11 @@ Um cenário comum para uma aquisição de subdomínio:
 
 
 
-## <a name="the-risks-of-dangling-dns-records"></a>Os riscos de pendurar os registos do DNS
+## <a name="the-risks-of-subdomain-takeover"></a>Os riscos de aquisição de subdomínio
 
-Quando um registo DNS aponta para um recurso que não está disponível, o registo em si deveria ter sido removido da sua zona de DNS. Se não foi apagado, é um registo de DNS pendente e um risco de segurança.
+Quando um registo DNS aponta para um recurso que não está disponível, o registo em si deveria ter sido removido da sua zona de DNS. Se não foi apagado, é um registo "dNS pendente" e cria a possibilidade de aquisição de subdomínio.
 
-O risco para a organização é que permite que um ator ameaça assuma o controlo do nome DNS associado para hospedar um site ou serviço malicioso. Este site malicioso no subdomínio da organização pode resultar em:
+As entradas de DNS pendentes tornam possível que os atores de ameaça assumam o controlo do nome DNS associado para hospedar um website ou serviço malicioso. Páginas e serviços maliciosos no subdomínio de uma organização podem resultar em:
 
 - **Perda de controlo sobre o conteúdo do subdomínio** - Imprensa negativa sobre a incapacidade da sua organização em garantir o seu conteúdo, bem como os danos e perda de confiança da marca.
 
@@ -65,7 +65,7 @@ O risco para a organização é que permite que um ator ameaça assuma o control
 
 - **Campanhas de phishing** - Subdomínios de aparência autêntica podem ser usados em campanhas de phishing. Isto é verdade para sites maliciosos e também para registos MX que permitiriam que o ator ameaçasse receber e-mails dirigidos a um subdomínio legítimo de uma marca conhecida e segura.
 
-- **Riscos adicionais** - Aumente para outros ataques clássicos como XSS, CSRF, BYPASS CORS, e muito mais.
+- **Riscos adicionais** - Sites maliciosos podem ser usados para escalar em outros ataques clássicos como XSS, CSRF, BYPASS CORS, e muito mais.
 
 
 
@@ -78,7 +78,7 @@ As medidas preventivas de que hoje dispõem estão listadas abaixo.
 
 ### <a name="use-azure-dns-alias-records"></a>Use registos de pseudónimos Azure DNS
 
-Ao acoplar firmemente o ciclo de vida de um registo DNS com um recurso Azure, a funcionalidade [de registos de pseudónimos](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do Azure DNS pode impedir referências pendentes. Por exemplo, considere um registo DNS que seja qualificado como um registo de pseudónimo para apontar para um endereço IP público ou um perfil de Gestor de Tráfego. Se eliminar os recursos subjacentes, o registo de pseudónimos DNS torna-se um recorde vazio. Já não faz referência ao recurso eliminado. É importante notar que há limites para o que se pode proteger com registos de pseudónimos. Hoje, a lista está limitada a:
+Ao acoplar firmemente o ciclo de vida de um registo de DNS com um recurso Azure, [os registos de pseudónimos](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do Azure DNS podem impedir referências pendentes. Por exemplo, considere um registo DNS que seja qualificado como um registo de pseudónimo para apontar para um endereço IP público ou um perfil de Gestor de Tráfego. Se eliminar os recursos subjacentes, o registo de pseudónimos DNS torna-se um recorde vazio. Já não faz referência ao recurso eliminado. É importante notar que há limites para o que se pode proteger com registos de pseudónimos. Hoje, a lista está limitada a:
 
 - Azure Front Door
 - Perfis do Gestor de Tráfego
@@ -95,7 +95,7 @@ Se você tem recursos que podem ser protegidos contra a aquisição de subdomín
 
 Ao criar entradas DNS para o Azure App Service, crie um asuid. {subdomínio} Registo TXT com o ID de Verificação de Domínio. Quando tal registo TXT existe, nenhuma outra Subscrição Azure pode validar o Domínio Personalizado que é, assumir. 
 
-Estes registos não impedem que alguém crie o Serviço de Aplicações Azure com o mesmo nome que está na sua entrada CNAME, mas não poderão receber tráfego ou controlar o conteúdo, porque não podem provar a propriedade do nome de domínio.
+Estes registos não impedem que alguém crie o Serviço de Aplicações Azure com o mesmo nome que está na sua entrada CNAME. Sem a capacidade de provar a propriedade do nome de domínio, os atores de ameaça não podem receber tráfego ou controlar o conteúdo.
 
 [Saiba mais](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) sobre como mapear um nome DNS personalizado existente para o Azure App Service.
 
@@ -111,7 +111,7 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
 
     - Coloque a "Remover a entrada de DNS" na lista de verificações necessárias ao desativar um serviço.
 
-    - Coloque [as fechaduras de apagar](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) quaisquer recursos que tenham uma entrada personalizada de DNS. Isto deve servir como um indicador de que o mapeamento deve ser removido antes de o recurso ser desprovisionado. Medidas como esta só podem funcionar quando combinadas com programas de educação interna.
+    - Coloque [as fechaduras de apagar](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) quaisquer recursos que tenham uma entrada personalizada de DNS. Um bloqueio de eliminação serve como um indicador de que o mapeamento deve ser removido antes de o recurso ser desprovisionado. Medidas como esta só podem funcionar quando combinadas com programas de educação interna.
 
 - **Criar procedimentos para a descoberta:**
 
@@ -162,7 +162,7 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
     - Elimine o registo DNS se já não estiver em uso, ou aponte-o para o recurso Azure (FQDN) de propriedade da sua organização.
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre serviços relacionados e funcionalidades Azure que pode usar para se defender contra a aquisição de subdomínios, consulte as páginas seguintes.
 

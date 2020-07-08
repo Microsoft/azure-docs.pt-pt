@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 55264f1fe0526773db5af299c37e4ea077e6d63f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: f6794559c2296b02ef61d0e280d29456904ae607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609304"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
@@ -225,12 +225,11 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 ```json
 {
-    "$relationshipId": "building_to_floor",
+    "$relationshipId": "device_to_device",
     "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
 
@@ -296,7 +295,7 @@ A notificação correspondente (se executada sincronizadamente pelo serviço, co
   }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como criar pontos finais e rotas para entregar eventos:
 * [Como fazer: Gerir pontos finais e rotas](how-to-manage-routes.md)
