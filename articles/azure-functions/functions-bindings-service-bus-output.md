@@ -1,5 +1,5 @@
 ---
-title: Ligações de autocarros Azure Service para funções Azure
+title: Ligações de saída de ônibus da Azure Service para funções Azure
 description: Aprenda a enviar mensagens de autocarro da Azure Service da Azure Functions.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 1d3441847fc47146418265804457c37c693bd60b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603643"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus Azure Service para funções Azure
 
@@ -280,7 +280,7 @@ As `ServiceBusQueueOutput` `ServiceBusTopicOutput` anotações e anotações est
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `ServiceBus` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para "serviceBus". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "fora". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -381,16 +381,17 @@ Esta secção descreve as definições de configuração global disponíveis par
     }
 }
 ```
+
 Se `isSessionsEnabled` tiver pronto `true` para, o será `sessionHandlerOptions` honrado.  Se `isSessionsEnabled` tiver pronto `false` para, o será `messageHandlerOptions` honrado.
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |prefetchCount|0|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar.|
 |maxAutoRenewDuration|00:05:00|A duração máxima dentro da qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve ligar automaticamente completamente após o processamento, ou se o código de função ligar manualmente completo.|
+|autoComplete|true|Se o gatilho deve ligar automaticamente completamente após o processamento, ou se o código de função ligar manualmente completo.<br><br>A definição `false` para é suportada apenas em C#.<br><br>Se for `true` programado, o gatilho completa a mensagem automaticamente se a execução da função terminar com sucesso e abandonar a mensagem de outra forma.<br><br>Quando definido `false` para , você é responsável por ligar para os métodos [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para completar, abandonar ou matar a mensagem. Se for lançada uma exceção (e nenhum dos `MessageReceiver` métodos for chamado), então o bloqueio permanece. Uma vez expirado o bloqueio, a mensagem é novamente em fila com o `DeliveryCount` incremento e o bloqueio é automaticamente renovado.<br><br>Em funções não-C#, as exceções na função resultam nas chamadas de tempo de `abandonAsync` execução em segundo plano. Se não ocorrer exceção, `completeAsync` então é chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para a chamada que a bomba de mensagem deve iniciar por instância em escala. Por predefinição, o tempo de execução de Funções processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manuseadas simultaneamente por instância em escala.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar uma função quando uma fila de autocarro de serviço ou mensagem de tópico é criada (Trigger)](./functions-bindings-service-bus-trigger.md)

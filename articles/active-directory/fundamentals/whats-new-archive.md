@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 06/30/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2242dc3a80287b36554298fa1a15afb894c9ac1
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: f04fcae1ba218949019637e9a101492a487b430f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976205"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603745"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -31,6 +31,44 @@ O que há de novo no Diretório Ativo Azure? As notas de lançamento fornecem in
 - Correções de erros
 - Funcionalidade preterida
 - Planos para alterações
+
+---
+
+## <a name="december-2019"></a>Dezembro de 2019
+
+### <a name="integrate-sap-successfactors-provisioning-into-azure-ad-and-on-premises-ad-public-preview"></a>Integrar os SAP SuccessFactors que se aprovisionam em Azure AD e no local AD (Visualização pública)
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Provisionamento de Aplicativos  
+**Capacidade do produto:** Gestão do ciclo de vida da identidade
+
+Pode agora integrar os SAP SuccessFactors como fonte de identidade autoritária em Azure AD. Esta integração ajuda-o a automatizar o ciclo de vida de identidade de ponta a ponta, incluindo a utilização de eventos baseados em RH, como novas contratações ou rescisões, para controlar o fornecimento de contas AD Azure.
+
+Para obter mais informações sobre como configurar o SAP SuccessFactors que está a chegar à Azure AD, consulte o tutorial [de provisionamento automático Configure SAP SuccessFactors.](https://aka.ms/SAPSuccessFactorsInboundTutorial)
+
+---
+
+### <a name="support-for-customized-emails-in-azure-ad-b2c-public-preview"></a>Suporte para e-mails personalizados em Azure AD B2C (Visualização pública)
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** B2C - Gestão da Identidade do Consumidor  
+**Capacidade do produto:** B2B/B2C
+
+Agora pode utilizar o Azure AD B2C para criar e-mails personalizados quando os seus utilizadores se inscrevem para usar as suas apps. Ao utilizar o DisplayControls (atualmente em pré-visualização) e um fornecedor de e-mail de terceiros (como, [SendGrid,](https://sendgrid.com/) [SparkPost,](https://sparkpost.com/)ou uma API rest personalizada), pode utilizar o seu próprio modelo de e-mail, **do** endereço e do texto sujeito, bem como apoiar a localização e as definições de senha de uma única vez (OTP).
+
+Para mais informações, consulte [a verificação de email personalizada no Azure Ative Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-email).
+
+---
+
+### <a name="replacement-of-baseline-policies-with-security-defaults"></a>Substituição das políticas de base por incumprimentos de segurança
+
+**Tipo:** Alteração de recurso  
+**Categoria de serviço:** Outros  
+**Capacidade do produto:** Segurança e Proteção de Identidade
+
+Como parte de um modelo seguro por defeito para a autenticação, estamos removendo as políticas de proteção de base existentes de todos os inquilinos. Esta remoção tem como objetivo a sua conclusão no final de fevereiro. A substituição destas políticas de proteção de base são falhas de segurança. Se tem usado políticas de proteção de base, tem de planear passar para a nova política de incumprimentos de segurança ou para o Acesso Condicional. Se não usaste estas políticas, não há ação a tomar.
+
+Para obter mais informações sobre os novos incumprimentos de segurança, veja [quais são os incumprimentos de segurança?](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) Para obter mais informações sobre as políticas de acesso condicional, consulte [as políticas comuns de acesso condicional.](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ---
 
@@ -2281,7 +2319,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 ---
 
-## <a name="june-2018"></a>junho de 2018
+## <a name="june-2018"></a>Junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegado para apps que utilizam Azure AD Activity Logs API
 
@@ -2425,7 +2463,7 @@ Para mais informações sobre a pré-visualização pública, consulte as [funç
 
 ---
 
-## <a name="may-2018"></a>Maio de 2018
+## <a name="may-2018"></a>May 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte ExpressRoute
 
@@ -2649,7 +2687,7 @@ Para obter mais informações, consulte a [funcionalidade de utilização dos te
 
 ---
 
-### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Allow or block invitations to B2B users from specific organizations (Permitir ou bloquear convites para utilizadores B2B de organizações específicas)
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicas
 
 **Tipo:** Nova **categoria de serviço de recurso:** Capacidade do produto B2B: B2B/B2C **Product capability:**
 

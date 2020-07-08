@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84692160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603864"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
 
@@ -93,7 +93,7 @@ Quando um utilizador é eliminado, quaisquer licenças consumidas pelo utilizado
 >[!Note]
 >Tem de utilizar o Windows Server Ative Directory para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Windows Server Ative Directory. Depois de completar a atualização, tem de esperar que o próximo ciclo de sincronização esteja concluído antes de ver as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de adicionar os seus utilizadores, pode fazer os seguintes processos básicos:
 

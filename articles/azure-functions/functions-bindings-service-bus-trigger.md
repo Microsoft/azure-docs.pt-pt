@@ -1,5 +1,5 @@
 ---
-title: Ligações de autocarros Azure Service para funções Azure
+title: Gatilho de ônibus de serviço Azure para funções Azure
 description: Aprenda a executar uma Função Azure quando as mensagens de autocarro do Serviço Azure forem criadas.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c15fe311b331592a54c61a5cddb29d4b467ca550
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ee4961c6c1bb8cafe25ec2c84affdf0f1789e9f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603031"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções Azure
 
@@ -45,9 +45,9 @@ public static void Run(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho do Service Bus num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila do Service Bus.
+O exemplo a seguir mostra uma ligação do gatilho do Service Bus numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila do Service Bus.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -85,9 +85,9 @@ public static void Run(string myQueueItem,
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho do Service Bus num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila do Service Bus. 
+O exemplo a seguir mostra uma ligação do gatilho do Service Bus numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila do Service Bus. 
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -120,7 +120,7 @@ module.exports = function(context, myQueueItem) {
 
 O exemplo a seguir demonstra como ler uma mensagem de fila do Service Bus através de um gatilho.
 
-Uma ligação de autocarro de serviço é definida em *função.json* onde *o tipo* está definido para `serviceBusTrigger` .
+Uma ligação de autocarro de serviço é definida em *function.jsno* local onde *o tipo* está definido para `serviceBusTrigger` .
 
 ```json
 {
@@ -287,9 +287,9 @@ Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `ServiceBusTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `ServiceBusTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "serviceBusTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -313,6 +313,7 @@ Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de
 * `byte[]`- Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
 * `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)- Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
 
 Estes tipos de parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
@@ -351,13 +352,13 @@ O manuseamento de mensagens venenosas não pode ser controlado ou configurado em
 
 O tempo de execução das funções recebe uma mensagem no [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Solicita `Complete` a mensagem se a função terminar com sucesso ou se `Abandon` ligar se a função falhar. Se a função for mais longa do que o `PeekLock` tempo limite, o bloqueio é automaticamente renovado enquanto a função estiver em funcionamento. 
 
-O `maxAutoRenewDuration` é configurável em *host.json,* que mapeia para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta regulação é de 5 minutos de acordo com a documentação do Service Bus, enquanto que pode aumentar o prazo de tempo de Funções do padrão de 5 minutos para 10 minutos. Para funções de Service Bus, não gostaria de fazer isso, pois ultrapassaria o limite de renovação do Service Bus.
+O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta regulação é de 5 minutos de acordo com a documentação do Service Bus, enquanto que pode aumentar o prazo de tempo de Funções do padrão de 5 minutos para 10 minutos. Para funções de Service Bus, não gostaria de fazer isso, pois ultrapassaria o limite de renovação do Service Bus.
 
 ## <a name="message-metadata"></a>Metadados de mensagens
 
 O gatilho do Service Bus fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [Message.](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet)
 
-|Propriedade|Tipo|Description|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo recetor para lógica específica da aplicação.|
 |`CorrelationId`|`string`|A identificação da correlação.|
@@ -376,6 +377,6 @@ O gatilho do Service Bus fornece várias [propriedades de metadados.](./function
 
 Consulte [exemplos de código](#example) que utilizam estas propriedades anteriormente neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Enviar mensagens de autocarro da Azure Service de Azure Functions (ligação de saída)](./functions-bindings-service-bus-output.md)

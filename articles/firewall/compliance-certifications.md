@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 3de9ef12619ed27eb48af64c4bf4bd1a79229d04
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602725"
 ---
 # <a name="azure-firewall-certifications"></a>Certificações Azure Firewall
 
@@ -93,7 +93,7 @@ As seguintes certificações Azure Firewall são para o Governo Azure:
 - EAR
 - FIPS 140-2
 - FedRAMP Alto
-- HIPPA
+- HIPAA
 - HITECH Act (EUA)
 - HITRUST
 - IRS 1075
@@ -117,7 +117,7 @@ O ICSA Labs é um fornecedor líder em testes e certificação de produtos de TI
 Azure Firewall é o primeiro serviço de firewall em nuvem a atingir a Certificação de Firewall Corporativa ICSA Labs. Para o relatório de certificação Azure Firewall, consulte o [Relatório de Certificação e Auditoria da ICSA Labs.](https://aka.ms/ICSALabsCertification) Para mais informações, consulte a página do Programa de Certificação firewall do [ICSA Labs.](https://www.icsalabs.com/technology-program/firewalls)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a conformidade da Microsoft, consulte as seguintes informações.
 
