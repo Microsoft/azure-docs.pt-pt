@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367449"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Partilha externa do Office 365 e colaboração B2B do Office 365 e do Azure Ative Directory (Azure AD)
@@ -43,7 +43,7 @@ Depois de permitir a partilha externa, a capacidade de procurar utilizadores con
 
 Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível do arrendatário e da recolha do site. Pode definir a funcionalidade utilizando os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do arrendatário não afetam os sítios SPO já previstos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Adicionar um utilizador de colaboração B2B a uma função](add-guest-to-role.md)

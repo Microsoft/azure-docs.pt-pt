@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85374411"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>SaaS oferecem lista de verificação de criação no Partner Center
@@ -83,7 +83,7 @@ A página de listagem é onde fornece o texto e imagens que os clientes vêem ao
 | :---------------- | :-----------| 
 | Name  | Obrigatório, máximo 50 chars. |
 | Resumo  | Obrigatório, máximo 100 chars. | 
-| Description  | Obrigatório, máximo 3000 chars. |
+| Descrição  | Obrigatório, máximo 3000 chars. |
 | Instruções de início  | Obrigatório, máximo 3000 chars. |
 | Instruções de início  | Obrigatório, máximo 3000 chars. |
 | Pesquisar palavras-chave  | Opcional, recomendado, máx. |
@@ -153,7 +153,7 @@ Só disponível se escolher para oferecer um test drive para a sua oferta. Defin
 
 | **Nome do campo**    | **Notas**   | 
 | :---------------- | :-----------| 
-| Description  | Necessário. |
+| Descrição  | Necessário. |
 | Nome manual do utilizador + ficheiro  | Obrigatório, max 1 doc. Deve ser formato PDF. |
 | Nome de vídeo, URL + miniatura  | Opcional, recomendado. Miniatura deve ser 533 x 324 em formato JPGP ou PNG. O vídeo deve ser apresentado no YouTube ou no Vimeo. |
 
@@ -163,6 +163,6 @@ Só disponível se escolher para oferecer um test drive para a sua oferta. Defin
 | :---------------- | :-----------| 
 | Notas para certificação  | Opcional. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma nova oferta SaaS](./create-new-saas-offer.md)

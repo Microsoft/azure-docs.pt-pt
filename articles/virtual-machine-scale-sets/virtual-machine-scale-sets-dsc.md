@@ -10,10 +10,10 @@ ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 6939339ce8d0f324fbd9e14ba31d23a6febcfcbe
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85373902"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Usando conjuntos de balança de máquina virtual com a extensão Azure DSC
@@ -93,7 +93,7 @@ Um nó de conjunto de escala de máquina virtual tem uma secção de "propriedad
 ## <a name="behavior-for-a-virtual-machine-scale-set"></a>Comportamento para um conjunto de escala de máquina virtual
 O comportamento de um conjunto de escala de máquina virtual é idêntico ao comportamento de um único VM. Quando um novo VM é criado, é automaticamente a provisionado com a extensão DSC. Se for necessária uma versão mais recente do WMF pela extensão, o VM reinicia antes de ficar online. Uma vez online, descarrega a configuração DSC .zip e fornece-a no VM. Mais detalhes podem ser encontrados [na Visão Geral da Extensão Azure DSC](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Examine o [modelo do Gestor de Recursos Azure para a extensão DSC](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Saiba como a [extensão DSC lida com as credenciais de forma segura](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

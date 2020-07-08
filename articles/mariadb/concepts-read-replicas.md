@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: d1d1dbb273ed1da3835f533b5f38743db73816c7
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367342"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
@@ -159,13 +159,13 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 
 Para atualizar um dos parâmetros acima no servidor principal, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 
 - A criação de uma réplica de uma réplica não é suportada.
 - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MariaDB.
 - Certifique-se de que as tabelas do servidor principal têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)

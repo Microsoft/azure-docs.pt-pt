@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
 ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367789"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planeie uma implementação de procuração de aplicativo AD Azure

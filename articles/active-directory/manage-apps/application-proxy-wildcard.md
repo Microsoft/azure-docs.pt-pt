@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367738"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações Wildcard no proxy de aplicação do Azure Ative Directory
@@ -156,7 +156,7 @@ A configuração implementa a seguinte estrutura:
 
 ![Mostra a estrutura implementada pela configuração do exemplo](./media/application-proxy-wildcard/05.png)
 
-| Cor | Description |
+| Cor | Descrição |
 | ---   | ---         |
 | Azul  | Aplicações explicitamente publicadas e visíveis no portal Azure. |
 | Cinzento  | Aplicações que pode ser acessível através da aplicação dos pais. |
@@ -189,7 +189,7 @@ Porque `finance.adventure-works.com` é uma URL mais específica do `*.adventure
 
 Se tiver várias aplicações publicadas para financiamento e tiver `finance.adventure-works.com` como domínio verificado, poderá publicar outra aplicação wildcard `*.finance.adventure-works.com` . Uma vez que isto é mais específico do que o `*.adventure-works.com` genérico, tem precedência se um utilizador acede a uma aplicação no domínio financeiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre **domínios personalizados,** consulte [Trabalhar com domínios personalizados no Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 - Para saber mais sobre **as aplicações de publicação,** consulte [publicar aplicações usando a Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

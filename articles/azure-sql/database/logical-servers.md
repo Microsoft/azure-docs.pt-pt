@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367581"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
@@ -87,7 +87,7 @@ Para gerir uma base de dados existente, navegue na página **de bases de dados S
 
 Para criar e gerir servidores, bases de dados e firewalls com a Azure PowerShell, utilize os seguintes cmdlets PowerShell. Se precisar de instalar ou atualizar o PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir piscinas elásticas, consulte [piscinas elásticas.](elastic-pool-overview.md)
 
-| Cmdlet | Description |
+| Cmdlet | Descrição |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Cria uma base de dados |
 |[Base de Dados Get-AzSql](/powershell/module/az.sql/get-azsqldatabase)|Obtém uma ou mais bases de dados|
@@ -112,7 +112,7 @@ Para criar e gerir servidores, bases de dados e firewalls com a Azure PowerShell
 
 Para criar e gerir servidores, bases de dados e firewalls com o [Azure CLI,](/cli/azure)utilize os seguintes comandos [Azure CLI SQL Database.](/cli/azure/sql/db) Utilize o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerir piscinas elásticas, consulte [piscinas elásticas.](elastic-pool-overview.md)
 
-| Cmdlet | Description |
+| Cmdlet | Descrição |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Cria uma base de dados|
 |[lista de az sql db](/cli/azure/sql/db#az-sql-db-list)|Lista todas as bases de dados geridas por um servidor, ou todas as bases de dados numa piscina elástica|
@@ -145,7 +145,7 @@ Para criar e gerir servidores, bases de dados e firewalls com Transact-SQL, util
 > [!IMPORTANT]
 > Não é possível criar ou eliminar um servidor utilizando o Transact-SQL.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[CREATE DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Cria uma nova base de dados na Base de Dados Azure SQL. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 |[CRIAR BASE DE DADOS (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Cria uma nova base de dados de armazém de dados em Azure Synapse. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
@@ -171,7 +171,7 @@ Para criar e gerir servidores, bases de dados e firewalls com Transact-SQL, util
 
 Para criar e gerir servidores, bases de dados e firewalls, utilize estes pedidos de API REST.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[Servidores - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
 |[Servidores - Eliminar](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina um servidor.|
@@ -190,7 +190,7 @@ Para criar e gerir servidores, bases de dados e firewalls, utilize estes pedidos
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber sobre a migração de uma base de dados do SQL Server para a Base de Dados Azure SQL, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

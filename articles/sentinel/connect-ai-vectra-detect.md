@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85368466"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Ligue a AI Vectra Detect a Azure Sentinel
@@ -47,7 +47,7 @@ Configure a AI Vectra Detect para encaminhar mensagens Syslog formatadas por CEF
 
 4. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar os aparelhos AI Vectra Detect ao Azure Sentinel. Para tirar o máximo partido das capacidades incorporadas neste conector de dados, clique no separador **passos seguintes** na página do conector de dados. Lá você encontrará algumas consultas de amostras prontas para que você possa começar a encontrar informações úteis.
 

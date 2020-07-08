@@ -4,10 +4,10 @@ description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para ger
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85373629"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a política do Azure para os clusters Kubernetes (pré-visualização)
@@ -530,7 +530,7 @@ A informação recolhida pelo addon não são dados pessoais. Os seguintes detal
 - Exceções/erros encontrados pelo Azure Policy Add-on durante a instalação do agente na avaliação de políticas
 - Número de definições de política gatekeeper não instaladas pelo Add-on da Política Azure
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

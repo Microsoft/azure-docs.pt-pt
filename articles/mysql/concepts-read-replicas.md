@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 29ae9c47ca4ed8cdfedf78ffa7957376c7556076
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367495"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
@@ -158,7 +158,7 @@ O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-vari
 
 Para atualizar um dos parâmetros acima no servidor principal, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 
 - Os identificadores globais de transações (GTID) não são suportados.
 - A criação de uma réplica de uma réplica não é suportada.
@@ -166,7 +166,7 @@ Para atualizar um dos parâmetros acima no servidor principal, por favor, elimin
 - Certifique-se de que as tabelas do servidor principal têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 - Reveja a lista completa das limitações de replicação do [MySQL na documentação MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)

@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84754648"
 ---
 A Azure Data Factory é um serviço multitenant que tem os seguintes limites padrão em vigor para garantir que as subscrições do cliente estão protegidas das cargas de trabalho uns dos outros. Para elevar os limites até ao máximo para a sua subscrição, contacte o suporte.

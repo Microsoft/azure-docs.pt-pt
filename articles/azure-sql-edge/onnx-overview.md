@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
 ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85368061"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine learning e IA com ONNX em SQL Edge (Pré-visualização)
@@ -52,7 +52,7 @@ Outros tipos numéricos podem ser convertidos em tipos suportados utilizando [CA
 
 As entradas do modelo devem ser estruturadas de modo a que cada entrada do modelo corresponda a uma única coluna numa tabela. Por exemplo, se estiver a utilizar um dataframe de pandas para treinar um modelo, então cada entrada deve ser uma coluna separada do modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar sql edge através do portal Azure](deploy-portal.md)
 - [Implementar um modelo ONNX no Azure SQL Edge (Pré-visualização)](deploy-onnx.md)

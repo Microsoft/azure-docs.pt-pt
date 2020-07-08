@@ -9,10 +9,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362990"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
@@ -234,7 +234,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
    > [!div class="mx-imgBorder"]
    > ![Uma imagem do conteúdo da pasta no caminho de montagem. Dentro está um único ficheiro VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode utilizar os recipientes de perfil FSLogix para configurar uma partilha de perfil de utilizador. Para aprender a criar partilhas de perfil de utilizador com os seus novos recipientes, consulte [Criar um recipiente de perfil para uma piscina hospedeira utilizando uma partilha de ficheiros](create-host-pools-user-profile.md).
 

@@ -4,10 +4,10 @@ description: Aprenda as melhores práticas para trabalhar com Coleções Fiávei
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85374700"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
@@ -218,7 +218,7 @@ Além disso, o código de serviço é atualizado um domínio de atualização de
 
 Em alternativa, pode executar o que normalmente é referido como uma atualização de dois. Com uma atualização em duas fases, atualiza o seu serviço de V1 para V2: O V2 contém o código que sabe lidar com a nova alteração de esquema, mas este código não executa. Quando o código V2 lê os dados V1, opera neles e escreve dados V1. Em seguida, depois de a atualização estar completa em todos os domínios de upgrade, pode de alguma forma sinalizar para as instâncias V2 em execução que a atualização está completa. (Uma maneira de sinalizar isto é lançar uma atualização de configuração; isto é o que faz com que isto seja uma atualização em duas fases.) Agora, as instâncias V2 podem ler dados V1, convertê-lo em dados V2, operar neles, e escrevê-lo como dados V2. Quando outros casos lêem dados V2, não precisam de os converter, apenas operam neles e escrevem dados V2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para conhecer a criação de contratos de dados compatíveis a prazo, consulte [Contratos de Dados Compatíveis a Prazo](https://msdn.microsoft.com/library/ms731083.aspx)
 
 Para conhecer as melhores práticas sobre a versão dos contratos de dados, consulte [a versão do contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx)

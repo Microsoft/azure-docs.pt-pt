@@ -4,10 +4,10 @@ description: Confiem a solução VMware Hybrid Cloud Extension (HCX) para a sua 
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367551"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instale hCX para solução VMware Azure
@@ -29,7 +29,7 @@ Depois, passamos por todos os procedimentos necessários para:
 
 Após completar a configuração, pode seguir os próximos passos recomendados no final deste artigo.  
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
     
 * Reveja a [série tutorial](tutorial-network-checklist.md) básica do AVS Software Defined Datacenter (SDDC)
 * Rever e fazer referência à [documentação VMware HCX,](https://docs.vmware.com/en/VMware-HCX/index.html) incluindo o guia do utilizador HCX
@@ -273,6 +273,6 @@ Para verificar o estado do **Interconnect**aparelho, selecione  >  **Interligaç
       
 ![Estado do aparelho](./media/hybrid-cloud-extension-installation/appliance-status.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Quando o aparelho interligar o **estado do túnel** é **UP** e verde, está pronto para migrar e proteger os VMs AVS utilizando HCX. Consulte [a documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) e [máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) na documentação técnica VMware.

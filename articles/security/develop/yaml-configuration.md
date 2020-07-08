@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367262"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Opções de configuração YAML para personalizar as tarefas de construção
@@ -162,6 +162,6 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | VstsConsole | boolean | sempre | Falso | true |  | Escreva resultados para a Consola de Pipeline.
 | ToolLogsNotFoundAction | picklist | sempre | Verdadeiro | Standard | Erro, Nenhum, Padrão, Aviso | A ação a tomar quando não forem encontrados registos de uma ferramenta selecionada (ou qualquer ferramenta se todas as Ferramentas forem verificadas), o que implica que a ferramenta não foi executada.<br/><br/>**Opções:**<br/>**Nenhuma:** A mensagem é escrita para o fluxo de saída verboso acessível apenas definindo o sistema variável VSTS.debug para **verdadeiro**. **system.debug**<br/>**Standard:** (Padrão) Escreve uma mensagem de saída padrão que não foram encontrados registos para a ferramenta.<br/>**Aviso:** Escreve uma mensagem de aviso amarela de que não foram encontrados registos para a ferramenta, que aparece na página de resumo da construção como aviso.<br/>**Erro:** Escreve uma mensagem de erro vermelha e lança uma exceção, quebrando a construção. Utilize esta opção para garantir, com as opções individuais da ferramenta, quais as ferramentas que são utilizadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver mais perguntas sobre a extensão de Análise de Código de Segurança e as ferramentas oferecidas, consulte a [nossa página de PERGUNTAS Frequentes.](security-code-analysis-faq.md)

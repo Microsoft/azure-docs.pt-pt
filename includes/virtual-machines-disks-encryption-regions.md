@@ -9,10 +9,10 @@ ms.date: 05/15/2020
 ms.author: rogarana
 ms.custom: include file, references_regions
 ms.openlocfilehash: 59df8bef902d5068ceafaf90c530e8b636b40af9
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84346150"
 ---
 Para SSDs premium, SSDs standard e HDDs padrão, apenas as seguintes regiões suportam atualmente chaves geridas pelo cliente:

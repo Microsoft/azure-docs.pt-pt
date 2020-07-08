@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184201"
 ---
 1. Enquanto estiver ligado à máquina virtual com o ambiente de trabalho remoto, procure pelo **Gestor de Configuração**:
@@ -17,11 +17,11 @@ ms.locfileid: "67184201"
 
 1. No Gestor de Configuração do SQL Server, no painel da consola, expanda **Configuração de Rede do SQL Server**.
 
-1. No painel da consola, clique em **Protocolos para MSSQLSERVER** (o nome da instância predefinido.) No painel de detalhes, clique no **TCP** e clique em **Ativar** se ainda não estiver ativado.
+1. No painel de consola, clique em **Protocolos para MSSQLSERVER** (o nome de instância padrão.) No painel de detalhes, clique com o botão direito **E** clique **em Ativar** se ainda não estiver ativado.
 
     ![Ativar TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. No painel da consola, clique em **Serviços do SQL Server**. No painel de detalhes, clique no **sql server *(nome*** da instância ) (a instância predefinida é **SQL Server (MSSQLSERVER)**), e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do Servidor SQL.
+1. No painel da consola, clique em **Serviços do SQL Server**. No painel de detalhes, clique à direita **NO SQL Server *(nome*** de instância) (a instância padrão é **SQL Server (MSSQLSERVER)**), e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
 
     ![Reiniciar o Motor de Base de Dados](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

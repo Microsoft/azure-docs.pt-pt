@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85374446"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
@@ -203,7 +203,7 @@ Implemente o seu plano de comunicação. Certifique-se de que está a informar o
 
 Pode utilizar os seguintes casos de teste para realizar testes em dispositivos pessoais e corporativos para garantir que as suas configurações SSO estão a funcionar como esperado. Os cenários abaixo assumem que um utilizador está a navegar para um URL de aplicação e a passar por um fluxo de autenticação iniciado pelo prestador de serviços (fluxo de auth iniciado pela SP).
 
-| Cenário | Resultado esperado no fluxo de auth iniciado pelo SP pelo utilizador |
+| Scenario | Resultado esperado no fluxo de auth iniciado pelo SP pelo utilizador |
 |----------|---------------------------------------------------|
 | Faça login para aplicação com IE enquanto em corpnet. | A autenticação integrada do Windows (IWA) ocorre sem solicitações adicionais. |
 | Faça login para aplicação com IE enquanto desligado da corpnet com nova tentativa de login. | Solicitação baseada em formulários no AD FS Server. O utilizador inicia sessão com sucesso e solicita o mFA. |
@@ -303,7 +303,7 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 
 - [Problema com SSO federado para candidaturas NÃO listados na Galeria de Aplicações Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Depuração SSO baseada em SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 

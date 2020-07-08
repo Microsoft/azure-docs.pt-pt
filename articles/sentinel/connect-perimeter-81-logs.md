@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: a0eb234d9677c479d2cb404b065da408854168e3
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85368441"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Ligue o seu Perímetro 81 registos de atividades a Azure Sentinel
@@ -52,7 +52,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem em **Registos
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar os registos de atividade do Perímetro 81 ao Azure Sentinel. Para tirar o máximo partido das capacidades incorporadas neste conector de dados, clique no separador **passos seguintes** na página do conector de dados. Lá você encontrará um livro pronto e algumas consultas de amostra para que você possa começar a encontrar informações úteis.
 

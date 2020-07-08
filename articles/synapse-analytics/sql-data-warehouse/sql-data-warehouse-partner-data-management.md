@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 18c72fd5f0ad4505d754efc6015ee626156beec3
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85368129"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Parceiros de gestão de dados Azure Synapse Analytics
@@ -23,7 +23,7 @@ ms.locfileid: "85368129"
 Para criar a sua solução de armazém de dados utilizando a funcionalidade de pool Synapse SQL da Azure Synapse, tem uma grande variedade de ferramentas líderes da indústria para escolher. Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gestão de dados que suportam o Azure Synapse.
 
 ## <a name="data-management-partners"></a>Parceiros de gestão de dados
-| Parceiro | Description | Link do site/produto |
+| Parceiro | Descrição | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![Armazenagem de dados do caixão](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Armazenagem de dados do caixão**<br>O Coffing Data Warehousing fornece o Nexus Chameleon, uma ferramenta com 10 anos de design dedicado aos sistemas de consulta. Nexus está disponível como uma ferramenta de consulta para uma piscina Azure Synapse SQL. Use o Nexus para consultar computadores internos e em nuvem e junte dados em diferentes plataformas. Point-Click-Report! |[Página do produto](https://www.coffingdw.com/software/nexus/)<br> |
 | ![Inbreina](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>A Inbrein MicroERD fornece as ferramentas necessárias para criar um modelo de dados preciso, reduzir a redundância de dados, melhorar a produtividade e observar padrões. Ao utilizar a sua UI, que foi desenvolvida com base em extensas experiências de utilizador, um modelador pode trabalhar em modelos DB de forma fácil e conveniente. Pode desfrutar continuamente de novas e melhoradas funções do MicroERD através de rápidas melhorias e atualizações funcionais. |[Página do produto](http://microerd.com/)<br> |
@@ -33,7 +33,7 @@ Para criar a sua solução de armazém de dados utilizando a funcionalidade de p
 | ![Sentinela Um](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**SentryOne (DW Sentry)**<br>Com o painel inteligente de movimentos de dados e o calendário de eventos, sabe sempre o que está a afetar a sua carga de trabalho. Projetado para lhe dar visibilidade nas suas consultas e empregos que correm para carregar, fazer backup ou restaurar os seus dados, nunca se preocupa em aproveitar ao máximo os seus recursos Azure. |[Página do produto](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM é uma Ferramenta de Modelação de Dados baseada na Nuvem que lhe oferece uma maneira fácil e conveniente de desenvolver a sua base de dados em qualquer lugar em qualquer navegador. Tudo ao mesmo tempo que incorpora quaisquer regras e objetos de base de dados necessários, tais como chaves de base de dados, esquemas, índices, restrições de colunas e relacionamentos. |[Página do produto](http://sqldbm.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre outros parceiros, consulte [parceiros de Business Intelligence,](sql-data-warehouse-partner-business-intelligence.md) [parceiros de Integração de Dados](sql-data-warehouse-partner-data-integration.md) e [machine learning e parceiros de IA.](sql-data-warehouse-partner-machine-learning-ai.md)
 
 

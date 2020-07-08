@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367755"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não pode aceder a esta aplicação corporativa" ao utilizar uma aplicação Proxy de aplicação
@@ -103,6 +103,6 @@ Se continuar a ver o erro, vá à máquina onde o Conector está instalado, abra
 
 Se conseguir chegar à aplicação a partir dessa máquina, procure problemas ou erros com o próprio Conector. Pode ver alguns erros comuns no [documento de resolução de problemas](application-proxy-troubleshoot.md#connector-errors). Também pode olhar diretamente para os registos do Conector para identificar quaisquer erros. Muitas das nossas mensagens de erro podem partilhar recomendações mais específicas para correções. Para aprender a ver os registos, consulte a [documentação dos nossos conectores.](application-proxy-connectors.md#under-the-hood)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

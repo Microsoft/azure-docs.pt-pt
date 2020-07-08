@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367398"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o portal Azure
@@ -170,7 +170,7 @@ As regras de saída do balançador de carga configuram sNAT de saída para VMs n
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Selecione o grupo de recursos **myResourceGroupSLB** que contém o equilibrador de carga e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo:
  - Criaste um balanceador de carga padrão.
