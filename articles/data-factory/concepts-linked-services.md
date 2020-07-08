@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84338129"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
@@ -68,10 +67,10 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Yes |
-tipo | Tipo de serviço ligado. Por exemplo: Azure Storage (data store) ou AzureBatch (cálculo). Consulte a descrição para tipos de propriedades. | Yes |
-typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e suas propriedades de tipo, consulte a tabela [do tipo conjunto de dados](concepts-datasets-linked-services.md#dataset-type) neste artigo. Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Yes |
-connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No
+name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Sim |
+tipo | Tipo de serviço ligado. Por exemplo: Azure Storage (data store) ou AzureBatch (cálculo). Consulte a descrição para tipos de propriedades. | Sim |
+typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e suas propriedades de tipo, consulte a tabela [do tipo conjunto de dados](concepts-datasets-linked-services.md#dataset-type) neste artigo. Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Sim |
+connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não
 
 ## <a name="linked-service-example"></a>Exemplo de serviço ligado
 

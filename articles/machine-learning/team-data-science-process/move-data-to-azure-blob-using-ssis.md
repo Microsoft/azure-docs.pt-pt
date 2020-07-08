@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322867"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou de Azure Blob Storage usando conectores SSIS
@@ -64,7 +63,7 @@ Para mover dados usando o pacote de funcionalidades SSIS de instalações para o
 
 Os parâmetros que a tarefa utiliza são descritos aqui:
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | **AzurestorageConnection** |Especifica um gestor de conexão de armazenamento Azure existente ou cria um novo que se refere a uma conta de Armazenamento Azure que aponta para onde os ficheiros blob estão hospedados. |
 | **BlobContainer** |Especifica o nome do recipiente blob que contém os ficheiros carregados como bolhas. |

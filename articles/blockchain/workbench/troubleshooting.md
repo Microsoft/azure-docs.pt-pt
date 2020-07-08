@@ -5,10 +5,9 @@ ms.date: 10/14/2019
 ms.topic: troubleshooting
 ms.reviewer: brendal
 ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212858"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench Pré-visualização resolução de problemas
@@ -44,19 +43,19 @@ O script aceita os seguintes parâmetros:
 
 | Parâmetro  | Descrição | Necessário |
 |---------|---------|----|
-| SubscriçãoID | SubscriçãoID para criar ou localizar todos os recursos. | Yes |
-| ResourceGroupName | Nome do Grupo de Recursos Azure onde a blockchain Workbench foi implantada. | Yes |
-| OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, predefinições no diretório atual. | No |
-| LookbackHours | Número de horas para utilizar ao puxar a telemetria. O valor predefinido é de 24 horas. O valor máximo é de 90 horas | No |
-| OmsSubscriptionId | O ID de subscrição onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| No |
-| OmsResourceGroup |O grupo de recursos onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| No |
-| Nome OmsWorkspace | O nome do espaço de trabalho Log Analytics. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench | No |
+| SubscriçãoID | SubscriçãoID para criar ou localizar todos os recursos. | Sim |
+| ResourceGroupName | Nome do Grupo de Recursos Azure onde a blockchain Workbench foi implantada. | Sim |
+| OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, predefinições no diretório atual. | Não |
+| LookbackHours | Número de horas para utilizar ao puxar a telemetria. O valor predefinido é de 24 horas. O valor máximo é de 90 horas | Não |
+| OmsSubscriptionId | O ID de subscrição onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| Não |
+| OmsResourceGroup |O grupo de recursos onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| Não |
+| Nome OmsWorkspace | O nome do espaço de trabalho Log Analytics. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench | Não |
 
 ## <a name="what-is-collected"></a>O que é recolhido?
 
 O ficheiro ZIP de saída contém a seguinte estrutura de pasta:
 
-| Pasta ou Arquivo | Description  |
+| Pasta ou Arquivo | Descrição  |
 |---------|---------|
 | \Summary.txt | Resumo do sistema |
 | \Métricas\blockchain | Métricas sobre a blockchain |
@@ -68,7 +67,7 @@ O ficheiro sumário dá-lhe uma imagem do estado geral da aplicação e saúde d
 
 A pasta **Métricas** contém métricas de vários componentes do sistema ao longo do tempo. Por exemplo, o ficheiro de saída `\Details\Workbench\apiMetrics.txt` contém um resumo de diferentes códigos de resposta e tempos de resposta ao longo do período de recolha. A pasta **Details** contém registos detalhados para resolver problemas específicos com a Workbench ou a rede blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das mais recentes exceções que ocorreram no sistema, o que é útil para resolver erros com contratos inteligentes ou interações com a blockchain. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Guia de resolução de problemas da Azure Blockchain Workbench Insights](https://aka.ms/workbenchtroubleshooting)

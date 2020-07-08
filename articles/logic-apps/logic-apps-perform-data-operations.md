@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710376"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realizar operações de dados em Azure Logic Apps
@@ -29,20 +28,20 @@ Estas tabelas resumem as operações de dados que pode utilizar e são organizad
 
 Estas ações ajudam-no a trabalhar com dados em matrizes.
 
-| Ação | Description |
+| Ação | Descrição |
 |--------|-------------|
 | [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela de valor separado em vírgula (CSV) a partir de uma matriz. |
 | [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. |
 | [**Matriz de filtro**](#filter-array-action) | Crie um subconjunto de matriz a partir de uma matriz com base no filtro ou condição especificados. |
 | [**Associar**](#join-action) | Crie uma cadeia a partir de todos os itens numa matriz e separe cada item com o carácter especificado. |
-| [**Selecione**](#select-action) | Crie uma matriz a partir das propriedades especificadas para todos os itens numa matriz diferente. |
+| [**Selecionar**](#select-action) | Crie uma matriz a partir das propriedades especificadas para todos os itens numa matriz diferente. |
 ||| 
 
 **Ações da JSON**
 
 Estas ações ajudam-no a trabalhar com dados no formato JavaScript Object Notation (JSON).
 
-| Ação | Description |
+| Ação | Descrição |
 |--------|-------------|
 | [**Compor**](#compose-action) | Crie uma mensagem, ou cadeia, a partir de múltiplas entradas que podem ter vários tipos de dados. Em seguida, pode utilizar esta cadeia como uma única entrada, em vez de introduzir repetidamente as mesmas entradas. Por exemplo, pode criar uma única mensagem JSON a partir de várias entradas. |
 | [**Parse JSON**](#parse-json-action) | Crie fichas de dados fáceis de utilizar para propriedades em conteúdo JSON para que possa utilizar mais facilmente as propriedades nas suas aplicações lógicas. |
@@ -707,6 +706,6 @@ Para confirmar se a ação **Select** cria os resultados esperados, envie-se uma
 
    ![E-mail com resultados de ação "Selecione"](./media/logic-apps-perform-data-operations/select-email-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre os conectores de Aplicações Lógicas](../connectors/apis-list.md)

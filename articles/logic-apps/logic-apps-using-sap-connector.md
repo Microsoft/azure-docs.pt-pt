@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 06/23/2020
 tags: connectors
 ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85323152"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
@@ -23,7 +22,7 @@ ms.locfileid: "85323152"
 >
 > Para aplicações lógicas que usam os conectores mais antigos, por favor [migrar para o conector mais recente](#migrate) antes da data de depreciação. Caso contrário, estas aplicações lógicas irão experimentar falhas de execução e não poderão enviar mensagens para o seu sistema SAP.
 
-Este artigo mostra como pode aceder aos seus recursos SAP no local a partir de dentro de uma aplicação lógica utilizando o conector SAP. O conector funciona com os lançamentos clássicos da SAP, tais como sistemas R/3 e ECC no local. O conector também permite a integração com os mais recentes sistemas SAP baseados em HANA, como o S/4 HANA, quer estejam hospedados no local ou na nuvem. O conector SAP suporta a integração de mensagens ou dados de e para sistemas baseados em SAP NetWeaver através do Documento Intermédio (IDoc), interface de programação de aplicações empresariais (BAPI) ou Chamada de Função Remota (RFC).
+Este artigo mostra como pode aceder aos seus recursos SAP no local a partir de dentro de uma aplicação lógica utilizando o conector SAP. O conector funciona com os lançamentos clássicos da SAP, tais como sistemas R/3 e ECC no local. O conector também permite a integração com os novos sistemas SAP mais recentes baseados em HANA, como S/4 HANA, quer estejam alojados no local ou na cloud. O conector SAP suporta a integração de mensagens ou de dados de/para sistemas baseados em SAP NetWeaver através dos protocolos Intermediate Document (IDoc), Business Application Programming Interface (BAPI) ou Chamada de Função Remota (RFC).
 
 O conector SAP utiliza a [biblioteca SAP .NET Connector (NCo)](https://support.sap.com/en/product/connectors/msnet.html) e fornece estas ações:
 
@@ -889,7 +888,7 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ligue-se aos sistemas no local](../logic-apps/logic-apps-gateway-connection.md) a partir de Azure Logic Apps.
 * Saiba como validar, transformar e utilizar outras operações de mensagens com o [Pacote de Integração Empresarial.](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -16,16 +16,15 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84338412"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gestão em Máquinas Virtuais Azure com a Extensão do Agente do Servidor SQL (Clássico)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
-> * [Clássica](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Clássico](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
@@ -37,7 +36,7 @@ A Extensão do Agente IAAS do SQL Server (SQLIaaSAgent) funciona em máquinas vi
 ## <a name="supported-services"></a>Serviços suportados
 A extensão do agente do servidor SQL IaaS suporta as seguintes tarefas de administração:
 
-| Recurso de administração | Description |
+| Recurso de administração | Descrição |
 | --- | --- |
 | **Cópia de Segurança Automatizada do SQL** |Automatiza o agendamento de backups para todas as bases de dados para a instância padrão do SQL Server no VM. Para obter mais informações, consulte [a cópia de segurança automatizada para O Servidor SQL em Máquinas Virtuais Azure (Clássico)](../classic/sql-automated-backup.md). |
 | **Aplicação de Patches Automatizada do SQL** |Configura uma janela de manutenção durante a qual podem ocorrer atualizações importantes do Windows para o seu VM, para que possa evitar atualizações durante os tempos de pico da sua carga de trabalho. Para obter mais informações, consulte [patching automatizado para SQL Server em Azure Virtual Machines (Classic)](../classic/sql-automated-patching.md). |

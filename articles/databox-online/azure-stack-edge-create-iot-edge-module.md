@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339897"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge
@@ -64,7 +63,7 @@ Antes de começar, certifique-se de que tem:
 Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Os dois populares serviços de registo docker disponíveis na nuvem são O Registo de Contentores Azure e Docker Hub. Este artigo utiliza o Registo de Contentores.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. **Selecione Criar um recurso > contentores > registo de contentores**. Clique **em Criar**.
+2. **Selecione Criar um recurso > contentores > registo de contentores**. Clique em **Criar**.
 3. Fornecer:
 
    1. Um **nome único de registo** dentro de Azure que contém 5 a 50 caracteres alfanuméricos.
@@ -116,7 +115,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
     ![Criar nova solução 4](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-4.png)
 
-5. Navegue e aponte para a pasta **EdgeSolution** que criou anteriormente. A janela vs Code carrega o seu espaço de trabalho de solução IoT Edge com os seus cinco componentes de nível superior. Não editará a pasta **.vscode,** **ficheiro .gitignore,** **ficheiro .env** e a **implementação.template.json** neste artigo.
+5. Navegue e aponte para a pasta **EdgeSolution** que criou anteriormente. A janela vs Code carrega o seu espaço de trabalho de solução IoT Edge com os seus cinco componentes de nível superior. Não editará a pasta **.vscode,** **ficheiro .gitignore,** **ficheiro .env** e a **deployment.template.js** neste artigo.
     
     O único componente que modifica é a pasta dos módulos. Esta pasta tem o código C# para o seu módulo e ficheiros Docker para construir o seu módulo como imagem de recipiente.
 
@@ -256,7 +255,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
 2. Quando solicitado para obter a senha, forneça a senha. Também pode recuperar os valores do servidor de login, nome de utilizador e palavra-passe a partir das Chaves de **Acesso** no registo do seu contentor no portal Azure.
  
-3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique com o botão direito no ficheiro **module.json** e selecione **a solução Build and Push IoT Edge**.
+3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita **no** ficheiro e selecione **a solução Build and Push IoT Edge**.
 
     ![Construa e empurre a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
@@ -273,7 +272,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
     *Programa.cs (77,44): aviso CS1998: Este método assíclo carece de operadores de "espera" e funcionará de forma sincronizada. Considere usar o operador "aguardar" para aguardar chamadas de API não bloqueando, ou "aguardar Tarefa.Run(...)" para fazer trabalhos ligados ao CPU numa linha de fundo.*
 
-4. Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal integrado do VS Code. O endereço de imagem é construído a partir de informações que estão no ficheiro module.json com o formato `<repository>:<version>-<platform>` . Para este artigo, deve `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` parecer.
+4. Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal integrado do VS Code. O endereço de imagem é construído a partir de informações que estão no module.jsem arquivo com o formato `<repository>:<version>-<platform>` . Para este artigo, deve `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` parecer.
 
 ## <a name="next-steps"></a>Próximos passos
 

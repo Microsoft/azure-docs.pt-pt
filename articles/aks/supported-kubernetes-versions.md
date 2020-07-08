@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
 ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84345058"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
@@ -134,7 +133,7 @@ Para saber quais as versões que estão atualmente disponíveis para a sua subsc
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>PERGUNTAS FREQUENTES
+## <a name="faq"></a>FAQ
 
 **O que acontece quando um cliente atualiza um cluster Kubernetes com uma versão menor que não é suportada?**
 

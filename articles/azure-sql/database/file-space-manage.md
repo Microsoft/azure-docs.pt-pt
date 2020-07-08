@@ -12,10 +12,9 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324543"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiros para bases de dados na Base de Dados Azure SQL
@@ -124,7 +123,7 @@ Compreender as seguintes quantidades de espaço de armazenamento é importante p
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar uma piscina elástica para informações de espaço de armazenamento
 
-As seguintes consultas podem ser usadas para determinar as quantidades de espaço de armazenamento para uma piscina elástica.  
+Pode utilizar as seguintes consultas para determinar as quantidades de espaço de armazenamento de um conjunto elástico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espaço elástico de dados da piscina usado
 

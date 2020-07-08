@@ -14,10 +14,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
 ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84344633"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
@@ -167,7 +166,7 @@ Para **o SQL em Azure VM,** a Microsoft fornece um SLA de disponibilidade de 99,
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [A sua primeira Base de Dados SQL do Azure](database/single-database-create-quickstart.md) para começar a utilizar a Base de Dados SQL.
 - Consulte [o seu primeiro Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md) para começar com a SQL Managed Instance. 

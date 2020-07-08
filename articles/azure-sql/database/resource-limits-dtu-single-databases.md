@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: fd8c3c7eaaee6a31acbc4cf513adb3e0e0fa566b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84342005"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra DTU - Azure SQL Database
@@ -34,7 +33,7 @@ As tabelas a seguir mostram os recursos disponíveis para uma única base de dad
 
 ### <a name="basic-service-tier"></a>Escalão de serviços básicos
 
-| **Tamanho do cálculo** | **Básico** |
+| **Tamanho do cálculo** | **Básica** |
 | :--- | --: |
 | Máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
