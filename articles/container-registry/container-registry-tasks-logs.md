@@ -1,33 +1,32 @@
 ---
 title: Ver registos de execução de tarefas - Tarefas
-description: Como visualizar e gerir os registos de execução gerados por Tarefas ACR.
+description: Como visualizar e gerir registos de execução gerados por Tarefas ACR.
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246971"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Ver e gerir registos de execução de tarefas
 
-Cada tarefa executada em tarefas de Registo de [Contentores Azure](container-registry-tasks-overview.md) gera saída de registo que pode inspecionar para determinar se os passos de tarefa foram executados com sucesso. 
+Cada tarefa executada em [tarefas de registo de contentores Azure](container-registry-tasks-overview.md) gera saída de registo que pode inspecionar para determinar se os passos de tarefa foram executados com sucesso. 
 
-Este artigo explica como visualizar e gerir os registos de execução de tarefas.
+Este artigo explica como visualizar e gerir registos de execução de tarefas.
 
-## <a name="view-streamed-logs"></a>Ver registos em streaming
+## <a name="view-streamed-logs"></a>Ver registos streamed
 
-Quando ativa uma tarefa manualmente, a saída de registo é transmitida diretamente para a consola. Por exemplo, quando aciona uma tarefa manualmente utilizando a [construção az acr](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), ou comando de execução de [tarefas az acr,](/cli/azure/acr/task#az-acr-task-run) vê a saída de log transmitida para a consola. 
+Quando ativa uma tarefa manualmente, a saída de registo é transmitida diretamente para a consola. Por exemplo, quando ativar uma tarefa manualmente utilizando o [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), ou o comando [de execução de tarefas az acr,](/cli/azure/acr/task#az-acr-task-run) vê a saída de registo transmitida para a consola. 
 
-A amostra [az acr executar](/cli/azure/acr#az-acr-run) comando aciona manualmente uma tarefa que executa um recipiente retirado do mesmo registo:
+O comando [de execução a az acr](/cli/azure/acr#az-acr-run) da amostra seguinte aciona manualmente uma tarefa que executa um contentor retirado do mesmo registo:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
   --cmd '$Registry/samples/hello-world:v1' /dev/null
 ```
 
-Registo transmitido:
+Diário de streaming:
 
 ```console
 Queued a run with ID: cf4
@@ -58,32 +57,32 @@ Run ID: cf4 was successful after 5s
 
 ## <a name="view-stored-logs"></a>Ver registos armazenados 
 
-As lojas de registo de contentores Azure executam registos para todas as tarefas. Pode ver registos armazenados no portal Azure. Ou, use o comando de registos de [tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) para visualizar um registo selecionado. Por predefinição, os registos são conservados durante 30 dias.
+As lojas de registo de contentores Azure executam registos para todas as tarefas. Pode visualizar registos de execução armazenados no portal Azure. Ou, use o comando [de registos de tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) para visualizar um registo selecionado. Por predefinição, os registos são mantidos por 30 dias.
 
-Se uma tarefa for automaticamente ativada, por exemplo através de uma atualização de código fonte, aceder aos registos armazenados é a *única* forma de visualizar os registos de execução. Os gatilhos automáticos de tarefa incluem código fonte compromete ou puxa pedidos, atualizações de imagem base e gatilhos temporizadores.
+Se uma tarefa for automaticamente ativada, por exemplo através de uma atualização de código fonte, aceder aos registos armazenados é a *única* forma de visualizar os registos de execução. Os detonadores automáticos de tarefas incluem compromissos de código fonte ou solicitações de puxar, atualizações de imagem base e gatilhos de temporizador.
 
 Para visualizar registos de execução no portal:
 
 1. Navegue para o seu registo de contentores.
-1. Nos **Serviços,** selecione**Executões**de **Tarefas** > .
-1. Selecione um **'Executar Id'** para visualizar o estado de execução e executar registos. O registo contém a mesma informação que um registo transmitido, se um for gerado.
+1. Em **Serviços**, selecione **Tasks**  >  **Runs**.
+1. Selecione um **Run Id** para visualizar o estado de execução e executar registos. O registo contém a mesma informação que um registo transmitido, se um for gerado.
 
-![Ver portal de login de execução de tarefas](./media/container-registry-tasks-logs/portal-task-run-logs.png)
+![Ver portal de login executado por tarefas](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-Para visualizar um registo utilizando o Azure CLI, execute os registos de [tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) e especifique um ID de execução, um nome de tarefa ou uma imagem específica criar por uma tarefa de construção. Se for especificado um nome de tarefa, o comando mostra o registo para a última execução criada.
+Para visualizar um registo utilizando o CLI Azure, executar [registos de tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) e especificar um ID de execução, um nome de tarefa ou uma imagem específica criar por uma tarefa de construção. Se um nome de tarefa for especificado, o comando mostra o registo para a última execução criada.
 
-O exemplo seguinte produz o registo para a execução com ID *cf4:*
+O exemplo a seguir sai o log para a execução com iD *cf4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4
 ```
 
-## <a name="alternative-log-storage"></a>Armazenamento de diário de bordo alternativo
+## <a name="alternative-log-storage"></a>Armazenamento alternativo de registos
 
-É possível que pretenda armazenar registos de execução de tarefas num sistema de ficheiros local ou utilizar uma solução de arquivamento alternativa, como o Armazenamento Azure.
+É possível que pretenda armazenar registos de execução de tarefas num sistema de ficheiros local ou utilizar uma solução alternativa de arquivamento, como o Azure Storage.
 
-Por exemplo, crie um diretório de *tasklogs* local e redirecione a saída de registos de [tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) para um ficheiro local:
+Por exemplo, crie um diretório de *tasklogs* local e redirecione a saída dos registos de [tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) para um ficheiro local:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -92,12 +91,12 @@ az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4 > ~/tasklogs/cf4.log
 ```
 
-Também pode guardar ficheiros de registo locais para o Armazenamento Azure. Por exemplo, utilize o [Azure CLI,](../storage/blobs/storage-quickstart-blobs-cli.md)o [portal Azure,](../storage/blobs/storage-quickstart-blobs-portal.md)ou outros métodos para fazer o upload de ficheiros para uma conta de armazenamento.
+Também pode guardar ficheiros de registo local para o Azure Storage. Por exemplo, utilize o [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), o [portal Azure,](../storage/blobs/storage-quickstart-blobs-portal.md)ou outros métodos para enviar ficheiros para uma conta de armazenamento.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre as tarefas de [registo de contentores do Azure](container-registry-tasks-overview.md)
+* Saiba mais sobre as [Tarefas de Registo de Contentores do Azure](container-registry-tasks-overview.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

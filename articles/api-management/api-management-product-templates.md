@@ -1,6 +1,6 @@
 ---
-title: Modelos de produto em Gestão API Azure [ Microsoft Docs
-description: Saiba como personalizar o conteúdo das páginas do produto no portal de desenvolvimento de gestão da API Azure.
+title: Modelos de produto na Azure API Management / Microsoft Docs
+description: Saiba como personalizar o conteúdo das páginas do produto no portal de desenvolvimento da API Management Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,14 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79243929"
 ---
-# <a name="product-templates-in-azure-api-management"></a>Modelos de produto na Gestão aPI Azure
+# <a name="product-templates-in-azure-api-management"></a>Modelos de produto na Gestão API da Azure
 
-A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das páginas do portal do programador utilizando um conjunto de modelos que configuram o seu conteúdo. Utilizando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor à sua escolha, como [o DotLiquid para Designers,](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)e um conjunto fornecido de recursos de [cordas](api-management-template-resources.md#strings)localizados, recursos [de Gliph](api-management-template-resources.md#glyphs)e [controlos](api-management-page-controls.md)de página, tem uma grande flexibilidade para configurar o conteúdo das páginas como entender que se ajuste usando estes modelos.  
+A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram o seu conteúdo. Utilizando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor à sua escolha, como [DotLiquid para Designers,](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)e um conjunto fornecido de recursos de [cordas](api-management-template-resources.md#strings)localizados, [recursos glifos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), você tem uma grande flexibilidade para configurar o conteúdo das páginas como você acha adequado usando estes modelos.  
   
  Os modelos desta secção permitem personalizar o conteúdo das páginas do produto no portal do desenvolvedor.  
   
@@ -31,18 +30,18 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 -   [Produto](#Product)  
   
 > [!NOTE]
->  Os modelos de padrão da amostra estão incluídos na seguinte documentação, mas estão sujeitos a alterações devido a melhorias contínuas. Pode ver os modelos de predefinição ao vivo no portal do desenvolvedor navegando para os modelos individuais desejados. Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos predefinidos da amostra estão incluídos na seguinte documentação, mas estão sujeitos a alterações devido a melhorias contínuas. Pode ver os modelos de predefinição ao vivo no portal do desenvolvedor navegando para os modelos individuais pretendidos. Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="product-list"></a><a name="ProductList"></a>Lista de produtos  
- O modelo **da lista** de produtos permite-lhe personalizar o corpo da página da lista de produtos no portal do desenvolvedor.  
+ O modelo **da lista de produtos** permite-lhe personalizar o corpo da página da lista de produtos no portal do desenvolvedor.  
   
  ![Lista de produtos](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
   
-### <a name="default-template"></a>Modelo padrão  
+### <a name="default-template"></a>Modelo de padrão  
   
 ```xml  
 <search-control></search-control>  
@@ -71,9 +70,9 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `Product list` modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
+ O `Product list` modelo pode utilizar os [seguintes controlos de página](api-management-page-controls.md).  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [controlo de paging](api-management-page-controls.md#paging-control)  
   
 -   [controlo de pesquisa](api-management-page-controls.md#search-control)  
   
@@ -81,9 +80,9 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Paginação|[Entidade paginga.](api-management-template-data-model-reference.md#Paging)|A informação de paging para a recolha de produtos.|  
-|Filtragem|[Entidade de filtragem.](api-management-template-data-model-reference.md#Filtering)|A informação de filtragem para a página da lista de produtos.|  
-|Produtos|Recolha de entidades de [produto.](api-management-template-data-model-reference.md#Product)|Os produtos visíveis para o utilizador atual.|  
+|Paginação|[Entidade de paging.](api-management-template-data-model-reference.md#Paging)|A informação de paging para a coleção de produtos.|  
+|Filtragem|[Entidade filtrante.](api-management-template-data-model-reference.md#Filtering)|A informação de filtragem da página da lista de produtos.|  
+|Produtos|Coleção de entidades [de produtos.](api-management-template-data-model-reference.md#Product)|Os produtos visíveis ao utilizador atual.|  
   
 ### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
@@ -124,11 +123,11 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 ```  
   
 ##  <a name="product"></a><a name="Product"></a>Produto  
- O modelo de **Produto** permite-lhe personalizar o corpo da página do produto no portal do desenvolvedor.  
+ O modelo **do Produto** permite-lhe personalizar o corpo da página do produto no portal do desenvolvedor.  
   
  ![Página de produto do portal do desenvolvedor](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
   
-### <a name="default-template"></a>Modelo padrão  
+### <a name="default-template"></a>Modelo de padrão  
   
 ```xml  
 <h2>{{Product.Title}}</h2>  
@@ -198,25 +197,25 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `Product list` modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
+ O `Product list` modelo pode utilizar os [seguintes controlos de página](api-management-page-controls.md).  
   
--   [botão de assinatura](api-management-page-controls.md#subscribe-button)  
+-   [subscreva botão](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Produto|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
-|IsDeveloperSubscribed|boolean|Se o utilizador atual está subscrito a este produto.|  
-|Estado de Assinaturas|número|O estado da assinatura. Os estados possíveis são:<br /><br /> -   `0 - suspended`– a subscrição está bloqueada e o assinante não pode ligar para nenhuma APIs do produto.<br />-   `1 - active`– a subscrição está ativa.<br />-   `2 - expired`– a subscrição atingiu a data de validade e foi desativada.<br />-   `3 - submitted`– o pedido de subscrição foi feito pelo programador, mas ainda não foi aprovado ou rejeitado.<br />-   `4 - rejected`– o pedido de subscrição foi negado por um administrador.<br />-   `5 - cancelled`– a subscrição foi cancelada pelo programador ou administrador.|  
+|IsDeveloperSubscrito|boolean|Se o utilizador atual é subscrito a este produto.|  
+|Estado de Subscrição|número|O estado da assinatura. Os estados possíveis são:<br /><br /> -   `0 - suspended`– a subscrição está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active`– a subscrição está ativa.<br />-   `2 - expired`– a subscrição atingiu a data de validade e foi desativada.<br />-   `3 - submitted`– o pedido de subscrição foi feito pelo desenvolvedor, mas ainda não foi aprovado ou rejeitado.<br />-   `4 - rejected`– o pedido de subscrição foi negado por um administrador.<br />-   `5 - cancelled`– a subscrição foi cancelada pelo desenvolvedor ou administrador.|  
 |Limites|array|Esta propriedade é depreciada e não deve ser usada.|  
-|Subscrição Delegada|boolean|Se a [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta subscrição.|  
-|Url de Subscrição Delegado|string|Se a delegação estiver ativada, o URL de subscrição delegado.|  
-|IsAconcordou|boolean|Se o produto tiver termos, se o utilizador atual concordou com os termos.|  
-|Subscrições|Recolha de entidades [sumárias de subscrição.](api-management-template-data-model-reference.md#SubscriptionSummary)|As assinaturas do produto.|  
-|Apis|Coleção de entidades [DaPi.](api-management-template-data-model-reference.md#API)|As APIs neste produto.|  
-|Não pode adicionarporque subscriçãoNumberLimitReached|boolean|Se o utilizador atual é elegível para subscrever este produto no que diz respeito ao limite de subscrição.|  
-|Não pode adicionar porque subscrições múltiplasNão permitidas|boolean|Se o utilizador atual é elegível para subscrever este produto no que diz respeito a múltiplas subscrições que estão ou não a ser permitidas.|  
+|DelegadoSubscriçãoEnabled|boolean|Se [a delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta subscrição.|  
+|DelegadoSubscriçãoUrl|string|Se a delegação estiver ativa, o URL de subscrição delegado.|  
+|Isa concordou|boolean|Se o produto tiver termos, se o utilizador atual concordou com os termos.|  
+|Subscrições|Recolha de entidades [sumárias](api-management-template-data-model-reference.md#SubscriptionSummary) de assinatura.|As assinaturas do produto.|  
+|Apis|Recolha de entidades da [API.](api-management-template-data-model-reference.md#API)|As APIs neste produto.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|boolean|Se o utilizador atual é elegível para subscrever este produto no que diz respeito ao limite de subscrição.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Se o utilizador atual é elegível para subscrever este produto no que diz respeito a várias subscrições que são permitidas ou não.|  
   
 ### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
@@ -262,5 +261,5 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).
+## <a name="next-steps"></a>Próximos passos
+Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

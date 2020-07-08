@@ -1,6 +1,6 @@
 ---
-title: Provision StorSimple Virtual Array em Hyper-V [ Microsoft Docs
-description: Este segundo tutorial na implementação da StorSimple Virtual Array envolve o fornecimento de uma matriz virtual em Hyper-V.
+title: Provisão StorSimple Matriz Virtual em Hiper-V Microsoft Docs
+description: Este segundo tutorial na implementação de Matriz Virtual StorSimple envolve o fornecimento de uma matriz virtual em Hyper-V.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,94 +16,93 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79267537"
 ---
-# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar Matriz Virtual StorSimple - Provisão em Hiper-V
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar StorSimple Virtual Array - Provisão em Hiper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Este tutorial descreve como fornecer um StorSimple Virtual Array num sistema de anfitriões que executa Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. Este artigo aplica-se à implementação de Matrizes Virtuais StorSimple no portal Azure e Microsoft Azure Government Cloud.
+Este tutorial descreve como providenciar um StorSimple Virtual Array num sistema de anfitriões que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. Este artigo aplica-se à implementação de StorSimple Virtual Arrays no portal Azure e microsoft Azure Government Cloud.
 
-Precisa de privilégios de administrador para fornecer e configurar uma matriz virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
+Precisa de privilégios de administrador para provisão e configurar uma matriz virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
 
-## <a name="provisioning-prerequisites"></a>Predisposição de pré-requisitos
-Aqui encontrará os pré-requisitos para fornecer uma matriz virtual num sistema de anfitriões que executa Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2.
+## <a name="provisioning-prerequisites"></a>Aprovisionamento de pré-requisitos
+Aqui encontrará os pré-requisitos para a disponibilização de um conjunto virtual num sistema de anfitriões que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Para o serviço Gestor de Dispositivos do StorSimple
 Antes de começar, certifique-se de que:
 
-* Completou todos os passos em [Preparar o portal para StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Descarregou a imagem de matriz virtual para Hyper-V a partir do portal Azure. Para mais informações, consulte **passo 3: Descarregue a imagem de matriz virtual** de [Preparar o portal para o guia StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
+* Completou todos os passos em [Prepare o portal para o StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
+* Descarregou a imagem de matriz virtual para Hyper-V a partir do portal Azure. Para mais informações, consulte **o Passo 3: Descarregue a imagem de matriz virtual** de Preparar o portal para o guia [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
   > O software em execução no StorSimple Virtual Array só pode ser utilizado com o serviço StorSimple Device Manager.
   >
   >
 
-### <a name="for-the-storsimple-virtual-array"></a>Para o Matriz Virtual StorSimple
+### <a name="for-the-storsimple-virtual-array"></a>Para o StorSimple Virtual Array
 Antes de implementar uma matriz virtual, certifique-se de que:
 
-* Tem acesso a um sistema de anfitriões que executa hyper-V no Windows Server 2008 R2 ou posteriormente que pode ser usado para fornecer um dispositivo.
-* O sistema de acolhimento é capaz de dedicar os seguintes recursos para fornecer a sua matriz virtual:
+* Tem acesso a um sistema de anfitriões que executa o Hyper-V no Windows Server 2008 R2 ou mais tarde que pode ser utilizado para uma provisão de um dispositivo.
+* O sistema de acolhimento é capaz de dedicar os seguintes recursos à oferta da sua matriz virtual:
 
   * Um mínimo de 4 núcleos.
-  * Pelos menos 8 GB de RAM. Se planeia configurar a matriz virtual como servidor de ficheiros, 8 GB suporta menos de 2 milhões de ficheiros. Precisa de 16 GB de RAM para suportar 2 a 4 milhões de ficheiros.
+  * Pelos menos 8 GB de RAM. Se planeia configurar o conjunto virtual como servidor de ficheiros, 8 GB suporta menos de 2 milhões de ficheiros. Precisa de 16 GB de RAM para suportar 2 a 4 milhões de ficheiros.
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados.
 
 ### <a name="for-the-network-in-the-datacenter"></a>Para a rede no datacenter
-Antes de começar, reveja os requisitos de rede para implementar um StorSimple Virtual Array e configure a rede datacenter adequadamente. Para mais informações, consulte os requisitos de [rede de rede StorSimple Virtual Array](storsimple-ova-system-requirements.md#networking-requirements).
+Antes de começar, reveja os requisitos de networking para implementar um StorSimple Virtual Array e configufique adequadamente a rede do datacenter. Para obter mais informações, consulte [os requisitos de rede StorSimple Virtual Array](storsimple-ova-system-requirements.md#networking-requirements).
 
-## <a name="step-by-step-provisioning"></a>Provisionamento passo a passo
-Para fornecer e ligar a uma matriz virtual, você precisa realizar os seguintes passos:
+## <a name="step-by-step-provisioning"></a>Provisão passo a passo
+Para providenciar e ligar a uma matriz virtual, é necessário executar os seguintes passos:
 
 1. Certifique-se de que o sistema de acolhimento dispõe de recursos suficientes para satisfazer os requisitos mínimos de matriz virtual.
-2. Proponha uma matriz virtual no seu hipervisor.
+2. Adiscam uma matriz virtual no seu hipervisor.
 3. Inicie a matriz virtual e obtenha o endereço IP.
 
 Cada um destes passos é explicado nas seguintes secções.
 
-## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Passo 1: Certifique-se de que o sistema de acolhimento cumpre os requisitos mínimos de matriz virtual
-Para criar uma matriz virtual, precisa de:
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Passo 1: Certifique-se de que o sistema de anfitrião cumpre os requisitos mínimos de matriz virtual
+Para criar uma matriz virtual, é necessário:
 
 * A função Hyper-V instalada no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 SP1.
 * Do Microsoft Hyper-V Manager, num cliente Microsoft Windows ligado ao anfitrião.
 
-Certifique-se de que o hardware subjacente (sistema de hospedagem) no qual está a criar a matriz virtual é capaz de dedicar os seguintes recursos à sua matriz virtual:
+Certifique-se de que o hardware subjacente (sistema de anfitrião) no qual está a criar a matriz virtual é capaz de dedicar os seguintes recursos à sua matriz virtual:
 
 * Um mínimo de 4 núcleos.
-* Pelos menos 8 GB de RAM. Se planeia configurar a matriz virtual como servidor de ficheiros, 8 GB suporta menos de 2 milhões de ficheiros. Precisa de 16 GB de RAM para suportar 2 a 4 milhões de ficheiros.
+* Pelos menos 8 GB de RAM. Se planeia configurar o conjunto virtual como servidor de ficheiros, 8 GB suporta menos de 2 milhões de ficheiros. Precisa de 16 GB de RAM para suportar 2 a 4 milhões de ficheiros.
 * Uma interface de rede.
 * Um disco virtual de 500 GB para dados do sistema.
 
-## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>Passo 2: Fornecer uma matriz virtual em hipervisor
+## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>Passo 2: Provisionamento de uma matriz virtual no hipervisor
 Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 
-#### <a name="to-provision-a-virtual-array"></a>Para fornecer uma matriz virtual
-1. No seu anfitrião do Windows Server, copie a imagem de matriz virtual para uma unidade local. Descarregou esta imagem (VHD ou VHDX) através do portal Azure. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
+#### <a name="to-provision-a-virtual-array"></a>Para providenciar uma matriz virtual
+1. No seu anfitrião Do Servidor do Windows, copie a imagem de matriz virtual para uma unidade local. Você descarregou esta imagem (VHD ou VHDX) através do portal Azure. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
 2. Abra o **Gestor de Servidor**. No canto superior direito, clique em **Tools** (Ferramentas) e selecione **Hyper-V Manager**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
-   Se estiver a executar o Windows Server 2008 R2, abra o Hyper-V Manager. No Gestor do Servidor, clique em **Funções > Hiper-V > Hiper-V Manager**.
+   Se estiver a executar o Windows Server 2008 R2, abra o Hyper-V Manager. No Gestor de Servidor, clique em **Funções > Hiper-V > Hyper-V Manager**.
 3. No **Hyper-V Manager**, no painel de âmbito, clique com o botão direito do rato no nó do seu sistema para abrir o menu de contexto e clique em **Novo** > **Máquina Virtual**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. Na página **Before you begin** (Antes de começar) do New Virtual Machine Wizard (Assistente de Nova Máquina Virtual), clique em **Next** (Seguinte).
-5. Na página **de nome e localização Especifique,** forneça um **Nome** para a sua matriz virtual. Clique em **Seguinte**.
+5. Na página **de nome e localização do Especifique,** forneça um **Nome** para a sua matriz virtual. Clique em **Seguinte**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
-6. Na página **de geração Especte,** escolha o tipo de imagem do dispositivo e, em seguida, clique **em Seguinte**. Esta página não aparece se estiver a utilizar o Windows Server 2008 R2.
+6. Na página **de geração Desepecar,** escolha o tipo de imagem do dispositivo e, em seguida, clique em **Seguinte**. Esta página não aparece se estiver a utilizar o Windows Server 2008 R2.
 
-   * Escolha a **Geração 2** se descarregou uma imagem .vhdx para windows Server 2012 ou mais tarde.
-   * Escolha **a Geração 1** se descarregou uma imagem .vhd para windows Server 2008 R2 ou mais tarde.
+   * Escolha **a Geração 2** se descarregou uma imagem .vhdx para o Windows Server 2012 ou mais tarde.
+   * Escolha **a Geração 1** se descarregou uma imagem .vhd para Windows Server 2008 R2 ou mais tarde.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
 7. Na página **Assign memory** (Atribuir memória), especifique **Startup memory** (Memória de arranque) como, pelo menos, **8192 MB**, não ative a memória dinâmica e clique em **Next** (Seguinte).
@@ -112,7 +111,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 8. Na página **Configure networking** (Configurar rede), especifique o comutador virtual que está ligado à Internet e clique em **Next** (Seguinte).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
-9. Na página de **disco rígido virtual Connect,** escolha **Utilizar um disco rígido virtual existente,** especificar a localização da imagem de matriz virtual (.vhdx ou .vhd) e, em seguida, clicar **em Seguinte**.
+9. Na página **de disco rígido virtual Connect,** escolha Utilize um disco rígido virtual **existente,** especifique a localização da imagem da matriz virtual (.vhdx ou .vhd) e, em seguida, clique em **Seguinte**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
 10. Reveja **Summary** (Resumo) e clique em **Finish** (Concluir) para criar a máquina virtual.
@@ -124,7 +123,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 12. Na página **Settings** (Definições), no painel do lado esquerdo, clique em **Processor** (Processador). No painel do lado direito, defina **number of virtual processors** (número de processadores virtuais) como quatro (ou mais). Clique em **Aplicar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
-13. Para satisfazer os requisitos mínimos, também precisa de adicionar um disco de dados virtual de 500 GB. Na página **Settings** (Definições):
+13. Para satisfazer os requisitos mínimos, também precisa adicionar um disco de dados virtual de 500 GB. Na página **Settings** (Definições):
 
     1. No painel do lado esquerdo, selecione **SCSI Controller** (Controlador SCSI).
     2. No painel do lado direito, selecione **Hard Drive** (Disco Rígido) e clique em **Add** (Adicionar).
@@ -137,13 +136,13 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 16. Na página **Choose Disk Format** (Escolher Formato do Disco), aceite a opção predefinida, que é o formato **VHDX**. Clique em **Seguinte**. Este ecrã não é apresentado se executar o Windows Server 2008 R2.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
-17. Na página **Choose Disk Type page** (Escolher Tipo de Disco), defina o tipo do disco rígido virtual como **Dynamically expanding** (Expansão dinâmica), que é a recomendação. **Fixed size disk** (Disco de tamanho fixo) também funcionaria, mas teria de esperar muito tempo. Não recomendamos a utilização da opção **Differencing** (Diferenciação). Clique em **Seguinte**. No Windows Server 2012 R2 e Windows Server 2012, **a expansão dinâmica** é a opção predefinida enquanto no Windows Server 2008 R2, o padrão é **de tamanho Fixo**.
+17. Na página **Choose Disk Type page** (Escolher Tipo de Disco), defina o tipo do disco rígido virtual como **Dynamically expanding** (Expansão dinâmica), que é a recomendação. **Fixed size disk** (Disco de tamanho fixo) também funcionaria, mas teria de esperar muito tempo. Não recomendamos a utilização da opção **Differencing** (Diferenciação). Clique em **Seguinte**. No Windows Server 2012 R2 e Windows Server 2012, **a expansão dinâmica** é a opção por defeito, enquanto que no Windows Server 2008 R2, o padrão é **tamanho fixo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
 18. Na página **Specify Name and Location** (Especificar Nome e Localização), indique **name** (nome) e **location** (localização, para a qual pode navegar) para o disco de dados. Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Na página **'Configure Disk', selecione** a opção **Criar um novo disco rígido virtual em branco** e especificar o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, pode sempre fornecer um disco maior. Note que não pode expandir ou encolher o disco uma vez provisionado. Para obter mais informações sobre o tamanho do disco para fornecer, reveja a secção de dimensionamento no documento de [boas práticas.](storsimple-ova-best-practices.md) Clique em **Seguinte**.
+19. Na página **Configure Disk,** selecione a opção **Criar um novo disco rígido virtual em branco** e especificar o tamanho como **500 GB** (ou mais). Enquanto 500 GB é o requisito mínimo, pode sempre providenciar um disco maior. Note que não pode expandir ou encolher o disco uma vez previsto. Para obter mais informações sobre o tamanho do disco a provisão, reveja a secção de dimensionamento no documento de [boas práticas.](storsimple-ova-best-practices.md) Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Na página **Summary** (Resumo), reveja os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Finish** (Concluir) para criar o disco. O assistente fecha-se e é adicionado um disco rígido virtual à sua máquina.
@@ -154,7 +153,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
 ## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>Passo 3: Inicie a matriz virtual e obtenha o IP
-Execute os seguintes passos para iniciar a sua matriz virtual e ligar-se à sua.
+Execute os seguintes passos para iniciar a sua matriz virtual e conectá-la.
 
 #### <a name="to-start-the-virtual-array"></a>Para iniciar a matriz virtual
 1. Inicie a matriz virtual.
@@ -163,7 +162,7 @@ Execute os seguintes passos para iniciar a sua matriz virtual e ligar-se à sua.
 2. Quando o dispositivo estiver em execução, selecione-o, clique com o botão direito do rato e selecione **Connect** (Ligar).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
-3. Pode ter de esperar 5 a 10 minutos para que o dispositivo esteja pronto. É apresentada uma mensagem de estado na consola, para indicar o progresso. Quando o dispositivo estiver pronto, aceda a **Action** (Ação). Pressione `Ctrl + Alt + Delete` para iniciar sessão na matriz virtual. O utilizador predefinido é *o StorSimpleAdmin* e a palavra-passe predefinida é *password1*.
+3. Pode ter de esperar 5 a 10 minutos para que o dispositivo esteja pronto. É apresentada uma mensagem de estado na consola, para indicar o progresso. Quando o dispositivo estiver pronto, aceda a **Action** (Ação). Pressione `Ctrl + Alt + Delete` para iniciar sessão na matriz virtual. O utilizador predefinido é *StorSimpleAdmin* e a palavra-passe padrão é *Password1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após o primeiro início de sessão. É-lhe pedido que altere a palavra-passe.
@@ -180,12 +179,12 @@ Execute os seguintes passos para iniciar a sua matriz virtual e ligar-se à sua.
     É apresentada a consola Windows PowerShell do dispositivo, juntamente com uma barra de progresso.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
-6. Os passos 6 a 8 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 9. Se tiver iniciado o seu dispositivo em ambiente não DHCP, verá o seguinte ecrã.
+6. Os passos 6 a 8 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 9. Se iniciar o seu dispositivo em ambiente não DHCP, verá o seguinte ecrã.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
 
     Em seguida, configurar a rede.
-7. Utilize `Get-HcsIpAddress` o comando para listar as interfaces de rede ativadas na sua matriz virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
+7. Utilize o `Get-HcsIpAddress` comando para listar as interfaces de rede ativadas na sua matriz virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
 8. Utilize o cmdlet `Set-HcsIpAddress` para configurar a rede. Veja o seguinte exemplo:
@@ -193,30 +192,30 @@ Execute os seguintes passos para iniciar a sua matriz virtual e ligar-se à sua.
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
-9. Depois de a configuração inicial estar concluída e o dispositivo iniciado, verá o texto da faixa do dispositivo. Tome nota do endereço IP e do URL apresentado no texto da faixa para gerir o dispositivo. Utilize este endereço IP para ligar à UI web da sua matriz virtual e completar a configuração e registo locais.
+9. Depois de a configuração inicial estar concluída e o dispositivo iniciado, verá o texto da faixa do dispositivo. Tome nota do endereço IP e do URL apresentado no texto da faixa para gerir o dispositivo. Utilize este endereço IP para ligar à UI web da sua matriz virtual e completar a configuração e registo local.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
-10. (Opcional) Execute este passo apenas se estiver a implementar o seu dispositivo na Nuvem do Governo. Irá agora ativar o modo Padrão de Processamento de Informação (FIPS) dos Estados Unidos no seu dispositivo. O padrão FIPS 140 define algoritmos criptográficos aprovados para uso por sistemas informáticos do governo federal dos EUA para a proteção de dados sensíveis.
+10. (Opcional) Execute este passo apenas se estiver a implementar o seu dispositivo na Cloud do Governo. Irá agora ativar o modo Padrão Federal de Processamento de Informação (FIPS) dos Estados Unidos no seu dispositivo. A norma FIPS 140 define algoritmos criptográficos aprovados para uso pelos sistemas informáticos do governo federal dos EUA para a proteção de dados sensíveis.
 
-    1. Para ativar o modo FIPS, execute o seguinte cmdlet:
+    1. Para ativar o modo FIPS, executar o seguinte cmdlet:
 
         `Enable-HcsFIPSMode`
-    2. Reinicie o seu dispositivo depois de ter ativado o modo FIPS para que as validações criptográficas entrem em vigor.
+    2. Reinicie o seu dispositivo depois de ter ativado o modo FIPS para que as validações criptográficas produzam efeitos.
 
        > [!NOTE]
-       > Pode ativar ou desativar o modo FIPS no seu dispositivo. Não é suportado alternar o dispositivo entre o modo FIPS e o modo não-FIPS.
+       > Pode ativar ou desativar o modo FIPS no seu dispositivo. Alternar o dispositivo entre o modo FIPS e o modo não-FIPS não é suportado.
        >
        >
 
-Se o seu dispositivo não cumprir os requisitos mínimos de configuração, verá o seguinte erro no texto do banner (mostrado abaixo). Modifique a configuração do dispositivo de modo a que a máquina tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração no passo 1: Certifique-se de que o sistema de anfitriões satisfaz os requisitos mínimos de matriz virtual.
+Se o seu dispositivo não cumprir os requisitos mínimos de configuração, vê o seguinte erro no texto do banner (mostrado abaixo). Modifique a configuração do dispositivo de modo a que a máquina tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração no Passo 1: Certifique-se de que o sistema de hospedeiro satisfaz os requisitos mínimos de matriz virtual.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
-Se enfrentar qualquer outro erro durante a configuração inicial utilizando o UI web local, consulte os seguintes fluxos de trabalho:
+Se enfrentar qualquer outro erro durante a configuração inicial utilizando a UI web local, consulte os seguintes fluxos de trabalho:
 
-* Ecorra em testes de diagnóstico para resolver problemas na [configuração da UI](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)web .
-* [Gere o pacote de registo e ver ficheiros de registo](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+* Executar testes de diagnóstico para [resolver problemas na configuração da UI web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+* [Gerei o pacote de registo e visualiza os ficheiros de registo](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="next-steps"></a>Passos seguintes
-* [Configurar o seu StorSimple Virtual Array como servidor de ficheiros](storsimple-virtual-array-deploy3-fs-setup.md)
+## <a name="next-steps"></a>Próximos passos
+* [Configurar o seu StorSimple Virtual Array como um servidor de ficheiros](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurar o seu StorSimple Virtual Array como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)

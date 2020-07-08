@@ -9,81 +9,80 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
 ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79365794"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o Pacote de Segurança Enterprise no HDInsight
 
-O cluster Standard Azure HDInsight é um cluster de um único utilizador. É adequado para a maioria das empresas que têm equipas de aplicação mais pequenas construindo grandes cargas de dados. Cada utilizador pode criar um cluster dedicado a pedido e destruí-lo quando já não é necessário.
+O cluster padrão Azure HDInsight é um cluster de um único utilizador. É adequado para a maioria das empresas que têm equipas de aplicação mais pequenas construindo grandes cargas de trabalho de dados. Cada utilizador pode criar um cluster dedicado a pedido e destruí-lo quando já não é necessário.
 
-Muitas empresas avançaram para um modelo em que as equipas de TI gerem clusters, e várias equipas de aplicação partilham clusters. Estas grandes empresas precisam de acesso multiutilizador a cada cluster em Azure HDInsight.
+Muitas empresas avançaram para um modelo em que as equipas de TI gerem clusters, e várias equipas de aplicação partilham clusters. Estas grandes empresas precisam de acesso multiuser a cada cluster em Azure HDInsight.
 
-O HDInsight conta com um fornecedor de identidade popular-- Ative Directory -- de uma forma gerida. Ao integrar o HDInsight com os Serviços de [Domínio de Diretório Ativo Azure (Azure AD DS),](../../active-directory-domain-services/overview.md)pode aceder aos clusters utilizando as suas credenciais de domínio.
+O HDInsight conta com um fornecedor de identidade popular- Ative Directory -- de uma forma gerida. Ao integrar o HDInsight com [os Azure Ative Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), pode aceder aos clusters utilizando as suas credenciais de domínio.
 
-As máquinas virtuais (VMs) em HDInsight são domínio sintetizado ao seu domínio fornecido. Assim, todos os serviços em execução no HDInsight (Apache Ambari, servidor Apache Hive, Apache Ranger, Servidor de segunda mão Apache Spark, entre outros) funcionam perfeitamente para o utilizador autenticado. Os administradores podem então criar políticas de autorização fortes usando o Apache Ranger para fornecer um controlo de acesso baseado em papéis para recursos no cluster.
+As máquinas virtuais (VMs) em HDInsight são domínios unidos ao seu domínio fornecido. Assim, todos os serviços em execução em HDInsight (Apache Ambari, apache hive server, Apache Ranger, Apache Spark thrift server, e outros) funcionam perfeitamente para o utilizador autenticado. Os administradores podem então criar políticas de autorização fortes utilizando o Apache Ranger para fornecer controlo de acesso baseado em funções para recursos no cluster.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrar o HDInsight no Active Directory
 
-Apache Hadoop de código aberto baseia-se no protocolo Kerberos para autenticação e segurança. Portanto, os nós de cluster HDInsight com pacote de segurança empresarial (ESP) são unidos a um domínio que é gerido pelo Azure AD DS. A segurança kerberos está configurada para os componentes Hadoop no cluster.
+A Apache Hadoop de código aberto conta com o protocolo Kerberos para autenticação e segurança. Portanto, os nós de cluster HDInsight com Pacote de Segurança Empresarial (ESP) são unidos a um domínio que é gerido pela Azure AD DS. A segurança kerberos está configurada para os componentes hadoop no cluster.
 
 As seguintes coisas são criadas automaticamente:
 
-- Um diretor de serviço para cada componente Hadoop
-- Um diretor de máquinas para cada máquina que está unida ao domínio
-- Uma Unidade Organizacional (OU) para cada cluster armazenar estes diretores de serviço e máquinas
+- Um principal de serviço para cada componente Hadoop
+- Um diretor de máquina para cada máquina que se juntou ao domínio
+- Uma Unidade Organizacional (OU) para cada cluster para armazenar estes diretores de serviço e máquinas
 
-Para resumir, é preciso criar um ambiente com:
+Para resumir, é necessário configurar um ambiente com:
 
-- Um domínio de Diretório Ativo (gerido por Azure AD DS). **O nome de domínio deve ter 39 caracteres ou menos para trabalhar com o Azure HDInsight.**
-- LDAP seguro (LDAPS) ativado em DS AD Azure.
-- Conectividade de rede adequada da rede virtual HDInsight para a rede virtual Azure AD DS, se escolher redes virtuais separadas para eles. Um VM dentro da rede virtual HDInsight deve ter uma linha de visão para O DS Azure Através do epeering virtual da rede. Se hDInsight e Azure AD DS forem implantados na mesma rede virtual, a conectividade é fornecida automaticamente e não são necessárias mais medidas.
+- Um domínio ative directory (gerido por Azure AD DS). **O nome de domínio deve ser de 39 caracteres ou menos para trabalhar com Azure HDInsight.**
+- LDAP Seguro (LDAPS) ativado em Azure AD DS.
+- Conectividade de rede adequada da rede virtual HDInsight para a rede virtual Azure AD DS, se escolher redes virtuais separadas para eles. Um VM dentro da rede virtual HDInsight deve ter uma linha de visão para Azure AD DS através de um olhar de rede virtual. Se o HDInsight e o AD DS Azure forem implantados na mesma rede virtual, a conectividade é fornecida automaticamente e não são necessárias mais medidas.
 
 ## <a name="set-up-different-domain-controllers"></a>Configurar diferentes controladores de domínio
 
-AhDInsight suporta atualmente apenas O Azure AD DS como o controlador de domínio principal que o cluster utiliza para a comunicação kerberos. Mas outras configurações complexas do Ative Directory são possíveis, desde que tal configuração conduza a permitir o Acesso AD DS Azure para o HDInsight.
+ATUALMENTE, o HDInsight suporta apenas o Azure AD DS como o principal controlador de domínio que o cluster utiliza para a comunicação Kerberos. Mas outras configurações complexas do Ative Directory são possíveis, desde que tal configuração conduza a permitir o acesso Azure AD DS para acesso HDInsight.
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
 
-[O Azure AD DS](../../active-directory-domain-services/overview.md) fornece um domínio gerido que é totalmente compatível com o Diretório Ativo do Windows Server. A Microsoft cuida de gerir, corrigir e monitorizar o domínio numa configuração altamente disponível (HA). Pode implantar o seu cluster sem se preocupar em manter controladores de domínio.
+[O Azure AD DS](../../active-directory-domain-services/overview.md) fornece um domínio gerido totalmente compatível com o Windows Server Ative Directory. A Microsoft cuida de gerir, remendar e monitorizar o domínio numa configuração altamente disponível (HA). Pode implantar o seu cluster sem se preocupar em manter controladores de domínio.
 
-Os utilizadores, grupos e senhas são sincronizados a partir de Azure AD. A sincronização unidirecional da sua instância Azure AD para O DS Azure permite que os utilizadores inscrevam-se no cluster utilizando as mesmas credenciais corporativas.
+Os utilizadores, grupos e palavras-passe são sincronizados a partir do Azure AD. A sincronização unidirecional da sua instância AD Azure para Azure AD DS permite que os utilizadores entrem no cluster utilizando as mesmas credenciais corporativas.
 
-Para mais informações, consulte [os clusters Configure HDInsight com ESP utilizando O DS Azure](./apache-domain-joined-configure-using-azure-adds.md).
+Para obter mais informações, consulte [clusters Configure HDInsight com ESP utilizando Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
 
-### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Diretório Ativo no local ou Diretório Ativo em VMs IaaS
+### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Diretório ativo ou diretório ativo no IaaS VMs
 
-Se tiver uma instância de Diretório Ativo no local ou configurações de Diretório Ativo mais complexas para o seu domínio, pode sincronizar essas identidades com o Azure AD Através do Azure AD Connect. Em seguida, pode ativar o Azure AD DS naquele inquilino do Diretório Ativo.
+Se tiver uma instância ative de diretório ou configurações mais complexas do Ative Directory para o seu domínio, pode sincronizar essas identidades com a Azure AD utilizando o Azure AD Connect. Em seguida, pode ativar a Azure AD DS no inquilino ative directory.
 
-Como kerberos depende de hashes de senha, você deve ativar a sincronização de hash de [senha no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Como kerberos depende de hashes de palavra-passe, você deve [ativar a sincronização de haxixe de palavra-passe em Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
 
-Se estiver a utilizar a federação com serviços da Federação de Diretórios Ativos (AD FS), deve ativar a sincronização de hash de senha. (Para uma configuração recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) A sincronização de hash de palavra-passe ajuda na recuperação de desastres no caso da sua infraestrutura AD FS falhar, e também ajuda a fornecer proteção credencial vazada. Para mais informações, consulte [Enable password hash sync with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+Se estiver a utilizar a federação com serviços da Federação de Diretórios Ativos (AD FS), tem de ativar a sincronização de haxixe de palavra-passe. (Para uma configuração recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) O hash sync da palavra-passe ajuda na recuperação de desastres no caso da sua infraestrutura AD FS falhar, e também ajuda a fornecer proteção de credencial com fugas. Para obter mais informações, consulte [Ativar a sincronização de haxixe de palavra-passe com a sincronização Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-Utilizar no local o Diretório Ativo ou O Diretório Ativo apenas em VMs IaaS, sem Azure AD e Azure AD DS, não é uma configuração suportada para clusters HDInsight com ESP.
+Utilizar apenas no local o Ative Directory ou o Ative Directory em IaaS VMs, sem Azure AD e Azure AD DS, não é uma configuração suportada para clusters HDInsight com ESP.
 
-Se a federação estiver a ser utilizada e as hashes de palavra-passe estiverem sincronizadas corretamente, mas está a obter falhas de autenticação, verifique se a autenticação de palavra-passe em nuvem está ativada para o principal de serviço powerShell. Caso contrário, deve definir uma política de [Home Realm Discovery (HRD)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o seu inquilino Azure AD. Para verificar e definir a política de HRD:
+Se a federação estiver a ser utilizada e as hashes de palavra-passe estiverem sincronizadas corretamente, mas está a obter falhas de autenticação, verifique se a autenticação de passwords em nuvem está ativada para o principal do serviço PowerShell. Caso contrário, deve definir uma [política home realm discovery (HRD)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o seu inquilino AZure AD. Para verificar e definir a política de HRD:
 
-1. Instale o módulo de pré-visualização [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Instale o [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD
    ```
 
-2. Conecte-se utilizando credenciais de administrador global (administrador de inquilinos).
+2. Conecte-se usando credenciais de administrador global (administrador de inquilinos).
 
    ```powershell
    Connect-AzureAD
    ```
 
-3. Verifique se o diretor de serviço microsoft Azure PowerShell já foi criado.
+3. Verifique se o diretor de serviços da Microsoft Azure PowerShell já foi criado.
 
    ```powershell
    Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Se não existe, crie o diretor de serviço.
+4. Se não existe, então crie o diretor de serviço.
 
    ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
@@ -111,8 +110,8 @@ Se a federação estiver a ser utilizada e as hashes de palavra-passe estiverem 
         -refObjectID $policy.ID
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Configure os clusters HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
-- [Configure as políticas da Hive Apache para clusters HDInsight com ESP](apache-domain-joined-run-hive.md)
+- [Configurar clusters HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
+- [Configure as políticas de Colmeia Apache para clusters HDInsight com ESP](apache-domain-joined-run-hive.md)
 - [Gerir clusters HDInsight com ESP](apache-domain-joined-manage.md)

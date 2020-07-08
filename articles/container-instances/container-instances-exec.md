@@ -1,34 +1,33 @@
 ---
-title: Executar comandos em instância de contentor de corrida
-description: Saiba como executar um comando num contentor que está atualmente em funcionamento em Instâncias de Contentores Azure
+title: Executar comandos em execução de caso de contentor
+description: Saiba como executar um comando num contentor que está atualmente a funcionar em Instâncias de Contentores Azure
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79247205"
 ---
-# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Execute um comando num contentor Azure em execução
+# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Execute um comando em uma instância de contentor Azure em execução
 
 O Azure Container Instances suporta a execução de um comando num contentor em execução. Executar um comando num contentor que já iniciou é especialmente útil durante o desenvolvimento e resolução de problemas de aplicações. É comum esta funcionalidade ser utilizada para iniciar um shell interativo para que seja possível depurar problemas num contentor em execução.
 
 ## <a name="run-a-command-with-azure-cli"></a>Executar um comando com Azure CLI
 
-Executar um comando num recipiente de corrida com um executivo de [contentora az][az-container-exec] no [ClI Azure:][azure-cli]
+Execute um comando num recipiente de funcionamento com [um executivo de contentores az][az-container-exec] no [Azure CLI:][azure-cli]
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
 ```
 
-Por exemplo, lançar uma concha bash num recipiente nginx:
+Por exemplo, para lançar uma concha Bash num recipiente Nginx:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
 ```
 
-Na saída de exemplo abaixo, a concha Bash é lançada num recipiente `ls` Linux em execução, fornecendo um terminal no qual é executado:
+Na saída de exemplo abaixo, a concha Bash é lançada num recipiente Linux em funcionamento, fornecendo um terminal no qual `ls` é executado:
 
 ```output
 root@caas-83e6c883014b427f9b277a2bba3b7b5f-708716530-2qv47:/# ls
@@ -39,7 +38,7 @@ exit
 Bye.
 ```
 
-Neste exemplo, o Comando Prompt é lançado num recipiente Nanoserver em execução:
+Neste exemplo, o Comando Prompt é lançado num recipiente nanoserver em funcionamento:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
@@ -72,9 +71,9 @@ Bye.
 
 ## <a name="multi-container-groups"></a>Grupos com vários contentores
 
-Se o seu grupo de [contentores](container-instances-container-groups.md) tiver vários contentores, como um recipiente de aplicação `--container-name`e um sidecar de madeira, especifique o nome do recipiente para executar o comando com .
+Se o seu [grupo de contentores](container-instances-container-groups.md) tiver vários contentores, tais como um recipiente de aplicação e um sidecar de madeira, especifique o nome do recipiente para executar o comando com `--container-name` .
 
-Por exemplo, no grupo de contentores *mynginx* estão dois contentores, *nginx-app* e *madeireiros*. Para lançar uma concha no recipiente *de aplicações nginx:*
+Por exemplo, no grupo de contentores *mynginx* encontram-se dois recipientes, *nginx-app* e *madeir.* Para lançar uma concha no recipiente *nginx-app:*
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
@@ -82,11 +81,11 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Restrições
 
-Atualmente, a Azure Container Instances suporta o lançamento de um único processo com o executivo de [contentores az][az-container-exec], e não pode passar argumentos de comando. Por exemplo, não é possível correntes de comandos como dentro `sh -c "echo FOO && echo BAR"`ou executar `echo FOO`.
+A azure Container Instances suporta atualmente o lançamento de um único processo com [o executivo de contentores az][az-container-exec], e não é possível passar argumentos de comando. Por exemplo, não é possível acorrentar comandos como em `sh -c "echo FOO && echo BAR"` , ou executar `echo FOO` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Conheça outras ferramentas de resolução de problemas e problemas comuns de implantação em problemas de [contentores e implementação em casos de contentores de Azure](container-instances-troubleshooting.md).
+Saiba mais sobre outras ferramentas de resolução de problemas e problemas comuns de implantação em [contentores de resolução de problemas e problemas de implantação em instâncias de contentores Azure](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
 [az-container-create]: /cli/azure/container#az-container-create

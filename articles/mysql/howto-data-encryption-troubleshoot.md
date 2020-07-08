@@ -1,62 +1,61 @@
 ---
-title: Encriptação de dados de resolução de problemas - Base de Dados Azure para MySQL
-description: Saiba como resolver a encriptação de dados na Base de Dados Azure para o MySQL
+title: Encriptação de dados de resolução de problemas - Base de Dados Azure para o MySQL
+description: Saiba como resolver problemas de encriptação de dados na Base de Dados Azure para o MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79297045"
 ---
-# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Encriptação de dados de resolução de problemas na Base de Dados Azure para MySQL
+# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Encriptação de dados de resolução de problemas na Base de Dados Azure para o MySQL
 
 Este artigo descreve como identificar e resolver problemas comuns que podem ocorrer na Base de Dados Azure para o MySQL quando configurado com encriptação de dados usando uma chave gerida pelo cliente.
 
 ## <a name="introduction"></a>Introdução
 
-Quando configura a encriptação de dados para utilizar uma chave gerida pelo cliente no Cofre de Chaves Azure, os servidores requerem acesso contínuo à chave. Se o servidor perder o acesso à chave gerida pelo cliente no Cofre de Chaves Azure, negará todas as ligações, devolverá a mensagem de erro apropriada e mudará o seu estado para ***Inacessível*** no portal Azure.
+Quando configurar a encriptação de dados para utilizar uma chave gerida pelo cliente no Cofre de Chaves Azure, os servidores requerem acesso contínuo à chave. Se o servidor perder o acesso à chave gerida pelo cliente no Cofre da Chave Azure, negará todas as ligações, devolverá a mensagem de erro adequada e mudará o seu estado para ***Inacessível*** no portal Azure.
 
-Se já não necessitar de uma base de dados Azure inacessível para o servidor MySQL, pode eliminá-la para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre da chave seja restaurado e o servidor esteja disponível. Também não é possível alterar a opção de encriptação de dados de `Yes`(gerido pelo cliente) para `No` (gerido pelo serviço) num servidor inacessível quando é encriptado com uma chave gerida pelo cliente. Terá de revalidar a chave manualmente antes de o servidor voltar a estar acessível. Esta ação é necessária para proteger os dados de acesso não autorizado enquanto as permissões à chave gerida pelo cliente são revogadas.
+Se já não precisar de uma Base de Dados Azure inacessível para o servidor MySQL, pode eliminá-la para parar de incorrer em custos. Não são permitidas outras ações no servidor até que o acesso ao cofre da chave seja restaurado e o servidor esteja disponível. Também não é possível alterar a opção de encriptação de dados de `Yes` (gerido pelo cliente) para `No` (gerido pelo serviço) num servidor inacessível quando é encriptado com uma chave gerida pelo cliente. Terá de revalidar a chave manualmente antes de o servidor voltar a estar acessível. Esta ação é necessária para proteger os dados do acesso não autorizado enquanto as permissões à chave gerida pelo cliente são revogadas.
 
 ## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Erros comuns que fazem com que o servidor se torne inacessível
 
-As seguintes configurações causam a maioria dos problemas com encriptação de dados que usam chaves Azure Key Vault:
+As seguintes configurações erradas causam a maioria dos problemas com a encriptação de dados que usam as teclas Azure Key Vault:
 
 - O cofre da chave está indisponível ou não existe:
-  - O cofre da chave foi acidentalmente apagado.
-  - Um erro intermitente de rede faz com que o cofre da chave não esteja disponível.
+  - O cofre foi acidentalmente apagado.
+  - Um erro de rede intermitente faz com que o cofre da chave não esteja disponível.
 
-- Não tem permissão para aceder ao cofre da chave ou a chave não existe:
+- Não tem permissões para aceder ao cofre ou a chave não existe:
   - A chave expirou ou foi acidentalmente eliminada ou desativada.
-  - A identidade gerida da Base de Dados Azure para a instância MySQL foi acidentalmente eliminada.
-  - A identidade gerida da Base de Dados Azure para a instância MySQL tem permissões-chave insuficientes. Por exemplo, as permissões não incluem Get, Wrap e Desembrulhar.
-  - As permissões de identidade geridas para a Base de Dados Azure para a instância MySQL foram revogadas ou eliminadas.
+  - A identidade gerida da Base de Dados Azure para o caso MySQL foi acidentalmente eliminada.
+  - A identidade gerida da Base de Dados Azure para o caso MySQL não tem permissões-chave suficientes. Por exemplo, as permissões não incluem Get, Wrap e Desembrulhar.
+  - As permissões de identidade geridas para a base de dados Azure para a instância MySQL foram revogadas ou eliminadas.
 
 ## <a name="identify-and-resolve-common-errors"></a>Identificar e resolver erros comuns
 
 ### <a name="errors-on-the-key-vault"></a>Erros no cofre da chave
 
-#### <a name="disabled-key-vault"></a>Cofre de chave para deficientes
+#### <a name="disabled-key-vault"></a>Cofre de chaves desativado
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Explicação**: A operação não pôde ser concluída no servidor porque a chave do cofre de chaves Azure está desativada.
+- **Explicação**: A operação não pôde ser concluída no servidor porque a tecla Azure Key Vault está desativada.
 
-#### <a name="missing-key-vault-permissions"></a>Faltando permissões no cofre
+#### <a name="missing-key-vault-permissions"></a>Permissões de cofre em falta
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Explicação**: O servidor não tem as permissões de Get, Wrap e Desembrulhar necessárias para o Cofre de Chaves Azure. Conceda permissões em falta para o diretor de serviço com identificação.
+- **Explicação**: O servidor não tem as permissões necessárias para Obter, Wrap e Desembrulhar para o Cofre da Chave Azure. Conceda todas as permissões em falta ao diretor de serviço com identificação.
 
 ### <a name="mitigation"></a>Mitigação
 
-- Confirme que a chave gerida pelo cliente está presente no cofre chave.
-- Identifique o cofre da chave e vá ao cofre chave no portal Azure.
+- Confirme se a chave gerida pelo cliente está presente no cofre da chave.
+- Identifique o cofre da chave e vá para o cofre chave no portal Azure.
 - Certifique-se de que a chave URI identifica uma chave que está presente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Utilize o portal Azure para configurar encriptação de dados com uma chave gerida pelo cliente na Base de Dados Azure para MySQL](howto-data-encryption-portal.md)
+[Utilize o portal Azure para configurar encriptação de dados com uma chave gerida pelo cliente na Base de Dados Azure para o MySQL](howto-data-encryption-portal.md)

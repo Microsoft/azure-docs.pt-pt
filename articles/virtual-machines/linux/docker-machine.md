@@ -8,25 +8,24 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78968807"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como usar a Máquina Docker para criar anfitriões em Azure
-Este artigo detalha como usar a [Máquina Docker](https://docs.docker.com/machine/) para criar anfitriões em Azure. O `docker-machine` comando cria uma máquina virtual Linux (VM) em Azure e instala o Docker. Em seguida, pode gerir os seus anfitriões Docker em Azure usando as mesmas ferramentas e fluxos de trabalho locais. Para utilizar a máquina de estivadores no Windows 10, tem de utilizar a bash Linux.
+Este artigo detalha como usar a [Máquina Docker](https://docs.docker.com/machine/) para criar anfitriões em Azure. O `docker-machine` comando cria uma máquina virtual Linux (VM) em Azure e depois instala Docker. Em seguida, pode gerir os seus anfitriões Docker em Azure usando as mesmas ferramentas locais e fluxos de trabalho. Para utilizar a máquina de estivar no Windows 10, tem de utilizar a bash Linux.
 
-## <a name="create-vms-with-docker-machine"></a>Criar VMs com máquina de Docker
-Em primeiro lugar, obtenha o seu ID de subscrição Azure com [conta az mostrar](/cli/azure/account) da seguinte forma:
+## <a name="create-vms-with-docker-machine"></a>Criar VMs com máquina Docker
+Em primeiro lugar, obtenha o seu ID de subscrição Azure com [a az show](/cli/azure/account) da seguinte forma:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
 ```
 
-Cria VMs anfitriões Docker `docker-machine create` em Azure com especificando *o azure* como o condutor. Para mais informações, consulte a documentação do [Docker Azure Driver](https://docs.docker.com/machine/drivers/azure/)
+Cria vMs de anfitrião Docker em Azure com `docker-machine create` especificando *azul* como motorista. Para mais informações, consulte a documentação do [Condutor Docker Azure](https://docs.docker.com/machine/drivers/azure/)
 
-O exemplo seguinte cria um VM denominado *myVM,* baseado no plano "Standard D2 v2", cria uma conta de utilizador chamada *azureuser,* e abre a porta *80* no VM hospedeiro. Siga quaisquer solicitações para iniciar sessão na sua conta Azure e conceder permissões à Docker Machine para criar e gerir recursos.
+O exemplo a seguir cria um VM chamado *myVM,* baseado no plano "Standard D2 v2", cria uma conta de utilizador chamada *azureuser,* e abre a porta *80* no VM anfitrião. Siga quaisquer solicitações para iniciar sessão na sua conta Azure e conceder permissões à Docker Machine para criar e gerir recursos.
 
 ```bash
 docker-machine create -d azure \
@@ -70,8 +69,8 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvm
 ```
 
-## <a name="configure-your-docker-shell"></a>Configure a sua concha do Docker
-Para ligar ao seu anfitrião Docker em Azure, defina as definições de ligação adequadas. Como notado no final da saída, veja as informações de ligação para o seu anfitrião Docker da seguinte forma: 
+## <a name="configure-your-docker-shell"></a>Configure a sua concha Docker
+Para ligar ao seu anfitrião Docker em Azure, defina as definições de ligação apropriadas. Como notado no final da saída, veja as informações de ligação para o seu anfitrião Docker da seguinte forma: 
 
 ```bash
 docker-machine env myvm
@@ -88,10 +87,10 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Para definir as definições de ligação, pode`eval $(docker-machine env myvm)`executar o comando de configuração sugerido ( ), ou pode definir as variáveis ambientais manualmente. 
+Para definir as definições de ligação, pode executar o comando de configuração sugerido `eval $(docker-machine env myvm)` (), ou pode definir as variáveis ambientais manualmente. 
 
 ## <a name="run-a-container"></a>Executar um recipiente
-Para ver um recipiente em ação, vamos executar um webserver ngINX básico. Criar um `docker run` contentor com e expor a porta 80 para tráfego web da seguinte forma:
+Para ver um recipiente em ação, vamos executar um webserver NGINX básico. Crie um recipiente com `docker run` e exponha a porta 80 para tráfego web da seguinte forma:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -110,24 +109,24 @@ Status: Downloaded newer image for nginx:latest
 675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
 ```
 
-Ver recipientes `docker ps`de corrida com . A saída de exemplo seguinte mostra o contentor NGINX a funcionar com a porta 80 exposta:
+Ver recipientes de funcionamento com `docker ps` . A saída de exemplo a seguir mostra o contentor NGINX a funcionar com a porta 80 exposta:
 
 ```bash
 CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
 d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes    0.0.0.0:80->80/tcp, 443/tcp    festive_mirzakhani
 ```
 
-## <a name="test-the-container"></a>Testar o recipiente
-Obtenha o endereço IP público do anfitrião do Docker da seguinte forma:
+## <a name="test-the-container"></a>Teste o recipiente
+Obtenha o endereço IP público do anfitrião Docker da seguinte forma:
 
 
 ```bash
 docker-machine ip myvm
 ```
 
-Para ver o recipiente em ação, abra um navegador web e introduza o endereço IP público anotado na saída do comando anterior:
+Para ver o contentor em ação, abra um navegador web e introduza o endereço IP público indicado na saída do comando anterior:
 
-![Contentor ngnix em execução](./media/docker-machine/nginx.png)
+![Recipiente de ngnix de execução](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>Passos seguintes
-Por exemplo, na utilização do Docker Compose, veja [Get started with Docker and Compose in Azure](docker-compose-quickstart.md).
+## <a name="next-steps"></a>Próximos passos
+Por exemplo, sobre a utilização de Docker Compose, consulte [Começar com Docker e Compose em Azure](docker-compose-quickstart.md).

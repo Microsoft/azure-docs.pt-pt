@@ -15,17 +15,16 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79251365"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Formatos e codecs Standard Encoder
+# <a name="standard-encoder-formats-and-codecs"></a>Formatos e códigos Standard Encoder
 
-Este artigo contém uma lista dos formatos de ficheiros de importação e exportação mais comuns que pode utilizar com [standardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas utilizando **o StandardEncoderPreset,** consulte [Criar uma transformação com um preset personalizado](customize-encoder-presets-how-to.md).
+Este artigo contém uma lista dos formatos de ficheiros de importação e exportação mais comuns que pode utilizar com [o StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas utilizando **o StandardEncoderPreset,** consulte [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
-## <a name="input-containerfile-formats"></a>Formatos de recipiente de entrada/ficheiro
+## <a name="input-containerfile-formats"></a>Formatos de recipiente/ficheiro de entrada
 
 | Formatos de ficheiro (extensões de ficheiro) | Suportado |
 | --- | --- |
@@ -41,18 +40,18 @@ Este artigo contém uma lista dos formatos de ficheiros de importação e export
 | WAVE/WAV (.wav) |Sim |
 | QuickTime (.mov) |Sim |
 
-### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em recipientes de entrada
+### <a name="audio-formats-in-input-containers"></a>Formatos áudio em recipientes de entrada
 
-O Encoder Standard suporta o transporte dos seguintes formatos áudio em recipientes de entrada:
+A Standard Encoder suporta o transporte dos seguintes formatos áudio em recipientes de entrada:
 
-* Ficheiros MXF, GXF e QuickTime, que têm faixas áudio com estéreo intercalada ou 5.1 amostras
+* Ficheiros MXF, GXF e QuickTime, que têm faixas áudio com amostras de som intercalada ou 5,1
 
 ou
 
 * ficheiros do MXF, do GXF e do QuickTime onde o áudio é executado como faixas PCM em separado, mas o mapeamento do canal (para estéreo ou 5.1) pode ser reduzido a partir dos metadados de ficheiro
 
-## <a name="input-video-codecs"></a>Input video codecs
-| Input video codecs | Suportado |
+## <a name="input-video-codecs"></a>Inserir códigos de vídeo
+| Inserir códigos de vídeo | Suportado |
 | --- | --- |
 | AVC 8-bits/10-bits, até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | Avid DNxHD (no MXF) |Sim |
@@ -72,9 +71,9 @@ ou
 | Apple ProRes Proxy |Sim |
 | Apple ProRes 4444 |Sim |
 | Apple ProRes 4444 XQ |Sim |
-| HEVC/H.265| Perfil principal|
+| HEVC/H.265| Perfil Principal|
 
-## <a name="input-audio-codecs"></a>Codificadores de áudio de entrada
+## <a name="input-audio-codecs"></a>Inserir códigos de áudio
 | Codecs de Entrada de Áudio | Suportado |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
@@ -92,13 +91,13 @@ ou
 | Dolby® Digital Plus (E-AC3) |Não |
 
 ## <a name="output-formats-and-codecs"></a>Formatos de saída e codecs
-A tabela que se segue lista os códigos e os formatos de ficheiros que são suportados para exportação.
+A tabela que se segue lista os formatos de códigos e ficheiros suportados para exportação.
 
-| Formato do Ficheiro | Código de Vídeo | Código de Áudio |
+| Formato do Ficheiro | Código de vídeo | Codec áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo recipientes MP4 multibitados) |H.264 (Perfis altos, principais e de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(incluindo recipientes MP4 multi-bitrate) |H.264 (Perfis altos, principais e de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (Perfis altos, principais e de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Criar uma transformação com um preset personalizado](customize-encoder-presets-how-to.md)
+[Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md)

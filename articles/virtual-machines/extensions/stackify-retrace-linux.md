@@ -14,34 +14,33 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79253796"
 ---
-# <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux Agent Extension
+# <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Extensão do Agente Linux
 
 ## <a name="overview"></a>Descrição geral
 
-Stackify fornece produtos que rastreiam detalhes sobre a sua aplicação para ajudar a encontrar e corrigir problemas rapidamente. Para equipas de desenvolvedores, o Retrace é um super-poder de desempenho de desempenho de aplicações totalmente integrado, multi-ambiente. Combina várias ferramentas que todas as equipas de desenvolvimento precisam.
+O Stackify fornece produtos que rastreiam detalhes sobre a sua aplicação para ajudar a encontrar e corrigir problemas rapidamente. Para equipas de desenvolvedores, o Retrace é um super-poder de desempenho de aplicações totalmente integrado, multi-ambiente. Combina várias ferramentas que todas as equipas de desenvolvimento precisam.
 
-Retrace é a ferramenta ONLY que fornece todas as seguintes capacidades em todos os ambientes numa única plataforma.
+A Retrace é a única ferramenta que fornece todas as seguintes capacidades em todos os ambientes numa única plataforma.
 
-* Gestão de desempenho de aplicações (APM)
-* Registo de aplicação e servidor
+* Gestão do desempenho da aplicação (APM)
+* Registo de aplicações e servidores
 * Rastreio e monitorização de erros
 * Servidor, aplicação e métricas personalizadas
 
-**Sobre stackify Linux Agent Extension**
+**Sobre a extensão do agente Do Stackify Linux**
 
-Esta extensão fornece um caminho de instalação para o Agente Linux para Retrace. 
+Esta extensão fornece um caminho de instalação para o Agente Linux para Refazer. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo 
 
-O agente Retrace pode ser executado contra estas distribuições linux
+O agente Retrace pode ser executado contra estas distribuições Linux
 
 | Distribuição | Versão |
 |---|---|
@@ -54,14 +53,14 @@ O agente Retrace pode ser executado contra estas distribuições linux
 
 A extensão do Agente Stackify para o Linux requer que a máquina virtual alvo esteja ligada à internet. 
 
-Pode ser necessário ajustar a configuração da sua rede https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewallpara permitir que as ligações ao Stackify, ver . 
+Pode ser necessário ajustar a sua configuração de rede para permitir ligações ao Stackify, ver https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall . 
 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
 ---
 
-O jSON seguinte mostra o esquema para a extensão do Agente de Retrace Stackify. A extensão `environment` requer `activationKey`a e .
+O JSON seguinte mostra o esquema para a extensão do Agente Detracição de Stackify. A extensão requer o `environment` e `activationKey` .
 
 ```json
     {
@@ -89,13 +88,13 @@ O jSON seguinte mostra o esquema para a extensão do Agente de Retrace Stackify.
 
 ## <a name="template-deployment"></a>Implementação de modelos 
 
-As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. O esquema JSON detalhado na secção anterior pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do agente Stackify Retrace Linux durante uma implementação do modelo do Gestor de Recursos Azure.  
+As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do Agente Linux de Stackify retrace durante uma implementação do modelo do Gestor de Recursos Azure.  
 
-O JSON para uma extensão virtual da máquina pode ser aninhado dentro do recurso virtual da máquina, ou colocado no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o tipo de definição para os recursos infantis.
+O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual, ou colocado no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recurso. Para obter mais informações, consulte o nome definido e o tipo para obter recursos para crianças.
 
-O exemplo seguinte pressupõe que a extensão Stackify Retrace Linux está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado nos "recursos": [] objeto da máquina virtual.
+O exemplo a seguir pressupõe que a extensão Stackify Retrace Linux está aninhada dentro do recurso da máquina virtual. Ao nidificar o recurso de extensão, o JSON é colocado nos "recursos": [] objeto da máquina virtual.
 
-A extensão `environment` requer `activationKey`a e .
+A extensão requer o `environment` e `activationKey` .
 
 ```json
     {
@@ -121,7 +120,7 @@ A extensão `environment` requer `activationKey`a e .
     }      
 ```
 
-Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual dos pais, e o tipo reflete a configuração aninhada.
+Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual do progenitor, e o tipo reflete a configuração aninhada.
 
 ```json
     {
@@ -148,11 +147,11 @@ Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma refe
 ```
 
 
-## <a name="powershell-deployment"></a>Implementação powerShell
+## <a name="powershell-deployment"></a>Implantação powerShell
 
-O `Set-AzVMExtension` comando pode ser utilizado para implantar a extensão virtual do Agente De trace Stackify para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de hash PowerShell.
+O `Set-AzVMExtension` comando pode ser utilizado para implantar a extensão virtual da máquina virtual Stackify Retrace Agent para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de haxixe PowerShell.
 
-A extensão `environment` requer `activationKey`a e .
+A extensão requer o `environment` e `activationKey` .
 
 ```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -169,11 +168,11 @@ Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -Location WestUS `
 ```
 
-## <a name="azure-cli-deployment"></a>Implantação Azure CLI 
+## <a name="azure-cli-deployment"></a>Implantação do Azure CLI 
 
-A ferramenta Azure CLI pode ser utilizada para implementar a extensão virtual do Agente Stackify Retrace Linux para uma máquina virtual existente.  
+A ferramenta Azure CLI pode ser usada para implantar a extensão da máquina virtual Stackify Retrace Agent para uma máquina virtual existente.  
 
-A extensão `environment` requer `activationKey`a e .
+A extensão requer o `environment` e `activationKey` .
 
 ```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
@@ -188,14 +187,14 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 10 | Instalar Erro | wget é necessário |
 | 20 | Instalar Erro | python é necessário |
 | 30 | Instalar Erro | sudo é necessário |
-| 40 | Instalar Erro | activaçãoÉ necessário activarChave |
-| 51 | Instalar Erro | Distro osso não suportado |
+| 40 | Instalar Erro | ativaçãoKey é necessário |
+| 51 | Instalar Erro | OS distro não suportado |
 | 60 | Instalar Erro | ambiente é necessário |
 | 70 | Instalar Erro | Desconhecido |
 | 80 | Ativar erro | A configuração do serviço falhou |
 | 90 | Ativar erro | Startup de serviço falhou |
-| 100 | Erro de desativar | Paragem de serviço falhada |
-| 110 | Erro de desativar | Remoção de serviço falhou |
-| 120 | Desinstalar erro | Paragem de serviço falhada |
+| 100 | Desativar erro | Paragem de serviço falhou |
+| 110 | Desativar erro | Remoção de serviço falhou |
+| 120 | Desinstalar erro | Paragem de serviço falhou |
 
-Se precisar de mais ajuda, pode https://support.stackify.comcontactar o suporte stackify em .
+Se precisar de mais ajuda, pode contactar o suporte do Stackify em https://support.stackify.com .

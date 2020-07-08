@@ -7,19 +7,18 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cynthn
 ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969142"
 ---
-# <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Use cloud-init para atualizar e instalar pacotes num VM Linux em Azure
-Este artigo mostra-lhe como usar [cloud-init](https://cloudinit.readthedocs.io) para atualizar pacotes em uma máquina virtual Linux (VM) ou conjuntos de escala de máquina virtual no tempo de provisionamento em Azure. Estes scripts de cloud-init funcionam na primeira bota uma vez que os recursos foram aprovisionados pelo Azure. Para mais informações sobre como o cloud-init funciona nativamente em Azure e os distros linux suportados, consulte a [visão geral cloud-init](using-cloud-init.md)
+# <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Use cloud-init para atualizar e instalar pacotes num Linux VM em Azure
+Este artigo mostra-lhe como utilizar [o cloud-init](https://cloudinit.readthedocs.io) para atualizar pacotes numa máquina virtual Linux (VM) ou na escala de máquina virtual em tempo de provisionamento em Azure. Estes scripts de nuvem funcionam na primeira bota uma vez que os recursos foram a provisionados pela Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)
 
-## <a name="update-a-vm-with-cloud-init"></a>Atualizar um VM com cloud-init
-Para fins de segurança, é possível configurar um VM para aplicar as últimas atualizações na primeira bota. Como o cloud-init funciona em diferentes distros `apt` Linux, não há necessidade de especificar ou `yum` para o gestor de pacotes. Em vez `package_upgrade` disso, define e deixa que o processo de inite em nuvem determine o mecanismo adequado para o distro em uso. Este fluxo de trabalho permite-lhe usar os mesmos scripts de cloud-init através de distros.
+## <a name="update-a-vm-with-cloud-init"></a>Atualize um VM com cloud-init
+Para fins de segurança, é melhor configurar um VM para aplicar as últimas atualizações no primeiro arranque. Como o cloud-init funciona em diferentes distros Linux, não há necessidade de especificar `apt` ou para o gestor de `yum` pacotes. Em vez disso, define `package_upgrade` e deixa o processo de inimento de nuvem determinar o mecanismo apropriado para o distro em uso. Este fluxo de trabalho permite-lhe usar os mesmos scripts de inibição de nuvem através de distros.
 
-Para ver o processo de atualização em ação, crie um ficheiro na sua concha atual chamado *cloud_init_upgrade.txt* e cola a seguinte configuração. Para este exemplo, crie o ficheiro na Cloud Shell e não na sua máquina local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_upgrade.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o **editor nano.** Certifique-se de que todo o ficheiro cloud-init é copiado corretamente, especialmente a primeira linha.  
+Para ver o processo de atualização em ação, crie um ficheiro na sua concha atual chamada *cloud_init_upgrade.txt* e cole a seguinte configuração. Para este exemplo, crie o ficheiro na Cloud Shell e não na sua máquina local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_upgrade.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o **nano** editor. Certifique-se de que todo o ficheiro cloud-init é copiado corretamente, especialmente a primeira linha.  
 
 ```yaml
 #cloud-config
@@ -28,13 +27,13 @@ packages:
 - httpd
 ```
 
-Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grupo AZ criar](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de implementar esta imagem, é necessário criar um grupo de recursos com o [grupo az criar](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um VM com [az vm criar](/cli/azure/vm) `--custom-data cloud_init_upgrade.txt` e especificar o ficheiro cloud-init com o seguinte:
+Agora, crie um VM com [az vm criar](/cli/azure/vm) e especificar o ficheiro cloud-init com o `--custom-data cloud_init_upgrade.txt` seguinte:
 
 ```azurecli-interactive 
 az vm create \
@@ -45,19 +44,19 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-SSH para o endereço IP público do seu VM mostrado na saída do comando anterior. Insira o seu próprio **endereço público Da** seguinte forma:
+SSH para o endereço IP público do seu VM mostrado na saída do comando anterior. Insira o seu próprio **públicoIpAddress** da seguinte forma:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Execute a ferramenta de gestão de pacotes e verifique se há atualizações.
+Executar a ferramenta de gestão de pacotes e verificar se há atualizações.
 
 ```bash
 sudo yum update
 ```
 
-Como o cloud-init verificou e instalou atualizações no arranque, não deve haver atualizações adicionais a aplicar.  Você vê o processo de atualização, número de `httpd` pacotes `yum history` alterados, bem como a instalação de executando e revendo a saída semelhante à abaixo.
+Como as atualizações cloud-init verificaram e instalaram atualizações no arranque, não deverá haver atualizações adicionais para aplicar.  Vê o processo de atualização, o número de pacotes alterados, bem como a instalação de `httpd` executando `yum history` e reveja a saída semelhante à abaixo.
 
 ```bash
 Loaded plugins: fastestmirror, langpacks
@@ -68,10 +67,10 @@ ID     | Command line             | Date and time    | Action(s)      | Altered
      1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter exemplos adicionais de alterações de configuração, consulte o seguinte:
+## <a name="next-steps"></a>Próximos passos
+Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
-- [Adicione um utilizador linux adicional a um VM](cloudinit-add-user.md)
+- [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)
 - [Executar um gestor de pacotes para atualizar os pacotes existentes na primeira bota](cloudinit-update-vm.md)
-- [Alterar o nome de anfitrião local VM](cloudinit-update-vm-hostname.md) 
-- [Instale um pacote de aplicação, atualize ficheiros de configuração e injete chaves](tutorial-automate-vm-deployment.md)
+- [Alterar nome de anfitrião local VM](cloudinit-update-vm-hostname.md) 
+- [Instale um pacote de aplicações, atualize ficheiros de configuração e injete teclas](tutorial-automate-vm-deployment.md)

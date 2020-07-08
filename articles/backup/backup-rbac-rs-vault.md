@@ -1,85 +1,84 @@
 ---
 title: Gerir backups com controlo de acesso baseado em funções
-description: Utilize o Controlo de Acesso baseado em Funções para gerir o acesso a operações de gestão de backup no cofre dos Serviços de Recuperação.
+description: Use o Control de Acesso baseado em funções para gerir o acesso a operações de gestão de backup no cofre dos Serviços de Recuperação.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79273205"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilize o Controlo de Acesso baseado em funções para gerir pontos de recuperação de backup do Azure
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
 
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
 
 > [!IMPORTANT]
-> As funções fornecidas pela Azure Backup limitam-se a ações que podem ser executadas no portal Azure ou através do cofre de Serviços de Recuperação Da REST API ou dos Serviços de Recuperação PowerShell ou CLI. As ações realizadas em Azure backup Agent Client UI ou System center Data Protection Manager UI ou Azure Backup Server UI estão fora de controlo destas funções.
+> As funções fornecidas pela Azure Backup estão limitadas a ações que podem ser executadas no portal Azure ou através de cofres de API ou Serviços de Recuperação powerShell ou CLI. As ações realizadas no Azure backup Agent Client UI ou System center Data Protection Manager UI ou Azure Backup Server UI estão fora de controlo destas funções.
 
-A Azure Backup fornece três funções incorporadas para controlar as operações de gestão de backup. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
+O Azure Backup fornece três funções incorporadas para controlar as operações de gestão de backup. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
-* [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - Esta função tem todas as permissões para criar e gerir backup, exceto apagar o cofre dos Serviços de Recuperação e dar acesso a outros. Imagine este papel como administrador da gestão de backup que pode fazer todas as operações de gestão de backup.
-* [Backup Operator](../role-based-access-control/built-in-roles.md#backup-operator) - Esta função tem permissões para tudo o que um colaborador faz, exceto remover as políticas de backup e gestão de políticas de backup. Esta função é equivalente ao contribuinte, exceto que não pode realizar operações destrutivas, tais como parar a cópia de segurança com eliminar dados ou remover o registo de recursos no local.
-* [Backup Reader](../role-based-access-control/built-in-roles.md#backup-reader) - Este papel tem permissões para visualizar todas as operações de gestão de backup. Imagine este papel como uma pessoa de monitorização.
+* [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - Esta função tem todas as permissões para criar e gerir backup, exceto eliminar o cofre dos Serviços de Recuperação e dar acesso a outros. Imagine este papel como administrador de gestão de backup que pode fazer todas as operações de gestão de backup.
+* [Operador de Backup](../role-based-access-control/built-in-roles.md#backup-operator) - Esta função tem permissões para tudo o que um contribuinte faz exceto remover backup e gerir políticas de backup. Esta função é equivalente ao contribuinte, exceto que não pode realizar operações destrutivas, tais como parar a cópia de segurança com eliminar dados ou remover o registo de recursos no local.
+* [Backup Reader](../role-based-access-control/built-in-roles.md#backup-reader) - Esta função tem permissões para visualizar todas as operações de gestão de backup. Imagine este papel como uma pessoa de monitorização.
 
 Se procura definir os seus próprios papéis para ainda mais controlo, veja como [construir papéis personalizados](../role-based-access-control/custom-roles.md) no Azure RBAC.
 
-## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapeando papéis incorporados de backup para ações de gestão de backup
+## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapeamento de papéis incorporados de Backup para ações de gestão de backup
 
-O quadro seguinte captura as ações de gestão de Backup e a função rBAC mínima correspondente necessária para executar essa operação.
+O quadro seguinte captura as ações de gestão de backup e a correspondente função mínima de RBAC necessária para executar essa operação.
 
-| Operação de Gestão | Função RBAC mínima necessária | Âmbito necessário |
+| Operação de Gestão | Papel mínimo rbac necessário | Âmbito necessário |
 | --- | --- | --- |
 | Criar cofre dos Serviços de Recuperação | Colaborador de backup | Grupo de recursos contendo o cofre |
-| Ativar backup de VMs Azure | Operador de backup | Grupo de recursos contendo o cofre |
+| Ativar o backup dos VMs Azure | Operador de backup | Grupo de recursos contendo o cofre |
 | | Contribuidor de Máquina Virtual | Recurso VM |
 | Backup a pedido da VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | Restaurar VMs | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuinte | Grupo de recursos no qual a VM será implantada |
-| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiada |
-| Restaurar a cópia de segurança VM dos discos não geridos | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiada |
-| | Contribuidor de Conta de Armazenamento | Recurso da conta de armazenamento onde os discos vão ser restaurados |
-| Restaurar os discos geridos a partir de backup VM | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiada |
+| | Contribuidor | Grupo de recursos no qual a VM será implantada |
+| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
+| Restaurar a cópia de segurança dos discos não geridos VM | Operador de backup | Cofre dos Serviços de Recuperação |
+| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
+| | Contribuidor de Conta de Armazenamento | Recurso de conta de armazenamento onde os discos vão ser restaurados |
+| Restaurar discos geridos a partir de backup VM | Operador de backup | Cofre dos Serviços de Recuperação |
+| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | | Contribuidor de Conta de Armazenamento | Conta de Armazenamento Temporário selecionada como parte da restauração para reter dados do cofre antes de convertê-los em discos geridos |
-| | Contribuinte | Grupo de recursos para o qual o disco gerido será restaurado |
-| Restaurar ficheiros individuais a partir de backup VM | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiada |
+| | Contribuidor | Grupo de recursos para o qual os discos geridos serão restaurados |
+| Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de backup | Cofre dos Serviços de Recuperação |
+| | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Criar política de backup para backup Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
-| Modificar a política de backup do backup Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
-| Eliminar a política de backup do backup Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
-| Parar a cópia de segurança (com dados de retenção ou eliminar dados) na cópia de segurança vM | Colaborador de backup | Cofre dos Serviços de Recuperação |
-| Registe-se no local Windows Server/cliente/SCDPM ou Azure Backup Server | Operador de backup | Cofre dos Serviços de Recuperação |
-| Eliminar registado no local O Servidor/Cliente/Cliente/SCDPM ou o Servidor de Backup Azure | Colaborador de backup | Cofre dos Serviços de Recuperação |
+| Modificar a política de backup da cópia de segurança da Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
+| Eliminar a política de backup do backup da Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
+| Parar a cópia de segurança (com retenção de dados ou apagar dados) na cópia de segurança do VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
+| Registar no local O Servidor/Cliente/CDPM ou O Servidor de Backup Azure | Operador de backup | Cofre dos Serviços de Recuperação |
+| Eliminar o Windows Server/cliente/SCDPM ou O Azure Backup Server | Colaborador de backup | Cofre dos Serviços de Recuperação |
 
 > [!IMPORTANT]
-> Se especificar o Colaborador VM num âmbito de recursos VM e clicar em Backup como parte das definições vM, abrirá o ecrã 'Enable Backup', mesmo que o VM já esteja apoiado, uma vez que a chamada para verificar se o estado de backup funciona apenas a nível de subscrição. Para evitar isto, vá ao cofre e abra a vista de cópia de segurança do VM ou especifique a função do Colaborador VM a um nível de subscrição.
+> Se especificar o VM Contributor num âmbito de recursos VM e clicar em Backup como parte das definições de VM, abrirá o ecrã 'Enable Backup', mesmo que o VM já esteja apoiado como a chamada para verificar o estado de backup funciona apenas ao nível da subscrição. Para evitar isto, vá ao cofre e abra a vista de ponto de cópia de segurança do VM ou especifique a função VM Contributor a nível de subscrição.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para o backup de ações do Ficheiro Azure
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para o backup de partilha de ficheiros Azure
 
-A tabela seguinte captura as ações de gestão de Backup e a função correspondente necessária para executar a operação de partilha de ficheiros Azure.
+A tabela seguinte captura as ações de gestão de Backup e o papel correspondente necessário para executar a operação de partilha do Ficheiro Azure.
 
-| Operação de Gestão | Papel necessário | Recursos |
+| Operação de Gestão | Função necessária | Recursos |
 | --- | --- | --- |
-| Ativar a cópia de segurança das ações do Ficheiro Azure | Colaborador de backup |Cofre dos Serviços de Recuperação |
-| |Conta de Armazenamento | Recurso da conta de armazenamento do contribuinte |
+| Ativar a cópia de segurança das ações do Azure File | Colaborador de backup |Cofre dos Serviços de Recuperação |
+| |Conta de Armazenamento | Recurso de conta de armazenamento de contribuinte |
 | Backup a pedido da VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | Restaurar a partilha de ficheiros | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuidor de Conta de Armazenamento | Recursos da conta de armazenamento onde restaurar fonte e ações de ficheiros Target estão presentes |
+| | Contribuidor de Conta de Armazenamento | Recursos de conta de armazenamento onde restaurar fonte e ações de ficheiros Target estão presentes |
 | Restaurar ficheiros individuais | Operador de backup | Cofre dos Serviços de Recuperação |
-| |Contribuidor de Conta de Armazenamento|Recursos da conta de armazenamento onde restaurar fonte e ações de ficheiros Target estão presentes |
+| |Contribuidor de Conta de Armazenamento|Recursos de conta de armazenamento onde restaurar fonte e ações de ficheiros Target estão presentes |
 | Parar proteção |Colaborador de backup | Cofre dos Serviços de Recuperação |
-| Desregistar conta de armazenamento a partir do cofre |Colaborador de backup | Cofre dos Serviços de Recuperação |
+| Conta de armazenamento não registro do cofre |Colaborador de backup | Cofre dos Serviços de Recuperação |
 | |Contribuidor de Conta de Armazenamento | Recurso de conta de armazenamento|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Controlo de Acesso Baseado em Funções](../role-based-access-control/role-assignments-portal.md): Comece com o RBAC no portal Azure.
+* [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Resolução de problemas do Controlo de Acesso baseado em papéis](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir questões comuns.
+* [Resolução de problemas do Controlo de Acesso Baseado em Função:](../role-based-access-control/troubleshooting.md)Obtenha sugestões para corrigir questões comuns.
