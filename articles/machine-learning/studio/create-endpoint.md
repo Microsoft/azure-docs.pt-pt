@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
 ms.openlocfilehash: e465d739c485009f68d6d5c5ecbb0850d73a6e60
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696427"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Criar pontos finais para serviços web do Azure Machine Learning Studio (clássicos)
@@ -49,6 +48,6 @@ Tenha em mente que usar uma contagem de alta concordância pode ser prejudicial 
 
 As APIs sincronizadas são normalmente utilizadas em situações em que se deseja uma baixa latência. A latência aqui implica o tempo que a API leva para completar um pedido, e não explica quaisquer atrasos na rede. Digamos que tem uma API com uma latência de 50 ms. Para consumir totalmente a capacidade disponível com ligações simultâneas de nível de aceleração / 20, é necessário chamar a isto API 20 * 1000 / 50 = 400 vezes por segundo. Alargando ainda mais isto, uma Max Concurrent Calls de 200 permite-lhe ligar para a API 4000 vezes por segundo, assumindo uma latência de 50 ms.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como consumir um serviço web Azure Machine Learning](consume-web-services.md).

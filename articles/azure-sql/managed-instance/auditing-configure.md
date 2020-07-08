@@ -14,10 +14,9 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
 ms.openlocfilehash: 6599963b216409103f72b4e46a30961c6d60e32c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84695560"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance
@@ -244,7 +243,7 @@ As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazena
 - A opção de encerramento não é **suportada**.
 - `queue_delay`de 0 não é **suportado**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma lista completa dos métodos de consumo de registos de auditoria, consulte a [Get start with Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md).
 - Para obter mais informações sobre os programas Azure que suportam o cumprimento das normas, consulte o [Azure Trust Center,](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)onde pode encontrar a lista mais atual de certificações de conformidade.

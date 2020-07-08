@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: kumud
 ms.openlocfilehash: 8136ea2a567ac823f03941ebd4a67bed043ada07
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689356"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Parceria com a Azure DDoS Protection Standard
@@ -90,7 +89,7 @@ São necessárias as seguintes etapas para que os parceiros confirquem a integra
 - O programa principal de parceria com a Microsoft é a [Microsoft Partner Network](https://partner.microsoft.com/). – As integrações de Segurança de Gráficos da Microsoft enquadram-se na faixa do [Fornecedor independente de software (ISV) da MPN.](https://partner.microsoft.com/saas-solution-guide)
 - [A Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association?rtc=1) é o programa especificamente para os Microsoft Security Partners para ajudar a enriquecer os seus produtos de segurança e melhorar a descoberta dos seus clientes das suas integrações nos produtos Microsoft Security.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Ver integrações de parceiros existentes:
 
 - [Barracuda WAF-as-a-service](https://www.barracuda.com/waf-as-a-service)

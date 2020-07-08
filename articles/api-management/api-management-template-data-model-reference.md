@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690036"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência do modelo de modelo de gestão da Azure API
@@ -127,7 +126,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="comment"></a><a name="Comment"></a>Comentário  
  A `API` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`Id`|número|A identificação do comentário.|  
 |`CommentText`|string|O corpo do comentário. Pode incluir HTML.|  
@@ -184,7 +183,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="http-response"></a><a name="HTTPResponse"></a>RESPOSTA HTTP  
  Esta secção descreve a `response` representação.  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`statusCode`|inteiro positivo|Código de estado de resposta da operação.|  
 |`description`|string|Descrição da resposta da operação.|  
@@ -227,7 +226,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="paging"></a><a name="Paging"></a>Paging  
  A `paging` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`Page`|número|O número da página atual.|  
 |`PageSize`|número|Os resultados máximos a serem apresentados numa única página.|  
@@ -264,7 +263,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="provider"></a><a name="Provider"></a>Provedor  
  A `provider` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`Properties`|dicionário de cordas|Propriedades para este fornecedor de autenticação.|  
 |`AuthenticationType`|string|O tipo de fornecedor. (Azure Ative Directy, Login do Facebook, Google Account, Microsoft Account, Twitter).|  
@@ -346,7 +345,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Inscrição do utilizador  
  A `user sign up` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|boolean|Valor utilizado pelo controlo [de](api-management-page-controls.md#sign-up)inscrição.|  
 |`Password`|string|Senha de conta de utilizador.|  
@@ -361,5 +360,5 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`NameIdentifier`|string|Valor utilizado pelo controlo [de](api-management-page-controls.md#sign-up)inscrição.|  
 |`ProviderName`|string|Nome do fornecedor de autenticação.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

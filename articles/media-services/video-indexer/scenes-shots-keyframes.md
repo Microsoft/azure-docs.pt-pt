@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691344"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
@@ -127,6 +126,6 @@ Características adicionais:
 * Rostos múltiplos: mais de duas pessoas.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Examinar a produção do Indexer de Vídeo produzido pela API](video-indexer-output-json-v2.md#scenes)

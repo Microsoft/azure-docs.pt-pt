@@ -6,10 +6,9 @@ ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692687"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestão do Estado com Tecido de Serviço
@@ -32,7 +31,7 @@ Tecido de serviço Volume fiável é um controlador de volume Docker usado para 
 
 O Volume de Ficheiros Azure é um controlador de volume Docker usado para montar uma partilha de Ficheiros Azure num contentor. O armazenamento do Azure Files utiliza o armazenamento da rede, pelo que as leituras e as gravações ocorrem ao longo da rede. Em comparação com o volume fiável do tecido de serviço, o armazenamento de Ficheiros Azure é menos performante, mas fornece uma opção de dados mais barata e totalmente fiável. Por exemplo, consulte [Como implementar uma aplicação com volume de ficheiros Azure](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre o modelo de aplicação, consulte [os recursos do Service Fabric](service-fabric-mesh-service-fabric-resources.md)
 

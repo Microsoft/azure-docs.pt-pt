@@ -13,10 +13,9 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689763"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela Web usando Azure Data Factory
@@ -72,9 +71,9 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **Web** |Yes |
-| Url |URL para a fonte web |Yes |
-| authenticationType |Anónimo. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **Web** |Sim |
+| Url |URL para a fonte web |Sim |
+| authenticationType |Anónimo. |Sim |
 
 ### <a name="using-anonymous-authentication"></a>Utilização da autenticação anónima
 
@@ -100,9 +99,9 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |tipo do conjunto de dados. deve ser definido para **WebTable** |Yes |
+| tipo |tipo do conjunto de dados. deve ser definido para **WebTable** |Sim |
 | path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. |
-| índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) secção de página HTML para obter o índice de uma tabela numa página HTML. |Yes |
+| índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) secção de página HTML para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 

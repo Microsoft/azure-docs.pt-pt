@@ -7,10 +7,9 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690019"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
@@ -132,5 +131,5 @@ Para a região do governo dos EUA, apenas URLs DOD são NPM embutidos. Os client
 | Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
 | Equipas MS | gov.teams.microsoft.us | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Faça uma pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para visualizar registos de dados de desempenho detalhados da rede.

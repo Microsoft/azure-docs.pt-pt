@@ -7,10 +7,9 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697627"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Ligações DB Azure Cosmos para Funções Azure 1.x
@@ -178,7 +177,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDBTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `cosmosDBTrigger` . |
 |**direção** | n/a | Deve ser definido para `in` . Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |
@@ -1113,7 +1112,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `DocumentDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `documentdb` .        |
 |**direção**     | n/a | Deve ser definido para `in` .         |
@@ -1452,7 +1451,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `DocumentDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `documentdb` .        |
 |**direção**     | n/a | Deve ser definido para `out` .         |
@@ -1479,7 +1478,7 @@ Por predefinição, quando escreve para o parâmetro de saída na sua função, 
 |---|---|
 | CosmosDB | [Códigos de erro cosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre computação de bases de dados sem servidor com a Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

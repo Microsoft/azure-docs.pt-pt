@@ -6,13 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84687655"
 ---
-# <a name="azure-functions-triggers-and-bindings-concepts"></a>Funções Azure despoletam e encaderna conceitos
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos dos acionadores e dos enlaces das Funções do Azure
 
 Neste artigo aprende-se os conceitos de alto nível em torno das funções que desencadeiam e encadernações.
 
@@ -29,7 +28,7 @@ Considere os seguintes exemplos de como poderia implementar diferentes funções
 | Cenário de exemplo | Acionador | Encadernação de entrada | Ligação de saída |
 |-------------|---------|---------------|----------------|
 | Chega uma nova mensagem de fila que executa uma função para escrever para outra fila. | Fila<sup>*</sup> | *Nenhum* | Fila<sup>*</sup> |
-|Um trabalho programado lê o conteúdo do Blob Storage e cria um novo documento de Cosmos DB. | Temporizador | Armazenamento de Blobs | Cosmos DB |
+|Um trabalho programado lê o conteúdo do Blob Storage e cria um novo documento de Cosmos DB. | Temporizador | Armazenamento de Blobs | BD do Cosmos |
 |A Grade de Eventos é usada para ler uma imagem do Blob Storage e um documento da Cosmos DB para enviar um e-mail. | Event Grid | Blob Storage e Cosmos DB | SendGrid |
 | Um webhook que usa o Microsoft Graph para atualizar uma folha de Excel. | HTTP | *Nenhum* | Microsoft Graph |
 
@@ -88,6 +87,6 @@ Para obter informações sobre quais as ligações que estão em pré-visualiza�
   - [Executar manualmente uma função não acionada por HTTP](functions-manually-run-non-http.md)
 - [Manipulação de erros de ligação](./functions-bindings-errors.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Registar extensões de ligação funções Azure Funções](./functions-bindings-register.md)

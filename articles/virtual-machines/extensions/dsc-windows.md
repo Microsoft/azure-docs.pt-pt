@@ -14,10 +14,9 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689491"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão DSC powershell
@@ -106,7 +105,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 ### <a name="settings-property-values"></a>Definições Valores de propriedade
 
-| Name | Tipo de Dados | Description
+| Name | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
 | definições.wmfVersion | string | Especifica a versão do Quadro de Gestão do Windows que deve ser instalada no seu VM. Definir esta propriedade para 'mais recente' instalará a versão mais atualizada do WMF. Os únicos valores atuais possíveis para esta propriedade são '4.0', '5.0' e 'último'. Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é 'mais recente'. |
 | settings.configuration.url | string | Especifica a localização do URL para descarregar o seu ficheiro zip de configuração DSC. Se o URL fornecido necessitar de um token SAS para acesso, você precisará definir a propriedade protectedSettings.configurationUrlSasToken para o valor do seu token SAS. Esta propriedade é necessária se settings.configuration.script e/ou settings.configuration.fun são definidos.
@@ -120,7 +119,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 ### <a name="protected-settings-property-values"></a>Definições protegidas Valores de propriedade
 
-| Name | Tipo de Dados | Description
+| Name | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
 | protectedSettings.configurationArments | string | Define quaisquer parâmetros que gostaria de passar para a sua configuração DSC. Esta propriedade será encriptada. |
 | protectedSettings.configurationUrlSasToken | string | Especifica o token SAS para aceder ao URL definido por configuração.url. Esta propriedade será encriptada. |

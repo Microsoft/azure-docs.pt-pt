@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691956"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
@@ -134,7 +133,7 @@ Aqui estão as definições mais usadas `ServerTelemetryChannel` para:
 
 Se precisar de fazer um autoclismo sincronizado, recomendamos que utilize `InMemoryChannel` .
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>O canal Application Insights garante a entrega de telemetria? Caso contrário, quais são os cenários em que a telemetria pode ser perdida?
 
@@ -164,7 +163,7 @@ Leia mais sobre [proteção de dados e privacidade.](data-retention-privacy.md#d
 ## <a name="open-source-sdk"></a>SDK de código aberto
 Como todos os SDK para Insights de Aplicações, os canais são de código aberto. Leia e contribua para o código, ou reporte problemas, [no repo oficial do GitHub.](https://github.com/Microsoft/ApplicationInsights-dotnet)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Amostragem](../../azure-monitor/app/sampling.md)
 * [Resolução de problemas da SDK](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)

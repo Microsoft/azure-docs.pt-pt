@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696529"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Criar e partilhar um espaço de trabalho Azure Machine Learning Studio (clássico)
@@ -128,6 +127,6 @@ Após a criação do novo espaço de trabalho do Machine Learning Studio (cláss
 Depois de os cookies serem eliminados, reinicie o navegador e, em seguida, vá para a página [do Microsoft Azure Machine Learning Studio (clássico).](https://studio.azureml.net) Quando lhe for solicitado um nome de utilizador e uma palavra-passe, insira a mesma conta Microsoft que usou para criar o espaço de trabalho.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a gestão de um espaço de trabalho, consulte [Gerir um espaço de trabalho (clássico) do Azure Machine Learning Studio (clássico).](manage-workspace.md)

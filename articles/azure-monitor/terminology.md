@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691821"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor nomeação e alterações de terminologia
@@ -56,7 +55,7 @@ O Suíte de Gestão de Operações (OMS) foi uma agregação dos seguintes servi
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia uma [visão geral do Azure Monitor](overview.md) que descreve os seus diferentes componentes e funcionalidades.
 - Conheça a [transição do portal OMS.](../log-analytics/log-analytics-oms-portal-transition.md)

@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697447"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Funções Azure HTTP Vinculações de saída
@@ -64,7 +63,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 | personalizadosHeaders|nenhum|Permite-lhe definir cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o `X-Content-Type-Options` cabeçalho à resposta para evitar o cheiro do tipo de conteúdo. |
 |dynamicThrottlesEnabled|verdade<sup>\*</sup>|Quando ativado, esta definição faz com que o gasoduto de processamento de pedidos verifique periodicamente os contadores de desempenho do sistema `connections/threads/processes/memory/cpu/etc` e, se algum desses contadores estiver acima de um limiar elevado incorporado (80%), os pedidos serão rejeitados com uma `429 "Too Busy"` resposta até que o contador(s) volte aos níveis normais.<br/><sup>\*</sup>O padrão num plano de consumo é `true` . O padrão num plano dedicado é `false` .|
@@ -73,6 +72,6 @@ Esta secção descreve as definições de configuração global disponíveis par
 |maxOutstandingRequests|200<sup>\*</sup>|O número máximo de pedidos pendentes que são realizados a qualquer momento. Este limite inclui pedidos que estão em fila mas que não começaram a executar, bem como quaisquer execuções em curso. Quaisquer pedidos de entrada acima deste limite são rejeitados com uma resposta 429 "Demasiado Ocupado". Isso permite que os chamadores utilizem estratégias de relíndi baseadas no tempo, e também ajuda-o a controlar o máximo de atrasos de pedido. Isto apenas controla a fila que ocorre dentro do caminho de execução do anfitrião do script. Outras filas, como a fila de pedidos ASP.NET ainda estarão em vigor e não serão afetadas por esta definição. <br/><sup>\*</sup>O padrão para um plano de consumo é de 200. O padrão para um plano dedicado não é limitado `-1` ().|
 |rotaPrefix|api|O prefixo da rota que se aplica a todas as rotas. Utilize uma corda vazia para remover o prefixo predefinido. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar uma função a partir de um pedido HTTP](./functions-bindings-http-webhook-trigger.md)

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692603"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
@@ -52,7 +51,7 @@ Os seguintes pré-requisitos devem ser instalados para o desenvolvimento .NET Co
 
 ## <a name="setup"></a>Configuração
 
-1. Abrir código VS.
+1. Abra o VS Code.
 2. Clique no ícone Extensões na **Barra de Atividade** no lado esquerdo do Código VS. Procure por "Service Fabric". Clique **em Instalar** para a extensão de Serviços Fiáveis de Tecido de Serviço.
 
 ## <a name="commands"></a>Comandos
@@ -124,7 +123,7 @@ O **comando 'Service Fabric: Clean Application'** elimina todos os ficheiros de 
 2.  Selecione o **Tecido de Serviço: Comando de aplicação limpa.**
 3.  A saída do processo de limpeza é escrita para o terminal integrado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [desenvolver e depurar aplicações de tecido de serviço C# com código VS](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver e depurar aplicações de Tecido de Serviço Java com código VS.](./service-fabric-develop-java-applications-with-vs-code.md)

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689992"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos do modelo de gestão da AZure API
@@ -122,7 +121,7 @@ São suportadas as seguintes opções de localização:
 |Name|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Pré-visualização da aplicação|  
-|WebApplicationsRequirementsHeader|Requisitos|  
+|WebApplicationsRequirementsHeader|Requirements|  
 |WebApplicationsScreenshotAlt|Captura de ecrã|  
 |WebApplicationsScreenshotsHeader|Capturas de ecrã|  
   
@@ -603,5 +602,5 @@ São suportadas as seguintes opções de localização:
   
  Para obter a lista completa de glifos, consulte [os glifos de Bootstrap.](https://getbootstrap.com/components/#glyphicons)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

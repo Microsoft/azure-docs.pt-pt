@@ -4,10 +4,9 @@ description: Utilize a operação de cópia num modelo do Gestor de Recursos Azu
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84678448"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
@@ -16,7 +15,7 @@ Este artigo mostra-lhe como criar mais do que um valor para uma variável no seu
 
 Também pode utilizar cópia com [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [saídas.](copy-outputs.md)
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O elemento de cópia tem o seguinte formato geral:
 

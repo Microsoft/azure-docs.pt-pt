@@ -8,10 +8,9 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696988"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Getting started with Azure Metrics Explorer (Introdução ao Explorador de Métricas do Azure)
@@ -67,7 +66,7 @@ Veja [exemplos dos gráficos](metric-chart-samples.md) que têm filtragem e divi
 
 Pode personalizar o estilo de gráfico, o título e modificar as definições avançadas do gráfico. Quando terminar com a personalização, coloque-o num painel de instrumentos para salvar o seu trabalho. Também pode configurar alertas de métricas. Siga a [documentação](metrics-charts.md) do produto para saber mais sobre estas e outras funcionalidades avançadas do explorador de métricas do Azure Monitor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conheça as funcionalidades avançadas do Metrics Explorer](metrics-charts.md)
 * [Resolução de Problemas do Explorador de Métricas](metrics-troubleshoot.md)

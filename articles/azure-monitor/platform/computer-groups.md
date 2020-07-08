@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689015"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computador em consultas de registo do Monitor Azure
@@ -21,7 +20,7 @@ Os grupos informáticos no Azure Monitor permitem-lhe fazer [consultas de regist
 ## <a name="creating-a-computer-group"></a>Criar um grupo de computadores
 Pode criar um grupo de computador no Azure Monitor utilizando qualquer um dos métodos na tabela seguinte.  Os detalhes de cada método são fornecidos nas secções abaixo. 
 
-| Método | Description |
+| Método | Descrição |
 |:--- |:--- |
 | Consulta de registo |Crie uma consulta de registo que devolva uma lista de computadores. |
 | API de Pesquisas de Registos |Utilize a API de Pesquisa de Registo para criar programaticamente um grupo de computador com base nos resultados de uma consulta de registo. |
@@ -130,6 +129,6 @@ Um registo é criado no espaço de trabalho Log Analytics para cada membro do gr
 | `ManagementGroupName` |O nome do grupo de gestão para agentes do SCOM.  Para outros agentes, este é o AOI...\<workspace ID\> |
 | `TimeGenerated` |Data e hora em que o grupo informático foi criado ou atualizado. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
 

@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
 ms.openlocfilehash: 9f623357dfbc8fab8a2967df65cc53abc4bc9d57
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696138"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e eliminar dados do utilizador no produto do Azure Machine Learning Studio (clássico)
@@ -74,6 +73,6 @@ Os utilizadores também podem eliminar todo o seu espaço de trabalho:
 ## <a name="export-studio-classic-data-with-powershell"></a>Exportação de dados do Estúdio (clássico) com PowerShell
 Utilize o PowerShell para exportar todas as suas informações para um formato portátil do Azure Machine Learning Studio (clássico) utilizando comandos. Para obter informações, consulte o [módulo PowerShell para o artigo do Azure Machine Learning Studio (clássico).](powershell-module.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para documentação que cubra serviços web e faturação de plano de compromisso, consulte [a referência API do API do API do AZure Machine Learning Studio (clássico).](https://docs.microsoft.com/rest/api/machinelearning/) 

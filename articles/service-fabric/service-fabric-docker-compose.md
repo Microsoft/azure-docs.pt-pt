@@ -4,10 +4,9 @@ description: A Azure Service Fabric aceita o formato Docker Compose para facilit
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691293"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose suporte de implantação em Azure Service Fabric (Preview)
@@ -150,7 +149,7 @@ Por exemplo, o cliente A pode ter uma aplicação instantânea com o tipo 1.0 do
 
 Embora este modelo ofereça flexibilidade, também estamos a planear apoiar um modelo de implementação mais simples e baseado em instâncias onde os tipos estão implícitos a partir do ficheiro manifesto. Neste modelo, cada aplicação obtém o seu próprio manifesto independente. Estamos a visualizar este esforço adicionando suporte para docker-compose.yml, que é um formato de implementação baseado em exemplo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia no modelo de [aplicação do Tecido de Serviço](service-fabric-application-model.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

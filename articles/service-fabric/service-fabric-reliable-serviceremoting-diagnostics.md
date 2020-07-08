@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692568"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para remoting de serviços fiáveis
@@ -19,7 +18,7 @@ O tempo de execução Reliable ServiceRemoting emite [contadores de desempenho](
 ## <a name="performance-counters"></a>Contadores de desempenho
 O tempo de execução Reliable ServiceRemoting define as seguintes categorias de contador de desempenho:
 
-| Categoria | Description |
+| Categoria | Descrição |
 | --- | --- |
 | Serviço de Tecido de Serviço |Contadores específicos do Azure Service Fabric Service Remoting, por exemplo, tempo médio tomado para processar pedido |
 | Método de serviço de serviço de tecido |Contadores específicos aos métodos implementados pelo Service Fabric Remoting Service, por exemplo, quantas vezes um método de serviço é invocado |
@@ -74,7 +73,7 @@ No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do méto
 
 O tempo de execução do Serviço Fiável publica os seguintes contadores de desempenho relacionados com a execução de métodos de serviço.
 
-| Nome da categoria | Nome do contador | Description |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Método de serviço de serviço de tecido |Invocações/Sec |Número de vezes que o método de serviço é invocado por segundo |
 | Método de serviço de serviço de tecido |Milissegundos médios por invocação |Tempo necessário para executar o método de serviço em milissegundos |
@@ -83,13 +82,13 @@ O tempo de execução do Serviço Fiável publica os seguintes contadores de des
 ### <a name="service-request-processing-performance-counters"></a>Pedido de serviço processamento de contadores de desempenho
 Quando um cliente invoca um método através de um objeto de procuração de serviço, resulta em uma mensagem de pedido enviada através da rede para o serviço de remoting. O serviço processa a mensagem de pedido e envia uma resposta ao cliente. O tempo de execução Reliable ServiceRemoting publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de serviço.
 
-| Nome da categoria | Nome do contador | Description |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Serviço de Tecido de Serviço |# de pedidos pendentes |Número de pedidos a ser processados no serviço |
 | Serviço de Tecido de Serviço |Milissegundos médios por pedido |Tempo tomado (em milissegundos) pelo serviço para processar um pedido |
 | Serviço de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido de serviço quando é recebida no serviço |
 | Serviço de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta de serviço no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Código de exemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

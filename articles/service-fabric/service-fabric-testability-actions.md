@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692585"
 ---
 # <a name="testability-actions"></a>Ações de testability
@@ -28,7 +27,7 @@ As ações de testability são classificadas em dois grandes baldes:
 Para uma melhor validação de qualidade, gere o serviço e a carga de trabalho do negócio, ao mesmo tempo que induz várias falhas graciosas e imperiosas. Falhas imperiosas exercitam cenários em que o processo de serviço sai abruptamente no meio de algum fluxo de trabalho. Isto testa o caminho de recuperação assim que a réplica de serviço é restaurada pela Service Fabric. Isto ajudará a testar a consistência dos dados e se o estado de serviço é mantido corretamente após falhas. O outro conjunto de falhas (as graciosas falhas) testa que o serviço reage corretamente às réplicas que estão a ser movidas pela Service Fabric. Este teste de manuseamento do cancelamento no método RunAsync. O serviço precisa verificar se o token de cancelamento está sendo definido, salvar corretamente o seu estado, e sair do método RunAsync.
 
 ## <a name="testability-actions-list"></a>Lista de ações de testability
-| Ação | Description | API gerida | Cmdlet PowerShell | Falhas graciosas/imperiosas |
+| Ação | Descrição | API gerida | Cmdlet PowerShell | Falhas graciosas/imperiosas |
 | --- | --- | --- | --- | --- |
 | Estado de Limpeza |Remove todo o estado de teste do cluster em caso de paragem do controlador de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvocarDataLoss |Induz a perda de dados numa divisória de serviço. |InvocarDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Gracioso |
@@ -218,7 +217,7 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Cenários de testabilidade](service-fabric-testability-scenarios.md)
 * Como testar o seu serviço
   * [Simular falhas durante as cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)

@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84695339"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
@@ -170,6 +169,6 @@ Um administrador pode personalizar o UI da aplicação aplicando temas personali
 
 Um operador pode criar dashboards de aplicação personalizados. Pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu sobre a arquitetura da Azure IoT Central, o próximo passo sugerido é aprender sobre a [conectividade do dispositivo](concepts-get-connected.md) no Azure IoT Central.

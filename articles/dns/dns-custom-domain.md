@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: f4eb26678dee161451ff10144c2eaa3321ecc011
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84693117"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer definições de domínio personalizadas para um serviço Azure
@@ -38,7 +37,7 @@ Note o url atual na lâmina **de domínios personalizados,** este endereço é u
 
 Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as seguintes informações na lâmina **de conjunto de registos Add** e clique em **OK** para criá-la.
 
-|Propriedade  |Valor  |Description  |
+|Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
 |Name     | myfunctionapp        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo.        |
@@ -63,7 +62,7 @@ Navegue para o endereço IP público **em rede,**  >  **Public IP address**selec
 Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as seguintes informações na lâmina **de conjunto de registos Add** e clique em **OK** para criá-la.
 
 
-|Propriedade  |Valor  |Description  |
+|Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
 |Name     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | A        | Utilize um registo A já que o recurso é um endereço IP.        |
@@ -90,7 +89,7 @@ Note o url atual na lâmina **de domínios personalizados,** este endereço é u
 Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as seguintes informações na lâmina **de conjunto de registos Add** e clique em **OK** para criá-la.
 
 
-|Propriedade  |Valor  |Description  |
+|Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
 |Name     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo. Se o recurso usasse um endereço IP, seria utilizado um registo A.        |
@@ -126,7 +125,7 @@ Navegue **Storage**para  >  **contas de armazenamento,** selecione a sua conta d
 Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as seguintes informações na lâmina **de conjunto de registos Add** e clique em **OK** para criá-la.
 
 
-|Propriedade  |Valor  |Description  |
+|Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
 |Name     | asverify.mystorageaccount        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo.        |
@@ -154,7 +153,7 @@ Selecione o ponto final com o quais está a trabalhar e clique **em + domínio p
 
 Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as seguintes informações na lâmina **de conjunto de registos Add** e clique em **OK** para criá-la.
 
-|Propriedade  |Valor  |Description  |
+|Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
 |Name     | cdnverify.mycdnendpoint        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo.        |
@@ -166,6 +165,6 @@ Volte a navegar para o seu ponto final cdn clicando em Perfis CDN **de rede**e  
 
 Uma vez concluído este passo, volte à sua zona de DNS e crie um registo CNAME sem o prefixo cdnver.  Depois desse ponto, é seguro apagar o registo CNAME com o prefixo cdnver. Para obter mais informações sobre a CDN e como configurar um domínio personalizado sem a etapa de registo intermédio visite o [conteúdo do Map Azure CDN para um domínio personalizado.](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [configurar DNS invertidos para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

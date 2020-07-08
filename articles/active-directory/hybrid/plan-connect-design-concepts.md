@@ -18,10 +18,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84698602"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
@@ -119,7 +118,7 @@ Ao instalar o Azure AD Connect com o modo Personalizado, o assistente Azure AD C
 
 ![Instalação personalizada - configuração sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Definição | Description |
+| Definição | Descrição |
 | --- | --- |
 | Permitir que seja o Azure a gerir a âncora de por mim | Selecione esta opção se pretender que o Azure AD escolha o atributo por si. Se selecionar esta opção, o assistente Azure AD Connect aplica a mesma [lógica de seleção de atributos de fonte utilizada durante a instalação express](#express-installation). Semelhante à instalação Express, o assistente informa-o qual atributo foi escolhido como o atributo Âncora de Origem após a conclusão da instalação Personalizada. |
 | Um atributo específico | Selecione esta opção se pretender especificar um atributo do AD existente como o atributo sourceAnchor. |
@@ -197,5 +196,5 @@ Leia [Adicione o seu nome de domínio personalizado ao Azure Ative Directory](..
 
 O Azure AD Connect deteta se estiver a funcionar num ambiente de domínio não roteado e avisa-o adequadamente de avançar com as definições expressas. Se estiver a operar num domínio não-encaminhável, é provável que a UPN, dos utilizadores, também tenha sufixos não-roteáveis. Por exemplo, se estiver a funcionar sob contoso.local, o Azure AD Connect sugere que utilize definições personalizadas em vez de utilizar definições expressas. Utilizando definições personalizadas, é possível especificar o atributo que deve ser usado como UPN para iniciar sação no Azure depois de os utilizadores serem sincronizados com a Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

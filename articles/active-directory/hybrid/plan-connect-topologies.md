@@ -17,10 +17,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84698772"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
@@ -29,7 +28,7 @@ Este artigo descreve várias topologias no local e Azure Ative Directory (Azure 
 
 Aqui está a lenda para as fotos no artigo:
 
-| Description | Símbolo |
+| Descrição | Símbolo |
 | --- | --- |
 | Floresta de Diretório Ativo no local |![Floresta de Diretório Ativo no local](./media/plan-connect-topologies/LegendAD1.png) |
 | Diretório ativo no local com importação filtrada |![Diretório ativo com importação filtrada](./media/plan-connect-topologies/LegendAD2.png) |
@@ -192,7 +191,7 @@ Os inquilinos da AD AZure são isolados pelo design. Estas tarefas não são apo
 
 Pode utilizar o FIM 2010 ou o MIM 2016 no local para sincronizar os utilizadores (via GALSync) entre duas organizações de Intercâmbio. Os utilizadores de uma organização aparecem como utilizadores/contactos estrangeiros na outra organização. Estes diferentes casos de Ative Directory podem então ser sincronizados com os seus próprios inquilinos AD Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender a instalar o Azure AD Connect para estes cenários, consulte [a instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)

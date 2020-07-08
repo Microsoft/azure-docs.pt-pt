@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696971"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas do Diagnóstico do Azure
@@ -228,7 +227,7 @@ Para a função de serviço de nuvem, se escolher a configuração do disco, os 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída plugin Azure Diagnostics
 O plugin devolve os seguintes códigos de saída:
 
-| Código de saída | Description |
+| Código de saída | Descrição |
 | --- | --- |
 | 0 |Com êxito. |
 | -1 |Erro genérico. |

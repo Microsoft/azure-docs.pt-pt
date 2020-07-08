@@ -8,10 +8,9 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699435"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
@@ -68,7 +67,7 @@ O modelo contém propriedades de configuração do servidor de origem.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para exportar um modelo utilizando o portal Azure:
+Para exportar um modelo com o portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -190,13 +189,13 @@ Para implementar um novo recurso de servidor numa região diferente, utilizará 
 
 1. No portal, **selecione Criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, escreva **implementação de modelo** e prima **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
 
-3. Selecione **Implementação de modelo**.
+3. Selecione **a implementação do modelo**.
 
 4. Selecione **Criar**.
 
-5. Selecione **Crie o seu próprio modelo no editor**.
+5. Selecione **Construa o seu próprio modelo no editor.**
 
 6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js**no** ficheiro que exportou e modificou.
 

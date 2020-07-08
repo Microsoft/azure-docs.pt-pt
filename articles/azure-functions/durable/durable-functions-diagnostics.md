@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84698007"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics in Durable Functions in Azure (Diagnósticos no Durable Functions no Azure)
@@ -392,7 +391,7 @@ Isto é útil para depurar porque você vê exatamente em que estado uma orquest
 > [!WARNING]
 > Embora seja conveniente ver o histórico de execução no armazenamento de mesas, evite ter qualquer dependência nesta mesa. Pode mudar à medida que a extensão de Funções Duradouras evolui.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre monitorização em Funções Azure](../functions-monitoring.md)

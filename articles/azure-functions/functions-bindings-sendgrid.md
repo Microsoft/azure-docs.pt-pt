@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697362"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Funções Azure SendGrid
@@ -354,16 +353,16 @@ A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-libr
 
 A tabela que se segue lista as propriedades de configuração de encadernação disponíveis no *function.jsno* ficheiro e o `SendGrid` atributo/anotação.
 
-| *function.jsna* propriedade | Propriedade de atributo/anotação | Description | Opcional |
+| *function.jsna* propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| tipo |n/a| Deve ser definido para `sendGrid` .| No |
-| direção |n/a| Deve ser definido para `out` .| No |
-| name |n/a| O nome variável utilizado no código de função para o órgão de pedido ou pedido. Este valor é `$return` quando há apenas um valor de retorno. | No |
-| apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| No |
-| para| Para | O endereço de e-mail do destinatário. | Yes |
-| De| De | O endereço de e-mail do remetente. |  Yes |
-| Assunto| Assunto | O assunto do e-mail. | Yes |
-| texto| Texto | O conteúdo do e-mail. | Yes |
+| tipo |n/a| Deve ser definido para `sendGrid` .| Não |
+| direção |n/a| Deve ser definido para `out` .| Não |
+| name |n/a| O nome variável utilizado no código de função para o órgão de pedido ou pedido. Este valor é `$return` quando há apenas um valor de retorno. | Não |
+| apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| Não |
+| para| Para | O endereço de e-mail do destinatário. | Sim |
+| De| De | O endereço de e-mail do remetente. |  Sim |
+| Assunto| Assunto | O assunto do e-mail. | Sim |
+| texto| Texto | O conteúdo do e-mail. | Sim |
 
 As propriedades opcionais podem ter valores predefinidos definidos na ligação e adicionados ou ultrapassados programáticamente.
 
@@ -389,12 +388,12 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```  
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |De|n/a|O endereço de e-mail do remetente em todas as funções.| 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

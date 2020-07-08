@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84695968"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure
@@ -151,7 +150,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 
 Saiba mais sobre a Versão 4.2 dos Serviços de Integração Linux para Hiper-V visualizando a página de [descarregamento](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Consulte o resultado otimizado com [bandwidth/Throughput testando Azure VM](virtual-network-bandwidth-testing.md) para o seu cenário.
 * Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699129"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembale, suporte de cremalheira e cabo o seu dispositivo StorSimple 8100
@@ -42,7 +41,7 @@ Em seguida, complete os seguintes passos para desempacotar o seu dispositivo.
    
     **Vista desembalada do seu dispositivo de armazenamento**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   1 |Caixa de embalagem |
    |   2 |Espuma de fundo |
@@ -104,7 +103,7 @@ Um conjunto de trilhos de montagem é fornecido para uso com o armário de rack 
 
     **Fixação de escorregas interiores nos lados do recinto**
    
-    Etiqueta | Description
+    Etiqueta | Descrição
     ----- | -----------
     1     | Parafusos m 3x4 cabeça de botão
     2     | Slides de chassis
@@ -118,7 +117,7 @@ Um conjunto de trilhos de montagem é fornecido para uso com o armário de rack 
    
     **Fixação de conjuntos de carris exteriores à cremalheira**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   1 |Parafuso de aperto |
    |   2 |Parafuso do poste da frente do buraco quadrado |
@@ -144,7 +143,7 @@ Utilizando os trilhos de cremalheira que acabaram de ser instalados, execute os 
    
     **Instalação das tampas de flange**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do recinto |
 
@@ -184,7 +183,7 @@ Para suportar este controlador redundante falha, é necessário por cabo a rede 
    
     **Parte de trás do dispositivo mostrando portas de dados**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   0,1,4,5 |1 Interfaces de rede GbE |
    |   2,3 |10 interfaces de rede GbE |
@@ -195,7 +194,7 @@ Para suportar este controlador redundante falha, é necessário por cabo a rede 
 
     **Cabo de rede para o seu dispositivo**
 
-   |Etiqueta | Description |
+   |Etiqueta | Descrição |
    |----- | ----------- |
    | A    | LAN com acesso à Internet |
    | B    | Controlador 0 |
@@ -242,6 +241,6 @@ Execute os seguintes passos para a cabo a sua porta de série.
 
 O seu dispositivo está agora a ser alimentado por cabo para alimentação, acesso à rede e conectividade em série. O próximo passo é configurar o software e implementar o seu dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como [implantar e configurar o seu dispositivo StorSimple no local.](storsimple-8000-deployment-walkthrough-u2.md)
 

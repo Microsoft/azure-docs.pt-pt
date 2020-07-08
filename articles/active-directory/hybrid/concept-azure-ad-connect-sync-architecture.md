@@ -17,10 +17,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689219"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect sync: Understanding the architecture
@@ -256,7 +255,7 @@ O motor de sincronização armazena informações sobre o estado de exportação
 
 Por exemplo, se as exportações de motores de sincronização atribuem C, que tem um valor de 5, a uma fonte de dados ligada, armazena C=5 na sua memória de estado de exportação. Cada exportação adicional deste objeto resulta numa tentativa de exportar C=5 para a fonte de dados ligada novamente porque o motor de sincronização pressupõe que este valor não tenha sido aplicado persistentemente ao objeto (isto é, a menos que um valor diferente tenha sido importado recentemente da fonte de dados ligada). A memória de exportação é apagada quando C=5 é recebida durante uma operação de importação no objeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

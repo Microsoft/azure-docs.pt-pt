@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692143"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
@@ -76,7 +75,7 @@ Após a delegação, o departamento de marketing poderá ter funções semelhant
 
 A gestão de direitos tem as seguintes funções específicas para a gestão de direitos.
 
-| Papel de gestão de direitos | Description |
+| Papel de gestão de direitos | Descrição |
 | --- | --- |
 | Criador de catálogos | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma recolha de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo, e pode adicionar proprietários adicionais de catálogos. Um criador de catálogos não consegue gerir ou ver catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, podem solicitar para ser coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Editar e gerir os catálogos existentes. Normalmente, um administrador de TI ou proprietários de recursos, ou um utilizador que o proprietário do catálogo designou. |
@@ -84,14 +83,14 @@ A gestão de direitos tem as seguintes funções específicas para a gestão de 
 
 Além disso, um aprovador designado e um solicitador de um pacote de acesso também têm direitos, embora não sejam funções.
 
-| Direita | Description |
+| Direita | Descrição |
 | --- | --- |
-| Approver | Autorizados por uma política para aprovar ou negar pedidos de acesso a pacotes, embora não possam alterar as definições do pacote de acesso. |
+| Aprovador | Autorizados por uma política para aprovar ou negar pedidos de acesso a pacotes, embora não possam alterar as definições do pacote de acesso. |
 | Requerente | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
 
 A tabela que se segue enumera as tarefas que as funções de gestão de direitos podem desempenhar.
 
-| Tarefa | Admin | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso |
+| Tarefa | Administrador | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegado a um criador de catálogos](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Adicionar uma organização associada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -134,7 +133,7 @@ Para um utilizador que não seja um administrador global ou um administrador do 
 
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar [as funções de Administrador através da tarefa de administração no Diretório Ativo Azure](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Delegar governação de acesso aos criadores de catálogos](entitlement-management-delegate-catalog.md)
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)
