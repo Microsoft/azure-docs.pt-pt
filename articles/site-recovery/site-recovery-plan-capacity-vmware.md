@@ -8,10 +8,9 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710716"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Capacidade do plano e escala para recuperação de desastres VMware para Azure
@@ -168,6 +167,6 @@ Quando o registo termina com sucesso, o servidor é listado no portal Azure nos 
  > [!NOTE]
  > Descarregue a versão mais recente do [ficheiro de configuração unificado](https://aka.ms/latestmobsvc)do servidor alvo principal para o Windows .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Descarregue e execute [o Planejador de Implementação de Recuperação de Sítios](https://aka.ms/asr-deployment-planner).

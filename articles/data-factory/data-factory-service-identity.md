@@ -8,14 +8,13 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416585"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037601"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -25,7 +24,7 @@ Este artigo ajuda-o a compreender o que é a identidade gerida para a Data Facto
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Ao criar uma fábrica de dados, pode ser criada uma identidade gerida juntamente com a criação de fábrica. A identidade gerida é uma aplicação gerida registada no Azure Ative Directory, e representa esta fábrica de dados específica.
 
@@ -163,7 +162,7 @@ Pode encontrar as informações de identidade geridas a partir do portal Azure -
 - Inquilino de Identidade Gerida
 - ID de aplicação de identidade gerida
 
-As informações de identidade geridas também aparecerão quando criar um serviço ligado que suporte a autenticação de identidade gerida, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
+As informações de identidade geridas também aparecerão quando criar um serviço ligado, que suporta a autenticação de identidade gerida, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
 Ao conceder permissão, utilize o ID do objeto ou o nome da fábrica de dados (como nome de identidade gerido) para encontrar esta identidade.
 
@@ -191,8 +190,63 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes tópicos que introduzem quando e como utilizar a identidade gerida pela fábrica de dados:
+### <a name="retrieve-managed-identity-using-rest-api"></a>Recupere a identidade gerida usando a REST API
+
+A identificação do id principal de identidade gerida e o ID do inquilino serão devolvidos quando você receber uma fábrica de dados específica da seguinte forma.
+
+Ligue abaixo da API no pedido:
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
+```
+
+**Resposta**: Obterá resposta como mostrada no exemplo abaixo. A secção "identidade" é povoada em conformidade.
+
+```json
+{
+    "name":"<dataFactoryName>",
+    "identity":{
+        "type":"SystemAssigned",
+        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
+        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{
+        "provisioningState":"Succeeded",
+        "createTime":"2020-02-12T02:22:50.2384387Z",
+        "version":"2018-06-01",
+        "factoryStatistics":{
+            "totalResourceCount":0,
+            "maxAllowedResourceCount":0,
+            "factorySizeInGbUnits":0,
+            "maxAllowedFactorySizeInGbUnits":0
+        }
+    },
+    "eTag":"\"03006b40-XXXX-XXXX-XXXX-5e43617a0000\"",
+    "location":"<region>",
+    "tags":{
+
+    }
+}
+```
+
+> [!TIP] 
+> Para recuperar a identidade gerida a partir de um modelo ARM, adicione uma secção **de saídas** no ARM JSON:
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.DataFactory/factories', parameters('<dataFactoryName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
+```
+
+## <a name="next-steps"></a>Próximos passos
+Veja os seguintes tópicos que introduzem quando e como utilizar a identidade gerida pela fábrica de dados:
 
 - [Credencial de loja em Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiar dados de/para Azure Data Lake Store utilizando identidades geridas para autenticação de recursos Azure](connector-azure-data-lake-store.md)

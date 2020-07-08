@@ -4,10 +4,9 @@ description: Configure a análise de dependência sem agente na Avaliação do S
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84771381"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências de máquinas (sem agente)
@@ -135,6 +134,6 @@ Escolha as máquinas em que pretende parar a descoberta da dependência.
 5. Clique **em Remover servidores**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Máquinas de grupo](how-to-create-a-group.md) para avaliação.

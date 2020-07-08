@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
 ms.openlocfilehash: 51f797ad80886669a8734af6898164737d16971a
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770191"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
@@ -116,7 +115,7 @@ Existem duas versões do serviço Azure Migrate:
 - **Versão atual**: Utilizando esta versão, pode criar novos projetos Azure Migrate, descobrir avaliações no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md).
 - **Versão anterior**: Para o cliente utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Na versão anterior, não é possível criar novos projetos Azure Migrate ou realizar novas descobertas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Avaliar VMware VMs](tutorial-assess-vmware.md) para migração.
 - [Avaliar os VMs hiper-V](tutorial-assess-hyper-v.md) para migração.

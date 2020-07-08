@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710750"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instâncias 
@@ -132,7 +131,7 @@ O diagrama a seguir ilustra as transições de funções de réplica e alguns ce
 > Modelos de programação de alto nível, como [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services,](service-fabric-reliable-services-introduction.md)escondem o conceito de funções réplicas do desenvolvedor. Nos atores, a noção de um papel é desnecessária. Nos Serviços, é amplamente simplificado para a maioria dos cenários.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte o seguinte artigo:
 
 [Ciclo de vida do Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

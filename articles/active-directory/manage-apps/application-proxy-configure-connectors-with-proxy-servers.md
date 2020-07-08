@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764932"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
@@ -201,7 +200,7 @@ O filtro anterior mostra apenas os pedidos e respostas dos HTTPs para/a partir d
 
 Se vir outros códigos de resposta, como o 407 ou o 502, isso significa que o representante está a necessitar de autenticação ou não permite o tráfego por outro motivo. Neste momento, contrata a equipa de suporte ao servidor proxy.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 * Se tiver problemas com problemas de conectividade do conector, faça a sua pergunta na página de perguntas do [Microsoft Q&A para o Azure Ative Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ou crie um bilhete com a nossa equipa de suporte.

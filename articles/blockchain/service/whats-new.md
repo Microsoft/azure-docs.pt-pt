@@ -1,15 +1,14 @@
 ---
 title: Novidades Notas de lançamento - Serviço Azure Blockchain
 description: Saiba quais as novidades com o Azure Blockchain Service, como as últimas notas de lançamento, versões, problemas conhecidos e mudanças futuras.
-ms.date: 06/03/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c5316aa387de28fe1a78b336eb2e9e010c624b02
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84435430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921884"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Quais as novidades no Serviço Azure Blockchain?
 
@@ -23,6 +22,25 @@ O Azure Blockchain Service recebe melhorias de forma contínua. Para se manter a
 
 ---
 
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="version-upgrades"></a>Atualizações de versão
+
+- Atualização da versão Quorum para 2.6.0. Com a versão 2.6.0, pode enviar transações privadas assinadas. Para obter mais informações sobre o envio de transações privadas, consulte a documentação da API do [Qurum.](https://docs.goquorum.com/en/latest/Getting%20Started/api/)
+- A versão Tessera atualização para 0.10.5.
+
+### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Dimensão do contrato e dimensão das transações aumentou para 128 KB
+
+Tipo: Alteração de configuração
+
+O tamanho do contrato (MaxCodeSize) foi aumentado para 128 KB para que possa implementar contratos inteligentes de maior dimensão. Além disso, o tamanho da transação (txnSizeLimit) foi aumentado para 128 KB. As alterações de configuração aplicam-se aos novos consórcios criados no Azure Blockchain Service após 19 de junho de 2020.
+
+### <a name="trietimeout-value-reduced"></a>Valor TrieTimeout reduzido
+
+Tipo: Alteração de configuração
+
+O valor TrieTimeout foi reduzido de modo a que o estado de memória seja escrito para o disco com mais frequência. O valor mais baixo garante uma recuperação mais rápida de um nó no caso raro de uma queda do nó.
+
 ## <a name="may-2020"></a>Maio de 2020
 
 ### <a name="version-upgrades"></a>Atualizações de versão
@@ -33,17 +51,24 @@ O Azure Blockchain Service recebe melhorias de forma contínua. Para se manter a
 
 ### <a name="azure-blockchain-service-supports-sending-rawprivate-transactions"></a>Azure Blockchain Service suporta envio de transações rawPrivate
 
-**Tipo:** Recurso
+Tipo: Recurso
 
 Os clientes podem assinar transações privadas fora da conta no nó.
 
 ### <a name="two-phase-member-provisioning"></a>Provisão de membros em duas fases
 
-**Tipo:** Melhoramento
+Tipo: Melhoramento
 
 Duas fases ajudam a otimizar cenários onde um membro está a ser criado num consórcio há muito existente. A infraestrutura membro é a provisionada na primeira fase. Na segunda fase, o membro é sincronizado com blockchain. O provisionamento em duas fases ajuda a evitar a falha de criação dos membros devido a intervalos de tempo.
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
+### <a name="ethestimategas-function-throws-exception-in-quorum-v260"></a>eth.estima A funçãogas lança exceção no Quorum v2.6.0
+
+No Quorum v2.6.0, as chamadas para a função *eth.estimateGas* sem fornecer o parâmetro de *valor* adicional causam uma exceção *do manipulador de métodos.* A equipa do Quorum foi notificada e espera-se uma correção no final de julho de 2020. Pode utilizar as seguintes soluções até que uma correção esteja disponível:
+
+- Evite utilizar *eth.estimaGas* uma vez que pode afetar o desempenho. Para obter mais informações sobre problemas de desempenho eth.estimateGas, consulte [a função Call eth.estimateGas reduz o desempenho](#calling-ethestimategas-function-reduces-performance). Inclua um valor de gás para cada transação. A maioria das bibliotecas chamará eth.estimaGas se não for fornecido um valor de gás que faça com que o Qurum v2.6.0 se despenhe.
+- Se precisar de ligar para *eth.estimateGas,* a equipa do Quorum sugere que passe o *valor* do parâmetro adicional como *0* como uma solução alternativa.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>A mineração para se menos de quatro nódoas validantes
 
@@ -57,7 +82,7 @@ Utilize o nível *Standard* para implantações de nível de produção. Utilize
 
 ### <a name="blockchain-data-manager-requires-standard-tier-node"></a>O Gestor de Dados blockchain requer um nó de nível padrão
 
-Utilize o nível *Standard* se estiver a utilizar o Blockchain Data Manager. O nível *básico* tem apenas 4 GB de memória. Assim, não é capaz de escalar para o uso exigido pelo Blockchain Data Manager e outros serviços que o executam.
+Utilize o nível *Standard* se estiver a utilizar o Blockchain Data Manager. O nível *básico* tem apenas memória de 4 GB. Assim, não é capaz de escalar para o uso exigido pelo Blockchain Data Manager e outros serviços que o executam.
 
 Utilize o nível *básico* para desenvolvimento, teste e prova de conceitos. A alteração do nível de preços entre o básico e o padrão após a criação dos membros não é apoiada.
 
@@ -89,11 +114,11 @@ O Serviço Azure Blockchain reinicia a Tessera quando há uma falha. O recomeço
 
 Utilize o nível *Standard* se estiver a enviar um grande volume de transações privadas. Utilize o nível *básico* para desenvolvimento, teste e prova de conceitos. A alteração do nível de preços entre o básico e o padrão após a criação dos membros não é apoiada.
 
-### <a name="calling-ethestimate-gas-function-reduces-performance"></a>Chamar a eth.estima função de gás reduz o desempenho
+### <a name="calling-ethestimategas-function-reduces-performance"></a>Chamando eth.estimaGas função reduz desempenho
 
-Chamar *a função eth.estimate* várias vezes reduz drasticamente as transações por segundo. Não utilize a função de gás *eth.estima* para cada submissão de transação. A *função eth.estima* é intensiva em memória.
+Chamar *eth.estimaGas* a funçãogas várias vezes reduz drasticamente as transações por segundo. Não utilize a função *eth.estimateGas* para cada submissão de transação. A *função eth.estimagas* é intensiva em memória.
 
-Se possível, utilize um valor de gás conservador para submeter transações e minimize a utilização da estimativa de *eth.estima*.
+Se possível, utilize um valor de gás conservador para submeter transações e minimize a utilização de *eth.estimateGas*.
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Loops ilimitados em contratos inteligentes reduz o desempenho
 

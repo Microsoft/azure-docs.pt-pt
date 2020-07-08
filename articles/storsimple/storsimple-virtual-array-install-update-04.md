@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: f68abf6315c1ca344f90dec55bf8cdc813e58823
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513683"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Instale atualização 0.4 no seu StorSimple Virtual Array
@@ -106,7 +105,7 @@ Se executar a Atualização 0.2 e posteriormente, recomendamos que instale atual
 Depois de concluída a instalação (conforme indicado pelo estado de trabalho a 100 %), aceda ao serviço StorSimple Device Manager. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende atualizar a partir da lista de dispositivos ligados a este serviço. Na lâmina **Definições,** vá à secção **Gerir** e selecione **atualizações do dispositivo**. A versão de software visualizada deve ser **10.0.10289.0**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

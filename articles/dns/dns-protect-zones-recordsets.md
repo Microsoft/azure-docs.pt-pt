@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: 81a58657a4ab8f7403006ce02fb8f585feea86b0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711277"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger os registos e as zonas DNS
@@ -284,7 +283,7 @@ O papel personalizado funciona para todas as zonas acedidas por essas contas. As
 
 É possível usar ambas as abordagens - bloqueios de recursos e funções personalizadas - ao mesmo tempo, como uma abordagem de defesa em profundidade para a proteção da zona de DNS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o trabalho com o RBAC, consulte [Começar com a gestão de acessos no portal Azure.](../role-based-access-control/overview.md)
 * Para obter mais informações sobre o trabalho com bloqueios de recursos, consulte [os recursos de bloqueio com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

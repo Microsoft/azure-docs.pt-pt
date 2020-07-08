@@ -1,5 +1,5 @@
 ---
-title: Gerir o gráfico gémeo com relacionamentos
+title: Gerir o grafo duplo com relações
 titleSuffix: Azure Digital Twins
 description: Veja como gerir um gráfico de gémeos digitais ligando-os a relacionamentos.
 author: baanders
@@ -8,10 +8,9 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392255"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
@@ -230,12 +229,12 @@ Considere a seguinte tabela de dados, descrevendo um conjunto de gémeos digitai
 | Modelo    | ID | Principal | Nome da relação | Outros dados |
 | --- | --- | --- | --- | --- |
 | chão    | Piso01 | | | … |
-| sala    | Sala10 | Piso01 | contém | … |
-| sala    | Sala11 | Piso01 | contém | … |
-| sala    | Sala12 | Piso01 | contém | … |
+| sala    | Sala10 | Piso01 | contains | … |
+| sala    | Sala11 | Piso01 | contains | … |
+| sala    | Sala12 | Piso01 | contains | … |
 | chão    | Piso02 | | | … |
-| sala    | Sala21 | Piso02 | contém | … |
-| sala    | Sala22 | Piso02 | contém | … |
+| sala    | Sala21 | Piso02 | contains | … |
+| sala    | Sala22 | Piso02 | contains | … |
 
 O código que se segue utiliza a [API do Gráfico microsoft](https://docs.microsoft.com/graph/overview) para ler uma folha de cálculo e construir um gráfico gémeo Azure Digital Twins a partir dos resultados.
 
@@ -301,7 +300,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 
 As gémeas e as suas relações também podem ser geridas usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a consulta de um gráfico gémeo Azure Digital Twins:
 * [Conceitos: Linguagem de consulta](concepts-query-language.md)

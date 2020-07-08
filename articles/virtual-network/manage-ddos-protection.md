@@ -17,10 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711515"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure
@@ -111,7 +110,7 @@ Pode selecionar qualquer uma das métricas de proteção DDoS disponíveis para 
     |Subscrição             | Selecione a subscrição que contém o endereço IP público para o quais pretende receber alertas.        |
     |Grupo de recursos           | Selecione o grupo de recursos que contém o endereço IP público para o quais pretende receber alertas.      |
     |Recurso                 | Selecione o endereço IP público que contém o endereço IP público para o quais pretende receber alertas. O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), exceto para Azure App Service Environments e Azure VPN Gateway. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                   |
-    |Métrica                   | Sob o ataque do DDoS ou não                                                                            |
+    |Metric                   | Sob o ataque do DDoS ou não                                                                            |
     |Limiar                | 1 - **1** significa que estás a ser atacado. **0** significa que não estás a ser atacado.                         |
     |Período                   | Selecione o valor que escolher.                                                                   |
     |Notificar via E-mail         | marque a caixa de verificação                                                                                  |
@@ -239,6 +238,6 @@ Para trabalhar com planos de proteção DDoS, a sua conta deve ser atribuída à
 
 Para permitir a proteção do DDoS para uma rede virtual, a sua conta também deve ser atribuída [às ações apropriadas para redes virtuais.](manage-virtual-network.md#permissions)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

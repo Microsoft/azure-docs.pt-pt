@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
 ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513884"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
@@ -157,7 +156,7 @@ Esta tabela resume as diferenças do modelo de utilização:
 | Mais de 15% escreve | Leitura/escrita | Nunca | Uma hora |
 | Os clientes contornam a cache | Leitura | 30 segundos | Nenhuma |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar metas de armazenamento, considere uma destas tarefas:
 

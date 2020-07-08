@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513723"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Problemas de resolução de problemas Problemas de implementação de dispositivos StorSimple
@@ -526,7 +525,7 @@ O erro pode ser causado por qualquer um dos seguintes:
 8. Olhe para os troncos. Vá a [Pacotes de Suporte e registos de dispositivos disponíveis para resolução de problemas](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Se os passos anteriores não resolverem o problema, contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md) para obter assistência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Aprenda a utilizar a ferramenta De diagnóstico para resolver problemas com um dispositivo StorSimple](storsimple-8000-diagnostics.md).
 
 <!--Link references-->

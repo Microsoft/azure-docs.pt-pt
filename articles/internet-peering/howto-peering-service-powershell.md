@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 579af2d5cbe0f3dcdbdf749894d5c400112f37cd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710801"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-powershell"></a>Ativar o Serviço de Estojo Azure num esprevamento direto utilizando o PowerShell
@@ -21,7 +20,7 @@ Este artigo descreve como ativar o [Serviço de Peering](overview-peering-servic
 
 Se preferir, pode completar este guia utilizando o [portal](howto-peering-service-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 * Reveja os [pré-requisitos](prerequisites.md) antes de iniciar a configuração.
 * Escolha um espreitamento direto na sua subscrição para a qual pretende ativar o Serviço de Peering. Se não tiver um, converta um legado espreitando diretamente ou crie um novo olhar direto:
     * Para converter um legado Espreitar diretamente, siga as instruções em [Converter um legado Espreitar diretamente para um recurso Azure utilizando o PowerShell](howto-legacy-direct-powershell.md).
@@ -44,7 +43,7 @@ Depois de ter um olhar direto no passo anterior, ative-o para o Serviço de Obse
 
 Se precisar de modificar as definições de ligação, consulte a secção "Modificar um esprevamento direto" em [Criar ou modificar um esprevamento direto utilizando o PowerShell](howto-direct-powershell.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar ou modificar o persto cambial utilizando o PowerShell](howto-exchange-powershell.md)
 * [Converter um legado Exchange olhando para um recurso Azure usando PowerShell](howto-legacy-exchange-powershell.md)

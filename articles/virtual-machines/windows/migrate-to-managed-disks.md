@@ -8,10 +8,9 @@ ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: d64ebb053ef01e375edd52ad0bf2c1f424f1b837
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660827"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs Azure para Discos Geridos em Azure
@@ -23,7 +22,7 @@ Com base nas suas necessidades, pode escolher entre quatro tipos de opções de 
 
 Pode migrar para Discos Geridos em seguintes cenários:
 
-|Cenário  |Artigo  |
+|Scenario  |Artigo  |
 |---------|---------|
 |Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos     |[Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md)         |
 |Converter um único VM do clássico para o Gestor de Recursos em discos geridos     |[Criar um VM a partir de um VHD clássico](create-vm-specialized-portal.md)         |

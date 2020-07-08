@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986555"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar ficheiros de configuração do cliente VPN para autenticação P2S RADIUS
@@ -279,7 +278,7 @@ Para utilizar um tipo de autenticação diferente (por exemplo, OTP), ou para ut
    
    A pasta **GenericDevice** também contém um ficheiro .cer chamado **VpnServerRoot**. Este ficheiro contém o certificado de raiz necessário para validar o gateway Azure VPN durante a configuração da ligação P2S. Instale o certificado em todos os dispositivos que se ligarão à rede virtual Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Volte ao artigo para completar a [sua configuração P2S](point-to-site-how-to-radius-ps.md).
 

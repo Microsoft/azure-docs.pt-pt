@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987013"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados da SAP ECC utilizando a Azure Data Factory
@@ -74,11 +73,11 @@ As seguintes propriedades são suportadas para o serviço ligado ao ECC SAP:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| `type` | A `type` propriedade deve ser definida para `SapEcc` . | Yes |
-| `url` | O URL do serviço SAP ECC OData. | Yes |
-| `username` | O nome de utilizador utilizado para ligar ao SAP ECC. | No |
-| `password` | A palavra-passe de texto simples usada para ligar ao SAP ECC. | No |
-| `connectVia` | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificar um tempo de execução, utiliza-se o tempo de execução da integração Azure predefinido. | No |
+| `type` | A `type` propriedade deve ser definida para `SapEcc` . | Sim |
+| `url` | O URL do serviço SAP ECC OData. | Sim |
+| `username` | O nome de utilizador utilizado para ligar ao SAP ECC. | Não |
+| `password` | A palavra-passe de texto simples usada para ligar ao SAP ECC. | Não |
+| `connectVia` | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificar um tempo de execução, utiliza-se o tempo de execução da integração Azure predefinido. | Não |
 
 ### <a name="example"></a>Exemplo
 
@@ -113,7 +112,7 @@ As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| `path` | Caminho da entidade SAP ECC OData. | Yes |
+| `path` | Caminho da entidade SAP ECC OData. | Sim |
 
 ### <a name="example"></a>Exemplo
 
@@ -146,9 +145,9 @@ As seguintes propriedades são suportadas na secção da atividade de `source` c
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| `type` | A `type` propriedade da secção da atividade de cópia deve ser definida para `source` `SapEccSource` . | Yes |
-| `query` | As opções de consulta OData para filtrar os dados. Por exemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>O conector SAP ECC copia os dados do URL combinado:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| `httpRequestTimeout` | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | No |
+| `type` | A `type` propriedade da secção da atividade de cópia deve ser definida para `source` `SapEccSource` . | Sim |
+| `query` | As opções de consulta OData para filtrar os dados. Por exemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>O conector SAP ECC copia os dados do URL combinado:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| `httpRequestTimeout` | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | Não |
 
 ### <a name="example"></a>Exemplo
 
@@ -211,6 +210,6 @@ Quando está a copiar dados do SAP ECC, os seguintes mapeamentos são utilizados
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista das lojas de dados suportadas como fontes e sumidouros pela atividade de cópias na Azure Data Factory, consulte [lojas de dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

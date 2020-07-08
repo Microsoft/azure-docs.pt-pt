@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2a5df011cd074bbccc0c13570b2f49d902a0c3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608471"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador usando chamadas REST API
 
@@ -67,7 +66,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Corpo de pedido**
 
-|Name  |Description  |
+|Name  |Descrição  |
 |---------|---------|
 |localização     | Necessário. Localização de recursos.        |
 
@@ -108,6 +107,6 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como atribuir uma identidade gerida atribuída ao utilizador a um VM/VMSS Azure usando o CURL ver, [Configure identidades geridas para recursos Azure em um VM Azure usando chamadas REST API](qs-configure-rest-vm.md#user-assigned-managed-identity) e [Configurar identidades geridas para recursos Azure numa escala de máquina virtual definida usando chamadas REST API](qs-configure-rest-vmss.md#user-assigned-managed-identity).

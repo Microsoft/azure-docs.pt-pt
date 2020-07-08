@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84338571"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
@@ -86,7 +85,7 @@ Para obter mais informações sobre preços, consulte [os preços do Azure Ative
 |Tutoriais |[Complete um lançamento de autosserviço de autosserviço AD Azure](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
 | |[Ativar o writeback da palavra-passe](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
 | |[Palavra-passe AD do Azure reiniciada a partir do ecrã de login do Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
-| PERGUNTAS FREQUENTES|[Gestão de passwords frequentemente perguntas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
+| FAQ|[Gestão de passwords frequentemente perguntas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
 
 
 ### <a name="solution-architecture"></a>Arquitetura de soluções
@@ -154,14 +153,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Redefinição da palavra-passe de autosserviço ativada | **Grupo selecionado** para piloto / **Todos** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registar | Sempre 1 mais do que o necessário para reset |
 |   | Métodos de autenticação necessários para repor | Um ou dois |
-| **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
+| **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
-| **Personalização** | Personalizar link helpdesk | Yes |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
+| **Personalização** | Personalizar link helpdesk | Sim |
 |   | E-mail de ajuda personalizada ou URL | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Descreva palavras-passe para a AD no local | Yes |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
+| **Integração no local** | Descreva palavras-passe para a AD no local | Sim |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 
@@ -254,7 +253,7 @@ Embora a SSPR não crie normalmente problemas de utilização, é importante pre
 
 Para ativar o sucesso da sua equipa de suporte, pode criar um FAQ baseado em questões que recebe dos seus utilizadores. Eis alguns exemplos:
 
-| Cenários| Description |
+| Cenários| Descrição |
 | - | - |
 | O utilizador não dispõe de quaisquer métodos de autenticação registados| Um utilizador está a tentar redefinir a sua palavra-passe mas não dispõe de nenhum dos métodos de autenticação que registou disponíveis (Exemplo: deixaram o telemóvel em casa e não conseguem aceder ao e-mail) |
 | O utilizador não está a receber uma mensagem ou uma chamada no seu escritório ou telemóvel| Um utilizador está a tentar verificar a sua identidade por texto ou chamada, mas não está a receber um texto/chamada. |
@@ -323,7 +322,7 @@ Os registos de auditoria para o registo e o reset da palavra-passe estão dispon
 
 [O uso e os insights](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) permitem-lhe compreender como os métodos de autenticação para funcionalidades como Azure MFA e SSPR estão a funcionar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender que métodos se registam e como usá-los.
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 * Consulte o [reset da palavra-passe de autosserviço de resolução de problemas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
 

@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f5688a42a240fa2690eed48ab32d483f96a5b7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608386"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para adquirir um token de acesso 
 
@@ -47,7 +46,7 @@ Se pretender utilizar os exemplos Azure PowerShell neste artigo, certifique-se d
 
 Uma aplicação do cliente pode solicitar identidades geridas para [o token de acesso apenas a recursos](../develop/developer-glossary.md#access-token) Azure para aceder a um determinado recurso. O símbolo [baseia-se nas identidades geridas para o diretor do serviço de recursos Azure.](overview.md#managed-identity-types) Como tal, não é necessário que o cliente se registe para obter um token de acesso ao abrigo do seu próprio principal serviço. O token é adequado para ser utilizado como símbolo portador em [chamadas de serviço-a-serviço que requerem credenciais de cliente](../develop/v2-oauth2-client-creds-grant-flow.md).
 
-|  |  |
+| Ligação | Descrição |
 | -------------- | -------------------- |
 | [Obtenha um token usando HTTP](#get-a-token-using-http) | Detalhes do protocolo para identidades geridas para recursos Azure token ponto final |
 | [Obtenha um token usando a biblioteca Microsoft.Azure.Services.AppAuthentication para .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemplo da utilização da biblioteca Microsoft.Azure.Services.AppAuthentication a partir de um cliente .NET
@@ -70,7 +69,7 @@ Pedido de amostra utilizando o ponto final do Serviço de Metadados de Instânci
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que pretende obter dados do ponto final. Neste caso, um token de acesso OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | As identidades geridas para o ponto final dos recursos Azure para o Serviço de Metadados de Exemplo. |
@@ -88,7 +87,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que pretende obter dados do ponto final. Neste caso, um token de acesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | As identidades geridas para o ponto final dos recursos Azure, onde 50342 é a porta padrão e é configurável. |
@@ -113,7 +112,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `access_token` | O sinal de acesso solicitado. Ao chamar uma API REST segura, o token está incorporado no campo do cabeçalho de `Authorization` pedido como um símbolo "portador", permitindo à API autenticar o chamador. | 
 | `refresh_token` | Não usado por identidades geridas para recursos Azure. |
@@ -362,7 +361,7 @@ As identidades geridas para o ponto final dos recursos Azure assinalam erros atr
 
 Se ocorrer um erro, o respetivo organismo de resposta HTTP contém JSON com os detalhes de erro:
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | erro   | Identificador de erro. |
 | error_description | Descrição verbosa do erro. **As descrições de erros podem ser alteradas a qualquer momento. Não escreva código que se baseie em valores na descrição do erro.**|
@@ -400,7 +399,7 @@ Para reefaça, recomendamos a seguinte estratégia:
 Consulte [os serviços Azure que suportam a autenticação Azure AD](services-support-msi.md) para uma lista de recursos que suportam a Azure AD e foram testados com identidades geridas para recursos Azure, e respetivas identidades de recursos.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para permitir identidades geridas para recursos Azure num Azure VM, consulte [identidades geridas configure para recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md).
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
 ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770803"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
@@ -106,5 +105,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > Após a operação de deslocação, as soluções removidas e a ligação de conta Automation devem ser reconfiguradas para trazer o espaço de trabalho de volta ao seu estado anterior.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para obter uma lista de recursos que apoiam o movimento, consulte [o suporte de operação move para recursos](../../azure-resource-manager/management/move-support-resources.md).

@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322571"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Criar, programar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de Recorrência em Azure Logic Apps
@@ -52,10 +51,10 @@ Para diferenças entre este gatilho e o gatilho da Janela Deslizante ou para obt
 
    ![Definir intervalo e frequência](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | Propriedade | Nome JSON | Necessário | Tipo | Description |
+   | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
    |----------|-----------|----------|------|-------------|
-   | **Intervalo** | `interval` | Yes | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1-16 meses <br>- Semana: 1-71 semanas <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
-   | **Frequência** | `frequency` | Yes | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** |
+   | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1-16 meses <br>- Semana: 1-71 semanas <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
+   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** |
    ||||||
 
    > [!IMPORTANT]
@@ -72,13 +71,13 @@ Para diferenças entre este gatilho e o gatilho da Janela Deslizante ou para obt
 
    ![Opções avançadas de agendamento](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | Propriedade | Nome JSON | Necessário | Tipo | Description |
+   | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
    |----------|-----------|----------|------|-------------|
-   | **Fuso horário** | `timeZone` | No | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
-   | **Hora de início** | `startTime` | No | String | Fornecer uma data e hora de início neste formato: <p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Assim, por exemplo, se você quiser 18 de setembro de 2020 às 14:00, então especifique "2020-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2020-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Este horário de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **On these days** (Nestes dias) | `weekDays` | No | Matriz de cordas ou cordas | Se selecionar "Week", pode selecionar um ou mais dias quando quiser executar o fluxo de trabalho: **Segunda,** **Terça,** **Quarta,** **Quinta,** **Sexta,** **Sábado,** Sábado e **Domingo** |
-   | **At these hours** (A estas horas) | `hours` | No | Conjunto inteiro ou inteiro | Se selecionar "Day" ou "Week", pode selecionar um ou mais inteiros de 0 a 23 como as horas do dia para quando pretender executar o fluxo de trabalho. <p><p>Por exemplo, se especificar "10", "12" e "14", obtém 10:00, 12:00 e 14:00 para as horas do dia, mas os minutos do dia são calculados com base no momento em que a recorrência começa. Para definir minutos específicos do dia, por exemplo, 10:00 AM, 12:00 pm e 14:00, especifique esses valores utilizando o **imóvel At estes minutos.** |
-   | **At these minutes** (A estes minutos) | `minutes` | No | Conjunto inteiro ou inteiro | Se selecionar "Day" ou "Week", pode selecionar um ou mais inteiros de 0 a 59 como minutos da hora em que pretende executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minutos e usando o exemplo anterior para horas do dia, obtém 10:30 AM, 12:30 pm e 14:30. |
+   | **Fuso horário** | `timeZone` | Não | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
+   | **Hora de início** | `startTime` | Não | String | Fornecer uma data e hora de início neste formato: <p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Assim, por exemplo, se você quiser 18 de setembro de 2020 às 14:00, então especifique "2020-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2020-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Este horário de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **On these days** (Nestes dias) | `weekDays` | Não | Matriz de cordas ou cordas | Se selecionar "Week", pode selecionar um ou mais dias quando quiser executar o fluxo de trabalho: **Segunda,** **Terça,** **Quarta,** **Quinta,** **Sexta,** **Sábado,** Sábado e **Domingo** |
+   | **At these hours** (A estas horas) | `hours` | Não | Conjunto inteiro ou inteiro | Se selecionar "Day" ou "Week", pode selecionar um ou mais inteiros de 0 a 23 como as horas do dia para quando pretender executar o fluxo de trabalho. <p><p>Por exemplo, se especificar "10", "12" e "14", obtém 10:00, 12:00 e 14:00 para as horas do dia, mas os minutos do dia são calculados com base no momento em que a recorrência começa. Para definir minutos específicos do dia, por exemplo, 10:00 AM, 12:00 pm e 14:00, especifique esses valores utilizando o **imóvel At estes minutos.** |
+   | **At these minutes** (A estes minutos) | `minutes` | Não | Conjunto inteiro ou inteiro | Se selecionar "Day" ou "Week", pode selecionar um ou mais inteiros de 0 a 59 como minutos da hora em que pretende executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minutos e usando o exemplo anterior para horas do dia, obtém 10:30 AM, 12:30 pm e 14:30. |
    |||||
 
    Por exemplo, suponha que hoje é sexta-feira, 4 de setembro de 2020. O seguinte gatilho de Recorrência não dispara mais *cedo* do que a data e hora de início, que é sexta-feira, 18 de setembro de 2020 às 8:00 PST. No entanto, o horário de recorrência está marcado para as 10:30, 12:30 e 14:30 apenas às segundas-feiras. Assim, a primeira vez que o gatilho dispara e cria uma instância lógica de fluxo de aplicações é na segunda-feira às 10:30. Para saber mais sobre como os horários de início funcionam, consulte estes [exemplos de horário de início](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
@@ -125,7 +124,7 @@ Este exemplo mostra como uma definição de gatilho de recorrência pode parecer
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Pausa nos fluxos de trabalho com ações de atraso](../connectors/connectors-native-delay.md)
 * [Conectores para as Logic Apps](../connectors/apis-list.md)

@@ -6,10 +6,9 @@ ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781196"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
@@ -141,7 +140,7 @@ Utilize os seguintes passos para configurar o rastreio das chaves de registo nos
 
 Pode fazer várias pesquisas contra os registos do Azure Monitor para alterar registos. Com a página de rastreio de Alteração aberta, clique em **Registar Analytics** para abrir a página 'Registar'. A tabela seguinte fornece pesquisas de registo de amostras para registos de alteração.
 
-|Consulta  |Description  |
+|Consulta  |Descrição  |
 |---------|---------|
 |`ConfigurationData`<br>&#124;`where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra os registos de inventário mais recentes dos serviços da Microsoft que foram definidos para Auto, mas foram reportados como sendo parados. Os resultados estão limitados ao registo mais recente do nome e computador especificados.    |
 |`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Mostra registos de alteração para software removido.|
@@ -167,7 +166,7 @@ Vamos usar este exemplo para discutir os passos para criar alertas sobre uma mud
 
     ![Configurar grupo de ação para alertar sobre a mudança](./media/change-tracking/action-groups.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre configurações de âmbito, consulte [o âmbito de rastreio de alterações de limite e o âmbito de implantação do inventário](automation-scope-configurations-change-tracking.md).
 * Se necessitar de pesquisar registos armazenados no seu espaço de trabalho Log Analytics, consulte [as pesquisas de Registo nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).

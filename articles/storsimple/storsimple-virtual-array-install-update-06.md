@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513589"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instale atualização 0.6 no seu StorSimple Virtual Array
@@ -124,7 +123,7 @@ Utilize este método para instalar atualizações num dispositivo em execução 
 
 7. Repita o passo 2-4 para instalar as correções de segurança do Windows utilizando ficheiros `windows8.1-kb4012213-x64` `windows8.1-kb3205400-x64` , e `windows8.1-kb4019213-x64` . A matriz virtual reinicia após cada instalação e precisa de iniciar súm na UI web local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

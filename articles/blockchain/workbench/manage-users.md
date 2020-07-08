@@ -5,10 +5,9 @@ ms.date: 05/09/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 78841ca830ae56f6c07f796bdde85f6a6ba9c921
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212739"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerir utilizadores em Azure Blockchain Workbench
@@ -107,7 +106,7 @@ Utilize a aplicação Blockchain Workbench para gerir utilizadores e organizaç�
 
     ![Alterar função](./media/manage-users/application-change-role.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo de como fazer, aprendeu a gerir os utilizadores para a Azure Blockchain Workbench. Para aprender a criar uma aplicação blockchain, continue para o próximo artigo como fazer.
 

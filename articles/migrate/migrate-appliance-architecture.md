@@ -4,10 +4,9 @@ description: Fornece uma visão geral do aparelho Azure Migrate utilizado na ava
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770905"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
@@ -93,7 +92,7 @@ Desativar a atualização automática no registo definindo a tecla HKEY_LOCAL_MA
 
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Reveja](migrate-appliance.md) a matriz de suporte do aparelho.
 

@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.openlocfilehash: 6a9089bb13a9b2d7f091d209240bcd7a9e02e148
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660735"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking de um disco

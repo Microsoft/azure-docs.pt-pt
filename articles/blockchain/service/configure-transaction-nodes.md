@@ -5,10 +5,9 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212569"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar os nosdes de transação do Serviço Blockchain Azure
@@ -35,7 +34,7 @@ Para adicionar um nó de transação:
 
     ![Adicionar nó de transação](./media/configure-transaction-nodes/add-node.png)
 
-    | Definição | Description |
+    | Definição | Descrição |
     |---------|-------------|
     | Name | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto final do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado uma vez que é criado. |
     | Palavra-passe | Estabeleça uma senha forte. Utilize a palavra-passe para aceder ao ponto final do nó de transação com autenticação básica.
@@ -71,7 +70,7 @@ Para conceder ao Azure AD o controlo de acesso ao seu ponto final:
     |---------|-------------|
     | Função | Selecione **Proprietário,** **Contribuinte**ou **Leitor**.
     | Atribuir acesso a | Selecione **O utilizador, grupo ou principal de serviço da Azure.**
-    | Selecione | Procure o utilizador, grupo ou o principal de serviço que pretende adicionar.
+    | Selecionar | Procure o utilizador, grupo ou o principal de serviço que pretende adicionar.
 
 1. **Selecione Guardar** para adicionar a atribuição de funções.
 
@@ -131,7 +130,7 @@ Escolha o separador Web3, Nethereum, Truffle ou Web3j para ver a amostra de cód
 
 ![Código de exemplo](./media/configure-transaction-nodes/sample-code.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar os nosdes de transação utilizando o Azure CLI](manage-cli.md)

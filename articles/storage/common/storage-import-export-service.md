@@ -9,10 +9,9 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512427"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço Azure Import/Export?
@@ -157,7 +156,7 @@ Quando envia para Azure, paga o custo de envio para a transportadora. Quando a M
 
 [A taxa normal de transação de armazenamento](https://azure.microsoft.com/pricing/details/storage/) aplica-se durante a importação, bem como a exportação de dados. Os encargos de saída padrão também são aplicáveis, juntamente com os encargos de transação de armazenamento quando os dados são exportados do Azure Storage. Para obter mais informações sobre os custos de saída, consulte [os preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como utilizar o serviço de importação/exportação para:
 
